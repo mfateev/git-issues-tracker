@@ -1,0 +1,35 @@
+{
+  "summary": "When workflow code deploys invalid commands to the server, workers enter a spin loop of immediate task failures and resubmissions. The request is for the Temporal Server to implement exponential backoff before creating new WorkflowTaskScheduled events for previously failed tasks, with optional pausing after multiple attempts.",
+  "category": "feature",
+  "subcategory": "workflow-task-execution",
+  "apis": [],
+  "components": [
+    "workflow-task-executor",
+    "server-task-scheduler",
+    "worker-process"
+  ],
+  "concepts": [
+    "exponential-backoff",
+    "task-failure-recovery",
+    "spin-loop-prevention",
+    "server-side-validation",
+    "retry-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Malformed workflow commands can cause workers to DDOS the server through rapid task resubmissions, potentially bringing down deployments.",
+  "rootCause": "Server immediately resubmits workflow tasks after validation failures without backoff, creating a spin loop when workers produce invalid commands.",
+  "proposedFix": "Implement exponential backoff on the server before creating new WorkflowTaskScheduled events for failed tasks. After a number of attempts, consider pausing completely using timers.",
+  "workaround": "SDKs can simulate workflow task timeout on subsequent failures (attempt > 1) by dropping tasks without reporting, causing retry after task timeout period (default 10 seconds).",
+  "resolution": "fixed",
+  "resolutionDetails": "Partially mitigated in #2548 by simulating timeout instead of registering workflow task failure for attempts >= 2. Additional pause functionality requested separately in #3006.",
+  "related": [
+    1303,
+    901,
+    2548,
+    3006
+  ],
+  "keyQuote": "User in the original issue actually was able to DDOS their Temporal server deployment by workers deployment that causes all the workers to submit malformed commands",
+  "number": 2238,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:59.024Z"
+}

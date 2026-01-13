@@ -1,0 +1,34 @@
+{
+  "summary": "SQL Visibility API paging logic had multiple bugs that were only discovered during manual testing of a separate issue. Test coverage for this critical component needs to be significantly improved to prevent future regressions.",
+  "category": "bug",
+  "subcategory": "visibility-paging",
+  "apis": [],
+  "components": [
+    "visibility-api",
+    "sql-paging",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "paging",
+    "sql",
+    "visibility",
+    "test-coverage",
+    "regression-prevention",
+    "pagination-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Bugs in SQL visibility paging can cause data retrieval failures or incorrect results in workflow history queries, affecting all users relying on visibility APIs.",
+  "rootCause": "Insufficient unit test coverage for SQL paging logic allowed multiple bugs to go undetected until manual testing during a separate bug fix.",
+  "proposedFix": "Expand unit test coverage for SQL visibility paging APIs to catch edge cases and prevent similar bugs in the future.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed through PRs #809 and #813 which addressed the paging logic issues and presumably added improved test coverage.",
+  "related": [
+    809,
+    813
+  ],
+  "keyQuote": "Our SQL Paging logic for the Visibility API was broken in multiple ways and was only discovered manually when fixing a separate bug.",
+  "number": 588,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:18:05.713Z"
+}

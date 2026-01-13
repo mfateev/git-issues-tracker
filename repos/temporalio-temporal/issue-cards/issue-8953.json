@@ -1,0 +1,28 @@
+{
+  "summary": "User reports that a scheduled workflow configured to run every 28 days shows incorrect upcoming run information after immediate execution, causing unexpected error behavior.",
+  "category": "bug",
+  "subcategory": "scheduling",
+  "apis": [],
+  "components": [
+    "scheduler",
+    "schedule-execution"
+  ],
+  "concepts": [
+    "scheduling",
+    "recurring-execution",
+    "time-calculation",
+    "interval"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably schedule workflows with multi-day intervals due to incorrect upcoming run time calculations.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I created a schedule and executed it immediately, setting it to run every 28 days. Why am I getting the \"upcoming run\" error?",
+  "number": 8953,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:30:05.292Z"
+}

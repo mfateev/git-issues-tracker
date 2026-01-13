@@ -1,0 +1,29 @@
+{
+  "summary": "The Python SDK should properly report its version. Currently references a hardcoded version location in the bridge client that may not reflect the actual SDK version.",
+  "category": "other",
+  "subcategory": "version-reporting",
+  "apis": [],
+  "components": [
+    "bridge",
+    "client",
+    "version-management"
+  ],
+  "concepts": [
+    "version-reporting",
+    "package-metadata",
+    "sdk-version",
+    "version-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot reliably determine which version of the Python SDK they are running.",
+  "rootCause": "Version information is hardcoded in bridge/client.py and may become stale or inconsistent.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed as an enhancement, indicating the version reporting was implemented.",
+  "related": [],
+  "keyQuote": "Properly report version",
+  "number": 47,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:46:57.150Z"
+}

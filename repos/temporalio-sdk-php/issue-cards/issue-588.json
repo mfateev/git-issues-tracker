@@ -1,0 +1,33 @@
+{
+  "summary": "Activities with heartbeating should be interrupted when the activities are paused. This is a coordination issue between the activity execution lifecycle and pause mechanism in the PHP SDK.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-handler",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "heartbeat",
+    "pause",
+    "interruption",
+    "activity-execution",
+    "lifecycle",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities may continue heartbeating even when paused, leading to incorrect behavior and potential resource waste.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    602
+  ],
+  "keyQuote": "Heartbeating activities should be interrupted when the activities are paused.",
+  "number": 588,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:20.481Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Add a call to the Core worker.validate function on worker start/run to validate worker configuration and surface errors to the user. This function was added to sdk-core to provide validation capabilities.",
+  "category": "feature",
+  "subcategory": "worker-validation",
+  "apis": [],
+  "components": [
+    "worker",
+    "core-integration"
+  ],
+  "concepts": [
+    "validation",
+    "configuration",
+    "error-handling",
+    "initialization",
+    "worker-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive clear validation errors if their worker configuration is incorrect, preventing runtime failures.",
+  "rootCause": null,
+  "proposedFix": "Call the validate function from sdk-core on worker start/run and propagate any errors to the user.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker validation was implemented to call the Core worker.validate function during startup.",
+  "related": [],
+  "keyQuote": "validate added in https://github.com/temporalio/sdk-core/pull/750, make sure to call it on worker start/run and if it errors, error to the user",
+  "number": 253,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:37:42.756Z"
+}

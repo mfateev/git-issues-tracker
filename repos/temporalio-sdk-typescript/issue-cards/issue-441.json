@@ -1,0 +1,32 @@
+{
+  "summary": "Retry policy intervals specified in milliseconds (e.g., 500ms) are incorrectly rounded down to zero seconds when sent to the server. The SDK should round up durations like other SDKs do.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [],
+  "components": [
+    "retry-policy",
+    "activity-options",
+    "serialization"
+  ],
+  "concepts": [
+    "retry",
+    "duration",
+    "rounding",
+    "interval",
+    "milliseconds"
+  ],
+  "severity": "high",
+  "userImpact": "Activities configured with sub-second retry intervals fail to retry correctly, causing activities to not retry as intended.",
+  "rootCause": "Duration values are being rounded down to the nearest second instead of rounding up, resulting in zero-valued durations for millisecond intervals.",
+  "proposedFix": "Round up durations to the nearest second instead of rounding down, consistent with other SDK implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved on the server side via temporal PR #1681 and validated in SDK PR #1121.",
+  "related": [
+    1121
+  ],
+  "keyQuote": "The SDK should probably round up the durations (first check what the other SDKs do here).",
+  "number": 441,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:05.350Z"
+}

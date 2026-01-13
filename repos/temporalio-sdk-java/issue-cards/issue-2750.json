@@ -1,0 +1,30 @@
+{
+  "summary": "Tests in WorkflowFailedMetricsTests are failing intermittently when run in conjunction with other tests because the TestStatsReporter.flush() method in the @Before setup is not properly clearing metrics from previous test executions, causing assertion failures for expected metrics.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestStatsReporter",
+    "metrics-reporting",
+    "workflow-tests"
+  ],
+  "concepts": [
+    "metrics-isolation",
+    "test-setup",
+    "state-cleanup",
+    "metric-assertion",
+    "test-ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably run the test suite on a clean build due to intermittent test failures.",
+  "rootCause": "TestStatsReporter.flush() is not properly clearing or isolating metrics between test executions, causing metrics from previous tests to persist and interfere with assertions in subsequent tests.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "resolution": null,
+  "resolutionDetails": null,
+  "keyQuote": "No metric 'temporal_workflow_failed [namespace=UnitTest|task_queue=WorkflowTest-runtimeExceptionWorkflowFailedMetric...",
+  "number": 2750,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:47.989Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Workflows get stuck in RUNNING state after upgrading from MariaDB 10.2.30 to 10.6.9 with Galera clustering. Activities are scheduled but never execute, affecting some workflows non-deterministically. Issue potentially related to outdated MySQL Go driver version.",
+  "category": "bug",
+  "subcategory": "database-compatibility",
+  "apis": [],
+  "components": [
+    "database",
+    "activity-scheduler",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "mariadb",
+    "galera-cluster",
+    "mysql-driver",
+    "connection-pooling",
+    "activity-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail to progress in production when using MariaDB 10.6.9 with Galera clustering, causing stuck activities and workflow hangs.",
+  "rootCause": "Potential incompatibility between Temporal's MySQL driver version (1.5) and MariaDB 10.6.9/Galera support, which was added in MySQL driver 1.7.",
+  "proposedFix": "Upgrade MySQL Go driver from version 1.5 to the latest version (1.7+) which includes MariaDB 10.6 and Go 1.17 support.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "some workflows stay in status RUNNING forever",
+  "number": 4131,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:15.782Z"
+}

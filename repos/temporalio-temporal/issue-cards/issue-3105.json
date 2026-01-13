@@ -1,0 +1,31 @@
+{
+  "summary": "Dependency security vulnerability in stretchr/testify v1.8.0 due to transitive dependency on stretchr/objx v0.4.0 with CVE-2022-28948. The vulnerability causes denial of service when deserializing invalid YAML input (CVSS 7.5).",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-system",
+    "testing-framework"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency",
+    "security",
+    "denial-of-service",
+    "yaml-deserialization",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using Temporal with this dependency version are vulnerable to denial of service attacks through malformed YAML input.",
+  "rootCause": "stretchr/objx v0.4.0 contains CVE-2022-28948 which crashes when deserializing invalid YAML in the Unmarshal function.",
+  "proposedFix": "Upgrade stretchr/objx to v3.0.0 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was either marked as ignored or no longer part of the inventory in the specific branch.",
+  "related": [],
+  "keyQuote": "An issue in the Unmarshal function in Go-Yaml v3 causes the program to crash when attempting to deserialize invalid input.",
+  "number": 3105,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:51.199Z"
+}

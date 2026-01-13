@@ -1,0 +1,30 @@
+{
+  "summary": "SDKs should check if an activity has already completed or timed out before sending the final buffered heartbeat to avoid unnecessary temporal_request_failure metric noise.",
+  "category": "other",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-mechanism",
+    "metrics"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-completion",
+    "timeout",
+    "metric-noise",
+    "server-state-checking"
+  ],
+  "severity": "low",
+  "userImpact": "Users see spurious temporal_request_failure metrics when activities complete while buffered heartbeats are pending.",
+  "rootCause": "SDKs lack a pre-send check for activity completion/timeout status before transmitting the final buffered heartbeat.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDKs should try to check if activity is completed or timed out before sending last buffered heartbeat",
+  "number": 608,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:26:14.276Z"
+}

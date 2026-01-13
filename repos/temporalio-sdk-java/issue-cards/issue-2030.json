@@ -1,0 +1,32 @@
+{
+  "summary": "Add a new `PauseableSlotSupplier` implementation that wraps other slot suppliers and provides a pause() function for worker tuning as part of the autotuning proposal.",
+  "category": "feature",
+  "subcategory": "worker-tuning",
+  "apis": [
+    "SlotSupplier"
+  ],
+  "components": [
+    "worker",
+    "slot-supplier",
+    "autotuning"
+  ],
+  "concepts": [
+    "worker-tuning",
+    "slot-management",
+    "pause-mechanism",
+    "resource-throttling",
+    "worker-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to pause activity execution through a slot supplier wrapper, enabling dynamic worker capacity management.",
+  "rootCause": null,
+  "proposedFix": "Implement `PauseableSlotSupplier` wrapping another `SlotSupplier` with pause() functionality per the autotuning proposal specification.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add an implementation of `SlotSupplier` that wraps another implementation adding a `pause()` function.",
+  "number": 2030,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:38.489Z"
+}

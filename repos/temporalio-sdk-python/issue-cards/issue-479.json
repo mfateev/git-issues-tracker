@@ -1,0 +1,35 @@
+{
+  "summary": "Add reflection-based payload codec tests to Python SDK to ensure all non-search-attribute payloads are covered by codec conversion, similar to existing tests in the .NET SDK.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "codec",
+    "payload",
+    "worker",
+    "test-framework"
+  ],
+  "concepts": [
+    "payload-conversion",
+    "codec",
+    "reflection",
+    "test-coverage",
+    "search-attributes",
+    "gRPC",
+    "validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures that codec changes are properly validated and prevents payload handling regressions in the Python SDK.",
+  "rootCause": null,
+  "proposedFix": "Implement reflection-based payload codec tests similar to the .NET SDK's WorkflowCodecHelperTests to validate all gRPC payloads are covered",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    477
+  ],
+  "keyQuote": "In .NET we have these tests which make sure any new payload added in gRPC is made part of codec conversion. But we don't have this for Python.",
+  "number": 479,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:16.810Z"
+}

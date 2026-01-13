@@ -1,0 +1,30 @@
+{
+  "summary": "Server should log a warning if task queue kind is not set when polling, as sticky task queues without kind specification could be mishandled. Additionally, server should perform exhaustive enum value checks for task queue kind to ensure all cases are handled.",
+  "category": "bug",
+  "subcategory": "task-queue",
+  "apis": [],
+  "components": [
+    "matching",
+    "loadbalancer",
+    "task-queue-handler"
+  ],
+  "concepts": [
+    "task-queue-kind",
+    "sticky-task-queue",
+    "enum-validation",
+    "logging",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Sticky task queues without explicit kind specification may be incorrectly processed as normal task queues, leading to potential routing issues.",
+  "rootCause": "Missing validation and logging for task queue kind parameter in the matching service loadbalancer",
+  "proposedFix": "Add warn/error logging when task queue kind is not set, and implement exhaustive enum value checking with switch/case statements that handle all possible enum values",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDK when polling a task queue, must provide task queue kind, or sticky task queue can be treated as normal task queue",
+  "number": 3372,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:23.074Z"
+}

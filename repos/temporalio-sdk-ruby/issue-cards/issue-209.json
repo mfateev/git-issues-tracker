@@ -1,0 +1,36 @@
+{
+  "summary": "Add explicit memoization support to the patched() API by introducing a `memoized` argument and delegating handling to Core for improved workflow behavior.",
+  "category": "feature",
+  "subcategory": "patching-api",
+  "apis": [
+    "patched",
+    "deprecatePatch"
+  ],
+  "components": [
+    "patching-system",
+    "core-delegation",
+    "api-design"
+  ],
+  "concepts": [
+    "memoization",
+    "patching",
+    "backward-compatibility",
+    "core-integration",
+    "workflow-behavior",
+    "api-enhancement"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have explicit memoization control through the patched() API, improving workflow consistency and flexibility.",
+  "rootCause": null,
+  "proposedFix": "Add a `memoized` argument to the `patched` and `deprecatePatch` APIs and delegate handling logic to Core.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    591
+  ],
+  "keyQuote": "Add a `memoized` argument to the `patched` and `deprecatePatch` APIs. Delegate handling of the `patched` logic to Core.",
+  "number": 209,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:04.148Z"
+}

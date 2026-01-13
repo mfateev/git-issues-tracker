@@ -1,0 +1,30 @@
+{
+  "summary": "PostgreSQL driver support changed in 1.24.0: the `postgres` plugin is no longer supported for the default schema. Users must migrate to `postgres12` or `postgres12_pgx` drivers for all schemas.",
+  "category": "bug",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "database-plugin",
+    "schema-validation",
+    "server-initialization"
+  ],
+  "concepts": [
+    "database-compatibility",
+    "driver-migration",
+    "schema-configuration",
+    "postgresql",
+    "breaking-change"
+  ],
+  "severity": "high",
+  "userImpact": "Users with existing `postgres` driver configurations for the default schema cannot upgrade to 1.24.0 without switching to `postgres12` or `postgres12_pgx`.",
+  "rootCause": "SQL schema version compatibility check in server initialization no longer recognizes `postgres` as a valid plugin, only `mysql8`, `postgres12`, `postgres12_pgx`, and `sqlite`.",
+  "proposedFix": "Switch default schema driver configuration from `postgres` to `postgres12` or `postgres12_pgx`.",
+  "workaround": "Use `postgres12` driver for the default schema instead of `postgres`.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue acknowledged as expected behavior; release notes were updated to document the breaking change requiring migration from `postgres` to `postgres12` driver.",
+  "related": [],
+  "keyQuote": "sql schema version compatibility check failed: not supported plugin postgres, only supported: map[mysql8:0x42f15c0 postgres12:0xc000721380 postgres12_pgx:0xc000721390 sqlite:0x42aef78]",
+  "number": 6053,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:58.042Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow reset fails when history has gaps/holes in events, making the workflow unrecoverable even to points before the corruption. The reset command cannot proceed because it reads the entire history before attempting recovery.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-reset",
+    "history-reader",
+    "tctl"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "history-corruption",
+    "event-gaps",
+    "recoverability",
+    "data-integrity"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot recover workflows when history events have gaps, even to restore them to a point before the corruption occurred.",
+  "rootCause": "The reset logic reads the entire workflow history before attempting recovery, failing if any gaps exist rather than allowing reset to an uncorrupted point.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in issue #661 with potential follow-up to add a flag for best-effort reset in case of corrupted history.",
+  "related": [
+    584,
+    661
+  ],
+  "keyQuote": "This means the workflow is not recoverable, even to a point before the hole as it reads the whole history before trying to recover.",
+  "number": 585,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:17:27.232Z"
+}

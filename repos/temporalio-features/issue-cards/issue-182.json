@@ -1,0 +1,35 @@
+{
+  "summary": "List API calls using visibility (ES-based) are eventually consistent, meaning results may not immediately reflect recent inserts/updates. Specs need to document this behavior, and tests should retry list calls to handle eventual consistency.",
+  "category": "docs",
+  "subcategory": "visibility-eventual-consistency",
+  "apis": [
+    "ListWorkflows",
+    "ListSchedules"
+  ],
+  "components": [
+    "visibility",
+    "list-api",
+    "elasticsearch",
+    "test-framework"
+  ],
+  "concepts": [
+    "eventual-consistency",
+    "visibility",
+    "list-operations",
+    "retry",
+    "cloud-behavior",
+    "elasticsearch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to understand that list operations may not immediately reflect recent changes when using ES-based visibility, requiring retry logic in their code.",
+  "rootCause": "Elasticsearch-based visibility implementation exhibits eventual consistency behavior where list operations don't immediately reflect recent mutations.",
+  "proposedFix": "Document eventual consistency behavior in specs and update tests to retry list calls until expected results are returned instead of failing on first attempt.",
+  "workaround": "Retry loop in schedule/basic/feature.go to handle delayed list results.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "list API calls which make use of visibility are eventually consistent when using advanced (ES) based visibility. This means that calls of the pattern insert/update thing then list that thing may not return results reflecting the change",
+  "number": 182,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:28.128Z"
+}

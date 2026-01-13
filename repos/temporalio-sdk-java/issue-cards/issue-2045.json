@@ -1,0 +1,35 @@
+{
+  "summary": "Users need better awareness that startUpdate is synchronous with the worker and requires explicit opt-in. This is a documentation and API usability enhancement to make the behavior more discoverable and intentional.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "startUpdate",
+    "startWorkflow"
+  ],
+  "components": [
+    "workflow-stub",
+    "client-api",
+    "documentation"
+  ],
+  "concepts": [
+    "synchronous-behavior",
+    "worker-acceptance",
+    "api-clarity",
+    "opt-in-behavior",
+    "user-awareness"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers may unknowingly rely on synchronous behavior of startUpdate without understanding its worker synchronization requirements.",
+  "rootCause": null,
+  "proposedFix": "Make startUpdate behavior explicit through documentation and API design, ensuring developers understand and opt into the synchronous-with-worker behavior similar to startWorkflow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through documentation updates and API improvements to clarify startUpdate synchronous behavior with worker acceptance.",
+  "related": [
+    469
+  ],
+  "keyQuote": "Developers should be informed about and opt in to behavior that startWorkflow waits for acceptance",
+  "number": 2045,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:21.733Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "System.nanoTime() is incorrectly used for obtaining wall clock time measurements. Since nanoTime() has no correlation with actual wall clock time, the implementation should instead use currentTimeMillis() multiplied by 1,000,000 to get nanoseconds.",
+  "category": "bug",
+  "subcategory": "timing",
+  "apis": [],
+  "components": [
+    "ActivityWorker",
+    "timing"
+  ],
+  "concepts": [
+    "wall-clock-time",
+    "nanotime",
+    "time-measurement",
+    "precision",
+    "timing-accuracy"
+  ],
+  "severity": "medium",
+  "userImpact": "Activity worker timing measurements may be inaccurate or inconsistent due to misuse of System.nanoTime(), potentially affecting activity timeouts and scheduling.",
+  "rootCause": "System.nanoTime() was being used for wall clock time measurements, but nanoTime() is designed for measuring elapsed time intervals and has no correlation with actual calendar time.",
+  "proposedFix": "Replace nanoTime() calls with currentTimeMillis() multiplied by 1,000,000 to obtain proper nanosecond-precision wall clock time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed through PR #68",
+  "related": [
+    68
+  ],
+  "keyQuote": "nanoTime() has no correlation with the actual wall clock time. If we want nanoseconds, call currentTimeMillis and multiply by 1M.",
+  "number": 66,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:18:59.558Z"
+}

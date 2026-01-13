@@ -1,0 +1,36 @@
+{
+  "summary": "State Machine fails to handle certain corner cases with Workflow.getVersion calls, as demonstrated in PR #583. The versioning logic does not correctly process all scenarios.",
+  "category": "bug",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "Workflow.getVersion"
+  ],
+  "components": [
+    "state-machine",
+    "workflow-versioning",
+    "version-handler"
+  ],
+  "concepts": [
+    "state-machine",
+    "versioning",
+    "corner-cases",
+    "workflow-execution",
+    "backward-compatibility",
+    "replay",
+    "history-reconciliation"
+  ],
+  "severity": "high",
+  "userImpact": "Users implementing workflow versioning may encounter incorrect behavior when using Workflow.getVersion in specific edge case scenarios, potentially breaking workflow replay and version compatibility.",
+  "rootCause": "State Machine implementation has gaps in handling certain corner cases of Workflow.getVersion calls during workflow execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through the PR #583 reproduction case analysis and subsequent fixes to state machine versioning logic.",
+  "related": [
+    583
+  ],
+  "keyQuote": "There is a reproduction submitted in https://github.com/temporalio/sdk-java/pull/583 which demonstrates some corner cases with our State Machines fail to handle `Workflow.getVersion` calls correctly.",
+  "number": 615,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:28:16.813Z"
+}

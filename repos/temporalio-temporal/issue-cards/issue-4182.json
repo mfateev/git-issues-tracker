@@ -1,0 +1,36 @@
+{
+  "summary": "ExecuteWorkflow with certain invalid CronSchedule values (e.g., '* * 31 2 *') causes client timeout instead of returning an immediate error. The issue appears to be caused by an infinite loop or hang in server-side cron schedule evaluation when the next scheduled time resolves to an unreachable date.",
+  "category": "bug",
+  "subcategory": "cron-schedule",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "cron-scheduler",
+    "workflow-execution",
+    "client-timeout"
+  ],
+  "concepts": [
+    "timeout",
+    "cron-schedule",
+    "validation",
+    "edge-case",
+    "infinite-loop",
+    "date-calculation"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience client timeouts when starting workflows with certain invalid cron schedules, with no clear error message indicating the root cause.",
+  "rootCause": "Server-side cron schedule evaluation creates an infinite loop or indefinite wait when evaluating schedules that result in unreachable next execution times (e.g., February 31st).",
+  "proposedFix": "Add validation to detect when cron.Next() resolves to an unreachable date (like year 0001) and return an immediate error instead of attempting to schedule.",
+  "workaround": "Client-side validation using robfig/cron library: check if s.Next(time.Now()) returns a time after year 0001 and reject invalid schedules before sending to Temporal.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via pull request #4206 which adds proper validation for cron schedules that cannot produce valid next execution times.",
+  "related": [
+    4206
+  ],
+  "keyQuote": "seems to make request timeout as is not a valid date even though it is valid cron syntax",
+  "number": 4182,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:33.014Z"
+}

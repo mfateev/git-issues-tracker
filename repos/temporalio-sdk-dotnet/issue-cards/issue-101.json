@@ -1,0 +1,30 @@
+{
+  "summary": "Add .NET Framework compatibility testing by creating a smoke test project to verify that the NuGet package properly copies native DLLs when used with .NET Framework, as currently only .NET 6+ is tested.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "nuget-package",
+    "native-binaries",
+    "test-framework"
+  ],
+  "concepts": [
+    "compatibility",
+    "binary-distribution",
+    "framework-support",
+    "smoke-testing",
+    "ci-cd"
+  ],
+  "severity": "medium",
+  "userImpact": ".NET Framework users may experience runtime failures if native DLLs are not properly packaged or copied by NuGet.",
+  "rootCause": null,
+  "proposedFix": "Create an additional `test/Temporalio.SmokeTestNetFramework` project checked as part of the `.github/workflows/package.yml` workflow to verify native DLL copying works correctly.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented smoke test project for .NET Framework to verify native DLL packaging and copying during CI/CD.",
+  "related": [],
+  "keyQuote": "We need to make sure the NuGet package created works with .NET Framework and properly copies the native DLL.",
+  "number": 101,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:57:58.859Z"
+}

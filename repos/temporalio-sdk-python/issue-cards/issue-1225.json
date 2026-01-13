@@ -1,0 +1,36 @@
+{
+  "summary": "Client.config() and Worker.config() should return immutable copies of the exact kwargs passed to their constructors, not modified versions with combined plugin lists, to allow config reuse patterns like `new_config = old_worker.config() + Worker(**new_config)`.",
+  "category": "bug",
+  "subcategory": "configuration",
+  "apis": [
+    "Client",
+    "Worker"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "configuration",
+    "plugin-system"
+  ],
+  "concepts": [
+    "immutability",
+    "kwargs",
+    "configuration-copy",
+    "plugin-mutation",
+    "constructor-params"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably reuse config objects from Client/Worker instances because the stored config includes plugin-mutated values that differ from original kwargs.",
+  "rootCause": "Client.config() and Worker.config() store plugin-mutated configuration instead of the exact kwargs passed to the constructor.",
+  "proposedFix": "Store immutable copies of the exact kwargs passed to constructor and return those from config(), excluding plugin-combined values.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation likely addressed to return exact kwargs as immutable copies without plugin mutations.",
+  "related": [
+    1157
+  ],
+  "keyQuote": "Config for most of the options needs to represent the configuration passed in (or mutated by plugins). People use config to change-and-resplat.",
+  "number": 1225,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:13.357Z"
+}

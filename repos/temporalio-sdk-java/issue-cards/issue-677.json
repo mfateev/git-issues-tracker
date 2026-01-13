@@ -1,0 +1,36 @@
+{
+  "summary": "Memo serialization is implemented inconsistently across the SDK, with some code using user-defined data converters and other code using a default converter. The inconsistency should be resolved by removing reliance on HeaderUtils#intoPayloadMapWithDefaultConverter for all memo serialization.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "WorkflowClientOptions"
+  ],
+  "components": [
+    "HeaderUtils",
+    "WorkflowInternal",
+    "data-converter",
+    "memo-handling"
+  ],
+  "concepts": [
+    "serialization",
+    "deserialization",
+    "data-converter",
+    "consistency",
+    "configuration",
+    "payload-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Users with custom data converters may experience unexpected behavior when memo payloads are serialized with the default converter instead of their configured converter.",
+  "rootCause": "Mixed usage of user-defined converter (WorkflowInternal) and default converter (HeaderUtils#intoPayloadMapWithDefaultConverter) throughout the codebase for memo serialization.",
+  "proposedFix": "Remove usage of HeaderUtils#intoPayloadMapWithDefaultConverter and consistently use the user-defined data converter specified in WorkflowClientOptions for all memo serialization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by standardizing memo serialization to use user-defined converters consistently across the SDK.",
+  "related": [
+    611
+  ],
+  "keyQuote": "Serialization of Memo shouldn't use HeaderUtils#intoPayloadMapWithDefaultConverter",
+  "number": 677,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:34:52.375Z"
+}

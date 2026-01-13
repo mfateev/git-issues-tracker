@@ -1,0 +1,31 @@
+{
+  "summary": "Request to implement backoff strategy for workflow tasks to improve resilience and operational efficiency when tasks fail or encounter transient issues.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "task-processor",
+    "retry-handler"
+  ],
+  "concepts": [
+    "backoff",
+    "retry",
+    "resilience",
+    "task-execution",
+    "exponential-backoff",
+    "transient-failures"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better control over how failed workflow tasks are retried, allowing for exponential backoff to reduce load during transient failures.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was marked as duplicate, suggesting this functionality was addressed elsewhere or consolidated with another backoff implementation request.",
+  "related": [],
+  "keyQuote": null,
+  "number": 1303,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:26.289Z"
+}

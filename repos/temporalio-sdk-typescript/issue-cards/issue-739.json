@@ -1,0 +1,32 @@
+{
+  "summary": "Search results on the TypeScript SDK documentation site do not rank function/method API pages highly enough. When searching for specific functions like 'continueAsNew' or 'heartbeat', the relevant API documentation pages appear near the end of results instead of at the top.",
+  "category": "docs",
+  "subcategory": "documentation-search-ranking",
+  "apis": [
+    "continueAsNew"
+  ],
+  "components": [
+    "documentation-site",
+    "search-indexing",
+    "algolia-integration"
+  ],
+  "concepts": [
+    "search-ranking",
+    "documentation-discoverability",
+    "api-visibility",
+    "search-results-ordering",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers searching for specific Temporal API functions in documentation have difficulty finding them because relevant pages are ranked too low in search results.",
+  "rootCause": "Documentation search ranking algorithm does not prioritize function/method API pages using Algolia's ranking mechanisms (recordProps.lvl or pageRank).",
+  "proposedFix": "Use Algolia's recordProps.lvl parameter to boost function pages, or implement pageRank-based ranking to prioritize `/api/namespaces/*` pages or move functions to dedicated `/api/functions/` directory.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be nice if it were first. It looks like the two ways to rank things higher are `recordProps.lvl*` or `pageRank`",
+  "number": 739,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:09:43.972Z"
+}

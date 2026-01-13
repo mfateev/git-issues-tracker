@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to enhance TypeScript's SignalDefinition and QueryDefinition to retain type information about signal/query names, enabling type-safe enforcement of legal signals/queries at compile time.",
+  "category": "feature",
+  "subcategory": "type-system",
+  "apis": [
+    "defineSignal",
+    "QueryDefinition",
+    "SignalDefinition"
+  ],
+  "components": [
+    "signal-definition",
+    "query-definition",
+    "type-system"
+  ],
+  "concepts": [
+    "type-safety",
+    "generic-types",
+    "type-inference",
+    "signal-registration",
+    "compile-time-checking"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot currently use TypeScript's type system to enforce which signals and queries are legal to send to a workflow, limiting the ability to create type-safe signal/query systems.",
+  "rootCause": "SignalDefinition and QueryDefinition do not preserve the literal type of the name string, only the string type itself, preventing type-level differentiation between different signals.",
+  "proposedFix": "Make the name parameter a generic type parameter in SignalDefinition/QueryDefinition (e.g., Name extends string), allowing the specific signal name to be captured in the type system. Three implementation options discussed: type parameter duplication, curried functions, or opt-in type specificity.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #1056",
+  "related": [
+    1056
+  ],
+  "keyQuote": "SignalDefinition does not retain the type of its name, making it difficult to create systems that enforce legal signals in the type system",
+  "number": 1052,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:07.007Z"
+}

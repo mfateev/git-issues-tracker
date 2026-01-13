@@ -1,0 +1,32 @@
+{
+  "summary": "The Authorizer interface should be applied to AdminHandler APIs to allow custom authorization logic for multi-tenant clusters. Currently, authorization is only enforced for the workflow Handler, not admin commands, preventing operators from blocking unauthorized admin access.",
+  "category": "feature",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "AdminHandler",
+    "Authorizer",
+    "AccessControlledWorkflowHandler",
+    "gRPC interceptor"
+  ],
+  "concepts": [
+    "authorization",
+    "multi-tenant",
+    "access control",
+    "admin commands",
+    "security",
+    "authentication"
+  ],
+  "severity": "high",
+  "userImpact": "Multi-tenant Temporal cluster operators cannot prevent normal users from accessing admin commands without authorizer support for AdminHandler.",
+  "rootCause": "Authorizer interface is only wrapped around workflow Handler, not AdminHandler, in frontend/service.go.",
+  "proposedFix": "Apply the same AccessControlledWorkflowHandler pattern to AdminHandler, wrapping it with authorization checks.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Authorization functionality was refactored so that Authorizer is invoked as an interceptor on all inbound gRPC calls for all handlers.",
+  "related": [],
+  "keyQuote": "By applying the Authorizer interface to the AdminHandler API's, we are able to first check that the caller has admin credentials before forwarding the API call.",
+  "number": 521,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:12:54.552Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "The Java SDK is missing the WorkflowInfo.getCronSchedule accessor that exists in the Go SDK. This feature request asks for the same accessor to be exposed in Java for consistency across SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "java-sdk"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "workflow-metadata",
+    "cross-sdk-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Java developers cannot access cron schedule information for workflows, unlike Go SDK users, limiting visibility into scheduled workflow execution details.",
+  "rootCause": null,
+  "proposedFix": "Add getCronSchedule accessor method to the Java WorkflowInfo class",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The accessor was added to the Java SDK's WorkflowInfo class",
+  "related": [],
+  "keyQuote": "Go SDK has `WorkflowInfo.CronSchedule` but Java does not",
+  "number": 887,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:50:55.154Z"
+}

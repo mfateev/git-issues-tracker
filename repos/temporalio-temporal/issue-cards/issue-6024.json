@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to support prefix-based matching for HTTP headers that should be forwarded, allowing operators to add new headers with a common prefix without requiring server redeployment.",
+  "category": "feature",
+  "subcategory": "http-configuration",
+  "apis": [],
+  "components": [
+    "http-server",
+    "config",
+    "header-forwarding"
+  ],
+  "concepts": [
+    "configuration",
+    "http-headers",
+    "prefix-matching",
+    "operational-flexibility",
+    "deployment"
+  ],
+  "severity": "low",
+  "userImpact": "Allows operators to dynamically forward HTTP headers with a common prefix without requiring server redeployment.",
+  "rootCause": null,
+  "proposedFix": "Add support for prefix matching in HTTPAdditionalForwardHeaders, either through a new HTTPAdditionalForwardedHeaderPrefixes field or by treating values with trailing asterisks as prefix patterns.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support prefix-based HTTP header forwarding.",
+  "related": [],
+  "keyQuote": "It's helpful to be able to add new headers using a common prefix and not need to do a temporal server deployment",
+  "number": 6024,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:47.384Z"
+}

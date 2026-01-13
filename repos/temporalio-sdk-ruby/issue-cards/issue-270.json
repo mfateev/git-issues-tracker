@@ -1,0 +1,29 @@
+{
+  "summary": "Create a high-level client for Ruby SDK to manage worker deployments and control plane operations, following patterns established in the Go SDK implementation.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "control-plane",
+    "deployment"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "deployment-management",
+    "high-level-client",
+    "control-plane"
+  ],
+  "severity": "medium",
+  "userImpact": "Ruby SDK users need a high-level client API to manage worker deployments and versioning, currently unavailable in the Ruby implementation.",
+  "rootCause": null,
+  "proposedFix": "Implement worker versioning high-level client for Ruby SDK, modeling it after the Go SDK implementation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Create the high-level client for control plane operations concerning worker deployments. See the Go one as an example",
+  "number": 270,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:49.694Z"
+}

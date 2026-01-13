@@ -1,0 +1,35 @@
+{
+  "summary": "Worker logs warning messages about DEADLINE_EXCEEDED and UNAVAILABLE errors every minute when idle with SSL context configured, even though workflows execute normally. The issue was reported as non-reproducible on the latest SDK version.",
+  "category": "bug",
+  "subcategory": "polling-connection",
+  "apis": [
+    "WorkflowServiceStubs"
+  ],
+  "components": [
+    "worker",
+    "poller",
+    "activity-poll-task",
+    "grpc-client"
+  ],
+  "concepts": [
+    "deadline-exceeded",
+    "connection-management",
+    "ssl-context",
+    "idle-worker",
+    "polling"
+  ],
+  "severity": "low",
+  "userImpact": "Workers generate recurring warning messages in logs that clutter output and may indicate underlying connection issues, though workflow execution is not blocked.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Closed because the issue could not be reproduced on the latest SDK version, suggesting it was either already fixed or environment-specific.",
+  "related": [
+    707
+  ],
+  "keyQuote": "Worker still picks up workflow tasks, and you can run your workflows. Just these warnings keep popping up when worker is running but idle.",
+  "number": 1046,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:03:02.933Z"
+}

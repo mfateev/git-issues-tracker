@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal Server fails to connect to Elasticsearch when TLS is enabled on the HTTP layer, returning 'no ElasticSearch node available' error. The issue occurs with Elasticsearch 8.x configured with HTTPS, though the same certificates work with other tools.",
+  "category": "bug",
+  "subcategory": "elasticsearch-connectivity",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "server-config",
+    "http-transport"
+  ],
+  "concepts": [
+    "tls",
+    "ssl-certificate",
+    "elasticsearch",
+    "connection",
+    "authentication",
+    "https"
+  ],
+  "severity": "high",
+  "userImpact": "Users with Elasticsearch clusters using TLS certificates cannot connect their Temporal Server, blocking visibility into workflow history.",
+  "rootCause": "Temporal Server's Elasticsearch HTTP client does not properly handle or validate TLS certificates from known issuers (Let's Encrypt), requiring custom HTTP client configuration to disable certificate verification.",
+  "proposedFix": "The Temporal Server should either support certificate configuration in the server config YAML or provide better error messages. Alternatively, implement proper TLS certificate validation for standard certificate authorities.",
+  "workaround": "Create a custom HTTP client with InsecureSkipVerify set to true and pass it via temporal.WithElasticsearchHttpClient() when instantiating the server.",
+  "resolution": "fixed",
+  "resolutionDetails": "Community discovered workaround of using custom HTTP client with InsecureSkipVerify. Issue likely resolved by documentation update or server code fix supporting proper TLS configuration.",
+  "related": [],
+  "keyQuote": "Would be helpful to mention the ability to define a custom HTTP client for Elasticsearch in server-options on docs.temporal.io",
+  "number": 4695,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:53.857Z"
+}

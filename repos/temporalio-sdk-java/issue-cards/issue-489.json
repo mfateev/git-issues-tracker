@@ -1,0 +1,33 @@
+{
+  "summary": "ContextPropagators are not being applied to local activities despite working correctly for regular activities. This causes context propagation to fail for local activity invocations.",
+  "category": "bug",
+  "subcategory": "context-propagation",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "context-propagators",
+    "local-activity-executor",
+    "activity-framework"
+  ],
+  "concepts": [
+    "context-propagation",
+    "local-activities",
+    "activity-execution",
+    "context-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably propagate context (like tracing headers, credentials, or custom context) when using local activities, limiting their ability to maintain end-to-end context in distributed tracing and observability.",
+  "rootCause": "ContextPropagators implementation does not properly handle the local activity execution path, likely missing hooks or adapters for local activity invocation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #491 which likely added context propagator support to the local activity execution pipeline.",
+  "related": [
+    491
+  ],
+  "keyQuote": "ContextPropagators should be respected and work correctly for LocalActivities the same way as for normal Activities.",
+  "number": 489,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:21:40.945Z"
+}

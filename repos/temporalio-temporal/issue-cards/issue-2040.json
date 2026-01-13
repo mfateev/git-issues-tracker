@@ -1,0 +1,33 @@
+{
+  "summary": "Java SDK needs the ability to parse and test SearchAttributes, requiring exposure of the cluster operator API as part of the server API to enable SDK-level unit tests and user testing capabilities.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "SearchAttributes"
+  ],
+  "components": [
+    "server-api",
+    "operator-api",
+    "java-sdk",
+    "search-attributes"
+  ],
+  "concepts": [
+    "testing",
+    "search-attributes",
+    "operator-api",
+    "test-framework",
+    "sdk-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users and SDK developers can now properly test SearchAttributes functionality in their applications.",
+  "rootCause": null,
+  "proposedFix": "Expose cluster operator API as part of the server API to include calls for registering search attributes",
+  "workaround": "Enable SearchAttribute in-memory testing only",
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by the Operator APIs",
+  "related": [],
+  "keyQuote": "Expose cluster operator API as a part of server API. This API should include the calls to register search attributes",
+  "number": 2040,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:22.428Z"
+}

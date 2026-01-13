@@ -1,0 +1,33 @@
+{
+  "summary": "When using time-skipping in test environment, if an activity's startToCloseTimeout is exceeded during the test, worker.runUntil() hangs instead of closing properly because it fails to handle the abandoned activity completion.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "runUntil",
+    "proxyActivities"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "test-server"
+  ],
+  "concepts": [
+    "timeout",
+    "time-skipping",
+    "activity-abandonment",
+    "test-environment",
+    "worker-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using time-skipping get stuck indefinitely when activities timeout, blocking test execution and developer workflows.",
+  "rootCause": "Worker fails to properly handle activity completion when the activity has already timed out in the test server, resulting in an inability to close the worker gracefully.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "worker.runUntil usually hangs, ostensibly because it fails to wait for the abandoned activity",
+  "number": 2246,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:03:32.090Z"
+}

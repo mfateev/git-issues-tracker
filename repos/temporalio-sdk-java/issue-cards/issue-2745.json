@@ -1,0 +1,32 @@
+{
+  "summary": "WorkerOptions.isUsingVirtualThreadsOnWorkflowWorker() is incorrectly returning the value of usingVirtualThreadsOnActivityWorker instead of its own value, indicating a copy-paste bug in the getter method.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "worker-options",
+    "virtual-threads"
+  ],
+  "concepts": [
+    "virtual-threads",
+    "configuration",
+    "method-implementation",
+    "getter",
+    "bug"
+  ],
+  "severity": "medium",
+  "userImpact": "Users checking whether virtual threads are enabled for workflow workers will get incorrect information, potentially causing unexpected behavior in multi-threaded workflow execution.",
+  "rootCause": "The isUsingVirtualThreadsOnWorkflowWorker() method at line 870-872 returns the usingVirtualThreadsOnActivityWorker field instead of the correct usingVirtualThreadsOnWorkflowWorker field.",
+  "proposedFix": "Change the return statement in isUsingVirtualThreadsOnWorkflowWorker() to return usingVirtualThreadsOnWorkflowWorker instead of usingVirtualThreadsOnActivityWorker.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "returning usingVirtualThreadsOnActivityWorker currently",
+  "number": 2745,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:35.765Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add EnableEagerStart option to PHP SDK's StartWorkflowOptions to support Eager Workflow Dispatch (EWD), which minimizes latency from workflow start to first task processing. This feature is already available in SDK-GO v1.24.0 and needs to be implemented in the PHP SDK.",
+  "category": "feature",
+  "subcategory": "workflow-dispatch",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "StartWorkflowOptions",
+    "workflow-client",
+    "worker"
+  ],
+  "concepts": [
+    "eager-dispatch",
+    "latency",
+    "workflow-task",
+    "task-queue",
+    "local-worker"
+  ],
+  "severity": "medium",
+  "userImpact": "PHP developers using RoadRunner-Temporal plugin can reduce latency-sensitive workflow startup times by enabling eager workflow dispatch.",
+  "rootCause": null,
+  "proposedFix": "Add EnableEagerStart boolean option to StartWorkflowOptions structure and implement mechanism to allocate workflow slot on local worker and deliver task from StartWorkflowExecutionResponse.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support EnableEagerStart option in StartWorkflowOptions for eager workflow dispatch capability.",
+  "related": [],
+  "keyQuote": "Eager Workflow Dispatch minimizes duration from starting a workflow to processing of first workflow task, making Temporal more suitable for latency sensitive applications.",
+  "number": 344,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:38.674Z"
+}

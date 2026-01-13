@@ -1,0 +1,31 @@
+{
+  "summary": "API calls timeout when workflows are locked for extended periods, preventing proper error reporting. The issue requests early return with a specific error when workflow lock cannot be acquired, and suggests lower timeouts for background operations.",
+  "category": "feature",
+  "subcategory": "workflow-locking",
+  "apis": [],
+  "components": [
+    "workflow-lock",
+    "task-scheduler",
+    "api-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "context-deadline",
+    "workflow-lock",
+    "resource-exhaustion",
+    "background-operations",
+    "caller-type"
+  ],
+  "severity": "high",
+  "userImpact": "Users receive misleading context deadline exceeded errors when API calls fail due to workflow lock contention, making it difficult to diagnose the actual cause.",
+  "rootCause": "API calls consume entire context timeout waiting for workflow lock, masking the real reason for failure and blocking goroutines in task scheduler for background operations.",
+  "proposedFix": "Return early with a special error type (e.g., ResourceExhausted with workflow busy cause) when workflow lock cannot be acquired. Use lower timeout (e.g., 500ms) for background calls identified by caller-type context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if workflow is super busy and workflow can't be locked within the given context timeout, caller side will see a context deadline exceeded error and has no clue why",
+  "number": 4196,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:00.001Z"
+}

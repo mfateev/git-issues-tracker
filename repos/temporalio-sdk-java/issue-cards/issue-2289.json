@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add API key authentication support in Spring Boot Autoconfigure for Temporal Cloud connections. Currently only mTLS is supported, requiring users to write custom code for API key authentication.",
+  "category": "feature",
+  "subcategory": "spring-boot-autoconfigure",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "service-stubs",
+    "authentication"
+  ],
+  "concepts": [
+    "api-key",
+    "authentication",
+    "mTLS",
+    "temporal-cloud",
+    "configuration",
+    "autoconfigure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users connecting to Temporal Cloud with API keys are forced to write custom code instead of using built-in configuration options.",
+  "rootCause": null,
+  "proposedFix": "Add another configuration option for API key and automatically configure the service stubs to use API key authentication.",
+  "workaround": "Write a custom Spring Boot configuration/customizer to handle API key authentication.",
+  "resolution": "fixed",
+  "resolutionDetails": "API key authentication configuration option was implemented in Spring Boot Autoconfigure.",
+  "related": [],
+  "keyQuote": "Add another configuration option for API key and automatically configure the service stubs to use API key authentication.",
+  "number": 2289,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:50.260Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add ability to flush events to history for server-side activity retries, enabling detailed visibility of all retry attempts in workflow execution history for better visualization and debugging.",
+  "category": "feature",
+  "subcategory": "activity-retries",
+  "apis": [],
+  "components": [
+    "history",
+    "activity-executor",
+    "server"
+  ],
+  "concepts": [
+    "retry",
+    "activity",
+    "history",
+    "visualization",
+    "server-side-handling",
+    "event-flushing"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily visualize all activity retry attempts in workflow execution history, limiting visibility into retry behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Disable retry (set maxAttempt=1) and have workflow handle retries manually.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Won't fix; maintainer suggested disabling server-side retries and handling retries in workflow logic instead. May re-open in future if situation changes.",
+  "related": [
+    1468
+  ],
+  "keyQuote": "Currently solution is to disable retry (set maxAttempt=1) and have workflow handle retries.",
+  "number": 1461,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:17:02.590Z"
+}

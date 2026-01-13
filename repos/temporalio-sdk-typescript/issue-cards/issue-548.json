@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to simplify protobuf payload converter usage by leveraging protobufjs's global module.roots field instead of requiring users to pass a root argument. This would reduce configuration complexity but requires compatible package manager setup and duplicate message name handling.",
+  "category": "feature",
+  "subcategory": "protobuf-serialization",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "protobuf-integration",
+    "bundle"
+  ],
+  "concepts": [
+    "protobuf",
+    "serialization",
+    "dependency-management",
+    "module-resolution",
+    "configuration",
+    "bundle-size"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have simpler protobuf integration without needing to pass root arguments to converters, but the feature was not completed due to bundle size concerns.",
+  "rootCause": "Bundle size bloat when importing protobufjs/light directly into the default payload converter (increasing from 0.25 to 0.5 MB).",
+  "proposedFix": "Use protobufjs global module.roots field to discover proto definitions instead of requiring explicit root argument, with requirements for package manager deduplication and pbjs code generation.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature was not completed due to bundle size implications. Importing protobufjs/light would double bundle size, and webpack integration would require complex hacks to conditionally load the dependency.",
+  "related": [],
+  "keyQuote": "It requires importing `protobufjs/light`, which doubles the bundle size (.25 to .5 MB)",
+  "number": 548,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:00:49.865Z"
+}

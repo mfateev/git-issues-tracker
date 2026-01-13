@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to ensure built-in query responses use \"RawValue\" format, as specified in the features repository requirements.",
+  "category": "feature",
+  "subcategory": "queries",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "serialization"
+  ],
+  "concepts": [
+    "raw-value",
+    "query-response",
+    "serialization-format",
+    "built-in-queries"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need built-in query responses to consistently use RawValue format for proper interoperability across SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement RawValue format for all built-in query response types",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    604
+  ],
+  "keyQuote": "Make sure built-in queries return a raw value",
+  "number": 773,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:43.739Z"
+}

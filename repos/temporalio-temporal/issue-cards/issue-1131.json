@@ -1,0 +1,31 @@
+{
+  "summary": "The default value for FrontendMaxNamespaceRPSPerInstance is set to 1200 but may not be optimal. Proper load testing is needed to determine appropriate throttle parameters for frontend RPS limiting.",
+  "category": "feature",
+  "subcategory": "performance-tuning",
+  "apis": [],
+  "components": [
+    "frontend",
+    "dynamic-config",
+    "rps-limiter"
+  ],
+  "concepts": [
+    "throttling",
+    "rate-limiting",
+    "load-testing",
+    "performance",
+    "defaults",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Suboptimal default throttle parameters may cause either unnecessary request rejection or insufficient protection against overload.",
+  "rootCause": null,
+  "proposedFix": "Conduct proper load testing to determine optimal value for FrontendMaxNamespaceRPSPerInstance",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through performance analysis and parameter adjustment",
+  "related": [],
+  "keyQuote": "we should do proper load testing for the rps",
+  "number": 1131,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:02:05.840Z"
+}

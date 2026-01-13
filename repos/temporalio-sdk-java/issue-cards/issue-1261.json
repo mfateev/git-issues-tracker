@@ -1,0 +1,34 @@
+{
+  "summary": "Local activities fail to retry after reaching the LocalActivityThreshold and don't schedule server-side timers as expected. Instead of backing off with a server timer, the failure propagates directly to the workflow.",
+  "category": "bug",
+  "subcategory": "local-activity-retry",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "retry-policy",
+    "timer-scheduler"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "local-activity-threshold",
+    "server-timer",
+    "failure-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Local activities fail permanently instead of retrying with server-side timers, causing workflows to fail unexpectedly when local retries are exhausted.",
+  "rootCause": "Code that scheduled the server-side timer after reaching LocalActivityThreshold was removed during early error handling reimplementation in PR #101, and the regression was not caught by existing tests.",
+  "proposedFix": "Restore the timer scheduling logic that was removed in PR #101 to ensure server-side timers are scheduled when LocalActivityThreshold is reached.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Timer scheduling logic was restored to properly handle local activity retries after reaching the threshold.",
+  "related": [
+    101
+  ],
+  "keyQuote": "Local Activity should schedule a timer on the server when it reaches LocalActivityThreshold according to its backoff strategy.",
+  "number": 1261,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:19:45.477Z"
+}

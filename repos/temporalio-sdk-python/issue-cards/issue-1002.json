@@ -1,0 +1,28 @@
+{
+  "summary": "User reports that Temporal 1.22.4 continues writing commits to PostgreSQL even when no workflows are active. The issue was redirected to the Temporal server repository as potentially server-related rather than Python SDK-specific.",
+  "category": "question",
+  "subcategory": "server-interaction",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgres-backend"
+  ],
+  "concepts": [
+    "workflow-state",
+    "inactive-workflows",
+    "commit-behavior",
+    "database-writes"
+  ],
+  "severity": "low",
+  "userImpact": "Users may experience unexpected database commits and increased write volume when no workflows are running.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was redirected to temporalio/temporal repository as it appears to be a server-side concern rather than Python SDK-specific.",
+  "related": [],
+  "keyQuote": "when there is no workflows temporal dont stop commiting",
+  "number": 1002,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:16.840Z"
+}

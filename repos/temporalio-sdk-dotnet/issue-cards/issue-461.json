@@ -1,0 +1,31 @@
+{
+  "summary": "Update the .NET SDK's binary build GitHub workflow to use the native GH ARM runner instead of the BuildJet ARM runner, consistent with the change made for CI in issue #308.",
+  "category": "feature",
+  "subcategory": "ci-cd",
+  "apis": [],
+  "components": [
+    "github-actions",
+    "binary-build",
+    "ci-workflow"
+  ],
+  "concepts": [
+    "arm-architecture",
+    "ci-cd",
+    "build-automation",
+    "github-runners"
+  ],
+  "severity": "low",
+  "userImpact": "Users building on ARM architectures will benefit from improved build pipeline consistency and potentially reduced build times.",
+  "rootCause": null,
+  "proposedFix": "Replace BuildJet ARM runner with GH ARM runner in the build-binary workflow step, similar to the change made in #308 for CI.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The binary build workflow was updated to use the native GH ARM runner instead of BuildJet, aligning with CI infrastructure changes.",
+  "related": [
+    308
+  ],
+  "keyQuote": "#308 replaced BuildJet ARM runner for CI, but we didn't replace it for build-binary step",
+  "number": 461,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:27:10.243Z"
+}

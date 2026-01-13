@@ -1,0 +1,36 @@
+{
+  "summary": "Users need access to the ObjectMapper created by JacksonJsonPayloadConverter to add custom Jackson modules (e.g., for Scala types, Kotlin data classes, or org-specific serialization). Currently, users must resort to reflection to modify the private mapper field.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [
+    "JacksonJsonPayloadConverter",
+    "DefaultDataConverter"
+  ],
+  "components": [
+    "data-converter",
+    "jackson-payload-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "objectmapper",
+    "jackson-modules",
+    "custom-serialization",
+    "scala-interop",
+    "kotlin-interop",
+    "reflection"
+  ],
+  "severity": "medium",
+  "userImpact": "Scala and Kotlin users cannot easily configure Jackson to handle their language-specific types without resorting to brittle reflection hacks.",
+  "rootCause": "JacksonJsonPayloadConverter does not expose the ObjectMapper, forcing users to either use reflection or create their own data converter.",
+  "proposedFix": "Provide a public constructor that accepts a pre-configured ObjectMapper, or add a getObjectMapper() method to allow augmentation after creation.",
+  "workaround": "Use reflection to access and modify the private 'mapper' field, though this is fragile and not recommended.",
+  "resolution": "fixed",
+  "resolutionDetails": "A public constructor accepting ObjectMapper was added to JacksonJsonPayloadConverter via PR #150.",
+  "related": [
+    150
+  ],
+  "keyQuote": "A new constructor for JacksonJsonPayloadConverter that allows us to pass our own ObjectMapper.",
+  "number": 139,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:57:24.893Z"
+}

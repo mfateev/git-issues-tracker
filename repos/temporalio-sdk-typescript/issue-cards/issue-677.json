@@ -1,0 +1,30 @@
+{
+  "summary": "The TypeScript SDK client connection does not send client-name and client-version HTTP headers, unlike the worker connection. This header information is needed for proper client identification and tracking.",
+  "category": "bug",
+  "subcategory": "http-headers",
+  "apis": [],
+  "components": [
+    "client",
+    "http-client",
+    "headers"
+  ],
+  "concepts": [
+    "http-headers",
+    "client-identification",
+    "version-tracking",
+    "connection-metadata",
+    "client-info"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot be properly identified and tracked through HTTP headers when using the TypeScript SDK client, limiting observability and debugging capabilities.",
+  "rootCause": "The client connection implementation is missing the code that sends client-name and client-version headers, which is already implemented in the worker connection.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The headers were added to the client connection to match the worker connection implementation.",
+  "related": [],
+  "keyQuote": "Only the worker connection does, needs to be applied to the client connection too.",
+  "number": 677,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:09.735Z"
+}

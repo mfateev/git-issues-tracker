@@ -1,0 +1,33 @@
+{
+  "summary": "Add ability to query workflow state at specific WorkflowTaskStarted eventIds for debugging purposes. Enable replaying workflow to a specific event and executing queries against that state, plus a new API to get query results for each WorkflowTaskStarted event.",
+  "category": "feature",
+  "subcategory": "query-debugging",
+  "apis": [
+    "Query"
+  ],
+  "components": [
+    "workflow-engine",
+    "event-history",
+    "query-handler"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "debugging",
+    "event-id",
+    "query-execution",
+    "terminated-workflows",
+    "troubleshooting"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to debug workflow state at specific points in execution history and safely query terminated workflows.",
+  "rootCause": null,
+  "proposedFix": "Add 'WorkflowTaskStartedEventId' argument to query request; implement workflow replay up to that event and query execution; create new API returning list of query results per WorkflowTaskStarted eventId.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add 'WorkflowTaskStartedEventId' argument to query request. The workflow should be replayed up to that event id and a query should be executed against it.",
+  "number": 4030,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:48.805Z"
+}

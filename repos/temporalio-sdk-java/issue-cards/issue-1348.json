@@ -1,0 +1,33 @@
+{
+  "summary": "When a workflow fails due to application code throwing an exception, querying the failed workflow replays the same exception and logs it at ERROR level without context indicating it's a replay. This creates noisy, confusing logs that don't indicate the exception was from a query execution.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "logging",
+    "query-handler",
+    "replay-engine"
+  ],
+  "concepts": [
+    "workflow-failure",
+    "exception-handling",
+    "logging-levels",
+    "query-execution",
+    "replay-context",
+    "noise-reduction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see confusing ERROR-level logs when querying failed workflows, making it difficult to distinguish actual failures from replayed exceptions in query contexts.",
+  "rootCause": "The exception logging during workflow execution doesn't differentiate between original workflow failure and replay-only execution (query), resulting in ERROR logs during query replay without context about the replay.",
+  "proposedFix": "Transform the original exception to Warning level and change exceptions in query-only execution to Debug level with additional context tracking back to the query that caused the execution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by adjusting logging levels and adding context to distinguish between actual workflow failures and query replays.",
+  "related": [],
+  "keyQuote": "The original exception should be transformed into Warning from the Error. The exception that happens in a query-only execution should be on Debug level",
+  "number": 1348,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:28:16.245Z"
+}

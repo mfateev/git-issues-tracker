@@ -1,0 +1,35 @@
+{
+  "summary": "Implement missing worker concurrency and rate limiting options from WorkerOptions. Partial implementation exists for maxConcurrentActivityExecutions and maxConcurrentWorkflowTaskExecutions, with other limits pending Core SDK support.",
+  "category": "feature",
+  "subcategory": "worker-limits",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "workflow-task-executor",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "concurrency-limits",
+    "rate-limiting",
+    "task-queue",
+    "resource-management",
+    "backpressure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot fully control worker resource consumption without complete implementation of all WorkerOptions limits.",
+  "rootCause": "Some rate limiting features not yet implemented in Core SDK; partial implementation existed in PR #71.",
+  "proposedFix": "Expose maxTaskQueueActivitiesPerSecond and implement remaining rate limits as Core SDK support becomes available.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented through phased approach starting with PR #71 for maxConcurrentActivityExecutions and maxConcurrentWorkflowTaskExecutions, with additional limits added as Core SDK support became available.",
+  "related": [
+    71
+  ],
+  "keyQuote": "Worker should respect the limits defined in WorkerOptions",
+  "number": 48,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:55:10.855Z"
+}

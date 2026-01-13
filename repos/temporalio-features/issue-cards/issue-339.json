@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to simplify encryption setup in Temporal SDKs by providing built-in codec helpers. Users find the current encryption implementation complex and would prefer a more plug-and-play approach with just key and algorithm configuration.",
+  "category": "feature",
+  "subcategory": "encryption",
+  "apis": [],
+  "components": [
+    "codec",
+    "client",
+    "encryption"
+  ],
+  "concepts": [
+    "encryption",
+    "security",
+    "codec",
+    "configuration",
+    "key-management",
+    "plugin-architecture"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle with complex encryption setup and seek simpler, more accessible SDK-provided encryption features.",
+  "rootCause": null,
+  "proposedFix": "Add SDK-provided encryption codec with simplified configuration (key and algorithm parameters), possibly with optional codec server deployment.",
+  "workaround": "Users can follow the existing example in samples-typescript repository for encryption setup.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It feels… like a lot of setup. Am I missing something? Is there nothing more plug-and-play that we can use?",
+  "number": 339,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:25.957Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Server exits prematurely when shutdownDrainDuration and shutdownFailHeathCheckDuration are set to over 1 minute due to a default stop function timeout in fx.go that limits the shutdown grace period to 2 minutes total.",
+  "category": "bug",
+  "subcategory": "server-shutdown",
+  "apis": [],
+  "components": [
+    "frontend",
+    "fx",
+    "StopService"
+  ],
+  "concepts": [
+    "shutdown",
+    "graceful-shutdown",
+    "drain-duration",
+    "health-check",
+    "timeout",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure shutdown grace periods longer than 1 minute due to hardcoded timeout constraints, preventing proper draining of in-flight requests.",
+  "rootCause": "Default stop function StopService in fx.go has a built-in timeout that exits the server after 2 minutes regardless of configured shutdownDrainDuration and shutdownFailHeathCheckDuration values.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal server exists after 2 minutes due to the behavior of the default stop function `StopService` set in fx.go",
+  "number": 4192,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:44.699Z"
+}

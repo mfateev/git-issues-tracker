@@ -1,0 +1,31 @@
+{
+  "summary": "SimulatedTimeoutException of ScheduleToStart type should not be retried according to the retry policy. The test demonstrates this exception is being incorrectly retried, violating expected timeout behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "retry-policy",
+    "timeout-handling",
+    "test-framework"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "simulated-timeout",
+    "error-handling",
+    "test-fixture",
+    "schedule-to-start"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests may pass with incorrect retry behavior, potentially masking real timeout handling issues in production code.",
+  "rootCause": "SimulatedTimeoutException was incorrectly retried according to the retry policy instead of failing immediately.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "SimulatedTimeoutException support was removed from the Java SDK as it was making error handling convoluted and was considered incorrect. The mechanism will be reimplemented from scratch if needed in the future.",
+  "related": [],
+  "keyQuote": "There is no more simulated timeout exception in temporal java-sdk for some time, support of that class was incorrect and was making error handling convoluted.",
+  "number": 94,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:56:06.782Z"
+}

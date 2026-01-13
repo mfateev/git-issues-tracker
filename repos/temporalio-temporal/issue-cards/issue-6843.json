@@ -1,0 +1,33 @@
+{
+  "summary": "Long poll connections are timing out at regular 60s intervals when the matching service restarts, causing request rate oscillations. Adding small jitter to the long poll timeout would help smooth out request distribution.",
+  "category": "feature",
+  "subcategory": "long-polling",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "long-poll",
+    "connection-pool",
+    "retry-logic"
+  ],
+  "concepts": [
+    "timeout",
+    "jitter",
+    "polling",
+    "connection-restart",
+    "request-rate",
+    "oscillation",
+    "resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience periodic spikes in long poll request rates every 60 seconds after matching service restarts, potentially impacting SDK performance and server load.",
+  "rootCause": "When matching service restarts, all long poll connections are killed and SDKs retry simultaneously, causing requests to timeout at the same interval (60s) if no tasks arrive, creating synchronized oscillating request patterns.",
+  "proposedFix": "Add small jitter to the long poll empty response timeout to desynchronize request timing across multiple SDK instances.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add some short jitter to the long poll timeout to make the requests smooth out faster.",
+  "number": 6843,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:02.806Z"
+}

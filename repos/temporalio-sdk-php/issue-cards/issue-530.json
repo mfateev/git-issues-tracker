@@ -1,0 +1,34 @@
+{
+  "summary": "Generators that yield activities with exceptions return null instead of propagating the exception when called from private workflow methods, causing the workflow to complete instead of being cancelled. When the same code is inlined in the workflow method, exceptions propagate correctly.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "newUntypedActivityStub",
+    "ActivityOptions"
+  ],
+  "components": [
+    "workflow-engine",
+    "generator-handling",
+    "exception-propagation"
+  ],
+  "concepts": [
+    "generators",
+    "exception-handling",
+    "workflow-execution",
+    "activity-calls",
+    "code-organization",
+    "error-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot safely structure workflow code using private methods that return generators without losing exception handling, forcing code duplication or workarounds.",
+  "rootCause": "The workflow engine does not properly propagate exceptions thrown within nested generators called from the main workflow generator.",
+  "proposedFix": null,
+  "workaround": "Wrap generator code in try/catch and return Promise::reject on exception, or use 'yield from' (though this prevents accessing the result), or inline activity calls directly in the workflow method.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When an exception is thrown in the generator it returns null instead of throwing that exception in the outer scope, which results in proceeding workflow execution instead of immediate cancel of workflow.",
+  "number": 530,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:31.668Z"
+}

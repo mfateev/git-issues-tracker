@@ -1,0 +1,30 @@
+{
+  "summary": "The official temporalio/server:1.23.0 Docker image reports version 1.23.0-rc16 instead of the expected release version 1.23.0. This version string mismatch affects users who check the server version via command line or UI.",
+  "category": "bug",
+  "subcategory": "release-packaging",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "server-binary",
+    "version-reporting"
+  ],
+  "concepts": [
+    "version-string",
+    "release-version",
+    "rc-build",
+    "docker-hub",
+    "version-mismatch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see incorrect RC version labels in production systems, causing confusion about which version is actually running.",
+  "rootCause": "The Docker image for 1.23.0 was built with an RC binary instead of the final release binary.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The temporal-server binary in the official temporalio/server@1.23.0 image on Docker reports a -rc version: temporal version 1.23.0-rc16",
+  "number": 5604,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:54.272Z"
+}

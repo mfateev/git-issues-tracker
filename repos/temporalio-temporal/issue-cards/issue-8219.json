@@ -1,0 +1,31 @@
+{
+  "summary": "Multiple CVEs identified in the latest temporalio/admin-tools Docker image (1.28.1-tctl-1.18.4-cli-1.4.1), including high-severity vulnerabilities in golang.org/x/net and OpenTelemetry instrumentation. The team is aware and planning an initiative to address image cleanup.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "admin-tools",
+    "dependencies"
+  ],
+  "concepts": [
+    "security",
+    "CVE",
+    "vulnerability-scanning",
+    "dependency-management",
+    "container-security",
+    "version-patching"
+  ],
+  "severity": "high",
+  "userImpact": "Users running the Docker image are exposed to known security vulnerabilities that could be exploited by attackers.",
+  "rootCause": "Outdated dependencies in the Docker image including golang.org/x/net v0.35.0, OpenTelemetry instrumentation v0.36.4, and other packages with published CVEs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We are aware, we have an initiative to clean up these images that we are trying to start.",
+  "number": 8219,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:00.332Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User requests that OriginalExecutionRunID be included in the Workflow info returned by the SDK. Currently, this field is not accessible through searchable attributes or the workflow info API.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-runtime",
+    "metadata-service"
+  ],
+  "concepts": [
+    "execution-history",
+    "workflow-metadata",
+    "run-identity",
+    "state-tracking"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access OriginalExecutionRunID information needed for workflow lifecycle tracking and analysis.",
+  "rootCause": null,
+  "proposedFix": "Expose OriginalExecutionRunID as a field in the WorkflowInfo class returned by the SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "OriginalExecutionRunID was added to WorkflowInfo in a subsequent SDK release.",
+  "related": [],
+  "keyQuote": "Please return OriginalExecutionRunID in Workflow info",
+  "number": 1562,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:03.879Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Documentation should clarify that heartbeat timeout is a required configuration in addition to the heartbeat mechanism itself. This is a documentation enhancement to improve guidance for developers.",
+  "category": "docs",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "documentation",
+    "activity-executor",
+    "heartbeat-system"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "configuration",
+    "requirements",
+    "activity-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may misunderstand heartbeat requirements and misconfigure activities without proper timeout settings.",
+  "rootCause": null,
+  "proposedFix": "Update documentation to explicitly state that heartbeat timeout is a required configuration alongside heartbeat.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to clarify heartbeat timeout requirements.",
+  "related": [],
+  "keyQuote": "Docs in addition to saying heartbeat is required need to say heartbeat timeout is required",
+  "number": 282,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:01.531Z"
+}

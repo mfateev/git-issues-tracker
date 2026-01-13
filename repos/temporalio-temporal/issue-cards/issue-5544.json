@@ -1,0 +1,29 @@
+{
+  "summary": "Signal validation currently uses the 'SignalNameTooLong' error message when the signal name is empty, which is confusing and inaccurate. The feature request asks for a distinct error message specifically for empty signal names to provide clearer feedback.",
+  "category": "other",
+  "subcategory": "signal-validation",
+  "apis": [],
+  "components": [
+    "frontend",
+    "workflow-handler",
+    "signal-validation"
+  ],
+  "concepts": [
+    "error-messages",
+    "signal-validation",
+    "user-feedback",
+    "clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Users receive a confusing error message when passing an empty signal name, making it harder to understand what went wrong.",
+  "rootCause": "Signal validation logic reuses SignalNameTooLong error for both empty and oversized signal names, conflating two different error conditions.",
+  "proposedFix": "Add a new distinct error message specifically for empty signal names.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "add a new error message when signalName is empty: Currently used is SignalNameTooLong which is a bit confusing",
+  "number": 5544,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:27.705Z"
+}

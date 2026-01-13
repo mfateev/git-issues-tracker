@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowInfo.getSearchAttributes() currently returns serialized protobuf data, making it difficult for users to read and interpret. Users need deserialized search attributes in an easily consumable format.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "WorkflowInfo.getSearchAttributes"
+  ],
+  "components": [
+    "workflow-info",
+    "search-attributes",
+    "serialization"
+  ],
+  "concepts": [
+    "deserialization",
+    "search-attributes",
+    "protobuf",
+    "api-usability",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily interpret search attributes returned from WorkflowInfo without manual protobuf deserialization.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Search attributes were updated to be deserialized and returned in a user-friendly format instead of raw protobuf.",
+  "related": [],
+  "keyQuote": "WorkflowInfo.getSearchAttributes return something that can be easily read/interpreted by the user",
+  "number": 617,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:28:55.515Z"
+}

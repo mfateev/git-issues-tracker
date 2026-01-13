@@ -1,0 +1,35 @@
+{
+  "summary": "User couldn't call multi-goroutine ExecuteActivity or ExecuteChildWorkflow inside a workflow due to illegal access from outside of workflow context. The issue was resolved by explaining that workflow code must be deterministic and requires using workflow.Go and workflow.Sleep instead of standard Go goroutines and time.Sleep.",
+  "category": "question",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteActivity",
+    "ExecuteChildWorkflow",
+    "workflow.Go",
+    "workflow.Sleep"
+  ],
+  "components": [
+    "workflow-executor",
+    "activity-executor",
+    "determinism-enforcement"
+  ],
+  "concepts": [
+    "determinism",
+    "goroutines",
+    "concurrency",
+    "context-isolation",
+    "parallel-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to use standard Go concurrency patterns inside workflows encounter runtime panics and need to understand Temporal's deterministic execution model.",
+  "rootCause": "Attempting to use standard Go goroutines (go statement) and time.Sleep inside workflow code violates the determinism requirement, as the workflow context can only be accessed from within the workflow goroutine.",
+  "proposedFix": "Use workflow.Go instead of standard goroutines and workflow.Sleep instead of time.Sleep. Alternatively, execute all activities sequentially without goroutines, then call Get on all futures to achieve parallel execution.",
+  "workaround": "Execute all activities in sequence first, then call Get on futures in a separate loop to achieve parallel execution without needing goroutines.",
+  "resolution": "fixed",
+  "resolutionDetails": "User confirmed the solution worked after implementing the suggested changes using workflow.Go and workflow.Sleep.",
+  "related": [],
+  "keyQuote": "Workflow code must be deterministic, so `go` can't be used inside workflow definition. Please use the `workflow.Go` instead.",
+  "number": 3071,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:28.854Z"
+}

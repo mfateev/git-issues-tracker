@@ -1,0 +1,33 @@
+{
+  "summary": "User requests a synchronous Run method for ActivityEnvironment in the testing API to unit test synchronous activity methods that use ActivityExecutionContext.Current.Logger without resorting to workarounds like mocking or async wrappers.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ActivityExecutionContext.Current.Logger",
+    "ActivityEnvironment.RunAsync"
+  ],
+  "components": [
+    "testing",
+    "activity-environment",
+    "activity-execution-context"
+  ],
+  "concepts": [
+    "unit-testing",
+    "synchronous-code",
+    "logging",
+    "test-utilities",
+    "activity-testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users with synchronous activity helper methods cannot easily unit test them without workarounds like creating mock interfaces or converting methods to async.",
+  "rootCause": "ActivityEnvironment only provides an async API (RunAsync) to support potential future asynchronous internal operations and consistency with TemporalWorker's async-only design.",
+  "proposedFix": "Add a synchronous Run method to ActivityEnvironment that wraps the async RunAsync method for testing synchronous code.",
+  "workaround": "Use myEnv.RunAsync(myActivity).GetAwaiter().GetResult() to run async code synchronously from a sync context.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "While internally in this testing framework thus far we do not use asynchronous pieces, we may in the future do so.",
+  "number": 420,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:22:30.408Z"
+}

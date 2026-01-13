@@ -1,0 +1,29 @@
+{
+  "summary": "Workers fail to auto-start in Spring Boot starter version 1.18.1 when using the start-workers flag, causing workflows to time out with no error logs. The issue was resolved by requiring explicit ConfigurableApplicationContext.start() call in applications.",
+  "category": "bug",
+  "subcategory": "spring-boot-starter",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "worker-auto-discovery",
+    "application-context"
+  ],
+  "concepts": [
+    "worker-startup",
+    "spring-auto-configuration",
+    "application-lifecycle",
+    "context-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to 1.18.1 experience workflow execution failures without clear error messages, requiring application restart and configuration changes.",
+  "rootCause": "ConfigurableApplicationContext.start() must be explicitly called for workers to auto-start in version 1.18.x, a breaking change from the previous behavior.",
+  "proposedFix": "Call ConfigurableApplicationContext.start() in the application to properly initialize worker auto-discovery and startup.",
+  "workaround": "Manually invoke start() on the application context or implement a ContextStartedEvent listener as documented in Spring documentation.",
+  "resolution": "invalid",
+  "resolutionDetails": "Marked as invalid because the issue was a missing required step in the Spring Boot starter documentation - not a bug in the code but rather a behavior change that required users to adapt their initialization logic.",
+  "related": [],
+  "keyQuote": "Since version 1.18.x ConfigurableApplicationContext.start() needs to be called for workers to auto-start.",
+  "number": 1648,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:20.185Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Dependency vulnerability in snakeyaml-1.30.jar used by spring-boot-starter with 7 security issues including a critical remote code execution vulnerability (CVE-2022-1471, CVSS 9.8).",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "dependency-management",
+    "snakeyaml"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "remote-code-execution",
+    "deserialization",
+    "yaml-parsing",
+    "dependency-upgrade",
+    "transitive-dependency"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using the Spring Boot starter are exposed to critical security vulnerabilities that could allow remote code execution through untrusted YAML deserialization.",
+  "rootCause": "snakeyaml version 1.30 has unrestricted type instantiation during YAML deserialization, allowing arbitrary object instantiation by attackers.",
+  "proposedFix": "Upgrade snakeyaml to version 2.0 or higher, and spring-boot-starter to version 3.0.0 or higher. Use SafeConstructor when parsing untrusted YAML content.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was automatically closed as a duplicate of #1890 by Mend.",
+  "related": [
+    1890
+  ],
+  "keyQuote": "SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization. Deserializing yaml content provided by an attacker can lead to remote code execution.",
+  "number": 1889,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:47.262Z"
+}

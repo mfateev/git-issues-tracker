@@ -1,0 +1,30 @@
+{
+  "summary": "Workflows fail to start when TTL would exceed Cassandra's 2038-01-19 expiration limit. Request to support explicit infinite timeout to bypass this limitation when using Temporal with Cassandra.",
+  "category": "feature",
+  "subcategory": "workflow-timeout",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "cassandra-persistence",
+    "task-creation"
+  ],
+  "concepts": [
+    "timeout",
+    "TTL",
+    "expiration",
+    "workflow-lifecycle",
+    "cassandra-limitation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal on Cassandra cannot create long-running workflows that exceed 2038-01-19T03:14:06+00:00 without changing database configuration or accepting truncated TTLs.",
+  "rootCause": "Cassandra has a built-in limitation where TTLs cannot extend past 2038-01-19T03:14:06+00:00 due to signed 32-bit integer overflow, and this limitation propagates to Temporal's task creation.",
+  "proposedFix": "Add support for explicit infinite timeout option in workflow configuration to allow users to bypass TTL constraints when using Cassandra.",
+  "workaround": "Adjust Cassandra overflow policy to truncate TTLs to the 2038 limit, though this may affect retention guarantees.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in v1.4.1 by supporting infinite timeouts for workflows.",
+  "related": [],
+  "keyQuote": "Temporal could solve this problem for end users by explicitly allowing an infinite timeout when running workflows.",
+  "number": 358,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:52:43.081Z"
+}

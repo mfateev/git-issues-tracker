@@ -1,0 +1,33 @@
+{
+  "summary": "When using ts-node with swc-loader, the bundler sometimes includes regenerator-runtime in the webpack bundle even though it's not needed for Node 14+ target, causing module resolution failures. The issue was resolved by including swc-loader in the SDK.",
+  "category": "bug",
+  "subcategory": "build-bundling",
+  "apis": [],
+  "components": [
+    "swc-loader",
+    "webpack",
+    "bundler"
+  ],
+  "concepts": [
+    "transpilation",
+    "bundling",
+    "async-await",
+    "generators",
+    "build-target",
+    "dependency-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience webpack build failures when running workers with ts-node using @temporalio/create due to unresolved regenerator-runtime dependency.",
+  "rootCause": "swc-loader was transforming generators and async functions to include regenerator-runtime even when the build target (Node 14+) supports them natively; issue was in upstream swc project but workaround needed in SDK configuration.",
+  "proposedFix": "Set swc-loader target to at least ES2017 to prevent unnecessary regenerator-runtime inclusion, as demonstrated in swc playground.",
+  "workaround": "Add regenerator-runtime as a devDependency to resolve the module not found error.",
+  "resolution": "fixed",
+  "resolutionDetails": "swc-loader was included in version 0.20.2 with proper configuration to prevent regenerator-runtime from being unnecessarily bundled.",
+  "related": [
+    1461
+  ],
+  "keyQuote": "swc-loader included in 0.20.2",
+  "number": 534,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:59.311Z"
+}

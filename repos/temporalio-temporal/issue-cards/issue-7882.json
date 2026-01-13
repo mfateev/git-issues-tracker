@@ -1,0 +1,33 @@
+{
+  "summary": "Request to support Workflow Id Conflict Policy selection for child workflows, specifically the 'Use Existing' reuse policy, to enable child workflow reuse when parent workflows are reset. Currently unavailable across all SDKs.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-id-management",
+    "reuse-policy"
+  ],
+  "concepts": [
+    "child-workflows",
+    "workflow-id-conflict",
+    "reuse-policy",
+    "parent-child-orchestration",
+    "workflow-reset",
+    "state-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure 'Use Existing' reuse policy for child workflows, limiting workflow reset patterns and forcing suboptimal alternatives like terminating running children.",
+  "rootCause": null,
+  "proposedFix": "Add support for selecting Workflow Id Conflict Policy (specifically 'Use Existing') when starting child workflows in all SDKs.",
+  "workaround": "Either redesign workflow pattern to avoid child workflows, or use 'Terminate if Running' reuse policy despite child workflows potentially being healthy.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support for selecting the \"Workflow Id Conflict Policy\" when starting a child workflow (in Python).",
+  "number": 7882,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:58.349Z"
+}

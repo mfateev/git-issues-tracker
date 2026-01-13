@@ -1,0 +1,32 @@
+{
+  "summary": "Discussion about the deprecation of ringpop library and long-term strategy for replacing it with a well-maintained alternative. The core question is whether Temporal has plans to replace ringpop for membership management, given that it's been abstracted.",
+  "category": "question",
+  "subcategory": "infrastructure-architecture",
+  "apis": [],
+  "components": [
+    "ringpop",
+    "membership-management",
+    "cluster-management"
+  ],
+  "concepts": [
+    "active-active",
+    "datacenter-replication",
+    "consensus",
+    "membership-discovery",
+    "deprecation"
+  ],
+  "severity": "low",
+  "userImpact": "Users interested in active-active deployments or running Temporal across multiple datacenters need clarity on the long-term replacement strategy for ringpop.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Closed by issue author after receiving clarification that ringpop replacement is desired but not currently a priority. Not a bug or feature request, just an informational discussion.",
+  "related": [
+    2471
+  ],
+  "keyQuote": "Yes, we do want to replace ringpop with a well maintained library, but this is currently not a priority.",
+  "number": 4748,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:53.311Z"
+}

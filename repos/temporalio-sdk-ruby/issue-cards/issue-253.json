@@ -1,0 +1,34 @@
+{
+  "summary": "Unregistered local activities should cause workflow task failure in Ruby SDK. This is a bug where the SDK is not properly validating and failing when an unregistered local activity is invoked.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "workflow-task"
+  ],
+  "concepts": [
+    "activity-registration",
+    "validation",
+    "workflow-execution",
+    "error-handling",
+    "task-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Users can unknowingly execute unregistered local activities without getting proper failure feedback, leading to silent errors and incorrect workflow behavior.",
+  "rootCause": "Ruby SDK is not validating that local activities are registered before execution and failing the workflow task when they are not.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow task now properly fails when attempting to execute an unregistered local activity.",
+  "related": [
+    221
+  ],
+  "keyQuote": "Unregistered Local Activity should fail Workflow Task",
+  "number": 253,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:02.079Z"
+}

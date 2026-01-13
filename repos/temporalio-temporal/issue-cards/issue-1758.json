@@ -1,0 +1,32 @@
+{
+  "summary": "Request to audit and improve all dynamic configuration options in Temporal Server to make them truly dynamic without requiring server restarts. The issue aims to reduce the number of dynamic configs that still require restarts.",
+  "category": "feature",
+  "subcategory": "dynamic-configuration",
+  "apis": [],
+  "components": [
+    "configuration",
+    "server",
+    "config-management"
+  ],
+  "concepts": [
+    "dynamic-configuration",
+    "hot-reload",
+    "server-restart",
+    "configuration-management",
+    "operational-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently need to restart Temporal Server to apply changes to certain configuration parameters, reducing operational flexibility.",
+  "rootCause": null,
+  "proposedFix": "Audit all dynamic config options and refactor those that still require restarts to support true dynamic updates.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Many configs have since been changed to be truly dynamic and no longer require restarts, addressing the enhancement request on a case-by-case basis.",
+  "related": [
+    1757
+  ],
+  "keyQuote": "We have since changed many configs to be truly dynamic and not require restarts.",
+  "number": 1758,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:29.479Z"
+}

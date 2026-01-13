@@ -1,0 +1,32 @@
+{
+  "summary": "Support for non-function callables as activities by using Python's inspect module instead of relying on __code__ attribute. This expands the types of callables that can be used as Temporal activities.",
+  "category": "feature",
+  "subcategory": "activity-definition",
+  "apis": [
+    "activity.defn"
+  ],
+  "components": [
+    "activity-decorator",
+    "callable-inspection",
+    "signature-validation"
+  ],
+  "concepts": [
+    "callable-types",
+    "python-inspection",
+    "decorator-validation",
+    "method-support",
+    "class-instances"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now use more types of callables (like class instances with __call__) as activities instead of being limited to functions.",
+  "rootCause": "Current implementation checks for __code__ attribute which is not available on all callable types, particularly non-function callables.",
+  "proposedFix": "Use Python's inspect module to analyze callable signatures instead of checking for __code__ attribute.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented support for non-function callables using inspect module for signature analysis.",
+  "related": [],
+  "keyQuote": "We can instead use the inspect module to analyze the callable's signature, allowing a broader set of non-function callables to be used as activities.",
+  "number": 52,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:10.472Z"
+}

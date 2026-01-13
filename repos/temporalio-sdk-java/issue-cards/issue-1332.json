@@ -1,0 +1,36 @@
+{
+  "summary": "SIGSEGV crash occurs when calling WorkflowServiceStubs.newServiceStub in Kubernetes pods running Alpine Linux with gRPC native transport. The issue is caused by incompatible Netty native libraries and can be resolved by upgrading to SDK v1.15.0+ which includes updated Netty with a fix.",
+  "category": "bug",
+  "subcategory": "grpc-native-transport",
+  "apis": [
+    "WorkflowServiceStubs.newServiceStubs"
+  ],
+  "components": [
+    "grpc-java",
+    "netty-native-transport",
+    "service-stubs"
+  ],
+  "concepts": [
+    "native-crash",
+    "sigsegv",
+    "alpine-linux",
+    "grpc-transport",
+    "jvm-crash",
+    "kubernetes",
+    "environment-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users running the Java SDK on Alpine Linux experience JVM crashes during worker initialization, making the SDK unusable in Alpine-based containers.",
+  "rootCause": "Incompatible Netty native transport libraries in gRPC-Java when running on Alpine Linux (musl libc instead of glibc).",
+  "proposedFix": "Upgrade to Temporal Java SDK v1.15.0 or later which includes gRPC-Java 1.48 and Netty 4.1.77 with fixes for Alpine compatibility.",
+  "workaround": "Three temporary workarounds: (1) Pass `-Dio.grpc.netty.shaded.io.netty.transport.noNative=true` to disable native transport (performance impact), (2) Use LD_PRELOAD fix from gRPC issue, (3) Switch from Alpine Linux.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in SDK v1.15.0+ with updated Netty that resolves Alpine Linux compatibility issues.",
+  "related": [
+    8751
+  ],
+  "keyQuote": "this crash likely happened on Alpine. Passing `-Dio.grpc.netty.shaded.io.netty.transport.noNative=true` to JVM. I don't recommend this option long-term as it will have performance implications",
+  "number": 1332,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:26:34.608Z"
+}

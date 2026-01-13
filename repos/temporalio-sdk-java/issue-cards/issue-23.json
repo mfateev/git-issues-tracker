@@ -1,0 +1,33 @@
+{
+  "summary": "Replace Activity.getTask() which exposes low-level protobuf with Activity.getInfo() for a simpler API. Also add Activity.getTimeUntilTimeout() method to help activities know when they will timeout.",
+  "category": "feature",
+  "subcategory": "activity-api",
+  "apis": [
+    "Activity.getInfo",
+    "Activity.getTimeUntilTimeout"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-context",
+    "api-design"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-lifecycle",
+    "api-abstraction",
+    "protobuf",
+    "user-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have a cleaner, higher-level API for accessing activity task information instead of dealing with low-level protobuf objects.",
+  "rootCause": "Activity.getTask() exposes protobuf-generated ActivityTask which is too low-level for user code.",
+  "proposedFix": "Replace Activity.getTask() with Activity.getInfo() and add Activity.getTimeUntilTimeout() method.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "API was refactored to replace low-level getTask() with higher-level getInfo() and getTimeUntilTimeout() methods.",
+  "related": [],
+  "keyQuote": "ActivityTask is protobuf which is too low level to expose to the activity code.",
+  "number": 23,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:31:26.986Z"
+}

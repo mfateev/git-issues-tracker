@@ -1,0 +1,35 @@
+{
+  "summary": "Pending update requests are not aborted when a workflow times out, causing SDK clients to continue polling indefinitely instead of being signaled to stop.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "UpdateWorkflowExecution",
+    "PollWorkflowExecutionUpdate"
+  ],
+  "components": [
+    "workflow-timeout",
+    "update-handler",
+    "request-lifecycle"
+  ],
+  "concepts": [
+    "timeout",
+    "workflow-execution-timeout",
+    "update-completion",
+    "polling",
+    "request-abortion"
+  ],
+  "severity": "high",
+  "userImpact": "SDK clients hang indefinitely when polling for update outcomes after workflow timeout, requiring manual intervention to stop.",
+  "rootCause": "Update requests are not aborted when workflow execution times out, leaving them in a pending state that clients continue to poll.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in #6621",
+  "related": [
+    6621
+  ],
+  "keyQuote": "Pending update requests should be aborted when workflow times out",
+  "number": 6614,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:58.399Z"
+}

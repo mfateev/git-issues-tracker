@@ -1,0 +1,35 @@
+{
+  "summary": "Test server for ARM64 architecture on Linux is unavailable (404 error), preventing unit tests from running. The time-skipping test server does not work on ARM64, and there is no proper alternative available for Linux ARM environments.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowEnvironment.start_time_skipping"
+  ],
+  "components": [
+    "test-server",
+    "testing",
+    "bridge"
+  ],
+  "concepts": [
+    "ARM64",
+    "architecture",
+    "test-server",
+    "time-skipping",
+    "platform-compatibility",
+    "download"
+  ],
+  "severity": "high",
+  "userImpact": "Users on ARM64 Linux systems cannot run time-skipping tests, blocking their ability to test workflows on this increasingly common architecture.",
+  "rootCause": "The time-skipping test server binary is not built or distributed for ARM64 Linux architecture. The download URL returns 404 because the binary does not exist for this platform.",
+  "proposedFix": null,
+  "workaround": "Users on ARM64 Linux can use an x64 Temporal server instead, but this does not provide time-skipping functionality.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Acknowledged as a known limitation documented in the SDK README. Time-skipping test server does not work on ARM64 for Linux or Windows; only macOS can use x64 binary with Intel emulator.",
+  "related": [
+    379
+  ],
+  "keyQuote": "The time-skipping test environment does not work on ARM. The SDK will try to download the x64 binary on macOS for use with the Intel emulator, but for Linux or Windows ARM there is no proper time-skipping test server at this time.",
+  "number": 716,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:44.774Z"
+}

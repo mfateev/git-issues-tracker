@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to wrap gRPC errors in SDK-specific exception classes (e.g., WorkflowNotFound, ActivityNotFound) instead of rethrowing raw gRPC errors, similar to what other SDKs do. The discussion identified concerns about breaking changes and unclear benefits, leading to the decision to close without implementation.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "grpc-client"
+  ],
+  "concepts": [
+    "error-wrapping",
+    "exception-hierarchy",
+    "breaking-changes",
+    "api-compatibility",
+    "error-messages"
+  ],
+  "severity": "low",
+  "userImpact": "Users would benefit from SDK-specific exception types for better error handling and consistency across Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Wrap gRPC errors in SDK-specific exception classes like WorkflowNotFound, ActivityNotFound, or a generic NotFound exception.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as the team determined that the current error-handling regime has been reasonable and implementing this would be a breaking change without clear benefits.",
+  "related": [],
+  "keyQuote": "Yeah, I would close this. If we want to revisit and discuss we can",
+  "number": 59,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:02.898Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to enable users to see source code mappings for workflow events in the UI, allowing them to relate events back to their source code for easier debugging. TypeScript SDK already has this capability via enhanced stack traces; other language implementations need standardization.",
+  "category": "feature",
+  "subcategory": "debugging-observability",
+  "apis": [],
+  "components": [
+    "workflow-history-ui",
+    "stack-trace-generation",
+    "query-service",
+    "replay-engine"
+  ],
+  "concepts": [
+    "source-mapping",
+    "stack-traces",
+    "debugging",
+    "workflow-execution",
+    "code-location",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can more easily debug workflow issues by seeing the exact source code location where each event was generated during workflow execution.",
+  "rootCause": null,
+  "proposedFix": "Standardize enhanced stack trace interface across all language SDKs (TS already implements this); add query capability to return stack traces for commands/events during replay.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be nice if we could provide enough info from an active workflow to enable users to see where in the code the workflow was when each event was generated",
+  "number": 439,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:18.357Z"
+}

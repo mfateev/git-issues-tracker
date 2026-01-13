@@ -1,0 +1,34 @@
+{
+  "summary": "User requested removal of @internal annotation from WorkflowExecutionDescription class to allow external access to WorkflowExecutionInfo and WorkflowExecutionStatus. The class contains critical execution state information but is currently blocked from public usage.",
+  "category": "bug",
+  "subcategory": "api-access",
+  "apis": [
+    "WorkflowExecutionDescription",
+    "WorkflowExecutionInfo",
+    "WorkflowExecutionStatus"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-description",
+    "api-exposure"
+  ],
+  "concepts": [
+    "internal-annotation",
+    "api-visibility",
+    "execution-state",
+    "access-control",
+    "public-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access workflow execution status details because the required class is marked as internal with no public alternative.",
+  "rootCause": "WorkflowExecutionDescription class marked with @internal annotation, blocking external access to execution information.",
+  "proposedFix": "Remove the @internal annotation from WorkflowExecutionDescription class to allow public access.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Maintainer roxblnfk agreed to remove the annotation in the next minor release.",
+  "related": [],
+  "keyQuote": "Feel free to use this property, I'll remove the annotation in the next minor release.",
+  "number": 598,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:31.731Z"
+}

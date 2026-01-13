@@ -1,0 +1,32 @@
+{
+  "summary": "User requests native Podman support for development environment setup as an alternative to Docker Compose, particularly for systems that only allow user-space containers. They've created and shared a Kubernetes YAML file demonstrating how to run Temporal with Cassandra and Web UI using Podman.",
+  "category": "feature",
+  "subcategory": "dev-environment-setup",
+  "apis": [],
+  "components": [
+    "docker",
+    "podman",
+    "dev-environment",
+    "kubernetes-yaml"
+  ],
+  "concepts": [
+    "containers",
+    "user-space-execution",
+    "development-setup",
+    "pod-orchestration",
+    "rootless-containers",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Enables developers in organizations that prohibit Docker to set up local Temporal development environments using Podman.",
+  "rootCause": null,
+  "proposedFix": "Include Podman-compatible Kubernetes YAML configuration in the codebase and documentation, potentially based on the example provided from the GitLab repository.",
+  "workaround": "Users can manually create a Podman pod using the provided YAML file via `podman play kube temporal.yaml` and manage it with `podman pod start/stop/rm`.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "My corporation only allows containers running in user space, so docker is a no-go for me.",
+  "number": 550,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:14:13.374Z"
+}

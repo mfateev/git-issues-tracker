@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add comprehensive feature tests for SDK-side validation of server commands and client-side options. Proposes creating a spec directory with markdown behavior specifications that each SDK must implement tests for.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "RetryOptions"
+  ],
+  "components": [
+    "test-framework",
+    "options-validation",
+    "spec-compliance"
+  ],
+  "concepts": [
+    "validation",
+    "testing",
+    "specification",
+    "sdk-compliance",
+    "options-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures consistent validation behavior across all SDKs and helps developers understand expected validation rules for SDK options.",
+  "rootCause": null,
+  "proposedFix": "Create a spec directory with markdown files documenting specific validation behaviors. Establish conventions for where behavior tests are located in each SDK to enable quick spec compliance verification.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We'd discussed not treating this as a 'feature' but instead have a separate `spec` directory containing markdown files that document specific behaviors.",
+  "number": 3,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:41:53.181Z"
+}

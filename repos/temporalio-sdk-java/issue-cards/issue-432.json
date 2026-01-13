@@ -1,0 +1,29 @@
+{
+  "summary": "MicrometerClientStatsReporter overrides the MeterRegistry's native naming convention and always uses snake_case, which breaks compatibility with applications using different conventions like Datadog's dot-separated format.",
+  "category": "bug",
+  "subcategory": "metrics-reporting",
+  "apis": [],
+  "components": [
+    "MicrometerClientStatsReporter",
+    "MeterRegistry"
+  ],
+  "concepts": [
+    "metrics",
+    "naming-convention",
+    "compatibility",
+    "configuration",
+    "datadog"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with MeterRegistry instances using non-snake_case naming conventions have their metric names forcibly converted, breaking integration with monitoring systems like Datadog.",
+  "rootCause": "MicrometerClientStatsReporter hardcodes snake_case naming convention instead of respecting the MeterRegistry's native naming convention.",
+  "proposedFix": "MicrometerClientStatsReporter should use the naming convention provided by the MeterRegistry instead of overriding it.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely fixed by allowing MicrometerClientStatsReporter to respect the MeterRegistry's native naming convention.",
+  "related": [],
+  "keyQuote": "MicrometerClientStatsReporter always overrides MeterRegistry's naming convention with snakeCase.",
+  "number": 432,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:18:23.711Z"
+}

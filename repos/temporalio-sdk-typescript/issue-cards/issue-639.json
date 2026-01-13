@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to disable GitHub's \"require branches to be up to date before merging\" requirement for faster PR merging. Currently, every time a PR is merged, all other PRs are blocked and require manual updating and rerunning of checks.",
+  "category": "feature",
+  "subcategory": "ci-cd-workflow",
+  "apis": [],
+  "components": [
+    "github-settings",
+    "pr-workflow",
+    "ci-cd"
+  ],
+  "concepts": [
+    "merge-workflow",
+    "branch-protection",
+    "ci-automation",
+    "developer-experience",
+    "time-efficiency"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces developer friction and PR merge time by eliminating the requirement to update and re-run checks on every PR after another PR is merged.",
+  "rootCause": "GitHub branch protection rule requiring PRs to be up to date with main before merging causes cascading delays when multiple PRs exist.",
+  "proposedFix": "Disable the branch protection rule that requires branches to be up to date before merging, accepting the trade-off of potentially discovering test failures on main rather than before merge.",
+  "workaround": "Manually click 'Update branch' and use 'Enable auto-merge', though this still requires manual intervention for failed checks and can fail if another PR is merged concurrently.",
+  "resolution": "fixed",
+  "resolutionDetails": "The repository maintainer (bergundy) disabled the GitHub branch protection setting as requested.",
+  "related": [],
+  "keyQuote": "We uncheck this box... Pro: takes much less time to merge PRs. Con: slightly less safe: delayed knowledge of failure.",
+  "number": 639,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:05:32.565Z"
+}

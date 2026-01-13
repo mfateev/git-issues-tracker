@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add WorkflowImplementationOptions.setLocalActivityOptions to allow users to define default local activity options at the workflow level, similar to the existing setActivityOptions for regular activities.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "newLocalActivityStub",
+    "newActivityStub"
+  ],
+  "components": [
+    "workflow-implementation-options",
+    "local-activity-stub",
+    "activity-options"
+  ],
+  "concepts": [
+    "configuration",
+    "defaults",
+    "local-activities",
+    "activity-options",
+    "workflow-level-settings",
+    "option-override"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now configure default local activity options at the workflow level instead of having to specify them individually in workflow code.",
+  "rootCause": null,
+  "proposedFix": "Add WorkflowImplementationOptions.setLocalActivityOptions method that accepts a Map<String, LocalActivityOptions> and applies these defaults to Workflow.newLocalActivityStub calls, with ability to override them with specific options.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide parity with ActivityOptions configuration capabilities.",
+  "related": [],
+  "keyQuote": "add WorkflowImplementationOptions.setLocalActivityOptions which would be applied to Workflow.newLocalActivityStub and can be overwritten if specific LocalActivity options are specified",
+  "number": 975,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:56:17.320Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Pyright in strict mode fails to properly type-check `execute_activity` and `start_activity`/`execute_workflow` calls due to complex overload signatures with partially unknown types. The type checker reports the function type as \"partially unknown\" despite being fully defined.",
+  "category": "bug",
+  "subcategory": "type-checking",
+  "apis": [
+    "execute_activity",
+    "start_activity",
+    "execute_workflow"
+  ],
+  "components": [
+    "type-stubs",
+    "activity-executor",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "type-inference",
+    "overloading",
+    "strict-mode",
+    "pyright",
+    "generics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with Pyright strict mode enabled see spurious type errors when calling activity and workflow methods, hindering strict type checking adoption and IDE experience.",
+  "rootCause": "Complex overload definitions with multiple generic parameter combinations cause Pyright's type solver to report partial unknown types in strict mode validation.",
+  "proposedFix": "Simplify overload signatures or provide TypeScript-style overload stubs that Pyright can more easily resolve in strict mode.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by addressing related issues #625 and #795 together to improve type stubs and overload definitions.",
+  "related": [
+    625,
+    795
+  ],
+  "keyQuote": "Type of \"execute_activity\" is partially unknown",
+  "number": 893,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:27:17.982Z"
+}

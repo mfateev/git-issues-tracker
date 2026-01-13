@@ -1,0 +1,31 @@
+{
+  "summary": "Add usedforsecurity=False parameter to MD5 hash function calls used for build ID generation in Python 3.9+. This addresses Python 3.9's requirement to explicitly mark non-security uses of cryptographic functions.",
+  "category": "feature",
+  "subcategory": "build-id",
+  "apis": [],
+  "components": [
+    "build-id",
+    "hashing",
+    "python-runtime"
+  ],
+  "concepts": [
+    "cryptographic-function",
+    "security-flag",
+    "build-identifier",
+    "python-version-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users on Python 3.9+ will avoid deprecation warnings or errors when the SDK generates build IDs using MD5 hashing.",
+  "rootCause": "Python 3.9+ requires explicit usedforsecurity=False parameter for non-security cryptographic operations to reduce confusion about security vs. non-security use cases.",
+  "proposedFix": "Add usedforsecurity=False to the md5() call used for build ID generation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #472 which added the usedforsecurity=False parameter to MD5 calls for build ID.",
+  "related": [
+    472
+  ],
+  "keyQuote": "For Python 3.9+, add `usedforsecurity=False` to `md5` call for build ID",
+  "number": 425,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:16.841Z"
+}

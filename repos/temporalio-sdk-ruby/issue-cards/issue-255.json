@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow info start time in Ruby SDK should reflect the workflow's actual start time, not the first task's start time. This is a breaking change opportunity for Ruby since it hasn't reached GA yet.",
+  "category": "bug",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "runtime"
+  ],
+  "concepts": [
+    "workflow-lifecycle",
+    "timing",
+    "backwards-compatibility",
+    "sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get incorrect workflow start time information, which could cause logic errors in time-based decisions or monitoring.",
+  "rootCause": "Workflow info start time is incorrectly set to first task start time instead of workflow start time",
+  "proposedFix": "Change workflow info start time to use the workflow's actual start time",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by updating workflow info start time to reflect workflow start time instead of first task start time",
+  "related": [
+    849,
+    462
+  ],
+  "keyQuote": "Change the workflow info start time to be the workflow's start time. In Python and .NET we have backwards compatibility constraints",
+  "number": 255,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:17.838Z"
+}

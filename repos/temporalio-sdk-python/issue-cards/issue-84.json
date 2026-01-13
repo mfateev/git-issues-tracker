@@ -1,0 +1,30 @@
+{
+  "summary": "M1 Mac users encounter import errors with grpcio when running Temporal Python workers. The issue was resolved by installing grpcio via conda instead of pip.",
+  "category": "bug",
+  "subcategory": "installation-m1-compatibility",
+  "apis": [],
+  "components": [
+    "grpcio",
+    "package-management",
+    "m1-mac-support"
+  ],
+  "concepts": [
+    "platform-compatibility",
+    "arm64-architecture",
+    "dependency-management",
+    "environment-setup",
+    "installation-issues"
+  ],
+  "severity": "medium",
+  "userImpact": "M1 Mac users cannot run Temporal Python workers without following a specific workaround for grpcio installation.",
+  "rootCause": "grpcio pip package lacks proper M1 Mac (ARM64) support, requiring native compilation or conda installation",
+  "proposedFix": null,
+  "workaround": "Uninstall grpcio from pip and install via conda instead",
+  "resolution": "fixed",
+  "resolutionDetails": "User found that installing grpcio via conda resolved the import error for M1 Mac",
+  "related": [],
+  "keyQuote": "FIXED: uninstall grpcio from pip and install via conda.",
+  "number": 84,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:27.644Z"
+}

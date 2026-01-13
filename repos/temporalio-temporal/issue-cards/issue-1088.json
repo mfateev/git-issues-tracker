@@ -1,0 +1,30 @@
+{
+  "summary": "PostgreSQL database schema initialization fails on fresh Temporal database with 'relation schema_version does not exist' error when using AUTO_SETUP=true. The issue occurs because the regular temporal:1.4.1 image does not properly initialize the PostgreSQL schema, requiring the auto-setup image instead.",
+  "category": "bug",
+  "subcategory": "database-schema-setup",
+  "apis": [],
+  "components": [
+    "database-schema",
+    "postgresql-initialization",
+    "auto-setup"
+  ],
+  "concepts": [
+    "schema-initialization",
+    "database-migration",
+    "configuration",
+    "docker-setup",
+    "postgresql"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start Temporal Server on a fresh PostgreSQL database with the standard server image and AUTO_SETUP=true, requiring them to use the auto-setup image instead.",
+  "rootCause": "The regular temporal-server:1.4.1 Docker image does not properly initialize the PostgreSQL schema when AUTO_SETUP=true is set; the schema_version table is not created.",
+  "proposedFix": "Use the temporalio/auto-setup:1.4.1 Docker image instead of temporalio/server:1.4.1 for automatic database schema setup.",
+  "workaround": "Use the auto-setup image (temporalio/auto-setup:1.4.1) for fresh database initialization.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by using the correct Docker image (auto-setup) that properly initializes the PostgreSQL schema.",
+  "related": [],
+  "keyQuote": "should be image: temporalio/auto-setup:1.4.1",
+  "number": 1088,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:01:51.928Z"
+}

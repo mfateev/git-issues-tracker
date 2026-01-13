@@ -1,0 +1,37 @@
+{
+  "summary": "Request to allow workers to gracefully fail and stop retrying when the server is unavailable, with configurable backoff and maximum retry periods to improve deployment health checks in containerized environments.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkflowServiceStubsOptions"
+  ],
+  "components": [
+    "worker",
+    "poller",
+    "client-stubs",
+    "retry-logic"
+  ],
+  "concepts": [
+    "backoff",
+    "retry",
+    "server-availability",
+    "connection-failure",
+    "health-check",
+    "exponential-backoff",
+    "maximum-interval"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying workers in Kubernetes need better control over retry behavior when the server is unavailable to avoid excessive logging and implement proper deployment failure semantics.",
+  "rootCause": "Workers continue retrying indefinitely at exponential backoff intervals (up to 1 minute) when server is unavailable, which doesn't integrate well with container orchestration health checks.",
+  "proposedFix": "Expose backoff configuration parameters (backoffCoefficient, pollBackoffInitialInterval, pollBackoffMaximumInterval) and optionally implement a maximum retry period after which workers fail, similar to Go SDK implementation.",
+  "workaround": "Implement custom health check logic to validate namespace existence before starting workers.",
+  "resolution": "fixed",
+  "resolutionDetails": "Health check functionality was implemented in the Java SDK based on the Go SDK pattern (client.go#L417), allowing workers to fail gracefully when the server is unavailable.",
+  "related": [
+    472
+  ],
+  "keyQuote": "the workers will die after configured time or attempt count passes",
+  "number": 481,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:21:02.393Z"
+}

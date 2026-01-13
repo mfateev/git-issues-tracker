@@ -1,0 +1,32 @@
+{
+  "summary": "Reset operations fail when reapplied events (signals and updates) exceed the 4MB batch size limit enforced by the persistence layer. The feature request seeks to automatically split large event batches during reset to support reapplying events larger than 4MB.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "history-builder",
+    "persistence-layer",
+    "reset-logic"
+  ],
+  "concepts": [
+    "batch-size-limit",
+    "event-reapplication",
+    "reset",
+    "signals",
+    "updates",
+    "conflict-resolution",
+    "event-batching"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reset workflows when the combined size of reapplied signals and updates exceeds 4MB, blocking an important operational capability.",
+  "rootCause": "Event reapplication during reset groups all reapplied events into a single batch without checking against the 4MB persistence layer size limit.",
+  "proposedFix": "Approach 1: Automatically track event batch size in history builder code and create new batches when limit is exceeded. Approach 2: Make this reset-specific by tracking reapplied event size and calling a history builder method to create new batches.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Reset with more than 4MB reapplied events should be supported.",
+  "number": 5493,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:04.924Z"
+}

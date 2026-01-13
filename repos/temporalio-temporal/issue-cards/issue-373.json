@@ -1,0 +1,31 @@
+{
+  "summary": "ParentClosePolicy is currently always applied when a parent workflow calls continue-as-new, but in most cases it should only apply when the parent completes. The request is to restructure ParentClosePolicy as a struct with an applyOnParentContinueAsNew field to control this behavior.",
+  "category": "feature",
+  "subcategory": "workflow-parent-close-policy",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "parent-child-workflow",
+    "policy-management",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "parent-close-policy",
+    "continue-as-new",
+    "workflow-completion",
+    "policy-configuration",
+    "child-workflow-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot control whether ParentClosePolicy applies to parent continue-as-new operations, forcing them to accept undesired behavior in most cases.",
+  "rootCause": "ParentClosePolicy is hardcoded to apply in all parent completion scenarios including continue-as-new, without configuration option.",
+  "proposedFix": "Change ParentClosePolicy to a struct with two fields: the current enum and an applyOnParentContinueAsNew boolean flag to conditionally apply the policy.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Change ParentClosePolicy to a structure with two fields: The current ParentClosePolicy enum and applyOnParentContinueAsNew.",
+  "number": 373,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:54:00.290Z"
+}

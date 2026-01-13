@@ -1,0 +1,34 @@
+{
+  "summary": "Importing uvicorn in a Temporal Python SDK project causes a RestrictedWorkflowAccessError because uvicorn's initialization calls gettext.gettext.__call__, which is restricted in the workflow sandbox.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [
+    "Worker",
+    "Client",
+    "execute_activity",
+    "start_workflow"
+  ],
+  "components": [
+    "workflow-sandbox",
+    "importer",
+    "restrictions"
+  ],
+  "concepts": [
+    "import-restriction",
+    "sandbox-enforcement",
+    "third-party-libraries",
+    "workflow-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot import uvicorn in projects using Temporal Python SDK, blocking common web framework use cases.",
+  "rootCause": "Workflow sandbox restricts access to gettext.gettext.__call__ during module import; uvicorn's initialization code triggers this restriction when imported at module level.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed and moved to sdk-python repository for proper tracking and resolution.",
+  "related": [],
+  "keyQuote": "Cannot access gettext.gettext.__call__ from inside a workflow. If this is code from a module not used in a workflow or known to only be used deterministically from a workflow, mark the import as pass through.",
+  "number": 7598,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:43.206Z"
+}

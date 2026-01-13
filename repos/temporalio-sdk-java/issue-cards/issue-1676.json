@@ -1,0 +1,32 @@
+{
+  "summary": "Child workflow fails with SIGNAL_EXTERNAL_WORKFLOW_EXECUTION_NOT_FOUND error even though the signal was successfully handled by the parent workflow, suggesting a race condition in signal delivery timing.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [
+    "SignalExternalWorkflowExecution"
+  ],
+  "components": [
+    "signal-dispatcher",
+    "child-workflow",
+    "workflow-completion"
+  ],
+  "concepts": [
+    "signal-delivery",
+    "race-condition",
+    "parent-child-workflow",
+    "workflow-completion",
+    "signal-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpected workflow failures when signaling parent workflows during child workflow shutdown, causing signal-based coordination patterns to fail intermittently.",
+  "rootCause": "Parent workflow may complete before the last child signal is actually sent, causing the signal delivery to fail with NOT_FOUND after the parent has already received and processed an earlier signal.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Closed due to lack of activity and inability to reproduce the issue without a minimal reproduction case.",
+  "related": [],
+  "keyQuote": "Can it be that the parent WF manage to complete but somehow the child still didn't handle the signal, although the signal got to the parent?",
+  "number": 1676,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:51.640Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal server crashes when AWS RDS IAM authentication token expires due to missing token refresh mechanism. The server cannot reconnect to the database after the IAM role session expires (default 1 hour).",
+  "category": "bug",
+  "subcategory": "database-authentication",
+  "apis": [],
+  "components": [
+    "database-connection",
+    "rds-iam-auth-plugin",
+    "session-management"
+  ],
+  "concepts": [
+    "token-expiration",
+    "connection-pooling",
+    "authentication-refresh",
+    "aws-iam",
+    "database-resilience",
+    "session-management"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal servers running with AWS RDS IAM authentication crash and become unavailable when IAM tokens expire, requiring manual intervention to restart.",
+  "rootCause": "The rds-iam-auth plugin lacks a mechanism to re-hydrate or refresh expired AWS IAM tokens. The underlying database drivers do not automatically fetch new tokens on reconnection.",
+  "proposedFix": "Extend each database driver to override the Connect method to always fetch a new token, or force maxConns to 1 and recreate the session on connection failure.",
+  "workaround": "Force maxConns to 1 and recreate the session for each store on connection failure.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2830
+  ],
+  "keyQuote": "With an IAM role with 1h of duration session, once the session is expired Temporal crashes and can't reach the DB.",
+  "number": 3077,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:29.037Z"
+}

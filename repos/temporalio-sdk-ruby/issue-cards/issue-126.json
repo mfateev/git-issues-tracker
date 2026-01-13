@@ -1,0 +1,31 @@
+{
+  "summary": "Three transitive dependencies in the Rust bridge have known vulnerabilities: a critical TOCTOU race condition in remove_dir_all (9.1 CVSS), and two high-severity issues in webpki and hyper affecting certificate verification and HTTP/2 handling. However, this issue was applicable to a previous SDK version and is no longer relevant after the SDK rewrite.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "bridge",
+    "dependencies",
+    "cargo"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "transitive-dependency",
+    "dos",
+    "toctou-race",
+    "certificate-verification"
+  ],
+  "severity": "high",
+  "userImpact": "Users of older SDK versions could be exposed to critical and high-severity vulnerabilities including arbitrary file deletion and denial of service attacks through malicious inputs.",
+  "rootCause": "Outdated versions of transitive Rust dependencies (remove_dir_all 0.5.3, webpki 0.22.0, hyper 0.14.23) with known security issues",
+  "proposedFix": "Upgrade remove_dir_all to 0.8.0 or later, webpki to 0.22.2 or later, and hyper to a patched version",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by SDK rewrite/refresh which is no longer applicable to the current version",
+  "related": [],
+  "keyQuote": "The SDK is undergoing a rewrite/refresh and this issue applied to a previous version and is no longer applicable",
+  "number": 126,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:42:56.848Z"
+}

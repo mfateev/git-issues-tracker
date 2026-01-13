@@ -1,0 +1,32 @@
+{
+  "summary": "Activities that are paused should have their heartbeating interrupted to prevent unnecessary heartbeat signals while activities are suspended.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-manager",
+    "pause-handler"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-pause",
+    "interruption",
+    "activity-lifecycle",
+    "resource-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unnecessary heartbeat signals being sent for paused activities, wasting resources and potentially causing confusion in activity monitoring.",
+  "rootCause": "The heartbeating mechanism does not check or respect the pause state of activities before sending heartbeats.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Heartbeating activities are now properly interrupted when activities are paused.",
+  "related": [
+    602
+  ],
+  "keyQuote": "Heartbeating activities should be interrupted when the activities are paused.",
+  "number": 241,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:33.105Z"
+}

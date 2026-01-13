@@ -1,0 +1,32 @@
+{
+  "summary": "TestServer incorrectly propagates the parent workflow's timeout to child workflows that don't have an explicit timeout specified, causing the child to timeout prematurely instead of running independently.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "test-server",
+    "child-workflow",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "workflow-hierarchy",
+    "timeout-propagation",
+    "child-workflow",
+    "test-isolation"
+  ],
+  "severity": "high",
+  "userImpact": "Test developers cannot verify child workflows that are intended to run longer than their parent workflows, preventing proper testing of independent child workflow behavior.",
+  "rootCause": "TestServer implementation propagates parent workflow timeout to child workflows when no explicit child timeout is specified",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TestServer was updated to not propagate parent timeout to child workflows that don't have an explicit timeout",
+  "related": [],
+  "keyQuote": "A parent workflow with a short timeout should be able to start and abandon a child workflow without explicitly specifying a timeout and such a child can take a long time to finish on its own.",
+  "number": 1319,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:25:39.605Z"
+}

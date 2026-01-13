@@ -1,0 +1,40 @@
+{
+  "summary": "Establish standardized client behavior specifications for WorkflowHandle and stub methods across SDKs, particularly regarding run_id usage for handles created with start(), signal_with_start(), and getHandle() methods to ensure safety and consistency.",
+  "category": "feature",
+  "subcategory": "workflow-handles",
+  "apis": [
+    "WorkflowHandle",
+    "getHandle",
+    "start",
+    "signal_with_start",
+    "signal",
+    "query",
+    "describe"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-handle",
+    "stub-methods"
+  ],
+  "concepts": [
+    "run_id",
+    "first_execution_run_id",
+    "execution-chain",
+    "handle-safety",
+    "cross-sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need consistent and safe behavior when using WorkflowHandle methods across different SDKs to avoid operating on unrelated workflow runs.",
+  "rootCause": "Inconsistent implementation of run_id handling across SDKs and lack of server-side safety guarantees for certain handle operations.",
+  "proposedFix": "Standardize handle behavior: use run_id only when explicitly created with one, use first_execution_run_id for safety by default on started handles, and require server/API changes for signal/query/describe safety.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    468
+  ],
+  "keyQuote": "Handles created with `start` should follow runs by default and use `first_execution_run_id` for safety (don't operate on runs that aren't part of the same execution chain).",
+  "number": 22,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:52.589Z"
+}

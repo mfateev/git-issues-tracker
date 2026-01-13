@@ -1,0 +1,35 @@
+{
+  "summary": "Fiber state corruption occurs on x86_64 Linux when `Workflow.timeout` expires and is immediately followed by `Workflow.execute_activity`, causing a NoMethodError where `Fiber.yield` returns true instead of a Resolution object. The issue does not occur on aarch64 architecture and can be worked around by calling `Workflow.sleep(0)` before the activity.",
+  "category": "bug",
+  "subcategory": "fiber-scheduler",
+  "apis": [
+    "Workflow.timeout",
+    "Workflow.wait_condition",
+    "Workflow.execute_activity",
+    "Workflow.sleep"
+  ],
+  "components": [
+    "fiber-scheduler",
+    "workflow-instance",
+    "outbound-implementation"
+  ],
+  "concepts": [
+    "timeout-expiration",
+    "fiber-state",
+    "yield-resume-cycle",
+    "architecture-specific",
+    "state-corruption"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows on x86_64 Linux that use `Workflow.timeout` followed by `Workflow.execute_activity` crash when the timeout expires, blocking long-running patterns like opportunity nurturing workflows.",
+  "rootCause": "When a timeout expires on x86_64, the wait condition fiber is not properly cleaned up when an exception is raised from yield. This leaves the wait condition fiber registered while the execute activity is currently yielded, causing the resolution to be sent to the wrong fiber context, resulting in true being returned instead of a Resolution object.",
+  "proposedFix": null,
+  "workaround": "Add `Workflow.sleep(0)` before `Workflow.execute_activity` to force a clean fiber yield/resume cycle after timeout expiration.",
+  "resolution": "fixed",
+  "resolutionDetails": "SDK maintainers identified the root cause as improper cleanup of wait condition fibers on timeout, leading to fiber resolution routing issues. The issue was architecture-specific due to timing/memory layout differences between x86_64 and aarch64.",
+  "related": [],
+  "keyQuote": "when the wait timeout occurs, that wait condition is left around... we are not properly removing the wait condition when an exception is raised from yield (which is what timeout does)",
+  "number": 373,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:53:23.838Z"
+}

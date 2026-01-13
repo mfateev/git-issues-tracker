@@ -1,0 +1,33 @@
+{
+  "summary": "workflow.wait() with asyncio.FIRST_COMPLETED incorrectly blocks until all local activities complete instead of returning when the first one finishes. Non-local activities work correctly.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "workflow.wait"
+  ],
+  "components": [
+    "workflow-executor",
+    "local-activity-executor",
+    "asyncio-integration"
+  ],
+  "concepts": [
+    "asyncio",
+    "task-coordination",
+    "cancellation",
+    "local-activities",
+    "race-conditions",
+    "waiting-strategies"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot efficiently wait for the first completion among multiple local activities, breaking common patterns like competitive activity execution with selective cancellation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use non-local activities instead of local activities when needing FIRST_COMPLETED semantics.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If I start N local activities, then use `workflow.wait(tasks, return_when=asyncio.FIRST_COMPLETED)`, the `workflow.wait` coro blocks until all of the activities actually finish, instead of returning when the first one finishes.",
+  "number": 699,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:30.135Z"
+}

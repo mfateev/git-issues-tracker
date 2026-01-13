@@ -1,0 +1,32 @@
+{
+  "summary": "Request to return NamespaceNotFoundFailure error details when DescribeNamespace is called for an unknown namespace, and support other missing error details from the Temporal API.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "DescribeNamespace"
+  ],
+  "components": [
+    "namespace-client",
+    "error-details",
+    "grpc-status"
+  ],
+  "concepts": [
+    "error-handling",
+    "namespace-validation",
+    "gRPC-status-details",
+    "error-codes",
+    "API-compliance"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot reliably detect when a namespace doesn't exist, as no error is raised in DescribeNamespace calls.",
+  "rootCause": "Test Server intentionally supports all namespaces for user convenience, deviating from regular server behavior.",
+  "proposedFix": "Return not-found error with NamespaceNotFoundFailure in gRPC status details; implement other missing error details from temporal/api/errordetails/v1/message.proto.",
+  "workaround": "Skip test server validation for unregistered namespace tests.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as intentional deviation - Test Server supports all namespaces by design for user convenience.",
+  "related": [],
+  "keyQuote": "Right now Test Server supports all namespaces as registered for user convenience. It's a design choice.",
+  "number": 1557,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:31.852Z"
+}

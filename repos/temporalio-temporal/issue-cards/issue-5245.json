@@ -1,0 +1,34 @@
+{
+  "summary": "ScheduleClient.List API is missing a SearchAttributes parameter that exists in ScheduleOptions for creating schedules. The List API should support filtering schedules by SearchAttributes to match the capability described in the create API.",
+  "category": "feature",
+  "subcategory": "schedules-api",
+  "apis": [
+    "ScheduleClient.List",
+    "ScheduleListOptions",
+    "ScheduleOptions"
+  ],
+  "components": [
+    "schedules",
+    "list-api",
+    "search-attributes"
+  ],
+  "concepts": [
+    "api-consistency",
+    "search-filtering",
+    "query-capability",
+    "schedule-management",
+    "indexed-data"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot filter schedules by SearchAttributes when listing, limiting the usefulness of indexed schedule metadata.",
+  "rootCause": "API inconsistency between ScheduleOptions (which supports SearchAttributes) and ScheduleListOptions (which does not).",
+  "proposedFix": "Add SearchAttributes parameter to ScheduleListOptions and implement filtering logic in ScheduleClient.List API.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Either the SearchAttributes field description is incorrect or it should be one of the parameters in ScheduleListOptions.SearchAttributes field.",
+  "number": 5245,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:38.652Z"
+}

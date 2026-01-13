@@ -1,0 +1,29 @@
+{
+  "summary": "Docker Hub images for Temporal Server, admin-tools, and auto-setup were incorrectly tagged as 1.7.1 instead of 1.17.1. This was a tagging error that prevented users from accessing the correct latest version of the software.",
+  "category": "bug",
+  "subcategory": "docker-image-release",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "release-process",
+    "docker-hub"
+  ],
+  "concepts": [
+    "versioning",
+    "container-image",
+    "release-tagging",
+    "docker-registry"
+  ],
+  "severity": "high",
+  "userImpact": "Users pulling latest images from Docker Hub would receive version 1.7.1 instead of the intended 1.17.1, causing version mismatch issues.",
+  "rootCause": "Incorrect tagging in the Docker image release process resulted in wrong semantic version labels being pushed to Docker Hub.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Correct tags (1.17.1) were pushed to Docker Hub to replace the incorrect 1.7.1 tags.",
+  "related": [],
+  "keyQuote": "Latest images for server, admin-tools & auto-setup should be tagged 1.17.1 but all are tagged 1.7.1 on docker hub.",
+  "number": 3093,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:39.195Z"
+}

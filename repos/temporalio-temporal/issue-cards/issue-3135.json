@@ -1,0 +1,30 @@
+{
+  "summary": "Add validation to Assert shard ownership against the database (source of truth) when acquireShards is invoked, in addition to existing in-memory data structure validation.",
+  "category": "other",
+  "subcategory": "shard-management",
+  "apis": [],
+  "components": [
+    "shard-controller",
+    "persistence",
+    "history-service"
+  ],
+  "concepts": [
+    "shard-ownership",
+    "data-consistency",
+    "source-of-truth",
+    "validation",
+    "database-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Improved shard ownership validation ensures consistency between in-memory state and database, preventing potential data inconsistencies.",
+  "rootCause": "acquireShards only validates in-memory shard data structure without verifying against the authoritative database state via AssertShardOwnership API",
+  "proposedFix": "Use the AssertShardOwnership persistence API to validate shard ownership against the database source of truth during acquireShards invocation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "acquireShards function right now only assert shard (in mem) data structure is in valid state, additional assertion should also be performed against DB (source of truth)",
+  "number": 3135,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:27.868Z"
+}

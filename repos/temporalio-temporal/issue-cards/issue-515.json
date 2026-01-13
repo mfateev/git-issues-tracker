@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal server is hardcoded to output logs in JSON format, which is incompatible with infrastructure that requires specific constraints like low cardinality of field names. User requests the ability to use zap's console encoder for regular log line output.",
+  "category": "feature",
+  "subcategory": "logging-configuration",
+  "apis": [],
+  "components": [
+    "logger",
+    "config",
+    "zap-encoder"
+  ],
+  "concepts": [
+    "logging",
+    "configuration",
+    "encoder",
+    "json-format",
+    "infrastructure-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users with specific infrastructure requirements for log formatting cannot use Temporal due to hardcoded JSON logging format.",
+  "rootCause": null,
+  "proposedFix": "Expose zap logger encoding configuration to allow use of alternative encoders like the console encoder instead of hardcoded JSON.",
+  "workaround": "Attempt to process JSON-encoded logs as plain text, though this is not user-friendly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Would like to be able to use the zap \"console\" encoder which I assume outputs regular log lines.",
+  "number": 515,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:10:59.674Z"
+}

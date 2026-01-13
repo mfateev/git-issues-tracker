@@ -1,0 +1,29 @@
+{
+  "summary": "Critical security vulnerability (CVSS 9.8) in transitive dependency atty-0.2.14 used by cbindgen-0.24.3, with potential unaligned read vulnerability. Issue was automatically closed after the vulnerable library was removed from inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "cbindgen",
+    "dependency-management",
+    "transitive-dependencies"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "supply-chain",
+    "dependency-resolution",
+    "cvss-score"
+  ],
+  "severity": "critical",
+  "userImpact": "Developers using this SDK version may be exposed to a critical remote code execution vulnerability through a transitive dependency.",
+  "rootCause": "Unaligned read vulnerability in atty-0.2.14 library used transitively through cbindgen → clap dependency chain",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend when the vulnerable library was removed from inventory or marked as ignored",
+  "related": [],
+  "keyQuote": "atty potential unaligned read",
+  "number": 121,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:06:18.340Z"
+}

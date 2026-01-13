@@ -1,0 +1,34 @@
+{
+  "summary": "When calling workflow API functions like sleep() outside of a workflow context (in a Node script), the error message is cryptic (\"exports.storage.getStore is not a function\") instead of clearly indicating the function must be run within a workflow.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "sleep"
+  ],
+  "components": [
+    "workflow",
+    "cancellation-scope",
+    "error-messages"
+  ],
+  "concepts": [
+    "error-messages",
+    "developer-experience",
+    "workflow-context",
+    "isolate",
+    "runtime-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers receive confusing stack traces when accidentally calling workflow APIs outside a workflow, making it difficult to diagnose the actual problem.",
+  "rootCause": "Workflow functions attempt to access async context storage that only exists within a workflow isolate, but the error propagates from the storage layer rather than being caught at the API boundary.",
+  "proposedFix": "Catch calls to workflow APIs outside of workflow context and throw a clear error message: 'This function is meant to be used inside Workflow code. Workflow code should only be run by the Worker (and is provided to the Worker via either the `workflowsPath` or `workflowBundle` option).'",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was closed in favor of #553, indicating it was merged or consolidated with another issue addressing the same problem.",
+  "related": [
+    553
+  ],
+  "keyQuote": "This function is meant to be used inside Workflow code. Workflow code should only be run by the Worker",
+  "number": 406,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:10.777Z"
+}

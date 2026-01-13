@@ -1,0 +1,33 @@
+{
+  "summary": "PHP SDK client calls can hang indefinitely when the Temporal server is unreachable. The request is to add a `withTimeout()` method to the Workflow Client class to allow developers to set custom gRPC timeouts for client operations.",
+  "category": "feature",
+  "subcategory": "client-timeout",
+  "apis": [
+    "WorkflowClient",
+    "listWorkflowExecutions"
+  ],
+  "components": [
+    "grpc-client",
+    "workflow-client",
+    "connection-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "client-configuration",
+    "server-connectivity",
+    "grpc",
+    "hanging-requests"
+  ],
+  "severity": "high",
+  "userImpact": "Applications can hang indefinitely when unable to reach the Temporal server, preventing proper error handling and recovery.",
+  "rootCause": "PHP gRPC client calls lack configurable timeout mechanisms, causing indefinite blocking on unreachable servers.",
+  "proposedFix": "Add `withTimeout(int $timeout)` method to Workflow Client class to allow setting custom timeouts for client calls.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently, if the Temporal server is not reachable, the PHP client will hang forever.",
+  "number": 338,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:26.457Z"
+}

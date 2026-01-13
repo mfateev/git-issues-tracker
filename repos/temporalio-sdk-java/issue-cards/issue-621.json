@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTracing integration with Jaeger tracer fails with UnsupportedFormatException for TEXT_MAP_INJECT format. The Java SDK's OpenTracing support is incompatible with Jaeger client's format handling strategy.",
+  "category": "bug",
+  "subcategory": "opentracing-integration",
+  "apis": [],
+  "components": [
+    "opentracing",
+    "tracer",
+    "jaeger-client"
+  ],
+  "concepts": [
+    "opentracing",
+    "distributed-tracing",
+    "jaeger",
+    "format-encoding",
+    "text-map-codec"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Jaeger tracer with the Java SDK's OpenTracing support due to format incompatibility.",
+  "rootCause": "Jaeger OpenTracing Java client does not support TEXT_MAP_INJECT and TEXT_MAP_EXTRACT format strategies that the Temporal SDK requires.",
+  "proposedFix": "Implement a workaround encoding strategy in the Temporal SDK to work around Jaeger client's format limitations.",
+  "workaround": "Use alternative tracer implementation or wait for Jaeger client fix.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #624 with a workaround for Jaeger client format incompatibility and integration test.",
+  "related": [
+    624,
+    789
+  ],
+  "keyQuote": "Jaeger OpenTracing java client doesn't support TEXT_MAP_INJECT and TEXT_MAP_EXTRACT strategies",
+  "number": 621,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:28:56.401Z"
+}

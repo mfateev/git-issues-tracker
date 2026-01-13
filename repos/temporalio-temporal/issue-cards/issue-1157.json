@@ -1,0 +1,31 @@
+{
+  "summary": "User requests a feature to resume failed workflows at the point of the last failed activity, rather than only at workflow task boundaries. The Temporal team indicated this capability is not currently supported and has no immediate plans for implementation.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "reset-points",
+    "activity-execution"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "failure-recovery",
+    "execution-resumption",
+    "checkpoint",
+    "activity-failure",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot resume workflows at granular failure points, limiting their ability to recover from activity failures without replaying earlier workflow steps.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Team confirmed that reset points are limited to WorkflowTask boundaries and indicated no immediate plans to support activity-level reset points.",
+  "related": [],
+  "keyQuote": "Reset is currently supported on WorkflowTask boundaries. Currently we don't have immediate plans to support other reset points.",
+  "number": 1157,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:24.649Z"
+}

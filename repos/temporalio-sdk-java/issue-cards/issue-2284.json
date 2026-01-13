@@ -1,0 +1,33 @@
+{
+  "summary": "UpdateWithStartWorkflowOperation created from a String update name cannot be used with WorkflowClient.updateWithStart(). The API should accept any valid UpdateWithStartWorkflowOperation regardless of how it was constructed.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "WorkflowClient.updateWithStart",
+    "UpdateWithStartWorkflowOperation"
+  ],
+  "components": [
+    "workflow-client",
+    "update-with-start",
+    "workflow-operation"
+  ],
+  "concepts": [
+    "workflow-update",
+    "type-safety",
+    "operation-creation",
+    "string-parameters",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use untyped (String-based) UpdateWithStartWorkflowOperation with the updateWithStart API, forcing them to use only typed operations.",
+  "rootCause": "UpdateWithStartWorkflowOperation created from String update name has incompatible type or structure that WorkflowClient.updateWithStart does not accept.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating a fix was applied to accept UpdateWithStartWorkflowOperation created from String update names.",
+  "related": [],
+  "keyQuote": "WorkflowClient.updateWithStart can not take a valid UpdateWithStartWorkflowOperation if it was created with a String update name",
+  "number": 2284,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:33.526Z"
+}

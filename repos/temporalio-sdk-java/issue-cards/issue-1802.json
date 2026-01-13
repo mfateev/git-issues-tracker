@@ -1,0 +1,34 @@
+{
+  "summary": "ConcurrentModificationException occurs when calling Workflow.upsertSearchAttributes in tests with concurrent workflows due to non-thread-safe HashMap in TestVisibilityStoreImpl. The fix requires changing to ConcurrentHashMap to handle child workflow concurrency.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "upsertTypedSearchAttributes"
+  ],
+  "components": [
+    "test-visibility-store",
+    "test-workflow-mutable-state",
+    "test-server"
+  ],
+  "concepts": [
+    "concurrency",
+    "thread-safety",
+    "search-attributes",
+    "child-workflows",
+    "test-server"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using concurrent workflows fail when calling upsertSearchAttributes due to ConcurrentModificationException in the test server implementation.",
+  "rootCause": "TestVisibilityStoreImpl uses a non-thread-safe HashMap at line 58 which can be accessed concurrently by child workflows, causing ConcurrentModificationException in the compute operation.",
+  "proposedFix": "Replace the non-thread-safe HashMap with ConcurrentHashMap in TestVisibilityStoreImpl to handle concurrent access from child workflows.",
+  "workaround": "Comment out the code calling upsertSearchAttributes in tests.",
+  "resolution": "fixed",
+  "resolutionDetails": "Changed HashMap to ConcurrentHashMap in TestVisibilityStoreImpl to safely handle concurrent child workflow execution.",
+  "related": [
+    1067
+  ],
+  "keyQuote": "the map at TestVisibilityStoreImpl.java#L58 should be concurrent map because technically child workflows can run concurrently too",
+  "number": 1802,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:16.705Z"
+}

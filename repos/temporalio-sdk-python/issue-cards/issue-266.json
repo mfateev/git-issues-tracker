@@ -1,0 +1,32 @@
+{
+  "summary": "Test and confirm that async activities returning Optional types (e.g., Optional[str]) can properly complete with null/None values. Currently, the code may not explicitly put a null value in the result.",
+  "category": "feature",
+  "subcategory": "activity-completion",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "type-handling",
+    "result-serialization"
+  ],
+  "concepts": [
+    "optional-types",
+    "null-handling",
+    "type-safety",
+    "activity-result",
+    "async-completion"
+  ],
+  "severity": "low",
+  "userImpact": "Users may encounter issues when activities are designed to return Optional types and need to return None values.",
+  "rootCause": "Code may not explicitly handle putting null/None values in activity results for Optional return types",
+  "proposedFix": "Create a test to confirm async activity completion works correctly with Optional return types and None values",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed as enhancement - test was added or implementation was verified to handle Optional return types correctly",
+  "related": [],
+  "keyQuote": "Make a test to confirm that is ok for a workflow expecting an activity response of `Optional[str]` or similar.",
+  "number": 266,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:11.091Z"
+}

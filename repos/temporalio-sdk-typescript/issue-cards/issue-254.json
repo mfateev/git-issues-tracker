@@ -1,0 +1,33 @@
+{
+  "summary": "When a new TypeScript SDK project is run without a local Temporal instance, users receive a cryptic [TransportError: transport error] message instead of helpful guidance. The request is for a more informative error message that explains what went wrong.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "core",
+    "worker",
+    "connection"
+  ],
+  "concepts": [
+    "error-handling",
+    "connection-failure",
+    "user-experience",
+    "docker-compose",
+    "startup",
+    "debugging"
+  ],
+  "severity": "low",
+  "userImpact": "New users get a cryptic error message that doesn't explain why their worker failed to start, making it difficult to troubleshoot connection issues.",
+  "rootCause": "When Core cannot connect to a Temporal server, it propagates a generic TransportError that lacks context about the actual problem.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing connection retry logic with warnings instead of immediate failure, as noted in issue #290.",
+  "related": [
+    290
+  ],
+  "keyQuote": "Not relevant anymore since we will log a warning and retry when Core cannot connect (#290)",
+  "number": 254,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:21.246Z"
+}

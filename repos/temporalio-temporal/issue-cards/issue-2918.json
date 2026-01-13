@@ -1,0 +1,32 @@
+{
+  "summary": "Proposes an alternative persistence approach using coroutine serialization instead of Event Sourcing, arguing it could simplify workflow versioning and improve efficiency by avoiding full log replay.",
+  "category": "feature",
+  "subcategory": "workflow-persistence",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "persistence",
+    "serialization"
+  ],
+  "concepts": [
+    "coroutines",
+    "event-sourcing",
+    "persistence",
+    "serialization",
+    "versioning",
+    "idempotency",
+    "continuation-points"
+  ],
+  "severity": "low",
+  "userImpact": "Users could potentially benefit from simpler workflow versioning and better performance if this alternative persistence model were implemented.",
+  "rootCause": null,
+  "proposedFix": "Implement coroutine suspension and serialization at continuation points with explicit schema (e.g., protobuf) and persistence annotations for each point and field, requiring language-level coroutine serialization support.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "instead of Event Sourcing the framework could persist the Workflows' coroutines states into the persistent storage",
+  "number": 2918,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:16.607Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "User seeks guidance on deploying Temporal in production across 8 instances and encounters a ringpop bootstrap timeout error. The configuration attempts to set up a distributed system with separate frontend, matching, history, and worker services using MySQL persistence.",
+  "category": "question",
+  "subcategory": "deployment-configuration",
+  "apis": [],
+  "components": [
+    "frontend",
+    "matching",
+    "history",
+    "worker",
+    "ringpop",
+    "membership",
+    "persistence"
+  ],
+  "concepts": [
+    "production-deployment",
+    "cluster-configuration",
+    "ringpop-bootstrap",
+    "membership",
+    "distributed-system",
+    "network-topology"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting production deployments of Temporal receive ringpop bootstrap timeout errors when configuring multi-instance clusters, preventing successful cluster formation.",
+  "rootCause": "The broadcastAddress is set to 0.0.0.0 instead of the actual IP address, preventing proper ringpop peer discovery and joining.",
+  "proposedFix": "Set global.membership.broadcastAddress to the actual IP address of the server instance (e.g., 10.114.1.1 for frontend instances) instead of 0.0.0.0.",
+  "workaround": "Use 127.0.0.1 as the broadcastAddress, though this may not work for distributed deployments.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed as it was identified as a documentation/configuration question rather than a bug. Community provided the solution (use actual IP for broadcastAddress) and redirected user to community forums.",
+  "related": [],
+  "keyQuote": "the broadcastAddress should be actual IP address",
+  "number": 2690,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:17.271Z"
+}

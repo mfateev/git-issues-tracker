@@ -1,0 +1,35 @@
+{
+  "summary": "User requests adding getWorkflowId() and getFirstExecutionRunId() methods to the ScheduleActionExecution interface to avoid casting when fetching active running workflows through schedule describe calls. The maintainer declined, arguing that ScheduleActionExecution is a variant type that may support non-workflow actions in the future, and casting is the appropriate pattern.",
+  "category": "feature",
+  "subcategory": "schedules-api",
+  "apis": [
+    "ScheduleClient",
+    "ScheduleDescription",
+    "ScheduleActionExecution",
+    "ScheduleActionExecutionStartWorkflow"
+  ],
+  "components": [
+    "schedules",
+    "client-api",
+    "schedule-description"
+  ],
+  "concepts": [
+    "variant-types",
+    "type-casting",
+    "api-design",
+    "extensibility",
+    "workflow-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users must cast ScheduleActionExecution to ScheduleActionExecutionStartWorkflow to access workflow ID and run ID, reducing API clarity and creating maintenance burden.",
+  "rootCause": "ScheduleActionExecution is designed as a variant type interface to support future action types beyond workflows (nexus operations, activities), but currently only has one implementation.",
+  "proposedFix": "Add abstract methods like getActionType() and getId() to ScheduleActionExecution, or provide a getActionMetadata() method that returns action details via Java generics.",
+  "workaround": "Cast ScheduleActionExecution to ScheduleActionExecutionStartWorkflow to access workflow ID and run ID.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer decided casting is the appropriate pattern for Java's variant type representation, as ScheduleActionExecution will support multiple action types in the future.",
+  "related": [],
+  "keyQuote": "ScheduleActionExecution is a variant type to contain multiple different types of Schedule*Execution. Currently we only have one, but that will not always be the case.",
+  "number": 2557,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:40.687Z"
+}

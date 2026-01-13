@@ -1,0 +1,31 @@
+{
+  "summary": "Multiple CVEs reported in temporalio/admin-tools:1.27.2 Docker image including high-severity vulnerabilities in JWT libraries, Go net packages, and other dependencies. The issue tracks security vulnerabilities found during container scanning with multiple fixes available.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "admin-tools",
+    "dependencies"
+  ],
+  "concepts": [
+    "CVE",
+    "vulnerability",
+    "security",
+    "dependency-management",
+    "container-security",
+    "patching"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying the admin-tools:1.27.2 Docker image are exposed to multiple known security vulnerabilities that could be exploited if not patched.",
+  "rootCause": "Outdated and vulnerable versions of dependencies including golang-jwt/jwt, golang.org/x/net, golang.org/x/oauth2, sqlite, and other packages bundled in the Docker image.",
+  "proposedFix": "Update all vulnerable dependencies to their fixed versions: golang-jwt/jwt to 4.5.2+, golang.org/x/net to 0.33.0+, golang.org/x/oauth2 to 0.27.0+, sqlite to 3.48.0-r1+, postgresql17 to 17.4-r0+, and others as specified in CVE reports.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the vulnerabilities were addressed through dependency updates in the admin-tools image.",
+  "related": [],
+  "keyQuote": "There are some CVEs found from the latest Temporal image: temporalio/admin-tools:1.27.2",
+  "number": 7602,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:55.609Z"
+}

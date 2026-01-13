@@ -1,0 +1,37 @@
+{
+  "summary": "After workflow restart via continueAsNew, awaitWithTimeout condition evaluation fails and waits for the full timeout instead of detecting when the condition becomes true. The await predicate appears to not be re-evaluated after workflow continuation.",
+  "category": "bug",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "awaitWithTimeout",
+    "continueAsNewStub",
+    "SignalMethod",
+    "QueryMethod"
+  ],
+  "components": [
+    "workflow-execution",
+    "condition-evaluation",
+    "signal-handling",
+    "workflow-continuation"
+  ],
+  "concepts": [
+    "timeout",
+    "condition-predicate",
+    "workflow-restart",
+    "signal-driven-state",
+    "async-await",
+    "state-persistence"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows cannot efficiently resume after continueAsNew when waiting for conditions updated via signals, forcing users to wait for timeouts instead of resuming immediately.",
+  "rootCause": "awaitWithTimeout predicate not being re-evaluated after workflow restart via continueAsNew, likely due to closure or state reference issues in the condition lambda.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in version 1.0.5 according to comment by repository maintainer.",
+  "related": [],
+  "keyQuote": "after workflow \"restart\" via continueAsNewStub seems that condition never goes to true",
+  "number": 122,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:48.029Z"
+}

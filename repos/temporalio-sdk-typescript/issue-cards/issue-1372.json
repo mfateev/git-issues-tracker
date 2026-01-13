@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to prevent the SDK from returning an update handle when the update has not reached the desired state, addressing consistency in update state handling.",
+  "category": "feature",
+  "subcategory": "update-handling",
+  "apis": [
+    "UpdateHandle"
+  ],
+  "components": [
+    "update-handler",
+    "update-executor",
+    "state-management"
+  ],
+  "concepts": [
+    "update-state",
+    "handle-lifecycle",
+    "state-consistency",
+    "workflow-updates",
+    "async-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may receive update handles in unexpected or incorrect states, leading to confusion and potential errors in update workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    432
+  ],
+  "keyQuote": "SDK should not return an update handle if the update has not reached the desired state",
+  "number": 1372,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:25.755Z"
+}

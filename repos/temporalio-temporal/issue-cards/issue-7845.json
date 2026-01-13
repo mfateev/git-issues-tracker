@@ -1,0 +1,33 @@
+{
+  "summary": "User is asking whether the SSL/TLS configuration properties shown in the config_template.yml are sufficient for enabling SSL in the Temporal engine. They've modified default values and added environment variables but are seeking confirmation of the correct setup.",
+  "category": "question",
+  "subcategory": "ssl-tls-configuration",
+  "apis": [],
+  "components": [
+    "config-template",
+    "docker-compose",
+    "tls-configuration",
+    "database-connection"
+  ],
+  "concepts": [
+    "ssl",
+    "tls",
+    "encryption",
+    "host-verification",
+    "certificate",
+    "configuration",
+    "security"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clear guidance on proper SSL/TLS configuration to securely connect to databases in Temporal deployments.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Before both default .Env.SQL_TLS_ENABLED and .Env.SQL_HOST_VERIFICATION are false and i changed it to true",
+  "number": 7845,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:31.016Z"
+}

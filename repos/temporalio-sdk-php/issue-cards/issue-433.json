@@ -1,0 +1,32 @@
+{
+  "summary": "ArrayType marshaller incorrectly handles string keys during unserialization. When serializing arrays with string keys, the keys are preserved but lost during deserialization due to improper key mapping in the ArrayType mapper.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "MarshalArray"
+  ],
+  "components": [
+    "ArrayType mapper",
+    "marshaller",
+    "serialization"
+  ],
+  "concepts": [
+    "key mapping",
+    "serialization",
+    "deserialization",
+    "array handling",
+    "data conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably serialize and deserialize arrays with string keys, as the keys are lost during unserialization.",
+  "rootCause": "The ArrayType mapper at line 85 uses the array index variable $i to access both the current key and the item, failing to preserve string keys during the parse operation.",
+  "proposedFix": "Fix line 85 in ArrayType mapper to properly preserve and map string keys during iteration and parsing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The reported bug was fixed by correcting the key mapping logic in the ArrayType marshaller to properly handle string keys during unserialization.",
+  "related": [],
+  "keyQuote": "Data being serialized with proper keys but unserialized inproperly.",
+  "number": 433,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:25.025Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Calling `client.workflow.list` with the latest CLI (0.6.0 with server 1.20.0) fails with 'unexpected end of JSON input' error, while the same code works with temporalite. The issue only occurs with new SQL DB configs using advanced visibility.",
+  "category": "bug",
+  "subcategory": "workflow-list-api",
+  "apis": [
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "client",
+    "grpc-client",
+    "sql-visibility",
+    "advanced-visibility"
+  ],
+  "concepts": [
+    "json-parsing",
+    "grpc-streaming",
+    "empty-token",
+    "database-visibility",
+    "protocol-buffer"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot list workflows with the latest CLI when using advanced SQL visibility, blocking a core workflow management operation.",
+  "rootCause": "Server returns empty byte array `[]byte{}` for pagination token, but code only checks against `nil`, not empty data, causing JSON parsing failure.",
+  "proposedFix": "Add check for empty data in addition to nil check for pagination tokens in the server code.",
+  "workaround": "Use temporalite (devel version with server 1.17.3) instead of the latest temporal CLI, or avoid advanced visibility configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #4074 fixes the token validation to check both nil and empty data conditions.",
+  "related": [
+    4074
+  ],
+  "keyQuote": "The API is making a call with token being `[]byte{}` and the code is only checking against `nil`, not empty data.",
+  "number": 4053,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:24.873Z"
+}

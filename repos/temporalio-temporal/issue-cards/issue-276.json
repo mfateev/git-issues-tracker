@@ -1,0 +1,33 @@
+{
+  "summary": "When a single decision batch contains both StartChildWorkflowExecution and RequestCancelExternalWorkflowExecution, the cancellation fails and the child workflow is started instead. The system should immediately cancel the child workflow by writing appropriate cancellation events to history.",
+  "category": "bug",
+  "subcategory": "child-workflow-cancellation",
+  "apis": [
+    "StartChildWorkflowExecution",
+    "RequestCancelExternalWorkflowExecution"
+  ],
+  "components": [
+    "decision-processor",
+    "child-workflow-manager",
+    "event-history"
+  ],
+  "concepts": [
+    "workflow-cancellation",
+    "decision-batch",
+    "event-ordering",
+    "immediate-cancellation",
+    "external-workflow-request"
+  ],
+  "severity": "high",
+  "userImpact": "Child workflows cannot be immediately cancelled when a parent requests cancellation in the same decision batch, resulting in unexpected workflow execution and broken cancellation semantics.",
+  "rootCause": "The decision processor does not properly handle the case where StartChildWorkflowExecution and RequestCancelExternalWorkflowExecution decisions are in the same batch, causing the cancellation request to fail before the child workflow is created.",
+  "proposedFix": "Reorder decision processing or add special handling to ensure RequestCancelExternalWorkflowExecution is processed after StartChildWorkflowExecution within the same batch, writing the appropriate cancellation events (RequestCancelExternalWorkflowExecutionInitiated, ExternalWorkflowExecutionCancelRequested, ChildWorkflowExecutionCanceled) to history.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the decision batch processing logic to properly handle immediate child workflow cancellation requests.",
+  "related": [],
+  "keyQuote": "Currently when a single decision batch contains StartChildWorkflowExecution and RequestCancelExternalWorkflowExecution the cancellation fails and the child is started.",
+  "number": 276,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:24:54.661Z"
+}

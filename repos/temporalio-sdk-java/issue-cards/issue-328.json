@@ -1,0 +1,31 @@
+{
+  "summary": "JSON deserialization fails when workflow/activity input data classes change between deployments (fields added, removed, or type-changed). Old workers cannot deserialize new data formats, breaking backward compatibility during rolling updates.",
+  "category": "docs",
+  "subcategory": "serialization-compatibility",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "jackson-json-payload-converter",
+    "workflow-input"
+  ],
+  "concepts": [
+    "serialization",
+    "backward-compatibility",
+    "data-migration",
+    "schema-evolution",
+    "versioning",
+    "jackson-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely evolve data class schemas used in workflow/activity methods without breaking old workers during rolling deployments.",
+  "rootCause": "Temporal uses Jackson's default mapper configuration which rejects unknown properties by default; users must configure '@JsonIgnoreProperties(ignoreUnknown = true)' or customize data converters, but this is undocumented.",
+  "proposedFix": "Improve documentation to explain that users should configure their serializer (Jackson) with compatible settings when making data class changes, and document best practices for schema evolution.",
+  "workaround": "Annotate data classes with '@JsonIgnoreProperties(ignoreUnknown = true)' or implement custom data converters with appropriate Jackson mapper configuration.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as misconfiguration, not a bug. Temporal correctly delegates serialization to Jackson; users must understand their serializer's configuration and compatibility requirements. Documentation improvements suggested rather than code changes.",
+  "related": [],
+  "keyQuote": "You should be aware of the serializer that you use and its configuration and make changes to data classes that are compatible with your combination of serializer and options",
+  "number": 328,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:07:58.085Z"
+}

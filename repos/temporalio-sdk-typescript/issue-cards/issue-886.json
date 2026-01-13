@@ -1,0 +1,29 @@
+{
+  "summary": "Documentation search index was returning a deprecated `workflowClient` interface reference that led to a 404 page. The interface was replaced with `TestWorkflowEnvironment.workflowClient` but the search index hadn't been updated.",
+  "category": "docs",
+  "subcategory": "documentation-indexing",
+  "apis": [],
+  "components": [
+    "documentation",
+    "search-index"
+  ],
+  "concepts": [
+    "documentation-generation",
+    "search-indexing",
+    "api-reference",
+    "deprecation",
+    "redirect"
+  ],
+  "severity": "low",
+  "userImpact": "Users following search results encounter 404 errors when trying to access deprecated API documentation.",
+  "rootCause": "Documentation indexing delay - the search index included references to deprecated APIs that were replaced but not yet reflected in the index.",
+  "proposedFix": "Either remove deprecated entries from search index or implement redirects from old API references to their replacements.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by waiting for the next manual documentation index rebuild which removed the stale references.",
+  "related": [],
+  "keyQuote": "Indexing is once/week or manual. Last one was 3h ago, and this issue was fixed.",
+  "number": 886,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:53.086Z"
+}

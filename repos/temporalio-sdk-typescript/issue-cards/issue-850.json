@@ -1,0 +1,33 @@
+{
+  "summary": "Error running Temporal TypeScript SDK in Linux Docker containers without glibc (GNU libc). The core-bridge module fails to load because it only provides x86_64-unknown-linux-gnu binaries, not musl/Alpine-compatible versions, causing missing shared library errors.",
+  "category": "bug",
+  "subcategory": "core-bridge",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "core-bridge",
+    "native-bindings",
+    "docker-deployment"
+  ],
+  "concepts": [
+    "docker",
+    "libc",
+    "alpine",
+    "binary-compatibility",
+    "native-modules",
+    "musl"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot run the TypeScript SDK in lightweight Alpine/musl-based Docker containers, limiting deployment options.",
+  "rootCause": "The core-bridge native module is compiled only for glibc (linux-gnu), not for musl. Alpine and other musl-based distributions lack the required glibc shared libraries.",
+  "proposedFix": "Build and distribute core-bridge binaries for musl targets (e.g., x86_64-unknown-linux-musl) similar to how other Node.js native libraries like SWC handle it.",
+  "workaround": "Use glibc-based Docker images (e.g., node, node-slim) instead of Alpine. Add ca-certificates package if needed for lightweight deployment.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers documented that musl/Alpine is not supported. Issue closed as a documented limitation, though they noted musl support might be considered in the future.",
+  "related": [],
+  "keyQuote": "Using musl based images (such as Alpine) is not supported. Can you try with a glibc based image, such as node?",
+  "number": 850,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:20:03.779Z"
+}

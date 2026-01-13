@@ -1,0 +1,35 @@
+{
+  "summary": "ActivityStub should be bound to specific activity types and support typed method references, similar to WorkflowStub, to provide consistency and better type safety across the SDK.",
+  "category": "feature",
+  "subcategory": "activity-stubs",
+  "apis": [
+    "ActivityStub",
+    "ActivityInterface",
+    "ActivityMethod",
+    "WorkflowStub"
+  ],
+  "components": [
+    "activity-stubs",
+    "activity-interface",
+    "untyped-stubs"
+  ],
+  "concepts": [
+    "type-binding",
+    "method-reference",
+    "consistency",
+    "type-safety",
+    "api-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must work with untyped ActivityStub and string-based activity names instead of compile-time safe method references, making it harder to use compared to WorkflowStub.",
+  "rootCause": "ActivityInterface can have multiple ActivityMethod entries unlike WorkflowInterface which has a single entry workflow method, causing inconsistency in stub design.",
+  "proposedFix": "Create a variation of ActivityStub bound to specific activity types and add ActivityStub.fromTyped method similar to WorkflowStub.fromTyped that takes a method reference instead of an instance pointer.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "To keep things consistent, we should have a variation of the ActivityStub that binds an execution of the activity to a specific type the same way as WorkflowStub.",
+  "number": 1009,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:59:00.023Z"
+}

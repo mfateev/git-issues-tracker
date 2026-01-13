@@ -1,0 +1,31 @@
+{
+  "summary": "The Python SDK's behavior with fork() is undefined and fails unpredictably, particularly with gRPC client file descriptors that cause crashes during garbage collection in child processes. The request is to ensure fork() either works cleanly without leaks or fails explicitly when attempting to use forked resources.",
+  "category": "bug",
+  "subcategory": "fork-handling",
+  "apis": [],
+  "components": [
+    "client",
+    "core",
+    "gRPC"
+  ],
+  "concepts": [
+    "fork",
+    "garbage-collection",
+    "file-descriptors",
+    "child-process",
+    "resource-cleanup",
+    "undefined-behavior"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unpredictable failures when using fork() with Temporal Python SDK, particularly from implicit garbage collection crashes during child process cleanup.",
+  "rootCause": "Rust file descriptors from gRPC client are copied across fork boundaries, causing crashes when the child process's version is garbage collected due to improper resource sharing across fork.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the client var, when copied across the fork, has Rust file descriptors copied for the gRPC stuff that fail during Rust drop when the child process's version of the var is GC'd",
+  "number": 11,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:45:33.368Z"
+}

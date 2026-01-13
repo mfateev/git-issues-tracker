@@ -1,0 +1,33 @@
+{
+  "summary": "Non-root namespaces cannot use the in-memory test server in Spring Boot autoconfiguration due to a bean name/type mismatch. The code looks for a TestWorkflowEnvironmentAdapter with an incorrect bean name, causing non-root namespaces to connect to the dev server instead.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "spring-boot-autoconfigure",
+    "test-server",
+    "non-root-namespaces",
+    "bean-post-processor"
+  ],
+  "concepts": [
+    "namespace-isolation",
+    "dependency-injection",
+    "test-configuration",
+    "bean-registration",
+    "spring-autoconfiguration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users configuring multiple namespaces with Spring Boot cannot use the in-memory test server for non-root namespaces, forcing them to use the dev server instead.",
+  "rootCause": "NonRootBeanPostProcessor searches for 'temporalTestWorkflowEnvironment' as TestWorkflowEnvironmentAdapter type, but TestServerAutoConfiguration registers 'temporalTestWorkflowEnvironmentAdapter' as TestWorkflowEnvironmentAdapter and 'temporalTestWorkflowEnvironment' as TestWorkflowEnvironment, causing a name/type mismatch.",
+  "proposedFix": "Fix the bean name lookup in NonRootBeanPostProcessor to use 'temporalTestWorkflowEnvironmentAdapter' instead of 'temporalTestWorkflowEnvironment' when searching for TestWorkflowEnvironmentAdapter.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bean name/type mismatch was corrected in NonRootBeanPostProcessor to properly reference the TestWorkflowEnvironmentAdapter bean.",
+  "related": [],
+  "keyQuote": "The code is looking for a TestWorkflowEnvironmentAdapter with the wrong bean name.",
+  "number": 2735,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:16.267Z"
+}

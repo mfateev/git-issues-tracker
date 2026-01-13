@@ -1,0 +1,35 @@
+{
+  "summary": "Custom errors returned from activities cannot be checked using `errors.Is()` because they are wrapped in multiple layers of Temporal error types. The underlying error exists in the chain but `errors.Is()` fails to match it.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "error-wrapping",
+    "test-framework"
+  ],
+  "concepts": [
+    "error-chain",
+    "error-wrapping",
+    "error-matching",
+    "activity-errors",
+    "retry-policy",
+    "test-assertions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably check for specific custom errors returned from activities in tests or error handling code, making error classification difficult.",
+  "rootCause": "Activity errors are wrapped in multiple layers (workflow error -> activity error -> wrapped error) but the error chain structure doesn't properly expose the underlying error for `errors.Is()` matching.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was determined to belong to sdk-go and was duplicated to https://github.com/temporalio/sdk-go/issues/403",
+  "related": [
+    403
+  ],
+  "keyQuote": "My error message is wrapped there, but I can't compare/check it.",
+  "number": 1453,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:16:47.113Z"
+}

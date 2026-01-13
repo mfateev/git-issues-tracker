@@ -1,0 +1,37 @@
+{
+  "summary": "The temporal-testing library does not propagate headers for signals through interceptors, unlike the production Temporal server environment. When a WorkflowClientInterceptor sets headers on outgoing signals, these headers are null in the corresponding WorkflowInboundCallsInterceptor.handleSignal method during testing.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowClientInterceptor",
+    "WorkflowClientCallsInterceptor",
+    "WorkflowInboundCallsInterceptor",
+    "signal"
+  ],
+  "components": [
+    "temporal-testing",
+    "interceptors",
+    "signal-handling",
+    "header-propagation"
+  ],
+  "concepts": [
+    "headers",
+    "interceptors",
+    "signals",
+    "test-environment",
+    "client-server-compatibility",
+    "metadata-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test signal header propagation with temporal-testing, creating a gap between test and production behavior that requires running a real server to verify interceptor logic.",
+  "rootCause": "The temporal-testing library does not copy headers from outgoing signal requests to the inbound signal handler, unlike the production server.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the bug was resolved in a subsequent release.",
+  "related": [],
+  "keyQuote": "The temporal-testing library should be as close as possible to a real environment, and the header should be propagated.",
+  "number": 2659,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:15:12.951Z"
+}

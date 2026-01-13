@@ -1,0 +1,29 @@
+{
+  "summary": "Documentation menu items are not in alphabetical order, forcing users to use search (Cmd-F) instead of scrolling. The author suggests sorting menu items to improve discoverability.",
+  "category": "docs",
+  "subcategory": "documentation-ui",
+  "apis": [],
+  "components": [
+    "documentation",
+    "api-reference"
+  ],
+  "concepts": [
+    "discoverability",
+    "navigation",
+    "user-experience",
+    "sorting",
+    "menu-organization"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily find documentation items by scrolling and must resort to search functionality.",
+  "rootCause": null,
+  "proposedFix": "Sort documentation menu items alphabetically.",
+  "workaround": "Use Cmd-F search to find desired documentation items.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer indicated preference to exclude generated protobuf type definitions from API reference rather than implementing alphabetical sorting.",
+  "related": [],
+  "keyQuote": "Yeah, we might just want to not output any of the generated protobuf type defs in the API reference.",
+  "number": 195,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:50.336Z"
+}

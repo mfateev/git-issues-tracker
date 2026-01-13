@@ -1,0 +1,31 @@
+{
+  "summary": "Users need a way to await or ignore all remaining handlers when a workflow continues as new or exits. The feature provides an all-handlers-finished property to give users control over this behavior.",
+  "category": "feature",
+  "subcategory": "workflow-lifecycle",
+  "apis": [],
+  "components": [
+    "workflow-handler",
+    "workflow-execution",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "handler-completion",
+    "workflow-continuation",
+    "async-waiting",
+    "graceful-shutdown"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now properly manage handler completion when transitioning workflows, preventing resource leaks or incomplete operations.",
+  "rootCause": null,
+  "proposedFix": "Implement an all-handlers-finished property to allow users to wait for or ignore remaining handlers",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved as part of issue #294 by implementing an all-handlers-finished property",
+  "related": [
+    294
+  ],
+  "keyQuote": "Users want to easily await (or ignore) all their remaining handlers when they continue as new or exit the workflow",
+  "number": 262,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T12:00:12.524Z"
+}

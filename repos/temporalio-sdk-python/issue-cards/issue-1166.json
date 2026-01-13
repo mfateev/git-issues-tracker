@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to improve type hints for `execute_activity` to support activity methods (class methods decorated as activities). The user initially thought the type hints didn't support this use case, but discovered that `execute_activity_method` already exists for this purpose.",
+  "category": "feature",
+  "subcategory": "type-hints",
+  "apis": [
+    "execute_activity",
+    "execute_activity_method"
+  ],
+  "components": [
+    "type-system",
+    "activity-executor",
+    "decorator"
+  ],
+  "concepts": [
+    "type-hints",
+    "activity-methods",
+    "callable-signature",
+    "class-methods",
+    "type-checking"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about type hint support for activity methods and may not discover the dedicated `execute_activity_method` API.",
+  "rootCause": null,
+  "proposedFix": "Update type hints for execute_activity to support activity methods, or provide better documentation/discovery of execute_activity_method",
+  "workaround": "Use execute_activity_method for class-based activity methods instead of execute_activity",
+  "resolution": "wontfix",
+  "resolutionDetails": "The user discovered that execute_activity_method already exists and is the intended API for activity methods, making the feature request unnecessary",
+  "related": [],
+  "keyQuote": "Ah I missed that we gave execute_activity_method",
+  "number": 1166,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:23.805Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Cron-scheduled workflows using WorkflowOptions do not reschedule after termination when reaching retry limits. Users expect the next scheduled run to execute, but terminated workflows prevent any future executions.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [
+    "WorkflowOptions"
+  ],
+  "components": [
+    "workflow-scheduler",
+    "cron-engine",
+    "retry-mechanism"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "retry-limit",
+    "workflow-termination",
+    "reschedule",
+    "workflow-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Production cron jobs fail to reschedule after reaching retry limits, requiring manual intervention to restore scheduled execution.",
+  "rootCause": "The system terminates workflows that exhaust retry limits, and the cron scheduling mechanism does not create new scheduled runs after termination.",
+  "proposedFix": "Users are encouraged to migrate to the newer Schedules feature which is more robust and decoupled from workflow lifetime.",
+  "workaround": "Use the newer Schedules API instead of cron schedule via WorkflowOptions for more reliable rescheduling behavior.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue reporter was directed to use the newer Schedules feature as the recommended solution. The older cron scheduling via WorkflowOptions has this limitation by design.",
+  "related": [],
+  "keyQuote": "I would also strongly encourage you to use the newer schedules feature, which is more robust and decoupled from the lifetime of a workflow.",
+  "number": 8266,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:26.474Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Server logs are emitted in JSON format, which is suitable for production but makes local development and debugging painful because stack traces are encoded as single-line strings with escaped newlines and tabs. A pretty-printing or console log format mode is needed for improved readability during debugging.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "server",
+    "panic-handler"
+  ],
+  "concepts": [
+    "readability",
+    "debugging",
+    "log-formatting",
+    "stack-traces",
+    "developer-experience",
+    "local-development"
+  ],
+  "severity": "low",
+  "userImpact": "Developers debugging local Temporal server instances have difficulty reading error messages and stack traces due to JSON encoding.",
+  "rootCause": null,
+  "proposedFix": "Add a mode for pretty logging that developers can use locally to have greater readability during debugging.",
+  "workaround": "Set the log format from default JSON to console via configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "The solution was pointed out in the comments - the server already supports switching from JSON to console log format via configuration.",
+  "related": [],
+  "keyQuote": "We should add a mode for pretty logging, which developers can use locally when they want to have greater readability during debugging.",
+  "number": 664,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:22:36.031Z"
+}

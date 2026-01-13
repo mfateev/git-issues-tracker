@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to extend TestWorkflowExtension to allow specifying a custom task queue name for the worker, enabling more flexible integration testing scenarios.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowExtension"
+  ],
+  "components": [
+    "test-workflow-extension",
+    "worker",
+    "task-queue"
+  ],
+  "concepts": [
+    "testing",
+    "integration-testing",
+    "task-queue-configuration",
+    "worker-setup",
+    "test-builder"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently specify custom task queue names when using TestWorkflowExtension, limiting integration test flexibility.",
+  "rootCause": null,
+  "proposedFix": "Add a setter method to TestWorkflowExtension builder (e.g., setWorkerTaskQueue(TASK_QUEUE)) to allow custom task queue name specification.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it would be nice to have possibility to specify custom name for a worker queue when using TestWorkflowExtension",
+  "number": 2063,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:21.362Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "TestActivityHeartbeatDetailsDuringRetry test was flaky but resolved itself through consistent passing over time.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "activity-heartbeat",
+    "retry-logic"
+  ],
+  "concepts": [
+    "flaky-test",
+    "heartbeat",
+    "retry",
+    "test-stability",
+    "activity"
+  ],
+  "severity": "low",
+  "userImpact": "Test flakiness could mask legitimate issues or waste developer time with unreliable test results.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test passed consistently over the last month, indicating the underlying flakiness was resolved.",
+  "related": [],
+  "keyQuote": "Resolving this issue as it is passing consistently during last month.",
+  "number": 593,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:18:43.054Z"
+}

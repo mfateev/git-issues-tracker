@@ -1,0 +1,33 @@
+{
+  "summary": "User's long-running workflow is being terminated after one day because the workflow history size/count exceeds the server's limit. The issue discusses the limitations of running workflows for years with continuous event accumulation.",
+  "category": "question",
+  "subcategory": "workflow-history-limits",
+  "apis": [
+    "Workflow.await"
+  ],
+  "components": [
+    "history-service",
+    "workflow-task-processor",
+    "event-store"
+  ],
+  "concepts": [
+    "workflow-history",
+    "history-limits",
+    "long-running-workflows",
+    "event-accumulation",
+    "continue-as-new",
+    "history-size"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflows continuously for extended periods without hitting history size limits, causing unexpected workflow termination.",
+  "rootCause": "Workflows accumulate events in history without pruning, and the server enforces a hard limit on history size/count per workflow execution.",
+  "proposedFix": "Use continue-as-new pattern to start a new workflow execution and clear history periodically.",
+  "workaround": "Implement continue-as-new to reset workflow history and prevent exceeding limits on long-running processes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "User accepted the suggested workaround (continue-as-new) as the solution for managing long-running workflows.",
+  "related": [],
+  "keyQuote": "Workflow history size / count exceeds limit. - User's workflow was terminated with this message after running for one day.",
+  "number": 1069,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:57:04.015Z"
+}

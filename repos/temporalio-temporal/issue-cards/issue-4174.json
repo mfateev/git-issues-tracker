@@ -1,0 +1,32 @@
+{
+  "summary": "Dev server hangs for 10 seconds when shutdown signal is sent shortly after startup. The Worker service fails to connect to Frontend and waits for its context deadline (10 seconds) before exiting. This was fixed in server 1.24.0/CLI 0.13.0.",
+  "category": "bug",
+  "subcategory": "dev-server-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "frontend",
+    "dev-server"
+  ],
+  "concepts": [
+    "shutdown",
+    "context-deadline",
+    "connection-timeout",
+    "startup-delay",
+    "service-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Integration tests and users shutting down the dev server quickly experience unnecessary 10-second delays before process termination.",
+  "rootCause": "Worker service fails to connect to Frontend during early shutdown, causing it to wait until expiration of its context deadline (10 seconds) before exiting.",
+  "proposedFix": "Gracefully handle early Frontend connection failures or reduce context deadline on shutdown signal.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in server 1.24.0 / CLI 0.13.0, presumably through PR #5459. Tested with various sleep durations (0.01-2 seconds) and shutdown completes within 1000-1400ms.",
+  "related": [
+    5459
+  ],
+  "keyQuote": "This delay is caused by the Worker node failing to connect to Frontend, and thus waiting until expiration of its context deadline delay (thus 10 seconds).",
+  "number": 4174,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:20.125Z"
+}

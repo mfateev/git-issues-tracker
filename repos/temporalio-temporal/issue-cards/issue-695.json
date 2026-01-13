@@ -1,0 +1,32 @@
+{
+  "summary": "Custom tags cannot be added to existing metrics in the Java SDK. Users attempting to add custom tags to Temporal metrics are finding that the tags do not appear in the metric output.",
+  "category": "bug",
+  "subcategory": "metrics-custom-tags",
+  "apis": [],
+  "components": [
+    "metrics",
+    "java-sdk",
+    "tag-management"
+  ],
+  "concepts": [
+    "metrics",
+    "custom-tags",
+    "observability",
+    "monitoring",
+    "metric-labeling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly tag and label their metrics for better observability and monitoring purposes.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of sdk-java#200 which contains detailed correspondence about the issue",
+  "related": [
+    200
+  ],
+  "keyQuote": "We are trying to add the custom tags but its not getting appeared in the metrics",
+  "number": 695,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:41.833Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "TemporalChangeVersion search attribute is not being upserted with patch commands in SDKs (Java, TypeScript, Python, PHP), preventing users from querying workflows by change version as documented. Go SDK already implements this correctly.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "UpsertSearchAttributes"
+  ],
+  "components": [
+    "patch-api",
+    "search-attributes",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "versioning",
+    "patching",
+    "search-attributes",
+    "workflow-query",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query workflows by TemporalChangeVersion when using the patch API, breaking documented functionality for tracking workflow versions.",
+  "rootCause": "SDK implementations do not automatically upsert TemporalChangeVersion search attribute when patch commands are applied, unlike the Go SDK.",
+  "proposedFix": "Add UpsertSearchAttributes with TemporalChangeVersion in patch command implementation for each SDK language.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Decided to implement in language SDKs rather than Core, as it's simpler and allows TemporalChangeVersion to be available in searchAttributes during workflow task processing.",
+  "related": [
+    587,
+    817
+  ],
+  "keyQuote": "Add an `UpsertSearchAttributes` with `TemporalChangeVersion: <change_id>-<version_id>` with each patch command.",
+  "number": 117,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:48:23.666Z"
+}

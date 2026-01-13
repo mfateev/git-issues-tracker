@@ -1,0 +1,33 @@
+{
+  "summary": "The gRPC DEADLINE_EXCEEDED error message is cryptic and doesn't help users troubleshoot. The request is to improve the error message to provide context and link to documentation about common causes and solutions.",
+  "category": "other",
+  "subcategory": "error-messaging",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "error-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "error-messaging",
+    "user-experience",
+    "troubleshooting",
+    "gRPC"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encountering gRPC timeouts receive unhelpful error messages that don't guide them toward troubleshooting steps or solutions.",
+  "rootCause": "The raw gRPC error message 'context deadline exceeded' lacks context about why it occurred and how to resolve it.",
+  "proposedFix": "Wrap the gRPC deadline error with a more helpful message that explains common causes and links to documentation (https://docs.temporal.io/docs/typescript/troubleshooting/#grpc-call-timeouts-context-deadline-exceeded).",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was closed in favor of #365, indicating it was merged with another related issue on the same topic.",
+  "related": [
+    359,
+    365
+  ],
+  "keyQuote": "Log something like: Error: gRPC call timeout. This can happen for a number of reasons. Please see: https://docs.temporal.io/docs/typescript/troubleshooting/#grpc-call-timeouts-context-deadline-exceeded",
+  "number": 376,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:25.650Z"
+}

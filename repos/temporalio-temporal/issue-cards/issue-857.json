@@ -1,0 +1,32 @@
+{
+  "summary": "Add cluster name configuration to Ringpop initialization to prevent nodes from different clusters from accidentally joining the same membership ring through invalid pings.",
+  "category": "feature",
+  "subcategory": "membership-ring",
+  "apis": [],
+  "components": [
+    "ringpop",
+    "membership",
+    "cluster-management"
+  ],
+  "concepts": [
+    "cluster-isolation",
+    "membership-ring",
+    "node-discovery",
+    "cluster-validation",
+    "network-partition"
+  ],
+  "severity": "medium",
+  "userImpact": "Without cluster isolation, nodes from different Temporal clusters could incorrectly join the same membership ring, causing cluster corruption and node communication failures.",
+  "rootCause": "Ringpop lacks cluster name validation in ping handling, allowing cross-cluster nodes to be accepted into the membership ring.",
+  "proposedFix": "Add ability to pass cluster name as a configuration parameter used to initialize Ringpop AppName, with validation to reject pings from different clusters.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #1234",
+  "related": [
+    1234
+  ],
+  "keyQuote": "Add ability to pass in cluster name which is used to initialize Ringpop AppName.",
+  "number": 857,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:36.693Z"
+}

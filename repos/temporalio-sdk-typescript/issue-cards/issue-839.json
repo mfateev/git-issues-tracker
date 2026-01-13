@@ -1,0 +1,30 @@
+{
+  "summary": "The @temporalio/nyc-test-coverage npm package version 1.1.0 only contains the src directory but is missing the compiled lib directory, making it unusable when installed via npm.",
+  "category": "bug",
+  "subcategory": "package-distribution",
+  "apis": [],
+  "components": [
+    "nyc-test-coverage",
+    "package.json",
+    "npm-publishing"
+  ],
+  "concepts": [
+    "npm-package",
+    "build-artifacts",
+    "distribution",
+    "module-publishing",
+    "compilation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use the @temporalio/nyc-test-coverage package after installing it via npm because the compiled lib directory is missing.",
+  "rootCause": "The lib directory is included in the package.json files field but is not being built or packaged during the npm publish process.",
+  "proposedFix": "Ensure the lib directory is built and included in the npm package by verifying the build process runs before publishing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by ensuring the lib directory is properly built and included in the npm package distribution.",
+  "related": [],
+  "keyQuote": "You'll see that there's only an `src` directory, no `lib`",
+  "number": 839,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:18:56.803Z"
+}

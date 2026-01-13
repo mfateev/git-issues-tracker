@@ -1,0 +1,33 @@
+{
+  "summary": "Activity timeouts are only detectable when heartbeats reach the Temporal server, but heartbeat throttling delays detection. The request proposes having the heartbeat method throw a timeout exception when start-to-close or schedule-to-close timeouts are violated, enabling local timeout detection.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "heartbeat"
+  ],
+  "components": [
+    "activity-context",
+    "activity-executor",
+    "heartbeat-mechanism"
+  ],
+  "concepts": [
+    "timeout-detection",
+    "heartbeat-throttling",
+    "activity-completion",
+    "local-detection",
+    "schedule-to-close",
+    "start-to-close"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities continue executing unnecessarily when timeouts are reached but not detected locally, wasting resources and delaying failure handling.",
+  "rootCause": "Heartbeat throttling prevents or delays heartbeats from reaching the server, preventing timeout detection in activity code until the server rejects the result.",
+  "proposedFix": "Have the heartbeat method throw a subclass of ActivityCompletionException when start-to-close or schedule-to-close timeouts are violated, similar to how the Go SDK sets context deadlines.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Activity timeouts are only detectable by activity code when a heartbeat attempt reaches the Temporal server. Heartbeat throttling can significantly delay timeout detection because it prevents or delays some heartbeats from reaching the server.",
+  "number": 1770,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:46.586Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The activity_endtoend_latency metric measures the latency of a single activity execution attempt rather than the total time from start to successful completion across all retries. This causes the metric to misrepresent the actual end-to-end latency experienced by users.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "retry-handler"
+  ],
+  "concepts": [
+    "latency",
+    "metrics",
+    "retry",
+    "activity-execution",
+    "measurement",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately monitor the true end-to-end latency of activities with retries, making it difficult to diagnose performance issues.",
+  "rootCause": "The metric is calculated on each activity execution attempt rather than from the initial start to final successful completion.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The metric calculation was corrected to measure from activity start through successful completion including all retry attempts.",
+  "related": [
+    573
+  ],
+  "keyQuote": "activity_endtoend_latency should be a time from the start of the activity to its successful execution.",
+  "number": 799,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:42:48.083Z"
+}

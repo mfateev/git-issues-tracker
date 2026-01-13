@@ -1,0 +1,34 @@
+{
+  "summary": "The Java SDK incorrectly uses the minimum catch-up window (10 seconds) instead of the default (1 year) when no catch-up window is specified in a SchedulePolicy. This was a bug in versions before 1.24.0 that has been fixed.",
+  "category": "bug",
+  "subcategory": "schedules",
+  "apis": [
+    "SchedulePolicy",
+    "Schedule",
+    "createSchedule"
+  ],
+  "components": [
+    "schedules",
+    "proto-conversion",
+    "ProtobufTimeUtils"
+  ],
+  "concepts": [
+    "catch-up-window",
+    "default-values",
+    "proto-serialization",
+    "schedule-policy",
+    "temporal-duration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who don't explicitly set a catch-up window get unexpected behavior where schedules catch up every 10 seconds instead of the documented 1-year default.",
+  "rootCause": "ProtobufTimeUtils was converting null/unset catch-up window to duration 0, which the server then interpreted as lower than the 10-second minimum and used the minimum instead of the documented default.",
+  "proposedFix": "Fixed in Java SDK 1.24.0 by commit 9a856f30 to properly handle null/unset catch-up window values.",
+  "workaround": "Update existing schedules with a no-op update that removes the 0 value from the policy, or upgrade to Java SDK 1.24.0+",
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was fixed in Java SDK version 1.24.0 through commit 9a856f30 which properly handles unset catch-up window values instead of converting them to 0.",
+  "related": [],
+  "keyQuote": "If you don't set a catch up window on your SchedulePolicy when creating the schedule it will use the default value of 1 year.",
+  "number": 2189,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:24.279Z"
+}

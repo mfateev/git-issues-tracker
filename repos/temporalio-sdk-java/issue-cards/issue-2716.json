@@ -1,0 +1,29 @@
+{
+  "summary": "Implement worker heartbeating in Java SDK through a new background nexus worker, based on the design from Rust SDK core.",
+  "category": "feature",
+  "subcategory": "worker-heartbeating",
+  "apis": [],
+  "components": [
+    "worker",
+    "nexus",
+    "background-worker"
+  ],
+  "concepts": [
+    "heartbeating",
+    "worker-health",
+    "background-processing",
+    "nexus-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables Java SDK to maintain worker health through periodic heartbeats, improving reliability and observability of long-running workflows.",
+  "rootCause": null,
+  "proposedFix": "Design and implement a Java version of the Rust SDK core worker heartbeating feature (PRs #953 and #1038), using a background nexus worker for heartbeat transmission.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Implement worker heartbeating, which is sent via a new background nexus worker.",
+  "number": 2716,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:47.809Z"
+}

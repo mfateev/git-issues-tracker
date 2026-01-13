@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a metric to distinguish when poll rate is limited by client-side constraints (e.g., maximum parallel tasks reached) versus service latency or connection issues. This would help developers understand polling bottlenecks.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "poller",
+    "worker",
+    "metrics"
+  ],
+  "concepts": [
+    "polling",
+    "rate-limiting",
+    "metrics",
+    "throughput",
+    "client-side-constraints",
+    "performance-monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot distinguish between client-side polling limits and service/network bottlenecks, making performance debugging harder.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently there is no metric which can indicate that poll rate is limited by client (for example maximum number of parallel tasks is reached)",
+  "number": 651,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:18:04.700Z"
+}

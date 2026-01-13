@@ -1,0 +1,29 @@
+{
+  "summary": "Dataclass deserialization requires all fields to be present in JSON dict, including those with default values. This is overly strict and should allow omitting fields that have defaults.",
+  "category": "bug",
+  "subcategory": "dataclass-serialization",
+  "apis": [],
+  "components": [
+    "dataclass",
+    "serialization",
+    "deserialization"
+  ],
+  "concepts": [
+    "json-deserialization",
+    "default-values",
+    "dataclass-fields",
+    "optional-fields"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot deserialize JSON objects that omit optional fields with defaults, making dataclass-based data models unnecessarily strict.",
+  "rootCause": "Dataclass deserialization logic does not skip required validation for fields that have default values defined.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "a dataclass cannot deserialize a JSON dict that doesn't have _all_ fields including ones with defaults. This is a bug, we should not require all fields",
+  "number": 427,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:33.552Z"
+}

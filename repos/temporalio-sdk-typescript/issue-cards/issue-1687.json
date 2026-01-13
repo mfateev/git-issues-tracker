@@ -1,0 +1,35 @@
+{
+  "summary": "Unit tests using TestWorkflowEnvironment.createLocal() fail intermittently with connection timeouts when running multiple test suites together, causing the NativeConnection.connect() call to time out. The issue appears to be resource-related and only manifests when running 10+ test suites sequentially.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "NativeConnection.connect",
+    "TestWorkflowEnvironment.createLocal"
+  ],
+  "components": [
+    "worker",
+    "native-connection",
+    "test-environment"
+  ],
+  "concepts": [
+    "connection-timeout",
+    "resource-contention",
+    "test-flakiness",
+    "local-development",
+    "concurrent-test-suites"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably run local integration tests using TestWorkflowEnvironment when executing multiple test suites sequentially, forcing them to implement retry workarounds.",
+  "rootCause": "Likely resource exhaustion or port/connection conflicts when running multiple TestWorkflowEnvironment instances across 10+ test suites sequentially, causing TCP connect timeout errors.",
+  "proposedFix": null,
+  "workaround": "Implement retries until the local env connection succeeds, as suggested by support team.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    11853
+  ],
+  "keyQuote": "the test does not fail when runing it singularily. we run the jest tests in band for the service. it smells that the number of tests is the cause for the issue so it might be related to resources issue.",
+  "number": 1687,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:16.103Z"
+}

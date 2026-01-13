@@ -1,0 +1,34 @@
+{
+  "summary": "Documentation enhancement needed to clarify .NET SDK workflow inheritance rules, specifically explaining why [Workflow] attributes and [WorkflowRun] methods aren't inherited from parent classes, while signals/queries can be inherited if properly attributed.",
+  "category": "docs",
+  "subcategory": "workflow-inheritance",
+  "apis": [
+    "Workflow",
+    "WorkflowRun"
+  ],
+  "components": [
+    "workflow-definition",
+    "attribute-system",
+    "documentation"
+  ],
+  "concepts": [
+    "inheritance",
+    "attributes",
+    "workflow-signals",
+    "workflow-queries",
+    "shared-code",
+    "base-classes"
+  ],
+  "severity": "low",
+  "userImpact": "Developers lack clear understanding of inheritance rules for workflow attributes, potentially leading to confusion during SDK usage and incorrect workflow implementations.",
+  "rootCause": null,
+  "proposedFix": "Add a 'Workflow Inheritance' section to the README documenting inheritance rules and rationale for [Workflow] attributes, [WorkflowRun] methods, and signal/query inheritance.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated with clarification on workflow inheritance rules and reasons.",
+  "related": [],
+  "keyQuote": "we intentionally do not inherit a parent's [Workflow] attribute or [WorkflowRun] method... we do allow inheriting workflow signals/queries from base classes",
+  "number": 106,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:58:14.938Z"
+}

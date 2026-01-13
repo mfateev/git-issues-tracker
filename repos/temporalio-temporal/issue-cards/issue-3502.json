@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a metric to track the number of open Workflow Executions in Temporal. Users need visibility into workflow backlog to understand system capacity and processing load, especially during traffic bursts.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "visibility",
+    "server"
+  ],
+  "concepts": [
+    "monitoring",
+    "observability",
+    "workflow-backlog",
+    "capacity-planning",
+    "latency-visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily monitor workflow execution backlog and system capacity pressure without manually querying visibility.",
+  "rootCause": null,
+  "proposedFix": "Add a server-side metric that emits the count of open workflows, available in both self-hosted and Cloud deployments.",
+  "workaround": "Query the visibility layer periodically to count open workflows and emit custom metrics.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We often have bursts of workflows and want to know how far behind we are in processing them.",
+  "number": 3502,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:59.286Z"
+}

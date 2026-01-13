@@ -1,0 +1,36 @@
+{
+  "summary": "The getResult() timeout on WorkflowStub is not configurable through WorkflowOptions when using the proxy API. Currently, users must use the low-level stub API to set a custom timeout, while the proxy API defaults to Integer.MAX_VALUE, preventing reasonable timeouts from being enforced.",
+  "category": "feature",
+  "subcategory": "workflow-options",
+  "apis": [
+    "WorkflowStub",
+    "WorkflowOptions",
+    "WorkflowClient"
+  ],
+  "components": [
+    "WorkflowStub",
+    "WorkflowOptions",
+    "workflow-proxy"
+  ],
+  "concepts": [
+    "timeout",
+    "configuration",
+    "API design",
+    "workflow-execution",
+    "user-supplied-limits"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot enforce reasonable timeouts when calling workflows through the proxy API, limiting their ability to prevent indefinite blocking on getResult() calls.",
+  "rootCause": "WorkflowOptions lacks a getResult timeout field; the proxy API hardcodes Integer.MAX_VALUE while only the low-level stub API allows custom timeouts.",
+  "proposedFix": "Add a configurable getResult timeout field to WorkflowOptions that is used when calling the proxy API.",
+  "workaround": "Use the low-level WorkflowStub API directly to set custom timeouts on getResult() calls.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    88
+  ],
+  "keyQuote": "We should allow defining the #getResult timeout on WorkflowOptions to allow the neat proxy API to enforce reasonable timeouts.",
+  "number": 652,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:32:15.513Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "User requests a registry or lookup mechanism to retrieve workflow and activity classes/functions by their string names, to support CLI-based worker instantiation with text configuration.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "workflow-registry",
+    "activity-registry"
+  ],
+  "concepts": [
+    "registry",
+    "dynamic-loading",
+    "configuration",
+    "CLI",
+    "string-lookup",
+    "runtime-instantiation"
+  ],
+  "severity": "low",
+  "userImpact": "Users deploying workers via CLI with text-based configuration cannot easily map string names to workflow/activity objects.",
+  "rootCause": null,
+  "proposedFix": "Maintain a dict of workflows/activities for lookup, potentially with custom decorator support; or add SDK-level registry mechanism.",
+  "workaround": "Create a simple Python script that reads environment variables and builds sets of workflows/activities using dict lookup.",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK team declined to add global registry, recommending users maintain their own dict-based lookup instead for flexibility across multiple workers.",
+  "related": [],
+  "keyQuote": "We try not to assume global use of workflows/activities in the SDK. Many users create many workflows/activities and only start some of them in some workers and others in other workers",
+  "number": 659,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:41.472Z"
+}

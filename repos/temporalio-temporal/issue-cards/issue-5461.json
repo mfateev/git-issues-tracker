@@ -1,0 +1,30 @@
+{
+  "summary": "When using the Temporal library with a metrics port configured as `0` (auto-bind), there's no programmatic way to extract the actual bound port. Users must find a free port in advance as a workaround, defeating the purpose of auto-binding.",
+  "category": "feature",
+  "subcategory": "metrics-configuration",
+  "apis": [],
+  "components": [
+    "metrics",
+    "dev-server",
+    "configuration"
+  ],
+  "concepts": [
+    "port-binding",
+    "auto-discovery",
+    "metrics-export",
+    "library-usage",
+    "configuration-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users embedding the Temporal library cannot easily discover the metrics port when using auto-bind, requiring manual workarounds or extra port management logic.",
+  "rootCause": null,
+  "proposedFix": "Add an API method to retrieve the bound metrics port after server instantiation or startup.",
+  "workaround": "Manually find and assign a free port in the config instead of using auto-bind.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Have some easy way to fetch the chosen metrics port after instantiating / starting a dev server",
+  "number": 5461,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:51.450Z"
+}

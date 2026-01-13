@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to warn developers when multiple worker processes are running on the same machine with potentially different code versions, which can cause non-deterministic task execution in development environments.",
+  "category": "feature",
+  "subcategory": "worker-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "process-management"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "development-environment",
+    "process-detection",
+    "code-consistency",
+    "task-queue"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may experience confusing non-deterministic behavior when old worker processes interfere with new ones, making debugging difficult.",
+  "rootCause": "Multiple worker processes running simultaneously on the same machine can pick up tasks intended for the newer worker version.",
+  "proposedFix": "Add a development-time warning that searches for other worker processes on the machine and logs their PIDs with a suggestion to kill them, possibly integrated with task queue introspection via tctl API.",
+  "workaround": "Manually stop any other worker processes before starting development, or use worker versioning for deployments.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Resolved as wontfix with suggestion to use worker versioning instead, which is the proper solution for managing multiple code versions.",
+  "related": [],
+  "keyQuote": "There is another worker process running on this machine. If it was started with an older version of your Worker and Activity code, we recommend stopping it",
+  "number": 305,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:22.505Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User requests native UUID support for activity arguments in Python SDK. Currently UUID raises a JSON serialization error, but many Python libraries treat UUID as JSON serializable via string representation.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "serialization",
+    "activity-arguments",
+    "type-conversion"
+  ],
+  "concepts": [
+    "UUID",
+    "JSON-serialization",
+    "type-support",
+    "cross-language-compatibility",
+    "dataclass-encoding"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use Python UUID objects directly as activity arguments and must manually convert them to strings as a workaround.",
+  "rootCause": "UUIDs lack nested encoding capability to JSON, causing issues with dataclasses.asdict() and similar nested encoding scenarios across the SDK.",
+  "proposedFix": "Add native UUID support to Python SDK serialization, though nested UUID encoding presents challenges across SDKs.",
+  "workaround": "Users can manually convert UUID objects to strings before passing as activity arguments.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not supported due to inability to support encoding nested UUIDs to JSON in dataclass structures. Cross-SDK compatibility concerns also factored into the decision.",
+  "related": [],
+  "keyQuote": "UUIDs don't have nested abilities to auto-encode to JSON, it causes trouble with dataclasses.asdict and similar use cases.",
+  "number": 113,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:45.664Z"
+}

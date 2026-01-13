@@ -1,0 +1,34 @@
+{
+  "summary": "The DescribeWorkflowExecution gRPC method is not implemented in the Java test service, causing failures when tests attempt to use this method.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "test-service",
+    "grpc-server",
+    "workflow-service"
+  ],
+  "concepts": [
+    "test-framework",
+    "grpc-implementation",
+    "workflow-introspection",
+    "service-methods",
+    "testing-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test code that relies on DescribeWorkflowExecution when using the Java test service.",
+  "rootCause": "The DescribeWorkflowExecution method handler was not implemented in the test service gRPC server implementation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The method was implemented in the Java test service to handle DescribeWorkflowExecution requests.",
+  "related": [
+    470
+  ],
+  "keyQuote": "Method temporal.api.workflowservice.v1.WorkflowService/DescribeWorkflowExecution is unimplemented.",
+  "number": 514,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:23:38.671Z"
+}

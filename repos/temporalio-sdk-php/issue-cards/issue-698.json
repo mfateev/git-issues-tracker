@@ -1,0 +1,29 @@
+{
+  "summary": "Drop support for old package versions that support PHP 7 and 8.0, keeping only the minimal bounds that meet the PHP >8.1 requirement. This includes removing old versions of internal/promise, nesbot/carbon, and symfony packages.",
+  "category": "other",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "package-dependencies",
+    "composer-configuration"
+  ],
+  "concepts": [
+    "dependency-cleanup",
+    "version-constraints",
+    "php-version-support",
+    "package-maintenance",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies dependency tree and reduces maintenance burden for the PHP SDK by removing support for outdated package versions.",
+  "rootCause": "The project supports PHP >8.1 but maintains compatibility with older versions of dependencies that support PHP 7 and 8.0, creating unnecessary complexity.",
+  "proposedFix": "Remove the following package version constraints: internal/promise ^2.12, nesbot/carbon ^2.72.6, symfony/filesystem ^5.4.45, symfony/http-client ^5.4.49, and symfony/process ^5.4.47.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Drop support of the packages above that support PHP >7 or >8.0, leave only minimal bounds that meet our requirements >8.1",
+  "number": 698,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-13T00:09:25.328Z"
+}

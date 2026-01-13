@@ -1,0 +1,32 @@
+{
+  "summary": "Two bugs in namespace replication: the get replication messages API doesn't include the caller cluster name, and enqueue message incorrectly uses the last message ID which can be deleted after successful replication.",
+  "category": "bug",
+  "subcategory": "namespace-replication",
+  "apis": [],
+  "components": [
+    "replicator",
+    "namespace-replication",
+    "message-processor"
+  ],
+  "concepts": [
+    "replication",
+    "message-handling",
+    "cluster-communication",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Multi-cluster replication may fail or produce incorrect results due to missing cluster identification and message ID tracking issues.",
+  "rootCause": "API not returning caller cluster name and message enqueue logic depending on potentially deleted message IDs",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed through related issues #1568 and #1569",
+  "related": [
+    1568,
+    1569
+  ],
+  "keyQuote": "get replication messages API should contain caller cluster name... enqueue message should not use the last message ID since this message can be deleted",
+  "number": 1555,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:54:47.330Z"
+}

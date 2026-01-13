@@ -1,0 +1,32 @@
+{
+  "summary": "Retry policy is not automatically copied when using ContinueAsNewWorkflowExecution, causing the continued workflow to lose the retry configuration from the previous run. The system should merge the retry policy from the original workflow into the continued workflow when not explicitly set.",
+  "category": "bug",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNewWorkflowExecutionCommandAttributes"
+  ],
+  "components": [
+    "history",
+    "mutable-state",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "retry-policy",
+    "continue-as-new",
+    "workflow-state",
+    "policy-inheritance",
+    "configuration-merge"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows that use ContinueAsNew lose their retry policy, potentially causing them to fail without retrying on subsequent executions.",
+  "rootCause": "The merge logic in mutable_state_impl.go:1630 does not properly copy the retry policy from the original workflow to the continued workflow execution.",
+  "proposedFix": "Implement retry policy copying in ContinueAsNewWorkflowExecutionCommandAttributes similar to how other workflow attributes are merged.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When a retry policy is not set in the `ContinueAsNewWorkflowExecutionCommandAttributes` continued workflow should have the same policy as the previous workflow run.",
+  "number": 5249,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:51.589Z"
+}

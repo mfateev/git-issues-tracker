@@ -1,0 +1,35 @@
+{
+  "summary": "User seeks guidance on integrating Temporal Python SDK metrics with FastAPI and Prometheus FastAPI Instrumentator to expose all metrics through a single endpoint, as Temporal metrics are appearing on a different port/endpoint.",
+  "category": "question",
+  "subcategory": "metrics-integration",
+  "apis": [
+    "Runtime",
+    "MetricBuffer"
+  ],
+  "components": [
+    "telemetry",
+    "metrics",
+    "runtime"
+  ],
+  "concepts": [
+    "metrics",
+    "prometheus",
+    "fastapi",
+    "instrumentation",
+    "opentelemetry",
+    "integration",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users struggle to consolidate Temporal SDK metrics with their FastAPI application metrics into a unified monitoring endpoint.",
+  "rootCause": "Temporal metrics are emitted from Rust-based Core and appear on a different port/endpoint by default, not automatically integrated with FastAPI instrumentation.",
+  "proposedFix": "Create a global `temporalio.runtime.Runtime` with telemetry config using `temporalio.runtime.MetricBuffer`, then repeatedly call `retrieve_updates` to get metric updates and expose them through the application's metrics endpoint.",
+  "workaround": "Use an advanced metric buffer option in the Runtime telemetry configuration to manually retrieve and handle metrics.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as not an issue but rather a support question, with guidance provided on recommended approaches for metrics integration.",
+  "related": [],
+  "keyQuote": "When creating the runtime, you can pass `telemetry` config that has `metrics` as a `temporalio.runtime.MetricBuffer` you create.",
+  "number": 856,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:50.703Z"
+}

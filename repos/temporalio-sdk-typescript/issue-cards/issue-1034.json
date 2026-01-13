@@ -1,0 +1,30 @@
+{
+  "summary": "Regular Expression Denial of Service (ReDoS) vulnerability in ua-parser-js dependency affecting the docs package through the preset-classic dependency chain. The vulnerability has a CVSS score of 7.5 and can cause availability issues, but was automatically resolved when the dependency was removed from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "docs-package",
+    "dependency-management",
+    "docusaurus"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "regex-denial-of-service",
+    "redos",
+    "transitive-dependency",
+    "availability"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the SDK documentation package were exposed to a ReDoS vulnerability that could cause service unavailability through malicious input.",
+  "rootCause": "ua-parser-js versions 0.7.30-0.7.32 contain a Regular Expression Denial of Service (ReDoS) vulnerability in the trim() function.",
+  "proposedFix": "Upgrade ua-parser-js to version 1.0.33 or upgrade @docusaurus/preset-classic to version 2.3.0.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was automatically closed by Mend when the vulnerable library was either marked as ignored or removed from the dependency inventory.",
+  "related": [],
+  "keyQuote": "Versions of the package ua-parser-js from 0.7.30 and before 0.7.33...are vulnerable to Regular Expression Denial of Service (ReDoS) via the trim() function.",
+  "number": 1034,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:22.274Z"
+}

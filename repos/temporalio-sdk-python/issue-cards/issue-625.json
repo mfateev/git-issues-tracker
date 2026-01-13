@@ -1,0 +1,33 @@
+{
+  "summary": "Fix pyright type-checking violations that were previously excluded from CI validation. This involves addressing type-checking issues to remove the exclusion list and achieve full type compliance.",
+  "category": "other",
+  "subcategory": "type-checking",
+  "apis": [],
+  "components": [
+    "type-checker",
+    "ci-configuration",
+    "pyright-configuration"
+  ],
+  "concepts": [
+    "type-safety",
+    "static-analysis",
+    "code-quality",
+    "ci-validation",
+    "type-compliance"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves code quality and developer experience by ensuring type safety across the Python SDK codebase.",
+  "rootCause": "Pyright was added to CI with substantial exclusions rather than fixing underlying type violations.",
+  "proposedFix": "Address all pyright type-checking violations and remove the exclusion list from CI configuration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    420,
+    795
+  ],
+  "keyQuote": "#420 started requiring pyright in CI, but with a substantial exclusion list. Fix violations and remove exclusion list.",
+  "number": 625,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:50.590Z"
+}

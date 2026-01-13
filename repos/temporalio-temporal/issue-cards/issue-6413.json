@@ -1,0 +1,32 @@
+{
+  "summary": "User metadata from schedule actions is not being propagated to child workflow execution configs, unlike the behavior with direct start workflow calls.",
+  "category": "bug",
+  "subcategory": "workflow-scheduling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "scheduler",
+    "workflow-execution",
+    "execution-config"
+  ],
+  "concepts": [
+    "user-metadata",
+    "propagation",
+    "schedule-action",
+    "child-workflow",
+    "execution-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot pass custom metadata through scheduled workflows to child workflows, limiting metadata context propagation in scheduled execution scenarios.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Like start workflow, I would expect scheduled workflows' user metadata to end up on the execution config on the child workflow.",
+  "number": 6413,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:11.569Z"
+}

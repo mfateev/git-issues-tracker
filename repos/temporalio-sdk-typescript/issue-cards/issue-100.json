@@ -1,0 +1,32 @@
+{
+  "summary": "Proposal to create a shared dependency package that both the worker and client packages can depend on, reducing duplication and improving maintainability across the TypeScript SDK.",
+  "category": "feature",
+  "subcategory": "package-structure",
+  "apis": [],
+  "components": [
+    "worker",
+    "client",
+    "package-management"
+  ],
+  "concepts": [
+    "dependency-management",
+    "code-sharing",
+    "package-architecture",
+    "modularity",
+    "sdk-structure"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces SDK complexity and improves long-term maintainability by eliminating shared dependency duplication between worker and client packages.",
+  "rootCause": null,
+  "proposedFix": "Create a lower-level shared dependency package that both worker and client packages can depend on.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented shared dependency package for worker and client",
+  "related": [
+    97
+  ],
+  "keyQuote": "Any reason not to just make a lower dep they can share?",
+  "number": 100,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:41.642Z"
+}

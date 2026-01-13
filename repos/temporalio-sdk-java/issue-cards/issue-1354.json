@@ -1,0 +1,35 @@
+{
+  "summary": "ActivityCompletionClient methods that use workflowId and activityId instead of taskToken are unused and lack unit test coverage. These code paths in ManualActivityCompletionClientImpl need basic unit tests to ensure they function correctly.",
+  "category": "feature",
+  "subcategory": "activity-completion",
+  "apis": [
+    "ActivityCompletionClient",
+    "ManualActivityCompletionClientImpl"
+  ],
+  "components": [
+    "activity-completion",
+    "client",
+    "testing"
+  ],
+  "concepts": [
+    "unit-testing",
+    "test-coverage",
+    "activity-completion",
+    "workflow-id",
+    "activity-id",
+    "task-token",
+    "client-methods"
+  ],
+  "severity": "medium",
+  "userImpact": "Untested code paths in ActivityCompletionClient may contain hidden bugs that affect users relying on workflowId/activityId completion methods.",
+  "rootCause": null,
+  "proposedFix": "Add basic unit tests to cover ActivityCompletionClient methods that use workflowId and activityId parameters.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "All the methods of ActivityCompletionClient that don't use task token and use String workflowId, Optional<String> runId, String activityId instead are unused and untested.",
+  "number": 1354,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:29:04.860Z"
+}

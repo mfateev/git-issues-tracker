@@ -1,0 +1,29 @@
+{
+  "summary": "Docker Compose setup enables archival by default, but for development purposes archival should be disabled. The issue requests moving archival configuration to a separate docker-compose-archival.yaml file.",
+  "category": "feature",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "archival",
+    "file-storage"
+  ],
+  "concepts": [
+    "development-environment",
+    "archival-configuration",
+    "deployment",
+    "docker"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using Docker Compose for local development unnecessarily have archival enabled, which adds overhead and complexity for non-production use cases.",
+  "rootCause": "Docker Compose configuration includes archival setup by default intended for production use",
+  "proposedFix": "Disable archival in the default docker-compose.yaml and create a separate docker-compose-archival.yaml for users who need archival functionality",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Archival was disabled by default in the Docker Compose configuration",
+  "related": [],
+  "keyQuote": "Running temporal for development using `docker-compose up` should not have archival turned on",
+  "number": 596,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:19:21.263Z"
+}

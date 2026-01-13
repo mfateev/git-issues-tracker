@@ -1,0 +1,31 @@
+{
+  "summary": "Java SDK logs ERROR-level exceptions when a load balancer closes idle polling connections, causing log spam despite no functional impact. The SDK should recognize these as harmless transient errors and log them at DEBUG level instead.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "poller",
+    "grpc-retryer",
+    "error-handler"
+  ],
+  "concepts": [
+    "idle-timeout",
+    "load-balancer",
+    "connection-management",
+    "logging-level",
+    "transient-errors",
+    "retry-logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Excessive ERROR-level logging clogs application logs and forces users to disable Poller logger entirely to suppress false alarms.",
+  "rootCause": "The Poller's error handler treats all gRPC UNAVAILABLE errors the same way and logs them at ERROR level, even when they are expected transient failures from load balancer idle timeouts that the SDK recovers from automatically.",
+  "proposedFix": "Change the default log level for sync retrier exceptions from WARN to DEBUG, so transient connection errors are logged at a lower level while actual failures after retry exhaustion are still logged at INFO+ level.",
+  "workaround": "Disable logging from the Poller logger entirely to suppress the error messages.",
+  "resolution": "fixed",
+  "resolutionDetails": "Log level for gRPC retry errors was adjusted from WARN to DEBUG as part of other work to reduce noise from transient connection failures.",
+  "related": [],
+  "keyQuote": "Probably this error could be recognized as harmless and logged at a lower logging level?",
+  "number": 618,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:28:57.436Z"
+}

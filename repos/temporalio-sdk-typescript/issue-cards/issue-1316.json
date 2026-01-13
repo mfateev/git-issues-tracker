@@ -1,0 +1,30 @@
+{
+  "summary": "Two transitive dependency vulnerabilities were detected in the TypeScript SDK test coverage package: @babel/traverse (CVE-2023-45133, CVSS 8.8) allowing arbitrary code execution during compilation, and semver (CVE-2022-25883, CVSS 7.5) vulnerable to ReDoS attacks. The issue was automatically closed as the vulnerable libraries were no longer part of the inventory.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-system"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency-resolution",
+    "code-execution",
+    "denial-of-service",
+    "babel",
+    "semver"
+  ],
+  "severity": "critical",
+  "userImpact": "Users could be exposed to arbitrary code execution during compilation when using affected Babel plugins or to denial-of-service attacks if untrusted semver ranges are processed.",
+  "rootCause": "Outdated versions of transitive dependencies @babel/traverse-7.21.4 and semver-7.5.0 containing known security vulnerabilities in the dependency chain.",
+  "proposedFix": "Upgrade @babel/traverse to 7.23.2 or later and semver to 7.5.2 or later, or update dependent packages to their latest versions.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend as the vulnerable library was no longer part of the inventory or was marked as ignored in the specific branch.",
+  "related": [],
+  "keyQuote": "The vulnerability has been fixed in @babel/traverse@7.23.2 and @babel/traverse@8.0.0-alpha.4.",
+  "number": 1316,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:17.224Z"
+}

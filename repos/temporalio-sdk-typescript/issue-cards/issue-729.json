@@ -1,0 +1,33 @@
+{
+  "summary": "Code coverage reports show all workflow lines as uncovered in TestWorkflowEnvironment even though tests do execute signals and queries. This is due to workflow code executing in a sandbox environment which makes coverage tracking difficult.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-sandbox",
+    "code-coverage"
+  ],
+  "concepts": [
+    "code-coverage",
+    "testing",
+    "workflow-execution",
+    "sandbox",
+    "instrumentation",
+    "unit-tests"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot accurately measure code coverage for workflow unit tests, making it difficult to assess test completeness.",
+  "rootCause": "Workflow code executes in a sandbox environment which prevents standard code coverage instrumentation from working correctly.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by creating the @temporalio/nyc-test-coverage package to handle code coverage specifically for sandboxed workflow code.",
+  "related": [
+    728
+  ],
+  "keyQuote": "This is probably going to be tricky with the way workflow code executes in the sandbox",
+  "number": 729,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:08:54.265Z"
+}

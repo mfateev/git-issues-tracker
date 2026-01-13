@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to enable custom metric support for activities running in multi-processed workers. Currently metrics cannot be accessed in child processes; the proposal is to forward metrics from child processes to the parent worker via a queue, similar to how heartbeating is handled.",
+  "category": "feature",
+  "subcategory": "metrics-multi-process",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "metric-meter",
+    "process-pool"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "multi-processing",
+    "metric-forwarding",
+    "OTEL-integration",
+    "heartbeating"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually configure complex OTEL tooling and metric aggregation to support metrics in multi-processed workers, adding significant complexity to projects using CPU-bound workloads.",
+  "rootCause": "Metrics cannot be shared across process boundaries; the SDK currently lacks inter-process metric forwarding infrastructure for multi-processed workers.",
+  "proposedFix": "Create an alternate MetricMeter implementation that queues metric actions to the parent process, which forwards them to the actual MetricMeter, similar to the existing heartbeat manager approach.",
+  "workaround": "Set up a separate OTEL metrics toolchain with manual process ID tagging and external metric aggregation via OTEL collector's transform processor.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    384
+  ],
+  "keyQuote": "Ideally, I'd hope to see metrics wired up across the process pool out of the box. So following a similar approach to the existing heartbeat manager",
+  "number": 1049,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:52.722Z"
+}

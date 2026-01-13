@@ -1,0 +1,29 @@
+{
+  "summary": "Security vulnerability in quinn-proto Rust dependency affecting the Python SDK. Update to version 0.11.7 to apply necessary security patches for advisories GHSA-vr26-jcq5-fjj8 and RUSTSEC-2024-0373.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "rust-dependencies",
+    "quinn-proto",
+    "build-system"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "patch-update",
+    "supply-chain"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to security vulnerabilities in the Python SDK's Rust dependencies until the package is updated.",
+  "rootCause": "quinn-proto Rust package contains security advisories GHSA-vr26-jcq5-fjj8 and RUSTSEC-2024-0373 in current version.",
+  "proposedFix": "Update quinn-proto Rust package to version 0.11.7 which contains the necessary security patches.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependency was updated to version 0.11.7 to address the identified security vulnerabilities.",
+  "related": [],
+  "keyQuote": "Update to version 0.11.7, which contains the necessary patches.",
+  "number": 642,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:52.801Z"
+}

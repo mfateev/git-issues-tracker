@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add workflow update support to the TypeScript SDK, allowing workflows to be updated without losing state.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "client",
+    "worker"
+  ],
+  "concepts": [
+    "workflow-update",
+    "state-preservation",
+    "versioning",
+    "compatibility",
+    "upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot update workflow code without losing in-flight workflow state, limiting deployment flexibility.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow update support was implemented in the TypeScript SDK",
+  "related": [],
+  "keyQuote": null,
+  "number": 1160,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:34.375Z"
+}

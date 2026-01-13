@@ -1,0 +1,30 @@
+{
+  "summary": "Optimize workflow task history by preventing repeated WorkflowTaskCompleted/Scheduled/Started events when a long-running local activity has no new commands or events to write.",
+  "category": "feature",
+  "subcategory": "workflow-task-heartbeat",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "history-writer",
+    "local-activity"
+  ],
+  "concepts": [
+    "deduplication",
+    "history-optimization",
+    "event-batching",
+    "long-running-activity",
+    "heartbeat"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with very long-running local activities experience bloated workflow history due to repeated empty task events, impacting performance and storage.",
+  "rootCause": "Repeated WorkflowTaskCompleted/Scheduled/Started events are written to history even when there are no commands or new events to include.",
+  "proposedFix": "Skip writing these events if the WorkflowTaskCompleted has no commands and there are no new events, similar to existing deduplication for failing/timing out workflow tasks.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Do not write these events if there are no commands included in WorkflowTaskCompleted and there are no new events.",
+  "number": 2800,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:51.354Z"
+}

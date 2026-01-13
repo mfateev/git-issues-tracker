@@ -1,0 +1,34 @@
+{
+  "summary": "Marker commands are being sent to the server with empty names, causing BadRecordMarkerAttributes errors on workflow completion. The issue appears to occur when a marker command is constructed during replay, then sent after replay transitions to false.",
+  "category": "bug",
+  "subcategory": "marker-commands",
+  "apis": [
+    "RecordMarkerCommand"
+  ],
+  "components": [
+    "marker-handler",
+    "command-builder",
+    "replay-logic"
+  ],
+  "concepts": [
+    "replay-mode",
+    "state-transition",
+    "marker-name-validation",
+    "command-construction"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter workflow completion failures with BadRecordMarkerAttributes errors when marker commands have empty names.",
+  "rootCause": "Marker command constructed during replay may be sent after replay flag becomes false, resulting in empty marker names being transmitted.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1838,
+    1558
+  ],
+  "keyQuote": "the only way it seemed like this might happen is if the marker command was constructed while replaying was true, and then it later became false and sent off the command",
+  "number": 2412,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:07:48.059Z"
+}

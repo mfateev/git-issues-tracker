@@ -1,0 +1,39 @@
+{
+  "summary": "Add ability to configure which exception types should fail the workflow rather than just the activity. Implement WorkflowFailureExceptionTypes on TemporalWorkerOptions and FailureExceptionTypes on WorkflowAttribute/Definition, while blocking InvalidWorkflowOperationException pending core SDK changes.",
+  "category": "feature",
+  "subcategory": "workflow-failure-handling",
+  "apis": [
+    "TemporalWorkerOptions",
+    "WorkflowAttribute",
+    "WorkflowDefinition"
+  ],
+  "components": [
+    "worker",
+    "workflow-executor",
+    "exception-handling",
+    "configuration"
+  ],
+  "concepts": [
+    "failure-propagation",
+    "exception-types",
+    "workflow-lifecycle",
+    "error-handling",
+    "task-failure",
+    "exception-filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need control over which exception types terminate the workflow versus being handled as activity failures, enabling better error handling strategies.",
+  "rootCause": null,
+  "proposedFix": "Add IReadOnlyCollection<Type> WorkflowFailureExceptionTypes to TemporalWorkerOptions; add Type[] FailureExceptionTypes to WorkflowAttribute and IReadOnlyCollection<Type> FailureExceptionTypes to WorkflowDefinition",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with necessary API additions to support workflow failure exception type configuration",
+  "related": [
+    322,
+    656
+  ],
+  "keyQuote": "Need ability for certain task failure types to fail workflow",
+  "number": 166,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:00.419Z"
+}

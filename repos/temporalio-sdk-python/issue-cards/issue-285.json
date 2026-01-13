@@ -1,0 +1,31 @@
+{
+  "summary": "The WorkflowReplayResult and WorkflowReplayResults classes are not publicly visible because they're defined in a private module and need to be re-exported from the main temporalio.worker module.",
+  "category": "bug",
+  "subcategory": "api-visibility",
+  "apis": [
+    "WorkflowReplayResult",
+    "WorkflowReplayResults"
+  ],
+  "components": [
+    "worker",
+    "module-exports"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "api-visibility",
+    "module-structure",
+    "re-export"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access WorkflowReplayResult/WorkflowReplayResults classes because they are not publicly exposed from the worker module.",
+  "rootCause": "Classes are defined in a private module without being re-exported from the public API surface.",
+  "proposedFix": "Re-export WorkflowReplayResult and WorkflowReplayResults from the temporalio.worker module.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Classes were re-exported from the public API module to make them accessible to users.",
+  "related": [],
+  "keyQuote": "Need to re-export from private module",
+  "number": 285,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:00.047Z"
+}

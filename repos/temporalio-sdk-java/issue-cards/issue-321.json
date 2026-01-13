@@ -1,0 +1,28 @@
+{
+  "summary": "The Gradle check-updates plugin is deprecated and should be replaced with automatic dependency update tools like Renovate or Dependabot.",
+  "category": "other",
+  "subcategory": "build-tooling",
+  "apis": [],
+  "components": [
+    "gradle-build",
+    "dependency-management"
+  ],
+  "concepts": [
+    "deprecation",
+    "dependency-updates",
+    "build-configuration",
+    "tooling"
+  ],
+  "severity": "low",
+  "userImpact": "Build warnings are generated when using the Java SDK build configuration with the deprecated plugin.",
+  "rootCause": "The name.remal.check-updates Gradle plugin has been deprecated by its maintainers.",
+  "proposedFix": "Replace the deprecated check-updates plugin with automatic dependency update tools like Renovate or Dependabot.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The build configuration was updated to remove the deprecated plugin and adopt modern dependency management practices.",
+  "related": [],
+  "keyQuote": "Plugin name.remal.check-updates is deprecated: Use automatic dependency updates software like Renovate, Dependabot, etc...",
+  "number": 321,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:07:16.923Z"
+}

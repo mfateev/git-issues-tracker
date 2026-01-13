@@ -1,0 +1,34 @@
+{
+  "summary": "Prometheus metrics counters are lazily initialized, causing monitoring solutions to miss error rate alarms on first-time failures. The request is to eagerly initialize counters for registered workflows and activities at registration time to ensure proper rate calculation.",
+  "category": "feature",
+  "subcategory": "metrics-initialization",
+  "apis": [],
+  "components": [
+    "metrics",
+    "worker",
+    "activity-registry",
+    "workflow-registry"
+  ],
+  "concepts": [
+    "prometheus",
+    "monitoring",
+    "counters",
+    "lazy-initialization",
+    "rate-calculation",
+    "error-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on Prometheus metrics for monitoring workflow failures can miss alerting on the first error occurrence due to undefined rate calculations for newly-appearing counters.",
+  "rootCause": "Temporal SDK metrics use lazy initialization for counters, which only start reporting when first incremented, breaking Prometheus rate calculation semantics that expect counters to start at zero.",
+  "proposedFix": "Implement eager initialization of counters for known registered workflows and activities at registration time, with an optional worker configuration option (EagerMetricInitialization) that defaults to false for backward compatibility.",
+  "workaround": "Use Prometheus query shenanigans and existential metric workarounds as documented in https://www.robustperception.io/existential-issues-with-metrics/",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3886
+  ],
+  "keyQuote": "Prometheus monitoring solutions wishing to alarm on error rates can miss this first increment since prometheus's rate calculation depends upon observing change over time",
+  "number": 146,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:50:07.578Z"
+}

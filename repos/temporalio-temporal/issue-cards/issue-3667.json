@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal Server returns incorrect RetryState (NonRetryableError instead of Timeout) when activity ScheduleToClose timeout occurs in speculative mode (before next retry attempt). This inconsistency with factual mode complicates user error handling and violates expected semantics for timeout failures.",
+  "category": "bug",
+  "subcategory": "activity-timeout",
+  "apis": [
+    "ActivityFailure",
+    "TimeoutFailureInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-logic",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "retryState",
+    "scheduleToClose",
+    "activity-failure",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably distinguish between explicit non-retryable errors and timeout-enforced failures, complicating retry logic and error handling in workflows.",
+  "rootCause": "Server sets retryState=NonRetryableError in speculative timeout mode instead of retryState=Timeout, creating inconsistency between speculative (proactive) and factual (actual) timeout failures.",
+  "proposedFix": "Return ActivityFailure with retryState=Timeout and TimeoutFailureInfo(timeoutType=ScheduleToClose) consistently in both speculative and factual modes. Include last activity failure as cause and only return TimeoutFailureInfo for StartToClose timeout.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "RetryState=NonRetryableError should happen only when an activity attempt is failed with a type explicitly set as non-retryable by the user and only in this situation.",
+  "number": 3667,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:03.678Z"
+}

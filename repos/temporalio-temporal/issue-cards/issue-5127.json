@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal caches RSA keys from Azure AD key source URIs and does not automatically refresh them when keys are rotated. Users need a way for Temporal to periodically fetch updated keys to handle key rotation gracefully.",
+  "category": "bug",
+  "subcategory": "authentication-key-rotation",
+  "apis": [],
+  "components": [
+    "authorization",
+    "token-key-provider",
+    "jwt-validation"
+  ],
+  "concepts": [
+    "key-rotation",
+    "jwt-authentication",
+    "azure-ad",
+    "certificate-refresh",
+    "token-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal with Azure AD authentication cannot automatically handle key rotation events, requiring manual server restarts or configuration updates to accept new keys.",
+  "rootCause": "The defaultTokenKeyProvider caches RSA keys from keySourceURIs but the periodic refresh callback was not implemented or not functioning properly.",
+  "proposedFix": "Implement a timer callback in defaultTokenKeyProvider that periodically calls updateKeys() at intervals specified by refreshInterval to fetch latest keys from the key source URIs.",
+  "workaround": "Manually update the Temporal configuration and redeploy the cluster when Azure AD keys are rotated.",
+  "resolution": "fixed",
+  "resolutionDetails": "A timer-based callback mechanism was implemented to periodically refresh the token keys at configured intervals, allowing automatic handling of key rotation without manual intervention.",
+  "related": [],
+  "keyQuote": "Temporal caches the RSA keys returned from 'keySourceURIs'. It looks like the callback should periodically refresh the key",
+  "number": 5127,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:05.313Z"
+}

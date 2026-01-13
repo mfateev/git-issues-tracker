@@ -1,0 +1,30 @@
+{
+  "summary": "Request to port error classes from Java SDK to TypeScript SDK, including activity failure errors with isRetryable attribute for better error handling and retry logic.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-classes",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "retry",
+    "activity-failures",
+    "error-classification",
+    "interoperability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack standardized error classes and retry indicators for activities, making error handling inconsistent between SDKs.",
+  "rootCause": null,
+  "proposedFix": "Port error classes from Java SDK to TypeScript SDK with isRetryable attribute",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error classes were ported from Java SDK to TypeScript SDK with appropriate retry attributes",
+  "related": [],
+  "keyQuote": "Errors should have an `isRetryable` attributes.",
+  "number": 146,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:22.436Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Remote sync match failed error logged in matching service when scheduling parallel activities through Ruby SDK. Activities execute successfully in parallel but error is logged almost every time with a canceled service error.",
+  "category": "bug",
+  "subcategory": "activity-matching",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "task-queue-manager",
+    "sync-match"
+  ],
+  "concepts": [
+    "parallel-execution",
+    "error-handling",
+    "activity-scheduling",
+    "gRPC",
+    "context-cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see error logs in the Temporal server even though parallel activities execute successfully, causing concern and confusion about system reliability.",
+  "rootCause": "Remote sync match operation in the matching service is being canceled during normal parallel activity execution, likely due to timing issues with task matching or context cancellation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #2549",
+  "related": [
+    2549
+  ],
+  "keyQuote": "Both actions do run in parallel and finish successfully, but (edit: almost) every time I'm seeing an error logged on the temporal server",
+  "number": 2543,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:00.510Z"
+}

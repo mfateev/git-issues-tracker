@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add ability to disable workflow worker in Java SDK. Unlike Go SDK which allows workflow registration after worker startup, Java requires all registration before startup, so this feature would allow conditionally enabling/disabling the workflow worker and poller based on whether workflows are registered.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-poller",
+    "worker-options"
+  ],
+  "concepts": [
+    "worker-initialization",
+    "workflow-registration",
+    "conditional-startup",
+    "poller-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have more flexibility in configuring which pollers to enable based on their worker's registered workflows and activities.",
+  "rootCause": null,
+  "proposedFix": "Conditionally enable/disable workflow worker and poller if no workflows were registered, similar to the Go SDK implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in Java SDK following the pattern used in Go SDK to allow conditional enabling/disabling of workflow worker based on whether workflows are registered.",
+  "related": [
+    636
+  ],
+  "keyQuote": "If Java requires all registration happen before worker is started, you can just not turn on the workflow worker/poller if no workflows were registered",
+  "number": 1032,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:01:01.741Z"
+}

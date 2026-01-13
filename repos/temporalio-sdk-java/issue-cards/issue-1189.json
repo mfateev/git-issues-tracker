@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose the assertHistoryEvent utility method from internal SDKTestWorkflowRule to public TestWorkflowRule API for easier testing. The request was declined as the maintainers consider testing Temporal internal history events an anti-pattern that breaks abstraction.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowRule"
+  ],
+  "components": [
+    "testing",
+    "test-workflow-rule"
+  ],
+  "concepts": [
+    "testing",
+    "history-events",
+    "abstraction",
+    "test-utilities",
+    "internal-implementation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily assert on history events from the public TestWorkflowRule API and must either write their own implementation or access internal APIs.",
+  "rootCause": "The maintainers consider direct history event assertions in user tests a bad practice that breaks Temporal's abstraction layers.",
+  "proposedFix": "Expose assertHistoryEvent as a public method in TestWorkflowRule.",
+  "workaround": "Users can access the internal SDKTestWorkflowRule or write their own assertion utilities to inspect history events directly.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers declined to expose this method as they consider testing Temporal internal abstractions an anti-pattern and believe it would promote bad testing practices.",
+  "related": [],
+  "keyQuote": "It's a bad practice for application test code to assert Temporal history events which is basically a Temporal internal abstraction.",
+  "number": 1189,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:11:45.368Z"
+}

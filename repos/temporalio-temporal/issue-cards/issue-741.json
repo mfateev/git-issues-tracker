@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to support resetting a workflow from a specific activity type and status, enabling programmatic retrieval of event IDs for bulk workflow reruns when downstream services fail.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-reset",
+    "activity-executor",
+    "decision-task"
+  ],
+  "concepts": [
+    "reset",
+    "activity-type",
+    "workflow-replay",
+    "event-id",
+    "decision-task-completion",
+    "activity-status"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to programmatically reset workflows from a specific activity when handling failures in dependent services, improving operational efficiency for large-scale failure scenarios.",
+  "rootCause": null,
+  "proposedFix": "Implement reset functionality that accepts an activity type and status (OK, Failed, Any) to reset the workflow from that point, assuming the reset can recreate activity tasks for all activities completed after the reset point.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support reset that accepts an activity type and status (OK, Failed, Any) and resets workflow from that point.",
+  "number": 741,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:49.395Z"
+}

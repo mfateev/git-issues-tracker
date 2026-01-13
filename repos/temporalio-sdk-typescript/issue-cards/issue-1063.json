@@ -1,0 +1,32 @@
+{
+  "summary": "TypeScript type incompatibility between Temporal's abort-controller polyfill and standard library AbortSignal prevents using cancellationSignal with libraries expecting standard AbortSignal types. The SDK uses a third-party AbortController for Node 14 compatibility, causing type mismatches with newer versions that have the throwIfAborted method.",
+  "category": "bug",
+  "subcategory": "type-compatibility",
+  "apis": [
+    "Context.current().cancellationSignal"
+  ],
+  "components": [
+    "abort-controller",
+    "type-definitions",
+    "cancellation"
+  ],
+  "concepts": [
+    "abort-signal",
+    "type-compatibility",
+    "polyfill",
+    "cancellation",
+    "node-version-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot pass Temporal's cancellationSignal to third-party libraries that expect standard AbortSignal types, limiting integration capabilities.",
+  "rootCause": "Temporal uses abort-controller polyfill for Node 14 compatibility, but its types don't match the standard library AbortSignal which includes throwIfAborted method added in later Node versions.",
+  "proposedFix": "Either use abort-controller/polyfill which returns the native implementation when available, or manually add throwIfAborted method to objects created, or align types with Node 16+ standard library.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SDK switched to using abort-controller/polyfill to return native implementation when available, matching standard library types in newer Node versions.",
+  "related": [],
+  "keyQuote": "Execa expects a standard library `AbortSignal` and Temporal is using a third-party `AbortSignal`.",
+  "number": 1063,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:32.305Z"
+}

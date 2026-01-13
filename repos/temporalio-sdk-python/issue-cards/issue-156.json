@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to remove the custom Go server used for testing in the Python SDK, replacing it with Temporalite which now has search attribute cache disabling and proper TLS base config override capabilities.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "custom-server",
+    "temporalite-integration"
+  ],
+  "concepts": [
+    "testing",
+    "server-replacement",
+    "tls-configuration",
+    "search-attributes",
+    "test-infrastructure"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies SDK test infrastructure by removing custom server maintenance in favor of the community Temporalite project.",
+  "rootCause": null,
+  "proposedFix": "Replace custom Go server with Temporalite for testing, leveraging its search attribute cache disabling and TLS base config override features.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Custom Go server was removed in favor of Temporalite after it gained the required features (search attribute cache disabling and TLS base config override).",
+  "related": [],
+  "keyQuote": "Now that Temporalite is released w/ search attribute cache disabling and proper TLS base config override, we can just use it instead",
+  "number": 156,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:46.875Z"
+}

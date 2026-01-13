@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowInfo and Activity.Context objects returned by user code can be mutated, including dangerous mutations like flipping isReplaying which breaks the patched() API. Objects should be immutable to prevent unintended side effects.",
+  "category": "bug",
+  "subcategory": "workflow-context",
+  "apis": [
+    "workflowInfo",
+    "Activity.Context.current",
+    "patched"
+  ],
+  "components": [
+    "workflow-runtime",
+    "activity-context",
+    "patched-api"
+  ],
+  "concepts": [
+    "immutability",
+    "object-mutation",
+    "state-corruption",
+    "replay-detection",
+    "context-isolation"
+  ],
+  "severity": "high",
+  "userImpact": "Users can accidentally mutate critical context properties, breaking workflow replay detection and other runtime behavior.",
+  "rootCause": "WorkflowInfo and Activity.Context objects are not frozen/immutable, allowing direct property mutations that affect SDK behavior.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "workflow code can actually flip the value of wf.workflowInfo().unsafe.isReplaying, which results in the wf.patched() API function to misbehave",
+  "number": 1247,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:18.848Z"
+}

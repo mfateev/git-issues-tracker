@@ -1,0 +1,32 @@
+{
+  "summary": "Add documentation clarification that activity_id parameter should not be set in most cases, requiring Temporal team confirmation before use. This aligns with Go SDK documentation practices.",
+  "category": "docs",
+  "subcategory": "activity-configuration",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "documentation",
+    "worker"
+  ],
+  "concepts": [
+    "activity-id",
+    "best-practices",
+    "documentation",
+    "configuration",
+    "guidance"
+  ],
+  "severity": "low",
+  "userImpact": "Users may incorrectly set activity_id without understanding it should rarely be used, potentially causing issues that could be avoided with clear documentation.",
+  "rootCause": null,
+  "proposedFix": "Add documentation similar to Go SDK clarifying that activity_id should not be set in most cases and users should contact Temporal team if they believe they need to set it.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to clarify activity_id parameter usage recommendations, aligning with Go SDK guidance.",
+  "related": [],
+  "keyQuote": "Go SDK docs say activity ID should not be set in most cases and to contact Temporal team to confirm you need to set this. We should do the same here.",
+  "number": 293,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:47.774Z"
+}

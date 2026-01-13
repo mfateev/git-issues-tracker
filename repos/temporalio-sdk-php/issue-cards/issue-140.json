@@ -1,0 +1,36 @@
+{
+  "summary": "Workflows remain in running state until all async coroutines complete or are manually cancelled, even after the workflow reaches a return/exception condition. This is intended behavior but can be inconvenient when managing long-running activities with async completion.",
+  "category": "question",
+  "subcategory": "async-coroutines-lifecycle",
+  "apis": [
+    "Workflow.async",
+    "Workflow.timer",
+    "Activity.heartbeat",
+    "Workflow.await"
+  ],
+  "components": [
+    "async-coroutine-manager",
+    "workflow-execution",
+    "activity-cancellation"
+  ],
+  "concepts": [
+    "async-completion",
+    "coroutine-blocking",
+    "workflow-termination",
+    "resource-cleanup",
+    "cancellation",
+    "lifecycle-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users may struggle to cleanly terminate workflows with unfinished async coroutines without manually cancelling each scope.",
+  "rootCause": "Async coroutines intentionally block workflow return until they complete or are cancelled; this is by design rather than a bug.",
+  "proposedFix": null,
+  "workaround": "Manually call cancel() on async scopes before workflow return to allow graceful termination without waiting for activities to complete.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Confirmed as intended behavior. Team advised updating documentation to clarify that cancellation can be triggered from inside workflows and should be used for cleanup.",
+  "related": [],
+  "keyQuote": "Async coroutines will block the return from the workflow until they are complete or canceled. It's intended behavior.",
+  "number": 140,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:18.445Z"
+}

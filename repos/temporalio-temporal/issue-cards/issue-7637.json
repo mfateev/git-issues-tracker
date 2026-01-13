@@ -1,0 +1,32 @@
+{
+  "summary": "Request for a dedicated metric to identify corrupted workflows in Temporal. Currently, workflow corruption can only be detected through logs or expensive database scans, making it difficult to identify problematic workflows in large-scale deployments.",
+  "category": "feature",
+  "subcategory": "observability-metrics",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "metrics",
+    "execution-manager",
+    "workflow-state"
+  ],
+  "concepts": [
+    "workflow-corruption",
+    "data-loss",
+    "metrics-cardinality",
+    "database-integrity",
+    "detection",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Large-scale deployments struggle to identify and track corrupted workflows without expensive database scans or log parsing.",
+  "rootCause": "Workflow corruption can occur at the database layer due to ConditionFailedError during execution updates or DataLoss errors, but current detection requires log parsing or full database scans.",
+  "proposedFix": "Add a dedicated workflow_corrupted metric or implement a system workflow for automated corruption scanning, similar to existing internal scanner workflows.",
+  "workaround": "Parse error logs to identify corruption, or manually run database scans using admin tools.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "corrupted workflows are either: Logged & counted in namespace-level metric or Logged only without workflow info",
+  "number": 7637,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:21.647Z"
+}

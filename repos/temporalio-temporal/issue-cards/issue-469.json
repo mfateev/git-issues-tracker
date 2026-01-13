@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a configurable depth limit for child workflow creation to prevent infinite recursion due to programming mistakes. A commenter suggests also considering cycle detection or DAG validation.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "child-workflow-executor"
+  ],
+  "concepts": [
+    "recursion",
+    "depth-limit",
+    "resource-protection",
+    "error-prevention",
+    "workflow-hierarchy"
+  ],
+  "severity": "medium",
+  "userImpact": "Without depth limits, developers can accidentally create infinite recursive child workflows that consume resources and crash the system.",
+  "rootCause": null,
+  "proposedFix": "Allow configurable depth limit for child workflow creation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently there is no ability to limit number of levels of child workflow creation. It can potentially lead to situations when due to programming mistake workflow keeps creating children recursively forever.",
+  "number": 469,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:59:51.678Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to provide a flag indicating whether an update handler is being invoked from a re-applied update during workflow reset/replay. This is needed to prevent activity failures when updates are retried after being marked as admitted to the client.",
+  "category": "feature",
+  "subcategory": "update-handler",
+  "apis": [],
+  "components": [
+    "update-handler",
+    "workflow-context",
+    "workflow-task",
+    "activity-retry"
+  ],
+  "concepts": [
+    "update-reapply",
+    "workflow-reset",
+    "activity-retry",
+    "admitted-event",
+    "replay",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely handle retried updates after reset without risking activity failures, forcing them to use workarounds for correct error handling behavior.",
+  "rootCause": "SDK does not expose information about whether an update is being reapplied from an Admitted event, preventing handlers from distinguishing initial attempts from reset replays.",
+  "proposedFix": "SDK should provide a flag or context property indicating the update request came from re-applying an Admitted event.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5873,
+    1776
+  ],
+  "keyQuote": "SDK should know this info (the update is from Admitted event), just provide a flag to us.",
+  "number": 564,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:09.883Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Python SDK throws raw RPC errors for non-existent queries instead of wrapping them with user-friendly error messages like other SDKs do. This should be improved to provide clearer error context to users.",
+  "category": "bug",
+  "subcategory": "query-error-handling",
+  "apis": [
+    "query"
+  ],
+  "components": [
+    "query-handler",
+    "error-handling",
+    "rpc-client"
+  ],
+  "concepts": [
+    "error-wrapping",
+    "user-experience",
+    "error-messaging",
+    "query-execution",
+    "exception-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive unclear RPC errors when invoking non-existent queries instead of friendly, informative error messages available in other SDKs.",
+  "rootCause": "Query RPC errors are not wrapped with appropriate error handling in the Python SDK.",
+  "proposedFix": "Wrap query RPC errors with a more clear and friendly error message similar to implementations in other SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Query error handling was improved to wrap RPC errors with friendlier messages.",
+  "related": [],
+  "keyQuote": "In other SDKs, when a non-existent query is invoked a \"query exception\" in that lang is thrown. But in Python we just throw the RPC back out.",
+  "number": 162,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:13.335Z"
+}

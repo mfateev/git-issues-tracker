@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a new worker API to signal shutdown and reset sticky task queues. This would allow workers to clean up state during graceful shutdown, particularly by clearing task queue affinity.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-queue",
+    "sticky-queue"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "sticky-task-queue",
+    "cleanup",
+    "worker-lifecycle",
+    "task-affinity",
+    "state-management"
+  ],
+  "severity": "low",
+  "userImpact": "Workers cannot properly reset sticky task queue assignments during shutdown, potentially causing task routing issues after worker restart.",
+  "rootCause": null,
+  "proposedFix": "Add an API method on the worker to signal shutdown and reset sticky task queue state.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently the main thing workers would use this API for is to reset the sticky task queue for any tasks on that queue.",
+  "number": 3435,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:10.475Z"
+}

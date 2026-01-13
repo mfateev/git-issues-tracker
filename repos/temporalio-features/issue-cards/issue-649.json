@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to enable unit testing of workflow versioning and upgrade scenarios. Currently, the unit testing framework always takes the code path of the latest version with no way to force execution of older code paths, making it impossible to verify that versioned code upgrades work correctly.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "unit-testing",
+    "workflow-versioning",
+    "version-management"
+  ],
+  "concepts": [
+    "workflow-versioning",
+    "code-upgrade",
+    "unit-testing",
+    "version-compatibility",
+    "backwards-compatibility",
+    "testing-framework",
+    "scenario-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot verify that workflow versioning upgrades work correctly through unit tests, forcing them to rely on integration testing only.",
+  "rootCause": "The unit testing framework always executes the latest version of code with no mechanism to simulate or force older code paths.",
+  "proposedFix": "Add support to execute different upgrade scenarios through the unit testing framework, allowing developers to test version transitions.",
+  "workaround": "Use integration testing only to verify upgrade scenarios.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently there is no way to test version upgrades of code through unit testing framework.",
+  "number": 649,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:17:50.346Z"
+}

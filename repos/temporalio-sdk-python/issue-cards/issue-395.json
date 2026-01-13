@@ -1,0 +1,32 @@
+{
+  "summary": "Request to expose client keep-alive options in the Python SDK. The functionality is already enabled by default in the SDK core, requiring only the addition of configuration options.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "connection-management",
+    "sdk-core-bindings"
+  ],
+  "concepts": [
+    "keep-alive",
+    "connection-management",
+    "client-configuration",
+    "heartbeat",
+    "network-stability"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently configure client keep-alive settings despite the feature being available in the underlying SDK core.",
+  "rootCause": null,
+  "proposedFix": "Expose the options from sdk-core issue #585 in the Python SDK API",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose client keep-alive options available in SDK core",
+  "related": [
+    585
+  ],
+  "keyQuote": "Already enabled by default in latest SDK core, just need to expose the options",
+  "number": 395,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:03.985Z"
+}

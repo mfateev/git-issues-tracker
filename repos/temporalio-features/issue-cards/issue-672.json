@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to add tests across SDKs that verify custom slot suppliers receive slot info objects with properly set fields. Currently most SDKs lack test coverage for this functionality.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "custom-slot-supplier",
+    "slot-info",
+    "test-coverage"
+  ],
+  "concepts": [
+    "testing",
+    "slot-management",
+    "worker-configuration",
+    "test-validation",
+    "SDK-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom slot suppliers may not have confidence that slot info fields are correctly populated across different SDK implementations.",
+  "rootCause": null,
+  "proposedFix": "Add tests to each SDK to confirm that slot info passed to custom slot suppliers has all required fields properly set.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2045,
+    2650,
+    1782,
+    1079,
+    519,
+    225
+  ],
+  "keyQuote": "In many (all?) SDKs, there are not tests confirming that the fields are properly set on slot infos passed to custom slot suppliers.",
+  "number": 672,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:35.127Z"
+}

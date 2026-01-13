@@ -1,0 +1,35 @@
+{
+  "summary": "User asked why arrays cannot be used as return types in activity methods. The limitation exists because PHP lacks generic type hints for composite types, and JSON's lack of hash maps creates ambiguity in type serialization.",
+  "category": "question",
+  "subcategory": "type-system",
+  "apis": [
+    "ActivityMethod",
+    "ActivityInterface"
+  ],
+  "components": [
+    "data-converter",
+    "type-system",
+    "activity-interface"
+  ],
+  "concepts": [
+    "type-hinting",
+    "serialization",
+    "generics",
+    "composite-types",
+    "data-transfer"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot directly return arrays from activity methods and must wrap data in DTO objects instead.",
+  "rootCause": "PHP does not support generic type hints (e.g., array<string, string>) and JSON cannot represent PHP associative arrays as hash maps, creating ambiguity in serialization.",
+  "proposedFix": null,
+  "workaround": "Use Data Transfer Objects (DTOs) to wrap composite data instead of returning arrays directly.",
+  "resolution": "wontfix",
+  "resolutionDetails": "This is a language limitation acknowledged by maintainers. The recommended approach is to use DTOs for transferring composite data.",
+  "related": [
+    93
+  ],
+  "keyQuote": "Recommended to use DTOs to transfer composite data between code.",
+  "number": 112,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:20.437Z"
+}

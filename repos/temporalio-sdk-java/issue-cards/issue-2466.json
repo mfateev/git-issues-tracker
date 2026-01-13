@@ -1,0 +1,31 @@
+{
+  "summary": "Spring Boot starter behavior changed in v1.22.0+ to fail startup if Temporal server is unavailable, breaking existing deployments that relied on graceful degradation. Users request a configuration option to restore the older behavior where worker startup succeeds even when the server is unreachable.",
+  "category": "bug",
+  "subcategory": "spring-boot-starter",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "worker",
+    "client-connection"
+  ],
+  "concepts": [
+    "startup-behavior",
+    "server-availability",
+    "graceful-degradation",
+    "container-orchestration",
+    "readiness-probe",
+    "liveness-probe"
+  ],
+  "severity": "high",
+  "userImpact": "Applications fail to start if Temporal server is temporarily unavailable, breaking deployment pipelines and microservice patterns that distinguish between application liveness and readiness.",
+  "rootCause": "Version 1.22.0+ changed Spring Boot starter to fail initialization if server connection cannot be established, removing graceful degradation behavior from older versions.",
+  "proposedFix": "Add configuration option to make worker startup non-blocking and allow the application to start successfully even when Temporal server is unavailable, with separate readiness/liveness probe support.",
+  "workaround": "Increase `WorkflowServiceStubsOptions.Builder.setSystemInfoTimeout` and start the worker manually after application startup completes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined that workers require active server connection to function and recommended fixing deployment orchestration instead, but acknowledged the microservice pattern concern.",
+  "related": [],
+  "keyQuote": "a microservice best practice is to make a difference between my application crashing and my application needing something not possible now",
+  "number": 2466,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:14.035Z"
+}

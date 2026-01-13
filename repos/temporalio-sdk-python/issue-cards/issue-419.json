@@ -1,0 +1,30 @@
+{
+  "summary": "README contains multiple documentation issues: incorrect class initialization signature, missing poetry install flags for running tests, and unclear pip version requirements for development setup.",
+  "category": "docs",
+  "subcategory": "readme",
+  "apis": [],
+  "components": [
+    "documentation",
+    "readme",
+    "development-setup"
+  ],
+  "concepts": [
+    "documentation",
+    "setup-instructions",
+    "testing",
+    "dependencies",
+    "pip-requirements"
+  ],
+  "severity": "low",
+  "userImpact": "Developers following the README may encounter confusion or errors when setting up the development environment or running tests.",
+  "rootCause": "README documentation contains inaccurate or incomplete information regarding class initialization syntax, dependency installation, and version requirements.",
+  "proposedFix": "Update README to: (1) fix class __init__() signature to include self, (2) add --all-extras flag to poetry install command for running tests, (3) clarify that latest pip is required for development.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation issues were corrected in the README.",
+  "related": [],
+  "keyQuote": "Class `__init__()` doesn't take `self` / Running tests should have `--all-extras` on `poetry install` / Clarify in dev section that you need latest pip",
+  "number": 419,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:00.668Z"
+}

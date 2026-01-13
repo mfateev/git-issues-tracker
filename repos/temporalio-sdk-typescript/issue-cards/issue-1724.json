@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow function not found in bundle when using Temporal worker with NestJS. The issue occurs when bundling workflows, with the bundled workflow exports not being properly recognized by importWorkflows(), particularly when combining multiple workflow files and using Bluebird's map() function.",
+  "category": "bug",
+  "subcategory": "workflow-bundling",
+  "apis": [
+    "importWorkflows"
+  ],
+  "components": [
+    "worker",
+    "workflow-bundler",
+    "webpack"
+  ],
+  "concepts": [
+    "bundling",
+    "module-exports",
+    "workflow-discovery",
+    "module-resolution",
+    "dependency-interaction"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflows with NestJS when using certain bundling patterns or Bluebird utilities, blocking workflow execution.",
+  "rootCause": "Webpack bundling issue combined with Bluebird's map() function causing incomplete workflow exports to be recognized by importWorkflows().",
+  "proposedFix": null,
+  "workaround": "Replace Bluebird map() calls with p-map alternative; reduce number of exported workflow files; use Temporal 1.11.3 instead of 1.12.0+.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by replacing Bluebird with p-map library, confirming the root cause was an interplay between Bluebird and Webpack that prevented all exported functions from being recognized.",
+  "related": [],
+  "keyQuote": "Replacing Bluebird with p-map resolves this issue for me. No changes need to be made to nestjs-temporal.",
+  "number": 1724,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:58.746Z"
+}

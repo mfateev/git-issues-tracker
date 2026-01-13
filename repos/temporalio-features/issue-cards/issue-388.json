@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to allow users to dynamically modify worker configurations (such as number of pollers and slots) while a worker is running, with tracking across multiple SDK implementations.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "configuration",
+    "polling"
+  ],
+  "concepts": [
+    "dynamic-configuration",
+    "runtime-modification",
+    "worker-scaling",
+    "resource-management",
+    "pollers",
+    "slots"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot adjust worker resource allocation without restarting the worker, limiting operational flexibility.",
+  "rootCause": null,
+  "proposedFix": "Implement dynamic worker configuration API that allows modifying pollers and slots at runtime, potentially using Nexus as a transport mechanism.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed due to unclear implementation approach and architectural changes (Nexus development). Feature implementation deferred pending further design clarity.",
+  "related": [
+    334,
+    1323,
+    1955,
+    661
+  ],
+  "keyQuote": "Unclear what/how we want to do this, and a lot has changed since this was opened (e.g. we are building Nexus now, which could be a transport for config changes)",
+  "number": 388,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:13.913Z"
+}

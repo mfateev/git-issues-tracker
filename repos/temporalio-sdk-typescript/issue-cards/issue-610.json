@@ -1,0 +1,32 @@
+{
+  "summary": "Sink API creates circular JSON structures when passing data between workflow and sink threads via postMessage, causing JSON.stringify() to fail with circular reference error on the receiving end.",
+  "category": "bug",
+  "subcategory": "sink-api",
+  "apis": [
+    "sink"
+  ],
+  "components": [
+    "sink",
+    "worker-threads",
+    "inter-thread-communication"
+  ],
+  "concepts": [
+    "circular-reference",
+    "serialization",
+    "worker-threads",
+    "postMessage",
+    "data-transfer"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot serialize sink data with JSON.stringify() on the receiving end, limiting debugging and data processing capabilities.",
+  "rootCause": "The postMessage API used for communication between workflow worker thread and main thread creates circular structures in complex data objects during serialization/deserialization.",
+  "proposedFix": null,
+  "workaround": "Stringify the data on the sending end before passing it through the sink instead of stringifying on the receiving end.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Acknowledged as a limitation of Node.js postMessage API used for thread communication; workaround suggested instead of fixing.",
+  "related": [],
+  "keyQuote": "This is a limitation of the postMessage API. We use this API because the workflow runs in a worker thread and the sink function runs on the main Node.js thread.",
+  "number": 610,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:04:11.005Z"
+}

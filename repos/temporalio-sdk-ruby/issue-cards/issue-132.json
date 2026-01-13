@@ -1,0 +1,28 @@
+{
+  "summary": "Release assets are incorrectly named with Bridge version number (0.0.1) instead of the actual SDK release version. The version in Bridge's Cargo.toml file needs to be updated during pre-release commits.",
+  "category": "bug",
+  "subcategory": "release-process",
+  "apis": [],
+  "components": [
+    "release-assets",
+    "bridge",
+    "cargo"
+  ],
+  "concepts": [
+    "versioning",
+    "release-automation",
+    "build-artifacts"
+  ],
+  "severity": "medium",
+  "userImpact": "Users downloading release assets receive incorrectly versioned artifacts that don't match the published release version.",
+  "rootCause": "Bridge's Cargo.toml version number is not synchronized with SDK release version during pre-release process.",
+  "proposedFix": "Update the version number in Bridge's Cargo.toml file in the pre-release commit.",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "SDK is undergoing rewrite/refresh and this issue no longer applies to current version.",
+  "related": [],
+  "keyQuote": "The SDK is undergoing a rewrite/refresh and this issue applied to a previous version and is no longer applicable",
+  "number": 132,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:43:10.963Z"
+}

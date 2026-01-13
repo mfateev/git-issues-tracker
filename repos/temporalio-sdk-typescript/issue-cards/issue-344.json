@@ -1,0 +1,37 @@
+{
+  "summary": "Worker fails to reconnect when the Temporal server is initially down, throwing a transport error and stopping retry attempts. Unlike issue #290 which retries after server recovery, this addresses the case where the server is down when the worker starts.",
+  "category": "bug",
+  "subcategory": "worker-connection",
+  "apis": [
+    "Worker.create",
+    "Core.install"
+  ],
+  "components": [
+    "worker",
+    "connection-manager",
+    "transport",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "connection",
+    "resilience",
+    "error-handling",
+    "server-unavailability",
+    "worker-startup"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers crash and stop attempting reconnection when the Temporal server is unavailable at startup, requiring manual intervention to restart the worker once the server is available.",
+  "rootCause": "Worker startup does not implement retry logic when server is initially down; retry logic was only added for cases where the server becomes unavailable after initial connection (issue #290).",
+  "proposedFix": null,
+  "workaround": "Implement custom retry logic by wrapping Worker.create or Core.install to handle initial connection failures.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers decided the current behavior (failing fast on misconfiguration rather than leaving workers idle) is intentional and preferred, but remain open to discussion.",
+  "related": [
+    290
+  ],
+  "keyQuote": "We chose not to attempt to reconnect when worker starts to avoid a situation where workers are left idle in case of misconfiguration.",
+  "number": 344,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:56.680Z"
+}

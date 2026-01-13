@@ -1,0 +1,32 @@
+{
+  "summary": "Replication tasks referencing archived workflow executions block all replication when a secondary cluster is offline for longer than the namespace retention window. When the cluster returns online, the replication system becomes deadlocked trying to process replication tasks for workflows that have been archived, preventing both historical and new workflow replication.",
+  "category": "bug",
+  "subcategory": "multi-cluster-replication",
+  "apis": [],
+  "components": [
+    "history-service",
+    "replication-manager",
+    "persistence-layer",
+    "ack-manager"
+  ],
+  "concepts": [
+    "multi-cluster-replication",
+    "workflow-archival",
+    "retention-window",
+    "replication-tasks",
+    "deadlock",
+    "cluster-recovery"
+  ],
+  "severity": "critical",
+  "userImpact": "When a secondary cluster is offline for extended periods and returns online, all workflow history replication stops indefinitely, including newly created workflows, blocking cross-cluster synchronization.",
+  "rootCause": "The replication task reader cannot process replication tasks for archived workflow executions that no longer exist in the database. The system attempts to load mutable state for workflows that have been archived during the offline period, causing context cancellation errors that block the entire replication queue.",
+  "proposedFix": "Modify shard.Context.GetWorkflowExecution() to return serviceerror.NotFound for archived workflows instead of failing, allowing the replication system to skip archived workflows and continue processing.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The replication task reader cannot process replication tasks for archived workflow executions, causing context canceled errors that block the entire replication system from functioning.",
+  "number": 4348,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:14.472Z"
+}

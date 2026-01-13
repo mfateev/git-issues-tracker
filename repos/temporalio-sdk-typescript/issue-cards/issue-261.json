@@ -1,0 +1,32 @@
+{
+  "summary": "Update the server version-feature mapping to include Node.js SDK support for execution chain following. Also verify that SDK version info is being properly sent to the server.",
+  "category": "feature",
+  "subcategory": "version-mapping",
+  "apis": [],
+  "components": [
+    "version-mapping",
+    "client-capabilities",
+    "sdk-version-info"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "feature-detection",
+    "client-capabilities",
+    "execution-chain",
+    "sdk-versioning"
+  ],
+  "severity": "medium",
+  "userImpact": "Without the version mapping update, the execution chain following fix won't be utilized until the server recognizes the Node.js SDK version.",
+  "rootCause": "The execution chain following fix requires an updated version-feature mapping on the server side to recognize and use the capability from the Node.js SDK.",
+  "proposedFix": "Update the server version mapping to include Node.js SDK support, and consider sending client capabilities from the client instead of relying on version mapping.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed; mapping was updated as a post-release task. Related sdk-features issue #142 opened to track SDKs sending client capabilities.",
+  "related": [
+    142
+  ],
+  "keyQuote": "The fix we made to follow execution chains under the new model won't be used until we add node to the version mapping",
+  "number": 261,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:37.013Z"
+}

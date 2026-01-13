@@ -1,0 +1,32 @@
+{
+  "summary": "Java SDK is not reporting workflow_failures metrics when exceptions are thrown by the SDK itself (such as NonDeterministicException), causing a discrepancy between SDK metrics and Temporal Cloud metrics.",
+  "category": "bug",
+  "subcategory": "workflow-metrics",
+  "apis": [],
+  "components": [
+    "ReplayWorkflowExecutor",
+    "ReplayWorkflowRunTaskHandler",
+    "WorkflowImplementationOptions"
+  ],
+  "concepts": [
+    "metrics",
+    "workflow-failure",
+    "exception-handling",
+    "instrumentation",
+    "nondeterminism"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately monitor workflow failures through SDK metrics when failures are caused by SDK-thrown exceptions, leading to inconsistent metric data between local SDK and Temporal Cloud.",
+  "rootCause": "The Java SDK only reports workflow_failures from ReplayWorkflowExecutor.java:97, which is not reachable when WorkflowExecutionException is thrown from ReplayWorkflowRunTaskHandler.java:256-260.",
+  "proposedFix": null,
+  "workaround": "None identified in discussion.",
+  "resolution": "fixed",
+  "resolutionDetails": "SDK was updated to report workflow_failures metrics correctly when exceptions are thrown by the SDK itself, not just when thrown in user workflow code.",
+  "related": [
+    1590
+  ],
+  "keyQuote": "Java SDK is not reporting workflow_failures from the code path via the FailWorkflowExceptionTypes",
+  "number": 2103,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:48.641Z"
+}

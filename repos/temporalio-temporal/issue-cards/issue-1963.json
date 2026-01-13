@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add a setting or environment variable to suppress validation errors for Custom Searchable Attributes (CSA), enabling lightweight CI/CD testing with Temporal configurations that lack Elasticsearch support.",
+  "category": "feature",
+  "subcategory": "custom-searchable-attributes",
+  "apis": [],
+  "components": [
+    "searchable-attributes",
+    "validation",
+    "elasticsearch"
+  ],
+  "concepts": [
+    "custom-searchable-attributes",
+    "validation",
+    "testing",
+    "ci-cd",
+    "elasticsearch",
+    "temporalite"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing with Temporal configurations without Elasticsearch (like temporalite) experience errors when using CSA APIs, hindering CI/CD workflows.",
+  "rootCause": "Validation for Custom Searchable Attributes requires Elasticsearch, which is not available in lightweight testing setups.",
+  "proposedFix": "Add SKIP_CSA_VALIDATION environment variable or setting to bypass CSA validation.",
+  "workaround": "Use SQLite with temporal CLI which now supports custom search attributes.",
+  "resolution": "fixed",
+  "resolutionDetails": "SQLite support for custom search attributes was added to temporal CLI, providing an alternative solution.",
+  "related": [],
+  "keyQuote": "have a SKIP_CSA_VALIDATION environment variable or setting that does it? alex has ideas",
+  "number": 1963,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:27.080Z"
+}

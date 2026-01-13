@@ -1,0 +1,29 @@
+{
+  "summary": "Certificate hot-reloading configuration parameters (RefreshInterval and ExpirationChecks) exist in the code but cannot be set via environment variables, requiring manual vendoring of the configuration file as a workaround.",
+  "category": "bug",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "config",
+    "certificate-management",
+    "docker"
+  ],
+  "concepts": [
+    "certificate-reloading",
+    "environment-variables",
+    "configuration",
+    "tls"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure certificate hot-reloading behavior without vendoring and manually editing the configuration file.",
+  "rootCause": "Configuration parameters RefreshInterval and ExpirationChecks are defined in the code but not exposed as environment variable options in the configuration template.",
+  "proposedFix": "Add environment variable support for RefreshInterval and ExpirationChecks parameters in the docker configuration template.",
+  "workaround": "Vendor the configuration file and manually update the certificate hot-reloading parameters.",
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration parameters were made settable via environment variables.",
+  "related": [],
+  "keyQuote": "These parameters do exist... But are not settable via environment variable",
+  "number": 1799,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:55.343Z"
+}

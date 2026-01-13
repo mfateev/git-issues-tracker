@@ -1,0 +1,32 @@
+{
+  "summary": "Inconsistency in metric labels between temporal_activity_schedule_to_start_latency_seconds_bucket and temporal_workflow_task_schedule_to_start_latency_seconds_bucket. Activity latency metric includes both activity_type and workflow_type tags, while workflow task latency metric has workflow_type as 'none'. Documentation also needs alignment.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "worker",
+    "activity-executor"
+  ],
+  "concepts": [
+    "metrics-alignment",
+    "labels",
+    "monitoring",
+    "latency",
+    "task-queue"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive inconsistent metric labels between activity and workflow task latency metrics, making it difficult to correlate and analyze metrics across different worker types.",
+  "rootCause": "The activity schedule-to-start latency metric populates both activity_type and workflow_type tags, while the workflow task schedule-to-start latency metric only has workflow_type as 'none', creating asymmetry in metric labels.",
+  "proposedFix": "Either both metrics should populate their respective type tags (activity_type for activity latency, workflow_type for workflow task latency), or neither should include the irrelevant type tag. Documentation should be updated to reflect the final decision.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Determined that workflow_type label is not relevant for pollers (task-queue level) and should be removed from documentation. The Go SDK behavior was identified as keeping the label for backwards compatibility.",
+  "related": [
+    2526
+  ],
+  "keyQuote": "Spoke with the team the conclusion was `workflow_type` label is only supported on the Go SDK and should be removed from the documentation since it is not relevant to pollers.",
+  "number": 1417,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:34:44.853Z"
+}

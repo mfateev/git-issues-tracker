@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add support for passing arbitrary user data through the forwarded log callback in the C bridge. Currently, the logging callback doesn't support user data context similar to other callbacks, limiting functionality for low-level C bridge users.",
+  "category": "feature",
+  "subcategory": "c-bridge-logging",
+  "apis": [],
+  "components": [
+    "c-bridge",
+    "logging",
+    "callback-system"
+  ],
+  "concepts": [
+    "user-data",
+    "callback-context",
+    "c-interop",
+    "logging-bridge",
+    "extensibility"
+  ],
+  "severity": "low",
+  "userImpact": "Low-level C bridge users cannot pass contextual user data through log callbacks, requiring workarounds for stateful logging scenarios.",
+  "rootCause": null,
+  "proposedFix": "Add `forward_to_user_data: *mut libc::c_void` field to `LoggingOptions` and update `ForwardedLogCallback` to support passing user data through the callback chain.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    423
+  ],
+  "keyQuote": "the ability to pass arbitrary user data through the callback similar to how done in other callbacks would be ideal",
+  "number": 440,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:25:10.041Z"
+}

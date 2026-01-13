@@ -1,0 +1,33 @@
+{
+  "summary": "Add a `limit` parameter to `replay_workflows` and `workflow_replay_iterator` functions to support early stopping when working with async iterators, addressing the limitation that the API only supports page sizes without a LIMIT clause.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "replay_workflows",
+    "workflow_replay_iterator"
+  ],
+  "components": [
+    "workflow-replay",
+    "async-iterator",
+    "pagination"
+  ],
+  "concepts": [
+    "limiting",
+    "async-iteration",
+    "pagination",
+    "early-termination",
+    "workflow-testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily limit the number of workflows replayed without manually tracking iteration count, making it cumbersome to test or debug specific subsets of workflows.",
+  "rootCause": null,
+  "proposedFix": "Add a `limit` parameter to `replay_workflows` and `workflow_replay_iterator` functions to allow users to cap the number of results returned.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The limit parameter was implemented in the replay workflow functions.",
+  "related": [],
+  "keyQuote": "Add this to the fact that our API doesn't support a LIMIT clause, but only page sizes, we have no good way to stop these functions early.",
+  "number": 610,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:01.694Z"
+}

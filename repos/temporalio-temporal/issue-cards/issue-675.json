@@ -1,0 +1,34 @@
+{
+  "summary": "Current rate limiting is based on API call RPS only and doesn't account for large payload sizes, causing the database to load and ship huge amounts of data over the wire. The request is to implement payload-size-aware rate limiting that throttles namespaces exceeding configured quotas.",
+  "category": "feature",
+  "subcategory": "rate-limiting",
+  "apis": [
+    "GetHistory"
+  ],
+  "components": [
+    "rate-limiter",
+    "api-handler",
+    "history-service",
+    "namespace-throttling"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "payload-size",
+    "quota-management",
+    "throttling",
+    "database-performance",
+    "network-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with large history payloads experience poor performance and potential service degradation due to inadequate rate limiting that doesn't consider data volume.",
+  "rootCause": "Rate limiting logic only considers API call count (RPS) without accounting for the volume of data being transferred, making it ineffective for operations like GetHistory that return large payloads.",
+  "proposedFix": "Implement rate limiting that considers payload sizes and throttles namespaces that exceed configured quota thresholds.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Have rate limiting logic which also takes into account payload sizes and throttle namespaces which goes over configured quota.",
+  "number": 675,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:23:14.709Z"
+}

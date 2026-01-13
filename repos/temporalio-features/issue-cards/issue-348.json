@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose AdminService API in SDKs for programmatic access to internal admin operations like task refresh. Team decided this cannot be exposed as it's internal server API, but users can generate gRPC clients or use the Go server as a library as a workaround.",
+  "category": "feature",
+  "subcategory": "admin-api",
+  "apis": [],
+  "components": [
+    "sdk",
+    "admin-service",
+    "grpc-client"
+  ],
+  "concepts": [
+    "internal-api",
+    "admin-operations",
+    "task-refresh",
+    "workflow-execution",
+    "server-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users needing programmatic access to admin operations like task refresh must use workarounds instead of a standardized SDK interface.",
+  "rootCause": "AdminService is an internal server API not exposed through the official public API repository (temporalio/api), so SDKs cannot officially support it.",
+  "proposedFix": "Expose refresh task API or other needed admin operations through the public Temporal API (temporalio/api repo) if the team decides to support them officially.",
+  "workaround": "Users can generate gRPC client from protos directly, call temporal CLI programmatically, or for Go use 'import \"go.temporal.io/server/api/adminservice/v1\"' with a gRPC connection.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided AdminService cannot be exposed in SDKs as it's internal server API. Workarounds provided instead.",
+  "related": [],
+  "keyQuote": "Our SDKs only support official API at https://github.com/temporalio/api, but that API is internal API that we happened to expose previously",
+  "number": 348,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:43.602Z"
+}

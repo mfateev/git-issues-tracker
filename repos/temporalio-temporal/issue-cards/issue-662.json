@@ -1,0 +1,32 @@
+{
+  "summary": "User requests addition of ConnectTimeout configuration option for Cassandra database connections in Temporal Server. This would allow operators to customize the connection timeout duration via YAML configuration.",
+  "category": "feature",
+  "subcategory": "cassandra-config",
+  "apis": [],
+  "components": [
+    "cassandra-cluster",
+    "config-parser",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "timeout",
+    "connection",
+    "configuration",
+    "cassandra",
+    "networking"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators cannot customize Cassandra connection timeouts, limiting flexibility in network configurations with varying latency characteristics.",
+  "rootCause": null,
+  "proposedFix": "Add ConnectTimeout field to Cassandra config struct and parse it in cassandraCluster.NewCassandraCluster using YAML's built-in time.Duration support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in PR #679 with ConnectTimeout configuration option added server-side, leveraging YAML parser's native time.Duration support.",
+  "related": [
+    679
+  ],
+  "keyQuote": "I've added this config option on the server side in #679, luckily standard yaml parser already supports `time.Duration`",
+  "number": 662,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:21:56.756Z"
+}

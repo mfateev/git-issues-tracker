@@ -1,0 +1,32 @@
+{
+  "summary": "Add a method to obtain ApplicationError details with type hints for deserialized errors. Currently, details are only available in raw Python form (dicts, etc.); users need a typed accessor.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "ApplicationError"
+  ],
+  "components": [
+    "error-handling",
+    "deserialization",
+    "exceptions"
+  ],
+  "concepts": [
+    "type-hints",
+    "error-details",
+    "deserialization",
+    "type-safety",
+    "accessor-methods"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with ApplicationError details lack convenient typed access to deserialized error information.",
+  "rootCause": null,
+  "proposedFix": "Make details property lazy, add property for raw details access, and add method to access detail by index with type hint",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For users of deserialized ApplicationError, today we only offer the deserialized details in raw Python form",
+  "number": 1262,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:37:14.484Z"
+}

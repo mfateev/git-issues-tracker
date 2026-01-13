@@ -1,0 +1,32 @@
+{
+  "summary": "WorkerFactoryInterface method signature is missing parameters that are present in the actual implementation (ExceptionInterceptorInterface and PipelineProvider), causing a mismatch between the public interface contract and implementation.",
+  "category": "bug",
+  "subcategory": "api-design",
+  "apis": [
+    "newWorker"
+  ],
+  "components": [
+    "WorkerFactoryInterface",
+    "WorkerFactory",
+    "worker"
+  ],
+  "concepts": [
+    "interface-contract",
+    "api-consistency",
+    "method-signature",
+    "backwards-compatibility",
+    "dependency-injection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on the interface documentation cannot discover or use the ExceptionInterceptorInterface and PipelineProvider parameters available in the actual implementation.",
+  "rootCause": "Interface method signature was not updated when implementation parameters were added, creating a contract mismatch.",
+  "proposedFix": "Update WorkerFactoryInterface.newWorker() signature to include the missing ExceptionInterceptorInterface and PipelineProvider parameters with null defaults.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The interface should describe the full method with all arguments.",
+  "number": 573,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:41:17.611Z"
+}

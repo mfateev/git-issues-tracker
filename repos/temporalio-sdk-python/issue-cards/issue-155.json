@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add metric temporality configuration to telemetry settings, aligning with changes made in the core SDK. This is a duplicate of issue #141.",
+  "category": "feature",
+  "subcategory": "telemetry-config",
+  "apis": [],
+  "components": [
+    "telemetry",
+    "metrics",
+    "configuration"
+  ],
+  "concepts": [
+    "metric-temporality",
+    "telemetry-configuration",
+    "observability",
+    "metrics-export",
+    "sdk-alignment"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot configure metric temporality options in the Python SDK telemetry configuration, limiting observability customization.",
+  "rootCause": null,
+  "proposedFix": "Implement metric temporality configuration similar to the core SDK (see PR #402 and #404 in sdk-core)",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #141",
+  "related": [
+    141
+  ],
+  "keyQuote": "Dupe of https://github.com/temporalio/sdk-python/issues/141",
+  "number": 155,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:44.296Z"
+}

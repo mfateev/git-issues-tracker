@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a configuration option in Spring Boot autoconfiguration to fail worker startup when duplicate activity type definitions are detected, rather than silently logging and continuing.",
+  "category": "feature",
+  "subcategory": "spring-boot-autoconfiguration",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "worker-discovery",
+    "activity-registration"
+  ],
+  "concepts": [
+    "duplicate-detection",
+    "worker-startup",
+    "configuration-option",
+    "autodiscovery",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users deploying Spring Boot applications with multiple activity implementations defining the same activity type would benefit from explicit failure feedback rather than silent failures.",
+  "rootCause": "The WorkersTemplate currently silently skips duplicate activity registrations instead of providing an option to fail fast on detection.",
+  "proposedFix": "Add a configuration option (e.g., ignoreDuplicateDefinitions) to control whether TypeAlreadyRegisteredException should halt worker startup or continue silently.",
+  "workaround": "Check the namespaceProperties.isIgnoreDuplicateDefinitions configuration option mentioned in the comment.",
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration option was identified or implemented to handle duplicate definitions during worker autodiscovery.",
+  "related": [],
+  "keyQuote": "Feature request is to add config option to not continue at this point but throw exception that stops worker start",
+  "number": 2534,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:03.254Z"
+}

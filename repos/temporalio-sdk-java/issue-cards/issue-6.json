@@ -1,0 +1,31 @@
+{
+  "summary": "Add gRPC code generation for Java SDK by integrating temporal-proto repository and implementing Gradle build rules to generate Java bindings from protobuf definitions.",
+  "category": "feature",
+  "subcategory": "code-generation",
+  "apis": [],
+  "components": [
+    "gradle-build",
+    "protobuf-generation",
+    "grpc-bindings"
+  ],
+  "concepts": [
+    "code-generation",
+    "protobuf",
+    "grpc",
+    "build-system",
+    "java-bindings",
+    "temporal-proto"
+  ],
+  "severity": "high",
+  "userImpact": "Enables the Java SDK to support gRPC communication by generating necessary Java bindings from protocol buffer definitions.",
+  "rootCause": null,
+  "proposedFix": "Add dependency on temporal-proto repository and implement Gradle rules to build Java bindings",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "gRPC code generation was implemented with temporal-proto dependency and Gradle build rules",
+  "related": [],
+  "keyQuote": "Add dependency on https://github.com/temporalio/temporal-proto and Gradle rules to build Java bindings.",
+  "number": 6,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T15:40:16.263Z"
+}

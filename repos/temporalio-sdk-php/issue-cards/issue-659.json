@@ -1,0 +1,34 @@
+{
+  "summary": "gRPC ChannelCredentials class is not found when accessing Temporal SDK through Laravel Artisan commands, despite the gRPC extension being properly loaded in direct PHP CLI. The issue appears to be related to Laravel's service container or autoloader interaction rather than the SDK itself.",
+  "category": "bug",
+  "subcategory": "laravel-integration",
+  "apis": [
+    "WorkflowClient",
+    "ServiceClient"
+  ],
+  "components": [
+    "grpc-client",
+    "service-container",
+    "laravel-integration"
+  ],
+  "concepts": [
+    "namespace-resolution",
+    "autoloading",
+    "service-container",
+    "context-dependency",
+    "grpc-extension",
+    "laravel-octane"
+  ],
+  "severity": "medium",
+  "userImpact": "Laravel developers cannot execute Temporal workflows from Artisan commands, blocking integration testing and workflow automation in Laravel applications.",
+  "rootCause": "Namespace or autoloading conflict between Laravel's service container resolution and the gRPC extension's class registration, potentially related to how Laravel Octane/RoadRunner manages persistent processes and class loading.",
+  "proposedFix": null,
+  "workaround": "Use direct PHP CLI scripts instead of Laravel Artisan commands for Temporal client creation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue identified as bridge problem specific to keepsuit/laravel-temporal package, not an SDK issue. Redirected to appropriate repository.",
+  "related": [],
+  "keyQuote": "Since the SDK works fine in vanilla PHP and other bridges, this looks like a keepsuit/laravel-temporal bridge issue.",
+  "number": 659,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:50.502Z"
+}

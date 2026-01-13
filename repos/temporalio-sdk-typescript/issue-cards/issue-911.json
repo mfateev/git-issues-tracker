@@ -1,0 +1,34 @@
+{
+  "summary": "The TypeScript SDK's nyc-test-coverage package depends on unmaintained istanbul-instrumenter-loader, causing npm audit to report multiple security vulnerabilities including prototype pollution (CVE in ajv) and ReDoS issues in glob-parent.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "nyc-test-coverage",
+    "test-infrastructure",
+    "webpack",
+    "istanbul"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency-management",
+    "maintenance",
+    "test-coverage",
+    "npm-audit"
+  ],
+  "severity": "high",
+  "userImpact": "Users installing the SDK encounter multiple npm audit warnings and security vulnerabilities, including moderate and high-severity issues that need force-fixing.",
+  "rootCause": "The istanbul-instrumenter-loader dependency is archived and no longer maintained, pulling in outdated transitive dependencies with known security vulnerabilities.",
+  "proposedFix": "Replace istanbul-instrumenter-loader with a maintained alternative or inline the functionality (noted as just a few lines of code).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The dependency was likely replaced or removed in subsequent releases.",
+  "related": [
+    872
+  ],
+  "keyQuote": "Looks like that lib is just a few lines: https://github.com/webpack-contrib/istanbul-instrumenter-loader/blob/master/src/index.js",
+  "number": 911,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:45.327Z"
+}

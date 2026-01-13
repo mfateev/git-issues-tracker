@@ -1,0 +1,31 @@
+{
+  "summary": "Add warning or error when update handlers are left dangling across Continues-as-New (CAN) or workflow exit to prevent resource leaks and unexpected behavior. The issue recommends providing guidance on await-all-handlers or drop-all-handlers methods.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [],
+  "components": [
+    "update-handlers",
+    "workflow-execution",
+    "continues-as-new"
+  ],
+  "concepts": [
+    "resource-cleanup",
+    "handler-lifecycle",
+    "workflow-exit",
+    "dangling-handlers",
+    "error-handling",
+    "user-guidance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may inadvertently leave update handlers running across workflow boundaries, leading to unexpected behavior or resource leaks without clear warning.",
+  "rootCause": null,
+  "proposedFix": "Implement warning or error when update handlers dangle across CAN or workflow exit; recommend await-all-handlers or drop-all-handlers methods to users.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We can recommend the await-all-handlers or drop-all-handlers methods. TBD whether error or warning.",
+  "number": 538,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:50.954Z"
+}

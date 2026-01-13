@@ -1,0 +1,28 @@
+{
+  "summary": "Request to improve error messaging when attempting to register workflows with dependency injection, which is not supported. The error message should explicitly clarify that DI is not supported and explain why workflows must be deterministic and self-contained.",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "workflow-registration",
+    "error-handling"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "determinism",
+    "error-messaging",
+    "workflow-instantiation"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to use dependency injection in workflows receive a cryptic error message that doesn't explain why DI is unsupported or what constraints workflows have.",
+  "rootCause": null,
+  "proposedFix": "Update the ArgumentException message to include: 'Dependency injection is not supported in workflows. Workflows must be deterministic and self-contained with a lifetime controlled by Temporal.'",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error message was enhanced to clarify that DI is intentionally not supported and explain the determinism requirement.",
+  "related": [],
+  "keyQuote": "Dependency injection is not supported in workflows. Workflows must be deterministic and self-contained with a lifetime controlled by Temporal.",
+  "number": 361,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:15:16.368Z"
+}

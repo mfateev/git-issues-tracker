@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflow namespace attribute is blank in history events when queried via GetWorkflowExecutionHistoryRequest, even though the namespace was specified in the initial query.",
+  "category": "bug",
+  "subcategory": "child-workflow",
+  "apis": [
+    "GetWorkflowExecutionHistoryRequest",
+    "StartChildWorkflowExecutionInitiatedEventAttributes"
+  ],
+  "components": [
+    "history-event",
+    "child-workflow",
+    "api-response"
+  ],
+  "concepts": [
+    "namespace",
+    "history-event",
+    "child-workflow",
+    "event-attributes",
+    "data-population"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably identify the namespace of child workflows when processing history events, requiring them to track this information separately.",
+  "rootCause": "History event attributes for child workflow initiation do not populate the namespace field from the query context.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in v1.2.1 and could not be reproduced, indicating the bug was fixed in a later version.",
+  "related": [],
+  "keyQuote": "Issue cannot not be reproduced in v1.2.1",
+  "number": 724,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:36.524Z"
+}

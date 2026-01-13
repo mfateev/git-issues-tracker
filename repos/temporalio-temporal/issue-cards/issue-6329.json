@@ -1,0 +1,31 @@
+{
+  "summary": "User requests the ability to attach a local debugger (JetBrains or VSCode) to a Temporal Worker running locally for step-by-step tracing, as the Web UI debugging is insufficient for troubleshooting.",
+  "category": "feature",
+  "subcategory": "debugging",
+  "apis": [],
+  "components": [
+    "worker",
+    "local-development",
+    "debugging-tools"
+  ],
+  "concepts": [
+    "debugging",
+    "local-testing",
+    "breakpoints",
+    "step-through",
+    "ide-integration",
+    "trace"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot efficiently debug local Temporal Workers, limiting their ability to diagnose issues during development.",
+  "rootCause": null,
+  "proposedFix": "Expose a debug port on the Local Temporal Worker that allows standard debuggers (JetBrains IDEs, VSCode) to attach and trace execution.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would like the ability to expose a port and attach a debugger (either in a JetBrains product or VSCode) that allows me to trace each step the Worker takes.",
+  "number": 6329,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:08.621Z"
+}

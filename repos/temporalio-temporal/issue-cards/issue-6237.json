@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to support wildcard patterns in namespace RPS (requests per second) rate limiting configuration. Currently, each namespace requires an individual configuration entry; the request proposes allowing patterns like 'stg-*' to apply rules to multiple namespaces matching that pattern.",
+  "category": "feature",
+  "subcategory": "rate-limiting",
+  "apis": [],
+  "components": [
+    "frontend",
+    "namespace-rps",
+    "configuration"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "namespace-management",
+    "dynamic-configuration",
+    "wildcard-patterns",
+    "RPS-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users managing multiple namespaces with similar rate-limiting rules must currently update the server configuration for each new namespace instead of using a single wildcard pattern.",
+  "rootCause": null,
+  "proposedFix": "Add wildcard pattern support (e.g., 'stg-*', 'prod-*') to namespace constraints in the frontend.namespacerps configuration, allowing rules to apply to all matching namespaces.",
+  "workaround": "Update server configuration manually for each namespace that requires rate-limiting rules.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be useful to be able to define wildcard rules that get applied to namespaces (e.g. `stg-*` means any namespaces matching this rule such as `stg-test` will have this rule applied to it).",
+  "number": 6237,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:23.320Z"
+}

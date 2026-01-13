@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support dynamic loading of activity and workflow implementations at runtime, similar to Java class loader mechanisms. User needs an extension point/factory interface to provide untyped implementations dynamically rather than registering them statically.",
+  "category": "feature",
+  "subcategory": "dynamic-loading",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-registry",
+    "workflow-registry"
+  ],
+  "concepts": [
+    "dynamic-loading",
+    "factory-pattern",
+    "runtime-registration",
+    "extension-point",
+    "plugin-system",
+    "type-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot dynamically load or register activity and workflow implementations at runtime, limiting flexibility in certain deployment scenarios.",
+  "rootCause": null,
+  "proposedFix": "Expose an extension point or factory interface that is called with activity or workflow type to provide an untyped implementation.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #242",
+  "related": [
+    242,
+    245
+  ],
+  "keyQuote": "Expose an extension point for dynamic activity loading. While the SDK might not provide the explicit loading mechanism it should provide a factory interface",
+  "number": 292,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:32.643Z"
+}

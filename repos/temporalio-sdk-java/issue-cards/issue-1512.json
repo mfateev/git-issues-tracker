@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add scheduleToStart timeout configuration to LocalActivityOptions in the Java SDK. Local Activity Workers can become saturated like regular Activity Workers, and the SDK should provide a way to set and limit the scheduleToStart duration for local activities.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "local-activities",
+    "activity-worker",
+    "options"
+  ],
+  "concepts": [
+    "timeout",
+    "scheduling",
+    "saturation",
+    "backpressure",
+    "worker-capacity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently set timeout limits on local activity scheduling, leaving local activity workers vulnerable to saturation without explicit time-based constraints.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to add scheduleToStart timeout support to LocalActivityOptions",
+  "related": [],
+  "keyQuote": "Local Activities Workers can be saturated in the same way as a regular Activity Workers. Temporal SDK should provide a way to set and limit `scheduleToStart` for Local Activities.",
+  "number": 1512,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:37:50.425Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Users need a way to detect if code is executing inside a workflow thread to enable code reuse between workflow and non-workflow contexts, selecting between deterministic and non-deterministic implementations accordingly.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [
+    "Workflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "context-detection"
+  ],
+  "concepts": [
+    "code-reuse",
+    "determinism",
+    "context-awareness",
+    "thread-detection",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users can more easily share code between workflow and non-workflow contexts by programmatically determining execution context.",
+  "rootCause": null,
+  "proposedFix": "Add a method on the Workflow class returning true if executing inside a workflow thread",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Method added to Workflow class to detect workflow thread context, addressing the feature request",
+  "related": [],
+  "keyQuote": "Users want to reuse pieces of code in workflow and outside of the workflow context and use deterministic Workflow class methods if they are inside a workflow context and non-deterministic versions if they are outside.",
+  "number": 955,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:55:36.361Z"
+}

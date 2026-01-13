@@ -1,0 +1,32 @@
+{
+  "summary": "CronSchedule cannot be used in PHP SDK 2.7.2 because WorkflowStartDelay is always sent to the server, causing a rejection error. The Go SDK conditionally sends WorkflowStartDelay only when non-zero, but PHP SDK sends it on every request.",
+  "category": "bug",
+  "subcategory": "workflow-scheduling",
+  "apis": [
+    "StartWorkflow",
+    "CronSchedule"
+  ],
+  "components": [
+    "WorkflowStarter",
+    "workflow-client",
+    "request-serialization"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "workflow-delay",
+    "conditional-serialization",
+    "server-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use CronSchedule feature in PHP SDK, blocking a core workflow scheduling capability.",
+  "rootCause": "PHP SDK unconditionally includes WorkflowStartDelay in all requests, violating server constraint that CronSchedule and WorkflowStartDelay cannot be used together.",
+  "proposedFix": "Conditionally send WorkflowStartDelay only when it is non-zero, matching Go SDK behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WorkflowStartDelay is now conditionally sent only when non-zero, allowing CronSchedule to work correctly.",
+  "related": [],
+  "keyQuote": "In Go SDK they check if WorkflowStartDelay is not zero and only send it if it is not. PHP SDK sends it on every request, so when CronSchedule is set as well, the server rejects the request.",
+  "number": 387,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:54.466Z"
+}

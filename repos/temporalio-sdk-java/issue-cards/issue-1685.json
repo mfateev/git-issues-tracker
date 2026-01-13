@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add an API to count workflows in the Java SDK. This is a reference to a parent issue that specifies the requirements for implementing workflow count functionality.",
+  "category": "feature",
+  "subcategory": "workflow-management",
+  "apis": [
+    "ListWorkflows"
+  ],
+  "components": [
+    "workflow-service",
+    "client",
+    "query-api"
+  ],
+  "concepts": [
+    "workflow-enumeration",
+    "count",
+    "list-operation",
+    "query",
+    "workflow-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a programmatic way to count workflows in their Temporal deployment without manual iteration or external tools.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of the workflow listing and query capabilities in the Java SDK.",
+  "related": [],
+  "keyQuote": "See parent issue for reference.",
+  "number": 1685,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:23.156Z"
+}

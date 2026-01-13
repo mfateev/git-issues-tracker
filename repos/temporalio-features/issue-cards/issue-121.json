@@ -1,0 +1,35 @@
+{
+  "summary": "SDKs currently perform enum conversion on history JSON even if already done, preventing UI/tctl from outputting proper proto JSON format. Request to make all SDKs idempotent - only converting if not already done - with tests confirming both converted and unconverted JSON work in replay APIs.",
+  "category": "feature",
+  "subcategory": "history-json-conversion",
+  "apis": [
+    "replay"
+  ],
+  "components": [
+    "history-json-converter",
+    "proto-json-handler",
+    "enum-converter"
+  ],
+  "concepts": [
+    "enum-conversion",
+    "proto-json-format",
+    "idempotent-processing",
+    "json-transformation",
+    "backwards-compatibility",
+    "replay-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually convert JSON in each SDK to load history objects, creating friction and inconsistency if UI/tctl outputs proper proto JSON.",
+  "rootCause": "History JSON converters lack idempotency - they convert enums without checking if conversion was already applied upstream.",
+  "proposedFix": "Implement enum conversion detection to skip conversion if already done; ensure all SDKs handle both converted and unconverted JSON in replay APIs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    118
+  ],
+  "keyQuote": "Make sure all SDKs only perform the enum conversion if not already done. Meaning they should ignore conversion if already done by the incoming JSON.",
+  "number": 121,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:48:38.000Z"
+}

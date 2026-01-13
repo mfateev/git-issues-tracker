@@ -1,0 +1,31 @@
+{
+  "summary": "Design discussion about marking Cassandra records as deleted instead of actually deleting them to address potential tombstone performance issues in the mutable state machine.",
+  "category": "feature",
+  "subcategory": "persistence",
+  "apis": [],
+  "components": [
+    "mutable-state",
+    "cassandra",
+    "state-machine"
+  ],
+  "concepts": [
+    "deletion",
+    "tombstone",
+    "soft-delete",
+    "data-persistence",
+    "performance-optimization",
+    "cassandra-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Addresses Cassandra tombstone issues that could impact performance when deleting entities in the state machine.",
+  "rootCause": "Cassandra tombstone accumulation from hard deletes of records",
+  "proposedFix": "Mark records as deleted instead of physically deleting them from Cassandra",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "mark the record as deleted, to deal with possible Cassandra tombstone issue",
+  "number": 972,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:30:36.832Z"
+}

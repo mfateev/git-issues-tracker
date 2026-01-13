@@ -1,0 +1,31 @@
+{
+  "summary": "User seeks best practices for integrating Sentry error logging with Temporal PHP SDK, asking whether a global error handler exists to catch errors from workflows and activities, or if integration with RoadRunner is possible.",
+  "category": "question",
+  "subcategory": "error-logging-integration",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-logging",
+    "sentry-integration",
+    "exception-handling",
+    "monitoring",
+    "global-error-handler",
+    "roadrunner"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack a standardized way to integrate Sentry for centralized error logging across activities and workflows, requiring manual try-catch and logging in each activity.",
+  "rootCause": "The SDK does not provide a built-in global error handler or PSR-3 logger injection mechanism for activities, requiring users to implement error handling manually.",
+  "proposedFix": "Implement container refactoring with activity call interception capability to catch exceptions globally, or make SDK properties protected for extension.",
+  "workaround": "Intercept activity calls using a custom router (e.g., InvokeActivityRouter) or extend WorkerFactory, though this requires accessing private fields and is considered hacky.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The container refactor planned later this year, with some internal changes and optimizations, including the ability to intercept activity call (for exception catching or state resets).",
+  "number": 103,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:33.783Z"
+}

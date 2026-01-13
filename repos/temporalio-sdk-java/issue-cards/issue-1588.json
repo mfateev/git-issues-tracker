@@ -1,0 +1,30 @@
+{
+  "summary": "Three high-severity vulnerabilities (CVE-2022-3510, CVE-2022-3509, CVE-2022-3171) identified in protobuf-java 3.19.2, a transitive dependency of error_prone_core. All three CVEs have CVSS scores of 7.5 and affect denial of service resilience through parsing issues with Protocol Buffer messages.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "build-system",
+    "dependency-management",
+    "remote-data-encoder"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "protobuf",
+    "denial-of-service",
+    "transitive-dependency",
+    "cvss-score"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the Java SDK could be vulnerable to denial of service attacks through malformed Protocol Buffer messages.",
+  "rootCause": "Parsing issues in protobuf-java 3.19.2 allow conversion of messages between mutable and immutable forms, causing prolonged garbage collection pauses.",
+  "proposedFix": "Upgrade protobuf-java to version 3.21.7, 3.20.3, 3.19.6, or 3.16.3.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend; the vulnerable library was either marked as ignored or removed from the Mend inventory in the tracked branch.",
+  "related": [],
+  "keyQuote": "A parsing issue similar to CVE-2022-3171, but with Message-Type Extensions in protobuf-java core and lite versions prior to 3.21.7 can lead to a denial of service attack.",
+  "number": 1588,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:50.838Z"
+}

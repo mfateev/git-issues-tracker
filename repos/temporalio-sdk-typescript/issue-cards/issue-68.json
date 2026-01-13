@@ -1,0 +1,30 @@
+{
+  "summary": "Add workflow versioning support to the TypeScript SDK to enable code changes for running workflows, similar to Java SDK implementation using history markers or webpack bundling.",
+  "category": "feature",
+  "subcategory": "workflow-versioning",
+  "apis": [],
+  "components": [
+    "workflow-loader",
+    "worker",
+    "history-processing"
+  ],
+  "concepts": [
+    "versioning",
+    "code-evolution",
+    "workflow-history",
+    "backward-compatibility",
+    "module-bundling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely update workflow code while instances are running, blocking production deployments and code maintenance.",
+  "rootCause": null,
+  "proposedFix": "Three proposed solutions: 1) Record markers in workflow history like Java SDK, 2) Bundle workflows with webpack and store versions in worker directory, 3) Add versioning to module loader with version storage capability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented workflow versioning support in the TypeScript SDK, referenced in sdk-core PR #156.",
+  "related": [],
+  "keyQuote": "Other SDKs support workflow versioning in order to support code changes for running workflows. We must add this functionality to the Node SDK too shortly after the alpha.",
+  "number": 68,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:55:54.015Z"
+}

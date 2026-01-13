@@ -1,0 +1,32 @@
+{
+  "summary": "Rate limit tokens are consumed when tasks are assigned to pollers even if the tasks are invalid (expired or workflow closed), wasting rate limit capacity. The system should only consume tokens when tasks are successfully delivered.",
+  "category": "bug",
+  "subcategory": "rate-limiting",
+  "apis": [],
+  "components": [
+    "rate-limiter",
+    "task-matcher",
+    "task-delivery",
+    "poller"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "token-consumption",
+    "task-validation",
+    "resource-efficiency",
+    "task-delivery",
+    "rate-limit-reservation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with rate-limited task queues experience reduced effective throughput due to tokens being wasted on invalid tasks that cannot be processed.",
+  "rootCause": "Rate limit token is consumed at task assignment time (when matched to poller) rather than at successful task delivery time, so invalid tasks consume tokens without delivering value.",
+  "proposedFix": "Return the rate limit token if task delivery fails after the token has been consumed, so the token can be used by another task. Alternatively, make the task validator more aggressive to filter invalid tasks before they are matched to pollers.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the token is consumed when task is attempted to be delivered. However, the task could be invalid (expired or workflow already closed), which lead to waste of rate limit token.",
+  "number": 6333,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:22.642Z"
+}

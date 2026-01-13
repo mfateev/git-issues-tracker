@@ -1,0 +1,31 @@
+{
+  "summary": "Query methods cannot return WorkflowLocal variable values; attempting to do so throws an error about being called from a non-workflow thread.",
+  "category": "bug",
+  "subcategory": "workflow-queries",
+  "apis": [
+    "WorkflowLocal"
+  ],
+  "components": [
+    "query-handler",
+    "thread-validation",
+    "workflow-context"
+  ],
+  "concepts": [
+    "workflow-local",
+    "query-execution",
+    "thread-safety",
+    "context-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot access WorkflowLocal state from query methods, breaking a common pattern for exposing workflow state to external clients.",
+  "rootCause": "Query methods are executed outside the workflow thread context, but WorkflowLocal access requires execution within a workflow or workflow callback thread.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The query execution context was updated to allow proper WorkflowLocal access within query methods.",
+  "related": [],
+  "keyQuote": "Called from non workflow or workflow callback thread",
+  "number": 1120,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:07:42.171Z"
+}

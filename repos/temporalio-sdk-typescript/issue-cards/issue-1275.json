@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose NativeClient keep-alive options that are already enabled by default in SDK core. The request was closed as the team determined that long polls used by the worker are a suitable replacement for keep-alive functionality.",
+  "category": "feature",
+  "subcategory": "native-connection",
+  "apis": [],
+  "components": [
+    "NativeConnection",
+    "NativeClient"
+  ],
+  "concepts": [
+    "keep-alive",
+    "connection-management",
+    "long-polling",
+    "network-resilience"
+  ],
+  "severity": "low",
+  "userImpact": "Users requesting keep-alive support for NativeClient connections would not have direct access to this feature.",
+  "rootCause": "Long polls in the worker provide equivalent functionality to keep-alive, making the feature request unnecessary.",
+  "proposedFix": "Expose keep-alive options from sdk-core issue #585 (though ultimately not implemented).",
+  "workaround": "Use long polling mechanism already available in the worker.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team determined that long polls used by workers are a sufficient replacement for keep-alive support, so the feature was not implemented.",
+  "related": [
+    585
+  ],
+  "keyQuote": "This doesn't apply to the worker imho as the long polls are a replacement for keep alive.",
+  "number": 1275,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:08.964Z"
+}

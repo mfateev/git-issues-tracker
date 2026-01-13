@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow activation failures lack detailed debugging information. The error message, stack trace, and cause fields are often empty or unhelpful, making it difficult to diagnose issues thrown from workflows.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "error-handler",
+    "failure-reporting"
+  ],
+  "concepts": [
+    "error-reporting",
+    "debugging",
+    "stack-trace",
+    "exception-handling",
+    "failure-info"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively debug workflow errors because failure messages lack stack traces and proper formatting of thrown objects.",
+  "rootCause": "The workflow activation error reporting mechanism doesn't capture full error context (stack trace, cause chain) and doesn't handle non-Error throws properly.",
+  "proposedFix": "Fill in stack_trace when Error is thrown, handle non-Error throws with JSON.stringify, propagate error.cause property, and optionally make source field more specific.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Most improvements were implemented: stack traces now captured, non-Error values JSON stringified with warning message, and error.cause property propagated. The source field enhancement was deferred as potentially breaking.",
+  "related": [],
+  "keyQuote": "Failing workflow activation... { message: \"error in workflow\", source: \"TypeScriptSDK\", stack_trace: \"\" }",
+  "number": 462,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:10:05.135Z"
+}

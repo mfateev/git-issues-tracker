@@ -1,0 +1,32 @@
+{
+  "summary": "User requests a built-in error notification mechanism for workflow failures to integrate with external error tracking services like Bugsnag. The SDK maintainer recommends using interceptors instead and points to existing samples.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "interceptors",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "error-notification",
+    "external-integration",
+    "error-tracking",
+    "workflow-failure",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily send workflow errors to external error tracking services without implementing custom solutions using interceptors.",
+  "rootCause": null,
+  "proposedFix": "Add an optional error_notifier parameter to Worker that accepts a class implementing a notify(exception) interface",
+  "workaround": "Use interceptors to wrap workflow logic and send exceptions to external error tracking services",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer closed as not an SDK issue, recommending interceptors as the intended approach for this use case",
+  "related": [
+    43
+  ],
+  "keyQuote": "You should use interceptors for this which can wrap workflow logic... closing this issue since it's not an SDK issue",
+  "number": 308,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:50:22.158Z"
+}

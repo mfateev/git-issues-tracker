@@ -1,0 +1,35 @@
+{
+  "summary": "User expected that specifying NonRetryableErrorTypes as an empty list would follow default no-retry behavior, but instead the workflow always retries. Request to clarify documentation that an empty NonRetryableErrorTypes list results in always retrying.",
+  "category": "docs",
+  "subcategory": "retry-policy",
+  "apis": [
+    "StartWorkflowAsync",
+    "WorkflowOptions",
+    "RetryPolicy"
+  ],
+  "components": [
+    "retry-policy",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry-behavior",
+    "default-policy",
+    "non-retryable-errors",
+    "error-classification",
+    "workflow-options",
+    "documentation-clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about retry behavior when explicitly setting an empty NonRetryableErrorTypes list, leading to unexpected workflow retries.",
+  "rootCause": "Documentation does not clearly explain that providing a non-null RetryPolicy value overrides defaults, and that an empty NonRetryableErrorTypes means all errors are retryable.",
+  "proposedFix": "Clarify in the documentation that specifying NonRetryableErrorTypes as an empty list will cause the workflow to always retry, as this overrides the null default.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as question/documentation clarification request. Maintainer clarified that null retry policy means no retry, but providing a non-null RetryPolicy overrides defaults. Existing documentation covers this but could be clearer.",
+  "related": [],
+  "keyQuote": "This is unrelated to NonRetryableErrorTypes. null is the default retry policy, but you are changing that default by providing a non-null value.",
+  "number": 189,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:25:34.858Z"
+}

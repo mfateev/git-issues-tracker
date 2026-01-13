@@ -1,0 +1,32 @@
+{
+  "summary": "Local activities appear in workflow history as generic MarkerRecorded events without identifying which activity was run. The feature request seeks to make the activity name visible in the event history for better debuggability.",
+  "category": "feature",
+  "subcategory": "local-activity-history",
+  "apis": [],
+  "components": [
+    "local-activity",
+    "workflow-history",
+    "event-recording"
+  ],
+  "concepts": [
+    "activity-visibility",
+    "event-history",
+    "debugging",
+    "local-execution",
+    "marker-events"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily identify which local activity was executed when reviewing workflow history, making debugging and auditing more difficult.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of sdk-java issue #135",
+  "related": [
+    135
+  ],
+  "keyQuote": "Running a local activity manifests itself in the workflow history as a \"MarkerRecorded\" event and does not give any detail about what local activity was run.",
+  "number": 1455,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:17:01.254Z"
+}

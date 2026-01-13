@@ -1,0 +1,30 @@
+{
+  "summary": "Remove support for the old workflow run operation token format and treat all unparseable tokens as handler errors. Also remove any remaining support for operation IDs.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-runner",
+    "operation-token-handler",
+    "token-parser"
+  ],
+  "concepts": [
+    "token-format",
+    "backwards-compatibility",
+    "error-handling",
+    "operation-id",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to migrate away from old operation token formats, as the SDK will no longer support them.",
+  "rootCause": "Legacy support for old workflow run operation token format and operation IDs needs to be removed for code simplification.",
+  "proposedFix": "Remove old workflow run operation token format support and treat all unparseable tokens as handler errors; remove operation ID support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The old workflow run operation token format and operation ID support have been removed from the Java SDK.",
+  "related": [],
+  "keyQuote": "Remove old workflow run operation token format support, treat all un-parsable tokens as a handler error",
+  "number": 2423,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:07:59.203Z"
+}

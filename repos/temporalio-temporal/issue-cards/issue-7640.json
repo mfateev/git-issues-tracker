@@ -1,0 +1,34 @@
+{
+  "summary": "The temporal operator cluster upsert command fails to properly handle gRPC addresses with the passthrough:/// URI prefix. The CreateRemoteFrontendGRPCConnection implementation uses net.SplitHostPort which expects basic host:port format and cannot parse URI-scheme prefixed addresses, causing the passthrough resolver to be ignored.",
+  "category": "bug",
+  "subcategory": "cluster-replication",
+  "apis": [],
+  "components": [
+    "CreateRemoteFrontendGRPCConnection",
+    "rpc",
+    "operator-cluster",
+    "gRPC-client"
+  ],
+  "concepts": [
+    "multi-cluster-replication",
+    "gRPC-resolver",
+    "URI-parsing",
+    "passthrough-resolver",
+    "address-resolution",
+    "cluster-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users setting up multi-cluster replication cannot explicitly use the passthrough:/// resolver prefix for remote cluster addresses, limiting their control over gRPC connection resolution behavior.",
+  "rootCause": "The net.SplitHostPort function in CreateRemoteFrontendGRPCConnection expects basic host:port format and fails to parse addresses with URI-scheme prefixes like passthrough:///. The health command works because it doesn't split the URI.",
+  "proposedFix": "Modify CreateRemoteFrontendGRPCConnection to properly parse and preserve gRPC URI schemes (like passthrough:///) before extracting hostname and port, ensuring the gRPC resolver behavior is respected.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    7744
+  ],
+  "keyQuote": "net.SplitHostPort function expects a basic host:port format and fails when the address includes a URI-style scheme like passthrough:///.",
+  "number": 7640,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:20.443Z"
+}

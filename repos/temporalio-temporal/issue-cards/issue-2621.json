@@ -1,0 +1,32 @@
+{
+  "summary": "The TLS enable environment variable names are inconsistent between temporal-sql-tool (SQL_TLS) and auto-setup config template (SQL_TLS_ENABLED), causing user confusion. The issue requests aligning these two environment variable names.",
+  "category": "other",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "config-template",
+    "auto-setup"
+  ],
+  "concepts": [
+    "TLS",
+    "environment-variables",
+    "configuration",
+    "consistency",
+    "naming"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused by inconsistent TLS environment variable names when configuring Temporal with SQL.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2293
+  ],
+  "keyQuote": "This causes some confusion for our users. Would be nice to align these two.",
+  "number": 2621,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:10.505Z"
+}

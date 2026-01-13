@@ -1,0 +1,33 @@
+{
+  "summary": "Concurrent map read and write panic occurring during Temporal server startup, happening intermittently when starting multiple container instances in quick succession. The error is preventing server initialization in Docker environments.",
+  "category": "bug",
+  "subcategory": "server-startup",
+  "apis": [],
+  "components": [
+    "server",
+    "initialization",
+    "persistence"
+  ],
+  "concepts": [
+    "race-condition",
+    "concurrency",
+    "panic",
+    "startup",
+    "docker",
+    "postgres"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal in Docker environments experience random startup failures (~5% of runs), requiring manual restarts and causing CI/CD pipeline instability.",
+  "rootCause": "Concurrent map read and write operation occurring during server initialization, likely in initialization or persistence layer code.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    212
+  ],
+  "keyQuote": "Regularly crashing in our CI environments. Every ~1/20 pipeline executions.",
+  "number": 4000,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:59.602Z"
+}

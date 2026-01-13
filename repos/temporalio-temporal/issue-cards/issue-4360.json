@@ -1,0 +1,33 @@
+{
+  "summary": "User seeks firewall-friendly solutions for orchestrating durable tasks across multiple clusters/VNets with microservices behind firewalls, questioning Temporal's suitability given its gRPC-only protocol and requesting guidance on deployment patterns.",
+  "category": "question",
+  "subcategory": "deployment-architecture",
+  "apis": [],
+  "components": [
+    "worker",
+    "frontend",
+    "grpc-endpoint"
+  ],
+  "concepts": [
+    "firewall-friendly",
+    "cross-cluster",
+    "network-connectivity",
+    "deployment-patterns",
+    "orchestration",
+    "decoupling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal across multiple secure networks need clear guidance on firewall-friendly architectures and supported protocols.",
+  "rootCause": "User misconception that Temporal's gRPC protocol makes it unsuitable for cross-firewall deployments with microservices.",
+  "proposedFix": "Workers can be deployed locally within each service cluster, requiring only outbound gRPC connections; HTTP API support available as alternative.",
+  "workaround": "Deploy Temporal workers inside each service cluster/VNet to minimize firewall impact and enable local communication.",
+  "resolution": "fixed",
+  "resolutionDetails": "Community response clarified that workers only need outbound gRPC connections to Temporal service, and HTTP API support was added via PR #4543.",
+  "related": [
+    4543
+  ],
+  "keyQuote": "Temporal workers which are hosted inside each service only need an outbound gRPC connection to the Temporal service.",
+  "number": 4360,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:15.488Z"
+}

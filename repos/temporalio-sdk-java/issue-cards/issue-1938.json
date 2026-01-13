@@ -1,0 +1,31 @@
+{
+  "summary": "The `toProtoDuration` method throws an `ArithmeticException` when converting a Java `Duration` to protobuf `Duration` if the Duration value is too large. The method uses `toMillis()` which can overflow for very large durations; the fix should convert seconds directly and truncate nanoseconds to millisecond precision.",
+  "category": "bug",
+  "subcategory": "duration-conversion",
+  "apis": [],
+  "components": [
+    "duration-conversion",
+    "protobuf-serialization",
+    "type-conversion"
+  ],
+  "concepts": [
+    "overflow",
+    "arithmetic-exception",
+    "duration",
+    "millisecond-precision",
+    "type-conversion",
+    "edge-cases"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with very large Duration values will experience runtime crashes when the SDK attempts to convert them to protobuf Duration.",
+  "rootCause": "The `toMillis()` method can overflow for Duration values that are too large, causing an ArithmeticException during the conversion to protobuf Duration.",
+  "proposedFix": "Convert seconds directly from the Duration and truncate nanoseconds to millisecond precision instead of using `toMillis()` which can overflow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if the Java Duration represents a very large value converting to milliseconds may result in an overflow",
+  "number": 1938,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:17.734Z"
+}

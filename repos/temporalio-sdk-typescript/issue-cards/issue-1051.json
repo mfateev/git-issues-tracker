@@ -1,0 +1,34 @@
+{
+  "summary": "SignalDefinition and QueryDefinition discard their type parameter information due to structural typing, allowing type-unsafe assignments like SignalDefinition<[string]> being assignable to SignalDefinition<[number]>. This request proposes using a unique symbol type brand to preserve type information for improved type-level reasoning in helper functions.",
+  "category": "feature",
+  "subcategory": "type-system",
+  "apis": [
+    "SignalDefinition",
+    "QueryDefinition",
+    "defineSignal"
+  ],
+  "components": [
+    "signal-definitions",
+    "query-definitions",
+    "type-system"
+  ],
+  "concepts": [
+    "type-safety",
+    "structural-typing",
+    "type-branding",
+    "type-algebra",
+    "generics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use type-level logic with signal/query definitions for helper utilities and type algebra due to structural typing allowing incorrect type substitutions.",
+  "rootCause": "SignalDefinition and QueryDefinition don't preserve the _Args type parameter in the resulting type, making them structurally compatible with different argument types.",
+  "proposedFix": "Introduce a unique symbol type brand (argsBrand) as a virtual property on SignalDefinition and QueryDefinition to preserve type information without runtime overhead.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after the feature was implemented, likely incorporating the type brand solution to preserve argument type information.",
+  "related": [],
+  "keyQuote": "This brand doesn't exist at run-time, and since the symbol is not exported it is not possible for consumers to access the \"virtual\" property.",
+  "number": 1051,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:53.557Z"
+}

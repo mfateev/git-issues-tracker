@@ -1,0 +1,30 @@
+{
+  "summary": "Speculative workflow tasks can cause workflow task (WFT) failures in the Java SDK. When a speculative update is rejected and followed by a signal, the WFT may fail unexpectedly.",
+  "category": "bug",
+  "subcategory": "workflow-task-processing",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "speculative-execution",
+    "signal-processing"
+  ],
+  "concepts": [
+    "speculative-execution",
+    "workflow-task-failure",
+    "signal-handling",
+    "task-rejection",
+    "error-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow task failures when using speculative updates with signals, causing workflow execution interruptions.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Speculative workflow task can cause WFT failure",
+  "number": 1880,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:19.084Z"
+}

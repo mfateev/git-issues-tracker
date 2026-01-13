@@ -1,0 +1,33 @@
+{
+  "summary": "Activity fails on SIGTERM despite graceful_shutdown_timeout being set. User suspects the graceful shutdown mechanism isn't properly preventing activity failures during rolling restarts.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "shutdown"
+  ],
+  "components": [
+    "worker",
+    "signal-handler",
+    "activity-executor"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "sigterm",
+    "activity-failure",
+    "retry",
+    "timeout",
+    "polling"
+  ],
+  "severity": "high",
+  "userImpact": "Long-running activities fail and are retried unexpectedly during rolling restarts when using graceful shutdown.",
+  "rootCause": "User implementation did not properly call shutdown() on the worker; graceful_shutdown_timeout is only honored when shutdown() is explicitly invoked.",
+  "proposedFix": "Call worker.shutdown() in a SIGTERM signal handler to properly stop polling and honor the graceful shutdown timeout.",
+  "workaround": "Implement a SIGTERM signal handler that calls worker.shutdown() with appropriate graceful timeout.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through documentation clarification - the user discovered they needed to explicitly call shutdown() in their signal handler rather than relying on the timeout parameter alone.",
+  "related": [],
+  "keyQuote": "It stops polling, notifies all activities of worker shutdown, waits the graceful timeout, then forcefully cancels activities.",
+  "number": 367,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:44.328Z"
+}

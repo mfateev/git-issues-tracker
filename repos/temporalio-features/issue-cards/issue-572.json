@@ -1,0 +1,40 @@
+{
+  "summary": "Request to expose workflow and activity instances created by Temporal from their respective contexts, allowing users (e.g., via interceptors) to access the actual class instance. Needs implementation across Java, Python, .NET, Ruby, and PHP SDKs, with future support for Nexus.",
+  "category": "feature",
+  "subcategory": "context-access",
+  "apis": [
+    "WorkflowContext",
+    "ActivityContext"
+  ],
+  "components": [
+    "workflow-context",
+    "activity-context",
+    "interceptor",
+    "instance-management"
+  ],
+  "concepts": [
+    "instance-access",
+    "context-exposure",
+    "dependency-injection",
+    "lifecycle-management",
+    "framework-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the actual workflow or activity instance from context, limiting interceptor functionality and runtime introspection capabilities.",
+  "rootCause": null,
+  "proposedFix": "Make workflow instance accessible via workflow context and activity instance accessible via activity context where applicable by SDK language.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2361,
+    720,
+    388,
+    180,
+    546
+  ],
+  "keyQuote": "For instances created by Temporal, they should be accessible from the context. Users want to access the actual class instance of a workflow from, say, an interceptor.",
+  "number": 572,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:38.916Z"
+}

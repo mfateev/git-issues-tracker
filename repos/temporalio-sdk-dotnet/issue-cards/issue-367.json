@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose optional MethodInfo property on ActivityDefinition to allow users to perform reflection operations like checking attributes on the underlying method.",
+  "category": "feature",
+  "subcategory": "activity-definition",
+  "apis": [
+    "ActivityDefinition"
+  ],
+  "components": [
+    "activity-definition",
+    "reflection-api"
+  ],
+  "concepts": [
+    "reflection",
+    "metadata-access",
+    "attributes",
+    "method-info"
+  ],
+  "severity": "low",
+  "userImpact": "Users who need to inspect activity method attributes or perform reflection-based operations will have direct access to MethodInfo without workarounds.",
+  "rootCause": null,
+  "proposedFix": "Add a MethodInfo? property to ActivityDefinition that exposes the underlying method when the definition was built from a method.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "MethodInfo property was added to ActivityDefinition to expose the underlying method when available.",
+  "related": [],
+  "keyQuote": "If the ActivityDefinition was built via a method, there should be no harm in exposing this method to callers (e.g. via a MethodInfo? property).",
+  "number": 367,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:16:02.466Z"
+}

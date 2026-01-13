@@ -1,0 +1,35 @@
+{
+  "summary": "Calling WorkflowStub.getResult re-enables time skipping even when disabled in TestEnvironmentOptions, causing workflows to time out prematurely when interacting with asynchronous operations.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowStub.getResult",
+    "TestService.UnlockTimeSkipping"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-stub",
+    "time-skipping"
+  ],
+  "concepts": [
+    "time-skipping",
+    "test-execution",
+    "workflow-timeout",
+    "async-operations",
+    "test-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users writing tests with disabled time skipping experience unexpected workflow timeouts when calling getResult, breaking tests that rely on asynchronous signal interactions.",
+  "rootCause": "WorkflowStub.getResult calls TestService.UnlockTimeSkipping API even when time skipping was explicitly disabled in TestEnvironmentOptions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1210",
+  "related": [
+    1210
+  ],
+  "keyQuote": "Calling WorkflowStub.getResult appears to call the temporal.api.testservice.v1.TestService/UnlockTimeSkipping API, which fast-forwards the workflow execution",
+  "number": 1219,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:15:07.572Z"
+}

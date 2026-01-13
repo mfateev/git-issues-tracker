@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a published Grafana dashboard to monitor Temporal with Prometheus or Victoria Metrics datasources. User seeks either a shareable dashboard or downloadable JSON file for import.",
+  "category": "feature",
+  "subcategory": "observability-monitoring",
+  "apis": [],
+  "components": [
+    "monitoring",
+    "grafana-dashboards",
+    "observability"
+  ],
+  "concepts": [
+    "visibility",
+    "metrics",
+    "monitoring",
+    "prometheus",
+    "grafana",
+    "datasources"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack built-in visibility tools to monitor Temporal deployments, requiring them to build custom monitoring solutions.",
+  "rootCause": null,
+  "proposedFix": "Create a Grafana dashboard compatible with Prometheus and Victoria Metrics datasources and publish it for community use.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Temporal provides ready-made dashboards available at https://github.com/temporalio/dashboards/",
+  "related": [],
+  "keyQuote": "A Grafana dashboard which builds visualisations on top of prominent datasources like Prometheus, Victoria Metrics etc.",
+  "number": 7041,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:16.302Z"
+}

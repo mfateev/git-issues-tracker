@@ -1,0 +1,30 @@
+{
+  "summary": "Add inter-service client side logging for history and matching clients. The issue references existing metric client implementations and asks whether logging should also be added from frontend to matching services.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "matching-client",
+    "history-client",
+    "frontend-service"
+  ],
+  "concepts": [
+    "logging",
+    "inter-service-communication",
+    "observability",
+    "metrics",
+    "client-side-logging"
+  ],
+  "severity": "low",
+  "userImpact": "Better observability of inter-service communication helps developers diagnose issues and monitor system health.",
+  "rootCause": null,
+  "proposedFix": "Add logging similar to existing metricClient implementation for history and matching clients",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Logging was added for inter-service clients to improve observability",
+  "related": [],
+  "keyQuote": "Add necessary logging for history / matching client",
+  "number": 2308,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:50.939Z"
+}

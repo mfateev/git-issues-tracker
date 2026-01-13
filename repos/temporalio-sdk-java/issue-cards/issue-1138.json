@@ -1,0 +1,31 @@
+{
+  "summary": "The test server fails to properly decrement its time-skipping lock when a workflow completes while activities are still outstanding. This causes subsequent activities in new tests to sleep in real time instead of skipped time.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "time-skipping",
+    "activity-execution",
+    "workflow-completion"
+  ],
+  "concepts": [
+    "time-skipping",
+    "lock-management",
+    "test-isolation",
+    "resource-cleanup",
+    "workflow-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using the test server hang or run much slower than expected when activities overlap workflow completion, making test-driven development difficult.",
+  "rootCause": "Test server does not decrement the time-skipping lock when workflows complete with outstanding activities still in progress",
+  "proposedFix": null,
+  "workaround": "Create a separate test server instance for affected tests",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The second activity sleeps in normal time",
+  "number": 1138,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:09:02.659Z"
+}

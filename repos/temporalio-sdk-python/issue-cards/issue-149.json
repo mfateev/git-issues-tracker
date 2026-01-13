@@ -1,0 +1,34 @@
+{
+  "summary": "Running two workers for the same task queue in a single Python process causes a \"History is out of order\" fatal error in the workflow engine. The user was attempting to achieve task priority by running multiple workers on the same queue, but this configuration triggers an ordering issue in the event history.",
+  "category": "bug",
+  "subcategory": "worker-concurrency",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "workflow-engine",
+    "history-processing"
+  ],
+  "concepts": [
+    "concurrency",
+    "event-ordering",
+    "task-queue",
+    "worker-priority",
+    "history-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run multiple workers on the same task queue within a single process, preventing task prioritization strategies.",
+  "rootCause": "Multiple workers processing history events for the same workflow concurrently causes events to be received out of order, violating the sequential ordering requirement of the workflow history.",
+  "proposedFix": null,
+  "workaround": "Run multiple workers on the same task queue in separate processes instead of within a single Python process.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was escalated to sdk-core repository (temporalio/sdk-core#428) for investigation and resolution.",
+  "related": [
+    428
+  ],
+  "keyQuote": "In the meantime, it is rarely ever necessary to run the multiple workers for the same task queue in the same process.",
+  "number": 149,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:17.025Z"
+}

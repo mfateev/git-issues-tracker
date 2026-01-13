@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add a default value (crypto.randomUUID()) to workflowId to reduce redundant code. Request was declined in favor of guiding users toward business-meaningful IDs instead of random IDs.",
+  "category": "feature",
+  "subcategory": "workflow-creation",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-starter"
+  ],
+  "concepts": [
+    "workflow-id",
+    "uuid-generation",
+    "api-defaults",
+    "best-practices",
+    "code-simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Users who want to use random UUIDs for workflow IDs must manually import crypto and set the value each time.",
+  "rootCause": null,
+  "proposedFix": "Add crypto.randomUUID() as default value for workflowId parameter",
+  "workaround": "Manually import crypto package and set workflowId to crypto.randomUUID() in application code",
+  "resolution": "wontfix",
+  "resolutionDetails": "Rejected because users should use business-meaningful workflow IDs for production scenarios. Random UUIDs are discouraged to guide users toward better practices.",
+  "related": [
+    387
+  ],
+  "keyQuote": "You should always use meaningful business IDs for workflow IDs in real world scenarios and the API should lead users in that direction.",
+  "number": 454,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:37.562Z"
+}

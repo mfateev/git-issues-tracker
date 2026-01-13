@@ -1,0 +1,32 @@
+{
+  "summary": "Remove the patch that was added for timer cancellation in condition workflows. This deprecation was a planned cleanup following the decision to not use a patch approach for this functionality.",
+  "category": "feature",
+  "subcategory": "timer-cancellation",
+  "apis": [],
+  "components": [
+    "timer",
+    "condition",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timer-cancellation",
+    "patch-removal",
+    "deprecation",
+    "cleanup",
+    "workflow-logic"
+  ],
+  "severity": "low",
+  "userImpact": "No immediate user impact; this is a planned internal cleanup that removes unnecessary patching code.",
+  "rootCause": null,
+  "proposedFix": "Remove the patch for timer cancellation in condition that was added in issue #372",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The team decided not to use a patch approach for timer cancellation in conditions, so the patch should be removed",
+  "related": [
+    372
+  ],
+  "keyQuote": "We decided not to use a patch in the end.",
+  "number": 373,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:11.988Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Add support for building the Java SDK with recent JDK versions (JDK 11 and JDK 14). The changes required are minimal: updating the annotations module for JDK 9 compatibility and handling the `yield` keyword that became reserved in JDK 14.",
+  "category": "feature",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "build-system",
+    "java-compiler",
+    "annotations-module"
+  ],
+  "concepts": [
+    "JDK-compatibility",
+    "build-toolchain",
+    "language-features",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using recent JDK versions (11+) can build the SDK without encountering compatibility errors.",
+  "rootCause": "Java SDK build configuration not updated for JDK 9+ features; `yield` keyword conflict in JDK 14",
+  "proposedFix": "Update annotations module for JDK 9 support and replace deprecated constructor calls; handle `yield` keyword in JDK 14",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR was opened to address the JDK 9 and JDK 14 compatibility issues",
+  "related": [],
+  "keyQuote": "The changes to support JDK 9 are minor (annotations module, a deprecated constructor call), and JDK 14 requires one change for `yield` having become a Java keyword",
+  "number": 176,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:00:03.934Z"
+}

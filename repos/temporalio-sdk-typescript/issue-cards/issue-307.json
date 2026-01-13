@@ -1,0 +1,33 @@
+{
+  "summary": "The activity.Context.sleep method should accept time duration as a string (e.g., '1s', '100ms') in addition to milliseconds, similar to the existing behavior in issue #270.",
+  "category": "bug",
+  "subcategory": "activity-api",
+  "apis": [
+    "activity.Context.sleep"
+  ],
+  "components": [
+    "activity-executor",
+    "context-api"
+  ],
+  "concepts": [
+    "activity-context",
+    "sleep-duration",
+    "time-units",
+    "api-consistency",
+    "duration-parsing"
+  ],
+  "severity": "low",
+  "userImpact": "Users must convert time durations to milliseconds manually instead of using convenient string formats like other Temporal APIs.",
+  "rootCause": "The sleep method only accepts numeric milliseconds, inconsistent with other Temporal SDK methods that support duration strings.",
+  "proposedFix": "Accept duration strings (e.g., '1s', '100ms') as an alternative to numeric milliseconds in activity.Context.sleep.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed to align activity.Context.sleep API with other Temporal SDK methods for consistency.",
+  "related": [
+    270
+  ],
+  "keyQuote": "this should take a string too",
+  "number": 307,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:24.980Z"
+}

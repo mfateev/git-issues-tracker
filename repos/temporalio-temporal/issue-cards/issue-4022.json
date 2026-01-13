@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow task retry handling is inefficient because it relies on long start-to-close timeouts (up to 10min) to prevent duplicate responses. This causes problems for features like Query that must wait for pending workflow tasks to complete, as extended wait times can cause in-memory state eviction and timeout failures.",
+  "category": "feature",
+  "subcategory": "workflow-task-retry",
+  "apis": [],
+  "components": [
+    "workflow-task-processing",
+    "query",
+    "mutable-state-cache"
+  ],
+  "concepts": [
+    "retry",
+    "timeout",
+    "workflow-pause",
+    "backoff",
+    "pending-workflow",
+    "state-eviction"
+  ],
+  "severity": "high",
+  "userImpact": "Queries can fail with Unavailable errors or timeout when workflow tasks are delayed due to retry handling, and users lack efficient retry mechanisms.",
+  "rootCause": "Current implementation increases workflow task start-to-close timeout to prevent duplicate responses on retries, but this long wait time causes in-memory state to be evicted from cache and affects dependent features like Query.",
+  "proposedFix": "Implement workflow pause feature or schedule backoff time for next workflow task attempt without overriding start-to-close timeout.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Comment indicates that the query problem should fail fast instead of waiting, as it's already implemented. Workflow pause tracking is handled separately.",
+  "related": [],
+  "keyQuote": "Instead of waiting for next workflow task, it is better to fail fast which is already implemented.",
+  "number": 4022,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:37.502Z"
+}

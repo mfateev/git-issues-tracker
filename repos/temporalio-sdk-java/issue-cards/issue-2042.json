@@ -1,0 +1,34 @@
+{
+  "summary": "Activity options merging logic is incorrect across six different option sources. The current implementation fails to properly merge options in the documented precedence order, causing unexpected behavior when multiple option sources are specified.",
+  "category": "bug",
+  "subcategory": "activity-options",
+  "apis": [
+    "newActivityStub",
+    "setDefaultActivityOptions",
+    "applyActivityOptions"
+  ],
+  "components": [
+    "WorkflowInternal",
+    "ActivityInvocationHandler",
+    "WorkflowImplementationOptions"
+  ],
+  "concepts": [
+    "option-merging",
+    "precedence",
+    "configuration",
+    "activity-execution",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users get unexpected activity behavior when combining multiple option sources due to incorrect merging logic that doesn't follow documented precedence rules.",
+  "rootCause": "The merging logic is split between WorkflowInternal and ActivityInvocationHandler, and doesn't properly handle all six option sources in the correct precedence order. Default and per-activity-type options are being merged when they should replace each other based on specificity.",
+  "proposedFix": "Consolidate the merging logic to properly process all six sources in documented order: WorkflowImplementationOptions defaults, WorkflowImplementationOptions map, Workflow.setDefaultActivityOptions, Workflow.applyActivityOptions map, newActivityStub options argument, and activityMethodOptions map.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The precedence outlined above is the only one that makes sense to me... defaults should not be used if a more specific option for an activity type is specified.",
+  "number": 2042,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:08.864Z"
+}

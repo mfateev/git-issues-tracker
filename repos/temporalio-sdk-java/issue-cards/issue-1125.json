@@ -1,0 +1,32 @@
+{
+  "summary": "PotentialDeadlockException collects stack traces at different safepoints, resulting in inconsistent thread dumps. The current thread's stack trace is captured separately from workflow thread dumps, potentially showing an inconsistent view of the system state.",
+  "category": "bug",
+  "subcategory": "deadlock-detection",
+  "apis": [],
+  "components": [
+    "deadlock-detection",
+    "workflow-threads",
+    "stack-trace-collection"
+  ],
+  "concepts": [
+    "safepoint",
+    "thread-synchronization",
+    "consistency",
+    "diagnostics",
+    "stack-traces"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may receive incomplete or inconsistent deadlock diagnostic information when the SDK detects a potential deadlock.",
+  "rootCause": "Stack traces are collected at different times for the suspect thread and other workflow threads, potentially crossing different JVM safepoints, resulting in inconsistent state representation.",
+  "proposedFix": "Collect all stack traces at a single safepoint to ensure consistency across all threads in the deadlock diagnosis.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by issue #1152",
+  "related": [
+    1152
+  ],
+  "keyQuote": "Each stacktrace may be collected at a different safepoint and they may be inconsistent.",
+  "number": 1125,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:08:21.880Z"
+}

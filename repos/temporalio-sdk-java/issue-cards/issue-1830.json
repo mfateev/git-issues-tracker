@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowReplayer throws a cryptic exception when LocalActivityOptions are misconfigured, instead of providing a clear error message like it does for regular ActivityOptions. The underlying IllegalArgumentException from validateAndBuildWithDefaults is being swallowed by exception handling in CancellationScopeImpl.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "WorkflowReplayer",
+    "LocalActivityOptions",
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "workflow-replayer",
+    "local-activity-options",
+    "cancellation-scope"
+  ],
+  "concepts": [
+    "error-handling",
+    "exception-propagation",
+    "test-framework",
+    "activity-configuration",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging misconfigured LocalActivityOptions receive an unclear error message about query failures instead of a helpful message, making troubleshooting difficult.",
+  "rootCause": "The IllegalArgumentException thrown by validateAndBuildWithDefaults in LocalActivityOptions is being swallowed by exception handling in CancellationScopeImpl.finally block, resulting in a generic RuntimeException about query failure.",
+  "proposedFix": "Ensure that IllegalArgumentException from LocalActivityOptions validation is properly propagated to the user, similar to how it's handled for regular ActivityOptions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Both StartToCloseTimeout and ScheduleToCloseTimeout aren't specified for ImportInitialization activity. Please set at least one of the above through the ActivityStub or WorkflowImplementationOptions.",
+  "number": 1830,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:15.557Z"
+}

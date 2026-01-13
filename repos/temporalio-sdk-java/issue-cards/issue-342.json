@@ -1,0 +1,30 @@
+{
+  "summary": "Request to publish official Maven packages for the Java SDK to Maven Central Repository, similar to the existing Cadence client package. Currently requires using snapshots from Sonatype.",
+  "category": "feature",
+  "subcategory": "maven-distribution",
+  "apis": [],
+  "components": [
+    "maven",
+    "package-distribution",
+    "build-system"
+  ],
+  "concepts": [
+    "maven-central",
+    "package-distribution",
+    "release-management",
+    "backward-compatibility",
+    "snapshot-repository"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily add Temporal Java SDK as a dependency from Maven Central, requiring workarounds with snapshot repositories.",
+  "rootCause": "Backward incompatible changes needed to be completed before making an official release to Maven Central.",
+  "proposedFix": null,
+  "workaround": "Use 0.20.0-SNAPSHOT release from https://oss.sonatype.org/content/repositories/snapshots/ repository",
+  "resolution": "fixed",
+  "resolutionDetails": "Official Maven packages were eventually released to Maven Central after completing backward incompatible changes.",
+  "related": [],
+  "keyQuote": "We are waiting for completing all the backward incompatible changes before making an official release.",
+  "number": 342,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:09:16.176Z"
+}

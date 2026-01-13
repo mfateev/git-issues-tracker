@@ -1,0 +1,34 @@
+{
+  "summary": "Create an official Pydantic contrib module for the Python SDK to provide seamless integration with Pydantic models, including JSON encoding payload converters, data converters, and datetime handling support.",
+  "category": "feature",
+  "subcategory": "pydantic-integration",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "data-converter",
+    "worker",
+    "contrib-module"
+  ],
+  "concepts": [
+    "pydantic",
+    "serialization",
+    "json-encoding",
+    "datetime-handling",
+    "type-validation",
+    "data-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now officially use Pydantic models with Temporal workflows without friction or workarounds.",
+  "rootCause": null,
+  "proposedFix": "Create temporalio.contrib.pydantic module with JSON payload converter, default payload converter, default data converter, and Pydantic-safe worker runner for datetime handling.",
+  "workaround": "Use the pydantic_converter sample from temporalio/samples-python, though it lacks Pydantic V2 support.",
+  "resolution": "fixed",
+  "resolutionDetails": "Official Pydantic v2 support was added in SDK version 1.10.0",
+  "related": [
+    97
+  ],
+  "keyQuote": "Pydantic is popular/common enough and people are struggling with [the sample], that we should just make a temporalio.contrib.pydantic module",
+  "number": 621,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:34.806Z"
+}

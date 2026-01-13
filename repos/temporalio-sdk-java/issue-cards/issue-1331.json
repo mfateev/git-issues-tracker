@@ -1,0 +1,34 @@
+{
+  "summary": "Jacoco code coverage plugin causes test failures when processing synthetic methods, specifically the $jacocoInit method. The POJOWorkflowInterfaceMetadata class fails to recognize synthetic methods and expects them to have @WorkflowMethod, @SignalMethod or @QueryMethod annotations.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Worker.addWorkflowImplementationFactory"
+  ],
+  "components": [
+    "POJOWorkflowInterfaceMetadata",
+    "POJOWorkflowImplementationFactory",
+    "test-infrastructure",
+    "build-system"
+  ],
+  "concepts": [
+    "code-coverage",
+    "synthetic-methods",
+    "annotation-processing",
+    "test-execution",
+    "jacoco",
+    "gradle"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot generate code coverage reports for tests using Jacoco because the test suite fails to process synthetic methods injected by Jacoco.",
+  "rootCause": "POJOWorkflowInterfaceMetadata.getWorkflowInterfaceMethods() does not filter out synthetic methods created by Jacoco ($jacocoInit), causing IllegalArgumentException when expecting workflow annotations on synthetic methods.",
+  "proposedFix": "Filter synthetic methods in POJOWorkflowInterfaceMetadata.getWorkflowInterfaceMethods() to exclude methods like $jacocoInit that do not require workflow annotations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating method scanning logic to skip synthetic methods that are not actual workflow methods.",
+  "related": [],
+  "keyQuote": "I believe that synthetic methods (which jacoco may be creating) are not currently getting checked under getWorkflowInterfaceMethods in the POJOWorkflowInterfaceMetadata class",
+  "number": 1331,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:26:33.965Z"
+}

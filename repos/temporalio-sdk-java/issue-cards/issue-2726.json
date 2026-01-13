@@ -1,0 +1,34 @@
+{
+  "summary": "Allow users to override the Worker Deployment Version when invoking a Child Workflow, similar to how it works when creating a Workflow from a client. This is needed for pre-deployment testing scenarios.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "ChildWorkflowOptions",
+    "StartChildWorkflowExecution"
+  ],
+  "components": [
+    "child-workflow-execution",
+    "workflow-versioning",
+    "deployment-options"
+  ],
+  "concepts": [
+    "versioning",
+    "deployment",
+    "child-workflows",
+    "testing",
+    "override",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test pre-deployment scenarios with child workflows without the ability to override the target deployment version, limiting their testing capabilities.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users want to override the target version on a workflow, especially when doing pre-deployment testing.",
+  "number": 2726,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:44.734Z"
+}

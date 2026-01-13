@@ -1,0 +1,29 @@
+{
+  "summary": "Request to set up a logger for the worker package with support for popular Node.js loggers or custom logger injection, with fallback to console.error.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "logger"
+  ],
+  "concepts": [
+    "logging",
+    "observability",
+    "configuration",
+    "dependency-injection",
+    "integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users can integrate their own logging stack with the SDK instead of being limited to default logging behavior.",
+  "rootCause": null,
+  "proposedFix": "Allow injecting a custom logger with fallback to console.error, or use a popular Node.js logger by default.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Logger support was implemented for the worker package.",
+  "related": [],
+  "keyQuote": "I feel like usually developers have their own logging stack and I'd like to have the option to plug into any logger.",
+  "number": 35,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:41.708Z"
+}

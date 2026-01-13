@@ -1,0 +1,31 @@
+{
+  "summary": "The server loads all persistence libraries at startup regardless of which persistence backend is configured, causing unnecessary dependencies (like AWS libraries for RDS IAM auth) to be pulled in. The issue requests a mechanism to load only the required persistence libraries dynamically or at build time.",
+  "category": "other",
+  "subcategory": "persistence-plugin-loading",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "plugin-system",
+    "build-configuration"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "dynamic-linking",
+    "dependency-management",
+    "plugin-architecture",
+    "build-optimization",
+    "configuration-driven"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are forced to include unnecessary dependencies in their deployments, increasing binary size, build time, and potential security surface area.",
+  "rootCause": "Persistence libraries are loaded statically at startup rather than being conditionally loaded based on configured persistence backend.",
+  "proposedFix": "Two options suggested: (1) Build persistence plugins as libraries and load dynamically at runtime based on persistence config, or (2) Use build flags to include only needed libraries at build time, resulting in different binaries per persistence type.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need a better way to be able to load only needed libraries.",
+  "number": 2849,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:16.042Z"
+}

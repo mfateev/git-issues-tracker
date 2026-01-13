@@ -1,0 +1,30 @@
+{
+  "summary": "Missing admin-tools Docker image tagged as version 1.29.2. The release notes pointed to an incorrect Docker Hub URL (base-admin-tools instead of admin-tools), and there was no matching admin-tools image for this Temporal server version.",
+  "category": "docs",
+  "subcategory": "docker-images",
+  "apis": [],
+  "components": [
+    "docker-images",
+    "release-notes",
+    "documentation"
+  ],
+  "concepts": [
+    "docker",
+    "versioning",
+    "release-management",
+    "documentation-accuracy",
+    "image-tagging"
+  ],
+  "severity": "low",
+  "userImpact": "Users deploying Temporal 1.29.2 were confused about which admin-tools Docker image version to use due to incorrect documentation links.",
+  "rootCause": "Release notes contained an incorrect Docker Hub URL pointing to base-admin-tools repository instead of admin-tools, and no matching 1.29.2 tag existed for admin-tools.",
+  "proposedFix": "Use the 'latest' admin-tools image or 1.29 tag, which correspond to server version 1.29.2. Corrected the release notes URL.",
+  "workaround": "Use 'latest' or '1.29' tag for admin-tools when deploying with Temporal 1.29.2 server.",
+  "resolution": "fixed",
+  "resolutionDetails": "The release notes URL was corrected to point to the correct admin-tools repository. Users were advised that the 'latest' or '1.29' admin-tools tags are compatible with server version 1.29.2.",
+  "related": [],
+  "keyQuote": "the link provided in the release notes was not correct. It should point to https://hub.docker.com/r/temporalio/admin-tools/",
+  "number": 8943,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:52.205Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Activity and Nexus worker error handling during shutdown may have issues including potential memory leaks. The issue questions whether the current behavior is appropriate and consistent across worker types.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "activity-worker",
+    "nexus-worker",
+    "worker-shutdown"
+  ],
+  "concepts": [
+    "error-handling",
+    "graceful-shutdown",
+    "memory-leaks",
+    "worker-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience improper error handling or memory leaks when activity and Nexus workers shut down.",
+  "rootCause": "Potential inconsistency in error handling behavior between activity worker and Nexus worker during shutdown, with possible memory leak in activity worker.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as won't do. Core handles graceful shutdown and Nexus worker behavior is consistent with activity worker behavior.",
+  "related": [
+    813
+  ],
+  "keyQuote": "Core handles graceful shutdown and the behavior of the Nexus worker is consistent with the activities worker.",
+  "number": 1144,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:51.280Z"
+}

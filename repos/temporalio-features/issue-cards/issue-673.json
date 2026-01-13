@@ -1,0 +1,33 @@
+{
+  "summary": "All Temporal SDKs should expose the Nexus request deadline in the Nexus context. This provides a consistent way for developers to access request timeout information across all supported languages and is needed for proper deadline-aware programming.",
+  "category": "feature",
+  "subcategory": "nexus-integration",
+  "apis": [
+    "Nexus",
+    "NexusContext"
+  ],
+  "components": [
+    "nexus-sdk",
+    "context",
+    "sdk-core"
+  ],
+  "concepts": [
+    "deadline",
+    "request-timeout",
+    "nexus-rpc",
+    "context-propagation",
+    "timeout-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using Nexus across different SDKs need consistent access to request deadlines for proper timeout and deadline-aware programming patterns.",
+  "rootCause": null,
+  "proposedFix": "Expose request deadline in the Nexus context for all SDKs (Go, Java, TypeScript, Python, .NET, Ruby). Coordinate with Core SDK to expose deadline to language bindings.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "All SDKs should make the \"request deadline\" available in the Nexus context. Note, this is intentionally deadline and not timeout",
+  "number": 673,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:52:58.116Z"
+}

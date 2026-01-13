@@ -1,0 +1,32 @@
+{
+  "summary": "The PHP SDK doesn't provide WorkflowId when using StartWorkflowAction in the Schedule API, causing Temporal to generate IDs based on empty values. This prevents parallel execution of different workflows started within the same second.",
+  "category": "bug",
+  "subcategory": "schedule-api",
+  "apis": [
+    "StartWorkflowAction",
+    "Schedule"
+  ],
+  "components": [
+    "schedule-api",
+    "workflow-id-generation"
+  ],
+  "concepts": [
+    "workflow-id",
+    "parallel-execution",
+    "schedule",
+    "collision",
+    "id-generation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably execute multiple workflows in parallel when using the Schedule API without manually providing WorkflowIds, limiting scheduling capabilities.",
+  "rootCause": "The PHP SDK's StartWorkflowAction implementation does not generate or require a WorkflowId, while other SDKs either require it or generate it automatically.",
+  "proposedFix": "The SDK should always provide WorkflowId, either requiring it as a parameter or auto-generating it if not specified, consistent with other SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SDK was updated to provide WorkflowId with StartWorkflowAction in Schedule API, either accepting user-provided values or auto-generating them.",
+  "related": [],
+  "keyQuote": "The SDK has to always provide WorkflowId. That option is required in other SDKs but we can generate it under the hood if it was not specified.",
+  "number": 466,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:32:31.402Z"
+}

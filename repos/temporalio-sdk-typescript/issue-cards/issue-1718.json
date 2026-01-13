@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to lazily load webpack in the TypeScript SDK worker package to reduce bundle size and enable stripping webpack from containers. The user has demonstrated a working patch that uses dynamic require for the bundler module instead of eager loading.",
+  "category": "feature",
+  "subcategory": "bundling-optimization",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "index"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "bundle-size",
+    "webpack",
+    "dependency-management",
+    "container-optimization"
+  ],
+  "severity": "low",
+  "userImpact": "Users who need to optimize container size or reduce deployment artifacts are currently forced to include webpack even if they don't use the bundling feature.",
+  "rootCause": "webpack and the bundler module are eagerly imported at the index/worker level, making them impossible to tree-shake or exclude from bundles even when unused.",
+  "proposedFix": "Export a stub bundleWorkflowCode function that uses dynamic import internally to lazily load the actual implementation, or move bundler to an optional package that can be dynamically imported.",
+  "workaround": "User demonstrated a patch on build outputs using dynamic require: require(\"./workflow/bundler\").bundleWorkflowCode instead of eager imports. This requires patching compiled JavaScript.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    933
+  ],
+  "keyQuote": "By lazily loading workflow/bundler you can get away with deleting webpack and friends from the bundle",
+  "number": 1718,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:44.330Z"
+}

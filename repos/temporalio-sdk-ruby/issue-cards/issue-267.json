@@ -1,0 +1,31 @@
+{
+  "summary": "Rails lazy loading during development and testing causes IO errors in workflows because activity classes are lazily loaded, violating Temporal's no-IO-in-workflow constraint. Documentation is needed to clarify how to configure Rails to handle this safely, similar to existing Single-Table Inheritance guidance.",
+  "category": "docs",
+  "subcategory": "rails-integration",
+  "apis": [],
+  "components": [
+    "rails-integration",
+    "activity-loader",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "rails-autoloading",
+    "io-restrictions",
+    "workflow-constraints",
+    "bootsnap",
+    "zeitwerk"
+  ],
+  "severity": "medium",
+  "userImpact": "Rails developers cannot easily test workflows during development/testing due to IO errors from lazy-loaded activity classes.",
+  "rootCause": "Rails lazy loading by default during dev/test triggers activity class loading via bootsnap/zeitwerk, which performs file IO that violates Temporal's no-IO-in-workflow constraint.",
+  "proposedFix": "Add documentation similar to Rails STI guide explaining how to configure eager loading or use Unsafe.illegal_call_tracing_disabled for Rails activity loading.",
+  "workaround": "Can wrap lazy-loaded code in Temporalio::Workflow::Unsafe.illegal_call_tracing_disabled block to suppress IO restrictions.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation added to clarify Rails lazy loading configuration for workflow testing.",
+  "related": [],
+  "keyQuote": "Cannot access File path from inside a workflow. If this is known to be safe, the code can be run in a Temporalio::Workflow::Unsafe.illegal_call_tracing_disabled block.",
+  "number": 267,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:33.962Z"
+}

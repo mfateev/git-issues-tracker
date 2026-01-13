@@ -1,0 +1,34 @@
+{
+  "summary": "A test that validates signal handling with workflow returns is flaky and sometimes fails with an internal error. The test `test_workflow_return_is_honored_when_it_precedes_signal_completion_command` sporadically fails with `ApplicationError: Client should never see this error!` when run repeatedly.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [
+    "start_workflow",
+    "signal",
+    "result"
+  ],
+  "components": [
+    "worker",
+    "signal-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "race condition",
+    "signal completion",
+    "workflow return",
+    "timing",
+    "flaky test"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test signal handling with workflow returns due to intermittent test failures, indicating a potential underlying race condition in the SDK.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The following test sometimes fails with `temporalio.exceptions.ApplicationError: Client should never see this error!`",
+  "number": 865,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:04.952Z"
+}

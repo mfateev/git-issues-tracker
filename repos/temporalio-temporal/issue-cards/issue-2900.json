@@ -1,0 +1,30 @@
+{
+  "summary": "Request to publish Temporal Docker images to Amazon ECR Public Gallery to provide an alternative to Docker Hub, reducing rate-limiting issues for users who don't have paid Docker Hub subscriptions.",
+  "category": "feature",
+  "subcategory": "docker-distribution",
+  "apis": [],
+  "components": [
+    "docker-images",
+    "image-registry",
+    "distribution"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "docker-hub",
+    "ecr",
+    "public-registry",
+    "accessibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users without paid Docker Hub subscriptions experience rate-limiting when pulling Temporal images and need alternative sources.",
+  "rootCause": null,
+  "proposedFix": "Publish Temporal Docker images to Amazon ECR Public Gallery, following the example of organizations like HashiCorp, Elastic, and Ubuntu.",
+  "workaround": "Users can pay for Docker Hub or manually copy Temporal images from Docker Hub to a private registry.",
+  "resolution": "fixed",
+  "resolutionDetails": "Temporal images are now available in Amazon ECR Public Gallery.",
+  "related": [],
+  "keyQuote": "The Amazon ECR Public Gallery has high public quotas...This would allow more users who are unwilling to buy into the paid Docker ecosystem use Temporal.",
+  "number": 2900,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:53.774Z"
+}

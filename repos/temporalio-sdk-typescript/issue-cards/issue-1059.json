@@ -1,0 +1,30 @@
+{
+  "summary": "TypeScript SDK exported API documentation is missing type aliases, module-level functions, constants, and variables from the left navigation sidebar. These items can be reached through cross-references but aren't discoverable directly in the sidebar.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [],
+  "components": [
+    "documentation-generator",
+    "sidebar-builder",
+    "api-docs"
+  ],
+  "concepts": [
+    "discoverability",
+    "navigation",
+    "documentation-structure",
+    "exported-types",
+    "api-reference"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot discover and navigate to type aliases, functions, constants, and variables directly in the API documentation sidebar, limiting usability of the reference docs.",
+  "rootCause": "Sidebar generation iterates only on exported markdown files without inspecting their content to include type definitions and other exported symbols.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "structures that are defined with the `type` keyword appears nowhere in the left nav bar",
+  "number": 1059,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:18.361Z"
+}

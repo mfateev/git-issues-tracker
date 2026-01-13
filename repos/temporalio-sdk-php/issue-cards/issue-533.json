@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add workflow logging capability in PHP SDK, similar to functionality available in Java and other SDKs. Users need a standardized way to add logs within workflow classes.",
+  "category": "feature",
+  "subcategory": "workflow-logging",
+  "apis": [],
+  "components": [
+    "workflow",
+    "logger",
+    "sdk-core"
+  ],
+  "concepts": [
+    "logging",
+    "workflow-execution",
+    "debugging",
+    "observability",
+    "cross-sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily add logs to workflow classes in PHP SDK, limiting debugging and observability compared to other Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow logger similar to Java SDK's Workflow.getLogger() method",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and issue closed",
+  "related": [],
+  "keyQuote": "Possibility to add logs in workflow class like in others SDK",
+  "number": 533,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:44.916Z"
+}

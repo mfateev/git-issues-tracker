@@ -1,0 +1,32 @@
+{
+  "summary": "RpcRetryOptions is exposed in a public API package (serviceclient) but is not intended for direct SDK user consumption. The class should be moved to an internal package to allow modification flexibility, but this won't be done as the class is exposed through WorkflowStubOptions.Builder.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "WorkflowStubOptions"
+  ],
+  "components": [
+    "serviceclient",
+    "WorkflowStubOptions",
+    "RpcRetryOptions"
+  ],
+  "concepts": [
+    "public-api",
+    "internal-package",
+    "api-encapsulation",
+    "retry-configuration",
+    "client-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused by RpcRetryOptions being in a public package when it's not intended as part of the public API surface.",
+  "rootCause": "RpcRetryOptions was placed in io.temporal.serviceclient public package but is not meant for direct SDK user consumption",
+  "proposedFix": "Move RpcRetryOptions from io.temporal.serviceclient to an internal package",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "RpcRetryOptions is exposed on WorkflowStubOptions.Builder, making the proposed change infeasible without breaking changes",
+  "related": [],
+  "keyQuote": "RpcRetryOptions is exposed on WorkflowStubOptions.Builder. Won't fix.",
+  "number": 1202,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:13:04.224Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a read-only workflow worker mode that can process and respond to workflow queries but will not execute workflows, activities, or process signals. This would enable maintenance periods where systems need to remain queryable without performing work.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-processor",
+    "query-handler"
+  ],
+  "concepts": [
+    "maintenance-mode",
+    "read-only",
+    "query-processing",
+    "workflow-execution",
+    "signal-handling",
+    "activity-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Allows operators to pause workflow/activity/signal processing during maintenance while keeping the system responsive to queries.",
+  "rootCause": null,
+  "proposedFix": "Implement a read-only worker mode that processes queries but rejects or queues workflow starts, activity executions, and signals.",
+  "workaround": "Custom code in workflows using timer events with workflow.await() to block processing during maintenance periods.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "a read only worker which can process /respond to queryes but will not process activity/siginals/workflows",
+  "number": 3688,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:15.362Z"
+}

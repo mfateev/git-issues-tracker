@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a configuration flag enabling self-signed certificates for Elasticsearch transport in Temporal server. Currently, connections to Elasticsearch fail when using self-signed TLS certificates.",
+  "category": "feature",
+  "subcategory": "elasticsearch-tls",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "transport-security",
+    "configuration"
+  ],
+  "concepts": [
+    "self-signed-certificates",
+    "tls",
+    "elasticsearch",
+    "configuration-flag",
+    "security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Elasticsearch with self-signed certificates cannot connect Temporal server to their Elasticsearch instance without workarounds.",
+  "rootCause": "Elasticsearch client configuration lacks support for disabling certificate validation or accepting self-signed certificates.",
+  "proposedFix": "Add a configuration flag to enable self-signed certificates, similar to the approach in olivere/elastic library.",
+  "workaround": "Bundle CA certificate with the image or manually update Temporal startup script to import CAs from mounted folder.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Enhance config options with a flag which enables self-signed certificates",
+  "number": 2230,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:58.529Z"
+}

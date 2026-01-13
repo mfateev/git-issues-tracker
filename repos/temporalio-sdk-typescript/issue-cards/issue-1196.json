@@ -1,0 +1,32 @@
+{
+  "summary": "Typo in the `defaultWorflowInterceptorModules` API name in the TypeScript SDK documentation and/or code. The API name should be `defaultWorkflowInterceptorModules` (with correct spelling of 'Workflow').",
+  "category": "bug",
+  "subcategory": "api-naming",
+  "apis": [
+    "defaultWorkflowInterceptorModules"
+  ],
+  "components": [
+    "worker",
+    "interceptor-modules"
+  ],
+  "concepts": [
+    "api-naming",
+    "typo",
+    "interceptor",
+    "workflow"
+  ],
+  "severity": "low",
+  "userImpact": "Users encountering the misspelled API name may face confusion when trying to use the worker interceptor modules feature.",
+  "rootCause": "Typo in the API name 'defaultWorflowInterceptorModules' should be 'defaultWorkflowInterceptorModules'",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1204",
+  "related": [
+    1204
+  ],
+  "keyQuote": "Typo in `defaultWorflowInterceptorModules` API",
+  "number": 1196,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:48.790Z"
+}

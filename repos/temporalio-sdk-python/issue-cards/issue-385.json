@@ -1,0 +1,34 @@
+{
+  "summary": "Client hangs when connecting in a new process after a client was created in the current process. The issue occurs during process forking (e.g., in gunicorn), which is not supported by the SDK due to Rust runtime limitations.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "Client.connect"
+  ],
+  "components": [
+    "client",
+    "runtime",
+    "bridge"
+  ],
+  "concepts": [
+    "process-forking",
+    "multiprocessing",
+    "connection-pool",
+    "runtime-lifecycle",
+    "concurrency"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to use the Temporal SDK with forking frameworks like gunicorn experience client connection hangs, preventing multi-process deployments.",
+  "rootCause": "The SDK does not support process forking because the Rust Tokio runtime cannot be safely shared or recreated across fork boundaries.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK limitation by design - forking is not supported. Rust runtime cannot be safely shared across forks. Documentation should clarify this limitation.",
+  "related": [
+    11
+  ],
+  "keyQuote": "The SDK does not work with forking at this time. A runtime represents a Rust Tokio thread pool and runtime.",
+  "number": 385,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:33.605Z"
+}

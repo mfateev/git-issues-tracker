@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request for out-of-the-box Sentry integration to simplify error logging in TypeScript SDK activities. Currently requires implementing a custom ActivityInboundCallsInterceptor.",
+  "category": "feature",
+  "subcategory": "logging-integration",
+  "apis": [],
+  "components": [
+    "activity-interceptor",
+    "logging",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-logging",
+    "external-integration",
+    "sentry",
+    "observability",
+    "interceptor"
+  ],
+  "severity": "low",
+  "userImpact": "Users must implement custom ActivityInboundCallsInterceptor to integrate Sentry, reducing ease of error tracking setup.",
+  "rootCause": null,
+  "proposedFix": "Implement a Sentry integration module within the SDK that simplifies error logging to Sentry.",
+  "workaround": "Users can implement a custom ActivityInboundCallsInterceptor or register a custom logger to achieve Sentry integration.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided not to provide out-of-the-box Sentry support, as users can easily implement this themselves using custom logger registration.",
+  "related": [],
+  "keyQuote": "We have no plan to add out-of-the-box support for Sentry in the foreseeable future, and users can easily do that themselves by registering a custom logger.",
+  "number": 1172,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:56.931Z"
+}

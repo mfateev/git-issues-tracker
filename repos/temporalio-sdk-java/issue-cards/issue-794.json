@@ -1,0 +1,30 @@
+{
+  "summary": "Java SDK lacks metrics reporting for workflow replays. Currently, replay completions are not reported in metrics, limiting visibility into replay behavior and anomalies during replay execution.",
+  "category": "feature",
+  "subcategory": "metrics-reporting",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-replay",
+    "worker"
+  ],
+  "concepts": [
+    "metrics-reporting",
+    "replay-tracking",
+    "anomaly-detection",
+    "observability",
+    "system-monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot monitor or detect anomalous replay behavior because replay metrics are not reported, limiting visibility into system health during replay operations.",
+  "rootCause": null,
+  "proposedFix": "Implement replay metrics reporting with decisions needed on: reporting by status codes, total replay counts, and whether to include partial replays.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Replay metrics could be important for detecting the anomaly behavior of the system.",
+  "number": 794,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:42:47.660Z"
+}

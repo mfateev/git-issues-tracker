@@ -1,0 +1,31 @@
+{
+  "summary": "Matching service unit tests are failing intermittently in both local development and CI environments. Once failures start occurring, they persist until the environment is reset.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "test-framework",
+    "unit-tests"
+  ],
+  "concepts": [
+    "test-reliability",
+    "race-condition",
+    "environment-state",
+    "flaky-tests"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience unreliable test runs that hinder development velocity and CI/CD pipeline reliability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Reset the environment to clear the persistent failure state.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Identified as a duplicate of issue #243.",
+  "related": [
+    243
+  ],
+  "keyQuote": "Sometimes tests randomly fail. I've seen this occur on local development environment and in Kite server.",
+  "number": 499,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:02:27.836Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to allow the auth interceptor to pull authentication information from custom headers instead of being limited to TLS or the standard authorization header. Users need flexibility to define where auth info is sourced from, including support for multiple headers (e.g., JWT in one header and client certificate in another).",
+  "category": "feature",
+  "subcategory": "auth-interceptor",
+  "apis": [],
+  "components": [
+    "auth-interceptor",
+    "claim-mapper",
+    "authorization"
+  ],
+  "concepts": [
+    "authentication",
+    "custom-headers",
+    "authorization",
+    "jwt",
+    "client-certificate",
+    "header-mapping"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now source authentication information from custom header names instead of being restricted to standard headers, enabling more flexible auth architectures.",
+  "rootCause": null,
+  "proposedFix": "PR #4935 added support for configurable header names (authHeaderName, authExtraHeaderName) in static config. Additionally, AuthInfoRequired method in ClaimMapper can return false to process all requests regardless of header presence.",
+  "workaround": "Implement custom ClaimMapper that returns false from AuthInfoRequired to handle custom headers.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via PR #4935 which added configurable header name support and enhanced ClaimMapper with AuthInfoRequired feature for custom auth scenarios.",
+  "related": [
+    4935
+  ],
+  "keyQuote": "You can implement `AuthInfoRequired` and return `false` and the ClaimMapper will be called in all cases.",
+  "number": 3362,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:02.157Z"
+}

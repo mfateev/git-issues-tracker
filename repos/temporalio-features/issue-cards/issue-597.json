@@ -1,0 +1,32 @@
+{
+  "summary": "Server truncates oversized failures but cannot truncate stack traces in encoded attributes, dropping the entire message and trace. Need SDK-side stack trace truncation with configurable limits and a smart algorithm that removes middle frames while preserving context.",
+  "category": "feature",
+  "subcategory": "failure-handling",
+  "apis": [],
+  "components": [
+    "failure-converter",
+    "stack-trace-handler",
+    "error-encoding"
+  ],
+  "concepts": [
+    "failure-truncation",
+    "stack-trace-management",
+    "payload-size",
+    "error-serialization",
+    "middle-frame-omission"
+  ],
+  "severity": "high",
+  "userImpact": "Ruby users (and potentially other SDK users) experience complete loss of failure messages and stack traces when failures exceed server size limits, making debugging failures impossible.",
+  "rootCause": "Server cannot truncate stack traces in encoded_attributes payloads, so oversized encoded failures are dropped entirely instead of being partially truncated.",
+  "proposedFix": "Implement SDK-side stack trace truncation using a tiered algorithm: try preserving 10 lines, then 4 lines, then none, removing only middle frames and replacing with '...<X frames omitted>...' placeholder. Make max failure size customizable in failure converter options with 'no max' option.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    319
+  ],
+  "keyQuote": "the server can't truncate a stack trace for an \"encoded\" failure so that entire set of payloads is dropped which means the entire message and stack trace is gone",
+  "number": 597,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:52.753Z"
+}

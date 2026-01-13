@@ -1,0 +1,35 @@
+{
+  "summary": "Search attributes registered immediately after server startup with cache refresh enabled are sometimes not available for workflows, causing failures with namespace mapping errors.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "Server.Start",
+    "OperatorService.AddSearchAttributes"
+  ],
+  "components": [
+    "frontend-service",
+    "search-attributes-cache",
+    "namespace-mapping",
+    "visibility-service"
+  ],
+  "concepts": [
+    "cache-refresh",
+    "dynamic-configuration",
+    "namespace-initialization",
+    "search-attribute-registration",
+    "race-condition",
+    "timing-issue"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably register search attributes immediately after server startup and start workflows, experiencing intermittent failures.",
+  "rootCause": "Likely race condition between cache refresh initialization and search attribute registration, or improper cache invalidation after attribute addition.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Sometimes the workflow fails with \"Namespace default has no mapping defined for search attribute <whatever>\"",
+  "number": 6195,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:45.561Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for single-page fetching in list workflows API. Currently the enumerable doesn't allow providing a next page token to fetch subsequent pages on demand; the request is to add a dedicated single-page method to enable manual pagination control.",
+  "category": "feature",
+  "subcategory": "workflow-listing",
+  "apis": [
+    "list_workflows"
+  ],
+  "components": [
+    "client",
+    "enumerable",
+    "pagination"
+  ],
+  "concepts": [
+    "pagination",
+    "next_page_token",
+    "single-page",
+    "manual_traversal",
+    "lazy_loading",
+    "api_design"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot manually control pagination when listing workflows; they must either fetch all at once or use automatic enumerable traversal.",
+  "rootCause": "Current enumerable design doesn't expose page token handling for manual pagination control.",
+  "proposedFix": "Create a dedicated `list_workflow_page` method with optional page_size and next_page_token parameters, returning a ListWorkflowPage object containing items and next page token, while refactoring `list_workflows` to use this internally.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing a separate paginated method approach (#285) rather than dual return types.",
+  "related": [
+    285
+  ],
+  "keyQuote": "Have two possible return types for `#list_workflows`, depending on whether `page_size` is `nil` or not... Define a separate method for the paginated version",
+  "number": 288,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:35.122Z"
+}

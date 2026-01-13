@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal server needs to implement retry logic for transient 5xx errors from the visibility datastore, particularly during temporary database connection failures. The issue is related to database connection pool exhaustion and request timeouts similar to problems reported in TiDB.",
+  "category": "feature",
+  "subcategory": "persistence-connectivity",
+  "apis": [],
+  "components": [
+    "persistence",
+    "visibility-datastore",
+    "database-connection-pool"
+  ],
+  "concepts": [
+    "retry",
+    "connectivity",
+    "transient-errors",
+    "database-connections",
+    "connection-timeout",
+    "resilience"
+  ],
+  "severity": "high",
+  "userImpact": "Users experiencing temporary database connectivity issues face service failures instead of automatic recovery, requiring manual intervention or resource scaling.",
+  "rootCause": "Temporal server does not retry transient 5xx errors from visibility datastore when database connections are temporarily unavailable.",
+  "proposedFix": "Implement retry logic for transient 5xx errors from visibility datastore, or expose connectAttributes and connect_timeout configuration options.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    52653
+  ],
+  "keyQuote": "Temporal server needs to retry transient 5xx errors from visibility datastore especially when it fails to acquire database connections temporarily.",
+  "number": 7577,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:29.972Z"
+}

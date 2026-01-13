@@ -1,0 +1,30 @@
+{
+  "summary": "Remove the eval_type_backport dependency from the open-ai extra when Python 3.9 reaches end-of-life. This dependency is only needed for Python versions that lack native support for certain type evaluation features.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "package-management",
+    "python-sdk",
+    "dependencies"
+  ],
+  "concepts": [
+    "deprecation",
+    "version-compatibility",
+    "cleanup",
+    "maintenance",
+    "eol"
+  ],
+  "severity": "low",
+  "userImpact": "Users will benefit from reduced dependencies and simplified package maintenance once Python 3.9 support is dropped.",
+  "rootCause": null,
+  "proposedFix": "Remove eval_type_backport from the open-ai extra dependencies once Python 3.9 is no longer supported",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When python 3.9 is EOL, we should remove the dependency on `eval_type_backport` in the `open-ai` extra.",
+  "number": 921,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:27:48.722Z"
+}

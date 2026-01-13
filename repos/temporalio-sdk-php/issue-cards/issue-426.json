@@ -1,0 +1,34 @@
+{
+  "summary": "The startUpdate method's documentation and API design don't adequately convey that it's synchronous with the worker, potentially misleading users into thinking it's asynchronous. The feature request asks for clearer documentation and/or API adjustments to make this behavior explicit.",
+  "category": "docs",
+  "subcategory": "update-workflow-api",
+  "apis": [
+    "startUpdate"
+  ],
+  "components": [
+    "workflow-client",
+    "update-api",
+    "documentation"
+  ],
+  "concepts": [
+    "synchronous-execution",
+    "worker-synchronization",
+    "api-clarity",
+    "method-semantics",
+    "async-confusion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may misunderstand whether startUpdate is asynchronous or synchronous, leading to incorrect usage patterns and unexpected behavior in their workflows.",
+  "rootCause": "The optional waitStage parameter and docstring phrasing ambiguously suggest asynchronous behavior when the operation is actually synchronous with respect to worker execution.",
+  "proposedFix": "Make the waitStage parameter mandatory with clear flag values (ACCEPTED/COMPLETED) to force users to explicitly specify what they're awaiting, or add an explicit startUpdateAsync method in the future.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "In version 2.9.0, the method description was adjusted to clarify the synchronous nature. While the method signature wasn't changed to avoid breaking changes, clearer documentation now prevents user confusion.",
+  "related": [
+    469
+  ],
+  "keyQuote": "We decided to force customers to explicitly pass in a flag saying what's being awaited. (e.g. start_update(wait_for_stage=ACCEPTED/COMPLETED))",
+  "number": 426,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:09.953Z"
+}

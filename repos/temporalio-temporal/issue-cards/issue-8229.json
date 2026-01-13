@@ -1,0 +1,34 @@
+{
+  "summary": "Handover workflow can timeout between namespace state updates, leaving namespaces in an unavailable state. The issue requires validation at workflow start to ensure timeout is sufficient (>>1hr) and backout logic before unavailable state transition.",
+  "category": "bug",
+  "subcategory": "namespace-migration-handover",
+  "apis": [],
+  "components": [
+    "handover-workflow",
+    "namespace-manager",
+    "migration-service"
+  ],
+  "concepts": [
+    "timeout",
+    "state-transition",
+    "namespace-availability",
+    "distributed-coordination",
+    "workflow-execution",
+    "compensation"
+  ],
+  "severity": "high",
+  "userImpact": "Users performing namespace handover/migration can experience stuck unavailable namespaces if workflow execution timeout is insufficient.",
+  "rootCause": "Handover workflow can timeout between the two namespace state updates, leaving the namespace in an inconsistent unavailable state without proper cleanup or compensation.",
+  "proposedFix": "Add validation at workflow start to fail immediately if execution timeout is too small (requires >>1hr). Implement backout/compensation logic before transitioning namespace to unavailable state.",
+  "workaround": "Always invoke handover workflow with timeout >> 1hr (the max timeout for catchup activity)",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PRs #8231 and #8258 to prevent insufficient timeout and add detach context for compensation logic",
+  "related": [
+    8231,
+    8258
+  ],
+  "keyQuote": "Add validations in the beginning of the workflow to fail it immediately if the workflow execution timeout is too small",
+  "number": 8229,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:12.465Z"
+}

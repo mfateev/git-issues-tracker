@@ -1,0 +1,33 @@
+{
+  "summary": "TestActivityEnvironment.close() fails on subsequent test methods due to static executor fields being closed prematurely. When a new TestActivityEnvironmentInternal instance is created for each test, it shares static executor pools that get closed, causing RejectedExecutionException on the next test.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestActivityEnvironment",
+    "TestActivityEnvironmentInternal",
+    "TestActivityExtension",
+    "WorkflowThreadImpl"
+  ],
+  "concepts": [
+    "static-state",
+    "executor-lifecycle",
+    "test-isolation",
+    "resource-cleanup",
+    "thread-pool"
+  ],
+  "severity": "high",
+  "userImpact": "Tests that call TestActivityEnvironment.close() in cleanup fail on subsequent test methods, breaking test suites that need proper resource cleanup between tests.",
+  "rootCause": "Static ExecutorService fields (activityWorkerExecutor, heartbeatExecutor, deterministicRunnerExecutor) are shared across all TestActivityEnvironmentInternal instances but are closed when any single instance is closed, causing subsequent instances to fail when trying to submit tasks to the terminated pool.",
+  "proposedFix": "Make the executor fields non-static so each TestActivityEnvironmentInternal instance has its own lifecycle-managed executors, preventing one instance's close() from affecting others.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Converted static executor fields to instance fields so each TestActivityEnvironmentInternal manages its own executor lifecycle without affecting other instances.",
+  "related": [
+    1329
+  ],
+  "keyQuote": "Make these fields not static (creating a new thread pool per test may be sub-optimal for performance but is probably acceptable for most testing use cases)",
+  "number": 1133,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:08:23.680Z"
+}

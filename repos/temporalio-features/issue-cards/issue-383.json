@@ -1,0 +1,35 @@
+{
+  "summary": "Request to enable dynamic display names for activities in Temporal Go SDK to differentiate multiple invocations of the same activity method with different parameters, improving visibility and management in the Temporal UI.",
+  "category": "feature",
+  "subcategory": "activity-ui-metadata",
+  "apis": [
+    "RegisterActivityWithOptions"
+  ],
+  "components": [
+    "activity-registration",
+    "ui-display",
+    "worker"
+  ],
+  "concepts": [
+    "display-name",
+    "activity-identification",
+    "ui-visibility",
+    "metadata",
+    "runtime-configuration",
+    "activity-invocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers struggle to identify and manage specific activity executions when the same activity is invoked multiple times with different purposes, reducing observability in the Temporal UI.",
+  "rootCause": null,
+  "proposedFix": "Introduce a new option or method within RegisterActivityWithOptions to allow dynamic setting of display names for activities during runtime.",
+  "workaround": null,
+  "related": [
+    141
+  ],
+  "keyQuote": "Enable dynamic setting of the display name for activities to improve visibility and distinguish between multiple invocations of the same activity method.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 383,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:58.896Z"
+}

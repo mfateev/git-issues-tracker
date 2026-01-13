@@ -1,0 +1,29 @@
+{
+  "summary": "Worker initialization fails with 'TypeError: otel.setSpan is not a function' when running the hello world sample application. The error occurs in the tracing module during worker startup and is caused by an OpenTelemetry dependency version incompatibility.",
+  "category": "bug",
+  "subcategory": "tracing-initialization",
+  "apis": [],
+  "components": [
+    "worker",
+    "tracing"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "initialization",
+    "dependency-compatibility",
+    "semver-compliance",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users following the getting started guide cannot run the hello world sample, blocking initial setup and evaluation of the SDK.",
+  "rootCause": "OpenTelemetry library broke semantic versioning, causing API incompatibility between @temporalio/worker and its otel dependency.",
+  "proposedFix": "Updated temporalio to 0.2.2 and @temporalio/worker to 0.4.0 which fix the issue.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Patch releases (temporalio@0.2.2, @temporalio/worker@0.4.0) were cut to fix the OpenTelemetry semver breakage.",
+  "related": [],
+  "keyQuote": "This has already been fixed in the main branch. Looks like opentelemetry broke semver.",
+  "number": 125,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:42.602Z"
+}

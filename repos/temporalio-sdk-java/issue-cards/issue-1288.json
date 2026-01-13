@@ -1,0 +1,30 @@
+{
+  "summary": "Test Server experiences instability with child workflows that complete quickly, causing state machine errors where completion events arrive before initialization is recorded in history.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-service",
+    "state-machine",
+    "child-workflow"
+  ],
+  "concepts": [
+    "race-condition",
+    "state-transition",
+    "workflow-completion",
+    "concurrency",
+    "event-ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Tests fail intermittently in loaded environments due to test server state machine violations when child workflows complete rapidly.",
+  "rootCause": "Test Server observes child workflow completion before the start event is recorded in history, violating state machine transitions (INITIATED -> COMPLETE requires prior INITIATE event).",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Invalid Transition{from=INITIATED, action=COMPLETE}, history: [Transition{from=NONE, action=INITIATE}]",
+  "number": 1288,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:21:36.873Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for updating schedule search attributes in the Java SDK, following the feature specification and Go SDK implementation.",
+  "category": "feature",
+  "subcategory": "schedule-search-attributes",
+  "apis": [
+    "UpdateSchedule"
+  ],
+  "components": [
+    "scheduler",
+    "search-attributes",
+    "client"
+  ],
+  "concepts": [
+    "search-attributes",
+    "schedule-management",
+    "workflow-scheduling",
+    "metadata",
+    "filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to update search attributes on schedules for better querying and management of scheduled workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement schedule search attribute update following the specification in temporalio/features#512 and the Go SDK implementation from temporalio/sdk-go#1561",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support updating schedule search attributes in line with cross-SDK specification",
+  "related": [
+    512,
+    1561
+  ],
+  "keyQuote": "Support schedule search attribute update",
+  "number": 2152,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:24.401Z"
+}

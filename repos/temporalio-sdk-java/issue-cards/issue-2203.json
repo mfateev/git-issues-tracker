@@ -1,0 +1,34 @@
+{
+  "summary": "Activity inputs are held in strong references by WorkflowOutboundCallsInterceptor$ActivityInput even after activities complete, preventing garbage collection and causing memory leaks in workflows with multiple async activities.",
+  "category": "bug",
+  "subcategory": "activity-memory-management",
+  "apis": [
+    "Async.procedure",
+    "ActivityOptions",
+    "Workflow.newActivityStub"
+  ],
+  "components": [
+    "WorkflowOutboundCallsInterceptor",
+    "ActivityStateMachine",
+    "CancellationScope"
+  ],
+  "concepts": [
+    "memory-leak",
+    "garbage-collection",
+    "async-activities",
+    "reference-holding",
+    "heap-pressure"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows with multiple async activities exhaust worker memory over time due to activity inputs not being released for garbage collection.",
+  "rootCause": "The internal ActivityStateMachine holds a reference to activity inputs, and the cancellation callback in CancellationScope holds the state machine, preventing garbage collection even after activity completion.",
+  "proposedFix": "Make the cancellation callback hold a weak reference to the state machine, or remove the cancellation callback once the ActivityStateMachine reaches a terminal state.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fix included in a future minor SDK release by addressing the reference holding in cancellation callbacks or state machine lifecycle.",
+  "related": [],
+  "keyQuote": "the activity input is being held because the internal ActivityStateMachine holds it and the state machine is being held by the cancellation callback",
+  "number": 2203,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:02:23.389Z"
+}

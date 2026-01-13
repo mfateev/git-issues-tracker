@@ -1,0 +1,37 @@
+{
+  "summary": "Epic to systematize and expose additional Temporal APIs for utility functionality that doesn't fit within WorkflowClient. This includes workflow introspection, status queries, and administrative operations that users currently implement via raw gRPC or internal workarounds.",
+  "category": "feature",
+  "subcategory": "admin-apis",
+  "apis": [
+    "WorkflowClient",
+    "describeWorkflowExecution"
+  ],
+  "components": [
+    "client-api",
+    "admin-utilities",
+    "workflow-management"
+  ],
+  "concepts": [
+    "workflow-status",
+    "pagination",
+    "search-attributes",
+    "visibility",
+    "administrative-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently implement custom utility methods or use raw gRPC endpoints for common administrative tasks like checking workflow status and resetting workflows.",
+  "rootCause": "Lack of structured API surface for administrative and introspection functionality outside of WorkflowClient, forcing users to create their own implementations.",
+  "proposedFix": "Create a new class/interface structure to systematically expose administrative APIs with built-in pagination handling and clear documentation on Elasticsearch vs persistent store consistency.",
+  "workaround": "Users implement custom utility methods wrapping raw gRPC endpoints or use tctl-equivalent operations locally.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed as an epic format is no longer used for tracking GitHub issues.",
+  "related": [
+    1036,
+    835,
+    1028
+  ],
+  "keyQuote": "we should have a 1-1 mapping between tctl commands and out-of-box util methods in our sdk",
+  "number": 976,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:56:19.816Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Cancelling a workflow is non-deterministic and can take a long time or never complete. Users need a way to check if a cancel request has been created for a workflow via the DescribeWorkflowExecution API.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "api",
+    "workflow-execution",
+    "status"
+  ],
+  "concepts": [
+    "cancellation",
+    "non-determinism",
+    "status-tracking",
+    "workflow-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot track whether a cancellation request was accepted when cancelling a workflow, making it difficult to implement reliable UI feedback or monitoring.",
+  "rootCause": null,
+  "proposedFix": "Add a new value to the workflowExecutionInfo.status field that reflects whether a cancel request has been created",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Cancelling a workflow is a non-deterministic operation that could take quite a while to complete - or possibly never complete at all",
+  "number": 3597,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:13.366Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "User asks how to implement authorization in a workflow inbound interceptor that validates headers via a remote authentication service in different environments, given that the 'process' API is forbidden in workflow interceptors for determinism.",
+  "category": "question",
+  "subcategory": "interceptors-authentication",
+  "apis": [
+    "proxyActivities",
+    "proxyLocalActivities"
+  ],
+  "components": [
+    "interceptors",
+    "workflow-inbound",
+    "activities",
+    "grpc-headers"
+  ],
+  "concepts": [
+    "authorization",
+    "authentication",
+    "environment-variables",
+    "determinism",
+    "external-service-calls",
+    "local-activities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need guidance on securely implementing authentication workflows when external service URLs differ by environment while maintaining workflow determinism.",
+  "rootCause": "Workflow inbound interceptors restrict process API access for determinism, preventing direct environment variable access or external service calls needed for dynamic authentication.",
+  "proposedFix": "Use local activities to access environment variables and call the authentication service from within the workflow, with careful header encoding to prevent history pollution and replay attacks.",
+  "workaround": "Encode authentication headers before workflow start and decode in a local activity; embed workflow execution details (ID, checksum, timestamp) in the header to prevent replay.",
+  "resolution": "answered",
+  "resolutionDetails": "Community member provided detailed guidance on using local activities for authentication, explaining the trade-offs between local and regular activities, and recommending header encoding strategies.",
+  "related": [
+    514
+  ],
+  "keyQuote": "One possibility would be to call a local activity from your Workflow inbound interceptor. From that activity, you will be able to access environment variables and make calls to your external auth service.",
+  "number": 1135,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:55.720Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "Unregistered local activities should fail the workflow task rather than retrying indefinitely, allowing workers to be redeployed with the correct implementation. This prevents workflow failures caused by deployment issues and enables task redistribution to workers with the registered activity.",
+  "category": "feature",
+  "subcategory": "local-activity",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "workflow-task-handler",
+    "activity-registry"
+  ],
+  "concepts": [
+    "deployment",
+    "activity-registration",
+    "workflow-task-failure",
+    "error-handling",
+    "worker-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users with unregistered local activities experience workflow failures or infinite retries instead of getting clear feedback to redeploy their workers.",
+  "rootCause": "SDKs do not validate that local activities are registered before attempting execution, leading to retry loops instead of task failures.",
+  "proposedFix": "Core-based SDKs should check on the workflow side before sending to Core if the local activity is not found, so they can fail the task appropriately.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Java and TypeScript SDKs implement the fix. Go and Python still need implementation. .NET and Ruby issues opened separately.",
+  "related": [
+    1561,
+    845,
+    463,
+    253
+  ],
+  "keyQuote": "If Local Activity is not registered, it's pointless to keep retrying on the same worker. It will not be fixed without worker redeployment.",
+  "number": 221,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:14.769Z"
+}

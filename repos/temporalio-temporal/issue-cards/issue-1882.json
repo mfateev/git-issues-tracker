@@ -1,0 +1,35 @@
+{
+  "summary": "User requests a ManualRetryPolicy to give users explicit control over when and how activities are retried, rather than relying on automatic retry policies.",
+  "category": "feature",
+  "subcategory": "activity-retries",
+  "apis": [
+    "ExecuteActivity",
+    "ActivityTimeoutEvent",
+    "ActivityFailedEvent"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "retry",
+    "manual-control",
+    "activity-execution",
+    "failure-handling",
+    "heartbeat",
+    "signals"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot manually control retry timing and conditions, requiring workarounds via signals to implement custom retry logic.",
+  "rootCause": null,
+  "proposedFix": "Implement a ManualRetryPolicy that allows users to determine when to retry activities based on custom conditions.",
+  "workaround": "Use signal channels to implement manual retry logic - define signals for 'continue retry' and 'abort activity' that users can send based on their own conditions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "You can achieve this by using signals. In your workflow, you have a signal channel, and depending on when and what signal it received, the workflow react on the signal.",
+  "number": 1882,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:18.197Z"
+}

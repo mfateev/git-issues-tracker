@@ -1,0 +1,31 @@
+{
+  "summary": "Users need the ability to modify context propagator variables within activities or workflows and have those changes propagated back in the result when returned to the calling workflow. Currently context propagation only works one-way across the temporal stack.",
+  "category": "feature",
+  "subcategory": "context-propagation",
+  "apis": [],
+  "components": [
+    "context-propagator",
+    "activity-executor",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "context-propagation",
+    "header-propagation",
+    "cross-cutting-concerns",
+    "activity-results",
+    "workflow-results",
+    "context-modification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot modify context variables in activities and have those changes reflected back to the calling workflow, limiting the use of context propagators for dynamic cross-cutting parameters.",
+  "rootCause": null,
+  "proposedFix": "Encode extra header info into activity/workflow results that can be decoded and applied to workflow context when results are returned.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We would like to be able to change context propagated vars within activity/workflow and have it propagated when the result is returned to the calling workflow.",
+  "number": 4179,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:20.263Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Need a reentrant and deterministic concurrency control mechanism (mutex/semaphore) for use within workflow coroutines, signal handlers, and update handlers that fits naturally with the .NET language.",
+  "category": "feature",
+  "subcategory": "workflow-concurrency",
+  "apis": [],
+  "components": [
+    "workflow-coroutine",
+    "signal-handler",
+    "update-handler"
+  ],
+  "concepts": [
+    "concurrency",
+    "mutex",
+    "semaphore",
+    "reentrancy",
+    "determinism",
+    "synchronization",
+    "coroutine"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack a proper way to safely manage concurrent access to shared resources within workflows, requiring workarounds or unsafe patterns.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by issue #287 which implemented the concurrency control mechanism.",
+  "related": [
+    287
+  ],
+  "keyQuote": "We need a mechanism for concurrency control (mutex/semaphore) that fits with the language but is reentrant and deterministic within workflow coroutines.",
+  "number": 281,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T12:30:05.114Z"
+}

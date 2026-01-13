@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to create an MCP (Model Context Protocol) server for Temporal that enables AI-powered workflow orchestration. The server would provide tools for workflow management (start, signal, query), activity execution, and namespace management.",
+  "category": "feature",
+  "subcategory": "mcp-integration",
+  "apis": [
+    "StartWorkflow",
+    "SignalWorkflow",
+    "QueryWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "activity-executor",
+    "namespace-manager",
+    "grpc-api"
+  ],
+  "concepts": [
+    "ai-integration",
+    "tool-standard",
+    "workflow-automation",
+    "model-context-protocol",
+    "orchestration",
+    "interoperability"
+  ],
+  "severity": "low",
+  "userImpact": "Enables AI systems to natively orchestrate and manage Temporal workflows through standardized MCP protocol.",
+  "rootCause": null,
+  "proposedFix": "Implement MCP server exposing Temporal workflow operations as tools compatible with AI models.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Model Context Protocol - AI tool standard (Anthropic, OpenAI).",
+  "number": 8955,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:30:08.254Z"
+}

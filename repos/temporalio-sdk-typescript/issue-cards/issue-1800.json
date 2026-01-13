@@ -1,0 +1,31 @@
+{
+  "summary": "Users cannot distinguish error types in TypeScript SDK logs because errors lose type information when passed between Worker and Workflow boundaries, preventing appropriate log level assignment and error categorization.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow",
+    "error-serialization",
+    "logging"
+  ],
+  "concepts": [
+    "error-type-detection",
+    "error-serialization",
+    "log-levels",
+    "worker-workflow-communication",
+    "type-information"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot determine error origins or apply appropriate logging levels, making production debugging and error handling more difficult.",
+  "rootCause": "NodeJS/V8 limitation: object prototypes and class information are lost when cloning objects across worker threads, as documented in NodeJS worker_threads API.",
+  "proposedFix": "Introduce a type indicator field or code field in logged errors to distinguish error sources, potentially as a new non-breaking field alongside the existing failure field.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently users cannot distinguish error types in Temporal's TypeScript SDK logs, all logged errors appear as plain Error objects with no type information.",
+  "number": 1800,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:18:51.504Z"
+}

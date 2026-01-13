@@ -1,0 +1,32 @@
+{
+  "summary": "Update handlers should retry when they fail with retryable exceptions like RuntimeException, similar to activity retry behavior. A test case exists in the features repository to validate this behavior.",
+  "category": "bug",
+  "subcategory": "update-retry-logic",
+  "apis": [],
+  "components": [
+    "update-handler",
+    "retry-policy",
+    "exception-handling"
+  ],
+  "concepts": [
+    "retry",
+    "exception-handling",
+    "retryable-exceptions",
+    "update-execution",
+    "failure-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Update handlers that fail with retryable exceptions are not being retried, causing updates to fail immediately instead of following the configured retry policy.",
+  "rootCause": "Update retry logic does not properly classify and handle retryable exceptions like RuntimeException.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update retry logic was implemented to properly handle retryable exceptions for update handlers, aligning with activity retry behavior.",
+  "related": [
+    485
+  ],
+  "keyQuote": "When an Update fails with a retryable exception like RuntimeException the update should be retried.",
+  "number": 463,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:32:17.814Z"
+}

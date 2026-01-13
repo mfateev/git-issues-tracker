@@ -1,0 +1,31 @@
+{
+  "summary": "A `tq lp --taskqueue foo` command causes the Temporal server to panic with a nil pointer dereference when marshaling TaskQueuePartitionMetadata. The panic occurs in the gRPC marshaling layer when the server attempts to serialize a nil pointer.",
+  "category": "bug",
+  "subcategory": "taskqueue-partition-metadata",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "grpc-marshaling",
+    "taskqueue-partition-metadata",
+    "protobuf-serialization"
+  ],
+  "concepts": [
+    "nil-pointer-dereference",
+    "panic-recovery",
+    "taskqueue-partitions",
+    "grpc-serialization",
+    "memory-safety"
+  ],
+  "severity": "critical",
+  "userImpact": "Users cannot execute the `tq lp --taskqueue` command without causing the Temporal server process to crash with a segmentation fault.",
+  "rootCause": "TaskQueuePartitionMetadata pointer is nil when MarshalToSizedBuffer is called, causing an invalid memory address access during gRPC response marshaling.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The nil pointer dereference in TaskQueuePartitionMetadata marshaling was fixed by ensuring proper validation before serialization.",
+  "related": [],
+  "keyQuote": "panic: runtime error: invalid memory address or nil pointer dereference [signal SIGSEGV: segmentation violation code=0x1 addr=0x18",
+  "number": 586,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:17:27.579Z"
+}

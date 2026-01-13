@@ -1,0 +1,31 @@
+{
+  "summary": "Activity not found and activity argument conversion errors are currently marked as non-retryable in the TypeScript SDK, but should be retryable to align with behavior in other Temporal SDKs.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry-policy",
+    "error-classification",
+    "activity-resolution",
+    "sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities fail permanently when encountering not-found or conversion errors instead of being retried according to the retry policy, inconsistent with other SDK implementations.",
+  "rootCause": "Activity not found and activity arg conversion errors are hardcoded as non-retryable in worker.ts lines 474 and 496, while other SDKs treat them as retryable.",
+  "proposedFix": "Reclassify activity not found and argument conversion errors as retryable to match behavior in other Temporal SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by making these error types retryable in the TypeScript SDK to align with other SDK implementations.",
+  "related": [],
+  "keyQuote": "this should be a retryable error",
+  "number": 521,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:40.438Z"
+}

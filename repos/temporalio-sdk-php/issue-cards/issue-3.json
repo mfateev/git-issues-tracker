@@ -1,0 +1,34 @@
+{
+  "summary": "User asks whether the PHP SDK can work standalone without RoadRunner for launching workflows and receiving activities. Initial attempts to connect directly to Temporal server fail with protocol errors.",
+  "category": "question",
+  "subcategory": "sdk-compatibility",
+  "apis": [
+    "WorkflowService"
+  ],
+  "components": [
+    "grpc-client",
+    "roadrunner-integration",
+    "workflow-client"
+  ],
+  "concepts": [
+    "standalone-mode",
+    "grpc-communication",
+    "protocol-compatibility",
+    "roadrunner-dependency",
+    "polyglot-workflows"
+  ],
+  "severity": "low",
+  "userImpact": "Users with existing PHP stacks need to know if they can use Temporal SDK as a standalone client or if RoadRunner is a hard dependency.",
+  "rootCause": "Early SDK version required RoadRunner for communication; later versions added gRPC support but with caveats around worker implementation",
+  "proposedFix": "Support launching workflows from PHP without RoadRunner by using gRPC endpoints directly; eventually provide Java-like Workflow and Activity clients with better abstraction",
+  "workaround": "Use proto-generated PHP gRPC client directly instead of the SDK wrapper",
+  "resolution": "fixed",
+  "resolutionDetails": "SDK evolved to support gRPC-based WorkflowService for launching workflows without RoadRunner; workers still require supervisor but client-only use cases are supported",
+  "related": [
+    4
+  ],
+  "keyQuote": "a recent version of WorkflowService uses GRPC and does not require RoadRunner to work (but it does require php-grpc extension)",
+  "number": 3,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:18:31.261Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow code currently cannot access activity start and completion time information that exists in the workflow history. Users need an API to retrieve full activity execution details including the exact time an activity started and completed on the worker.",
+  "category": "feature",
+  "subcategory": "activity-execution-info",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-executor",
+    "history"
+  ],
+  "concepts": [
+    "activity-timing",
+    "execution-metadata",
+    "worker-information",
+    "history-access",
+    "activity-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot track actual activity start/completion times in real-time across workflows, limiting visibility into distributed execution and cross-service logging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Expose an API to get full information about activity execution including start time, completion time, and worker identity from workflow code.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1009
+  ],
+  "keyQuote": "The workflow history contains information about the time and identity of the activity worker that started and completed an activity. But this information is not available to the workflow code.",
+  "number": 228,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:02:43.766Z"
+}

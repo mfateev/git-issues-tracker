@@ -1,0 +1,39 @@
+{
+  "summary": "Incorrect error handling in POJOActivityInboundCallsInterceptor loses the root cause exception (java.lang.Error) and masks it with a ClassCastException. When calling Workflow methods from within an Activity, the meaningful error message is lost.",
+  "category": "bug",
+  "subcategory": "activity-error-handling",
+  "apis": [
+    "Workflow.newLocalActivityStub",
+    "LocalActivityOptions",
+    "WorkflowOptions",
+    "newWorkflowStub"
+  ],
+  "components": [
+    "POJOActivityInboundCallsInterceptor",
+    "POJOActivityTaskHandler",
+    "LocalActivityWorker",
+    "error-handling"
+  ],
+  "concepts": [
+    "exception-masking",
+    "error-propagation",
+    "local-activities",
+    "thread-safety",
+    "error-casting",
+    "debugging"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter obscure ClassCastException errors instead of the meaningful original exception, making it difficult to diagnose and debug activity failures.",
+  "rootCause": "POJOActivityInboundCallsInterceptor incorrectly casts java.lang.Error to java.lang.Exception, causing a ClassCastException that masks the original error message.",
+  "proposedFix": "Create an Error subclass for Temporal Exceptions that need to be propagated through exception handling, allowing proper error handling in POJOActivityInboundCallsInterceptor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by #190 with improved error handling in POJOActivityInboundCallsInterceptor.",
+  "related": [
+    190
+  ],
+  "keyQuote": "The root cause is completely lost and overridden by incorrect handling inside POJOActivityInboundCallsInterceptor#execute.",
+  "number": 185,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:00:04.931Z"
+}

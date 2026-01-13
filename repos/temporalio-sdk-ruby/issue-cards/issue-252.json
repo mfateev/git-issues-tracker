@@ -1,0 +1,31 @@
+{
+  "summary": "OpenTelemetry integration is using incorrect timestamp conversion to nanoseconds, causing failures with OTLP. The fix requires using Time objects directly from Temporalio::Workflow.now instead of converting to nanos.",
+  "category": "bug",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "open-telemetry",
+    "contrib"
+  ],
+  "concepts": [
+    "timestamps",
+    "observability",
+    "telemetry",
+    "OTLP",
+    "instrumentation"
+  ],
+  "severity": "high",
+  "userImpact": "OpenTelemetry integration fails when exporting traces via OTLP due to incorrect timestamp handling.",
+  "rootCause": "Timestamp values are being converted to nanoseconds when they should remain as Time objects from Temporalio::Workflow.now",
+  "proposedFix": "Change lines 458-464 in temporalio/lib/temporalio/contrib/open_telemetry.rb to use Time objects directly without nanos conversion",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating the OpenTelemetry timestamp handling to use Time objects directly instead of converting to nanoseconds",
+  "related": [
+    1841
+  ],
+  "keyQuote": "need to change to just use the `Time` from `Temporalio::Workflow.now` as the timestamp, do not convert to nanos",
+  "number": 252,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:05.404Z"
+}

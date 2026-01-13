@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request for a FIFO mutex mechanism to lock critical sections of workflow code based on a key. The request seeks built-in support for cross-workflow locking to ensure sequential execution of operations for specific users or entities (e.g., preventing concurrent DB updates for the same user across different workflow instances).",
+  "category": "feature",
+  "subcategory": "concurrency-control",
+  "apis": [
+    "Lock",
+    "Unlock",
+    "NewMutex"
+  ],
+  "components": [
+    "workflow-engine",
+    "synchronization",
+    "cross-workflow-coordination"
+  ],
+  "concepts": [
+    "mutex",
+    "locking",
+    "FIFO-queue",
+    "critical-section",
+    "concurrency",
+    "cross-workflow-state",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently implement complex custom solutions (like separate mutex workflows) to ensure FIFO-ordered access to shared resources across multiple workflow instances, when simple built-in lock/unlock primitives would suffice.",
+  "rootCause": null,
+  "proposedFix": "Add workflow-level primitives like `workflow.Lock(ctx, key)` and `workflow.Unlock(ctx, key)` that guarantee FIFO ordering for cross-workflow mutual exclusion, similar to language-standard mutex implementations.",
+  "workaround": "Implement a custom mutex workflow pattern as shown in https://github.com/temporalio/samples-go/tree/main/mutex - a separate workflow that manages a map of lock queues and coordinates lock/unlock requests via channels.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Temporal team decided not to provide this as a built-in primitive, preferring to leave complex concurrency patterns as user-implementable samples. The rationale is that workflows are powerful primitives allowing customization for various scenarios (semaphores, custom barriers, etc.) beyond simple locks.",
+  "related": [
+    500
+  ],
+  "keyQuote": "The benefit of Temporal workflows being a primitive is you can do anything you want here instead of Temporal providing some rigid primitive.",
+  "number": 565,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:27.142Z"
+}

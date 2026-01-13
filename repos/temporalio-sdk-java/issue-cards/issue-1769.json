@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for speculative workflow tasks for Update in the Test Server when no command events were sent, no commands are in the response, or only rejected updates are present.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Update"
+  ],
+  "components": [
+    "test-server",
+    "workflow-task-handler",
+    "update-handler"
+  ],
+  "concepts": [
+    "speculative-execution",
+    "workflow-tasks",
+    "updates",
+    "command-events",
+    "test-framework"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables more comprehensive testing of Update functionality under specific conditions in the Test Server.",
+  "rootCause": null,
+  "proposedFix": "Implement speculative workflow task support when: (1) no command events were sent, (2) response has no commands, or (3) response contains only rejected updates",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support speculative workflow tasks for Update under the specified conditions",
+  "related": [],
+  "keyQuote": "Add support for speculative workflow tasks for Update under the appropriate conditions: No command events were sent in the WFT",
+  "number": 1769,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:33.275Z"
+}

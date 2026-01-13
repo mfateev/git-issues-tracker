@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to auto-skip time when waiting on update results in testing environments, similar to the existing auto-skip behavior for workflow results.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "time-skipping",
+    "update-handler"
+  ],
+  "concepts": [
+    "time-skipping",
+    "testing",
+    "workflow-updates",
+    "result-waiting"
+  ],
+  "severity": "low",
+  "userImpact": "Users testing workflows with updates must manually manage time advancement instead of having it auto-skip like workflow result waits.",
+  "rootCause": null,
+  "proposedFix": "Implement auto-skip time behavior for update result waits, matching the existing pattern for workflow results.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    551
+  ],
+  "keyQuote": "We auto-skip time when waiting on workflow result, we need to do the same when waiting on update result.",
+  "number": 675,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:26.839Z"
+}

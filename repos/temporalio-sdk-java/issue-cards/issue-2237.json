@@ -1,0 +1,33 @@
+{
+  "summary": "Request to include update handler and ID information in logging context for the Java SDK to improve observability and debugging of update operations.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "update-handler",
+    "context"
+  ],
+  "concepts": [
+    "observability",
+    "debugging",
+    "update-operations",
+    "logging-context",
+    "handler-identification",
+    "tracing"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have better visibility into update handler execution and identification in logs, making debugging and monitoring easier.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by adding update handler and ID information to the logging context",
+  "related": [
+    466
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/466 for more details",
+  "number": 2237,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:03:34.212Z"
+}

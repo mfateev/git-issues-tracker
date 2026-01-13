@@ -1,0 +1,31 @@
+{
+  "summary": "User requests AWS STS support for S3 archival in self-hosted Temporal. Currently requires actual AWS access keys/secrets, but infrastructure only supports STS authentication. Works with actual credentials but STS is needed due to infrastructure restrictions.",
+  "category": "feature",
+  "subcategory": "archival-s3-authentication",
+  "apis": [],
+  "components": [
+    "archival",
+    "s3-provider",
+    "authentication"
+  ],
+  "concepts": [
+    "AWS STS",
+    "S3 archival",
+    "authentication",
+    "IAM roles",
+    "credentials",
+    "infrastructure constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with STS-only infrastructure cannot use Temporal archival to S3 without violating security policies requiring actual AWS credentials.",
+  "rootCause": "Temporal server's S3 archival provider does not support AWS STS role assumption, only static access key and secret authentication.",
+  "proposedFix": "Implement AWS STS support in S3 archival provider to allow role assumption via AWS_ROLE_ARN environment variable, similar to AWS SDK standard patterns.",
+  "workaround": "Set AWS_ROLE_ARN environment variable and use role-based authentication (requires EC2/ECS/EKS setup with proper role configuration).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We are unable to access AWS S3 from the Temporal service because it does not support AWS STS. The Temporal server requires actual access_key and secret, but due to infrastructure restrictions, we cannot use actual AWS credentials.",
+  "number": 7866,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:33.932Z"
+}

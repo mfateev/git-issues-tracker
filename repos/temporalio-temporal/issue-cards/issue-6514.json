@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal Server gets stuck when database connections become unusable, unable to recover even after restart. Resolved in patch after v1.25.0 by fixing connection pool recovery logic.",
+  "category": "bug",
+  "subcategory": "database-connectivity",
+  "apis": [],
+  "components": [
+    "history-service",
+    "queue-processor",
+    "database-connection-pool",
+    "transfer-queue"
+  ],
+  "concepts": [
+    "database-connection",
+    "connection-recovery",
+    "connection-pooling",
+    "persistence-layer",
+    "server-stalling",
+    "postgres-compatibility"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows get stuck and server becomes unresponsive when any database connection fails, requiring server restart or downgrade to resolve.",
+  "rootCause": "Database connection pool does not properly refresh or recover when connections become unusable, causing persistent 'no usable database connection found' errors.",
+  "proposedFix": "Fix database connection pool recovery logic to allow connections to be re-established when they fail.",
+  "workaround": "Downgrade to v1.24.2 or restart the temporal server and database.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed in a patch release after v1.25.0 with improved connection pool recovery mechanism.",
+  "related": [],
+  "keyQuote": "The issue seems to be if for whatever reason a DB connection goes bad, it never recovers from that state",
+  "number": 6514,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:58.329Z"
+}

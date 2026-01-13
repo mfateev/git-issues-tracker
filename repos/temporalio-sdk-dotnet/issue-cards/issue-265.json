@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose UpdateID in update handlers to allow users to use it as a unique idempotent primary key for their handler logic.",
+  "category": "feature",
+  "subcategory": "update-handler",
+  "apis": [
+    "UpdateHandler"
+  ],
+  "components": [
+    "update-handler",
+    "idempotency"
+  ],
+  "concepts": [
+    "idempotency",
+    "unique-identifier",
+    "handler-context",
+    "primary-key",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access UpdateID within update handlers, limiting their ability to implement idempotent operations with unique primary keys.",
+  "rootCause": null,
+  "proposedFix": "Expose UpdateID as a field or property accessible within update handler context",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "UpdateID was exposed in update handler implementation",
+  "related": [],
+  "keyQuote": "This will allow users to use it when they want a unique idempotent primary key for handlers",
+  "number": 265,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T12:00:12.562Z"
+}

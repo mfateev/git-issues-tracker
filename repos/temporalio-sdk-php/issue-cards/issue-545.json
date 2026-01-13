@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to implement workflow-local storage in PHP SDK - a static variable scoped to the current workflow execution, similar to thread-local or async-local patterns in other languages.",
+  "category": "feature",
+  "subcategory": "workflow-local-storage",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "variable-scoping",
+    "context-management"
+  ],
+  "concepts": [
+    "workflow-local",
+    "thread-local",
+    "async-local",
+    "scoping",
+    "execution-context",
+    "static-variables"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can store and access workflow-local state without manually managing context or passing state through function parameters.",
+  "rootCause": null,
+  "proposedFix": "Implement a workflow-local variable mechanism in PHP SDK matching the pattern from other SDKs, as defined in temporalio/features#571.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    571
+  ],
+  "keyQuote": "Users need a static workflow-local var that is scoped only to the current workflow when accessed via code.",
+  "number": 545,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:47.450Z"
+}

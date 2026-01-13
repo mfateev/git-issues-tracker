@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal crashes with 'unknown protocol version 80877102' error when using CockroachDB as backend with Archival enabled. The issue appears related to CockroachDB's incomplete PostgreSQL protocol compatibility, specifically around cancel query operations.",
+  "category": "bug",
+  "subcategory": "database-compatibility",
+  "apis": [],
+  "components": [
+    "persistence",
+    "archival",
+    "database-driver"
+  ],
+  "concepts": [
+    "database-compatibility",
+    "postgresql-protocol",
+    "cockroachdb",
+    "archival",
+    "connection-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal on CockroachDB with Archival enabled encounter crashes that prevent the system from running.",
+  "rootCause": "CockroachDB claims PostgreSQL 9.5 wire compatibility but does not fully support the PostgreSQL protocol, particularly around cancel query operations used by Temporal's archival feature.",
+  "proposedFix": null,
+  "workaround": "Disable Archival feature when using CockroachDB, or switch to PostgreSQL backend.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed as CockroachDB support is not officially prioritized due to lack of CICD setup, limited user demand, and archival being experimental. PostgreSQL 9.6+ is the officially supported database.",
+  "related": [],
+  "keyQuote": "CockroachDB claims to be wire compatible with PostgreSQL 9.5... the only reason that CockroachDB is not officially supported is we do not have CICD setup for CockroachDB.",
+  "number": 1369,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:14.465Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "GrpcRetryer loses the underlying cause exception when retries exhaust and result in DEADLINE_EXCEEDED, replacing it with the deadline exception and reducing debuggability for users investigating failures.",
+  "category": "bug",
+  "subcategory": "grpc-retry",
+  "apis": [],
+  "components": [
+    "GrpcRetryer",
+    "exception-handling"
+  ],
+  "concepts": [
+    "retry",
+    "deadline",
+    "exception-handling",
+    "debuggability",
+    "timeout"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose visibility into the actual underlying exceptions that caused retries, making it harder to diagnose and investigate failures.",
+  "rootCause": "When retries fail with DEADLINE_EXCEEDED, the exception is thrown as-is, discarding previous retryable exceptions that led to the deadline being reached.",
+  "proposedFix": "If DEADLINE_EXCEEDED occurs during retries, discard it and return the previous exception instead to preserve the actual root cause, simulating normal timeout behavior.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If DEADLINE_EXCEEDED happened during retries, we can discard DEADLINE_EXCEEDED and return a previous exception if it exists.",
+  "number": 666,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:33:33.464Z"
+}

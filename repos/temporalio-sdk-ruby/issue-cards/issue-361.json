@@ -1,0 +1,32 @@
+{
+  "summary": "Users want to override the target deployment version when invoking a child workflow in the Ruby SDK, similar to how it works when creating workflows from a client. This feature would enable pre-deployment testing.",
+  "category": "feature",
+  "subcategory": "child-workflow-deployment",
+  "apis": [
+    "ExecuteChildWorkflow"
+  ],
+  "components": [
+    "child-workflow",
+    "deployment-versioning",
+    "worker"
+  ],
+  "concepts": [
+    "deployment-version",
+    "versioning",
+    "child-workflows",
+    "pre-deployment-testing",
+    "workflow-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot override deployment versions for child workflows, limiting pre-deployment testing capabilities that are available for parent workflows.",
+  "rootCause": null,
+  "proposedFix": "Add parameter to child workflow invocation to allow overriding the target deployment version, matching the functionality available in client-side workflow creation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users want to override the target version on a workflow, especially when doing pre-deployment testing. This should work the same as it does when creating a Workflow from a client.",
+  "number": 361,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:53:01.532Z"
+}

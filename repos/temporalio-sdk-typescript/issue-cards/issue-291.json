@@ -1,0 +1,33 @@
+{
+  "summary": "Discussion about whether the `condition` function should use strict boolean checks (=== true) instead of truthy checks. Users might expect `condition(() => array.length)` to work like an if statement, but truthy values could cause unexpected behavior.",
+  "category": "question",
+  "subcategory": "condition-function",
+  "apis": [
+    "condition"
+  ],
+  "components": [
+    "condition-function",
+    "workflow-logic"
+  ],
+  "concepts": [
+    "boolean-semantics",
+    "truthiness",
+    "strict-checking",
+    "user-expectations",
+    "footgun"
+  ],
+  "severity": "low",
+  "userImpact": "Users may encounter unexpected behavior when using the condition function with truthy values that aren't strictly true, leading to confusing workflow execution.",
+  "rootCause": "The condition function uses truthy evaluation (if (cond.fn())) instead of strict boolean checking (if (cond.fn() === true)), which differs from standard if statement semantics.",
+  "proposedFix": "Use strict boolean check: `if (cond.fn() === true)`",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Acknowledged as too late to change at this point in the SDK's development without breaking changes.",
+  "related": [
+    289
+  ],
+  "keyQuote": "I think a lot of users would expect that condition behaves like an `if` statement. For example, one might expect `condition(() => array.length)` to resolve when there are new elements added to the array.",
+  "number": 291,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:08.485Z"
+}

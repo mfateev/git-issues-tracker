@@ -1,0 +1,30 @@
+{
+  "summary": "A denial-of-service vulnerability (CVE-2022-3171) was identified in google-protobuf 3.21.6, a transitive dependency of grpc, affecting the Ruby SDK. The issue causes long garbage collection pauses when parsing certain binary data formats.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "grpc",
+    "google-protobuf",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "garbage-collection",
+    "protobuf",
+    "dependency-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Ruby SDK applications using affected versions of grpc may experience performance degradation due to extended garbage collection pauses triggered by malicious or crafted protobuf data.",
+  "rootCause": "Parsing procedure for binary and text format data in protobuf causes objects to be converted back-and-forth between mutable and immutable forms, resulting in long garbage collection pauses.",
+  "proposedFix": "Upgrade google-protobuf to version 3.21.7 or later (3.20.3, 3.19.6 also available depending on version requirements).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was either marked as ignored or is no longer part of the Mend inventory, indicating the dependency has been removed or upgraded.",
+  "related": [],
+  "keyQuote": "Input streams containing multiple instances of non-repeated embedded messages with repeated or unknown fields cause objects to be converted back-n-forth between mutable and immutable forms, resulting in potentially long garbage collection pauses.",
+  "number": 48,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:40:07.908Z"
+}

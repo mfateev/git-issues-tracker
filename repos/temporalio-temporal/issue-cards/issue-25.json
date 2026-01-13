@@ -1,0 +1,31 @@
+{
+  "summary": "Payloads need associated metadata to support different serialization formats, compression, and encryption algorithms. Currently, there's no standardized way to specify these properties across different payload types.",
+  "category": "feature",
+  "subcategory": "payload-encoding",
+  "apis": [],
+  "components": [
+    "payload-serialization",
+    "metadata-handling",
+    "encoding-framework"
+  ],
+  "concepts": [
+    "metadata",
+    "serialization",
+    "compression",
+    "encryption",
+    "encoding",
+    "payload-format"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably handle payloads with different compression and encryption algorithms without additional metadata context.",
+  "rootCause": "Payloads lack a standardized header mechanism to carry encoding and compression metadata that tools need to properly deserialize them.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue marked as duplicate, suggesting this functionality was addressed or consolidated with another issue.",
+  "related": [],
+  "keyQuote": "payloads can be serialized, zipped and encrypted protobuf. So metadata would need to specify compression and encryption algorithm",
+  "number": 25,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T10:56:32.817Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The javadoc for ActivityExecutionContext.getHeartbeatDetails is inaccurate—it states the method extracts details from the last failed attempt, but it actually returns updated details on each heartbeat call. Additionally, a new getLastHeartbeatDetails method should be added to match other SDKs and provide access to heartbeat details without automatic updates.",
+  "category": "docs",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "ActivityExecutionContext.getHeartbeatDetails"
+  ],
+  "components": [
+    "activity-executor",
+    "documentation"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-execution",
+    "api-consistency",
+    "state-management"
+  ],
+  "severity": "low",
+  "userImpact": "Developers are confused about heartbeat behavior due to inaccurate documentation, and lack a method to retrieve stable heartbeat details across SDK implementations.",
+  "rootCause": "Javadoc was not updated when getHeartbeatDetails behavior changed to update on each call rather than returning only last failed attempt details.",
+  "proposedFix": "Update javadoc for getHeartbeatDetails to accurately describe current behavior; add new getLastHeartbeatDetails method for cross-SDK consistency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation corrected and new API method added to match other SDKs.",
+  "related": [],
+  "keyQuote": "The javadoc for `ActivityExecutionContext.getHeartbeatDetails` says...this is actually updated for each heartbeat call within the activity.",
+  "number": 1587,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:33.576Z"
+}

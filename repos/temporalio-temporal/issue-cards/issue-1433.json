@@ -1,0 +1,32 @@
+{
+  "summary": "The temporal-sql-tool setup-schema command fails when the schema already exists, but users need an idempotent operation for k8s deployments that can safely run repeatedly to create or update the schema.",
+  "category": "feature",
+  "subcategory": "schema-management",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "schema-setup",
+    "database-initialization"
+  ],
+  "concepts": [
+    "idempotency",
+    "schema-versioning",
+    "kubernetes-deployment",
+    "database-setup",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely run schema setup in automated deployment pipelines without manual intervention or error handling.",
+  "rootCause": "The temporal-sql-tool does not check for existing schema before attempting to create it, causing an error when idempotent operations are needed.",
+  "proposedFix": "Make the CLI tool exit gracefully if the table already exists instead of raising an error.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #1087 which addresses the same idempotency concern.",
+  "related": [
+    1087
+  ],
+  "keyQuote": "if the schema already exists, this command will raise an error... It would be awesome if instead the CLI tool would exit gracefully",
+  "number": 1433,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:15:33.743Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "tctl's `wf listall --open` command fails to list open workflow executions, even though they are visible in Temporal Web. The issue occurs when querying a running workflow after starting it via the Go sample.",
+  "category": "bug",
+  "subcategory": "cli-workflow-listing",
+  "apis": [],
+  "components": [
+    "tctl",
+    "workflow-visibility",
+    "list-open-workflows"
+  ],
+  "concepts": [
+    "workflow-listing",
+    "open-executions",
+    "visibility",
+    "query",
+    "cli-tool"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot view open workflow executions through the CLI tool, limiting observability and forcing reliance on web UI.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "expected: hello world execution is listed in the output actual: hello world is not listed",
+  "number": 302,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:27:30.186Z"
+}

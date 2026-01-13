@@ -1,0 +1,35 @@
+{
+  "summary": "Worker options are immutable, requiring the entire WorkerFactory to be shut down and recreated to change worker configuration. This is expensive as it disrupts in-flight activities and evicts the workflow cache. A feature request to gracefully replace workers with new options without stopping the factory.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "WorkerFactory",
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "worker-factory",
+    "workflow-cache"
+  ],
+  "concepts": [
+    "worker-replacement",
+    "graceful-shutdown",
+    "configuration-update",
+    "cache-management",
+    "activity-disruption"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must stop the entire WorkerFactory to change worker configuration, causing disruption to in-flight activities and loss of cached workflows.",
+  "rootCause": "WorkerOptions are immutable and workers are tightly coupled to the factory, making individual worker reconfiguration impossible without factory restart.",
+  "proposedFix": "Add a method like `WorkerFactory.shutdownAndRecreateWorker(Worker existingWorker, WorkerOptions newOptions)` that gracefully replaces a worker without stopping the factory.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Not supported in any other SDK and not currently planned for implementation.",
+  "related": [
+    1230
+  ],
+  "keyQuote": "provide a way to gracefully replace an existing Worker with a new worker with new WorkerOptions without stopping the factory",
+  "number": 966,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:56:17.930Z"
+}

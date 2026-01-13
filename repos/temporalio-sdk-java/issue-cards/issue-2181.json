@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a type-safe async update API in the Java SDK that works similarly to WorkflowClient.start, returning an update handle instead of using stub/proxy-based approach.",
+  "category": "feature",
+  "subcategory": "update-api",
+  "apis": [
+    "WorkflowClient.start",
+    "update"
+  ],
+  "components": [
+    "workflow-client",
+    "update-handler",
+    "async-api"
+  ],
+  "concepts": [
+    "type-safety",
+    "async-operations",
+    "api-design",
+    "handle-pattern",
+    "client-interface"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can use a more ergonomic and type-safe API for async workflow updates.",
+  "rootCause": null,
+  "proposedFix": "Add an update API similar to WorkflowClient.start that returns an update handle",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed, suggesting the feature was implemented or resolved",
+  "related": [],
+  "keyQuote": "Add an API similar to WorkflowClient.start for update methods that return an update handle",
+  "number": 2181,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:20.676Z"
+}

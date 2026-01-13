@@ -1,0 +1,32 @@
+{
+  "summary": "RetryPolicy.maximumAttempts === 0 throws an error, but documentation states that 0 should be a valid value for unlimited retries. The TypeScript SDK implementation contradicts the official Temporal documentation regarding this configuration.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "proxyActivities"
+  ],
+  "components": [
+    "retry-policy",
+    "activity-invocation",
+    "validation"
+  ],
+  "concepts": [
+    "retry",
+    "unlimited-attempts",
+    "configuration-validation",
+    "api-consistency",
+    "documentation-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers attempting to use the documented approach of setting maximumAttempts to 0 for unlimited retries encounter runtime errors and must use workarounds.",
+  "rootCause": "The TypeScript SDK implementation includes validation that rejects maximumAttempts === 0, while the official Temporal documentation states this value should mean unlimited retries. The validation appears to be an overzealous constraint not present in other SDKs.",
+  "proposedFix": "Either align the TypeScript SDK to accept 0 as a valid value for unlimited retries (per documentation), or align all SDKs and documentation on a single approach such as using undefined or Number.POSITIVE_INFINITY.",
+  "workaround": "Use undefined or Number.POSITIVE_INFINITY instead of 0 to specify unlimited retries.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Setting the Maximum Attempts value to 0 also means unlimited. [Official Temporal documentation vs. current implementation]",
+  "number": 1733,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:11.789Z"
+}

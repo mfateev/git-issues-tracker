@@ -1,0 +1,31 @@
+{
+  "summary": "Five security vulnerabilities detected in snakeyaml 1.30 dependency (transitive via Spring Boot), with highest severity CVSS 7.5. Issues relate to Denial of Service via nested depth limitations and stack overflow in YAML parsing.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "dependency-management",
+    "snakeyaml"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "denial-of-service",
+    "dependency",
+    "yaml-parsing",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the Spring Boot starter may be vulnerable to DoS attacks through untrusted YAML parsing.",
+  "rootCause": "Snakeyaml 1.30 lacks nested depth limitation for collections and has stack overflow issues in YAML parsing.",
+  "proposedFix": "Upgrade snakeyaml to version 1.31 or later which fixes all identified CVEs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was auto-closed by Mend when vulnerable library was marked as ignored or removed from inventory.",
+  "related": [],
+  "keyQuote": "org.yaml:snakeyaml:1.30 - vulnerable to Denial of Service (DoS) due missing to nested depth limitation for collections",
+  "number": 1411,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:34:24.090Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "PEP 604 style optionals (using | for Union types) are not properly recognized in the converter module. The code needs to handle types.UnionType which is only available in Python 3.10+, and tests are needed to confirm proper support.",
+  "category": "bug",
+  "subcategory": "type-handling",
+  "apis": [],
+  "components": [
+    "converter",
+    "type-checking"
+  ],
+  "concepts": [
+    "PEP 604",
+    "union types",
+    "optional types",
+    "type hints",
+    "Python 3.10 compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use modern PEP 604 style optionals (X | Y syntax) in their Temporal workflows, forcing them to use older Union[X, Y] syntax.",
+  "rootCause": "The converter.py code only checks for Union type origin but not for types.UnionType introduced in Python 3.10 for the | operator syntax.",
+  "proposedFix": "Update the isinstance check to handle both Union and types.UnionType, with version gating for Python 3.10+ compatibility.",
+  "workaround": "Use Union[X, Y] syntax instead of X | Y for optional types.",
+  "resolution": "fixed",
+  "resolutionDetails": "The code was updated to handle both Union and types.UnionType with appropriate Python version checks, and tests were added.",
+  "related": [],
+  "keyQuote": "needs to change to: if origin is Union or isinstance(origin, types.UnionType):",
+  "number": 255,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:42.438Z"
+}

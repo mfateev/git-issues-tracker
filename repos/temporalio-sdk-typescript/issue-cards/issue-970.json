@@ -1,0 +1,30 @@
+{
+  "summary": "Rust code in the core-bridge package should be formatted and linted using cargo fmt and cargo clippy as part of the npm run format and lint scripts to ensure these tools are regularly applied.",
+  "category": "feature",
+  "subcategory": "build-tooling",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "npm-scripts",
+    "build-system"
+  ],
+  "concepts": [
+    "code-formatting",
+    "linting",
+    "rust-tooling",
+    "developer-workflow",
+    "automation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers working on core-bridge code will have better code quality assurance without needing to remember to run cargo fmt and clippy separately.",
+  "rootCause": null,
+  "proposedFix": "Integrate cargo fmt and cargo clippy execution into the npm package's format and lint scripts.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to run cargo fmt and clippy from npm scripts.",
+  "related": [],
+  "keyQuote": "Running these commands from that NPM package's `format` and `lint` scripts would help ensure that they are regularly run.",
+  "number": 970,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:25:56.421Z"
+}

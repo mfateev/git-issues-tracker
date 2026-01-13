@@ -1,0 +1,31 @@
+{
+  "summary": "After restarting Temporal clusters, old IP addresses remain in the cluster_membership table and are cached in memory, causing network packet drops with 'stale_or_unroutable_ip' errors. The old entries should be invalidated from both the database and connection cache within minutes rather than persisting for hours or days.",
+  "category": "bug",
+  "subcategory": "cluster-membership",
+  "apis": [],
+  "components": [
+    "cluster-membership",
+    "grpc-connection-cache",
+    "service-discovery"
+  ],
+  "concepts": [
+    "connection-caching",
+    "stale-addresses",
+    "cluster-restart",
+    "membership-management",
+    "network-connectivity",
+    "cache-invalidation"
+  ],
+  "severity": "medium",
+  "userImpact": "Network packet drops occur after cluster restarts due to stale IP addresses in memory and database, causing unnecessary traffic and potential connectivity issues.",
+  "rootCause": "IP address to gRPC connection cache entries are never removed from memory even when addresses become unreachable. Old IP addresses persist in cluster_membership table without timely expiration.",
+  "proposedFix": "Implement automatic invalidation of old IP addresses from both the in-memory connection cache and cluster_membership database after a few minutes of unreachability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The old IPs should be invalidated from the cache/db after a few minutes (not hours or days).",
+  "number": 5394,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:16.882Z"
+}

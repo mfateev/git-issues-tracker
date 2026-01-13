@@ -1,0 +1,30 @@
+{
+  "summary": "ActivityMocker's expectCompletion() doesn't support setting different results for each activity call within a loop. Currently all calls return the same result or the entire result array is returned for each call, rather than individual results per iteration.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "ActivityMocker",
+    "test-utilities",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "activity-mocking",
+    "test-expectations",
+    "loop-iteration",
+    "result-queuing",
+    "mock-behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly unit test workflows that call activities in loops, limiting test coverage and forcing workarounds or more complex testing approaches.",
+  "rootCause": "The expectCompletion() API doesn't support per-call result specification or maintain a queue of expected results for repeated activity calls.",
+  "proposedFix": "Add an optional call-count parameter to expectCompletion() and expectFailure() to specify which iteration's result to mock, and maintain a queue of expected results for sequential calls.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It will be great if we have a choice to set expectCompletion result for each call of the Activity inside the loop.",
+  "number": 302,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:24.196Z"
+}

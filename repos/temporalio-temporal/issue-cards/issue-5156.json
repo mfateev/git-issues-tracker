@@ -1,0 +1,31 @@
+{
+  "summary": "Allow configuration of JWT audience (aud) claim validation in Temporal's authorization config. Currently, audience validation is only possible with custom builds; this feature requests exposing it via the docker config file alongside existing JWTClaimMapper and authorizer settings.",
+  "category": "feature",
+  "subcategory": "authorization-jwt",
+  "apis": [],
+  "components": [
+    "authorization",
+    "jwt-claim-mapper",
+    "docker-config"
+  ],
+  "concepts": [
+    "jwt-validation",
+    "audience-claim",
+    "authentication",
+    "security",
+    "enterprise-oauth2",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables enterprises using JWT-based authentication (e.g., Azure AD) to validate audience claims via configuration without requiring custom Temporal builds.",
+  "rootCause": "The audienceGetter is not configurable via docker config file and defaults to being undefined, skipping audience validation unless a custom build is used.",
+  "proposedFix": "Extend the global:authorization section of docker config to allow specifying expected audience values for JWT validation.",
+  "workaround": "Build a custom Temporal binary with a custom audienceGetter implementation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This security feature should be achievable using configuration file and without custom Temporal builds.",
+  "number": 5156,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:15.655Z"
+}

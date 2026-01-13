@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency security vulnerability in temporal-sdk-core-0.1.0: webpki-0.22.0 has CVE-2018-16875 (CVSS 5.5) allowing CPU denial of service attacks through pathological X.509 certificate chain verification. Issue was automatically closed when the vulnerable library was removed from the dependency inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "bridge",
+    "cargo-dependencies",
+    "temporal-sdk-core"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-management",
+    "certificate-verification",
+    "transitive-dependency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the .NET SDK are potentially exposed to CPU denial of service attacks if a malicious actor can provide pathological X.509 certificates during TLS handshakes.",
+  "rootCause": "Transitive dependency on webpki-0.22.0 through reqwest → webpki-roots → webpki chain; webpki lacks bounds on certificate chain verification work, allowing attackers to craft inputs causing excessive CPU usage.",
+  "proposedFix": "Upgrade webpki to version 0.22.2 or later, or upgrade rustls-webpki to 0.100.2 or 0.101.4+.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend when the vulnerable library was removed from the dependency inventory; subsequently reopened and closed again as the library was no longer detected in the managed dependencies.",
+  "related": [],
+  "keyQuote": "The crypto/x509 package of Go before 1.10.6 and 1.11.x before 1.11.3 does not limit the amount of work performed for each chain verification, which might allow attackers to craft pathological inputs leading to a CPU denial of service.",
+  "number": 8,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:06:41.722Z"
+}

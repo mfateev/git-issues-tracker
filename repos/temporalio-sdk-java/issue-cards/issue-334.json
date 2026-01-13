@@ -1,0 +1,34 @@
+{
+  "summary": "TestWorkflowEnvironment was moved from io.temporal.testing to a new temporal-testing module in v1.0.5, breaking imports for users upgrading from v1.0.4. User requests better documentation of breaking changes.",
+  "category": "docs",
+  "subcategory": "migration-guide",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "testing",
+    "module-structure",
+    "imports"
+  ],
+  "concepts": [
+    "breaking-change",
+    "version-upgrade",
+    "test-framework",
+    "module-reorganization",
+    "migration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to v1.0.5 experience compilation failures due to moved test APIs and lack of clear breaking change documentation.",
+  "rootCause": "Test support code was moved to temporal-testing module in v1.0.5 release (PR #292) without sufficient documentation of the breaking change.",
+  "proposedFix": "Add breaking change documentation pointing users to include the new temporal-testing package.",
+  "workaround": "Revert to v1.0.4 or add the temporal-testing module as a new dependency.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by providing information about the module move and suggesting improved changelog documentation for breaking changes.",
+  "related": [
+    292
+  ],
+  "keyQuote": "What might be helpful is have a change log that points out 'Breaking Change' and then point out that users need to include a new package.",
+  "number": 334,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:08:37.433Z"
+}

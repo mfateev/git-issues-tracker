@@ -1,0 +1,32 @@
+{
+  "summary": "Spring Boot autoconfiguration prematurely starts WorkerFactory when a Spring Cloud OpenFeign client bean is autowired into an ActivityImpl component, preventing auto-registration of additional workers.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "WorkerFactory"
+  ],
+  "components": [
+    "spring-boot-autoconfigure",
+    "worker-factory",
+    "activity-implementation"
+  ],
+  "concepts": [
+    "bean-initialization",
+    "lifecycle-management",
+    "spring-context-refresh",
+    "worker-registration",
+    "autowiring"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot auto-register multiple workers when using Spring Cloud OpenFeign clients with ActivityImpl beans due to premature WorkerFactory startup.",
+  "rootCause": "ContextRefreshedEvent triggered during Spring bean autowiring causes WorkerFactory to transition to Started state before all workers can be registered, violating the Initial state requirement.",
+  "proposedFix": null,
+  "workaround": "Use @Lazy annotation on the autowired FeignClient bean to defer its initialization.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "spring will trigger ContextRefreshedEvent and then, WorkerFactory.State.Started which resulting in no other new workers can be auto registered",
+  "number": 1597,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:02.623Z"
+}

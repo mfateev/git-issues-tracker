@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal server uses deprecated gopkg.in/go-jose/go-jose.v2 v2.6.3 library which is vulnerable to DoS attacks. Can be replaced with the modern github.com/go-jose/go-jose module without code changes.",
+  "category": "bug",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "go-jose",
+    "dependencies",
+    "security"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "deprecated-dependency",
+    "security",
+    "library-upgrade",
+    "go-modules"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to potential DoS attacks through the vulnerable go-jose dependency in the server.",
+  "rootCause": "Temporal server continues to use deprecated go-jose.v2 instead of the modern go-jose module",
+  "proposedFix": "Replace gopkg.in/go-jose/go-jose.v2 with github.com/go-jose/go-jose",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in PR #7404",
+  "related": [
+    7404
+  ],
+  "keyQuote": "The go-jose/go-jose module is vulnerable to Denial of Service (DoS) attacks",
+  "number": 7086,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:17.370Z"
+}

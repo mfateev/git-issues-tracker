@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to automatically create domains/namespaces if they don't exist when clients connect, reducing manual setup complexity in microservices deployments where re-deploys happen frequently.",
+  "category": "feature",
+  "subcategory": "namespace-management",
+  "apis": [],
+  "components": [
+    "server",
+    "client",
+    "namespace-registry"
+  ],
+  "concepts": [
+    "auto-provisioning",
+    "namespace-creation",
+    "configuration",
+    "microservices",
+    "deployment-automation"
+  ],
+  "severity": "low",
+  "userImpact": "Users running microservices with frequent re-deploys currently need manual domain registration steps or complex init containers.",
+  "rootCause": null,
+  "proposedFix": "Add configuration flag to client to automatically create domains/namespaces on first connection if they don't exist.",
+  "workaround": "Use docker init container (cadence-init) with domain register command, or manually create domains before deployment.",
+  "resolution": "invalid",
+  "resolutionDetails": "Commenter clarified that default namespace is already created automatically during service startup via docker/start.sh, addressing the core concern.",
+  "related": [],
+  "keyQuote": "Default namespace with name `default` is created automatically during service startup",
+  "number": 286,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:24:53.715Z"
+}

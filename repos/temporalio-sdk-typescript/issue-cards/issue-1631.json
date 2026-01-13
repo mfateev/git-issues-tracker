@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to enhance OpenTelemetry span status to include error messages in addition to error codes. Currently, error spans only show the error code without the actual error message, making troubleshooting in observability tools difficult.",
+  "category": "feature",
+  "subcategory": "opentelemetry-instrumentation",
+  "apis": [],
+  "components": [
+    "interceptors-opentelemetry",
+    "instrumentation",
+    "span-handling"
+  ],
+  "concepts": [
+    "observability",
+    "error-reporting",
+    "span-status",
+    "error-message",
+    "debugging",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose valuable error context in observability tools because error spans lack error message information, hindering troubleshooting and root cause analysis.",
+  "rootCause": null,
+  "proposedFix": "Modify the wrapWithSpan function in packages/interceptors-opentelemetry/src/instrumentation.ts to set both error code and message: span.setStatus({ code: otel.SpanStatusCode.ERROR, message: err instanceof Error ? err.message : String(err) })",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "error spans only include the error code without the actual error message, making it cumbersome to troubleshoot issues in observability tools",
+  "number": 1631,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:11:42.252Z"
+}

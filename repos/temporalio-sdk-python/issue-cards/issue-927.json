@@ -1,0 +1,35 @@
+{
+  "summary": "The batch operation feature (specifically workflow reset) in the Temporal Python SDK fails with 'Unknown RPC call start_batch_operation' error. The issue stems from missing implementation in the Python bridge client that wraps the Rust core SDK.",
+  "category": "bug",
+  "subcategory": "batch-operations",
+  "apis": [
+    "StartBatchOperation",
+    "WorkflowService"
+  ],
+  "components": [
+    "python-bridge-client",
+    "rust-core",
+    "workflow-service",
+    "batch-operations"
+  ],
+  "concepts": [
+    "batch-operations",
+    "workflow-reset",
+    "rpc-call",
+    "maintenance-operations",
+    "scale-operations",
+    "api-implementation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot perform batch workflow resets or other batch operations at scale, blocking maintenance and debugging workflows.",
+  "rootCause": "The Python bridge client does not implement the StartBatchOperation RPC call, even though the Rust core has the underlying functionality.",
+  "proposedFix": "Implement the StartBatchOperation RPC call in the Python bridge client that connects to the Rust core implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Core Rust implementation exists; Python bridge client needed to expose the API. Fix involves implementing the missing RPC call bridge.",
+  "related": [],
+  "keyQuote": "Core has it, rather, the Python bridge client does not. Tests for that will need the fix.",
+  "number": 927,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:05.664Z"
+}

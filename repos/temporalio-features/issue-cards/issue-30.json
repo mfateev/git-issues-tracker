@@ -1,0 +1,36 @@
+{
+  "summary": "Request to add support for SignalExternalWorkflowWithStart as a WorkflowTaskCommand, avoiding the need to use activities and the Temporal Client. Currently requires going through an activity layer, which is inefficient compared to native signal commands.",
+  "category": "feature",
+  "subcategory": "workflow-signaling",
+  "apis": [
+    "SignalExternalWorkflow",
+    "SignalExternalWorkflowWithStart",
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "workflow-task-command",
+    "signal-handler",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "external-workflow-signaling",
+    "workflow-commands",
+    "start-with-signal",
+    "client-abstraction",
+    "command-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently use activities and the Temporal Client to signal workflows with start, instead of using native workflow commands like regular SignalExternalWorkflow.",
+  "rootCause": "SignalExternalWorkflowWithStart command does not exist at the server/API level, unlike SignalExternalWorkflow and StartChildWorkflow commands.",
+  "proposedFix": "Create SignalExternalWorkflowWithStart as a new WorkflowTaskCommand, requiring implementation in server and API repositories.",
+  "workaround": "Use an activity to invoke the Temporal Client for SignalExternalWorkflowWithStart operations.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    537
+  ],
+  "keyQuote": "It would be great if that can also be handled via a WorkflowTaskCommand as well.",
+  "number": 30,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:23.205Z"
+}

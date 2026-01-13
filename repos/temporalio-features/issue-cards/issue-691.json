@@ -1,0 +1,32 @@
+{
+  "summary": "Deployment versioning feature tests are timing out during Go docker builds, failing multiple routing-related test scenarios including auto-upgrade, pinned versions, overrides, and ramp deployments.",
+  "category": "bug",
+  "subcategory": "deployment-versioning-testing",
+  "apis": [],
+  "components": [
+    "docker-build",
+    "go-sdk",
+    "feature-tests",
+    "deployment-versioning"
+  ],
+  "concepts": [
+    "timeout",
+    "test-failure",
+    "docker",
+    "deployment",
+    "versioning",
+    "routing"
+  ],
+  "severity": "high",
+  "userImpact": "Feature deployment tests are failing in CI/CD, preventing validation of versioning and routing functionality in Go deployments.",
+  "rootCause": "Timeout condition not being met in feature test execution during docker build workflow",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely resolved through test infrastructure improvements or timeout adjustments",
+  "related": [],
+  "keyQuote": "Feature deployment_versioning/routing_auto_upgrade failed: timeout waiting for condition to be met",
+  "number": 691,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:21.208Z"
+}

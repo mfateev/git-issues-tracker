@@ -1,0 +1,34 @@
+{
+  "summary": "User requests support for using Temporal annotations (@ActivityInterface, @WorkflowInterface, @WorkflowMethod) as meta annotations in custom annotations, enabling declarative composition of annotation metadata similar to Spring Framework patterns.",
+  "category": "feature",
+  "subcategory": "annotation-processing",
+  "apis": [
+    "ActivityInterface",
+    "WorkflowInterface",
+    "WorkflowMethod"
+  ],
+  "components": [
+    "annotation-processor",
+    "activity-interface",
+    "workflow-interface"
+  ],
+  "concepts": [
+    "meta-annotation",
+    "annotation-composition",
+    "spring-integration",
+    "reflection",
+    "declarative-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot create custom annotations that wrap Temporal annotations, limiting flexibility in Spring Boot integration and requiring workarounds like Byte Buddy runtime modification.",
+  "rootCause": "The SDK does not recursively scan for annotations using AnnotationUtils.findAnnotation() pattern; it only reads annotations directly present on the class.",
+  "proposedFix": "Modify the SDK to read annotations using Spring's AnnotationUtils.findAnnotation() or equivalent recursive annotation scanning mechanism to support meta annotations.",
+  "workaround": "Use Byte Buddy to modify activity interfaces at runtime and add Temporal annotations where custom annotations are present.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add support for using Temporal annotations (like @WorkflowInterface, @ActivityInterface, @WorkflowMethod) as meta annotations.",
+  "number": 1832,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:32.419Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "DataConverter is unexpectedly applied to custom search attributes in addition to workflow/activity arguments, causing serialization issues when values are sent to Elasticsearch. The proper behavior should distinguish between serializing workflow/activity parameters versus search attributes and memo.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "DataConverter",
+    "SearchAttributes"
+  ],
+  "components": [
+    "data-converter",
+    "search-attributes",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization",
+    "custom-converter",
+    "search-attributes",
+    "payload-conversion",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom DataConverters for workflow arguments inadvertently apply those converters to search attributes, causing Elasticsearch indexing errors and requiring workarounds.",
+  "rootCause": "DataConverter is used for all wire serialization including search attributes, but search attributes have a fixed serialization format defined by the service that should not use custom converters.",
+  "proposedFix": "Replace custom DataConverter usage for search attributes with the default converter, as proposed in PR #483, while using custom converters only for workflow/activity arguments through separate toPayload/toPayloads methods.",
+  "workaround": "Implement custom DataConverter instead of custom PayloadConverter, and selectively apply custom serialization only through toPayloads while delegating toPayload to the default data converter.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by distinguishing between toPayload (used for search attributes/memo) and toPayloads (used for workflow/activity args), allowing custom converters to apply only to the latter.",
+  "related": [
+    483
+  ],
+  "keyQuote": "search attributes and memo should be passed verbatim since these values ultimately need to be indexed by ES / read by humans so encoding them would be incorrect",
+  "number": 468,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:20:22.110Z"
+}

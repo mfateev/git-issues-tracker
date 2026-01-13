@@ -1,0 +1,38 @@
+{
+  "summary": "Users need working Nexus operation examples and documentation for synchronous operations that interact with workflows (signals, signal-with-start, updates, queries) across SDKs. Currently examples are sparse or buried, making it unclear how to implement these patterns.",
+  "category": "docs",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "SignalWorkflow",
+    "SignalWithStartWorkflow",
+    "UpdateWorkflow",
+    "QueryWorkflow",
+    "GetWorkflowHandle"
+  ],
+  "components": [
+    "nexus-service",
+    "sync-operations",
+    "workflow-client",
+    "sdk-samples"
+  ],
+  "concepts": [
+    "nexus-operations",
+    "workflow-signaling",
+    "workflow-querying",
+    "workflow-updates",
+    "service-handlers",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot easily discover or implement Nexus operations for common workflow interaction patterns, increasing time-to-productivity and causing confusion across SDKs.",
+  "rootCause": "Lack of comprehensive examples and dedicated documentation sections for sync Nexus operations that interact with workflows (signaling, querying, updating).",
+  "proposedFix": "Provide working Nexus sample code in each SDK repository demonstrating signal, signal-with-start, update, and query operations; add dedicated Nexus dev guide sections with examples for each operation type.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be helpful to include Python examples of how to define Nexus operations for sending signals, updates, etc. I don't see it on GitHub or official doc",
+  "number": 664,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:07.257Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for Prometheus metric option to use seconds for duration measurements in TypeScript SDK, following recent core metric changes from sdk-core PR #706.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus",
+    "core"
+  ],
+  "concepts": [
+    "duration",
+    "seconds",
+    "prometheus",
+    "metrics",
+    "configuration",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to configure Prometheus metrics to report durations in seconds instead of the default unit.",
+  "rootCause": null,
+  "proposedFix": "Expose the `use_seconds_for_duration` option from sdk-core PR #706 in the TypeScript SDK Prometheus metrics configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose the use_seconds_for_duration option for Prometheus metrics.",
+  "related": [
+    706
+  ],
+  "keyQuote": "Need to at least expose `use_seconds_for_duration` option on Prometheus metrics from https://github.com/temporalio/sdk-core/pull/706",
+  "number": 1380,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:24.183Z"
+}

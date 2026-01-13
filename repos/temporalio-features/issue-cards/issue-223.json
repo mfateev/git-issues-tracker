@@ -1,0 +1,31 @@
+{
+  "summary": "Request for an SDK metric to track when an activity invocation has failed and exhausted all retries, distinct from the existing activity_execution_failed metric which fires even when activities recover via retries.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "retry-handler"
+  ],
+  "concepts": [
+    "monitoring",
+    "retry",
+    "activity-failure",
+    "metrics",
+    "observability",
+    "resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a reliable metric to monitor when activities permanently fail after exhausting retries, separate from transient failures that recover.",
+  "rootCause": null,
+  "proposedFix": "Add a new SDK metric for final activity failures after retry exhaustion, complementing the existing activity_execution_failed metric.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A single data point that indicates when an activity invocation has failed and exhausted retries would be useful for monitoring.",
+  "number": 223,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:28.168Z"
+}

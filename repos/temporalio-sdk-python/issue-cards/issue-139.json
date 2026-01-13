@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose the default sequence of payload converters so users can reference it when creating custom converters. Also requests making it easier to create a data converter with a different encoding payload converter prepended to the defaults.",
+  "category": "feature",
+  "subcategory": "payload-converter",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "data-converter",
+    "converter-chain"
+  ],
+  "concepts": [
+    "converter-composition",
+    "custom-converters",
+    "encoding",
+    "extensibility",
+    "default-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily reference or extend the default payload converter configuration when building custom converters.",
+  "rootCause": "The default sequence of payload converters is only defined in the default constructor and not exposed as a public constant or method.",
+  "proposedFix": "Expose the default payload converter list and add a builder method like `temporalio.converter.default().with_encoding_payload_converter(...)` for easier customization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The default converters were exposed and convenience methods were added for easier composition with custom encodings.",
+  "related": [],
+  "keyQuote": "Make the list available... Maybe something like `temporalio.converter.default().with_encoding_payload_converter(...)`",
+  "number": 139,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:31.745Z"
+}

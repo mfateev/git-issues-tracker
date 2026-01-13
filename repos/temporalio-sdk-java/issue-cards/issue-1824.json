@@ -1,0 +1,32 @@
+{
+  "summary": "User requested to remove `final` modifiers from ProtobufPayloadConverter and ProtobufJsonPayloadConverter to allow direct extension and code reuse rather than extending AbstractProtobufPayloadConverter. The maintainer suggested using delegation/composition instead of inheritance.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "ProtobufPayloadConverter",
+    "ProtobufJsonPayloadConverter",
+    "AbstractProtobufPayloadConverter",
+    "payload-converter"
+  ],
+  "concepts": [
+    "inheritance",
+    "extensibility",
+    "payload-serialization",
+    "protobuf",
+    "converter-pattern",
+    "code-reuse"
+  ],
+  "severity": "low",
+  "userImpact": "Users wanting to create custom protobuf payload converters are forced to duplicate code from base implementations instead of extending them directly.",
+  "rootCause": "ProtobufPayloadConverter and ProtobufJsonPayloadConverter are marked as final, preventing direct extension.",
+  "proposedFix": null,
+  "workaround": "Users can create a new payload converter and delegate to the desired default converter instead of using inheritance.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer recommended using delegation pattern (composition) instead of inheritance, and user agreed this approach is acceptable.",
+  "related": [],
+  "keyQuote": "I think it may be best if you just make a new payload converter and delegate to the one you want instead of using inheritance.",
+  "number": 1824,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:13.247Z"
+}

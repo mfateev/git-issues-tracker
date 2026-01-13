@@ -1,0 +1,34 @@
+{
+  "summary": "LongLocalActivityFailsWhileHeartbeatingMeteringTest flakes intermittently during code coverage runs, producing unexpected metering counts [0, 3, 3, 2] instead of expected [0, 2, 3, 1].",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "local-activity",
+    "heartbeat",
+    "metering",
+    "test-framework"
+  ],
+  "concepts": [
+    "flakiness",
+    "metering",
+    "heartbeat",
+    "race-condition",
+    "test-reliability",
+    "code-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Test flakiness in CI/CD code coverage runs indicates potential issues with local activity metering and heartbeat handling that could affect reliability in production.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved as the test was fixed to handle timing-dependent metering counts properly.",
+  "related": [],
+  "keyQuote": "expected:<[0, 2, 3, 1]> but was:<[0, 3, 3, 2]>",
+  "number": 1672,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:49.608Z"
+}

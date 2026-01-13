@@ -1,0 +1,30 @@
+{
+  "summary": "WorkflowTaskFailure validation errors lack command context, making it unclear which activity or command caused the failure. The feature request asks to include activity ID and type information in error messages.",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "worker",
+    "validation",
+    "error-handling"
+  ],
+  "concepts": [
+    "validation",
+    "error-messages",
+    "activity-identification",
+    "debugging",
+    "command-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily identify which activity or command caused validation errors, hindering debugging and troubleshooting.",
+  "rootCause": "WorkflowTaskFailure validation errors do not include command context (activity ID, type) in the error message.",
+  "proposedFix": "Include activity ID and type information in WorkflowTaskFailure error messages for validation errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Include information about activity id and type into the error message.",
+  "number": 5172,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:28.608Z"
+}

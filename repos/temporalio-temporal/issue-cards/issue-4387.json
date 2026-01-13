@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow should support blacklisting and whitelisting of signal and update types to prevent unwanted signals from consuming history and being processed in incorrect workflow states.",
+  "category": "feature",
+  "subcategory": "signals-updates",
+  "apis": [
+    "Signal",
+    "Update"
+  ],
+  "components": [
+    "workflow-execution",
+    "signal-handler",
+    "update-handler",
+    "history"
+  ],
+  "concepts": [
+    "signal-filtering",
+    "update-validation",
+    "history-optimization",
+    "workflow-state",
+    "allow-list",
+    "deny-list"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot efficiently filter signals and updates, causing unnecessary history consumption and forcing workarounds or migration away from Temporal.",
+  "rootCause": "Workflow execution currently processes all signals and updates regardless of workflow state, adding them to history even when not relevant.",
+  "proposedFix": "Implement mutable allow/denylist at workflow execution start time. Future enhancement: support server-side per-WorkflowType configuration via Worker configuration.",
+  "workaround": "Implement Update validation handlers (SDK-specific, not available in PHP and TS initially) that reject invalid updates, though this has limitations with timeouts.",
+  "related": [
+    1277
+  ],
+  "keyQuote": "Signals, even ones that workflow doesn't care about, still consume workflow history. Signals received in other states should be rejected.",
+  "number": 4387,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:52.616Z"
+}

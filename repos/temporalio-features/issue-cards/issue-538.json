@@ -1,0 +1,32 @@
+{
+  "summary": "Allow SDKs to connect to multiple endpoints for Multi-region Namespaces and perform health checks on both endpoints. SDKs should dynamically route requests to the active endpoint based on namespace failover information from the Temporal server.",
+  "category": "feature",
+  "subcategory": "multi-region-failover",
+  "apis": [],
+  "components": [
+    "client",
+    "connection-pool",
+    "health-check",
+    "namespace-routing"
+  ],
+  "concepts": [
+    "multi-region",
+    "failover",
+    "endpoint-discovery",
+    "load-balancing",
+    "health-check",
+    "namespace-management"
+  ],
+  "severity": "high",
+  "userImpact": "Enables Temporal Cloud customers with multi-region namespaces to automatically handle region failovers without manual worker reconfiguration, improving resilience during incidents.",
+  "rootCause": "SDKs currently support only single-endpoint connections, requiring users to manually reconfigure workers when a namespace fails over to a standby region.",
+  "proposedFix": "Implement per-region endpoint support in SDKs with three key features: (1) connect to multiple endpoints per namespace, (2) route requests to active endpoint based on namespace info from server, (3) health check both endpoints to prevent post-failover connection errors.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDKs to natively handle failovers instead of relying on manual user setup",
+  "number": 538,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:12.367Z"
+}

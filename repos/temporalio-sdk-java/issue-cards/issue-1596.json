@@ -1,0 +1,32 @@
+{
+  "summary": "When @Autowired beans are injected into a bean with @ActivityImpl @Component, the workerFactory.start() is called prematurely, preventing other workers from being auto-registered.",
+  "category": "bug",
+  "subcategory": "spring-boot-autoconfigure",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "worker-factory",
+    "activity-implementation"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "bean-autowiring",
+    "worker-initialization",
+    "auto-registration",
+    "startup-ordering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly register multiple workers when using Spring Boot autowiring with @ActivityImpl components.",
+  "rootCause": "RootNamespaceAutoConfiguration prematurely starts workers during bean autowiring, interfering with the auto-registration process.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1597",
+  "related": [
+    1597
+  ],
+  "keyQuote": "when @Autowired other bean into bean with @ActivityImpl @Component, this.workerFactory.start(); gonna start workers so that could not auto register other workers",
+  "number": 1596,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:47.813Z"
+}

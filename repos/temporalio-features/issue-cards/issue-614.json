@@ -1,0 +1,41 @@
+{
+  "summary": "Introduce ApplicationErrorCategory to enable SDKs to categorize application failures and apply corresponding logging and metrics behavior. This is a cross-SDK feature requiring implementation across multiple SDK languages.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "logging",
+    "metrics",
+    "sdk-framework"
+  ],
+  "concepts": [
+    "error-categorization",
+    "logging-behavior",
+    "metrics-behavior",
+    "application-failures",
+    "error-classification",
+    "standardization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now categorize their application failures and have corresponding logging and metrics behavior automatically applied across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement ApplicationErrorCategory in each SDK and apply the specified logging and metrics behavior based on the category assigned to failures.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1908,
+    2475,
+    897,
+    1672,
+    820,
+    448,
+    242,
+    632
+  ],
+  "keyQuote": "Apply the corresponding logging and metrics from the given `ApplicationErrorCategory` in our SDKs",
+  "number": 614,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:43:55.089Z"
+}

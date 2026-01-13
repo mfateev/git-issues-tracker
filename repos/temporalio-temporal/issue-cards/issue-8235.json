@@ -1,0 +1,36 @@
+{
+  "summary": "GetWorkflow API fails to retrieve archived workflow executions when both workflow ID and run ID are provided, returning a 'not found' error instead of accessing the archived execution.",
+  "category": "bug",
+  "subcategory": "archival-retrieval",
+  "apis": [
+    "GetWorkflow",
+    "GetWorkflowHistory",
+    "ListArchivedWorkflowExecutions"
+  ],
+  "components": [
+    "persistence-layer",
+    "sql-execution",
+    "archival-storage",
+    "workflow-retrieval"
+  ],
+  "concepts": [
+    "archival",
+    "workflow-execution",
+    "persistence",
+    "data-retrieval",
+    "archived-workflows",
+    "execution-history"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot retrieve completed and archived workflow executions using the standard GetWorkflow API, forcing them to use workarounds with ListArchivedWorkflowExecutions instead.",
+  "rootCause": "The GetWorkflow API does not fall back to the archival store when an execution is not found in the primary persistence layer, causing failures for archived workflows even when the correct workflow ID and run ID are provided.",
+  "proposedFix": null,
+  "workaround": "Use ListArchivedWorkflowExecutions with a WorkflowId query filter to find archived workflows, then manually retrieve history events using GetWorkflowHistory.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "GetWorkflow doesn't find archived one... Workflow executionsRow not found when passing both workflow and run ID",
+  "number": 8235,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:13.646Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Build failure in temporal v1.5.1 due to internal package import restriction in kafka-client dependency. User attempted to build from source but encountered a Go compiler error related to vendor package access.",
+  "category": "bug",
+  "subcategory": "build",
+  "apis": [],
+  "components": [
+    "build-system",
+    "kafka-client",
+    "vendor-dependencies"
+  ],
+  "concepts": [
+    "build-failure",
+    "dependency-management",
+    "internal-packages",
+    "version-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to build older versions of Temporal from source may encounter build failures due to dependency issues.",
+  "rootCause": "The kafka-client vendor package contains an internal package that cannot be imported directly by the Go compiler, blocking the build process.",
+  "proposedFix": null,
+  "workaround": "Upgrade to a newer version of Temporal (1.6.4 or 1.7.0 as suggested in comments).",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed as wontfix because users are advised to use the latest version (1.7.0) instead of the outdated v1.5.1.",
+  "related": [],
+  "keyQuote": "the latest version is 1.7, if you are doing evaluation, try to use the latest version",
+  "number": 1306,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:37.988Z"
+}

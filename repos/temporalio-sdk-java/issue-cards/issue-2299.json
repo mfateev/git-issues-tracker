@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow implementations with non-default constructors that can be autowired by Spring fail in version 1.26.0 with an error about missing default constructor or @WorkflowInit annotation.",
+  "category": "bug",
+  "subcategory": "spring-integration",
+  "apis": [],
+  "components": [
+    "workflow-implementation",
+    "constructor-handling",
+    "spring-integration"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "constructor-injection",
+    "spring-autowire",
+    "initialization",
+    "framework-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Spring developers cannot use constructor injection with Temporal workflows, forcing them to use alternative dependency injection patterns or upgrade their Spring Boot setup.",
+  "rootCause": "The SDK appears to be requiring either a default constructor or a @WorkflowInit annotation, not recognizing Spring's autowired non-default constructors as valid initialization paths.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in a later version after the 1.26.0 release.",
+  "related": [],
+  "keyQuote": "No default constructor or constructor annotated with @WorkflowInit found",
+  "number": 2299,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:53.608Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "When an activity has a heartbeat timeout configured but never sends a heartbeat, the server schedules a retry while the old activity continues running. The request is for SDKs to automatically fail activities that don't send heartbeats within the configured timeout.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-handler",
+    "context-manager"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "activity-failure",
+    "fast-fail",
+    "retry",
+    "context-cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with buggy activity implementations that don't heartbeat get delayed failures and retries instead of fast failures, leading to inefficient resource usage and longer error recovery times.",
+  "rootCause": "Activities lack automatic timeout enforcement for missing heartbeats; the context is only cancelled when the activity attempts to heartbeat rather than at the configured timeout.",
+  "proposedFix": "SDK should set a heartbeat timeout and cancel the activity context automatically if no heartbeat is received within the configured interval, allowing the activity to fail fast.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDK should set a heartbeat timeout, and cancel the context so activity could fail fast if it does not try to heartbeat at all.",
+  "number": 105,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:40.376Z"
+}

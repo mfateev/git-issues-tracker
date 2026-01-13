@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add native sticky sessions support to the TypeScript SDK to ensure all tasks of a workflow execute on the same worker, enabling workflows with local state. Closed as duplicate of temporalio/features#562 with indication that sessions will be redesigned across all SDKs.",
+  "category": "feature",
+  "subcategory": "sticky-sessions",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-queue",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "sticky-sessions",
+    "worker-affinity",
+    "local-state",
+    "workflow-consistency",
+    "worker-capacity",
+    "task-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users needing workflows with local state must implement manual sticky execution mechanisms instead of having native SDK support like Go SDK provides.",
+  "rootCause": "TypeScript SDK lacks native sticky sessions implementation that Go SDK has, forcing users to build custom solutions.",
+  "proposedFix": "Implement native sticky sessions in TypeScript SDK based on reference implementation using WorkerRegistrationService, HeartbeatService, and WorkflowBalancerService with worker capacity tracking.",
+  "workaround": "Use Worker Specific Task Queue pattern as mentioned in samples, though it requires complex user-land implementation with limited concurrency control.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of temporalio/features#562. Team acknowledged the feature's value but declined this specific implementation, indicating sessions will be redesigned holistically across all SDKs when implemented.",
+  "related": [
+    562
+  ],
+  "keyQuote": "So yes, we do intend to add Sessions support at some point. And when we do, we'll add it to _all_ of our official SDKs, not only TypeScript.",
+  "number": 1811,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:18:51.857Z"
+}

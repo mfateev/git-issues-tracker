@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow status displays as 'Unspecified' in the default web UI view instead of showing the actual workflow status. This is a display/UI bug affecting the Temporal Web dashboard.",
+  "category": "bug",
+  "subcategory": "web-ui",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "workflow-status-display"
+  ],
+  "concepts": [
+    "workflow-status",
+    "ui-rendering",
+    "web-dashboard",
+    "state-display"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see the correct workflow status in the web UI, making it difficult to monitor workflow execution state.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #492",
+  "related": [
+    492
+  ],
+  "keyQuote": "The status for the running workflow is always shown as 'unspecified' on the default workflow view.",
+  "number": 509,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:03:44.875Z"
+}

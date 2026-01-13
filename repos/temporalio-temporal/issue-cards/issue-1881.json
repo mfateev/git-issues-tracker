@@ -1,0 +1,34 @@
+{
+  "summary": "MySQL users cannot use tctl admin workflow delete commands to clean up malformed workflows, only Cassandra is supported. This prevents emergency remediation of database bloat and performance degradation caused by unintended workflow cascades.",
+  "category": "feature",
+  "subcategory": "database-operations",
+  "apis": [],
+  "components": [
+    "tctl",
+    "persistence-layer",
+    "mysql-adapter",
+    "workflow-visibility"
+  ],
+  "concepts": [
+    "workflow-cleanup",
+    "database-maintenance",
+    "emergency-recovery",
+    "persistence-consistency",
+    "namespace-management",
+    "operational-tooling"
+  ],
+  "severity": "high",
+  "userImpact": "MySQL users cannot remediate database bloat from cascading workflows, forcing degraded service or manual database manipulation with risk of inconsistency.",
+  "rootCause": "The tctl admin workflow delete command set only supports Cassandra persistence, not MySQL, creating an operational gap for MySQL deployments.",
+  "proposedFix": "Support MySQL in tctl admin workflow commands, or add ability to delete workflows by namespace and time window, or add namespace deletion capability for MySQL.",
+  "workaround": "Manually delete rows from executions_visibility table (risky), or reduce namespace retention to accelerate cleanup (causes degraded service for 24+ hours).",
+  "resolution": "fixed",
+  "resolutionDetails": "tctl was refactored to connect via temporal frontend instead of directly to database, making it agnostic to persistence layer.",
+  "related": [
+    598
+  ],
+  "keyQuote": "tctl now does not connect to database directly and all operation is via temporal frontend. In other word, tctl now supports all temporal's persistence layer.",
+  "number": 1881,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:05.309Z"
+}

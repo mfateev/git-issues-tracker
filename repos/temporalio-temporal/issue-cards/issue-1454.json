@@ -1,0 +1,30 @@
+{
+  "summary": "Matching service experiences continuous stream of ~10qps MatchingClientAddActivityTask client errors with no corresponding logs. These appear to be internal matching-to-matching service requests that are generating misleading error metrics.",
+  "category": "bug",
+  "subcategory": "matching-service",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "metrics",
+    "client-error-handling"
+  ],
+  "concepts": [
+    "error-metrics",
+    "service-communication",
+    "client-errors",
+    "matching-service",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators see continuous non-actionable error metrics from the matching service, making it difficult to distinguish real errors from internal communication artifacts.",
+  "rootCause": "Potential issue with how matching service client errors are being tracked or reported in metrics, possibly related to internal matching-to-matching requests being incorrectly counted as errors.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "User reported upgrade to version 1.7.2 would resolve the issue after being informed of related metrics fixes in 1.7.x branch.",
+  "related": [],
+  "keyQuote": "i remember there are some metrics fix related to matching service in 1.7.x, so can you try upgrade to 1.7.2?",
+  "number": 1454,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:16:44.844Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "The protoc-wheel-0 dev dependency is unavailable on PyPI for musl-based distributions like Alpine Linux, preventing installation of temporalio package. This affects users building on Alpine and other musl-based systems that lack pre-built wheels for protoc-wheel-0.",
+  "category": "bug",
+  "subcategory": "dependency-build",
+  "apis": [],
+  "components": [
+    "build-system",
+    "poetry-configuration",
+    "dependencies",
+    "protobuf-compilation"
+  ],
+  "concepts": [
+    "build-dependency",
+    "musl-compatibility",
+    "alpine-linux",
+    "wheel-availability",
+    "protobuf-tooling",
+    "installation-failure",
+    "distribution-support"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to install temporalio on Alpine Linux or other musl-based distributions encounter installation failures due to unavailable protoc-wheel-0 package.",
+  "rootCause": "protoc-wheel-0 dependency is locked at version 3.9 and has no distribution available on PyPI, particularly affecting musl-based platforms that lack pre-built wheels.",
+  "proposedFix": "Replace protoc-wheel-0 dependency with protobuf package (version ^4.25.3) which has broader platform support.",
+  "workaround": "Remove protoc-wheel-0 from pyproject.toml and lock files, then add protobuf ^4.25.3 as a replacement dependency.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by removing the protoc-wheel-0 dependency and replacing it with protobuf package, which has better cross-platform support including musl-based distributions.",
+  "related": [
+    622
+  ],
+  "keyQuote": "ERROR: Could not find a version that satisfies the requirement protoc-wheel-0 (from versions: none)",
+  "number": 412,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:47.638Z"
+}

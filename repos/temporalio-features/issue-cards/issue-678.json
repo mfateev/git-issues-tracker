@@ -1,0 +1,33 @@
+{
+  "summary": "Add Nexus service and operation information to the serialization context provided to converters and codecs, enabling users to access Nexus-specific metadata during serialization similar to existing workflow and activity context.",
+  "category": "feature",
+  "subcategory": "nexus-serialization",
+  "apis": [],
+  "components": [
+    "nexus",
+    "converters",
+    "codecs",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization-context",
+    "nexus-operations",
+    "metadata-passing",
+    "codec-customization",
+    "cross-sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to access Nexus service and operation information within their custom converters and codecs for context-aware serialization.",
+  "rootCause": null,
+  "proposedFix": "Extend the serialization context to include Nexus service and operation information, maintaining consistency across SDK implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    434
+  ],
+  "keyQuote": "users need some Nexus info as well. Likely this is only \"service\" and \"operation\" due to our requirement of having the same contextual information on both sides",
+  "number": 678,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:53:11.375Z"
+}

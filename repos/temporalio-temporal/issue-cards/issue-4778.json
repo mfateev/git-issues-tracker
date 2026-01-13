@@ -1,0 +1,30 @@
+{
+  "summary": "User requests the ability to split log files by date rather than having all logs in a single file, making log management easier. A suggested solution points to time-based log rotation using Zap, with community interest in contributing.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "file-rotation",
+    "log-management"
+  ],
+  "concepts": [
+    "log-rotation",
+    "file-management",
+    "time-based-splitting",
+    "log-organization",
+    "file-size-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently struggle to manage and handle logs when they are all written to a single file, affecting operational visibility and log analysis.",
+  "rootCause": null,
+  "proposedFix": "Implement time-based log file rotation using Zap, as suggested in the referenced blog post about time-based log file rotation with Zap.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the logs are all printed in one file, which is difficult to handle",
+  "number": 4778,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:06.496Z"
+}

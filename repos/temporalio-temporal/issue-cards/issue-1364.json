@@ -1,0 +1,30 @@
+{
+  "summary": "SQL client used by Temporal is incompatible with MySQL 8+ when multiStatements flag is enabled. A user reported issues connecting to a Vitess cluster (MySQL 8.0) and found that disabling multiStatements support in the MySQL driver plugin resolves the problem.",
+  "category": "bug",
+  "subcategory": "mysql-compatibility",
+  "apis": [],
+  "components": [
+    "sql-persistence",
+    "mysql-plugin",
+    "database-driver"
+  ],
+  "concepts": [
+    "mysql-compatibility",
+    "database-connection",
+    "vitess-cluster",
+    "connection-flags",
+    "driver-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Temporal with MySQL 8+ Vitess clusters when multiStatements flag is enabled, forcing them to either use older MySQL versions or disable the feature.",
+  "rootCause": "The SQL client driver used in the mysql plugin has incompatibility with MySQL 8+ when multiStatements flag is enabled in the connection configuration.",
+  "proposedFix": "Investigate and update the MySQL driver or its configuration to support multiStatements flag with MySQL 8+ versions, or provide a configuration option to disable multiStatements.",
+  "workaround": "Comment out or disable the multiStatements flag in the MySQL plugin configuration (common/persistence/sql/sqlplugin/mysql/plugin.go line 56).",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating the MySQL driver dependency or configuration to support MySQL 8+ with multiStatements enabled.",
+  "related": [],
+  "keyQuote": "the SQL client Temporal is using is not compatible with our vitess cluster when have 'multiStatements' flag enabled",
+  "number": 1364,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:59.576Z"
+}

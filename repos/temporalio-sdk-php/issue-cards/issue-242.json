@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to extend ServiceClient::createSSL() to accept client certificates and allow server name override using gRPC options (grpc.default_authority and grpc.ssl_target_name_override).",
+  "category": "feature",
+  "subcategory": "grpc-ssl-configuration",
+  "apis": [
+    "ServiceClient::createSSL",
+    "WorkflowClient::create"
+  ],
+  "components": [
+    "grpc-client",
+    "ssl-configuration",
+    "service-client"
+  ],
+  "concepts": [
+    "ssl-certificates",
+    "client-authentication",
+    "grpc-options",
+    "tls-configuration",
+    "server-name-override"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure mutual TLS with client certificates or override the server name for gRPC connections, limiting secure communication options.",
+  "rootCause": "ServiceClient::createSSL() method lacks parameters for client certificate paths and gRPC channel options for server name override.",
+  "proposedFix": "Extend ServiceClient::createSSL() signature to accept client certificate paths and additional gRPC options like grpc.default_authority and grpc.ssl_target_name_override.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The method was extended to support client certificates and gRPC options for server name configuration.",
+  "related": [],
+  "keyQuote": "But there is no way to provide client certs and override server name with `grpc.default_authority` and `grpc.ssl_target_name_override`.",
+  "number": 242,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:53.093Z"
+}

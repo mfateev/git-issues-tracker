@@ -1,0 +1,30 @@
+{
+  "summary": "Deployment options for versioning are currently only applied to workflow poll requests, but should be set on all types of poll requests in the Java SDK.",
+  "category": "bug",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "polling",
+    "deployment-options",
+    "versioning"
+  ],
+  "concepts": [
+    "deployment",
+    "versioning",
+    "polling",
+    "configuration",
+    "request-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on deployment options for versioning will have incomplete configuration applied to non-workflow polls, potentially causing versioning issues.",
+  "rootCause": "Deployment options are only set on workflow poll requests, missing application to other poll request types.",
+  "proposedFix": "Apply deployment options to all poll request types, not just workflow polls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Deployment options were extended to be set on all poll requests.",
+  "related": [],
+  "keyQuote": "we only set the deployment options (new versioning) info on workflow polls, but it ought to apply to all kinds of poll requests",
+  "number": 2550,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:19.792Z"
+}

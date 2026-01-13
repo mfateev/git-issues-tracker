@@ -1,0 +1,30 @@
+{
+  "summary": "The whenStickyIsEnabledThenTheWorkflowIsCachedChildWorkflows test is flaky, failing intermittently with an assertion error expecting 2 but getting 1. The test verifies that workflows are properly cached when sticky worker mode is enabled for child workflows.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "sticky-worker",
+    "child-workflow",
+    "test-framework"
+  ],
+  "concepts": [
+    "caching",
+    "sticky-workers",
+    "test-flakiness",
+    "child-workflows",
+    "timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Test flakiness undermines confidence in the sticky worker caching feature for child workflows, making it difficult to verify correct behavior in CI/CD pipelines.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved as indicated by the comment 'Not anymore', suggesting the underlying test flakiness was fixed in a subsequent change.",
+  "related": [],
+  "keyQuote": "java.lang.AssertionError: 1 expected:<2> but was:<1>",
+  "number": 290,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:04:39.593Z"
+}

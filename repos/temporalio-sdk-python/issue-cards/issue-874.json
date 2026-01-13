@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow interceptors are initialized before all instance attributes are set in the constructor, causing failures when inbound init or outbound constructor calls methods like set_signal_handler that depend on attributes like _deleting. Interceptor initialization needs to be moved to the end of the constructor.",
+  "category": "bug",
+  "subcategory": "workflow-interceptors",
+  "apis": [
+    "set_signal_handler"
+  ],
+  "components": [
+    "workflow-instance",
+    "interceptors",
+    "constructor"
+  ],
+  "concepts": [
+    "initialization-order",
+    "attribute-access",
+    "constructor-timing",
+    "interceptor-lifecycle",
+    "read-only-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use interceptor init hooks to set up signal handlers or perform other operations that depend on fully initialized workflow attributes.",
+  "rootCause": "Workflow interceptors are created and initialized before all instance attributes (_deleting, etc.) are initialized in the constructor, causing AttributeError or state validation failures when interceptor init code tries to access these attributes.",
+  "proposedFix": "Move the interceptor create/init call to the end of the workflow instance constructor after all attributes are initialized.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Interceptor initialization was moved to the end of the workflow constructor to ensure all instance attributes are available.",
+  "related": [],
+  "keyQuote": "Move the interceptor create/init to the _end_ of the workflow instance constructor.",
+  "number": 874,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:24.616Z"
+}

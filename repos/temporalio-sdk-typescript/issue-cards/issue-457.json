@@ -1,0 +1,30 @@
+{
+  "summary": "Pre-built Rust bridge binaries are not being utilized on Windows during SDK installation, causing significantly longer installation times compared to Ubuntu and macOS.",
+  "category": "bug",
+  "subcategory": "build-and-installation",
+  "apis": [],
+  "components": [
+    "native-bridge",
+    "build-system",
+    "windows-platform"
+  ],
+  "concepts": [
+    "performance",
+    "installation-time",
+    "native-binaries",
+    "platform-specific",
+    "build-optimization"
+  ],
+  "severity": "high",
+  "userImpact": "Windows users experience substantially longer SDK installation times due to compilation of Rust bridge instead of using pre-built binaries.",
+  "rootCause": "Native Rust bridge binaries are not being properly detected or loaded on Windows platform during installation process.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through fixes to the build system to properly handle pre-built Rust bridge binaries on Windows.",
+  "related": [],
+  "keyQuote": "According to the build logs here it take a lot longer to install the SDK on Windows than Ubuntu / MacOS.",
+  "number": 457,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:50.665Z"
+}

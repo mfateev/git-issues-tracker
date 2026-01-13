@@ -1,0 +1,34 @@
+{
+  "summary": "Activity task queue `max_tasks_per_second` rate limiting is ignored when `request_eager_execution` is enabled. SDKs need the server to support both features working together, as eager execution is typically enabled by default.",
+  "category": "feature",
+  "subcategory": "activity-task-queue",
+  "apis": [
+    "ScheduleActivityTaskCommandAttributes"
+  ],
+  "components": [
+    "activity-task-queue",
+    "rate-limiter",
+    "task-scheduling",
+    "eager-execution"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "task-queue-throttling",
+    "eager-execution",
+    "task-scheduling",
+    "backpressure",
+    "concurrency-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use rate limiting on activity task queues when eager execution is enabled, requiring SDKs to implement workarounds or disable eager execution.",
+  "rootCause": "The server implementation does not apply `max_tasks_per_second` rate limiting when `request_eager_execution` is true in ScheduleActivityTaskCommandAttributes.",
+  "proposedFix": "Modify the server to support both `max_tasks_per_second` and `request_eager_execution` working together simultaneously.",
+  "workaround": "SDKs currently educate users on the incompatibility and provide workarounds, such as disabling eager execution when rate limiting is needed.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDKs have to work around this limitation and/or inform customers, especially since SDKs try to set `request_eager_execution` as true by default.",
+  "number": 6800,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:36.313Z"
+}

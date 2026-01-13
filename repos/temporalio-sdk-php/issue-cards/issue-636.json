@@ -1,0 +1,34 @@
+{
+  "summary": "PayloadConverter exceptions from child workflows and continue-as-new operations are being suppressed and not visible in logs or Temporal UI, making it impossible to debug serialization failures. Exceptions need to be properly propagated so they can be sent to error tracking systems like Sentry.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "newChildWorkflowStub",
+    "newContinueAsNewStub"
+  ],
+  "components": [
+    "data-converter",
+    "payload-converter",
+    "child-workflow",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "exception-handling",
+    "error-visibility",
+    "serialization",
+    "workflow-state",
+    "error-tracking"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot debug data conversion failures in child workflows or continue-as-new operations, and errors cannot be sent to external error tracking systems.",
+  "rootCause": "Exceptions thrown from PayloadConverter.fromPayload() in child workflow or continue-as-new contexts are being suppressed rather than propagated to the workflow execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If an exception is thrown from PayloadConverter, it cannot be processed and is not visible in the logs or in ui temporal itself.",
+  "number": 636,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:22.794Z"
+}

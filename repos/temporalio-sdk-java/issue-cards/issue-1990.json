@@ -1,0 +1,29 @@
+{
+  "summary": "Guava dependency vulnerability (CVE-2023-2976) with CVSS 7.1 severity in FileBackedOutputStream allows unauthorized file access on Unix systems through Java's default temporary directory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "grpc-client",
+    "build-system"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "temporary-files",
+    "privilege-escalation",
+    "dependency-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users running the SDK on Unix systems are exposed to local privilege escalation attacks through temporary file access vulnerabilities in transitive Guava dependencies.",
+  "rootCause": "Guava 31.1-jre uses Java's default temporary directory for FileBackedOutputStream without proper access controls, allowing other local users to access created files.",
+  "proposedFix": "Upgrade grpc-api to 1.57.0 or later, which includes Guava 32.0.1-android with the security fix (or 32.0.0 minimum).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by upgrading grpc-api dependency to version 1.57.0, which includes the patched Guava 32.0.1-android.",
+  "related": [],
+  "keyQuote": "Use of Java's default temporary directory for file creation in FileBackedOutputStream in Google Guava versions 1.0 to 31.1 on Unix systems and Android Ice Cream Sandwich allows other users and apps on the machine with access to the default Java temporary directory to be able to access the files created by the class.",
+  "number": 1990,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:34.682Z"
+}

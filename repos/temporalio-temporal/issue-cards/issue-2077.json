@@ -1,0 +1,30 @@
+{
+  "summary": "Batch terminate operation fails with connection refused error due to hardcoded 127.0.0.1 address in config_template.yaml, preventing batch operations from working with default docker-compose setup.",
+  "category": "bug",
+  "subcategory": "batch-operations",
+  "apis": [],
+  "components": [
+    "batcher",
+    "activity-executor",
+    "config-management"
+  ],
+  "concepts": [
+    "connection",
+    "docker-compose",
+    "batch-operation",
+    "hardcoded-address",
+    "networking"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot execute batch terminate operations when using default docker-compose configuration.",
+  "rootCause": "127.0.0.1 is hardcoded in config_template.yaml line 283, causing connection refused errors when the batcher activity tries to connect to the gRPC port.",
+  "proposedFix": "Replace hardcoded 127.0.0.1 with a configurable address that works in docker-compose environments.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The hardcoded address was replaced with a proper configuration that supports docker-compose networking.",
+  "related": [],
+  "keyQuote": "This happens because `127.0.0.1` is hardcoded in config_template.yaml.",
+  "number": 2077,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:47.166Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Request to support larger random seeds in the .NET SDK using SeedableRng's seed_from_u64 method. This would be a breaking change to the existing random implementation.",
+  "category": "feature",
+  "subcategory": "random-seed",
+  "apis": [],
+  "components": [
+    "random-number-generator",
+    "test-framework"
+  ],
+  "concepts": [
+    "randomization",
+    "seeding",
+    "reproducibility",
+    "testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users would be able to seed random numbers with larger seed values for more comprehensive testing scenarios.",
+  "rootCause": null,
+  "proposedFix": "Use SeedableRng's seed_from_u64 method from the rand crate as referenced in the Rust documentation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented, though it required a breaking change to the API.",
+  "related": [],
+  "keyQuote": "Maybe use https://docs.rs/rand/latest/rand/trait.SeedableRng.html#method.seed_from_u64. Will be 💥 BREAKING CHANGE.",
+  "number": 90,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:42:26.767Z"
+}

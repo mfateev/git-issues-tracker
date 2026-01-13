@@ -1,0 +1,37 @@
+{
+  "summary": "Issue requesting explicit @ActivityInterface and @WorkflowInterface annotations to disambiguate which interfaces define activity types, solving problems with Spring proxies and multiple activity implementations sharing the same interface.",
+  "category": "feature",
+  "subcategory": "activity-interface-discovery",
+  "apis": [
+    "ActivityInterface",
+    "WorkflowInterface",
+    "ActivityMethod",
+    "WorkflowMethod"
+  ],
+  "components": [
+    "activity-worker",
+    "activity-stub",
+    "interface-discovery",
+    "registration"
+  ],
+  "concepts": [
+    "annotation-based-configuration",
+    "interface-inheritance",
+    "activity-type-naming",
+    "multiple-implementations",
+    "proxy-compatibility",
+    "activity-discovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Spring proxies or other frameworks that add mixins to activity implementations, and cannot have multiple implementations of the same activity interface.",
+  "rootCause": "Currently all interfaces implemented by a class are treated as activity interfaces when registered with an activity worker, causing issues when mixin interfaces are shared across implementations.",
+  "proposedFix": "Introduce @ActivityInterface annotation to explicitly mark interfaces that define activity types, optionally with @ActivityImplementation qualifier at class level to support multiple implementations of the same interface.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Java SDK implemented explicit annotations (@WorkflowInterface, @ActivityInterface) for marking workflow and activity definition interfaces, resolving the ambiguity and supporting multiple implementations.",
+  "related": [],
+  "keyQuote": "We should solve this with another common requirement to support multiple implementations of the same interface for activities.",
+  "number": 43,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:47:03.910Z"
+}

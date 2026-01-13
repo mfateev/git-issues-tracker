@@ -1,0 +1,32 @@
+{
+  "summary": "Support continue-as-new with a different WorkflowID to address hot shard issues when workflows frequently call continue-as-new for processing large datasets.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-engine",
+    "sharding",
+    "visibility-api"
+  ],
+  "concepts": [
+    "hot-shards",
+    "workflow-chaining",
+    "continue-as-new",
+    "dataset-processing",
+    "scalability"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows processing large datasets via continue-as-new can cause performance issues on hot shards, limiting scalability.",
+  "rootCause": "Workflows using continue-as-new maintain the same WorkflowID throughout the chain, concentrating execution on specific shards.",
+  "proposedFix": "Add an option to continue-as-new that allows changing the WorkflowID while maintaining workflow chain navigation through event IDs and visibility queries.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Many workflows rely on continue-as-new to process large datasets...The proposal is to support an option to continue-as-new to change WorkflowID.",
+  "number": 5881,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:11.107Z"
+}

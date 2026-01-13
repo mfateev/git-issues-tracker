@@ -1,0 +1,36 @@
+{
+  "summary": "Scheduler's `describe().info.runningActions` does not include workflows triggered with `triggerImmediately` option, even though they are created correctly. Manual triggers via `handler.trigger()` properly track running actions.",
+  "category": "bug",
+  "subcategory": "scheduler-tracking",
+  "apis": [
+    "schedule.create",
+    "schedule.getHandle",
+    "describe"
+  ],
+  "components": [
+    "scheduler",
+    "workflow-execution-tracking",
+    "state-management"
+  ],
+  "concepts": [
+    "immediate-trigger",
+    "running-actions",
+    "overlap-policy",
+    "schedule-state",
+    "workflow-linking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot track workflows triggered immediately via scheduler options, causing confusion about execution status despite workflows being created successfully.",
+  "rootCause": "triggerImmediately was being treated differently and filtered out as an overlapping run, not properly tracked in runningActions regardless of schedule's overlap policy.",
+  "proposedFix": "Fix #8932 ensures these runs are always tracked in runningActions regardless of the schedule's overlap policy.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8932
+  ],
+  "keyQuote": "triggerImmediately was being treated differently inside the system.... it was often filtered out as an overlapping run.",
+  "number": 8833,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:27.025Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Activities are timing out prematurely when task volume exceeds concurrent worker capacity. When more than 10 concurrent activities are requested with max_workers=10, subsequent activities get cancelled before reaching their start_to_close_timeout, even though the timeout is set to 120 seconds.",
+  "category": "bug",
+  "subcategory": "activity-execution-timeout",
+  "apis": [
+    "ExecuteActivity",
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-queue"
+  ],
+  "concepts": [
+    "concurrency",
+    "timeout",
+    "thread-pool",
+    "task-scheduling",
+    "activity-cancellation"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpected activity cancellations when workload exceeds configured concurrency limits, causing task failures and retries despite adequate timeout configuration.",
+  "rootCause": "The timeout clock starts when poll_activity_task() receives the task, before the thread pool has capacity to execute it. When thread pool is full, tasks wait in queue while the timer continues counting, resulting in premature timeout before execution begins.",
+  "proposedFix": "Use `max_concurrent_activities` parameter on the Worker to properly limit concurrent activity processing, or implement a fixed-size slot supplier for more complex scenarios.",
+  "workaround": "Configure the `max_concurrent_activities` parameter on the Worker instead of relying solely on the ThreadPoolExecutor's max_workers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Clarified that start_to_close_timeout begins after task acceptance, not after user code execution. This is intended behavior. Users should use Temporal's built-in concurrency controls (max_concurrent_activities or slot suppliers) rather than thread pool sizing alone.",
+  "related": [],
+  "keyQuote": "start_to_close_timeout refers to the time allowed after a worker has accepted a task. In Python, you can use the max_concurrent_activities argument on a worker.",
+  "number": 1168,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:24.870Z"
+}

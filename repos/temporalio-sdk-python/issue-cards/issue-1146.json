@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to allow workflows to provide additional context data during MCP server construction, enabling context-specific server configuration instead of requiring factory callables with no arguments defined at worker level.",
+  "category": "feature",
+  "subcategory": "mcp-server",
+  "apis": [],
+  "components": [
+    "mcp-server",
+    "worker",
+    "workflow"
+  ],
+  "concepts": [
+    "context",
+    "factory",
+    "configuration",
+    "initialization",
+    "server-construction"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently pass workflow-specific context to MCP server factories, limiting their ability to create servers with different configurations per workflow.",
+  "rootCause": null,
+  "proposedFix": "Ability to provide additional data to the mcp server reference which is then provided to the factory callable.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ability to provide some additional data to the mcp server reference which is then provided to the factory callable.",
+  "number": 1146,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:52.709Z"
+}

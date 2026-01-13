@@ -1,0 +1,34 @@
+{
+  "summary": "Activity interfaces that inherit from generic interfaces fail with ClassCastException when called in workflows. The issue occurs because generic type parameters in inherited methods are not properly handled during activity method invocation, causing LinkedHashMap to be cast to the wrong type.",
+  "category": "bug",
+  "subcategory": "activity-generics",
+  "apis": [
+    "LocalActivityOptions",
+    "newLocalActivityStub"
+  ],
+  "components": [
+    "activity-executor",
+    "POJOActivityTaskHandler",
+    "reflection-handler",
+    "type-resolution"
+  ],
+  "concepts": [
+    "generic-types",
+    "interface-inheritance",
+    "type-erasure",
+    "method-reflection",
+    "serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot use generic interfaces in activity interface hierarchies, blocking a common pattern for reusable activity definitions.",
+  "rootCause": "The activity invocation handler uses reflection to invoke methods but does not properly resolve generic type parameters from inherited interface methods, causing deserialized objects to be cast to incorrect types.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A method that's inherited and uses generics in an activity interface always throws a ClassCastException when called within a workflow.",
+  "number": 1050,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:03:03.539Z"
+}

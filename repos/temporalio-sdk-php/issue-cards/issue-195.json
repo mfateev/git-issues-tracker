@@ -1,0 +1,29 @@
+{
+  "summary": "The PHP SDK is locked to Symfony 5, but needs to support Symfony 4, 5, and 6 versions to provide broader compatibility with different projects.",
+  "category": "feature",
+  "subcategory": "dependency-compatibility",
+  "apis": [],
+  "components": [
+    "package-dependencies",
+    "symfony-integration"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "dependency-management",
+    "framework-support",
+    "backward-compatibility",
+    "forward-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on projects using Symfony 4 or 6 cannot use the PHP SDK without upgrading or downgrading their Symfony version.",
+  "rootCause": null,
+  "proposedFix": "Update package dependency constraints to support Symfony 4, 5, and 6 versions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Package dependency constraints were likely updated to support multiple Symfony versions.",
+  "related": [],
+  "keyQuote": "Need to support Symonfy 4, 5 and 6 versions.",
+  "number": 195,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:21.211Z"
+}

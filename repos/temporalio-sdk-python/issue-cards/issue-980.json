@@ -1,0 +1,32 @@
+{
+  "summary": "Type annotation issue when instantiating NamespaceSpec with search_attributes parameter. The SearchAttributeType needs to be exposed as a public class instead of a private nested type to allow proper type checking.",
+  "category": "bug",
+  "subcategory": "api-types",
+  "apis": [
+    "NamespaceSpec"
+  ],
+  "components": [
+    "api-generation",
+    "type-stubs",
+    "cloud-namespace-api"
+  ],
+  "concepts": [
+    "type-checking",
+    "proto-generation",
+    "private-types",
+    "type-exposure",
+    "cloud-api"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot pass type checking when using NamespaceSpec with search_attributes without accessing private types.",
+  "rootCause": "Proto code generation creates nested private types that should be exposed as public classes for proper type annotation support.",
+  "proposedFix": "Expose SearchAttributeType as a public non-private class in the generated code.",
+  "workaround": "Use the public subclass NamespaceSpec.SearchAttributeType.SEARCH_ATTRIBUTE_TYPE_UNSPECIFIED directly instead of accessing the private _SearchAttributeType.ValueType.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue marked as a proto generation problem. Workaround provided using public subclass.",
+  "related": [],
+  "keyQuote": "Can SearchAttributeType please be exposed as a non-private name?",
+  "number": 980,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:59.165Z"
+}

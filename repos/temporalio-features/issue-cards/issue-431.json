@@ -1,0 +1,36 @@
+{
+  "summary": "SDK clients should automatically generate and set an UpdateID on update requests even when users don't provide one, enabling proper deduplication of retried requests across all Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "update-request-handling",
+  "apis": [
+    "UpdateRequest"
+  ],
+  "components": [
+    "sdk-client",
+    "update-handler",
+    "request-sender"
+  ],
+  "concepts": [
+    "deduplication",
+    "retries",
+    "idempotency",
+    "request-tracking",
+    "update-workflow"
+  ],
+  "severity": "medium",
+  "userImpact": "Without automatic UpdateID generation, users cannot reliably deduplicate retried update requests, risking duplicate executions in production systems.",
+  "rootCause": "UpdateID field is optional in the update request protocol, but leaving it empty prevents proper deduplication of retried requests.",
+  "proposedFix": "SDK clients should automatically generate a unique UpdateID before sending update requests if the user has not provided one.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in Go SDK (PR #1106), Java SDK (already implemented), with corresponding issues tracked for TypeScript (#1371), Python (#484), and .NET (#198).",
+  "related": [
+    1371,
+    484,
+    198
+  ],
+  "keyQuote": "leaving this field empty is a bad idea as there is no way to deduplicate retried update request",
+  "number": 431,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:47.533Z"
+}

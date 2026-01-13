@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to allow registering new search attributes directly through the Java SDK instead of requiring manual registration via tctl commands on Elasticsearch.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "client-sdk",
+    "workflow-client",
+    "server-communication"
+  ],
+  "concepts": [
+    "search-attributes",
+    "elasticsearch",
+    "metadata-management",
+    "workflow-configuration",
+    "sdk-capabilities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must use tctl commands to register search attributes before using them in workflows, requiring external tooling and administrative access.",
+  "rootCause": null,
+  "proposedFix": "Add SDK functionality to register new search attributes programmatically through gRPC calls to the Temporal server.",
+  "workaround": "Use tctl add-search-attributes command to manually register attributes on Elasticsearch before workflow creation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow to register new search attributes through the SDK",
+  "number": 882,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:50:16.180Z"
+}

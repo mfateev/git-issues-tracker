@@ -1,0 +1,32 @@
+{
+  "summary": "Request for strict configuration validation mode to catch missing or unknown configuration keys during server startup. Currently, the server silently ignores invalid configuration, causing subtle runtime issues that are difficult to debug.",
+  "category": "feature",
+  "subcategory": "configuration-validation",
+  "apis": [],
+  "components": [
+    "config",
+    "bootstrap",
+    "yaml-unmarshaling",
+    "metrics-config"
+  ],
+  "concepts": [
+    "validation",
+    "strict-mode",
+    "configuration-parsing",
+    "error-handling",
+    "yaml-schema",
+    "startup-checks"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can misconfigure Temporal Server and not detect the error until runtime when features silently fail, requiring significant debugging effort.",
+  "rootCause": "YAML unmarshaling with gopkg.in/yaml.v3 does not reject unknown fields by default, allowing invalid configuration to pass silently through the bootstrap code.",
+  "proposedFix": "Option 1: Use yaml.Decoder.KnownFields to reject unknown fields and expand validator.v2 usage in config structs, optionally behind a strict-mode flag. Option 2: Migrate to protobuf for configuration specifications with built-in validation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would like the option for strict config validation. If a key is unrecognized, the server should fail to start so it can be corrected.",
+  "number": 2341,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:17.959Z"
+}

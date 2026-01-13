@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Server fails to start when MySQL is configured with BINLOG_FORMAT=STATEMENT and READ_COMMITTED isolation level due to a MySQL constraint that requires REPEATABLE-READ isolation with STATEMENT binlog format.",
+  "category": "bug",
+  "subcategory": "database-configuration",
+  "apis": [],
+  "components": [
+    "mysql-persistence",
+    "database-initialization",
+    "cluster-metadata"
+  ],
+  "concepts": [
+    "binlog-format",
+    "transaction-isolation",
+    "mysql-configuration",
+    "session-settings",
+    "database-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start Temporal Server with MySQL when BINLOG_FORMAT=STATEMENT is set, resulting in startup failure with cryptic error message about binary logging constraints.",
+  "rootCause": "Temporal sets default MySQL session isolation to READ_COMMITTED, which is incompatible with BINLOG_FORMAT=STATEMENT. MySQL requires REPEATABLE-READ (or more conservative) isolation level when using STATEMENT binlog format.",
+  "proposedFix": "Users can override session isolation via connectAttributes in the persistence configuration to set transaction_isolation to 'REPEATABLE-READ'.",
+  "workaround": "Configure connectAttributes in mysql-default and mysql-visibility datastores to override transaction_isolation to 'REPEATABLE-READ', or switch to ROW binlog format.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed with proposed solution. STATEMENT binlog is noted as experimental in Temporal, with recommendation to use ROW binlog with READ-COMMITTED instead. This is a user configuration issue rather than a product bug.",
+  "related": [],
+  "keyQuote": "Using binlog_format=STATEMENT would require the isolation to be REPEATABLE-READ (or more conservative) else it breaks transactional guarantees.",
+  "number": 8323,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:30.862Z"
+}

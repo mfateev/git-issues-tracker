@@ -1,0 +1,36 @@
+{
+  "summary": "Temporal server crashes during namespace initialization when the system namespace already exists in the database, failing with a duplicate key constraint violation. The issue occurs when restarting the server without wiping the database, and is related to error handling differences between PostgreSQL drivers (pg vs pgx).",
+  "category": "bug",
+  "subcategory": "database-initialization",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgresql-driver",
+    "namespace-initialization",
+    "sql-plugin"
+  ],
+  "concepts": [
+    "database-constraints",
+    "connection-management",
+    "error-handling",
+    "namespace-registration",
+    "driver-compatibility",
+    "duplicate-key",
+    "initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot restart the Temporal server without wiping the database, disrupting deployment and maintenance operations.",
+  "rootCause": "The pgx driver's error handling differs from the pg driver, causing duplicate key constraint errors to not be properly caught during namespace initialization. The pgConn type assertion fails to recognize the duplicate entry error.",
+  "proposedFix": "Fix the error handling logic to properly recognize duplicate key errors from both pg and pgx drivers when initializing the system namespace.",
+  "workaround": "Wipe the database before restarting the server, or use the postgres_pgx plugin in the latest main branch version.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in latest main branch by properly handling the pgx driver error recognition during namespace initialization. The issue was caused by incorrect pgConn type assertion that failed to catch duplicate entry errors.",
+  "related": [
+    3077,
+    4913
+  ],
+  "keyQuote": "the pgConn type assertion failed to recognize the dub entry error and bypass the logic to catch this error when namespace is initialized",
+  "number": 5097,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:26.668Z"
+}

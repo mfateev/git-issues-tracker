@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add an unregistered_activity_invocation metric or indicator to track when workers fail to handle activities because they don't have the activity registered. Go SDK already has this metric; the feature request is to implement it across all non-Go SDKs.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "metrics"
+  ],
+  "concepts": [
+    "activity-registration",
+    "metrics",
+    "monitoring",
+    "failure-detection",
+    "production-alerting",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables operators to detect and alert on unregistered activity mistakes in production environments before they cause widespread activity failures.",
+  "rootCause": null,
+  "proposedFix": "Add either a new metric counter or a flag to activity_task_failed indicating the failure was due to an unregistered activity on the worker.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Having this metric is pretty useful to have and alert in prod envs where a small mistake of registering activity can lead to activity failure after all retries.",
+  "number": 639,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:17:55.151Z"
+}

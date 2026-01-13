@@ -1,0 +1,34 @@
+{
+  "summary": "Child workflow retries were not working properly with MySQL persistence in Temporal server. The issue was reported as a potential port from Cadence but was later verified to not reproduce on the latest Temporal server bits.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflowExecution"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "persistence",
+    "mysql"
+  ],
+  "concepts": [
+    "retry",
+    "persistence",
+    "child-workflows",
+    "workflow-execution",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with MySQL persistence may experience child workflows not being retried as expected, leading to workflow failures.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was verified to not reproduce on the latest temporal server bits, suggesting it was fixed in a subsequent release.",
+  "related": [
+    3351
+  ],
+  "keyQuote": "This does not reproduce on the latest temporal server bits",
+  "number": 470,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:00:31.177Z"
+}

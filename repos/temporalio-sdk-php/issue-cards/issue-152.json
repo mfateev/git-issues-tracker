@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to implement two new routes for handling local activities in the PHP SDK: ExecuteLocalActivity and RequestCancelLocalActivity, with corresponding handlers on the RoadRunner side.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteLocalActivity",
+    "RequestCancelLocalActivity"
+  ],
+  "components": [
+    "router",
+    "local-activity-handler",
+    "roadrunner-integration"
+  ],
+  "concepts": [
+    "local-activities",
+    "routing",
+    "activity-execution",
+    "request-cancellation",
+    "handler-dispatch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot execute or cancel local activities in the PHP SDK, limiting functionality available in other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add ExecuteLocalActivity and RequestCancelLocalActivity routes with RoadRunner-side handlers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Routes were implemented to support local activity execution and cancellation.",
+  "related": [],
+  "keyQuote": "We need to support two new routes: `ExecuteLocalActivity` and `RequestCancelLocalActivity`.",
+  "number": 152,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:34.325Z"
+}

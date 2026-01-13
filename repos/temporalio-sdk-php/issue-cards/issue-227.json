@@ -1,0 +1,32 @@
+{
+  "summary": "Expose the Replayer API in the PHP SDK to allow users to replay workflow histories against new workflow code for non-determinism checking and local debugging, following the pattern already implemented in the Go SDK.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Replayer"
+  ],
+  "components": [
+    "replayer",
+    "workflow-executor",
+    "history-processor"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "non-determinism",
+    "history-replay",
+    "debugging",
+    "testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot verify workflow code changes for non-determinism or debug production workflows locally without the Replayer API.",
+  "rootCause": null,
+  "proposedFix": "Wrap the existing Replayer API from other SDKs and expose it to PHP developers following the same pattern used in Go SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Replayer API was implemented and exposed in the PHP SDK following the reference implementations from other SDKs.",
+  "related": [],
+  "keyQuote": "The purpose of the replayer is: replay workflow histories against new workflow code to check for non-determinism",
+  "number": 227,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:25.767Z"
+}

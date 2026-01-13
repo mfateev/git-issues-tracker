@@ -1,0 +1,30 @@
+{
+  "summary": "User was able to set up a new cluster with an incorrect database schema version without validation, resulting in a mismatch between the actual schema and the recorded version. The tool should prevent this configuration error.",
+  "category": "bug",
+  "subcategory": "schema-management",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "schema-versioning",
+    "database-setup"
+  ],
+  "concepts": [
+    "schema-validation",
+    "version-mismatch",
+    "database-initialization",
+    "configuration-error",
+    "data-integrity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can accidentally set up a database with an incorrect schema version, leading to data integrity issues and potential runtime failures.",
+  "rootCause": "The schema setup tool does not validate that the specified version matches the actual schema being applied, allowing mismatches between recorded and actual schema versions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers clarified that combining multiple versions of schema changes in one file is a supported feature, so the behavior is intentional rather than a bug.",
+  "related": [],
+  "keyQuote": "the command used above is actually one supported feature, i.e. combining multiple version worth of schema changes into one file",
+  "number": 1215,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:08:04.170Z"
+}

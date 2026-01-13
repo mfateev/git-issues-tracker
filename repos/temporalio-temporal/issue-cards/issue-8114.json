@@ -1,0 +1,32 @@
+{
+  "summary": "Worker Versioning with PINNED behavior in versionOverrides fails in Temporal Server 1.28.0+ due to the TypeScript SDK partially filling both v0.31 and v0.32 versioning override fields, causing the server validation to fail. The issue was traced to SDK implementation and fixed in the TypeScript SDK.",
+  "category": "bug",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "WorkflowClient.start"
+  ],
+  "components": [
+    "versioning-override",
+    "worker-deployment",
+    "workflow-client"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "version-pinning",
+    "deployment",
+    "protocol-compatibility",
+    "field-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start workflows with pinned worker versions in Temporal 1.28.0+, blocking deployment workflows that rely on version pinning.",
+  "rootCause": "TypeScript SDK was partially filling both v0.31 and v0.32 versioning override fields simultaneously, but the server expects either one complete set or the other, not a mix of both.",
+  "proposedFix": "Update TypeScript SDK to properly construct versioning overrides using only one API version (either complete v0.31 or complete v0.32 fields, not mixed).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as a TypeScript SDK bug. The fix was implemented and merged in sdk-typescript PR #1754.",
+  "related": [],
+  "keyQuote": "When the server expects either... the TS SDK will need to change to only send one complete set of versioning override fields.",
+  "number": 8114,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:19.065Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "A regression in GrpcRetryer causes requests failing with DEADLINE_EXCEEDED to not be retried when GrpcDeadlineInterceptor sets more granular deadlines than the root gRPC context, potentially causing 1.3.0 to throw exceptions that were previously retried.",
+  "category": "bug",
+  "subcategory": "grpc-retry",
+  "apis": [],
+  "components": [
+    "GrpcRetryer",
+    "GrpcDeadlineInterceptor",
+    "gRPC"
+  ],
+  "concepts": [
+    "retry",
+    "deadline",
+    "timeout",
+    "error-handling",
+    "regression"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience unexpected exceptions in version 1.3.0 when requests timeout at granular deadline levels, breaking backward compatibility with previous retry behavior.",
+  "rootCause": "GrpcRetryer was modified to respect DEADLINE_EXCEEDED status, but does not account for layered deadline interceptors that set more granular deadlines than the root gRPC context.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by adjusting GrpcRetryer to handle deadline exceeded scenarios correctly when layered with GrpcDeadlineInterceptor.",
+  "related": [],
+  "keyQuote": "A recent modification of GrpcRetryer to respect DEADLINE_EXCEEDED causes a situation when an underlying request fails with DEADLINE_EXCEEDED and is not being retried anymore",
+  "number": 708,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:36:11.443Z"
+}

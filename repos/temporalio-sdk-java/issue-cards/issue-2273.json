@@ -1,0 +1,30 @@
+{
+  "summary": "Add a failure_reason metric tag to the nexus_task_execution_failed metric in the Java SDK, following the pattern established in the Go SDK.",
+  "category": "feature",
+  "subcategory": "nexus-metrics",
+  "apis": [],
+  "components": [
+    "nexus",
+    "metrics",
+    "task-execution"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "failure-tracking",
+    "nexus-integration",
+    "monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have better observability into Nexus task execution failures through detailed metric tags.",
+  "rootCause": null,
+  "proposedFix": "Add failure_reason metric tag to nexus_task_execution_failed metric, matching Go SDK implementation in PR #1671",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed to add failure_reason metric tag following Go SDK pattern",
+  "related": [],
+  "keyQuote": "Add Nexus failure_reason metric tag to nexus_task_execution_failed",
+  "number": 2273,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:17.579Z"
+}

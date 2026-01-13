@@ -1,0 +1,31 @@
+{
+  "summary": "Add TLS support for Elasticsearch client connections in Temporal server, similar to the Cadence implementation. TLS support has been added to resolve this request.",
+  "category": "feature",
+  "subcategory": "elasticsearch-tls",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "server-config",
+    "tls"
+  ],
+  "concepts": [
+    "tls",
+    "encryption",
+    "elasticsearch",
+    "security",
+    "client-connection",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now securely connect to Elasticsearch clusters using TLS encryption through server configuration.",
+  "rootCause": null,
+  "proposedFix": "Implement TLS support for ES client connections following the pattern used in Cadence PR #4154",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TLS support was added to the Elasticsearch client",
+  "related": [],
+  "keyQuote": "TLS support has been added.",
+  "number": 3939,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:06.623Z"
+}

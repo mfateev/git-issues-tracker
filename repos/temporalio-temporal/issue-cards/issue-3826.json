@@ -1,0 +1,32 @@
+{
+  "summary": "Worker fails to start temporal-sys-history-scanner-workflow with 'context deadline exceeded' error after upgrading to 1.19.0, preventing workflow creation and persisting intermittently. Issue occurs during startup when services are restarted quickly, particularly in Kubernetes environments.",
+  "category": "bug",
+  "subcategory": "server-startup",
+  "apis": [],
+  "components": [
+    "worker",
+    "scanner",
+    "startup"
+  ],
+  "concepts": [
+    "context-deadline",
+    "startup-timeout",
+    "service-restart",
+    "cluster-membership",
+    "workflow-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to 1.19.0 experience workflow creation failures and service startup issues that persist intermittently, requiring workarounds like clearing cluster_membership tables.",
+  "rootCause": "The startup timeout for the history scanner workflow was too short, causing context deadline exceeded errors when services were restarted in quick succession or when cluster services started at different times.",
+  "proposedFix": "Increase the startup timeout for the history scanner workflow initialization, as implemented in PR #3911.",
+  "workaround": "Clear the cluster_membership table and restart all services, or wait at least 20 seconds between stopping and starting services.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #3911 was merged to increase the startup timeout, resolving the issue. User testing confirmed the fix eliminated the problem across multiple pod restarts.",
+  "related": [
+    3911
+  ],
+  "keyQuote": "The startup timeout is too short. I added a fix https://github.com/temporalio/temporal/pull/3911.",
+  "number": 3826,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:29.992Z"
+}

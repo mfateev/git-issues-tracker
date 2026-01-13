@@ -1,0 +1,38 @@
+{
+  "summary": "Enable macOS M1/ARM runners for CI testing across all Temporal SDKs. GitHub Actions now supports M1 runners with reasonable costs, and SDKs should test on all supported platforms including macOS ARM.",
+  "category": "feature",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "ci-testing",
+    "github-actions",
+    "macos-runners"
+  ],
+  "concepts": [
+    "platform-support",
+    "test-coverage",
+    "arm-architecture",
+    "ci-infrastructure",
+    "macos-m1"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get confidence that SDKs are tested and working correctly on macOS ARM64 architecture, reducing potential platform-specific issues.",
+  "rootCause": null,
+  "proposedFix": "Enable M1/ARM macOS runners in CI workflow for all SDKs (Go, Java, TypeScript, Python, .NET, CLI, SDK Core).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1421,
+    497,
+    2017,
+    710,
+    1381,
+    495,
+    210
+  ],
+  "keyQuote": "M1 runners are now available, cost should not be a major concern so we should go and enable these on all SDKs.",
+  "number": 396,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:33.791Z"
+}

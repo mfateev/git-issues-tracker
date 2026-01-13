@@ -1,0 +1,33 @@
+{
+  "summary": "Fatal worker errors need to propagate out of run() method so developers can handle them, particularly for async context managers where error communication is otherwise limited.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "run"
+  ],
+  "components": [
+    "worker",
+    "async-context-manager",
+    "error-propagation"
+  ],
+  "concepts": [
+    "fatal-error",
+    "error-handling",
+    "worker-lifecycle",
+    "exception-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably catch and handle fatal worker errors, especially when using async context managers.",
+  "rootCause": "Fatal worker errors do not bubble up from run() method, and async context managers lack alternative error communication mechanisms.",
+  "proposedFix": "Implement fatal error handler support for async with context managers and ensure errors propagate out of run().",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fatal worker errors now propagate out of run() method and fatal error handlers were added for async context managers.",
+  "related": [
+    325
+  ],
+  "keyQuote": "Make sure that fatal worker errors bubble out of `run()` and there is some way for people to add a \"fatal error handler\"",
+  "number": 25,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:46:17.357Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Test server should automatically set metadata `type` on search attribute payloads, matching the behavior of the production Temporal server.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "search-attributes",
+    "metadata"
+  ],
+  "concepts": [
+    "metadata",
+    "search-attributes",
+    "type-information",
+    "server-behavior",
+    "test-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Test server behavior diverges from production server, potentially causing tests to miss metadata-related issues.",
+  "rootCause": "Test server does not automatically set the `type` metadata field on search attribute payloads like the production server does.",
+  "proposedFix": "Implement automatic `type` metadata setting in test server to match production server behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test server was updated to set metadata `type` for search attribute payloads, achieving parity with production server behavior.",
+  "related": [],
+  "keyQuote": "Temporal server sets `type` metadata on search attribute payloads even if user doesn't set it, test server should do the same.",
+  "number": 2666,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:15:24.876Z"
+}

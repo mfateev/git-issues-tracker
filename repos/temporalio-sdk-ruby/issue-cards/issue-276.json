@@ -1,0 +1,32 @@
+{
+  "summary": "Test environment returns nil for workflow results when child workflows are executed within futures, with suspected race condition causing intermittent failures.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "execute_workflow"
+  ],
+  "components": [
+    "test-environment",
+    "worker",
+    "child-workflow-executor"
+  ],
+  "concepts": [
+    "race-condition",
+    "workflow-result",
+    "child-workflows",
+    "future-execution",
+    "test-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test workflows that spawn child workflows in the Ruby SDK test environment, breaking test reliability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Reporter was unable to reproduce with a minimal example and closed the issue.",
+  "related": [],
+  "keyQuote": "With a child workflow, the following code has `result` nil, even if you try to wait for workflow handle. This happens often, but not all the time, implying a race condition?",
+  "number": 276,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:04.413Z"
+}

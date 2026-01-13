@@ -1,0 +1,33 @@
+{
+  "summary": "When attempting to complete an activity that is already completed, the server throws an INVALID_ARGUMENT error instead of a more semantically appropriate error code like NOT_FOUND or FAILED_PRECONDITION, making it difficult for users to diagnose the root cause.",
+  "category": "bug",
+  "subcategory": "activity-completion",
+  "apis": [
+    "respondActivityTaskCompletedById",
+    "ManualActivityCompletionClientImpl"
+  ],
+  "components": [
+    "activity-completion",
+    "error-handling",
+    "grpc-client"
+  ],
+  "concepts": [
+    "error-codes",
+    "activity-lifecycle",
+    "activity-state",
+    "manual-completion",
+    "error-messages"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive an unclear INVALID_ARGUMENT error when trying to complete an already-completed activity, making it difficult to understand whether the issue is a timeout, duplicate completion attempt, or something else.",
+  "rootCause": "Server returns INVALID_ARGUMENT instead of a more descriptive error code (NOT_FOUND or FAILED_PRECONDITION) when an activity cannot be found in mutable state, which could be due to timeout or already being completed.",
+  "proposedFix": "Change the gRPC error code from INVALID_ARGUMENT to NOT_FOUND or FAILED_PRECONDITION, and improve the error message to guide users to check workflow execution history to determine activity state.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Server error code and message were updated to provide clearer feedback about activity state, suggesting users review workflow execution history when an activity cannot be found.",
+  "related": [],
+  "keyQuote": "Shouldn't another exception be thrown vs. `INVALID_ARGUMENT` when the activity is already completed?",
+  "number": 2538,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:48.258Z"
+}

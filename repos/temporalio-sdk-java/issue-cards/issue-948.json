@@ -1,0 +1,31 @@
+{
+  "summary": "DynamicActivity incorrectly uses a regular activity context instead of maintaining the local activity context when called as a local activity, affecting heartbeat behavior and other activity-specific concepts.",
+  "category": "bug",
+  "subcategory": "dynamic-activity",
+  "apis": [
+    "DynamicActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "dynamic-activity",
+    "context-management"
+  ],
+  "concepts": [
+    "heartbeat",
+    "local-activity",
+    "activity-context",
+    "context-inheritance"
+  ],
+  "severity": "high",
+  "userImpact": "Local activities using DynamicActivity behave incorrectly with respect to heartbeating and other activity concepts, potentially causing unexpected timeouts or behavior differences.",
+  "rootCause": "DynamicActivity instantiation creates a regular activity context instead of preserving or detecting the local activity context when invoked.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by ensuring DynamicActivity respects and maintains the local activity context properties when invoked as a local activity.",
+  "related": [],
+  "keyQuote": "DynamicActivity has a regular activity context even if called as a local activity.",
+  "number": 948,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:54:54.824Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Request to emit warning messages when NativeConnection objects are left open after their associated Worker completes, helping users identify forgotten close() calls that prevent process shutdown.",
+  "category": "feature",
+  "subcategory": "connection-lifecycle",
+  "apis": [
+    "NativeConnection",
+    "Worker"
+  ],
+  "components": [
+    "native-connection",
+    "worker",
+    "runtime-shutdown"
+  ],
+  "concepts": [
+    "resource-cleanup",
+    "connection-lifecycle",
+    "graceful-shutdown",
+    "developer-experience",
+    "memory-leaks",
+    "process-termination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may struggle to debug why their process hangs when they forget to close NativeConnection objects, leading to frustrating debugging sessions.",
+  "rootCause": null,
+  "proposedFix": "Emit warning messages when a NativeConnection remains open for a few seconds after completion of the last associated Worker.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was likely implemented.",
+  "related": [],
+  "keyQuote": "It is however too easy to forget doing so, and be left wondering why the process isn't completing as expected.",
+  "number": 1413,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:37.942Z"
+}

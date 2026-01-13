@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add the first execution run ID to the workflow info exposed in the .NET SDK. This feature is being tracked in the features repository to ensure parity across SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "runtime-info"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "execution-history",
+    "run-id",
+    "metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users can access the first execution run ID to better understand workflow execution history and replay behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to add first execution run ID to the WorkflowInfo class.",
+  "related": [
+    29
+  ],
+  "keyQuote": "Add first execution run ID to workflow info",
+  "number": 505,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:31:08.565Z"
+}

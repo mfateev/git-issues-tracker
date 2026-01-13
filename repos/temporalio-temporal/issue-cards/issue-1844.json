@@ -1,0 +1,31 @@
+{
+  "summary": "The taskqueue scavenger operation emits excessive persistence errors and metrics for operations like gettasks, deletetaskqueue, listtaskqueue, and completetaskslessthan, causing dips in persistence availability metrics even though the scavenger appears to be functioning correctly. The root cause is unclear, potentially related to unbounded task queue batch sizes or lack of persistence QPS throttling during scavenger runs.",
+  "category": "bug",
+  "subcategory": "taskqueue-scavenger",
+  "apis": [],
+  "components": [
+    "worker",
+    "taskqueue-scavenger",
+    "persistence-layer",
+    "metrics"
+  ],
+  "concepts": [
+    "persistence-errors",
+    "batch-processing",
+    "connection-pooling",
+    "rate-limiting",
+    "database-load"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience false dips in persistence availability metrics during taskqueue scavenger runs, making it difficult to monitor actual persistence health and potentially causing unnecessary alerting.",
+  "rootCause": "The taskqueue scavenger does not limit batch sizes or apply persistence QPS throttling when scanning and deleting queues, causing excessive database reads and connection overhead that manifest as persistence errors without proper error logging.",
+  "proposedFix": "Make the taskqueue scavenger more configurable by allowing users to set task queue batch sizes, and apply the max persistence QPS setting similar to how it's used in the history scavenger to throttle operations.",
+  "workaround": "Exclude worker persistence metrics from overall persistence availability metric calculations to avoid false positives during scavenger runs.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the scavenger does appear to be making progress and successfully deleting queues, so it is unclear what all these errors are about",
+  "number": 1844,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:39.712Z"
+}

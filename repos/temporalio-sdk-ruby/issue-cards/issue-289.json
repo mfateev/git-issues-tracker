@@ -1,0 +1,31 @@
+{
+  "summary": "The temporalio Ruby gem fails to install from source in Docker on aarch64-linux due to Cargo manifest issues with the temporalio_bridge library. The issue occurs despite the correct platform being available, suggesting a dependency resolution problem.",
+  "category": "bug",
+  "subcategory": "gem-installation",
+  "apis": [],
+  "components": [
+    "gem-build",
+    "native-extension",
+    "cargo-builder"
+  ],
+  "concepts": [
+    "gem-installation",
+    "docker",
+    "aarch64-linux",
+    "native-extension",
+    "cargo-manifest",
+    "platform-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users trying to install the temporalio gem in Docker containers on aarch64-linux are blocked from using the SDK due to build failures.",
+  "rootCause": "Bundler is selecting the source gem instead of the aarch64-linux prebuilt gem, causing Cargo to fail when parsing the manifest because the temporalio_bridge library cannot be found in the source build.",
+  "proposedFix": null,
+  "workaround": "Add aarch64-linux to the PLATFORMS section in Gemfile.lock to force selection of the prebuilt gem.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The gem maintainers clarified that building from source is not supported and prebuilt gems are available; the workaround of adding the platform to Gemfile.lock solved the user's issue.",
+  "related": [],
+  "keyQuote": "This gem does not support building from a source gem at this time... I wonder why it is getting the source gem instead of the aarch64-linux one.",
+  "number": 289,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:32.467Z"
+}

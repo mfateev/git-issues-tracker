@@ -1,0 +1,36 @@
+{
+  "summary": "Server now supports headers in signal and query requests. The TypeScript SDK needs to expose this functionality through the various interceptors to allow developers to access and manipulate these headers.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [
+    "signal",
+    "query"
+  ],
+  "components": [
+    "interceptors",
+    "signal-handler",
+    "query-handler"
+  ],
+  "concepts": [
+    "headers",
+    "metadata",
+    "interceptors",
+    "signals",
+    "queries",
+    "server-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot currently access or manipulate headers in signal and query interceptors, limiting their ability to implement custom middleware and authentication patterns.",
+  "rootCause": null,
+  "proposedFix": "Expose headers in the signal and query interceptor APIs to match the server-side support added in temporalio/temporal#2149.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #438",
+  "related": [
+    438
+  ],
+  "keyQuote": "Server support for headers in signal and query requests was added in temporalio/temporal#2149. The TypeScript SDK needs to expose this in the various interceptors.",
+  "number": 437,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:50.758Z"
+}

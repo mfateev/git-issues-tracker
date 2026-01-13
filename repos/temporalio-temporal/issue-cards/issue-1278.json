@@ -1,0 +1,30 @@
+{
+  "summary": "The CASSANDRA_DATACENTER environment variable is shadowed by a subcommand flag with the same name in temporal-cassandra-tool create, preventing its use with the autosetup feature.",
+  "category": "bug",
+  "subcategory": "cassandra-tool",
+  "apis": [],
+  "components": [
+    "cassandra-tool",
+    "docker",
+    "setup"
+  ],
+  "concepts": [
+    "environment-variables",
+    "flag-shadowing",
+    "cassandra-configuration",
+    "datacenter",
+    "autosetup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use the CASSANDRA_DATACENTER environment variable with the temporal-cassandra-tool create command due to flag shadowing, limiting automation options.",
+  "rootCause": "The create subcommand defines a flag with the same name as the global CASSANDRA_DATACENTER environment variable, which shadows the environment variable.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed with response that autosetup is not intended for production; users should manually set up Cassandra clusters for production use.",
+  "related": [],
+  "keyQuote": "An implication is that, no way can we use autosetup with that environment variable.",
+  "number": 1278,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:00.394Z"
+}

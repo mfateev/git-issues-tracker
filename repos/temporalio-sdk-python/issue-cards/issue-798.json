@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to treat TimeoutError as a standard workflow failure exception instead of causing task failures. This would allow workflows to handle timeout errors gracefully and is considered backwards compatible.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "wait_condition",
+    "asyncio.wait_for"
+  ],
+  "components": [
+    "workflow-executor",
+    "error-handling",
+    "task-failure"
+  ],
+  "concepts": [
+    "timeout",
+    "exception-handling",
+    "workflow-failure",
+    "task-failure",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to handle TimeoutError as a standard workflow failure exception instead of task failures, enabling more graceful timeout handling.",
+  "rootCause": null,
+  "proposedFix": "Allow TimeoutError to be considered a standard workflow failure exception rather than treating it as a task failure.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue has been addressed through implementation of TimeoutError handling as a standard workflow failure exception.",
+  "related": [],
+  "keyQuote": "We should allow `TimeoutError` to be considered a standard workflow failure exception. We consider this a backwards compatible change",
+  "number": 798,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:16.874Z"
+}

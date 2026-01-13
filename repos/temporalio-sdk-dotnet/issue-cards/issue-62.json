@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to modernize the .NET SDK's activity and workflow reference approach by replacing the current Ref pattern with LINQ expression-based syntax, similar to Hangfire. This includes abstracting activity definitions to support dependency injection and modernizing registration of activities and workflows through type-based registration and expression trees.",
+  "category": "feature",
+  "subcategory": "activity-definition",
+  "apis": [
+    "ExecuteActivityAsync",
+    "ActivityDefinition",
+    "AddActivity",
+    "WorkflowReference"
+  ],
+  "components": [
+    "activity-registration",
+    "workflow-execution",
+    "expression-trees",
+    "worker-options",
+    "type-inference"
+  ],
+  "concepts": [
+    "linq-expressions",
+    "type-safety",
+    "dependency-injection",
+    "delegate-pattern",
+    "api-modernization",
+    "performance-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can benefit from more intuitive expression-based API calls aligned with modern .NET practices, though performance implications and type inference challenges need resolution.",
+  "rootCause": "Current Ref pattern doesn't align with common .NET library conventions like Hangfire; expression trees introduce type inference and performance challenges with non-constant expressions.",
+  "proposedFix": "Implement expression-based ExecuteActivityAsync with ActivityDefinition abstraction supporting Func<object?, Task<object?[]?>> invoker; modernize registration with AddActivityType<T>(), AddActivity(Delegate), and CreateAllFromType(Type) methods; evaluate and implement expression evaluation strategy (likely pattern matching with fallback to Compile()).",
+  "workaround": "Continue using existing Ref pattern; dynamically register activities via ActivityDefinition.CreateWithoutAttribute.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with expression-based approach, replacing the Ref pattern entirely with lambda expressions for both static and instance methods.",
+  "related": [],
+  "keyQuote": "With the removal of the dependency, familiarity to .NET devs, and that we (really really) hate two ways of doing things, this just won out.",
+  "number": 62,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:24:56.253Z"
+}

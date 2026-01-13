@@ -1,0 +1,33 @@
+{
+  "summary": "Improve error messages when a Worker doesn't have the required Workflow function in its bundle. Instead of cryptic 'foo is not a function' errors, provide a helpful message that explains possible causes and links to documentation.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-loader",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-messages",
+    "workflow-registration",
+    "bundle-resolution",
+    "developer-experience",
+    "troubleshooting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive unclear error messages when workflow functions are missing, making it difficult to diagnose configuration issues.",
+  "rootCause": "Error messages don't clearly indicate that the Worker is missing a specific Workflow function from its bundle.",
+  "proposedFix": "Replace generic 'X is not a function' errors with a detailed message listing possible causes and linking to documentation. Optionally list exported functions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    359,
+    56
+  ],
+  "keyQuote": "The Worker process that picked up this task doesn't have a Workflow function named 'foo' in its bundle.",
+  "number": 375,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:10.990Z"
+}

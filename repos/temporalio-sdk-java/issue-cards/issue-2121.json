@@ -1,0 +1,31 @@
+{
+  "summary": "When workers-auto-discovery is enabled in Spring Boot autoconfigure, the @Profile annotation on @WorkflowImpl classes is ignored, causing workflows to be discovered even when their profile condition doesn't match. The ClassPathScanningCandidateComponentProvider scanner lacks Environment configuration needed to evaluate @Conditional annotations.",
+  "category": "bug",
+  "subcategory": "spring-boot-autoconfigure",
+  "apis": [],
+  "components": [
+    "workers-auto-discovery",
+    "spring-boot-autoconfigure",
+    "ClassPathScanningCandidateComponentProvider",
+    "workflow-discovery"
+  ],
+  "concepts": [
+    "profile-matching",
+    "conditional-beans",
+    "auto-discovery",
+    "spring-configuration",
+    "worker-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot conditionally disable workflows based on Spring profiles when using auto-discovery, forcing them to use workarounds like manual registration or package separation.",
+  "rootCause": "ClassPathScanningCandidateComponentProvider is instantiated without passing the Environment, preventing evaluation of @Conditional annotations like @Profile",
+  "proposedFix": "Pass Environment to the scanner to enable @Conditional annotation evaluation, or add Spring-aware configuration beans to conditionally manage workers",
+  "workaround": "Disable auto-discovery and manually register conditional workers to the worker factory, or place workflows in separate packages",
+  "resolution": "wontfix",
+  "resolutionDetails": "Workflow classes are not intended to be Spring beans, so @Profile support is considered outside the intended use case. Users should use explicit configuration or package separation.",
+  "related": [],
+  "keyQuote": "Profile effects what beans are included, technically workflow classes are not beans by intention, but I think it would be reasonable here to respect Profile",
+  "number": 2121,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:45.125Z"
+}

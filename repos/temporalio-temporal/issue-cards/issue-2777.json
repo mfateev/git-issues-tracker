@@ -1,0 +1,33 @@
+{
+  "summary": "Race condition detected in shard state transitions during test execution, causing unexpected panics. The issue appears to stem from concurrent access to shard state during engine creation and gomock printing operations.",
+  "category": "bug",
+  "subcategory": "shard-controller",
+  "apis": [],
+  "components": [
+    "shard-context",
+    "engine-factory",
+    "shard-controller"
+  ],
+  "concepts": [
+    "race-condition",
+    "concurrency",
+    "locking",
+    "state-transition",
+    "test-artifacts",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests fail with panic on race condition detection; potential production issue if race condition exists in actual service code.",
+  "rootCause": "Race between `s.state = contextStateStopped` and gomock attempting to print object values, likely because `createEngine` is called outside the read-write lock but callbacks from created components may access shard state requiring locks.",
+  "proposedFix": "Fixed in PR #2879, which likely involved proper locking around engine creation or refactoring engine initialization to avoid concurrent state access.",
+  "workaround": "Commenting out the unlock/lock sequence around engine creation eliminates the race in tests, though this may have unintended consequences for production behavior.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by #2879 according to final comment",
+  "related": [
+    2879
+  ],
+  "keyQuote": "The shard context explicitly calls `s.engineFactory.createEngine` outside of the rwlock, but there's no reason that should touch `s.state` directly.",
+  "number": 2777,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:34.990Z"
+}

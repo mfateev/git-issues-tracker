@@ -1,0 +1,32 @@
+{
+  "summary": "Request for documentation on multi-region deployment architecture for Temporal, including strategies for scaling globally with region-aware storage backends like CockroachDB while managing consistency trade-offs.",
+  "category": "docs",
+  "subcategory": "multi-region-deployment",
+  "apis": [],
+  "components": [
+    "database",
+    "storage-backend",
+    "server-configuration"
+  ],
+  "concepts": [
+    "multi-region",
+    "geo-partitioning",
+    "locality-awareness",
+    "consistency",
+    "latency",
+    "high-availability",
+    "global-scaling"
+  ],
+  "severity": "medium",
+  "userImpact": "Organizations requiring multi-region deployments with low-latency local access cannot effectively implement Temporal without documented guidance on architecture and trade-offs.",
+  "rootCause": null,
+  "proposedFix": "Create documentation covering multi-region deployment patterns, region-aware database configuration (particularly CockroachDB geo-partitioning), consistency considerations, and locality awareness strategies.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I strongly consider using Temporal in my organization but one strong requirement is to support multiple regions (especially with CockroachDB as storage backend) to service local clients within low latency.",
+  "number": 954,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:15:00.342Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Removing a Workflow.getVersion call while keeping a following Workflow.sideEffect causes a NullDataException (NDE) during workflow replay. The issue occurs because the state machine expects a SideEffect marker but receives a Version marker instead after getVersion removal.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Workflow.getVersion",
+    "Workflow.sideEffect",
+    "Workflow.newActivityStub"
+  ],
+  "components": [
+    "state-machine",
+    "side-effect-executor",
+    "version-management",
+    "workflow-replay"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "state-machine",
+    "marker-mismatch",
+    "version-removal",
+    "sideEffect",
+    "history-reconciliation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely remove Workflow.getVersion calls from workflows with subsequent sideEffect operations without encountering runtime errors during replay.",
+  "rootCause": "The SideEffectStateMachine expects markers in the workflow history to match the current workflow code execution order. When getVersion is removed but sideEffect remains, the state machine encounters a Version marker where it expects a SideEffect marker, causing an IllegalStateException.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating a fix was implemented to properly handle getVersion removal when followed by sideEffect operations.",
+  "related": [],
+  "keyQuote": "Expected SideEffect, received: marker_name: \"Version\" - workflow_task_completed_event_id: 3",
+  "number": 2367,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:39.606Z"
+}

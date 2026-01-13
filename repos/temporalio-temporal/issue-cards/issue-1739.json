@@ -1,0 +1,30 @@
+{
+  "summary": "Many Temporal APIs return imprecise error codes (e.g., NOT_FOUND instead of FAILED_PRECONDITION) making it impossible to distinguish between workflows that don't exist versus workflows that have already completed. All public APIs need holistic review and adjustment to use more accurate gRPC error codes.",
+  "category": "feature",
+  "subcategory": "error-codes",
+  "apis": [],
+  "components": [
+    "grpc-api",
+    "error-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "error-codes",
+    "grpc-status",
+    "error-differentiation",
+    "precondition-checking",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably determine the root cause of API failures, forcing them to implement workarounds to interpret error messages.",
+  "rootCause": "APIs use generic error codes (NOT_FOUND) for multiple failure scenarios that should have distinct error codes (FAILED_PRECONDITION for already-completed workflows).",
+  "proposedFix": "Conduct holistic review of all public APIs and adjust error codes to follow gRPC standard conventions (googleapis/rpc/code.proto), using FAILED_PRECONDITION for state-related errors.",
+  "workaround": "Parse error message details (e.g., check for 'workflow execution already completed' in status description) to differentiate error scenarios.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "NOT_FOUND error code is returned when requesting a termination and workflow is already completed. It makes it impossible to differentiate this from the case when workflow actually doesn't exist.",
+  "number": 1739,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:03.263Z"
+}

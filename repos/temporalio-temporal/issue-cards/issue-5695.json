@@ -1,0 +1,32 @@
+{
+  "summary": "Fix the outgoing service registry's handling of namespace notification version to align with the namespace handler's UpdateNamespace implementation pattern.",
+  "category": "bug",
+  "subcategory": "service-registry",
+  "apis": [],
+  "components": [
+    "outgoing-service-registry",
+    "namespace-handler",
+    "namespace-notifications"
+  ],
+  "concepts": [
+    "namespace-management",
+    "version-handling",
+    "service-registry",
+    "notification-synchronization",
+    "state-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Incorrect namespace notification version handling could cause synchronization issues across service registry components.",
+  "rootCause": "Outgoing service registry not following the established pattern used in namespace handler for UpdateNamespace",
+  "proposedFix": "Use namespace_handler UpdateNamespace implementation as reference for proper version handling",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by aligning outgoing service registry namespace notification version handling with the namespace handler pattern",
+  "related": [
+    5686
+  ],
+  "keyQuote": "Use namespace_handler UpdateNamespace for reference.",
+  "number": 5695,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:55.848Z"
+}

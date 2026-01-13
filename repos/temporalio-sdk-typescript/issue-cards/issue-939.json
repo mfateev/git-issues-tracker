@@ -1,0 +1,31 @@
+{
+  "summary": "Worker crashes with 'async hook stack has become corrupted' error when a Workflow Task times out after 10 seconds. The issue stems from Node.js async hook corruption when using AsyncLocalStorage with vm context timeout, particularly in endless loops or code with missing awaits.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-sandbox",
+    "async-local-storage"
+  ],
+  "concepts": [
+    "timeout",
+    "async-hooks",
+    "context-corruption",
+    "endless-loop",
+    "microtask",
+    "cancellation-scope"
+  ],
+  "severity": "high",
+  "userImpact": "Workers crash unexpectedly with a corrupted async stack error, requiring manual investigation and restart of the workflow execution.",
+  "rootCause": "Node.js AsyncLocalStorage internal state is not properly cleaned up when runInContext timeout fires, causing native code attached to the context's AsyncLocalStorage to access storage after cleanup.",
+  "proposedFix": "Replace Node's builtin but experimental AsyncLocalStorage implementation with a custom implementation.",
+  "workaround": "Look for missing await statements on sleep(), activity execution, child workflows, and ensure condition() predicates don't immediately evaluate to true.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "async hook stack has become corrupted (actual: 112970, expected: 3)",
+  "number": 939,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:25.378Z"
+}

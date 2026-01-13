@@ -1,0 +1,35 @@
+{
+  "summary": "Activity failures using ApplicationFailure.nonRetryableError are logged as errors, polluting logs and external monitoring systems like Sentry. Users request customizable logging for expected activity failures to distinguish them from unexpected failures.",
+  "category": "feature",
+  "subcategory": "activity-logging",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "activity-executor",
+    "logger",
+    "error-handling"
+  ],
+  "concepts": [
+    "logging",
+    "expected-failures",
+    "error-classification",
+    "monitoring",
+    "activity-execution",
+    "exception-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience polluted logs and external monitoring noise from expected activity failures, making it harder to track genuine issues.",
+  "rootCause": "Activity failure logging does not differentiate between expected and unexpected failures, causing all ApplicationFailure instances to be logged as errors.",
+  "proposedFix": "Create a logger per error type or implement customizable logging configuration to allow users to control how expected failures are logged.",
+  "workaround": "Model expected failures into return types instead of using ApplicationFailure.nonRetryableError.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in PR #2485, allowing customizable exception logging for activity failures similar to Go SDK implementation.",
+  "related": [
+    78
+  ],
+  "keyQuote": "expected activity failures will pollute the log and would prefer to only log unexpected failures",
+  "number": 704,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:35:32.596Z"
+}

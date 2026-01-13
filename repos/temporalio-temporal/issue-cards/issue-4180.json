@@ -1,0 +1,32 @@
+{
+  "summary": "Request for official CockroachDB (CRDB) support in Temporal. Currently works with the PostgreSQL v9.6 backend but lacks official support, requiring either compatible SQL scripts or alternative scripts and CI test coverage.",
+  "category": "feature",
+  "subcategory": "database-support",
+  "apis": [],
+  "components": [
+    "database",
+    "sql-scripts",
+    "ci-testing"
+  ],
+  "concepts": [
+    "database-compatibility",
+    "postgresql",
+    "cockroachdb",
+    "sql-migration",
+    "testing-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use CockroachDB with Temporal as there is no official support or testing guarantee.",
+  "rootCause": null,
+  "proposedFix": "Provide SQL scripts compatible with CRDB or alternative scripts, and run a subset of tests against CRDB in CI pipeline.",
+  "workaround": "Use PostgreSQL v9.6 backend instead, as CRDB currently works with it despite lacking official support.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4136
+  ],
+  "keyQuote": "We'd like to see CRDB becoming officially supported. The least I'd consider required for this is SQL scripts either work for CRDB too or alternative scripts are provided",
+  "number": 4180,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:33.213Z"
+}

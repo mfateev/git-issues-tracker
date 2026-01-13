@@ -1,0 +1,30 @@
+{
+  "summary": "Dynamic config value conversion is performed on every retrieval, consuming excessive CPU resources. The proposal is to optimize this by converting only when values change, using NotifyingClient interface as the primary optimization path.",
+  "category": "feature",
+  "subcategory": "dynamic-config",
+  "apis": [],
+  "components": [
+    "dynamic-config",
+    "client",
+    "config-conversion"
+  ],
+  "concepts": [
+    "performance",
+    "cpu-optimization",
+    "caching",
+    "client-interface",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with high-frequency dynamic config value access experience unnecessary CPU overhead from repeated conversion operations.",
+  "rootCause": "Conversion logic is executed on every value retrieval rather than only when config values change.",
+  "proposedFix": "Optimize for NotifyingClient implementations to perform conversion only when values change, reducing redundant operations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed as completed after implementing the optimization.",
+  "related": [],
+  "keyQuote": "The conversion code is run every time a value is retrieved and could end up taking up excessive CPU resources.",
+  "number": 6756,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:09.578Z"
+}

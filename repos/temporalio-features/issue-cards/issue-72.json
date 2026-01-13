@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to unify retry logic implementations across all Temporal SDKs (Core, TypeScript, Java, Go, PHP). Currently each SDK has independent retry implementations that should be standardized.",
+  "category": "feature",
+  "subcategory": "retry-logic",
+  "apis": [],
+  "components": [
+    "grpc-retry",
+    "client",
+    "service-client",
+    "retry-interceptor"
+  ],
+  "concepts": [
+    "retry-policy",
+    "error-handling",
+    "consistency",
+    "client-resilience",
+    "unification",
+    "cross-sdk"
+  ],
+  "severity": "medium",
+  "userImpact": "Inconsistent retry behavior across SDKs creates confusion for users and makes it harder to migrate between languages.",
+  "rootCause": null,
+  "proposedFix": "Write a specification for unified retry logic and start a discussion for standardization",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #27",
+  "related": [
+    27
+  ],
+  "keyQuote": "Retry logic in all SDKs: ... [lists implementations across Core, TypeScript, Java, Go, PHP]",
+  "number": 72,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:45.605Z"
+}

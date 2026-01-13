@@ -1,0 +1,32 @@
+{
+  "summary": "Request for a listener/observer pattern to capture Temporal workflow and activity lifecycle events (start, completion, etc.) at the worker level, with ability to filter, transform, and persist to external databases. Must distinguish between first execution and replay/retry events.",
+  "category": "feature",
+  "subcategory": "event-listening",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "activity-execution",
+    "event-handling"
+  ],
+  "concepts": [
+    "event-listener",
+    "lifecycle-events",
+    "replay-detection",
+    "event-persistence",
+    "worker-interceptor",
+    "event-filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently capture and persist workflow/activity lifecycle events for integration with external systems without querying and transforming Temporal data at runtime.",
+  "rootCause": "Current interceptor implementation only fires on subset of events (start/finish) and cannot distinguish between first execution and replay events.",
+  "proposedFix": "Implement worker-level listener/observer that captures all lifecycle events with replay/retry detection capability, similar to existing interceptor pattern but more comprehensive.",
+  "workaround": "Use existing interceptors (limited to start/finish events) or gRPC proxy approach (not available in Java SDK and incomplete for server-side completions like timeout/termination).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "ability to distinguish workflow / activity replay / retry events from \"first execution\" events",
+  "number": 3709,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:39.261Z"
+}

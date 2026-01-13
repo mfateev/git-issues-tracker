@@ -1,0 +1,33 @@
+{
+  "summary": "JWT token authorization for server calls currently requires implementing custom gRPC interceptors, which is cumbersome. The enhancement request seeks a simpler, more user-friendly way to provide JWT tokens, either through built-in JWT-specific interceptors or HeaderProviders on WorkflowClientOptions.",
+  "category": "feature",
+  "subcategory": "authentication",
+  "apis": [
+    "WorkflowServiceStubsOptions",
+    "WorkflowClientOptions"
+  ],
+  "components": [
+    "grpc-client",
+    "authentication",
+    "workflow-service-stubs"
+  ],
+  "concepts": [
+    "jwt",
+    "authorization",
+    "http-headers",
+    "interceptors",
+    "server-authentication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing JWT-based server authentication must write boilerplate code with multiple interceptor implementations, creating friction for a common security pattern.",
+  "rootCause": null,
+  "proposedFix": "Provide either built-in JWT-specific gRPC interceptors or allow setting HeaderProviders on WorkflowClientOptions for easier header management.",
+  "workaround": "Implement custom gRPC Stubs interceptors and specify them in WorkflowServiceStubsOptions#Builder#setBlockingStubInterceptor and setFutureStubInterceptor.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It's a painful way for one of the server's default features and we should come up with a better way.",
+  "number": 671,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:34:13.114Z"
+}

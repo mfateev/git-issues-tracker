@@ -1,0 +1,30 @@
+{
+  "summary": "User requests support for Swoole async library integration in the PHP SDK, currently limited to RoadRunner. The maintainer explains this would require porting all SDK code from Golang to C++ and maintaining two separate versions.",
+  "category": "feature",
+  "subcategory": "async-runtime",
+  "apis": [],
+  "components": [
+    "async-runtime",
+    "grpc-transport"
+  ],
+  "concepts": [
+    "async-library",
+    "swoole",
+    "roadrunner",
+    "grpc",
+    "integration",
+    "async-runtime-support"
+  ],
+  "severity": "low",
+  "userImpact": "Users with existing Swoole-based applications cannot easily use the Temporal PHP SDK without switching to RoadRunner.",
+  "rootCause": "SDK is built on Golang-based async abstractions; Swoole would require porting to C++ and maintaining two separate implementations.",
+  "proposedFix": null,
+  "workaround": "Switch to RoadRunner as the async runtime.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer decided not to support Swoole due to the significant effort required to port SDK code from Golang to C++ and maintain two separate versions.",
+  "related": [],
+  "keyQuote": "Porting to Swoole would mean that all of the SDK code has to be ported from Golang to C++, unfortunately, it's not just about porting async functions but a much larger scope.",
+  "number": 294,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:21.691Z"
+}

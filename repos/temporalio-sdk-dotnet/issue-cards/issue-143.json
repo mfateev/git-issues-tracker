@@ -1,0 +1,32 @@
+{
+  "summary": "The DeleteWorkflowExecution gRPC service call is not properly exposed in the .NET SDK. Additionally, there's a need for comprehensive unit tests to ensure all workflow and operator service calls are tested going forward.",
+  "category": "bug",
+  "subcategory": "grpc-service-exposure",
+  "apis": [
+    "DeleteWorkflowExecution"
+  ],
+  "components": [
+    "grpc-client",
+    "workflow-service",
+    "operator-service"
+  ],
+  "concepts": [
+    "service-exposure",
+    "grpc-calls",
+    "unit-testing",
+    "api-completeness",
+    "test-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot delete workflow executions through the .NET SDK, limiting workflow management capabilities.",
+  "rootCause": "DeleteWorkflowExecution call not exposed in the SDK's service client wrapper",
+  "proposedFix": "Expose the DeleteWorkflowExecution call and implement reflective unit tests that call every workflow and operator service method against a fake gRPC server",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The DeleteWorkflowExecution service call was exposed in the SDK and comprehensive tests were added",
+  "related": [],
+  "keyQuote": "Not only do we need to, but we need a unit test to make sure no calls are ever missed going forward.",
+  "number": 143,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:33:36.480Z"
+}

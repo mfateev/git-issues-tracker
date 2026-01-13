@@ -1,0 +1,30 @@
+{
+  "summary": "User reports significant performance degradation when increasing concurrent load in Temporal workflows, with scheduling time increasing from 1s (10 concurrent) to 10s (100 concurrent). Seeks configuration options to improve performance.",
+  "category": "question",
+  "subcategory": "performance-tuning",
+  "apis": [],
+  "components": [
+    "scheduler",
+    "worker",
+    "local-activity"
+  ],
+  "concepts": [
+    "performance",
+    "scheduling-latency",
+    "concurrency",
+    "load-testing",
+    "throughput"
+  ],
+  "severity": "medium",
+  "userImpact": "Users unable to achieve acceptable performance under moderate to high concurrent load without configuration guidance.",
+  "rootCause": "Likely bottleneck in Temporal server's scheduling mechanism under increased concurrency, not bandwidth/CPU/disk constraints.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed with recommendation to use Temporal's load testing tools (Maru) and community forums for performance optimization guidance rather than code-level configuration changes.",
+  "related": [],
+  "keyQuote": "The whole process is about 10s... It seems that the bottleneck is not in bandwidth, cpu, disk, disk io...",
+  "number": 984,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:31:03.955Z"
+}

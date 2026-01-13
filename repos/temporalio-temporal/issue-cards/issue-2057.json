@@ -1,0 +1,31 @@
+{
+  "summary": "User asks if Temporal Server's database persistence layer can be replaced with alternatives like Redis or PostgreSQL instead of Cassandra, citing resource consumption concerns. The issue was self-resolved when the author discovered PostgreSQL support documentation.",
+  "category": "question",
+  "subcategory": "database-backend",
+  "apis": [],
+  "components": [
+    "database",
+    "persistence-layer",
+    "server-deployment"
+  ],
+  "concepts": [
+    "database-abstraction",
+    "cassandra-alternative",
+    "postgresql-support",
+    "redis",
+    "resource-consumption",
+    "persistence-backend"
+  ],
+  "severity": "low",
+  "userImpact": "Users concerned about Cassandra resource usage want to know if alternative databases are supported for Temporal Server deployment.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use PostgreSQL as documented in Temporal's official documentation for versions and dependencies.",
+  "resolution": "fixed",
+  "resolutionDetails": "User self-resolved by discovering that PostgreSQL is officially supported as a database backend for Temporal Server, as documented in the server configuration guide.",
+  "related": [],
+  "keyQuote": "I have noticed that Cassandra may consume a lot of resources... please check this document. https://docs.temporal.io/docs/server/versions-and-dependencies/#postgresql",
+  "number": 2057,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:35.174Z"
+}

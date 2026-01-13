@@ -1,0 +1,30 @@
+{
+  "summary": "POSTGRES_SEEDS environment variable doesn't properly handle multiple PostgreSQL hosts in comma-separated format. The string is treated as a single hostname instead of being parsed as multiple hosts, causing connection failures. Even with pgx driver support for multiple hosts, there's no way to configure target_session_attrs to detect read-write replicas.",
+  "category": "bug",
+  "subcategory": "postgres-connection",
+  "apis": [],
+  "components": [
+    "sql-connector",
+    "postgres-driver",
+    "config-template"
+  ],
+  "concepts": [
+    "connection-string",
+    "multi-host",
+    "replication",
+    "replica-detection",
+    "failover"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with PostgreSQL master/replica clusters cannot properly configure Temporal to connect to multiple hosts, forcing them to use workarounds or single-host configurations.",
+  "rootCause": "The config template appends ':$DB_PORT' to POSTGRES_SEEDS assuming it's a single hostname, and doesn't support passing pgx-specific connection attributes like target_session_attrs for replica detection.",
+  "proposedFix": "Allow POSTGRES_SEEDS to accept pgx multiple-host format (host1:port1,host2:port2) and support passing connection string parameters like target_session_attrs=read-write through environment variables or config template.",
+  "workaround": "Override the config template to manually add target_session_attrs parameter and format multiple hosts correctly for pgx driver, or use postgres12_pgx driver with workaround for replica detection.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Despite the name, we unfortunately expect only one hostname in that variable, so we append \":$DB_PORT\" to it, which won't work with multiple host names.",
+  "number": 5693,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:45.675Z"
+}

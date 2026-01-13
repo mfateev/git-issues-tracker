@@ -1,0 +1,37 @@
+{
+  "summary": "WorkflowClient should request eager workflow task dispatch from the Server when starting workflows or signaling workflows on local workers listening to the correct task queue, to improve performance and latency.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowClient",
+    "start",
+    "signalWithStart"
+  ],
+  "components": [
+    "workflow-client",
+    "task-dispatch",
+    "worker"
+  ],
+  "concepts": [
+    "eager-dispatch",
+    "task-queue",
+    "workflow-start",
+    "performance",
+    "local-worker",
+    "latency-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces latency for workflow execution by enabling the server to dispatch workflow tasks immediately to local workers instead of waiting for polling.",
+  "rootCause": null,
+  "proposedFix": "Implement eager workflow task dispatch mechanism in WorkflowClient for start and signalWithStart operations when aware of local worker on correct task queue.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with eager workflow task dispatch support in WorkflowClient",
+  "related": [
+    242
+  ],
+  "keyQuote": "WorkflowClient should request eager workflow task dispatch on #start and #signalWithStart calls from the Server if it's aware of the local worker listening on the correct task queue.",
+  "number": 1646,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:02.445Z"
+}

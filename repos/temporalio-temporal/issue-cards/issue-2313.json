@@ -1,0 +1,32 @@
+{
+  "summary": "Replace the abandoned github.com/dgrijalva/jwt-go library with an actively maintained alternative to mitigate security risks from unpatched exploits. Community fork github.com/golang-jwt/jwt was initially considered but lacks certain validation functions, leading to exploration of alternatives like lestrrat-go/jwx.",
+  "category": "other",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "jwt-parser",
+    "authentication",
+    "token-validation"
+  ],
+  "concepts": [
+    "security",
+    "dependency-maintenance",
+    "jwt-validation",
+    "audience-validation",
+    "library-migration"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to potential security vulnerabilities from unpatched exploits in the abandoned jwt-go library.",
+  "rootCause": "github.com/dgrijalva/jwt-go is not actively maintained and lacks timely security patches for newly discovered exploits.",
+  "proposedFix": "Replace dgrijalva/jwt-go with actively maintained alternative such as golang-jwt/jwt or lestrrat-go/jwx, following the migration guide.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Library was replaced with an actively maintained alternative to address security concerns.",
+  "related": [
+    142
+  ],
+  "keyQuote": "JWT token gets parsed with the library github.com/dgrijalva/jwt-go which is not actively maintained and is a subject to the risk of newly discoverable exploits",
+  "number": 2313,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:52.697Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Nexus functional tests using an external test server are currently disabled because Nexus is only fully supported in OSS 1.25.0+. These tests should be re-enabled once version 1.25.0 is officially released.",
+  "category": "feature",
+  "subcategory": "nexus-testing",
+  "apis": [],
+  "components": [
+    "nexus",
+    "test-server",
+    "functional-tests"
+  ],
+  "concepts": [
+    "nexus-support",
+    "version-compatibility",
+    "external-server",
+    "test-automation",
+    "oss-release"
+  ],
+  "severity": "medium",
+  "userImpact": "Nexus functional tests remain disabled, preventing comprehensive testing of Nexus integration until OSS 1.25.0 is released.",
+  "rootCause": "Nexus is only fully supported in OSS 1.25.0+, requiring version prerequisite for external server tests",
+  "proposedFix": "Re-enable Nexus test server docker functional tests once OSS 1.25.0 is officially released",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were re-enabled after OSS 1.25.0 release became available",
+  "related": [],
+  "keyQuote": "Nexus is only fully supported in OSS 1.25.0+ so the functional tests using an external server are disabled for now.",
+  "number": 2165,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:52.337Z"
+}

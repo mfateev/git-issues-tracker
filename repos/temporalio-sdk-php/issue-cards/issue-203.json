@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow methods in PHP SDK execute activities synchronously even when not yielded, causing workflows to block waiting for activity completion despite not using the result. Activities should only execute when explicitly yielded in the workflow.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "newActivityStub",
+    "ActivityOptions"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-invocation",
+    "coroutine-handling"
+  ],
+  "concepts": [
+    "asynchronous-execution",
+    "yield-semantics",
+    "blocking-behavior",
+    "activity-lifecycle",
+    "workflow-suspension"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows block unnecessarily on activity calls that are not yielded, causing unexpected delays and poor performance in async-designed workflows.",
+  "rootCause": "The PHP SDK's activity stub invocation does not defer execution until the result is yielded; instead it executes immediately and blocks the workflow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by implementing proper lazy evaluation of activity stubs so they only execute when the result is yielded.",
+  "related": [],
+  "keyQuote": "Expected behavior: workflow finishes and doesn't wait for 5 seconds. Actual behavior: workflow waits for 5 seconds.",
+  "number": 203,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:36.933Z"
+}

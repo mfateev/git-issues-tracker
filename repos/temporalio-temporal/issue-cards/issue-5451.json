@@ -1,0 +1,29 @@
+{
+  "summary": "Docker images for the v1.22.5 release were not published to Docker Hub. Users attempting to pull temporalio/admin-tools:1.22.5 and other images for this version encountered 'not found' errors.",
+  "category": "bug",
+  "subcategory": "release-artifacts",
+  "apis": [],
+  "components": [
+    "docker-images",
+    "release-process",
+    "admin-tools"
+  ],
+  "concepts": [
+    "docker-registry",
+    "release-publishing",
+    "image-availability",
+    "artifact-distribution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal 1.22.5 with Docker as the required container images are unavailable on Docker Hub.",
+  "rootCause": "Release images were not built and published when the v1.22.5 tag was created, likely due to an oversight in the release process.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The maintainer rebuilt and published the missing Docker images after discovering the oversight.",
+  "related": [],
+  "keyQuote": "Looks like we forgot to release these when we tagged the release last week. I'm building them now",
+  "number": 5451,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:38.960Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Users need access to serialization context (workflow ID, activity ID, task queue names) in PayloadConverter and PayloadCodec implementations. This enables use cases like task-queue-specific data conversion and incorporating workflow context into encryption codecs.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [
+    "PayloadConverter",
+    "PayloadCodec"
+  ],
+  "components": [
+    "payload-conversion",
+    "codec",
+    "serialization-context"
+  ],
+  "concepts": [
+    "context-awareness",
+    "payload-encoding",
+    "encryption",
+    "workflow-isolation",
+    "codec-customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently implement task-queue-specific or workflow-aware serialization logic, limiting encryption and data conversion customization options.",
+  "rootCause": null,
+  "proposedFix": "Make serialization context (workflow ID, activity ID, task queue names) available to PayloadConverter and PayloadCodec implementations",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Serialization context was made available to PayloadCodecs and PayloadConverters, allowing access to workflow ID, activity ID, and task queue information",
+  "related": [],
+  "keyQuote": "Some users need to have an access to some basic info like workflow id and activity id and task queue names in their PayloadConverter or PayloadCodec",
+  "number": 1694,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:37.076Z"
+}

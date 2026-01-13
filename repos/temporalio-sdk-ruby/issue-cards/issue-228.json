@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for custom metric bucket sizes in the Ruby SDK by exposing histogram bucket overrides that were made available in sdk-core.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "histogram",
+    "instrumentation"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "histogram-buckets",
+    "configuration",
+    "customization"
+  ],
+  "severity": "low",
+  "userImpact": "Users can customize histogram bucket sizes for metrics collection to better suit their monitoring requirements.",
+  "rootCause": null,
+  "proposedFix": "Expose histogram bucket overrides from sdk-core (as implemented in sdk-core PR #844) in the Ruby SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and the issue was closed.",
+  "related": [
+    606
+  ],
+  "keyQuote": "Need to expose histogram bucket overrides made available in https://github.com/temporalio/sdk-core/pull/844.",
+  "number": 228,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:44.650Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Assume TLS is enabled when an API key is provided in SDKs to improve security by default. This is a backwards-incompatible change that affects self-hosted deployments without TLS, requiring explicit configuration to disable TLS when using API keys.",
+  "category": "feature",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "sdk-client",
+    "connection-config",
+    "tls-handler"
+  ],
+  "concepts": [
+    "tls",
+    "api-key",
+    "security",
+    "configuration",
+    "backwards-compatibility",
+    "self-hosting"
+  ],
+  "severity": "medium",
+  "userImpact": "Self-hosted users without TLS who use API keys will need to explicitly disable TLS to maintain current behavior, or upgrade to enable secure TLS connections by default.",
+  "rootCause": null,
+  "proposedFix": "Modify SDKs to assume TLS is enabled when an API key is provided, unless explicitly set otherwise. Some SDKs like Go may need a TLSDisabled field.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across multiple SDKs (Go, Java, TypeScript, Python, .NET, Ruby) and Temporal CLI, with PHP pending implementation.",
+  "related": [],
+  "keyQuote": "assume if an API key is provided, that TLS is enabled unless explicitly set otherwise",
+  "number": 687,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:19.104Z"
+}

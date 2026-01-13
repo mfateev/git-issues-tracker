@@ -1,0 +1,34 @@
+{
+  "summary": "API documentation for WorkflowOptions incorrectly states that the default WorkflowIdReusePolicy is AllowDuplicateFailedOnly, when it should be AllowDuplicate.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "WorkflowOptions"
+  ],
+  "components": [
+    "documentation",
+    "client-api",
+    "workflow-options"
+  ],
+  "concepts": [
+    "default-values",
+    "api-documentation",
+    "workflow-configuration",
+    "reuse-policy",
+    "correctness"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may implement workflows with incorrect assumptions about the default WorkflowIdReusePolicy behavior.",
+  "rootCause": "Documentation comment was not updated to reflect actual default behavior.",
+  "proposedFix": "Update the documentation comment in WorkflowOptions.java line 134 to correctly state AllowDuplicate as the default.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #1307 which updated the documentation.",
+  "related": [
+    1307
+  ],
+  "keyQuote": "According to maxim, the default is `AllowDuplicate`",
+  "number": 387,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:11:19.828Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Issue about detecting UnsupportedQuery exceptions correctly based on gRPC status code INVALID_ARGUMENT in the Ruby SDK. This issue is no longer applicable as the SDK underwent a rewrite.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "ruby-sdk",
+    "grpc-client"
+  ],
+  "concepts": [
+    "error-detection",
+    "status-codes",
+    "query-execution",
+    "exception-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users may not be able to correctly identify UnsupportedQuery errors in Ruby SDK workflows.",
+  "rootCause": "SDK query exception detection not properly mapping gRPC INVALID_ARGUMENT status codes to UnsupportedQuery exceptions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The SDK underwent a rewrite/refresh and this issue no longer applies to the current version.",
+  "related": [],
+  "keyQuote": "The SDK is undergoing a rewrite/refresh and this issue applied to a previous version and is no longer applicable",
+  "number": 71,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:40:35.539Z"
+}

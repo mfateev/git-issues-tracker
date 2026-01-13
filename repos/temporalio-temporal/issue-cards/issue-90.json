@@ -1,0 +1,34 @@
+{
+  "summary": "Default values for EventId and Version fields were changed to EmptyEventID and EmptyVersion constants, but this is error-prone since new objects require explicit setting. Proposal to change constant values to 0, which would serve as a proper 'unset' indicator for EventIds (which start at 1), pending verification that Versions also start at 1.",
+  "category": "bug",
+  "subcategory": "proto-schema",
+  "apis": [],
+  "components": [
+    "event-handling",
+    "proto-definitions",
+    "versioning"
+  ],
+  "concepts": [
+    "default-values",
+    "proto-structs",
+    "unset-state",
+    "error-prone-patterns",
+    "schema-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must explicitly set EventId and Version to custom constants on new objects, making code error-prone and inconsistent if forgotten.",
+  "rootCause": "Using non-zero constants for 'unset' values in proto structs, rather than leveraging 0 as a natural 'unset' indicator.",
+  "proposedFix": "Change EventId and Version constant values to 0, since EventIds start at 1. Verify that Versions also start at 1 throughout the codebase.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PRs #634 and #642 which implemented the proposed fix.",
+  "related": [
+    86,
+    634,
+    642
+  ],
+  "keyQuote": "Everytime new object with these values is created, they need to be explicitly set to those default value. Otherwise they will be 0 which will be treated as regular value.",
+  "number": 90,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:17:39.747Z"
+}

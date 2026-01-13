@@ -1,0 +1,35 @@
+{
+  "summary": "Data race in TestWorkflowEnvironment.SignalExternalWorkflow when signal payload is modified after being sent. The test framework spawns a goroutine that concurrently accesses signal data while the workflow modifies it, causing race conditions that don't occur in production where data is serialized first.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "SignalExternalWorkflow"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "signal-handling",
+    "mock-framework"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrency",
+    "signal-serialization",
+    "test-suite",
+    "goroutine-safety",
+    "mock-verification"
+  ],
+  "severity": "high",
+  "userImpact": "Users testing workflows that signal external workflows and modify signal payload data encounter unreliable data races in the test framework.",
+  "rootCause": "TestWorkflowEnvironmentImpl.SignalExternalWorkflow spawns a goroutine to lookup the correct mock signal receiver concurrently with workflow execution, allowing concurrent access to signal data that the workflow is still modifying.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was filed in wrong repository (temporalio/temporal). Correct issue is temporalio/sdk-go#922.",
+  "related": [
+    922
+  ],
+  "keyQuote": "a new go-routine is spawned, which tries to look up the correct mock of the signal receiver _concurrently_ with the rest of the workflow proceeding (and modifying the data of the signal currently being processed)",
+  "number": 3430,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:59.740Z"
+}

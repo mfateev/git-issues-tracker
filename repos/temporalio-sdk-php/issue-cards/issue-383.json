@@ -1,0 +1,35 @@
+{
+  "summary": "Creating a Schedule without startTime and endTime fields throws a TypeError about Google\\Protobuf\\Timestamp. The API should allow optional start/end times, but currently fails when these fields are omitted from the ScheduleSpec.",
+  "category": "bug",
+  "subcategory": "schedule-api",
+  "apis": [
+    "createSchedule",
+    "listSchedules",
+    "ScheduleSpec",
+    "Schedule"
+  ],
+  "components": [
+    "schedule-client",
+    "protobuf-serialization",
+    "schedule-spec"
+  ],
+  "concepts": [
+    "optional-fields",
+    "protobuf-validation",
+    "timestamp-handling",
+    "schedule-configuration",
+    "api-design"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create schedules without explicitly providing start and end times, limiting flexibility in schedule configuration and forcing workarounds like unsetting fields.",
+  "rootCause": "The ScheduleSpec protobuf definition requires Timestamp fields that should be optional, causing validation errors when these fields are not provided during schedule creation.",
+  "proposedFix": "Make startTime and endTime truly optional in the Schedule protobuf definition and handle null/unset values properly in the serialization layer.",
+  "workaround": "Manually unset 'start_time' and 'end_time' keys in the ScheduleSpec constructor before calling parent::construct().",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by making the startTime and endTime fields properly optional in the protobuf schema and fixing the serialization handling.",
+  "related": [],
+  "keyQuote": "If startTime and endTime not declared in Schedule spec, I got this error: Uncaught Exception TypeError: \"Given value is not an instance of Google\\Protobuf\\Timestamp.\"",
+  "number": 383,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:52.226Z"
+}

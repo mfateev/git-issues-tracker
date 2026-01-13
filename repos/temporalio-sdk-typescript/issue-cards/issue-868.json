@@ -1,0 +1,33 @@
+{
+  "summary": "Add an ESLint rule to prevent Query handlers from mutating state, which is a gap in TypeScript's enforced determinism. Multiple implementation approaches were explored but the feature was deprioritized due to complexity in handling various code patterns.",
+  "category": "feature",
+  "subcategory": "linting",
+  "apis": [
+    "setHandler",
+    "defineQuery"
+  ],
+  "components": [
+    "eslint-plugin",
+    "query-handler",
+    "workflow-vm"
+  ],
+  "concepts": [
+    "determinism",
+    "state-mutation",
+    "linting",
+    "code-analysis",
+    "type-checking"
+  ],
+  "severity": "medium",
+  "userImpact": "Without this lint rule, developers can accidentally introduce non-deterministic behavior in Query handlers that violates Temporal's execution guarantees.",
+  "rootCause": "TypeScript's VM enforcement of determinism has a gap allowing mutations in Query handlers, which can lead to subtle bugs in distributed workflows.",
+  "proposedFix": "Implement an ESLint rule based on eslint-plugin-fp's no-mutation rule, potentially forked to work specifically with Query handlers and Temporal's APIs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The only hole in TS's enforced determinism (besides intentionally escaping the vm) is mutating state in Query handlers.",
+  "number": 868,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:20:49.125Z"
+}

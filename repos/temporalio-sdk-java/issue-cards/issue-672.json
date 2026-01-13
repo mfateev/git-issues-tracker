@@ -1,0 +1,32 @@
+{
+  "summary": "LongLocalActivityWorkflowTaskHeartbeatFailureTest is flaky in buildkite CI, failing with an assertion error where an activity executed 3 times instead of the expected 2 times.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "test-framework",
+    "activity-executor",
+    "workflow-task-heartbeat"
+  ],
+  "concepts": [
+    "flaky-test",
+    "heartbeat",
+    "local-activity",
+    "test-reliability",
+    "assertion-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the SDK build process and make CI/CD pipelines unreliable.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was identified as a test flakiness problem related to local activity workflow task heartbeat handling.",
+  "related": [],
+  "keyQuote": "expected:<2> but was:<3>",
+  "number": 672,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:34:11.783Z"
+}

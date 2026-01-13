@@ -1,0 +1,33 @@
+{
+  "summary": "CarbonInterval::fromString() used for parsing DateInterval strings is too lenient and silently drops components (e.g., 'P2M' becomes 2 minutes instead of 2 months), causing unexpected behavior compared to PHP's DateInterval. Needs documentation clarification and potentially stricter parsing with warnings.",
+  "category": "bug",
+  "subcategory": "date-interval-parsing",
+  "apis": [
+    "Workflow::timer"
+  ],
+  "components": [
+    "interval-parser",
+    "workflow-timers",
+    "carbon-interval"
+  ],
+  "concepts": [
+    "date-interval",
+    "string-parsing",
+    "type-conversion",
+    "silent-failures",
+    "backward-compatibility",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using ISO 8601 DateInterval strings in timer methods get unexpected timer durations without errors, leading to hard-to-debug timing issues in workflows.",
+  "rootCause": "CarbonInterval::fromString() is too lenient with parsing and silently drops unrecognized components instead of failing or warning, unlike PHP's strict DateInterval::__construct()",
+  "proposedFix": "Issue a warning when a string interval can be interpreted differently between CarbonInterval and DateInterval parsing, or make parsing more explicit/restrictive (breaking change alternative).",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Acknowledged as more of a bug fix than breaking change, but decided to explore warning approach rather than immediate restrictive parsing changes.",
+  "related": [],
+  "keyQuote": "CarbonInterval::fromString is very loose with its parsing, and will silently drop some parts rather than erroring.",
+  "number": 579,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:41:51.244Z"
+}

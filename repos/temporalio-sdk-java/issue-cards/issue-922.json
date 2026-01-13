@@ -1,0 +1,37 @@
+{
+  "summary": "OpenTracing context propagation is incomplete across child workflows, async lambda invocations, continueAsNew calls, and signal methods. This checklist tracks missing instrumentation for distributed tracing in various Java SDK scenarios.",
+  "category": "feature",
+  "subcategory": "opentracing",
+  "apis": [
+    "Async",
+    "continueAsNew"
+  ],
+  "components": [
+    "opentracing",
+    "child-workflows",
+    "async-invocation",
+    "signal-methods"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "context-propagation",
+    "headers",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably trace distributed workflows and async operations, making it difficult to debug and monitor complex workflow executions.",
+  "rootCause": null,
+  "proposedFix": "Implement proper header wiring and OpenTracing instrumentation for child workflows, async lambda invocations, continueAsNew operations, and signal methods.",
+  "workaround": "Use stub method references instead of lambda invocations for activities to maintain tracing context.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing OpenTracing context propagation across the identified scenarios.",
+  "related": [
+    537,
+    844,
+    1306
+  ],
+  "keyQuote": "Child workflows as reported in comments in #537, Async invocation of a function or procedure as lambda, continueAsNew needs a proper wiring of headers and OT implementation",
+  "number": 922,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:53:37.003Z"
+}

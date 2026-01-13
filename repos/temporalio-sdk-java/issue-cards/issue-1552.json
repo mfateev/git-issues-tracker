@@ -1,0 +1,36 @@
+{
+  "summary": "Add a high-level API to WorkflowClient for listing workflows and fetching their execution histories. This feature is needed for the SDK's safe rollout capability and should provide user-friendly access to workflow listings with optional concurrency support for history fetching.",
+  "category": "feature",
+  "subcategory": "workflow-client-api",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowExecution",
+    "DescribeWorkflowExecutionResponse",
+    "History"
+  ],
+  "components": [
+    "WorkflowClient",
+    "WorkflowExecution",
+    "history-fetching"
+  ],
+  "concepts": [
+    "listing-workflows",
+    "workflow-execution",
+    "history-replay",
+    "pagination",
+    "concurrency",
+    "mass-replayer"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain a safe, user-friendly API to list and fetch workflow histories without direct protobuf manipulation.",
+  "rootCause": null,
+  "proposedFix": "Add WorkflowClient.list(String query) returning Stream<WorkflowExecution>, WorkflowClient.describe() for individual workflows, and WorkflowClient.fetchHistoryEvents() for history fetching with concurrency support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "High-level API was implemented in Java SDK following the design suggested in the issue comments, providing WorkflowExecution and WorkflowExecutionDescription wrappers.",
+  "related": [],
+  "keyQuote": "Add `WorkflowClient.list(String query)` that returns `Stream<WorkflowExecution>`. I don't expect people to care about options to this function at this time (can add overloads later).",
+  "number": 1552,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:34.067Z"
+}

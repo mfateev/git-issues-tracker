@@ -1,0 +1,36 @@
+{
+  "summary": "Worker starts successfully without any workflows or activities configured, making it difficult to debug. Request to either require at least one workflow/activity/workflowsPath option at type level or add warning logging.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "worker-options",
+    "logging"
+  ],
+  "concepts": [
+    "validation",
+    "initialization",
+    "debugging",
+    "configuration",
+    "workflow-registration",
+    "activity-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can unknowingly deploy workers with no workflows/activities configured, causing silent failures that are difficult to debug.",
+  "rootCause": "Worker options make both workflowsPath and workflowBundle optional, allowing workers to start without any work available.",
+  "proposedFix": "Either enforce type-level requirement using RequireAtLeastOne utility type, or add warning logs when no workflows/activities are registered.",
+  "workaround": "Add logging output to show what activities or workflows the worker was able to find during startup.",
+  "resolution": "fixed",
+  "resolutionDetails": "Warning messages for 'no workflows registered' and 'no activity registered' were implemented in PR #808.",
+  "related": [
+    471,
+    808
+  ],
+  "keyQuote": "The worker happily starts up and does not pick up any work since it's not aware of any workflows it can run. This can be painful to debug.",
+  "number": 542,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:00:31.816Z"
+}

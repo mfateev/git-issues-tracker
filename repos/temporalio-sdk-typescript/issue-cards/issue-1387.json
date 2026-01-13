@@ -1,0 +1,34 @@
+{
+  "summary": "Add HTTP CONNECT proxy support to the TypeScript SDK for both workers and gRPC clients, following implementation patterns from sdk-core and sdk-python.",
+  "category": "feature",
+  "subcategory": "networking-proxy",
+  "apis": [],
+  "components": [
+    "worker",
+    "grpc-client",
+    "connection"
+  ],
+  "concepts": [
+    "proxy",
+    "http-connect",
+    "networking",
+    "configuration",
+    "grpc",
+    "environment-variables"
+  ],
+  "severity": "medium",
+  "userImpact": "Users behind HTTP CONNECT proxies cannot use the TypeScript SDK without proxy support.",
+  "rootCause": null,
+  "proposedFix": "Implement HTTP CONNECT proxy options similar to sdk-core PR #714 and sdk-python PR #501; leverage grpc-js http_proxy environment variable support",
+  "workaround": "Use http_proxy environment variable directly (grpc-js native support)",
+  "resolution": "fixed",
+  "resolutionDetails": "HTTP CONNECT proxy support was implemented following the pattern from sdk-core and sdk-python, with grpc-js supporting it via http_proxy environment variable",
+  "related": [
+    714,
+    501
+  ],
+  "keyQuote": "Client/grpc-js supports HTTP CONNECT through setting the `http_proxy` environment variable.",
+  "number": 1387,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:37.092Z"
+}

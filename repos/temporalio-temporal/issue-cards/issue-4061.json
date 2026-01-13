@@ -1,0 +1,31 @@
+{
+  "summary": "PostgreSQL schema upgrade fails on GCP instances when creating the btree_gin extension due to insufficient permissions. The temporal_visibility user lacks the required superuser privileges to create untrusted extensions, but adding IF NOT EXISTS to the CREATE EXTENSION statement would allow reusability.",
+  "category": "bug",
+  "subcategory": "schema-upgrade",
+  "apis": [],
+  "components": [
+    "schema-upgrade",
+    "postgres-visibility",
+    "database-initialization"
+  ],
+  "concepts": [
+    "permissions",
+    "extensions",
+    "superuser",
+    "GCP-postgres",
+    "advanced-visibility",
+    "schema-migration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal on GCP Cloud SQL PostgreSQL instances cannot complete schema upgrades for advanced visibility features due to extension permission restrictions.",
+  "rootCause": "PostgreSQL btree_gin extension requires superuser permissions to create untrusted language extensions. GCP Cloud SQL restricts true superuser creation and only provides cloudsqlsuperuser role, which is insufficient for untrusted extensions. The CREATE EXTENSION statement lacks IF NOT EXISTS clause, preventing workarounds.",
+  "proposedFix": "Add IF NOT EXISTS clause to the CREATE EXTENSION btree_gin statement in schema/postgresql/v12/visibility/versioned/v1.2/advanced_visibility.sql to allow idempotent execution.",
+  "workaround": "User can manually execute schema upgrade with postgres user before running temporal schema upgrade, though this requires careful coordination.",
+  "resolution": "self_resolved",
+  "resolutionDetails": "Issue reporter found workaround with Google Cloud support assistance and closed the issue, noting that IF NOT EXISTS would help but is not critical.",
+  "related": [],
+  "keyQuote": "is it possible to add \"IF NOT EXISTS\" will be in the CREATE EXTENSION statement... adding \"IF NOT EXISTS\" to the statement could help but not critical",
+  "number": 4061,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:39.778Z"
+}

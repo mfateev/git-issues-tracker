@@ -1,0 +1,30 @@
+{
+  "summary": "Package initializer fails on Node 14 due to incorrect tsconfig version being set based on Node version. The tool was replacing the tsconfig entry in package.json with an incompatible version for older Node versions.",
+  "category": "bug",
+  "subcategory": "package-initialization",
+  "apis": [],
+  "components": [
+    "create-project",
+    "install-helpers",
+    "package-configuration"
+  ],
+  "concepts": [
+    "compatibility",
+    "node-version",
+    "typescript-config",
+    "initialization",
+    "tooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users trying to create new Temporal projects on Node 14 encounter initialization errors that prevent project setup.",
+  "rootCause": "The create-project tool was dynamically replacing the tsconfig version in package.json based on the Node version, setting an incompatible version for Node 14.",
+  "proposedFix": "Set tsconfig value to `^1.0.0` in sample package.json files or have create tool overwrite with `[version]@^1.0.0`.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by ensuring all samples have `^1.0.0` in their package.json files.",
+  "related": [],
+  "keyQuote": "We could just set the value to `^1.0.0`.",
+  "number": 383,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:40.520Z"
+}

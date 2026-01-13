@@ -1,0 +1,34 @@
+{
+  "summary": "User requested better documentation about exception handling in activities, specifically which exceptions cause failures, retries, and how to use ApplicationError in activities similar to workflows.",
+  "category": "docs",
+  "subcategory": "exception-handling",
+  "apis": [
+    "ApplicationError"
+  ],
+  "components": [
+    "activity-executor",
+    "error-handling",
+    "retry-policy"
+  ],
+  "concepts": [
+    "exception-handling",
+    "retry-policy",
+    "activity-failure",
+    "non-retryable-errors",
+    "timeout"
+  ],
+  "severity": "low",
+  "userImpact": "Users lack clear documentation on how to properly raise and handle exceptions in activities, leading to confusion about retry behavior and failure handling.",
+  "rootCause": null,
+  "proposedFix": "Add exception handling documentation section to README and improve docs.temporal.io with Python-specific activity exception examples",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation improvements were communicated to the documentation team to properly document errors for both workflows and activities",
+  "related": [
+    679
+  ],
+  "keyQuote": "All are retryable by default except for 1) if you create ApplicationError with non_retryable=True, 2) the retry_policy set when you invoke the activity has a non_retryable_error_types that includes the unqualified name of the exception class",
+  "number": 134,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:16.098Z"
+}

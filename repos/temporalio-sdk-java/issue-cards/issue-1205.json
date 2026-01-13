@@ -1,0 +1,33 @@
+{
+  "summary": "Test server throws a NullPointerException when processing a workflow query request that lacks a gRPC deadline. This causes the test service to crash instead of gracefully handling the absent deadline.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "QueryWorkflow"
+  ],
+  "components": [
+    "test-service",
+    "workflow-service",
+    "grpc-handler"
+  ],
+  "concepts": [
+    "deadline",
+    "null-pointer",
+    "error-handling",
+    "test-server",
+    "query",
+    "grpc"
+  ],
+  "severity": "high",
+  "userImpact": "Test server crashes when queries lack gRPC deadlines, breaking tests and preventing users from testing workflows with optional deadlines.",
+  "rootCause": "QueryWorkflow method in TestWorkflowService does not null-check the deadline field before dereferencing it at line 953.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The null pointer exception was fixed by adding proper null-checking for the deadline field in the TestWorkflowService.queryWorkflow method.",
+  "related": [],
+  "keyQuote": "NullPointer is thrown at io.temporal.internal.testservice.TestWorkflowService.queryWorkflow(TestWorkflowService.java:953)",
+  "number": 1205,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:13:45.719Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "SDKs need to differentiate between NamespaceInvalidState and NamespaceNotFound errors, with workers treating NamespaceNotFound as fatal but not NamespaceInvalidState. Go SDK is already implemented; Java, Core, TypeScript, PHP, and .NET still need this feature.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "error-handling",
+    "namespace-management"
+  ],
+  "concepts": [
+    "error-differentiation",
+    "namespace-errors",
+    "fatal-errors",
+    "error-classification",
+    "api-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly distinguish between different namespace error states across SDKs, leading to inconsistent error handling and recovery strategies.",
+  "rootCause": "SDKs need additional error type differentiation to match server-side error semantics for namespace-related failures.",
+  "proposedFix": "Implement separate error types or error codes for NamespaceInvalidState vs NamespaceNotFound, with worker logic treating NamespaceNotFound as fatal.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the worker should consider `NamespaceNotFound` error a fatal error, but not `NamespaceInvalidState`",
+  "number": 47,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:44:30.586Z"
+}

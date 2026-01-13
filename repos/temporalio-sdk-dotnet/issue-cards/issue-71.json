@@ -1,0 +1,30 @@
+{
+  "summary": "The .NET API documentation site fails to load table of contents (TOC) when accessed at https://dotnet.temporal.io/api without a trailing slash. A Vercel configuration setting is needed to handle trailing slash consistency.",
+  "category": "bug",
+  "subcategory": "documentation-deployment",
+  "apis": [],
+  "components": [
+    "documentation-site",
+    "vercel-configuration",
+    "api-docs"
+  ],
+  "concepts": [
+    "trailing-slash",
+    "url-routing",
+    "documentation-loading",
+    "site-configuration",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users accessing the .NET API documentation without a trailing slash encounter a broken table of contents, requiring them to add the trailing slash manually.",
+  "rootCause": "Missing Vercel configuration to handle trailing slash normalization",
+  "proposedFix": "Add vercel.json configuration with trailingSlash set to true",
+  "workaround": "Access the URL with a trailing slash: https://dotnet.temporal.io/api/",
+  "resolution": "fixed",
+  "resolutionDetails": "Likely resolved by implementing the suggested Vercel configuration change",
+  "related": [],
+  "keyQuote": "https://dotnet.temporal.io/api does not load TOC like https://dotnet.temporal.io/api/ does",
+  "number": 71,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:41:55.029Z"
+}

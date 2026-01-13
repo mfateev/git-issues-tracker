@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add MaximumUpdatesPerExecution protection to limit the number of updates accepted in a workflow execution, preventing history bloat and ensuring continueAsNew can complete successfully.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "history",
+    "dynamic-config"
+  ],
+  "concepts": [
+    "updates",
+    "protection-limits",
+    "history-management",
+    "continueAsNew",
+    "workflow-task-completion",
+    "rate-limiting"
+  ],
+  "severity": "medium",
+  "userImpact": "Without this protection, workflows receiving constant update requests can have their history blow up, preventing continueAsNew operations from completing successfully.",
+  "rootCause": "Updates on a single workflow execution lack admission control, allowing unbounded accumulation of update events in history and blocking workflow task completion.",
+  "proposedFix": "Add MaximumUpdatesPerExecution configuration similar to the existing MaximumSignalsPerExecution pattern, counting both new and admitted updates.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented following the suggested solution pattern similar to MaximumSignalsPerExecution, addressing the history bloat concern.",
+  "related": [],
+  "keyQuote": "the history could be blown up due to constant incoming requests and no chance for continueAsNew to complete",
+  "number": 6872,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:16.586Z"
+}

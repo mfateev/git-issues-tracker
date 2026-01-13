@@ -1,0 +1,36 @@
+{
+  "summary": "Need a unit test demonstrating protobuf serialization for workflow inputs/outputs in sandbox mode, with documentation explaining that protobufs must be added as passthrough modules due to protobuf static C state reloading issues.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "protobuf-serialization",
+    "sandbox",
+    "module-reloading",
+    "test-framework"
+  ],
+  "concepts": [
+    "protobuf",
+    "serialization",
+    "deserialization",
+    "module-reloading",
+    "static-state",
+    "sandbox-execution",
+    "passthrough-modules"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to understand that protobufs must be added as passthrough modules to work correctly with workflow reloading in sandbox mode.",
+  "rootCause": "Protobuf static C state is problematic when reloading import modules, as referenced in protocolbuffers/protobuf#10075 and #10143.",
+  "proposedFix": "Add a unit test demonstrating proper protobuf usage as inputs/outputs of workflows in sandbox with documentation explaining the passthrough module requirement.",
+  "workaround": "Add protobufs as passthrough modules until the upstream protobuf issue is fixed.",
+  "resolution": "fixed",
+  "resolutionDetails": "Merged with pull request #215.",
+  "related": [
+    181,
+    215
+  ],
+  "keyQuote": "Explain that protobufs have to be added as passthrough modules until that is fix, and add a unit test that we can clean up when that's fixed.",
+  "number": 182,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:00.833Z"
+}

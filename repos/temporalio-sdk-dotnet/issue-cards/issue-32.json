@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add CancellationToken parameter to TemporalClient.ConnectAsync() and related connection methods, following .NET standard practice for I/O operations. The maintainer indicates this requires Rust integration work that hasn't been completed yet.",
+  "category": "feature",
+  "subcategory": "connection-cancellation",
+  "apis": [
+    "TemporalClient.ConnectAsync",
+    "TemporalConnection.ConnectAsync"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "async-runtime"
+  ],
+  "concepts": [
+    "cancellation",
+    "cancellation-token",
+    "timeout",
+    "async-io",
+    "connection-management",
+    "rust-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot abort long-running connection attempts, making it difficult to implement timeout behavior in .NET applications.",
+  "rootCause": "CancellationToken support requires integration with Tokio in Rust, which has not yet been implemented for the connect process.",
+  "proposedFix": "Add optional CancellationToken parameter to ConnectAsync methods, potentially as part of options object to minimize overload count.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we intentionally did not include a cancellation token on connect because we don't have that wired up with Rust",
+  "number": 32,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:07:43.615Z"
+}

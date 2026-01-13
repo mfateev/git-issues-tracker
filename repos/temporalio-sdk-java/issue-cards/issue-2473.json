@@ -1,0 +1,37 @@
+{
+  "summary": "When a workflow is canceled while executing activities and timers within cancellation scopes, the order in which pending operations are canceled is non-deterministic, causing NonDeterministicException during replay. The SDK iterates over a HashSet without deterministic ordering.",
+  "category": "bug",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "Workflow.newCancellationScope",
+    "Async.procedure",
+    "Workflow.sleep",
+    "Workflow.newActivityStub"
+  ],
+  "components": [
+    "cancellation-scope",
+    "async-executor",
+    "workflow-replay",
+    "history-generation"
+  ],
+  "concepts": [
+    "determinism",
+    "cancellation",
+    "non-deterministic-order",
+    "workflow-replay",
+    "history-ordering",
+    "concurrency"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using cancellation scopes with concurrent operations fail unpredictably during replay due to non-deterministic cancellation ordering.",
+  "rootCause": "SDK iterates over a HashSet without deterministic ordering when canceling multiple pending operations.",
+  "proposedFix": null,
+  "workaround": "Move async procedures inside the cancellation scope to ensure consistent cancellation order of nested operations.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fix involves replacing HashSet iteration with deterministic ordering; deferred to a future release due to backwards compatibility concerns.",
+  "related": [],
+  "keyQuote": "the SDK iterating over a HashSet which is not deterministic. Due to some backwards compatibility concerns this fix won't be enabled until 2 minor releases.",
+  "number": 2473,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:27.759Z"
+}

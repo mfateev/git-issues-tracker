@@ -1,0 +1,37 @@
+{
+  "summary": "CompleteUpdate message is sometimes not honored when submitted in the same workflow task completion as ContinueAsNew. The update is occasionally lost and applied to the post-ContinueAsNew run instead, causing the update caller to receive a server error and the update to be processed twice.",
+  "category": "bug",
+  "subcategory": "workflow-updates-continue-as-new",
+  "apis": [
+    "UpdateWorkflowExecution",
+    "ContinueAsNew"
+  ],
+  "components": [
+    "history-service",
+    "frontend-service",
+    "workflow-execution",
+    "statemachine"
+  ],
+  "concepts": [
+    "update-processing",
+    "continue-as-new",
+    "workflow-task-completion",
+    "retry-logic",
+    "race-condition",
+    "execution-run"
+  ],
+  "severity": "high",
+  "userImpact": "Users lose workflow updates or have them applied twice when updating and immediately using ContinueAsNew in the same task, causing inconsistent workflow state and broken update semantics.",
+  "rootCause": "When completing an update in the same WFT as ContinueAsNew, an internal error can occur causing the history service to fail with 'unable to locate current workflow execution'. The frontend service retries the update request, which then lands on the new run created by ContinueAsNew and is processed a second time.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1459
+  ],
+  "keyQuote": "server error causes an internal retry (FE => History) of the UpdateWorkflowExecution, and this retry lands on the 2nd run, after CAN",
+  "number": 6375,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:48.563Z"
+}

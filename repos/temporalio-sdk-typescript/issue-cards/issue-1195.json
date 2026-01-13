@@ -1,0 +1,32 @@
+{
+  "summary": "Log entries forwarded from the core runtime lack metadata fields like workflow ID and run ID, making them non-actionable. The core has these fields available but they're not being extracted and passed to the TypeScript logger.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logger",
+    "runtime",
+    "telemetry",
+    "core-integration"
+  ],
+  "concepts": [
+    "metadata",
+    "logging",
+    "observability",
+    "debugging",
+    "forwarding",
+    "attributes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively debug or monitor workflows because forwarded core logs lack essential metadata like workflow ID and run ID needed to correlate logs with workflow executions.",
+  "rootCause": "The SDK currently ships pre-formatted logs from Core without extracting individual attributes/metadata fields that are available in the Core API's telemetry structures.",
+  "proposedFix": "Extract log attributes from the Core telemetry API and pass them to the lang logger, with field name casing normalization (e.g., workflow_type to workflowType).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Core telemetry fields were made available for extraction by the TypeScript SDK.",
+  "related": [],
+  "keyQuote": "Especially log entries like `Failing workflow task` need to include the workflow id and run id for them to be actionable.",
+  "number": 1195,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:36.698Z"
+}

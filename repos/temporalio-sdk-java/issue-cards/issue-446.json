@@ -1,0 +1,30 @@
+{
+  "summary": "Worker logs ERROR when rejecting a workflow close request due to a signal race condition, but the workflow eventually closes successfully after signal processing. The log level should be INFO instead of ERROR since this is expected behavior in concurrent signal/close scenarios.",
+  "category": "bug",
+  "subcategory": "workflow-closing",
+  "apis": [],
+  "components": [
+    "worker",
+    "signal-handler",
+    "workflow-task-processor"
+  ],
+  "concepts": [
+    "race-condition",
+    "signal-processing",
+    "error-logging",
+    "workflow-state",
+    "concurrent-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are misled by ERROR logs that indicate failures, when the operation actually succeeds after signal processing, causing confusion during troubleshooting.",
+  "rootCause": "A signal arrives at the service while the worker is processing a workflow close task, causing the service to reject the close request. The worker logs this rejection as ERROR, but the workflow eventually closes successfully after the signal is processed.",
+  "proposedFix": "Change the log level from ERROR to INFO for this specific failure case, since it's expected behavior in signal race condition scenarios and the workflow recovers successfully.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The log level was changed from ERROR to INFO for failed workflow task closures caused by signal race conditions, as this is expected and recoverable behavior.",
+  "related": [],
+  "keyQuote": "When the worker tries to close the workflow, the service will reject the request to close the workflow... But everything will be fine after the signal is processed",
+  "number": 446,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:18:24.010Z"
+}

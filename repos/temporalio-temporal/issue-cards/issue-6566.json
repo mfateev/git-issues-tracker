@@ -1,0 +1,33 @@
+{
+  "summary": "The Elasticsearch Scroll API in Temporal 1.24.0+ fails when performing batch workflow resets via tctl because track_total_hits is disabled, which is not allowed in scroll contexts. This prevents users from querying and batch-resetting workflows.",
+  "category": "bug",
+  "subcategory": "elasticsearch-visibility",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "scroll-api",
+    "workflow-visibility",
+    "batch-operations"
+  ],
+  "concepts": [
+    "elasticsearch-scroll",
+    "track_total_hits",
+    "query-validation",
+    "batch-reset",
+    "visibility-store"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot batch reset workflows via tctl queries in Temporal 1.24.0+, blocking a critical workflow management operation.",
+  "rootCause": "The track_total_hits setting was disabled in the Elasticsearch query for the Scroll API, but Elasticsearch 7.10 does not allow disabling this in scroll contexts, causing a validation error.",
+  "proposedFix": "Re-enable track_total_hits for the Elasticsearch Scroll API query context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #6592, included in a subsequent patch release.",
+  "related": [
+    6592
+  ],
+  "keyQuote": "disabling [track_total_hits] is not allowed in a scroll context",
+  "number": 6566,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:35.677Z"
+}

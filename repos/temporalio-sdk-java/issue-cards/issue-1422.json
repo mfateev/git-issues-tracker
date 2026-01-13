@@ -1,0 +1,35 @@
+{
+  "summary": "MicrometerClientStatsReporter does not report histogram metrics like .max, .avg, .median submetrics, only the base temporal_request_latency metric is published. The issue stems from reportHistogramValueSamples and reportHistogramDurationSamples methods being implemented as no-ops.",
+  "category": "bug",
+  "subcategory": "metrics-reporting",
+  "apis": [
+    "WorkflowServiceStubsOptions",
+    "RootScopeBuilder",
+    "MicrometerClientStatsReporter"
+  ],
+  "components": [
+    "MicrometerClientStatsReporter",
+    "metrics-bridge",
+    "tally-micrometer"
+  ],
+  "concepts": [
+    "histogram",
+    "metrics",
+    "distribution",
+    "aggregation",
+    "micrometer",
+    "reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users configuring metrics with MicrometerClientStatsReporter cannot access histogram submetrics needed for performance monitoring and observability.",
+  "rootCause": "reportHistogramValueSamples and reportHistogramDurationSamples methods are implemented as no-ops instead of properly handling histogram distribution.",
+  "proposedFix": null,
+  "workaround": "Use Datadog backend for distribution aggregation instead of client-side aggregation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed as distribution aggregation is handled by Datadog backend rather than on the client side with micrometer+datadog setup.",
+  "related": [],
+  "keyQuote": "distribution aggregation is done on the datadog backend and not on the client as it used to",
+  "number": 1422,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:01.935Z"
+}

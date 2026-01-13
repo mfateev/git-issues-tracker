@@ -1,0 +1,35 @@
+{
+  "summary": "The `retry_policy` field is not populated in `activity.info()` even when it's explicitly specified in the `workflow.execute_activity()` call. This prevents activities from accessing retry configuration, including non-retryable error types, despite the policy being defined at the workflow level.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "execute_activity",
+    "activity.info",
+    "RetryPolicy"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-context",
+    "retry-policy-handling"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-info",
+    "non-retryable-errors",
+    "activity-context",
+    "execution-configuration",
+    "policy-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities cannot access retry policy configuration at runtime, preventing them from making decisions based on configured retry behavior or non-retryable error types.",
+  "rootCause": "The retry_policy is not being passed through to the activity context when activities are executed, despite being specified in the execute_activity call.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "retry_policy isn't set even though it's set on the workflow.execute_activity call.",
+  "number": 1203,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:42.876Z"
+}

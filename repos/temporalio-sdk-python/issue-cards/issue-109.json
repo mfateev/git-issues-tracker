@@ -1,0 +1,33 @@
+{
+  "summary": "Request to accept timedelta, float, or int for all user-facing duration inputs across the Python SDK. Currently only wait_condition accepts floats; other APIs require timedeltas. The request was closed as won't fix due to API confusion concerns, but the author committed to accepting both types where floats are already supported for consistency.",
+  "category": "feature",
+  "subcategory": "duration-api",
+  "apis": [
+    "wait_condition",
+    "RetryPolicy"
+  ],
+  "components": [
+    "duration-handling",
+    "api-design",
+    "type-system"
+  ],
+  "concepts": [
+    "duration",
+    "type-flexibility",
+    "python-idioms",
+    "api-consistency",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must use timedeltas everywhere in the SDK, which is less intuitive than Python's native support for float seconds.",
+  "rootCause": "Inconsistent duration input handling across the SDK API surface, with only wait_condition accepting float/int seconds.",
+  "proposedFix": "Accept Union[timedelta, float, int] for all duration inputs, with timedeltas as the canonical return type.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as won't fix due to concerns about API confusion and burden of conversion utilities. However, author committed to accepting both timedeltas and floats where floats are already supported.",
+  "related": [],
+  "keyQuote": "Everywhere that we accept duration input we should accept a timedelta or a float/int of seconds. But keep timedeltas as the way we show durations.",
+  "number": 109,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:30.177Z"
+}

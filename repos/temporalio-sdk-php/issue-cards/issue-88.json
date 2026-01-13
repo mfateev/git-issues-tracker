@@ -1,0 +1,30 @@
+{
+  "summary": "The service container and worker factory classes need to be rewritten with a clearer, more user-friendly approach, potentially using PSR-11 standard. This refactoring should address design issues and consider that these services are also used in the client.",
+  "category": "feature",
+  "subcategory": "service-container",
+  "apis": [],
+  "components": [
+    "ServiceContainer",
+    "WorkerFactory",
+    "service-management"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "PSR-11",
+    "service-locator",
+    "architecture",
+    "maintainability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience an unclear and less user-friendly service container API that could be simplified through PSR-11 standard compliance.",
+  "rootCause": "The current service container implementation lacks clarity and doesn't follow standard patterns; the design needs improvement for both worker and client use cases.",
+  "proposedFix": "Rewrite service container and worker factory using PSR-11 standard for a clearer, more user-friendly approach.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed because the current structure is stable and sufficient for current needs.",
+  "related": [],
+  "keyQuote": "Should be rewritten using a clearer and more user-friendly approach (global PSR-11?).",
+  "number": 88,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:00.660Z"
+}

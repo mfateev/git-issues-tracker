@@ -1,0 +1,30 @@
+{
+  "summary": "Request to upgrade Go version from current to 1.23.5 to address multiple reported security vulnerabilities (CVEs) affecting the open source version.",
+  "category": "bug",
+  "subcategory": "dependency-update",
+  "apis": [],
+  "components": [
+    "build-system",
+    "golang-runtime",
+    "ci-cd"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency-management",
+    "version-upgrade",
+    "cve-patching"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to known security vulnerabilities in the Go runtime that could be exploited in deployed Temporal systems.",
+  "rootCause": "Current Go version contains unpatched security vulnerabilities (CVE-2024-45341, CVE-2025-22866, CVE-2024-45336, CVE-2024-9355).",
+  "proposedFix": "Upgrade Go version to 1.23.5 which includes patches for the reported CVEs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Please upgrade the golang version to 1.23.5 as we have bugs reported for the open source version",
+  "number": 7867,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:44.027Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to wrap Java's high-fidelity test service as an out-of-process server executable that can be used as a lightweight sidecar by all SDK languages. This would provide reliable testing capabilities (replays, sleep skipping) across Ruby, Go, and other SDKs instead of maintaining separate, lower-fidelity test implementations.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-service",
+    "test-framework",
+    "sdk-integration"
+  ],
+  "concepts": [
+    "testing",
+    "test-fidelity",
+    "multi-language-support",
+    "replay",
+    "sidecar",
+    "service-wrapper",
+    "production-emulation"
+  ],
+  "severity": "high",
+  "userImpact": "Enables all SDK users to write trustworthy tests with high-fidelity testing capabilities like replays and sleep skipping, reducing risk of untestable code patterns in production.",
+  "rootCause": "Current SDK test implementations vary in fidelity; Ruby and Go use local synchronous testing that doesn't emulate production and doesn't support replays, sleeps, and versioning testing.",
+  "proposedFix": "Wrap the Java test service in a server executable that can be deployed as a lightweight sidecar and used by any SDK language.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Out-of-process test server was implemented and merged in sdk-java#470.",
+  "related": [
+    470
+  ],
+  "keyQuote": "Java is the only SDK to have a high-fidelity test service (i.e. one does replays, skips sleeps). If we wrap the java test service in a server executable, it can be used by all users of all SDKs.",
+  "number": 1521,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:34:32.240Z"
+}

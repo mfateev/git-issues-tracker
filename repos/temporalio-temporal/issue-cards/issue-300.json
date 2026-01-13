@@ -1,0 +1,28 @@
+{
+  "summary": "The QueryWorkflowBeforeFirstDecision error is incorrectly classified as an InvalidArgument failure when it should be a QueryFailed error, since it's related to workflow state rather than the request itself.",
+  "category": "bug",
+  "subcategory": "query-workflow",
+  "apis": [],
+  "components": [
+    "history-engine",
+    "query-handler"
+  ],
+  "concepts": [
+    "error-classification",
+    "query-execution",
+    "workflow-state",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive misleading error codes when querying workflows before they've reached their first decision, making it harder to understand the actual problem.",
+  "rootCause": "The QueryWorkflowBeforeFirstDecision failure is mapped to InvalidArgument error type, which is semantically incorrect since the error is caused by workflow state, not invalid request arguments.",
+  "proposedFix": "Change the error type from InvalidArgument to QueryFailed, possibly with additional information in the QueryFailed structure.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error classification was corrected to use QueryFailed instead of InvalidArgument for pre-decision queries.",
+  "related": [],
+  "keyQuote": "This failure is not related to the request itself. So it shouldn't be InvalidArgument.",
+  "number": 300,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:26:52.236Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "User unable to build TypeScript SDK application with Worker due to unresolved module '__temporal_custom_payload_converter'. The issue stems from bundling the Worker and requires clarification on setup and bundling approach.",
+  "category": "bug",
+  "subcategory": "worker-bundling",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "bundler",
+    "module-resolution"
+  ],
+  "concepts": [
+    "bundling",
+    "module-resolution",
+    "worker-setup",
+    "build-process",
+    "dependency-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot build applications with Workers due to missing module resolution, blocking workflow execution with Worker infrastructure.",
+  "rootCause": "Unclear bundling configuration or missing dependencies when bundling the Worker component in the application build process.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue closed as invalid - determined to be a configuration/usage issue rather than a SDK bug. User needed to provide more details about their bundling setup.",
+  "related": [],
+  "keyQuote": "Can you please give more details? Why and how are you bundling the Worker itself?",
+  "number": 1406,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:27.225Z"
+}

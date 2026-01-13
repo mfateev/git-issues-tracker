@@ -1,0 +1,30 @@
+{
+  "summary": "User asks whether Temporal supports automatic rollback/compensation when workflow steps fail or when a workflow is cancelled, in the context of cloud resource provisioning (VMs, IPs) that need cleanup on failure.",
+  "category": "question",
+  "subcategory": "saga-pattern",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "cancellation-handling"
+  ],
+  "concepts": [
+    "rollback",
+    "saga-pattern",
+    "compensation",
+    "workflow-cancellation",
+    "resource-cleanup",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users need to understand how to implement cleanup/rollback logic when provisioning cloud resources with Temporal workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Implement explicit rollback steps in the workflow to handle failures and cancellations manually, using the saga pattern as shown in provided examples.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as the question was answered - Temporal does not do automatic rollback/compensation but provides patterns (saga) for implementing it explicitly.",
+  "related": [],
+  "keyQuote": "Temporal will not do automatically rollback (or saga compenstaion), but your workflow would have to handle that explicitly.",
+  "number": 4358,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:14.098Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add test coverage ensuring workflow changes are evaluated consistently across all Temporal SDKs regarding determinism. Test should verify that if a code change is non-deterministic in one language, it's non-deterministic in all others.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "workflow-execution",
+    "determinism-detection"
+  ],
+  "concepts": [
+    "determinism",
+    "non-determinism",
+    "cross-language-compatibility",
+    "workflow-replay",
+    "test-coverage",
+    "code-changes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need confidence that determinism rules are consistently enforced across language SDKs to ensure reliable workflow execution.",
+  "rootCause": null,
+  "proposedFix": "Create a general-purpose test workflow accepting two parameters (non-replay behavior, replay behavior), with a helper to run to completion, query for non-determinism errors, and test various code change combinations across all SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Can be a general purpose test workflow that takes two params saying what to do on non-replay and what to do on replay.",
+  "number": 228,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:40.329Z"
+}

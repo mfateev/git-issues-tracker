@@ -1,0 +1,35 @@
+{
+  "summary": "Spring Boot auto-configuration doesn't support dynamic or interpolated task queues. Users need the ability to set task queues programmatically or through property resolution in the WorkersTemplate, similar to how activities can be registered to multiple queues in samples.",
+  "category": "feature",
+  "subcategory": "spring-boot-configuration",
+  "apis": [
+    "WorkersTemplate",
+    "ActivityImpl"
+  ],
+  "components": [
+    "spring-boot-autoconfigure",
+    "WorkersTemplate",
+    "annotation-processing"
+  ],
+  "concepts": [
+    "dynamic-configuration",
+    "property-interpolation",
+    "task-queues",
+    "auto-discovery",
+    "programmatic-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users adopting Spring Boot auto-configuration cannot dynamically assign activities to multiple task queues or use property-based configuration, forcing them to choose between auto-discovery convenience and configuration flexibility.",
+  "rootCause": "WorkersTemplate lacks a resolver function mechanism for task queues and doesn't support property value interpolation in annotations, limiting it to static hardcoded string lists.",
+  "proposedFix": "Introduce a resolver function mechanism in WorkersTemplate similar to JUnit's @ParameterizedTest @MethodSource pattern, and add property value interpolation support to task queue annotations.",
+  "workaround": "Users can use explicit configuration instead of auto-discovery by package, or bypass Spring Boot entirely and configure WorkerFactory programmatically.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by issue #1623, which likely implemented support for dynamic task queue configuration in the Spring Boot auto-configuration module.",
+  "related": [
+    1623
+  ],
+  "keyQuote": "The WorkersTemplate doesn't have a way to delegate taskQueues to a resolver function. Ideally, it would work similar to how JUnit's @ParameterizedTest + @MethodSource works.",
+  "number": 1550,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:17.830Z"
+}

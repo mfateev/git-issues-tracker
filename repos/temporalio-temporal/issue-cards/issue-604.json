@@ -1,0 +1,32 @@
+{
+  "summary": "Parent workflow termination does not propagate to child workflows. When a parent workflow is terminated, child workflows with TERMINATE parent close policy remain in Running state instead of being terminated, and the parent close policy processor crashes with a nil pointer dereference when attempting to terminate children.",
+  "category": "bug",
+  "subcategory": "parent-close-policy",
+  "apis": [
+    "TerminateWorkflowExecution"
+  ],
+  "components": [
+    "parent-close-policy",
+    "history-client",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "cascading-termination",
+    "parent-child-workflows",
+    "workflow-lifecycle",
+    "context-handling",
+    "nil-pointer"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably terminate hierarchical workflow structures; child workflows continue running even after parent termination, and the system processor crashes when attempting cleanup.",
+  "rootCause": "The parent close policy processor passes nil context when calling TerminateWorkflowExecution, causing a nil pointer dereference in the IsValidContext validation function.",
+  "proposedFix": "Either pass the actual context instead of nil when terminating child workflows, or modify context validation to handle nil context gracefully.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Context handling in parent close policy was corrected to pass valid context or handle nil context appropriately.",
+  "related": [],
+  "keyQuote": "Interestingly, we are passing a nil context when terminating from the system workflow for both terminate and cancel: Ultimately, that causes the nil reference exception",
+  "number": 604,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:20:00.022Z"
+}

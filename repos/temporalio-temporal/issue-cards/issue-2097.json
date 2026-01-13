@@ -1,0 +1,30 @@
+{
+  "summary": "DNS resolution error appears in Temporal Web UI when typing in text input fields when running the docker-compose example on Mac M1. The error is triggered during text input interactions but doesn't prevent basic functionality like accessing localhost:8088.",
+  "category": "bug",
+  "subcategory": "web-ui-docker",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "docker-compose",
+    "dns-resolver"
+  ],
+  "concepts": [
+    "dns-resolution",
+    "docker-networking",
+    "web-ui-interaction",
+    "error-handling",
+    "m1-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users encounter DNS resolution error messages in the Web UI during text input, creating a poor experience despite core functionality working.",
+  "rootCause": "DNS resolution failure triggered during text input interactions in the Web UI, likely related to docker networking configuration on M1 Macs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Verified resolved in v1.24 or later; issue no longer reproducible on current versions.",
+  "related": [],
+  "keyQuote": "Verified that this is no longer repro on v1.24 at least.",
+  "number": 2097,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:26.186Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Request to expose describeWorkflowExecution as part of the official WorkflowStub API in Java SDK. Users regularly need this API for checking workflow status and related checks, and it should be wrapped in a friendly Java class.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "describeWorkflowExecution",
+    "WorkflowStub"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-stub",
+    "grpc-wrapper"
+  ],
+  "concepts": [
+    "workflow-status",
+    "workflow-inspection",
+    "api-exposure",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently lack a convenient SDK method to check workflow execution status and details, forcing them to work directly with gRPC APIs.",
+  "rootCause": null,
+  "proposedFix": "Wrap describeWorkflowExecution in a friendly Java class as part of WorkflowStub API, exposing at least the status field with option to access the underlying gRPC response.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #2265",
+  "related": [
+    1028,
+    17,
+    2265
+  ],
+  "keyQuote": "describeWorkflowExecution is an API that is used regularly for a large range of checks by the users, Temporal SDK should expose it",
+  "number": 1036,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:01:43.236Z"
+}

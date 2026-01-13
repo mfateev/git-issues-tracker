@@ -1,0 +1,30 @@
+{
+  "summary": "Automated security report identifying 8 vulnerabilities in transitive dependencies of the core package, with the highest severity being 7.8 (CVE-2021-43138 in async library). The issue was automatically closed when the vulnerable dependencies were removed or updated.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "webpack-dev-server",
+    "node-forge",
+    "async",
+    "ansi-regex"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "transitive-dependency",
+    "cvss-score"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to multiple high-severity security vulnerabilities through transitive dependencies in the SDK, potentially affecting the confidentiality, integrity, and availability of applications using this version.",
+  "rootCause": "Outdated transitive dependencies (async-2.6.3, node-forge-1.2.1, ansi-regex, trim, nth-check, shelljs) with known CVEs were included in the build.",
+  "proposedFix": "Upgrade vulnerable libraries: async to v3.2.2, ansi-regex to 5.0.1/6.0.1, node-forge to a patched version, and update other affected dependencies (trim, nth-check, shelljs).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automatically closed by WhiteSource when vulnerable dependencies were removed or updated in the inventory.",
+  "related": [],
+  "keyQuote": "Found 8 vulnerabilities (highest severity is: 7.8) - This issue was automatically closed by WhiteSource because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the WhiteSource inventory.",
+  "number": 574,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:02:13.102Z"
+}

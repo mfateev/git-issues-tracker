@@ -1,0 +1,32 @@
+{
+  "summary": "Test environment history output is not compliant with tctl format, preventing generated histories from being used directly in the replayer. The test framework needs to produce tctl-compatible history for proper replay testing.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-environment",
+    "history-generation",
+    "replayer"
+  ],
+  "concepts": [
+    "history-format",
+    "tctl-compatibility",
+    "replay-testing",
+    "protobuf-serialization",
+    "test-helpers"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use test-generated histories directly for replaying workflows, requiring manual formatting conversions.",
+  "rootCause": "Test environment generates history in TextFormat for human readability, but tctl uses protobuf JsonFormat with Base64-encoded ByteString, creating an incompatibility.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    300
+  ],
+  "keyQuote": "The test environment should produce histories that can be used in the replayer.",
+  "number": 779,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:42:09.607Z"
+}

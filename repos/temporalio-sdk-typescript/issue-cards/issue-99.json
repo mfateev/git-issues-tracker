@@ -1,0 +1,32 @@
+{
+  "summary": "Refactor the native Rust bridge value extraction code by replacing a repetitive 3-line pattern with a reusable macro to improve code cleanliness and maintainability.",
+  "category": "other",
+  "subcategory": "native-bridge",
+  "apis": [],
+  "components": [
+    "native-bridge",
+    "rust-bindings",
+    "js-value-conversion"
+  ],
+  "concepts": [
+    "code-cleanup",
+    "macro",
+    "rust",
+    "native-interop",
+    "refactoring"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact; improves developer experience by reducing code duplication in the native bridge implementation.",
+  "rootCause": null,
+  "proposedFix": "Replace the 3-line repetitive value extraction pattern with a Rust macro that abstracts the get, downcast, and value operations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The enhancement was implemented to clean up the native bridge code using a macro pattern.",
+  "related": [
+    97
+  ],
+  "keyQuote": "Replace it with this... macro_rules! js_value!... Then you can just say js_value!(server_options, cx, \"namespace\", JsString)",
+  "number": 99,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:25.092Z"
+}

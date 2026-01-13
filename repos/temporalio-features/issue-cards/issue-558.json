@@ -1,0 +1,39 @@
+{
+  "summary": "Feature request to add WorkflowIdConflictPolicy support in child workflow options across all SDKs. Currently, developers lack built-in support for handling workflow ID conflicts in child workflows, requiring complex workarounds and manual conflict resolution.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartWorkflow",
+    "WorkflowIdConflictPolicy",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-options",
+    "conflict-resolution"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "child-workflows",
+    "durable-execution",
+    "failure-handling",
+    "idempotency",
+    "workflow-reuse"
+  ],
+  "severity": "high",
+  "userImpact": "Developers must implement complex manual workarounds to handle workflow ID conflicts in child workflows, breaking the durable execution promise and increasing operational complexity.",
+  "rootCause": "WorkflowIdConflictPolicy is not exposed in child workflow options, forcing developers to use activities or external state management for conflict resolution.",
+  "proposedFix": "Add WorkflowIdConflictPolicy to child workflow options across all SDKs, allowing developers to specify conflict behavior (USE_EXISTING, FAIL, TERMINATE_EXISTING) natively.",
+  "workaround": "Use activities with infinite retry and external workflow handles for conflict detection/termination, or maintain external state to track running workflows and manage cancellation manually.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    437,
+    6799,
+    2308
+  ],
+  "keyQuote": "This ultimately breaks the 'durable execution' promise: Failures happen. Temporal makes them irrelevant.",
+  "number": 558,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:44.327Z"
+}

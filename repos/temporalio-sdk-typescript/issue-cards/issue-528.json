@@ -1,0 +1,30 @@
+{
+  "summary": "CI tests are being skipped with 'No tests found' errors in the TypeScript SDK build pipeline. The issue manifests in the Windows CI environment, particularly affecting integration and codec tests.",
+  "category": "bug",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "test-runner",
+    "build-system",
+    "ci-pipeline"
+  ],
+  "concepts": [
+    "test-discovery",
+    "build-failure",
+    "ci-integration",
+    "test-execution",
+    "windows-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot verify that their code changes work correctly because CI tests are silently skipped instead of running.",
+  "rootCause": "Issue with core build preventing tests from being found and executed in the CI environment",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Maintainer closed the issue indicating the root cause was no longer relevant or had been addressed separately",
+  "related": [],
+  "keyQuote": "I don't remember what this is anymore, closing.",
+  "number": 528,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:42.907Z"
+}

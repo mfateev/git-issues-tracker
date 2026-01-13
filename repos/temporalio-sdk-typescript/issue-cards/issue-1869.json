@@ -1,0 +1,30 @@
+{
+  "summary": "The TypeScript SDK is not reading the default environment configuration TOML file from the correct macOS path ($HOME/Library/Application Support/temporalio/temporal.toml), causing configuration loading to fail.",
+  "category": "bug",
+  "subcategory": "environment-configuration",
+  "apis": [],
+  "components": [
+    "environment-config",
+    "config-loader",
+    "file-system"
+  ],
+  "concepts": [
+    "configuration-loading",
+    "file-path",
+    "platform-specific",
+    "macos",
+    "default-config"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers on macOS cannot load default environment configuration files, preventing users from using centralized configuration management on that platform.",
+  "rootCause": "The TypeScript SDK is not correctly resolving the macOS Application Support directory path for environment configuration files.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was confirmed to be a file path resolution problem in the SDK that was fixed to correctly use $HOME/Library/Application Support/temporalio/temporal.toml on macOS.",
+  "related": [],
+  "keyQuote": "the SDKs should read the toml config file on a mac from $HOME/Library/Application Support/temporal/temporal.toml. However this path is not being read",
+  "number": 1869,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T10:06:33.342Z"
+}

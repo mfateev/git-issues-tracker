@@ -1,0 +1,31 @@
+{
+  "summary": "Task queue validation logic is duplicated in two locations (frontend workflow handler and history service command checker) with inconsistent rules and defaults. This feature request seeks to consolidate validation into a common helper function for standardization across the codebase.",
+  "category": "feature",
+  "subcategory": "validation",
+  "apis": [],
+  "components": [
+    "frontend",
+    "history-service",
+    "task-queue",
+    "command-checker"
+  ],
+  "concepts": [
+    "validation",
+    "standardization",
+    "task-queue",
+    "code-duplication",
+    "refactoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Inconsistent task queue validation rules across components may lead to unexpected behavior or errors in workflow execution depending on the code path.",
+  "rootCause": "Task queue validation logic was implemented independently in two different services without a shared utility function.",
+  "proposedFix": "Move task queue validation to a common helper function and standardize its application across all service components.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Validation was consolidated into a shared helper function with standardized rules applied consistently.",
+  "related": [],
+  "keyQuote": "Task queue validation should be moved to a common helper and standardized across the code base.",
+  "number": 5628,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:05.307Z"
+}

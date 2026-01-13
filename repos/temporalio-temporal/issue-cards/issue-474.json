@@ -1,0 +1,29 @@
+{
+  "summary": "MySQL database password is displayed in plain text in log files during Temporal cluster bootstrap, exposing sensitive credentials. The log statement should either obfuscate the password or avoid including it entirely.",
+  "category": "bug",
+  "subcategory": "security-logging",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "bootstrap",
+    "logging"
+  ],
+  "concepts": [
+    "password-exposure",
+    "credential-security",
+    "log-sanitization",
+    "secret-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal clusters have their database passwords exposed in plain text logs, creating a significant security vulnerability.",
+  "rootCause": "The bootstrap logging statement includes the plaintext password parameter when executing temporal-sql-tool commands.",
+  "proposedFix": "Obfuscate the password in log output or remove it from the log statement entirely.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Password should be obfuscated rather than being displayed in plain text. Alternatively if log statement could be modified to avoid spilling out secret that would be great.",
+  "number": 474,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:01:10.418Z"
+}

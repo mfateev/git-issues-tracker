@@ -1,0 +1,39 @@
+{
+  "summary": "Retry policies configured on scheduled workflows via RetryOptions are not being applied when the workflow fails. The retry configuration is ignored during the mapping from Java SDK objects to protobuf service client objects, causing scheduled workflow retries to either fail to work or use an incorrect default retry policy.",
+  "category": "bug",
+  "subcategory": "scheduled-workflows",
+  "apis": [
+    "ScheduleActionStartWorkflow",
+    "WorkflowOptions",
+    "RetryOptions",
+    "ScheduleClient",
+    "createSchedule"
+  ],
+  "components": [
+    "schedule-client",
+    "proto-serialization",
+    "retry-policy",
+    "workflow-options"
+  ],
+  "concepts": [
+    "retry",
+    "scheduled-workflows",
+    "backoff-coefficient",
+    "workflow-execution",
+    "retry-policy-serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot configure custom retry policies for scheduled workflows, breaking a critical reliability pattern and causing unexpected workflow behavior.",
+  "rootCause": "RetryOptions object is ignored during mapping of ScheduleAction from temporal-sdk-java to temporal-serviceclient protobuf objects. The RetryPolicy field in NewWorkflowExecutionInfo remains null despite RetryOptions being provided.",
+  "proposedFix": "Fix the proto serialization in ScheduleProtoUtil.actionToProto() to properly map RetryOptions to the protobuf RetryPolicy field.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in PR #2082 included in Java SDK v1.24.0",
+  "related": [
+    2082
+  ],
+  "keyQuote": "RetryOptions object which we pass to the Temporal client is being ignored. During that mapping ScheduleAction.action_.retryPolicy_ stays null",
+  "number": 2100,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:47.363Z"
+}

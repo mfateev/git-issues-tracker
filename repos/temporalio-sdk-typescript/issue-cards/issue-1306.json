@@ -1,0 +1,34 @@
+{
+  "summary": "Add a getUpdateHandle() method to workflowHandle to obtain an UpdateHandle given update and workflow execution identifiers.",
+  "category": "feature",
+  "subcategory": "update-handle",
+  "apis": [
+    "getUpdateHandle",
+    "UpdateHandle",
+    "workflowHandle"
+  ],
+  "components": [
+    "workflow-handle",
+    "update-client"
+  ],
+  "concepts": [
+    "update-handle",
+    "workflow-execution",
+    "handle-retrieval",
+    "workflow-interaction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can retrieve an UpdateHandle for an existing workflow execution to interact with pending or completed updates.",
+  "rootCause": null,
+  "proposedFix": "Implement workflowHandle.getUpdateHandle(...) method accepting update and workflow execution identifiers",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented in the TypeScript SDK",
+  "related": [
+    424
+  ],
+  "keyQuote": "Add `workflowHandle.getUpdateHandle(...)` method to obtain an `UpdateHandle` given update and workflow execution identifiers.",
+  "number": 1306,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:00.458Z"
+}

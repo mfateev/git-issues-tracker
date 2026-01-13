@@ -1,0 +1,32 @@
+{
+  "summary": "Memory leak caused by accumulation of OperatorSubscriber objects that are not properly cleaned up in the temporal TypeScript worker, leading to out-of-memory container kills. Issue was resolved in an earlier SDK version, though similar symptoms may occur in user code with incorrect AsyncLocalStorage cleanup.",
+  "category": "bug",
+  "subcategory": "memory-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "OperatorSubscriber",
+    "memory-management"
+  ],
+  "concepts": [
+    "memory-leak",
+    "garbage-collection",
+    "subscription-cleanup",
+    "resource-management",
+    "AsyncLocalStorage"
+  ],
+  "severity": "high",
+  "userImpact": "Worker containers are killed due to out-of-memory errors caused by accumulating OperatorSubscriber objects that are never cleaned up.",
+  "rootCause": "OperatorSubscriber objects created on the temporal-worker side were not being properly cleaned up, causing memory accumulation over time.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The actual SDK bug from May 2022 was resolved in an earlier version. Similar symptoms reported later were traced to incorrect cleanup of AsyncLocalStorage in user code, leading to issue #1432.",
+  "related": [
+    1432
+  ],
+  "keyQuote": "a lot of 'OperatorSubscriber' objects create on temporal-worker side, but it never clean, and it make memory leak problem",
+  "number": 649,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:05:55.285Z"
+}

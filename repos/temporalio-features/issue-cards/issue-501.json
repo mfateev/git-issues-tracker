@@ -1,0 +1,31 @@
+{
+  "summary": "Add warnings when activities dangle (remain unresolved) after a workflow closes or continues as new, similar to existing warnings for signals and updates. The request also suggests considering similar warnings for child workflows, external signals, nexus, and other async operations that should not be abandoned.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "activity-manager",
+    "async-handler"
+  ],
+  "concepts": [
+    "dangling-activities",
+    "resource-cleanup",
+    "warning-system",
+    "workflow-termination",
+    "async-abandonment",
+    "user-guidance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive warnings when activities dangle after workflow closure, helping prevent silent failures and resource leaks from abandoned async operations.",
+  "rootCause": null,
+  "proposedFix": "Implement a warning system similar to existing signal/update dangle warnings for activities, and extend to child workflows, external signals, nexus, and other async operations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We're adding warnings when signals and updates dangle after the workflow closes or continues as new. We should consider providing a similar warning when activities dangle.",
+  "number": 501,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:19.212Z"
+}

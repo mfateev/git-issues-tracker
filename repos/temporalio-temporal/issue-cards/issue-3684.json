@@ -1,0 +1,30 @@
+{
+  "summary": "Two high-severity vulnerabilities (CVE-2019-0205 and CVE-2019-0210) were detected in the uber-go/tally dependency version 4.1.3 related to Apache Thrift. Both vulnerabilities involve denial of service risks with CVSS score 7.5 and were automatically resolved when the dependency was no longer part of the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "uber-go-tally",
+    "apache-thrift"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-upgrade",
+    "cvss-score",
+    "apache-thrift"
+  ],
+  "severity": "high",
+  "userImpact": "Users could be affected by potential denial of service attacks through vulnerable Thrift protocol handling in the metrics library.",
+  "rootCause": "Apache Thrift versions 0.9.3 to 0.12.0 contain vulnerabilities where servers implemented in Go using TJSONProtocol or TSimpleJSONProtocol may panic or enter endless loops with invalid input data.",
+  "proposedFix": "Upgrade org.apache.thrift:libthrift to version 0.13.0 or later to resolve both CVE-2019-0205 and CVE-2019-0210.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend because the vulnerable library was no longer part of the Mend inventory or was marked as ignored in the dependency management.",
+  "related": [],
+  "keyQuote": "a server or client may run into an endless loop when feed with specific input data",
+  "number": 3684,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:14.257Z"
+}

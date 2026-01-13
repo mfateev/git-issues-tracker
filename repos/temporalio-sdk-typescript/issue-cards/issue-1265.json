@@ -1,0 +1,35 @@
+{
+  "summary": "Webpack's log output is being called repeatedly with ANSI color sequences, making logs difficult to parse when captured by external logging systems like GitHub Actions or Datadog. The issue requests gathering Webpack log output into single, structured log entries.",
+  "category": "bug",
+  "subcategory": "bundling-logging",
+  "apis": [
+    "bundleWorkflowCode"
+  ],
+  "components": [
+    "worker",
+    "bundler",
+    "logger"
+  ],
+  "concepts": [
+    "logging",
+    "webpack",
+    "ansi-colors",
+    "structured-logs",
+    "external-systems",
+    "log-aggregation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who integrate worker logging with external logging systems experience unreadable, fragmented logs with ANSI escape sequences.",
+  "rootCause": "Webpack's logger is called multiple times per bundle operation, each call including ANSI color escape sequences that don't display well in non-terminal environments.",
+  "proposedFix": "Gather Webpack log output into a single, structured log entry instead of multiple calls with raw output.",
+  "workaround": "Implement a custom bundle with a custom Webpack logger that collects all logs and removes ANSI styling before outputting to external systems.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in #1414 with changes to how Webpack logging is handled during bundling.",
+  "related": [
+    1414
+  ],
+  "keyQuote": "Webpack calls `log()` repeatedly, and include lot of ANSI-color escape sequences. This is fine and nice when logs are going straight to console, but horrible and hard to understand when logs are captured into some external system",
+  "number": 1265,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:56.035Z"
+}

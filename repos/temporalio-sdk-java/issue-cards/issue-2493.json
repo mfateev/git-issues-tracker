@@ -1,0 +1,31 @@
+{
+  "summary": "NPE in ScheduleDescription.getMemo() due to incorrect null check. Line 116 checks `memo == null` instead of `memoPayload == null`, causing a NullPointerException when memoPayload is null.",
+  "category": "bug",
+  "subcategory": "schedule-client",
+  "apis": [
+    "ScheduleDescription"
+  ],
+  "components": [
+    "schedule-client",
+    "data-conversion"
+  ],
+  "concepts": [
+    "null-check",
+    "npe",
+    "memo",
+    "payload",
+    "defensive-programming"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter NullPointerException when retrieving memo from ScheduleDescription objects with null payload.",
+  "rootCause": "Incorrect variable name in null check condition - checking `memo` instead of `memoPayload`",
+  "proposedFix": "Change line 116 from `if (memo == null)` to `if (memoPayload == null)`",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug fix applied to correct the null check condition in ScheduleDescription.getMemo()",
+  "related": [],
+  "keyQuote": "Looks like line 116 should be `if (memoPayload == null) {`.",
+  "number": 2493,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:13.953Z"
+}

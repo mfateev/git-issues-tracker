@@ -1,0 +1,35 @@
+{
+  "summary": "WaitConditionAsync currently wakes up all satisfied conditions simultaneously, making it impossible to guarantee a condition remains true after the wait. The request is to wake only a single condition at a time and re-evaluate the loop, enabling safe patterns like acquiring locks within wait conditions.",
+  "category": "feature",
+  "subcategory": "workflow-synchronization",
+  "apis": [
+    "WaitConditionAsync"
+  ],
+  "components": [
+    "workflow-engine",
+    "condition-evaluation",
+    "async-coordination"
+  ],
+  "concepts": [
+    "synchronization",
+    "condition-semantics",
+    "lock-safety",
+    "race-conditions",
+    "loop-reevaluation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely implement atomic check-then-act patterns in workflows, such as acquiring locks within wait conditions, due to race conditions from simultaneous condition evaluation.",
+  "rootCause": "Current implementation wakes all satisfied conditions at once rather than sequentially, preventing guarantee that conditions remain true after wake-up.",
+  "proposedFix": "Modify WaitConditionAsync to wake only a single condition when satisfied, then re-run the entire loop to allow re-evaluation of all conditions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    375,
+    618
+  ],
+  "keyQuote": "We should only wake up a _single_ wait condition when satisfied and then run the entire loop again. This will allow you to implement things like acquiring locks atomically.",
+  "number": 386,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:17:19.804Z"
+}

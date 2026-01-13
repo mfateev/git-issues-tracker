@@ -1,0 +1,35 @@
+{
+  "summary": "Add API to expose the failure of a previous workflow run through the workflow context, similar to the existing getLastCompletionResult API. This is needed when continueAsNew is triggered due to cron or retry policy.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [
+    "getLastCompletionResult"
+  ],
+  "components": [
+    "workflow-context",
+    "cron-retry",
+    "continuation"
+  ],
+  "concepts": [
+    "failure-handling",
+    "previous-run",
+    "continueAsNew",
+    "retry-policy",
+    "cron",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access failure information from the previous workflow run when using continueAsNew, limiting error handling and retry logic capabilities.",
+  "rootCause": null,
+  "proposedFix": "Expose a lastFailure API through the workflow context to expose the failure of the previous run.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by #260 which implements the lastFailure API",
+  "related": [
+    260
+  ],
+  "keyQuote": "Expose lastFailure api which exposes failure of previous run but we still did a continueAsNew because of cron or retry policy.",
+  "number": 257,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:04:01.601Z"
+}

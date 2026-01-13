@@ -1,0 +1,36 @@
+{
+  "summary": "Async task declaration order in PHP SDK workflows affects execution flow incorrectly. When tasks are declared in different orders, a workflow's main async task may be rejected instead of completing successfully, depending on the order of nested async declarations.",
+  "category": "bug",
+  "subcategory": "async-execution",
+  "apis": [
+    "Workflow::async",
+    "Workflow::await",
+    "Workflow::timer",
+    "Promise::race"
+  ],
+  "components": [
+    "workflow-execution",
+    "async-tasks",
+    "promise-handling",
+    "cancellation-scope"
+  ],
+  "concepts": [
+    "declaration-order",
+    "async-execution",
+    "promise-rejection",
+    "task-cancellation",
+    "race-conditions"
+  ],
+  "severity": "high",
+  "userImpact": "Developers writing workflows with multiple async tasks cannot reliably control execution flow as it depends on arbitrary declaration order rather than logical semantics.",
+  "rootCause": "Workflow::await() does not resolve/reject correctly, causing the main async to be incorrectly rejected even when internal async tasks are canceled.",
+  "proposedFix": "Fix Workflow::await() to properly handle resolution and rejection states regardless of task declaration order.",
+  "workaround": "Ensure consistent declaration order and avoid depending on the result of the main async task.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue identified as problem with Workflow::await() resolution/rejection logic. Fix was scheduled to be released the following week.",
+  "related": [],
+  "keyQuote": "The problem is with `Workflow::await()`. It doesn't resolve/reject correctly. Thus the main async becomes rejected.",
+  "number": 207,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:39.633Z"
+}

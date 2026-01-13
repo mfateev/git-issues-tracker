@@ -1,0 +1,30 @@
+{
+  "summary": "TestActivityHeartbeatTimeouts test is flaky, intermittently failing because activities are unexpectedly completing instead of timing out. Investigation revealed possible bug in timer task handling for heartbeat timeouts.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "timer-manager",
+    "test-framework"
+  ],
+  "concepts": [
+    "timeout",
+    "heartbeat",
+    "timer-task",
+    "flaky-test",
+    "race-condition"
+  ],
+  "severity": "medium",
+  "userImpact": "Unreliable test flakiness masks potential production bugs with activity heartbeat timeout handling.",
+  "rootCause": "Possible loss of timer tasks for heartbeat timeouts in the activity executor",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Closed as stale - no occurrence of this issue in buildkite logs over recent months",
+  "related": [],
+  "keyQuote": "This could be an actual bug where we are loosing timer tasks for heartbeat timeouts.",
+  "number": 619,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:20:38.990Z"
+}

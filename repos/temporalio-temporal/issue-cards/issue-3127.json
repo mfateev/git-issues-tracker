@@ -1,0 +1,33 @@
+{
+  "summary": "Implement task dispatch to versioned queues for worker build ID versioning. Task queues with build ID versioning must route tasks according to the versioning proposal, including handling version set management, task readers, and sticky queue behavior.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "matching",
+    "versioning",
+    "worker-build-id"
+  ],
+  "concepts": [
+    "versioning",
+    "task-dispatch",
+    "build-id",
+    "queue-routing",
+    "sticky-queue",
+    "version-set",
+    "capability-flag"
+  ],
+  "severity": "high",
+  "userImpact": "Enables proper task routing for versioned workers, allowing users to manage multiple worker versions simultaneously with correct task assignment.",
+  "rootCause": null,
+  "proposedFix": "Dispatch tasks to versioned queues according to the worker-versions proposal, including TQM startup for all version sets, task readers for all IDs in a set, and respecting use_latest_build_id flags.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented task dispatch to versioned queues with version set management, task reader startup, and dynamic configuration support.",
+  "related": [],
+  "keyQuote": "TQs which have any build id versioning info set using the API must dispatch tasks to versioned queues according to the proposal.",
+  "number": 3127,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:17.179Z"
+}

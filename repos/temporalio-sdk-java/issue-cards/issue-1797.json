@@ -1,0 +1,32 @@
+{
+  "number": 1797,
+  "repository": "temporalio-sdk-java",
+  "summary": "Request to expose the started time of an activity task in the activity info. This would allow activities to access timing information about when their execution began.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-info"
+  ],
+  "concepts": [
+    "timing",
+    "metadata",
+    "activity-lifecycle",
+    "started-time",
+    "execution-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users need to access activity task start timing information to track execution metrics and timing behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Expose activity task started time in activity info.",
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:16.632Z"
+}

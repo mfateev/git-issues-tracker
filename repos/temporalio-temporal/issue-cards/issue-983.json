@@ -1,0 +1,34 @@
+{
+  "summary": "Error messages from S3 archival failures are not properly propagated when creating namespaces, showing only generic \"Forbidden\" errors without indicating the underlying S3 access key misconfiguration.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "RegisterNamespace"
+  ],
+  "components": [
+    "frontend",
+    "archival",
+    "error-logging",
+    "namespace-handler"
+  ],
+  "concepts": [
+    "error-propagation",
+    "stack-trace",
+    "s3-integration",
+    "error-context",
+    "logging",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot diagnose archival configuration issues because underlying S3 errors are masked by generic 403 responses.",
+  "rootCause": "Error handling in RegisterNamespace does not chain or expose underlying archival/S3 errors, only returning the final HTTP status code.",
+  "proposedFix": null,
+  "workaround": "Set TEMPORAL_CLI_SHOW_STACKS=1 environment variable to see more detailed stack traces.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Error should have underlying cause... Archival related errors do not get shown up in create name space calls",
+  "number": 983,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:31:03.569Z"
+}

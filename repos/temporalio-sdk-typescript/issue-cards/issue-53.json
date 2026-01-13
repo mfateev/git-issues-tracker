@@ -1,0 +1,30 @@
+{
+  "summary": "Design a proper logging system for workflows that integrates with the worker logger instead of injecting console.log. Workflow internals need dedicated logging capabilities separate from user workflow code.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "worker-logger",
+    "console-injection"
+  ],
+  "concepts": [
+    "logging",
+    "worker-integration",
+    "workflow-internals",
+    "log-propagation",
+    "architecture-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly capture and manage logs from both workflow internals and their own workflow code in a unified way.",
+  "rootCause": "Current console.log injection approach doesn't provide proper logging integration for workflow internals.",
+  "proposedFix": "Integrate workflow logging with the worker logger instead of using console.log injection.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented proper logging integration for workflows with worker logger.",
+  "related": [],
+  "keyQuote": "Workflow internals do not and should never use `console.log` for logging, instead we should integrate with the worker logger.",
+  "number": 53,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:55:24.743Z"
+}

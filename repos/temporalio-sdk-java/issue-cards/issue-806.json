@@ -1,0 +1,33 @@
+{
+  "summary": "Request for Workflow.retry to accept a predicate function that can execute custom logic to decide if a retry is needed, rather than relying only on string matching of exception types in doNotRetry list.",
+  "category": "feature",
+  "subcategory": "retry-handling",
+  "apis": [
+    "Workflow.retry",
+    "RetryOptions"
+  ],
+  "components": [
+    "workflow-execution",
+    "retry-logic",
+    "exception-handling"
+  ],
+  "concepts": [
+    "retry",
+    "predicate",
+    "exception-matching",
+    "error-handling",
+    "workflow-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement sophisticated retry logic based on exception details or contextual information within workflows, forcing them to use only string-based exception type matching.",
+  "rootCause": "Current RetryOptions.doNotRetry relies on string matching of exception types, which is insufficient for complex retry decisions that depend on specific exception properties or workflow state.",
+  "proposedFix": "Add a doNotRetryPredicate or retryOnPredicate function parameter to RetryOptions that accepts a lambda to execute custom retry logic, with retryOnPredicate being preferred by users for positive logic rather than negative.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "An API that takes a function (or lambda) that can execute random user provided logic to decide if retry is needed.",
+  "number": 806,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:43:29.723Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Align local_activity_ metrics in Core with Go and Java SDKs by making them separate from activity_ metrics by default, with an opt-in option to revert to current behavior. All Core-based SDKs must expose this option and include clear release notes about the metric behavior change.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "core",
+    "sdk-wrappers"
+  ],
+  "concepts": [
+    "metrics",
+    "local-activity",
+    "activity",
+    "sdk-alignment",
+    "behavioral-change",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will see local_activity_ metrics separated from activity_ metrics by default in Core-based SDKs, with an option to maintain previous behavior.",
+  "rootCause": "Core combines local_activity_ and activity_ metrics while Go and Java keep them separate, causing inconsistency across SDKs.",
+  "proposedFix": "Align Core's metric behavior with Go and Java by default, provide opt-in for previous behavior, ensure all Core-based SDKs expose the option, and document the change in release notes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was accepted and tracked across SDKs (Core, TypeScript, Python, .NET) with implementation status tracked via checkbox list.",
+  "related": [
+    796
+  ],
+  "keyQuote": "Align local_activity_ metrics in Core with Go and Java by default. Have an opt-in option that can be set to revert to today's behavior.",
+  "number": 522,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:45.818Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Activity code sometimes fails to execute when the same activity method is called multiple times with different arguments inside a workflow, despite showing as completed in history. Workaround is to use different method names for each activity call.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "execute",
+    "Workflow::await"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-engine",
+    "activity-invocation"
+  ],
+  "concepts": [
+    "activity-execution",
+    "multiple-invocations",
+    "workflow-await",
+    "activity-deduplication",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Activities fail to execute silently when called multiple times by name in a workflow, causing unpredictable behavior despite successful history records.",
+  "rootCause": "Likely activity name-based deduplication or caching mechanism incorrectly preventing subsequent calls to the same activity method from executing.",
+  "proposedFix": null,
+  "workaround": "Use different method names for each activity call instead of reusing the same method name with different arguments.",
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed by reporter due to no feedback, likely due to inactivity rather than confirmation of fix.",
+  "related": [],
+  "keyQuote": "It might be because of the same activity name method... When changed the code to use different method names it worked",
+  "number": 131,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:05.590Z"
+}

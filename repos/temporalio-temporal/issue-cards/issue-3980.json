@@ -1,0 +1,29 @@
+{
+  "summary": "Dependency security vulnerability in modernc.org/sqlite v1.20.4 with a transitive vulnerability (CVE-2020-28928) in modernc.org/libc v1.22.2 causing a buffer overflow in wcsnrtombs function.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "modernc.org/sqlite",
+    "modernc.org/libc"
+  ],
+  "concepts": [
+    "buffer-overflow",
+    "dependency-vulnerability",
+    "security",
+    "cvss-5.5",
+    "transitive-dependency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the Temporal Server may be exposed to potential availability attacks through the vulnerable SQLite dependency.",
+  "rootCause": "The modernc.org/libc library (v1.22.2) contains a buffer overflow vulnerability in the wcsnrtombs function that mishandles specific combinations of destination buffer size and source character limit.",
+  "proposedFix": "Upgrade modernc.org/libc to a version where the vulnerability is fixed (musl 1.2.2-1 or later).",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The issue was automatically closed because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory.",
+  "related": [],
+  "keyQuote": "wcsnrtombs mishandles particular combinations of destination buffer size and source character limit, as demonstrated by an invalid write access (buffer overflow).",
+  "number": 3980,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:34.475Z"
+}

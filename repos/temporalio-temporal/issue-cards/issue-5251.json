@@ -1,0 +1,31 @@
+{
+  "summary": "User requests ability to schedule workflows to run at sunrise or sunset for specific GPS coordinates, with offset parameters (e.g., SUNSET+10m). This is needed for IoT platforms to trigger workflows based on astronomical events.",
+  "category": "feature",
+  "subcategory": "scheduling",
+  "apis": [
+    "Schedule"
+  ],
+  "components": [
+    "scheduler",
+    "temporal-server"
+  ],
+  "concepts": [
+    "astronomical-scheduling",
+    "time-based-triggers",
+    "location-based-events",
+    "workflow-scheduling",
+    "cron-alternatives"
+  ],
+  "severity": "low",
+  "userImpact": "Users managing IoT workflows cannot schedule tasks based on sunrise/sunset times at specific locations without external computation and manual timestamp management.",
+  "rootCause": null,
+  "proposedFix": "Expose an option in the schedules feature to supply a list of absolute timestamps that users can compute themselves based on GPS coordinates and astronomical calculations.",
+  "workaround": "Use the schedules feature with a list of calendar specs, or compute sunrise/sunset times externally and supply absolute timestamps to the scheduler.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Deemed too niche for server-level support. Solution deferred to user-side computation with timestamps supplied to the schedules feature.",
+  "related": [],
+  "keyQuote": "This is an interesting idea but it seems like very niche functionality, and I don't think we want to build that into the server.",
+  "number": 5251,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:04.552Z"
+}

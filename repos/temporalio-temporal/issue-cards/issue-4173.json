@@ -1,0 +1,31 @@
+{
+  "summary": "Update requests are lost when reset point occurs before them, unlike signal requests which are preserved. The feature requests that update requests should be preserved after reset by default to re-apply to the new run, similar to how signals are handled.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "reset",
+    "update-request-handling",
+    "signal-parity"
+  ],
+  "concepts": [
+    "reset",
+    "update-request",
+    "signal",
+    "preservation",
+    "idempotency",
+    "external-actions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose update requests after reset operations, requiring manual resubmission and breaking use cases dependent on update preservation like signal requests.",
+  "rootCause": null,
+  "proposedFix": "Preserve all update requests after reset points by default to re-apply to the new run, with an option to skip re-application.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Similar to signal, update requests are trigger from external actions like human actions, and not recoverable like activity (with idempotency).",
+  "number": 4173,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:20.880Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Transitive dependency vulnerability in ava testing framework where got library (v9.6.0) allows redirect to UNIX socket (CVE-2022-33987). Resolved by upgrading to ava 4.0.0 which includes got 12.1.0+.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "ava",
+    "test-framework",
+    "package-json"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "transitive-dependency",
+    "package-upgrade",
+    "cve-remediation"
+  ],
+  "severity": "medium",
+  "userImpact": "Testing framework vulnerable to UNIX socket redirect attacks through transitive dependency chain.",
+  "rootCause": "got library version 9.6.0 (transitive dependency through ava -> update-notifier -> latest-version -> package-json -> got) allows redirect to UNIX socket",
+  "proposedFix": "Upgrade ava to version 4.0.0 or got to version 12.2.0+",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue automatically remediated by dependency version upgrade",
+  "related": [],
+  "keyQuote": "The got package before 12.1.0 (also fixed in 11.8.5) for Node.js allows a redirect to a UNIX socket.",
+  "number": 988,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:26.225Z"
+}

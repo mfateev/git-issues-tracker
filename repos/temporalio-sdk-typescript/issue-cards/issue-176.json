@@ -1,0 +1,32 @@
+{
+  "summary": "Build fails with TypeScript module resolution errors for @temporalio packages when running `npm run build` in the SDK monorepo. The issue was resolved by running `npx lerna clean -- -f && npm ci && npm run build` to properly clean and reinstall dependencies.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "build-system",
+    "lerna",
+    "typescript",
+    "monorepo"
+  ],
+  "concepts": [
+    "module-resolution",
+    "dependency-installation",
+    "build-configuration",
+    "typescript-compilation",
+    "package-manager",
+    "monorepo-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot build the SDK from source without performing a full clean rebuild with specific command flags.",
+  "rootCause": "Stale or incomplete node_modules state from previous builds, requiring full cleanup and reinstallation via lerna clean and npm ci.",
+  "proposedFix": "Run `npx lerna clean -- -f && npm ci && npm run build` instead of just `npm run build`.",
+  "workaround": "Execute lerna clean with -f flag followed by npm ci before building: `npx lerna clean -- -f && npm ci && npm run build`",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by running proper cleanup and reinstall commands; the solution was confirmed working by the issue reporter.",
+  "related": [],
+  "keyQuote": "Thank you, that worked! npx lerna clean -- -f && npm ci && npm run build",
+  "number": 176,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:23.955Z"
+}

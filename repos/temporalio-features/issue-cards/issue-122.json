@@ -1,0 +1,34 @@
+{
+  "summary": "The server generates large error messages that exceed gRPC/HTTP2's 8KB header limit, causing cryptic errors on the SDK side. The feature request is to increase maxInboundMetadataSize from 8KB to 4MB across all SDKs to accommodate these unbounded server error messages.",
+  "category": "feature",
+  "subcategory": "grpc-configuration",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "metadata-handling",
+    "error-messaging"
+  ],
+  "concepts": [
+    "header-size-limit",
+    "grpc-configuration",
+    "error-messages",
+    "metadata",
+    "server-communication",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive cryptic error messages when the server generates large error messages that don't fit in the standard gRPC header size limit.",
+  "rootCause": "Server generates unbounded error messages that exceed the 8KB gRPC/HTTP2 header size limit on the SDK side.",
+  "proposedFix": "Set maxInboundMetadataSize to 4MB in all SDKs to accommodate large server error messages.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3284,
+    1396
+  ],
+  "keyQuote": "The server sometimes may generate large (and unbounded) error messages that don't fit into a standard 8Kb limit on headers in gRPC and HTTP/2.",
+  "number": 122,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:48:49.060Z"
+}

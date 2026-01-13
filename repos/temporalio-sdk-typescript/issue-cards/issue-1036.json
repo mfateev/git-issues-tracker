@@ -1,0 +1,30 @@
+{
+  "summary": "User needs to exclude modules from webpack bundling in the workflow bundler. The `ignoreModules` configuration doesn't work as documented, and the issue stems from webpack not compiling for the node target, causing it to fail processing node: namespace dependencies.",
+  "category": "question",
+  "subcategory": "bundling-configuration",
+  "apis": [],
+  "components": [
+    "workflow-bundler",
+    "webpack-config",
+    "externals"
+  ],
+  "concepts": [
+    "bundling",
+    "module-exclusion",
+    "webpack-externals",
+    "node-dependencies",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily exclude third-party modules that import node: dependencies from being bundled, requiring manual webpack configuration workarounds.",
+  "rootCause": "The workflow bundler does not compile for the node target, causing webpack to be unable to process dependencies in the node: namespace, and `ignoreModules` configuration does not provide the intended exclusion mechanism.",
+  "proposedFix": "Configure webpack externals to handle node: prefixed modules, either as a static map or through a callback function that intercepts the request and returns a dummy object.",
+  "workaround": "Override the webpack `externals` configuration with a function that checks for node:crypto (or other modules) and returns 'var {}' or a callback wrapper around Temporal's default externals.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through workarounds provided in comments, showing users how to properly configure webpack externals to exclude problematic modules.",
+  "related": [],
+  "keyQuote": "overriding externals does the job",
+  "number": 1036,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:36.330Z"
+}

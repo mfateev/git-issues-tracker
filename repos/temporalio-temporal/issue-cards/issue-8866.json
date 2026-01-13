@@ -1,0 +1,31 @@
+{
+  "summary": "Address a golang crypto/x509 vulnerability (CVE-2025-61729) affecting Docker images for both Temporal Server and admin tools.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "server",
+    "admin-tools"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency",
+    "golang",
+    "cryptography",
+    "docker"
+  ],
+  "severity": "high",
+  "userImpact": "Users running vulnerable Docker images are exposed to potential security exploits through compromised x509 certificate handling.",
+  "rootCause": "Outdated golang crypto/x509 library version containing CVE-2025-61729",
+  "proposedFix": "Update golang:crypto/x509 dependency to a patched version in Docker images",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We see that golang:crypto/x509 has vulnerability CVE-2025-61729. Please help us with a docker image for both server and admin tools by fixing these vulnerabilities.",
+  "number": 8866,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:40.551Z"
+}

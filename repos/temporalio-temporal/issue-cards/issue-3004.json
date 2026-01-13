@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a way to bypass autoforwarding with a special header to allow debugging and investigation of standby cluster and workflow issues without all requests being forwarded to the active cluster.",
+  "category": "feature",
+  "subcategory": "cluster-forwarding",
+  "apis": [],
+  "components": [
+    "cluster-router",
+    "request-handler",
+    "autoforwarding"
+  ],
+  "concepts": [
+    "debugging",
+    "cluster-failover",
+    "request-routing",
+    "investigation",
+    "standby-cluster",
+    "header-override"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to debug and investigate standby cluster issues when autoforwarding is enabled globally, currently impossible since all requests are routed to the active cluster.",
+  "rootCause": null,
+  "proposedFix": "Implement a special header mechanism to bypass autoforwarding on a per-request basis for debugging purposes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some way to bypass autoforwarding. This is mostly need for debugging/investigation purpose",
+  "number": 3004,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:00.958Z"
+}

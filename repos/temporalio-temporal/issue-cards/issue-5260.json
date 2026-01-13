@@ -1,0 +1,30 @@
+{
+  "summary": "User asks about upgrading from the 'postgres' driver to 'postgres12' driver in Temporal Server and whether a database schema update is required. Concern about potential downtime on a 50GB production database.",
+  "category": "question",
+  "subcategory": "database-migration",
+  "apis": [],
+  "components": [
+    "database",
+    "persistence",
+    "postgresql-driver"
+  ],
+  "concepts": [
+    "database-upgrade",
+    "schema-migration",
+    "driver-compatibility",
+    "production-downtime",
+    "data-preservation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need guidance on safely upgrading PostgreSQL drivers in production environments without causing downtime or data loss.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Maintainer confirmed that no schema update is needed between PostgreSQL versions, answering the user's main concern.",
+  "related": [],
+  "keyQuote": "There is no schema update needed between PostgreSQL versions.",
+  "number": 5260,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:02.601Z"
+}

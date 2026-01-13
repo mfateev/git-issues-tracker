@@ -1,0 +1,33 @@
+{
+  "summary": "When a workflow is started with invalid input (missing required map parameter), the SDK throws a cryptic ClassCastException instead of a clear error message. The issue was ultimately user error but highlighted poor error reporting.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "data-converter",
+    "workflow-implementation",
+    "error-handling"
+  ],
+  "concepts": [
+    "input-validation",
+    "type-casting",
+    "error-messaging",
+    "user-error-handling",
+    "workflow-execution",
+    "parameter-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive confusing stack traces when providing invalid workflow inputs, making it difficult to diagnose the actual problem.",
+  "rootCause": "DataConverter.arrayFromPayloads() attempts to cast a ParameterizedTypeImpl to Class without proper type checking, causing a ClassCastException when workflow input doesn't match expected types.",
+  "proposedFix": "Improve error handling and validation in the data converter to provide clear error messages when input types don't match workflow parameter types.",
+  "workaround": "Ensure workflow start commands provide correctly typed input matching the workflow parameter expectations.",
+  "resolution": "fixed",
+  "resolutionDetails": "Error handling was improved in recent SDK versions to provide more understandable error messages for invalid workflow inputs.",
+  "related": [],
+  "keyQuote": "The error handling here is very different from when this issue was first open so the underlying user error should be more understandable.",
+  "number": 1056,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:03:42.609Z"
+}

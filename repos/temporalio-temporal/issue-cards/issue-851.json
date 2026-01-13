@@ -1,0 +1,30 @@
+{
+  "summary": "Remove unused replication_metadata and replication_metadata_encoding fields from the Cassandra schema to improve performance and reduce storage overhead.",
+  "category": "feature",
+  "subcategory": "cassandra-schema",
+  "apis": [],
+  "components": [
+    "cassandra",
+    "persistence",
+    "schema"
+  ],
+  "concepts": [
+    "schema-optimization",
+    "storage-efficiency",
+    "metadata",
+    "replication",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Removing obsolete schema fields reduces Cassandra storage footprint and may improve query performance.",
+  "rootCause": "Legacy replication_metadata fields are no longer needed in the schema design.",
+  "proposedFix": "Remove replication_metadata and replication_metadata_encoding columns from Cassandra schema definition.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Schema fields were removed in a subsequent update.",
+  "related": [],
+  "keyQuote": "Remove replication_metadata and replication_metadata_encoding from Cassandra schema",
+  "number": 851,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:23.801Z"
+}

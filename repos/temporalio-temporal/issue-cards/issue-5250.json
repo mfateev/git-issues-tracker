@@ -1,0 +1,30 @@
+{
+  "summary": "Deleted namespaces sometimes remain in Registered state in the namespace list and cannot be deleted again, requiring either proper state reflection or removal after deletion.",
+  "category": "bug",
+  "subcategory": "namespace-management",
+  "apis": [],
+  "components": [
+    "namespace-registry",
+    "namespace-cache",
+    "cli"
+  ],
+  "concepts": [
+    "namespace-state",
+    "state-consistency",
+    "delete-operation",
+    "cache-propagation",
+    "multi-node-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot delete namespaces that appear in Registered state after previous deletions, causing operational issues.",
+  "rootCause": "Namespace cache refresh interval and state propagation delay in multi-node setup causing stale state to be reported.",
+  "proposedFix": null,
+  "workaround": "Wait for namespace cache refresh interval (default 10s) to propagate namespace changes in multi-node setup.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in 1.25.0 release through major refactoring of namespace registry in August 2024.",
+  "related": [],
+  "keyQuote": "I can't repro this issue anymore on the current `1.25.0` release. I believe it is because on Aug 2024 there was a major refactoring of namespace registry.",
+  "number": 5250,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:52.411Z"
+}

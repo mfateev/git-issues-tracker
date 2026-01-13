@@ -1,0 +1,35 @@
+{
+  "summary": "Align .NET SDK's activation job application with TypeScript changes to apply all jobs to state before running the event loop, rather than waking up the event loop after each job.",
+  "category": "feature",
+  "subcategory": "event-loop-scheduling",
+  "apis": [],
+  "components": [
+    "event-loop",
+    "job-applicator",
+    "activation-handler"
+  ],
+  "concepts": [
+    "job-ordering",
+    "event-loop-scheduling",
+    "state-application",
+    "activation",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Potential optimization of event loop behavior and alignment with TS SDK implementation patterns, though actual behavioral impact unclear.",
+  "rootCause": "Difference in job application strategy between .NET and TypeScript SDKs; TS changed to batch job application before event loop execution.",
+  "proposedFix": "Apply all jobs to state first, then run the event loop once, potentially gated behind a feature flag.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Decided to implement this change in #432, potentially gated behind the same flag as #386.",
+  "related": [
+    386,
+    432,
+    606,
+    1488
+  ],
+  "keyQuote": "In TS, we changed this to apply jobs to state and then run the event loop",
+  "number": 375,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:16:41.167Z"
+}

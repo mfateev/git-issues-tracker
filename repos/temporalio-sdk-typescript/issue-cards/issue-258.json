@@ -1,0 +1,35 @@
+{
+  "summary": "Support for single-file workflows path in Worker configuration. Currently workflowsPath only accepts directories, but users need the ability to specify a single workflow file (e.g., ./workflows.js) instead of requiring a directory structure.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "isolate-builder",
+    "module-resolver"
+  ],
+  "concepts": [
+    "file-loading",
+    "module-resolution",
+    "workflow-discovery",
+    "path-resolution",
+    "loader-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use simplified single-file workflow structures and must organize workflows in directories, limiting flexibility in project structure.",
+  "rootCause": "The isolate-builder module requires file extensions and only supports directory-based workflow loading, not individual files.",
+  "proposedFix": "Make workflowsPath flexible to accept both files and directories by adjusting module resolution logic and supporting require.resolve() patterns for both workflowsPath and interceptorModules.",
+  "workaround": "Use directory-based structure with workflows in a separate directory (e.g., ./workflows/ instead of ./workflows.js)",
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation made workflowsPath flexible to support both single files and directories through module resolution adjustments.",
+  "related": [
+    13,
+    267
+  ],
+  "keyQuote": "The webpack module resolver should be able to work with an absolute or relative path that resolves to a folder or file",
+  "number": 258,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:24.393Z"
+}

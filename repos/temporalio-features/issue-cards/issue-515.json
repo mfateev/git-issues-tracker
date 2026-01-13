@@ -1,0 +1,34 @@
+{
+  "summary": "Request to expose start delay option for child workflows to match client workflow functionality. This would allow delayed child workflow execution without requiring long timers at the top level, preserving parent-child relationships and UI traceability.",
+  "category": "feature",
+  "subcategory": "child-workflow-options",
+  "apis": [
+    "StartChildWorkflow",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-options",
+    "api-server"
+  ],
+  "concepts": [
+    "start-delay",
+    "child-workflow",
+    "delayed-execution",
+    "workflow-traceability",
+    "history-compatibility",
+    "feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot delay child workflow execution without workarounds that lose parent-child relationships and UI traceability.",
+  "rootCause": null,
+  "proposedFix": "Expose start delay in child workflow options across API, server, and all SDKs.",
+  "workaround": "Starting workflows from an activity instead of as child workflows, though this loses parent-child relationship and traceability.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This can be done today by starting the workflow from an activity but that loses the parent-child relationship and traceability in the UI.",
+  "number": 515,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:30.498Z"
+}

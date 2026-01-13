@@ -1,0 +1,32 @@
+{
+  "summary": "Request to upgrade Python proto library from 3.x to support both 3.x and 4.x versions, similar to Pulumi's approach. Discussion includes considerations about gRPC version compatibility and memory leak concerns.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "proto-library",
+    "grpc-dependency",
+    "python-sdk"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "version-compatibility",
+    "grpc",
+    "protobuf",
+    "memory-leak"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are limited to proto 3.x and grpc 1.48.0+, preventing use of newer proto versions and potentially exposing them to known memory leaks in certain grpc versions.",
+  "rootCause": "Current constraint to proto 3.x due to grpcio optional dependency requirements, and known memory leak in grpc versions >=1.43.0",
+  "proposedFix": "Update dependency constraints to allow both proto 3.x and 4.x, potentially enabled by grpc PR 30382",
+  "workaround": "Pin gRPC dependency to 1.41.0 which is known to be stable and free of memory leak issues",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing support for proto 4.x alongside 3.x compatibility",
+  "related": [
+    30382
+  ],
+  "keyQuote": "Pulumi seems to allow both: https://github.com/pulumi/pulumi/blob/master/sdk/python/requirements.txt. See if we can too.",
+  "number": 123,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:29.517Z"
+}

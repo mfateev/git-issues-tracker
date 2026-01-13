@@ -1,0 +1,33 @@
+{
+  "summary": "Request to support delayed start of workflows to enable one-off timer functionality without requiring a separate sleep workflow step. Users could start a workflow with a delay instead of the current two-step process.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "scheduler",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "delayed-start",
+    "timer",
+    "workflow-initialization",
+    "scheduling",
+    "one-off-timers",
+    "workflow-control"
+  ],
+  "severity": "low",
+  "userImpact": "Users could simplify timer workflows by starting workflows with built-in delays instead of combining workflow start with sleep operations.",
+  "rootCause": null,
+  "proposedFix": "Support a delay parameter or mechanism in StartWorkflow API to schedule workflow execution after a specified duration.",
+  "workaround": "Current workaround is two-step process: start workflow and then use Sleep within the workflow logic.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "users who want just one off timers who instead of 2 step 1)start WF 2) Sleep workflow could achieve same thing with one action",
+  "number": 3378,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:24.268Z"
+}

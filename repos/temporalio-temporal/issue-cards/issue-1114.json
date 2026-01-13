@@ -1,0 +1,35 @@
+{
+  "summary": "Add history_size_bytes field to WorkflowExecutionInfo and PollWorkflowTaskQueueResponse to expose aggregated workflow history size. This allows users and workflows to monitor history size for performance and make decisions like triggering continue-as-new operations.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [
+    "DescribeWorkflowExecution",
+    "PollWorkflowTaskQueueResponse",
+    "WorkflowExecutionInfo"
+  ],
+  "components": [
+    "api",
+    "history",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "history-size",
+    "performance",
+    "workflow-monitoring",
+    "continue-as-new",
+    "memory-management",
+    "api-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently monitor or act on workflow history size, limiting their ability to optimize performance and prevent history bloat.",
+  "rootCause": null,
+  "proposedFix": "Expose history_size_bytes as a new field in WorkflowExecutionInfo and PollWorkflowTaskQueueResponse, and also expose it to workflow task started event so workflow code can access it.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged to add history_size_bytes field to the specified API structures.",
+  "related": [],
+  "keyQuote": "Controlling a workflow history size is important to keep the system performant. None of the existing APIs exposes the aggregated size of the history.",
+  "number": 1114,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:02:05.626Z"
+}

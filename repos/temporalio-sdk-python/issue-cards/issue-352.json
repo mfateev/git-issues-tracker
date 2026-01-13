@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow cancellation may not be properly handled when a cancel request arrives between two awaitable operations (e.g., between activity completion and child workflow start). The asyncio task may not propagate the cancellation exception at the next await point if the cancel is received while not actively awaiting.",
+  "category": "bug",
+  "subcategory": "cancellation",
+  "apis": [
+    "execute_activity",
+    "execute_child_workflow"
+  ],
+  "components": [
+    "asyncio-executor",
+    "workflow-engine",
+    "task-cancellation",
+    "event-processing"
+  ],
+  "concepts": [
+    "cancellation",
+    "race-condition",
+    "event-ordering",
+    "asyncio-task",
+    "workflow-execution",
+    "coroutine-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows may fail to respond to cancellation requests if the cancel event arrives between consecutive awaitable operations, potentially leaving workflows in an unresponsive state.",
+  "rootCause": "Asyncio task cancellation may not automatically propagate CancelledError at the next await point when the cancel is received outside of an active await operation, possibly due to reliance on the GIL assumption that asyncio only yields when awaiting a coroutine.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When a task is cancelled, asyncio.CancelledError will be raised in the task at the next opportunity.",
+  "number": 352,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:50.919Z"
+}

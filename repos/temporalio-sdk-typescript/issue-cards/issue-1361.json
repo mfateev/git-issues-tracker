@@ -1,0 +1,33 @@
+{
+  "summary": "User requests a custom workflow name resolver for the TypeScript SDK Worker to support prefixed workflow names (e.g., 'slack.postMessage') for better organization when multiple teams contribute workflows, similar to the existing activity mapping capability.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker.create",
+    "workflowInfo"
+  ],
+  "components": [
+    "worker",
+    "workflow-registry",
+    "workflow-loader"
+  ],
+  "concepts": [
+    "workflow-naming",
+    "namespace-organization",
+    "resolver-pattern",
+    "activity-mapping",
+    "multi-team-workflows"
+  ],
+  "severity": "low",
+  "userImpact": "Users managing multi-team workflow repositories cannot easily namespace workflows with prefixes like activities, limiting organization in the Temporal Web UI.",
+  "rootCause": "The Worker.create API supports custom activity mapping but lacks equivalent workflow name resolver functionality.",
+  "proposedFix": "Add a workflowNameResolver option to Worker.create configuration that accepts a function to transform workflow names.",
+  "workaround": "Build a default export wrapper function in workflows.generated.ts that uses workflowInfo() to intercept and route workflow types manually.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature is already supported by leveraging the default export pattern with workflowInfo() to implement custom name resolution without API changes.",
+  "related": [],
+  "keyQuote": "You can build this yourself by leveraging the `default` export... Note that if you want to use the typed client interface, you'll need to specify both the workflow name and the function type via generics.",
+  "number": 1361,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:00.731Z"
+}

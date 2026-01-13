@@ -1,0 +1,34 @@
+{
+  "summary": "When replacing a worker's client with a new one, validation fails if the original client didn't explicitly set a runtime (relying on the default instead). The runtime comparison doesn't work correctly for lazily-initialized default runtimes.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Client.connect",
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "client",
+    "runtime",
+    "service-bridge"
+  ],
+  "concepts": [
+    "runtime-validation",
+    "client-replacement",
+    "lazy-initialization",
+    "default-configuration",
+    "type-checking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot replace a worker's client with a new one when using the default runtime, forcing them to explicitly initialize the runtime as a workaround.",
+  "rootCause": "The runtime comparison between the replaced client and worker doesn't account for lazily-initialized default runtimes on the client config - it only checks explicitly set runtime values.",
+  "proposedFix": "Either eagerly set the runtime default on the client config for the service during initialization, or implement a different method to obtain the runtime from the bridge service client for comparison.",
+  "workaround": "Explicitly pass `default=temporalio.runtime.Runtime.default()` when calling `Client.connect()` to ensure the runtime is set before comparison.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Our check that the runtime is the same on the replaced client as is on the worker does not work if the runtime is not set on the client (i.e. lazily uses the default).",
+  "number": 657,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:23.426Z"
+}

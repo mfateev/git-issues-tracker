@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal 1.20.0+ fails to read JSONB fields in PostgreSQL visibility queue processor with pgbouncer in transaction pooling mode, causing the error 'pq: unsupported jsonb version number 123'. This prevents workflow completion status from updating in the UI.",
+  "category": "bug",
+  "subcategory": "visibility-queue",
+  "apis": [],
+  "components": [
+    "visibility-queue-processor",
+    "sql-plugin",
+    "persistence-layer",
+    "postgres-driver"
+  ],
+  "concepts": [
+    "jsonb-serialization",
+    "pgbouncer-pooling",
+    "prepared-statements",
+    "binary-parameters",
+    "visibility-index"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows show as running in the list UI when they are actually completed, requiring users to view individual workflow details to see accurate status.",
+  "rootCause": "pgbouncer in transaction pooling mode combined with binary_parameters flag causes the pq driver to fail parsing JSONB data with version number 123, occurring when visibility queue processor reads rows from the database.",
+  "proposedFix": "Modify VisibilitySearchAttributes.Value() to return string(ret) instead of raw bytes, and add support for pgx driver as an alternative to pq.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by adding pgx driver support in PR #4913, which handles transaction mode pooling correctly.",
+  "related": [
+    888,
+    4913
+  ],
+  "keyQuote": "The combination of Temporal 1.20.0+, visibility schema version 1.2+, pgbouncer run in transaction pooling mode, and temporal configured to use postgres with the binary_parameters flag set is apparently causing temporal-history to fail",
+  "number": 4184,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:33.999Z"
+}

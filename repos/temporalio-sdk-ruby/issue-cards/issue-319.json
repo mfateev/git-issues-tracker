@@ -1,0 +1,32 @@
+{
+  "summary": "Implement client-side trimming of failure proto to reduce server-side truncation and wrapping. The server currently truncates oversized failures and wraps them in error responses; this feature explores doing size limiting on the client before sending to prevent this behavior, with opt-out support for custom server limits.",
+  "category": "feature",
+  "subcategory": "failure-handling",
+  "apis": [],
+  "components": [
+    "client",
+    "failure-serialization",
+    "error-handling"
+  ],
+  "concepts": [
+    "failure-size-limit",
+    "proto-truncation",
+    "data-optimization",
+    "server-limits",
+    "error-wrapping"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experiencing truncated failure information due to server-side size limits could preserve complete failure details through client-side trimming.",
+  "rootCause": "Server-side failure proto size limits cause truncation and wrapping of failures in error responses.",
+  "proposedFix": "Implement client-side trimming of failure proto before sending to server, with configurable opt-out for users with custom server-side limits.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    597
+  ],
+  "keyQuote": "if failure proto is too large server side, they truncate it _and_ wrap in server error. See if there's something we can do client side before the failure is sent",
+  "number": 319,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:51:53.302Z"
+}

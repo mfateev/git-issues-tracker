@@ -1,0 +1,33 @@
+{
+  "summary": "User requests adding a query parameter to ListNamespacesRequest to enable filtering namespaces by name substring. Proposed implementation would support simple name matching like `{ query: 'foo' }` to match namespaces like `foobar`, with potential for fuzzy matching or additional filter fields in the future.",
+  "category": "feature",
+  "subcategory": "namespace-filtering",
+  "apis": [
+    "ListNamespacesRequest"
+  ],
+  "components": [
+    "namespace-api",
+    "list-namespaces",
+    "query-filtering"
+  ],
+  "concepts": [
+    "filtering",
+    "search",
+    "namespace-management",
+    "query-parameter",
+    "substring-matching",
+    "api-enhancement"
+  ],
+  "severity": "low",
+  "userImpact": "Users would be able to filter namespaces by name when listing them, reducing the need to retrieve and filter all namespaces client-side.",
+  "rootCause": null,
+  "proposedFix": "Add a query parameter to ListNamespacesRequest that accepts either a simple string `{ query: 'foo' }` or an object `{ query: { name: 'foo' } }` for substring matching against namespace names.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "My guess is just `name` substring would be good enough for most: `{ query: 'foo' }` or `{ query: { name: 'foo' } }`",
+  "number": 3212,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:04.695Z"
+}

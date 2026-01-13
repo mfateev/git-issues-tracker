@@ -1,0 +1,35 @@
+{
+  "summary": "Client receives unhelpful 'Unknown' error when server cache is exhausted under high load, with excessive error logging instead of proper back-pressure. Should return 'ResourceExhausted' error and warn instead of error-level logging.",
+  "category": "bug",
+  "subcategory": "cache-management",
+  "apis": [
+    "PollMutableState"
+  ],
+  "components": [
+    "cache",
+    "history-service",
+    "error-handling",
+    "telemetry"
+  ],
+  "concepts": [
+    "backpressure",
+    "resource-exhaustion",
+    "cache-capacity",
+    "error-codes",
+    "logging"
+  ],
+  "severity": "high",
+  "userImpact": "Clients receive cryptic error messages and server logs are flooded with errors when workflow cache is exhausted under load, making debugging difficult.",
+  "rootCause": "Cache exhaustion handling returns 'Unknown' error code instead of 'ResourceExhausted' and logs errors instead of warnings.",
+  "proposedFix": "Return ResourceExhausted error code with appropriate message and reduce logging to warning level for cache exhaustion scenarios.",
+  "workaround": "Increase history.cacheMaxSize configuration value or upgrade to v1.21.4 if running v1.21.3 which had cache calculation issues.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #4796",
+  "related": [
+    4796
+  ],
+  "keyQuote": "Cache capacity is fully occupied with pinned elements - which, while perhaps a true message, isn't terribly useful.",
+  "number": 3802,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:16.077Z"
+}

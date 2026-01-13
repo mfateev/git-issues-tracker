@@ -1,0 +1,36 @@
+{
+  "summary": "Add support for ResetReapplyExcludeType in batch reset operations by introducing a new reset_reapply_exclude_types field and deprecating the existing reset_reapply_type field in ResetOptions proto message.",
+  "category": "feature",
+  "subcategory": "batch-reset",
+  "apis": [
+    "ResetOptions",
+    "ResetReapplyExcludeType"
+  ],
+  "components": [
+    "proto-api",
+    "batch-reset",
+    "reset-workflow"
+  ],
+  "concepts": [
+    "reset",
+    "reapply",
+    "batch-operations",
+    "proto-deprecation",
+    "api-evolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use the new ResetReapplyExcludeType filtering with batch reset operations, limiting their control over which event types are reapplied.",
+  "rootCause": "Batch reset proto messages and server implementation were not updated to support the ResetReapplyExcludeType introduced in recent API changes.",
+  "proposedFix": "Add reset_reapply_exclude_types field to ResetOptions proto message and implement corresponding server logic for batch reset operations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Proto and server implementation were updated to support ResetReapplyExcludeType in batch reset operations.",
+  "related": [
+    348,
+    5360
+  ],
+  "keyQuote": "However, we need to make the corresponding proto api and server changes for batch reset.",
+  "number": 5534,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:15.153Z"
+}

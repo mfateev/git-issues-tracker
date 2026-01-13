@@ -1,0 +1,35 @@
+{
+  "summary": "Child workflows in W2 are incorrectly executing activities from W3 instead of their own registered activities, causing unexpected workflow execution order. This appears to be caused by function reference ambiguity when workflows and activities are registered without disabling registration aliasing.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflow",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "workflow-registration",
+    "task-queue"
+  ],
+  "concepts": [
+    "activity-scheduling",
+    "workflow-composition",
+    "registration-aliasing",
+    "function-references",
+    "child-workflows",
+    "task-queue"
+  ],
+  "severity": "high",
+  "userImpact": "Users with multiple child workflows and activities on the same task queue may experience incorrect activities being scheduled, breaking workflow logic and business processes.",
+  "rootCause": "Function reference aliasing ambiguity when workflow and activity functions are registered with custom names without DisableRegistrationAliasing enabled, causing the worker to confuse which activity belongs to which workflow.",
+  "proposedFix": "Set DisableRegistrationAliasing: true in worker.Options to prevent ambiguity between function names and aliased names when using function references for child workflows and activities.",
+  "workaround": "Enable DisableRegistrationAliasing in worker configuration and use string names when executing child workflows or activities instead of function references.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by using DisableRegistrationAliasing configuration option to eliminate function reference ambiguity in worker registration.",
+  "related": [],
+  "keyQuote": "Users are strongly recommended to set this as true if they register any workflow or activity functions with custom names...ambiguity can occur between function names and aliased names",
+  "number": 6749,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:12.653Z"
+}

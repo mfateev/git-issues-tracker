@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add an option for scheduled workflows to use a static workflow ID instead of having Temporal automatically append a timestamp suffix. This would allow users to define predictable workflow IDs for scheduled executions and enable dependent workflows to construct and reference these IDs.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "schedules",
+    "workflow-id-generation"
+  ],
+  "concepts": [
+    "workflow-id",
+    "scheduling",
+    "predictability",
+    "custom-formatting",
+    "timestamp-suffix"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot control workflow ID formatting for scheduled executions, preventing predictable IDs needed for inter-workflow dependencies and custom scheduling patterns.",
+  "rootCause": null,
+  "proposedFix": "Add configuration option to control timestamp suffix behavior: allow static IDs, custom formatting, hardcoded suffixes, or callback-based ID generation",
+  "workaround": "Use schedule.trigger() instead of automatic execution for workflows requiring custom IDs",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add option for workflow id used to be as user defines in workflow options for each execution schedule creates",
+  "number": 4795,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:28.466Z"
+}

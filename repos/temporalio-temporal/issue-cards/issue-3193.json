@@ -1,0 +1,30 @@
+{
+  "summary": "Create a stress test for buildID-based task dispatch using versioned task queues to validate the dynamic dispatch mechanism under load.",
+  "category": "other",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "task-dispatch",
+    "versioning",
+    "worker"
+  ],
+  "concepts": [
+    "stress-testing",
+    "buildID",
+    "versioned-task-queues",
+    "performance",
+    "load-testing"
+  ],
+  "severity": "low",
+  "userImpact": "Helps validate the reliability and performance of buildID-based dispatch under stress conditions before production use.",
+  "rootCause": null,
+  "proposedFix": "Write a benchmarking tool similar to 'bench' that uses versioned task queues, or leverage the OMES framework for testing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing stress testing using the OMES framework or creating a versioned task queue benchmark.",
+  "related": [],
+  "keyQuote": "Consider writing a version of \"bench\" that uses versioned task queues.",
+  "number": 3193,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:40.287Z"
+}

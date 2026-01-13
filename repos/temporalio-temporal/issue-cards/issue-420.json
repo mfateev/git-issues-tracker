@@ -1,0 +1,32 @@
+{
+  "summary": "The reset canary fails with a panic when processing scheduled activities, logging 'lookup failed for scheduledID to activityID' error during workflow task processing in the Go SDK v0.22.8.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "decision-state-machine",
+    "event-handler",
+    "workflow-task-handler",
+    "activity-scheduler"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "activity-scheduling",
+    "event-processing",
+    "state-machine",
+    "canary-testing",
+    "panic-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow reset operations fail with unhandled panics, preventing users from resetting workflows in production.",
+  "rootCause": "Mismatch in scheduled activity ID to activity ID lookup during workflow reset event processing in the decision state machine.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed on both canary and SDK sides according to contributor comment.",
+  "related": [],
+  "keyQuote": "lookup failed for scheduledID to activityID: scheduleID: 8, activity: 8",
+  "number": 420,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:56:36.519Z"
+}

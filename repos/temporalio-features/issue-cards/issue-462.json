@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose the number of activity attempts in `ActivityFailure` so workflows can access retry information. Currently, this data exists in the `ActivityTaskStarted` event but isn't exposed to users.",
+  "category": "feature",
+  "subcategory": "activity-failure",
+  "apis": [
+    "ActivityFailure",
+    "ActivityTaskStarted"
+  ],
+  "components": [
+    "activity-executor",
+    "history-events",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry-attempts",
+    "activity-failure",
+    "error-information",
+    "workflow-context",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently determine how many times an activity was retried before failure, limiting debugging and observability capabilities in workflows.",
+  "rootCause": null,
+  "proposedFix": "Expose an attempts field in `ActivityFailure` that is populated from the `ActivityTaskStarted` event data when an activity fails or is canceled.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Today there's no way in a workflow to know how many attempts an activity made before failing.",
+  "number": 462,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:12.375Z"
+}

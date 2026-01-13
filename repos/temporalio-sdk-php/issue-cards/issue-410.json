@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to add a dedicated API key client option to the PHP SDK, matching the approach implemented in other SDKs like Go. Currently users can specify the Authorization header via metadata, but a dedicated ergonomic API would be more consistent across SDKs.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [
+    "WorkflowClient"
+  ],
+  "components": [
+    "client",
+    "configuration",
+    "authentication"
+  ],
+  "concepts": [
+    "API key",
+    "authentication",
+    "metadata",
+    "client options",
+    "Authorization header",
+    "ergonomics",
+    "SDK consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Developers get a more ergonomic and consistent way to configure API key authentication across all Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add a dedicated API key client option similar to the approach in SDK-Go PR #1409 and features issue #426",
+  "workaround": "Users can manually set the Authorization header via metadata using withMetadata(['Authorization', ['Bearer <api-key>']])",
+  "resolution": "fixed",
+  "resolutionDetails": "PHP SDK 2.9.0 enabled users to specify any metadata including Authorization header, providing the necessary functionality",
+  "related": [
+    426
+  ],
+  "keyQuote": "Since PHP SDK 2.9.0 users can specify any metadata, including the Authorization header.",
+  "number": 410,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:39.925Z"
+}

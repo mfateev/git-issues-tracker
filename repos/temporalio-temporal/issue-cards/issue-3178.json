@@ -1,0 +1,30 @@
+{
+  "summary": "History shard's context override logic for timeout enforcement doesn't prevent caller from cancelling the context, potentially causing shard instability through unexpected rangeID updates when persistence operations are interrupted.",
+  "category": "bug",
+  "subcategory": "history-shard-context",
+  "apis": [],
+  "components": [
+    "history-shard",
+    "context-management",
+    "persistence"
+  ],
+  "concepts": [
+    "context-cancellation",
+    "timeout-override",
+    "shard-stability",
+    "rangeID-management",
+    "persistence-operations"
+  ],
+  "severity": "high",
+  "userImpact": "Badly behaved clients can trigger unexpected shard behavior and rangeID updates, leading to potential shard instability.",
+  "rootCause": "The context override logic that sets minimal timeout does not prevent the caller from cancelling the context, allowing cancellation during persistence operations.",
+  "proposedFix": "Use a separate context for IO operations that is isolated from caller cancellation signals.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "History shard will override the context to ensure minimal timeout, however, this checking / overriding logic does not prevent caller from cancelling the call, potentially causing shard instability",
+  "number": 3178,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:30.418Z"
+}

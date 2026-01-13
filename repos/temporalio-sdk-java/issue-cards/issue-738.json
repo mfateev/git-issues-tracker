@@ -1,0 +1,31 @@
+{
+  "summary": "The Java SDK uses non-standard SNAPSHOT versioning (x.y.z-SNAPSHOT instead of x.y+1.0-SNAPSHOT) and ignores version suffixes in tags, preventing external forks from releasing custom versions with company or feature-specific postfixes.",
+  "category": "bug",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "versioning.gradle",
+    "version-management",
+    "build-system"
+  ],
+  "concepts": [
+    "versioning",
+    "SNAPSHOT",
+    "Maven-conventions",
+    "version-suffixes",
+    "external-forks",
+    "release-management"
+  ],
+  "severity": "medium",
+  "userImpact": "External forks cannot create custom-branded releases with version suffixes without manually modifying build configuration, violating Maven conventions and hindering fork maintenance.",
+  "rootCause": "The versioning.gradle functions ignore tag postfixes and use non-standard SNAPSHOT version format that contradicts Java/Maven conventions.",
+  "proposedFix": "Update versioning.gradle to follow Maven conventions: use x.y+1.0-SNAPSHOT for snapshots and preserve version suffixes from tags.",
+  "workaround": "Manually hack versioning.gradle to support custom version suffixes.",
+  "resolution": "fixed",
+  "resolutionDetails": "The versioning system was updated to follow Maven conventions and support version suffixes for custom forks.",
+  "related": [],
+  "keyQuote": "If the last released version if 1.3.1, the SNAPSHOT version is 1.3.1-SNAPSHOT which is contradicting with a common practice in Java/Maven repos.",
+  "number": 738,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:38:10.420Z"
+}

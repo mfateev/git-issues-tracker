@@ -1,0 +1,29 @@
+{
+  "summary": "User unable to register a second namespace with external PostgreSQL backend, receiving 'Namespace already exists' error. Issue resolved by using newer temporal CLI instead of deprecated tctl.",
+  "category": "question",
+  "subcategory": "namespace-management",
+  "apis": [],
+  "components": [
+    "namespace-registry",
+    "tctl",
+    "cli"
+  ],
+  "concepts": [
+    "namespace-registration",
+    "database-backend",
+    "cli-deprecation",
+    "error-messaging"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to register multiple namespaces with tctl receive confusing error messages and need guidance to use the newer temporal CLI.",
+  "rootCause": "User was using deprecated tctl command with incorrect syntax/behavior; newer temporal CLI handles the operation correctly.",
+  "proposedFix": "Use the newer temporal CLI instead of deprecated tctl. Server could also include namespace name in error message for better debugging.",
+  "workaround": "Switch from tctl to the newer temporal CLI for namespace management operations.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was not a server bug but user error from using deprecated tctl command. Resolved by recommending migration to newer temporal CLI.",
+  "related": [],
+  "keyQuote": "This isn't a server bug, it's misuse of the `tctl` command (which is deprecated by the way), could you try with the newer `temporal` CLI",
+  "number": 7106,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:29.972Z"
+}

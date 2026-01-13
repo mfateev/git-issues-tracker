@@ -1,0 +1,30 @@
+{
+  "summary": "Investigation needed into the purpose and necessity of an unused `bind_f` function in the Python SDK. The function appears to be dead code that should either be removed or its purpose clarified.",
+  "category": "bug",
+  "subcategory": "code-cleanup",
+  "apis": [],
+  "components": [
+    "bind_f",
+    "function-binding"
+  ],
+  "concepts": [
+    "dead-code",
+    "code-cleanup",
+    "unused-functions",
+    "refactoring"
+  ],
+  "severity": "low",
+  "userImpact": "Unused code can increase maintenance burden and create confusion about the intended API surface.",
+  "rootCause": "The `bind_f` function appears to be unreferenced code that may have been superseded by other functionality.",
+  "proposedFix": "Either remove the unused `bind_f` function or document its intended purpose if it serves a future use case.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    771
+  ],
+  "keyQuote": "Investigate purpose of unused `bind_f` function.",
+  "number": 772,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:24.655Z"
+}

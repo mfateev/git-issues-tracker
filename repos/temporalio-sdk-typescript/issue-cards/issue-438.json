@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for headers in signals and queries, matching the feature added to the Temporal Server. This aligns TypeScript SDK with Go and Java SDK implementations.",
+  "category": "feature",
+  "subcategory": "signals-queries",
+  "apis": [
+    "signal",
+    "query"
+  ],
+  "components": [
+    "signal-handler",
+    "query-handler",
+    "client"
+  ],
+  "concepts": [
+    "headers",
+    "metadata",
+    "signals",
+    "queries",
+    "cross-language-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot attach metadata headers to signals and queries in TypeScript SDK, limiting communication capabilities compared to other SDK languages.",
+  "rootCause": null,
+  "proposedFix": "Implement header support in signal and query APIs, following the pattern established in Go SDK PR #631 and referenced in Java SDK issue #940.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support headers in signals and queries, bringing TypeScript SDK to feature parity with Go and Java SDKs.",
+  "related": [
+    940
+  ],
+  "keyQuote": "Headers were added to signals and queries in https://github.com/temporalio/temporal/pull/2149.",
+  "number": 438,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:49.856Z"
+}

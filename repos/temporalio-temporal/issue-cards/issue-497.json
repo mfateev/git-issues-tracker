@@ -1,0 +1,30 @@
+{
+  "summary": "Integration test TestContinueAsNewWorkflow_Timeout exhibits flaky behavior, taking 5 minutes to pass when it should complete in 5 seconds, indicating timing or synchronization issues in the test or the timeout implementation.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "continue-as-new",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "timeout",
+    "timing",
+    "synchronization",
+    "integration-test"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the testing suite and make CI/CD pipelines unreliable.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely after test reliability improvements",
+  "related": [],
+  "keyQuote": "Test failed in 5 seconds. Test passes within 5 minutes.",
+  "number": 497,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:02:26.848Z"
+}

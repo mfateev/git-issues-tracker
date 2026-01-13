@@ -1,0 +1,32 @@
+{
+  "summary": "Add a Mutex class as a thin facade over Semaphore with a single-count configuration, matching .NET threading mutex method names like WaitOne and ReleaseMutex.",
+  "category": "feature",
+  "subcategory": "workflow-synchronization",
+  "apis": [
+    "Semaphore"
+  ],
+  "components": [
+    "workflows-module",
+    "synchronization-primitives"
+  ],
+  "concepts": [
+    "mutex",
+    "semaphore",
+    "locking",
+    "concurrency",
+    "facade-pattern",
+    "thread-safety"
+  ],
+  "severity": "low",
+  "userImpact": "Developers working with workflows can use a simpler, more intuitive Mutex API that aligns with familiar .NET threading conventions.",
+  "rootCause": null,
+  "proposedFix": "Create Temporalio.Workflows.Mutex class as a wrapper around Semaphore initialized with count=1, implementing WaitOne and ReleaseMutex methods.",
+  "workaround": "Use Semaphore directly with a single-count initialization.",
+  "resolution": "fixed",
+  "resolutionDetails": "Mutex facade was implemented as a thin wrapper over single-count Semaphore.",
+  "related": [],
+  "keyQuote": "Add Temporalio.Workflows.Mutex as thin facade over single-count Temporalio.Workflows.Semaphore",
+  "number": 297,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:03:57.745Z"
+}

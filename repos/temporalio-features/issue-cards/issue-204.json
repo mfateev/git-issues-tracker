@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose the currently configured payload converter to workflow code, enabling access for use cases like headers and interceptors across all Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "workflow-context",
+    "interceptors"
+  ],
+  "concepts": [
+    "serialization",
+    "payload-handling",
+    "configuration-access",
+    "headers",
+    "interceptors",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the currently configured payload converter from within workflow code, limiting their ability to implement custom serialization strategies and interceptors.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1007
+  ],
+  "keyQuote": "Expose currently configured payload converter to workflow code",
+  "number": 204,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:28.476Z"
+}

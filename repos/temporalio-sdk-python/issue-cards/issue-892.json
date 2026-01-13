@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add `merge_extra` support to LoggerAdapter classes in the Python SDK, allowing users to set adapter-level extra data. This would follow the stdlib approach introduced in Python 3.13, requiring a custom implementation for broader compatibility.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "LoggerAdapter"
+  ],
+  "components": [
+    "workflow-logger-adapter",
+    "activity-logger-adapter",
+    "logging"
+  ],
+  "concepts": [
+    "logging",
+    "adapter",
+    "extra-data",
+    "configuration",
+    "stdlib-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users would be able to set adapter-level extra data in logging adapters, improving log contextual information and reducing boilerplate code.",
+  "rootCause": null,
+  "proposedFix": "Implement `merge_extra` method in both `workflow.LoggerAdapter` and `activity.LoggerAdapter` classes, with a custom implementation to support Python versions prior to 3.13.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    276
+  ],
+  "keyQuote": "For `workflow.LoggerAdapter` and `activity.LoggerAdapter`, consider supporting `merge_extra` to allow users to set adapter-level extra data.",
+  "number": 892,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:57.383Z"
+}

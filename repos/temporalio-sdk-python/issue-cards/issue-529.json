@@ -1,0 +1,35 @@
+{
+  "summary": "Wrap GRPC CANCELED and DEADLINE_EXCEEDED exceptions in a SDK-specific Timeout exception for Update operations so users only need to catch one predictable exception type.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "Update"
+  ],
+  "components": [
+    "grpc-client",
+    "exception-handling",
+    "update-executor"
+  ],
+  "concepts": [
+    "timeout",
+    "exception-wrapping",
+    "grpc-errors",
+    "deadline",
+    "error-handling",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must catch multiple exception types instead of a single unified SDK exception, making error handling more complex and error-prone.",
+  "rootCause": "GRPC exceptions (CANCELED, DEADLINE_EXCEEDED) are exposed directly to users instead of being wrapped in SDK-specific exceptions.",
+  "proposedFix": "Create a SDK Timeout exception wrapper that catches GRPC CANCELED and DEADLINE_EXCEEDED errors and re-raises them as the SDK exception type.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of the features issue #483 referenced in the comments.",
+  "related": [
+    483
+  ],
+  "keyQuote": "So that users only have to catch one predictable exception",
+  "number": 529,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:20.727Z"
+}

@@ -1,6 +1,6 @@
 # Ruby SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
 ## Related Documents
@@ -25,7 +25,7 @@
 | Total Comments on open | 15 |
 | Issues with Upvotes | 2 (9%) |
 | Issues with Comments | 8 (36%) |
-| Average Age (days) | 250 |
+| Average Age (days) | 253 |
 | Stale Issues (>12 months) | 4 (18%) |
 
 ---
@@ -87,9 +87,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 26 |
+| Issues Opened | 25 |
 | Issues Closed | 29 |
-| Net Change | -3 |
+| Net Change | -4 |
 | Bugs Closed | 5 |
 | Enhancements Closed | 22 |
 

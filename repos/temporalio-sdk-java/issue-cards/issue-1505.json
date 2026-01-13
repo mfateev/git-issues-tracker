@@ -1,0 +1,32 @@
+{
+  "summary": "IllegalStateException occurs when a signal is received at the exact moment a workflow calls ContinuedAsNew, causing the signal to be processed after the workflow closes, leading to repeated workflow task failures during replay.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [
+    "ContinuedAsNew"
+  ],
+  "components": [
+    "signal-handler",
+    "workflow-task",
+    "cancellation-scope"
+  ],
+  "concepts": [
+    "signal-timing",
+    "workflow-closure",
+    "task-replay",
+    "continueasnew",
+    "race-condition"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail with IllegalStateException when signals coincide with ContinuedAsNew calls, requiring workflow restart and causing repeated task failures.",
+  "rootCause": "Signal arrives at the same time workflow calls ContinuedAsNew; the signal is extended as UnhandledCommand, but on the next workflow task execution, processing the signal against the closed workflow scope causes an IllegalStateException.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Testing on the latest SDK version confirmed the issue no longer occurs, indicating the bug was fixed in a subsequent release.",
+  "related": [],
+  "keyQuote": "Seems that when a signal comes in at same time as workflow calls continueasnew, worker raises UnhandledCommand to extend the workflow task",
+  "number": 1505,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:37:31.998Z"
+}

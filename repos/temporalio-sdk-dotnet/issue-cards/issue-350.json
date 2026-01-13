@@ -1,0 +1,32 @@
+{
+  "summary": "Generic activity methods are not supported and fail at runtime with a reflection error. The issue should be caught eagerly during worker creation rather than failing at execution time.",
+  "category": "bug",
+  "subcategory": "activity-definition",
+  "apis": [
+    "ActivityDefinition"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "service-provider-extensions"
+  ],
+  "concepts": [
+    "generic-types",
+    "reflection",
+    "runtime-validation",
+    "worker-creation",
+    "type-checking"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot define activities with generic type parameters, causing runtime failures instead of early validation errors.",
+  "rootCause": "Generic type parameters are not resolved at reflection time, causing late-bound operations to fail when the method is invoked.",
+  "proposedFix": "Add eager validation at worker creation to detect and reject generic activity methods with a clear error message.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by adding validation to detect generic activity methods during worker initialization.",
+  "related": [],
+  "keyQuote": "Late bound operations cannot be performed on types or methods for which ContainsGenericParameters is true.",
+  "number": 350,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:52:02.677Z"
+}

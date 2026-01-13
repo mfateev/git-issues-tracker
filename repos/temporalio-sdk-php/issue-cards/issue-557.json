@@ -1,0 +1,34 @@
+{
+  "summary": "User requests the ability to update workflow memo during execution. Currently memos can only be set at workflow start, but the user needs to add dynamic metadata (like order numbers) during workflow execution for incident investigation.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "upsertSearchAttributes"
+  ],
+  "components": [
+    "workflow",
+    "memo",
+    "search-attributes"
+  ],
+  "concepts": [
+    "workflow-metadata",
+    "dynamic-updates",
+    "incident-investigation",
+    "searchability",
+    "workflow-execution-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot dynamically update workflow memo during execution, limiting the ability to enrich workflow metadata for search and investigation purposes.",
+  "rootCause": null,
+  "proposedFix": "Add a Workflow::addMemo() method to allow updating memo during workflow execution, similar to UpsertMemo command in other SDKs.",
+  "workaround": "Use upsertSearchAttributes() instead of memo for dynamic metadata updates during workflow execution.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was closed as the maintainer recommended using Search Attributes (which are searchable in Temporal UI) instead of memos for dynamic metadata updates during workflow execution.",
+  "related": [
+    553
+  ],
+  "keyQuote": "Search Attributes can be more useful in this case... you can use untyped ones https://php.temporal.io/classes/Temporal-Workflow.html#method_upsertSearchAttributes",
+  "number": 557,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:32.636Z"
+}

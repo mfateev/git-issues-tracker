@@ -1,0 +1,33 @@
+{
+  "summary": "User encounters error when implementing generic workflow interfaces with inheritance. The SDK throws a \"multiple signal method found\" error when creating workflow stubs for implementations that inherit from a generic TranslationWorkflow interface with type parameters.",
+  "category": "bug",
+  "subcategory": "workflow-definition",
+  "apis": [
+    "WorkflowMethod"
+  ],
+  "components": [
+    "workflow-stub",
+    "workflow-interface",
+    "type-system"
+  ],
+  "concepts": [
+    "generics",
+    "inheritance",
+    "interface-override",
+    "workflow-method-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use generic interfaces to define shared workflow logic across multiple concrete workflow implementations.",
+  "rootCause": "The Java SDK does not support generics in workflow interface definitions. The reflection-based method resolution finds both the generic method and the overridden concrete method, resulting in duplicate signal method detection.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1106. The core limitation is that generics are not supported by the SDK.",
+  "related": [
+    1106
+  ],
+  "keyQuote": "Generics are not supported. What is the R type?",
+  "number": 1551,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:17.809Z"
+}

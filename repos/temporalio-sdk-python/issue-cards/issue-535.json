@@ -1,0 +1,36 @@
+{
+  "summary": "Convert non-deterministic asyncio call warnings into hard errors for asyncio.as_completed() and asyncio.wait() invoked in workflows, following a deprecation period after issue #533.",
+  "category": "feature",
+  "subcategory": "workflow-validation",
+  "apis": [
+    "asyncio.as_completed",
+    "asyncio.wait"
+  ],
+  "components": [
+    "workflow-runtime",
+    "validation",
+    "error-handling"
+  ],
+  "concepts": [
+    "non-determinism",
+    "asyncio",
+    "workflow-safety",
+    "deprecation",
+    "validation",
+    "error-raising"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive hard errors instead of warnings when using non-deterministic asyncio calls in workflows, preventing silent failures.",
+  "rootCause": "asyncio.as_completed() and asyncio.wait() are non-deterministic and should not be used within workflow code.",
+  "proposedFix": "After a deprecation period, convert the current warnings into errors similar to other invalid workflow calls.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    533
+  ],
+  "keyQuote": "After a release and a good period of time, we should fail when these are called the same way we do with other invalid workflow calls.",
+  "number": 535,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:37.089Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Metrics for Operator API or Admin API incorrectly report operation=\"Unknown\" instead of the actual operation name (e.g., \"AdminGetShard\"). The namespace is correctly marked as unknown when not provided in the request.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "admin-api",
+    "operator-api",
+    "frontend-service"
+  ],
+  "concepts": [
+    "metrics",
+    "operation-tracking",
+    "observability",
+    "diagnostic-data"
+  ],
+  "severity": "medium",
+  "userImpact": "Users monitoring admin API operations cannot properly identify which operations are failing due to incorrect operation names in metrics.",
+  "rootCause": "Operation name is not being populated correctly in metrics collection for Admin API/Operator API calls.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The operation name is now correctly populated as \"AdminGetShard\" instead of \"Unknown\" in metrics.",
+  "related": [],
+  "keyQuote": "The namespace _unknown_ is expected as the request does not contain a namespace filed. But the operation should be \"AdminGetShard\".",
+  "number": 3120,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:05.060Z"
+}

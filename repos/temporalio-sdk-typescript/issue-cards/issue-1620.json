@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to add support for attaching priority annotations to workflows and activities in the TypeScript SDK. Details referenced in the cross-SDK features issue #593.",
+  "category": "feature",
+  "subcategory": "workflow-priority",
+  "apis": [
+    "ExecuteActivity",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-definition",
+    "activity-definition",
+    "priority-executor"
+  ],
+  "concepts": [
+    "priority",
+    "scheduling",
+    "workflow-execution",
+    "activity-execution",
+    "resource-allocation",
+    "queueing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently specify priority levels for workflows and activities, limiting control over execution scheduling and resource allocation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and issue closed; priority annotation support is now available in TypeScript SDK.",
+  "related": [
+    593
+  ],
+  "keyQuote": "Add support for attaching priority to workflows/activities",
+  "number": 1620,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:48.308Z"
+}

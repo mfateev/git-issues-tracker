@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for Server TLS/SSL to secure gRPC communication in Temporal. Server TLS and mutual TLS authentication are now supported across all components except Temporal CLI and Temporal Web.",
+  "category": "feature",
+  "subcategory": "security-tls",
+  "apis": [],
+  "components": [
+    "grpc",
+    "server",
+    "tls-configuration",
+    "certificate-loading"
+  ],
+  "concepts": [
+    "tls",
+    "ssl",
+    "encryption",
+    "certificate",
+    "mutual-tls",
+    "secure-communication",
+    "grpc-security"
+  ],
+  "severity": "high",
+  "userImpact": "Users can now secure Temporal Server gRPC communication using TLS/SSL certificates for encrypted and authenticated connections.",
+  "rootCause": null,
+  "proposedFix": "Implement TLS certificate loading and configuration across Temporal Server components to enable secure gRPC communication.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Server TLS and Mutual TLS support was implemented across all components except Temporal CLI and Temporal Web, with configuration documented.",
+  "related": [],
+  "keyQuote": "Server TLS and Mutual TLS is now supported across all components except Temporal CLI and Temporal Web",
+  "number": 304,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:27:30.315Z"
+}

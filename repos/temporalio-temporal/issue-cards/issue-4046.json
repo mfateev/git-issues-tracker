@@ -1,0 +1,30 @@
+{
+  "summary": "User unable to upgrade temporal_visibility PostgreSQL schema to v1.9 with error that 'queue' table does not exist. The root cause was using incorrect schema directory path (temporal instead of visibility) in the update command.",
+  "category": "question",
+  "subcategory": "schema-migration",
+  "apis": [],
+  "components": [
+    "schema-tool",
+    "postgresql-driver",
+    "visibility-schema"
+  ],
+  "concepts": [
+    "schema-upgrade",
+    "database-migration",
+    "version-compatibility",
+    "postgresql",
+    "configuration-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading from v1.18.4 to v1.19.0 cannot complete the temporal_visibility schema migration, blocking their upgrade process.",
+  "rootCause": "Incorrect schema directory path specified in the update-schema command: using '/v96/temporal/versioned' instead of '/v96/visibility/versioned' for the temporal_visibility database.",
+  "proposedFix": "Use the correct schema path for visibility database: temporal-sql-tool with -d /etc/temporal/schema/postgresql/v96/visibility/versioned",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was user configuration error - incorrect path parameter provided to schema migration tool, not a bug in Temporal itself.",
+  "related": [],
+  "keyQuote": "Your command to update `temporal_visibility` database seems to be wrong. It should be... Note the path is incorrect: `v96/temporal/versioned` -> `v96/visibility/versioned`.",
+  "number": 4046,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:12.726Z"
+}

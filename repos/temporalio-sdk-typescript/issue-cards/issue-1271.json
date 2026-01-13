@@ -1,0 +1,34 @@
+{
+  "summary": "The TypeScript SDK's core-bridge native library doesn't support musl-based systems (like Alpine Linux). Users need the ability to build musl-compatible native libraries to run workers in Alpine containers.",
+  "category": "feature",
+  "subcategory": "platform-support",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "target-detection",
+    "native-library-build"
+  ],
+  "concepts": [
+    "alpine",
+    "musl",
+    "libc",
+    "platform-compatibility",
+    "docker",
+    "native-binding",
+    "build-system"
+  ],
+  "severity": "medium",
+  "userImpact": "Users requiring Alpine Docker images cannot run TypeScript SDK workers without self-building the native library.",
+  "rootCause": "The target environment detection logic in core-bridge cannot recognize musl-based systems because Node.js provides no direct indication of the C library in use.",
+  "proposedFix": "Modify the target environment detection logic in packages/core-bridge/common.js to recognize musl environments by inspecting process or os APIs, and add musl build targets to the CI test matrix.",
+  "workaround": "Users can manually build the native library by installing build tools, setting RUSTFLAGS and BUILD_CORE_RELEASE environment variables, and copying the compiled artifact.",
+  "resolution": "fixed",
+  "resolutionDetails": "Superseded by #1621, indicating the feature was implemented through a more comprehensive solution.",
+  "related": [
+    1621
+  ],
+  "keyQuote": "the TS logic that identify the current target can't recognize the fact that it is running on a musl-based system",
+  "number": 1271,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:57.215Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "CRON-scheduled workflows stop executing after a few runs in server version 0.23.1 due to incorrect timeout configuration. The issue occurs when using WorkflowExecutionTimeout instead of WorkflowRunTimeout, as the former caps the total duration for all periodic executions.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [
+    "WorkflowOptions",
+    "setWorkflowExecutionTimeout",
+    "setWorkflowRunTimeout",
+    "setWorkflowTaskTimeout"
+  ],
+  "components": [
+    "cron-scheduler",
+    "workflow-execution",
+    "timeout-management"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "timeout-configuration",
+    "workflow-lifecycle",
+    "execution-timeout",
+    "periodic-execution"
+  ],
+  "severity": "high",
+  "userImpact": "CRON-scheduled workflows stop running after a few executions, preventing critical scheduled tasks from continuing unless the configuration is corrected.",
+  "rootCause": "Confusion between timeout parameters in SDK 0.23.1: WorkflowExecutionTimeout applies to the entire execution lifetime and caps all periodic runs, while WorkflowRunTimeout applies to each individual run. Users migrating from 0.19.0 incorrectly used WorkflowExecutionTimeout instead of WorkflowRunTimeout.",
+  "proposedFix": "Use WorkflowRunTimeout for CRON workflows instead of WorkflowExecutionTimeout. Do not set WorkflowExecutionTimeout for workflows that run indefinitely.",
+  "workaround": "Replace WorkflowExecutionTimeout with WorkflowRunTimeout in workflow options configuration for CRON-scheduled workflows.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by identifying the correct timeout configuration. User determined that WorkflowRunTimeout should be used for CRON workflows, as WorkflowExecutionTimeout caps the entire execution lifetime.",
+  "related": [],
+  "keyQuote": "WorkflowRunTimeout is the timeout for each workflow run whereas WorkflowExecutionTimeout is the timeout for the overall execution and in the case of CRON workflows, since the same workflow ID is used for each periodic execution, this parameter caps the total duration till which the workflow schedule is valid.",
+  "number": 424,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:57:15.553Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add a separate Cloud Operations API client for the Python SDK using cloud protos, marked as experimental. This feature requires sdk-core support and follows similar implementations in Go SDK.",
+  "category": "feature",
+  "subcategory": "cloud-client",
+  "apis": [],
+  "components": [
+    "cloud-client",
+    "proto-bindings"
+  ],
+  "concepts": [
+    "cloud-operations",
+    "experimental-api",
+    "client-library",
+    "cloud-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to interact with Temporal Cloud operations programmatically through a dedicated Python client API.",
+  "rootCause": null,
+  "proposedFix": "Create a separate cloud client using cloud protos, following the pattern established in sdk-go#1426",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Cloud client was implemented as a separate module",
+  "related": [
+    440,
+    1426,
+    737
+  ],
+  "keyQuote": "We need a separate cloud client using the cloud protos (they are separate today). The client should be marked experimental.",
+  "number": 522,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:01.604Z"
+}

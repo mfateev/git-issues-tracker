@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add validation for retry policy `maxAttempts` parameter to ensure it's an integer and not `Infinity` or other invalid values.",
+  "category": "feature",
+  "subcategory": "retry-policy",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "retry-policy",
+    "validation",
+    "type-checking"
+  ],
+  "concepts": [
+    "retry",
+    "validation",
+    "parameter-checking",
+    "integer-validation",
+    "infinity",
+    "error-prevention"
+  ],
+  "severity": "low",
+  "userImpact": "Users may accidentally pass invalid values like `Infinity` to `maxAttempts`, which should be caught early with clear validation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Validation was implemented to ensure maxAttempts is a valid integer",
+  "related": [],
+  "keyQuote": null,
+  "number": 656,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:15.167Z"
+}

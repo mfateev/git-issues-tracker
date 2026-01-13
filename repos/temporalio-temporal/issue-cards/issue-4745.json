@@ -1,0 +1,30 @@
+{
+  "summary": "Search attributes registered for a namespace on the current cluster are not replicated when that namespace is replicated to a new cluster via the clusters list update. This feature request asks for custom search attributes to be included in the namespace replication process.",
+  "category": "feature",
+  "subcategory": "namespace-replication",
+  "apis": [],
+  "components": [
+    "namespace-replication",
+    "search-attributes",
+    "cluster-management"
+  ],
+  "concepts": [
+    "replication",
+    "namespace-management",
+    "search-attributes",
+    "multi-cluster",
+    "metadata-sync"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually recreate search attributes on new clusters when replicating namespaces, adding operational overhead.",
+  "rootCause": null,
+  "proposedFix": "Replicate custom search attributes as part of the namespace replication process when updating a namespace's clusters list.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Replicate custom search attributes as part of namespace replication.",
+  "number": 4745,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:41.764Z"
+}

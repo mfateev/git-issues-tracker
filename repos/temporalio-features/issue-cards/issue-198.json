@@ -1,0 +1,35 @@
+{
+  "summary": "gRPC messages exceeding the 4MB limit trigger ResourceExhausted errors with automatic retry logic, but these should fail immediately without retry. Different SDKs need specific implementations to detect and fail on oversized messages.",
+  "category": "feature",
+  "subcategory": "grpc-communication",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "error-handling",
+    "retry-logic"
+  ],
+  "concepts": [
+    "message-size-limit",
+    "resource-exhaustion",
+    "retry-behavior",
+    "error-detection",
+    "grpc-protocol"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unnecessary retries and delayed failures when workflows or activities produce messages larger than 4MB, preventing immediate error detection.",
+  "rootCause": "Auto-retry logic treats all ResourceExhausted errors the same way, but message size violations should be treated as non-retryable errors.",
+  "proposedFix": "Detect message size exceeded errors in gRPC responses and fail the workflow task immediately without retrying.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of features #624",
+  "related": [
+    995,
+    1585,
+    462,
+    624
+  ],
+  "keyQuote": "grpc: received message larger than max (10248653 vs. 4194304) - We auto-retry resource exhausted, but we shouldn't retry _this_ resource exhausted",
+  "number": 198,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:02.229Z"
+}

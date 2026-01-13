@@ -1,0 +1,31 @@
+{
+  "summary": "Worker can get stuck polling only the sticky task queue when empty responses or errors occur. The sticky queue backlog should be reset on empty/error responses (like Go SDK does), but Java SDK only resets on non-empty responses, causing workers to remain stuck polling the sticky queue if all pollers are exhausted.",
+  "category": "bug",
+  "subcategory": "task-polling",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-pollers",
+    "sticky-queue"
+  ],
+  "concepts": [
+    "task-polling",
+    "sticky-queue",
+    "backlog-management",
+    "polling-strategy",
+    "deadlock",
+    "queue-rotation"
+  ],
+  "severity": "high",
+  "userImpact": "Workers can become completely stuck polling only the sticky task queue, unable to process new tasks until the issue is manually resolved.",
+  "rootCause": "The sticky queue backlog reset logic only triggers on non-empty responses, unlike the Go SDK which resets on empty responses or errors. This causes workers to remain stuck polling an empty sticky queue when all task pollers are allocated to it.",
+  "proposedFix": "Reset the sticky queue backlog on empty responses or errors, matching the Go SDK implementation referenced in the issue.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was fixed by implementing the same backlog reset logic as the Go SDK, resetting on empty/error responses.",
+  "related": [],
+  "keyQuote": "The worker only resets the backlog if it receives a non empty response. This can cause the worker to get stuck only polling the stick task queue",
+  "number": 1858,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:32.913Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to propagate OpenTelemetry context to local activities in the TypeScript SDK. Currently, only non-local activities and child workflows have traces attached to the workflow's span, creating inconsistency in observability.",
+  "category": "feature",
+  "subcategory": "observability-tracing",
+  "apis": [],
+  "components": [
+    "tracing",
+    "local-activities",
+    "observability"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "context-propagation",
+    "tracing",
+    "spans",
+    "observability",
+    "local-activities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively trace and monitor local activity execution through OpenTelemetry, limiting visibility into workflow execution.",
+  "rootCause": "OpenTelemetry context is not being propagated to local activities while it is for non-local activities and child workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK tracing support is being removed; this feature request became moot as internal SDK traces are being deprecated. However, user-provided traces should still work.",
+  "related": [],
+  "keyQuote": "This is true for internal SDK traces, not user traces. I reopened this issue.",
+  "number": 1057,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:19.301Z"
+}

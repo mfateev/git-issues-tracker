@@ -1,0 +1,32 @@
+{
+  "summary": "PyCharm IDE doesn't recognize type hints for no-argument signal handlers in WorkflowHandle.signal(). A proposed overload using Callable type annotation would improve IDE support, though the maintainer noted this may be a PyCharm bug rather than an SDK limitation.",
+  "category": "feature",
+  "subcategory": "type-hints",
+  "apis": [
+    "signal"
+  ],
+  "components": [
+    "client",
+    "WorkflowHandle",
+    "typing"
+  ],
+  "concepts": [
+    "type-checking",
+    "IDE-support",
+    "overload",
+    "PyCharm",
+    "type-hints"
+  ],
+  "severity": "low",
+  "userImpact": "PyCharm users experience incorrect IDE type checking warnings when calling signal() with no-argument signal handlers, though the code runs correctly.",
+  "rootCause": "PyCharm's type inference doesn't recognize the existing Callable[SelfType, None] protocol as matching the no-argument signal pattern, while PyRight handles it correctly.",
+  "proposedFix": "Add an overload to WorkflowHandle.signal() that explicitly accepts Callable[SelfType, None] parameters with optional rpc_metadata and rpc_timeout arguments.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer determined the proposed overload doesn't expand valid type ranges as Callable already fits MethodSyncOrAsyncNoParam protocol, suggesting this is a PyCharm bug rather than an SDK issue.",
+  "related": [],
+  "keyQuote": "That would indicate it is a PyCharm bug, not one for which we should introduce a new overload for all users.",
+  "number": 1220,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:11.508Z"
+}

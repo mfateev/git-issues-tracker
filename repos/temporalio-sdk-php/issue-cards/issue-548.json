@@ -1,0 +1,34 @@
+{
+  "summary": "ScheduleClient does not respect the namespace specified in ClientOptions when creating schedules without explicit ScheduleOptions. Schedules are created in the default namespace instead of the configured namespace.",
+  "category": "bug",
+  "subcategory": "schedule-client",
+  "apis": [
+    "ScheduleClient",
+    "createSchedule",
+    "getHandle"
+  ],
+  "components": [
+    "ScheduleClient",
+    "ScheduleOptions",
+    "namespace-handling"
+  ],
+  "concepts": [
+    "namespace",
+    "default-values",
+    "client-options",
+    "constructor-parameters",
+    "configuration-inheritance"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create schedules in non-default namespaces using ScheduleClient constructor options, forcing them to always specify namespace explicitly in ScheduleOptions.",
+  "rootCause": "ScheduleClient hardcodes namespace default to 'default' string in createSchedule method instead of using the namespace from ClientOptions passed to constructor.",
+  "proposedFix": "Use the namespace provided in ClientOptions as the default in createSchedule, similar to how it's done in getHandle method at line 139.",
+  "workaround": "Explicitly pass namespace in ScheduleOptions when calling createSchedule: `createSchedule(Schedule::new(), options: ScheduleOptions::new()->withNamespace('my-namespace'))`",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the bug was resolved by respecting ClientOptions namespace in ScheduleClient.",
+  "related": [],
+  "keyQuote": "When I create a schedule without explicitly passing ScheduleOptions, the schedule is created in the default namespace instead of the namespace provided in ClientOptions",
+  "number": 548,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:03.206Z"
+}

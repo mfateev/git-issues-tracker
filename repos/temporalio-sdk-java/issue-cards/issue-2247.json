@@ -1,0 +1,34 @@
+{
+  "summary": "Implement Nexus operation cancellation type similar to ChildWorkflowCancellationType to support different cancellation behaviors. This requires server-side support for recording the NexusOperationCancelDelivered history event.",
+  "category": "feature",
+  "subcategory": "nexus-cancellation",
+  "apis": [
+    "NexusOperationCancellationType"
+  ],
+  "components": [
+    "nexus",
+    "operation-cancellation",
+    "history-event"
+  ],
+  "concepts": [
+    "cancellation",
+    "child-workflow-pattern",
+    "operation-lifecycle",
+    "server-event-recording",
+    "cancel-requested"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure different cancellation behaviors for Nexus operations, limiting control over how operation cancellations are handled.",
+  "rootCause": "Server does not yet support recording the NexusOperationCancelDelivered history event needed for cancel-requested behavior.",
+  "proposedFix": "Implement NexusOperationCancellationType enum similar to ChildWorkflowCancellationType and support recording NexusOperationCancelDelivered history event on the server.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with support for Nexus operation cancellation type and corresponding server-side history event recording.",
+  "related": [
+    6585
+  ],
+  "keyQuote": "Similar to ChildWorkflowCancellationType. Waiting for \"cancel requested\" requires the server to record the NexusOperationCancelDelivered history event.",
+  "number": 2247,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:03:48.401Z"
+}

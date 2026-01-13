@@ -1,0 +1,30 @@
+{
+  "summary": "Failing to mark an Activity or Workflow interface as public produces a cryptic runtime error about invoking a public abstract method instead of a clear diagnostic message indicating the interface must be public.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "interface-registration",
+    "error-messages"
+  ],
+  "concepts": [
+    "visibility",
+    "access-modifiers",
+    "diagnostics",
+    "validation",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers waste time debugging a confusing runtime error when they forget to make their Activity or Workflow interface public.",
+  "rootCause": "The framework does not validate that Activity and Workflow interfaces are public during registration, leading to runtime errors with misleading messages.",
+  "proposedFix": "Add validation during registration/worker start to check that interfaces are public and provide a clear error message if they are not.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Improved error message added to provide clear diagnostic when interface is not public",
+  "related": [],
+  "keyQuote": "A nice error message indicating that the interface needs to be marked as \"public\" during registration / worker start",
+  "number": 171,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:58:41.463Z"
+}

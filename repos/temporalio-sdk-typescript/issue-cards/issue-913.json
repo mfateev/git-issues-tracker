@@ -1,0 +1,32 @@
+{
+  "summary": "Stress tests intermittently hang during execution, getting stuck at various completion points (e.g., 9940/10000 or 63/100 workflows). The issue is a duplicate of #853 and is caused by the stress test instance not being recycled properly.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "stress-tests",
+    "test-runner",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "timeout",
+    "resource-cleanup",
+    "instance-recycling",
+    "test-stability",
+    "concurrency"
+  ],
+  "severity": "medium",
+  "userImpact": "Stress tests fail to complete reliably, blocking CI/CD pipelines and making it difficult to validate SDK performance under load.",
+  "rootCause": "The stress test instance is not being recycled periodically, causing resource exhaustion or state accumulation that leads to hangs.",
+  "proposedFix": "Recycle the stress test instance every once in a while during test execution.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #853, which addresses the same stress test stability problem.",
+  "related": [
+    853
+  ],
+  "keyQuote": "It's a known issue, we need to fix the stress test to recycle the instance every once in a while.",
+  "number": 913,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:40.342Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to suppress warnings for unfinished handlers when a workflow fails, while continuing to warn for cancelled or continued-as-new workflows.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "error-handler"
+  ],
+  "concepts": [
+    "workflow-failure",
+    "handler-lifecycle",
+    "warning-suppression",
+    "workflow-cancellation"
+  ],
+  "severity": "low",
+  "userImpact": "Users experience unnecessary warnings when workflows fail, reducing signal quality for actual issues with cancelled or continued-as-new workflows.",
+  "rootCause": null,
+  "proposedFix": "Modify the handler completion warning logic to exclude failed workflow scenarios while maintaining warnings for cancelled and continued-as-new cases.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented selective warning suppression for workflow failures while preserving warnings for cancellation and continued-as-new scenarios.",
+  "related": [
+    294
+  ],
+  "keyQuote": "we need to not warn on failed workflow (not to be confused with cancelled or continued-as-new which we _do_ want to continue to warn on)",
+  "number": 325,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:54:58.010Z"
+}

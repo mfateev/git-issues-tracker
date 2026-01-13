@@ -1,0 +1,33 @@
+{
+  "summary": "Refactor the Failure representation in APIs to use a generic protobuf structure for error chains instead of language-specific serialization formats. This enables proper error chaining across SDKs implemented in different languages.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "failure-representation",
+    "proto-structures",
+    "error-chain",
+    "sdk-interoperability"
+  ],
+  "concepts": [
+    "error-serialization",
+    "exception-chaining",
+    "language-interoperability",
+    "stack-trace",
+    "protobuf",
+    "api-design",
+    "cross-language"
+  ],
+  "severity": "high",
+  "userImpact": "Users working with multi-language Temporal workflows can now properly chain and handle errors across SDKs without language-specific serialization.",
+  "rootCause": "Current `reason` and `details` fields use language-specific serialization formats (Java, Python, Go) making cross-language error handling impossible.",
+  "proposedFix": "Introduce generic protobuf structures: ApplicationFailureInfo with language identifier, Failure with failureInfo oneof, and FailureChain to represent error chains with stacktraces.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Proto changes merged via temporal-proto PR #43, Go SDK implementation in temporal-go-sdk PR #138.",
+  "related": [],
+  "keyQuote": "errors coming from different components can be chained even if they are from different languages",
+  "number": 89,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:17:39.603Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The GetWorkflowExecutionHistory RPC should be split into two separate endpoints: one for normal polling and one for long-polling with WaitForNewEvent. This change would improve API clarity and allow clients to set appropriate timeouts for each use case.",
+  "category": "feature",
+  "subcategory": "history-api",
+  "apis": [
+    "GetWorkflowExecutionHistory",
+    "QueryWorkflow"
+  ],
+  "components": [
+    "workflow-handler",
+    "rpc-api",
+    "history-service"
+  ],
+  "concepts": [
+    "long-polling",
+    "timeout",
+    "rpc-design",
+    "api-split",
+    "event-waiting"
+  ],
+  "severity": "low",
+  "userImpact": "Users would benefit from clearer API semantics and better timeout control for different polling scenarios.",
+  "rootCause": null,
+  "proposedFix": "Split GetWorkflowExecutionHistory into two separate RPCs: one standard query and one long-poll variant. Set longer timeout for QueryWorkflow.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Deferred as not critical before code complete. No immediate need identified, to be revisited later if necessary.",
+  "related": [],
+  "keyQuote": "This RPC needs to be splitted into two (long poll and normal) RPC. Client should have appropriate timeouts set.",
+  "number": 218,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:22:55.518Z"
+}

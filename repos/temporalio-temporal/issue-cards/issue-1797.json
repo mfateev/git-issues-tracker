@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to expose a public API for listing all task queues in a namespace for maintenance and debugging purposes. Currently only individual task queue queries are available, though a persistence layer API exists internally but is inefficient and doesn't properly support pagination across all namespaces.",
+  "category": "feature",
+  "subcategory": "task-queue-management",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "task-queue-service",
+    "namespace-management"
+  ],
+  "concepts": [
+    "pagination",
+    "maintenance",
+    "debugging",
+    "task-queue-discovery",
+    "namespace-isolation",
+    "persistence-schema"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently discover and list all task queues within a namespace, limiting visibility for maintenance tools and operational dashboards.",
+  "rootCause": "Persistence layer API exists but lacks proper public exposure, efficient pagination, and namespace-aware implementations across different database backends (Cassandra, MySQL, PostgreSQL).",
+  "proposedFix": "Expose a public gRPC API endpoint to list all task queues per namespace with proper pagination support that works efficiently across all supported persistence backends.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently public API only allow query a specific task queue. Temporal should consider adding functionality to list all task queue per namespace for maintenance & debugging purpose.",
+  "number": 1797,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:54.639Z"
+}

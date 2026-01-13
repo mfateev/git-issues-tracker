@@ -1,0 +1,32 @@
+{
+  "summary": "Worker.runReplayHistories throws an unhelpful RxJS EmptyError when receiving zero histories instead of succeeding or returning a clear error code. The request is for either graceful handling of empty history sequences or a specific, catchable error code for empty input.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Worker.runReplayHistories"
+  ],
+  "components": [
+    "worker",
+    "replay-engine",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "determinism-checking",
+    "graceful-degradation",
+    "empty-input",
+    "error-codes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably handle the case where replay receives zero histories, making it difficult to integrate replay into production workflows with variable workload sizes.",
+  "rootCause": "The replay function uses RxJS's lastValueFrom operator which throws EmptyError when the source observable completes without emitting values, rather than handling empty input gracefully.",
+  "proposedFix": "Either: (1) return success/empty result when no histories are provided, or (2) throw a specific, catchable error code instead of relying on RxJS's EmptyError.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Given that the goal is to find determinism errors, and that there wouldn't be any determinism errors if there are no histories, I question whether this should throw an error at all.",
+  "number": 1064,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:44.477Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "When an async activity with a primitive return type completes with null, the value is incorrectly converted to zero instead of raising a NullPointerException. This occurs when the activity is invoked synchronously from the workflow, requiring unboxing of the null completion value.",
+  "category": "bug",
+  "subcategory": "activity-completion",
+  "apis": [
+    "useLocalManualCompletion"
+  ],
+  "components": [
+    "activity-executor",
+    "async-completion",
+    "type-conversion"
+  ],
+  "concepts": [
+    "null-handling",
+    "primitive-types",
+    "auto-unboxing",
+    "manual-completion",
+    "type-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users completing activities asynchronously with null values for primitive return types receive zero instead of an error, causing silent data corruption.",
+  "rootCause": "The async completion mechanism converts null to the default primitive value (zero) instead of preserving null for proper unboxing error handling.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was confirmed as a real bug that needed fixing - null propagation should either be prevented at completion or properly handled during unboxing to generate NPE.",
+  "related": [
+    846
+  ],
+  "keyQuote": "The missing detail in the reproduction steps is to invoke the activity synchronously from the workflow, so that there's unboxing required from the null completion value to the local primitive variable.",
+  "number": 701,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:35:32.295Z"
+}

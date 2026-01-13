@@ -1,0 +1,30 @@
+{
+  "summary": "The TypeScript SDK loader hangs when cyclic module dependencies are detected. The issue requests detection and proper error throwing instead of hanging.",
+  "category": "bug",
+  "subcategory": "module-loader",
+  "apis": [],
+  "components": [
+    "loader",
+    "module-system"
+  ],
+  "concepts": [
+    "cyclic-dependency",
+    "deadlock",
+    "module-resolution",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience application hangs when their code has circular module dependencies, making the SDK unusable.",
+  "rootCause": "The module loader does not detect cyclic dependencies and enters an infinite loop",
+  "proposedFix": "Detect cyclic module dependencies and throw an error instead of hanging",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The loader now detects and throws on cyclic module dependencies",
+  "related": [
+    31
+  ],
+  "keyQuote": "the loader will hang when a cycle is found",
+  "number": 32,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:22.227Z"
+}

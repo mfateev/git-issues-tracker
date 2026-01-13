@@ -1,0 +1,30 @@
+{
+  "summary": "Failed activity heartbeat data conversion could crash the worker. The system didn't catch data conversion errors during heartbeats and should instead report them as activity cancellations to handle them gracefully.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "heartbeat-handler"
+  ],
+  "concepts": [
+    "heartbeat",
+    "data-conversion",
+    "error-handling",
+    "cancellation",
+    "crash-prevention"
+  ],
+  "severity": "high",
+  "userImpact": "Worker could crash when activity heartbeat data conversion fails, disrupting workflow execution.",
+  "rootCause": "Data conversion errors during activity heartbeat processing were not caught, causing unhandled exceptions.",
+  "proposedFix": "Catch data conversion errors during heartbeat and report them as activity cancellations instead of crashing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed and resolved in a previous update.",
+  "related": [],
+  "keyQuote": "We don't catch DC errors, we should instead report those back as activity cancellations.",
+  "number": 505,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:28.634Z"
+}

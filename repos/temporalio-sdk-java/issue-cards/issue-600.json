@@ -1,0 +1,38 @@
+{
+  "summary": "User requested the ability to set custom ContextPropagators on LocalActivityOptions, similar to ActivityOptions. This was marked invalid as a duplicate of issue #490, with the resolution that ContextPropagators should be configured via WorkerOptions instead.",
+  "category": "feature",
+  "subcategory": "context-propagation",
+  "apis": [
+    "LocalActivityOptions",
+    "ActivityOptions",
+    "ContextPropagator",
+    "WorkerOptions"
+  ],
+  "components": [
+    "local-activity",
+    "activity-options",
+    "context-propagation",
+    "worker-configuration"
+  ],
+  "concepts": [
+    "context-propagation",
+    "cross-cutting-concerns",
+    "activity-configuration",
+    "client-side-behavior",
+    "worker-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot set context propagators per local activity and must configure them globally at the worker level instead.",
+  "rootCause": "ContextPropagators are fundamentally client-side only and cannot be applied on the worker side, making per-activity configuration unnecessary.",
+  "proposedFix": null,
+  "workaround": "Use WorkerOptions#contextPropagators to configure context propagators globally instead of per activity.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #490. Resolved by clarifying that ContextPropagators are client-side only and should be configured via WorkerOptions, not per activity.",
+  "related": [
+    490
+  ],
+  "keyQuote": "ActivityOptions#contextPropagators stay on the client-side only and can't be applied on a worker side. Use WorkerOptions#contextPropagators instead.",
+  "number": 600,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:27:37.517Z"
+}

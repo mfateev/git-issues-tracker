@@ -1,0 +1,35 @@
+{
+  "summary": "Request to communicate to Workflows when they should continue as new to manage event history size. SDKs should provide both eventHistoryLength and a shouldContinueAsNew indicator, either computed by the SDK or sent by the Server based on history size and payload information.",
+  "category": "feature",
+  "subcategory": "workflow-lifecycle",
+  "apis": [
+    "isContinueAsNewNeeded"
+  ],
+  "components": [
+    "workflow-runtime",
+    "event-history",
+    "sdk-core"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "event-history-management",
+    "workflow-continuation",
+    "history-size-limits",
+    "long-running-workflows",
+    "performance-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing long-running workflows lack guidance on when to continue as new, potentially leading to performance issues from unbounded event history growth.",
+  "rootCause": null,
+  "proposedFix": "SDKs should expose eventHistoryLength and shouldContinueAsNew flag to workflows, with the latter either computed by SDK (e.g., when history > 10,000 events) or communicated by the Server which has better visibility into history size and payload sizes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to communicate continue as new information to workers via SDK APIs",
+  "related": [
+    16
+  ],
+  "keyQuote": "We should give `Workflow.isContinueAsNewNeeded` flag to the SDKs. And it should be coming from the service.",
+  "number": 2726,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:08.524Z"
+}

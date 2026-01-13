@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in bzip2-0.4.3 crate used by temporal-sdk-core-0.1.0 allows denial of service via integer overflow in large files. CVE-2023-22895 with CVSS score 7.5.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "temporal-sdk-core",
+    "dependency-management",
+    "bzip2-binding"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "integer-overflow",
+    "dependency-chain",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users of temporal-sdk-ruby are exposed to potential denial of service attacks through a vulnerable transitive dependency in the Rust SDK core.",
+  "rootCause": "Integer overflow in mem.rs of bzip2-0.4.3 crate when processing large files, allowing denial of service attacks.",
+  "proposedFix": "Upgrade bzip2 crate from 0.4.3 to 0.4.4 or later version that includes the fix for CVE-2023-22895.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend after the vulnerable library was removed from the dependency inventory, indicating the dependency was either upgraded or removed from the project.",
+  "related": [],
+  "keyQuote": "The bzip2 crate before 0.4.4 for Rust allow attackers to cause a denial of service via a large file that triggers an integer overflow",
+  "number": 23,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:39:06.572Z"
+}

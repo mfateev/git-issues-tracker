@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to expose the last workflow completion result directly in the workflow context, similar to Go and Java SDKs. Users currently need to use an activity and client to retrieve this information.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [
+    "Workflow.getLastCompletionResult"
+  ],
+  "components": [
+    "workflow-context",
+    "proto-definitions",
+    "sdk-core"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "completion-result",
+    "context-access",
+    "state-retrieval",
+    "workflow-continuation"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now directly access the last workflow completion result within the workflow context without requiring an external activity and client.",
+  "rootCause": "The last_completion_result field from the Temporal API proto was not exposed in the TypeScript SDK's workflow context interfaces.",
+  "proposedFix": "Expose the last_completion_result proto field from temporal/api/history/v1/message.proto through the workflow context interfaces, similar to existing Go and Java implementations.",
+  "workaround": "Use an activity to call a Temporal client to fetch the last workflow execution result externally.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in sdk-core and exposed in TypeScript SDK through PR #657.",
+  "related": [
+    657
+  ],
+  "keyQuote": "Would like to get the result of last Workflow Run without using an activity & client.",
+  "number": 485,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:58:09.323Z"
+}

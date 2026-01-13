@@ -1,0 +1,32 @@
+{
+  "summary": "Missing overload for `start_activity` with `summary` parameter causes Pyright type checking failures. Users cannot pass the `summary` argument without triggering type checker errors.",
+  "category": "bug",
+  "subcategory": "activity-api",
+  "apis": [
+    "start_activity"
+  ],
+  "components": [
+    "activity-executor",
+    "type-stubs",
+    "api-signatures"
+  ],
+  "concepts": [
+    "type-checking",
+    "overloads",
+    "pyright",
+    "method-signature",
+    "parameter-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with strict type checking enabled cannot use the `summary` parameter with `start_activity`, blocking production use in type-safe codebases.",
+  "rootCause": "Missing overload definition in the `start_activity` method signature for the `summary` parameter",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Overload for start_activity with summary parameter was added to the implementation",
+  "related": [],
+  "keyQuote": "When calling `start_activity` with `summary`, Pyright complains that no overloads match the provided arguments",
+  "number": 1013,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:32.012Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Activity method with nullable string parameter fails to deserialize null values during hydration. The data converter rejects null for a nullable parameter, throwing a type conversion exception.",
+  "category": "bug",
+  "subcategory": "data-serialization",
+  "apis": [
+    "ActivityInterface",
+    "ActivityMethod",
+    "ActivityOptions"
+  ],
+  "components": [
+    "data-converter",
+    "activity-invocation",
+    "type-hydration"
+  ],
+  "concepts": [
+    "null-handling",
+    "type-conversion",
+    "serialization",
+    "nullable-types",
+    "parameter-binding"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot pass null values to activity methods with nullable parameters, even though the method signature allows it.",
+  "rootCause": "The JsonConverter rejects null values during deserialization when the parameter type is string, even though the parameter is marked as nullable (?string).",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was updated to properly handle null values for nullable parameters during data conversion.",
+  "related": [],
+  "keyQuote": "The passed value of type \"null\" can not be converted to required type \"string\"",
+  "number": 385,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:52.440Z"
+}

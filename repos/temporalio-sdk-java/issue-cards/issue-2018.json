@@ -1,0 +1,35 @@
+{
+  "summary": "Kotlin ActivityStubExt.execute extension functions incorrectly wrap arguments in a list instead of passing them as varargs to the underlying ActivityStub.execute method, causing arguments to be double-wrapped in the ActivityTaskScheduled event.",
+  "category": "bug",
+  "subcategory": "kotlin-extensions",
+  "apis": [
+    "ActivityStub.execute",
+    "Workflow.newUntypedActivityStub"
+  ],
+  "components": [
+    "kotlin-extensions",
+    "activity-stub",
+    "varargs-handling"
+  ],
+  "concepts": [
+    "varargs",
+    "spread-operator",
+    "argument-passing",
+    "kotlin-interop",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of Kotlin extension functions receive incorrectly wrapped arguments in activity execution, breaking expected behavior and payload structure.",
+  "rootCause": "Missing spread operator (*) when calling ActivityStub.execute with varargs in ActivityStubExt.kt",
+  "proposedFix": "Use the spread operator (*) when passing varargs to ActivityStub.execute in ActivityStubExt.kt line 36",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by adding spread operator in PR #2395",
+  "related": [
+    2395
+  ],
+  "keyQuote": "the call to `ActivityStub.execute` with varargs in ActivityStubExt.kt needs to use the spread operator (`*`)",
+  "number": 2018,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:21.219Z"
+}

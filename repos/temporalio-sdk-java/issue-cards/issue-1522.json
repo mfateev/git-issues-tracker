@@ -1,0 +1,30 @@
+{
+  "summary": "User asks how to gracefully shut down a Temporal worker in Java SDK without data loss or corruption, and whether steps/tasks can be re-executed.",
+  "category": "question",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "WorkerFactory#shutdown"
+  ],
+  "components": [
+    "worker",
+    "worker-factory"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "data-loss",
+    "worker-lifecycle",
+    "resource-cleanup"
+  ],
+  "severity": "low",
+  "userImpact": "Users need to understand proper worker shutdown procedures to prevent data loss in production environments.",
+  "rootCause": null,
+  "proposedFix": "Use WorkerFactory#shutdown() method for graceful worker shutdown",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by providing documentation link and pointing user to WorkerFactory#shutdown() method",
+  "related": [],
+  "keyQuote": "JavaSDK has `WorkerFactory#shutdown` method that allows to gracefully shutdown workers.",
+  "number": 1522,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:26.661Z"
+}

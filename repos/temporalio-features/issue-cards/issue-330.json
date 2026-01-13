@@ -1,0 +1,33 @@
+{
+  "summary": "The 'bugs/go/child_workflow_cancel_panic' feature test flakes intermittently with a nondeterministic workflow error during replay. The error indicates an extra CancelTimer command is being replayed, causing the test to fail.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "workflow-worker",
+    "replay-engine",
+    "timer-management"
+  ],
+  "concepts": [
+    "flakiness",
+    "nondeterministic",
+    "replay",
+    "child-workflow",
+    "cancellation",
+    "timer"
+  ],
+  "severity": "medium",
+  "userImpact": "Test suite experiences intermittent failures, making it difficult to validate child workflow cancellation behavior in Go SDK.",
+  "rootCause": "Extra replay command for CancelTimer is being executed during workflow replay, indicating a mismatch between recorded history and replay execution logic.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [
+    329
+  ],
+  "resolution": null,
+  "resolutionDetails": null,
+  "keyQuote": "nondeterministic workflow: extra replay command for CancelTimer: (TimerId:5)",
+  "number": 330,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:52.384Z"
+}

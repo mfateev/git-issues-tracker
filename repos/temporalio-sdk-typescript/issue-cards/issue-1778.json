@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support gRPC binary metadata headers in the TypeScript SDK's native connection. Currently needs to accept Uint8Array as metadata values and transmit them as binary to Tonic for -bin suffixed keys.",
+  "category": "feature",
+  "subcategory": "grpc-metadata",
+  "apis": [],
+  "components": [
+    "native-connection",
+    "grpc-client",
+    "metadata-handler"
+  ],
+  "concepts": [
+    "binary-metadata",
+    "grpc-headers",
+    "native-connection",
+    "tonic",
+    "binary-protocol"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to pass binary data in gRPC metadata headers but currently lack native support in the TypeScript SDK.",
+  "rootCause": null,
+  "proposedFix": "Accept Uint8Array as metadata value type and send as binary to Tonic for -bin suffixed keys",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support Uint8Array metadata values for binary gRPC headers",
+  "related": [
+    671
+  ],
+  "keyQuote": "Probably just need to accept `Uint8Array` as metadata value and send as binary to Tonic for -bin keys",
+  "number": 1778,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:33:04.302Z"
+}

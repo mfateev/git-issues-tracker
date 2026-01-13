@@ -1,0 +1,31 @@
+{
+  "summary": "Add a new `chasm.NoValue` type that is `*struct{}` to properly represent methods that don't have a return value in the Chasm language/framework.",
+  "category": "feature",
+  "subcategory": "chasm-types",
+  "apis": [],
+  "components": [
+    "chasm",
+    "type-system"
+  ],
+  "concepts": [
+    "return-values",
+    "type-representation",
+    "void-types",
+    "nil-semantics"
+  ],
+  "severity": "low",
+  "userImpact": "Enables developers to properly express and handle methods without return values in Chasm code.",
+  "rootCause": null,
+  "proposedFix": "Create a `chasm.NoValue` type as `*struct{}` that returns `nil` from methods without return values.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #8568, which implemented the NoValue type.",
+  "related": [
+    8499,
+    8568
+  ],
+  "keyQuote": "we need to add a `chasm.NoValue` type that is `*struct{}` and just return `nil` from methods that don't have a return value.",
+  "number": 8566,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:00.968Z"
+}

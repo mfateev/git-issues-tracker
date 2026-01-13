@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow code should be able to catch and ignore CancellationFailure to finish successfully, but currently the workflow is forced to complete with a canceled event. This is a design limitation where cancellation of a scope prevents normal completion even if the exception is handled.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "cancellation-handler",
+    "scope-management"
+  ],
+  "concepts": [
+    "cancellation",
+    "exception-handling",
+    "scope",
+    "workflow-completion",
+    "error-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows cannot gracefully handle cancellation requests by catching and suppressing CancellationFailure exceptions, limiting error handling flexibility.",
+  "rootCause": "Once a scope is requested to be canceled, it is considered canceled and new commands must be scheduled in a detached scope, preventing the workflow from completing successfully even if the cancellation exception is caught and handled.",
+  "proposedFix": null,
+  "workaround": "Scheduled commands that should complete must be executed in a detached scope after catching CancellationFailure.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Once the scope is requested to be canceled, it's considered canceled new commands have to be scheduled in the detached scope.",
+  "number": 896,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:51:36.069Z"
+}

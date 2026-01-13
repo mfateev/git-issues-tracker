@@ -1,0 +1,34 @@
+{
+  "summary": "Internal-Frontend service cannot perform namespace registration/update operations due to hardcoded service name checks that expect the regular Frontend service. The issue occurs because the RegisterNamespace API implementation uses a hardcoded reference to FrontendService instead of dynamically fetching the current service name.",
+  "category": "bug",
+  "subcategory": "namespace-management",
+  "apis": [
+    "RegisterNamespace",
+    "UpdateNamespace"
+  ],
+  "components": [
+    "frontend",
+    "internal-frontend",
+    "namespace-handler",
+    "bootstrap-container"
+  ],
+  "concepts": [
+    "service-name-resolution",
+    "internal-service-communication",
+    "namespace-administration",
+    "service-discovery",
+    "bootstrap-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot perform namespace management operations through the internal-frontend service, limiting administrative capabilities and requiring all such operations to go through the regular frontend.",
+  "rootCause": "The RegisterNamespace workflow service API implementation uses a hardcoded service name of primitives.FrontendService instead of dynamically fetching the current service name from request context, causing bootstrap container lookup failures when called via internal-frontend.",
+  "proposedFix": "Make code changes to dynamically fetch the current service name instead of using hardcoded FrontendService reference; also fix the issue where migration workflow needs UpdateNamespace on internal-frontend.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "RegisterNamespace workflow service API's implementation is using a hard-coded service name of primitives.FrontendService instead of fetching the current service name",
+  "number": 4919,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:36.553Z"
+}

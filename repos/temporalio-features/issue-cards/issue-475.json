@@ -1,0 +1,35 @@
+{
+  "summary": "Add a Temporal-Namespace header (gRPC metadata) to every namespace-specific gRPC request across all SDKs. This requires extracting the namespace from request objects and setting it via interceptors, with validation to ensure new RPCs don't miss this header.",
+  "category": "feature",
+  "subcategory": "grpc-metadata",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "interceptors",
+    "request-handling"
+  ],
+  "concepts": [
+    "namespace-isolation",
+    "grpc-metadata",
+    "cross-namespace-calls",
+    "header-extraction",
+    "future-proofing"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures proper namespace context is propagated in gRPC requests, improving request routing and isolation across Temporal clients.",
+  "rootCause": "gRPC requests were not consistently including namespace metadata, requiring a standardized approach across all SDKs.",
+  "proposedFix": "Use SDK-specific interceptors to extract namespace from request objects (interface assertion in Go, reflection in Java, etc.) and set temporal-namespace header on all requests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across all SDKs with per-SDK solutions appropriate to each language's capabilities.",
+  "related": [
+    1458,
+    2058,
+    736,
+    1697
+  ],
+  "keyQuote": "Every gRPC request that contains a namespace should have a `Temporal-Namespace` header set on the request with the namespace value.",
+  "number": 475,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:59.465Z"
+}

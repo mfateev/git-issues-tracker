@@ -1,0 +1,31 @@
+{
+  "summary": "Elasticsearch errors like 400 Bad Request are incorrectly wrapped as Internal service errors, triggering unwanted client retry logic. The solution requires replacing Internal with Unavailable error codes to differentiate retriable from non-retriable failures, which is a breaking change requiring SDK/server version coordination.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "error-handling",
+    "service-errors"
+  ],
+  "concepts": [
+    "error-codes",
+    "retries",
+    "elasticsearch-integration",
+    "error-wrapping",
+    "backwards-compatibility",
+    "client-retry-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter unexpected retry behavior on non-retriable Elasticsearch errors, causing delays and incorrect error handling in their applications.",
+  "rootCause": "All Elasticsearch errors are unconditionally wrapped as Internal service errors, which signals to clients that the error is retriable. HTTP 400 errors (bad query) should not be retried.",
+  "proposedFix": "Replace Internal error code with Unavailable where appropriate to differentiate retriable failures. This requires updating error handling to use Unavailable instead of Internal for certain error codes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Changed error communication strategy to use Unavailable instead of Internal for retriable errors, with breaking change requiring newer SDKs to be blocked on old servers.",
+  "related": [],
+  "keyQuote": "Internal needs to be replaced with Unavailable everywhere where it should be retried. Which is a breaking change and will require us to block newer SDKs on old servers.",
+  "number": 582,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:16:49.010Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a recommended approach to pass configuration into workflow instances while maintaining determinism. Proposes using interceptors and side effects to store and access configuration.",
+  "category": "feature",
+  "subcategory": "workflow-configuration",
+  "apis": [
+    "Workflow"
+  ],
+  "components": [
+    "workflow",
+    "interceptors",
+    "side-effects",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "configuration",
+    "determinism",
+    "dependency-injection",
+    "workflow-initialization",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack a standard, deterministic way to pass configuration to workflows, making it difficult to implement parameterized workflow logic.",
+  "rootCause": null,
+  "proposedFix": "Implement configuration passing at the interceptor level, storing configuration in a side effect with utility methods on Workflow class for access during execution.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If dependency injection into the workflow is discouraged, we need to provide a way for an external code to pass all kinds of configurations into Workflow instances.",
+  "number": 827,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:44:48.165Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "User asks whether one workflow can trigger another workflow and access activity outputs from the triggered workflow. The inquiry also considers security and isolation approaches for multiple teams sharing the same Temporal server.",
+  "category": "question",
+  "subcategory": "workflow-orchestration",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "namespace",
+    "activity-executor"
+  ],
+  "concepts": [
+    "workflow-triggering",
+    "inter-workflow-communication",
+    "activity-results",
+    "multi-team-isolation",
+    "namespace-separation",
+    "security"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clarity on whether workflows can orchestrate other workflows and how to safely share a Temporal server across teams.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use separate namespaces for different teams to prevent accidental interference with activity and workflow names, or use separate servers for complete isolation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Yes, it is possible to trigger workflows from within a workflow. Accessing activity results is slightly more difficult but still possible.",
+  "number": 5372,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:14.798Z"
+}

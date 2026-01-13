@@ -1,0 +1,31 @@
+{
+  "summary": "WFT message validation incorrectly rejects valid message sequences with multiple updates because it doesn't consider the update instance ID when validating Response messages, causing false errors when multiple update requests are coalesced into a single WFT.",
+  "category": "bug",
+  "subcategory": "workflow-task-processing",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "message-validation",
+    "update-processing"
+  ],
+  "concepts": [
+    "message-validation",
+    "update-requests",
+    "workflow-task",
+    "coalescing",
+    "instance-id",
+    "state-machine"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers processing multiple concurrent updates fail validation when those updates are coalesced into a single workflow task, blocking legitimate workflows.",
+  "rootCause": "Validation logic checks for Response messages before Acceptance messages without considering that different Response messages may correspond to different updates with different IDs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Confirmed as already fixed in a later version",
+  "related": [],
+  "keyQuote": "The validation code will incorrectly give an error indicating that it has seen a Response message before an Acceptance message. While this is true, the Response was for a different update",
+  "number": 4018,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:23.074Z"
+}

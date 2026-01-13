@@ -1,0 +1,33 @@
+{
+  "summary": "Request to support dynamic creation and shutdown of individual workers without recreating the entire WorkerFactory, to handle scenarios with dynamic task queues.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "WorkerFactory"
+  ],
+  "components": [
+    "worker",
+    "worker-factory",
+    "task-queue-management"
+  ],
+  "concepts": [
+    "dynamic-workers",
+    "lifecycle-management",
+    "task-queues",
+    "resource-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with dynamic task queues must currently recreate the entire WorkerFactory instead of being able to start/stop individual workers.",
+  "rootCause": null,
+  "proposedFix": "Allow starting and stopping of individual workers without recreating the WorkerFactory.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Not supported in any other SDK and not currently planned.",
+  "related": [
+    966
+  ],
+  "keyQuote": "To support this use case without a huge overhead we should allow starting and stopping of individual workers without the need to recreate the whole WorkersFactory",
+  "number": 1230,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:16:25.450Z"
+}

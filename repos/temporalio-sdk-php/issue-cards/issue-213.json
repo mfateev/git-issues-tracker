@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request for a structured API reference for the PHP SDK. The user requested an organized list of functions and APIs provided by the package, with the discussion leading to implementation of phpdoc-based documentation and deployment to php.temporal.io.",
+  "category": "docs",
+  "subcategory": "api-reference",
+  "apis": [],
+  "components": [
+    "documentation",
+    "phpdoc-generator",
+    "ci-pipeline"
+  ],
+  "concepts": [
+    "api-documentation",
+    "code-generation",
+    "reference-guide",
+    "developer-experience",
+    "documentation-publishing"
+  ],
+  "severity": "low",
+  "userImpact": "Users lack a centralized, structured reference for available PHP SDK functions and APIs.",
+  "rootCause": null,
+  "proposedFix": "Use phpdoc to generate HTML API documentation and publish it to php.temporal.io via CI/CD pipeline using Vercel deployment.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "API documentation was generated using phpdoc and published to php.temporal.io, with implementation completed in PR #408.",
+  "related": [
+    408
+  ],
+  "keyQuote": "I see the docs at https://docs.temporal.io/php/introduction/ but is there a structured list of functions etc that the package provides?",
+  "number": 213,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:56.029Z"
+}

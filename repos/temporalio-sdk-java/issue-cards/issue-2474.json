@@ -1,0 +1,33 @@
+{
+  "summary": "NonRootBeanPostProcessor eagerly instantiates MeterRegistry before MeterRegistryPostProcessor can register, causing meter customizers and binders to fail. Spring's dependency injection order in Temporal 1.28.0+ creates a circular initialization issue where metrics exposure disappears and bean post-processors are applied out of order.",
+  "category": "bug",
+  "subcategory": "spring-metrics-initialization",
+  "apis": [],
+  "components": [
+    "NonRootBeanPostProcessor",
+    "MetricsScopeAutoConfiguration",
+    "MeterRegistry",
+    "Spring auto-configuration"
+  ],
+  "concepts": [
+    "bean-post-processor",
+    "dependency-injection-order",
+    "lazy-initialization",
+    "micrometer-integration",
+    "spring-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Upgrading to Temporal 1.28.0+ breaks metrics collection in Spring applications as MeterRegistry is instantiated prematurely, preventing meter binders and Micrometer customizers from being applied.",
+  "rootCause": "NonRootBeanPostProcessor's non-static factory method causes early instantiation of the configuration class, forcing MeterRegistry creation before MeterRegistryPostProcessor is registered with the bean factory. This violates Spring's expectation that BeanPostProcessors be registered early in the context lifecycle.",
+  "proposedFix": "Make dependencies lazy by either converting NonRootBeanPostProcessor factory method to static or making the Scope dependency lazy-loaded to defer MeterRegistry instantiation until after MeterRegistryPostProcessor is registered.",
+  "workaround": "Exclude NonRootNamespaceAutoConfiguration via spring.autoconfigure.exclude and manually define NonRootBeanPostProcessor using a static factory method instead of instance method.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    22926
+  ],
+  "keyQuote": "Bean 'prometheusMeterRegistry' is not eligible for getting processed by all BeanPostProcessors...Is this bean getting eagerly injected/applied to a currently created BeanPostProcessor?",
+  "number": 2474,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:32.668Z"
+}

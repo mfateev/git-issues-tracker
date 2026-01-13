@@ -1,0 +1,33 @@
+{
+  "summary": "The PHP SDK needs to implement a test server downloader that uses the temporal.download service to automatically download and extract temporalite or temporal-test-server binaries based on platform, architecture, and SDK version parameters.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "downloader",
+    "binary-extraction"
+  ],
+  "concepts": [
+    "test-server",
+    "ephemeral-server",
+    "artifact-download",
+    "platform-detection",
+    "version-management",
+    "test-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to automatically download and run appropriate test servers for their platform without manual setup.",
+  "rootCause": null,
+  "proposedFix": "Integrate with temporal.download API endpoint to fetch server artifacts with query parameters for platform, arch, sdk-name, and sdk-version, then extract and run the binary.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    280
+  ],
+  "keyQuote": "temporal.download/{artifact_name}/{version_name} where {artifact_name} is temporalite or temporal-test-sever and {version_name} is default or a version name",
+  "number": 285,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:53.527Z"
+}

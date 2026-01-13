@@ -1,0 +1,29 @@
+{
+  "summary": "The Test Server incorrectly accepts workflows where WorkflowExecutionCompleted is not the last command, while the real Temporal server would reject this. The Test Server should validate command ordering to match production server behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "workflow-task-validation",
+    "command-ordering"
+  ],
+  "concepts": [
+    "workflow-completion",
+    "command-validation",
+    "server-behavior-alignment",
+    "task-rejection"
+  ],
+  "severity": "high",
+  "userImpact": "Developers using the Test Server may not catch workflow implementation errors that would fail in production, leading to unreliable testing.",
+  "rootCause": "Test Server does not validate that WorkflowExecutionCompleted is the final command in a workflow task, unlike the real Temporal server.",
+  "proposedFix": "Add validation in Test Server to reject workflow tasks where WorkflowExecutionCompleted is not the last command, with error message aligned with real server.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test Server now validates command ordering and rejects tasks with WorkflowExecutionCompleted as non-final command, matching real server behavior.",
+  "related": [],
+  "keyQuote": "If a workflow (or an SDK) is written in the way that the workflow is completed before some other operations (like an asynchronous local activity), the Test Server should reject such a workflow task with a text message aligned with a real Temporal server.",
+  "number": 1398,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:33:38.285Z"
+}

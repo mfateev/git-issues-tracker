@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Server 0.28.0 fails to start with CockroachDB (PostgreSQL-compatible) due to a missing 'version_partition' column in the schema_version table. The schema migration tool reports the column does not exist when trying to read the current schema version.",
+  "category": "bug",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "schema-migration",
+    "database-setup",
+    "postgres-compatibility"
+  ],
+  "concepts": [
+    "schema-versioning",
+    "database-compatibility",
+    "column-missing",
+    "migration-failure",
+    "initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start Temporal Server 0.28.0 with CockroachDB, blocking deployment and initialization in containerized environments.",
+  "rootCause": "The schema_version table is missing the 'version_partition' column that the schema update migration tool expects when reading the current schema version.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in a subsequent version after identifying the schema version table structure mismatch between CockroachDB and Temporal's expectations.",
+  "related": [],
+  "keyQuote": "error reading current schema version:pq: column \"version_partition\" does not exist",
+  "number": 668,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:22:36.048Z"
+}

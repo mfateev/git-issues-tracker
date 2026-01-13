@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add native image descriptors for GraalVM support in temporal-spring-boot-starter-alpha. Users are experiencing build failures when creating Spring Boot native images due to missing or conflicting native-image configuration files.",
+  "category": "feature",
+  "subcategory": "graalvm-native-image",
+  "apis": [],
+  "components": [
+    "temporal-spring-boot-starter-alpha",
+    "temporal-serviceclient",
+    "grpc-netty-shaded"
+  ],
+  "concepts": [
+    "native-image",
+    "graalvm",
+    "class-initialization",
+    "spring-boot",
+    "build-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build Spring Boot native images with Temporal SDK due to class initialization conflicts and missing GraalVM configuration descriptors.",
+  "rootCause": "Erroneous native-image configurations in grpc-netty-shaded causing classes like Slf4JLoggerFactory to initialize at build time instead of runtime, and missing native-image descriptors in temporal-spring-boot-starter-alpha.",
+  "proposedFix": "Add native image descriptors to temporal-spring-boot-starter-alpha similar to those already present in temporal-test-server at temporal-test-server/src/main/resources/META-INF/native-image/io.temporal/temporal-test-server",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    10601
+  ],
+  "keyQuote": "It would be nice to have native image descriptors as part of the temporal-spring-boot-starter-alpha... Currently I am experiencing different build issues when trying to build a spring boot app native image.",
+  "number": 2064,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:24.258Z"
+}

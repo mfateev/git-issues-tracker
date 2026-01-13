@@ -1,0 +1,33 @@
+{
+  "summary": "Implement gRPC connection resolvers with round-robin load balancing for frontend connections in Java SDK. This enhancement addresses the need to support dynamic load balancing similar to the Go SDK implementation, replacing the current workaround of forcefully re-establishing connections.",
+  "category": "feature",
+  "subcategory": "grpc-load-balancing",
+  "apis": [],
+  "components": [
+    "grpc-connection",
+    "client-options",
+    "connection-resolver"
+  ],
+  "concepts": [
+    "load-balancing",
+    "round-robin",
+    "frontend-discovery",
+    "grpc-resolver",
+    "connection-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have better connection load distribution across multiple frontends without needing hacky reconnection frequency settings.",
+  "rootCause": "Java SDK lacks proper gRPC load balancing resolvers that are available in Go SDK, forcing users to rely on connection re-establishment frequency as a workaround.",
+  "proposedFix": "Implement gRPC resolvers following the gRPC load balancing documentation and matching Go SDK's ClientOptions approach, supporting round-robin between known frontends.",
+  "workaround": "Use WorkflowServiceStubsOptions#grpcReconnectFrequency to forcefully reestablish connections for load balancing (not recommended).",
+  "resolution": "fixed",
+  "resolutionDetails": "gRPC load balancing and connection resolvers were implemented to support round-robin frontend resolution.",
+  "related": [
+    577,
+    815
+  ],
+  "keyQuote": "We need to support resolvers, including the one that round-robin between known frontends. This will let us remove hacks like WorkflowServiceStubsOptions#grpcReconnectFrequency",
+  "number": 888,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:50:57.122Z"
+}

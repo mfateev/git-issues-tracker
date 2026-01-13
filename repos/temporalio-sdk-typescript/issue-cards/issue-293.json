@@ -1,0 +1,32 @@
+{
+  "summary": "Request to automatically publish to npm with the 'next' tag on merge to main branch, allowing users to test new features and fixes before official releases without waiting for a release process.",
+  "category": "feature",
+  "subcategory": "release-automation",
+  "apis": [],
+  "components": [
+    "npm-publishing",
+    "ci-cd",
+    "release-process"
+  ],
+  "concepts": [
+    "continuous-delivery",
+    "pre-release",
+    "testing",
+    "npm-tags",
+    "automation"
+  ],
+  "severity": "low",
+  "userImpact": "Users can test new SDK features and fixes earlier by installing the 'next' tag version, improving feedback loops for samples and documentation updates.",
+  "rootCause": null,
+  "proposedFix": "Implement automated npm publishing to 'next' tag on merge to main branch",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Merged into issue #170 which implemented the automated release workflow",
+  "related": [
+    170
+  ],
+  "keyQuote": "Automatically publish to npm with the `next` tag (`npm install temporalio@next`) on merge to `main`.",
+  "number": 293,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:09.431Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to implement multi-history replay support for the Java SDK, matching existing functionality in TypeScript and Python SDKs. This allows testing workflows against multiple historical execution paths.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "workflow-executor",
+    "replay-engine"
+  ],
+  "concepts": [
+    "replay",
+    "multi-history",
+    "testing",
+    "workflow-execution",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Java SDK users cannot test workflows against multiple historical paths like TS/Python users can, limiting test coverage capabilities.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Multi-history replay support was implemented in the Java SDK to achieve feature parity with TypeScript and Python SDKs.",
+  "related": [],
+  "keyQuote": "Multi-history replay support a-la what's already been done in TS/Python",
+  "number": 1494,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:37:10.416Z"
+}

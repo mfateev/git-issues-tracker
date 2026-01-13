@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to provide access to the Temporal client from within an activity context. Users need a `client()` function in the activity module to enable activities to communicate with Temporal during execution.",
+  "category": "feature",
+  "subcategory": "activity-context",
+  "apis": [
+    "Client"
+  ],
+  "components": [
+    "activity",
+    "context",
+    "client"
+  ],
+  "concepts": [
+    "activity-execution",
+    "client-access",
+    "context-management",
+    "inter-activity-communication"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities currently cannot access the Temporal client, limiting their ability to perform operations like calling other activities or workflows from within activity code.",
+  "rootCause": null,
+  "proposedFix": "Implement a `client() -> Client` function in the activity module to expose client access within activity context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Reopened and addressed via pending PR #740",
+  "related": [
+    740,
+    203
+  ],
+  "keyQuote": "Allow users to access Temporal client from within an activity. This is likely a `client() -> Client` function in the `activity` module.",
+  "number": 721,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:57.780Z"
+}

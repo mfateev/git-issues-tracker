@@ -1,0 +1,31 @@
+{
+  "summary": "Request to improve test workflow coverage by implementing automatic replay functionality and cache-less test runs to catch more issues during testing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "workflow-replay",
+    "test-cache"
+  ],
+  "concepts": [
+    "replay",
+    "test-coverage",
+    "cache",
+    "workflow-testing",
+    "determinism",
+    "issue-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot thoroughly test workflows for replay compatibility and non-deterministic issues, potentially missing bugs in production.",
+  "rootCause": null,
+  "proposedFix": "Auto-replay workflows that complete in tests and provide option to run tests without cache to improve coverage.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to replay our test workflows more. Today we don't replay nor do we run without cache, both of which could catch issues.",
+  "number": 563,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:51.338Z"
+}

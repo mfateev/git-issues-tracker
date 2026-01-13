@@ -1,0 +1,30 @@
+{
+  "summary": "The Docker Hub auto-setup container image is showing version 1.7.1 as latest when it should be 1.17.1, indicating a versioning or tagging issue with the published container image.",
+  "category": "bug",
+  "subcategory": "docker-image",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "auto-setup",
+    "release-process"
+  ],
+  "concepts": [
+    "versioning",
+    "docker-hub",
+    "image-tagging",
+    "release-management",
+    "container-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users pulling the latest auto-setup container image may get an outdated version instead of the current stable release.",
+  "rootCause": "Docker Hub image tagging or release process issue where version 1.7.1 is marked as latest instead of 1.17.1.",
+  "proposedFix": null,
+  "workaround": "Users can explicitly specify the correct version 1.17.1 when pulling the image.",
+  "resolution": "fixed",
+  "resolutionDetails": "Docker Hub image tagging was corrected to properly reflect version 1.17.1 as latest.",
+  "related": [],
+  "keyQuote": "The current latest version should be 1.17.1, but it is listed... The latest version in is 1.7.1",
+  "number": 3092,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:41.091Z"
+}

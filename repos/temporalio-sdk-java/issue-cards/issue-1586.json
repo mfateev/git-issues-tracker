@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a worker option allowing the custom data converter to be used for __stack_trace queries instead of always using the default converter.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "worker",
+    "data-converter",
+    "stack-trace-query"
+  ],
+  "concepts": [
+    "custom-encoding",
+    "data-serialization",
+    "query-handling",
+    "converter-configuration",
+    "stack-trace"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use their custom data converter for stack trace queries, limiting consistency in serialization behavior across different query types.",
+  "rootCause": null,
+  "proposedFix": "Add a new worker option to enable custom data converter usage for __stack_trace queries, defaulting to false to maintain backward compatibility.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Make a new worker option that lets the custom data converter be used for `__stack_trace` queries like it is for the rest of the queries if `true`",
+  "number": 1586,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:34.677Z"
+}

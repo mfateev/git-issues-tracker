@@ -1,0 +1,32 @@
+{
+  "summary": "During graceful shutdown of single-binary Temporal servers, spurious error logs appear (\"Error looking up host for shardID\", \"Unable to call matching.PollActivityTaskQueue\") that make users think something went wrong even though shutdown is proceeding normally.",
+  "category": "bug",
+  "subcategory": "graceful-shutdown",
+  "apis": [],
+  "components": [
+    "shard-controller",
+    "frontend",
+    "worker",
+    "history-service"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "logging",
+    "error-messages",
+    "single-binary-server",
+    "connection-handling",
+    "EOF-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see alarming ERROR and WARN logs during normal shutdown, creating confusion about whether the shutdown is actually proceeding correctly.",
+  "rootCause": "During graceful shutdown, the server closes connections and shards become unavailable, causing lookup operations to fail and generate error logs that are actually expected behavior during shutdown.",
+  "proposedFix": "Suppress or downgrade log messages that occur during graceful shutdown, or implement log-less shutdown option. May require coordination with CLI for proper shutdown handling.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Any solution that does not make a user think there is an error when they see logs.",
+  "number": 4383,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:40.025Z"
+}

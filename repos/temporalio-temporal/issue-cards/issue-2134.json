@@ -1,0 +1,31 @@
+{
+  "summary": "JWT authentication fails when only one JWKS provider URI is configured via TEMPORAL_JWT_KEY_SOURCE1 because the second environment variable (TEMPORAL_JWT_KEY_SOURCE2) remains empty, causing the key provider to attempt fetching from an empty string and fail.",
+  "category": "bug",
+  "subcategory": "authentication-jwt",
+  "apis": [],
+  "components": [
+    "default-token-key-provider",
+    "authorization",
+    "jwt-configuration"
+  ],
+  "concepts": [
+    "jwt",
+    "authentication",
+    "jwks",
+    "environment-variables",
+    "configuration",
+    "tls"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use JWT authentication with only a single JWKS provider URI in the configuration template, as the server fails to refresh token keys.",
+  "rootCause": "The default token key provider iterates through all configured JWKS URIs without checking if they are empty before attempting to fetch from them, causing HTTP errors when it encounters empty string URIs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The code was updated to handle empty JWKS URIs properly in the token key provider.",
+  "related": [],
+  "keyQuote": "error while refreshing token keys: Get \"\": unsupported protocol scheme \"\"",
+  "number": 2134,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:06.914Z"
+}

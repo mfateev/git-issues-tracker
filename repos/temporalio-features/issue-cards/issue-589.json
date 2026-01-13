@@ -1,0 +1,30 @@
+{
+  "summary": "Add a utility function to classify exceptions as either workflow-exiting or task-failing exceptions. This helps developers distinguish between exceptions that terminate the workflow versus those that cause automatic retries.",
+  "category": "feature",
+  "subcategory": "exception-handling",
+  "apis": [],
+  "components": [
+    "exception-handling",
+    "failure-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "exception-classification",
+    "workflow-exit",
+    "task-failure",
+    "retry-behavior",
+    "failure-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can more easily determine whether an exception will cause their workflow to exit or trigger an automatic retry.",
+  "rootCause": null,
+  "proposedFix": "Implement a utility function like `is_workflow_exit_exception()` that checks if an exception is of a type that causes workflow exit (e.g., asyncio.CancelledError, FailureError) versus task failure.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "True if the exception is of a type that will cause the workflow to exit. This is as opposed to exceptions that cause a workflow task failure, which are retried automatically by Temporal.",
+  "number": 589,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:22.577Z"
+}

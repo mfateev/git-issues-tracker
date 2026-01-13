@@ -1,0 +1,32 @@
+{
+  "summary": "Update request needs to be sent back in accept/reject responses to the server. This aligns with the Go SDK implementation (PR #1480) to ensure proper round-trip of update request data.",
+  "category": "feature",
+  "subcategory": "update-handling",
+  "apis": [
+    "WorkflowUpdate"
+  ],
+  "components": [
+    "update-handler",
+    "server-communication",
+    "request-response"
+  ],
+  "concepts": [
+    "update-request",
+    "accept-reject",
+    "request-response",
+    "server-sync",
+    "round-trip"
+  ],
+  "severity": "medium",
+  "userImpact": "Updates processed by the Java SDK must properly return original request data to the server, ensuring consistency with other SDKs and correct server-side tracking.",
+  "rootCause": null,
+  "proposedFix": "Modify accept/reject response handlers to include the original update request, matching the implementation pattern from sdk-go PR #1480.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed to send original update request back in accept/reject responses, aligning with Go SDK pattern.",
+  "related": [],
+  "keyQuote": "See https://github.com/temporalio/sdk-go/pull/1480, need to send original request back to server when accepting/rejecting update.",
+  "number": 2073,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:51.086Z"
+}

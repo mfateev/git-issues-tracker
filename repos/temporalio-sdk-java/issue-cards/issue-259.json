@@ -1,0 +1,34 @@
+{
+  "summary": "Create a @WorkflowTest JUnit rule to encapsulate WorkflowTestEnvironment setup, teardown, and configuration (globalTimeout, watchman) to reduce boilerplate code in test classes.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowTestEnvironment"
+  ],
+  "components": [
+    "test-framework",
+    "junit-integration",
+    "workflow-testing"
+  ],
+  "concepts": [
+    "test-setup",
+    "boilerplate-reduction",
+    "junit-rule",
+    "test-environment",
+    "configuration-simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Test developers can simplify their workflow test code by using a declarative rule instead of manual setup and teardown.",
+  "rootCause": null,
+  "proposedFix": "Create a @WorkflowTest JUnit rule that encapsulates WorkflowTestEnvironment initialization, teardown, globalTimeout, and watchman setup.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed as part of PR #286 which implemented the WorkflowTest rule.",
+  "related": [
+    286
+  ],
+  "keyQuote": "Create `@WorkflowTest` rule that would encapsulate all of these to simplify code.",
+  "number": 259,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:04:00.871Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Python SDK lacks support for OpenTelemetry metrics export via OTLP/HTTP protocol. Currently only OTLP/gRPC is supported, preventing integration with services like Pydantic Logfire that require HTTP endpoints.",
+  "category": "feature",
+  "subcategory": "opentelemetry-metrics",
+  "apis": [],
+  "components": [
+    "opentelemetry-exporter",
+    "metrics-pipeline"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "otlp",
+    "http-protocol",
+    "grpc",
+    "metrics-export",
+    "protocol-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot export OpenTelemetry metrics to HTTP-based services, limiting integration options and requiring workarounds.",
+  "rootCause": "Python SDK's OpenTelemetry metrics exporter only implements OTLP/gRPC transport, not OTLP/HTTP like some other SDKs.",
+  "proposedFix": "Add a simple boolean `http` option to `OpenTelemetryConfig` to enable HTTP transport, consistent with Go SDK support.",
+  "workaround": "Deploy an OpenTelemetry collector (e.g., Grafana Alloy) to receive gRPC metrics and forward them to HTTP endpoints.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation in Rust Core layer (sdk-core #820) will provide HTTP support that can be applied to Python SDK.",
+  "related": [
+    820
+  ],
+  "keyQuote": "Support for exporting OTel Metrics to services via OLTP/HTTP. This would bring the Python SDK up to parity with the Go SDK",
+  "number": 647,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:09.482Z"
+}

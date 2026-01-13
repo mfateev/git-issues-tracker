@@ -1,0 +1,32 @@
+{
+  "summary": "Deprecate the `QueueAckLevel` field in shardInfo as it's replaced by `QueueStates` in the multi-cursor implementation. However, replication queue still requires per-cluster ack level tracking, necessitating a new field for replication queue state management.",
+  "category": "other",
+  "subcategory": "queue-management",
+  "apis": [],
+  "components": [
+    "shardInfo",
+    "queue-states",
+    "replication-queue",
+    "dlq"
+  ],
+  "concepts": [
+    "deprecation",
+    "queue-ack-level",
+    "multi-cursor",
+    "replication",
+    "cluster-ack-tracking",
+    "dlq-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Internal refactoring to consolidate queue state representation; no direct user impact but affects internal architecture.",
+  "rootCause": "Multi-cursor implementation made `QueueAckLevel` redundant for most queues, but replication queue requires per-cluster ack level tracking that cannot be represented in `QueueStates`.",
+  "proposedFix": "Create a new field for replication that combines normal ack level and DLQ ack level for each source cluster, similar to existing separate DLQ ack level field.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Field was deprecated and new field structure was created for replication queue to handle per-cluster ack level tracking.",
+  "related": [],
+  "keyQuote": "replication queue is still using QueueAckLevel, which has per (remote) cluster ack level...create a new field for replication that combine normal ack level and dlq ack level.",
+  "number": 3981,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:35.015Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "CleanWorkerShutdownTest::testShutdownNow fails when running with Docker. The test appears to have environment-specific issues with worker shutdown behavior in containerized environments.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "shutdown",
+    "test-framework"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "docker",
+    "test-environment",
+    "timing",
+    "resource-cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests fail in Docker environments, preventing reliable CI/CD validation of worker shutdown behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through fixes to the test or worker shutdown logic to handle Docker environment conditions.",
+  "related": [],
+  "keyQuote": "Fails with docker",
+  "number": 721,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:36:50.788Z"
+}

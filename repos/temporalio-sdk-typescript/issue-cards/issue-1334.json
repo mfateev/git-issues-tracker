@@ -1,0 +1,32 @@
+{
+  "summary": "Request to support Bun runtime for Temporal workers. User encountered multiple issues when attempting to run Temporal workers with Bun: hook initialization failures and core-bridge panics due to hash table capacity overflow in the native bindings.",
+  "category": "feature",
+  "subcategory": "runtime-support",
+  "apis": [],
+  "components": [
+    "worker",
+    "core-bridge",
+    "native-bindings",
+    "vm-context"
+  ],
+  "concepts": [
+    "runtime-compatibility",
+    "bun",
+    "v8-vm",
+    "native-module",
+    "isolate",
+    "worker-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use Temporal workers with Bun runtime despite Bun's performance advantages and HTTP2/gRPC support being available.",
+  "rootCause": "Core-bridge native bindings have compatibility issues with Bun's v8 sandbox environment, causing hash table capacity overflow and worker initialization failures when hooks are enabled.",
+  "proposedFix": null,
+  "workaround": "Commenting out the createHook code block temporarily resolves the initial error but breaks core-bridge functionality entirely.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Since bun provide many out-of-box features and better performance than node.js, It would be great if temporal sdk can support bun worker.",
+  "number": 1334,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:54.321Z"
+}

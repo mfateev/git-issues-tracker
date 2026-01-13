@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to provide worker status information across all SDKs, allowing users to check worker health and programmatically react to status changes like activity/workflow slot usage, cache size, polling status, and server reachability.",
+  "category": "feature",
+  "subcategory": "worker-status",
+  "apis": [],
+  "components": [
+    "worker",
+    "client",
+    "health-monitoring"
+  ],
+  "concepts": [
+    "worker-health",
+    "status-monitoring",
+    "activity-slots",
+    "workflow-cache",
+    "server-connectivity",
+    "failure-backoff"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can programmatically monitor worker health and respond to status changes instead of relying solely on logs and metrics.",
+  "rootCause": null,
+  "proposedFix": "Implement worker status API across all SDKs to expose: activity slots in use, workflow cache size, worker type status (polling/full/failure backoff), error information, and server reachability with optional status change notifications.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    696
+  ],
+  "keyQuote": "Users need to get worker status to at least check worker health and programmatically react to information we often only make available via logs/metrics.",
+  "number": 456,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:57.983Z"
+}

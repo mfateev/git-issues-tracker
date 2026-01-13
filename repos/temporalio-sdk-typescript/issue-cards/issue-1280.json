@@ -1,0 +1,31 @@
+{
+  "summary": "Request to support Vite as a bundler for TypeScript SDK instead of Webpack, which is slow (10+ second builds). Community members suggest esbuild as a faster alternative, with one user reporting 0.6s production builds.",
+  "category": "feature",
+  "subcategory": "build-tooling",
+  "apis": [],
+  "components": [
+    "bundler",
+    "webpack",
+    "build-system"
+  ],
+  "concepts": [
+    "build-performance",
+    "bundling",
+    "development-experience",
+    "tooling",
+    "esbuild",
+    "vite"
+  ],
+  "severity": "low",
+  "userImpact": "Users experience slow development and production builds with Webpack, reducing developer productivity during iterative development.",
+  "rootCause": "Webpack bundler integrated into SDK is slow compared to modern alternatives like Vite and esbuild.",
+  "proposedFix": "Replace Webpack with Vite or esbuild for faster bundling. esbuild achieves 0.6s production builds compared to 10+ seconds with Webpack.",
+  "workaround": "Users can use external bundlers like esbuild with custom build scripts (as demonstrated in shared gist), though integration with SDK worker instantiation remains a consideration.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Webpack is great, but it is pretty slow and waiting 10 seconds for bundle to complete can become a nuisance.",
+  "number": 1280,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:10.022Z"
+}

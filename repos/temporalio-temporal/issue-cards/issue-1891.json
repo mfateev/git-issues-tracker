@@ -1,0 +1,36 @@
+{
+  "summary": "Request for automatic worker-level heartbeats to enable activities to failover to a new worker if the current executing worker goes down, reducing the need for manual per-activity heartbeat implementations.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "activity.Context.current",
+    "heartbeat"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "heartbeat-mechanism"
+  ],
+  "concepts": [
+    "heartbeat",
+    "failover",
+    "worker-availability",
+    "activity-lifecycle",
+    "timeout",
+    "external-heartbeat"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must manually implement auto-heartbeat wrappers or add SDK support within activities, adding complexity and boilerplate code.",
+  "rootCause": null,
+  "proposedFix": "Add support for worker-level automatic heartbeats so activities failover automatically if the executing worker goes down, rather than requiring per-activity implementations.",
+  "workaround": "Users can wrap activity functions in an 'autoheartbeat' wrapper that sends periodic heartbeats at intervals based on the heartbeat timeout.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    126
+  ],
+  "keyQuote": "Add support for Worker heartbeat so activities automatically failover to a new Worker if the current executing Worker goes down.",
+  "number": 1891,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:31.703Z"
+}

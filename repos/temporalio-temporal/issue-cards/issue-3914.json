@@ -1,0 +1,32 @@
+{
+  "summary": "Worker fails to find the default namespace immediately after server startup due to a caching issue, requiring a 20-second delay to work around the problem. The issue was resolved through namespace cache changes that allow reading through the cache.",
+  "category": "bug",
+  "subcategory": "namespace-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "namespace-cache",
+    "server-startup"
+  ],
+  "concepts": [
+    "namespace-registration",
+    "caching",
+    "server-initialization",
+    "timing-issue",
+    "default-namespace"
+  ],
+  "severity": "high",
+  "userImpact": "Workers cannot connect to the default namespace immediately after server startup and require manual delays or registration workarounds.",
+  "rootCause": "Namespace cache did not allow reading through the cache, causing workers to fail namespace lookups immediately after server startup.",
+  "proposedFix": "Implement namespace read through cache to allow workers to access the default namespace even during server initialization.",
+  "workaround": "Wait 20 seconds after server startup before starting workers, or automatically register the default namespace.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by namespace read through cache changes in PR #3908.",
+  "related": [
+    3908
+  ],
+  "keyQuote": "I have to do a wait for 20s after startup iWF server... Otherwise the worker will not working correct (GoSDK) complaining namespace default not found",
+  "number": 3914,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:05.676Z"
+}

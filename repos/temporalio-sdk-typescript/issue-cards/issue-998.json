@@ -1,0 +1,33 @@
+{
+  "summary": "Add built-in support for context propagators to simplify trace propagation across services, similar to Java and Go SDKs. Currently requires implementing with interceptors, but demand exists for a dedicated context propagation API.",
+  "category": "feature",
+  "subcategory": "context-propagation",
+  "apis": [
+    "ClientOptions"
+  ],
+  "components": [
+    "interceptors",
+    "client",
+    "context-propagation"
+  ],
+  "concepts": [
+    "tracing",
+    "observability",
+    "trace-propagation",
+    "distributed-tracing",
+    "context-management",
+    "service-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently cannot easily connect traces across service boundaries without complex interceptor implementations, making distributed tracing difficult.",
+  "rootCause": null,
+  "proposedFix": "Implement a context propagator API similar to Java and Go SDKs, potentially using an internal interceptor implementation or exposing a context propagation interceptor.",
+  "workaround": "Users can manually implement context propagators using interceptors, though this is complex and error-prone.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently we recommend implementing those with interceptors but seems like there's enough demand for a simpler context propagation specific API",
+  "number": 998,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:42.889Z"
+}

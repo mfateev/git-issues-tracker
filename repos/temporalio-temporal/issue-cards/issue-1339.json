@@ -1,0 +1,30 @@
+{
+  "summary": "Make it easier to export workflow history in JSON format from tctl by adding an explicit --output_format flag instead of relying on undiscovered --output_filename parameter. The current approach is not user-discoverable and lacks support for human-readable formatting of base64-encoded payload data.",
+  "category": "feature",
+  "subcategory": "tctl-cli",
+  "apis": [],
+  "components": [
+    "tctl",
+    "workflow-history",
+    "json-export"
+  ],
+  "concepts": [
+    "output-format",
+    "user-discoverability",
+    "json-serialization",
+    "payload-encoding",
+    "cli-usability"
+  ],
+  "severity": "low",
+  "userImpact": "Users struggle to discover and use JSON export functionality for workflow history, making it difficult to analyze workflows and use tctl in containerized environments.",
+  "rootCause": "The --output_filename parameter is not documented in tctl help, and exported JSON contains base64-encoded payload data that is not human-readable.",
+  "proposedFix": "Replace --print_full flag with --output_format flag supporting values like 'short', 'full', 'json', and potentially add decoding of base64-encoded payload data for human readability.",
+  "workaround": "Use --output_filename parameter with workflow show command to save history as JSON file.",
+  "resolution": "fixed",
+  "resolutionDetails": "A unified --output flag was added in temporalio/proposals#31 and implemented in tctl repo to apply consistently across all commands that print golang structs.",
+  "related": [],
+  "keyQuote": "Explicit flag that specifies output format. I would replace `--print_full` flag with `--outuput_format` that can be `short`, `full`, `json`, etc.",
+  "number": 1339,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:32.954Z"
+}

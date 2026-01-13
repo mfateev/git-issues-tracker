@@ -1,0 +1,29 @@
+{
+  "summary": "Workflow worker hangs when starting on NodeJS 18.14.2 in production Linux containers, but works fine on NodeJS 16.17.0. Investigation revealed the root cause was incorrectly configured Node heap options.",
+  "category": "bug",
+  "subcategory": "worker-startup",
+  "apis": [],
+  "components": [
+    "worker",
+    "worker-threads"
+  ],
+  "concepts": [
+    "startup",
+    "concurrency",
+    "nodejs-compatibility",
+    "heap-configuration",
+    "production-deployment"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow worker hangs in production, requiring manual intervention or environment downgrade to resolve.",
+  "rootCause": "Incorrectly configured Node heap options causing worker thread creation to hang on NodeJS 18.14.2",
+  "proposedFix": null,
+  "workaround": "Downgrade to NodeJS 16.17.0 or reconfigure Node heap options correctly",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by correcting the Node heap configuration, allowing worker to start properly on NodeJS 18.14.2",
+  "related": [],
+  "keyQuote": "Investigation revealed that issue was caused by incorrectly configured Node heap options",
+  "number": 1102,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:47.673Z"
+}

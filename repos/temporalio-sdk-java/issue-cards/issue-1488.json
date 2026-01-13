@@ -1,0 +1,33 @@
+{
+  "summary": "Spring Boot autoconfigure module lacks configuration options for WorkerFactory and Worker settings via properties/YAML, forcing users to manually autowire and create workers to configure them.",
+  "category": "feature",
+  "subcategory": "spring-boot-autoconfigure",
+  "apis": [
+    "WorkerFactory",
+    "WorkerOptions"
+  ],
+  "components": [
+    "spring-boot-autoconfigure",
+    "worker-factory",
+    "worker-configuration"
+  ],
+  "concepts": [
+    "configuration-as-code",
+    "spring-properties",
+    "worker-tuning",
+    "autoconfiguration",
+    "customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot tune worker behavior through configuration files and must write custom code to override default worker settings.",
+  "rootCause": "The Spring Boot autoconfigure module creates and configures workers internally without exposing these settings to external configuration.",
+  "proposedFix": "Add support for defining WorkerFactory and WorkerOptions through Spring properties/YAML configuration files.",
+  "workaround": "Autowire WorkerFactory and manually create and configure workers with custom WorkerOptions before factory.start().",
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration options were added to allow WorkerFactory and Worker customization via Spring properties.",
+  "related": [],
+  "keyQuote": "Defining worker options via properties/yaml config allows to mitigate the above constraint.",
+  "number": 1488,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:36:54.576Z"
+}

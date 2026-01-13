@@ -1,0 +1,30 @@
+{
+  "summary": "SDK replayers need to support both the current hacked JSON format (with CONSTANT_CASE enums converted to CamelCase) and valid proto3 JSON format to allow programmatic history downloads via tooling like web UI and CLI.",
+  "category": "feature",
+  "subcategory": "history-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "history-serialization",
+    "proto-json-conversion"
+  ],
+  "concepts": [
+    "proto-json",
+    "enum-encoding",
+    "history-export",
+    "format-compatibility",
+    "tooling-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot download histories programmatically in valid proto3 JSON format; they are limited to the hacked JSON format or non-programmatic exports.",
+  "rootCause": "Generated Go API uses a custom patch that converts CONSTANT_CASE enum values to CamelCase, violating proto3 JSON spec. SDKs have custom conversion code to handle this non-standard format.",
+  "proposedFix": "SDK replayers should support both hacked JSON output and valid proto JSON output. Eventually remove hacked JSON generation and revert custom conversion code in all SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDK replayers should support the hacked JSON output as well as valid proto JSON output to allow downloading histories programmatically",
+  "number": 164,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:50:31.766Z"
+}

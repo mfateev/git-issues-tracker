@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to make activity prefix and name generation pluggable rather than requiring repeated @ActivityInterface annotations. User references a TODO in the codebase and offers to contribute.",
+  "category": "feature",
+  "subcategory": "activity-naming",
+  "apis": [
+    "ActivityInterface"
+  ],
+  "components": [
+    "activity-metadata",
+    "annotation-processing",
+    "POJOActivityMethodMetadata"
+  ],
+  "concepts": [
+    "naming-convention",
+    "code-reusability",
+    "plugin-architecture",
+    "annotation-driven-configuration",
+    "extensibility",
+    "boilerplate-reduction"
+  ],
+  "severity": "low",
+  "userImpact": "Users must manually repeat namePrefix patterns across multiple @ActivityInterface annotations instead of centralizing the logic.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #396 which already covers this feature request.",
+  "related": [
+    396
+  ],
+  "keyQuote": "I am repeating the same logic in my @ActivityInterface(namePrefix = \"...\") annotations. I would like to have this expressed in code, rather than a manually-applied pattern.",
+  "number": 1751,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:55.870Z"
+}

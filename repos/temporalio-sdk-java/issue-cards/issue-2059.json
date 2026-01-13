@@ -1,0 +1,32 @@
+{
+  "summary": "Implement a separate Cloud Operations API client for the Java SDK using cloud protos, mirroring implementations in other SDKs. The client should be marked as experimental.",
+  "category": "feature",
+  "subcategory": "cloud-client",
+  "apis": [],
+  "components": [
+    "cloud-client",
+    "proto-bindings",
+    "api-client"
+  ],
+  "concepts": [
+    "cloud-operations",
+    "api-client",
+    "experimental",
+    "proto-definitions",
+    "cloud-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a dedicated cloud operations API client to interact with Temporal Cloud services from Java applications.",
+  "rootCause": null,
+  "proposedFix": "Create a separate cloud client library using cloud protos, following the pattern established in the Go SDK (PR #1426).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Cloud operations API client was implemented as a separate component with experimental API marker.",
+  "related": [
+    440
+  ],
+  "keyQuote": "We need a separate cloud client using the cloud protos (they are separate today). The client should be marked experimental.",
+  "number": 2059,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:10.041Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency vulnerability in json-smart-2.4.7.jar (transitive dependency via json-path-2.7.0) causes potential denial of service through stack exhaustion when parsing deeply nested JSON structures. Fixed by upgrading json-smart to 2.4.9 or json-path to 2.8.0.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "json-path",
+    "json-smart"
+  ],
+  "concepts": [
+    "stack-exhaustion",
+    "denial-of-service",
+    "vulnerability",
+    "dependency-upgrade",
+    "nested-json-parsing"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the Java SDK are vulnerable to denial of service attacks through malformed deeply-nested JSON inputs that cause stack overflow.",
+  "rootCause": "json-smart library lacks limits on JSON array/object nesting depth, causing stack exhaustion when parsing recursively nested structures.",
+  "proposedFix": "Upgrade json-smart to 2.4.9 or json-path to 2.8.0 (direct dependency fix)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend after the vulnerable library was removed from the inventory or marked as ignored in the specific branch.",
+  "related": [],
+  "keyQuote": "When reaching a '[' or '{' character in the JSON input, nesting too many of them can cause a stack exhaustion (stack overflow) and crash the software.",
+  "number": 1716,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:38.287Z"
+}

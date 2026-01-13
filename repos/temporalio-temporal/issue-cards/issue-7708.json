@@ -1,0 +1,31 @@
+{
+  "summary": "Developer experience issue with manual restart of workflow and worker processes during development. User requests automatic restart on code changes and improved connection reliability during dev mode restarts, similar to hot-reload in npm/uv.",
+  "category": "feature",
+  "subcategory": "dev-mode",
+  "apis": [],
+  "components": [
+    "workflow",
+    "worker",
+    "dev-mode-ui"
+  ],
+  "concepts": [
+    "hot-reload",
+    "automatic-restart",
+    "connection-reliability",
+    "developer-experience",
+    "process-management",
+    "graceful-shutdown"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers waste time manually restarting multiple terminals and troubleshooting connection issues during the development cycle.",
+  "rootCause": "Dev mode lacks automatic process restart on code changes and proper connection sequencing when processes restart in different orders.",
+  "proposedFix": "Implement a kill switch in dev mode UI and automatic restart of dev-mode-specific processes with proper connection ordering.",
+  "workaround": "Manually kill all terminals and restart them in the correct order.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I do not like restarting 3 terminals in dev mode. Either there should be an auto workflow/worker restart feature whenever a change is made",
+  "number": 7708,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:44.411Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Activity retry policy loses important error details when the last retry attempt times out before the expiration deadline. Users need access to the last application error instead of just the timeout error to make informed workflow decisions.",
+  "category": "bug",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "retry",
+    "timeout",
+    "error-handling",
+    "expiration",
+    "activity-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows lose critical error context when activities exhaust retries near the expiration deadline, making debugging and error handling difficult.",
+  "rootCause": "When scheduling the last retry attempt close to the expiration deadline, the activity times out with a StartToClose timeout error, masking the original application error that could provide useful context.",
+  "proposedFix": "Either prevent scheduling retry attempts that would exceed the expiration deadline (if next_retry_time + StartToClose > expiration_time, skip retry), or store and return the last application error instead of the timeout error when retries expire.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2627
+  ],
+  "keyQuote": "Store last application error and uses the application error when timeout error occur in last attempt.",
+  "number": 185,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:21:34.972Z"
+}

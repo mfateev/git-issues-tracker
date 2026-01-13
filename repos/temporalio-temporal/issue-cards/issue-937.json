@@ -1,0 +1,32 @@
+{
+  "summary": "Workflows with cron or retry policies emit ContinueAsNew instead of workflow_failed metrics, causing confusing and missing failure reporting that doesn't accurately reflect actual workflow failures.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-execution",
+    "retry-policy",
+    "cron-policy"
+  ],
+  "concepts": [
+    "metrics",
+    "workflow-completion",
+    "retry",
+    "cron",
+    "failure-reporting",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately monitor workflow failures when retry or cron policies are active, leading to incomplete observability and confusing metrics interpretation.",
+  "rootCause": "Temporal emits ContinueAsNew event for workflow completions when retry or cron policy is attached, instead of emitting workflow_failed counter, misrepresenting the actual workflow state.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue references the code location in workflow/transaction_impl.go#L466 where the metric emission logic needs to be corrected to emit workflow completion metrics properly on ContinueAsNew.",
+  "related": [],
+  "keyQuote": "Temporal converts completion of workflow into ContinueAsNew event if there is a cron or retry policy attached to the execution. This is confusing as workflow failure is not reported as `workflow_failed` counter",
+  "number": 937,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:48.671Z"
+}

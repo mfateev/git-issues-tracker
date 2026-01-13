@@ -1,0 +1,32 @@
+{
+  "summary": "SDK version was being read redundantly from package.json instead of using the already-loaded pkg module. The issue was that package.json was being accessed multiple times when the pkg module should have been reused for efficiency.",
+  "category": "bug",
+  "subcategory": "build-configuration",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "package-metadata",
+    "version-handling"
+  ],
+  "concepts": [
+    "version-management",
+    "configuration",
+    "code-duplication",
+    "dependency-management"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact; this is an internal code quality issue where redundant file access could cause minor performance inefficiency.",
+  "rootCause": "package.json was being read directly in conversions.rs instead of reusing the already-loaded pkg module, causing redundant file access.",
+  "proposedFix": "Use the pkg module instead of reading package.json again to eliminate the redundant file access.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by removing the redundant package.json access and using the pkg module instead, implemented in PR #288.",
+  "related": [
+    275,
+    288
+  ],
+  "keyQuote": "I'd still change to use the `pkg` module instead of reading package.json again.",
+  "number": 280,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:23.985Z"
+}

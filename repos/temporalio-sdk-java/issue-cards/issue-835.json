@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add workflow search query APIs to the Java SDK, similar to Go's ListOpenWorkflow capability. The issue discusses whether to expose elasticsearch search functionality and administrative APIs through the SDK client.",
+  "category": "feature",
+  "subcategory": "workflow-search",
+  "apis": [
+    "ListOpenWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-client",
+    "elasticsearch-integration"
+  ],
+  "concepts": [
+    "workflow-search",
+    "elasticsearch",
+    "admin-api",
+    "api-design",
+    "server-queries"
+  ],
+  "severity": "medium",
+  "userImpact": "Java developers cannot easily query for open workflow executions like in the Go SDK, requiring them to use low-level gRPC stubs or query elasticsearch directly.",
+  "rootCause": "Java SDK lacks a user-facing API for workflow search queries that other SDKs provide, forcing users to work with raw protobuf entities.",
+  "proposedFix": "Expose workflow search functionality through a dedicated API, either on WorkflowClient or a separate admin client, similar to the Go SDK's ListOpenWorkflow.",
+  "workaround": "Use gRPC stubs directly with raw protobuf entities or query elasticsearch directly.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #1552.",
+  "related": [
+    1552
+  ],
+  "keyQuote": "If this is our officially supported feature of SDK, we should provide an access that doesn't require digging into gRPC stubs and proto Request/Responses.",
+  "number": 835,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:46:09.554Z"
+}

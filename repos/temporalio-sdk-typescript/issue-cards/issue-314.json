@@ -1,0 +1,34 @@
+{
+  "summary": "Add the missing continuedAsNewExecutionRunId field to the WorkflowInfo interface to support accessing the run ID when a workflow continues as new. The request also suggests adding parentId and parentRunId for child workflow support.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "typescript-sdk",
+    "interface-definitions"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "continued-as-new",
+    "child-workflows",
+    "parent-child-relationships",
+    "workflow-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access the continued-as-new run ID or parent workflow information through the WorkflowInfo interface, limiting visibility into workflow relationships.",
+  "rootCause": null,
+  "proposedFix": "Add continuedAsNewExecutionRunId, parentId, and parentRunId fields to the WorkflowInfo interface",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was closed and referenced in documentation PR #696",
+  "related": [
+    696
+  ],
+  "keyQuote": "add parentId and parentRunId as well which is useful for child workflows if its possible",
+  "number": 314,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:55.081Z"
+}

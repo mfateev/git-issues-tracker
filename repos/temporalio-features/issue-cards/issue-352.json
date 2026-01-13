@@ -1,0 +1,33 @@
+{
+  "summary": "HTTP/2 vulnerability (CVE-2023-39325) in golang.org/x/net-v0.14.0 affecting gRPC-v1.57.0 allows malicious clients to consume excessive server resources through rapid request creation and reset. The issue was auto-closed as the vulnerable library was removed from the dependency inventory.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "grpc",
+    "http2",
+    "golang.org/x/net",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "denial-of-service",
+    "resource-exhaustion",
+    "http2",
+    "stream-concurrency",
+    "dependency-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users running features service are vulnerable to DoS attacks that can exhaust server resources through malicious HTTP/2 clients creating and resetting requests rapidly.",
+  "rootCause": "golang.org/x/net-v0.14.0 does not properly bound simultaneously executing HTTP/2 handler goroutines to the stream concurrency limit, allowing attackers to exhaust resources.",
+  "proposedFix": "Upgrade golang.org/x/net to v0.17.0 or use go1.20.10/go1.21.3+. HTTP/2 servers should bound handler goroutines to MaxConcurrentStreams and queue excess requests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automatically closed as the vulnerable library (golang.org/x/net-v0.14.0) was removed from the Mend dependency inventory.",
+  "related": [],
+  "keyQuote": "A malicious HTTP/2 client which rapidly creates requests and immediately resets them can cause excessive server resource consumption.",
+  "number": 352,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:40.366Z"
+}

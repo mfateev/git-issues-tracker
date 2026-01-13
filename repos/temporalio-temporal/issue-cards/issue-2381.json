@@ -1,0 +1,33 @@
+{
+  "summary": "DescribeTaskQueueRequest with TaskQueueType.TASK_QUEUE_TYPE_UNSPECIFIED returns no results, but users expect it to match all task queue types. The server should default to TASK_QUEUE_TYPE_WORKFLOW when type is unspecified.",
+  "category": "bug",
+  "subcategory": "task-queue-api",
+  "apis": [
+    "DescribeTaskQueueRequest"
+  ],
+  "components": [
+    "server",
+    "task-queue",
+    "grpc-api"
+  ],
+  "concepts": [
+    "task-queue-type",
+    "default-behavior",
+    "api-usability",
+    "unspecified-enum"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query task queues without explicitly specifying a type, making the API less intuitive and preventing discovery of all task queues.",
+  "rootCause": "Server does not apply a default TaskQueueType when TASK_QUEUE_TYPE_UNSPECIFIED is provided, resulting in no matches instead of matching the default type.",
+  "proposedFix": "Server should use TASK_QUEUE_TYPE_WORKFLOW as the default when TaskQueueType is unspecified.",
+  "workaround": "Explicitly set TaskQueueType to TASK_QUEUE_TYPE_WORKFLOW or TASK_QUEUE_TYPE_ACTIVITY",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #4815 to make server use default type (TASK_QUEUE_TYPE_WORKFLOW) when unspecified",
+  "related": [
+    4815
+  ],
+  "keyQuote": "When the TaskQueueType is not specified, server should use a default type (TASK_QUEUE_TYPE_WORKFLOW), and this needs to be documented.",
+  "number": 2381,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:42.613Z"
+}

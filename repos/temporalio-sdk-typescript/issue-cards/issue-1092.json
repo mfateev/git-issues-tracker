@@ -1,0 +1,31 @@
+{
+  "summary": "The `workflowId` field in `ScheduleUpdateOptions.action` should be optional, matching the behavior in `ScheduleOptionsStartWorkflowAction` where it is already optional.",
+  "category": "bug",
+  "subcategory": "schedule-api",
+  "apis": [
+    "ScheduleUpdateOptions",
+    "ScheduleOptionsStartWorkflowAction"
+  ],
+  "components": [
+    "schedule-client",
+    "type-definitions"
+  ],
+  "concepts": [
+    "optional-fields",
+    "api-consistency",
+    "type-safety",
+    "schedule-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot update schedules without providing a workflowId even when it should remain unchanged, creating unnecessary friction in the API.",
+  "rootCause": "Type definition inconsistency between ScheduleOptionsStartWorkflowAction and ScheduleUpdateOptions.action",
+  "proposedFix": "Make workflowId optional in ScheduleUpdateOptions.action to match ScheduleOptionsStartWorkflowAction",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "workflowId was made optional in ScheduleUpdateOptions.action",
+  "related": [],
+  "keyQuote": "Right now it's optional in `ScheduleOptionsStartWorkflowAction` but not in `ScheduleUpdateOptions`",
+  "number": 1092,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:37.955Z"
+}

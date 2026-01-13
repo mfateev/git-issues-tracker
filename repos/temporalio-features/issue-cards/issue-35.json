@@ -1,0 +1,30 @@
+{
+  "summary": "Logback library vulnerability (CVE-2021-42550) requiring upgrade from 1.2.6 to 1.2.8 to address LDAP-based arbitrary code execution risk in configuration file handling.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "logback-classic",
+    "logback-core",
+    "gradle-build"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "code-execution",
+    "configuration-injection",
+    "ldap"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications using the features SDK are vulnerable to arbitrary code execution if an attacker can modify logback configuration files.",
+  "rootCause": "Logback versions 1.2.7 and prior allow LDAP configuration in the logging configuration, enabling arbitrary code loading and execution.",
+  "proposedFix": "Upgrade logback-classic and logback-core from 1.2.6 to 1.2.8 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was removed from the dependency inventory or marked as ignored.",
+  "related": [],
+  "keyQuote": "attacker with the required privileges to edit configurations files could craft a malicious configuration allowing to execute arbitrary code loaded from LDAP servers",
+  "number": 35,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:38.775Z"
+}

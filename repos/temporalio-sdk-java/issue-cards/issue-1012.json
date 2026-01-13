@@ -1,0 +1,31 @@
+{
+  "summary": "OpenTracing interceptor logs all exceptions as errors, creating artificially inflated error metrics for expected polling failures. Request to add a configurable predicate to filter which exceptions are logged as errors in traces.",
+  "category": "feature",
+  "subcategory": "opentracing-interceptor",
+  "apis": [],
+  "components": [
+    "opentracing-interceptor",
+    "tracing",
+    "exception-handling"
+  ],
+  "concepts": [
+    "error-tracking",
+    "observability",
+    "exception-filtering",
+    "polling-pattern",
+    "external-services",
+    "metrics"
+  ],
+  "severity": "low",
+  "userImpact": "Users with polling workflows generate misleading error metrics and spans in OpenTracing due to expected exceptions being logged as errors.",
+  "rootCause": "OpenTracing interceptor treats all exceptions identically regardless of whether they represent actual errors or expected control flow.",
+  "proposedFix": "Add a configurable `java.util.function.Predicate` parameter called `isErrorPredicate` to `OpenTracingOptions` that accepts an exception and determines if it should be logged as an error, with a default implementation returning `true`.",
+  "workaround": "Implement a custom interceptor for the project that wraps or replaces the OpenTracing interceptor.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via configurable Predicate in OpenTracingOptions as suggested in comments.",
+  "related": [],
+  "keyQuote": "I'd like to be able to exclude certain exception types from being logged as errors in the OpenTracing interceptor.",
+  "number": 1012,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:59:41.170Z"
+}

@@ -1,0 +1,39 @@
+{
+  "summary": "Sync multiprocessed activities in the Python SDK cannot be cancelled, either voluntarily or due to missed heartbeats, leading to resource waste and potential data corruption. The feature request asks for best-effort cancellation support similar to async and multithreaded workers, along with improved documentation and guidance on handling side effects.",
+  "category": "feature",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "activity.wait_for_cancellation_sync()",
+    "ProcessPoolExecutor"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "multiprocessing",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "multiprocessing",
+    "heartbeat",
+    "activity-timeout",
+    "resource-management",
+    "side-effects",
+    "process-interruption"
+  ],
+  "severity": "high",
+  "userImpact": "Users running sync activities with multiprocessed workers cannot stop long-running activities on cancellation, causing resource starvation, retry loops, and potential data corruption from duplicate side effects.",
+  "rootCause": "Sync multiprocessed activities lack a mechanism to raise cancellation exceptions in child processes; while a multiprocessing Manager event exists to signal cancellation across process boundaries, there is no built-in way for activity code to react to it, unlike multithreaded activities which use _ThreadExceptionRaiser.",
+  "proposedFix": "Implement best-effort cancellation for sync multiprocessed workers using heartbeats to signal cancellation, similar to async and multithreaded workers; provide documentation on limitations and guidance for handling side effects (unique resource locations, activity-level idempotency, separate queues for critical side effects).",
+  "workaround": "Use async activities with asyncio.run_in_executor() to delegate to a process pool; or use regular sync activities with multithreading instead; or use copy_context() with wait_for_cancellation_sync() in a background thread to monitor cancellation state.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    217,
+    1047
+  ],
+  "keyQuote": "Activity not found on completion. This may happen if the activity has already been cancelled but completed anyway.",
+  "number": 1048,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:32.342Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Tokio dependency version 1.21.2 contains a medium-severity vulnerability (CVE-2023-22466) where configuring pipe_mode on Windows named pipes resets reject_remote_clients to false, potentially allowing unauthorized remote access. This issue was automatically closed after the vulnerable library was removed from the dependency inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "windows-named-pipes",
+    "tokio-runtime"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-upgrade",
+    "access-control",
+    "windows-pipes",
+    "remote-clients"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications using the vulnerable tokio version on Windows could be exploited by remote clients to access named pipes if the application relies on reject_remote_clients for security.",
+  "rootCause": "Tokio's pipe_mode configuration inadvertently resets the reject_remote_clients setting to false, undoing previous security configurations on Windows named pipe servers.",
+  "proposedFix": "Upgrade tokio to version 1.18.4, 1.20.3, 1.23.1, or 1.24.0+. As a workaround, ensure pipe_mode is set first before configuring reject_remote_clients.",
+  "workaround": "Set pipe_mode first immediately after initializing ServerOptions, before any other configuration.",
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend as the vulnerable library was removed from the dependency inventory.",
+  "related": [],
+  "keyQuote": "setting `pipe_mode` will reset `reject_remote_clients` to `false`. If the application has previously configured `reject_remote_clients` to `true`, this effectively undoes the configuration.",
+  "number": 1027,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:09.755Z"
+}

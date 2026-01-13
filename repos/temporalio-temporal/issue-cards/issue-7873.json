@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal deployment on Kubernetes using Helm chart fails to connect to AWS RDS PostgreSQL database with TLS enabled. The issue was resolved by adding explicit TLS configuration to the database connection settings and importing the AWS CA certificate.",
+  "category": "bug",
+  "subcategory": "database-connection",
+  "apis": [],
+  "components": [
+    "persistence",
+    "sql-driver",
+    "database-connection",
+    "helm-chart"
+  ],
+  "concepts": [
+    "TLS",
+    "RDS",
+    "PostgreSQL",
+    "Kubernetes",
+    "database-configuration",
+    "SSL-certificate"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal on Kubernetes with RDS struggle to establish database connections when TLS is enforced, preventing cluster initialization.",
+  "rootCause": "Missing or incomplete TLS configuration in the Helm chart database persistence settings when connecting to RDS with SSL/TLS enforcement enabled.",
+  "proposedFix": "Add explicit TLS configuration block with enabled: true and enableHostVerification: false to the SQL datastores configuration, and import the AWS CA certificate.",
+  "workaround": "Disable RDS SSL enforcement (rds.force_ssl=0) or use Docker-compose with SQL_TLS_ENABLED and SQL_HOST_VERIFICATION environment variables set appropriately.",
+  "resolution": "fixed",
+  "resolutionDetails": "User confirmed that adding TLS configuration with disabled host verification and importing AWS CA certificate resolves the connection issue.",
+  "related": [],
+  "keyQuote": "Try adding the following TLS configuration: ... tls: enabled: true enableHostVerification: false ... For more details: https://docs.temporal.io/references/configuration#tls-1",
+  "number": 7873,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:47.024Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to reserve Temporal-specific built-in prefixes in the Python SDK, following the approach defined in the cross-SDK features specification. Discussion addresses Python name mangling concerns with double-underscore prefixes.",
+  "category": "feature",
+  "subcategory": "naming-conventions",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "naming-system",
+    "api-compatibility"
+  ],
+  "concepts": [
+    "namespace-reservation",
+    "naming-conventions",
+    "python-compatibility",
+    "built-in-prefixes",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Establishes reserved naming conventions to prevent conflicts between user code and Temporal SDK internal names.",
+  "rootCause": null,
+  "proposedFix": "Reserve `__temporal_` prefix for built-in Temporal names, which is specific enough to avoid collisions with Python's name mangling behavior.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    576
+  ],
+  "keyQuote": "We're only reserving well-known/already-established names, and we think `__temporal_` is specific enough that it's unlikely to collide with any class name.",
+  "number": 731,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:26.675Z"
+}

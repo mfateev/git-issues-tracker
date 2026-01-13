@@ -1,0 +1,33 @@
+{
+  "summary": "Bundlers pick up the `browser` field in module package.json files, causing issues in workflow modules since browser implementations use unsupported APIs. Request to automatically ignore the browser field or improve the experience of including such modules.",
+  "category": "feature",
+  "subcategory": "bundler-configuration",
+  "apis": [],
+  "components": [
+    "bundler",
+    "workflow-sandbox",
+    "module-resolution"
+  ],
+  "concepts": [
+    "browser-field",
+    "package.json",
+    "bundler-configuration",
+    "module-compatibility",
+    "sandbox-restrictions",
+    "api-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter confusing errors when trying to use workflow modules that have browser implementations, requiring workarounds or package modifications.",
+  "rootCause": "Bundlers automatically respect the `browser` field in package.json, but browser implementations typically use APIs incompatible with workflow sandboxes.",
+  "proposedFix": "Automatically don't use browser field when bundling workflow modules.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    204
+  ],
+  "keyQuote": "if a package has a browser field, it most certainly means that it has both an implementation targeted at browsers and an implementation targeted at nodejs... Both will almost certainly require APIs we do not support in workflow sandboxes.",
+  "number": 958,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:44.773Z"
+}

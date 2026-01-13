@@ -1,0 +1,35 @@
+{
+  "summary": "The `operatorService` is not accessible on the `ConnectionLike` interface, requiring users to cast the connection to `Connection` type to access operator functionality like listing search attributes.",
+  "category": "bug",
+  "subcategory": "client-api",
+  "apis": [
+    "operatorService.listSearchAttributes",
+    "Client",
+    "Connection"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "operator-service"
+  ],
+  "concepts": [
+    "type-safety",
+    "interface-design",
+    "operator-service",
+    "search-attributes",
+    "typescript",
+    "type-casting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot directly access operatorService through client.connection without type casting, breaking TypeScript type safety and requiring workarounds.",
+  "rootCause": "The ConnectionLike interface does not expose operatorService, even though the concrete Connection class has it initialized.",
+  "proposedFix": "Add operatorService to the ConnectionLike interface so it's accessible on the type-safe connection reference.",
+  "workaround": "Cast client.connection to Connection type: `(client.connection as Connection).operatorService`",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "operatorService cannot be available on the ConnectionLike interface... it is initialized on the client",
+  "number": 1883,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-13T00:09:33.447Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for a hybrid architecture combining Redis for real-time workflow state, Kafka for event streaming and replay, and Cassandra for long-term durable storage. This would reduce persistence overhead and infrastructure costs by batching writes while maintaining strong consistency guarantees.",
+  "category": "feature",
+  "subcategory": "architecture-persistence",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "workflow-state-management",
+    "event-store",
+    "cache-layer"
+  ],
+  "concepts": [
+    "hybrid-architecture",
+    "in-memory-caching",
+    "event-streaming",
+    "batch-writes",
+    "fault-tolerance",
+    "event-sourcing",
+    "scalability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could reduce persistence infrastructure costs and improve workflow execution performance by leveraging a tiered storage approach with real-time caching and eventual consistency.",
+  "rootCause": "Current Temporal design requires immediate writes to persistence store for all events and activity results, preventing batching optimizations and increasing infrastructure costs.",
+  "proposedFix": "Implement hybrid architecture: Redis for hot/active workflow state with eviction policies, Kafka for durable event log and replay capability, Cassandra for long-term storage with periodic batch writes from Redis.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Redis acts as a cache for workflow execution state and hot data, while Kafka provides reliable event log for replaying events in case of failures",
+  "number": 6617,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:11.717Z"
+}

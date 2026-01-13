@@ -1,0 +1,30 @@
+{
+  "summary": "Add Jackson jdk8 module support to JacksonJsonPayloadConverter to enable workflows and activities to use Optional parameters like Optional<MyClass>.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "JacksonJsonPayloadConverter",
+    "Jackson",
+    "serialization"
+  ],
+  "concepts": [
+    "Optional",
+    "jdk8",
+    "type-handling",
+    "parameter-support",
+    "serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can now use Java Optional types in workflow and activity parameters for more idiomatic null-safety.",
+  "rootCause": null,
+  "proposedFix": "Register Jackson jdk8 support module in JacksonJsonPayloadConverter",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Jackson jdk8 module support was added to JacksonJsonPayloadConverter",
+  "related": [],
+  "keyQuote": "Adding would allow workflow / activities to use optional params, for example Optional<MyClass> etc.",
+  "number": 991,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:57:39.199Z"
+}

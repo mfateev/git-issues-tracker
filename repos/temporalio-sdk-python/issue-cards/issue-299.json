@@ -1,0 +1,32 @@
+{
+  "summary": "Update Tokio dependency to version 1.25 or 1.26 to address a reported vulnerability in the Python SDK's Rust bridge. The fix can be applied via cargo update.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "python-bridge",
+    "rust-bindings",
+    "tokio-dependency"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency-update",
+    "security-patch",
+    "cargo-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to a security vulnerability that requires updating the Tokio dependency to maintain a secure SDK.",
+  "rootCause": "Outdated Tokio dependency version containing a reported vulnerability",
+  "proposedFix": "Update Tokio to version 1.25 or 1.26 via cargo update in the Python bridge",
+  "workaround": "Cargo update can be run to fix the dependency version",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via cargo update in the Python bridge and merged in PR #307",
+  "related": [
+    244,
+    307
+  ],
+  "keyQuote": "we should probably set a minimum Tokio version in this repo to 1.25 or 1.26",
+  "number": 299,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:21.341Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "TracingInterceptor currently creates all spans with kind=INTERNAL, which doesn't provide good service graph visualization in APM tools. This feature request changes span kinds to use CLIENT/SERVER model for better service graph representation.",
+  "category": "feature",
+  "subcategory": "tracing-instrumentation",
+  "apis": [],
+  "components": [
+    "TracingInterceptor",
+    "span-creation",
+    "tracing"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "span-kinds",
+    "APM",
+    "service-graphs",
+    "observability",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get better visibility into service graphs and distributed tracing in APM tools like Tempo with proper span kind classification.",
+  "rootCause": "TracingInterceptor hardcodes span kind to INTERNAL instead of using CLIENT/SERVER model based on call direction.",
+  "proposedFix": "Modify TracingInterceptor to set appropriate span kinds (CLIENT or SERVER) based on whether spans represent outbound or inbound calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR was merged to implement CLIENT/SERVER span kind model for TracingInterceptor.",
+  "related": [
+    356
+  ],
+  "keyQuote": "TracingInterceptor creates all spans with kind=INTERNAL... This PR changes this to CLIENT/SERVER model for convenient service graphs in APM",
+  "number": 357,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:07.128Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add query capability to ExternalWorkflowStub, currently only supporting signals. This requires new command and server-side implementation support.",
+  "category": "feature",
+  "subcategory": "external-workflow-interaction",
+  "apis": [
+    "ExternalWorkflowStub"
+  ],
+  "components": [
+    "external-workflow-stub",
+    "state-machines",
+    "command-system"
+  ],
+  "concepts": [
+    "query",
+    "external-workflow",
+    "command-support",
+    "server-implementation",
+    "workflow-interaction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query external workflows and must use activities as a workaround, limiting cross-workflow communication patterns.",
+  "rootCause": "Query command and underlying workflow history implementation not available in server state machines for external workflows.",
+  "proposedFix": null,
+  "workaround": "Use an activity to query an external workflow.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Marked as wontfix because the feature requires new command and server-side implementation that is outside SDK scope.",
+  "related": [],
+  "keyQuote": "This is not an SDK issue. ExternalWorkflowStub has an underlying implementation in state machines and produces commands. There is no command and no underlying workflow history baked implementation for query currently.",
+  "number": 1584,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:17.675Z"
+}

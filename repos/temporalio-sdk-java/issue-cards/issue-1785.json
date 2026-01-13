@@ -1,0 +1,32 @@
+{
+  "summary": "User requests a clearer exception message for WorkflowExecutionAlreadyStarted, which currently only contains workflow details but lacks explicit explanation that the workflow has already started. The request is to provide a more descriptive message that clarifies the condition while maintaining existing workflow detail information.",
+  "category": "other",
+  "subcategory": "exception-messages",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "exception-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "exception-message",
+    "error-clarity",
+    "workflow-lifecycle",
+    "duplicate-execution",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users receive unclear exception messages when attempting to start a workflow that already exists, making it harder to diagnose and handle the error appropriately.",
+  "rootCause": null,
+  "proposedFix": "Include a clear message in the WorkflowExecutionAlreadyStarted exception explaining that a workflow with the given workflowId has already been started, in addition to the existing workflow details.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainer determined that changing the exception message would be a backwards incompatible change, and users should deduce the meaning from the exception type itself rather than the message content.",
+  "related": [],
+  "keyQuote": "the intention is users deduce the message from the exception type and changing the message would be a backwards incompatible change",
+  "number": 1785,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:59.650Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "GitHub Actions CI workflow runs slowly, causing developers to wait for feedback on pull requests. The request is to optimize the workflow through parallelization, improved caching, or dedicated infrastructure.",
+  "category": "feature",
+  "subcategory": "ci-performance",
+  "apis": [],
+  "components": [
+    "github-actions",
+    "ci-workflow",
+    "docker"
+  ],
+  "concepts": [
+    "performance",
+    "parallelization",
+    "caching",
+    "ci-cd",
+    "developer-experience",
+    "build-optimization"
+  ],
+  "severity": "low",
+  "userImpact": "Developers experience delays when waiting for CI workflow results on pull requests.",
+  "rootCause": "GitHub Actions workflow lacks sufficient parallelization and caching strategies.",
+  "proposedFix": "Increase parallelization, improve caching, use prebuilt Docker images, or implement dedicated runners.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Completed through issue #1003 which likely implemented workflow optimizations.",
+  "related": [
+    1003
+  ],
+  "keyQuote": "with several PRs I've found myself waiting and checking back on the status and it's usually still in progress",
+  "number": 339,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:57.260Z"
+}

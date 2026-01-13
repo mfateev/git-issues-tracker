@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for describing task queues with stats from the high-level client. The feature requires a new describe call that returns task queue information including pollers and statistics, with configurable options for reporting stats and poller info.",
+  "category": "feature",
+  "subcategory": "task-queue-management",
+  "apis": [
+    "DescribeTaskQueue"
+  ],
+  "components": [
+    "task-queue-client",
+    "high-level-api",
+    "stats-reporting"
+  ],
+  "concepts": [
+    "task-queue-description",
+    "poller-info",
+    "build-id-stats",
+    "task-queue-types",
+    "server-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to monitor and analyze task queue performance and poller distribution from the high-level client API.",
+  "rootCause": null,
+  "proposedFix": "Implement describe task queue call with options for stats and poller reporting, returning task queue types (worker, activity, nexus) with associated info including pollers and stats, compatible with Temporal Server 1.25+",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1553
+  ],
+  "keyQuote": "describe task queue from the high-level client and access stats information. This information is only available in server 1.25.",
+  "number": 525,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:58.422Z"
+}

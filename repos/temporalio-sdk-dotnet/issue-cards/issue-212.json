@@ -1,0 +1,36 @@
+{
+  "summary": "DI container cannot register multiple workflow versions with the same workflow name but different build IDs. The versioning support added later conflicted with the single-worker-per-task-queue constraint that predates it.",
+  "category": "bug",
+  "subcategory": "dependency-injection",
+  "apis": [
+    "AddHostedTemporalWorker",
+    "AddWorkflow",
+    "ConfigureOptions"
+  ],
+  "components": [
+    "dependency-injection",
+    "worker-service",
+    "workflow-registration"
+  ],
+  "concepts": [
+    "versioning",
+    "build-id",
+    "task-queue",
+    "worker-versioning",
+    "dependency-injection"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy multiple versions of the same workflow using DI with different build IDs, blocking progressive deployment strategies.",
+  "rootCause": "DI setup predates versioning and only supports one worker per task queue in a service collection. The uniqueness constraint for options set in the container does not include build ID.",
+  "proposedFix": "Change what uniquely identifies options set in the container to include build ID as part of the key.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in #451 where behavior was changed to no longer assume non-GA versioning form when build ID is present.",
+  "related": [
+    451
+  ],
+  "keyQuote": "We need to change what we uniquely identify options set as on the container to include build ID",
+  "number": 212,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:57:53.251Z"
+}

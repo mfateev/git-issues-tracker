@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add Spring Boot integration support for creating multiple Temporal clients and workers with different configurations, including support for different namespaces in the same application.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-integration",
+    "client-factory",
+    "worker-factory"
+  ],
+  "concepts": [
+    "namespace-isolation",
+    "multi-tenant",
+    "configuration-management",
+    "client-options",
+    "spring-boot"
+  ],
+  "severity": "medium",
+  "userImpact": "Spring Boot developers cannot currently create multiple Temporal clients or workers with different namespaces or options within the same application.",
+  "rootCause": null,
+  "proposedFix": "Extend Spring Boot integration to support configuration of multiple client and worker instances with different namespace and option settings.",
+  "workaround": "Create separate Spring Boot applications per namespace, but this doesn't support cross-namespace calls or different client options for different workers in the same namespace.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add support in springboot integration to create clients and workers with different options including different namespaces",
+  "number": 1799,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:14.273Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "DescribeWorkflowExecution in the UI frontend does not handle archived workflows, causing 404 errors when trying to view archived workflow details. GetWorkflowExecutionHistory handles archived workflows correctly, but the describe endpoint needs the same archival logic for the archived workflow page to function.",
+  "category": "bug",
+  "subcategory": "workflow-archival",
+  "apis": [
+    "DescribeWorkflowExecution",
+    "GetWorkflowExecutionHistory"
+  ],
+  "components": [
+    "ui-frontend",
+    "workflow-handler",
+    "archival-provider"
+  ],
+  "concepts": [
+    "workflow-archival",
+    "s3-archival",
+    "workflow-retention",
+    "ui-navigation",
+    "archived-workflows"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot view archived workflow execution details from the UI's archived page, making it impossible to review historical workflow data after retention expiration.",
+  "rootCause": "DescribeWorkflowExecution endpoint in frontend workflow_handler does not implement special logic for archived workflows, unlike GetWorkflowExecutionHistory which handles them correctly.",
+  "proposedFix": "Add archived workflow handling logic to DescribeWorkflowExecution endpoint similar to what exists in GetWorkflowExecutionHistory.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1174,
+    1702,
+    5117
+  ],
+  "keyQuote": "DescribeWorkflowExecution in frontend workflow_handler does not take into account that a workflow can be archived. GetWorkflowExecutionHistory on the other hand, handles archived workflows perfectly.",
+  "number": 6193,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:34.707Z"
+}

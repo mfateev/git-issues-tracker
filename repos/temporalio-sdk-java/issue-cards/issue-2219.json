@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for user metadata on workflow start and commands in the Test Server, implementing the API changes from temporalio/api.",
+  "category": "feature",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "workflow-start",
+    "commands"
+  ],
+  "concepts": [
+    "user-metadata",
+    "workflow-start",
+    "commands",
+    "test-framework",
+    "api-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now include and test user metadata when starting workflows and executing commands in the Test Server.",
+  "rootCause": null,
+  "proposedFix": "Implement support for user metadata as defined in the temporalio/api commit de9e0055a5067ee3e3a6105a207b7c78e8ea8668",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support user metadata on workflow start and commands",
+  "related": [],
+  "keyQuote": "Add support for user metadata on workflow start and commands",
+  "number": 2219,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:02:50.272Z"
+}

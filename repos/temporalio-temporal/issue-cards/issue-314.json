@@ -1,0 +1,31 @@
+{
+  "summary": "ElasticSearch version requirement (6.x) needs to be clearly documented. The issue also requests better error handling when this requirement is not met to improve user experience.",
+  "category": "docs",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "persistence"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "dependencies",
+    "error-handling",
+    "documentation",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users may encounter confusing errors when using unsupported ElasticSearch versions without clear guidance on version requirements.",
+  "rootCause": null,
+  "proposedFix": "Document ElasticSearch 6.x requirement and implement clear error handling for version mismatches",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "All dependency versions are now documented",
+  "related": [
+    313
+  ],
+  "keyQuote": "The current codebase requires ElasticSearch 6 (we currently test with 6.8.8). Please document this requirement",
+  "number": 314,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:28:48.561Z"
+}

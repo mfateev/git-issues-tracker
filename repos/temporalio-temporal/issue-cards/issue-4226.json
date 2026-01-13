@@ -1,0 +1,31 @@
+{
+  "summary": "Add configuration flags to toggle build ID based versioning behavior, including disabling build ID matching and CRUD endpoints for backward compatibility and rollback scenarios.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "versioning",
+    "matching",
+    "build-id",
+    "crud-endpoints"
+  ],
+  "concepts": [
+    "build-id versioning",
+    "backward compatibility",
+    "feature toggle",
+    "rollback",
+    "matching behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now disable build ID based versioning when needed for compatibility or rolling back to previous behavior.",
+  "rootCause": null,
+  "proposedFix": "Implement flags to disable build ID matching and disable BuildID CRUD endpoints",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with flags to disable build ID versioning in matching and CRUD endpoints",
+  "related": [],
+  "keyQuote": "Use flag to disable in matching, define rollback behavior; Use flag to disable BuildID CRUD endpoints",
+  "number": 4226,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:22.814Z"
+}

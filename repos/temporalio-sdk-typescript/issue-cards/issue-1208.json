@@ -1,0 +1,31 @@
+{
+  "summary": "The defaultWorkerLogger sink fails to register automatically when using @temporalio/nyc-test-coverage's augmentWorkerOptions without explicitly setting WorkerOptions.sinks. Users must manually specify sinks: defaultSinks() as a workaround.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "logger",
+    "test-coverage"
+  ],
+  "concepts": [
+    "logging",
+    "worker-configuration",
+    "test-instrumentation",
+    "sink-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing with nyc-test-coverage cannot use workflow.log without manually configuring sinks, breaking the default logging experience.",
+  "rootCause": "The defaultWorkerLogger sink registration is not automatically applied when augmentWorkerOptions is called without explicit sinks configuration.",
+  "proposedFix": null,
+  "workaround": "Explicitly specify sinks: defaultSinks() in WorkerOptions before calling augmentWorkerOptions",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1283",
+  "related": [
+    1283
+  ],
+  "keyQuote": "The defaultWorkerLogger sink doesn't get automatically registered if WorkerOptions.sinks is not explicitly set before passing the WorkerOptions through @temporalio/nyc-test-coverage's augmentWorkerOptions.",
+  "number": 1208,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:00.089Z"
+}

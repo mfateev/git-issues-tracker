@@ -1,0 +1,36 @@
+{
+  "summary": "Activity.wrap and Workflow.wrap fail when wrapping an ActivityFailure with a chained Throwable cause instead of an Exception. The issue occurs in CheckedExceptionWrapper.unwrap which incorrectly assumes exception causes are either Error or Exception, not arbitrary Throwable types.",
+  "category": "bug",
+  "subcategory": "exception-handling",
+  "apis": [
+    "Activity.wrap",
+    "Workflow.wrap"
+  ],
+  "components": [
+    "CheckedExceptionWrapper",
+    "FailureConverter",
+    "LocalActivityWorker"
+  ],
+  "concepts": [
+    "exception-handling",
+    "type-casting",
+    "failure-wrapping",
+    "activity-execution",
+    "error-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot wrap activities with chained Throwable causes, causing runtime failures in local activity execution.",
+  "rootCause": "CheckedExceptionWrapper.unwrap assumes exception causes are either Error or Exception subclasses, but does not handle cases where the cause is a Throwable that is neither, causing ClassCastException.",
+  "proposedFix": "Modify CheckedExceptionWrapper.unwrap to properly handle Throwable types in the exception cause chain without casting assumptions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by pull request #172 and validated by issue #194.",
+  "related": [
+    172,
+    194
+  ],
+  "keyQuote": "The bug is in the CheckedExceptionWrapper.unwrap which assumes that a cause of an exception is either Error or Exception, but never any other child of Throwable or Throwable itself.",
+  "number": 149,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:58:03.466Z"
+}

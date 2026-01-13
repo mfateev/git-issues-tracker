@@ -1,0 +1,32 @@
+{
+  "summary": "Type definition of workflow arguments is inconsistent between the `Workflow` type (using `any[]`) and `WithWorkflowArgs` type (using `[any, ...any[]]`), making it impossible to create generic types that extend `Workflow` while satisfying `WorkflowStartOptions`.",
+  "category": "bug",
+  "subcategory": "type-definitions",
+  "apis": [
+    "Workflow",
+    "WorkflowStartOptions"
+  ],
+  "components": [
+    "type-system",
+    "workflow-options",
+    "interfaces"
+  ],
+  "concepts": [
+    "type-compatibility",
+    "generic-constraints",
+    "workflow-arguments",
+    "typescript-types"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot create reusable generic types that extend Workflow and work with WorkflowStartOptions due to type incompatibility.",
+  "rootCause": "`any[]` type on Workflow interface is not assignable to `[any, ...any[]]` required by WithWorkflowArgs, causing type checking failures in generic scenarios.",
+  "proposedFix": "Align the type definition of workflow arguments between Workflow and WithWorkflowArgs to use consistent tuple representation.",
+  "workaround": "Define custom type extending `(...args: [any, ...any[]]) => Promise<any>` instead of extending Workflow type directly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Due to `any[]` not being equal to `[any, ...any[]]`, the following example function will not pass type checking.",
+  "number": 1389,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:50.283Z"
+}

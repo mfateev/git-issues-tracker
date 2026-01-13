@@ -1,0 +1,36 @@
+{
+  "summary": "Search attributes registered successfully via CLI/API are sometimes lost after the operation reports success. This occurs occasionally when adding multiple search attributes of the same type, with missing attributes varying randomly between attempts.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "AddSearchAttributes",
+    "OperatorService"
+  ],
+  "components": [
+    "frontend",
+    "namespace-registration",
+    "search-attributes-persistence"
+  ],
+  "concepts": [
+    "data-loss",
+    "race-condition",
+    "bulk-operations",
+    "namespace-setup",
+    "registration-sync",
+    "multi-type-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users lose search attributes they registered without error notification, causing runtime failures when workflows attempt to use the missing attributes.",
+  "rootCause": "Race condition when adding multiple search attributes of the same type in a single request; tctl code path was out of sync with Temporal CLI implementation.",
+  "proposedFix": "PR #4273 fixes the issue by updating the search attributes registration logic to properly handle bulk requests with same-type attributes.",
+  "workaround": "Add search attributes one at a time instead of in bulk, or use Temporal CLI instead of tctl.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #4273 was merged to fix the race condition in handling multiple same-type search attributes. tctl code path was also updated to sync with Temporal CLI.",
+  "related": [
+    4273
+  ],
+  "keyQuote": "It happens when trying to add multiple search attributes of same type (eg: adding 2 keyword type search attributes). It might happen that one of them might be lost.",
+  "number": 4160,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:09.212Z"
+}

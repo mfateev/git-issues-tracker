@@ -1,0 +1,31 @@
+{
+  "summary": "User unable to invoke activities in the example project because StartActivity is not yet implemented in the early-stage PHP SDK.",
+  "category": "question",
+  "subcategory": "activity-invocation",
+  "apis": [
+    "StartActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "example-project",
+    "sdk-core"
+  ],
+  "concepts": [
+    "activity-execution",
+    "sdk-maturity",
+    "implementation-status",
+    "examples"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot test or learn the PHP SDK with provided examples due to incomplete implementation.",
+  "rootCause": "StartActivity functionality was not implemented in the early development phase of the PHP SDK.",
+  "proposedFix": null,
+  "workaround": "Use the samples-php repository for working examples instead of the main example project.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was a limitation of the early SDK development stage, resolved by directing user to working samples in a separate repository.",
+  "related": [],
+  "keyQuote": "This SDK is under development. We will announce separately as soon as there is a working version with working examples ready for testing.",
+  "number": 5,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:18:31.072Z"
+}

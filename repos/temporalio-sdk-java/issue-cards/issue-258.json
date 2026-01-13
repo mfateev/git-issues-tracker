@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add an OpenTracing context propagator for the Java SDK. The implementation should be compatible with OpenTelemetry since OpenTracing is now part of the OpenTelemetry project.",
+  "category": "feature",
+  "subcategory": "context-propagation",
+  "apis": [],
+  "components": [
+    "context-propagator",
+    "opentracing",
+    "opentelemetry"
+  ],
+  "concepts": [
+    "context-propagation",
+    "distributed-tracing",
+    "observability",
+    "interoperability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can integrate Temporal workflows with OpenTracing/OpenTelemetry observability platforms for distributed tracing.",
+  "rootCause": null,
+  "proposedFix": "Reference implementation in Cadence Java client pull request #478",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in PR #418 which implements context propagation with OpenTelemetry support",
+  "related": [
+    418
+  ],
+  "keyQuote": "Since opentracing is now part of opentelemetry, it would be great if you could check that the new context propagator will work with opentelemetry as well.",
+  "number": 258,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:04:00.708Z"
+}

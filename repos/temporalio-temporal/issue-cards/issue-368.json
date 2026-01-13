@@ -1,0 +1,30 @@
+{
+  "summary": "User reports inability to reset a workflow multiple times - the first reset succeeds, but subsequent reset requests return the runID of the second execution instead of creating a new reset. The issue reporter questions whether this is expected behavior or a bug.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-reset",
+    "tctl",
+    "execution-management"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "execution-state",
+    "idempotency",
+    "runID",
+    "event-history"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably reset workflows multiple times, limiting the utility of the reset feature for testing and recovery scenarios.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Reproducer was unable to reproduce the issue. The maintainer (vitarb) successfully performed multiple resets with different runIDs being returned correctly, suggesting the issue may be user error or environment-specific.",
+  "related": [],
+  "keyQuote": "it seems to be able to do it once, but every subsequent request returns the runID of the 2nd execution and won't create another one",
+  "number": 368,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:53:21.705Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "Request to add warnings or errors when update handlers are not properly awaited and dangle across cancellation or workflow exit points, preventing resource leaks and unhandled state changes.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [],
+  "components": [
+    "update-handler",
+    "workflow-execution",
+    "cancellation"
+  ],
+  "concepts": [
+    "dangling-handlers",
+    "resource-cleanup",
+    "workflow-exit",
+    "cancellation",
+    "error-handling",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may inadvertently create update handlers that dangle across cancellation or workflow exit, leading to unhandled state changes and resource leaks.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1499,
+    2090,
+    1434,
+    538,
+    261,
+    446
+  ],
+  "keyQuote": "Warn or error when update handlers dangle across CAN or workflow exit",
+  "number": 499,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:02.425Z"
+}

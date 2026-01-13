@@ -1,0 +1,34 @@
+{
+  "summary": "SDK clients should automatically generate and set an UpdateID on update requests even when the user doesn't explicitly specify one. The update options constructor should also allow setting the update ID.",
+  "category": "feature",
+  "subcategory": "update-operations",
+  "apis": [
+    "UpdateOptions"
+  ],
+  "components": [
+    "update-client",
+    "update-handler",
+    "options-builder"
+  ],
+  "concepts": [
+    "update-id",
+    "request-identification",
+    "update-semantics",
+    "idempotency",
+    "user-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users benefit from automatic update ID generation, ensuring proper identification and idempotency of update requests without manual specification.",
+  "rootCause": null,
+  "proposedFix": "Auto-generate UpdateID in SDK clients when not provided by user, and expose UpdateID configuration in update options constructor",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to auto-generate UpdateID on update requests and made configurable via options constructor",
+  "related": [
+    431
+  ],
+  "keyQuote": "SDK clients should set a UpdateID on any update request even if the user did not specify one",
+  "number": 198,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:41:32.794Z"
+}

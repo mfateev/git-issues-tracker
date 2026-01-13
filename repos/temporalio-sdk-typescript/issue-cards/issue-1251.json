@@ -1,0 +1,31 @@
+{
+  "summary": "ESBuild-compiled CommonJS workflow bundles fail with 'module is not defined' error when executed in the Temporal workflow VM. The issue occurs because the VM context doesn't provide CommonJS globals like `module` and `exports`.",
+  "category": "bug",
+  "subcategory": "workflow-bundling",
+  "apis": [],
+  "components": [
+    "workflow-vm",
+    "workflow-worker",
+    "bundler-integration"
+  ],
+  "concepts": [
+    "commonjs",
+    "esbuild",
+    "bundling",
+    "module-system",
+    "vm-context",
+    "workflow-isolation"
+  ],
+  "severity": "high",
+  "userImpact": "Users building workflows with ESBuild in CommonJS format cannot run them with the Temporal TypeScript SDK, blocking adoption for projects unable to switch to ESM.",
+  "rootCause": "The VM context used to execute workflows does not provide CommonJS globals (`module`, `exports`) required by ESBuild-generated CommonJS bundles.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was updated to properly support CommonJS workflows in the VM context, allowing ESBuild CommonJS bundles to execute without requiring ESM migration.",
+  "related": [],
+  "keyQuote": "ReferenceError: module is not defined at ../src/entrypoint.ts:1:0 at Script.runInContext (node:vm:141:12)",
+  "number": 1251,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:30.157Z"
+}

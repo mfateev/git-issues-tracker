@@ -1,0 +1,31 @@
+{
+  "summary": "Update outdated Rust dependencies (rustls, mio, and h2) in the Python SDK to address security vulnerabilities flagged by security scans, even though the SDK is not directly affected.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "rust-dependencies",
+    "build-system",
+    "security-scanning"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-upgrade",
+    "rustls",
+    "mio",
+    "h2",
+    "supply-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need updated dependencies to pass security scans and maintain compliance, even though there is no direct vulnerability impact.",
+  "rootCause": "Outdated versions of rustls, mio, and h2 Rust dependencies are flagged by security scanning tools as having known vulnerabilities.",
+  "proposedFix": "Update rustls, mio, h2, and any other required Rust dependencies to their latest secure versions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependencies were updated in a subsequent Python SDK release.",
+  "related": [],
+  "keyQuote": "Even though we are unaffected by the vulnerabilities, security scans show our current rustls and mio versions as of this writing have vulnerabilities.",
+  "number": 520,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:48.578Z"
+}

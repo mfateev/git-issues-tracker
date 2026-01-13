@@ -1,0 +1,32 @@
+{
+  "summary": "NoClassDefFoundError occurs when creating WorkflowServiceStubs Bean with Spring 3.3.1 due to protobuf version conflict. The issue arises from protobuf 4.26.1 used by DGS framework being incompatible with grpc-java.",
+  "category": "bug",
+  "subcategory": "dependency-conflict",
+  "apis": [
+    "WorkflowServiceStubs"
+  ],
+  "components": [
+    "spring-integration",
+    "grpc-client",
+    "protobuf-dependency"
+  ],
+  "concepts": [
+    "classloader",
+    "dependency-management",
+    "spring-beans",
+    "protobuf-compatibility",
+    "grpc"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot initialize Temporal SDK with Spring 3.3.1 when using frameworks like DGS that depend on protobuf 4.26.1, causing application startup failure.",
+  "rootCause": "Protobuf 4.26.1 is incompatible with grpc-java, resulting in missing GeneratedMessageV3 class at runtime despite being on classpath.",
+  "proposedFix": null,
+  "workaround": "Use shaded Temporal SDK to avoid protobuf version conflicts.",
+  "resolution": "invalid",
+  "resolutionDetails": "User found workaround using shaded Temporal SDK; issue closed by reporter as it's a known grpc-java compatibility issue with protobuf 4.26.",
+  "related": [],
+  "keyQuote": "Yes protobuf `4.26` is know to be problematic with `grpc-java`",
+  "number": 2128,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:58.559Z"
+}

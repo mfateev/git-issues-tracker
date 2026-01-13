@@ -1,0 +1,31 @@
+{
+  "summary": "Guava 31.1-jre contains a high-severity vulnerability (CVE-2023-2976) in FileBackedOutputStream that allows unauthorized file access via the shared Java temporary directory on Unix systems. Upgrade to version 32.0.1-android to resolve.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-gradle",
+    "file-handling"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "temporary-files",
+    "privilege-escalation",
+    "file-permissions",
+    "unix-systems",
+    "dependency-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users of temporalio-features are exposed to a high-severity vulnerability that could allow other users on the system to access files created by the Java application.",
+  "rootCause": "Java's default temporary directory in Guava 31.1-jre lacks proper file access restrictions, allowing other users and apps with access to the temp directory to read files created by FileBackedOutputStream.",
+  "proposedFix": "Upgrade Guava from 31.1-jre to 32.0.1-android (or later), which fixes the vulnerability.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Use of Java's default temporary directory for file creation in FileBackedOutputStream in Google Guava versions 1.0 to 31.1 on Unix systems allows other users and apps on the machine to access the files created.",
+  "number": 288,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:39.956Z"
+}

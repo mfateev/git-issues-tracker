@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal Server logs a WARN level message every time a task runs without an explicit task queue kind, despite kind having a well-documented default of 'Normal'. This creates excessive log noise, especially for SDKs like Ruby that don't explicitly set the kind parameter.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "frontend",
+    "task-queue",
+    "logging"
+  ],
+  "concepts": [
+    "logging-verbosity",
+    "task-queue-kind",
+    "default-behavior",
+    "log-noise",
+    "warning-suppression"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience excessive warning logs in server output when running tasks without explicit task queue kind, making it difficult to identify actual issues in logs.",
+  "rootCause": "Server logs a warning for unspecified task queue kind even though the field has a documented default value of 'Normal', treating a normal use case as a warning condition.",
+  "proposedFix": "Either don't emit the log line by default, or move it to a verbose/debug logging option.",
+  "workaround": "Explicitly set task queue kind to 'Normal' in the Ruby SDK or patch it to do so automatically.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5903
+  ],
+  "keyQuote": "kind is well-documented to default to 'Normal', so it seems odd to warn about this behavior.",
+  "number": 8322,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:17.712Z"
+}

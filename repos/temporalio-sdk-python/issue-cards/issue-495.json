@@ -1,0 +1,32 @@
+{
+  "summary": "Request to enable macOS M1/ARM runners for all Python SDK CI builds. This follows a feature request across the Temporal organization to support Apple Silicon architecture testing.",
+  "category": "feature",
+  "subcategory": "ci-infrastructure",
+  "apis": [],
+  "components": [
+    "ci",
+    "build-system",
+    "test-infrastructure"
+  ],
+  "concepts": [
+    "arm-architecture",
+    "m1-support",
+    "ci-runners",
+    "platform-testing",
+    "build-matrix"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers using macOS M1/ARM machines to have CI builds that accurately reflect their development environment, improving confidence in SDK compatibility.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by implementing M1/ARM runner support in the CI pipeline for the Python SDK, addressing the feature request.",
+  "related": [
+    396
+  ],
+  "keyQuote": "Use macOS M1/ARM runners for all SDK CI",
+  "number": 495,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:59.223Z"
+}

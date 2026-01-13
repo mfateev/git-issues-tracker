@@ -1,0 +1,35 @@
+{
+  "summary": "Java SDK replay tests fail with non-deterministic error when child workflows use dynamically generated IDs derived from parent workflow ID. The replayer cannot match the child workflow ID generated at runtime with the ID stored in the event history.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Workflow.getInfo",
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "replay-engine",
+    "workflow-execution",
+    "child-workflow",
+    "history-matching"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-id-generation",
+    "event-history",
+    "replay-testing",
+    "child-workflows",
+    "workflow-context"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot perform replay tests on workflows that dynamically generate child workflow IDs based on parent workflow context, blocking testing workflows with audit/tracing patterns.",
+  "rootCause": "The replayer requires workflow ID to be specified upfront to match event history, but this requirement was undocumented. When workflow ID is derived from runtime context (parent workflow ID), the replayer cannot resolve it before matching events.",
+  "proposedFix": "Workflow ID is now included in WorkflowExecutionStartedEventAttributes, allowing the SDK to automatically extract it from history if available, eliminating the need for manual specification.",
+  "workaround": "Specify the workflow ID explicitly when using the replayer, or avoid using parent workflow ID as part of child workflow ID generation logic.",
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow ID was added to WorkflowExecutionStartedEventAttributes in the Temporal API, enabling automatic extraction by the SDK.",
+  "related": [],
+  "keyQuote": "You need to specificy a workflow ID when using the replayer since it is not always in history",
+  "number": 2057,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:55.382Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The dynamic config `frontend.namespaceCount` currently enforces a concurrent request count limit per frontend pod. This enhancement requests changing it to a global limit across all frontend pods instead.",
+  "category": "feature",
+  "subcategory": "frontend-configuration",
+  "apis": [],
+  "components": [
+    "frontend",
+    "dynamic-config",
+    "namespace-limit"
+  ],
+  "concepts": [
+    "concurrent-requests",
+    "global-limit",
+    "dynamic-configuration",
+    "resource-management",
+    "load-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot enforce a single global concurrent request limit across their entire Temporal cluster, limiting their ability to manage overall system load and prevent resource exhaustion.",
+  "rootCause": "The current implementation of `frontend.namespaceCount` is scoped to individual frontend pods rather than being cluster-wide.",
+  "proposedFix": "Change the dynamic config implementation to enforce a global concurrent request limit across all frontend pods.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in PR #4743 which implements the global limit functionality.",
+  "related": [
+    4743
+  ],
+  "keyQuote": "We need a global limit instead of a per frontend pod limit.",
+  "number": 4492,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:24.623Z"
+}

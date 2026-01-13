@@ -1,0 +1,30 @@
+{
+  "summary": "JSONTypeConverter is not being passed through recursive calls in the value_to_type function, causing JSON type conversion to fail on nested data structures.",
+  "category": "bug",
+  "subcategory": "type-conversion",
+  "apis": [],
+  "components": [
+    "value_to_type",
+    "JSONTypeConverter",
+    "type-conversion"
+  ],
+  "concepts": [
+    "recursion",
+    "type-conversion",
+    "JSON-handling",
+    "data-serialization",
+    "nested-structures"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with complex nested JSON data structures may experience incorrect type conversion when using custom JSONTypeConverter implementations.",
+  "rootCause": "Recursive calls within value_to_type function do not pass the JSON type converters as parameters, causing nested values to bypass custom conversion logic.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The recursive calls in value_to_type were updated to properly pass JSON type converters through the call chain.",
+  "related": [],
+  "keyQuote": "Recursive calls in `value_to_type` are not passing the JSON type converters.",
+  "number": 289,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:18.162Z"
+}

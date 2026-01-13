@@ -1,0 +1,30 @@
+{
+  "summary": "Worker panicked during data deserialization when using a custom ChaCha20Poly1305 data converter. The issue was resolved by ensuring the underlying data converter was properly initialized with GetDefaultDataConverter().",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "worker",
+    "codec"
+  ],
+  "concepts": [
+    "encryption",
+    "deserialization",
+    "data-converter",
+    "codec",
+    "payload-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Custom data converter implementations may crash workers if not properly initialized with a default underlying converter.",
+  "rootCause": "Missing proper initialization of the underlying data converter in the custom CodecDataConverter setup - not using GetDefaultDataConverter() caused deserialization to fail.",
+  "proposedFix": null,
+  "workaround": "Use converter.GetDefaultDataConverter() as the underlying converter when creating a CodecDataConverter with custom codecs.",
+  "resolution": "self_resolved",
+  "resolutionDetails": "User identified the root cause themselves - they were not using GetDefaultDataConverter() as the underlying converter in their worker setup.",
+  "related": [],
+  "keyQuote": "My bad, the panic is caused by not using a `converter.GetDefaultDataConverter()` as the underlying converter in my worker",
+  "number": 6661,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:35.125Z"
+}

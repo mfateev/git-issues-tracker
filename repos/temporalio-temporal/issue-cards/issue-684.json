@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add DynamoDB as a persistence driver option for Temporal. The issue explores feasibility, noting DynamoDB's transaction size limitations and schema differences from SQL-based persistence drivers, with discussion about whether single-shard or alternative designs could work.",
+  "category": "feature",
+  "subcategory": "persistence-driver",
+  "apis": [],
+  "components": [
+    "persistence-driver",
+    "dynamodb-adapter",
+    "transaction-handler",
+    "schema-mapper"
+  ],
+  "concepts": [
+    "dynamodb",
+    "persistence",
+    "transactions",
+    "sharding",
+    "aws-integration",
+    "schema-design",
+    "scalability"
+  ],
+  "severity": "medium",
+  "userImpact": "AWS-focused enterprises cannot use Temporal at scale without PostgreSQL or Cassandra, limiting adoption for DynamoDB-native organizations.",
+  "rootCause": "DynamoDB's transaction API has strict size limitations and lacks ACID semantics that Temporal's normalized SQL schema relies on, making direct persistence driver implementation infeasible.",
+  "proposedFix": "Investigate single-table DynamoDB design patterns with denormalization to avoid transactions; create proof-of-concept leveraging DynamoDB's schemaless nature and access pattern-based design.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed due to DynamoDB transaction size limitations being incompatible with Temporal's persistence requirements. Initial assessment concluded it's not feasible as primary persistence store.",
+  "related": [],
+  "keyQuote": "DynamoDB transactions are limited just by size. Given this constraint, isn't it better to have just one shard?",
+  "number": 684,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:29.770Z"
+}

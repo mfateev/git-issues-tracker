@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to expose a gRPC API that allows clients to query which features (schedules, versioning, sync update) are enabled for a specific namespace, since these features can be toggled on and off per namespace but there's currently no way for clients to discover this information.",
+  "category": "feature",
+  "subcategory": "feature-discovery",
+  "apis": [],
+  "components": [
+    "gRPC-API",
+    "namespace-management",
+    "feature-flags"
+  ],
+  "concepts": [
+    "feature-discovery",
+    "namespace-configuration",
+    "feature-toggles",
+    "client-visibility",
+    "server-capabilities",
+    "configuration-querying"
+  ],
+  "severity": "medium",
+  "userImpact": "Clients cannot determine which namespace-level features are enabled, making it impossible to know what capabilities are available without trial-and-error or documentation.",
+  "rootCause": null,
+  "proposedFix": "Add a gRPC endpoint to expose the list of enabled features for a given namespace, available in both on-premise Temporal and Temporal Cloud.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There is no way for a client to know if a server feature is enabled for a given namespace.",
+  "number": 381,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:45.252Z"
+}

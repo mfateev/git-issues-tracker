@@ -1,0 +1,40 @@
+{
+  "summary": "Feature request to add serialization context to codecs and converters, allowing users to access payload context details (like workflow ID) during serialization/deserialization. This enables use cases such as signing payloads with workflow IDs to protect against replay attacks, similar to existing Java SDK implementation.",
+  "category": "feature",
+  "subcategory": "serialization-context",
+  "apis": [],
+  "components": [
+    "codec",
+    "converter",
+    "serialization",
+    "workflow-context",
+    "activity-client"
+  ],
+  "concepts": [
+    "serialization",
+    "deserialization",
+    "security",
+    "replay-attack-protection",
+    "context-awareness",
+    "payload-signing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can implement enhanced security measures by accessing serialization context to sign payloads and protect against replay attacks.",
+  "rootCause": null,
+  "proposedFix": "Implement serialization context similar to Java SDK PR #1695, making context available to both codecs and converters, including async activity clients.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1352,
+    1661,
+    796,
+    438,
+    238,
+    587
+  ],
+  "keyQuote": "users payload codec/converter may want to know details about the payloads context... can be useful if the users want to sign the payload with the workflowID to help protect against replay attacks",
+  "number": 434,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:01.470Z"
+}

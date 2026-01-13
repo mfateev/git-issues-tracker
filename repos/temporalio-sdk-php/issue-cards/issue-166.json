@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow timer debouncing fails when attempting to cancel and re-launch timers in response to signals. The workflow gets stuck in Running state instead of properly resetting the timer, causing roadrunner errors about undefined requests.",
+  "category": "bug",
+  "subcategory": "timer-cancellation",
+  "apis": [
+    "Workflow::awaitWithTimeout",
+    "Workflow::timer"
+  ],
+  "components": [
+    "workflow-timer",
+    "signal-handling",
+    "request-dispatcher"
+  ],
+  "concepts": [
+    "debouncing",
+    "timer-reset",
+    "signal-workflow-interaction",
+    "cancellation",
+    "state-management",
+    "request-response-protocol"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot implement debounce-like patterns for workflows that need to repeatedly cancel and restart timers based on signals, limiting workflow design capabilities.",
+  "rootCause": "The workflow execution engine has issues handling rapid timer cancellation and re-launching in awaitWithTimeout when triggered by signals, resulting in orphaned request IDs that don't match responses.",
+  "proposedFix": null,
+  "workaround": "Implement updatable timer logic by tracking awake time in a variable and checking it after each awakening with Workflow::timer instead of repeatedly terminating and re-launching awaitWithTimeout.",
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow jams in Running state instead of timer cancellation and then resetting another one.",
+  "number": 166,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:05.915Z"
+}

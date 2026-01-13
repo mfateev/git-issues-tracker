@@ -1,0 +1,32 @@
+{
+  "summary": "The Envconfig implementation incorrectly uses a TemporalClientConnectOptions constructor that requires a non-null target host string, forcing users to supply an empty string which results in a client unable to connect to a server.",
+  "category": "bug",
+  "subcategory": "client-configuration",
+  "apis": [
+    "TemporalClientConnectOptions"
+  ],
+  "components": [
+    "envconfig",
+    "client-connection",
+    "client-options"
+  ],
+  "concepts": [
+    "configuration",
+    "connection",
+    "constructor",
+    "target-host",
+    "null-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly configure temporal client connections through envconfig when the target host should be optional or null.",
+  "rootCause": "TemporalClientConnectOptions constructor used in envconfig implementation requires a non-null string parameter for target host, preventing support for optional/null address values.",
+  "proposedFix": "Use the correct TemporalClientConnectOptions constructor that allows for possibly null address/target host values.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Corrected the constructor call to use the appropriate overload that accepts null target host values.",
+  "related": [],
+  "keyQuote": "Use the correct `TemporalClientConnectOptions` constructor when creating connection options that allows for possibly null address/target host value.",
+  "number": 559,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:35:43.035Z"
+}

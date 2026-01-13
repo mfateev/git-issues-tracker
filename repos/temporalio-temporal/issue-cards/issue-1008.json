@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add an extensibility mechanism allowing users to pass in custom metrics reporters instead of being limited to built-in statsd, prometheus, and m3db backends. This would enable organizations to use proprietary or less common metrics backends without needing to contribute to the Temporal open source repository.",
+  "category": "feature",
+  "subcategory": "metrics-extensibility",
+  "apis": [],
+  "components": [
+    "metrics-reporter",
+    "configuration",
+    "extension-mechanism"
+  ],
+  "concepts": [
+    "extensibility",
+    "plugin-system",
+    "custom-backend",
+    "metrics-integration",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now implement custom metrics reporters for unsupported backends without forking or contributing to the Temporal repository.",
+  "rootCause": null,
+  "proposedFix": "Add extension point in Temporal for users to pass in custom metric reporters, similar to the existing extension points for custom Authorizer implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Extension mechanism was implemented allowing custom metrics reporters to be plugged in through configuration.",
+  "related": [
+    998
+  ],
+  "keyQuote": "Add extension point in Temporal for users to pass in custom metric reporters. We already have well defined extension points to plugin in custom Authorizer.",
+  "number": 1008,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:46:43.241Z"
+}

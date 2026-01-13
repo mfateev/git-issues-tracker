@@ -1,0 +1,32 @@
+{
+  "summary": "DescribeWorkflowExecution was calculating execution time based on start time and cron schedule/retry policy at call time. The TODO requested adding execution time to mutable state to avoid recalculating on each call.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "history-engine",
+    "mutable-state",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "execution-time",
+    "workflow-state",
+    "performance-optimization",
+    "cron-schedule",
+    "retry-policy"
+  ],
+  "severity": "low",
+  "userImpact": "Avoids unnecessary recalculation of execution time on each DescribeWorkflowExecution call, reducing computational overhead.",
+  "rootCause": "Execution time was calculated dynamically on each call instead of being persisted in mutable state.",
+  "proposedFix": "Add execution time to mutable state to avoid recalculation based on start time and cron schedule/retry policy.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by commit 00394e9d14ac479e5bb65eed4b70161b006aadeb which implemented the proposed fix.",
+  "related": [],
+  "keyQuote": "we need to consider adding execution time to mutable state. For now execution time will be calculated based on start time and cron schedule/retry policy",
+  "number": 1549,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:54:43.997Z"
+}

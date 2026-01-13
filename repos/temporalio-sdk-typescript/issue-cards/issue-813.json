@@ -1,0 +1,34 @@
+{
+  "summary": "User requests significant API simplification and less boilerplate for workflow and activity setup, comparing current experience to React class components and requesting more functional patterns with colocated definitions and default options.",
+  "category": "feature",
+  "subcategory": "developer-experience",
+  "apis": [
+    "proxyActivities",
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "activity-registration",
+    "workflow-definition"
+  ],
+  "concepts": [
+    "boilerplate-reduction",
+    "developer-experience",
+    "type-safety",
+    "configuration-defaults",
+    "api-ergonomics",
+    "colocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must write extensive boilerplate code across multiple files to set up workflows and activities, creating friction for adoption and migration from other systems.",
+  "rootCause": null,
+  "proposedFix": "Implement default activity options system-wide, allow direct activity invocation without proxies, colocate workflow implementations with activities, and provide simplified worker creation patterns similar to functional React components.",
+  "workaround": "Set up single Worker with all workflows/activities in organized directories, reuse existing non-temporal code by having activities call it, use existing compile-time type checking.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it really is like React for the Backend...Right now it feels like React Classes, I want React Functions.",
+  "number": 813,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:13:42.944Z"
+}

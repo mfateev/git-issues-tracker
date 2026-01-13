@@ -1,0 +1,33 @@
+{
+  "summary": "Ensure versioning data is properly propagated during replication across data centers. This involves creating infrastructure to store task queue metadata, updating internal structures, and implementing version set merging to support cross-dc scenarios.",
+  "category": "feature",
+  "subcategory": "versioning-replication",
+  "apis": [],
+  "components": [
+    "versioning",
+    "task-queue",
+    "replication",
+    "cluster-coordination"
+  ],
+  "concepts": [
+    "cross-dc",
+    "data-replication",
+    "versioning-data",
+    "task-queue-metadata",
+    "version-sets",
+    "build-ids",
+    "cluster-seeding"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on multi-data-center deployments need versioning data to be properly synchronized across clusters for consistent build ID and compatibility information.",
+  "rootCause": null,
+  "proposedFix": "Implement comprehensive versioning replication system including new metadata table, updated data structures, version set merging, user data replication, idempotent build ID updates, request redirection, and cluster seeding mechanisms.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "All checklist items completed including table definition, structure updates, API backend changes, version set merge, user data replication, idempotent updates, request redirection, cluster seeding mechanism, and comprehensive tests.",
+  "related": [],
+  "keyQuote": "We need to make sure this all works in cross-dc situations",
+  "number": 3192,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:42.663Z"
+}

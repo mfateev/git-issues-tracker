@@ -1,0 +1,34 @@
+{
+  "summary": "TaskGroup-based child workflow execution fails to propagate ChildWorkflowError exceptions correctly. When child workflows fail within a TaskGroup, the error is wrapped in an ExceptionGroup which doesn't trigger workflow failure, causing the parent workflow to run indefinitely instead of failing as expected.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "execute_child_workflow",
+    "ChildWorkflowError"
+  ],
+  "components": [
+    "workflow-instance",
+    "error-handling",
+    "exception-processing"
+  ],
+  "concepts": [
+    "exception-group",
+    "failure-propagation",
+    "task-group",
+    "child-workflow-errors",
+    "async-task-management",
+    "error-wrapping"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably use asyncio.TaskGroup for parallel child workflow execution because failures are not properly detected, causing workflows to hang indefinitely.",
+  "rootCause": "The workflow exception handling code does not unwrap ExceptionGroup to check for nested FailureError instances. When TaskGroup wraps ChildWorkflowError in ExceptionGroup, the outer exception is not recognized as a failure exception.",
+  "proposedFix": "Add logic to _is_workflow_failure_exception() to recursively check ExceptionGroup contents for FailureError instances. Implement _is_exception_group_failure() method that checks if any nested exception in an ExceptionGroup is itself a workflow failure exception.",
+  "workaround": "Use asyncio.gather() instead of asyncio.TaskGroup for child workflow execution, as gather() raises the first exception directly without wrapping.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When a child workflow fails it raises a ChildWorkflowError. However, when using TaskGroup it is encapsulated in an ExceptionGroup and raised, which does not fail the calling workflow, causing it to run forever",
+  "number": 1020,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:49.375Z"
+}

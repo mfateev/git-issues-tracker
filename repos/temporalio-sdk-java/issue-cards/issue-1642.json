@@ -1,0 +1,33 @@
+{
+  "summary": "Test Server currently returns all history in a single response without pagination. This prevents SDK developers from testing pagination-dependent behavior. The request is to add configurable pagination to the Test Server for improved test coverage.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "history",
+    "pagination"
+  ],
+  "concepts": [
+    "pagination",
+    "testing",
+    "SDK internals",
+    "server behavior",
+    "test coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "SDK developers cannot adequately test pagination-dependent code paths without using a real Temporal server.",
+  "rootCause": null,
+  "proposedFix": "Make pagination configurable in Test Server, allowing aggressive pagination modes for enhanced test coverage",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1639,
+    1638
+  ],
+  "keyQuote": "Pagination of the Test Server doesn't have to match the behavior of the real server, but it should be present and configurable",
+  "number": 1642,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:50.014Z"
+}

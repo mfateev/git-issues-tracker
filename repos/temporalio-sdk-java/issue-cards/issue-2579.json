@@ -1,0 +1,32 @@
+{
+  "summary": "Non-root namespace Spring dependencies fail during application startup because the BeanPostProcessor that creates these beans runs after bean initialization. This contradicts the documentation which claims this configuration is supported.",
+  "category": "bug",
+  "subcategory": "spring-starter",
+  "apis": [
+    "WorkflowClient"
+  ],
+  "components": [
+    "spring-starter",
+    "bean-post-processor",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "namespace-configuration",
+    "bean-initialization",
+    "lifecycle-ordering",
+    "spring-framework",
+    "startup-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot inject non-root namespace Temporal beans at application startup, forcing them to use ObjectProvider workarounds to defer bean finalization.",
+  "rootCause": "BeanPostProcessor that creates non-root namespace beans executes after bean initialization phase, causing autowiring to fail during startup.",
+  "proposedFix": null,
+  "workaround": "Use ObjectProvider to decouple component autowiring from Temporal bean creation, deferring bean finalization to @PostConstruct or runtime.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The documentation calls out that this is supported, yet the BeanPostProcessor that creates these beans run after bean initialization, so application startup will fail.",
+  "number": 2579,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:12.467Z"
+}

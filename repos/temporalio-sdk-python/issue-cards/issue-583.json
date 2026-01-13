@@ -1,0 +1,28 @@
+{
+  "summary": "Workflow cancellation currently results in a generic 'workflow execution failed' error message. The author initially suggested changing it to 'workflow execution cancelled' but later clarified this isn't appropriate since the cancellation exception is contained as the cause of the outer exception.",
+  "category": "other",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "cancellation",
+    "error-messages",
+    "exception-hierarchy",
+    "cause-chain"
+  ],
+  "severity": "low",
+  "userImpact": "Users receive a misleading error message when workflows are cancelled, making it harder to distinguish cancellation from actual failures.",
+  "rootCause": "The outer WorkflowFailureError uses a generic message that doesn't distinguish between cancellation and actual failures.",
+  "proposedFix": "Change the error message to 'workflow execution cancelled' instead of 'workflow execution failed'.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The author determined the suggestion was inappropriate because the outer exception message should match its class name, with the cancellation exception properly contained as the cause.",
+  "related": [],
+  "keyQuote": "it makes sense that the outer message has a natural language string matching its class name; the cancellation exception is contained within the outer exception as the `__cause__`",
+  "number": 583,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:42.050Z"
+}

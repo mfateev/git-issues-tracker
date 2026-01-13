@@ -1,0 +1,31 @@
+{
+  "summary": "Support using the pure JavaScript Connection class to power Workers instead of requiring NativeConnection. This would unify the two separate connection implementations, enable exposing the worker's connection to activities, and support eager workflow start.",
+  "category": "feature",
+  "subcategory": "connection-unification",
+  "apis": [],
+  "components": [
+    "connection",
+    "worker",
+    "activity",
+    "native-binding"
+  ],
+  "concepts": [
+    "connection-abstraction",
+    "grpc-interceptors",
+    "native-code",
+    "wasm-compilation",
+    "faas-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would have a unified connection interface, slimmer deployments in FaaS environments, and access to worker connections in activity implementations.",
+  "rootCause": "The architecture maintains two separate connection implementations (NativeConnection for workers, Connection for clients) causing confusion and architectural limitations.",
+  "proposedFix": "Merge the two connection classes, use Connection as the base implementation since it supports gRPC interceptors and requires no native code, and add metrics recording to Connection.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Connection is the preferred implementation as it supports grpc interceptors and does not require any native code making it slimmer",
+  "number": 1298,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:48.775Z"
+}

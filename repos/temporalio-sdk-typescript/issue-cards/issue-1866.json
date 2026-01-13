@@ -1,0 +1,34 @@
+{
+  "summary": "After upgrading to TypeScript SDK 1.14.0, workflows using signals with `condition` are failing with phantom `CancelledFailure` errors. The issue appears to be a race condition introduced in 1.14.0, as downgrading to 1.13.1/1.13.2 resolves the problem and the same code works on the earlier version.",
+  "category": "bug",
+  "subcategory": "signals-conditions",
+  "apis": [
+    "condition"
+  ],
+  "components": [
+    "workflow-runtime",
+    "cancellation-scope",
+    "signal-handling"
+  ],
+  "concepts": [
+    "race-condition",
+    "cancellation",
+    "signal-processing",
+    "workflow-execution",
+    "version-regression"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows in production fail unexpectedly with CancelledFailure errors when using signals with conditions, disrupting business workflows until versions are downgraded.",
+  "rootCause": "A race condition was introduced in version 1.14.0 in the signal and condition handling code, specifically in the cancellation scope or workflow signal processing.",
+  "proposedFix": "Fix #1871 was released in 1.14.1 to address the race condition in signal and condition handling.",
+  "workaround": "Downgrade to version 1.13.2 or 1.13.1 to avoid the issue; reset affected workflows to the signal event and they will run correctly.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was fixed in version 1.14.1 via PR #1871, which addressed the race condition in signal and condition processing.",
+  "related": [
+    1871
+  ],
+  "keyQuote": "A race condition seems to have been introduced since we do observe some of our workflows succeeding with a signal and condition.",
+  "number": 1866,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T09:48:19.705Z"
+}

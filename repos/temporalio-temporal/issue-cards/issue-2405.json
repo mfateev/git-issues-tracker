@@ -1,0 +1,34 @@
+{
+  "summary": "Preserve sticky task queue affinity when querying closed workflows to allow queries to be dispatched to the correct sticky worker. Currently, sticky workflows are evicted from cache when closed, but the server-side sticky flag remains, creating a mismatch in query routing.",
+  "category": "feature",
+  "subcategory": "workflow-query",
+  "apis": [
+    "QueryWorkflow"
+  ],
+  "components": [
+    "sticky-cache",
+    "query-dispatcher",
+    "workflow-eviction",
+    "worker-dispatch"
+  ],
+  "concepts": [
+    "sticky-task-queue",
+    "query-routing",
+    "cache-eviction",
+    "worker-affinity",
+    "LRU-eviction",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Queries on closed workflows may be dispatched to incorrect workers instead of the originally sticky worker, potentially causing query failures or performance issues.",
+  "rootCause": "SDK evicts closed workflows from sticky cache immediately, but server retains sticky flag and attempts to route queries to that sticky worker, creating a mismatch.",
+  "proposedFix": "SDK should stop immediately evicting closed workflows and instead rely on LRU eviction policy to naturally remove them from cache over time, maintaining sticky routing consistency.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "From server side, there is no change needed, the sticky flag is still there and so server could dispatch the query task to the right sticky worker.",
+  "number": 2405,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:06.138Z"
+}

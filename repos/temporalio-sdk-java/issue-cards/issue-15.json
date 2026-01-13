@@ -1,0 +1,31 @@
+{
+  "summary": "When an activity is cancelled, the CancellationException's stack trace points to the internal handleActivityTaskCanceled method instead of the actual caller of the activity, making debugging difficult.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "replay",
+    "decision-context"
+  ],
+  "concepts": [
+    "stack-trace",
+    "cancellation",
+    "exception-handling",
+    "debugging",
+    "activity-execution",
+    "error-visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see confusing stack traces when activities are cancelled, making it harder to debug where the activity was actually called.",
+  "rootCause": "The CancellationException is being thrown from within handleActivityTaskCanceled, so the stack trace starts there rather than at the actual activity invocation point.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Stack trace was corrected to show the caller of the activity rather than the internal cancellation handler.",
+  "related": [],
+  "keyQuote": "When an activity is cancelled the thrown CancellationException contains stack trace of the handleActivityTaskCanceled, not the caller of the activity",
+  "number": 15,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:14:11.100Z"
+}

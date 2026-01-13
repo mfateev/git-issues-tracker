@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to add command-line option for disabling hostname and certificate verification in TLS/mTLS connections for dev/test/debug purposes. This allows testing TLS encryption independently from certificate validation.",
+  "category": "feature",
+  "subcategory": "tls-security",
+  "apis": [],
+  "components": [
+    "tctl",
+    "tls-client",
+    "connection-handler"
+  ],
+  "concepts": [
+    "tls",
+    "mtls",
+    "certificate-verification",
+    "hostname-verification",
+    "debugging",
+    "development-testing",
+    "insecure-skip-verify"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can more easily debug and test TLS/mTLS configurations by disabling certificate validation without needing to modify code or deploy test clusters.",
+  "rootCause": null,
+  "proposedFix": "Add a command-line option for tctl to enable InsecureSkipVerify for dev/test/debug purposes, or deploy a development cluster with relaxed TLS validation settings.",
+  "workaround": "Deploy a development cluster where TLS clients use InsecureSkipVerify and TLS servers use RequireAnyClientCert for testing internode and frontend mTLS.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #1478",
+  "related": [
+    812,
+    1478
+  ],
+  "keyQuote": "Debugging TLS can be tough - it's nice to be able to test that TLS is working independently from making sure server name matches the cert",
+  "number": 815,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:59.299Z"
+}

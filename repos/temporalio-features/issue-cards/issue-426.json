@@ -1,0 +1,42 @@
+{
+  "summary": "Add API key client option to all SDKs and CLI tools that creates a Bearer token Authorization header. This feature is needed for self-hosted setups and cloud deployments where API key authentication is required.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "authentication",
+    "http-headers"
+  ],
+  "concepts": [
+    "api-key",
+    "authentication",
+    "authorization",
+    "bearer-token",
+    "client-option",
+    "cloud-deployment",
+    "self-hosted"
+  ],
+  "severity": "high",
+  "userImpact": "Users can now authenticate with Temporal Server using API keys as Bearer tokens without manually setting RPC metadata headers.",
+  "rootCause": null,
+  "proposedFix": "Add an API key client option to all SDKs (Go, Java, TypeScript, Python, .NET, PHP) and CLI that sets the Authorization header with Bearer <api-key>.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented across all SDK clients and CLI with consistent API key option support.",
+  "related": [
+    1401,
+    478,
+    1997,
+    695,
+    1367,
+    482,
+    191,
+    410
+  ],
+  "keyQuote": "Every place that creates a client should have an option to accept an API key which becomes the Authorization header of Bearer <api-key>.",
+  "number": 426,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:33.047Z"
+}

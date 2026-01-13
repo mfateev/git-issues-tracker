@@ -1,0 +1,32 @@
+{
+  "summary": "The SignalExternalWorkflowExecutionCommandAttributes.ChildWorkflowOnly flag is not exposed in the Java SDK API or signal interceptors, unlike the Go and TypeScript SDKs. This feature request seeks to expose this flag for parity across SDKs and support external workflow signaling to child workflows only.",
+  "category": "feature",
+  "subcategory": "signal-interceptor",
+  "apis": [
+    "SignalExternalWorkflowExecutionCommandAttributes"
+  ],
+  "components": [
+    "signal-interceptor",
+    "external-workflow-signaling",
+    "api-exposure"
+  ],
+  "concepts": [
+    "child-workflow-targeting",
+    "signal-filtering",
+    "sdk-parity",
+    "interceptor-api",
+    "external-signals"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot selectively signal only child workflows due to missing API exposure, requiring workarounds and reducing feature parity with other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Expose SignalExternalWorkflowExecutionCommandAttributes.ChildWorkflowOnly in the Java SDK API and signal interceptor parameters, matching Go and TypeScript SDK implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SignalExternalWorkflowExecutionCommandAttributes.ChildWorkflowOnly is not exposed as a part of any JavaSDK API. It's also not in the parameters of signal interceptors.",
+  "number": 857,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:48:11.201Z"
+}

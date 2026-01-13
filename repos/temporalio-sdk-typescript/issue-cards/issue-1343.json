@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to prevent application code from modifying built-in query handlers that start with `__temporal` prefix, ensuring that core functionality like the Temporal UI continues to work correctly.",
+  "category": "feature",
+  "subcategory": "query-handlers",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "worker"
+  ],
+  "concepts": [
+    "built-in handlers",
+    "handler protection",
+    "API preservation",
+    "temporal-ui",
+    "immutability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could accidentally override critical built-in query handlers, breaking Temporal UI and other core functionality.",
+  "rootCause": null,
+  "proposedFix": "Disable changes to handlers with names starting by `__temporal` and other well-known built-in names.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Built-in query handlers are now protected from being overridden by application code.",
+  "related": [],
+  "keyQuote": "Built-in query handlers should not be modified by application code to ensure that, e.g., the temporal UI still works.",
+  "number": 1343,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:06.831Z"
+}

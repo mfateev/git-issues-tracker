@@ -1,0 +1,29 @@
+{
+  "summary": "The serverVersion property in the Temporal server is incorrectly reported as 1.22.0 when running version 1.22.1. This can be verified through tctl or temporal CLI commands that display server version information.",
+  "category": "bug",
+  "subcategory": "server-version-reporting",
+  "apis": [],
+  "components": [
+    "server-version-management",
+    "cluster-describe",
+    "admin-cli"
+  ],
+  "concepts": [
+    "version-mismatch",
+    "server-metadata",
+    "version-reporting",
+    "cluster-info"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot accurately determine the installed server version through standard diagnostic commands, potentially causing confusion during support and troubleshooting.",
+  "rootCause": "Version number not properly updated in server release 1.22.1 build or version reporting mechanism",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Will be fixed in v1.22.2 release",
+  "related": [],
+  "keyQuote": "For server release 1.22.1 serverVersion is set as 1.22.0",
+  "number": 5048,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:12.683Z"
+}

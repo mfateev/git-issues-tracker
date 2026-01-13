@@ -1,0 +1,35 @@
+{
+  "summary": "User requested a `registerSearchAttribute` method on `TestWorkflowEnvironment` to register custom search attributes for testing, similar to the Java SDK. The issue was self-resolved when the user discovered the functionality already exists via `connection.operatorService.addSearchAttributes()`, but the API is poorly documented.",
+  "category": "docs",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "operatorService.addSearchAttributes"
+  ],
+  "components": [
+    "test-environment",
+    "operator-service",
+    "search-attributes"
+  ],
+  "concepts": [
+    "testing",
+    "search-attributes",
+    "test-setup",
+    "api-discovery",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users struggle to register custom search attributes in test environments due to undiscovered or undocumented API.",
+  "rootCause": "The `operatorService.addSearchAttributes()` method exists but is not exposed on `TestWorkflowEnvironment` interface or documented, making it difficult for users to discover.",
+  "proposedFix": "Add `registerSearchAttribute` method to `TestWorkflowEnvironment` interface as a convenience method, or improve documentation to reference the existing `operatorService.addSearchAttributes()` approach.",
+  "workaround": "Use `temporalTestEnv.connection.operatorService.addSearchAttributes()` to register custom search attributes directly.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by improving documentation and exposing the existing operatorService.addSearchAttributes() API. User discovered the solution exists but is hidden.",
+  "related": [
+    657
+  ],
+  "keyQuote": "It's quite hidden though. Would be good if it could be documented somewhere.",
+  "number": 1230,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:53.059Z"
+}

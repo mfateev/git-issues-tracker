@@ -1,0 +1,32 @@
+{
+  "summary": "Request to support proxy objects in registerActivitiesImplementations to enable Quarkus interceptor integration. The user is building a Quarkus extension for Temporal and needs to pass proxy objects created by Quarkus interceptors for activities.",
+  "category": "feature",
+  "subcategory": "activity-registration",
+  "apis": [
+    "registerActivitiesImplementations"
+  ],
+  "components": [
+    "activity-registration",
+    "activity-executor",
+    "interceptor-support"
+  ],
+  "concepts": [
+    "proxy-objects",
+    "interceptor-integration",
+    "dependency-injection",
+    "framework-extension",
+    "activity-implementation"
+  ],
+  "severity": "low",
+  "userImpact": "Users building framework extensions with interceptor support cannot pass proxy objects to activity registration, limiting integration with frameworks like Quarkus.",
+  "rootCause": null,
+  "proposedFix": "Support a factory method for creating activity implementations and pass the activity interface along with proxy objects to registerActivitiesImplementations",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to support proxy objects in activity registration, allowing framework extensions like Quarkus to pass interceptor-based proxies.",
+  "related": [],
+  "keyQuote": "I want to support quarkus interceptors in Activities. quarkus handle interceptor interceptions with Proxy and Invocation Handler",
+  "number": 465,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:19:41.776Z"
+}

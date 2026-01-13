@@ -1,0 +1,33 @@
+{
+  "summary": "System.InvalidOperationException thrown when calling AddHostedTemporalWorker after registering a keyed service descriptor to the DI container. This issue was introduced in v1.1.0 and stems from code that doesn't properly handle keyed services in the service provider.",
+  "category": "bug",
+  "subcategory": "dependency-injection",
+  "apis": [
+    "AddHostedTemporalWorker"
+  ],
+  "components": [
+    "TemporalWorkerServiceOptionsBuilderExtensions",
+    "dependency-injection",
+    "service-provider"
+  ],
+  "concepts": [
+    "keyed-services",
+    "dependency-injection",
+    "service-descriptor",
+    "runtime-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start their application if they use keyed service descriptors in their DI container alongside AddHostedTemporalWorker.",
+  "rootCause": "The TemporalWorkerServiceOptionsBuilderExtensions code introduced in PR #216 does not properly handle keyed service descriptors, causing an InvalidOperationException when the service provider receives keyed services.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by updating the code to properly support keyed service descriptors in the service provider.",
+  "related": [
+    216
+  ],
+  "keyQuote": "System.InvalidOperationException: This service descriptor is keyed. Your service provider may not support keyed services",
+  "number": 238,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:46:38.198Z"
+}

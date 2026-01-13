@@ -1,0 +1,39 @@
+{
+  "summary": "Feature request to add an `upsertMemo` command that allows workflows to modify memo fields from within the workflow, similar to the existing `upsertSearchAttributes` functionality. This is a cross-SDK feature with implementations in progress or completed across multiple SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-memo",
+  "apis": [
+    "upsertMemo",
+    "upsertSearchAttributes"
+  ],
+  "components": [
+    "workflow",
+    "memo-management",
+    "sdk-core"
+  ],
+  "concepts": [
+    "observability",
+    "workflow-metadata",
+    "partial-updates",
+    "merging-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now dynamically update workflow memo fields from within the workflow execution, improving workflow observability and metadata management capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement upsertMemo command across all SDKs with server-side merging of partial upserts using 'last writer wins' strategy, with optimization to batch multiple upserts within an activation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    383,
+    1124,
+    190,
+    883,
+    623,
+    3047
+  ],
+  "keyQuote": "User would like to edit `memo` from inside the Workflow, like [`upsertSearchAttributes`](https://docs.temporal.io/application-development/observability?lang=ts#upsert-custom-search-attributes)",
+  "number": 119,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:48:36.805Z"
+}

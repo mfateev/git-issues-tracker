@@ -1,0 +1,36 @@
+{
+  "summary": "Ensure that ClientOptions.identity is consistently set across all client API calls (terminate, cancel, start, signal, signalWithStart) in all SDKs. Currently, the identity is not being set on terminate calls in Java.",
+  "category": "feature",
+  "subcategory": "client-options",
+  "apis": [
+    "terminate",
+    "cancel",
+    "start",
+    "signal",
+    "signalWithStart"
+  ],
+  "components": [
+    "client",
+    "workflow-client",
+    "identity-handling"
+  ],
+  "concepts": [
+    "client-options",
+    "identity",
+    "consistency",
+    "cross-sdk-parity",
+    "client-calls"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may not have their configured client identity properly propagated across all workflow operations, leading to inconsistent identity tracking and potential audit/logging issues.",
+  "rootCause": "Incomplete implementation of identity propagation across all client API methods; identity is set in some methods (TS) but not others (Java terminate).",
+  "proposedFix": "Audit all SDK implementations and ensure ClientOptions.identity is set on all client calls including terminate, cancel, start, signal, and signalWithStart.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Put it in this repo so that we'd ensure consistent behavior across SDKs",
+  "number": 193,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:43.283Z"
+}

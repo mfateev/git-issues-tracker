@@ -1,0 +1,28 @@
+{
+  "summary": "Docker images for version 1.22.4 were referenced in release notes but were not initially published to DockerHub. The issue was quickly resolved when the images were published.",
+  "category": "bug",
+  "subcategory": "release-management",
+  "apis": [],
+  "components": [
+    "docker-images",
+    "release-process"
+  ],
+  "concepts": [
+    "release-management",
+    "docker-publishing",
+    "versioning",
+    "distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following the release notes could not pull the 1.22.4 Docker images from DockerHub, blocking their ability to deploy that version.",
+  "rootCause": "Docker images for 1.22.4 were not published to DockerHub at the time the release notes were published.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Docker images were published to DockerHub, resolving the discrepancy between the release notes and available images.",
+  "related": [],
+  "keyQuote": "Sorry, my bad. They are published now.",
+  "number": 5296,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:15.787Z"
+}

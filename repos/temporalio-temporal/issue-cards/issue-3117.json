@@ -1,0 +1,30 @@
+{
+  "summary": "Prometheus reporter generates a warning about conflicting metric descriptor for client_errors counter metric with mismatched label names or help string. This metric conflict appears intermittently after upgrading to version 1.17.",
+  "category": "bug",
+  "subcategory": "metrics-prometheus",
+  "apis": [],
+  "components": [
+    "prometheus-reporter",
+    "metrics",
+    "config"
+  ],
+  "concepts": [
+    "metric-conflict",
+    "prometheus",
+    "label-mismatch",
+    "descriptor-registration",
+    "client-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see warning messages in logs when Prometheus reporter encounters conflicting metric descriptors, potentially causing metrics to be unreliable or not registered correctly.",
+  "rootCause": "The client_errors counter metric descriptor is being registered multiple times with different label names or help strings, likely due to changes in the 1.17 release.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "error in prometheus reporter: a previously registered descriptor with the same fully-qualified name as Desc{fqName: \"client_errors\", help: \"client_errors counter\"} has different label names",
+  "number": 3117,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:52.575Z"
+}

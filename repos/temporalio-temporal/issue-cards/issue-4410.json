@@ -1,0 +1,31 @@
+{
+  "summary": "Build IDs need to be stored in user data when tasks contain unknown build IDs. This is particularly important for replication edge cases and when workflows schedule compatible child/activity/CAN on different task queues that lack the worker's build ID in their versioning data.",
+  "category": "feature",
+  "subcategory": "build-id-versioning",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "versioning-data",
+    "replication"
+  ],
+  "concepts": [
+    "build-id",
+    "user-data",
+    "task-queue-isolation",
+    "versioning",
+    "compatibility",
+    "replication"
+  ],
+  "severity": "medium",
+  "userImpact": "Without storing build IDs in user data, workflows fail when scheduling compatible tasks on different task queues or during replication edge cases.",
+  "rootCause": "Build ID information is not persisted in user data for incoming tasks with unknown build IDs, causing compatibility issues across task queues.",
+  "proposedFix": "Store build ID in user data when receiving tasks that contain an unknown build ID.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing the feature to store build IDs in user data for unknown build IDs.",
+  "related": [],
+  "keyQuote": "Store build ID in user data when incoming task contains an unknown build id",
+  "number": 4410,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:51.403Z"
+}

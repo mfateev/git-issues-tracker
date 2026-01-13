@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal services fail to start when running as non-root user in Kubernetes due to permission errors when writing configuration files. The issue blocks enterprises with security policies requiring non-root containers.",
+  "category": "bug",
+  "subcategory": "kubernetes-deployment",
+  "apis": [],
+  "components": [
+    "docker-config",
+    "helm-charts",
+    "file-permissions"
+  ],
+  "concepts": [
+    "security",
+    "kubernetes",
+    "permissions",
+    "non-root-user",
+    "container-security",
+    "psp"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal in Kubernetes environments with Pod Security Policies requiring non-root user execution.",
+  "rootCause": "Configuration template processing by dockerize tool fails when attempting to write to /etc/temporal/config/ directory without sufficient permissions for non-root user.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through updates to helm charts and configuration file permissions handling to support non-root deployments.",
+  "related": [],
+  "keyQuote": "Run temporal cluster in kubernetes environment as non-root user. Some enterprises have restrictions in k8s environment to block running containers as root user.",
+  "number": 1263,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:11:47.555Z"
+}

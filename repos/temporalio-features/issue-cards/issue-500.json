@@ -1,0 +1,39 @@
+{
+  "summary": "Cross-SDK feature for deterministic, reentrant concurrency control (mutex/semaphore) designed to work within workflow coroutines, signal handlers, and update handlers.",
+  "category": "feature",
+  "subcategory": "concurrency-control",
+  "apis": [],
+  "components": [
+    "workflow-coroutine",
+    "signal-handler",
+    "update-handler",
+    "concurrency-primitives"
+  ],
+  "concepts": [
+    "mutex",
+    "semaphore",
+    "concurrency-control",
+    "reentrancy",
+    "determinism",
+    "workflow-safe"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now safely synchronize access to shared state within workflows across multiple coroutines using language-appropriate concurrency primitives.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow-friendly mutex/semaphore mechanisms across all SDKs (PHP, TypeScript, Go, Java, .NET, Python) that are reentrant and deterministic.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented across all six SDKs as indicated by the completed checkboxes for PHP (#462), TypeScript (#1446), Go (#1521), Java (#2116), .NET (#281), and Python (#554).",
+  "related": [
+    462,
+    1446,
+    1521,
+    2116,
+    281,
+    554
+  ],
+  "keyQuote": "We need a mechanism for concurrency control (mutex/semaphore) that fits with the language but is reentrant and deterministic within workflow coroutines.",
+  "number": 500,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:02.819Z"
+}

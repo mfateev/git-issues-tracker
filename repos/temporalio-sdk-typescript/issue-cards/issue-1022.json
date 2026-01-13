@@ -1,0 +1,33 @@
+{
+  "summary": "The Schedule client fails to infer workflow arguments based on the workflow type during schedule creation and update operations, affecting type safety for scheduling workflows.",
+  "category": "bug",
+  "subcategory": "schedule-client",
+  "apis": [
+    "scheduleCreate",
+    "scheduleUpdate"
+  ],
+  "components": [
+    "schedule-client",
+    "workflow-type-inference",
+    "type-system"
+  ],
+  "concepts": [
+    "type-safety",
+    "type-inference",
+    "workflow-arguments",
+    "schedule-management",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot rely on type inference when creating or updating schedules, requiring manual type specifications and reducing code reliability.",
+  "rootCause": "Schedule client does not properly reference workflow type information when inferring argument types during creation and update operations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Schedule client was updated to properly infer workflow arguments based on the provided workflow type.",
+  "related": [],
+  "keyQuote": "Schedule client does not infer args based on workflow type",
+  "number": 1022,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:57.418Z"
+}

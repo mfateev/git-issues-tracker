@@ -1,0 +1,33 @@
+{
+  "summary": "Schema version compatibility check fails on startup when using PostgreSQL auto-setup due to mismatched schema directory structure and version mismatch between admin-tools and server versions.",
+  "category": "bug",
+  "subcategory": "schema-setup",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "schema-migration",
+    "postgres-driver",
+    "admin-tools"
+  ],
+  "concepts": [
+    "schema-versioning",
+    "database-initialization",
+    "version-compatibility",
+    "docker-setup",
+    "configuration-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start Temporal server with auto-setup on PostgreSQL due to schema version compatibility failures during initialization.",
+  "rootCause": "Schema directory structure moved for better version control similar to MySQL, causing path mismatch. Additionally, version incompatibility between admin-tools and server images can cause the same error.",
+  "proposedFix": "Updated in v1.2.1 release to handle new schema directory structure.",
+  "workaround": "Ensure admin-tools and server versions match (e.g., both 1.25, not 1.24 and 1.25). Manually verify schema files exist in correct paths.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in v1.2.1 release which addressed schema directory structure changes for PostgreSQL support.",
+  "related": [
+    862
+  ],
+  "keyQuote": "The issue you are seeing is due the the move of the schema dir for better version control / support, similar to MySQL.",
+  "number": 896,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:23.072Z"
+}

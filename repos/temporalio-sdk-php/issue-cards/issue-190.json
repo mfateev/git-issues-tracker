@@ -1,0 +1,35 @@
+{
+  "summary": "Cancelling an async workflow closure with an internal timer doesn't properly cancel the timer, causing the workflow to hang indefinitely instead of finishing.",
+  "category": "bug",
+  "subcategory": "async-cancellation",
+  "apis": [
+    "async",
+    "awaitWithTimeout",
+    "cancel"
+  ],
+  "components": [
+    "async-workflow",
+    "timer-management",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "timer",
+    "async",
+    "workflow-lifecycle",
+    "promise",
+    "cleanup"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows with internal timers cannot be properly cancelled, leaving them in a hung state and blocking workflow completion.",
+  "rootCause": "The cancellation signal is not propagated to internal timers when an async closure is cancelled.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Expect the timer to be cancelled and workflow to be finished. Instead the workflow hangs and endlessly waits.",
+  "number": 190,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:05.561Z"
+}

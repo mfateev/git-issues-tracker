@@ -1,0 +1,32 @@
+{
+  "summary": "Docker Compose setup fails on M1 Mac with Temporal v1.13 due to a segmentation fault in temporal-sql-tool during schema initialization, causing DNS resolution failures in Temporal Web. The issue was resolved in v1.14.2.",
+  "category": "bug",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "temporal-sql-tool",
+    "schema-initialization",
+    "postgresql"
+  ],
+  "concepts": [
+    "segmentation-fault",
+    "dns-resolution",
+    "arm-architecture",
+    "docker-setup",
+    "schema-migration",
+    "m1-mac"
+  ],
+  "severity": "high",
+  "userImpact": "Users on M1 Mac cannot run Temporal locally using docker-compose due to crashes during database schema setup.",
+  "rootCause": "Segmentation fault in temporal-sql-tool during PostgreSQL schema initialization on ARM architecture (M1 Mac), likely related to CGO bindings as noted in comments.",
+  "proposedFix": "Provide ARM-compatible Docker images to mitigate architecture-related issues.",
+  "workaround": "Run `docker system prune -a && git reset 0e68621 --hard && docker-compose up` to clear Docker state and use an earlier commit.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in version 1.14.2",
+  "related": [],
+  "keyQuote": "qemu: uncaught target signal 11 (Segmentation fault) - core dumped",
+  "number": 2117,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:39.354Z"
+}

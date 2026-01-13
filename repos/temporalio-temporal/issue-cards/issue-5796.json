@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow application errors to include a suggested retry interval duration, enabling the Temporal server to delay activity retries based on dynamic third-party rate limit responses rather than using fixed retry policies.",
+  "category": "feature",
+  "subcategory": "activity-retry-policy",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry-interval",
+    "rate-limiting",
+    "activity-retry",
+    "backoff-strategy",
+    "dynamic-delay"
+  ],
+  "severity": "medium",
+  "userImpact": "Users dealing with rate-limited third-party services must choose between inefficient fixed retry intervals or complex manual retry logic in workflows.",
+  "rootCause": "Application errors currently cannot specify a retry delay interval, forcing developers to either use overly conservative static intervals or implement custom retry mechanisms.",
+  "proposedFix": "Extend application error to hold a retry interval value that the Temporal server uses when scheduling activity retries, with corresponding SDK updates to support sending this option.",
+  "workaround": "Set RetryPolicy.InitialInterval to maximum expected delay (inefficient), or use non-retryable errors with workflow timers (complex and manual).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5946
+  ],
+  "keyQuote": "It would be nice if the application error could also hold a `retry interval` value so that the Temporal server would not schedule the activity retry until such time has elapse.",
+  "number": 5796,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:46.145Z"
+}

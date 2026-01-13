@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowInfo.lastCompletionResult API design is inconsistent across SDKs. Some SDKs return a list of Payloads while others return a single result, and the behavior differs between Crons and ContinueAsNew workflows. Documentation and implementation need to be standardized.",
+  "category": "feature",
+  "subcategory": "workflow-api-design",
+  "apis": [
+    "GetLastCompletionResult",
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "sdk-api-surface",
+    "continuation"
+  ],
+  "concepts": [
+    "api-consistency",
+    "workflow-results",
+    "cron-workflows",
+    "continue-as-new",
+    "payload-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience inconsistent behavior across SDKs when accessing the last completion result of a workflow, making cross-SDK code migration difficult.",
+  "rootCause": "SDKs implemented lastCompletionResult with different semantics—some expose the underlying list while others unwrap single values, creating API inconsistency.",
+  "proposedFix": "Standardize across all SDKs to return either the list or the single unwrapped value consistently, with matching behavior for Crons and ContinueAsNew.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If I'm right, IMO all should do so. TS does not and it would be breaking.",
+  "number": 54,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:44:47.958Z"
+}

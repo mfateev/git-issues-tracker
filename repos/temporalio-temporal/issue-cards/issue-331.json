@@ -1,0 +1,32 @@
+{
+  "summary": "Cron workflows and workflows waiting to retry currently show the same status as other workflows until execution time. The request is to return a distinct status value from DescribeWorkflowExecution to indicate workflows in the 'waiting to execute' state.",
+  "category": "feature",
+  "subcategory": "workflow-status",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "workflow-state-machine",
+    "cron-workflow",
+    "retry-logic"
+  ],
+  "concepts": [
+    "workflow-status",
+    "cron",
+    "retry",
+    "execution-timing",
+    "state-visibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily determine whether a cron or retry workflow is waiting for its scheduled execution time versus being in other states.",
+  "rootCause": null,
+  "proposedFix": "Return a different status value from DescribeWorkflowExecution for workflows waiting to execute.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Status is 'created' for workflows not in 'running' state, providing the visibility requested.",
+  "related": [],
+  "keyQuote": "It would be nice to return different status value from DescribeWorkflowExecution for workflows in this state.",
+  "number": 331,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:50:45.741Z"
+}

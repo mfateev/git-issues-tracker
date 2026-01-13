@@ -1,0 +1,30 @@
+{
+  "summary": "Request to implement WorkflowStub.signalWithStart method in the TypeScript SDK client package, which is currently missing.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "WorkflowStub",
+    "signalWithStart"
+  ],
+  "components": [
+    "client",
+    "workflow-stub"
+  ],
+  "concepts": [
+    "signal",
+    "workflow-start",
+    "client-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot signal a workflow at the time of its creation in TypeScript, requiring workarounds or additional API calls.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WorkflowStub.signalWithStart was implemented and added to the client package",
+  "related": [],
+  "keyQuote": "Missing from the client package",
+  "number": 153,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:39.413Z"
+}

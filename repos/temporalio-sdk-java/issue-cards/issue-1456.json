@@ -1,0 +1,30 @@
+{
+  "summary": "The Java SDK allocates excessive physical threads for blocking gRPC long poll requests in pollers, causing inefficient context switching. The proposal is to use just two async threads (one for workflow tasks, one for activity tasks) to handle all corresponding poll requests efficiently.",
+  "category": "other",
+  "subcategory": "poller-threading",
+  "apis": [],
+  "components": [
+    "workflow-task-poller",
+    "activity-task-poller",
+    "grpc-client"
+  ],
+  "concepts": [
+    "threading",
+    "async-io",
+    "long-polling",
+    "context-switching",
+    "resource-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces unnecessary thread overhead and improves application resource utilization by eliminating inefficient blocking thread patterns.",
+  "rootCause": "Pollers allocate one physical thread per poll request, leading to excessive semi-active threads with high context switching overhead for blocking I/O operations.",
+  "proposedFix": "Implement two dedicated async threads: one for workflow task polling and one for activity task polling to handle all corresponding long poll requests asynchronously.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented async polling mechanism with dedicated thread pools for workflow and activity task pollers.",
+  "related": [],
+  "keyQuote": "We should have two threads for Pollers. One for Workflow Task Pollers, one for Activity Task Pollers. They should handle all corresponding long poll requests in an async manner.",
+  "number": 1456,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:56.677Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Update bumpalo dependency to fix a security vulnerability (RUSTSEC-2022-0078) in the dependency chain of temporal-sdk-core-api. The vulnerable bumpalo-3.11.0 is transitive dependency through multiple layers of Rust crates.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "temporal-sdk-core-api",
+    "rust-dependencies",
+    "bumpalo"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "supply-chain",
+    "rust-crates",
+    "transitive-dependencies"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to a known security vulnerability through transitive dependencies in the Python SDK.",
+  "rootCause": "Outdated bumpalo-3.11.0 crate in the dependency chain of temporal-sdk-core-api with known vulnerability RUSTSEC-2022-0078.",
+  "proposedFix": "Run `cargo update` in the Python bridge to update bumpalo and fix the vulnerability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #307 by running cargo update in the Python bridge.",
+  "related": [
+    54,
+    307
+  ],
+  "keyQuote": "This can be fixed via `cargo update` in Python bridge",
+  "number": 296,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:02.576Z"
+}

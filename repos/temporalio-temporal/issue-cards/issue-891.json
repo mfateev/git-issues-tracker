@@ -1,0 +1,31 @@
+{
+  "summary": "The history service should implement a pause mechanism to handle backpressure when worker processing cannot keep up with incoming signal events. This prevents worker overload by temporarily stopping signal acceptance.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "history-service",
+    "worker",
+    "signal-processor"
+  ],
+  "concepts": [
+    "backpressure",
+    "flow-control",
+    "signal-handling",
+    "worker-load",
+    "queue-management",
+    "event-rate-limiting"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers can become overwhelmed by incoming signals when processing cannot keep up, potentially causing failures or delays without a throttling mechanism.",
+  "rootCause": null,
+  "proposedFix": "Implement pause functionality in the history service to pause accepting new signals when the worker cannot keep up with incoming event rate.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Pause functionality, in case worker cannot keep up with the incoming events.",
+  "number": 891,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:09.456Z"
+}

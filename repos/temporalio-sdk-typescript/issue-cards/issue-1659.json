@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for the new Worker Versioning API in TypeScript SDK by implementing annotations for workflows. This feature aligns the TS SDK with Go SDK implementations as defined in the design specification.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "workflow-annotations",
+    "worker-versioning",
+    "typescript-sdk"
+  ],
+  "concepts": [
+    "versioning",
+    "api-compatibility",
+    "worker-management",
+    "annotations",
+    "sdk-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can manage workflow versioning to support deploying new code without breaking in-flight workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement annotations for workflows following the design specification in the shared Google Doc and align with Go SDK equivalents from temporalio/features#548.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support the new Worker Versioning API with proper workflow annotations.",
+  "related": [
+    548
+  ],
+  "keyQuote": "We need to add annotations to workflows to support the new versioning APIs. Refer to temporalio/features#548 for the Go equivalents.",
+  "number": 1659,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:19.346Z"
+}

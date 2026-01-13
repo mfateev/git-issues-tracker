@@ -1,0 +1,30 @@
+{
+  "summary": "Jaeger export functionality is broken in the TypeScript SDK performance tests, with spans not appearing in Jaeger. The issue suggests either fixing the exporter or switching to the OpenTelemetry collector exporter.",
+  "category": "bug",
+  "subcategory": "observability-jaeger",
+  "apis": [],
+  "components": [
+    "jaeger-exporter",
+    "observability",
+    "performance-testing"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "spans",
+    "telemetry-export",
+    "jaeger",
+    "opentelemetry"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly trace and debug performance issues as spans are missing from Jaeger after running performance tests.",
+  "rootCause": null,
+  "proposedFix": "Fix the Jaeger exporter or switch to the OpenTelemetry collector exporter",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It's clear that spans are missing in jaeger after running perf.",
+  "number": 166,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:51.160Z"
+}

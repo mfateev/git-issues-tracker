@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal UI workflow listing fails in Kubernetes deployment with Elasticsearch error about text field data requirements. The UI cannot list workflows because Elasticsearch is misconfigured - RunId field is a text field instead of keyword field, which doesn't support the required aggregations and sorting operations.",
+  "category": "bug",
+  "subcategory": "ui-elasticsearch-integration",
+  "apis": [],
+  "components": [
+    "temporal-ui",
+    "elasticsearch",
+    "visibility-store"
+  ],
+  "concepts": [
+    "field-configuration",
+    "elasticsearch-mapping",
+    "workflow-listing",
+    "kubernetes-deployment",
+    "aggregation",
+    "sorting"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal on Kubernetes cannot access the UI to list workflows due to Elasticsearch misconfiguration.",
+  "rootCause": "RunId field is configured as a text field in Elasticsearch instead of a keyword field, which prevents field data aggregations and sorting required for workflow listing.",
+  "proposedFix": "Change RunId field from text to keyword field in Elasticsearch mapping, or set fielddata=true on the RunId field.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was marked as user misconfiguration rather than a product bug. Responder indicated this is an Elasticsearch configuration issue and directed user to community forum for help.",
+  "related": [],
+  "keyQuote": "This looks like a misconfiguration of the elastic search for visibility. Please seek help in community forum.",
+  "number": 3631,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:39.179Z"
+}

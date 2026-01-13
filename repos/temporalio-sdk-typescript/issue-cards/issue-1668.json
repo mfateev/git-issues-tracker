@@ -1,0 +1,30 @@
+{
+  "summary": "The `common` package imports the `ms` library but doesn't include its type definitions (@types/ms), causing type validation issues for Duration properties and breaking temporal usage when the package is used as a transitive dependency without explicit type assertions.",
+  "category": "bug",
+  "subcategory": "type-definitions",
+  "apis": [],
+  "components": [
+    "common-package",
+    "type-definitions",
+    "duration-props"
+  ],
+  "concepts": [
+    "type-safety",
+    "type-definitions",
+    "dependency-management",
+    "type-validation",
+    "transitive-dependencies"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience type validation failures and broken Temporal usage when the common package is pulled in as a transitive dependency without explicit type assertions or const assertions.",
+  "rootCause": "Missing @types/ms dependency in the common package despite importing the ms library at runtime.",
+  "proposedFix": null,
+  "workaround": "Use `as const` or explicit type annotations on Duration props.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The `common` package imports `ms` but not its types. As such, there is no validation on e.g. `Duration` props.",
+  "number": 1668,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:28:27.134Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "python-betterproto compatibility issues were identified with temporal-proto: recursive Failure object initialization causing stack overflow, and 'None' being a reserved Python keyword in QueryRejectCondition enum values. Author notes these are betterproto limitations, not proto issues, and plans to fork betterproto to accommodate.",
+  "category": "other",
+  "subcategory": "proto-compatibility",
+  "apis": [],
+  "components": [
+    "proto-definitions",
+    "failure-handling",
+    "query-reject-condition"
+  ],
+  "concepts": [
+    "protobuf",
+    "python-betterproto",
+    "enum-naming",
+    "recursive-objects",
+    "compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Python SDK users considering python-betterproto for better gRPC experience encounter incompatibility issues that require workarounds.",
+  "rootCause": "python-betterproto's default field initialization behavior doesn't support HasField/ClearField semantics needed for recursive Failure objects, and uses Python reserved keywords in enum value generation.",
+  "proposedFix": "Temporal team could rename enum values with type prefixes per protobuf style guide to avoid Python keywords, though this would not fully solve the betterproto compatibility.",
+  "workaround": "Fork python-betterproto and modify field initialization to not instantiate sub-message fields, and adjust enum naming casing.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Temporal decided not to change proto semantics. Team noted they would add enum type prefixes anyway per style guide. Author's fork of python-betterproto is the recommended approach.",
+  "related": [],
+  "keyQuote": "I will need to fork python-betterproto whether or not any changes are made in temporal-proto for the two above issues",
+  "number": 409,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:55:19.778Z"
+}

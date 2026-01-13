@@ -1,0 +1,31 @@
+{
+  "summary": "CVE-2024-51744 identified in golang-jwt/jwt v4.5.0 dependency with low severity (3.1/10). Upgrade to version 4.5.1 recommended to address the vulnerability.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "jwt-library"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency-management",
+    "jwt",
+    "token-validation"
+  ],
+  "severity": "low",
+  "userImpact": "Users running Temporal with the vulnerable jwt library version may be exposed to a low-severity security vulnerability.",
+  "rootCause": "Vulnerability in golang-jwt/jwt v4.5.0 library used as a dependency",
+  "proposedFix": "Upgrade golang-jwt/jwt to version 4.5.1 or later",
+  "workaround": "See https://github.com/golang-jwt/jwt/security/advisories/GHSA-29wx-vh33-7x7r for details",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #6748 which likely upgraded the dependency to the patched version",
+  "related": [
+    6748
+  ],
+  "keyQuote": "CVE-2024-51744 - Upgrade to version 4.5.1",
+  "number": 6767,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:23.133Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Version 1.3.0 of @temporalio/protos has a duplicate const declaration for 'Long' that causes build failures. This was caused by protobufjs recently adding the 'long' import, but the Temporal generation script was already compensating for its absence.",
+  "category": "bug",
+  "subcategory": "proto-generation",
+  "apis": [],
+  "components": [
+    "protos",
+    "proto-generation-script",
+    "pbts"
+  ],
+  "concepts": [
+    "build-failure",
+    "duplicate-identifier",
+    "proto-compilation",
+    "dependency-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to @temporalio/client 1.3.0 experience build failures in their applications until they downgrade to 1.1.0 or upgrade to 1.4.0.",
+  "rootCause": "The proto generation script was compensating for the fact that protobufjs's pbts tool didn't add the 'long' import. When protobufjs fixed this and started adding the import, the script's compensation caused a duplicate 'Long' identifier.",
+  "proposedFix": "Remove the manual 'long' import compensation from the proto generation script since protobufjs now handles it correctly.",
+  "workaround": "Override all @temporalio libraries to version 1.1.0 in package.json.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.4.0 by updating the proto generation script to remove the duplicate 'Long' identifier compensation.",
+  "related": [],
+  "keyQuote": "We were compensating for the fact that `pbts` didn't add the `long` import in our proto generation script and just recently this was fixed",
+  "number": 885,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:52.852Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "User unable to establish a connection to the Temporal Server at tcp://127.0.0.1:6001 when attempting to execute workflows. This was an early adoption issue during the PHP SDK beta phase before official release and documentation were available.",
+  "category": "question",
+  "subcategory": "connection-setup",
+  "apis": [],
+  "components": [
+    "worker",
+    "grpc-client",
+    "roadrunner-temporal"
+  ],
+  "concepts": [
+    "connection",
+    "tcp",
+    "setup",
+    "configuration",
+    "grpc-extension",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Early adopters were unable to set up and run workflows due to incomplete documentation and unreleased SDK components.",
+  "rootCause": "PHP SDK was still in beta/development phase. The Roadrunner-Temporal integration required building from master branch with go-sdk master, and PHP GRPC extension was required but not clearly documented.",
+  "proposedFix": "Users needed to build Roadrunner-Temporal from master branch with go-sdk master branch, ensure go.mod points correctly, and install PHP GRPC extension. Alternatively, wait for official release with pre-built binaries and comprehensive documentation.",
+  "workaround": "Users could build from master branch following the test instructions provided, or wait for the official release which would include Roadrunner by default in composer packages.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was resolved by the official PHP SDK release with improved documentation and pre-built Roadrunner-Temporal support, making setup no longer require manual compilation.",
+  "related": [],
+  "keyQuote": "Obviously, we will try to make it as easy as possible after finishing the release. With no need to build anything, we plan RR to include Temporal by default and be downloadable via composer.",
+  "number": 39,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:18:44.692Z"
+}

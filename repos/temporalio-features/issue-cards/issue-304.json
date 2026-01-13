@@ -1,0 +1,31 @@
+{
+  "summary": "Prototype pollution vulnerability in protobufjs 7.1.2 (CVE-2023-36665) with CVSS 5.5 severity, allowing attackers to pollute Object.prototype through untrusted protobuf messages.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "protobufjs",
+    "package-dependencies",
+    "npm-dependencies"
+  ],
+  "concepts": [
+    "security",
+    "prototype-pollution",
+    "dependency-vulnerability",
+    "code-execution",
+    "untrusted-input",
+    "object-pollution"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications using protobufjs 7.1.2 are vulnerable to prototype pollution attacks that could lead to availability impact through untrusted protobuf message processing.",
+  "rootCause": "protobufjs versions 6.10.0 through 7.x before 7.2.4 lack proper validation when parsing untrusted protobuf messages, allowing modification of Object.prototype via constructor property.",
+  "proposedFix": "Upgrade protobufjs to version 7.2.4 or later",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue was automatically closed by Mend dependency scanner because the vulnerable library was either marked as ignored or removed from the inventory in the specified branch.",
+  "related": [],
+  "keyQuote": "protobuf.js allows Prototype Pollution via user-controlled protobuf messages by adding and overwriting Object.prototype data and functions",
+  "number": 304,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:06.582Z"
+}

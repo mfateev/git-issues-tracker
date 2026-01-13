@@ -1,0 +1,32 @@
+{
+  "summary": "When setting target to 'local' in Spring Boot configuration, ServiceStubOptionsTemplate is not registered, preventing metricsScope and other options from being applied to local service stubs.",
+  "category": "bug",
+  "subcategory": "spring-boot-autoconfigure",
+  "apis": [
+    "WorkflowServiceStubs.newLocalServiceStubs"
+  ],
+  "components": [
+    "spring-boot-autoconfigure",
+    "ServiceStubsTemplate",
+    "ServiceStubOptionsTemplate"
+  ],
+  "concepts": [
+    "local-development",
+    "spring-boot-integration",
+    "configuration",
+    "metrics",
+    "service-stubs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users developing locally with Spring Boot cannot configure metrics and other service stub options when using the 'local' target setting.",
+  "rootCause": "ServiceStubsTemplate creates local service stubs directly without applying ServiceStubOptionsTemplate, bypassing option registration logic.",
+  "proposedFix": "Either modify local stub creation to apply ServiceStubOptionsTemplate or properly document that local configurations do not support options like metricsScope.",
+  "workaround": null,
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should either change this to also use ServiceStubOptionsTemplate or document that when using local things like metricsScope would not be registered.",
+  "number": 1815,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:45.723Z"
+}

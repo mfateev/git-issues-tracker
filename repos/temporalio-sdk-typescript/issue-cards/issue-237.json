@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for protobuf payload converters (JSON and binary formats) to the TypeScript SDK to enable full cross-language interoperability. This requires implementing a payload converter and integrating it with the default data converter.",
+  "category": "feature",
+  "subcategory": "payload-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "payload-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "protobuf",
+    "cross-language-support",
+    "interoperability",
+    "binary-serialization",
+    "data-encoding"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot fully support cross-language calls without protobuf payload converter support, limiting interoperability between Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement a payload converter that supports reading and writing protobuf payloads (both JSON and binary formats) and add it to the default data converter.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Protobuf payload converter support was implemented and added to the default data converter for TypeScript SDK.",
+  "related": [],
+  "keyQuote": "To fully support cross language calls we need to support the json and binary protobuf payload types.",
+  "number": 237,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:21.451Z"
+}

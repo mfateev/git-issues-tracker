@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a workflow-friendly concurrency control mechanism (mutex/semaphore) that is reentrant and deterministic for use within Temporal workflow coroutines, including signal and update handlers.",
+  "category": "feature",
+  "subcategory": "workflow-concurrency",
+  "apis": [],
+  "components": [
+    "workflow-coroutine",
+    "signal-handler",
+    "update-handler"
+  ],
+  "concepts": [
+    "concurrency-control",
+    "mutex",
+    "semaphore",
+    "reentrancy",
+    "determinism",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a safe way to coordinate concurrent operations within workflows without non-deterministic behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow-friendly concurrency control was implemented to meet the requirements.",
+  "related": [],
+  "keyQuote": "We need a mechanism for concurrency control (mutex/semaphore) that fits with the language but is reentrant and deterministic within workflow coroutines.",
+  "number": 2116,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:27.202Z"
+}

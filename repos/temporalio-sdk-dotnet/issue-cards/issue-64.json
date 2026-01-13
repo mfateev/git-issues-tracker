@@ -1,0 +1,32 @@
+{
+  "summary": "Workflows that complete immediately with no async operations deadlock with a timeout error. A simple delay resolves the issue, suggesting a problem with how the SDK handles empty or synchronous workflows.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowRun"
+  ],
+  "components": [
+    "workflow-worker",
+    "workflow-execution-engine",
+    "task-handling"
+  ],
+  "concepts": [
+    "deadlock",
+    "timeout",
+    "workflow-completion",
+    "task-replay",
+    "empty-workflow"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot create workflows that complete without async operations, receiving confusing deadlock errors instead of normal completion.",
+  "rootCause": "The workflow task replay logic may not properly detect completion when no async operations occur, causing continuous replay until timeout.",
+  "proposedFix": null,
+  "workaround": "Add a delay operation (e.g., Workflow.DelayAsync) to the workflow, even if no real work is needed.",
+  "resolution": "invalid",
+  "resolutionDetails": "Reporter could not provide standalone reproduction. Maintainer was unable to replicate the issue with minimal test case and closed due to no response.",
+  "related": [],
+  "keyQuote": "The [WorkflowRun] method starts and completes, but is replayed continuously until it times out.",
+  "number": 64,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:25:11.767Z"
+}

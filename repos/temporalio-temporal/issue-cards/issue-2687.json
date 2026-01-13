@@ -1,0 +1,35 @@
+{
+  "summary": "Child workflow execution history does not populate the identity field in WorkflowExecutionStartedEventAttributes, unlike top-level workflows started from a client. The feature request asks to use the RespondWorkflowTaskCompletedRequest.identity value for child workflows to ensure consistency.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "WorkflowExecutionStartedEventAttributes",
+    "RespondWorkflowTaskCompletedRequest",
+    "StartWorkflowExecutionRequest"
+  ],
+  "components": [
+    "history",
+    "workflow-service",
+    "child-workflow-execution"
+  ],
+  "concepts": [
+    "identity",
+    "child-workflow",
+    "workflow-history",
+    "event-attributes",
+    "client-identity",
+    "consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot identify which SDK client initiated child workflows because the identity field remains empty in child workflow history events.",
+  "rootCause": "The server does not populate the identity field from RespondWorkflowTaskCompletedRequest when creating WorkflowExecutionStartedEventAttributes for child workflows.",
+  "proposedFix": "Use temporal.api.workflowservice.v1.RespondWorkflowTaskCompletedRequest.identity for the child workflow identity in WorkflowExecutionStartedEventAttributes, matching the identity set by SDKs on StartWorkflowExecutionRequest.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "identity is populated with the client identity when started from a client, but not populated with a value when it's a child workflow",
+  "number": 2687,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:03.407Z"
+}

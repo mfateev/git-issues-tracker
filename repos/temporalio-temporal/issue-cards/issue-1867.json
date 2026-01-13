@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal server hangs during SIGTERM shutdown after losing Cassandra database connection. The server fails to reconnect to the database when using disableInitialHostLookup=true configuration and becomes unresponsive to termination signals, requiring SIGKILL to stop.",
+  "category": "bug",
+  "subcategory": "database-connection-handling",
+  "apis": [],
+  "components": [
+    "cassandra-client",
+    "membership-ringpop",
+    "persistence-layer",
+    "shutdown-handler"
+  ],
+  "concepts": [
+    "connection-reset",
+    "database-reconnection",
+    "graceful-shutdown",
+    "signal-handling",
+    "network-failure",
+    "connection-pooling"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal server with Cassandra become unable to cleanly shut down the server after network connectivity loss, forcing them to use SIGKILL and risking data corruption.",
+  "rootCause": "After a connection reset error, the Cassandra node is marked unhealthy and the client fails to retry the known connection when disableInitialHostLookup=true is configured, blocking graceful shutdown.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It looks as though after hitting \"read: connection reset by peer\", the node is marked unhealthy. When there is the config disableInitialHostLookup=true it should just retry the known connection after a short while.",
+  "number": 1867,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:53.310Z"
+}

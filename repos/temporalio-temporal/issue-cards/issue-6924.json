@@ -1,0 +1,30 @@
+{
+  "summary": "User requests support for custom search attributes of type Duration to filter workflows based on duration thresholds, similar to the built-in ExecutionDuration filter. Currently only Int and Datetime types are supported, limiting users' ability to apply semantic duration-based filters.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "filtering",
+    "persistence"
+  ],
+  "concepts": [
+    "duration",
+    "filtering",
+    "custom-search-attributes",
+    "workflow-execution",
+    "time-based-queries"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot create duration-based custom search attributes, forcing them to use Int types with unclear semantics (milliseconds) and limiting filtering capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add Duration as a supported type for custom search attributes, allowing users to filter using duration strings like '1m', '1h', or '1d'.",
+  "workaround": "Store duration as Int type in milliseconds, though this creates confusion about the unit and type semantics.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add support for creating custom search attributes of type Duration that allow users to filter using duration strings like 1m, 1h or 1d etc.",
+  "number": 6924,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:27.133Z"
+}

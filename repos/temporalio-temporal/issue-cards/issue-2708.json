@@ -1,0 +1,34 @@
+{
+  "summary": "User requested the ability to download workflow history from production and import it into a dev/test namespace for debugging and manual import scenarios.",
+  "category": "feature",
+  "subcategory": "workflow-history-management",
+  "apis": [
+    "ImportWorkflowExecution"
+  ],
+  "components": [
+    "admin-api",
+    "workflow-history",
+    "database",
+    "tdbg-tool"
+  ],
+  "concepts": [
+    "workflow-debugging",
+    "history-export",
+    "history-import",
+    "namespace-migration",
+    "dev-test-workflow",
+    "offline-analysis"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can more easily debug production workflows and manually manage workflow history across different environments.",
+  "rootCause": null,
+  "proposedFix": "Use AdminAPI ImportWorkflowExecution or tdbg workflow import command",
+  "workaround": "tdbg tool provides workflow import functionality with --input-filename option",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was already supported through AdminAPI ImportWorkflowExecution and tdbg tool's workflow import command",
+  "related": [],
+  "keyQuote": "This is supported with AdminAPI ImportWorkflowExecution, or tdbg tool",
+  "number": 2708,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:54.114Z"
+}

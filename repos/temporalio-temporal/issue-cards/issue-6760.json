@@ -1,0 +1,32 @@
+{
+  "summary": "Request to include in-memory sync match backlog count in ApproximateBacklogCount metric. Currently, tasks that never reach the durable backlog (such as queries and Nexus tasks) aren't reflected in backlog metrics, limiting visibility for autoscaling decisions in high sync match scenarios.",
+  "category": "feature",
+  "subcategory": "backlog-metrics",
+  "apis": [],
+  "components": [
+    "backlog",
+    "metrics",
+    "sync-match",
+    "worker-autoscaling"
+  ],
+  "concepts": [
+    "backlog-visibility",
+    "sync-matching",
+    "autoscaling",
+    "task-queuing",
+    "in-memory-tasks",
+    "durable-storage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately monitor and autoscale workers when high volumes of queries and Nexus tasks bypass the durable backlog.",
+  "rootCause": null,
+  "proposedFix": "Extend ApproximateBacklogCount to include in-memory sync match backlog in addition to durable backlog.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are some tasks that will never go to the durable backlog, such as queries and Nexus tasks. In those cases, and in cases where there's a high sync match rate, it's useful to know how many tasks are in the sync match backlog in order to autoscale workers.",
+  "number": 6760,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:24.586Z"
+}

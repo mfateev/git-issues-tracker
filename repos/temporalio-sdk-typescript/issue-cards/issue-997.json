@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to align TypeScript SDK's shutdown grace period behavior with Go/Python SDKs. The TS SDK's shutdown grace period currently measures time after activities are cancelled, but should also support measuring time between shutdown request and sending cancellation to activities.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "shutdown"
+  ],
+  "concepts": [
+    "shutdown",
+    "grace-period",
+    "cancellation",
+    "timeout",
+    "activities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure worker shutdown behavior consistently across Temporal SDKs, making it harder to port code between languages.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Completed in PR #1072, implementing consistent shutdown grace period semantics across SDKs.",
+  "related": [
+    1072
+  ],
+  "keyQuote": "In Go / Python SDKs shutdown grace period refers to the time between shutdown being requested and sending cancellation to running activities.",
+  "number": 997,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:43.740Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to add HTTP CONNECT proxy support across Temporal SDKs. Most SDKs already have support but need documentation; TypeScript and .NET implementations are still pending.",
+  "category": "feature",
+  "subcategory": "networking-http-proxy",
+  "apis": [],
+  "components": [
+    "http-client",
+    "proxy-configuration",
+    "grpc-transport"
+  ],
+  "concepts": [
+    "http-proxy",
+    "connect-method",
+    "networking",
+    "client-configuration",
+    "worker-setup",
+    "sdk-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need HTTP CONNECT proxy support for SDK clients and workers, which is currently missing or undocumented in some SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement HTTP CONNECT proxy support in TypeScript and .NET SDKs; document existing support in Go and Java; align with Core SDK implementation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    501,
+    714,
+    215,
+    521,
+    448,
+    5279
+  ],
+  "keyQuote": "Users need HTTP CONNECT proxies for SDK clients and workers. Some libraries have native support, some don't.",
+  "number": 323,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:35.006Z"
+}

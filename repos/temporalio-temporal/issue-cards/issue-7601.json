@@ -1,0 +1,32 @@
+{
+  "summary": "Multiple CVEs identified in Temporal server v1.27.2 including high-severity vulnerabilities in JWT libraries, OAuth2 dependencies, and other Go packages. Requires dependency updates to address security risks.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "server-release",
+    "docker-image",
+    "jwt-handling"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "CVE",
+    "dependency-management",
+    "container-image",
+    "compliance"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal server v1.27.2 are exposed to known security vulnerabilities that could be exploited, requiring urgent dependency updates to secure their deployments.",
+  "rootCause": "Outdated versions of transitive dependencies including golang-jwt/jwt, golang.org/x/net, golang.org/x/oauth2, and go-jose libraries in the server release.",
+  "proposedFix": "Upgrade affected dependencies: golang-jwt/jwt to v4.5.2+, golang.org/x/net/http/httpproxy to v0.36.0+, golang.org/x/oauth2/jws to v0.27.0+, github.com/go-jose/go-jose/v4 to v4.0.5+, and update go-jose from v2 to v4.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after CVE fixes were addressed in subsequent releases by upgrading vulnerable dependencies.",
+  "related": [],
+  "keyQuote": "Is an upgrade planned for temporal to address these CVEs? Mend in particular is showing go-jose - which is on v2, should be on v4, as v2 is no longer supported.",
+  "number": 7601,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:56.060Z"
+}

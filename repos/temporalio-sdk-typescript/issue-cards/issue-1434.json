@@ -1,0 +1,35 @@
+{
+  "summary": "SDK should warn or error when update handlers are not awaited before workflow completion (cancellation, failure, or success). This prevents silent handler abandonment and encourages best practices like using await-all-handlers or drop-all-handlers methods.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [
+    "all_handlers_finished"
+  ],
+  "components": [
+    "worker",
+    "workflow-engine",
+    "handler-lifecycle"
+  ],
+  "concepts": [
+    "handler-completion",
+    "workflow-exit",
+    "cancellation",
+    "update-semantics",
+    "graceful-shutdown",
+    "policy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may unknowingly abandon update handlers at workflow exit, leading to incomplete request processing without explicit notification.",
+  "rootCause": "Update handlers can dangle across CAN (cancellation) or workflow exit without explicit warning or policy enforcement.",
+  "proposedFix": "Implement HandlerUnfinishedPolicy with WARN_AND_ABANDON as default, provide all_handlers_finished() method, and emit UnfinishedUpdateHandlersWarning when handlers are incomplete at exit.",
+  "workaround": "Call await-all-handlers or drop-all-handlers methods explicitly before workflow completion.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in Python SDK via PR #556 with HandlerUnfinishedPolicy enum, all_handlers_finished() method, and warning system. Spec provided for other SDK implementations.",
+  "related": [
+    556
+  ],
+  "keyQuote": "Workflow code can wait on a method named similarly to workflow.all_handlers_finished(). By default, the worker will emit UnfinishedUpdateHandlersWarning if any handlers are unfinished when the workflow completes.",
+  "number": 1434,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:01:28.793Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Search attributes created via `temporal operator search-attribute create` appear to succeed but aren't actually persisted in v1.23.0, unlike v1.22.4. Additionally, error handling for duplicate attributes changed behavior between versions.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "operator-cli",
+    "search-attribute-service",
+    "database"
+  ],
+  "concepts": [
+    "persistence",
+    "database-compatibility",
+    "command-execution",
+    "state-verification",
+    "backward-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably create search attributes in v1.23.0 despite receiving success messages, breaking a core operational feature.",
+  "rootCause": "MySQL 5.7 compatibility issue with v1.23.0 search attribute creation logic",
+  "proposedFix": null,
+  "workaround": "Use MySQL 8 instead of MySQL 5.7 as the database backend",
+  "resolution": "invalid",
+  "resolutionDetails": "Resolved as database version incompatibility - issue was user configuration (MySQL 5.7) rather than a product bug. Works correctly with MySQL 8.",
+  "related": [],
+  "keyQuote": "Turns out this was because I was using mysql 5.7 as the database. It works with mysql 8.",
+  "number": 5669,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:19.746Z"
+}

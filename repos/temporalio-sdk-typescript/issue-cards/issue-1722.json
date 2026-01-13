@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to include decoded gRPC error details on all errors thrown from the Client API, not just specific high-level error classes. This would help users diagnose operational issues by providing access to server-provided error metadata, though it requires solving challenges around type checking, error serialization, and recursive protobuf decoding.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "Client"
+  ],
+  "components": [
+    "error-handling",
+    "grpc-client",
+    "protobuf-decoding",
+    "error-serialization"
+  ],
+  "concepts": [
+    "error-details",
+    "grpc-metadata",
+    "protobuf-decoding",
+    "error-context",
+    "operational-diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to access detailed error information from gRPC errors for better operational troubleshooting without waiting for specific error classes to be created.",
+  "rootCause": null,
+  "proposedFix": "Decode and attach detailed error messages to generic gRPC errors; solve instanceof limitations, JSON serialization of protobuf objects, and recursive protobuf decoding challenges",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1147
+  ],
+  "keyQuote": "We should therefore always decode detailed error messages and make them available on the generic grpc errors, even if we don't make specific error classes",
+  "number": 1722,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:57.021Z"
+}

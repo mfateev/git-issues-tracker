@@ -1,0 +1,30 @@
+{
+  "summary": "Remove the DisableHealthCheck option from Go SDK client.ConnectionOptions as the SDK is replacing health checks with server-info calls, making eager connectivity unavoidable. The client should not instantiate until it can reach a server.",
+  "category": "feature",
+  "subcategory": "client-connection",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "health-check"
+  ],
+  "concepts": [
+    "connectivity",
+    "health-check",
+    "server-info",
+    "client-initialization",
+    "eager-connectivity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to update their Go SDK integration to remove the deprecated DisableHealthCheck option and adapt to new eager connectivity behavior.",
+  "rootCause": "Go SDK replaced health check mechanism with get-server-info call, eliminating the ability to defer connectivity checks",
+  "proposedFix": "Remove the disable health check option and delay client instantiation until server connectivity can be established with retry logic",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "DisableHealthCheck option was removed from Go SDK client.ConnectionOptions as planned, aligning with the new server-info based connectivity model",
+  "related": [],
+  "keyQuote": "Remove the disable health check option in use and do not instantiate a client until it can reach a server (and/or retry as needed)",
+  "number": 2597,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:34.246Z"
+}

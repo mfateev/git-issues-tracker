@@ -1,0 +1,32 @@
+{
+  "summary": "The docker-compose-multirole.yaml example sometimes gets stuck on boot with temporal-history unable to reach the frontend service through nginx, resulting in health check failures with 204 responses lacking proper gRPC content-type headers.",
+  "category": "bug",
+  "subcategory": "docker-compose-setup",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "nginx",
+    "health-check",
+    "grpc"
+  ],
+  "concepts": [
+    "startup-synchronization",
+    "service-discovery",
+    "health-check",
+    "race-condition",
+    "grpc-compatibility",
+    "docker-networking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably start the multirole Temporal cluster locally, experiencing intermittent startup failures (~20% chance) that require manual service restarts to resolve.",
+  "rootCause": "Race condition in docker-compose startup where nginx and frontend services are not properly synchronized, causing temporal-history to receive invalid gRPC health check responses (204 No Content without Content-Type header) from nginx before frontend is ready.",
+  "proposedFix": null,
+  "workaround": "Restart temporal-frontend or temporal-frontend2 services manually, though this doesn't always resolve the issue.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Error: unable to health check temporal.api.workflowservice.v1.WorkflowService service: unexpected HTTP status code received from server: 204 (No Content); malformed header: missing HTTP content-type",
+  "number": 5455,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:54.403Z"
+}

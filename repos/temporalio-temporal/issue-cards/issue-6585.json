@@ -1,0 +1,30 @@
+{
+  "summary": "Add a history event to record when a Nexus operation request is delivered to the handler, enabling support for WAIT_CANCELLATION_REQUESTED CancellationType in SDKs similar to child workflow cancellation handling.",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [],
+  "components": [
+    "nexus-handler",
+    "history-events",
+    "cancellation"
+  ],
+  "concepts": [
+    "cancellation-type",
+    "operation-delivery",
+    "history-recording",
+    "handler-notification",
+    "nexus-protocol"
+  ],
+  "severity": "medium",
+  "userImpact": "SDKs cannot properly implement WAIT_CANCELLATION_REQUESTED behavior for Nexus operations without this history event.",
+  "rootCause": null,
+  "proposedFix": "Record a history event when a Nexus operation request is delivered to the handler",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Required to support the WAIT_CANCELLATION_REQUESTED CancellationType in the SDKs",
+  "number": 6585,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:44.614Z"
+}

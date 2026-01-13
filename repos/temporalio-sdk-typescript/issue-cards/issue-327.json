@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add statsd metrics support to TypeScript SDK to track ScheduleToStart and other metrics for production deployments using statsd and Datadog integration.",
+  "category": "feature",
+  "subcategory": "metrics-observability",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics-exporter",
+    "telemetry"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "statsd",
+    "datadog",
+    "production-deployment",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily export SDK metrics like ScheduleToStart to statsd/Datadog without additional infrastructure overhead.",
+  "rootCause": "TypeScript SDK lacks native statsd exporter support, unlike Java/Go SDKs which use Tally libraries with statsd connectors.",
+  "proposedFix": "Provide metrics export capabilities from SDK with statsd connector support, potentially through OpenTelemetry collectors or direct statsd export.",
+  "workaround": "Deploy OpenTelemetry Collector as intermediate service to bridge metrics, though this adds operational complexity.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided metrics export through OpenTelemetry Collector is more flexible and sustainable than embedding direct statsd support across all SDKs.",
+  "related": [],
+  "keyQuote": "The big problem here is that we emit metrics from both Core and Lang. Every direct export we support it needs to exist in Core and all langs",
+  "number": 327,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:25.839Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "When describing a workflow, activities that never sent a heartbeat incorrectly report their LastHeartbeatUpdateTime as equal to StartTime instead of being nil. The issue has been identified in the mutable state implementation.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "DescribeWorkflow"
+  ],
+  "components": [
+    "mutable_state",
+    "activity",
+    "workflow_state"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity_state",
+    "timestamp",
+    "nil_check",
+    "state_tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably determine whether an activity has sent heartbeats, as the LastHeartbeatUpdateTime field is misleading for activities that never heartbeat.",
+  "rootCause": "In mutable_state_impl.go around line 2049, LastHeartbeatUpdateTime is being set to StartTime instead of remaining nil for activities that have never heartbeat.",
+  "proposedFix": "Fix the code in mutable_state_impl.go to properly handle the case where an activity has never received a heartbeat, ensuring LastHeartbeatUpdateTime remains nil.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The bug was identified in mutable_state_impl.go and likely fixed after the issue report.",
+  "related": [],
+  "keyQuote": "For activity that never heartbeat, if you DescribeWorkflow the PendingActivity will have LastHeartbeatUpdateTime set to same value as StartTime. It should be nil if it never received a heartbeat.",
+  "number": 3358,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:00.415Z"
+}

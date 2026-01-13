@@ -1,0 +1,36 @@
+{
+  "summary": "Worker fails to query workflow executions with \"Workflow with the specified run identifier not found\" error in a small percentage of cases. The issue is resolved after restarting workers and was fixed in SDK version 2.6.1 with RoadRunner 2023.3.",
+  "category": "bug",
+  "subcategory": "workflow-query",
+  "apis": [
+    "WorkflowClient",
+    "query"
+  ],
+  "components": [
+    "worker",
+    "workflow-process-handler",
+    "router",
+    "query-handler"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "query",
+    "run-identifier",
+    "worker-state",
+    "connection-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are unable to query specific workflow executions intermittently, though the error resolves after worker restart.",
+  "rootCause": "RoadRunner version compatibility issue causing stale worker state preventing query resolution",
+  "proposedFix": "Upgrade to RoadRunner 2023.3 and SDK version 2.6.1 or later",
+  "workaround": "Restart the workers",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in SDK version 2.6.1 with RoadRunner 2023.3",
+  "related": [
+    340
+  ],
+  "keyQuote": "workflow_process_handle_query: Workflow with the specified run identifier not found",
+  "number": 361,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:22.740Z"
+}

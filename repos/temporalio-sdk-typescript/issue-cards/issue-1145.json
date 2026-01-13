@@ -1,0 +1,33 @@
+{
+  "summary": "Client.schedule.create() returns incorrect 'Schedule not found' error when using a non-existent namespace, instead of reporting that the namespace itself doesn't exist. Similar error handling issues likely affect other ScheduleClient and WorkflowClient methods.",
+  "category": "bug",
+  "subcategory": "schedule-client",
+  "apis": [
+    "schedule.create"
+  ],
+  "components": [
+    "schedule-client",
+    "error-handling",
+    "namespace-validation"
+  ],
+  "concepts": [
+    "error-message-accuracy",
+    "namespace-resolution",
+    "exception-handling",
+    "client-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive misleading error messages when configuring clients with incorrect namespaces, making it harder to diagnose configuration issues.",
+  "rootCause": "Error handling in ScheduleClient likely masks underlying namespace-not-found errors with generic schedule-not-found responses",
+  "proposedFix": "See issue #976 and its comments for suggested error handling fix approach",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through error handling improvements referenced in #976",
+  "related": [
+    976
+  ],
+  "keyQuote": "trying to create a new schedule results in a \"Schedule not found\" exception, rather than something like \"Namespace not found\"",
+  "number": 1145,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:19.392Z"
+}

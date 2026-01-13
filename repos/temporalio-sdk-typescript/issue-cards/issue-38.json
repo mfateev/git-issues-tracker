@@ -1,0 +1,32 @@
+{
+  "summary": "Worker constructor lacks connection options, forcing localhost-only connections. This issue requests adding connection options to the worker constructor and passing them to core initialization.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "connection",
+    "core-initialization"
+  ],
+  "concepts": [
+    "connection-options",
+    "networking",
+    "worker-setup",
+    "localhost-limitation",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot connect workers to remote Temporal servers, limiting deployment flexibility to local development only.",
+  "rootCause": null,
+  "proposedFix": "Add connection options parameter to worker constructor and pass them through to core initialization",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Connection options were added to worker constructor",
+  "related": [],
+  "keyQuote": "Currently can only connect to localhost.",
+  "number": 38,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:56.690Z"
+}

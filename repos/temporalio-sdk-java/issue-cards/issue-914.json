@@ -1,0 +1,32 @@
+{
+  "summary": "Worker factory shutdown doesn't properly destroy in-flight cached workflows, causing resource leaks and blocking clean JVM shutdown since workflow threads are not daemon processes.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [],
+  "components": [
+    "worker-factory",
+    "workflow-cache",
+    "thread-pool",
+    "shutdown"
+  ],
+  "concepts": [
+    "resource-cleanup",
+    "lifecycle-management",
+    "thread-safety",
+    "memory-leak",
+    "shutdown-semantics",
+    "worker-termination"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience resource leaks when recreating worker factories and JVM shutdown is blocked by non-daemon workflow threads.",
+  "rootCause": "In-flight cached workflows are not being destroyed during worker factory shutdown, leaving workflow threads alive.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker shutdown process was updated to properly clean up in-flight cached workflows and ensure daemon thread handling.",
+  "related": [],
+  "keyQuote": "If there are non-completed workflows in the workflow cache and thread pool, these workflows are not getting destroyed.",
+  "number": 914,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:52:56.802Z"
+}

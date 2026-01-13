@@ -1,0 +1,34 @@
+{
+  "summary": "Request for an official Temporal integration with the OpenAI Agents SDK for JavaScript/TypeScript, similar to the existing Python SDK integration. This would enable durable state persistence, fault recovery, observability, and scalable agent execution within Temporal workflows.",
+  "category": "feature",
+  "subcategory": "ai-agents-integration",
+  "apis": [],
+  "components": [
+    "sdk-typescript",
+    "plugin-system",
+    "ai-integration"
+  ],
+  "concepts": [
+    "agent-orchestration",
+    "durable-execution",
+    "fault-tolerance",
+    "observability",
+    "state-persistence",
+    "retry-logic",
+    "ai-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "TypeScript/JavaScript developers cannot leverage Temporal's durability and fault recovery capabilities with the OpenAI Agents SDK, limiting enterprise-grade agent deployments.",
+  "rootCause": null,
+  "proposedFix": "Develop and release an official OpenAIAgentsPlugin for the TypeScript SDK with equivalent functionality to the Python integration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1792
+  ],
+  "keyQuote": "The first AI agents library we're integrating with in TS is ai. The PR is in review, so it should hopefully land soon.",
+  "number": 1755,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:19.129Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Need to establish a formal testing approach to verify that workflow histories remain compatible across SDK versions and will continue to be in the future. Current practices are fragmented across different SDKs and languages.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "history-replay",
+    "testing-framework",
+    "sdk-compatibility",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "history-compatibility",
+    "workflow-replay",
+    "cross-version-testing",
+    "regression-testing",
+    "async-utilities",
+    "coroutine-order"
+  ],
+  "severity": "high",
+  "userImpact": "Users need assurance that upgrading to newer SDK versions won't break replaying old workflow histories, which is critical for long-running distributed systems.",
+  "rootCause": null,
+  "proposedFix": "Leverage existing patterns from features repo (--generate-history), Go/Java SDK unit test histories, omes fuzzer for history generation, and ensure replay testing includes language-specific async utilities.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need a more formal way to test that history is compatible across SDK versions and will continue to be.",
+  "number": 598,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:09:06.817Z"
+}

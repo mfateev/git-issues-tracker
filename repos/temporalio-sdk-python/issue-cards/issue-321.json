@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow Temporal exceptions from data converters and codecs to fail the entire workflow rather than just the individual task. Conversion failures have been addressed, but codec failure handling requires more implementation work and community consensus.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "converter",
+    "codec",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "error-handling",
+    "exception-propagation",
+    "workflow-failure",
+    "data-serialization",
+    "failure-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably handle serialization/codec failures at the workflow level, limiting error recovery options and requiring workarounds.",
+  "rootCause": null,
+  "proposedFix": "Extend workflow-level failure semantics to codec operations, similar to the conversion handling implemented in #329.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    329
+  ],
+  "keyQuote": "Need to let conversion and encoding/decoding fail workflow instead of just task.",
+  "number": 321,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:49.577Z"
+}

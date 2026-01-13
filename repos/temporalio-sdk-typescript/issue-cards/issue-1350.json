@@ -1,0 +1,32 @@
+{
+  "summary": "The @temporalio/interceptors-opentelemetry package v1.9.0 has a peer dependency conflict with @temporalio/activity, requiring file:// references instead of version numbers. This prevents installation even though other packages can be updated to v1.9.0 successfully.",
+  "category": "bug",
+  "subcategory": "package-dependencies",
+  "apis": [],
+  "components": [
+    "interceptors-opentelemetry",
+    "package-manager",
+    "peer-dependencies"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "npm-packaging",
+    "version-mismatch",
+    "peer-dependencies",
+    "package-installation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot install or upgrade @temporalio/interceptors-opentelemetry v1.9.0 due to unresolvable peer dependency conflicts, blocking their ability to use OpenTelemetry integration with the updated SDK.",
+  "rootCause": "The interceptors-opentelemetry package was published with peer dependency declarations using file:// references instead of version number ranges, making it incompatible with npm's dependency resolver when other packages were upgraded to v1.9.0.",
+  "proposedFix": "Update the peer dependency declarations in the package to use proper version ranges instead of file references, as fixed in v1.9.1.",
+  "workaround": "Use npm install with --force or --legacy-peer-deps flags to bypass the dependency check.",
+  "resolution": "fixed",
+  "resolutionDetails": "Published version 1.9.1 which corrects the peer dependency declarations, allowing normal installation without workarounds.",
+  "related": [
+    1330
+  ],
+  "keyQuote": "peer @temporalio/activity@\"file:../activity\" from @temporalio/interceptors-opentelemetry@1.9.0 - unable to resolve dependency tree",
+  "number": 1350,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:18.393Z"
+}

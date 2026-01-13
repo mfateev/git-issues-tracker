@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for `StartWorkflowOptions.workflowStartDelay` that was recently introduced in the server. The API should expose this option to allow workflows to start with a specified delay.",
+  "category": "feature",
+  "subcategory": "workflow-options",
+  "apis": [
+    "StartWorkflow",
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "client",
+    "workflow-client",
+    "options"
+  ],
+  "concepts": [
+    "workflow-delay",
+    "start-delay",
+    "scheduling",
+    "workflow-execution",
+    "client-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently use the server's workflow start delay feature from the TypeScript SDK, limiting scheduling capabilities.",
+  "rootCause": null,
+  "proposedFix": "Expose `workflowStartDelay` (or `startDelay` as recommended) in the `StartWorkflowOptions` interface",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented, with naming feedback suggesting `startDelay` as the API name",
+  "related": [],
+  "keyQuote": "workflowStartDelay was introduced recently in server. Need to expose it in StartWorkflowOptions",
+  "number": 1262,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:40.801Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow signal handlers with non-deterministic logic that would fail on replay should throw NonDeterministicException instead of IllegalStateException. Currently, signals received after workflow completion result in an error that doesn't properly indicate a determinism violation.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "workflow-executor",
+    "determinism-checker"
+  ],
+  "concepts": [
+    "non-determinism",
+    "replay",
+    "signal-handling",
+    "workflow-completion",
+    "deterministic-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users receive misleading error messages (IllegalStateException) instead of proper NonDeterministicException when signal handlers have non-deterministic behavior, making it harder to debug workflow logic errors.",
+  "rootCause": "Signal handler non-determinism check doesn't distinguish between actual post-completion signals and replay-induced determinism violations, throwing generic IllegalStateException instead.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a workflow receives multiple signals and one signal has non deterministic logic in the signal handler that originally did not continue as new but on replay does should throw a `NonDeterministicException`",
+  "number": 1928,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:47.139Z"
+}

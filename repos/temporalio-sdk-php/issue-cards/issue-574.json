@@ -1,0 +1,30 @@
+{
+  "summary": "Request to implement support for a RawValue payload wrapper that allows converters to skip conversion and pass values unchanged, similar to the feature being added across Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "converter",
+    "payload-handling"
+  ],
+  "concepts": [
+    "serialization",
+    "payload-wrapper",
+    "type-conversion",
+    "raw-values"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to work with raw payload values that bypass automatic conversion when needed.",
+  "rootCause": null,
+  "proposedFix": "Implement a simple payload wrapper that signals converters to skip conversion, as defined in the cross-SDK feature specification.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    603
+  ],
+  "keyQuote": "need a simple payload wrapper that tells converters not to apply conversion",
+  "number": 574,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:41:18.154Z"
+}

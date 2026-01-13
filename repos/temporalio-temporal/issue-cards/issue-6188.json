@@ -1,0 +1,32 @@
+{
+  "summary": "CreateSchedule API accepts empty workflowID when it should fail validation, causing duplicate workflow ID conflicts when called multiple times within a second interval.",
+  "category": "bug",
+  "subcategory": "schedule-validation",
+  "apis": [
+    "CreateSchedule"
+  ],
+  "components": [
+    "schedule-service",
+    "workflow-id-validation",
+    "schedule-creation"
+  ],
+  "concepts": [
+    "validation",
+    "input-constraints",
+    "workflow-id",
+    "duplicate-detection",
+    "race-condition"
+  ],
+  "severity": "high",
+  "userImpact": "Users can create schedules with invalid empty workflowID, leading to unpredictable behavior including workflow ID conflicts and inconsistent execution.",
+  "rootCause": "Missing validation for empty workflowID in CreateSchedule API",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This cause some of them to succeed, but others to fail with workflow ID conflict if you call it multiple times in 1s.",
+  "number": 6188,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:34.733Z"
+}

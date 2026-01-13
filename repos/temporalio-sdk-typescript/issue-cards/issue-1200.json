@@ -1,0 +1,30 @@
+{
+  "summary": "The metric `workflow_task_execution_failed` is missing the `workflow_type` tag after upgrading from SDK 1.6.0 to 1.8.2, making it difficult to route alerts by workflow type. The `task_queue` tag works correctly.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-executor",
+    "core"
+  ],
+  "concepts": [
+    "monitoring",
+    "metrics-tagging",
+    "workflow-classification",
+    "alerting",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot monitor workflow task execution failures per workflow type, limiting their ability to route alerts to the correct teams.",
+  "rootCause": "Change in sdk-core PR #481 stopped emitting the `workflow_type` tag on the `workflow_task_execution_failed` metric",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Post-upgrade metrics to 1.8.2 are now tagged correctly with workflow_type; the issue was likely resolved by the sdk-core change that reintroduced proper tagging",
+  "related": [],
+  "keyQuote": "the metric for `workflow_task_execution_failed` stopped being emitted... we used to get some tags on the metric for the `workflow_type`, but that's no longer coming through",
+  "number": 1200,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:50.278Z"
+}

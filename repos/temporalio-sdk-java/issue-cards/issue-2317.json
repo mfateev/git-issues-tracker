@@ -1,0 +1,35 @@
+{
+  "summary": "Add runtime validation to ensure update validator methods have matching parameter signatures with the update methods they validate. This prevents runtime errors from mismatched method signatures.",
+  "category": "feature",
+  "subcategory": "update-validation",
+  "apis": [
+    "UpdateHandler"
+  ],
+  "components": [
+    "update-validator",
+    "signature-validation",
+    "runtime-checks"
+  ],
+  "concepts": [
+    "method-signature",
+    "parameter-matching",
+    "validation",
+    "runtime-check",
+    "type-safety",
+    "reflection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could deploy incorrect validator implementations without catching signature mismatches until runtime.",
+  "rootCause": null,
+  "proposedFix": "Implement runtime validation that compares the parameter portion of the validator method signature against the update method signature it validates.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Runtime check was implemented to validate parameter signatures match between update validators and their corresponding update methods.",
+  "related": [
+    689
+  ],
+  "keyQuote": "We need to make sure at runtime the parameter portion of the signature of the validator matches the parameter portion of the signature of the update method it is validating.",
+  "number": 2317,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:27.267Z"
+}

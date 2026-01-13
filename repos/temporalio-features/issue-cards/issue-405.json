@@ -1,0 +1,33 @@
+{
+  "summary": "Server does not properly rate limit eager activities. SDKs need to disable eager activities when task queue rate limits are configured until the server can address this limitation.",
+  "category": "feature",
+  "subcategory": "eager-activities",
+  "apis": [],
+  "components": [
+    "eager-activities",
+    "task-queue",
+    "rate-limiting",
+    "worker"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "eager-activities",
+    "task-queue",
+    "performance",
+    "backpressure"
+  ],
+  "severity": "high",
+  "userImpact": "Users with task queue rate limits enabled cannot use eager activities, limiting performance optimization options.",
+  "rootCause": "Server does not properly rate limit eager activities, causing conflicts with task queue rate limit settings.",
+  "proposedFix": "Disable eager activities in SDKs when task queue rate limit is active, until server resolves the underlying issue.",
+  "workaround": "Use task queue rate limiting without eager activities, or disable rate limiting to use eager activities.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in Go SDK (PR #1350), Java SDK (Issue #1978), and Core SDK (Issue #840) by disabling eager activities when rate limits are set.",
+  "related": [
+    6800
+  ],
+  "keyQuote": "Until server can address this we have agreed to disable eager activities if the task queue rate limit is active",
+  "number": 405,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:00.564Z"
+}

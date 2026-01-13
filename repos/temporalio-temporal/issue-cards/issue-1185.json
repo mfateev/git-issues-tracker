@@ -1,0 +1,34 @@
+{
+  "summary": "TestActivityEnvironment lacks support for injecting ActivityCompletionClient, which is needed for testing activities that use asynchronous completion. Users currently cannot test isolated activities that require this client.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ActivityCompletionClient",
+    "TestActivityEnvironment",
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "activity-executor",
+    "test-framework",
+    "activity-client"
+  ],
+  "concepts": [
+    "activity-completion",
+    "async-completion",
+    "testing",
+    "dependency-injection",
+    "isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively test activities that use asynchronous completion patterns with ActivityCompletionClient in isolation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was recreated and addressed in the Go SDK with corresponding fixes applied across SDKs.",
+  "related": [],
+  "keyQuote": "We are using TestActivityEnvironment to isolate activity testing, but the challenge for us is that we need to inject an ActivityCompletionClient into the activity",
+  "number": 1185,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:37.918Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to implement a configurable timeout for workflow activation to prevent workers from becoming unresponsive when workflows enter infinite loops. This would limit CPU usage and thread pool occupation caused by stuck workflows.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "isolate-thread-pool",
+    "workflow-activation"
+  ],
+  "concepts": [
+    "timeout",
+    "resource-management",
+    "thread-pool",
+    "infinite-loop",
+    "CPU-usage",
+    "responsiveness"
+  ],
+  "severity": "high",
+  "userImpact": "Workers can become unresponsive and consume excessive CPU when workflows get stuck in infinite loops, impacting application stability.",
+  "rootCause": "Workflows without execution time limits can run indefinitely, blocking worker threads and consuming resources.",
+  "proposedFix": "Use a configurable timeout parameter (similar to isolated-vm's timeout option) to limit workflow activation time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented configurable workflow activation timeout to prevent unresponsive workers from stuck workflows.",
+  "related": [],
+  "keyQuote": "Use a configurable timeout to limit the WF activation time.",
+  "number": 108,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:57.766Z"
+}

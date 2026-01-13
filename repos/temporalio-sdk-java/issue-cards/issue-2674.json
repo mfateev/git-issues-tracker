@@ -1,0 +1,30 @@
+{
+  "summary": "TestWorkflowExtension throws an IllegalStateException when using external service mode and tests fail, because getDiagnostics is called on the external service which doesn't support it.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowExtension",
+    "TestWorkflowEnvironmentInternal",
+    "external-service"
+  ],
+  "concepts": [
+    "test-environment",
+    "external-service",
+    "diagnostics",
+    "error-handling",
+    "test-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using external service fail with an unrelated IllegalStateException instead of showing the actual test failure.",
+  "rootCause": "TestWorkflowEnvironmentInternal.getDiagnostics() is called unconditionally but throws an exception when running with external service, which doesn't support diagnostics.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "java.lang.IllegalStateException: getDiagnostics is not supported with the external service",
+  "number": 2674,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:15:46.793Z"
+}

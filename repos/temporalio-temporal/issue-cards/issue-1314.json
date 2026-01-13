@@ -1,0 +1,34 @@
+{
+  "summary": "S3 archival integration fails with 'only operation = is support for CloseTime' error when querying visibility or history data through archival providers. The error occurs regardless of whether enableRead is enabled in the S3 configuration.",
+  "category": "bug",
+  "subcategory": "archival-s3",
+  "apis": [],
+  "components": [
+    "archival",
+    "s3store",
+    "visibility",
+    "history"
+  ],
+  "concepts": [
+    "archival",
+    "s3-integration",
+    "query-operation",
+    "visibility-archival",
+    "history-archival"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use S3 archival for history and visibility storage, blocking archival functionality in production deployments.",
+  "rootCause": "S3 archival provider does not support CloseTime filtering operations in query requests, restricting supported query operations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [
+    3544,
+    273
+  ],
+  "keyQuote": "only operation = is support for CloseTime",
+  "number": 1314,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:56.516Z"
+}

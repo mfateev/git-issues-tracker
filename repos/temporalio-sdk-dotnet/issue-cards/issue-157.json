@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to automatically default TemporalWorkerOptions.DebugMode to the value of Debugger.IsAttached, while still allowing explicit overrides to true or false.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "TemporalWorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "configuration",
+    "debug-mode"
+  ],
+  "concepts": [
+    "debugging",
+    "developer-experience",
+    "configuration-defaults",
+    "debugger-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can have debug mode automatically enabled when a debugger is attached, reducing manual configuration.",
+  "rootCause": null,
+  "proposedFix": "Default TemporalWorkerOptions.DebugMode to Debugger.IsAttached value",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after feature implementation",
+  "related": [],
+  "keyQuote": "Default `TemporalWorkerOptions.DebugMode` to `Debugger.IsAttached`. Still must be explicitly overridable to true/false of course.",
+  "number": 157,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:49:55.686Z"
+}

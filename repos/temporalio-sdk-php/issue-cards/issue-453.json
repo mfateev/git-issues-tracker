@@ -1,0 +1,32 @@
+{
+  "summary": "ContinueAsNew options DTO doesn't inherit the Workflow's Task Queue by default, violating Temporal's documented behavior that continued workflows should run on the same compatible task queue as the original.",
+  "category": "bug",
+  "subcategory": "continue-as-new",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "continue-as-new",
+    "dto",
+    "task-queue"
+  ],
+  "concepts": [
+    "task-queue",
+    "continue-as-new",
+    "workflow-options",
+    "inheritance",
+    "versioning"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using ContinueAsNew may not route to the correct task queue, potentially breaking compatibility and versioning strategies.",
+  "rootCause": "ContinueAsNew options DTO doesn't automatically inherit the parent Workflow's Task Queue setting",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ContinueAsNew options DTO was updated to inherit the Workflow's Task Queue by default",
+  "related": [],
+  "keyQuote": "By default, a versioned Task Queue's Continue-as-New function starts the continued Workflow on the same compatible set as the original Workflow.",
+  "number": 453,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:22.296Z"
+}

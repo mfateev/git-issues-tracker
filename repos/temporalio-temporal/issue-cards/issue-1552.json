@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal server should include the type of throttling limit and throttling QPS in resource limit exceeded error messages to help users better understand and debug rate limiting issues.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "server",
+    "rate-limiter",
+    "error-handling"
+  ],
+  "concepts": [
+    "throttling",
+    "resource-limits",
+    "rate-limiting",
+    "error-messages",
+    "observability",
+    "operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive vague resource limit exceeded errors without understanding which limit was hit or the actual QPS, making it harder to diagnose and resolve rate limiting issues.",
+  "rootCause": null,
+  "proposedFix": "Include throttling limit type and current QPS in the error message details",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal server should include type of throttling limit & throttling QPS within resource limit exceeded error message",
+  "number": 1552,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:54:45.239Z"
+}

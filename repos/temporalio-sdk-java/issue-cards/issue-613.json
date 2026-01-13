@@ -1,0 +1,32 @@
+{
+  "summary": "When a workflow stub is created using a workflowId, calling a workflow method should block waiting for the result if a workflow with that ID is already running, rather than throwing an exception. Currently it throws an exception instead.",
+  "category": "feature",
+  "subcategory": "workflow-stub",
+  "apis": [
+    "WorkflowClient.newWorkflowStub"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-stub",
+    "workflow-id-reuse"
+  ],
+  "concepts": [
+    "workflow-reconnection",
+    "synchronous-execution",
+    "workflow-id-reuse-policy",
+    "blocking-call",
+    "workflow-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably wait for workflow completion when reconnecting to existing workflows by ID, forcing them to handle exceptions instead of blocking naturally.",
+  "rootCause": null,
+  "proposedFix": "Modify the workflow stub to block and wait for the workflow result when invoked with an existing workflowId, only throwing an exception if no workflow with that ID exists.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When a workflow stub is created by a workflowId and the workflow method is invoked then the call should block waiting for a workflow result if a workflow with the given id is already running.",
+  "number": 613,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:28:17.142Z"
+}

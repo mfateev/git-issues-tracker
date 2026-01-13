@@ -1,0 +1,34 @@
+{
+  "summary": "Spring Boot starter should allow users to define custom *Customizer beans to intercept and modify all *Options class instances for advanced configuration beyond externalized properties.",
+  "category": "feature",
+  "subcategory": "spring-boot-starter",
+  "apis": [
+    "WorkerFactoryOptions",
+    "WorkerOptions"
+  ],
+  "components": [
+    "spring-boot-starter",
+    "options-configuration",
+    "worker-creation"
+  ],
+  "concepts": [
+    "customization",
+    "interceptors",
+    "externalized-configuration",
+    "dependency-injection",
+    "flexibility",
+    "spring-boot"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily customize complex Option objects through Spring Boot configuration without full property exposure.",
+  "rootCause": "Spring Boot starter abstracts worker creation internally, preventing users from applying custom logic to Options instances.",
+  "proposedFix": "Implement *Customizer pattern (following Spring Boot conventions) to allow users to define beans that intercept and modify all *Options classes.",
+  "workaround": "Expose all properties through Spring externalized config, though this is not trivial for complex object values.",
+  "resolution": "fixed",
+  "resolutionDetails": "Spring Boot starter was updated to support user-defined *Customizers for Options classes, enabling flexible customization.",
+  "related": [],
+  "keyQuote": "Spring boot supports externalized configuration, but for full flexibility, JavaSDK Spring Boot should allow users to intercept the creation of all *Options instances",
+  "number": 1394,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:32:34.045Z"
+}

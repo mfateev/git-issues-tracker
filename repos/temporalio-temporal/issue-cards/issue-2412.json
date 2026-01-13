@@ -1,0 +1,33 @@
+{
+  "summary": "Add resource_type field to resource_exhausted errors to distinguish between RPS limit and concurrent poller limit errors, and emit metrics with this type tag for better observability.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "metrics",
+    "resource-management"
+  ],
+  "concepts": [
+    "resource-exhausted",
+    "error-tagging",
+    "metrics-emission",
+    "rate-limiting",
+    "observability",
+    "error-classification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently distinguish different causes of resource_exhausted errors or track them separately in metrics, limiting debugging and monitoring capabilities.",
+  "rootCause": "resource_exhausted error lacks type information to differentiate between RPS limit and concurrent poller limit scenarios.",
+  "proposedFix": "Include resource_type field in resource_exhausted error and emit metrics with type tag when the error is returned.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed in PR #2423 to add resource_type field and metrics tagging.",
+  "related": [
+    2423
+  ],
+  "keyQuote": "include resource_type to resource_exhausted error and emit metrics with tag of type when resource_exhausted error is returned",
+  "number": 2412,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:18.588Z"
+}

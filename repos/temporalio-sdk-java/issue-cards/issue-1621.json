@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add an `addMemo()` method to ContinueAsNewOptions.Builder that allows appending memo values to the next workflow execution without requiring access to the current execution's entire memo map. Currently users must extract all existing memo values before setting new ones when continuing a workflow.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNewOptions"
+  ],
+  "components": [
+    "workflow-engine",
+    "continuation",
+    "memo-management"
+  ],
+  "concepts": [
+    "state-preservation",
+    "workflow-continuation",
+    "memo-metadata",
+    "api-ergonomics",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily add memo values when continuing workflows as new without duplicating all existing memo data, complicating abstraction layers that manage standard memo values.",
+  "rootCause": null,
+  "proposedFix": "Add `addMemo(key, value)` method to ContinueAsNewOptions.Builder that allows setting additional memo values while preserving existing ones from the current execution.",
+  "workaround": "Either add memo values to workflow arguments (leaky abstraction) or maintain a list of all known memo keys to manually reconstruct the entire memo map.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "ContinueAsNewOptions allows setting the entire memo map...in order to *add* new memo values to the next run while preserving existing values, we need to extract all the values",
+  "number": 1621,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:34.673Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The Java SDK's temporal-serviceclient dependency includes a vulnerable version of grpc-netty-shaded (<1.75.0) that triggers a High-severity CVE-2025-55163 (Netty/HTTP2 DDoS vulnerability), blocking builds for teams using corporate security scanners.",
+  "category": "bug",
+  "subcategory": "dependency-vulnerability",
+  "apis": [],
+  "components": [
+    "temporal-serviceclient",
+    "grpc-netty-shaded",
+    "dependency-management"
+  ],
+  "concepts": [
+    "vulnerability",
+    "CVE",
+    "DDoS",
+    "security-scanning",
+    "grpc",
+    "netty",
+    "dependency-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the Java SDK are unable to build and deploy applications due to high-severity CVE detected by corporate security scanners.",
+  "rootCause": "temporal-serviceclient depends on grpc-netty-shaded version 1.58.1, which is vulnerable to CVE-2025-55163 (Netty/HTTP2 MadeYouReset DDoS vulnerability)",
+  "proposedFix": "Upgrade grpc-netty-shaded to version 1.75.0 or higher",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Upgraded grpc-netty-shaded dependency to version 1.75.0",
+  "related": [],
+  "keyQuote": "CVE: CVE-2025-55163, Severity: High, Description: Netty/HTTP2 \"MadeYouReset\" DDoS vulnerability, Fix version: 1.75.0",
+  "number": 8663,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:48.361Z"
+}

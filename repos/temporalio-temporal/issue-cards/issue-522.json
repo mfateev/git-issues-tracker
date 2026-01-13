@@ -1,0 +1,37 @@
+{
+  "summary": "The Authorizer interface is too simplistic for multi-tenant cluster operators who need to enforce fine-grained authorization policies, including restricting namespace visibility and admin operations. Users want richer context to make authorization decisions beyond just API name and namespace name.",
+  "category": "feature",
+  "subcategory": "authorization",
+  "apis": [
+    "RegisterNamespace",
+    "UpdateNamespace",
+    "DeprecateNamespace",
+    "ListNamespaces"
+  ],
+  "components": [
+    "authorization",
+    "authorizer",
+    "access-control",
+    "namespace-management"
+  ],
+  "concepts": [
+    "multi-tenancy",
+    "authorization",
+    "access-control",
+    "namespace-filtering",
+    "admin-operations",
+    "user-roles"
+  ],
+  "severity": "high",
+  "userImpact": "Multi-tenant cluster operators cannot implement required authorization policies without brittle workarounds or maintaining forks of the upstream code.",
+  "rootCause": "The Authorize interface only provides API name and target namespace as context for authorization decisions, lacking support for per-namespace user roles and result filtering.",
+  "proposedFix": "Extend authorization.Result to include AuthorizedNamespaces field and support per-namespace user roles with ClaimMapper to filter results for APIs like ListNamespaces.",
+  "workaround": "Implement custom AccessControlledWorkflowHandler or maintain a fork of upstream temporal code to perform post-filtering of results.",
+  "resolution": "fixed",
+  "resolutionDetails": "Refactored authorization mechanism with Authorizer and ClaimMapper now supports per-namespace user roles and system-level roles. ListNamespaces filtering remains as separate limitation.",
+  "related": [],
+  "keyQuote": "The only information we have to go on to make a Deny/Allow decision is whatever credentials we find in the context along with the name of the API call",
+  "number": 522,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:12:53.316Z"
+}

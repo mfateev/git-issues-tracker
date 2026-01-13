@@ -1,0 +1,33 @@
+{
+  "summary": "Document and add tests confirming that asyncio.Lock and asyncio.Semaphore can be used safely in Python workflows to control interleaving of signal and update handlers with the main workflow coroutine.",
+  "category": "docs",
+  "subcategory": "concurrency-control",
+  "apis": [],
+  "components": [
+    "asyncio",
+    "signal-handlers",
+    "update-handlers",
+    "workflow-coroutine"
+  ],
+  "concepts": [
+    "concurrency-control",
+    "asyncio-lock",
+    "asyncio-semaphore",
+    "signal-handling",
+    "update-handling",
+    "interleaving",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need clear documentation and tested examples to safely use asyncio primitives for controlling concurrency in workflow code.",
+  "rootCause": null,
+  "proposedFix": "Add documentation and tests demonstrating safe usage of asyncio.Lock and asyncio.Semaphore in workflow code.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation and tests were added via samples-python PR #123 and documentation PR #2959.",
+  "related": [],
+  "keyQuote": "using `asyncio.Lock` in `sdk-python` workflow code is appropriate and recommended",
+  "number": 554,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:22.945Z"
+}

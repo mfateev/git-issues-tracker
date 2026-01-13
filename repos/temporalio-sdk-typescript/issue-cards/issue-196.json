@@ -1,0 +1,31 @@
+{
+  "summary": "API reference documentation shows repeated 'v1' namespace labels in the menu, appearing as a bug. User requests clarification by either showing both namespace and version (e.g., 'command.v1', 'common.v1') or omitting generated protobuf types from the reference.",
+  "category": "docs",
+  "subcategory": "api-reference",
+  "apis": [],
+  "components": [
+    "api-reference",
+    "documentation",
+    "protobuf-types"
+  ],
+  "concepts": [
+    "documentation-clarity",
+    "namespace-organization",
+    "menu-structure",
+    "protobuf-generated-code"
+  ],
+  "severity": "low",
+  "userImpact": "Users find the API reference documentation confusing due to unclear labeling of namespace versions in the menu.",
+  "rootCause": "Generated protobuf types are displayed in the API reference menu without clear distinction between namespace and version labels.",
+  "proposedFix": "Either clarify menu items to show 'namespace.version' format (e.g., 'command.v1', 'common.v1') or omit generated protobuf types from the API reference entirely.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by considering whether to omit generated protobuf types from the API reference, related to issue #115.",
+  "related": [
+    115
+  ],
+  "keyQuote": "we might just want to omit the generated protobuf types from the API reference. Let's consider our options.",
+  "number": 196,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:54.082Z"
+}

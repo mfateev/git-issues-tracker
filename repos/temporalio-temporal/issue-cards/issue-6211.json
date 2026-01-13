@@ -1,0 +1,32 @@
+{
+  "summary": "Worker versioning test flakes intermittently when querying workflows on pre-1.24 servers, with RPC timeouts occurring sporadically. Suspected issue with UpdateWorkerBuildIdCompatibility not being strongly consistent, particularly on slower GitHub runners.",
+  "category": "bug",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "UpdateWorkerBuildIdCompatibility"
+  ],
+  "components": [
+    "worker",
+    "versioning",
+    "test-framework"
+  ],
+  "concepts": [
+    "consistency",
+    "timeout",
+    "flakiness",
+    "query",
+    "build-id-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience intermittent RPC timeout failures when querying workflows with versioning enabled, particularly in resource-constrained environments.",
+  "rootCause": "UpdateWorkerBuildIdCompatibility may not be strongly consistent, causing timing-dependent failures in versioning queries",
+  "proposedFix": null,
+  "workaround": "Test is currently skipped to prevent flakiness",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Querying a workflow with versioning for some reason sometimes now times out (i.e. gets \"Timeout expired\" RPC failure).",
+  "number": 6211,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:09.564Z"
+}

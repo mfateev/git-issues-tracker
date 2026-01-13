@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support per-method activity options in Java SDK, allowing different timeouts and configurations for individual activities within a common activity interface without requiring separate stubs.",
+  "category": "feature",
+  "subcategory": "activity-options",
+  "apis": [
+    "ActivityMethod",
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity-stub",
+    "activity-interface",
+    "activity-executor"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-configuration",
+    "per-method-options",
+    "activity-interface",
+    "configuration-management",
+    "stub-creation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently create separate activity stubs for each activity requiring different options, reducing code reusability and increasing complexity.",
+  "rootCause": "ActivityMethod annotation only supports name overriding, not full options configuration like timeouts and retry policies.",
+  "proposedFix": "Add ActivityOptions annotation support to @ActivityMethod to allow specifying per-method options directly on activity interface methods.",
+  "workaround": "Create separate activity stub instances for each activity type, each with its own ActivityOptions configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement implemented to support per-method activity options configuration.",
+  "related": [],
+  "keyQuote": "Support per activity type options when configuring activity stub instance. Consider adding ActivityOptions annotation to the activity method.",
+  "number": 370,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:10:34.528Z"
+}

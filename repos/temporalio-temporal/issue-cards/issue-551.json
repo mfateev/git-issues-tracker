@@ -1,0 +1,29 @@
+{
+  "summary": "AWS Elasticsearch connections fail due to default sniffing and health check features being incompatible. User requests configuration options to disable these features.",
+  "category": "feature",
+  "subcategory": "elasticsearch-config",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "visibility-persistence"
+  ],
+  "concepts": [
+    "connection",
+    "configuration",
+    "sniffing",
+    "health-check",
+    "aws-elasticsearch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot connect Temporal workers to AWS Elasticsearch due to timeout errors from incompatible client settings.",
+  "rootCause": "Elastic Go client has sniffing and health check enabled by default, which does not work with AWS Elasticsearch Service.",
+  "proposedFix": "Add configuration options to enable/disable sniffing and health check features in the Elasticsearch client config.",
+  "workaround": "Manually disable sniffing and health check in the Temporal elasticsearch client configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by Temporal 1.6.3 which likely added the necessary Elasticsearch configuration options.",
+  "related": [],
+  "keyQuote": "Perhaps the ability to enable/disable these features could be added to the config?",
+  "number": 551,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:14:51.095Z"
+}

@@ -1,6 +1,6 @@
 # Server SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/temporal](https://github.com/temporalio/temporal)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 532 |
-| Total Closed Issues | 952 |
-| Total All Issues | 1484 |
-| Bugs (open) | 137 |
+| Total Open Issues | 530 |
+| Total Closed Issues | 955 |
+| Total All Issues | 1485 |
+| Bugs (open) | 136 |
 | Enhancements/Features (open) | 352 |
 | Security Issues (open) | 0 |
-| Total Upvotes (👍) on open | 902 |
-| Total Comments on open | 884 |
-| Issues with Upvotes | 144 (27%) |
-| Issues with Comments | 292 (55%) |
-| Average Age (days) | 963 |
-| Stale Issues (>12 months) | 374 (70%) |
+| Total Upvotes (👍) on open | 872 |
+| Total Comments on open | 871 |
+| Issues with Upvotes | 143 (27%) |
+| Issues with Comments | 291 (55%) |
+| Average Age (days) | 969 |
+| Stale Issues (>12 months) | 374 (71%) |
 
 ---
 ## Resolution Metrics
@@ -36,13 +36,13 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 64% (952/1484) |
+| Resolution Rate | 64% (955/1485) |
 | Avg Time to Close (calendar) | 172 days |
 | Avg Time to Close (business) | 123 days |
 | Median Time to Close (calendar) | 41 days |
 | Median Time to Close (business) | 30 days |
-| 90th Percentile (calendar) | 585 days |
-| 90th Percentile (business) | 417 days |
+| 90th Percentile (calendar) | 592 days |
+| 90th Percentile (business) | 424 days |
 | Resolved within 30 days | 47% |
 | Resolved within 90 days | 62% |
 
@@ -50,14 +50,14 @@
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 353 | 37% |
-| Completed (features) | 246 | 26% |
+| Fixed (bugs) | 354 | 37% |
+| Completed (features) | 247 | 26% |
 | Self-resolved | 210 | 22% |
 | Duplicate | 5 | 1% |
 | Won't Fix | 2 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 136 | 14% |
+| Other | 137 | 14% |
 
 ---
 ## Issue Velocity (Last 12 Months)
@@ -75,10 +75,10 @@
 | 2025-10 | 17 | 14 | +3 |
 | 2025-11 | 12 | 9 | +3 |
 | 2025-12 | 12 | 4 | +8 |
-| 2026-01 | 6 | 4 | +2 |
-| **Total** | **168** | **99** | **+69** |
+| 2026-01 | 7 | 7 | 0 |
+| **Total** | **169** | **102** | **+67** |
 
-📈 **Backlog Growing:** 69 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 67 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,31 +87,32 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 97 |
-| Issues Closed | 65 |
+| Issues Opened | 98 |
+| Issues Closed | 66 |
 | Net Change | +32 |
-| Bugs Closed | 46 |
-| Enhancements Closed | 14 |
+| Bugs Closed | 45 |
+| Enhancements Closed | 15 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 128 | 92 |
-| Median | 24 | 19 |
-| 90th Percentile | 276 | 198 |
+| Average | 135 | 97 |
+| Median | 23 | 18 |
+| 90th Percentile | 624 | 447 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 62% |
-| Within 90 days | 78% |
+| Within 30 days | 61% |
+| Within 90 days | 77% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
 | Issue | 👍 | Title |
 |-------|-----|-------|
+| [#5680](https://github.com/temporalio/temporal/issues/5680) | 30 | Official support for Opensearch |
 | [#2517](https://github.com/temporalio/temporal/issues/2517) | 7 | Make task queues more ordered |
 | [#8363](https://github.com/temporalio/temporal/issues/8363) | 6 | Task queue validator on occasions fails task queue name... |
 
@@ -120,12 +121,12 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 10 | 2% |
+| Last 30 days | 9 | 2% |
 | 1-3 months | 19 | 4% |
-| 3-6 months | 22 | 4% |
-| 6-12 months | 45 | 8% |
-| 1-2 years | 138 | 26% |
-| 2-3 years | 80 | 15% |
+| 3-6 months | 21 | 4% |
+| 6-12 months | 46 | 9% |
+| 1-2 years | 136 | 26% |
+| 2-3 years | 81 | 15% |
 | 3+ years | 218 | 41% |
 
 ---
@@ -138,17 +139,17 @@
 | 2 | [#1507](https://github.com/temporalio/temporal/issues/1507) | 50 | 27 | Provide priority task queues |
 | 3 | [#2668](https://github.com/temporalio/temporal/issues/2668) | 46 | 12 | Document POSTGRES_SEEDS (or better yet, use a descriptive va... |
 | 4 | [#2318](https://github.com/temporalio/temporal/issues/2318) | 46 | 7 | MongoDB as Persistent |
-| 5 | [#5680](https://github.com/temporalio/temporal/issues/5680) | 30 | 15 | Official support for Opensearch |
-| 6 | [#537](https://github.com/temporalio/temporal/issues/537) | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
-| 7 | [#131](https://github.com/temporalio/temporal/issues/131) | 28 | 4 | Different retry options based on failure type |
-| 8 | [#5302](https://github.com/temporalio/temporal/issues/5302) | 23 | 2 | YDB Temporal support. |
-| 9 | [#2609](https://github.com/temporalio/temporal/issues/2609) | 23 | 7 | Add ability to transfer child workflows to new parent run wh... |
-| 10 | [#1797](https://github.com/temporalio/temporal/issues/1797) | 22 | 4 | Ability to get all task queues per namespace |
-| 11 | [#328](https://github.com/temporalio/temporal/issues/328) | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
-| 12 | [#2582](https://github.com/temporalio/temporal/issues/2582) | 18 | 13 | Add health check handler for worker service |
-| 13 | [#3366](https://github.com/temporalio/temporal/issues/3366) | 16 | 4 | Support sqlite in production. |
-| 14 | [#3228](https://github.com/temporalio/temporal/issues/3228) | 16 | 6 | Metadata for Timers |
-| 15 | [#1460](https://github.com/temporalio/temporal/issues/1460) | 16 | 11 | Add task queue query |
+| 5 | [#537](https://github.com/temporalio/temporal/issues/537) | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
+| 6 | [#131](https://github.com/temporalio/temporal/issues/131) | 28 | 4 | Different retry options based on failure type |
+| 7 | [#5302](https://github.com/temporalio/temporal/issues/5302) | 23 | 2 | YDB Temporal support. |
+| 8 | [#2609](https://github.com/temporalio/temporal/issues/2609) | 23 | 7 | Add ability to transfer child workflows to new parent run wh... |
+| 9 | [#1797](https://github.com/temporalio/temporal/issues/1797) | 22 | 4 | Ability to get all task queues per namespace |
+| 10 | [#328](https://github.com/temporalio/temporal/issues/328) | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
+| 11 | [#2582](https://github.com/temporalio/temporal/issues/2582) | 18 | 13 | Add health check handler for worker service |
+| 12 | [#3366](https://github.com/temporalio/temporal/issues/3366) | 16 | 4 | Support sqlite in production. |
+| 13 | [#3228](https://github.com/temporalio/temporal/issues/3228) | 16 | 6 | Metadata for Timers |
+| 14 | [#1460](https://github.com/temporalio/temporal/issues/1460) | 16 | 11 | Add task queue query |
+| 15 | [#1988](https://github.com/temporalio/temporal/issues/1988) | 15 | 3 | Implement dynamic task queue routing |
 
 ---
 
@@ -162,17 +163,17 @@ Priority = Upvotes × 2 + Comments
 | 2 | [#1507](https://github.com/temporalio/temporal/issues/1507) | 127 | 50 | 27 | Provide priority task queues |
 | 3 | [#2668](https://github.com/temporalio/temporal/issues/2668) | 104 | 46 | 12 | Document POSTGRES_SEEDS (or better yet, use a desc... |
 | 4 | [#2318](https://github.com/temporalio/temporal/issues/2318) | 99 | 46 | 7 | MongoDB as Persistent |
-| 5 | [#5680](https://github.com/temporalio/temporal/issues/5680) | 75 | 30 | 15 | Official support for Opensearch |
-| 6 | [#537](https://github.com/temporalio/temporal/issues/537) | 62 | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
-| 7 | [#131](https://github.com/temporalio/temporal/issues/131) | 60 | 28 | 4 | Different retry options based on failure type |
-| 8 | [#328](https://github.com/temporalio/temporal/issues/328) | 54 | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
-| 9 | [#2609](https://github.com/temporalio/temporal/issues/2609) | 53 | 23 | 7 | Add ability to transfer child workflows to new par... |
-| 10 | [#2582](https://github.com/temporalio/temporal/issues/2582) | 49 | 18 | 13 | Add health check handler for worker service |
-| 11 | [#5302](https://github.com/temporalio/temporal/issues/5302) | 48 | 23 | 2 | YDB Temporal support. |
-| 12 | [#1797](https://github.com/temporalio/temporal/issues/1797) | 48 | 22 | 4 | Ability to get all task queues per namespace |
-| 13 | [#1460](https://github.com/temporalio/temporal/issues/1460) | 43 | 16 | 11 | Add task queue query |
-| 14 | [#3228](https://github.com/temporalio/temporal/issues/3228) | 38 | 16 | 6 | Metadata for Timers |
-| 15 | [#3366](https://github.com/temporalio/temporal/issues/3366) | 36 | 16 | 4 | Support sqlite in production. |
+| 5 | [#537](https://github.com/temporalio/temporal/issues/537) | 62 | 30 | 2 | Add SignalWithStart\UpdateWithStart command |
+| 6 | [#131](https://github.com/temporalio/temporal/issues/131) | 60 | 28 | 4 | Different retry options based on failure type |
+| 7 | [#328](https://github.com/temporalio/temporal/issues/328) | 54 | 19 | 16 | Try to run temporal on top of  Amazon Keyspaces |
+| 8 | [#2609](https://github.com/temporalio/temporal/issues/2609) | 53 | 23 | 7 | Add ability to transfer child workflows to new par... |
+| 9 | [#2582](https://github.com/temporalio/temporal/issues/2582) | 49 | 18 | 13 | Add health check handler for worker service |
+| 10 | [#5302](https://github.com/temporalio/temporal/issues/5302) | 48 | 23 | 2 | YDB Temporal support. |
+| 11 | [#1797](https://github.com/temporalio/temporal/issues/1797) | 48 | 22 | 4 | Ability to get all task queues per namespace |
+| 12 | [#1460](https://github.com/temporalio/temporal/issues/1460) | 43 | 16 | 11 | Add task queue query |
+| 13 | [#3228](https://github.com/temporalio/temporal/issues/3228) | 38 | 16 | 6 | Metadata for Timers |
+| 14 | [#3366](https://github.com/temporalio/temporal/issues/3366) | 36 | 16 | 4 | Support sqlite in production. |
+| 15 | [#4795](https://github.com/temporalio/temporal/issues/4795) | 34 | 14 | 6 | Schedules - add option for execution workflowid to... |
 
 ---
 
@@ -184,12 +185,12 @@ Priority = Upvotes × 2 + Comments
 | 2 | [#3006](https://github.com/temporalio/temporal/issues/3006) | 18 | 0 | Workflow Pause / Unpause |
 | 3 | [#328](https://github.com/temporalio/temporal/issues/328) | 16 | 19 | Try to run temporal on top of  Amazon Keyspaces |
 | 4 | [#6323](https://github.com/temporalio/temporal/issues/6323) | 15 | 0 | Frontend Service - goroutine (CPU & Memory) Leak |
-| 5 | [#5680](https://github.com/temporalio/temporal/issues/5680) | 15 | 30 | Official support for Opensearch |
-| 6 | [#4902](https://github.com/temporalio/temporal/issues/4902) | 15 | 0 | Custom authentication between frontend and other services |
-| 7 | [#7930](https://github.com/temporalio/temporal/issues/7930) | 14 | 0 | Replace "github.com/olivere/elastic/v7" with the official cl... |
-| 8 | [#680](https://github.com/temporalio/temporal/issues/680) | 14 | 70 | Add ability for workflow to wait for completion of an extern... |
-| 9 | [#3383](https://github.com/temporalio/temporal/issues/3383) | 13 | 4 | Schema name selection for postgres |
-| 10 | [#2582](https://github.com/temporalio/temporal/issues/2582) | 13 | 18 | Add health check handler for worker service |
+| 5 | [#4902](https://github.com/temporalio/temporal/issues/4902) | 15 | 0 | Custom authentication between frontend and other services |
+| 6 | [#7930](https://github.com/temporalio/temporal/issues/7930) | 14 | 0 | Replace "github.com/olivere/elastic/v7" with the official cl... |
+| 7 | [#680](https://github.com/temporalio/temporal/issues/680) | 14 | 70 | Add ability for workflow to wait for completion of an extern... |
+| 8 | [#3383](https://github.com/temporalio/temporal/issues/3383) | 13 | 4 | Schema name selection for postgres |
+| 9 | [#2582](https://github.com/temporalio/temporal/issues/2582) | 13 | 18 | Add health check handler for worker service |
+| 10 | [#2668](https://github.com/temporalio/temporal/issues/2668) | 12 | 46 | Document POSTGRES_SEEDS (or better yet, use a descriptive va... |
 
 ---
 
@@ -197,10 +198,9 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2026-01-08 | [#8968](https://github.com/temporalio/temporal/issues/8968) | 0 | Same fairness key but different fairness weight? |
+| 2026-01-12 | [#9005](https://github.com/temporalio/temporal/issues/9005) | 0 | Add capability to filter workflows by a substring |
 | 2026-01-08 | [#8967](https://github.com/temporalio/temporal/issues/8967) | 0 | 1.30.0 release version |
 | 2026-01-07 | [#8955](https://github.com/temporalio/temporal/issues/8955) | 0 | MCP Server for Temporal Workflows |
-| 2026-01-06 | [#8943](https://github.com/temporalio/temporal/issues/8943) | 0 | No admin-tools image for 1.29.2 |
 | 2025-12-24 | [#8902](https://github.com/temporalio/temporal/issues/8902) | 0 | History service memory usage upward trend |
 | 2025-12-20 | [#8889](https://github.com/temporalio/temporal/issues/8889) | 0 | Enhancing Temporal PR Review and Release Confidence with Hik... |
 | 2025-12-18 | [#8866](https://github.com/temporalio/temporal/issues/8866) | 0 | Address security vulnerability CVE-2025-61729 for golang:cry... |
@@ -215,7 +215,7 @@ Priority = Upvotes × 2 + Comments
 | Label | Count |
 |-------|-------|
 | enhancement | 348 |
-| potential-bug | 126 |
+| potential-bug | 125 |
 | up-for-grabs | 30 |
 | api | 25 |
 | difficulty: easy | 20 |
@@ -247,7 +247,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (137 open issues)
+## Bugs (136 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -278,11 +278,11 @@ Priority = Upvotes × 2 + Comments
 | [#1119](https://github.com/temporalio/temporal/issues/1119) | 1 | 5 | ParentExecution not set in WorkflowExecutionInfo |
 | [#787](https://github.com/temporalio/temporal/issues/787) | 1 | 1 | Frequent timeouts while archiving to S3 |
 | [#471](https://github.com/temporalio/temporal/issues/471) | 1 | 7 | temporal Docker fails to bind on multiple interfaces |
-| [#8943](https://github.com/temporalio/temporal/issues/8943) | 0 | 0 | No admin-tools image for 1.29.2 |
 | [#8864](https://github.com/temporalio/temporal/issues/8864) | 0 | 1 | Workflow cannot run with the dedicated cloud PostgreSQL: "Un... |
 | [#8833](https://github.com/temporalio/temporal/issues/8833) | 0 | 3 | Scheduler does not list workflows runned when using "trigger... |
+| [#8655](https://github.com/temporalio/temporal/issues/8655) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/admin-... |
 
-*...and 107 more bugs*
+*...and 106 more bugs*
 
 ---
 

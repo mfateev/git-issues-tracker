@@ -1,0 +1,30 @@
+{
+  "summary": "OpenTelemetry instrumentation in workflows can become non-deterministic when libraries monkey-patch Context.current, causing issues even though the durable scheduler is supposed to be disabled. The fix is to disable the durable scheduler for all OTel calls, not just the obvious non-deterministic ones.",
+  "category": "feature",
+  "subcategory": "opentelemetry-integration",
+  "apis": [],
+  "components": [
+    "workflow-interceptor",
+    "opentelemetry-integration",
+    "durable-scheduler"
+  ],
+  "concepts": [
+    "determinism",
+    "instrumentation",
+    "context-management",
+    "monkey-patching",
+    "scheduler-isolation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using OpenTelemetry instrumentation may become non-deterministic due to third-party library monkey-patching, causing workflow replay failures and unpredictable behavior.",
+  "rootCause": "Some OpenTelemetry libraries (e.g., DataDog) monkey-patch Context.current, making it non-deterministic even though the durable scheduler is disabled for obvious OTel calls.",
+  "proposedFix": "Disable the durable scheduler for every OpenTelemetry call in the workflow interceptor, not just the obvious non-deterministic ones.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by ensuring all OTel calls in the workflow interceptor run with the durable scheduler disabled to prevent any monkey-patched Context.current calls from affecting workflow determinism.",
+  "related": [],
+  "keyQuote": "we just need to disable the durable scheduler for every OTel call, not just the obvious non-deterministic ones",
+  "number": 359,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:53:03.657Z"
+}

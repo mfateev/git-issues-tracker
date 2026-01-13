@@ -1,0 +1,35 @@
+{
+  "summary": "addWorkflowImplementationFactory without WorkflowImplementationOptions incorrectly sets Throwable as a fail-workflow exception type, causing non-TemporalFailure exceptions to fail workflow tasks. This behavior is undocumented and differs from other registration methods.",
+  "category": "bug",
+  "subcategory": "workflow-registration",
+  "apis": [
+    "registerWorkflowImplementationTypes",
+    "addWorkflowImplementationFactory",
+    "WorkflowImplementationOptions",
+    "setFailWorkflowExceptionTypes"
+  ],
+  "components": [
+    "worker",
+    "workflow-registration",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "workflow-execution",
+    "backwards-compatibility",
+    "default-behavior",
+    "API-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Users are unexpectedly having workflows fail when using the no-options factory method, with inconsistent behavior compared to other registration methods.",
+  "rootCause": "The addWorkflowImplementationFactory(Class, Func) method implementation sets Throwable in setFailWorkflowExceptionTypes, deviating from the default behavior of other registration methods.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if used, Throwable is set into WorkflowImplementationOptions#setFailWorkflowExceptionTypes by the underlying implementation. this difference is completely unexpected by users and undocumented",
+  "number": 1408,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:34:19.142Z"
+}

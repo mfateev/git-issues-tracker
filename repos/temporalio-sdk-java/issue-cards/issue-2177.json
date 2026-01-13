@@ -1,0 +1,30 @@
+{
+  "summary": "The Java SDK's JAR manifest is incomplete and lacks package version information. This prevents developers from retrieving the SDK version at runtime using reflection (e.g., `WorkflowClient.class.getPackage().getImplementationVersion()`), which is needed for tools like Quarkus Extensions and DevOps dashboards.",
+  "category": "other",
+  "subcategory": "build-configuration",
+  "apis": [],
+  "components": [
+    "manifest",
+    "jar",
+    "gradle-build"
+  ],
+  "concepts": [
+    "version-detection",
+    "metadata",
+    "reflection",
+    "osgi-compatibility",
+    "build-artifact"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot programmatically detect the SDK version at runtime, limiting integration with third-party tools and DevOps platforms.",
+  "rootCause": "The Gradle build configuration does not populate manifest attributes like Implementation-Version and Implementation-Title in the JAR manifest.",
+  "proposedFix": "Add manifest attributes to the Gradle jar task configuration, including Implementation-Title, Implementation-Version, and other standard OSGi manifest entries.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed by adding proper manifest configuration to the Gradle build.",
+  "related": [],
+  "keyQuote": "For our Quarkus Extension we would like to display the version of Temporal in use on the DevOps card but right now we display ? because we can't detect the version.",
+  "number": 2177,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:55.230Z"
+}

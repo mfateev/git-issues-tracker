@@ -1,0 +1,32 @@
+{
+  "summary": "Worker logs a warning when workflow code imports built-in Node modules instead of failing loudly, making it difficult to detect and debug determinism violations. The issue should fail fast rather than silently continuing.",
+  "category": "bug",
+  "subcategory": "bundler-validation",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "bundler",
+    "worker",
+    "validation"
+  ],
+  "concepts": [
+    "determinism",
+    "node-modules",
+    "error-handling",
+    "bundling",
+    "workflow-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may unknowingly deploy workflows that import forbidden modules, only discovering the issue at runtime rather than during startup validation.",
+  "rootCause": "The bundler detects built-in module imports but only logs a warning instead of throwing an error, allowing the worker to start normally.",
+  "proposedFix": "Change the warning to a loud failure (throw an error) that prevents worker startup when built-in modules are imported, unless explicitly listed in ignoreModules.",
+  "workaround": "Add the module names to WorkerOptions.bundlerOptions.ignoreModules if the modules are not actually used at runtime.",
+  "resolution": "fixed",
+  "resolutionDetails": "Worker now fails loudly when workflow code imports built-in Node modules, unless they are explicitly whitelisted in bundlerOptions.ignoreModules.",
+  "related": [],
+  "keyQuote": "Workflow code doesn't have access to built-in Node modules (in order to help enforce determinism).",
+  "number": 685,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:08.537Z"
+}

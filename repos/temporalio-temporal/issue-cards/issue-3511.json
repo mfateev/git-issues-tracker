@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add native support for Yugabyte YCQL backend as an alternative to Cassandra, allowing users to leverage a single YugabyteDB cluster instead of maintaining separate Cassandra and YB clusters.",
+  "category": "feature",
+  "subcategory": "database-backend",
+  "apis": [],
+  "components": [
+    "persistence",
+    "cassandra-driver",
+    "database-layer"
+  ],
+  "concepts": [
+    "database-backend",
+    "cassandra-compatibility",
+    "ycql",
+    "multi-database-support",
+    "cluster-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently using both YugabyteDB and Temporal could consolidate to a single database platform without maintaining separate clusters.",
+  "rootCause": null,
+  "proposedFix": "Implement native support for Yugabyte YCQL variant of its Cassandra driver in the persistence layer",
+  "workaround": "Use YugabyteDB YSQL backend (though performance may require custom configuration tuning)",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed without implementation. While identified as relatively straightforward, no upstream contribution materialized.",
+  "related": [
+    26322
+  ],
+  "keyQuote": "We currently leverage both Yugabyte YCQL and Temporal and would love to see native support for Temporal to use the YCQL variant",
+  "number": 3511,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:13.326Z"
+}

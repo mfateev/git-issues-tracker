@@ -1,0 +1,36 @@
+{
+  "summary": "User requested synchronous versions of workflow signal and handle APIs to call from non-async activities, but was clarified that activities use the client API instead, not the workflow package.",
+  "category": "question",
+  "subcategory": "activity-signaling",
+  "apis": [
+    "get_external_workflow_handle_for",
+    "signal"
+  ],
+  "components": [
+    "activity",
+    "workflow-client",
+    "signal-handling"
+  ],
+  "concepts": [
+    "async",
+    "non-async code",
+    "generator",
+    "workflow-communication",
+    "threading",
+    "activity-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about the correct API to use for signaling workflows from activities, leading to incorrect implementation attempts.",
+  "rootCause": "API design confusion - users incorrectly attempted to use workflow package APIs from activities rather than the client API.",
+  "proposedFix": "Improve documentation to clearly distinguish between workflow package APIs (for use inside workflows) and client APIs (for use from activities).",
+  "workaround": "Use the client API to signal workflows from activities instead of workflow package APIs.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Not a bug or missing feature - user was using the wrong API. Resolved by clarifying documentation approach.",
+  "related": [
+    52
+  ],
+  "keyQuote": "Everything in the workflow package is only for calling from inside the workflow. If you want to signal a workflow from an activity, you'd use a client.",
+  "number": 64,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:42.806Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "ScheduleOverlapPolicy enum has broken __eq__ method that incorrectly returns True when comparing different enum values. The issue is caused by ScheduleOverlapPolicy being both a dataclass and an IntEnum, causing comparison logic to malfunction.",
+  "category": "bug",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ScheduleOverlapPolicy",
+    "Schedule"
+  ],
+  "components": [
+    "schedule",
+    "enum",
+    "comparison"
+  ],
+  "concepts": [
+    "equality",
+    "enum",
+    "dataclass",
+    "type-conflict",
+    "comparison-logic",
+    "schedule-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably compare Schedule objects when they differ only in ScheduleOverlapPolicy, breaking deployment scripts that need to detect schedule changes.",
+  "rootCause": "ScheduleOverlapPolicy is incorrectly defined as both a dataclass and an IntEnum simultaneously, causing the __eq__ method to use dataclass comparison logic instead of enum value comparison.",
+  "proposedFix": "Remove the dataclass decorator from ScheduleOverlapPolicy, keeping only the IntEnum definition, as was done in PR #628.",
+  "workaround": null,
+  "related": [
+    628
+  ],
+  "keyQuote": "ScheduleOverlapPolicy is both a dataclass and an IntEnum. Seems like the rare combination might have caused the behaviour here?",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 652,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:06.995Z"
+}

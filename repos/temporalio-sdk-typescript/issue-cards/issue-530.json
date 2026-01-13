@@ -1,0 +1,32 @@
+{
+  "summary": "The test-npm-init test hangs during the 'Test run a workflow' step with no output, causing CI failures. The issue was resolved by PR #535.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-npm-init",
+    "workflow-execution",
+    "ci"
+  ],
+  "concepts": [
+    "hanging",
+    "test-failure",
+    "workflow-execution",
+    "ci-workflow",
+    "output-deadlock"
+  ],
+  "severity": "high",
+  "userImpact": "Test suite hangs during workflow execution testing, blocking CI/CD pipelines and preventing release validation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #535",
+  "related": [
+    535
+  ],
+  "keyQuote": "On step `Test run a workflow`, but there's no output",
+  "number": 530,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:55.036Z"
+}

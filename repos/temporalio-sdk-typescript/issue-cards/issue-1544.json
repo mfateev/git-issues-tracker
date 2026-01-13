@@ -1,0 +1,41 @@
+{
+  "summary": "Add support for user metadata on workflows, activities, and timers in TypeScript SDK. Implement the __temporal_workflow_metadata query handler and accept optional summary/details parameters across workflow creation methods (start, signal with start, schedule, child workflows), activity creation, and timer creation.",
+  "category": "feature",
+  "subcategory": "user-metadata",
+  "apis": [
+    "StartWorkflow",
+    "SignalWithStart",
+    "Schedule",
+    "ExecuteActivity",
+    "CreateTimer"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-executor",
+    "timer-manager",
+    "metadata-handler"
+  ],
+  "concepts": [
+    "user-metadata",
+    "workflow-context",
+    "observability",
+    "summary",
+    "details"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now attach custom metadata (summary and details) to workflows, activities, and timers for better observability and tracking across Temporal operations.",
+  "rootCause": null,
+  "proposedFix": "Implement user metadata support across all workflow creation methods, activity creation, and timer creation following the pattern established in sdk-core issue 830 and the features specification.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged, addressing the requirements specified in the feature issue and sdk-core issue.",
+  "related": [
+    486,
+    830,
+    1597
+  ],
+  "keyQuote": "Accept optional \"static summary\" and \"static details\" on all ways to start a workflow and populate user metadata with them",
+  "number": 1544,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:05.834Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The test-npm-init workflow on macOS intermittently hangs during the 'Test run a workflow' step, sometimes taking over 2 hours instead of completing in ~9 seconds. The issue was closed after monitoring showed it hadn't occurred recently in tracked CI flakes.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-npm-init",
+    "macos-ci",
+    "workflow-test"
+  ],
+  "concepts": [
+    "flakiness",
+    "ci-reliability",
+    "timeout",
+    "hangs",
+    "intermittent-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "CI builds intermittently hang on macOS, blocking development workflows and delaying releases.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue was not observed in tracked CI flakes for a long time, suggesting it may have been fixed in a recent update or no longer occurs.",
+  "related": [],
+  "keyQuote": "We recently started tracking CI flakes in a private document, to help identify and triage recurring CI issues, and there's no trace of anything similar to this one.",
+  "number": 874,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:12.575Z"
+}

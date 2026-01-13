@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow MetricScope should prevent metric reporting after instance destruction is requested, avoiding double-reporting in finally blocks during workflow eviction due to DestroyWorkflowThreadError.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [
+    "getMetricsScope"
+  ],
+  "components": [
+    "workflow-runtime",
+    "metrics-scope",
+    "thread-destruction"
+  ],
+  "concepts": [
+    "metrics-reporting",
+    "workflow-lifecycle",
+    "finally-blocks",
+    "destruction",
+    "double-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience duplicate metric reports when using MetricScope in finally blocks, complicating metrics analysis and monitoring.",
+  "rootCause": "DestroyWorkflowThreadError triggers finally blocks after instance destruction is requested, causing metrics to be reported to an invalidated scope.",
+  "proposedFix": "Make workflow's MetricScope aware of pending destruction and silently ignore metric reporting attempts after destruction is requested.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal SDK should make workflow's MetricsScope aware of the fact that the instance destruction is requested and not allow any new metric's reporting",
+  "number": 1549,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:14.557Z"
+}

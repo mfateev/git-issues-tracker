@@ -1,0 +1,32 @@
+{
+  "summary": "Request to clear signal requestID on workflow close since all signal requests are rejected after closure. The signal requestID is currently used for deduplication, but may not be needed after workflow completion.",
+  "category": "feature",
+  "subcategory": "signal-deduplication",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "workflow-state",
+    "deduplication"
+  ],
+  "concepts": [
+    "signal-deduplication",
+    "workflow-lifecycle",
+    "cleanup",
+    "state-management",
+    "memory-optimization"
+  ],
+  "severity": "low",
+  "userImpact": "Clearing signal requestIDs on workflow close could reduce memory overhead without affecting functionality since signals are rejected after closure.",
+  "rootCause": "Signal requestID map persists after workflow close even though it's no longer needed for deduplication.",
+  "proposedFix": "Clear signal requestID on workflow close, with option to persist requestID in signaled event to support workflow reset scenarios.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4028
+  ],
+  "keyQuote": "Signal requestID is for dedupping signal request. After workflow close, all signal requests will be rejected, so we don't really need signal requestIDs for dedupping.",
+  "number": 4029,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:47.829Z"
+}

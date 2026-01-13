@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add a ListTaskQueues API to list all active task queues in a given namespace for diagnosing misconfigured or incorrect task queue assignments that result in workflows being routed to queues without workers.",
+  "category": "feature",
+  "subcategory": "task-queue-management",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "task-queue",
+    "namespace"
+  ],
+  "concepts": [
+    "task-queue",
+    "diagnostics",
+    "monitoring",
+    "active-queues",
+    "workers",
+    "fault-finding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot diagnose task queue misconfiguration issues or identify workflows being sent to queues without active workers listening.",
+  "rootCause": null,
+  "proposedFix": "Add a ListTaskQueues API to list active task queues (those with new tasks or pollers in the last 5 minutes) loaded in the matching service.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1797
+  ],
+  "keyQuote": "The ability to list all active task queues could be very useful to help diagnose these problems.",
+  "number": 3468,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:48.182Z"
+}

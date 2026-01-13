@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add Deno support to the TypeScript SDK. The request would enable developers to write Temporal code using Deno's native Web APIs and run TypeScript without a build step.",
+  "category": "feature",
+  "subcategory": "runtime-support",
+  "apis": [],
+  "components": [
+    "worker-threads",
+    "vm-module",
+    "native-bindings",
+    "async-hooks",
+    "promise-hooks"
+  ],
+  "concepts": [
+    "deno-runtime",
+    "typescript-execution",
+    "web-apis",
+    "low-level-apis",
+    "wasm-module",
+    "napi-library"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers wanting to use Temporal workflows in Deno environments cannot currently do so, limiting the SDK's compatibility with the Deno runtime.",
+  "rootCause": "TypeScript SDK relies heavily on Node.js-specific APIs (Worker Threads, VMs, async hooks, native libraries) that are not fully compatible or available in Deno, requiring significant architectural redesign.",
+  "proposedFix": "Redesign key SDK components and potentially the Core SDK to work as a WASM module instead of NAPI library, with compatibility abstractions for Deno's implementations.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as a long-term objective that would require considerable rewriting of multiple components. The project uses a different system to track and prioritize large-scale objectives.",
+  "related": [],
+  "keyQuote": "In practice, I expect that we'll probably need to rewrite/redesign several key components of the TypeScript SDK to get it to run reliably and efficiently on Deno.",
+  "number": 1285,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:21.233Z"
+}

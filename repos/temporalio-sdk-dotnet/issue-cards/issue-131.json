@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to support building NuGet packages locally for a single platform, rather than requiring the full multi-platform build that currently only works in GitHub workflows.",
+  "category": "feature",
+  "subcategory": "build-packaging",
+  "apis": [],
+  "components": [
+    "nuget-build",
+    "build-system",
+    "packaging"
+  ],
+  "concepts": [
+    "local-build",
+    "single-platform",
+    "package-distribution",
+    "developer-workflow",
+    "build-automation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can now build NuGet packages locally for development and testing purposes without needing access to the full multi-platform GitHub workflow infrastructure.",
+  "rootCause": null,
+  "proposedFix": "Implement a local build script or configuration that supports building NuGet packages for a single platform, as an alternative to the multi-platform GitHub workflow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "But some people want to build the NuGet package locally, so we should support it, even if it is for only one platform.",
+  "number": 131,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:19:11.630Z"
+}

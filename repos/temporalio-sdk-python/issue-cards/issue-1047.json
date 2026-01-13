@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to mark OpenTelemetry spans as failed when activities are cancelled due to heartbeat timeouts in the Python SDK. Currently, heartbeat timeout cancellations are not properly reflected in tracing data, making it difficult to identify and assess the scale of worker heartbeat issues.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "activity-worker",
+    "tracing"
+  ],
+  "concepts": [
+    "heartbeat-timeout",
+    "cancellation",
+    "observability",
+    "span-status",
+    "activity-execution",
+    "asyncio-cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily identify and diagnose workers with heartbeat issues through OpenTelemetry tracing data, requiring alternative monitoring approaches.",
+  "rootCause": "OpenTelemetry's TracingInterceptor only catches Exception-type errors, not BaseException subclasses like asyncio.CancelledError. Additionally, there is insufficient context in the interceptor to distinguish different cancellation reasons, and cancellation doesn't work at all in multi-process workers.",
+  "proposedFix": "Enhance the TracingInterceptor to catch and record asyncio.CancelledError as span failures, update cancellation_details context when heartbeat errors occur, and ensure cancellation applies consistently across async, threaded, and multi-process activity types.",
+  "workaround": "Authors can patch their own interceptor to catch asyncio.CancelledError and manually set span status to ERROR.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1048,
+    1017,
+    1041
+  ],
+  "keyQuote": "Heartbeat timeout failures can be a major pain point when working with async Temporal activities...mark spans as failed for cancellations due to heartbeat timeouts, so we can identify workers with heartbeat issues more easily",
+  "number": 1047,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:33.781Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "User asks if WorkflowClient will be available in PHP SDK soon. After maintainer clarification, the feature exists (called Worker due to different execution strategy) and examples are available in samples-php repository.",
+  "category": "question",
+  "subcategory": "workflow-client",
+  "apis": [
+    "WorkflowClient",
+    "Worker"
+  ],
+  "components": [
+    "workflow-client",
+    "worker",
+    "task-queue"
+  ],
+  "concepts": [
+    "client-configuration",
+    "namespace",
+    "workflow-execution",
+    "event-loop",
+    "task-queue"
+  ],
+  "severity": "low",
+  "userImpact": "Users were unclear about WorkflowClient availability in PHP SDK, impacting their ability to get started with the framework.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Maintainer clarified that WorkflowClient is available (called Worker) and provided link to samples-php for examples.",
+  "related": [],
+  "keyQuote": "this SDK does have a Workflow client - Worker (we use different name due to different execution strategy)",
+  "number": 4,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:18:28.703Z"
+}

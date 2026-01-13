@@ -1,0 +1,30 @@
+{
+  "summary": "Request to versionize documentation and API reference for the TypeScript SDK so that users can access documentation matching their installed version, rather than always seeing the latest development version.",
+  "category": "docs",
+  "subcategory": "documentation-versioning",
+  "apis": [],
+  "components": [
+    "documentation",
+    "api-reference",
+    "build-system"
+  ],
+  "concepts": [
+    "versioning",
+    "documentation-management",
+    "release-process",
+    "api-documentation",
+    "version-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily access documentation that matches the version of the SDK they are using, creating confusion when API differences exist between versions.",
+  "rootCause": "Current documentation is always built from the main branch and deployed as a single version, not tied to released versions of the SDK.",
+  "proposedFix": "Implement versioned documentation system where each release gets its own documentation version, potentially deployed from the release branch instead of main for API reference.",
+  "workaround": "Users can build and view documentation locally by cloning the repository, checking out a specific version tag, and running the build process locally.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Relevant both for docs and API reference. And latest version of API ref could be deployed from `release` branch instead of `main`",
+  "number": 561,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:01:20.395Z"
+}

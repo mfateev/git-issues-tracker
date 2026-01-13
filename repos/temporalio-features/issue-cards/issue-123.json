@@ -1,0 +1,40 @@
+{
+  "summary": "Enable TCP keep-alive by default for SDK connections to help clients detect closed connections faster, and allow users to customize keep-alive settings to suit their specific network environments.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [],
+  "components": [
+    "sdk-client",
+    "connection-pool",
+    "grpc-configuration"
+  ],
+  "concepts": [
+    "keep-alive",
+    "tcp-connection",
+    "network-reliability",
+    "connection-timeout",
+    "idle-detection",
+    "client-discovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Idle clients will now detect closed TCP connections more quickly, improving reliability and reducing delays in detecting network failures.",
+  "rootCause": "Idle clients take a long time to discover when a TCP connection is closed without keep-alive enabled.",
+  "proposedFix": "Enable TCP keep-alive by default with gRPC settings: keepalive_permit_without_calls=1, keepalive_time_ms=30000, keepalive_timeout_ms=15000, and expose customization options to users.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across multiple SDKs (TypeScript, Python, .NET, Go, Java) with gRPC keep-alive defaults. TypeScript worker and PHP SDK implementations still pending.",
+  "related": [
+    362,
+    371,
+    585,
+    1275,
+    395,
+    125,
+    1248,
+    1872
+  ],
+  "keyQuote": "Due to the number of issues we've gotten where idle clients take a long time to discover when a TCP connection is closed we decided to turn keep-alive on by default.",
+  "number": 123,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:48:51.087Z"
+}

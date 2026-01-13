@@ -1,0 +1,29 @@
+{
+  "summary": "User wants to set an explicit Build ID on workers without enforcing the full UseWorkerVersioning validation checks. The SDK currently prevents setting a Build ID unless UseWorkerVersioning is explicitly enabled.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "TemporalWorkerService",
+    "worker-configuration",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "build-id",
+    "configuration-validation",
+    "semantic-versioning"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot set explicit Build IDs for workers with semantic versioning without enabling the full UseWorkerVersioning feature.",
+  "rootCause": "Strict validation in TemporalWorkerService.cs that requires UseWorkerVersioning to be enabled when a Build ID is provided.",
+  "proposedFix": "Remove or relax the validation check that prevents setting Build ID without UseWorkerVersioning enabled.",
+  "workaround": "Use ConfigureOptions() with custom Configure calls to bypass the DI integration restrictions, though this is complex and undocumented.",
+  "resolution": "fixed",
+  "resolutionDetails": "The strict validation check was removed, allowing Build ID to be set independently of UseWorkerVersioning.",
+  "related": [],
+  "keyQuote": "I have a stable semantic versioning and want to show the worker version via `Build Id`, but I don't want to use `UseWorkerVersioning`",
+  "number": 442,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:25:52.292Z"
+}

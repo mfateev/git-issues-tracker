@@ -1,0 +1,29 @@
+{
+  "summary": "The SDK currently accepts iterables but may store them without consuming, which is problematic for single-use iterables. The request is to convert all accepted iterables into lists eagerly, or preferably accept Sequence types instead of Iterable everywhere to align with other Python libraries.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "type-system",
+    "api-interface"
+  ],
+  "concepts": [
+    "iterables",
+    "sequences",
+    "type-safety",
+    "eager-evaluation",
+    "api-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users passing single-use iterables may encounter unexpected behavior when the SDK stores rather than immediately consumes them.",
+  "rootCause": "API accepts Iterable types which can only be iterated once, but implementation stores them for later use without consuming immediately.",
+  "proposedFix": "Accept Sequence instead of Iterable everywhere, which is the standard pattern used by other Python libraries.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Replaced Iterable type hints with Sequence throughout the SDK to ensure accepted parameters support indexing and multiple iterations.",
+  "related": [],
+  "keyQuote": "Rather, just accept `Sequence` instead of `Iterable` everywhere. This is what other Python libraries seem to do.",
+  "number": 110,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:43.833Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Publish Ruby SDK documentation to ruby.temporal.io instead of relying on rubydoc.info, which is experiencing issues. This aligns Ruby docs hosting with other Temporal SDKs (dotnet, python, typescript) and clarifies the canonical documentation location.",
+  "category": "docs",
+  "subcategory": "documentation-hosting",
+  "apis": [],
+  "components": [
+    "documentation",
+    "website",
+    "readme"
+  ],
+  "concepts": [
+    "documentation-site",
+    "hosting",
+    "canonical-location",
+    "user-experience",
+    "discoverability",
+    "reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have a more reliable and consistent documentation experience with a dedicated, well-maintained docs site integrated with other Temporal SDK documentation.",
+  "rootCause": "rubydoc.info is experiencing issues and not ideal for hosting canonical documentation",
+  "proposedFix": "Publish yard docs to ruby.temporal.io and update README to mark it as the canonical documentation location",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented hosting of Ruby SDK documentation at ruby.temporal.io with updated README to reflect canonical location",
+  "related": [],
+  "keyQuote": "publish yard docs to ruby.temporal.io as we do with dotnet.temporal.io, python.temporal.io, and typescript.temporal.io",
+  "number": 211,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:05.474Z"
+}

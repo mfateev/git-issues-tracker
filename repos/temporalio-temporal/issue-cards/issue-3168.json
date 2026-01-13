@@ -1,0 +1,31 @@
+{
+  "summary": "Sticky workflow tasks should not be persisted in the database when they cannot be sync-matched, as this wastes IOPS when the SDK is unavailable and the history service will timeout the task anyway. Proposes optimization strategies to avoid unnecessary database operations.",
+  "category": "feature",
+  "subcategory": "sticky-task-matching",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "history-service",
+    "task-dispatch"
+  ],
+  "concepts": [
+    "sticky-tasks",
+    "sync-matching",
+    "database-persistence",
+    "timeout",
+    "iops-optimization",
+    "task-queue"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces unnecessary database overhead and improves system efficiency by preventing persistent storage of sticky workflow tasks that cannot be immediately matched.",
+  "rootCause": "Matching service persists sticky workflow tasks to the database even when they cannot be sync-matched, but these tasks are likely to be timed out by history service shortly after, wasting database I/O operations.",
+  "proposedFix": "Three options proposed: (1) return error on failed sync-match and let history service retry before giving up, (2) use longer sync-match timeout and give up immediately if unable to sync-match, or (3) change history service to dispatch tasks preferentially to SDK queue with local cache, falling back to normal queue on sync-match timeout.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If sticky workflow task cannot be sync-matched, it (sometimes? usually?) means SDK is unavailable and history service will timeout the task few seconds later. If above case happen, DB IOPS are wasted.",
+  "number": 3168,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:16.909Z"
+}

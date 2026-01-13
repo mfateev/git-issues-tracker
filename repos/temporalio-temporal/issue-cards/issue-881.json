@@ -1,0 +1,34 @@
+{
+  "summary": "Partitioned matching task queues may experience delays in task delivery if a matching service instance shuts down before workers poll. The system needs a centralized metadata manager to ensure all matching services initialize required task queue managers, and consider round-robin polling for better distribution.",
+  "category": "feature",
+  "subcategory": "matching-service",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "task-queue-manager",
+    "poller",
+    "database"
+  ],
+  "concepts": [
+    "partitioning",
+    "task-distribution",
+    "metadata-management",
+    "service-initialization",
+    "polling",
+    "starvation"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers may experience significant delays in picking up tasks from partitioned task queues if matching service instances shut down before polls occur.",
+  "rootCause": "Task queue managers are initialized only when directly polled, and if a partition's manager isn't initialized when its matching service shuts down, tasks remain in the database longer than necessary.",
+  "proposedFix": "Implement a common metadata manager/service that notifies all matching services to initialize corresponding task queue managers, and consider implementing round-robin polling instead of randomization.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    459
+  ],
+  "keyQuote": "if the task queue (with partition) is not directly polled, and task queue manager not initialized, then the poller may take a long time picking up some tasks",
+  "number": 881,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:53.583Z"
+}

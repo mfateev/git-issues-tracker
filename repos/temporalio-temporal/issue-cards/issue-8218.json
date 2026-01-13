@@ -1,0 +1,32 @@
+{
+  "summary": "The default JWT claim mapper hardcodes the 'sub' claim name, blocking users whose identity providers use different subject claim names like 'client_id' or 'user_id'. The user requests a configurable subjectClaimName parameter similar to the existing permissionsClaimName option.",
+  "category": "feature",
+  "subcategory": "jwt-authorization",
+  "apis": [],
+  "components": [
+    "authorization",
+    "jwt-claim-mapper",
+    "default-jwt-claim-mapper"
+  ],
+  "concepts": [
+    "jwt",
+    "authentication",
+    "authorization",
+    "claim-mapping",
+    "configuration",
+    "oidc",
+    "identity-provider"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with non-standard JWT tokens (using claim names other than 'sub' for subject) cannot use Temporal's default JWT authorizer and must implement a custom claim mapper.",
+  "rootCause": "The defaultJWTClaimMapper hardcodes 'sub' as the subject claim name in common/authorization/default_jwt_claim_mapper.go, with no configuration option to override it.",
+  "proposedFix": "Add a subjectClaimName configuration field to the Authorization struct, defaulting to 'sub' for backward compatibility, following the existing pattern of permissionsClaimName.",
+  "workaround": "Implement a custom ClaimMapper by importing go.temporal.io/server/temporal and providing a custom implementation that maps the desired claim to 'sub'.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed due to lack of follow-up from the original poster. The issue was framed as non-standard JWT usage, with the recommended solution being either to configure the IdP to provide 'sub' claim or to use a custom ClaimMapper.",
+  "related": [],
+  "keyQuote": "The default JWT claim mapper hardcodes the subject claim name as \"sub\" in common/authorization/default_jwt_claim_mapper.go, blocking users whose identity providers use different subject claim names",
+  "number": 8218,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:01.549Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "TimeLockingFuture's time-skipping functionality breaks when CompletableFuture is chained using standard methods like thenApply(). The implementation is brittle because it only intercepts get() and join() calls on the original future, not on chained futures, making the feature unreliable for typical async patterns.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowStub.getResult",
+    "WorkflowStub.getResultAsync"
+  ],
+  "components": [
+    "TimeLockingFuture",
+    "TestWorkflowService",
+    "WorkflowStub"
+  ],
+  "concepts": [
+    "time-skipping",
+    "testing",
+    "CompletableFuture",
+    "future-chaining",
+    "test-utilities",
+    "async-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Test developers using TestWorkflowService cannot reliably use time-skipping with chained futures, forcing them to avoid standard CompletableFuture composition patterns or lose time-skipping functionality.",
+  "rootCause": "TimeLockingFuture only overrides get() and join() methods, but chaining operations like thenApply() return new CompletableFuture instances that don't have the overridden methods, bypassing the time-skipping logic.",
+  "proposedFix": "Remove built-in time-skipping from WorkflowStub and TimeLockingFuture. Instead, expose a helper method (e.g., TimeSkipUtils.forStub(workflowStub).skipTimeSegment()) that returns an AutoCloseable resource to control time-skipping scope, allowing developers to opt-in where needed.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "even trivial chaining completely and unexpectedly breaks the time-skipping feature",
+  "number": 392,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:16:25.024Z"
+}

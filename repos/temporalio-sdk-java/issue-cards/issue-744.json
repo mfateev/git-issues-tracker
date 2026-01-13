@@ -1,0 +1,33 @@
+{
+  "summary": "Workflows intermittently get stuck in Running state with WorkflowTaskFailed error when 20-100 instances are triggered simultaneously. The root cause is a ClassCastException when handling scala.runtime.NonLocalReturnControl, which isn't recognized as a workflow failure exception.",
+  "category": "bug",
+  "subcategory": "workflow-task-handling",
+  "apis": [],
+  "components": [
+    "workflow-worker",
+    "workflow-task-handler",
+    "state-machine",
+    "exception-wrapper"
+  ],
+  "concepts": [
+    "exception-handling",
+    "workflow-execution",
+    "state-machine",
+    "retry-logic",
+    "concurrent-execution",
+    "throwable-casting",
+    "workflow-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows appear stuck in Running state under concurrent load, requiring worker redeployment or manual intervention to resolve.",
+  "rootCause": "ClassCastException in CheckedExceptionWrapper when handling scala.runtime.NonLocalReturnControl (a Throwable that doesn't extend Exception). The SDK only treats TemporalFailure subclasses as workflow failures, causing non-TemporalFailure exceptions to trigger indefinite retries.",
+  "proposedFix": "Wrap scala.runtime.NonLocalReturnControl into TemporalFailure or use WorkflowImplementationOptions#setFailWorkflowExceptionTypes to specify it as a workflow-failing exception type.",
+  "workaround": "Use WorkflowImplementationOptions#setFailWorkflowExceptionTypes to configure scala.runtime.NonLocalReturnControl as a workflow failure exception, or redeploy workers after fixing the exception.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.4.0 with improved error messages and better handling of non-Exception Throwables. ClassCastException will be caught and workflow failures properly reported.",
+  "related": [],
+  "keyQuote": "If you want the `scala.runtime.NonLocalReturnControl` Throwable be treated as a workflow execution failure, wrap it into TemporalFailure class",
+  "number": 744,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:38:11.494Z"
+}

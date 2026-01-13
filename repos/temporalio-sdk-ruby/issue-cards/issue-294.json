@@ -1,0 +1,29 @@
+{
+  "summary": "The failure converter in the Ruby SDK is not properly defaulting the error type to an unqualified class name. The issue points to a specific line in the code that needs to extract only the class name without the module namespace.",
+  "category": "bug",
+  "subcategory": "error-conversion",
+  "apis": [],
+  "components": [
+    "failure-converter",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-type",
+    "class-name",
+    "namespace",
+    "type-conversion",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Application errors may not be properly converted and serialized when being passed through the Temporal workflow system, potentially causing errors to lose their type information.",
+  "rootCause": "The failure converter is not extracting the unqualified class name from the error object, likely including the full module namespace instead.",
+  "proposedFix": "Change the error type extraction to use `error.class.name.to_s.split('::').last` to get only the unqualified class name.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The code was updated to properly extract the unqualified class name by splitting on '::' and taking the last element.",
+  "related": [],
+  "keyQuote": "error.class.name.to_s.split('::').last",
+  "number": 294,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:50:07.724Z"
+}

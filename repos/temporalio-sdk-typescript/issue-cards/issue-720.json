@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowNotFoundError is currently exported from an internal module (@temporalio/internal-workflow-common) while other common errors like WorkflowExecutionAlreadyStartedError are exported from @temporalio/client. The request is to re-export WorkflowNotFoundError from @temporalio/client for API consistency.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "WorkflowNotFoundError",
+    "WorkflowExecutionAlreadyStartedError"
+  ],
+  "components": [
+    "client",
+    "error-exports",
+    "public-api"
+  ],
+  "concepts": [
+    "api-consistency",
+    "module-structure",
+    "error-handling",
+    "exports",
+    "public-interface"
+  ],
+  "severity": "low",
+  "userImpact": "Users must import WorkflowNotFoundError from an internal module instead of the public client module, creating an inconsistent and confusing API.",
+  "rootCause": "WorkflowNotFoundError was not included in the public @temporalio/client exports alongside other common errors.",
+  "proposedFix": "Re-export WorkflowNotFoundError from @temporalio/client to make it available alongside other error exports.",
+  "workaround": "Import WorkflowNotFoundError from @temporalio/internal-workflow-common",
+  "resolution": "fixed",
+  "resolutionDetails": "The maintainer acknowledged the issue and agreed to re-export the error from the client module.",
+  "related": [],
+  "keyQuote": "I think it would be nice to have one place that re-exports all possible errors, so there is no need to import from \"internal-workflow-common\" at all.",
+  "number": 720,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:08:29.088Z"
+}

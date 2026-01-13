@@ -1,0 +1,31 @@
+{
+  "summary": "Request to define and enforce a backwards compatibility promise for the PHP SDK, similar to Symfony's BC policy. Recent releases have introduced multiple BC breaks (signature changes, class moves, enum conversions) that make it difficult for downstream projects like Symfony bundles to maintain compatibility.",
+  "category": "feature",
+  "subcategory": "backwards-compatibility",
+  "apis": [],
+  "components": [
+    "client",
+    "worker",
+    "activity",
+    "workflow"
+  ],
+  "concepts": [
+    "backwards-compatibility",
+    "versioning",
+    "public-api",
+    "deprecation",
+    "migration-path"
+  ],
+  "severity": "high",
+  "userImpact": "Downstream projects and applications built on the PHP SDK face frequent breaking changes between minor versions, requiring constant updates and causing uncertainty about upgrade safety.",
+  "rootCause": "Lack of defined backwards compatibility policy and CI enforcement for BC breaks during development.",
+  "proposedFix": "Define and document a BC promise (similar to Symfony's), mark internal classes with @internal and @final annotations, add Roave/BackwardCompatibilityCheck to CI pipeline, and use major version bumps for intentional BC breaks.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The most important thing is to be predictable and it should always work for all weird use cases. There is no gold medal if you keep version 2.x for 10 years.",
+  "number": 495,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:02.789Z"
+}

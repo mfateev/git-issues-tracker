@@ -1,0 +1,36 @@
+{
+  "summary": "In-memory Temporal test framework throws DEADLINE_EXCEEDED error after 70 seconds for long-running workflows, while external Temporal instances work fine. The issue occurs when workflow execution time exceeds 70 seconds due to a timeout on the client-side gRPC call.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "getWorkflowExecutionHistory"
+  ],
+  "components": [
+    "test-workflow-extension",
+    "workflow-client",
+    "grpc-stub"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "long-running-workflows",
+    "in-memory-testing",
+    "rpc-timeout",
+    "client-side-wait"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot test workflows longer than 70 seconds using in-memory Temporal, forcing them to use external Temporal instances for testing long-running workflows.",
+  "rootCause": "The getWorkflowExecutionHistory gRPC call uses a default rpcLongPollTimeout that is applied to client-side waits, causing a DEADLINE_EXCEEDED error after ~70 seconds regardless of actual workflow duration.",
+  "proposedFix": "Addressed by issues #709 and #713 (implementation details not specified in this issue)",
+  "workaround": "Set rpcLongPollTimeout to a higher value in WorkflowServiceStubsOptions, though this was not clearly documented at the time of reporting",
+  "resolution": "fixed",
+  "resolutionDetails": "Issues #709 and #713 were created to address this problem, indicating the timeout issue was resolved in subsequent releases",
+  "related": [
+    709,
+    713
+  ],
+  "keyQuote": "This happens if there is long running activity or if a workflow is executing several short activities but as long as total workflow running time exceeds 70 seconds, this exception gets thrown.",
+  "number": 707,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:36:12.891Z"
+}

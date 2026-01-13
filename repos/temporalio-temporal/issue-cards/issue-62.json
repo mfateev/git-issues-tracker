@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal needs a flexible, pluggable load balancing mechanism for gRPC frontend connections to replace the previous YARPC dispatcher pattern, supporting round-robin and custom load balancers.",
+  "category": "feature",
+  "subcategory": "frontend-loadbalancing",
+  "apis": [],
+  "components": [
+    "frontend",
+    "grpc-client",
+    "connection-pool"
+  ],
+  "concepts": [
+    "load-balancing",
+    "grpc",
+    "round-robin",
+    "service-discovery",
+    "dispatcher",
+    "pluggable-architecture"
+  ],
+  "severity": "high",
+  "userImpact": "Users need built-in support for different load balancing strategies when connecting to Temporal frontend servers.",
+  "rootCause": "Migration from YARPC to gRPC removed the flexible DispatcherProvider mechanism, replacing it with simple host:port connections without load balancing support.",
+  "proposedFix": "Implement gRPC load balancer support using service configs with round-robin configuration and dns:/// prefix for addresses, with pluggable architecture for custom load balancers.",
+  "workaround": "Use grpc.Dial with WithDefaultServiceConfig and dns:/// prefix: `grpc.Dial(address, grpc.WithInsecure(), grpc.WithDisableServiceConfig(), grpc.WithDefaultServiceConfig(`{\"loadBalancingConfig\": [{\"round_robin\":{}}]}`))",
+  "resolution": "fixed",
+  "resolutionDetails": "Load balancing support was implemented for gRPC frontend connections with proper service config and round-robin support.",
+  "related": [
+    60
+  ],
+  "keyQuote": "gRPC has support for round robin and custom load balancers as well as service configs. These approaches need to be investigated and Temporal should provide flexible plugable mechanism.",
+  "number": 62,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:09:45.431Z"
+}

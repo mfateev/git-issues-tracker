@@ -1,0 +1,29 @@
+{
+  "summary": "tctl wf start/run command incorrectly requires execution_timeout parameter even though the Temporal service defaults it to infinity. The error indicates the parameter format is invalid when not provided.",
+  "category": "bug",
+  "subcategory": "tctl-cli",
+  "apis": [],
+  "components": [
+    "tctl",
+    "workflow-start",
+    "parameter-parsing"
+  ],
+  "concepts": [
+    "execution-timeout",
+    "optional-parameters",
+    "cli-validation",
+    "service-defaults"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot start workflows with tctl without explicitly providing an execution_timeout parameter, even though it should be optional with a service-side default.",
+  "rootCause": "tctl is treating execution_timeout as a required parameter or failing to properly handle its absence, despite the service supporting infinite timeouts as default.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The execution_timeout parameter was made optional in tctl to align with service behavior that defaults to infinity.",
+  "related": [],
+  "keyQuote": "tctl wf start/run should not require execution timeout parameter as the service defaults it to infinity.",
+  "number": 1601,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:15:06.989Z"
+}

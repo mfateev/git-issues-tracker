@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request for workflow update support in the .NET SDK. This is a blocking feature that depends on core SDK functionality being implemented.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "sdk-core-integration"
+  ],
+  "concepts": [
+    "workflow-update",
+    "versioning",
+    "mutable-workflow",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the .NET SDK cannot update or modify running workflows, limiting the platform's capabilities for long-running processes.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation is waiting on the completion of temporalio/sdk-core#582, which provides the underlying core functionality for workflow updates.",
+  "related": [
+    582
+  ],
+  "keyQuote": "This is waiting on https://github.com/temporalio/sdk-core/issues/582",
+  "number": 100,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:57:59.977Z"
+}

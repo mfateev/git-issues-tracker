@@ -1,0 +1,29 @@
+{
+  "summary": "Protobuf Payload Converter is broken after upgrading protobufjs to 7.5.2 due to a new `_fullyQualifiedObjects` property that conflicts with SDK's custom Protobuf Root patching logic.",
+  "category": "bug",
+  "subcategory": "protobuf-payload-converter",
+  "apis": [],
+  "components": [
+    "protobuf-payload-converter",
+    "payload-converter",
+    "patch-protobuf-root",
+    "namespace-lookup"
+  ],
+  "concepts": [
+    "protobuf-serialization",
+    "dependency-upgrade",
+    "type-resolution",
+    "feature-test",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Feature tests fail when using Protobuf Payload converters after upgrading protobufjs to 7.5.2, though actual SDK integration tests and user-facing samples continue to work.",
+  "rootCause": "The `_fullyQualifiedObjects` property introduced in protobufjs 7.5.2 conflicts with the SDK's custom Protobuf Root patching logic, causing undefined property access errors during type lookup.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "keyQuote": "The `_fullyQualifiedObjects` property was introduced in protobufjs yesterday. It seems likely that this upstream change may conflict with our \"Patch Protobuf Root\" logic.",
+  "number": 1717,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:40.984Z"
+}

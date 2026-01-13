@@ -1,0 +1,32 @@
+{
+  "summary": "Request to replace the current time handling in workflows with .NET's System.TimeProvider API, which provides a standard abstraction for timers and time retrieval. The feature should expose a Workflow.TimeProvider property for testing purposes while maintaining the default behavior without magic.",
+  "category": "feature",
+  "subcategory": "time-provider",
+  "apis": [
+    "Workflow.TimeProvider"
+  ],
+  "components": [
+    "workflow-runtime",
+    "time-handling",
+    "testing-framework"
+  ],
+  "concepts": [
+    "time-provider",
+    "timers",
+    "testing",
+    "abstraction",
+    "dependency-injection"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to write more testable workflows by providing access to a standard .NET TimeProvider abstraction for mocking time in tests.",
+  "rootCause": null,
+  "proposedFix": "Leverage System.TimeProvider API to provide a Workflow.TimeProvider property and consider support for Microsoft.Extensions.TimeProvider.Testing for backward compatibility with .NET 6.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Leverage it. See https://learn.microsoft.com/en-us/dotnet/api/system.timeprovider. Will have to see how it may affect versions we release packages for.",
+  "number": 307,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:21:48.661Z"
+}

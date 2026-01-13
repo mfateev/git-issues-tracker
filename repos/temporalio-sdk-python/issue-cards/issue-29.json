@@ -1,0 +1,29 @@
+{
+  "summary": "Move from Sphinx to pydoctor for API documentation generation. Requires upstreaming support for @overload decorator to pydoctor, then making the existing gen-docs-pydoctor alternative the default and removing Sphinx.",
+  "category": "other",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "documentation-generator",
+    "pydoctor",
+    "sphinx"
+  ],
+  "concepts": [
+    "api-documentation",
+    "documentation-tooling",
+    "decorator-support",
+    "build-system"
+  ],
+  "severity": "low",
+  "userImpact": "Users will benefit from improved API documentation generation and maintenance through pydoctor instead of Sphinx.",
+  "rootCause": null,
+  "proposedFix": "Make gen-docs-pydoctor the default documentation tool and remove Sphinx integration after upstreaming @overload support to pydoctor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The migration from Sphinx to pydoctor was completed successfully.",
+  "related": [],
+  "keyQuote": "We already have `gen-docs-pydoctor` alternative, we just need to make that the default and remove Sphinx.",
+  "number": 29,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:46:31.098Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "ListQueues and other methods using getAnyClient bypass the cachingRedirector's redirectLoop, preventing failed history hosts from being removed from the cache when they become unavailable.",
+  "category": "bug",
+  "subcategory": "history-client",
+  "apis": [
+    "ListQueues"
+  ],
+  "components": [
+    "cachingRedirector",
+    "history-client",
+    "client-routing"
+  ],
+  "concepts": [
+    "fault-tolerance",
+    "host-failure",
+    "caching",
+    "client-routing",
+    "error-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "When a history host fails, ListQueues and similar methods fail to remove the broken host from cache, causing repeated failures until the cache entry expires or is manually cleared.",
+  "rootCause": "ListQueues calls the corresponding client method directly instead of using redirectLoop, which is responsible for detecting failures and removing dead hosts from the cache.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "cachingRedirector handles history failures in its redirectLoop and removes failed hosts from the cache. However, ListQueues does not use redirectLoop and calls corresponding client's method directly.",
+  "number": 6541,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:21.068Z"
+}

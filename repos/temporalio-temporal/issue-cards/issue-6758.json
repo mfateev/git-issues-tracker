@@ -1,0 +1,32 @@
+{
+  "summary": "Users cannot change activity task dispatch RPS limits after a worker has started without redeploying. This feature request seeks an API to dynamically set RPS limits at runtime, with API-set values taking precedence over worker configuration options.",
+  "category": "feature",
+  "subcategory": "activity-rate-limiting",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-task-dispatch",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "dynamic-configuration",
+    "runtime-updates",
+    "RPS-control",
+    "task-dispatch",
+    "worker-options",
+    "configuration-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must redeploy workers to change activity task dispatch RPS limits, which is operationally cumbersome; this feature would enable dynamic RPS adjustment without redeployment.",
+  "rootCause": null,
+  "proposedFix": "Implement an API to set RPS limits dynamically with priority hierarchy where API-set values override worker option configuration, and include an unset feature to revert to worker option values.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "After a worker has started and polls for tasks, this RPS value can only be changed by re-deploying the workers. This has proved to be a pain-point for some users",
+  "number": 6758,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:23.371Z"
+}

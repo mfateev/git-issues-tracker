@@ -1,0 +1,37 @@
+{
+  "summary": "gRPC errors thrown by the client lack meaningful context and have useless stack traces, making debugging difficult. The SDK should catch errors from WorkflowClient methods and rethrow them with better context about what operation failed.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "WorkflowClient",
+    "getHandle"
+  ],
+  "components": [
+    "grpc-client",
+    "error-handling",
+    "client-interceptors",
+    "grpc-retry"
+  ],
+  "concepts": [
+    "error-context",
+    "stack-traces",
+    "debugging",
+    "grpc-errors",
+    "error-wrapping",
+    "async-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot effectively debug client failures because error messages lack context about which operation failed and why.",
+  "rootCause": "Errors are thrown asynchronously by gRPC-js, resulting in stack traces that point to internal gRPC code rather than user code, with insufficient context about the failed operation.",
+  "proposedFix": "Catch errors from WorkflowClient methods and rethrow with additional context about the operation that failed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by implementing better error handling and context in the TypeScript SDK client.",
+  "related": [
+    376
+  ],
+  "keyQuote": "Right now client errors are thrown by grpc-js asynchronously and the stack trace is meaningless.",
+  "number": 365,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:57.091Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow deletion batch jobs report successful completion but fail to actually delete workflows due to visibility store timeouts. The batch operation incorrectly marks deletions as successful even when context deadline exceeded errors occur during persistence operations.",
+  "category": "bug",
+  "subcategory": "workflow-deletion",
+  "apis": [],
+  "components": [
+    "visibility-queue-task-executor",
+    "visibility-manager",
+    "batch-delete",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "timeout",
+    "batch-operations",
+    "async-operations",
+    "context-deadline",
+    "workflow-deletion",
+    "visibility-store"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably delete workflows as batch deletion reports success while workflows remain in the system, creating confusion and data management issues.",
+  "rootCause": "Context deadline exceeded errors in visibility store operations during deletion, combined with incorrect error handling that reports timeouts as successful completions rather than failures.",
+  "proposedFix": "Implement proper error handling to report batch deletion failures when visibility store operations timeout, and consider adding a synchronous deletion API as an alternative.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed because workflow deletion is async by design and works as expected. Timeouts in persistence layer prevent deletions, not the deletion API itself. Suggestion to add synchronous deletion API noted but not implemented.",
+  "related": [
+    6995
+  ],
+  "keyQuote": "Workflow deletion is an async operation, it's actually just requesting that the workflow be deleted and not waiting for actual deletion.",
+  "number": 8125,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:21.945Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Proposal for a background job to scan timer queues and remove timers for completed workflows and tasks, reducing unnecessary timer overhead. Many timeout-protected tasks end up with redundant timers when they complete successfully.",
+  "category": "feature",
+  "subcategory": "timer-management",
+  "apis": [],
+  "components": [
+    "timer-queue",
+    "workflow-manager",
+    "background-jobs"
+  ],
+  "concepts": [
+    "timeout",
+    "timer-cleanup",
+    "resource-optimization",
+    "queue-management",
+    "workflow-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can benefit from reduced resource overhead by automatically cleaning up unnecessary timers, improving system efficiency and reducing memory/storage usage.",
+  "rootCause": null,
+  "proposedFix": "Implement a background job that periodically scans all timer queues to identify and delete timer tasks for expired/completed workflows and tasks, with consideration for range delete operations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'm proposing a background job which scans all timer queues and delete any tasks for expired workflows/tasks.",
+  "number": 574,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:16:08.638Z"
+}

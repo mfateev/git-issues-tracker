@@ -1,0 +1,34 @@
+{
+  "summary": "Multiple Temporal clusters in the same Kubernetes cluster can experience service discovery cross-contamination when pod IP addresses are reused. A frontend service from cluster A can incorrectly discover and connect to matching services from cluster B, leading to cross-cluster communication.",
+  "category": "bug",
+  "subcategory": "service-discovery",
+  "apis": [],
+  "components": [
+    "frontend",
+    "matching-service",
+    "service-resolver",
+    "cluster-metadata"
+  ],
+  "concepts": [
+    "service-discovery",
+    "cluster-isolation",
+    "ip-address-reuse",
+    "kubernetes-deployments",
+    "pod-membership",
+    "network-segmentation"
+  ],
+  "severity": "high",
+  "userImpact": "Users running multiple independent Temporal clusters in the same Kubernetes cluster risk cross-cluster communication and data consistency issues when IP addresses are reused.",
+  "rootCause": "Service discovery reads stale IP addresses from cluster_metadata table and lacks validation that discovered nodes belong to the same cluster before adding them to the membership ring.",
+  "proposedFix": "Add cluster validation checks to ensure discovered nodes are part of the correct cluster, or use separate membership ports per cluster to prevent discovery across cluster boundaries.",
+  "workaround": "Use different membership ports for each Temporal cluster or implement Kubernetes NetworkPolicy to restrict inter-cluster communication.",
+  "resolution": "fixed",
+  "resolutionDetails": "Cluster ID was added to the membership app name in PR #3415 to prevent cross-cluster service discovery.",
+  "related": [
+    3415
+  ],
+  "keyQuote": "Temporal cluster A's frontend service is seeing 6 matching nodes, three from A and three from B through IP address reuse and stale cluster metadata.",
+  "number": 1234,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:08:33.136Z"
+}

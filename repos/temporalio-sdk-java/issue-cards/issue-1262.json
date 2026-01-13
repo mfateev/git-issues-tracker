@@ -1,0 +1,32 @@
+{
+  "summary": "Workflows become stuck waiting for local activity results when a workflow task heartbeat occurs during the execution of a sequence of local activities. The last scheduled local activity before the heartbeat is not properly tracked, causing the outstanding activity counter to reach zero while work remains pending.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "ReplayWorkflowRunTaskHandler",
+    "LocalActivityStubImpl",
+    "WorkflowThreadContext",
+    "state-machines"
+  ],
+  "concepts": [
+    "workflow-task-heartbeat",
+    "local-activity",
+    "synchronous-execution",
+    "outstanding-work-tracking",
+    "event-loop",
+    "task-timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience stuck workflows that appear to be waiting for local activities that are not actually executing, with no automatic recovery.",
+  "rootCause": "A `break` statement in ReplayWorkflowRunTaskHandler prevents the last scheduled local activity from being processed by state machines before a heartbeat, causing the outstanding local activities counter to incorrectly reach zero while work remains pending, leading to premature workflow task closure instead of heartbeat.",
+  "proposedFix": "Modify the break logic in ReplayWorkflowRunTaskHandler to ensure all scheduled local activities are accounted for in the outstanding activities counter before performing a heartbeat.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through proper tracking of local activities before workflow task heartbeat to prevent premature task closure.",
+  "related": [],
+  "keyQuote": "Because of a `break` here... this local activity command will never be taken by the state machines and accounted for in the outstanding local activities counter.",
+  "number": 1262,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:19:46.651Z"
+}

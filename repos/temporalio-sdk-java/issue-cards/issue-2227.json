@@ -1,0 +1,31 @@
+{
+  "summary": "Add namespace capabilities to the Test Server's describe workflow response, aligning with the temporal server implementation as referenced in PR #6256.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "describe-response",
+    "namespace"
+  ],
+  "concepts": [
+    "namespace-capabilities",
+    "server-response",
+    "test-compatibility",
+    "api-parity"
+  ],
+  "severity": "low",
+  "userImpact": "Test Server responses will be more complete and realistic, better matching production server behavior for namespace capability queries.",
+  "rootCause": null,
+  "proposedFix": "Implement namespace capabilities in the describe response, following the changes in temporalio/temporal PR #6256",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to fill in namespace capabilities in test server describe response",
+  "related": [
+    6256
+  ],
+  "keyQuote": "See https://github.com/temporalio/temporal/pull/6256",
+  "number": 2227,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:03:05.359Z"
+}

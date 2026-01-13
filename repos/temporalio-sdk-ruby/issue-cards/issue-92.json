@@ -1,0 +1,28 @@
+{
+  "summary": "Request for graceful timeout handling during worker shutdown in the Ruby SDK. Suggests implementing a configurable timeout mechanism to allow workers to complete in-flight operations before terminating.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "shutdown"
+  ],
+  "concepts": [
+    "timeout",
+    "graceful-shutdown",
+    "worker-lifecycle",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers may terminate abruptly without allowing in-flight operations to complete gracefully.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker shutdown timeout handling was implemented in the Ruby SDK",
+  "related": [],
+  "keyQuote": null,
+  "number": 92,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:41.899Z"
+}

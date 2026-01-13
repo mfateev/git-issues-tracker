@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support IAsyncDisposable activity classes with async scopes for dependency injection in .NET 6+. Currently the SDK only creates synchronous scopes which prevents proper async disposal patterns.",
+  "category": "feature",
+  "subcategory": "dependency-injection",
+  "apis": [],
+  "components": [
+    "ServiceProviderExtensions",
+    "Hosting",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "async-disposal",
+    "resource-management",
+    "dependency-injection",
+    "dotnet-6",
+    "scoping"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use IAsyncDisposable activities with the hosting DI container, limiting modern .NET resource management patterns.",
+  "rootCause": "ServiceProviderExtensions creates synchronous scopes instead of async scopes, incompatible with IAsyncDisposable pattern in .NET 6+.",
+  "proposedFix": "Change ServiceProviderExtensions.cs line 64 to use 'await using (var scope = provider.CreateAsyncScope())' with compiler directives for .NET 6+ compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Handled with #207",
+  "related": [
+    207
+  ],
+  "keyQuote": "Change to 'await using (var scope = provider.CreateAsyncScope())', but there may need to be compiler directives since it's .NET 6+",
+  "number": 204,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:41:36.159Z"
+}

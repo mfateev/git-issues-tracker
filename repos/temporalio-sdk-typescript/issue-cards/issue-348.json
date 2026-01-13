@@ -1,0 +1,30 @@
+{
+  "summary": "Algolia search integration is broken with a 403 API key error, preventing search functionality from working in the TypeScript SDK documentation.",
+  "category": "bug",
+  "subcategory": "documentation-search",
+  "apis": [],
+  "components": [
+    "documentation",
+    "algolia-integration",
+    "search"
+  ],
+  "concepts": [
+    "search",
+    "api-key",
+    "authentication",
+    "documentation",
+    "integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot search the TypeScript SDK documentation due to authentication failures.",
+  "rootCause": "Algolia API key configuration lacks proper permissions for the search index.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely resolved by updating API key permissions or configuration.",
+  "related": [],
+  "keyQuote": "403 Error: `Index not allowed with this API key`",
+  "number": 348,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:07.727Z"
+}

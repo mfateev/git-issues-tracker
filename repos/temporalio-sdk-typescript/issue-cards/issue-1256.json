@@ -1,0 +1,33 @@
+{
+  "summary": "The `appendDefaultInterceptors()` function is easy to miss and causes poor developer experience. This feature request asks to make workflow and activity logging work by default without requiring this explicit call, then deprecate the function.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [],
+  "components": [
+    "interceptors",
+    "workflow-logging",
+    "activity-logging",
+    "activator"
+  ],
+  "concepts": [
+    "developer-experience",
+    "deprecation",
+    "logging",
+    "default-behavior",
+    "interceptor-injection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have a better developer experience by not needing to remember to call `appendDefaultInterceptors()` for logging to work.",
+  "rootCause": "The `appendDefaultInterceptors()` function is required for workflow and activity logging but is not intuitive or automatic, requiring developers to explicitly call it.",
+  "proposedFix": "Move log calls out of the interceptor into the activator or forcibly inject the interceptor so it works by default, making `appendDefaultInterceptors()` a noop that can be deprecated.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #1290",
+  "related": [
+    1290
+  ],
+  "keyQuote": "appendDefaultInterceptors() is quite easy to miss => Bad developer experience. Since 1.8, prepending defaultSink() is no longer required => Better DX",
+  "number": 1256,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:30.799Z"
+}

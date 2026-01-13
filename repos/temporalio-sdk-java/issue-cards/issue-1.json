@@ -1,0 +1,31 @@
+{
+  "summary": "Replace the default DataConverter implementation with Jackson for better maintenance and Java 11 support.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization",
+    "json",
+    "data-conversion",
+    "java-compatibility",
+    "library-upgrade"
+  ],
+  "severity": "low",
+  "userImpact": "Users benefit from improved library maintenance and better Java 11 compatibility for data serialization.",
+  "rootCause": "The existing DataConverter implementation uses a less-maintained library without adequate Java 11 support.",
+  "proposedFix": "Switch to Jackson library for default DataConverter implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of PR #101.",
+  "related": [
+    101
+  ],
+  "keyQuote": "Jackson looks like better maintained with Java 11 support.",
+  "number": 1,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T15:39:36.070Z"
+}

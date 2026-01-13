@@ -1,0 +1,31 @@
+{
+  "summary": "Pydantic serialization error occurs when using openai_agents with multiple workers, triggered by setting OPENAI_AGENTS_DONT_LOG_MODEL_DATA environment variable and running the hello world sample.",
+  "category": "bug",
+  "subcategory": "pydantic-serialization",
+  "apis": [],
+  "components": [
+    "pydantic-serialization",
+    "openai-agents",
+    "worker"
+  ],
+  "concepts": [
+    "serialization",
+    "pydantic",
+    "environment-variable",
+    "multi-worker",
+    "model-data",
+    "json-encoding"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use openai_agents across multiple workers when the OPENAI_AGENTS_DONT_LOG_MODEL_DATA flag is set.",
+  "rootCause": "Pydantic core's SchemaSerializer is receiving a MockValSer object that cannot be converted to SchemaSerializer, indicating a type mismatch during JSON serialization.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved; status shows CLOSED.",
+  "related": [],
+  "keyQuote": "pydantic_core._pydantic_core.PydanticSerializationError: Error serializing to JSON: TypeError: 'MockValSer' object cannot be converted to 'SchemaSerializer'",
+  "number": 965,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:36.541Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "A deprecation warning appears when installing temporalio via pip due to grpcio being installed using the legacy setup.py method. This warning indicates that pip 23.1 will enforce stricter installation behavior.",
+  "category": "bug",
+  "subcategory": "installation",
+  "apis": [],
+  "components": [
+    "pip-installer",
+    "dependencies",
+    "grpcio"
+  ],
+  "concepts": [
+    "deprecation-warning",
+    "installation",
+    "dependency-management",
+    "pip-compatibility",
+    "package-distribution"
+  ],
+  "severity": "low",
+  "userImpact": "Users installing temporalio receive a deprecation warning that may be confusing, though the installation still completes successfully.",
+  "rootCause": "grpcio lacks a pyproject.toml and requires wheel package to be installed, causing pip to fall back to legacy setup.py installation method.",
+  "proposedFix": null,
+  "workaround": "Install the wheel package before installing temporalio.",
+  "resolution": "fixed",
+  "resolutionDetails": "grpcio is no longer installed by default as a dependency; it was made an optional dependency as noted in issue #224.",
+  "related": [
+    224
+  ],
+  "keyQuote": "grpcio is no longer installed by default",
+  "number": 223,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:50.125Z"
+}

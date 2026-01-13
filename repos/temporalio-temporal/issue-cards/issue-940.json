@@ -1,0 +1,31 @@
+{
+  "summary": "Unify TTL (Time-To-Live) handling logic across SQL and NoSQL persistence backends. Currently these implementations handle record TTL differently, and the goal is to standardize the approach so both follow the same pattern already established in the SQL worker setup.",
+  "category": "feature",
+  "subcategory": "persistence-ttl",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "sql-backend",
+    "nosql-backend",
+    "worker"
+  ],
+  "concepts": [
+    "ttl",
+    "record-lifecycle",
+    "database-cleanup",
+    "persistence-abstraction",
+    "configuration-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Inconsistent TTL handling between SQL and NoSQL backends creates confusion for users and increases maintenance burden across different database implementations.",
+  "rootCause": "SQL and NoSQL persistence implementations evolved separately with different TTL management strategies.",
+  "proposedFix": "NoSQL backend should adopt the same TTL handling pattern already implemented in SQL with corresponding worker setup.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Unify all persistence TTL handling logic since currently SQL / NoSQL record TTL are handled differently.",
+  "number": 940,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:47.385Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Python 3.11 raises TypeError when passing coroutines directly to asyncio.wait(). The code works in Python 3.10 but fails in 3.11 due to stricter async API requirements. The solution is to use asyncio.wait_for() with a timeout instead.",
+  "category": "bug",
+  "subcategory": "python-compatibility",
+  "apis": [],
+  "components": [
+    "asyncio-integration",
+    "event-loop"
+  ],
+  "concepts": [
+    "coroutines",
+    "async-await",
+    "timeout",
+    "python-version-compatibility",
+    "asyncio-api-changes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to Python 3.11 encounter runtime errors with idiomatic asyncio code patterns used in Temporal workflows.",
+  "rootCause": "Python 3.11 forbids passing coroutine objects directly to asyncio.wait(); they must be wrapped as tasks explicitly.",
+  "proposedFix": "Replace asyncio.wait() calls with asyncio.wait_for() for timeout-based waiting patterns.",
+  "workaround": "Use asyncio.wait_for(self._is_reopened.wait(), timeout=...) wrapped in try/except TimeoutError instead of asyncio.wait() with coroutines.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by updating documentation and examples to use asyncio.wait_for() which is the correct pattern for Python 3.11+ compatibility.",
+  "related": [],
+  "keyQuote": "Passing coroutines is forbidden, use tasks explicitly.",
+  "number": 232,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:21.082Z"
+}

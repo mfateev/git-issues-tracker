@@ -1,0 +1,29 @@
+{
+  "summary": "Security vulnerability report for go.temporal.io/server-v1.14.4 with 4 transitive dependency vulnerabilities (3 high, 1 medium severity) in Apache Thrift and Prometheus client. Issue was auto-closed as the vulnerable libraries are no longer part of the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "server-dependencies"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "transitive-dependency",
+    "apache-thrift",
+    "prometheus"
+  ],
+  "severity": "high",
+  "userImpact": "Users of temporalio-sdk-python may be exposed to DoS and potential memory exhaustion attacks through vulnerable transitive dependencies in the Temporal server.",
+  "rootCause": "Vulnerable versions of Apache Thrift (0.10.0) and Prometheus client_golang (1.11.0) included as transitive dependencies of go.temporal.io/server-v1.14.4.",
+  "proposedFix": "Upgrade Apache Thrift to 0.13.0 or later and Prometheus client_golang to 1.11.1 or later.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by WhiteSource as the vulnerable library was marked as ignored or is no longer part of the inventory.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by WhiteSource because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the WhiteSource inventory.",
+  "number": 17,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:45:48.852Z"
+}

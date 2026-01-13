@@ -1,0 +1,34 @@
+{
+  "summary": "The `instanceof WorkflowNotFoundError` check fails to catch the error thrown when a workflow doesn't exist. The issue is caused by multiple versions of `@temporalio/common` being installed, and the workaround is to check `err.name === 'WorkflowNotFoundError'` or import from `@temporalio/client` instead.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "getHandle",
+    "describe",
+    "query"
+  ],
+  "components": [
+    "client",
+    "error-handling",
+    "imports"
+  ],
+  "concepts": [
+    "instanceof",
+    "error-detection",
+    "workflow-lifecycle",
+    "dependency-resolution",
+    "import-source"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably catch WorkflowNotFoundError using instanceof, making it difficult to distinguish between missing workflows and other errors.",
+  "rootCause": "Multiple versions of @temporalio/common installed, causing instanceof checks to fail due to different class instances in the prototype chain.",
+  "proposedFix": "Import WorkflowNotFoundError from '@temporalio/client' instead of '@temporalio/workflow', or check err.name === 'WorkflowNotFoundError'.",
+  "workaround": "Use err.name === 'WorkflowNotFoundError' instead of instanceof, or change import source to '@temporalio/client'.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as caused by dependency duplication and resolved by recommending correct import source.",
+  "related": [],
+  "keyQuote": "This is likely due to multiple versions of `@temporalio/common` installed. Try changing the import to: `import { WorkflowNotFoundError } from '@temporalio/client`",
+  "number": 863,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:20:51.232Z"
+}

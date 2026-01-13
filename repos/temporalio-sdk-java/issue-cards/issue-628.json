@@ -1,0 +1,33 @@
+{
+  "summary": "TestWorkflowEnvironment's getResult() hangs indefinitely after terminate() instead of throwing WorkflowFailedException like the real server does. The test environment should match production behavior when a workflow is terminated.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowStub.getResult()",
+    "WorkflowStub.terminate()"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-stub",
+    "test-harness"
+  ],
+  "concepts": [
+    "termination",
+    "exception-handling",
+    "test-behavior-parity",
+    "blocking-operation",
+    "timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using TestWorkflowEnvironment hang when calling getResult() on terminated workflows, making it difficult to properly test termination scenarios.",
+  "rootCause": "TestWorkflowEnvironment does not properly simulate server behavior when a workflow is terminated, failing to throw WorkflowFailedException immediately",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Against the real temporal server, calling WorkflowStub.getResult() for a workflow that has been terminated immediately throws a WorkflowFailedException. The test environment should behave the same way.",
+  "number": 628,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:30:15.572Z"
+}

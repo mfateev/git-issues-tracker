@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add extra context on task failure logs for workflows and activities in Python SDK, similar to what's provided in regular workflow/activity logger calls.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "workflow.logger",
+    "activity.logger"
+  ],
+  "components": [
+    "logger",
+    "workflow-executor",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "logging",
+    "error-context",
+    "task-failure",
+    "debugging",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users have limited visibility into workflow and activity failures because extra context isn't provided in task failure logs.",
+  "rootCause": null,
+  "proposedFix": "Provide `extra` context on task failure logs with Temporal workflow/activity info, matching the behavior of regular workflow/activity logger calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For workflow and activities, on task failure we need to provide `extra` with Temporal workflow/activity info like regular workflow/activity.logger calls do.",
+  "number": 500,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:12.919Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "When a child workflow is reset while open, the parent workflow incorrectly receives a ChildWorkflowExecutionTerminated event instead of treating the reset as transparent. The parent should see the reset child as the same child with only a new completion event.",
+  "category": "bug",
+  "subcategory": "child-workflow-reset",
+  "apis": [],
+  "components": [
+    "child-workflow-state-machine",
+    "workflow-event-handling",
+    "reset-logic"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "child-workflow",
+    "event-propagation",
+    "state-management",
+    "failure-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Parent workflows receive unexpected termination failures when their child workflows are reset, breaking the expected behavior and causing workflow failures.",
+  "rootCause": "The reset operation sends a ChildWorkflowExecutionTerminated event to the parent instead of handling the reset transparently within the child's execution context.",
+  "proposedFix": "Modify the reset logic to not propagate termination events to the parent when a child workflow is reset while open; the parent should only see the eventual completion result.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #2913 addresses this issue by fixing the event handling for reset child workflows.",
+  "related": [
+    2913
+  ],
+  "keyQuote": "When a child is open resetting it should not be visible to its parent. So from the parent point of view, the reset child is still the same child and only its completion is reported.",
+  "number": 725,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:49.837Z"
+}

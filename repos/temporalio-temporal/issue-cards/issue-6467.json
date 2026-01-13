@@ -1,0 +1,33 @@
+{
+  "summary": "Docker images (admin-tools, server, ui) are using a Go version impacted by CVE-2024-24790. Updating Go to 1.21.11 or newer would resolve the security vulnerability.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "server",
+    "ui",
+    "docker-images"
+  ],
+  "concepts": [
+    "security",
+    "cve",
+    "vulnerability",
+    "go-version",
+    "dependency",
+    "docker",
+    "container"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal server, admin-tools, and ui images are exposed to a known Go security vulnerability.",
+  "rootCause": "Docker images are built with Go version prior to 1.21.11 which contains CVE-2024-24790",
+  "proposedFix": "Update Go to version 1.21.11 or newer in the Docker image builds",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Updating Go to 1.21.11 or newer would fix the issue.",
+  "number": 6467,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:22.089Z"
+}

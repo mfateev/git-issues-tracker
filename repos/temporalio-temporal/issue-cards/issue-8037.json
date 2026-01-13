@@ -1,0 +1,29 @@
+{
+  "summary": "Worker service experiences abnormal restart due to a null pointer exception in the execution scanner task when processing execution records. The issue occurs when the logic doesn't return on errors and continues to validate an empty record, causing an NPE.",
+  "category": "bug",
+  "subcategory": "execution-scanner",
+  "apis": [],
+  "components": [
+    "worker",
+    "execution-scanner",
+    "persistence"
+  ],
+  "concepts": [
+    "null-pointer-exception",
+    "error-handling",
+    "database-compatibility",
+    "service-restart"
+  ],
+  "severity": "high",
+  "userImpact": "Worker service crashes and restarts abnormally, disrupting workflow execution and stability in production environments.",
+  "rootCause": "The execution scanner task logic doesn't return on errors and continues to validate an empty record, causing a null pointer exception. Additionally, the execution scanner is enabled for SQL databases which don't support the ListConcreteExecutions persistence API.",
+  "proposedFix": "Add error handling logic to return when ListConcreteExecutions fails. Add a check to only start the execution scanner when the underlying DB supports the required persistence API (not SQL).",
+  "workaround": "Turn off the execution scanner feature flag (worker.executionsscannerenabled) and terminate any workflow in the temporal-system namespace with workflow type 'temporal-sys-executions-scanner-workflow'.",
+  "resolution": "fixed",
+  "resolutionDetails": "The root cause was identified in the executions/task.go file where error handling was missing. A fix was planned to add proper error handling and database compatibility checks.",
+  "related": [],
+  "keyQuote": "the logic didn't return on errors and continued to validate an empty record causing the NPE",
+  "number": 8037,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:15.273Z"
+}

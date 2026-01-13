@@ -1,0 +1,34 @@
+{
+  "summary": "Users want to separate workflow code bundling from worker execution, allowing them to use custom bundlers (like esbuild) instead of the built-in webpack bundler and trigger only code execution on startup.",
+  "category": "feature",
+  "subcategory": "worker-setup",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "bundler",
+    "workflow-code-loader"
+  ],
+  "concepts": [
+    "bundling",
+    "code-execution",
+    "separation-of-concerns",
+    "custom-bundler",
+    "webpack-alternative"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now use their preferred bundling tools instead of being locked into the built-in bundler, enabling more flexible development workflows.",
+  "rootCause": "The worker entrypoint was tightly coupled to both bundling and execution logic, preventing users from customizing the bundling step.",
+  "proposedFix": "Export WorkflowCodeBundler class and add workflowCodeBundle parameter to WorkerOptions, accepting either bundled code string or path to bundle file.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented by exporting bundling functionality separately and adding workflowCodeBundle parameter to Worker.create options.",
+  "related": [
+    317
+  ],
+  "keyQuote": "I'd like to take the responsibility of the bundling (and e.g. use something like esbuild instead of Webpack) and have my worker entrypoint only trigger the actual code execution",
+  "number": 310,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:37.663Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The Java SDK executes StartUpdate and waits for the update to reach the required stage outside of the intercepted call, differing from other SDKs where this wait happens inside the interceptor. This prevents interceptors from running logic after the StartUpdate call completes.",
+  "category": "bug",
+  "subcategory": "update-request-handling",
+  "apis": [
+    "StartUpdate"
+  ],
+  "components": [
+    "update-executor",
+    "interceptor",
+    "call-handler"
+  ],
+  "concepts": [
+    "interceptor",
+    "blocking",
+    "synchronization",
+    "update-staging",
+    "cross-sdk-alignment"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot execute custom logic in interceptors after StartUpdate calls, limiting interceptor functionality and breaking consistency with other SDK implementations.",
+  "rootCause": "Java SDK blocks on update stage requirement outside the intercepted call scope, whereas other SDKs perform this wait inside the interceptor.",
+  "proposedFix": "Move the blocking wait for update stage requirement inside the intercepted call to align Java SDK behavior with other SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation was updated to move the StartUpdate blocking logic inside the intercepted call, aligning Java SDK with other SDKs.",
+  "related": [],
+  "keyQuote": "This makes it impossible to run logic in the interceptor after the start update call has completed. We need to align the Java SDK with other SDKs here.",
+  "number": 2094,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:32.846Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to enable sync activities running on ThreadPoolExecutor to access the activity client. Currently, the client is only available in async activities, but the requester argues there's no technical reason to restrict it for thread pool-based sync activities since they don't have the pickling issues of process pool executors.",
+  "category": "feature",
+  "subcategory": "activity-client",
+  "apis": [
+    "activity.client",
+    "activity.info"
+  ],
+  "components": [
+    "activity-executor",
+    "sync-activities",
+    "client"
+  ],
+  "concepts": [
+    "thread-pool-executor",
+    "async-interop",
+    "activity-progress",
+    "concurrency",
+    "event-loop"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement progress updates in sync activities run via ThreadPoolExecutor because they lack client access, forcing them to use only async activities or find workarounds.",
+  "rootCause": "Client is tied to the main event loop and reusing it from a different thread would cause concurrency issues with asyncio synchronization primitives. The restriction applies uniformly to all sync activities regardless of executor type.",
+  "proposedFix": "Allow client access in sync activities when using ThreadPoolExecutor by ensuring proper event loop handling, or provide guidance on creating a new client in the worker thread.",
+  "workaround": "Users can create a new client within the sync activity worker thread, or implement progress tracking through other mechanisms not requiring client access.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer explained that reusing a client from a different event loop creates concurrency issues with asyncio primitives. The requester accepted this explanation and understood the architectural constraint.",
+  "related": [],
+  "keyQuote": "Because the client was created on a different event loop than the one you would be producing inside your sync activity. This potentially leads to concurrency errors since asyncio synchronization is not guaranteed across multiple threads.",
+  "number": 1252,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:37:03.270Z"
+}

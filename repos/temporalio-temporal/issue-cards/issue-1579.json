@@ -1,0 +1,31 @@
+{
+  "summary": "Orphaned task queues created by failed tests can cause Cassandra tombstone scanning performance issues when a cron workflow continues submitting tasks indefinitely to queues with no workers, forcing the task reader to repeatedly scan expired TTL'd tasks.",
+  "category": "bug",
+  "subcategory": "task-queue-management",
+  "apis": [],
+  "components": [
+    "task-manager",
+    "task-reader",
+    "tasks-table",
+    "cron-workflow"
+  ],
+  "concepts": [
+    "orphaned-task-queue",
+    "tombstone-scanning",
+    "ttl-expiration",
+    "cursor-management",
+    "cassandra-performance"
+  ],
+  "severity": "high",
+  "userImpact": "Users with failed test infrastructure or poorly managed workflows can inadvertently create performance degradation in Cassandra due to unbounded tombstone scanning.",
+  "rootCause": "TTL-based task deletion prevents the task reader cursor from advancing when tasks are orphaned, causing repeated scans over expired tombstones in Cassandra.",
+  "proposedFix": "Replace TTL-based task expiration with explicit deletion to allow the task reader to move the cursor forward when no active tasks remain beyond a certain point.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "but since new tasks were being submitted by the orphaned cron every minute, the task manager for the task queue remained active and the taskReader would scan over all the tombstones",
+  "number": 1579,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:39.433Z"
+}

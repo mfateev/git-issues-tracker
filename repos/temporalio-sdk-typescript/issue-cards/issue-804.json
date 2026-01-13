@@ -1,0 +1,30 @@
+{
+  "summary": "Nightly tests were failing because no workflow tasks were being returned to the worker, with the logs full of poll timeout messages. The issue resolved itself without clear explanation of what changed.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-poller",
+    "nightly-tests"
+  ],
+  "concepts": [
+    "polling",
+    "timeout",
+    "task-delivery",
+    "worker-health",
+    "test-environment"
+  ],
+  "severity": "high",
+  "userImpact": "Nightly test suite was broken, preventing validation of SDK changes and regressions.",
+  "rootCause": "Unknown - possibly related to Docker Compose environment or infrastructure changes.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests became green again after the issue was reported, suggesting an environmental or transient issue that self-resolved.",
+  "related": [],
+  "keyQuote": "Poll wft timeout",
+  "number": 804,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:12:49.845Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Custom search attributes with hyphens in their names cause query filtering errors in the Temporal UI, where the hyphen is incorrectly treated as a delimiter. The issue was resolved in a UI update that properly handles special characters in custom search attribute names.",
+  "category": "bug",
+  "subcategory": "custom-search-attributes",
+  "apis": [],
+  "components": [
+    "ui",
+    "elasticsearch",
+    "query-parser",
+    "search-attributes"
+  ],
+  "concepts": [
+    "custom-search-attributes",
+    "filtering",
+    "query-parsing",
+    "special-characters",
+    "visibility",
+    "workflow-querying"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot filter workflows by custom search attributes that contain hyphens in their names, making certain search attribute configurations unusable.",
+  "rootCause": "The query parser was treating hyphens as delimiters and inserting spaces around them, converting 'abc-test' to 'abc - test' which caused the SQL parser to fail.",
+  "proposedFix": "Fix the query parser to properly handle special characters like hyphens in custom search attribute names.",
+  "workaround": "Avoid using hyphens in custom search attribute names and use alternative naming conventions instead.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via UI PR #2015 which properly handles hyphens in custom search attribute names. Verified as working in Server v1.26.2 and UI v2.28.0.",
+  "related": [],
+  "keyQuote": "It seems that although there is no restriction on using hyphen it is somewhat acting as a delimeter and inserting spaces while filtering.",
+  "number": 5557,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:41.422Z"
+}

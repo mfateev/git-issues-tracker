@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add database connectivity checks to Kubernetes liveness probes so that Temporal pods restart automatically when database credentials or certificates are renewed, preventing silent failures.",
+  "category": "feature",
+  "subcategory": "deployment-health-checks",
+  "apis": [],
+  "components": [
+    "liveness-probe",
+    "worker",
+    "frontend",
+    "matching",
+    "history"
+  ],
+  "concepts": [
+    "database-connectivity",
+    "kubernetes",
+    "pod-restart",
+    "credential-rotation",
+    "health-check",
+    "certificate-renewal"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal in Kubernetes with rotating database credentials experience silent failures and manual pod restarts instead of automatic recovery.",
+  "rootCause": "Liveness probes do not verify database connectivity, so pods with invalid credentials continue running and log errors without triggering automatic restart.",
+  "proposedFix": "Implement database connectivity checks within the existing liveness probe to detect authentication failures and trigger pod restarts.",
+  "workaround": "Manually restart pods or use tctl namespace list, though tctl cannot connect to localhost even with correct port configuration.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Check DB connectivity in liveness probe. If the DB password is changed the temporal pods would restart and load the new secret.",
+  "number": 5299,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:25.583Z"
+}

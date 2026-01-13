@@ -1,0 +1,29 @@
+{
+  "summary": "The CLI README contains a broken link to outdated external documentation. The link should point to https://docs.temporal.io/docs/learn-cli instead of https://docs.temporal.io/docs/08_cli.",
+  "category": "docs",
+  "subcategory": "documentation-links",
+  "apis": [],
+  "components": [
+    "cli",
+    "documentation",
+    "readme"
+  ],
+  "concepts": [
+    "documentation",
+    "broken-links",
+    "external-references",
+    "docs-maintenance"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the CLI documentation link encounter outdated or broken pages, disrupting their learning experience.",
+  "rootCause": "Outdated hardcoded URL in CLI README pointing to a deprecated documentation page.",
+  "proposedFix": "Update the link in tools/cli/README.md from https://docs.temporal.io/docs/08_cli to https://docs.temporal.io/docs/learn-cli",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation link was updated to point to the correct URL.",
+  "related": [],
+  "keyQuote": "The external link is outdated and instead should be: https://docs.temporal.io/docs/learn-cli",
+  "number": 340,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:51:24.743Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "SimpleSslContextBuilder only supports PKCS8 certificates while all Temporal documentation and examples use PKCS12, forcing users to convert certificates. Need to add PKCS12 support and improve javadocs with direct usage examples.",
+  "category": "feature",
+  "subcategory": "ssl-configuration",
+  "apis": [
+    "SimpleSslContextBuilder"
+  ],
+  "components": [
+    "ssl-context-builder",
+    "certificate-handling",
+    "security-configuration"
+  ],
+  "concepts": [
+    "ssl-tls",
+    "certificate-formats",
+    "pkcs8",
+    "pkcs12",
+    "documentation-consistency",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually convert PKCS12 certificates to PKCS8 format to use the Java SDK, adding unnecessary complexity to deployment.",
+  "rootCause": "SimpleSslContextBuilder implementation only recognizes PKCS8 format while Temporal ecosystem standardizes on PKCS12.",
+  "proposedFix": "Add code to SimpleSslContextBuilder supporting PKCS12 certificates and improve javadocs with direct usage examples.",
+  "workaround": "Convert PKCS12 certificates to PKCS8 format before using with SimpleSslContextBuilder.",
+  "resolution": "fixed",
+  "resolutionDetails": "PKCS12 support was added to SimpleSslContextBuilder to match Temporal documentation standards.",
+  "related": [],
+  "keyQuote": "SimpleSslContextBuilder uses and exposes working with PKCS8 only. Meanwhile, all Temporal server docs and examples are working with PKCS12 only.",
+  "number": 925,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:53:36.877Z"
+}

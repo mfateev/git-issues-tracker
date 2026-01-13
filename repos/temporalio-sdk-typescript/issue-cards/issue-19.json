@@ -1,0 +1,32 @@
+{
+  "summary": "The worker's poll_task needs to drain remaining activations and properly detect the ShuttingDown signal during graceful shutdown. Currently, the promise from worker.run() never resolves because poll_task is blocked on a long poll and cannot see the shutdown flag.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "poll_task",
+    "core-integration"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "signal-handling",
+    "draining",
+    "long-poll",
+    "shutdown-flag"
+  ],
+  "severity": "high",
+  "userImpact": "Workers cannot shut down gracefully; the shutdown promise hangs indefinitely, requiring timeout-based termination.",
+  "rootCause": "poll_task is blocked on a long poll and never gets a chance to see that the shutdown flag is set, preventing it from detecting CoreError::ShuttingDown.",
+  "proposedFix": "Interrupt the long poll when the shutdown flag is set so poll_task can detect the shutdown signal and drain remaining activations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by sdk-core PR #59 which provided a mechanism to interrupt the long poll during shutdown.",
+  "related": [],
+  "keyQuote": "poll_task is stuck blocked on the long poll and never gets a chance to see that the shutdown flag is set. I need some way to interrupt the long poll when that happens.",
+  "number": 19,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:08.242Z"
+}

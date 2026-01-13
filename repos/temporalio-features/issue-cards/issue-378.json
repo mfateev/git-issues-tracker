@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add built-in timer jitter utility to SDKs. Users currently must implement their own jitter functions to prevent large numbers of timers from firing simultaneously, which often leads to non-deterministic issues.",
+  "category": "feature",
+  "subcategory": "timer-utilities",
+  "apis": [],
+  "components": [
+    "timer",
+    "workflow-execution",
+    "sdk-utilities"
+  ],
+  "concepts": [
+    "jitter",
+    "determinism",
+    "timer-coordination",
+    "performance",
+    "concurrency",
+    "scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must implement custom jitter logic for timers at scale, risking non-deterministic behavior and increased complexity.",
+  "rootCause": null,
+  "proposedFix": "Add a jitter parameter to timer creation APIs in SDKs that ensures deterministic jitter application.",
+  "workaround": "Users can create their own jitter functions, though this risks non-determinism.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users currently have to create their own jitter functions which can often lead to non-deterministic issues.",
+  "number": 378,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:27.769Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Cassandra failing to start properly in Kubernetes environment when using the temporaltest Helm chart with a single Cassandra node. Issue appears to be an environment setup problem rather than a bug in Temporal itself.",
+  "category": "question",
+  "subcategory": "deployment-kubernetes",
+  "apis": [],
+  "components": [
+    "cassandra",
+    "helm-chart",
+    "kubernetes-deployment"
+  ],
+  "concepts": [
+    "deployment",
+    "database-initialization",
+    "environment-setup",
+    "containerization",
+    "cluster-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to deploy Temporal with Cassandra in Kubernetes may encounter startup failures when using single-node configurations.",
+  "rootCause": "Cassandra node configuration issue in temporaltest Helm chart environment, likely due to single-node setup and inadequate resource allocation or configuration.",
+  "proposedFix": "Use a properly configured multi-node Cassandra setup for production environments rather than the temporaltest Helm chart which is only meant for testing.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was determined to be an environment setup problem, not a product bug. The temporaltest Helm chart is not production-ready and the single Cassandra node configuration was insufficient.",
+  "related": [],
+  "keyQuote": "The helm chart, as the name `temporaltest` suggest, is not meant to be used as production environment.",
+  "number": 3010,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:25.357Z"
+}

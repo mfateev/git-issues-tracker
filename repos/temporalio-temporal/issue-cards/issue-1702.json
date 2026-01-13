@@ -1,0 +1,32 @@
+{
+  "summary": "Docker images from Dockerhub have Elasticsearch schemas at an incorrect directory structure (`schema/elasticsearch/{version}/visibility/`) compared to the expected location (`schema/elasticsearch/visibility/index_template_{version}.json`), causing deployment failures with Helm charts.",
+  "category": "bug",
+  "subcategory": "deployment-elasticsearch",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "docker-image",
+    "elasticsearch-setup",
+    "helm-integration"
+  ],
+  "concepts": [
+    "deployment",
+    "docker",
+    "elasticsearch",
+    "schema-versioning",
+    "configuration-mismatch",
+    "helm-charts"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal clusters with Elasticsearch via Helm charts encounter setup job failures and index creation errors.",
+  "rootCause": "Directory structure was recently changed in the server repository but Dockerhub images were built from a different version than the latest master, causing a mismatch between image layout and expected paths in Helm charts and deployment scripts.",
+  "proposedFix": "Ensure Dockerhub-published images have the correct directory structure matching the current master branch, and maintain version alignment between server releases and corresponding Helm chart releases.",
+  "workaround": "Use the specific Helm chart version that matches your server release version (e.g., Helm chart 1.10.1 for server 1.10.5).",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by clarifying version alignment between server releases and Helm chart releases; users needed to match specific versions rather than assume latest-to-latest compatibility.",
+  "related": [],
+  "keyQuote": "Temporal server image 1.10.5 requires Helm chart 1.10.1 to deploy, and latest Helm chart targets latest master of server",
+  "number": 1702,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:35.727Z"
+}

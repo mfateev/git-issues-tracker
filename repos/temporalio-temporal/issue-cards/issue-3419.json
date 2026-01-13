@@ -1,0 +1,30 @@
+{
+  "summary": "History scavenger functionality needs to be implemented for SQL-based persistence to clean up dangling history data, similar to the existing Cassandra-based implementation. The main blocker is implementing GetAllHistoryTreeBranches for SQL persistence.",
+  "category": "feature",
+  "subcategory": "history-scavenging",
+  "apis": [],
+  "components": [
+    "persistence",
+    "history-management",
+    "sql-persistence"
+  ],
+  "concepts": [
+    "data-cleanup",
+    "garbage-collection",
+    "dangling-data",
+    "history-tree",
+    "branch-management"
+  ],
+  "severity": "medium",
+  "userImpact": "SQL-based persistence deployments cannot clean up dangling history data, leading to potential data bloat and storage inefficiency.",
+  "rootCause": "GetAllHistoryTreeBranches function is not implemented for SQL persistence backend",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "History scavenger was implemented for SQL-based persistence with the missing GetAllHistoryTreeBranches functionality",
+  "related": [],
+  "keyQuote": "The major missing function is GetAllHistoryTreeBranches which is not implemented on SQL persistence.",
+  "number": 3419,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:58.793Z"
+}

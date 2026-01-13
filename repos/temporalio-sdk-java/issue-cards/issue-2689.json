@@ -1,0 +1,30 @@
+{
+  "summary": "Port metrics improvement from sdk-core to Java SDK where sticky task queue client metrics should use the normal task queue name instead of a separate identifier for consistency and clarity.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "task-queue",
+    "sticky-task-queue"
+  ],
+  "concepts": [
+    "metrics",
+    "task-queue-naming",
+    "client-metrics",
+    "sticky-queue",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users monitoring sticky task queue metrics will see clearer, more consistent metric names aligned with core SDK behavior.",
+  "rootCause": null,
+  "proposedFix": "Apply the same metrics naming improvement from sdk-core PR #1039 to the Java SDK implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement implemented by porting the sticky task queue metrics naming improvement from sdk-core to Java SDK.",
+  "related": [],
+  "keyQuote": "Port https://github.com/temporalio/sdk-core/pull/1039",
+  "number": 2689,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:19.457Z"
+}

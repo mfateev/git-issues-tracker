@@ -1,0 +1,28 @@
+{
+  "summary": "User inquires about the availability of activity_task_schedule_to_start_latency metrics in the PHP SDK, expecting it to be present since the PHP SDK is built on top of the Go SDK which implements these metrics.",
+  "category": "question",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics-collector",
+    "activity-executor"
+  ],
+  "concepts": [
+    "metrics",
+    "activity-latency",
+    "scheduling",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot monitor activity scheduling latency metrics in PHP SDK, limiting observability into workflow performance.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue was closed due to inactivity by maintainer after clarification question was asked.",
+  "related": [],
+  "keyQuote": "I can't activity_task_schedule_to_start_latency metrics on php-sdk. Is it not implemented yet?",
+  "number": 121,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:34.189Z"
+}

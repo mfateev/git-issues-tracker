@@ -1,0 +1,32 @@
+{
+  "summary": "DataConverter interface needs a method to deserialize all Payloads at once instead of requiring individual deserialization calls. The current random access approach is inefficient with PayloadCodec and Remote Data Encoder as it requires one call per parameter.",
+  "category": "feature",
+  "subcategory": "data-conversion",
+  "apis": [
+    "DataConverter"
+  ],
+  "components": [
+    "data-converter",
+    "payload-codec",
+    "remote-data-encoder"
+  ],
+  "concepts": [
+    "batch-deserialization",
+    "payload-processing",
+    "encoding-efficiency",
+    "parameter-conversion",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience degraded performance when using PayloadCodec and Remote Data Encoder for workflow/activity parameters due to inefficient per-parameter deserialization calls.",
+  "rootCause": "The DataConverter interface design assumes random access deserialization, which doesn't scale efficiently with encoders that benefit from batch processing.",
+  "proposedFix": "Add a new interface method to DataConverter that deserializes all Payloads at once instead of requiring individual calls per parameter.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "DataConverter interface has to evolve to support encoding all the Payloads at once.",
+  "number": 1345,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:27:22.137Z"
+}

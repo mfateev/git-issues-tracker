@@ -1,0 +1,31 @@
+{
+  "summary": "Two medium severity vulnerabilities (GHSA-4p46-pwfr-66x6 in ring and GHSA-2gh3-rmm4-6rq5 in protobuf) were discovered in Cargo dependencies. These security issues have been resolved in version 1.11.8 and main branch.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "cargo-dependencies",
+    "protobuf",
+    "ring"
+  ],
+  "concepts": [
+    "vulnerability",
+    "security",
+    "dependency",
+    "cargo",
+    "cryptography"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with the affected SDK versions could be exposed to security vulnerabilities through transitive Cargo dependencies.",
+  "rootCause": "Outdated or vulnerable versions of ring and protobuf Cargo dependencies in core-bridge.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed in version 1.11.8 and on the main branch by updating vulnerable dependencies.",
+  "related": [],
+  "keyQuote": "This has been fixed in 1.11.8, and also on the main branch.",
+  "number": 1676,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:28:48.271Z"
+}

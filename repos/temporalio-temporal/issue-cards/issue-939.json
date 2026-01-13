@@ -1,0 +1,32 @@
+{
+  "summary": "Consolidate all persistence layer serialization and deserialization logic into a unified location instead of having it scattered across SQL and NoSQL implementations.",
+  "category": "feature",
+  "subcategory": "persistence-serialization",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "sql-backend",
+    "nosql-backend",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization",
+    "deserialization",
+    "code-consolidation",
+    "architectural-refactoring",
+    "persistence",
+    "data-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Consolidating serialization logic would reduce code duplication and maintenance burden for the persistence layer across different storage backends.",
+  "rootCause": null,
+  "proposedFix": "Unify all persistence serialization/deserialization logic into a single centralized location.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Unify all persistence serialization / deserialization login into one place, instead of letting SQL / NoSQL layer handle separately",
+  "number": 939,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:45.923Z"
+}

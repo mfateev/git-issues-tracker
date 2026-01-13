@@ -1,0 +1,31 @@
+{
+  "summary": "Worker client experiences OOM errors in Kubernetes containers because maxCachedWorkflows is calculated using os.totalmem() which returns host machine memory instead of container resource limits. Recommendation to use v8.getHeapStatistics().total_available_size instead for accurate memory calculation.",
+  "category": "bug",
+  "subcategory": "worker-memory-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "worker-options",
+    "memory-management"
+  ],
+  "concepts": [
+    "out-of-memory",
+    "container-limits",
+    "kubernetes",
+    "memory-calculation",
+    "heap-statistics",
+    "resource-constraints"
+  ],
+  "severity": "high",
+  "userImpact": "Workers crash with OOM errors in Kubernetes environments even when memory limits are properly configured via NODE_OPTIONS.",
+  "rootCause": "maxCachedWorkflows default calculation uses os.totalmem() which returns host machine memory, not container cgroup limits, causing incorrect memory estimates and excessive workflow caching.",
+  "proposedFix": "Calculate default maxCachedWorkflows using v8.getHeapStatistics().total_available_size instead of os.totalmem() to respect container memory constraints.",
+  "workaround": "Manually set maxCachedWorkflows to a lower value in worker options.",
+  "resolution": "fixed",
+  "resolutionDetails": "Agreed to use total_available_size from v8.getHeapStatistics() as the default instead of os.totalmem().",
+  "related": [],
+  "keyQuote": "os.totalmem() will get the host machine memory not container resource setting. Could we calculate default maxCachedWorkflows with v8.getHeapStatistics().total_available_size",
+  "number": 762,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:10:56.013Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to reduce boilerplate code in the TypeScript SDK by allowing direct imports and calls to workflows and activities as regular functions, and passing them directly to Worker configuration instead of using proxy functions and path specifications.",
+  "category": "feature",
+  "subcategory": "developer-experience",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "workflow-registration",
+    "activity-registration",
+    "client-api"
+  ],
+  "concepts": [
+    "glue-code",
+    "type-safety",
+    "code-colocations",
+    "execution-context",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would write less boilerplate code and have a more natural TypeScript experience when wiring workflows and activities.",
+  "rootCause": "The architectural requirement to compose workflows and activities across different execution contexts (deterministic VM, worker threads, etc.) necessitates proxy patterns and explicit configuration.",
+  "proposedFix": "Allow importing workflow/activity functions directly and passing them as first argument with configuration at call time, similar to Rust's implicit self parameter pattern. Pass workflow/activity modules directly to Worker.create instead of path specifications.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined the proposal was not actionable without more concrete suggestions and noted that JavaScript/TypeScript language design constraints make eliminating glue code impractical.",
+  "related": [],
+  "keyQuote": "I honestly don't see how it would be possible to \"magically\" avoid any form of glue code.",
+  "number": 1287,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:23.159Z"
+}

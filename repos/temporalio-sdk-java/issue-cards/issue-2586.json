@@ -1,0 +1,34 @@
+{
+  "summary": "Headers set via client interceptor are not propagated to workflow signal handlers when using the time-skipping test server. The headers appear blank in the inbound workflow interceptor, breaking header-based functionality in signal processing.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [
+    "signal_workflow",
+    "handle_signal"
+  ],
+  "components": [
+    "test-server",
+    "interceptors",
+    "signal-handling"
+  ],
+  "concepts": [
+    "headers",
+    "interceptors",
+    "signal-propagation",
+    "test-server",
+    "time-skipping",
+    "payload-routing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot rely on headers in workflow signals when testing with the time-skipping server, breaking interceptor-based header validation and data passing patterns.",
+  "rootCause": "Time-skipping test server implementation does not properly propagate client-set headers through to workflow signal handlers",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Headers set in client interceptor appear in inbound workflow interceptor... Headers are blank",
+  "number": 2586,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:27.044Z"
+}

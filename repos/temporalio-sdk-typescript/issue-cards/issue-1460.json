@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to add support for default/dynamic update handlers in the TypeScript SDK, similar to the existing setDefaultSignalHandler functionality.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [
+    "setDefaultSignalHandler",
+    "setDefaultUpdateHandler"
+  ],
+  "components": [
+    "workflow",
+    "update-handler",
+    "signal-handler"
+  ],
+  "concepts": [
+    "dynamic-handlers",
+    "default-behavior",
+    "update-processing",
+    "feature-parity",
+    "workflow-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot set default update handlers for workflows, limiting flexibility in handling dynamic updates similar to signal handlers.",
+  "rootCause": null,
+  "proposedFix": "Implement setDefaultUpdateHandler functionality following the pattern established by setDefaultSignalHandler and consistent with other SDK implementations.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of #1015, which is part of the broader feature request in temporalio/features#201 for dynamic update handler support across all SDKs.",
+  "related": [
+    1015,
+    201
+  ],
+  "keyQuote": "workflow.setDefaultSignalHandler exists. The equivalent functionality for update should exist also.",
+  "number": 1460,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:33:51.489Z"
+}

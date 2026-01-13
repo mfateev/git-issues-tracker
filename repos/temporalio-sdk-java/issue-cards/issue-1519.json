@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a num_pollers gauge metric to track the number of concurrent active activity and workflow pollers, as implemented in the Core SDK. This metric is needed to monitor poller activity separately for different poller types.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "poller",
+    "worker"
+  ],
+  "concepts": [
+    "monitoring",
+    "gauge",
+    "concurrency",
+    "activity-pollers",
+    "workflow-pollers",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users can monitor the number of active pollers to better understand worker utilization and performance characteristics.",
+  "rootCause": null,
+  "proposedFix": "Implement num_pollers gauge metric that distinguishes between activity pollers and workflow pollers, following the Core SDK implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Metric was implemented to expose concurrent active poller counts, with separate tracking for activity and workflow pollers as documented in the SDK metrics reference.",
+  "related": [],
+  "keyQuote": "Need to be able to tell how many activity pollers and how many workflow pollers.",
+  "number": 1519,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:06.018Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Remove unnecessary type conversions in the mutable state builder. The code at lines 3900-3913 in mutableStateBuilder.go contains conversions that serve no purpose and should be eliminated.",
+  "category": "feature",
+  "subcategory": "code-quality",
+  "apis": [],
+  "components": [
+    "mutableStateBuilder",
+    "history-service"
+  ],
+  "concepts": [
+    "refactoring",
+    "code-simplification",
+    "type-conversion",
+    "technical-debt"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact; this is an internal code cleanup that improves maintainability.",
+  "rootCause": "Unnecessary type conversions exist in mutableStateBuilder.go that don't contribute to functionality.",
+  "proposedFix": "Remove the conversion logic at lines 3900-3913 in mutableStateBuilder.go.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The unnecessary conversions were removed from the mutable state builder.",
+  "related": [],
+  "keyQuote": "Above conversions are unnecessary",
+  "number": 977,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:30:52.019Z"
+}

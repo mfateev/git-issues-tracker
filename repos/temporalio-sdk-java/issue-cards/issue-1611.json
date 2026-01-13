@@ -1,0 +1,31 @@
+{
+  "summary": "error_prone_core dependency transitively includes protobuf-java-3.19.2 with 3 high-severity vulnerabilities (CVE-2022-3510, CVE-2022-3509, CVE-2022-3171) that can cause denial of service through parsing attacks. The issue was resolved by noting this is a compile-time only dependency not included in runtime.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "build-system",
+    "dependency-management",
+    "error-prone"
+  ],
+  "concepts": [
+    "vulnerability",
+    "protobuf",
+    "dependency-injection",
+    "denial-of-service",
+    "security",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Potential exposure to high-severity protocol buffer parsing vulnerabilities could enable denial of service attacks if the vulnerable library were included in runtime dependencies.",
+  "rootCause": "error_prone_core-2.18.0 transitively depends on protobuf-java-3.19.2 which contains unpatched CVE vulnerabilities in message parsing.",
+  "proposedFix": "Upgrade protobuf-java to version 3.21.7, 3.20.3, 3.19.6, or 3.16.3 (or later) to resolve all three vulnerabilities.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be a compile-time only vulnerability since error_prone is not included in Temporal Runtime dependencies, therefore not a security concern for end users.",
+  "related": [],
+  "keyQuote": "Compile-time vulnerability, error-prone is not a part of Temporal Runtime dependencies",
+  "number": 1611,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:05.031Z"
+}

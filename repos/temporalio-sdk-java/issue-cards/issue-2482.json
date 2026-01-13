@@ -1,0 +1,34 @@
+{
+  "summary": "ActivityOptions merge fails with UnsupportedOperationException when using immutable lists for context propagators. The issue occurs when merging ActivityOptions from WorkflowImplementationOptions with ActivityOptions from activity stubs that both use immutable lists created with List.of().",
+  "category": "bug",
+  "subcategory": "activity-options",
+  "apis": [
+    "ActivityOptions",
+    "WorkflowImplementationOptions",
+    "Workflow.newActivityStub"
+  ],
+  "components": [
+    "activity-options",
+    "context-propagation",
+    "workflow-implementation"
+  ],
+  "concepts": [
+    "immutable-collections",
+    "list-merging",
+    "context-propagators",
+    "activity-configuration",
+    "options-builder"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot merge ActivityOptions with immutable context propagators lists without encountering a runtime exception when scheduling activities.",
+  "rootCause": "The merge operation attempts to modify an immutable list directly instead of creating a new combined list, causing UnsupportedOperationException when List.of() creates unmodifiable lists.",
+  "proposedFix": "Create a new list that combines both context propagators instead of modifying one of them, or copy the list when setContextPropagators is called.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Create a new list that combines both instead of modifying one of them.",
+  "number": 2482,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:59.593Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "MySQL startup fails with 'Out of range value for column rpc_port' error when using development-mysql8.yaml config on Linux. The ringpop RPC port value exceeds the smallint column limit.",
+  "category": "bug",
+  "subcategory": "cluster-membership",
+  "apis": [],
+  "components": [
+    "cluster-membership",
+    "ringpop",
+    "persistence",
+    "mysql"
+  ],
+  "concepts": [
+    "port-overflow",
+    "data-type-mismatch",
+    "cluster-configuration",
+    "database-schema"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start Temporal server with MySQL 8 on Linux due to RPC port value exceeding column data type limits.",
+  "rootCause": "The rpc_port column in temporal.cluster_membership is defined as smallint (max 32767) but receives values like 52336 from dynamically assigned ports.",
+  "proposedFix": "Change rpc_port column type from smallint to smallint unsigned or a larger integer type to accommodate port values up to 65535.",
+  "workaround": "Manually configure membershipPort in the config file to use a value within smallint range (below 32767).",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was user error - user had deleted membershipPort from their config file, causing invalid dynamic port assignment.",
+  "related": [],
+  "keyQuote": "param `ringpopHostAddress` is `127.0.0.1:0`. after `tChannel.Serve(listener)`, could get peerInfo, like `127.0.0.1:52336`. then save 52336 to temporal.cluster_membership, column rpc_port, but it's type is `smallint`",
+  "number": 4822,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:06.599Z"
+}

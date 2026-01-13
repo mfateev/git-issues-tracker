@@ -1,0 +1,31 @@
+{
+  "summary": "Prototype Pollution vulnerability (CVE-2022-25878) in protobufjs 6.11.2, a transitive dependency of the TypeScript SDK client. The vulnerability allows attackers to modify Object.prototype through untrusted input or .proto file parsing.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "protobufjs",
+    "dependency-management",
+    "package-management"
+  ],
+  "concepts": [
+    "prototype-pollution",
+    "security",
+    "vulnerability",
+    "dependency",
+    "cve",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users of SDK client 0.23.0 are exposed to a prototype pollution attack via transitive protobufjs dependency.",
+  "rootCause": "protobufjs version 6.11.2 contains unpatched prototype pollution vulnerability affecting Object.prototype manipulation",
+  "proposedFix": "Upgrade protobufjs to version 6.10.3 or 6.11.3",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automatically closed by Mend as the vulnerable library was resolved or removed from the dependency inventory",
+  "related": [],
+  "keyQuote": "protobufjs before 6.11.3 are vulnerable to Prototype Pollution which can allow an attacker to add/modify properties of the Object.prototype",
+  "number": 671,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:53.569Z"
+}

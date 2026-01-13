@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request for official testing support in Node.js SDK, specifically for workflows and activities. Users need a TestWorkflowEnvironment similar to Java and Go SDKs, and better example projects with jest/eslint configuration.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowClient"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-runtime",
+    "activity-executor",
+    "documentation",
+    "examples"
+  ],
+  "concepts": [
+    "testing",
+    "testability",
+    "mocking",
+    "time-skipping",
+    "test-environment",
+    "jest",
+    "mocha"
+  ],
+  "severity": "medium",
+  "userImpact": "Without proper testing infrastructure, developers cannot easily test workflows in the Node.js SDK, limiting its adoption despite testing being a major selling point of Temporal.",
+  "rootCause": "Core-based SDKs require a mocked server implementation for time-skipping support, which is a significant undertaking not yet completed for the Node.js SDK.",
+  "proposedFix": "Implement TestWorkflowEnvironment for Node.js SDK with time-skipping support and mocked activity context; include basic jest configuration and project references in example projects.",
+  "workaround": "Activities can be tested as async functions by mocking Context; workflows can be tested by running them with WorkflowClient, but this is not ideal.",
+  "resolution": "fixed",
+  "resolutionDetails": "Closed as part of issue cleanup; test framework implementation was planned and subsequently completed for Core-based SDKs.",
+  "related": [],
+  "keyQuote": "Testability is a major selling point of Temporal but the Node SDK and its docs are currently lacking... There's no official support for testing Workflows and Activities.",
+  "number": 226,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:52.841Z"
+}

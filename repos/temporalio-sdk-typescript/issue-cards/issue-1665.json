@@ -1,0 +1,32 @@
+{
+  "summary": "Activities should be interrupted when they are paused to prevent unnecessary heartbeating. This follows the pattern described in temporalio/features#602.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat",
+    "pause-mechanism"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-pause",
+    "interruption",
+    "resource-efficiency",
+    "lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Paused activities continue heartbeating unnecessarily, wasting resources and potentially causing confusion in activity lifecycle management.",
+  "rootCause": "Activity heartbeat mechanism does not respect the paused state of an activity.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activity interruption was implemented to handle paused state properly.",
+  "related": [
+    602
+  ],
+  "keyQuote": "Heartbeating activities should be interrupted when the activities are paused.",
+  "number": 1665,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:28:36.387Z"
+}

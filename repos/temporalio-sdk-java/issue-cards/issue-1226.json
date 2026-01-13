@@ -1,0 +1,36 @@
+{
+  "summary": "Time skipping was not being disabled in 1.11.0 even when explicitly set to false via TestEnvironmentOptions, causing tests with Kafka integration to fail immediately due to artificial time advancement.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "TestEnvironmentOptions",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "test-environment",
+    "time-skipping",
+    "workflow-testing"
+  ],
+  "concepts": [
+    "test-isolation",
+    "time-control",
+    "external-integrations",
+    "async-actions",
+    "test-timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Tests that depend on disabling time skipping (e.g., for external service integration) fail immediately in 1.11.0 when they worked in 1.8.1.",
+  "rootCause": "Configuration flag for disabling time skipping was not being properly honored in the test environment implementation.",
+  "proposedFix": null,
+  "workaround": "Downgrade to 1.8.1 or wait for fix in next version.",
+  "resolution": "fixed",
+  "resolutionDetails": "Already fixed as noted in linked issue #1219.",
+  "related": [
+    1219
+  ],
+  "keyQuote": "When running a test environment with disabled time-skipping, time should not be magically incremented by the test environment.",
+  "number": 1226,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:16:27.180Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Documentation pages for re-exported APIs have broken links and hierarchy sections depending on which package they're in. The TypeScript SDK documentation shows duplicate pages in search results and inconsistent rendering across different package namespaces (common, worker, client).",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "DataConverter",
+    "TemporalFailure"
+  ],
+  "components": [
+    "documentation",
+    "typedoc-plugin",
+    "docusaurus"
+  ],
+  "concepts": [
+    "re-exports",
+    "documentation-hierarchy",
+    "link-resolution",
+    "duplicate-pages",
+    "api-reference",
+    "package-namespaces"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience broken navigation links and missing class hierarchy information when browsing SDK documentation, with confusing duplicate pages in search results.",
+  "rootCause": "Re-exported classes appear on multiple documentation pages (one per package), causing inconsistent rendering and link behavior depending on the package namespace.",
+  "proposedFix": "Mark re-exports as @hidden in typedoc or investigate the docusaurus typedoc plugin to prevent generating documentation pages for re-exported items.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Perhaps a solution is not generating docs pages for anything that's re-exported.",
+  "number": 959,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:43.718Z"
+}

@@ -1,0 +1,43 @@
+{
+  "summary": "PHP SDK needs DTO comparison and alignment with Java/Go SDKs. Document differences in structure for ChildWorkflowOptions, RetryPolicy, WorkflowInfo, ActivityInfo and other data transfer objects, and identify missing fields like contextPropagators, cancellationType, and getRunStartedTimestampMillis().",
+  "category": "feature",
+  "subcategory": "dto-api-design",
+  "apis": [
+    "ChildWorkflowOptions",
+    "RetryPolicy",
+    "WorkflowInfo",
+    "ActivityInfo",
+    "ActivityOptions",
+    "LocalActivityOptions",
+    "StartWorkflowOptions",
+    "RegisterWorkflowOptions",
+    "RegisterActivityOptions"
+  ],
+  "components": [
+    "dto-models",
+    "api-surface",
+    "workflow-options",
+    "activity-options"
+  ],
+  "concepts": [
+    "api-compatibility",
+    "cross-sdk-alignment",
+    "data-structures",
+    "timeout-configuration",
+    "retry-policy",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Inconsistent DTO structures between PHP and Java/Go SDKs make it harder for developers to work across multiple SDK languages and may cause integration issues.",
+  "rootCause": "PHP SDK development proceeded independently without full alignment with Java/Go SDK DTOs, resulting in missing fields and structural differences.",
+  "proposedFix": "Align PHP DTO definitions with Java/Go counterparts by adding missing fields like contextPropagators, cancellationType, getRunStartedTimestampMillis(), and ensuring consistent field naming and structure.",
+  "workaround": "Binary checksum capability already exists in Version.php and needs to be exposed to Go SDK.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue tracked and addressed through DTO alignment efforts; missing fields identified and alignment with Java/Go SDKs completed.",
+  "related": [],
+  "keyQuote": "Expose long getRunStartedTimestampMillis(), activity start to close and schedule to close timeout. Need to align DTO structures with Java and Go SDKs.",
+  "number": 15,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:18:47.976Z"
+}

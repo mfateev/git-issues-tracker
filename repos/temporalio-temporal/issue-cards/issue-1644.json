@@ -1,0 +1,29 @@
+{
+  "summary": "Request to make tctl admin commands use the same environment variables as temporal-sql-tool for database connection parameters instead of requiring command-line arguments.",
+  "category": "feature",
+  "subcategory": "cli-configuration",
+  "apis": [],
+  "components": [
+    "tctl",
+    "database-connection"
+  ],
+  "concepts": [
+    "environment-variables",
+    "cli-arguments",
+    "database-credentials",
+    "usability",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users must pass database credentials on the command line for each tctl admin command instead of using environment variables for convenience.",
+  "rootCause": null,
+  "proposedFix": "Align tctl admin commands to accept the same environment variables as temporal-sql-tool for database connection parameters.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "tctl is deprecated in favor of temporal CLI, which no longer supports direct database connections.",
+  "related": [],
+  "keyQuote": "tctl is deprecated, should switch to use temporal CLI. Also, tctl or temporal CLI no longer support directly connect to backend databases.",
+  "number": 1644,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:15:33.936Z"
+}

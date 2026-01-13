@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal auto-setup Docker container fails to start with database connection error during schema version check. The error occurs because the container cannot connect to the database to verify schema compatibility, resulting in an fx dependency injection initialization failure.",
+  "category": "bug",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "server-initialization",
+    "database-connection",
+    "schema-validation",
+    "fx-dependency-injection"
+  ],
+  "concepts": [
+    "database-connectivity",
+    "docker-startup",
+    "schema-version-check",
+    "connection-pooling",
+    "network-isolation",
+    "initialization-error"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start the Temporal server using auto-setup Docker containers when the database is in a private network, blocking server deployment.",
+  "rootCause": "The server performs a database schema version compatibility check during fx initialization before confirming database connectivity. When the database is unreachable from the Docker container, this check fails with a confusing error message nested in fx dependency injection logs.",
+  "proposedFix": null,
+  "workaround": "Ensure the database is accessible from the Docker container by configuring proper network connectivity between the container and the database.",
+  "resolution": "invalid",
+  "resolutionDetails": "The issue was determined to be a user configuration problem (database not accessible from the container), not a server bug. The confusing error message and initialization process were identified as problematic, but resolution was deferred to user configuration.",
+  "related": [],
+  "keyQuote": "sql schema version compatibility check failed: unable to read DB schema version keyspace/database: temporal error: no usable database connection found",
+  "number": 6628,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:09.777Z"
+}

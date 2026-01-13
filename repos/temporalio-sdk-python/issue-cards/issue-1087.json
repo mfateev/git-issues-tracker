@@ -1,0 +1,30 @@
+{
+  "summary": "Proto classes generated in the Python SDK have incorrect module names prefixed with 'temporal' instead of 'temporalio', causing pickle serialization failures when using multiprocessing for workflow unit tests.",
+  "category": "bug",
+  "subcategory": "proto-generation",
+  "apis": [],
+  "components": [
+    "proto-generation",
+    "serialization",
+    "multiprocessing"
+  ],
+  "concepts": [
+    "pickling",
+    "module-naming",
+    "proto-compilation",
+    "multiprocessing",
+    "serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflow unit tests with process pools due to pickle serialization errors on proto classes.",
+  "rootCause": "Generated proto class modules have incorrect Python path prefix 'temporal' instead of 'temporalio', preventing proper module resolution during pickling.",
+  "proposedFix": "Update proto generation to use correct python_package path prefix.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Module naming in generated protos will be corrected to use proper python path.",
+  "related": [],
+  "keyQuote": "Can't pickle <class 'temporal.api.failure.v1.message_pb2.Failure'>: import of module 'temporal.api.failure.v1.message_pb2' failed",
+  "number": 1087,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:59.530Z"
+}

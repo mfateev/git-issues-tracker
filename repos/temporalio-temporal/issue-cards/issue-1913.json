@@ -1,0 +1,32 @@
+{
+  "summary": "When a workflow is reset to an earlier point after the ExecutionTimeout has expired, the new run immediately times out instead of starting a fresh timeout calculation from the reset point. This prevents recovery of timed-out workflows.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-reset",
+    "execution-timeout",
+    "timeout-calculation"
+  ],
+  "concepts": [
+    "timeout",
+    "workflow-reset",
+    "execution-timeout",
+    "workflow-recovery",
+    "time-calculation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot recover workflows that have timed out using reset, as the reset operation immediately times out the workflow again instead of allowing it to execute with a fresh timeout.",
+  "rootCause": "The execution timeout is not recalculated from the time of reset; instead it uses the original timeout expiration time, causing the new run to be immediately timed out.",
+  "proposedFix": "Recalculate the execution timeout from the time the workflow is reset, not from the original workflow start time.",
+  "workaround": "Use WorkflowRunTimeout instead of ExecutionTimeout, as the issue does not occur when only RunTimeout is specified.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #6473 which properly handles timeout recalculation on workflow reset.",
+  "related": [
+    6473
+  ],
+  "keyQuote": "The execution timeout is calculated from the time the workflow is reset.",
+  "number": 1913,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:59.297Z"
+}

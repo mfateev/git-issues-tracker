@@ -1,0 +1,39 @@
+{
+  "summary": "Complete the implementation of Client over NativeConnection by adding OperatorService and HealthService support, AbortSignal handling, missing Core Client options, and ensuring test coverage for both connection types. This feature is required for supporting Eager Workflow Start.",
+  "category": "feature",
+  "subcategory": "client-connection",
+  "apis": [
+    "Client",
+    "NativeConnection",
+    "OperatorService",
+    "HealthService"
+  ],
+  "components": [
+    "client",
+    "native-connection",
+    "bridge",
+    "test-framework"
+  ],
+  "concepts": [
+    "connection-types",
+    "service-support",
+    "abort-signals",
+    "client-options",
+    "workflow-start",
+    "test-coverage"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot fully utilize Client with NativeConnection, limiting support for Eager Workflow Start and affecting DX in certain environments.",
+  "rootCause": null,
+  "proposedFix": "Implement: (1) OperatorService and HealthService support, (2) bridge-side AbortSignal acceptance, (3) missing Core Client options (identity, retry_config), (4) dual-connection test coverage",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1699
+  ],
+  "keyQuote": "Using `Client` over `NativeConnection` will be required to support Eager Workflow Start, which means that this usage may become dominant in some environments.",
+  "number": 1703,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:13.528Z"
+}

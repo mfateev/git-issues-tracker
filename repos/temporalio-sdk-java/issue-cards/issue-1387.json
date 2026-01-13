@@ -1,0 +1,35 @@
+{
+  "summary": "User finds Jackson configuration cumbersome when trying to use custom modules like jackson-module-kotlin with the Temporal SDK. Requires either duplicating extensive default configuration or using reflection workarounds. Requests easier customization mechanisms.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "DataConverter",
+    "JacksonJsonPayloadConverter",
+    "ObjectMapper"
+  ],
+  "concepts": [
+    "serialization",
+    "Jackson",
+    "Kotlin",
+    "data-classes",
+    "customization",
+    "configuration",
+    "boilerplate"
+  ],
+  "severity": "medium",
+  "userImpact": "Kotlin users and others needing custom Jackson configuration must either replicate large amounts of default configuration code or resort to reflection hacks.",
+  "rootCause": "The SDK's Jackson ObjectMapper is encapsulated in JacksonJsonPayloadConverter with no public API to customize it, forcing users to either recreate the entire DataConverter or use reflection.",
+  "proposedFix": "Expose mechanisms to customize Jackson configuration: (1) global ObjectMapper access, (2) List<PayloadConverter> and ObjectMapper properties, (3) UnaryOperator<ObjectMapper> customizer, (4) environment variables for automatic module registration like kotlin or module discovery.",
+  "workaround": "Use reflection to access and modify the ObjectMapper field in the default JacksonJsonPayloadConverter, or manually create a custom DataConverter replicating all default configuration.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided not to use SPI or automatic classpath detection due to risks of unexpected configuration loading. Users are expected to customize their own Jackson settings; a temporal-kotlin module is provided as a starting point but not auto-loaded.",
+  "related": [
+    139,
+    1388
+  ],
+  "keyQuote": "It would be nice if it was simpler and easier to be able to customize the Jackson-level configuration.",
+  "number": 1387,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:32:36.675Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The testActivityScheduleToCloseTimeout test was flaky when running with a dockerized Temporal service. The issue has been resolved and is no longer occurring.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "activity-timeout",
+    "docker-service"
+  ],
+  "concepts": [
+    "timeout",
+    "flakiness",
+    "docker",
+    "schedule-to-close",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests would intermittently fail when using dockerized Temporal service, making CI/CD pipelines unreliable.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue no longer occurs, as indicated by the author's comment 'not anymore'.",
+  "related": [],
+  "keyQuote": "not anymore",
+  "number": 886,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:50:54.904Z"
+}

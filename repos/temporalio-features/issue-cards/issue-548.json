@@ -1,0 +1,41 @@
+{
+  "summary": "Add workflow annotations for versioning-3 to mark workflows as pinned, preventing immediate migration to new versions and allowing short-running workflows to avoid patching when pinned. Requires language-specific annotations or a programmatic API invoked during the first workflow task.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "versioning-system",
+    "workflow-executor",
+    "workflow-annotation"
+  ],
+  "concepts": [
+    "workflow-versioning",
+    "pinning",
+    "backward-compatibility",
+    "worker-migration",
+    "garbage-collection",
+    "code-annotations"
+  ],
+  "severity": "high",
+  "userImpact": "Allows short-running workflows marked as pinned to avoid patching when worker versions change, reducing maintenance burden for SDK users.",
+  "rootCause": "Versioning-3 implementation lacks workflow annotation mechanism to mark pinned workflows, causing unnecessary immediate migration to new versions.",
+  "proposedFix": "Implement language-specific code annotations where supported, with fallback to programmatic API invoked during first workflow task execution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow annotations implemented across SDKs via language-specific decorators/attributes and programmatic APIs. All SDKs except PHP have linked PRs/issues.",
+  "related": [
+    1832,
+    2458,
+    889,
+    1659,
+    793,
+    437,
+    237,
+    586
+  ],
+  "keyQuote": "short-running workflows, marked as pinned, do not need to get patched",
+  "number": 548,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:28.454Z"
+}

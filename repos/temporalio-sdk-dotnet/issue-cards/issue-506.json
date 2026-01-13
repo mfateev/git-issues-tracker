@@ -1,0 +1,36 @@
+{
+  "summary": "Duplicate activity and workflow registration does not throw an error, causing silent failures where the worker doesn't register on the task queue. The issue occurs when using TemporalWorkerService with start/stop instead of the recommended host building approach.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [
+    "AddAllActivities",
+    "TemporalWorker",
+    "TemporalWorkerService",
+    "ExecuteAsync"
+  ],
+  "components": [
+    "worker",
+    "activity-worker",
+    "workflow-worker",
+    "worker-service"
+  ],
+  "concepts": [
+    "duplicate-detection",
+    "error-handling",
+    "startup-validation",
+    "background-service",
+    "task-queue-registration"
+  ],
+  "severity": "high",
+  "userImpact": "Workers silently fail to register when duplicate activities or workflows are registered, causing tasks to not be processed without visible error messages.",
+  "rootCause": "TemporalWorkerService defers worker instantiation to ExecuteAsync rather than constructor to support async client connection. Exceptions thrown in ExecuteAsync are swallowed when using start/stop pattern instead of IHost.",
+  "proposedFix": "Use .NET host building approach (IHost) or directly call ExecuteAsync instead of start/stop pattern to ensure exceptions are properly propagated.",
+  "workaround": "Wrap ExecuteAsync in a try-catch block or use the .NET host pattern (IHost) which properly handles ExecuteAsync failures by stopping the application.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The behavior is by design. TemporalWorkerService intentionally doesn't throw in constructor due to async requirements. Users must use proper .NET hosting patterns to see exceptions.",
+  "related": [],
+  "keyQuote": "TemporalWorkerService intentionally does not instantiate the worker in its constructor, it does it as part of ExecuteAsync since it may have to also connect a client",
+  "number": 506,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:31:12.255Z"
+}

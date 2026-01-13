@@ -1,0 +1,31 @@
+{
+  "summary": "Users need the ability to specify and use custom PostgreSQL schemas with Temporal Server, rather than being forced to use the default public schema. Currently, sql-tool lacks support for schema creation and configuration.",
+  "category": "feature",
+  "subcategory": "postgresql-schema-management",
+  "apis": [],
+  "components": [
+    "sql-tool",
+    "postgres-driver",
+    "database-initialization",
+    "schema-management"
+  ],
+  "concepts": [
+    "schema-isolation",
+    "search-path",
+    "database-permissions",
+    "multitenancy",
+    "postgres-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot isolate Temporal data using PostgreSQL schemas, limiting database organization and preventing proper schema-based access control in multi-tenant or restricted-permission environments.",
+  "rootCause": "The sql-tool does not support defining or creating custom schemas; it relies on default public schema and lacks schema name configuration as a property.",
+  "proposedFix": "Add schema name as a configurable property in sql-tool, support CREATE SCHEMA IF NOT EXISTS statement during initialization, and optionally set search_path automatically based on configuration.",
+  "workaround": "Manually create schema and set search_path via ALTER ROLE, provided Temporal doesn't hardcode references to public schema.",
+  "related": [],
+  "keyQuote": "Define the schema name as a property (for templating the above query) and put the CREATE statement after CREATE DATABASE with IF NOT EXISTS checks.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 3383,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:36.859Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add a `Client.set_rpc_metadata` method to allow client headers to be mutated after the client is created, aligning with SDK Core's `set_headers` capability.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [
+    "Client"
+  ],
+  "components": [
+    "client",
+    "rpc-metadata",
+    "headers"
+  ],
+  "concepts": [
+    "client-configuration",
+    "headers",
+    "metadata",
+    "mutation",
+    "rpc"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot modify RPC metadata/headers after creating a client, limiting flexibility in dynamic environments.",
+  "rootCause": null,
+  "proposedFix": "Implement a `Client.set_rpc_metadata` method similar to SDK Core's `set_headers` functionality.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to match SDK Core capabilities for header mutation.",
+  "related": [],
+  "keyQuote": "support a `Client.set_rpc_metadata` method",
+  "number": 187,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:57.137Z"
+}

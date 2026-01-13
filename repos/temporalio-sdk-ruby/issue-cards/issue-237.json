@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for the new Worker Versioning API in the Ruby SDK through workflow annotations. This involves implementing design specifications documented in a cross-SDK design document, with Go SDK as the reference implementation.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "Worker",
+    "Workflow"
+  ],
+  "components": [
+    "worker",
+    "workflow-decorator",
+    "versioning-api"
+  ],
+  "concepts": [
+    "versioning",
+    "compatibility",
+    "sdk-parity",
+    "annotations",
+    "api-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can adopt the new Worker Versioning API in Ruby, enabling safe deployment strategies and maintaining compatibility across workflow versions.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow annotations following the cross-SDK design specification referenced in the feature document, aligned with Go SDK implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support the new Worker Versioning API with appropriate annotations for the Ruby SDK.",
+  "related": [
+    548
+  ],
+  "keyQuote": "We need to add annotations to workflows to support the new versioning APIs. Refer to temporalio/features#548 for the Go equivalents.",
+  "number": 237,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:18.734Z"
+}

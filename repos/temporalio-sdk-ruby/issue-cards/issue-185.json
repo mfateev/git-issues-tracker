@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to warn Ruby developers when workflow futures that have failed are never awaited, similar to existing Java SDK behavior. Could also warn on any unawaited futures regardless of failure status.",
+  "category": "feature",
+  "subcategory": "workflow-futures",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "futures-handling",
+    "error-detection"
+  ],
+  "concepts": [
+    "unawaited-futures",
+    "failure-detection",
+    "workflow-completion",
+    "warning-system",
+    "async-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will be alerted to potential bugs where failed workflow futures are silently ignored, preventing hard-to-debug issues.",
+  "rootCause": null,
+  "proposedFix": "Implement warning on workflow completion when unawaited futures with failures are detected, following the Java SDK pattern already established.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In Java workflows today, if a future that fails is never waited on, we warn on workflow completion. We should do the same in Ruby.",
+  "number": 185,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:53.644Z"
+}

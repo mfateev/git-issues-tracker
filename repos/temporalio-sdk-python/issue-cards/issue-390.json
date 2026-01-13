@@ -1,0 +1,35 @@
+{
+  "summary": "Design and implement a static analyzer for Python SDK to detect thread-blocking calls in async functions and illegal workflow calls. Discussion explores using mypy plugins, Pyright, or the emerging Ruff type-checker for implementation.",
+  "category": "feature",
+  "subcategory": "static-analysis",
+  "apis": [],
+  "components": [
+    "type-checker",
+    "lsp-integration",
+    "call-graph-builder",
+    "plugin-system"
+  ],
+  "concepts": [
+    "static-analysis",
+    "type-checking",
+    "call-graph",
+    "async-blocking",
+    "workflow-constraints",
+    "lsp-tooling",
+    "code-extensibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need tooling to catch programming errors at development time rather than runtime, particularly thread-blocking calls in async functions and illegal workflow operations.",
+  "rootCause": null,
+  "proposedFix": "Implement static analyzer using mypy plugins as initial POC, with plans to evaluate Ruff type-checker once it provides extensibility. Focus on building proper call graphs to detect illegal operations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    607
+  ],
+  "keyQuote": "there are two static analyzers needed IMO: General purpose Python static analyzer that catches people making thread-blocking calls in an async def function; Temporal-specific Python static analyzer",
+  "number": 390,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:46.631Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow.getVersion() calls during replays cause premature workflow task completion, leading to different task structures between original execution and replays. This breaks command-event matching for cancelations, causing replay failures when timers are canceled within the same workflow task.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "getVersion"
+  ],
+  "components": [
+    "state-machine",
+    "replay-handler",
+    "workflow-task-handler",
+    "command-matching"
+  ],
+  "concepts": [
+    "replay",
+    "state-machine",
+    "command-event-matching",
+    "workflow-task-structure",
+    "cancelation",
+    "timer-management"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows using getVersion with timer cancelations fail to replay correctly, breaking determinism guarantees and preventing workflow execution recovery.",
+  "rootCause": "getVersion waits until end of workflow task to match events and publish callbacks, causing workflow tasks to end prematurely during replay. This changes the task structure compared to original execution, misaligning command-event sequences.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow.getVersion call during replays causes the end of workflow task every single time...This causes a difference in the structure of workflow tasks in the original run and its replays.",
+  "number": 648,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:31:36.055Z"
+}

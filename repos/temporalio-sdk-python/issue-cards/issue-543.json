@@ -1,0 +1,29 @@
+{
+  "summary": "Docker-based proto generation produces different whitespace in multi-paragraph documentation compared to manual generation outside the container, causing CI diff checks to fail.",
+  "category": "bug",
+  "subcategory": "proto-generation",
+  "apis": [],
+  "components": [
+    "proto-generation",
+    "docker-build",
+    "ci-pipeline"
+  ],
+  "concepts": [
+    "whitespace-handling",
+    "proto-docs",
+    "build-consistency",
+    "ci-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot merge changes due to CI failures caused by whitespace inconsistencies in generated proto documentation.",
+  "rootCause": "Docker-based proto generation tool produces different whitespace formatting than manual generation, likely due to environment differences or tool version variations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When using the docker-based gen proto method, for whatever reason it is slightly different than the manual way outside of the container which causes CI diff check to break",
+  "number": 543,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:06.611Z"
+}

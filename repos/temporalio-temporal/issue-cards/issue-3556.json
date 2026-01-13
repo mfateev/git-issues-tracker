@@ -1,0 +1,32 @@
+{
+  "summary": "User requests upgrade of OpenTelemetry Go dependencies from v0.31.0 to v0.32.0+ to access the new MeterProvider API and resolve dependency conflicts with projects using newer OTel versions.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "otel-integration",
+    "metrics",
+    "dependencies"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "dependency-management",
+    "metrics",
+    "sdk-compatibility",
+    "deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use newer OpenTelemetry SDK versions in their projects when importing Temporal due to dependency conflicts.",
+  "rootCause": "Temporal server uses outdated OpenTelemetry Go SDK v0.31.0 which conflicts with newer versions that deprecate certain APIs and folders.",
+  "proposedFix": "Upgrade OTel dependencies to v0.32.0 or v0.33.0, or keep them in sync with upstream OTel releases.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Temporal server v1.20 upgraded OpenTelemetry to v0.34 in its release.",
+  "related": [
+    2321
+  ],
+  "keyQuote": "I will try to have the upgrade in the next server release 1.20... Temporal server upgrade otel to 0.34 with the latest release 1.20.",
+  "number": 3556,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:01.604Z"
+}

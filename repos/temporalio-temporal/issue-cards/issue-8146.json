@@ -1,0 +1,31 @@
+{
+  "summary": "The signals_requested_sets table grows unbounded with orphaned rows referencing workflow executions that no longer exist, causing database bloat. User investigation confirmed hundreds of thousands of orphaned entries per shard with no corresponding current or historical executions.",
+  "category": "bug",
+  "subcategory": "database-leak",
+  "apis": [],
+  "components": [
+    "database",
+    "signals",
+    "garbage-collection"
+  ],
+  "concepts": [
+    "orphaned-data",
+    "memory-leak",
+    "database-bloat",
+    "cleanup",
+    "retention",
+    "data-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Database storage grows unbounded over time due to orphaned signal request records, requiring manual intervention or workarounds to reclaim disk space.",
+  "rootCause": "Signals requested in the signals_requested_sets table are not being properly cleaned up when workflow executions complete or are garbage collected, leaving orphaned references.",
+  "proposedFix": null,
+  "workaround": "Setting worker.historyScannerDataMinAge to a value past retention limit (e.g., 4 days for 3-day retention) may trigger cleanup of orphaned history data, though this did not fully resolve the issue for the reporter.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "for each shard we have about 300k orphans and only 3k alive entries... table contains rows referencing workflow runs that do not exist anymore",
+  "number": 8146,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:35.573Z"
+}

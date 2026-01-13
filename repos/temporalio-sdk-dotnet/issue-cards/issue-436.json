@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add the ability to temporarily disable tracing event listener in workflows. Users need a way to selectively opt-out of tracing checks for small bits of code, such as a static method `WithTracingEventListenerDisabled<T>` in `Temporalio.Workflows.Workflow.Unsafe`.",
+  "category": "feature",
+  "subcategory": "tracing",
+  "apis": [],
+  "components": [
+    "workflow",
+    "tracing",
+    "event-listener"
+  ],
+  "concepts": [
+    "tracing",
+    "event-listener",
+    "workflow-execution",
+    "instrumentation",
+    "performance-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now selectively disable tracing for performance-sensitive code sections without losing tracing for the rest of their workflows.",
+  "rootCause": null,
+  "proposedFix": "Add `static T WithTracingEventListenerDisabled<T>(Func<T>)` and `Action` equivalent methods to `Temporalio.Workflows.Workflow.Unsafe` class",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow temporary disabling of tracing event listeners in workflows",
+  "related": [],
+  "keyQuote": "Need something like `static T WithTracingEventListenerDisabled<T>(Func<T>)` so users can selectively opt-out of the tracing checks",
+  "number": 436,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:24:31.119Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Payload codec receives reused payload instances in specific workflow failure scenarios involving ApplicationFailureException with Details objects, causing the same codec instance to be passed multiple times instead of unique instances for each payload.",
+  "category": "bug",
+  "subcategory": "payload-codec",
+  "apis": [
+    "ExecuteActivityAsync"
+  ],
+  "components": [
+    "payload-codec",
+    "failure-handling",
+    "exception-serialization"
+  ],
+  "concepts": [
+    "payload-reuse",
+    "instance-mutation",
+    "codec-isolation",
+    "failure-details",
+    "object-lifecycle",
+    "memory-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers writing payload codecs that track state or metadata per payload cannot rely on receiving unique instances, leading to unexpected behavior when encoding failure details.",
+  "rootCause": "Payload instances are not cloned before being passed to the codec to avoid unnecessary performance overhead, allowing the same underlying object to be reused across multiple codec invocations in certain failure scenarios.",
+  "proposedFix": "Documentation should clearly state that payload codecs must always create new payload instances and never mutate or maintain references to input payloads beyond the method lifecycle.",
+  "workaround": "Always create a new Payload instance in the codec (e.g., wrapping the original payload's bytes as data of a new payload) rather than mutating or referencing the input payload.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Your payload codec should not mutate the payload being passed in or try to maintain a reference to it in any way. Rather, you should always create a new payload.",
+  "number": 234,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:46:39.907Z"
+}

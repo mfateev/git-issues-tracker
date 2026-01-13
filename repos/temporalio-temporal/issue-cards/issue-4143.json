@@ -1,0 +1,31 @@
+{
+  "summary": "The server fails to validate the update state machine and accepts duplicate Accept/Complete messages for the same protocol instance ID, generating duplicate event sets instead of rejecting the violation.",
+  "category": "bug",
+  "subcategory": "update-protocol",
+  "apis": [],
+  "components": [
+    "server",
+    "update-handler",
+    "protocol-state-machine"
+  ],
+  "concepts": [
+    "duplicate-detection",
+    "state-machine",
+    "protocol-validation",
+    "idempotency",
+    "message-handling",
+    "event-generation"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience duplicate events and corrupted workflow state when SDKs accidentally send multiple update completion messages.",
+  "rootCause": "Server does not validate that only one Accept/Complete message is allowed per update protocol instance ID, violating the update state machine contract.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed as confirmed by comment from yiminc.",
+  "related": [],
+  "keyQuote": "If an SDK sends more then one Accept/Complete message in response to a protocol instance ID the server should reject for violating the update state machine",
+  "number": 4143,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:28.475Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Java SDK workers experience connection timeouts and availability issues during Temporal cluster deployments. The SDK fails to transparently recover from topology changes and server-side connection closures, causing activity pollers to report UNAVAILABLE and DEADLINE_EXCEEDED errors.",
+  "category": "bug",
+  "subcategory": "connection-management",
+  "apis": [
+    "pollWorkflowTaskQueue"
+  ],
+  "components": [
+    "worker",
+    "poller",
+    "grpc-client",
+    "connection-pool"
+  ],
+  "concepts": [
+    "connection-management",
+    "cluster-deployment",
+    "resilience",
+    "backoff",
+    "keep-alive",
+    "service-mesh"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow and activity execution failures, timeouts, and error logging noise during cluster deployments or topology changes.",
+  "rootCause": "gRPC backoff increases up to 2 minutes per retry when backend is unavailable; server-side connection closures cause client to think connections are still active until TCP timeout; lack of proactive keep-alive checking on client side.",
+  "proposedFix": "Periodically reset gRPC backoff every 10 seconds; add connection re-establishment to server periodically; enable keep-alive checking on client side with configurable interval; improve logging to differentiate transient errors from persistent failures.",
+  "workaround": "Enable keep-alive mechanism with short interval (e.g., 30 seconds) as a temporary solution; configure service mesh (Envoy) to retry on UNAVAILABLE and DEADLINE_EXCEEDED errors.",
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in version 1.0.6 with backoff reset mechanism and connection re-establishment improvements; keep-alive checking added (initially disabled, can be enabled via configuration). Further refined with better logging and configuration options.",
+  "related": [
+    351,
+    367
+  ],
+  "keyQuote": "During cluster deployments I see timeouts and periods of unavailability...Any connection failures due to these changes should be transparently 'fixed up' by the SDK.",
+  "number": 362,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:10:37.452Z"
+}

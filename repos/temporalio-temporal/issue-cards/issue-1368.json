@@ -1,0 +1,32 @@
+{
+  "summary": "Add Workflow and Signal information to the Authorizer's CallTarget struct to enable fine-grained authorization based on workflow type, task queue, and signal names in addition to namespace and API name.",
+  "category": "feature",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "authorizer",
+    "call-target",
+    "api"
+  ],
+  "concepts": [
+    "authorization",
+    "access-control",
+    "granularity",
+    "workflow-execution",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now implement more specific authorization policies that control access to particular workflow types and signals rather than just entire namespaces.",
+  "rootCause": null,
+  "proposedFix": "Add fields to CallTarget struct to include workflow type, task queue, signal name, and arguments for both workflow execution and signal operations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in PR #1432 by adding workflow and signal information fields to the CallTarget struct.",
+  "related": [
+    1432
+  ],
+  "keyQuote": "they may execute _this_ workflow type with _these_ arguments on _this_ task queue",
+  "number": 1368,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:14.578Z"
+}

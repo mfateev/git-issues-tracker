@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to support absolute deadline timers instead of relative delays. Currently, timers use relative delays (e.g., '10s'), but network transit and persistence lag cause actual delays to exceed the specified time. The proposal is to allow specifying deadlines as absolute timestamps/ISO strings.",
+  "category": "feature",
+  "subcategory": "timer-deadline",
+  "apis": [
+    "Workflow.await"
+  ],
+  "components": [
+    "timer",
+    "workflow-execution",
+    "scheduler"
+  ],
+  "concepts": [
+    "deadline",
+    "timer",
+    "delay",
+    "network-latency",
+    "persistence-lag",
+    "absolute-timestamp",
+    "workflow-resume"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot currently guarantee exact workflow resumption times when using timers due to network and persistence delays, limiting precision for time-sensitive workflows.",
+  "rootCause": null,
+  "proposedFix": "Add support for specifying timer deadlines as absolute timestamps or ISO strings instead of only relative delays.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would like to be able to specify the deadline of a timer as an absolute timestamp / ISO string, rather than a relative delay.",
+  "number": 4428,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:04.080Z"
+}

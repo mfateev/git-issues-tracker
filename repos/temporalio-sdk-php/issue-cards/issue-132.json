@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow with awaitWithTimeout and signal handlers exhibits timing issues where timeout completion doesn't trigger properly when signals are sent, causing workflows to remain stuck until the opposite condition occurs.",
+  "category": "bug",
+  "subcategory": "workflow-coordination",
+  "apis": [
+    "awaitWithTimeout"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-handler",
+    "timeout-mechanism",
+    "workflow-state-machine"
+  ],
+  "concepts": [
+    "timeout",
+    "signal-handling",
+    "workflow-state",
+    "condition-waiting",
+    "race-condition",
+    "event-ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using awaitWithTimeout with signals become unresponsive and require manual intervention or waiting for timeouts, preventing proper workflow execution flow.",
+  "rootCause": "Race condition between timeout expiration and signal handler updates affecting workflow state evaluation",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was resolved through fixes to the workflow coordination and signal handling mechanism",
+  "related": [],
+  "keyQuote": "Run the workflow, after 30 seconds it still stays running. If after that I send cancel signal, workflow completes with result `OK`.",
+  "number": 132,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:03.101Z"
+}

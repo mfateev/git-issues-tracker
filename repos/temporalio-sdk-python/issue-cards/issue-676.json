@@ -1,0 +1,32 @@
+{
+  "summary": "JSONPlainPayloadConverter incorrectly deserializes `(str, Enum)` type hints (like `StrEnum`) to a list of characters instead of an Enum instance. Users need support for both `(str, Enum)` and `(int, Enum)` composite type hints in payload deserialization.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "JSONPlainPayloadConverter",
+    "payload-converter",
+    "deserialization"
+  ],
+  "concepts": [
+    "enum",
+    "type-hint",
+    "serialization",
+    "deserialization",
+    "str-enum",
+    "int-enum",
+    "type-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably pass Enum instances (especially str-based Enums) as activity inputs, receiving lists of characters instead of proper Enum objects.",
+  "rootCause": "The payload converter doesn't specifically handle composite type hints like `(str, Enum)` or `(int, Enum)`, treating them as plain types and deserializing the string value as an iterable.",
+  "proposedFix": "Add checks for subclass combinations: `issubclass(hint, str) and issubclass(hint, Enum)` and `issubclass(hint, int) and issubclass(hint, Enum)`, then convert using `hint(value)` with appropriate type validation.",
+  "workaround": "Use Pydantic data converter instead of JSONPlainPayloadConverter, which provides native support for Enum deserialization.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "JSONPlainPayloadConverter deserializes IntEnum, StrEnum correctly, but it is more reliable to convert payload to any Enum",
+  "number": 676,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:28.070Z"
+}

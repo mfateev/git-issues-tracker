@@ -1,0 +1,32 @@
+{
+  "summary": "AttributeError when accessing start.WAIT_TIMEOUT in activity execution, causing activity tasks to fail repeatedly. Resolved by reinstalling the virtual environment.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "proto-conversion"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "activity-task",
+    "proto-conversion",
+    "attribute-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities fail with AttributeError when the Python SDK tries to access WAIT_TIMEOUT during heartbeat_timeout calculation, breaking activity execution.",
+  "rootCause": "Missing or corrupted WAIT_TIMEOUT attribute in the protobuf start message object, likely due to incomplete installation or cached bytecode.",
+  "proposedFix": null,
+  "workaround": "Reinstall the virtual environment to clear cached or corrupted files.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by removing and reinstalling the virtual environment, indicating the problem was environment-related (likely corrupted cache or installation).",
+  "related": [],
+  "keyQuote": "removing .venv and reinstalling fixed this. damn, sent until 6am on this",
+  "number": 1033,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:09.917Z"
+}

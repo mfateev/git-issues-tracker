@@ -1,0 +1,32 @@
+{
+  "summary": "When using OpenTelemetry with workflow tracing, traceState objects lose their class context during serialization between the workflow isolate and main thread, causing a TypeError when the OTLP exporter tries to call the missing serialize() method.",
+  "category": "bug",
+  "subcategory": "opentelemetry-instrumentation",
+  "apis": [],
+  "components": [
+    "opentelemetry-interceptor",
+    "workflow-exporter",
+    "span-serialization",
+    "trace-propagation"
+  ],
+  "concepts": [
+    "tracing",
+    "serialization",
+    "context-propagation",
+    "opentelemetry",
+    "span-export",
+    "trace-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users enabling OpenTelemetry trace propagation with traceState headers experience worker failures when exporting spans to OTLP collectors.",
+  "rootCause": "TraceState objects are serialized through V8's serialization protocol when crossing from workflow isolate to main thread, losing class context and methods. When OTLP transformer v0.35.1+ calls traceState.serialize(), the method doesn't exist on the deserialized plain object.",
+  "proposedFix": "Serialize traceState to string in workflow code, then reconstruct it using TraceState constructor on the host side in makeWorkflowExporter, or drop traceState entirely during serialization.",
+  "workaround": "Manually reconstruct TraceState objects by copying the private _internalState property to a new TraceState instance before span export.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the trace data are sent from the Workflow Worker thread to the main thread, which goes through V8's serialization protocol. Functions and classes do not survive that serialization",
+  "number": 1738,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:30.285Z"
+}

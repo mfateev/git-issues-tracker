@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to expose the workflow instance from the workflow context, allowing developers to access `workflow.instance()` to get the created instance of the workflow class.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [],
+  "components": [
+    "workflow-context",
+    "workflow-instance"
+  ],
+  "concepts": [
+    "workflow-instance",
+    "context-access",
+    "developer-experience",
+    "instance-management",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would gain access to the workflow instance from the workflow context, enabling more flexible workflow implementations.",
+  "rootCause": null,
+  "proposedFix": "Add workflow.instance() method to expose the created instance of the workflow class",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    572
+  ],
+  "keyQuote": "The created instance of the workflow class should be made available as `workflow.instance()`",
+  "number": 720,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:58.205Z"
+}

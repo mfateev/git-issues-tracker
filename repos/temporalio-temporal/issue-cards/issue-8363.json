@@ -1,0 +1,33 @@
+{
+  "summary": "Task queue validator intermittently rejects valid root task queue partitions on poll requests with an error claiming the name starts with reserved prefix /_sys/. While workers retry and eventually succeed, the error appears in logs and causes concern.",
+  "category": "bug",
+  "subcategory": "task-queue-validation",
+  "apis": [
+    "PollWorkflowTaskQueue",
+    "PollActivityTaskQueue"
+  ],
+  "components": [
+    "task-queue-validator",
+    "worker-poller",
+    "request-handler"
+  ],
+  "concepts": [
+    "validation",
+    "task-queue-names",
+    "reserved-prefixes",
+    "partition-routing",
+    "intermittent-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see alarming error messages in logs and worker failures occur intermittently, though the system eventually recovers with retries.",
+  "rootCause": "Task queue validator incorrectly identifies valid root task queue partitions as having reserved /_sys/ prefix under certain conditions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in server version 1.28.0",
+  "related": [],
+  "keyQuote": "task queue name cannot start with reserved prefix /_sys/ ... Once this error happens, the worker goes into the Failed state and stop processing activities/workflows.",
+  "number": 8363,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:43.987Z"
+}

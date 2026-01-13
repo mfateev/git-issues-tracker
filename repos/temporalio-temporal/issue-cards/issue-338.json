@@ -1,0 +1,28 @@
+{
+  "summary": "CLI arguments should use dashes instead of underscores (e.g., --execution-timeout instead of --execution_timeout) to match standard CLI conventions and improve usability.",
+  "category": "feature",
+  "subcategory": "cli-interface",
+  "apis": [],
+  "components": [
+    "cli",
+    "argument-parser"
+  ],
+  "concepts": [
+    "usability",
+    "cli-conventions",
+    "argument-naming",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users find CLI arguments easier to type when using dashes instead of underscores, reducing cognitive load from switching between special characters.",
+  "rootCause": null,
+  "proposedFix": "Standardize all CLI arguments to use dashes instead of underscores throughout the codebase",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by recent CLI work and approved/implemented via proposal PR #30",
+  "related": [],
+  "keyQuote": "Usually CLIs use dashes instead of _ . That way is easier to type the arguments as you only use one special character",
+  "number": 338,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:51:23.765Z"
+}

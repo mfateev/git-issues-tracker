@@ -1,0 +1,34 @@
+{
+  "summary": "When listing open workflow executions in test environment using TestWorkflowRule, the execution status is always WORKFLOW_EXECUTION_STATUS_UNSPECIFIED instead of the expected WORKFLOW_EXECUTION_STATUS_RUNNING.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "listOpenWorkflowExecutions",
+    "WorkflowClient",
+    "TestWorkflowRule"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-execution-status",
+    "list-executions"
+  ],
+  "concepts": [
+    "test-framework",
+    "workflow-status",
+    "execution-state",
+    "test-environment",
+    "status-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot verify workflow execution status in unit tests, making it impossible to properly test workflow lifecycle management.",
+  "rootCause": "TestWorkflowRule's listOpenWorkflowExecutions is not properly setting the execution status field in the response.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The test environment implementation was fixed to properly set WORKFLOW_EXECUTION_STATUS_RUNNING status in ListOpenWorkflowExecutionsResponse.",
+  "related": [],
+  "keyQuote": "See that status is always WORKFLOW_EXECUTION_STATUS_UNSPECIFIED. Should be WorkflowExecutionStatus.WORKFLOW_EXECUTION_STATUS_RUNNING",
+  "number": 842,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:46:50.253Z"
+}

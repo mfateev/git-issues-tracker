@@ -1,0 +1,30 @@
+{
+  "summary": "Enable worker heartbeating in the Python SDK by allowing users to specify the worker heartbeat interval when initializing Core Runtime. Worker heartbeating is already implemented in Core and needs to be exposed through the SDK API.",
+  "category": "feature",
+  "subcategory": "worker-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "core-runtime",
+    "heartbeat"
+  ],
+  "concepts": [
+    "heartbeat",
+    "worker-health",
+    "connection-monitoring",
+    "core-integration",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to configure worker heartbeat intervals to ensure worker health monitoring and detect stalled workers.",
+  "rootCause": null,
+  "proposedFix": "Expose worker heartbeat interval configuration parameter in Core Runtime initialization API",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged into the SDK",
+  "related": [],
+  "keyQuote": "Worker heartbeating is implemented in Core, need to enable worker heartbeating by allowing users to specify the worker heartbeat interval when initializing Core Runtime",
+  "number": 1196,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:27.432Z"
+}

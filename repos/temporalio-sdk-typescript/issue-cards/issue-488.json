@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request for all-method interceptors or middleware for the TypeScript SDK client. The user wants a simplified way to intercept all communication with the client/worker, similar to Apollo Client's Network Links, particularly for centralized error handling across all methods.",
+  "category": "feature",
+  "subcategory": "interceptors-middleware",
+  "apis": [
+    "WorkflowClientCallsInterceptor"
+  ],
+  "components": [
+    "client",
+    "interceptors",
+    "middleware"
+  ],
+  "concepts": [
+    "error-handling",
+    "middleware",
+    "interceptors",
+    "centralized-logging",
+    "communication-interception"
+  ],
+  "severity": "low",
+  "userImpact": "Users must currently implement all individual methods in WorkflowClientCallsInterceptor for centralized error handling instead of using a simpler all-method interceptor pattern.",
+  "rootCause": null,
+  "proposedFix": "Implement all-method interceptors similar to Apollo Client's Network Links pattern to provide a simpler way to intercept all client/worker communication.",
+  "workaround": "Users can implement all methods in WorkflowClientCallsInterceptor, or use gRPC interceptors directly.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed by maintainer (bergundy) with comment that gRPC interceptors can achieve the same result and no additional requests were received.",
+  "related": [
+    484
+  ],
+  "keyQuote": "gRPC interceptors can achieve this IIUC.",
+  "number": 488,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:58:27.005Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User requests the ability to assign custom names to activities in the Temporal UI to differentiate between multiple executions of the same function with different parameters. Currently activities only show the function name, requiring users to click each activity to see parameters.",
+  "category": "feature",
+  "subcategory": "activity-naming",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "ui-integration"
+  ],
+  "concepts": [
+    "activity-identification",
+    "workflow-visibility",
+    "user-metadata",
+    "activity-naming"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily distinguish between multiple executions of the same activity function at a glance in the workflow timeline.",
+  "rootCause": null,
+  "proposedFix": "Add an activityName parameter to allow custom naming of activities for UI display.",
+  "workaround": "Users can click on each activity to view its parameters.",
+  "resolution": "fixed",
+  "resolutionDetails": "Part of a new User Metadata feature being worked on, with TS SDK support coming soon and UI support to follow.",
+  "related": [
+    1544
+  ],
+  "keyQuote": "I would like the ability to name the activity, so that it's easy to differentiate from the same function being executed with different params.",
+  "number": 1617,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:34.146Z"
+}

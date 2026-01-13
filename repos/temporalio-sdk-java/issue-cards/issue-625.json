@@ -1,0 +1,32 @@
+{
+  "summary": "Use `WORKFLOW_TASK_FAILED_CAUSE_NON_DETERMINISTIC_ERROR` as the cause when responding to failed workflow tasks that result from non-deterministic user workflow logic. This aligns the Java SDK with the Temporal server's error classification.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "RespondWorkflowTaskFailed"
+  ],
+  "components": [
+    "workflow-task-handler",
+    "error-handling"
+  ],
+  "concepts": [
+    "non-determinism",
+    "workflow-replay",
+    "error-classification",
+    "failure-reporting"
+  ],
+  "severity": "low",
+  "userImpact": "Enables clearer error diagnosis by properly classifying non-deterministic workflow failures with the appropriate error cause code.",
+  "rootCause": null,
+  "proposedFix": "Use `WORKFLOW_TASK_FAILED_CAUSE_NON_DETERMINISTIC_ERROR` as the cause value in `RespondWorkflowTaskFailed` when non-deterministic workflow logic is detected.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented to use the correct error cause for non-deterministic workflow failures, aligning with server-side error classification.",
+  "related": [
+    1726
+  ],
+  "keyQuote": "use `WORKFLOW_TASK_FAILED_CAUSE_NON_DETERMINISTIC_ERROR` as cause for `RespondWorkflowTaskFailed` if user workflow logic is non-deterministic",
+  "number": 625,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:29:35.597Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Enable local testing with Temporal CLI as an alternative to the current test environment setup, with continued support for Temporalite during the transition.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-environment",
+    "cli-integration",
+    "local-development"
+  ],
+  "concepts": [
+    "local-testing",
+    "temporal-cli",
+    "temporalite",
+    "development-workflow",
+    "test-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers gain access to Temporal CLI for local testing while maintaining backward compatibility with Temporalite.",
+  "rootCause": null,
+  "proposedFix": "Integrate Temporal CLI support into the local test environment, dependent on sdk-core issue resolution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Temporal CLI support was implemented for local testing environments, with Temporalite support maintained during transition.",
+  "related": [
+    485
+  ],
+  "keyQuote": "Consider maintaining support for Temporalite for a while.",
+  "number": 1055,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:17.489Z"
+}

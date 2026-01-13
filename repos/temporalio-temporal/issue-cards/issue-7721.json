@@ -1,0 +1,31 @@
+{
+  "summary": "Need to expose the API version to API users at runtime and via the API itself. Requires research on how to obtain the API version in code and how to expose it through the API (e.g., headers, DescribeNamespace) without impacting all responses.",
+  "category": "feature",
+  "subcategory": "api-versioning",
+  "apis": [],
+  "components": [
+    "api-go",
+    "system-info",
+    "describe-namespace"
+  ],
+  "concepts": [
+    "versioning",
+    "api-version",
+    "backward-compatibility",
+    "runtime-discovery",
+    "namespace-metadata",
+    "build-info"
+  ],
+  "severity": "medium",
+  "userImpact": "Users, especially companies with proxies, need to discover which API version they're using to handle incompatible changes in non-GA APIs.",
+  "rootCause": null,
+  "proposedFix": "Research two aspects: 1) obtaining API version in code via manual const, build-flag, or debug.ReadBuildInfo, 2) exposing version via response header, DescribeNamespace, or alternative mechanism",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need a way to expose the version of https://github.com/temporalio/api currently in use to users. This is helpful for companies with proxies",
+  "number": 7721,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:43.155Z"
+}

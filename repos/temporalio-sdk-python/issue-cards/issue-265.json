@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to improve the query-handler-not-found error by displaying a list of available queries in a space-delimited format within brackets. This will help the UI show possible queries when a query handler is not found.",
+  "category": "feature",
+  "subcategory": "query-handler",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "error-messaging",
+    "ui"
+  ],
+  "concepts": [
+    "error-handling",
+    "query-discovery",
+    "user-experience",
+    "error-messages"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot see available queries when a query handler is not found, limiting the UI's ability to display helpful information.",
+  "rootCause": null,
+  "proposedFix": "Put known queries in space-delimited form surrounded by brackets in the error message (e.g., 'Some query error, queries: [query1 query2]').",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to display available queries in the error message format as requested.",
+  "related": [
+    51
+  ],
+  "keyQuote": "Need to put known queries in space-delimited form surrounded by brackets for use in the UI. E.g. \"Some query error, queries: [query1 query2]\".",
+  "number": 265,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:14.136Z"
+}

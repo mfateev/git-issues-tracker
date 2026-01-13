@@ -1,0 +1,32 @@
+{
+  "summary": "Python SDK required Rust installation for pip installation on unsupported platforms, complicating deployment. The issue was resolved by publishing pre-built wheels for common platforms (Windows x64, macOS x64/arm64, Linux x64) so Rust is only needed for rare environments.",
+  "category": "feature",
+  "subcategory": "build-deployment",
+  "apis": [],
+  "components": [
+    "pip-installation",
+    "wheel-distribution",
+    "rust-bridge"
+  ],
+  "concepts": [
+    "deployment",
+    "platform-support",
+    "binary-wheels",
+    "build-requirements",
+    "cross-platform"
+  ],
+  "severity": "medium",
+  "userImpact": "Users without Rust installed cannot easily deploy the Python SDK without building from source.",
+  "rootCause": "The Python SDK wraps a Rust core (temporalio/bridge) that requires compilation when pre-built wheels are unavailable for the target platform.",
+  "proposedFix": "Publish pre-built wheels for common platforms (Windows x64, macOS x64/arm64, Linux x64 with libc >= 2.17) to eliminate Rust dependency for most users.",
+  "workaround": "Use pre-built wheels from GitHub Actions artifacts or build from source if Rust is available.",
+  "resolution": "fixed",
+  "resolutionDetails": "Beta releases (0.1b1+) included expanded wheel coverage for major platforms, reducing Rust requirement to rare environments only.",
+  "related": [
+    100
+  ],
+  "keyQuote": "Our goal is to _not_ require Rust in any way to install. Our last alpha release only had a limited number of wheels pre-built",
+  "number": 85,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:43.857Z"
+}

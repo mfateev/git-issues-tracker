@@ -1,0 +1,32 @@
+{
+  "summary": "PostgreSQL password environment variable containing special characters is not URL-encoded when building the connection string, causing the server to fail with a parse error. The issue was identified and fixed in the codebase.",
+  "category": "bug",
+  "subcategory": "postgres-connection",
+  "apis": [],
+  "components": [
+    "persistence",
+    "sql-plugin",
+    "postgresql-session",
+    "url-builder"
+  ],
+  "concepts": [
+    "url-encoding",
+    "special-characters",
+    "connection-string",
+    "environment-variables",
+    "postgres",
+    "credentials"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal Server with PostgreSQL passwords containing special characters cannot start the server.",
+  "rootCause": "PostgreSQL password is not URL-encoded when combined into the connection URL string, causing invalid characters to break URL parsing.",
+  "proposedFix": "URL-encode the password component before including it in the PostgreSQL connection string.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by properly encoding password in postgresql/session/session.go line 110.",
+  "related": [],
+  "keyQuote": "parse \"postgres://temporal:31VKrnpbtrYW3y9rP:j7}N(VD=v_3vNw@...\": net/url: invalid userinfo",
+  "number": 1719,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:48.572Z"
+}

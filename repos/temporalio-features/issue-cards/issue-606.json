@@ -1,0 +1,36 @@
+{
+  "summary": "Users should be able to configure custom bucket sizes for histogram metrics emitted by Temporal SDKs. This feature was already available in some SDKs (Go, Java, PHP) but needed implementation in Core-based SDKs (TypeScript, Python, .NET, Ruby).",
+  "category": "feature",
+  "subcategory": "metrics-configuration",
+  "apis": [],
+  "components": [
+    "metrics",
+    "histogram",
+    "configuration"
+  ],
+  "concepts": [
+    "metrics",
+    "histogram",
+    "bucket-sizing",
+    "observability",
+    "customization"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now customize histogram metric bucket sizes to better match their monitoring needs across all SDK implementations.",
+  "rootCause": null,
+  "proposedFix": "Implement custom bucket size configuration in Core-based SDKs (TypeScript, Python, .NET, Ruby) following the implementation pattern already available in Go and Java SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature has been completed across all SDK implementations. Core SDK implementation was done in PR #844, with a follow-up bug fix in issue #873.",
+  "related": [
+    1634,
+    777,
+    416,
+    228,
+    873
+  ],
+  "keyQuote": "Yes, this has been done for some time",
+  "number": 606,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:25:57.390Z"
+}

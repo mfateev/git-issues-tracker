@@ -1,0 +1,33 @@
+{
+  "summary": "Remove the timeout parameter from WorkflowUpdateHandle.result since users can achieve timeout behavior using asyncio.wait_for if needed, and the API should be consistent with WorkflowHandle.result which doesn't have a timeout parameter.",
+  "category": "feature",
+  "subcategory": "workflow-handle-api",
+  "apis": [
+    "WorkflowUpdateHandle.result",
+    "WorkflowHandle.result"
+  ],
+  "components": [
+    "workflow-handle",
+    "update-handle",
+    "api-design"
+  ],
+  "concepts": [
+    "timeout",
+    "api-consistency",
+    "asyncio-integration",
+    "optional-parameters",
+    "handle-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have a simpler, more consistent API for workflow handles and can still apply timeouts using standard asyncio utilities if needed.",
+  "rootCause": "Inconsistency between WorkflowUpdateHandle.result and WorkflowHandle.result APIs; timeout functionality can be achieved with asyncio.wait_for",
+  "proposedFix": "Remove the timeout parameter from WorkflowUpdateHandle.result",
+  "workaround": "Users can use asyncio.wait_for() wrapper to apply timeout behavior",
+  "resolution": "fixed",
+  "resolutionDetails": "The timeout parameter was removed from WorkflowUpdateHandle.result to maintain API consistency with WorkflowHandle.result",
+  "related": [],
+  "keyQuote": "Users can do this with `asyncio.wait_for` if they want, no reason to have this if we're not also gonna have it on `WorkflowHandle.result`",
+  "number": 408,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:33.925Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Rework search attributes to support individual, per-type attributes with collections only for keywords, and expose a workflow listing API on the client as a lazy iterator.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "client",
+    "search-attributes",
+    "workflow-listing"
+  ],
+  "concepts": [
+    "search-attributes",
+    "type-safety",
+    "lazy-iteration",
+    "api-design",
+    "workflow-query"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to define type-safe search attributes and programmatically list workflows through the client API.",
+  "rootCause": null,
+  "proposedFix": "Implement per-type search attributes with keyword-only collections and add workflow listing lazy iterator to client",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #381 and #366",
+  "related": [
+    381,
+    366
+  ],
+  "keyQuote": "Need to support individual, per-type search attributes and only allow collections for keywords",
+  "number": 153,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:31.407Z"
+}

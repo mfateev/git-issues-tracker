@@ -1,0 +1,34 @@
+{
+  "summary": "Add validation to disallow workflow attributes (WorkflowRun, WorkflowSignal, WorkflowQuery) on static methods or classes, preventing incorrect usage patterns in the .NET SDK.",
+  "category": "feature",
+  "subcategory": "workflow-attributes",
+  "apis": [
+    "WorkflowRun",
+    "WorkflowSignal",
+    "WorkflowQuery"
+  ],
+  "components": [
+    "workflow-decorator",
+    "attribute-validation",
+    "compiler-checks"
+  ],
+  "concepts": [
+    "static-methods",
+    "attribute-constraints",
+    "validation",
+    "design-enforcement",
+    "type-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive clear validation errors instead of runtime failures when incorrectly applying workflow attributes to static members.",
+  "rootCause": null,
+  "proposedFix": "Add validation logic in WorkflowSignal and WorkflowQuery attribute implementations to reject static members, consistent with existing WorkflowRun behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Validation was implemented for WorkflowSignal and WorkflowQuery attributes to disallow static usage, matching the existing WorkflowRun behavior.",
+  "related": [],
+  "keyQuote": "We already disallow this for WorkflowRun, doing it for WorkflowSignal and WorkflowQuery now too",
+  "number": 86,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:42:25.221Z"
+}

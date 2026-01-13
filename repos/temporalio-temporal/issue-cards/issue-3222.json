@@ -1,0 +1,30 @@
+{
+  "summary": "PostgreSQL instance experiencing heavy database load on history_node table during stress testing. User proposes adding database indexes on (shard_id, tree_id, branch_id, node_id, txn_id) to optimize INSERT, DELETE, and SELECT query performance, though it may add slight overhead to insertions.",
+  "category": "feature",
+  "subcategory": "database-indexes",
+  "apis": [],
+  "components": [
+    "history-node",
+    "postgresql-persistence",
+    "database-schema"
+  ],
+  "concepts": [
+    "database-performance",
+    "indexing",
+    "query-optimization",
+    "io-efficiency",
+    "stress-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal with PostgreSQL experience database performance degradation under heavy loads due to unoptimized queries on the history_node table.",
+  "rootCause": "Missing or suboptimal database indexes on frequently executed queries (INSERT, DELETE, SELECT) on the history_node table, causing excessive disk I/O during stress testing.",
+  "proposedFix": "Create composite database index on (shard_id, tree_id, branch_id, node_id, txn_id) to optimize the three identified query patterns. Alternative considered: table partitioning based on shard_id.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The proposed index already exists as the table's primary key. The issue was resolved by clarifying that the suggested optimization was already implemented in the schema.",
+  "related": [],
+  "keyQuote": "The index you proposed is already the primary key. PRIMARY KEY (shard_id, tree_id, branch_id, node_id, txn_id)",
+  "number": 3222,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:07.128Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "User encountered \"Workflow referenced an unregistered external sink\" errors when using OpenTelemetry interceptors with bundled workflow code. The issue was resolved by ensuring proper `sinks` configuration on the Worker, but documentation lacked clear guidance on this requirement.",
+  "category": "docs",
+  "subcategory": "opentelemetry-interceptors",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "interceptors",
+    "opentelemetry",
+    "worker",
+    "bundleWorkflowCode"
+  ],
+  "concepts": [
+    "external-sink",
+    "configuration",
+    "interceptors",
+    "opentelemetry",
+    "tracing",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users integrating OpenTelemetry interceptors encounter noisy error logs that are resolved by proper configuration, but the requirement is not well documented.",
+  "rootCause": "Missing or disabled `sinks` configuration on the Worker when using OpenTelemetryOutboundInterceptor",
+  "proposedFix": "Add `sinks` configuration to Worker.create() with `exporter: makeWorkflowExporter(exporter, resource)`",
+  "workaround": "Enable the `sinks` configuration block when using OpenTelemetry interceptors",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was user configuration error - missing required sinks configuration. User noted feedback about improving documentation clarity.",
+  "related": [],
+  "keyQuote": "it would be useful to make note of them in the readme, or make more explicit note of them in the sample since its easy to miss the need for it",
+  "number": 1400,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:15.393Z"
+}

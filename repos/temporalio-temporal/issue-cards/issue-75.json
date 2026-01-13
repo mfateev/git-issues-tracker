@@ -1,0 +1,29 @@
+{
+  "summary": "Remove deprecated V1 API definitions from proto files where V2 versions exist. This involves deleting the V1 message/RPC definitions and removing the V2 suffix from the V2 versions to make them the new standard.",
+  "category": "feature",
+  "subcategory": "api-cleanup",
+  "apis": [],
+  "components": [
+    "proto-files",
+    "api-definitions"
+  ],
+  "concepts": [
+    "api-versioning",
+    "deprecation",
+    "cleanup",
+    "backward-compatibility",
+    "proto-definitions"
+  ],
+  "severity": "medium",
+  "userImpact": "Simplifies the API surface by removing deprecated V1 definitions, making the SDK cleaner and easier to maintain for users.",
+  "rootCause": null,
+  "proposedFix": "Go through all proto files, remove V1 message/RPC definitions where V2 exists, then rename V2 definitions by removing the V2 suffix.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "V1 APIs were removed and V2 definitions were renamed to become the standard API definitions.",
+  "related": [],
+  "keyQuote": "Go through all proto files and for everything that has V2 in name, remove corresponding message/rpc w/o V2 and then remove V2 from name.",
+  "number": 75,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:09:59.563Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to make linux/arm64 Docker images available on Docker Hub to support running Temporal Server on Mac M1 devices. The issue was marked as a duplicate of #1305 and resolved by making arm64 images available starting from version 1.14.",
+  "category": "feature",
+  "subcategory": "docker-images",
+  "apis": [],
+  "components": [
+    "docker",
+    "container-image",
+    "distribution"
+  ],
+  "concepts": [
+    "arm64",
+    "multi-arch",
+    "docker-hub",
+    "m1-support",
+    "platform-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal Server on Mac M1 devices can now use native arm64 Docker images instead of relying on emulated amd64 images.",
+  "rootCause": null,
+  "proposedFix": "Push multi-arch docker images to Docker Hub",
+  "workaround": "Run linux/amd64 image",
+  "resolution": "fixed",
+  "resolutionDetails": "arm64 image is available in docker hub since 1.14",
+  "related": [
+    1305
+  ],
+  "keyQuote": "arm64 image is available in docker hub since 1.14",
+  "number": 2073,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:45.797Z"
+}

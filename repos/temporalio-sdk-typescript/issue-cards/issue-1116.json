@@ -1,0 +1,30 @@
+{
+  "summary": "The @temporalio/create scaffolding tool generates a hello-world project with TypeScript ^4.4.2, but this version is incompatible with tsconfig/node20 which requires TypeScript >= 5 due to es2023 lib configuration.",
+  "category": "bug",
+  "subcategory": "project-setup",
+  "apis": [],
+  "components": [
+    "create-scaffolding",
+    "tsconfig",
+    "typescript-configuration"
+  ],
+  "concepts": [
+    "typescript-version-compatibility",
+    "node20-support",
+    "build-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users following the getting started guide cannot build the generated hello-world project on Node 20.",
+  "rootCause": "TypeScript 4.4.2 does not support es2023 in the lib configuration, which is required by tsconfig/node20.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #1125 which tracks Node 20 support.",
+  "related": [
+    1125
+  ],
+  "keyQuote": "Project fails to build. The created hello-world project is configured to use TypeScript ^4.4.2 but this is incompatible with the supplied version of tsconfig/node20",
+  "number": 1116,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:26.725Z"
+}

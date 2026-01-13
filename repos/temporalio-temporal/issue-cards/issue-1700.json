@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a simple API to limit concurrent workflow executions of a specific type across all workers to prevent multiple simultaneous instances. User needs this for workflows accessing shared database resources that require exclusive access.",
+  "category": "feature",
+  "subcategory": "workflow-concurrency-limits",
+  "apis": [
+    "RegisterWorkflowWithOptions"
+  ],
+  "components": [
+    "worker",
+    "workflow-executor",
+    "concurrency-control"
+  ],
+  "concepts": [
+    "concurrency-limit",
+    "workflow-type",
+    "cross-worker-coordination",
+    "resource-locking",
+    "serialization",
+    "distributed-limit"
+  ],
+  "severity": "medium",
+  "userImpact": "Users needing to serialize workflow executions of the same type must implement complex workarounds instead of using a simple built-in limit mechanism.",
+  "rootCause": "Lack of built-in workflow-type level concurrency limiting across the worker pool; current design doesn't provide this feature at the API level.",
+  "proposedFix": "Add MaxConcurrentWorkflowsAcrossWorkers option to RegisterWorkflowWithOptions to limit concurrent executions of a workflow type across all workers.",
+  "workaround": "Use constant workflow IDs to ensure only one execution per ID, or implement complex mutex-based workflow patterns as described in linked samples and community discussions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "An ability to limit the number of parallel workflow executions (of a given type or by some other group like batchId) across all workers is a very frequently requested feature.",
+  "number": 1700,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:31.100Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to include local activity input data into the marker decision/event in the history for better troubleshooting, with configurable option through LocalActivityOptions to manage history size.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "local-activity",
+    "event-history",
+    "marker-decision"
+  ],
+  "concepts": [
+    "activity-input",
+    "event-history",
+    "troubleshooting",
+    "marker",
+    "history-size",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have access to local activity inputs in event history for improved troubleshooting and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add input field to marker decision/event with a configurable option in LocalActivityOptions to control inclusion",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to include local activity input in marker decisions with configurable LocalActivityOptions",
+  "related": [],
+  "keyQuote": "For troubleshooting having activity input available in the event history is very useful.",
+  "number": 135,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:56:45.128Z"
+}

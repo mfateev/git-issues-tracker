@@ -1,0 +1,33 @@
+{
+  "summary": "The serverNameOverride configuration in tlsConfig does not properly set the gRPC authority header for SNI (Server Name Indication), unlike the Go SDK. Users must work around this by manually setting the grpc.default_authority channel argument.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [
+    "Connection"
+  ],
+  "components": [
+    "connection-manager",
+    "tls-config",
+    "grpc-client"
+  ],
+  "concepts": [
+    "SNI",
+    "authority-header",
+    "TLS",
+    "gRPC configuration",
+    "certificate validation",
+    "secure-connection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users connecting to gRPC servers with SNI requirements cannot properly configure the authority header through the standard serverNameOverride option, requiring manual channel argument configuration.",
+  "rootCause": "Rust Core requires extra parameters to add the authority header that are not exposed to the TypeScript SDK when serverNameOverride is set.",
+  "proposedFix": "Expose Rust Core's authority header parameters to the TypeScript SDK to properly handle serverNameOverride in tlsConfig.",
+  "workaround": "Set the grpc.default_authority channel argument manually when creating the Connection instead of using serverNameOverride.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "nodejs does not update the authority header when setting the serverNameOverride. This is visible from grpc verbose logging.",
+  "number": 455,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:36.599Z"
+}

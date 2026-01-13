@@ -1,0 +1,39 @@
+{
+  "summary": "Users need better logging context to identify which handler (update, signal, query) is executing and the update ID, making it easier to debug and correlate logs with specific operations in production environments.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logger",
+    "update-handler",
+    "signal-handler",
+    "query-handler"
+  ],
+  "concepts": [
+    "logging-context",
+    "observability",
+    "debugging",
+    "handler-identification",
+    "update-id",
+    "tracing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to identify which handler executed in logs and cannot easily grep for specific update/signal/query invocations, complicating production debugging.",
+  "rootCause": "SDK loggers do not include handler type and update ID in the logging context by default, requiring manual workarounds.",
+  "proposedFix": "Add handler type and update ID to the logging context implicitly across all SDKs in a language-idiomatic way (e.g., contextvars in Python, scoped loggers in other languages).",
+  "workaround": "Users can manually add handler information to logs using language-specific mechanisms like Python's `extra` parameter or creating custom logger adapters.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across all SDKs to include handler context and update ID in logging.",
+  "related": [
+    1648,
+    351,
+    648,
+    1532,
+    2237,
+    512
+  ],
+  "keyQuote": "I'd love if the context or prefix listed which handler it's in somehow and perhaps whether it was a signal/update/query. In the case of an update, I'd like to see the update ID.",
+  "number": 466,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:28.540Z"
+}

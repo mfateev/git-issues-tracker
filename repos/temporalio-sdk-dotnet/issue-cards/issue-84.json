@@ -1,0 +1,33 @@
+{
+  "summary": "User reported that when a child workflow is in progress and the application crashes, restarting the application does not resume the workflows as expected. The issue was resolved by properly configuring activity timeouts and implementing heartbeating.",
+  "category": "question",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteActivity",
+    "StartWorkflow"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-runtime",
+    "server-communication"
+  ],
+  "concepts": [
+    "timeout",
+    "heartbeat",
+    "crash-recovery",
+    "workflow-resumption",
+    "activity-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience workflows that fail to resume after application restarts when child workflows are in progress, unless properly configured with timeouts and heartbeats.",
+  "rootCause": "Missing activity heartbeating and improper timeout configuration (using ScheduleToCloseTimeout instead of StartToCloseTimeout) caused the server to think activities were still running, preventing workflow resumption.",
+  "proposedFix": "Set StartToCloseTimeout to a reasonable value based on expected activity duration and implement regular activity heartbeating to keep the server informed of activity progress.",
+  "workaround": "Configure StartToCloseTimeout appropriately and ensure activities implement heartbeating as documented in the SDK.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved the issue by switching from ScheduleToCloseTimeout to StartToCloseTimeout with a 1-second timeout and implementing proper activity heartbeating.",
+  "related": [],
+  "keyQuote": "you have crashed an activity without the server knowing. For all but the most immediate activities, you should set a HeartbeatTimeout and heartbeat regularly",
+  "number": 84,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:42:09.373Z"
+}

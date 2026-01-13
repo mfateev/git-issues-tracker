@@ -1,0 +1,34 @@
+{
+  "summary": "Add a built-in \"listQueries\" query capability to the PHP SDK, tracking the feature request from the cross-SDK features issue.",
+  "category": "feature",
+  "subcategory": "queries",
+  "apis": [
+    "listQueries"
+  ],
+  "components": [
+    "query-handler",
+    "workflow-runtime",
+    "query-dispatcher"
+  ],
+  "concepts": [
+    "queries",
+    "introspection",
+    "workflow-state",
+    "built-in-queries",
+    "feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can query available queries on a workflow to improve runtime introspection capabilities.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to match other SDK implementations of the listQueries built-in query.",
+  "related": [
+    51
+  ],
+  "keyQuote": "See original issue: temporalio/sdk-features#51",
+  "number": 124,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:45.379Z"
+}

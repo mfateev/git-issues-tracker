@@ -1,0 +1,31 @@
+{
+  "summary": "User reports excessive memory usage on the matching service when over 200 workers are connected, with disk IO also maxed out. They're seeking configuration guidance for deploying Temporal with tens of thousands of workers on a small Kubernetes cluster (2 CPU, 2GB RAM).",
+  "category": "question",
+  "subcategory": "resource-management",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "worker-connection",
+    "memory-management"
+  ],
+  "concepts": [
+    "memory-usage",
+    "scalability",
+    "resource-limits",
+    "worker-connections",
+    "disk-io",
+    "performance-tuning"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal with many worker connections experience memory exhaustion and disk IO saturation, limiting cluster scalability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When I tested with more than 200 workers connected, I encountered some issues; my server memory was full",
+  "number": 5026,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:00.590Z"
+}

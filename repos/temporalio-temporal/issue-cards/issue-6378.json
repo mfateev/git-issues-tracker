@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow history API returns 501 errors for some records in Temporal Server 1.24.2. User reports that a portion of executed workflow history records are displayed as 501 errors, with the issue affecting the UI display but not all records.",
+  "category": "bug",
+  "subcategory": "workflow-history-api",
+  "apis": [],
+  "components": [
+    "workflow-history",
+    "server-api",
+    "ui"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "history-retrieval",
+    "api-error",
+    "versioning",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot view complete workflow history in the Temporal UI due to 501 errors on some history records.",
+  "rootCause": "Potentially an API version mismatch or missing method implementation (GetWorkflowExecutionHistoryReverse) between UI and server components.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A portion of the workflow history records that have been executed are displayed as 501. Note that not all of them are.",
+  "number": 6378,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:46.349Z"
+}

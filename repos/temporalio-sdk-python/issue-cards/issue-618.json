@@ -1,0 +1,33 @@
+{
+  "summary": "The wait_condition semantics in Python SDK cause unexpected behavior when multiple coroutines wait on the same condition. When the condition becomes true, all waiting coroutines wake up simultaneously, but the condition may change before all of them execute their subsequent code, causing some to see a different state than expected.",
+  "category": "feature",
+  "subcategory": "wait-condition",
+  "apis": [
+    "wait_condition"
+  ],
+  "components": [
+    "workflow-runtime",
+    "async-scheduler",
+    "condition-variable"
+  ],
+  "concepts": [
+    "concurrency",
+    "condition-synchronization",
+    "race-condition",
+    "predicate-evaluation",
+    "task-scheduling",
+    "shared-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use wait_condition with multiple concurrent tasks without accounting for the possibility that the condition may change before execution resumes, making concurrent workflow patterns error-prone.",
+  "rootCause": "The wait_condition implementation wakes all waiting coroutines when the predicate is satisfied, but the condition may be modified by any coroutine before others execute, creating a time-of-check-time-of-use (TOCTOU) problem.",
+  "proposedFix": null,
+  "workaround": "Create tasks with small sleep delays between them to allow individual execution before batch operations, though this creates unnecessary temporal timers.",
+  "related": [],
+  "keyQuote": "the concern is that wait conditions _all_ wake up if the predicate is satisfied (as opposed to other SDKs that only wake up one)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 618,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:18.998Z"
+}

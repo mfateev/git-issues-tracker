@@ -1,0 +1,30 @@
+{
+  "summary": "SDKs should implement more aggressive backoff strategies when encountering ResourceExhaustedError instead of using uniform retryable error handling.",
+  "category": "feature",
+  "subcategory": "retry-backoff",
+  "apis": [],
+  "components": [
+    "sdk-client",
+    "retry-logic",
+    "error-handling"
+  ],
+  "concepts": [
+    "backoff",
+    "retry",
+    "resource-exhaustion",
+    "error-handling",
+    "rate-limiting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experiencing resource exhaustion errors face suboptimal backoff behavior, potentially causing prolonged service disruption.",
+  "rootCause": null,
+  "proposedFix": "Implement differentiated backoff strategies where ResourceExhaustedError triggers more aggressive backoff than other retryable errors.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDKs should backoff aggressively on `ResourceExhaustedError`",
+  "number": 8,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:08.349Z"
+}

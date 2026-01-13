@@ -1,0 +1,29 @@
+{
+  "summary": "Creating a search attribute that already exists returns success instead of an error. The server logs a warning but returns nil, preventing the CLI from informing users that the operation failed due to duplication.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "frontend",
+    "operator-handler",
+    "search-attributes"
+  ],
+  "concepts": [
+    "idempotency",
+    "error-handling",
+    "deduplication",
+    "dual-visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot detect when they attempt to create duplicate search attributes, making it unclear whether operations succeeded or failed.",
+  "rootCause": "The operator handler logs a warning when a search attribute already exists but returns nil instead of a service error, preventing proper error propagation to clients.",
+  "proposedFix": "Return a serviceError when attempting to create a search attribute that already exists, rather than silently returning nil.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In this loop server logs the warn message with errSearchAttributeAlreadyExistsMessage but because it does not add anything to map it just returns nil",
+  "number": 8631,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:24.930Z"
+}

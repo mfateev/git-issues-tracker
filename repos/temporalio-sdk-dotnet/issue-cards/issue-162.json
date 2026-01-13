@@ -1,0 +1,37 @@
+{
+  "summary": "README workflow testing samples are missing worker execution, causing tests to timeout. The documentation shows incomplete example code that doesn't actually run the worker before executing the workflow.",
+  "category": "docs",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflowAsync",
+    "WorkflowEnvironment",
+    "TemporalWorker"
+  ],
+  "components": [
+    "test-framework",
+    "worker",
+    "documentation"
+  ],
+  "concepts": [
+    "workflow-testing",
+    "time-skipping",
+    "worker-execution",
+    "timeout",
+    "test-setup",
+    "mocking"
+  ],
+  "severity": "high",
+  "userImpact": "Users following the README examples cannot run workflow tests successfully and experience test timeouts, blocking their ability to test workflows.",
+  "rootCause": "The README sample code omits the required worker execution step before calling ExecuteWorkflowAsync, leaving the worker idle.",
+  "proposedFix": "Update the README examples to include the actual worker execution/starting before executing the workflow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Author committed to updating the README with corrected sample code that includes the missing worker execution step.",
+  "related": [
+    179
+  ],
+  "keyQuote": "In the sample code you are not actually running/executing the worker which you must do. I will update shortly.",
+  "number": 162,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:50:11.928Z"
+}

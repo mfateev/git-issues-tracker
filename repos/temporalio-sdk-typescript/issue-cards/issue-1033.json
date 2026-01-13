@@ -1,0 +1,35 @@
+{
+  "summary": "TypeScript SDK client crashes silently when directly awaiting promises from methods like `client.workflow.start()`. The issue occurs due to a gRPC-js dependency version problem that causes the Node.js process to exit prematurely when async operations complete.",
+  "category": "bug",
+  "subcategory": "client-initialization",
+  "apis": [
+    "client.workflow.start"
+  ],
+  "components": [
+    "client",
+    "grpc-js",
+    "promise-handling"
+  ],
+  "concepts": [
+    "async-await",
+    "silent-exit",
+    "promise-handling",
+    "dependency-version",
+    "process-lifecycle",
+    "connection-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot directly await client operations without experiencing silent process crashes, severely impacting usability of the SDK in standard async workflows.",
+  "rootCause": "Incompatible @grpc/grpc-js versions (1.8.0-1.8.6) causing the Node.js process to exit prematurely when awaiting promises returned from Client methods",
+  "proposedFix": "Update @grpc/grpc-js dependency to version 1.8.7 or later, which fixes the underlying gRPC-js issue",
+  "workaround": "Avoid directly awaiting client promises; use Promise.all() with a delay, or add a ref to keep the event loop alive (e.g., setInterval with large timeout)",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in SDK version 1.8.7 by updating @grpc/grpc-js dependency. Issue was related to grpc-node#2318.",
+  "related": [
+    1023
+  ],
+  "keyQuote": "Seems to be fixed properly in 1.8.7 now. Closing as there is nothing more to be done on this ticket.",
+  "number": 1033,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:24.445Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "PHP SDK needs to encode failures using EncodedAttributes to pass the Harness test. The failure message should be encoded and stack trace should be empty.",
+  "category": "feature",
+  "subcategory": "failure-encoding",
+  "apis": [],
+  "components": [
+    "failure-handling",
+    "encoding",
+    "harness-tests"
+  ],
+  "concepts": [
+    "failure-encoding",
+    "error-handling",
+    "test-compliance",
+    "encoded-attributes"
+  ],
+  "severity": "medium",
+  "userImpact": "Failures in PHP SDK workflows will not be properly encoded, causing test failures and potential interoperability issues with other SDKs.",
+  "rootCause": "PHP SDK does not currently encode failures using EncodedAttributes as required by the Harness test specification.",
+  "proposedFix": "Implement failure encoding using EncodedAttributes so that Failure.message contains the encoded failure and Failure.stack_trace is empty.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    485
+  ],
+  "keyQuote": "Failure.message should be \"Encoded failure\" and Failure.stack_trace should be \"\".",
+  "number": 454,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:36.598Z"
+}

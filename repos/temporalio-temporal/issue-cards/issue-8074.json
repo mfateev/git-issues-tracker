@@ -1,0 +1,34 @@
+{
+  "summary": "Request to combine reset and signal operations in a single command, allowing workflows to reset to a specific point and simultaneously apply a signal with additional context to the reset workflow task.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "ResetWorkflowExecution",
+    "SignalWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "reset-handler",
+    "signal-processor"
+  ],
+  "concepts": [
+    "reset",
+    "signal",
+    "workflow-task",
+    "state-management",
+    "replay",
+    "context-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain the ability to atomically reset workflow execution and provide additional context through signals, enabling more flexible recovery and debugging workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement a ResetWithSignal operation that combines workflow reset with signal application to the post-reset task.",
+  "workaround": "Currently users must perform reset and signal as separate operations, losing atomicity and requiring manual coordination.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Request is to be able to do reset + signal which would reset execution at specific reset point and also apply a signal to the workflow task after the one that is failed by reset command.",
+  "number": 8074,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:27.620Z"
+}

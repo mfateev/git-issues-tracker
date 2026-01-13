@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to provide access to the last result and last failure information in workflows, allowing workflows to retrieve historical execution outcomes from previous runs.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "workflow-context"
+  ],
+  "concepts": [
+    "workflow-state",
+    "execution-history",
+    "error-handling",
+    "retry-logic",
+    "persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows would be able to access and act upon the results and failures from previous executions, enabling more sophisticated retry and recovery patterns.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented; references feature request #635 in temporalio/features repository",
+  "related": [
+    635
+  ],
+  "keyQuote": "Provide last result and last failure to workflows",
+  "number": 281,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:15.103Z"
+}

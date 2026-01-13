@@ -1,0 +1,31 @@
+{
+  "summary": "The STICKY_CACHE_THREAD_FORCED_EVICTION metric is being incremented twice when a workflow thread evicts from cache due to full thread pool - once in WorkflowThreadImpl#start and again inside cache.evictAnyNotInProcessing. Additionally, there are concerns about the retry logic that attempts resubmission after successful eviction despite no change in thread pool availability.",
+  "category": "bug",
+  "subcategory": "metrics-reporting",
+  "apis": [],
+  "components": [
+    "WorkflowThreadImpl",
+    "sticky-cache",
+    "thread-pool",
+    "metrics"
+  ],
+  "concepts": [
+    "double-reporting",
+    "cache-eviction",
+    "thread-pool-rejection",
+    "metrics-accuracy",
+    "concurrency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see inflated metrics for cache evictions, making it difficult to accurately monitor and tune workflow thread pool behavior.",
+  "rootCause": "WorkflowThreadImpl#start unconditionally increments the STICKY_CACHE_THREAD_FORCED_EVICTION counter before calling cache.evictAnyNotInProcessing, which also increments the same counter, causing double reporting.",
+  "proposedFix": "Remove the unconditional increment from WorkflowThreadImpl#start and rely on the increment inside cache.evictAnyNotInProcessing which is more accurate and checked.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The double reporting was fixed by removing the unconditional metric increment from WorkflowThreadImpl#start, keeping only the increment inside cache.evictAnyNotInProcessing.",
+  "related": [],
+  "keyQuote": "Remove unconditional increment from `WorkflowThreadImpl#start` and leave more correct and checked increment inside `cache.evictAnyNotInProcessing`",
+  "number": 201,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:01:26.272Z"
+}

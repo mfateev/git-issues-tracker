@@ -1,0 +1,30 @@
+{
+  "summary": "The auto-setup Docker image fails when deploying Temporal with Elasticsearch 8 because it tries to load missing v8-specific schema files (cluster_settings_v8.json and index_template_v8.json) that don't exist in the image.",
+  "category": "bug",
+  "subcategory": "elasticsearch-schema",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "elasticsearch",
+    "schema"
+  ],
+  "concepts": [
+    "elasticsearch-version",
+    "schema-compatibility",
+    "kubernetes-deployment",
+    "docker-image",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to deploy Temporal with Elasticsearch 8 using auto-setup Docker image encounter startup failures due to missing schema files.",
+  "rootCause": "The auto-setup script attempts to load ES version-specific schema files (v8) that don't exist, when the v7 schema is actually compatible with ES8.",
+  "proposedFix": "Remove the ES_VERSION environment variable from the auto-setup script since v7 schema works with both ES7 and ES8.",
+  "workaround": "Set ES_VERSION=v7 even when running Elasticsearch 8, as the v7 schema is compatible with v8.",
+  "resolution": "fixed",
+  "resolutionDetails": "ES_VERSION environment variable was removed from the auto-setup script by the maintainers, allowing v7 schema to be used universally.",
+  "related": [],
+  "keyQuote": "You can simply start ES8, and run Temporal with ES_VERSION=v7, and it should work.",
+  "number": 8063,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:14.324Z"
+}

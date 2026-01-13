@@ -1,0 +1,29 @@
+{
+  "summary": "User requests ability to save and reuse tokens from long-running operations (like Azure SDK's BeginDelete) across activity retries, enabling resumption without starting over.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "retry-handler"
+  ],
+  "concepts": [
+    "retry",
+    "token-persistence",
+    "long-running-operations",
+    "state-recovery",
+    "external-sdk-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users calling external SDOs with expensive token-based operations cannot efficiently retry activities without re-executing expensive initial steps.",
+  "rootCause": null,
+  "proposedFix": "Allow activities to save tokens via heartbeat or structured state mechanism that persists across retries, enabling resumption from saved state.",
+  "workaround": "Split activity into two: first fetches token and returns it, second uses token as input parameter. Alternatively, implement custom database to track tokens.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Temporal team indicated heartbeat details aren't guaranteed, and suggested workarounds (splitting activities or custom state management) are sufficient for the use case.",
+  "related": [],
+  "keyQuote": "i think you could heartbeat to record the token, and retrieve it from later retry attempt.",
+  "number": 4799,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:30.494Z"
+}

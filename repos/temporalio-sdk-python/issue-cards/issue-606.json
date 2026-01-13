@@ -1,0 +1,33 @@
+{
+  "summary": "Align Python SDK's activation job application model with TypeScript SDK by applying all jobs in a single batch before running the event loop, instead of multiple batches. This aligns with the Core-based language pattern where state is updated synchronously before routines execute.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-instance",
+    "event-loop",
+    "job-application"
+  ],
+  "concepts": [
+    "state-synchronization",
+    "event-loop",
+    "determinism",
+    "job-batching",
+    "task-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Potentially improves workflow execution consistency and intuitiveness across language SDKs without necessarily changing user-facing behavior.",
+  "rootCause": null,
+  "proposedFix": "Change Python's multi-batch job application (as shown in _workflow_instance.py#L325) to single-batch model followed by event loop execution, similar to PR #1488 in TypeScript SDK.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1488
+  ],
+  "keyQuote": "state is updated synchronously, then stuff runs until we're blocked",
+  "number": 606,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:47.568Z"
+}

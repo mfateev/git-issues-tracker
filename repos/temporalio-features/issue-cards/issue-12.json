@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add a metric for tracking TLS certificate expiration across SDKs. Users need visibility into certificate expiration to prevent unexpected worker failures when certificates expire without notice.",
+  "category": "feature",
+  "subcategory": "observability-tls",
+  "apis": [],
+  "components": [
+    "worker",
+    "tls-handshake",
+    "metrics"
+  ],
+  "concepts": [
+    "certificate-expiration",
+    "observability",
+    "connection-security",
+    "worker-health",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers can silently fail when certificates expire, leaving users without visibility into the root cause until explicitly checking certificate status.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    11
+  ],
+  "keyQuote": "The user's workers stopped processing tasks and they did not know it was because certs have expired.",
+  "number": 12,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:24.370Z"
+}

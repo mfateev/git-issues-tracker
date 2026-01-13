@@ -1,6 +1,6 @@
 # TypeScript SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/sdk-typescript](https://github.com/temporalio/sdk-typescript)
 
 ## Related Documents
@@ -15,17 +15,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 144 |
-| Total Closed Issues | 653 |
-| Total All Issues | 797 |
-| Bugs (open) | 49 |
+| Total Open Issues | 145 |
+| Total Closed Issues | 655 |
+| Total All Issues | 800 |
+| Bugs (open) | 50 |
 | Enhancements/Features (open) | 84 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 171 |
 | Total Comments on open | 344 |
 | Issues with Upvotes | 37 (26%) |
 | Issues with Comments | 74 (51%) |
-| Average Age (days) | 657 |
+| Average Age (days) | 655 |
 | Stale Issues (>12 months) | 58 (40%) |
 
 ---
@@ -36,21 +36,21 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 82% (653/797) |
-| Avg Time to Close (calendar) | 120 days |
+| Resolution Rate | 82% (655/800) |
+| Avg Time to Close (calendar) | 119 days |
 | Avg Time to Close (business) | 86 days |
 | Median Time to Close (calendar) | 26 days |
 | Median Time to Close (business) | 19 days |
 | 90th Percentile (calendar) | 440 days |
 | 90th Percentile (business) | 314 days |
-| Resolved within 30 days | 52% |
+| Resolved within 30 days | 53% |
 | Resolved within 90 days | 70% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 171 | 26% |
+| Fixed (bugs) | 173 | 26% |
 | Completed (features) | 218 | 33% |
 | Self-resolved | 144 | 22% |
 | Duplicate | 2 | 0% |
@@ -66,7 +66,7 @@
 |-------|--------|--------|------------|
 | 2025-02 | 9 | 10 | -1 |
 | 2025-03 | 10 | 4 | +6 |
-| 2025-04 | 21 | 5 | +16 |
+| 2025-04 | 21 | 4 | +17 |
 | 2025-05 | 9 | 14 | -5 |
 | 2025-06 | 7 | 2 | +5 |
 | 2025-07 | 11 | 5 | +6 |
@@ -75,10 +75,10 @@
 | 2025-10 | 4 | 6 | -2 |
 | 2025-11 | 4 | 6 | -2 |
 | 2025-12 | 11 | 5 | +6 |
-| 2026-01 | 1 | 5 | -4 |
-| **Total** | **101** | **77** | **+24** |
+| 2026-01 | 4 | 7 | -3 |
+| **Total** | **104** | **78** | **+26** |
 
-📈 **Backlog Growing:** 24 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 26 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 43 |
-| Issues Closed | 44 |
+| Issues Opened | 45 |
+| Issues Closed | 46 |
 | Net Change | -1 |
-| Bugs Closed | 12 |
+| Bugs Closed | 14 |
 | Enhancements Closed | 26 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 235 | 168 |
-| Median | 120 | 87 |
+| Average | 225 | 161 |
+| Median | 108 | 78 |
 | 90th Percentile | 588 | 420 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 27% |
-| Within 90 days | 43% |
+| Within 30 days | 30% |
+| Within 90 days | 46% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -123,12 +123,12 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 2 | 1% |
-| 1-3 months | 10 | 7% |
-| 3-6 months | 10 | 7% |
-| 6-12 months | 35 | 24% |
+| 1-3 months | 11 | 8% |
+| 3-6 months | 9 | 6% |
+| 6-12 months | 36 | 25% |
 | 1-2 years | 25 | 17% |
-| 2-3 years | 23 | 16% |
-| 3+ years | 39 | 27% |
+| 2-3 years | 22 | 15% |
+| 3+ years | 40 | 28% |
 
 ---
 
@@ -199,8 +199,8 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-12 | [#1883](https://github.com/temporalio/sdk-typescript/issues/1883) | 0 | [Bug] operatorService not accessible on `ConnectionLike` |
 | 2025-12-30 | [#1867](https://github.com/temporalio/sdk-typescript/issues/1867) | 0 | [Feature Request] Per-Worker Logger |
-| 2025-12-12 | [#1862](https://github.com/temporalio/sdk-typescript/issues/1862) | 0 | [Feature Request] importing workflow into activity dependenc... |
 
 ---
 
@@ -209,7 +209,7 @@ Priority = Upvotes × 2 + Comments
 | Label | Count |
 |-------|-------|
 | enhancement | 84 |
-| bug | 49 |
+| bug | 50 |
 | documentation | 6 |
 | good first issue | 4 |
 | next-gen | 2 |
@@ -218,7 +218,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (49 open issues)
+## Bugs (50 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -236,6 +236,7 @@ Priority = Upvotes × 2 + Comments
 | [#1578](https://github.com/temporalio/sdk-typescript/issues/1578) | 1 | 0 | [Bug] Worker fails to start if Node option --abort-on-uncaug... |
 | [#1292](https://github.com/temporalio/sdk-typescript/issues/1292) | 1 | 6 | [Bug] ESM Custom payload converters cannot be loaded |
 | [#939](https://github.com/temporalio/sdk-typescript/issues/939) | 1 | 8 | [Bug] Worker crashes with "async hook stack has become corru... |
+| [#1883](https://github.com/temporalio/sdk-typescript/issues/1883) | 0 | 0 | [Bug] operatorService not accessible on `ConnectionLike` |
 | [#1860](https://github.com/temporalio/sdk-typescript/issues/1860) | 0 | 1 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
 | [#1859](https://github.com/temporalio/sdk-typescript/issues/1859) | 0 | 3 | [Bug] High CPU usage with OTel instrumentation when updating... |
 | [#1858](https://github.com/temporalio/sdk-typescript/issues/1858) | 0 | 0 | [Bug] unable to import reflect-metadata within workflow bund... |
@@ -251,9 +252,8 @@ Priority = Upvotes × 2 + Comments
 | [#1687](https://github.com/temporalio/sdk-typescript/issues/1687) | 0 | 0 | [Bug] Temporal local env cannot be connected in unit tests |
 | [#1663](https://github.com/temporalio/sdk-typescript/issues/1663) | 0 | 5 | [Bug] Can't use structuredClone in workflow code |
 | [#1660](https://github.com/temporalio/sdk-typescript/issues/1660) | 0 | 1 | [Bug] RESOURCE_EXHAUSTED error while describing workflow sch... |
-| [#1656](https://github.com/temporalio/sdk-typescript/issues/1656) | 0 | 1 | [Bug] Workflow type is incorrectly deduced when using `bind`... |
 
-*...and 19 more bugs*
+*...and 20 more bugs*
 
 ---
 

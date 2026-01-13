@@ -1,0 +1,32 @@
+{
+  "summary": "User requested a public API to configure logging behavior for workflow and activity loggers. They were manually patching logger attributes to control whether contextual information appears in log messages vs. logging extras, and wanted clarity on whether this was the intended approach.",
+  "category": "feature",
+  "subcategory": "logging-configuration",
+  "apis": [
+    "workflow.logger",
+    "activity.logger"
+  ],
+  "components": [
+    "logging",
+    "workflow-logger",
+    "activity-logger"
+  ],
+  "concepts": [
+    "logging-configuration",
+    "structured-logging",
+    "logger-adapter",
+    "contextual-information"
+  ],
+  "severity": "low",
+  "userImpact": "Users need to manually patch logger attributes to configure logging behavior, when a dedicated public API would make this clearer and more maintainable.",
+  "rootCause": null,
+  "proposedFix": "Expose a public `configure_logging()` function for both workflow and activity loggers with explicit parameters for controlling log message content and replay logging.",
+  "workaround": "Manually set attributes on `workflow.logger` and `activity.logger` instances (e.g., `workflow.logger.workflow_info_on_message = False`)",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers confirmed that the current approach of setting logger adapter attributes is the intended design pattern and is already well-documented. The attributes are intentionally exposed on the logger adapter for this purpose.",
+  "related": [],
+  "keyQuote": "It is, and is why we made these attributes visible on the logger adapter (and the logger adapter itself visible). We even clearly document them",
+  "number": 971,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:41.162Z"
+}

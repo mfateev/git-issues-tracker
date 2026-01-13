@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow Client and Activity-only Workers to accept pre-loaded DataConverter instances instead of requiring paths, reducing unnecessary build process complexity for non-Workflow components.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [
+    "Client",
+    "Worker",
+    "DataConverter"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "data-converter"
+  ],
+  "concepts": [
+    "data-converter",
+    "payload-serialization",
+    "deployment-units",
+    "build-process",
+    "api-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must unnecessarily complicate build processes for non-Workflow components due to path-based DataConverter requirements.",
+  "rootCause": "Historical design decision to require paths for consistency with Workflow Worker behavior, which becomes counter-productive when workflow and client code are in separate deployment units.",
+  "proposedFix": "Make Client and Activity-only Workers accept pre-loaded DataConverter instances directly instead of requiring paths.",
+  "workaround": "Workaround using Worker.options.loadedDataConverter to extract and reconfigure converters after worker creation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "By imposing consistency, we are forcing users to adapt and complexify the build process of all non-Workflow Worker components without no real reason to do so.",
+  "number": 1458,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:33:49.803Z"
+}

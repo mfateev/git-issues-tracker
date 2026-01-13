@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add RPC metadata updater capability to the .NET client, allowing headers to be updated on existing client/connection instances to affect worker operations, similar to other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "worker",
+    "RPC"
+  ],
+  "concepts": [
+    "metadata",
+    "headers",
+    "configuration",
+    "connection-management",
+    "inter-process-communication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot dynamically update RPC headers on existing clients, limiting runtime configuration flexibility compared to other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement RPC metadata updater functionality similar to other Temporal SDKs to enable header updates on existing client/connection instances.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to match functionality available in other SDKs",
+  "related": [],
+  "keyQuote": "Like other SDKs, need to be able to update headers on existing client/connection that is then done in Rust to affect worker use.",
+  "number": 70,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:41:57.167Z"
+}

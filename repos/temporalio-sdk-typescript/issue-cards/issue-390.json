@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow interceptors require double configuration: once for bundler inclusion and again in WorkerOptions. When workflows are pre-bundled, WorkerOptions.interceptors.workflowModules may become unavailable since require.resolve might not work in the pre-bundled worker process.",
+  "category": "bug",
+  "subcategory": "workflow-bundling",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "workflow-interceptors"
+  ],
+  "concepts": [
+    "bundling",
+    "module-resolution",
+    "interceptors",
+    "pre-bundled",
+    "webpack",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying pre-bundled workflows must maintain workflow interceptor paths in two places, or face runtime failures when require.resolve is unavailable.",
+  "rootCause": "require.resolve does not work in pre-bundled worker processes, requiring workflow modules to be specified separately at runtime despite already being bundled.",
+  "proposedFix": "Store the list of workflow interceptor modules at bundling time and automatically load them, or automatically load anything in the workflow bundle so paths only need to be specified once.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The worker might not have the workflows available in the file system on startup (in case it is using a workflows bundle).",
+  "number": 390,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:53.252Z"
+}

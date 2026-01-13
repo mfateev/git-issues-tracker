@@ -1,0 +1,32 @@
+{
+  "summary": "MySQL database initialization fails when using temporal-sql-tool due to timezone handling. The schema update process encounters errors related to timezone configuration, which was fixed in a later version but not included in v1.17.0.",
+  "category": "bug",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "mysql-schema",
+    "database-initialization"
+  ],
+  "concepts": [
+    "timezone",
+    "database-schema",
+    "initialization",
+    "sql-migration",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to initialize MySQL databases with temporal-sql-tool in v1.17.0 encounter failures requiring workarounds or upgrades.",
+  "rootCause": "MySQL timezone configuration not properly handled during schema setup operations.",
+  "proposedFix": "Set UTC timezone for MySQL as a workaround; fix included in v1.18+.",
+  "workaround": "Set UTC time zone for MySQL before running temporal-sql-tool.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #3012, included in version 1.18 (not backported to 1.17).",
+  "related": [
+    3012
+  ],
+  "keyQuote": "This is due to your timezone. Workaround is to set UTC time zone for MySQL. I fixed it in #3012 but it is not in 1.17 (will go to 1.18).",
+  "number": 3070,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:27.115Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Request to add `Patched()` and `DeprecatePatch()` APIs to the PHP SDK for versioning support, following the implementation pattern from Core. Potentially deprecate the existing `GetVersion` API in favor of these new methods.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "Patched",
+    "DeprecatePatch",
+    "GetVersion"
+  ],
+  "components": [
+    "workflow-versioning",
+    "api-design",
+    "sdk-core"
+  ],
+  "concepts": [
+    "versioning",
+    "workflow-evolution",
+    "backwards-compatibility",
+    "deprecation",
+    "patching",
+    "memoization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have new APIs to manage workflow code evolution and versioning across SDK versions more effectively.",
+  "rootCause": null,
+  "proposedFix": "Implement `Patched(patchId, memoized): boolean` and `DeprecatePatch(patchId, memoized): boolean` APIs following Core's implementation pattern.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    591
+  ],
+  "keyQuote": "Add the `Patched(patchId, memoized): boolean` and `DeprecatePatch(patchId, memoized): boolean` APIs",
+  "number": 558,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:34.125Z"
+}

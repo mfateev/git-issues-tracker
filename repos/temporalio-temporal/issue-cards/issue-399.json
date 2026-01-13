@@ -1,0 +1,31 @@
+{
+  "summary": "Canary process exits with error when the 'canary' namespace already exists, instead of silently ignoring the AlreadyExists error as in prior versions. This breaks canary startup on clusters with existing namespaces.",
+  "category": "bug",
+  "subcategory": "canary-startup",
+  "apis": [
+    "CreateNamespace"
+  ],
+  "components": [
+    "canary",
+    "namespace-management",
+    "client"
+  ],
+  "concepts": [
+    "namespace-creation",
+    "error-handling",
+    "startup-behavior",
+    "idempotency"
+  ],
+  "severity": "high",
+  "userImpact": "Users running canary on clusters with existing namespaces experience startup failures instead of graceful continuation.",
+  "rootCause": "Changes in v0.23.0 removed the error suppression logic for AlreadyExists errors during namespace creation, causing the canary to exit instead of proceeding.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "self_resolved",
+  "resolutionDetails": "Author identified the issue was caused by building canary with wrong version of proto submodule, not actual code behavior change.",
+  "related": [],
+  "keyQuote": "Prior to v0.23.0, the canary would start up and always attempt to create the `canary` namespace. If the namespace already existed, it would silently ignore the error and continue.",
+  "number": 399,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:54:39.093Z"
+}

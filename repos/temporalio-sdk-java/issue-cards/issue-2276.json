@@ -1,0 +1,33 @@
+{
+  "summary": "NullPointerException is thrown when passing empty search attributes in workflow options. The issue occurs when SearchAttributesUtil.encodeTyped() returns null for empty search attributes, and this null value is then passed to StartWorkflowExecutionRequest.setSearchAttributes(), which doesn't accept null.",
+  "category": "bug",
+  "subcategory": "workflow-options",
+  "apis": [
+    "WorkflowOptions",
+    "StartWorkflowExecutionRequest",
+    "SearchAttributesUtil"
+  ],
+  "components": [
+    "workflow-client",
+    "search-attributes",
+    "request-builder"
+  ],
+  "concepts": [
+    "null-handling",
+    "empty-collections",
+    "parameter-validation",
+    "search-attributes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot create workflow options with empty search attributes without encountering a null pointer exception.",
+  "rootCause": "StartWorkflowExecutionRequest.setSearchAttributes() does not accept null values, but SearchAttributesUtil.encodeTyped() returns null for empty search attributes.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Java SDK maintainers acknowledged the bug report and filed a fix for it. A subsequent request was made to backport the fix to the 1.22.x branch.",
+  "related": [],
+  "keyQuote": "It throws null pointer exception",
+  "number": 2276,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:17.105Z"
+}

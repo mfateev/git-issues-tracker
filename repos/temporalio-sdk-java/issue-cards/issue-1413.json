@@ -1,0 +1,36 @@
+{
+  "summary": "Users calling getResultAsync multiple times on the same stub or different stubs for the same workflow execution cause redundant long polls. SDK should deduplicate these calls to open only one long poll under the hood as an optimization.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "getResultAsync",
+    "WorkflowClient",
+    "WorkflowStub"
+  ],
+  "components": [
+    "workflow-client",
+    "long-polling",
+    "result-retrieval"
+  ],
+  "concepts": [
+    "deduplication",
+    "optimization",
+    "connection-pooling",
+    "caching",
+    "long-polling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually manage multiple getResultAsync calls to avoid unnecessary overhead, reducing SDK usability and performance.",
+  "rootCause": "WorkflowClient and WorkflowStub do not deduplicate concurrent getResultAsync calls for the same workflow execution.",
+  "proposedFix": "Implement call deduplication logic within WorkflowClient or WorkflowStub to reuse a single long poll for identical requests.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1212
+  ],
+  "keyQuote": "SDK should deduplicate such calls and open only one long poll under the hood as an optimization, so users don't have to think about it in their code.",
+  "number": 1413,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:34:41.549Z"
+}

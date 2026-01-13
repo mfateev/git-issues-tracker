@@ -1,0 +1,34 @@
+{
+  "summary": "Add a 'failure_reason' tag to workflow_task_execution_failed metrics that indicates whether the failure was due to a WorkflowError or NonDetermismError. This feature was requested across multiple SDKs (Go, Java, and Core).",
+  "category": "feature",
+  "subcategory": "metrics-tagging",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "observability",
+    "failure-classification",
+    "error-tagging",
+    "workflow-execution",
+    "metrics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can better diagnose and monitor workflow task failures by filtering metrics based on specific error types.",
+  "rootCause": null,
+  "proposedFix": "Add 'failure_reason' tag to workflow_task_execution_failed metric with values 'WorkflowError' or 'NonDetermismError', with provisions for future expansion.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in all SDKs (Go, Java, and Core) as indicated by related issues and completion comment.",
+  "related": [
+    1289,
+    1929,
+    730
+  ],
+  "keyQuote": "Add a tag to `workflow_task_execution_failed` called `failure_reason` that can be equal to `WorkflowError| NonDetermismError`",
+  "number": 231,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:42.026Z"
+}

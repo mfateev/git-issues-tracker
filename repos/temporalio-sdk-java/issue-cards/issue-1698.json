@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowImplementationOptions.FailWorkflowExceptionTypes is ignored when the service rejects workflow task completion, causing workflows to get stuck in retry loops instead of failing as expected. Setting an invalid retry policy (e.g., maximumInterval < initialInterval) demonstrates the issue where service failures don't trigger workflow failure.",
+  "category": "bug",
+  "subcategory": "workflow-task-failure",
+  "apis": [
+    "WorkflowImplementationOptions",
+    "FailWorkflowExceptionTypes"
+  ],
+  "components": [
+    "workflow-implementation",
+    "workflow-task-processor",
+    "retry-policy"
+  ],
+  "concepts": [
+    "workflow-failure",
+    "task-rejection",
+    "exception-handling",
+    "retry-loop",
+    "service-failure",
+    "workflow-execution-state"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows can become stuck in infinite retry loops when encountering invalid retry policies or service rejections, making them unrecoverable without manual intervention.",
+  "rootCause": "The SDK does not emit FailWorkflowExecution command when the service rejects workflow task completion, even when FailWorkflowExceptionTypes includes the exception type.",
+  "proposedFix": "SDK should fail the workflow execution by emitting FailWorkflowExecution command when service rejects workflow task completion and exception matches FailWorkflowExceptionTypes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDK can fail the execution by emitting FailWorkflowExecution command.",
+  "number": 1698,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:38.856Z"
+}

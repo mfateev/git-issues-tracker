@@ -1,0 +1,35 @@
+{
+  "summary": "Querying a terminated workflow throws a WorkflowQueryException due to improper handling of the WORKFLOW_EXECUTION_TERMINATED event during query processing. The replay mechanism fails when attempting to handle this event, resulting in an IllegalArgumentException for unexpected events.",
+  "category": "bug",
+  "subcategory": "query-handling",
+  "apis": [
+    "query"
+  ],
+  "components": [
+    "query-processor",
+    "replay-engine",
+    "state-machine",
+    "workflow-stub"
+  ],
+  "concepts": [
+    "workflow-termination",
+    "event-replay",
+    "query-execution",
+    "workflow-state",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot query terminated workflows, receiving an exception instead of a valid response or graceful error.",
+  "rootCause": "The replay engine's handleEvent method does not properly handle EVENT_TYPE_WORKFLOW_EXECUTION_TERMINATED events when processing queries on terminated workflows, throwing an IllegalArgumentException for unexpected events.",
+  "proposedFix": "Selectively ignore or handle the WORKFLOW_EXECUTION_TERMINATED event in the query workflow task handler to allow queries on terminated workflows to proceed without throwing exceptions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fix was implemented to handle the terminated event properly during query processing, allowing queries on terminated workflows without exceptions.",
+  "related": [
+    630
+  ],
+  "keyQuote": "Terminate a workflow and run a query against it.",
+  "number": 391,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:15:43.805Z"
+}

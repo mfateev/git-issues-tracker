@@ -1,0 +1,34 @@
+{
+  "summary": "Users can set cron schedules using robfig format in WorkflowOptions but cannot use them in tests since TestWorkflowEnvironment only supports crontab style. This feature request asks for robfig predefined schedules and intervals support in the test environment.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowOptions"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "cron-scheduling",
+    "test-utilities"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "robfig-format",
+    "workflow-options",
+    "testing",
+    "schedule-intervals"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test workflows with robfig-style cron schedules, forcing them to use only crontab format in tests even when using robfig in production.",
+  "rootCause": null,
+  "proposedFix": "Add support for robfig predefined schedules and intervals in TestWorkflowEnvironment to match production WorkflowOptions capabilities.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #341, which addresses the same feature request.",
+  "related": [
+    341
+  ],
+  "keyQuote": "Users can set cron schedules in their WorkflowOptions using robfig schedules/intervals format, but they cannot currently use them in tests",
+  "number": 1293,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:22:42.613Z"
+}

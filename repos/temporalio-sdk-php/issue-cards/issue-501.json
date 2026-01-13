@@ -1,0 +1,31 @@
+{
+  "summary": "Windows CI tests for the PHP SDK fail with exit code -1073741819 despite test logic passing, potentially related to improper termination of RoadRunner or Temporal CLI processes.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-runner",
+    "CI-pipeline",
+    "RoadRunner",
+    "Temporal-CLI"
+  ],
+  "concepts": [
+    "process-termination",
+    "Windows-compatibility",
+    "test-infrastructure",
+    "exit-codes",
+    "environment-specific-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably run or validate PHP SDK tests on Windows, blocking CI/CD and local development workflows.",
+  "rootCause": "Unclear process termination behavior for RoadRunner or Temporal CLI on Windows, possibly related to protobuf extension presence/absence.",
+  "proposedFix": null,
+  "workaround": "Installing the protobuf extension may resolve the issue in some cases, though this is not a reliable fix.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Sometimes Acceptance and Functional tests in CI end with error code -1073741819. However, the tests themselves pass completely.",
+  "number": 501,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:15.979Z"
+}

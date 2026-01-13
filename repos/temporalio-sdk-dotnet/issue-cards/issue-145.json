@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose the StartDelay option in Workflow Options, allowing users to delay the start of workflow execution.",
+  "category": "feature",
+  "subcategory": "workflow-options",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-options",
+    "workflow-client"
+  ],
+  "concepts": [
+    "delay",
+    "scheduling",
+    "workflow-execution",
+    "start-time"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently delay workflow execution start time and must implement external scheduling workarounds.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "StartDelay was added to Workflow Options",
+  "related": [],
+  "keyQuote": "Expose StartDelay in Workflow Options",
+  "number": 145,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:33:53.811Z"
+}

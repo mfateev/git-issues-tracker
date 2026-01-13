@@ -1,0 +1,35 @@
+{
+  "summary": "User metadata specified in StartChildWorkflow command is not propagated to the child workflow's execution config, only appearing in the event. This inconsistency differs from the behavior for regular start workflow operations where user metadata is properly propagated.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflow",
+    "StartWorkflow"
+  ],
+  "components": [
+    "child-workflow-command",
+    "execution-config",
+    "user-metadata"
+  ],
+  "concepts": [
+    "metadata-propagation",
+    "child-workflows",
+    "execution-configuration",
+    "workflow-initialization",
+    "command-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably access user metadata on child workflow execution configs, forcing workarounds and inconsistent behavior compared to parent workflows.",
+  "rootCause": "The user metadata propagation logic added in PR #5857 for start workflow was not applied to child workflow command handling in the same way.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "User metadata propagation from child workflow command to execution config was implemented to match the behavior of parent workflow metadata handling.",
+  "related": [
+    5857
+  ],
+  "keyQuote": "Like start workflow, I would expect start child workflow user metadata to end up on the execution config on the child workflow.",
+  "number": 6412,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:58.949Z"
+}

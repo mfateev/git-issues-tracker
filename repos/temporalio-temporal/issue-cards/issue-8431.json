@@ -1,0 +1,29 @@
+{
+  "summary": "Docker Compose deployment fails because TEMPORAL_ADMINTOOLS_VERSION is set to 1.29.0 in the .env file, but the temporalio/admin-tools Docker image only has a 1.29 tag available. The issue is actually a configuration error in the docker-compose repository, not in the temporal repository.",
+  "category": "bug",
+  "subcategory": "docker-deployment",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "admin-tools",
+    "docker-compose"
+  ],
+  "concepts": [
+    "version-mismatch",
+    "docker-tagging",
+    "deployment-configuration",
+    "manifest-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following the Docker Compose deployment instructions encounter a manifest error and cannot start the admin-tools container.",
+  "rootCause": "The .env file in temporalio/docker-compose specifies TEMPORAL_ADMINTOOLS_VERSION=1.29.0, but the Docker image uses major.minor format (1.29) without patch versions.",
+  "proposedFix": "Update the TEMPORAL_ADMINTOOLS_VERSION in the docker-compose repository's .env file from 1.29.0 to 1.29, or change the Docker tagging strategy to include patch versions.",
+  "workaround": "Manually edit the .env file to change TEMPORAL_ADMINTOOLS_VERSION from 1.29.0 to 1.29 before running docker-compose.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The TEMPORAL_ADMINTOOLS_VERSION=1.29.0 you're referring to is in the temporalio/docker-compose repository's .env file, not in this repository",
+  "number": 8431,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:42.614Z"
+}

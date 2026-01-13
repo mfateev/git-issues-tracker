@@ -1,0 +1,34 @@
+{
+  "summary": "Direct queries are failing with 'Unknown query type' error after Continue-as-New, suggesting a race condition where queries arrive before the first workflow task is scheduled. This is a regression introduced between versions 1.14 and 1.15.2.",
+  "category": "bug",
+  "subcategory": "workflow-query",
+  "apis": [],
+  "components": [
+    "query-dispatcher",
+    "workflow-task-handler",
+    "replay-executor"
+  ],
+  "concepts": [
+    "race-condition",
+    "direct-query",
+    "continue-as-new",
+    "workflow-task-scheduling",
+    "query-buffering",
+    "timing-issue"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience query failures immediately after workflow Continue-as-New, causing application errors and degraded functionality.",
+  "rootCause": "Query is dispatched to worker before the first workflow task is scheduled after Continue-as-New, violating the guarantee that queries should be buffered as part of the first workflow task.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #2826",
+  "related": [
+    2300,
+    2826
+  ],
+  "keyQuote": "the query is getting dispatched to the worker before scheduling a first Workflow Task after Continue-as-New. But this should never happen.",
+  "number": 2824,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:16.712Z"
+}

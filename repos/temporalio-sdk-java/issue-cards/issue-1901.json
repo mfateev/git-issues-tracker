@@ -1,0 +1,32 @@
+{
+  "summary": "Read-only check failures in update validators should cause a workflow task failure rather than failing the entire update. This issue was resolved by PR #1918.",
+  "category": "bug",
+  "subcategory": "update-validator",
+  "apis": [],
+  "components": [
+    "update-validator",
+    "workflow-task",
+    "read-only-check"
+  ],
+  "concepts": [
+    "validation",
+    "error-handling",
+    "workflow-task-failure",
+    "update-semantics",
+    "read-only"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience incorrect error handling when read-only checks fail in update validators, causing updates to fail instead of the workflow task.",
+  "rootCause": "Read-only check failures were not being properly converted to workflow task failures in the update validator context.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1918 which corrected the read-only check failure handling in update validators.",
+  "related": [
+    1918
+  ],
+  "keyQuote": "Failed read-Only check should cause a WFT failure in an update validator, not fail the update",
+  "number": 1901,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:05.362Z"
+}

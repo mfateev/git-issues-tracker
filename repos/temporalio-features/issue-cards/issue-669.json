@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add timer options (like summary) to higher-level timer calls such as `.sleep` and `.await`, currently only available on `.newTimer`. Implementation approach (TimerOptions, dedicated options classes, or overloads) to be determined.",
+  "category": "feature",
+  "subcategory": "timer-options",
+  "apis": [
+    "newTimer",
+    "sleep",
+    "await"
+  ],
+  "components": [
+    "timer",
+    "workflow-api",
+    "sdk-interfaces"
+  ],
+  "concepts": [
+    "timer",
+    "options",
+    "summary",
+    "configuration",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot set timer metadata like summary on higher-level timer calls, limiting visibility into workflow execution details.",
+  "rootCause": null,
+  "proposedFix": "Add timer options to `.sleep`, `.await`, and potentially other timer calls via TimerOptions, dedicated options classes (SleepOptions/AwaitOptions), or method overloads accepting summary strings.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently timer options are available on `.newTimer` which allows setting summary, but there is a desire to add on `.sleep`, `.await`, and maybe others.",
+  "number": 669,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:24.072Z"
+}

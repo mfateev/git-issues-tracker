@@ -1,0 +1,33 @@
+{
+  "summary": "Server sends unbounded error messages that exceed HTTP/2 default header limits. The Java SDK needs to increase maxInboundMetadataSize from 8KB to 4MB to accommodate these larger error messages.",
+  "category": "bug",
+  "subcategory": "gRPC-configuration",
+  "apis": [],
+  "components": [
+    "gRPC-client",
+    "metadata-handling",
+    "connection-config"
+  ],
+  "concepts": [
+    "HTTP/2",
+    "header-limits",
+    "error-handling",
+    "gRPC-metadata",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter connection failures when the server sends large error messages that exceed the default HTTP/2 metadata size limit.",
+  "rootCause": "Server sends unbounded error messages that don't fit into the standard HTTP/2 headers limit (8KB default)",
+  "proposedFix": "Set maxInboundMetadataSize to 4MB instead of the default 8KB",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "maxInboundMetadataSize was increased to 4MB to accommodate unbounded server error messages",
+  "related": [
+    3284,
+    122
+  ],
+  "keyQuote": "Server sometimes sends unbounded error messages that don't fit into a standard HTTP/2 headers limit",
+  "number": 1396,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:33:36.166Z"
+}

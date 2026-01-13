@@ -1,0 +1,32 @@
+{
+  "summary": "Add an experimental `StartDelay` option to `StartWorkflowOptions` that causes Temporal to wait before dispatching the first workflow task. If the workflow receives a signal before the delay expires, the task is dispatched and the remaining delay is ignored.",
+  "category": "feature",
+  "subcategory": "workflow-options",
+  "apis": [
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "workflow-options",
+    "task-dispatcher",
+    "signal-handler"
+  ],
+  "concepts": [
+    "delay",
+    "workflow-start",
+    "signal-handling",
+    "task-dispatch",
+    "timing"
+  ],
+  "severity": "low",
+  "userImpact": "Allows users to control when workflow execution begins, enabling delayed start scenarios and better signal handling.",
+  "rootCause": null,
+  "proposedFix": "Implement `StartDelay` option in `StartWorkflowOptions` with logic to cancel remaining delay if signal is received before timeout.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented and merged into the PHP SDK, aligned with Go SDK v1.25.0 implementation.",
+  "related": [],
+  "keyQuote": "StartDelay will cause Temporal to wait before dispatching the first workflow task. If the workflow gets a signal before the delay, a workflow task will be dispatched and the rest of the delay will be ignored.",
+  "number": 360,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:24.907Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "SQL schema limits workflow_id column to 255 characters, but the system allows configuration up to 1000 characters (maxIDLength), creating a mismatch that causes rejection of longer workflow IDs on SQL persistence backends.",
+  "category": "bug",
+  "subcategory": "persistence-schema",
+  "apis": [],
+  "components": [
+    "persistence",
+    "sql-schema",
+    "workflow-id"
+  ],
+  "concepts": [
+    "schema-limits",
+    "configuration-mismatch",
+    "id-length",
+    "database-constraints",
+    "sql-persistence"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create workflows with IDs longer than 255 characters despite configuring maxIDLength up to 1000, causing unexpected rejections in production.",
+  "rootCause": "SQL schema VARCHAR(255) column limit for workflow_id is inconsistent with the dynamic configuration value (default 1000) that claims to allow longer IDs.",
+  "proposedFix": "Either expand database schema to support 1000 character IDs (or 1024) and hard-code the workflow ID limit to 1000, or reduce maxIDLength dynamic config to 255. Also consider applying the same fix to all other ID fields governed by maxIDLength (Namespace, TaskQueue, ActivityID, TimerID, WorkflowType, ActivityType, SignalName, MarkerName, ErrorReason/FailureReason/CancelCause, Identity, RequestID).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Schema was updated to support longer IDs and maxIDLength limit was standardized across the system.",
+  "related": [],
+  "keyQuote": "Workflow ids longer than 255 chars are rejected on SQL persistence because of schema limitation",
+  "number": 2122,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:54.204Z"
+}

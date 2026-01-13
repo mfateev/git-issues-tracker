@@ -1,0 +1,31 @@
+{
+  "summary": "A Regular Expression Denial of Service (ReDoS) vulnerability was discovered in semver 7.5.0, a transitive dependency through ts-loader in the nyc-test-coverage package. The vulnerability allows untrusted user data to cause high availability impact, and was resolved when the vulnerable library was removed from the project.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "test-dependencies",
+    "nyc-test-coverage",
+    "ts-loader"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "regex-denial-of-service",
+    "dependencies",
+    "transitive-dependencies",
+    "semver"
+  ],
+  "severity": "high",
+  "userImpact": "Users' builds and CI/CD pipelines could experience denial of service through malicious or untrusted semver range inputs.",
+  "rootCause": "Regular Expression Denial of Service (ReDoS) in semver versions before 7.5.2 when parsing untrusted range data.",
+  "proposedFix": "Upgrade semver to version 7.5.2 or later, or remove the vulnerable dependency chain.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was automatically closed when the vulnerable library was removed from the Mend inventory for the specific branch.",
+  "related": [],
+  "keyQuote": "Versions of the package semver before 7.5.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the function new Range",
+  "number": 1228,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:39.189Z"
+}

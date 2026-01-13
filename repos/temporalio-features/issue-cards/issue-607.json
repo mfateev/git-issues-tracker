@@ -1,0 +1,30 @@
+{
+  "summary": "Cross-SDK metrics standardization initiative to identify and reduce unintentional deviation in metrics reporting across different Temporal SDK languages, ensuring consistent observability for multi-language users.",
+  "category": "feature",
+  "subcategory": "metrics-standardization",
+  "apis": [],
+  "components": [
+    "metrics-reporter",
+    "worker",
+    "runtime"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "cross-sdk-consistency",
+    "standardization",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Multi-language users experience inconsistent metrics across SDKs, making it harder to understand and monitor behavior across their distributed workers.",
+  "rootCause": null,
+  "proposedFix": "Create per-SDK tickets to document and standardize metrics reporting with non-default configuration where needed to achieve consistency.",
+  "workaround": "Configure each SDK with non-default settings to emit consistent metrics, though this requires language-specific knowledge.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "much of this may be an exercise in documenting how to get each SDK to emit consistent metrics with each other",
+  "number": 607,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:26:12.749Z"
+}

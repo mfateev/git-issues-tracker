@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to implement `is_running` method on the Temporal Python workflow event loop to better conform to `AbstractEventLoop` interface. The method is needed for compatibility with libraries like aiokafka and aiohttp that expect this standard asyncio method to be implemented.",
+  "category": "feature",
+  "subcategory": "event-loop",
+  "apis": [],
+  "components": [
+    "event-loop",
+    "workflow-instance",
+    "asyncio-compatibility"
+  ],
+  "concepts": [
+    "abstract-event-loop",
+    "interface-compliance",
+    "asyncio-standards",
+    "determinism",
+    "compatibility",
+    "external-libraries"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to use standard Python asyncio libraries (aiohttp, aiokafka) within workflows encounter NotImplementedError when those libraries call `is_running()` on the event loop.",
+  "rootCause": "Temporal's `_WorkflowInstanceImpl` is not a complete implementation of `AbstractEventLoop` - it lacks the `is_running()` method that standard libraries expect to exist.",
+  "proposedFix": "Add an `is_running` method to `_WorkflowInstanceImpl`, potentially returning `True` if a Runtime is defined or `not self._deleting`.",
+  "workaround": "Move external service calls (like Kafka) to activities instead of workflows, ensuring deterministic workflow behavior.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers decided that implementing `is_running()` would mask incorrect usage patterns where users try to use non-deterministic external I/O in workflows. The error provides beneficial detection of illegal event loop usage.",
+  "related": [],
+  "keyQuote": "I'm actually kind of glad this raised a not-implemented so it catches illegal things happening to the workflow's event loop, such as code based on whether it's \"running\" or not as if it was a local event loop.",
+  "number": 426,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:21.039Z"
+}

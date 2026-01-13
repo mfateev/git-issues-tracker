@@ -1,0 +1,32 @@
+{
+  "summary": "Adding a new parameter of generic type List to a workflow input causes the data converter to fail with a ClassCastException during replay, while non-generic parameters work correctly. This is a bug in Java's inconsistent handling of generic vs non-generic parameter types.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "WorkflowMethod"
+  ],
+  "components": [
+    "data-converter",
+    "workflow-implementation-factory",
+    "parameter-handling"
+  ],
+  "concepts": [
+    "generic-types",
+    "backwards-compatibility",
+    "workflow-replay",
+    "type-casting",
+    "payload-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely add new generic type parameters to workflow methods without breaking replay of existing workflow executions.",
+  "rootCause": "Java's data converter does not properly handle ParameterizedType (generic types) when deserializing workflow parameters, attempting to cast it to Class instead of handling it as a generic type.",
+  "proposedFix": "Fix the data converter to consistently handle both generic and non-generic parameter types during deserialization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The bug was acknowledged and fixed to handle generic types consistently with non-generic types in the data converter.",
+  "related": [],
+  "keyQuote": "we do allow extra non-generic parameters, we just don't allow generic parameters due to a bug. we should fix it to be consistent",
+  "number": 2413,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:07:46.296Z"
+}

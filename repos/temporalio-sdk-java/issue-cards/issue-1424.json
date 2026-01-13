@@ -1,0 +1,30 @@
+{
+  "summary": "The test server incorrectly requires a task queue to be specified on continue-as-new operations, while the actual Temporal server does not. This inconsistency causes test server behavior to diverge from production behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "test-server",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "task-queue",
+    "test-compatibility",
+    "server-behavior-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using the test server encounter unexpected validation errors that don't occur with the actual server, making tests behave differently than production.",
+  "rootCause": "Test server validation logic differs from actual server - it enforces task queue requirement on continue-as-new when the actual server allows this operation without specifying one",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test server was updated to match actual server behavior and not require task queue on continue-as-new",
+  "related": [],
+  "keyQuote": "Actual server does not require task queue on continue as new",
+  "number": 1424,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:03.676Z"
+}

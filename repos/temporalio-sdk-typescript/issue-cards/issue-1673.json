@@ -1,0 +1,35 @@
+{
+  "summary": "User requests a batched result retrieval method for workflow executions to improve performance when processing large numbers of results. Currently, sequential retrieval of 1000 executions takes ~1 minute, making 1M executions infeasible (~1000 minutes).",
+  "category": "feature",
+  "subcategory": "workflow-results",
+  "apis": [
+    "listWorkflowExecutions",
+    "getHandle",
+    "result"
+  ],
+  "components": [
+    "workflow-client",
+    "result-retrieval",
+    "pagination"
+  ],
+  "concepts": [
+    "performance",
+    "batching",
+    "concurrency",
+    "bulk-operations",
+    "throughput",
+    "scalability"
+  ],
+  "severity": "high",
+  "userImpact": "Users generating reports from large numbers of workflow execution results face unacceptable processing times that scale linearly with execution count.",
+  "rootCause": "Sequential retrieval of workflow results requires a separate API call per execution, creating a bottleneck for bulk operations.",
+  "proposedFix": "Add a dedicated method for batched result retrieval that allows concurrent fetching of multiple execution results, potentially using Promise.all() to parallelize requests.",
+  "workaround": "User can manually chunk workflows.executions into batches and use Promise.all() to fetch results concurrently, though they are uncertain if this is the correct approach.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it takes around ~1min to process 1000 executions, so for 1KK executions -> ~1000 minutes, which is not acceptable",
+  "number": 1673,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:28:48.959Z"
+}

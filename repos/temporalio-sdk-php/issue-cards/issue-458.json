@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to expose a `getUpdateHandle()` method on WorkflowStub to allow retrieval of update handles by update ID in the PHP SDK.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "WorkflowStub::getUpdateHandle"
+  ],
+  "components": [
+    "WorkflowStub",
+    "update-handle",
+    "PHP-SDK"
+  ],
+  "concepts": [
+    "update-handling",
+    "workflow-interaction",
+    "handle-retrieval",
+    "async-updates",
+    "workflow-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot retrieve update handles for in-progress updates, limiting their ability to track and interact with workflow updates.",
+  "rootCause": null,
+  "proposedFix": "Add a `getUpdateHandle($updateId)` method to the WorkflowStub class.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented and released in a subsequent version.",
+  "related": [],
+  "keyQuote": "Add something like `$stub->getUpdateHandle($updateId)`",
+  "number": 458,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:48.845Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to disallow Ruby stdlib synchronization constructs (sleep, Mutex, ConditionVariable, Queue) in workflows before GA. These constructs are fiber-aware and implicitly made durable, but can cause issues when third-party libraries use them unexpectedly, leading to hung workflows.",
+  "category": "feature",
+  "subcategory": "workflow-constraints",
+  "apis": [],
+  "components": [
+    "fiber-scheduler",
+    "illegal-call-tracing",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "durability",
+    "synchronization",
+    "fiber-awareness",
+    "stdlib-constraints",
+    "mutex",
+    "workflow-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users may inadvertently use stdlib synchronization constructs in workflows through third-party libraries, causing workflows to hang when durable locks are not properly released.",
+  "rootCause": "Stdlib synchronization constructs are fiber-aware and implicitly made durable by the Ruby SDK, but third-party libraries (like loggers) may use mutexes expecting same-process semantics, creating durability mismatches.",
+  "proposedFix": "Implement illegal call tracing to disallow Mutex, ConditionVariable, Queue, and SizedQueue in workflows, and provide workflow-safe equivalents similar to existing sleep and timeout replacements.",
+  "workaround": "Wrap third-party library calls in blocks that disable the durable scheduler tracer.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    309
+  ],
+  "keyQuote": "Every Google Protobuf field access uses a mutex. It may not be reasonable for us to wrap every proto access in a disable-tracer block...",
+  "number": 310,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:51:37.857Z"
+}

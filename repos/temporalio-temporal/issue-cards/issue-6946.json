@@ -1,0 +1,30 @@
+{
+  "summary": "User wants to configure Temporal to read PostgreSQL password from an environment variable instead of storing it plaintext in the YAML configuration file for security reasons.",
+  "category": "question",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgresql",
+    "configuration"
+  ],
+  "concepts": [
+    "security",
+    "environment-variables",
+    "password-management",
+    "configuration",
+    "credentials"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must store sensitive database credentials in plaintext in configuration files, creating a security risk.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I really don't like storing the database password in the configuration YAML file. How can I configure Temporal, when running it via a systemd unit, so that it retrieves the PostgreSQL password from an environment variable?",
+  "number": 6946,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:26.859Z"
+}

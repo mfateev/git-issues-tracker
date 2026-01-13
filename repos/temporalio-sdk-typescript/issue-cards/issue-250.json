@@ -1,0 +1,30 @@
+{
+  "summary": "A stack overflow error occurs when gathering forwarded logs from the core worker on shutdown, caused by conflicting `takeWhile` and `repeat` operators in the log collection logic.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "core",
+    "logging"
+  ],
+  "concepts": [
+    "log-collection",
+    "worker-shutdown",
+    "stack-overflow",
+    "reactive-operators",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see warning messages about failure to gather logs during worker shutdown, indicating incomplete log collection during graceful termination.",
+  "rootCause": "Conflicting `takeWhile` and `repeat` reactive operators causing infinite recursion in the log forwarding stream",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Error gathering forwarded logs from core RangeError: Maximum call stack size exceeded",
+  "number": 250,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:08.082Z"
+}

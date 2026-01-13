@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to support declaring ActivityStub instances using Spring annotations instead of requiring manual Workflow.newActivityStub() calls. This would integrate with Temporal-Springboot-alpha to enable declarative activity stub configuration with retry options.",
+  "category": "feature",
+  "subcategory": "spring-integration",
+  "apis": [
+    "newActivityStub"
+  ],
+  "components": [
+    "spring-boot-starter",
+    "activity-stub",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "annotation",
+    "dependency-injection",
+    "activity-configuration",
+    "retry-options",
+    "spring-integration",
+    "declarative-programming"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using Temporal-Springboot-alpha must manually create activity stubs in workflows instead of using simpler Spring annotations, reducing code clarity and reusability.",
+  "rootCause": null,
+  "proposedFix": "@ActivityStub annotation that accepts taskQueue and retryOptions parameters for declarative activity stub configuration in Spring-managed workflows",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Can we declare ActivityStub using an annotation? Something like @ActivityStub(taskQueue = SOME_QUEUE, retryOptions = @RetryActivityOptions(...))",
+  "number": 1531,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:26.446Z"
+}

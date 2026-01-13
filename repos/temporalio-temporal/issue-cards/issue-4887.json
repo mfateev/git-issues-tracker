@@ -1,0 +1,35 @@
+{
+  "summary": "Users want to track scheduled workflow executions using run_id, but run_id is only available for already-started executions. The request is to prepopulate run_id in future_action_times for scheduled workflows so they can be uniquely identified before execution.",
+  "category": "feature",
+  "subcategory": "schedule-tracking",
+  "apis": [
+    "ListWorkflows"
+  ],
+  "components": [
+    "schedule",
+    "workflow-execution",
+    "api-response"
+  ],
+  "concepts": [
+    "workflow-id",
+    "run-id",
+    "unique-identifier",
+    "schedule-execution",
+    "tracking",
+    "future-actions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot uniquely identify future scheduled workflow executions, making it difficult to track and correlate scheduled executions with their on-demand counterparts.",
+  "rootCause": "run_id is generated at workflow start time, not ahead of time, so it cannot be prepopulated for future scheduled executions.",
+  "proposedFix": "Add a new field parallel to future_action_time that includes the scheduled time without jitter applied, allowing clients to derive the workflow_id (which includes timestamp) for future executions.",
+  "workaround": "Use workflow_id prefix + start time or TemporalScheduledStartTime search attribute to identify future executions, though this doesn't include run_id.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4795
+  ],
+  "keyQuote": "we could add a new field parallel to future_action_time that has the time without jitter so it'll match the workflow id",
+  "number": 4887,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:10.777Z"
+}

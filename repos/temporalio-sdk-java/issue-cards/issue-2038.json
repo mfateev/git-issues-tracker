@@ -1,0 +1,32 @@
+{
+  "summary": "StickyWorkflowDrainShutdownTest.testShutdown is flaky in CI due to a suspected race condition in worker shutdown when no activities are registered.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "shutdown",
+    "activity-registry"
+  ],
+  "concepts": [
+    "race-condition",
+    "shutdown",
+    "worker-drain",
+    "test-flakiness",
+    "sticky-workflow"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests create unreliable CI/CD pipelines and reduce confidence in code quality checks.",
+  "rootCause": "Race condition in worker shutdown when no activities are registered",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    2021
+  ],
+  "keyQuote": "Looking at it I think there is a race condition in worker shutdown if no activities are registered.",
+  "number": 2038,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:03.130Z"
+}

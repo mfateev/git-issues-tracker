@@ -1,0 +1,34 @@
+{
+  "summary": "Create mTLS sample code with documentation for connecting to Temporal Cloud across all SDK sample repositories. This feature request tracks adding reference implementations for TypeScript, Python, Go, Java, and PHP SDKs to help Cloud customers set up secure connections.",
+  "category": "feature",
+  "subcategory": "samples-documentation",
+  "apis": [],
+  "components": [
+    "samples-typescript",
+    "samples-python",
+    "samples-go",
+    "samples-java",
+    "samples-php"
+  ],
+  "concepts": [
+    "mTLS",
+    "security",
+    "cloud-connection",
+    "authentication",
+    "certificates",
+    "configuration",
+    "reference-implementation"
+  ],
+  "severity": "medium",
+  "userImpact": "Cloud customers have a clear, language-specific reference for implementing mTLS connections to Temporal Cloud.",
+  "rootCause": null,
+  "proposedFix": "Create mTLS sample in each SDK sample repository with documentation ported to app dev guide, with discussion on whether samples should be individually configurable or single mTLS-focused.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "mTLS samples created across all SDK repositories, with TypeScript sample available at samples-typescript/hello-world-mtls and corresponding samples created for other languages via linked issues.",
+  "related": [],
+  "keyQuote": "Cloud customers frequently request a sample that they can use as reference for setting up their connection.",
+  "number": 89,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:46:57.668Z"
+}

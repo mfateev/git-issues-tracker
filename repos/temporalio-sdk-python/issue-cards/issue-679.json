@@ -1,0 +1,35 @@
+{
+  "summary": "User reported that non_retryable_error_types in RetryPolicy is not working - activities with non-retryable errors are still being retried instead of failing immediately. After investigation, the root cause was identified as a deserialization bug in a custom loguru logger patcher, not a bug in the SDK itself.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "ExecuteActivity",
+    "RetryPolicy",
+    "ApplicationError"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-handler",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry",
+    "non-retryable-errors",
+    "error-type",
+    "timeout",
+    "activity-failure",
+    "logging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected activity retries when using non-retryable error types, causing tasks to fail with timeouts instead of immediately failing as expected.",
+  "rootCause": "Custom loguru logger patcher with deserialization bug causing conflicts with the SDK's retry policy handling.",
+  "proposedFix": null,
+  "workaround": "Remove or fix the custom loguru logger patcher that causes deserialization issues; test in a clean Temporal environment to isolate SDK-specific behavior.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was caused by user's custom logging implementation, not a SDK bug. Reporter confirmed the feature works correctly in a clean environment.",
+  "related": [],
+  "keyQuote": "I can confirm this retry not working issue is due to somehow a conflict of our custom logger built on loguru.",
+  "number": 679,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:43.960Z"
+}

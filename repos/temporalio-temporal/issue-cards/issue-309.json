@@ -1,0 +1,30 @@
+{
+  "summary": "Long poll intervals are currently hardcoded in the service configuration and cannot be modified, which prevents clients from adjusting these values without breaking due to deadline constraints.",
+  "category": "feature",
+  "subcategory": "long-polling-configuration",
+  "apis": [],
+  "components": [
+    "service-config",
+    "long-polling",
+    "client-communication"
+  ],
+  "concepts": [
+    "configuration",
+    "polling-interval",
+    "client-deadline",
+    "service-config",
+    "timeout"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize long poll intervals through service configuration, limiting their ability to optimize for different deadline requirements.",
+  "rootCause": null,
+  "proposedFix": "Make long poll intervals configurable through the service config to allow clients to adjust values according to their deadline constraints.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently long poll intervals are hardcoded and cannot be changed as it is going to break clients which have too short of a deadline.",
+  "number": 309,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:28:07.332Z"
+}

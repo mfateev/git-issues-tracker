@@ -1,0 +1,37 @@
+{
+  "summary": "Workflow main body completes before all signal handlers finish when multiple signals arrive during continue-as-new, causing signal results to be lost. The issue occurs because event loop runs after each individual signal instead of batching signal processing.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [
+    "WaitConditionAsync",
+    "WhenAnyAsync",
+    "CreateContinueAsNewException"
+  ],
+  "components": [
+    "workflow-execution",
+    "event-loop",
+    "signal-handler"
+  ],
+  "concepts": [
+    "signal-processing",
+    "workflow-replay",
+    "continue-as-new",
+    "race-condition",
+    "event-batching",
+    "handler-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Users lose signal data when multiple signals arrive during continue-as-new operations, breaking workflow logic that depends on processing all signals.",
+  "rootCause": "Event loop executes after every individual signal handler instead of batching all signals before evaluating wait conditions, allowing workflow main body to complete prematurely before subsequent handlers run.",
+  "proposedFix": "Defer event loop execution until all pending signal handlers are marked in progress, rather than running event loop after each signal (relates to #384 revival).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue will be fixed by reviving #384 to ensure event loop doesn't run after every signal, with special handling to only apply to new code not replayed code.",
+  "related": [
+    384
+  ],
+  "keyQuote": "we run the event loop after every signal which is not the correct behavior. We will be fixing this soon (but will make sure it only applies to new code, not replayed code)",
+  "number": 427,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:23:51.307Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Payload data is not properly cleared before being replaced in workflow codec operations. When incoming data is null or empty, the merge logic fails to replace existing data, leaving stale payload information.",
+  "category": "bug",
+  "subcategory": "payload-codec",
+  "apis": [],
+  "components": [
+    "WorkflowCodecHelper",
+    "payload-handling",
+    "codec"
+  ],
+  "concepts": [
+    "payload-clearing",
+    "data-replacement",
+    "merge-logic",
+    "null-handling",
+    "codec-processing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience data leakage or incorrect payload handling when null/empty data is merged with existing payload state.",
+  "rootCause": "The merge logic in WorkflowCodecHelper only clears metadata but relies on merge operations to replace Data. When incoming Data is null/empty, the merge fails to clear the existing data field.",
+  "proposedFix": "Explicitly clear the Data field by setting it to ByteString.Empty (for proto) in addition to the existing metadata clearing logic at lines 326 and 225.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to be clearing the data too (for proto this will be `Data = payload.Data = ByteString.Empty`)",
+  "number": 342,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:35:00.282Z"
+}

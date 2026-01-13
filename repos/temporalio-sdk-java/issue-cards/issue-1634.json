@@ -1,0 +1,37 @@
+{
+  "summary": "Users need the ability to register interceptor beans in the Spring Boot context so that these interceptors can be automatically applied to Workers and Client configuration.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "Worker",
+    "Client"
+  ],
+  "components": [
+    "spring-boot",
+    "interceptor",
+    "bean-registration",
+    "worker-config",
+    "client-config"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "spring-context",
+    "interceptor-chain",
+    "bean-lifecycle",
+    "configuration",
+    "extension-point",
+    "integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Spring Boot users cannot easily register custom interceptors through the Spring context, limiting their ability to integrate cross-cutting concerns like logging, monitoring, and tracing.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users should be able to register interceptor beans in the Spring Boot context and these interceptors should be used for Workers and Client configuration.",
+  "number": 1634,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:51.324Z"
+}

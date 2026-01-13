@@ -1,0 +1,34 @@
+{
+  "summary": "SDKs should expose contrib/extra integrations (like OpenTelemetry) as plugin implementations, leveraging the plugin system introduced in #652 to standardize how integrations are configured across all Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "plugin-system",
+  "apis": [],
+  "components": [
+    "plugins",
+    "integrations",
+    "contrib",
+    "interceptors",
+    "metrics"
+  ],
+  "concepts": [
+    "plugin-architecture",
+    "opentelemetry",
+    "extensibility",
+    "integration-framework",
+    "standardization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain a standardized, plugin-based approach to integrating extensions like OpenTelemetry across all SDKs instead of manual implementations.",
+  "rootCause": null,
+  "proposedFix": "Expose contrib/extra libraries as plugin implementations once #652 is complete, replacing manual implementations of interceptors and metrics handlers.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    652
+  ],
+  "keyQuote": "SDKs should expose these things as plugins even if many of them may be just one aspect (configuring interceptors)",
+  "number": 684,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:07.759Z"
+}

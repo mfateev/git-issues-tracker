@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add type checking for workflow_execute activity when activities accept variable positional arguments using TypeVarTuple, improving type safety for activity calls with multiple args.",
+  "category": "feature",
+  "subcategory": "type-checking",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-executor",
+    "type-system"
+  ],
+  "concepts": [
+    "type-checking",
+    "type-safety",
+    "positional-arguments",
+    "TypeVarTuple",
+    "type-hints",
+    "backward-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently enforce type checking on activities with multiple positional arguments, limiting type safety in workflow definitions.",
+  "rootCause": "Current type hints use Sequence[Any] for args parameter, preventing TypeVarTuple-based type checking which is only available in Python 3.11+.",
+  "proposedFix": "Use TypeVarTuple (*Ts) to define *args in execute_activity signature, removing the args input parameter for type-safe overloads.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Rejected due to Python 3.11+ requirement and breaking change needed (removal of args parameter). Maintainers recommend using single-argument items as dataclasses instead.",
+  "related": [],
+  "keyQuote": "These limitations unfortunately mean we cannot do them. But we suggest only using single-argument items anyways as dataclasses.",
+  "number": 779,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:22:12.317Z"
+}

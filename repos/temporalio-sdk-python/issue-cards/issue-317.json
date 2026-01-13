@@ -1,0 +1,33 @@
+{
+  "summary": "Using await in async query functions causes the query to return immediately with an empty response error. Queries are read-only operations that cannot contain blocking code or asynchronous workflow calls like wait_condition or timers.",
+  "category": "bug",
+  "subcategory": "query-async",
+  "apis": [
+    "query",
+    "wait_condition"
+  ],
+  "components": [
+    "query-decorator",
+    "async-runtime",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "query-semantics",
+    "async-functions",
+    "blocking-operations",
+    "workflow-history",
+    "read-only-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use await or asynchronous workflow operations in query functions, leading to runtime errors when they attempt to do so.",
+  "rootCause": "Queries must be immediate read-only operations. Asynchronous workflow calls like wait_condition and timers write events to the workflow history, which violates query semantics. The SDK allows async def for queries to support fast async Python library calls, but this creates confusion about what async operations are allowed.",
+  "proposedFix": "Add more comprehensive documentation to clarify that async def queries can only use fast, non-blocking async calls. Consider adding a static analyzer or runtime warning to catch async workflow operations in queries.",
+  "workaround": "Use synchronous query functions instead of async def, or refactor to avoid await calls within queries.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as expected behavior. Queries are designed to be read-only and immediate. The issue was user misunderstanding of what async def allows in queries.",
+  "related": [],
+  "keyQuote": "Queries have to be immediate and read-only. They cannot call asynchronous `workflow` module methods.",
+  "number": 317,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:19.385Z"
+}

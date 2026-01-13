@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add configurable prefixes for Temporal Server table names to prevent naming conflicts when multiple deployments share a single database schema. Users could optionally prefix all tables (e.g., 'dev_executions', 'dev_schema_version') while maintaining full compatibility with existing operations.",
+  "category": "feature",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "schema-manager",
+    "database-layer",
+    "migration-system"
+  ],
+  "concepts": [
+    "table-naming",
+    "multi-tenancy",
+    "schema-isolation",
+    "configuration",
+    "database-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users sharing a single database schema across multiple Temporal deployments would gain flexibility to avoid naming conflicts and manage environments more easily.",
+  "rootCause": null,
+  "proposedFix": "Add an optional configuration setting during schema initialization to specify a custom prefix that applies to all Temporal tables, with examples like 'dev_' resulting in 'dev_executions' and 'dev_schema_version'.",
+  "workaround": "Use separate database schemas for different Temporal deployments.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "most users can use separate schemas for their different deployments. Happy to take a contribution if this is important to you.",
+  "number": 7658,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:33.309Z"
+}

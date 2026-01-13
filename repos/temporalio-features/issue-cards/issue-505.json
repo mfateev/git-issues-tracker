@@ -1,0 +1,40 @@
+{
+  "summary": "Add support for the `query` option when listing schedules across all SDKs, matching the existing functionality available for listing workflows.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ListSchedules"
+  ],
+  "components": [
+    "schedule-client",
+    "query-filter",
+    "list-schedules"
+  ],
+  "concepts": [
+    "querying",
+    "filtering",
+    "schedule-listing",
+    "search",
+    "cross-sdk-feature"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can filter schedules by query parameters when listing, enabling more efficient schedule discovery and management across SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement query parameter support in ListSchedules API across all SDK implementations (Go, Java, TypeScript, Python, .NET, PHP) to match workflow listing functionality.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented across SDKs with tracking tickets completed for Go, Java, TypeScript, Python, .NET, and CLI; PHP implementation pending.",
+  "related": [
+    1539,
+    2139,
+    1457,
+    573,
+    300,
+    472,
+    616
+  ],
+  "keyQuote": "Need to support the `query` option when listing schedules same as we do when listing workflows.",
+  "number": 505,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:17.215Z"
+}

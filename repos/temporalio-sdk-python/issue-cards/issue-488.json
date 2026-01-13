@@ -1,0 +1,27 @@
+{
+  "summary": "A typo in the workflow sandbox restrictions file at line 602 uses a space instead of a comma, which needs to be corrected.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "restrictions"
+  ],
+  "concepts": [
+    "syntax-error",
+    "code-quality",
+    "sandbox-security"
+  ],
+  "severity": "low",
+  "userImpact": "Users may encounter unexpected behavior or errors when the workflow sandbox restrictions are evaluated due to the syntax error.",
+  "rootCause": "Typo in restrictions.py line 602 where a space is used instead of a comma in a restriction set definition.",
+  "proposedFix": "Replace the space with a comma at the specified location in temporalio/worker/workflow_sandbox/_restrictions.py line 602.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "needs to be a comma instead of space",
+  "number": 488,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:31.524Z"
+}

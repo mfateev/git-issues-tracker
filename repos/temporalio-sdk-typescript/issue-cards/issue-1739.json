@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add `workerShuttingDown` promise and `workerShuttingDownSignal` abort signal to ActivityContext in TypeScript SDK, matching functionality available in other Temporal SDKs (Go, Python, .NET) to detect worker shutdown before grace period expiration.",
+  "category": "feature",
+  "subcategory": "activity-context",
+  "apis": [
+    "ActivityContext",
+    "activity/index"
+  ],
+  "components": [
+    "activity-context",
+    "worker-shutdown",
+    "activity-executor"
+  ],
+  "concepts": [
+    "worker-shutdown",
+    "activity-context",
+    "grace-period",
+    "cancellation",
+    "promise-based-api",
+    "abort-signal"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities in TypeScript SDK cannot be notified of impending worker shutdown, limiting graceful cleanup capabilities compared to other SDK languages.",
+  "rootCause": null,
+  "proposedFix": "Add `workerShuttingDown: Promise<never>` and `workerShuttingDownSignal: AbortSignal` properties to ActivityContext, similar to cancellation handling, with matching top-level exports on activity/index.ts",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Other SDKs expose a way on activity context to know that a Worker is shutting down, before expiration of the grace period. TS doesn't.",
+  "number": 1739,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:27.048Z"
+}

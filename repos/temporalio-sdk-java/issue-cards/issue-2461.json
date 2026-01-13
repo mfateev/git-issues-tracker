@@ -1,0 +1,32 @@
+{
+  "summary": "Users need a way to programmatically detect when the workflow deadlock detector has triggered so they can implement defensive logic to stop processing and prevent zombie threads or infinite loops.",
+  "category": "feature",
+  "subcategory": "deadlock-detection",
+  "apis": [
+    "DestroyWorkflowThreadError"
+  ],
+  "components": [
+    "deadlock-detector",
+    "workflow-executor",
+    "thread-management"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "thread-interruption",
+    "defensive-programming",
+    "error-handling",
+    "cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot defensively handle deadlock detector triggers in their workflow code, leading to potential zombie threads and infinite loops.",
+  "rootCause": "SDK throws DestroyWorkflowThreadError when workflow APIs are used after deadlock detection, but there's no way to proactively check or handle this state.",
+  "proposedFix": "Add a method similar to Thread.currentThread().isInterrupted() to detect deadlock state, or an interruption point like CancellationScope.current().throwCanceled() that can be placed in loops.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users would like the ability to programmatically detect when the deadlock detector has triggered so they can instruct their code to stop processing.",
+  "number": 2461,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:13.996Z"
+}

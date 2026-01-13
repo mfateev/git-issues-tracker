@@ -1,0 +1,30 @@
+{
+  "summary": "Docker Compose PostgreSQL container fails to start because the temporal container cannot resolve the 'postgresql' hostname. The issue occurs with both docker-compose.yml and docker-compose-postgres.yml, with the netcat command failing due to 'bad address' error.",
+  "category": "bug",
+  "subcategory": "docker-compose-setup",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "postgresql-container",
+    "network-connectivity"
+  ],
+  "concepts": [
+    "container-networking",
+    "service-discovery",
+    "docker-compose-links",
+    "port-mapping",
+    "hostname-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start Temporal with PostgreSQL using the provided docker-compose configuration, blocking local development and testing workflows.",
+  "rootCause": "Missing 'links' property in the temporal container definition prevents Docker from resolving the postgresql service hostname. Additionally, port mapping mismatches between the compose configuration and environment variables can cause connection failures to the wrong PostgreSQL instance.",
+  "proposedFix": "Add 'links' property to the temporal container definition to establish service discovery, and ensure DB_PORT environment variable matches the exposed PostgreSQL port in the compose configuration.",
+  "workaround": "Manually add 'links: [postgresql]' to the temporal container definition in docker-compose.yml, or adjust POSTGRES_DEFAULT_PORT environment variable to match the container's internal port.",
+  "resolution": "fixed",
+  "resolutionDetails": "Community identified that adding the 'links' property to the temporal service definition resolves the hostname resolution issue, and proper port configuration prevents port conflicts.",
+  "related": [],
+  "keyQuote": "I had the same issue but I fixed it by adding the links property in the temporal container definition to allow the containers to communicate with postrgresql",
+  "number": 2322,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:04.561Z"
+}

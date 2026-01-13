@@ -1,0 +1,30 @@
+{
+  "summary": "During workflow eviction, exceptions can be caught in finally/except blocks allowing side effects like logging when is_replaying should be True. Need to set is_replaying=True during eviction and throw WorkflowEvictingException to prevent user code from executing side effects.",
+  "category": "bug",
+  "subcategory": "workflow-eviction",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow_instance",
+    "eviction"
+  ],
+  "concepts": [
+    "is_replaying",
+    "workflow-eviction",
+    "exception-handling",
+    "side-effects",
+    "cache-eviction"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience log flooding and unexpected side effects during workflow eviction because is_replaying is not set to True and user exception handlers catch eviction exceptions.",
+  "rootCause": "is_replaying flag is not set to True during eviction, and generic exceptions thrown during eviction can be caught by user code in finally/except blocks",
+  "proposedFix": "Set is_replaying to True during eviction and create a new WorkflowEvictingException(BaseException) class to throw during eviction so user exception handlers cannot catch it",
+  "workaround": "Users can ignore WorkflowEvictingException errors in their logs as they only occur during cache eviction",
+  "resolution": "fixed",
+  "resolutionDetails": "is_replaying set to True during eviction and WorkflowEvictingException implemented to prevent user code execution during eviction",
+  "related": [],
+  "keyQuote": "Ignoring add while deleting... logging should not occur during is_replaying",
+  "number": 523,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:04.808Z"
+}

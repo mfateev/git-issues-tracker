@@ -1,0 +1,33 @@
+{
+  "summary": "Frontend service fails to handle PollActivityTaskQueue requests with protobuf deserialization error due to version mismatch between frontend and matching services. Root cause was running multiple Temporal releases in the same Kubernetes namespace with identical labels but different versions.",
+  "category": "bug",
+  "subcategory": "deployment-configuration",
+  "apis": [
+    "PollActivityTaskQueue"
+  ],
+  "components": [
+    "frontend",
+    "matching",
+    "grpc",
+    "protobuf"
+  ],
+  "concepts": [
+    "version-mismatch",
+    "deployment",
+    "namespace-isolation",
+    "message-deserialization",
+    "kubernetes"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot submit or poll activity tasks when Temporal server instances with different versions run in the same Kubernetes namespace.",
+  "rootCause": "Frontend service running older version that does not recognize NamespaceNotFoundFailure protobuf message type from newer matching service. Multiple deployments with same label but different versions caused this mismatch.",
+  "proposedFix": "Register namespace using tctl tool and ensure all Temporal server components in the same Kubernetes namespace run the same version.",
+  "workaround": "Move conflicting deployments to separate Kubernetes namespaces to isolate versions.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by separating deployments to different namespaces, ensuring version consistency within each namespace.",
+  "related": [],
+  "keyQuote": "it happens because we have 2 different release in one k8s namespace that have same label with different version",
+  "number": 3196,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:53.607Z"
+}

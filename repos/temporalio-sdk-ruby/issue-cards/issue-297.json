@@ -1,0 +1,35 @@
+{
+  "summary": "Users need access to raw heartbeat details on Activity::Info, potentially as a collection of RawValue objects, to support use cases like providing hints. The feature also requires making heartbeat_details lazy to avoid eager deserialization for users working with raw values.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "Activity::Info",
+    "Converters::RawValue"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-handler",
+    "type-converter"
+  ],
+  "concepts": [
+    "heartbeat",
+    "raw-value",
+    "lazy-deserialization",
+    "activity-context",
+    "type-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with raw heartbeat details for custom hint provisioning currently lack access to the underlying raw form, requiring eager deserialization.",
+  "rootCause": null,
+  "proposedFix": "Expose raw heartbeat details as a collection of Temporalio::Converters::RawValue on Temporalio::Activity::Info and implement lazy deserialization for heartbeat_details.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to expose raw heartbeat details and support lazy deserialization",
+  "related": [
+    271
+  ],
+  "keyQuote": "Users may need access to the raw form of the last heartbeat details (e.g. if they want to provide hints)",
+  "number": 297,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:50:04.551Z"
+}

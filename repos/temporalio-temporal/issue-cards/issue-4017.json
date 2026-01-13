@@ -1,0 +1,33 @@
+{
+  "summary": "Namespace-specific search attributes fail to register with a caching delay when `system.forceSearchAttributesCacheRefreshOnRead=true` is enabled. Starting a workflow immediately after registering a search attribute fails with INVALID_ARGUMENT error, indicating the server's cache hasn't been refreshed.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "addSearchAttributes",
+    "workflow.execute"
+  ],
+  "components": [
+    "namespace",
+    "search-attributes-cache",
+    "search-attribute-registration"
+  ],
+  "concepts": [
+    "caching",
+    "registration-delay",
+    "namespace-isolation",
+    "cache-invalidation",
+    "search-attributes"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot immediately use newly registered search attributes in workflows due to cache synchronization delays, blocking workflow execution.",
+  "rootCause": "Search attributes cache is not being refreshed immediately when namespace-specific search attributes are registered with `system.forceSearchAttributesCacheRefreshOnRead=true` enabled.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by ensuring cache refresh on read when namespace-specific search attributes are registered.",
+  "related": [],
+  "keyQuote": "INVALID_ARGUMENT: Namespace default has no mapping defined for search attribute foo",
+  "number": 4017,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:23.894Z"
+}

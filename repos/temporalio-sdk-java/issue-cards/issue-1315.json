@@ -1,0 +1,34 @@
+{
+  "summary": "Client and Workers should not retry INTERNAL errors in newer versions of Server. The retry behavior needs to be version-aware and depend on Server Capabilities to determine whether INTERNAL errors are retryable.",
+  "category": "other",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "client",
+    "worker",
+    "error-handler",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "error-handling",
+    "server-version",
+    "capabilities",
+    "internal-errors",
+    "version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience unexpected retries of operations that should fail immediately when using newer Server versions, leading to delayed failures and confusion.",
+  "rootCause": "Retry logic does not account for Server version differences in how INTERNAL errors are classified (retryable vs non-retryable).",
+  "proposedFix": "Implement version-aware retry logic that queries Server Capabilities to determine the retryability of INTERNAL errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Retry behavior was updated to respect Server Capabilities for INTERNAL error handling across different Server versions.",
+  "related": [
+    6
+  ],
+  "keyQuote": "In newer versions of Server Internal errors are considered non-retryable. This logic has to depend on the Server version and specifically it's defined by the Server Capabilities.",
+  "number": 1315,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:24:45.869Z"
+}

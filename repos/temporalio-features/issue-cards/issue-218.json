@@ -1,0 +1,30 @@
+{
+  "summary": "Go and Java SDKs currently fatal the worker on errors like InvalidArgument and NamespaceNotFound without retry, but these should be considered recoverable with retry logic similar to core's behavior.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "error-handler",
+    "server-communication"
+  ],
+  "concepts": [
+    "retry",
+    "fatal-error",
+    "error-recovery",
+    "graceful-degradation",
+    "worker-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Workers crash unexpectedly on transient server errors, causing service interruptions for users.",
+  "rootCause": "InvalidArgument and NamespaceNotFound errors are incorrectly classified as unrecoverable when they can be transient (e.g., gRPC deadline too close to now).",
+  "proposedFix": "All SDKs should implement retry logic for fatal errors with a configurable retry period before actually fataling, similar to core's behavior.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Every SDK should react the same to seeing a worker error. They should probably mimic core in that they retry for so long, even fatal ones, before actually being fatal.",
+  "number": 218,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:00.493Z"
+}

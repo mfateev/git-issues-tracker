@@ -1,0 +1,36 @@
+{
+  "summary": "User requests ability to add custom tags (e.g., region) to root worker metrics scope per workflow execution for better metric grouping in external systems like New Relic. Currently no clean way to achieve this with the distributed execution model.",
+  "category": "feature",
+  "subcategory": "metrics-tagging",
+  "apis": [
+    "WorkflowServiceStubs",
+    "WorkflowClientInterceptor",
+    "ContextPropagator",
+    "MetricScope"
+  ],
+  "components": [
+    "metrics",
+    "worker",
+    "workflow-client"
+  ],
+  "concepts": [
+    "metrics-tagging",
+    "custom-dimensions",
+    "workflow-execution-context",
+    "signal-routing",
+    "task-queue",
+    "metric-scope"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily tag core worker metrics with workflow-specific dimensions, limiting observability and metric aggregation capabilities in external monitoring systems.",
+  "rootCause": "Temporal's distributed execution model makes it difficult to propagate workflow execution-specific metadata to core worker metrics without safety and reliability concerns.",
+  "proposedFix": null,
+  "workaround": "Create separate task queues and worker instances for each region/dimension, with each worker configured with its own MetricsScope containing the appropriate tags.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided this is too narrow a use-case with too much customization risk. Core worker metrics should remain unified and simple. Users can use custom workflow metrics instead.",
+  "related": [],
+  "keyQuote": "Too large pain, customization, and risk of unsafety for a narrow use-case. Core worker metrics should be unified and simple.",
+  "number": 1163,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:10:23.992Z"
+}

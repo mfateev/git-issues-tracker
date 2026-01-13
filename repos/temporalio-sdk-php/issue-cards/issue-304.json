@@ -1,0 +1,30 @@
+{
+  "summary": "CPU utilization spike observed when specific errors occur in the PHP SDK worker. The issue was resolved after upgrading from an outdated RoadRunner version to 2023.1.1, suggesting the spike was related to worker panic handling mechanisms.",
+  "category": "bug",
+  "subcategory": "worker-performance",
+  "apis": [],
+  "components": [
+    "worker",
+    "error-handling",
+    "panic-recovery"
+  ],
+  "concepts": [
+    "cpu-utilization",
+    "performance",
+    "worker-restart",
+    "error-handling",
+    "resource-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience significant CPU spikes when encountering specific errors in the PHP SDK worker, impacting application performance.",
+  "rootCause": "Outdated RoadRunner plugin version with inefficient worker panic handling mechanisms caused CPU spikes during error conditions.",
+  "proposedFix": "Upgrade to RoadRunner version 2023.1.1 or later, which includes updated internal error handling mechanisms for temporal worker panics.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved after user upgraded from RoadRunner 2.12.1 to 2023.1.1; no further spikes observed post-upgrade.",
+  "related": [],
+  "keyQuote": "We have updated some internal error handling mechanisms (on the temporal workers panics). These spikes are most likely due to worker restarts",
+  "number": 304,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:40.872Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add configuration-based exclusions for interceptors to prevent certain workflows and activities from being intercepted based on their type or task queue. The maintainer suggested this is better handled programmatically through conditional logic within interceptors rather than as a configuration option.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [],
+  "components": [
+    "interceptor",
+    "workflow",
+    "activity"
+  ],
+  "concepts": [
+    "interceptor-configuration",
+    "workflow-filtering",
+    "activity-filtering",
+    "task-queue",
+    "exclusion-logic",
+    "interceptor-wrapper"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily configure interceptors to skip certain workflows or activities, requiring workarounds or custom wrapper implementations.",
+  "rootCause": null,
+  "proposedFix": "Implement configuration-based approach for interceptor exclusions based on workflow/activity type or task queue.",
+  "workaround": "Write an interceptor wrapper that performs exclusion checks before applying the inner interceptor using conditional logic.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer declined the feature, arguing that programmatic exclusion through conditionals is more flexible than configuration-based approach since configuration needs are infinite.",
+  "related": [],
+  "keyQuote": "I think we should encourage programmatic exclusion when using programmatic interceptors. If someone wants to write an interceptor wrapper that does does exclusion check before applying inner interceptor, they can.",
+  "number": 2179,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:09.697Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Expose the next retry delay field from ApplicationFailureInfo that was recently added to the API. This allows activities to specify custom retry delays on failure in the PHP SDK.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ApplicationFailureInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "failure-handling",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "failure",
+    "delay",
+    "application-failure",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "SDK users can now specify custom retry delays when activities fail, providing finer control over retry behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The ApplicationFailureInfo field exposing next retry delay was implemented in the PHP SDK.",
+  "related": [],
+  "keyQuote": "We recently added the ability for an activity to specify the next retry delay on failure via a field on `ApplicationFailureInfo`.",
+  "number": 395,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:08.051Z"
+}

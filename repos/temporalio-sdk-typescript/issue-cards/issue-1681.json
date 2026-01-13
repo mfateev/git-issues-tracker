@@ -1,0 +1,34 @@
+{
+  "summary": "TLS server name override setting in client connection is being overridden by the address parameter due to a grpc-js library issue. The problem was resolved by updating the @grpc/grpc-js dependency to version 1.13.4 or higher.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [
+    "Connection.connect"
+  ],
+  "components": [
+    "client-connection",
+    "tls-configuration",
+    "grpc-js-integration"
+  ],
+  "concepts": [
+    "tls",
+    "server-name-override",
+    "private-link",
+    "certificate-validation",
+    "grpc-credentials"
+  ],
+  "severity": "high",
+  "userImpact": "Users unable to connect to Temporal Cloud through Private Link or other scenarios requiring TLS server name override, affecting secure network configurations.",
+  "rootCause": "The grpc-js library was not properly respecting the serverNameOverride parameter in channel credentials, causing it to be overridden by the address.",
+  "proposedFix": "Update @grpc/grpc-js dependency to version 1.13.4 or later, or apply the fix in TS SDK 1.12.0 which addresses the issue upstream.",
+  "workaround": "Pin @grpc/grpc-js to version 1.12.6 or manually update to 1.13.4 by running `npm update @grpc/grpc-js`.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by grpc-node PR #2956 merged in @grpc/grpc-js 1.13.4. Users can update dependency or wait for TS SDK 1.12.0.",
+  "related": [
+    1699
+  ],
+  "keyQuote": "We just confirmed that running Temporal TS SDK 1.11.8 with @grpc/grpc-js 1.13.4 works fine and allows connection to Temporal Cloud through Private Link.",
+  "number": 1681,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:16.192Z"
+}

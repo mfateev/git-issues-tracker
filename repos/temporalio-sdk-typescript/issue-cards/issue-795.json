@@ -1,0 +1,32 @@
+{
+  "summary": "Breakpoints cannot be set on workflow code due to bundling, making debugging impossible. The proposed solution is to run an HTTP server in debug mode to serve source maps so the debugger can map back to original source.",
+  "category": "bug",
+  "subcategory": "debugging",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "vm-script",
+    "debugger"
+  ],
+  "concepts": [
+    "debugging",
+    "breakpoints",
+    "source-maps",
+    "bundling",
+    "debug-mode",
+    "http-server"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot debug workflow code effectively, significantly hindering development and troubleshooting of TypeScript workflows.",
+  "rootCause": "Workflow code bundling and lack of inlined source maps prevent debuggers from mapping bundled code back to original source for breakpoint setting.",
+  "proposedFix": "Start an HTTP server in the worker when running in debug mode to serve source maps, with configurable port for remote debugging scenarios.",
+  "workaround": "Previously could use debugger statements at top of workflow functions, but this no longer works after stack trace query implementation.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "by setting a file name on the vm script we use to compile the code and having the file and source map available the debugger can map back to the source",
+  "number": 795,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:12:31.303Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "UpdateWorkflowExecution should succeed against completed workflows to avoid race conditions when clients retry requests. Currently, it returns WorkflowNotFound error, but clients need to be able to check update status after workflow completion within the retention period.",
+  "category": "bug",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflowExecution"
+  ],
+  "components": [
+    "workflow-service",
+    "update-handler",
+    "workflow-completion"
+  ],
+  "concepts": [
+    "idempotency",
+    "race-condition",
+    "update-status",
+    "workflow-retention",
+    "durable-state"
+  ],
+  "severity": "high",
+  "userImpact": "Clients cannot safely retry UpdateWorkflowExecution requests after workflow completion, creating unavoidable race conditions in update submission logic.",
+  "rootCause": "UpdateWorkflowExecution returns WorkflowNotFound error when workflow is completed, instead of allowing clients to query existing update status within retention period.",
+  "proposedFix": "Allow UpdateWorkflowExecution requests to succeed against completed workflows when the workflow is still within the retention period, returning the update state/outcome.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing support for UpdateWorkflowExecution against completed workflows within the retention period.",
+  "related": [],
+  "keyQuote": "Clients are encouraged to make use of this behavior by submitting the request repeatedly until the response indicates that the update has reached a durable stage.",
+  "number": 6085,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:58.460Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Generated sources for protobuf-generated code in temporal-serviceclient are not being published in source/javadoc JARs alongside compiled artifacts. While hand-written sources are included, the generated gRPC service client sources are missing from published Maven artifacts.",
+  "category": "bug",
+  "subcategory": "build-publishing",
+  "apis": [],
+  "components": [
+    "gradle-build",
+    "source-jar-task",
+    "generated-code",
+    "temporal-serviceclient"
+  ],
+  "concepts": [
+    "artifact-publication",
+    "source-distribution",
+    "generated-sources",
+    "build-configuration",
+    "gradle-plugins",
+    "maven-publishing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access or debug generated service client source code when using the SDK as a dependency, limiting source code visibility and IDE support for generated APIs.",
+  "rootCause": "The sourceJar Gradle task is not configured to include generated sources from the build directory. A license checker plugin bug prevents adding generated sources to the main sourceSet.",
+  "proposedFix": "Either (1) fix license plugin exclude configuration to allow adding generated sources to main sourceSet, or (2) debug and configure sourceJar task to explicitly include generated source files.",
+  "workaround": "Add `sourceSets.main.java.srcDirs = [\"$buildDir/generated/main/java\",\"src/main/java\"]` to build.gradle, though this breaks license checking.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    145,
+    57,
+    78
+  ],
+  "keyQuote": "You are right, I don't see sources for the generated code.",
+  "number": 317,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:07:18.288Z"
+}

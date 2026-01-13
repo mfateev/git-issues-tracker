@@ -1,0 +1,29 @@
+{
+  "summary": "Request to add the ability to update search attributes for existing schedules, similar to the existing workflow search attributes update functionality. Currently, updating schedule search attributes requires deleting and recreating schedules, which is risky in production environments.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [],
+  "components": [
+    "schedules",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "schedule-management",
+    "metadata-update",
+    "production-safety",
+    "workflow-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely update search attributes for existing schedules in production without the risk of data loss from deletion and recreation.",
+  "rootCause": null,
+  "proposedFix": "Implement schedule search attribute update capability matching the workflow search attributes update API.",
+  "workaround": "Delete all schedules and re-create them with new search attributes (high-risk operation).",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide schedule search attribute update capability.",
+  "related": [],
+  "keyQuote": "I'd like to update search attributes for existing schedules the same way you can do so for workflows.",
+  "number": 4858,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:32.153Z"
+}

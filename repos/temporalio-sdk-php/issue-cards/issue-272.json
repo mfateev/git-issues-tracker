@@ -1,0 +1,30 @@
+{
+  "summary": "PHP 8 named arguments are incorrectly handled when calling workflow handlers, causing parameters to be passed in the wrong order. When using named arguments like `handler(bar: true)`, the SDK sends all skipped default values instead of properly mapping named arguments to their corresponding parameters.",
+  "category": "bug",
+  "subcategory": "argument-handling",
+  "apis": [],
+  "components": [
+    "workflow-handler",
+    "parameter-packing",
+    "named-arguments"
+  ],
+  "concepts": [
+    "named-arguments",
+    "parameter-mapping",
+    "default-values",
+    "function-calls",
+    "php-syntax"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use PHP 8 named arguments when calling workflow handlers, forcing them to use positional arguments or risk unexpected behavior.",
+  "rootCause": "The SDK's parameter packing mechanism does not properly handle PHP 8 named arguments, instead treating them as positional and including all default values for skipped parameters.",
+  "proposedFix": null,
+  "workaround": "Use positional arguments instead of named arguments when calling workflow handlers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Named arguments are not supported due to limited language support across Temporal SDKs.",
+  "related": [],
+  "keyQuote": "Named arguments are not allowed due to limited language support.",
+  "number": 272,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:36.661Z"
+}

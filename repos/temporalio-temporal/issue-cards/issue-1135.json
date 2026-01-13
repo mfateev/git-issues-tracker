@@ -1,0 +1,41 @@
+{
+  "summary": "Workflows and activities need access to validated JWT claims, permissions, and token fields from the Temporal authorizer and claim mappers. Currently, users must implement custom propagators and re-validate tokens, creating unnecessary complexity when calling other services or child workflows.",
+  "category": "feature",
+  "subcategory": "authorization-jwt",
+  "apis": [
+    "workflow.Context",
+    "context.Context",
+    "NewClient",
+    "RegisterWorkflow",
+    "RegisterActivity"
+  ],
+  "components": [
+    "authorizer",
+    "claim-mapper",
+    "jwt-validation",
+    "context-propagation"
+  ],
+  "concepts": [
+    "jwt-claims",
+    "authorization",
+    "token-validation",
+    "context-passing",
+    "client-side-auth",
+    "jwks",
+    "authentication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently access JWT claims in workflows and activities, forcing them to implement custom propagators and re-validate tokens when calling other services.",
+  "rootCause": "The authorizer and claim mapper components only validate tokens for Temporal frontend calls but don't expose the parsed JWT and claims to workflow/activity code.",
+  "proposedFix": "Pass validated JWT tokens, claims, and other fields through workflow.Context in workflows and context.Context in activities, allowing reuse for downstream service calls and child workflow execution.",
+  "workaround": "Implement custom propagators to pass token fields from client to workflow to activity, though this requires re-validating tokens and is inefficient.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via issue #1144, which passes the authorization header to workflows and activities for access to validated JWT claims and token fields.",
+  "related": [
+    1144
+  ],
+  "keyQuote": "workflows and activities should be able to reuse the provided token for calling other services, executing child workflows, and executing activities",
+  "number": 1135,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:06:42.277Z"
+}

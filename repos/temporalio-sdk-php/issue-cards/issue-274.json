@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to support nested DTOs (Data Transfer Objects) as workflow parameters. Currently, unmarshalling fails when a DTO contains another DTO as a property, causing a TypeError where stdClass is assigned instead of the expected DTO type.",
+  "category": "feature",
+  "subcategory": "dto-serialization",
+  "apis": [],
+  "components": [
+    "dto-unmarshalling",
+    "serialization",
+    "type-conversion"
+  ],
+  "concepts": [
+    "nested-objects",
+    "type-mapping",
+    "data-transfer-objects",
+    "property-assignment",
+    "deserialization",
+    "class-instantiation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use DTOs containing nested DTOs as workflow parameters, limiting the flexibility of data structures that can be passed to workflows.",
+  "rootCause": "The unmarshalling mechanism does not recursively deserialize nested objects into their corresponding DTO classes, instead leaving them as stdClass objects.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by implementing support for recursive unmarshalling of nested DTOs in the serialization layer.",
+  "related": [],
+  "keyQuote": "Now it causes an error: TypeError: Cannot assign stdClass to property Temporal\\Tests\\Unit\\DTO\\DeepDTO\\ParentDTO::$child of type Temporal\\Tests\\Unit\\DTO\\DeepDTO\\ChildDTO",
+  "number": 274,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:38.569Z"
+}

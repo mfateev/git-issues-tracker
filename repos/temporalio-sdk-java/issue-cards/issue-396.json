@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to make activity name generation pluggable through ClientOptions and WorkerOptions, allowing users to implement custom naming standards for activities instead of relying on automatic method-name-based generation.",
+  "category": "feature",
+  "subcategory": "activity-naming",
+  "apis": [
+    "ClientOptions",
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "client-options"
+  ],
+  "concepts": [
+    "naming-convention",
+    "pluggable-provider",
+    "activity-registration",
+    "dynamic-naming",
+    "customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement custom activity naming standards, limiting flexibility in organizing and identifying activities in complex workflows.",
+  "rootCause": "Activity name generation is hardcoded to use method names without allowing user-defined logic for different naming conventions.",
+  "proposedFix": "Implement a pluggable activity name provider interface accessible through ClientOptions and WorkerOptions to allow custom name generation logic.",
+  "workaround": "Users can implement custom WorkflowOutboundCallsInterceptor to handle activity naming logic (mentioned by mfateev in comments).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    141
+  ],
+  "keyQuote": "Different users of the SDK have different opinions on how this name should be generated.",
+  "number": 396,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:12:01.993Z"
+}

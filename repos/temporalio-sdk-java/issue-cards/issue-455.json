@@ -1,0 +1,34 @@
+{
+  "summary": "Test testExceptionOnStart flakes intermittently due to a deadlock when gRPC channel shutdown is blocked by a long poll from a worker thread. The workflow poller holds a lock while waiting on a queue poll, preventing the channel from shutting down properly.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "pollWorkflowTaskQueue"
+  ],
+  "components": [
+    "test-framework",
+    "grpc-channel",
+    "workflow-poller",
+    "worker"
+  ],
+  "concepts": [
+    "deadlock",
+    "thread-blocking",
+    "channel-shutdown",
+    "long-polling",
+    "concurrency",
+    "test-reliability"
+  ],
+  "severity": "high",
+  "userImpact": "Test suite experiences intermittent timeouts, reducing reliability of test execution and developer productivity.",
+  "rootCause": "Host Local Workflow Poller thread holds a lock on InProcessClientStream while blocked on LinkedBlockingQueue.poll(), preventing the test framework from shutting down the gRPC channel within the test timeout.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the threading and locking mechanism in the test service to prevent the deadlock between channel shutdown and worker polling operations.",
+  "related": [],
+  "keyQuote": "The test fails due to gRPC channel shutdown getting blocked on the long poll emitted from a worker.",
+  "number": 455,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:19:03.357Z"
+}

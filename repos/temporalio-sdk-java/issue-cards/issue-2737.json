@@ -1,0 +1,33 @@
+{
+  "summary": "User's custom FailureConverter returns a RuntimeException that causes workflows to hang in an infinite loop during failure deserialization. The issue occurs when the converter returns a custom RuntimeException instead of TemporalFailure, despite this being supported after SDK 1.28.",
+  "category": "bug",
+  "subcategory": "failure-converter",
+  "apis": [
+    "FailureConverter",
+    "ApplicationFailure"
+  ],
+  "components": [
+    "failure-converter",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "failure-serialization",
+    "cross-language-compatibility",
+    "workflow-lifecycle",
+    "error-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using custom FailureConverters that return RuntimeExceptions experience stuck workflows that never complete, blocking workflow execution entirely.",
+  "rootCause": "The SDK does not properly handle RuntimeExceptions returned from FailureConverter.failureToException() - it causes workflow task failures in a loop instead of properly unwrapping and propagating the exception.",
+  "proposedFix": "Add support for arbitrary RuntimeExceptions returned from failureToException by properly unwrapping and propagating them to the workflow code, similar to how GO-SDK handles the same case with error unwrapping.",
+  "workaround": "Configure setFailWorkflowExceptionTypes() to mark the custom exception as a failure exception type so the SDK treats it as a workflow failure rather than a task failure.",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK maintainer clarified this use case is not recommended or supported per documentation. FailureConverters are intended for encryption only, not custom serialization. Users should use standard Temporal ApplicationFailures instead.",
+  "related": [],
+  "keyQuote": "I will say this use of failure converter is not recommend or really supported. Per the SDK docs... The intended use case of failure converters is to help with encryption of potentially sensitive data inside exceptions.",
+  "number": 2737,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:21.079Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add metrics to the matching service to detect when workflows or activities are scheduled on task queues with no active pollers, helping workers identify misconfiguration issues.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "task-queue-manager",
+    "worker",
+    "metrics"
+  ],
+  "concepts": [
+    "task-queue",
+    "poller-detection",
+    "monitoring",
+    "misconfiguration",
+    "observability",
+    "diagnostic"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers will be unable to detect when workflows or activities are scheduled on wrong task queues, leading to silent failures and difficult debugging.",
+  "rootCause": "SDK worker has no visibility into whether they are listening on the correct task queues or if tasks are being scheduled on queues with no active pollers.",
+  "proposedFix": "Emit metrics from the matching service before adding tasks to the task queue manager when there are no recent pollers (e.g., within the last couple of minutes).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Metrics were implemented to detect no poller scenarios in the matching service.",
+  "related": [],
+  "keyQuote": "emit metric if there is NO recent pollers (for example in last couple of minutes)",
+  "number": 3144,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:41.012Z"
+}

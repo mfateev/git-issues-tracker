@@ -1,0 +1,30 @@
+{
+  "summary": "Request for the history server to emit metrics about cache size and capacity for both mutable cache and history event cache, allowing operators to monitor cache utilization.",
+  "category": "feature",
+  "subcategory": "monitoring-metrics",
+  "apis": [],
+  "components": [
+    "history-server",
+    "cache",
+    "metrics"
+  ],
+  "concepts": [
+    "observability",
+    "monitoring",
+    "cache-metrics",
+    "capacity-tracking",
+    "performance-tuning"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently monitor history server cache utilization, making it difficult to optimize cache configuration and detect capacity issues.",
+  "rootCause": null,
+  "proposedFix": "Emit metrics for mutable cache current size and capacity, and history event cache current size and capacity.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "for mutable cache and history event cache. current size and cache capacity.",
+  "number": 2101,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:24.460Z"
+}

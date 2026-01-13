@@ -1,0 +1,32 @@
+{
+  "summary": "Cassandra schema update tool is not idempotent - retrying after partial failure causes table creation to fail with 'table already exists' error instead of succeeding.",
+  "category": "bug",
+  "subcategory": "cassandra-schema",
+  "apis": [],
+  "components": [
+    "cassandra",
+    "schema-update-tool",
+    "persistence"
+  ],
+  "concepts": [
+    "idempotency",
+    "retry",
+    "schema-migration",
+    "table-creation",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely retry failed schema updates, making it difficult to recover from partial failures during database schema initialization.",
+  "rootCause": "Schema update logic does not check if table already exists before attempting creation, and version update is not atomic with table creation.",
+  "proposedFix": "Make schema update tool idempotent by checking table existence before creation and ensuring version updates are properly handled on retry.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #4761 which made the cassandra schema update tool idempotent.",
+  "related": [
+    4761
+  ],
+  "keyQuote": "If the table is created but the version was not updated, the retry would keep failing on table already exists error.",
+  "number": 4760,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:54.862Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "User's self-hosted Temporal server periodically makes outbound connections to Amazon IP addresses on port 443 and wants to know the cause and how to disable it. The feature turns out to be a version check mechanism that reports minimal server info to check for new versions.",
+  "category": "question",
+  "subcategory": "server-configuration",
+  "apis": [],
+  "components": [
+    "frontend",
+    "version-checker",
+    "server"
+  ],
+  "concepts": [
+    "outbound-connections",
+    "version-check",
+    "server-info",
+    "aws-s3",
+    "configuration",
+    "security"
+  ],
+  "severity": "low",
+  "userImpact": "Users running self-hosted Temporal may be concerned about unexpected outbound connections to external services and need to know how to disable them.",
+  "rootCause": "The Temporal server includes a feature that periodically checks for new server versions available and reports minimal server info, implemented in the frontend version_checker component.",
+  "proposedFix": "Disable the version check feature by setting `frontend.enableServerVersionCheck` to false or setting the `TEMPORAL_VERSION_CHECK_DISABLED` environment variable to true or 1.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was answered by providing the explanation of the version check feature and instructions to disable it via configuration or environment variable.",
+  "related": [],
+  "keyQuote": "It's a feature for checking if any new server version is available (UI will display new version info if there's one) and reporting minimal server info.",
+  "number": 7492,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:55.375Z"
+}

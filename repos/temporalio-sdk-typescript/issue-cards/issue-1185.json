@@ -1,0 +1,34 @@
+{
+  "summary": "Worker.create fails to bundle ESM written in TypeScript when imports use .js extensions for .ts files. The bundler cannot resolve the modules because the physical .ts files don't have .js extensions, causing webpack resolution errors.",
+  "category": "bug",
+  "subcategory": "bundling",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "bundler",
+    "webpack-config",
+    "module-resolution"
+  ],
+  "concepts": [
+    "bundling",
+    "ESM",
+    "TypeScript",
+    "module-resolution",
+    "webpack",
+    "extension-aliases"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing TypeScript workflows with ESM imports cannot use Worker.create with bundling without manually configuring webpack extension aliases.",
+  "rootCause": "Webpack's module resolver expects either actual .js files or a configuration to treat .js imports as .ts files, but Worker.create doesn't provide this by default for TypeScript ESM projects.",
+  "proposedFix": null,
+  "workaround": "Use bundlerOptions with a webpackConfigHook to set config.resolve.extensionAlias = { \".js\": [\".ts\", \".js\"] }",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the bundling TypeScript ESM support was implemented or resolved in a subsequent version.",
+  "related": [],
+  "keyQuote": "Worker.create does not support bundling ESM written in TypeScript (imports of `.ts` files with `.js`)",
+  "number": 1185,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:22.285Z"
+}

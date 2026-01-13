@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowClient.execute() and WorkflowHandle.execute() have inconsistent parameter ordering - client takes options first while handle takes workflow type first. The request is to standardize the signatures for better API consistency.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowHandle"
+  ],
+  "components": [
+    "WorkflowClient",
+    "WorkflowHandle",
+    "client-api"
+  ],
+  "concepts": [
+    "api-consistency",
+    "parameter-ordering",
+    "function-signature",
+    "developer-experience",
+    "type-safety"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must remember different parameter orders when switching between WorkflowClient.execute() and WorkflowHandle.execute(), creating potential for confusion and errors.",
+  "rootCause": "Design decision to embed workflow type and options in WorkflowHandle led to different execute() signatures between client and handle.",
+  "proposedFix": "Two main proposals: (1) Pass arguments in an array: client.execute<T>('workflow', [arg1, arg2], options), or (2) Switch parameter order: client.execute<T>('workflow', options, arg1, arg2). Also suggested adding a variant that accepts a workflow function directly.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by standardizing the API to make WorkflowClient and WorkflowHandle signatures consistent.",
+  "related": [],
+  "keyQuote": "WorkflowClient should use the same signature as WorkflowHandle.",
+  "number": 286,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:55.145Z"
+}

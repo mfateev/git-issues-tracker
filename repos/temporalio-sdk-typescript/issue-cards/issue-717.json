@@ -1,0 +1,30 @@
+{
+  "summary": "The @temporalio/interceptors-opentelemetry package.json references non-existent entry points (lib/index.js and lib/index.d.ts), causing import failures. Users must import from specific subpaths like lib/worker instead.",
+  "category": "bug",
+  "subcategory": "package-exports",
+  "apis": [],
+  "components": [
+    "interceptors-opentelemetry",
+    "package-exports",
+    "typescript-definitions"
+  ],
+  "concepts": [
+    "package-configuration",
+    "module-resolution",
+    "entry-points",
+    "type-declarations",
+    "npm-publishing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot import from the @temporalio/interceptors-opentelemetry package root and receive TypeScript compilation errors.",
+  "rootCause": "package.json main and types fields point to lib/index.js and lib/index.d.ts which don't exist in the published package",
+  "proposedFix": "Update package.json to reference correct entry points (lib/worker, lib/client, lib/workflow) or provide a proper root index file",
+  "workaround": "Import from specific subpaths: @temporalio/interceptors-opentelemetry/lib/worker instead of root package",
+  "resolution": "fixed",
+  "resolutionDetails": "Author committed to fixing package.json and provided guidance to import from specific subpaths",
+  "related": [],
+  "keyQuote": "There's nothing to import at the root of this package, you should import from `lib/client`, `lib/worker` and `lib/workflow`",
+  "number": 717,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:08:07.653Z"
+}

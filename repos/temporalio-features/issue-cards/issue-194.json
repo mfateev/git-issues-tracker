@@ -1,0 +1,37 @@
+{
+  "summary": "SDKs have inconsistent behavior when scheduling timers with duration <= 0. The server rejects duration <= 0, while different SDKs either throw errors, apply minimums, or skip scheduling entirely. The feature request asks for consistent cross-SDK behavior to handle zero-duration timers properly.",
+  "category": "feature",
+  "subcategory": "timer-scheduling",
+  "apis": [
+    "StartTimer",
+    "ScheduleTimer"
+  ],
+  "components": [
+    "timer-scheduler",
+    "sdk-server-interaction",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timer-duration",
+    "consistency",
+    "non-determinism",
+    "edge-cases",
+    "input-mutation",
+    "backward-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers face inconsistent behavior across SDKs when scheduling timers with zero or negative durations, requiring special handling and potentially causing non-determinism issues on replay.",
+  "rootCause": "Server enforces duration > 0 constraint while SDKs handle this inconsistently (throwing, applying minimums, or skipping), creating cross-SDK compatibility issues.",
+  "proposedFix": "Server should allow duration 0 to avoid special handling. SDKs should always schedule the timer to prevent non-determinism issues if timer duration changes on replay.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1579,
+    378
+  ],
+  "keyQuote": "Ideally, the server should allow duration 0 to avoid special handling and mutation of user input on the SDK.",
+  "number": 194,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:47.719Z"
+}

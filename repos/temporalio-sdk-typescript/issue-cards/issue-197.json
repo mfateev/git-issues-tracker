@@ -1,0 +1,30 @@
+{
+  "summary": "Module resolution error where the 'ms' package cannot be found when using @temporal/client in AWS Lambda environment. The error originates from @temporalio/workflow/lib/time.js but 'ms' is listed as a dependency in package.json.",
+  "category": "bug",
+  "subcategory": "dependency-resolution",
+  "apis": [],
+  "components": [
+    "client",
+    "workflow",
+    "module-resolution"
+  ],
+  "concepts": [
+    "dependency",
+    "module-loading",
+    "bundling",
+    "lambda",
+    "package-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use @temporal/client library in AWS Lambda environments due to missing module dependency at runtime.",
+  "rootCause": "The 'ms' dependency may not be properly included in the Lambda deployment package or there's a bundling/installation issue specific to the Lambda environment.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Could not be reproduced by maintainers in standard Node.js environment; dependency was confirmed to be present in package.json. Likely environment-specific issue.",
+  "related": [],
+  "keyQuote": "That's odd, I see it in the package.json for that release",
+  "number": 197,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:52.345Z"
+}

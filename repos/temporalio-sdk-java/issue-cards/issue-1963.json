@@ -1,0 +1,35 @@
+{
+  "summary": "Add automatic tracing span creation when schedules are created in the Java SDK's tracing interceptor. Users should be able to opt-out of this behavior via tracing interceptor options.",
+  "category": "feature",
+  "subcategory": "tracing-spans",
+  "apis": [
+    "Schedule"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "schedule-client",
+    "workflow-header"
+  ],
+  "concepts": [
+    "tracing",
+    "spans",
+    "observability",
+    "instrumentation",
+    "interceptor",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on tracing will get automatic span creation for schedules, improving observability of scheduled workflow executions.",
+  "rootCause": null,
+  "proposedFix": "Implement automatic span creation in tracing interceptor when schedules are created, with workflow header propagation for workflow-starting actions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    394
+  ],
+  "keyQuote": "When the tracing interceptor is in use, by default creating a schedule should create a span for the schedule and set it on the workflow header",
+  "number": 1963,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:20.736Z"
+}

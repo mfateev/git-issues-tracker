@@ -1,0 +1,33 @@
+{
+  "summary": "temporal-sql-tool returns exit code 0 even when given invalid arguments, making it impossible to detect failures in wrapper scripts. The tool should return a non-zero exit status on argument validation errors.",
+  "category": "bug",
+  "subcategory": "cli-tool",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "cli",
+    "argument-parsing"
+  ],
+  "concepts": [
+    "exit-code",
+    "error-handling",
+    "scripting",
+    "integration",
+    "validation",
+    "devops"
+  ],
+  "severity": "medium",
+  "userImpact": "Wrapper scripts cannot detect failures when temporal-sql-tool receives bad arguments, breaking error handling in automation.",
+  "rootCause": "The temporal-sql-tool does not properly set exit code to non-zero when argument validation fails.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #5204 to return non-zero exit status on invalid arguments.",
+  "related": [
+    5204
+  ],
+  "keyQuote": "Bad arguments to temporal-sql-tool should return non-zero status... This makes it impossible to integrate into a wrapping script that needs to react to whether it succeeds or fails.",
+  "number": 1370,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:13.846Z"
+}

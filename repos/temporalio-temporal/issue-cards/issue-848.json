@@ -1,0 +1,31 @@
+{
+  "summary": "Support blue/green cluster deployment strategy that allows backward-incompatible cluster membership protocol changes without downtime. Currently, newly deployed instances cannot communicate with old versions, causing cluster partitioning and constant shard stealing. The request is for a mechanism to exclude newly added hosts from shard hosting during deployment, then switch to using only the new hosts after deployment completes.",
+  "category": "feature",
+  "subcategory": "cluster-deployment",
+  "apis": [],
+  "components": [
+    "cluster-membership",
+    "shard-distribution",
+    "host-management"
+  ],
+  "concepts": [
+    "blue-green-deployment",
+    "backward-incompatibility",
+    "cluster-partitioning",
+    "shard-stealing",
+    "zero-downtime-deployment",
+    "version-migration"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying backward-incompatible cluster membership changes currently experience downtime due to cluster partitioning; this feature would enable zero-downtime deployments.",
+  "rootCause": "Cluster membership protocol changes are backward-incompatible, preventing new instances from reaching old ones, causing partitioning and continuous shard rebalancing.",
+  "proposedFix": "Implement a blue/green deployment mechanism: prevent history and matching shard distribution to newly added hosts during deployment, then flip a config switch to use only new hosts after deployment completes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Provide a mechanism to not distribute history and matching shards to the newly added hosts while they are deployed. After the deployment is complete flip a config switch to using only the newly added hosts for shard hosting.",
+  "number": 848,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:25.775Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The Python SDK does not set the run ID in the UpdateHandle when receiving an update response, unlike other SDKs. This causes PollWorkflowUpdate requests to not be constrained to the specific run, potentially allowing polls to target different updates with the same ID in post-CAN or post-reset runs.",
+  "category": "bug",
+  "subcategory": "update-handle",
+  "apis": [
+    "UpdateHandle",
+    "PollWorkflowUpdate"
+  ],
+  "components": [
+    "client",
+    "update-handle",
+    "workflow-client"
+  ],
+  "concepts": [
+    "run-id",
+    "update-response",
+    "poll-requests",
+    "consistency",
+    "sdk-alignment"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience incorrect update polling behavior where requests may target wrong runs, breaking update consistency guarantees.",
+  "rootCause": "Python SDK client.py#L5339 does not set run ID in UpdateHandle when receiving update response, unlike TypeScript and Go SDKs.",
+  "proposedFix": "Set the run ID in UpdateHandle similar to TypeScript (workflow-client.ts#L852-L853) and Go (internal_workflow_client.go#L2356) implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Run ID is now set in UpdateHandle when receiving update response, constraining PollWorkflowUpdate requests to the correct run.",
+  "related": [],
+  "keyQuote": "PollWorkflowUpdate requests issued by the Python update handle do not contain a run ID (and so will land on any run)",
+  "number": 704,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:42.295Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal Server v1.29.1 logs deprecation warnings as errors when using Elasticsearch 8.19.2 due to the olivere/elastic/v7 client sending deprecated parameters like include_upper. The deprecated field warnings generate excessive error-level log noise in production environments.",
+  "category": "bug",
+  "subcategory": "elasticsearch-compatibility",
+  "apis": [
+    "CountWorkflowExecutions"
+  ],
+  "components": [
+    "elasticsearch-client",
+    "visibility-store",
+    "logger"
+  ],
+  "concepts": [
+    "deprecation",
+    "elasticsearch-compatibility",
+    "log-levels",
+    "legacy-api",
+    "version-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal with Elasticsearch 8.x experience excessive error logs cluttering production monitoring and alerting systems, making it difficult to identify genuine issues.",
+  "rootCause": "The olivere/elastic/v7 client library continues to send deprecated Elasticsearch parameters (include_upper) that trigger deprecation warnings in Elasticsearch 8.x, which are logged at error level instead of being suppressed or downgraded.",
+  "proposedFix": "Update Temporal to use the latest Elasticsearch APIs compatible with version 8.x, or filter/downgrade deprecation warning log levels from Elasticsearch to avoid error-level noise.",
+  "workaround": "Configure Elasticsearch cluster settings to set logger.org.elasticsearch.deprecation to ERROR level to suppress deprecation warnings.",
+  "resolution": "invalid",
+  "resolutionDetails": "User resolved the issue on their end by configuring Elasticsearch to suppress deprecation warnings, but the underlying problem of using deprecated APIs remains unresolved by the Temporal team.",
+  "related": [],
+  "keyQuote": "I hope that in the future, Temporal will be patched to use the latest APIs instead of deprecated ones, depending on the Elasticsearch version.",
+  "number": 8909,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:53.978Z"
+}

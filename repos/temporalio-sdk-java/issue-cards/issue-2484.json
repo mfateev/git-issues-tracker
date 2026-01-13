@@ -1,0 +1,31 @@
+{
+  "summary": "Request to warn users when the server-provided task start time differs significantly from when the SDK begins processing the task. This enhancement was declined as too niche.",
+  "category": "feature",
+  "subcategory": "task-processing",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-processor",
+    "logging"
+  ],
+  "concepts": [
+    "task-timing",
+    "server-client-sync",
+    "monitoring",
+    "diagnostics"
+  ],
+  "severity": "low",
+  "userImpact": "Users would receive warnings about timing discrepancies that could indicate system issues, but this was deemed too specific for most use cases.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature request was declined by maintainers as too niche to implement.",
+  "related": [
+    616
+  ],
+  "keyQuote": "We're not gonna do this. Too niche.",
+  "number": 2484,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:01.039Z"
+}

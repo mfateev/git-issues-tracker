@@ -1,0 +1,33 @@
+{
+  "summary": "InvalidArgument gRPC error returned for poll requests with deadlines within 2 seconds of the server clock is non-deterministic, making it unreliable for callers to determine retryability. This rare condition occurs when a proxy holds up a request during internal server outages.",
+  "category": "bug",
+  "subcategory": "grpc-error-handling",
+  "apis": [],
+  "components": [
+    "grpc-server",
+    "request-deadline",
+    "error-handling"
+  ],
+  "concepts": [
+    "deadline",
+    "timeout",
+    "gRPC-error-codes",
+    "retryability",
+    "determinism",
+    "InvalidArgument"
+  ],
+  "severity": "medium",
+  "userImpact": "SDK callers cannot reliably distinguish between retryable and non-retryable InvalidArgument errors when deadline validation fails.",
+  "rootCause": "Poll requests with deadlines within 2 seconds of server system clock return InvalidArgument status, creating non-deterministic behavior in rare scenarios with proxy delays during server outages.",
+  "proposedFix": "Either return a different gRPC status code for deadline validation failures, or reconsider treating InvalidArgument as non-retryable on the SDK side.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed via PR #3856",
+  "related": [
+    218
+  ],
+  "keyQuote": "If a poll request is made with a deadline time within 2s of the server system clock, an InvalidArgument is returned. This only happens when there is a proxy that would hold up a request during internal server outage.",
+  "number": 3846,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:28.794Z"
+}

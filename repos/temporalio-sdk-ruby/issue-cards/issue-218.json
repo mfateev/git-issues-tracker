@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for building the Ruby SDK from source during gem installation. Currently the source gem doesn't work, but the SDK could include necessary sdk-core components to enable building on `gem install --platform ruby` for users in obscure environments where pre-built gems aren't available.",
+  "category": "feature",
+  "subcategory": "gem-packaging",
+  "apis": [],
+  "components": [
+    "gem-builder",
+    "sdk-core-bindings",
+    "installation-system"
+  ],
+  "concepts": [
+    "source-distribution",
+    "compilation",
+    "platform-support",
+    "dependency-management",
+    "environment-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users in environments without pre-built gem support can now build and install the SDK from source if Rust is available.",
+  "rootCause": null,
+  "proposedFix": "Include all necessary sdk-core components in the gem and add a smoke test that validates `gem install --platform ruby` can build successfully when Rust is available.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we very well could include all the sdk-core stuff needed to build the entire SDK on gem install",
+  "number": 218,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:17.727Z"
+}

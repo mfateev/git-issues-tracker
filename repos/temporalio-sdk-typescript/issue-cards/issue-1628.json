@@ -1,0 +1,32 @@
+{
+  "summary": "Child workflows are not respecting the WorkflowIdConflictPolicy.USE_EXISTING setting and throw WorkflowExecutionAlreadyStartedError when attempting to start a child workflow with an existing ID. The server doesn't support conflict policies for child workflows, making this SDK exposure incorrect.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "startChild"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-client",
+    "conflict-policy-handling"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "conflict-policy",
+    "child-workflows",
+    "error-handling",
+    "api-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reuse child workflow IDs with the intended conflict policy, causing runtime errors when attempting to start existing child workflows.",
+  "rootCause": "The TypeScript SDK exposed WorkflowIdConflictPolicy option for child workflows, but the Temporal server does not support conflict policies for child workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was identified as an SDK API exposure problem - the option should not have been available since the server doesn't support this feature for child workflows.",
+  "related": [],
+  "keyQuote": "The server doesn't support conflict policies for child workflows, the TypeScript SDK shouldn't have exposed this option.",
+  "number": 1628,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:56:01.920Z"
+}

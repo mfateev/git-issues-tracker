@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to prevent sensitive HTTP headers in HostedMCPTool from being serialized into activity input and visible in Temporal UI and worker logs. Users need a way to omit or lazily resolve these headers to avoid exposing secrets.",
+  "category": "feature",
+  "subcategory": "security-serialization",
+  "apis": [],
+  "components": [
+    "activity-serialization",
+    "hosted-mcp-tool",
+    "payload-codec"
+  ],
+  "concepts": [
+    "security",
+    "secrets-management",
+    "payload-redaction",
+    "sensitive-data",
+    "serialization",
+    "ui-visibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot securely use HostedMCPTool with sensitive headers because secrets are exposed in Temporal UI and worker logs despite using payload codecs.",
+  "rootCause": "HTTP headers are serialized into activity input/history as part of tool config, making them visible in UI and logs regardless of codec encryption.",
+  "proposedFix": "Implement a mechanism to omit headers from serialization or lazily resolve them at activity execution time, or allow codec servers to redact specific payload portions before UI display.",
+  "workaround": "Use a payload codec server that omits sensitive portions from payloads in its response, preventing them from appearing in the UI.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the tokens still show up in plain text when someone browses the Temporal UI — which isn't ideal from a security perspective",
+  "number": 685,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:07.048Z"
+}

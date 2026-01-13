@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal fails to start when run inside a VSCode development container, unable to find dynamic config files due to path binding issues between the host and container environments.",
+  "category": "bug",
+  "subcategory": "docker-devcontainers",
+  "apis": [],
+  "components": [
+    "dynamic-config",
+    "docker-compose",
+    "configuration-loader"
+  ],
+  "concepts": [
+    "development-containers",
+    "docker-in-docker",
+    "path-binding",
+    "configuration-resolution",
+    "volume-mounting"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use Temporal with VSCode development containers, blocking adoption of this development workflow.",
+  "rootCause": "Path binding issue where docker-compose commands run from inside the dev container reference paths that don't exist in the docker daemon's context, typically '/workspace' is not accessible to the docker daemon.",
+  "proposedFix": "Use fully qualified paths accessible to the docker daemon instead of relative paths, or use docker compose profiles to control service initialization.",
+  "workaround": "Run docker-compose on the host instead of inside the dev container, or use Docker extension to manually manage container lifecycle.",
+  "resolution": "stale",
+  "resolutionDetails": "Closed with 'close-after-30-days' label, indicating it was closed due to inactivity rather than being fixed. This is a configuration/setup issue rather than a Temporal bug.",
+  "related": [],
+  "keyQuote": "Unable to create dynamic config client. Error: unable to validate dynamic config: config/dynamicconfig/development_sql_es.yaml: no such file or directory",
+  "number": 2755,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:38.384Z"
+}

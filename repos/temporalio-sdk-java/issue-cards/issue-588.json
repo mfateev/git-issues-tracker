@@ -1,0 +1,32 @@
+{
+  "summary": "User requested the ability to set TEMPORAL_DEBUG via code instead of environment variables, to simplify debugging workflows in tests without needing multiple IDE run configurations.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowExtension"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-client",
+    "junit-extensions"
+  ],
+  "concepts": [
+    "debugging",
+    "test-configuration",
+    "environment-variables",
+    "deadlock-detection",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can debug workflows in tests more easily without creating multiple IDE run configurations.",
+  "rootCause": null,
+  "proposedFix": "Add a setDebug(boolean) method to TestWorkflowExtension.Builder or similar API to enable TEMPORAL_DEBUG programmatically.",
+  "workaround": "Use WorkerOptions.Builder#setDefaultDeadlockDetectionTimeout to override the deadlock detector timeout in tests instead.",
+  "resolution": "fixed",
+  "resolutionDetails": "User discovered that WorkerOptions.Builder#setDefaultDeadlockDetectionTimeout provides sufficient functionality for their use case, addressing the underlying need.",
+  "related": [],
+  "keyQuote": "Make `TEMPORAL_DEBUG` definable via code while setting up either the workflow client (or whatever), or optionally, via the Junit4/5 extensions.",
+  "number": 588,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:26:18.128Z"
+}

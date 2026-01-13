@@ -1,0 +1,32 @@
+{
+  "summary": "Users need a way to validate which schedule initiated a workflow. The request is to add TemporalScheduledStartTime and TemporalScheduledById fields to the StartWorkflow event message, similar to existing cron schedule fields, to avoid reliance on potentially spoofable search attributes.",
+  "category": "feature",
+  "subcategory": "schedule-tracking",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "event-message",
+    "schedule-engine",
+    "workflow-event"
+  ],
+  "concepts": [
+    "schedule-tracking",
+    "workflow-identity",
+    "event-metadata",
+    "field-addition",
+    "data-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably validate which schedule started a workflow without using searchable attributes that can be spoofed or contain problematic timestamps.",
+  "rootCause": null,
+  "proposedFix": "Add TemporalScheduledStartTime and TemporalScheduledById fields to the StartWorkflow event message",
+  "workaround": "Use Search Attributes (though this has security and timestamp issues)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "add TemporalScheduledStartTime and TemporalScheduledById to the start event message as opposed to just search attributes",
+  "number": 6364,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:47.531Z"
+}

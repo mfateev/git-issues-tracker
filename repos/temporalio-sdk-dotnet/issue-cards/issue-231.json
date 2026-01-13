@@ -1,0 +1,34 @@
+{
+  "summary": "The StartUpdateAsync method should make users aware that it's synchronous with the worker and the wait stage parameter shouldn't be optional. Documentation needs to clarify availability and behavior.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "StartUpdateAsync"
+  ],
+  "components": [
+    "WorkflowHandle",
+    "client-api",
+    "documentation"
+  ],
+  "concepts": [
+    "synchronous-behavior",
+    "worker-interaction",
+    "api-clarity",
+    "optional-parameters",
+    "update-workflow"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may be confused about the synchronous nature of StartUpdateAsync with the worker and may incorrectly use optional parameters.",
+  "rootCause": "API design doesn't clearly communicate synchronous behavior with worker; wait stage parameter optionality is misleading.",
+  "proposedFix": "Make wait stage parameter non-optional and improve documentation to clarify availability and synchronous behavior with worker.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhanced API documentation and parameter handling to clarify synchronous behavior with worker.",
+  "related": [
+    469
+  ],
+  "keyQuote": "wait stage shouldn't be optional here, and docs should clarify availability.",
+  "number": 231,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:30:46.772Z"
+}

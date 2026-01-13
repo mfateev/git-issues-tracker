@@ -1,0 +1,32 @@
+{
+  "summary": "Cross-compilation for s390x and ppc64el architectures fails due to ring v0.16.20 not supporting these platforms. The issue is in a transitive dependency (rustls -> ring) and was resolved by updating rustls to v0.21.8.",
+  "category": "bug",
+  "subcategory": "cross-compilation",
+  "apis": [],
+  "components": [
+    "bridge",
+    "rustls",
+    "ring"
+  ],
+  "concepts": [
+    "cross-compilation",
+    "architecture-support",
+    "dependency-management",
+    "build-failure",
+    "platform-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to build the Python SDK for s390x or ppc64el architectures encounter build failures and cannot use the SDK on these platforms.",
+  "rootCause": "ring v0.16.20 does not support s390x and ppc64el architectures, causing panic in build script. Issue exists in transitive dependency chain: rustls depends on ring.",
+  "proposedFix": "Update rustls to v0.21.8 which includes the updated ring dependency with support for these architectures.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating rustls to v0.21.8 in temporalio/sdk-python PR #400, which includes ring with s390x and ppc64el support.",
+  "related": [
+    400
+  ],
+  "keyQuote": "I was able to cross-compile temporalio/bridge without any problems.",
+  "number": 394,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:48.934Z"
+}

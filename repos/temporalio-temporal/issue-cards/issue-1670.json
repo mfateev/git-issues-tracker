@@ -1,0 +1,32 @@
+{
+  "summary": "Default JWT claims mapper incorrectly lowercases namespace names, causing authorization failures when namespaces contain uppercase characters. The converted namespace is compared against the original request namespace, resulting in a mismatch and request rejection.",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "default_jwt_claim_mapper",
+    "default_authorizer",
+    "authorization"
+  ],
+  "concepts": [
+    "namespace",
+    "case-sensitivity",
+    "jwt-claims",
+    "authorization",
+    "token-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use namespaces with uppercase characters in their names when relying on default JWT authorization, limiting namespace naming flexibility.",
+  "rootCause": "Default claims mapper lowercases namespace names (line 112) and stores the converted value (line 121), but the authorizer compares this lowercase version against the original namespace name from the request (line 60), causing a lookup failure.",
+  "proposedFix": "Fix the case-sensitivity handling in either the claims mapper or authorizer to maintain consistent namespace name casing throughout the authorization flow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #1671 submitted by sergeybykov to address the namespace case-sensitivity issue.",
+  "related": [
+    1671
+  ],
+  "keyQuote": "The default claims mapper converts all uppercase characters in namespace name to lowercase and passes them further to authorizer.",
+  "number": 1670,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:30.430Z"
+}

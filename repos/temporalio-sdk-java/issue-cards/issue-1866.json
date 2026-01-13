@@ -1,0 +1,35 @@
+{
+  "summary": "Request to expose the workflow retry policy set by the client through the WorkflowInfo API, allowing workflow code to inspect retry settings configured at invocation time.",
+  "category": "feature",
+  "subcategory": "workflow-retry-policy",
+  "apis": [
+    "WorkflowInfo",
+    "Workflow.getInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "retry-policy",
+    "client-api"
+  ],
+  "concepts": [
+    "retry-policy",
+    "workflow-configuration",
+    "client-side-settings",
+    "workflow-inspection",
+    "metadata-access"
+  ],
+  "severity": "low",
+  "userImpact": "Developers who set workflow retry policies on the client side can now inspect these settings from within workflow code for conditional logic or validation.",
+  "rootCause": null,
+  "proposedFix": "Add retry policy field to WorkflowInfo to expose client-configured retry settings to workflow code.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #1961, adding retry policy exposure through WorkflowInfo.",
+  "related": [
+    1961
+  ],
+  "keyQuote": "if client does set it for some reason it would be good to be able to check it in workflow code via Workflow.getInfo()",
+  "number": 1866,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:48.425Z"
+}

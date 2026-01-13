@@ -1,0 +1,34 @@
+{
+  "summary": "Local activity workflows experience history corruption during replay, resulting in corrupted workflow state. The issue affects the marker tracking for local activities, causing inconsistent state between cache and database mutable states.",
+  "category": "bug",
+  "subcategory": "local-activity-replay",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "history-replay",
+    "local-activity-executor",
+    "mutable-state",
+    "event-marker"
+  ],
+  "concepts": [
+    "replay",
+    "history-corruption",
+    "local-activity",
+    "state-consistency",
+    "event-tracking",
+    "marker-handling"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows using local activities become corrupted and unable to process, blocking workflow execution and requiring manual intervention or reset.",
+  "rootCause": "Local activity marker handling during history replay appears to introduce corruption in the workflow's mutable state, specifically affecting ActivityInfos tracking across replay cycles.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It looks like replay history for local activity workflows has some sort of bug. As a result, this Workflow is now corrupted.",
+  "number": 711,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:37.893Z"
+}

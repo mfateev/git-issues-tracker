@@ -1,0 +1,35 @@
+{
+  "summary": "Importing uvicorn in a file used by Temporal workflows causes a RestrictedWorkflowAccessError because uvicorn's initialization code calls gettext.gettext.__call__, which is restricted in the workflow sandbox.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [
+    "Worker",
+    "Client",
+    "start_workflow"
+  ],
+  "components": [
+    "workflow-sandbox",
+    "importer",
+    "restrictions"
+  ],
+  "concepts": [
+    "import-restriction",
+    "third-party-library",
+    "gettext",
+    "sandbox-isolation",
+    "determinism",
+    "module-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use FastAPI with uvicorn in the same codebase as Temporal workflows without restructuring their code.",
+  "rootCause": "The workflow sandbox restricts access to gettext.gettext.__call__, which is called during uvicorn's module initialization. uvicorn's use of click.Path causes click to call gettext for localization, triggering the restriction.",
+  "proposedFix": null,
+  "workaround": "Mark the uvicorn import as pass-through in the workflow sandbox configuration to prevent it from being sandboxed.",
+  "resolution": "fixed",
+  "resolutionDetails": "Added uvicorn to the list of pass-through modules in the workflow sandbox importer so it bypasses determinism restrictions.",
+  "related": [],
+  "keyQuote": "Cannot access gettext.gettext.__call__ from inside a workflow. If this is code from a module not used in a workflow or known to only be used deterministically from a workflow, mark the import as pass through.",
+  "number": 827,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:19.385Z"
+}

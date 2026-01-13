@@ -1,0 +1,30 @@
+{
+  "summary": "Cron workflows need the ability to stop scheduled executions without terminating currently running instances. This request supports use cases where users want to pause future executions or schedule workflows to run only once.",
+  "category": "feature",
+  "subcategory": "cron-scheduling",
+  "apis": [],
+  "components": [
+    "cron-workflow",
+    "workflow-scheduler",
+    "execution-engine"
+  ],
+  "concepts": [
+    "scheduling",
+    "cron-jobs",
+    "workflow-termination",
+    "execution-control",
+    "pause-resume"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot stop cron workflows from scheduling new executions without terminating currently running instances, limiting workflow lifecycle management.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by introducing Schedule Workflow feature which supports stopping new runs without terminating current runs and single-run schedules.",
+  "related": [],
+  "keyQuote": "is there a way to terminate a cron scheduled workflow in a way that doesn't terminate it while it's running, but prevents the next execution?",
+  "number": 356,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:52:03.508Z"
+}

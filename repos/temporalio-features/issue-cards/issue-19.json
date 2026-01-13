@@ -1,0 +1,33 @@
+{
+  "summary": "Worker shutdown should send ResetStickyTaskQueue request to server to reset the sticky task queue and allow workflow tasks to be routed to the normal task queue. Should support both graceful and forceful shutdown (SIGKILL, SIGTERM).",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "ResetStickyTaskQueue"
+  ],
+  "components": [
+    "worker",
+    "task-queue",
+    "shutdown-handler"
+  ],
+  "concepts": [
+    "sticky-task-queue",
+    "shutdown",
+    "task-routing",
+    "queue-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Without this feature, sticky task queues remain active after worker shutdown, preventing proper task distribution and potentially causing workflow execution delays.",
+  "rootCause": null,
+  "proposedFix": "Implement ResetStickyTaskQueue API call during worker shutdown lifecycle",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    464
+  ],
+  "keyQuote": "When a worker shuts down, it should send a ResetStickyTaskQueue request to server so it can reset it and allow server to put the next workflow task on the \"normal\" task queue.",
+  "number": 19,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:52.772Z"
+}

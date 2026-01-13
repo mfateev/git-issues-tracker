@@ -1,0 +1,32 @@
+{
+  "summary": "Add Clippy linting to the TypeScript SDK CI pipeline. Clippy should be run as part of the continuous integration process to catch code quality issues, similar to how it's implemented in the Core repository.",
+  "category": "feature",
+  "subcategory": "ci-pipeline",
+  "apis": [],
+  "components": [
+    "ci-pipeline",
+    "build-system"
+  ],
+  "concepts": [
+    "code-quality",
+    "linting",
+    "rust-tooling",
+    "static-analysis",
+    "ci-integration",
+    "best-practices"
+  ],
+  "severity": "low",
+  "userImpact": "Improved code quality and consistency through automated linting checks, reducing manual review burden.",
+  "rootCause": null,
+  "proposedFix": "Integrate Clippy into the CI pipeline following the same pattern used in the Core repository's Buildkite definition.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Clippy was successfully added to the CI pipeline as requested.",
+  "related": [
+    114
+  ],
+  "keyQuote": "I just your pipeline doesn't run clippy which would be a nice thing to do.",
+  "number": 120,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:24.222Z"
+}

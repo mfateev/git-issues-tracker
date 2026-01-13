@@ -1,0 +1,34 @@
+{
+  "summary": "CRON scheduled workflows that use ContinueAsNew do not schedule subsequent CRON runs after the workflow completes. The workflow ends without triggering the next scheduled execution.",
+  "category": "bug",
+  "subcategory": "workflow-scheduling",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-scheduler",
+    "cron-service",
+    "temporal-server"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "continue-as-new",
+    "workflow-continuation",
+    "scheduled-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably combine CRON scheduling with ContinueAsNew, breaking workflows that need periodic execution with internal state resets.",
+  "rootCause": "The CRON scheduling mechanism does not properly handle workflow continuation when ContinueAsNew is invoked, likely due to incomplete implementation as referenced in issue #2146.",
+  "proposedFix": "Use the newer Schedules feature instead of CRON with ContinueAsNew.",
+  "workaround": "Switch to the Schedules feature for periodic workflow execution.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of #746. The issue was not fixed but rather superseded by the newer Schedules feature.",
+  "related": [
+    2146,
+    746
+  ],
+  "keyQuote": "#2146 wasn't fixed, it was just marked as a dup. You should try the new Schedules feature instead.",
+  "number": 3745,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:36.896Z"
+}

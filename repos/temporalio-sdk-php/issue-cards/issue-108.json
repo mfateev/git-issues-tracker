@@ -1,0 +1,32 @@
+{
+  "summary": "When using `continueAsNew` to restart a workflow, the workflow type name is incorrectly passed as a fully-qualified class name instead of the registered short name, causing the worker to fail with 'unable to find workflow type' errors.",
+  "category": "bug",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "continueAsNew"
+  ],
+  "components": [
+    "workflow-runtime",
+    "worker-registration",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "workflow-restart",
+    "type-resolution",
+    "registration",
+    "generator",
+    "class-registration"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to implement self-restarting workflows using continueAsNew encounter worker failures and unable to resume workflow execution.",
+  "rootCause": "The continueAsNew method appears to be using the fully-qualified class name (FQDN) instead of the short registered workflow type name when continuing the workflow.",
+  "proposedFix": null,
+  "workaround": "Replace generator-based workflow type collection with an array-based collection in the registry, though the root cause remains unclear.",
+  "resolution": "invalid",
+  "resolutionDetails": "Reporter could not reproduce the issue with latest versions and closed it. The workaround worked but root cause was never definitively identified.",
+  "related": [],
+  "keyQuote": "unable to find workflow type: Application\\BusinessProcess\\ZeroBalance\\ZeroBalanceWorkflow. Supported types: [ZeroBalanceWorkflow]",
+  "number": 108,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:47.613Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add toString, equals, and hashCode methods to WorkflowServiceStubsOptions and related *Options classes for better logging and debugging support.",
+  "category": "feature",
+  "subcategory": "options-classes",
+  "apis": [],
+  "components": [
+    "WorkflowServiceStubsOptions",
+    "OperatorServiceStubsOptions",
+    "Builder"
+  ],
+  "concepts": [
+    "logging",
+    "debugging",
+    "options-configuration",
+    "serialization",
+    "builder-pattern"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now log and debug service stub options more effectively with proper string representations and object comparison.",
+  "rootCause": null,
+  "proposedFix": "Implement toString, equals, and hashCode methods in WorkflowServiceStubsOptions, OperatorServiceStubsOptions, and their Builder sub-classes following the pattern used in other *Options classes in the Java SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "toString, equals, and hashCode methods were implemented for the options classes to enable better logging and debugging.",
+  "related": [],
+  "keyQuote": "We should also include `equals` and `hashcode` like all other `*Options` in the Java SDK.",
+  "number": 2047,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:22.939Z"
+}

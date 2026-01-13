@@ -1,0 +1,37 @@
+{
+  "summary": "Activity cancellation in Python SDK requires heartbeats to propagate, doesn't interrupt long-running coroutines, and lacks a clean way to wait for cancellation completion. Users must catch broad `ActivityError` exceptions and work around cancellation issues with sleep calls or periodic heartbeats.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "execute_activity",
+    "handle.cancel",
+    "activity.heartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "cancellation-handler",
+    "asyncio-integration"
+  ],
+  "concepts": [
+    "cancellation",
+    "heartbeat",
+    "asyncio-task",
+    "activity-lifecycle",
+    "error-handling",
+    "interruption"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot cleanly cancel activities and wait for completion, leading to workflows that hang or activities that complete despite cancellation requests.",
+  "rootCause": "Activity cancellation is implemented as a request sent to the server rather than immediate task cancellation. The Python SDK only calls `task.cancel()` after an `activity.heartbeat()` call, which doesn't interrupt activities waiting on long-running coroutines like `asyncio.sleep()`.",
+  "proposedFix": "Consider calling `task.cancel()` on the activity task when a cancellation request is detected, independent of heartbeat timing, to properly interrupt blocked asyncio operations.",
+  "workaround": "Add periodic `asyncio.sleep(0.1)` calls or use `periodic_heartbeater` decorator to ensure cancellation requests are checked. Catch `ActivityError` and check `retry_state == RetryState.CANCEL_REQUESTED` to detect explicit cancellation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    810
+  ],
+  "keyQuote": "if you try to cancel an activity that's currently awaiting a long-running coro, the activity won't receive a CancelledError until it sends a heartbeat, which it can't do until the coro finishes",
+  "number": 700,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:28.608Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Exception in one async workflow function causes non-deterministic execution when multiple procedures run in parallel. The exception stays in a Promise until checked, allowing other procedures to advance and record incompatible history, causing replay failures even after the bug is fixed.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Async.procedure",
+    "Promise.get",
+    "Promise.allOf",
+    "Workflow.newActivityStub"
+  ],
+  "components": [
+    "workflow-execution",
+    "promise-handling",
+    "history-replay",
+    "activity-scheduling"
+  ],
+  "concepts": [
+    "non-determinism",
+    "eager-evaluation",
+    "exception-handling",
+    "history-mismatch",
+    "workflow-determinism",
+    "parallel-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot fix bugs in async workflow procedures without resetting history, as exceptions in parallel tasks create incompatible execution histories that fail replay validation.",
+  "rootCause": "Eager evaluation of async procedures allows exceptions to be deferred while other procedures continue executing, recording incompatible activity scheduling sequences in the history that don't match the fixed code.",
+  "proposedFix": "Promote all exceptions in async functions to errors to immediately fail the workflow task before incompatible history is produced, or enforce strict ordering guarantees for parallel promise execution.",
+  "workaround": "Use Promise.allOf to wait on all promises simultaneously rather than sequentially, ensuring exceptions are caught before other procedures advance. Must be implemented before incorrect history is produced.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Exception stays in Promise until checked, allowing first procedure to advance and schedule incompatible activities before failure is detected.",
+  "number": 902,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:52:18.355Z"
+}

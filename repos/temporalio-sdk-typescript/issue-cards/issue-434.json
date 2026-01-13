@@ -1,0 +1,31 @@
+{
+  "summary": "Proto3-json-serializer dependency added to common package increases workflow bundle size from 0.75MB to 0.86MB. Create a new shared package for code and dependencies not used in workflow package to reduce bundle size.",
+  "category": "feature",
+  "subcategory": "bundle-size",
+  "apis": [],
+  "components": [
+    "common",
+    "workflow",
+    "bundler"
+  ],
+  "concepts": [
+    "bundle-size",
+    "package-organization",
+    "dependency-isolation",
+    "workflow-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience larger workflow bundles due to unnecessary dependencies being included, affecting deployment and runtime performance.",
+  "rootCause": "proto3-json-serializer dependency added to common package is not used in workflow but gets included in the bundle.",
+  "proposedFix": "Create a new shared package for code and dependencies not required by the workflow package.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the shared package was created to separate workflow-specific and non-workflow code.",
+  "related": [
+    430
+  ],
+  "keyQuote": "Create a new package for shared code and deps that are not used in `workflow` package in order to reduce workflow bundle size.",
+  "number": 434,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:35.586Z"
+}

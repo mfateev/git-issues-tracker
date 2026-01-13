@@ -1,0 +1,32 @@
+{
+  "summary": "The PollWorkflowTaskQueueResponse message contains redundant query attributes (singular 'query' and plural 'queries' map) that should be unified into a single attribute for consistency and cleaner API design.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "PollWorkflowTaskQueueResponse"
+  ],
+  "components": [
+    "api",
+    "proto",
+    "query"
+  ],
+  "concepts": [
+    "api-consolidation",
+    "schema-unification",
+    "backwards-compatibility",
+    "refactoring",
+    "message-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users would benefit from a simpler, more consistent API interface without redundant query response attributes.",
+  "rootCause": "Legacy API design resulted in both singular and plural query attributes being exposed in the same response message.",
+  "proposedFix": "Merge the singular 'query' attribute and 'queries' map into a single unified attribute in PollWorkflowTaskQueueResponse.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Won't fix for now, will reopen if situation changes.",
+  "related": [],
+  "keyQuote": "Won't fix for now, will reopen if situation changes.",
+  "number": 1658,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:15.242Z"
+}

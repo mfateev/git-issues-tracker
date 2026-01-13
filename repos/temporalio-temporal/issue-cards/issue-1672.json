@@ -1,0 +1,31 @@
+{
+  "summary": "User requests the ability to pass header parameters through tctl when starting/stopping workflows to carry metadata like authentication information. The issue was resolved by using ContextPropagator in the client instead of passing headers explicitly through tctl.",
+  "category": "feature",
+  "subcategory": "tctl-cli",
+  "apis": [],
+  "components": [
+    "tctl",
+    "context-propagator",
+    "headers"
+  ],
+  "concepts": [
+    "metadata",
+    "authentication",
+    "headers",
+    "context-propagation",
+    "workflow-execution",
+    "client-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users seeking to pass header parameters and metadata through tctl have an alternative solution using ContextPropagator in the client.",
+  "rootCause": null,
+  "proposedFix": "Use tctl plugins to support pluggable ContextPropagators, or leverage the existing --headers_provider_plugin flag.",
+  "workaround": "Use a ContextPropagator in the client to carry metadata to workflows instead of passing headers explicitly through tctl.",
+  "resolution": "fixed",
+  "resolutionDetails": "User discovered the --headers_provider_plugin flag and switched to using ContextPropagator approach which met their needs.",
+  "related": [],
+  "keyQuote": "I've switched to using a `ContextPropagator` to carry metadata to workflows. They seem sufficient to my needs.",
+  "number": 1672,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:46.677Z"
+}

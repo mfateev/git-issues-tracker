@@ -1,0 +1,34 @@
+{
+  "summary": "Test server lacks support for listWorkflowExecutions API endpoint, forcing users to use separate listOpenWorkflowExecutions and listClosedWorkflowExecutions endpoints instead. This is a gap since all SDKs now provide high-level APIs for listing workflows that rely on the unified endpoint.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "listWorkflowExecutions",
+    "ListOpenWorkflowExecutionsRequest",
+    "ListClosedWorkflowExecutionsRequest"
+  ],
+  "components": [
+    "test-server",
+    "workflow-client",
+    "workflow-service-stub"
+  ],
+  "concepts": [
+    "workflow-querying",
+    "test-environment",
+    "api-parity",
+    "search-attributes",
+    "workflow-listing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot list workflow executions with search attribute queries in test environment, requiring workarounds with separate open/closed endpoints and limiting testing capabilities.",
+  "rootCause": "Test server implementation only supports separate list open/closed endpoints and has no search attribute query support.",
+  "proposedFix": "Implement listWorkflowExecutions endpoint in test server with search attribute querying capabilities.",
+  "workaround": "Use ListOpenWorkflowExecutionsRequest or ListClosedWorkflowExecutionsRequest endpoints separately via workflowServiceStubs.blockingStub().",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Test server only implements list open / closed, need support for this since all SDKs now have a high level API to list workflows that relies on this endpoint.",
+  "number": 1693,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:36.068Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add WorkflowSizeInBytes as a visibility attribute for completed workflows, similar to the recently added StateTransition count. This would allow users to query and monitor the final size of workflow executions.",
+  "category": "feature",
+  "subcategory": "visibility-attributes",
+  "apis": [],
+  "components": [
+    "visibility",
+    "workflow-metadata",
+    "search-attributes"
+  ],
+  "concepts": [
+    "workflow-size",
+    "visibility-attributes",
+    "completed-workflow",
+    "metadata",
+    "monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Users would gain ability to track and analyze workflow execution sizes for optimization and monitoring purposes.",
+  "rootCause": null,
+  "proposedFix": "Add WorkflowSizeInBytes as a searchable visibility attribute alongside existing attributes like StateTransition count.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We recently added StateTransition count as a visibility attribute for a Completed Workflow. Can we also add the final size of the Workflow itself?",
+  "number": 1903,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:58.950Z"
+}

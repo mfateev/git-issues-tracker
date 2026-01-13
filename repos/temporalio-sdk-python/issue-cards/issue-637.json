@@ -1,0 +1,31 @@
+{
+  "summary": "Windows builds for Python 3.12.5 fail during linking with 'cannot open input file python3.lib' error. The linker cannot find the required Python library file on Windows, preventing successful compilation.",
+  "category": "bug",
+  "subcategory": "build-windows",
+  "apis": [],
+  "components": [
+    "build-system",
+    "windows-build",
+    "linking"
+  ],
+  "concepts": [
+    "compilation",
+    "linking",
+    "windows-platform",
+    "python-3.12",
+    "build-failure",
+    "library-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users on Windows with Python 3.12.5 cannot build or install the SDK due to linker failures.",
+  "rootCause": "The linker cannot locate python3.lib, likely due to Python 3.12.5 Windows installation or build configuration issue.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "LINK : fatal error LNK1181: cannot open input file 'python3.lib'",
+  "number": 637,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:21.315Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Features test suite failed to catch a TS SDK bug involving null activity timeouts that was introduced by proto changes. The bug is reproducible with the exact same SDK version and code in a hello world sample but not when running the same code within the features test framework.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "features-test-suite",
+    "activity-timeouts",
+    "typescript-sdk",
+    "test-coverage"
+  ],
+  "concepts": [
+    "test-coverage",
+    "timeout-handling",
+    "proto-changes",
+    "dependency-management",
+    "test-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Test suite gaps prevented detection of a breaking SDK bug that affected TypeScript users, potentially delaying bug fixes.",
+  "rootCause": "Unclear why features tests don't reproduce the null activity timeout bug that occurs in standalone samples; possibly related to dependency management or test environment differences.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The underlying TS SDK bug was fixed via referenced PRs, but the root cause of the test suite gap remains unclear.",
+  "related": [
+    5444,
+    5445
+  ],
+  "keyQuote": "It still should've been caught. It's unclear why it wasn't.",
+  "number": 421,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:15.760Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Update Thrift library from outdated version 0.10 to v0.13+ (preferably v0.15) to address active CVEs and unify Thrift versions across dependencies. Multiple transitive dependencies on older Thrift versions create security vulnerabilities.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "thrift-library",
+    "ringpop-go",
+    "tchannel-go",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security",
+    "cve",
+    "dependency-update",
+    "version-unification",
+    "breaking-changes"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to known CVEs in outdated Thrift versions, creating potential security vulnerabilities in Temporal Server deployments.",
+  "rootCause": "Thrift pinned to old v0.10 version, and ringpop-go depends on multiple outdated Thrift versions (v0.9.3 and older). Latest versions (v0.13+) contain security fixes.",
+  "proposedFix": "Update Thrift to minimum v0.13, preferably v0.15. Update tchannel-go and ringpop-go dependencies to support newer Thrift versions to unify across the dependency tree.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3250
+  ],
+  "keyQuote": "Latest thrift is 0.15 and beyond 0.13 have some active CVEs. Could you please consider reviewing the thrift versions in those 2 packages?",
+  "number": 2320,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:05.523Z"
+}

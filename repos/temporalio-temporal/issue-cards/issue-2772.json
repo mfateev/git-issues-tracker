@@ -1,0 +1,31 @@
+{
+  "summary": "User reports that ExecuteActivity fails with BadScheduleActivityAttributes error indicating missing StartToClose or ScheduleToCloseTimeout. Issue was resolved by the user, suggesting it was a configuration or usage problem rather than a framework bug.",
+  "category": "question",
+  "subcategory": "activity-timeouts",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-attributes",
+    "scheduling",
+    "configuration",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Activity execution fails with unclear error message when timeout attributes are not properly configured, making debugging difficult.",
+  "rootCause": "Missing or invalid StartToClose or ScheduleToCloseTimeout configuration on activity command",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "User marked as resolved with comment 'solve, no bug', indicating they found the solution themselves, likely a configuration or usage issue.",
+  "related": [],
+  "keyQuote": "BadScheduleActivityAttributes: A valid StartToClose or ScheduleToCloseTimeout is not set on command.",
+  "number": 2772,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:33.036Z"
+}

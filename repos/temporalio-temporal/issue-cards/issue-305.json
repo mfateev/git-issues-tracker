@@ -1,0 +1,31 @@
+{
+  "summary": "Request to provide prebuilt binaries for the Temporal service and tctl command-line tool as release artifacts, as an alternative to Docker for users who don't use containerization.",
+  "category": "feature",
+  "subcategory": "release-distribution",
+  "apis": [],
+  "components": [
+    "release-artifacts",
+    "tctl",
+    "service-binary"
+  ],
+  "concepts": [
+    "deployment",
+    "distribution",
+    "binary-release",
+    "docker-alternative",
+    "installation",
+    "accessibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who don't use Docker currently lack a convenient way to obtain and run Temporal server and tctl, limiting accessibility of the platform.",
+  "rootCause": null,
+  "proposedFix": "Include prebuilt binaries for the service and tctl in release artifacts.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Prebuilt binaries were added to release artifacts",
+  "related": [],
+  "keyQuote": "Not everyone uses docker so having prebuilt binaries for the service and tctl would help.",
+  "number": 305,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:27:30.030Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Extend SafeHandle implementations to manage unmanaged pointer lifecycles across all .NET bridge classes, following the pattern established in #583 for Client and Worker. This requires centralizing pointer lifetime management through SafeHandle types and providing a Scope.Pointer method for controlled pointer access.",
+  "category": "feature",
+  "subcategory": "memory-management",
+  "apis": [],
+  "components": [
+    "SafeHandle",
+    "pointer-lifecycle",
+    "bridge-interop",
+    "Client",
+    "Worker"
+  ],
+  "concepts": [
+    "memory-safety",
+    "use-after-free",
+    "unmanaged-pointers",
+    "reference-counting",
+    "interop",
+    "lifetime-management"
+  ],
+  "severity": "high",
+  "userImpact": "Prevents use-after-free bugs and ensures safe management of unmanaged pointers across all .NET SDK bridge classes.",
+  "rootCause": "Inconsistent pointer lifecycle management across different bridge wrapper classes creates risk of use-after-free bugs.",
+  "proposedFix": "Implement SafeHandle for all classes managing unmanaged pointers and add Scope.Pointer method to properly add-ref and return unmanaged pointer values.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    583
+  ],
+  "keyQuote": "Pointer lifetime management should be exclusively maintained by `SafeHandle` types for each unmanaged pointer type.",
+  "number": 586,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:38:20.976Z"
+}

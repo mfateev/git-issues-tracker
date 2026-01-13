@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to replace Carbon library with DateInterval for better performance. Discussion reveals Carbon is only used internally and public APIs already use standard DateTimeInterface and DateInterval, making the replacement feasible.",
+  "category": "feature",
+  "subcategory": "performance-optimization",
+  "apis": [],
+  "components": [
+    "activity-options",
+    "time-handling",
+    "datetime-parsing"
+  ],
+  "concepts": [
+    "performance",
+    "standard-library",
+    "datetime",
+    "hot-spots",
+    "optimization",
+    "internal-refactoring"
+  ],
+  "severity": "low",
+  "userImpact": "Replacing Carbon with DateInterval could reduce latency in time-related operations, potentially saving ~0.00003s per I/O operation.",
+  "rootCause": "Carbon library has performance overhead compared to native DateInterval, particularly in hot spots like sending local temporal time to server (4x slower) and parsing time from temporal server (4x slower).",
+  "proposedFix": "Replace Carbon with native DateInterval implementation in internal hot spots while keeping public APIs using standard DateTimeInterface and DateInterval.",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed due to inactivity.",
+  "related": [],
+  "keyQuote": "It's slower than DateInterval. Very slower.",
+  "number": 114,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:16.776Z"
+}

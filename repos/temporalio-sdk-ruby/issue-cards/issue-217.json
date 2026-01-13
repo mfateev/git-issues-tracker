@@ -1,0 +1,43 @@
+{
+  "summary": "Add support for user metadata on workflows, activities, and timers in the Ruby SDK. This includes accepting optional static summary and details parameters when starting workflows, creating activities and timers, and implementing the __temporal_workflow_metadata query handler.",
+  "category": "feature",
+  "subcategory": "user-metadata",
+  "apis": [
+    "StartWorkflow",
+    "SignalWithStart",
+    "Schedule",
+    "CreateChildWorkflow",
+    "CreateTimer",
+    "CreateActivity",
+    "Query"
+  ],
+  "components": [
+    "workflow-starter",
+    "activity-creator",
+    "timer-creator",
+    "metadata-handler",
+    "query-handler"
+  ],
+  "concepts": [
+    "user-metadata",
+    "workflow-visibility",
+    "metadata-query",
+    "static-summary",
+    "static-details",
+    "experimental-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now attach descriptive metadata to workflows, activities, and timers to improve visibility and debugging of their temporal applications.",
+  "rootCause": null,
+  "proposedFix": "Implement metadata parameters across workflow creation APIs, activity/timer creation, and add __temporal_workflow_metadata query handler based on Go SDK reference implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to match the Temporal features specification for user metadata support across all workflow creation patterns and activity/timer creation.",
+  "related": [
+    486
+  ],
+  "keyQuote": "Accept optional 'static summary' and 'static details' on all ways to start a workflow and populate user metadata with them",
+  "number": 217,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:20.170Z"
+}

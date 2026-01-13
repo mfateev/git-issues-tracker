@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Docker container emits excessive noisy logs (99.9% useless) without clear service readiness indication. Proposal is to emit startup/ready messages and only fatal errors by default, with optional verbose logging for troubleshooting.",
+  "category": "feature",
+  "subcategory": "logging-configuration",
+  "apis": [],
+  "components": [
+    "docker",
+    "logging",
+    "server-startup"
+  ],
+  "concepts": [
+    "log-verbosity",
+    "service-readiness",
+    "debugging",
+    "observability",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal via Docker or temporalite struggle to identify meaningful information amid excessive logs, making it difficult to determine when the service is ready.",
+  "rootCause": "Default logging level is set too verbose; JSON debug format by default makes logs hard to parse; no clear service readiness signal.",
+  "proposedFix": "Emit 'Temporal Service Starting...' and 'Temporal Service Started' messages, suppress non-fatal logs by default, provide option to enable verbose logging for troubleshooting.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It's hard on the eyes to parse screen filling JSON messages in real time...",
+  "number": 108,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:18:59.261Z"
+}

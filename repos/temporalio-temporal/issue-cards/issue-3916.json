@@ -1,0 +1,32 @@
+{
+  "summary": "The default Docker configuration template does not expose the secondary_visibility configuration option, which is needed for proper visibility handling in Temporal deployments.",
+  "category": "feature",
+  "subcategory": "docker-configuration",
+  "apis": [],
+  "components": [
+    "docker",
+    "config-template",
+    "visibility"
+  ],
+  "concepts": [
+    "visibility",
+    "secondary-visibility",
+    "configuration",
+    "docker-deployment",
+    "infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure secondary visibility settings through the default Docker configuration template.",
+  "rootCause": "The secondary_visibility configuration option is not included in the config_template.yaml file.",
+  "proposedFix": "Add secondary_visibility configuration to the docker/config_template.yaml",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Community user submitted PR #3917 to expose secondary_visibility in the default Docker config template",
+  "related": [
+    3917
+  ],
+  "keyQuote": "does not expose secondary config",
+  "number": 3916,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:05.541Z"
+}

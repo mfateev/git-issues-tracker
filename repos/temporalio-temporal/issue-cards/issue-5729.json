@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal server fails to connect to PostgreSQL when the database password contains certain special characters like backslashes and tabs, despite the temporal-sql-tool successfully using the same password to create schemas. The issue likely involves incorrect password escaping in DSN generation.",
+  "category": "bug",
+  "subcategory": "database-connection",
+  "apis": [],
+  "components": [
+    "database-connection",
+    "dsn-generation",
+    "postgres-plugin",
+    "server-initialization"
+  ],
+  "concepts": [
+    "password-escaping",
+    "connection-string",
+    "special-characters",
+    "authentication",
+    "dsn-generation",
+    "url-encoding"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal on cloud databases (Google Cloud SQL, Azure) when their passwords contain special characters, blocking production deployments.",
+  "rootCause": "Password escaping using net/url.QueryEscape in DSN generation may not properly handle certain characters like backslash and tab (\\t), causing authentication failures despite valid passwords.",
+  "proposedFix": "Ensure proper password escaping in DSN generation, possibly by replacing or supplementing net/url.QueryEscape with a more robust solution that handles all special characters correctly.",
+  "workaround": "Remove special characters (particularly backslashes and tabs) from database passwords to work around the connection issue.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    551
+  ],
+  "keyQuote": "the temporal-sql-tool appears to run correctly... This also proves that the password is, in fact, _valid_. But that's where success ends... connections begin to error",
+  "number": 5729,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:58.448Z"
+}

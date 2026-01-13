@@ -1,0 +1,33 @@
+{
+  "summary": "The temporal-serviceclient library uses GeneratedMessageV3 which is deprecated and removed in protobuf-java 4.x, causing NoSuchMethodError at runtime when used with protobuf 4.x despite documentation claiming compatibility.",
+  "category": "bug",
+  "subcategory": "dependency-compatibility",
+  "apis": [
+    "Payload.parseFrom"
+  ],
+  "components": [
+    "temporal-serviceclient",
+    "protobuf-java",
+    "payload-codec"
+  ],
+  "concepts": [
+    "compatibility",
+    "dependency-version",
+    "protobuf-migration",
+    "generated-code",
+    "api-version",
+    "runtime-error"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use temporal-serviceclient with protobuf-java 4.x due to runtime NoSuchMethodError exceptions, forcing them to stay on protobuf 3.x versions.",
+  "rootCause": "Generated protobuf classes extend the deprecated GeneratedMessageV3 class which was removed in protobuf-java 4.x, causing missing methods like makeExtensionsImmutable().",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The head of master is compatible with protobuf v4; v1.28.0 release and snapshot builds will include the fix.",
+  "related": [],
+  "keyQuote": "The head of master is compatible with protobuf v4, `v1.27.1` is not. The next release `v1.28.0` will be compatible",
+  "number": 2420,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:02.835Z"
+}

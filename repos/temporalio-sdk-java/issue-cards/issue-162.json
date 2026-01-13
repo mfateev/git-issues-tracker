@@ -1,0 +1,36 @@
+{
+  "summary": "Spring-based Temporal applications generate several non-fatal exceptions related to gRPC and PerfMark during initialization and execution, including Epoll availability errors, missing census stats classes, and PerfMark initialization failures. While these exceptions do not prevent workflows from executing correctly, they cause confusing debug output.",
+  "category": "bug",
+  "subcategory": "grpc-integration",
+  "apis": [
+    "WorkflowServiceStubs",
+    "WorkflowClient",
+    "WorkerFactory",
+    "Worker"
+  ],
+  "components": [
+    "grpc-client",
+    "service-stubs",
+    "worker-initialization",
+    "dependency-management"
+  ],
+  "concepts": [
+    "spring-integration",
+    "classpath-configuration",
+    "optional-dependencies",
+    "debug-logging",
+    "grpc-channel-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users running Temporal with Spring Boot see confusing exception messages during initialization even though their workflows execute successfully, making it difficult to distinguish real errors from harmless dependency issues.",
+  "rootCause": "Missing optional dependencies (PerfMark, census stats, platform-specific libraries) that gRPC attempts to load via reflection, combined with Spring's aggressive classloading behavior. The exceptions are gracefully handled by gRPC but logged at DEBUG level, appearing alarming to users.",
+  "proposedFix": null,
+  "workaround": "These are expected warnings from gRPC's optional dependency loading and can be safely ignored. Configure logging to suppress DEBUG messages from gRPC packages if desired.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers determined these are not Temporal SDK issues but rather expected behavior from gRPC's optional dependency handling. The exceptions are properly caught by gRPC and do not affect functionality. Responsibility lies with the application to manage its classpath if these dependencies are needed.",
+  "related": [],
+  "keyQuote": "The only place across all our transitive dependencies that uses this class is this one method in io.grpc.Context from io.grpc:grpc-context and it doesn't throw if the class is not available",
+  "number": 162,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:58:44.802Z"
+}

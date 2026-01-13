@@ -1,0 +1,30 @@
+{
+  "summary": "NonRootNamespaceAutoConfiguration#nonRootBeanPostProcessor causes early initialization of MeterRegistry before Spring's MeterRegistryPostProcessor is ready, causing MeterRegistryCustomizer to be ignored and metrics filtering to fail.",
+  "category": "bug",
+  "subcategory": "metrics-configuration",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "metrics-scope",
+    "meter-registry"
+  ],
+  "concepts": [
+    "bean-initialization-order",
+    "metrics-filtering",
+    "spring-boot-customization",
+    "dependency-injection",
+    "lifecycle-timing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot customize MeterRegistry behavior through MeterRegistryCustomizer when using NonRootNamespaceAutoConfiguration, breaking metrics filtering and customization.",
+  "rootCause": "NonRootNamespaceAutoConfiguration#nonRootBeanPostProcessor triggers early MeterRegistry initialization through MetricsScopeAutoConfiguration#scope before Spring's MeterRegistryPostProcessor has a chance to apply customizers.",
+  "proposedFix": null,
+  "workaround": "A workaround is provided in the reproducer project at https://github.com/rpost/temporal-bug/commit/d16476e4ec796bb338efcade55d6469e9870842e",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "causes early initialization of MeterRegistry even before org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryPostProcessor is ready",
+  "number": 2533,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:05.732Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Each activity heartbeat incurs two state transitions: one when RecordActivityHeartbeat is called and another when the previous heartbeat timeout fires. The issue proposes optimizing this by creating the new heartbeat timeout timer during the API call to make the previous timer a no-op.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordActivityHeartbeat"
+  ],
+  "components": [
+    "heartbeat-timeout",
+    "state-machine",
+    "activity-executor"
+  ],
+  "concepts": [
+    "state-transition",
+    "timeout",
+    "optimization",
+    "timer",
+    "heartbeat"
+  ],
+  "severity": "low",
+  "userImpact": "Each activity heartbeat causes unnecessary state transitions that consume system resources and may impact performance.",
+  "rootCause": "The heartbeat timeout timer is created after the previous timeout fires rather than during the RecordActivityHeartbeat API call, resulting in redundant state transitions.",
+  "proposedFix": "Create the new heartbeat timeout timer when RecordActivityHeartbeat API is called, making the previous heartbeat timeout timer a no-op when it fires.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "After discussion, the optimization was deemed to introduce many edge cases that could perform worse than the current approach.",
+  "related": [],
+  "keyQuote": "Trying to optimize it would result in many edge cases that may perform worse.",
+  "number": 4781,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:18.536Z"
+}

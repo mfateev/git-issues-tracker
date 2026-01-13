@@ -1,0 +1,37 @@
+{
+  "summary": "Gocql client resolves Cassandra hosts only once during session creation, causing cluster unavailability when all Cassandra hosts move simultaneously (e.g., in Kubernetes with persistent volumes). The server cannot reconnect even after hosts come back online.",
+  "category": "bug",
+  "subcategory": "cassandra-connectivity",
+  "apis": [],
+  "components": [
+    "cassandra-client",
+    "gocql",
+    "persistence",
+    "host-discovery"
+  ],
+  "concepts": [
+    "host-resolution",
+    "connection-pooling",
+    "kubernetes",
+    "failover",
+    "reconnection",
+    "dynamic-discovery"
+  ],
+  "severity": "critical",
+  "userImpact": "Temporal cluster becomes unavailable when all Cassandra hosts move, requiring manual server restart to reconnect even after Cassandra recovers.",
+  "rootCause": "Gocql resolves Cassandra hosts only at session creation time and does not attempt to rediscover hosts when all connections fail, leaving stale IP addresses in the connection pool.",
+  "proposedFix": "Implement periodic host rediscovery or integrate gocql's dynamic host discovery mechanism to allow the server to connect back to Cassandra after all hosts move.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved through multiple related PRs (#1342, #1343, #1344, #1345) that implement host rediscovery mechanisms.",
+  "related": [
+    1342,
+    1343,
+    1344,
+    1345
+  ],
+  "keyQuote": "Gocql client only resolve hosts once on session creation. This is a problem if you are running Cassandra on kubernetes using persisted volumes as all your Cassandra hosts might move at the same time.",
+  "number": 317,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:28:50.926Z"
+}

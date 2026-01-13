@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Java SDK fails on JDK 16 due to illegal reflection access to Throwable.cause field. The CheckedExceptionWrapper class initializer crashes during exception handling because JDK 16 restricts reflection access to internal fields by default.",
+  "category": "bug",
+  "subcategory": "jdk-compatibility",
+  "apis": [],
+  "components": [
+    "CheckedExceptionWrapper",
+    "exception-handling",
+    "workflow-worker"
+  ],
+  "concepts": [
+    "reflection",
+    "jdk-compatibility",
+    "illegal-access",
+    "exception-handling",
+    "internal-fields"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal Java SDK on JDK 16 experience runtime crashes when handling workflow exceptions, breaking workflow execution.",
+  "rootCause": "Temporal uses reflection to access the private Throwable.cause field, which is now denied by default in JDK 16 per JDK Enhancement Proposal 8256299.",
+  "proposedFix": "Update to Temporal Java SDK version 1.2.0 or later which resolves this compatibility issue.",
+  "workaround": "Run Java with --illegal-access=permit flag to allow reflection access, though this option will be removed in future JDK releases.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by upgrading to Temporal Java SDK 1.2.0, which implements proper JDK 16 compatible exception handling without illegal reflection.",
+  "related": [],
+  "keyQuote": "Temporal accesses a private member Throwable.cause by means of reflection which is now denied by default (new behaviour in JDK 16)",
+  "number": 1868,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:05.844Z"
+}

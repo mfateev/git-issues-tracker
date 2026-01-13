@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to include RunID in HasWorkflowSerializationContext to help PayloadCodec implementations disambiguate execution runs that have been ContinuedAsNew or Reset. After investigation, the request was closed as the SDK cannot reliably provide the correct RunID in all scenarios.",
+  "category": "feature",
+  "subcategory": "serialization-context",
+  "apis": [
+    "HasWorkflowSerializationContext",
+    "PayloadCodec"
+  ],
+  "components": [
+    "serialization-context",
+    "payload-codec",
+    "workflow-context"
+  ],
+  "concepts": [
+    "run-identification",
+    "payload-caching",
+    "continued-as-new",
+    "workflow-lifecycle",
+    "serialization-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom PayloadCodecs with caching strategies cannot reliably disambiguate which workflow run a payload belongs to when executions use ContinuedAsNew or Reset.",
+  "rootCause": "The SDK does not always have visibility into the new workflow execution's RunID in scenarios involving reset, continue-as-new, or child workflows, since RunIDs are generated server-side.",
+  "proposedFix": "Extend HasWorkflowSerializationContext implementations to include RunID where available (all cases except ClientInterceptor), allowing it to be null when unavailable.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed by author as not a tenable solution. The fundamental issue is that the SDK cannot consistently provide the correct RunID in all execution scenarios (reset, continue-as-new, child workflows), making it unsuitable for serialization context which requires consistent information.",
+  "related": [
+    3709
+  ],
+  "keyQuote": "SerializationContext is meant to provide information needed to serialize a payload, if that information cannot be consistently provided then it can't be used to serialize the payload",
+  "number": 1994,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:36.529Z"
+}

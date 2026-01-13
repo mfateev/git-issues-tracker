@@ -1,0 +1,48 @@
+{
+  "summary": "Feature request to add support for dynamic (catch-all) handlers in all SDKs for workflows, activities, signals, queries, and updates. These handlers would be invoked when a specific handler isn't registered, allowing opt-in flexibility. Java already supports this; Go, TypeScript, Python, and .NET need implementation.",
+  "category": "feature",
+  "subcategory": "dynamic-handlers",
+  "apis": [
+    "ExecuteActivity",
+    "StartWorkflow",
+    "RegisterWorkflow",
+    "RegisterActivity",
+    "RegisterSignal",
+    "RegisterQuery",
+    "RegisterUpdate"
+  ],
+  "components": [
+    "worker",
+    "workflow-handler",
+    "activity-handler",
+    "signal-handler",
+    "query-handler"
+  ],
+  "concepts": [
+    "dynamic-dispatch",
+    "catch-all-handler",
+    "registration",
+    "opt-in",
+    "payload-handling",
+    "cross-sdk-feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "SDKs without dynamic handlers lack flexibility for handling workflows and activities that aren't pre-registered, limiting use cases for dynamic workload execution.",
+  "rootCause": null,
+  "proposedFix": "Implement dynamic handler support in Go, TypeScript, Python, and .NET SDKs, accepting raw payloads (decoded for workflows/signals/queries, encoded for activities) without JSON assumptions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    543,
+    997,
+    993,
+    1015,
+    242,
+    27
+  ],
+  "keyQuote": "All SDKs should support \"dynamic\" workflows, activities, signals, and queries which are opt-in catch-alls when ones aren't registered",
+  "number": 201,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:16.848Z"
+}

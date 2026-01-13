@@ -1,0 +1,36 @@
+{
+  "summary": "OpenTelemetry logging and metrics integration doesn't work correctly with process-pool workers - trace IDs are reused across activities and the metric_meter() API is unavailable. User requests native support for OTel logging and metrics in process-pool workers similar to existing OTel tracing support.",
+  "category": "feature",
+  "subcategory": "observability-otel",
+  "apis": [
+    "activity.metric_meter()"
+  ],
+  "components": [
+    "worker",
+    "process-pool",
+    "opentelemetry",
+    "activity-executor",
+    "metrics"
+  ],
+  "concepts": [
+    "observability",
+    "distributed-tracing",
+    "logging",
+    "metrics",
+    "process-isolation",
+    "trace-context",
+    "otel-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly use OpenTelemetry logging and metrics with process-pool workers, making it difficult to instrument sync activities and correlate observability data.",
+  "rootCause": "OpenTelemetry logging and metric providers have known limitations with process-forking models similar to TracingProvider, but unlike TracingProvider, no workaround or native support has been implemented in the Temporal SDK.",
+  "proposedFix": "Implement native support for OpenTelemetry logging and metrics in process-pool workers, or provide guidance on initialization patterns per-process/activity similar to how TracingProvider was handled.",
+  "workaround": "User mentions initializing MeterProvider for each process/activity may be simpler than the global logger approach, but hasn't been fully tested.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal managed to get that to work. Please provide guidance on setting up OTel logging and custom metrics in process-pool-based workers or support them natively",
+  "number": 669,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:57.170Z"
+}

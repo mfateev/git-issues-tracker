@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal history service crashes with nil pointer dereference in statsComputer.computeMutableStateStats when acquiring a shard, causing workflows to become stuck and unable to create or cancel.",
+  "category": "bug",
+  "subcategory": "persistence-stats",
+  "apis": [],
+  "components": [
+    "history-service",
+    "persistence-layer",
+    "shard-manager",
+    "statsComputer"
+  ],
+  "concepts": [
+    "nil-pointer-dereference",
+    "crash-loop",
+    "memory-safety",
+    "workflow-execution",
+    "shard-acquisition"
+  ],
+  "severity": "critical",
+  "userImpact": "Users experience complete service unavailability and inability to create or cancel workflows due to history service crashes.",
+  "rootCause": "Nil pointer dereference in statsComputer.computeMutableStateStats at line 70 of statsComputer.go when computing mutable state statistics during workflow execution retrieval.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue was closed due to no activity after asking user to try the latest server version (1.12.0), suggesting it may have been fixed in a later release.",
+  "related": [],
+  "keyQuote": "panic: runtime error: invalid memory address or nil pointer dereference [signal SIGSEGV: segmentation violation]",
+  "number": 1885,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:20.072Z"
+}

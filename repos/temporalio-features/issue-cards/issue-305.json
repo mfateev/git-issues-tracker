@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to prevent workflow commands from being produced in read-only contexts (query handlers and update validators). Should fail the workflow task gracefully through language-appropriate errors (panic in Go, exceptions in Java) rather than failing the entire workflow.",
+  "category": "feature",
+  "subcategory": "workflow-validation",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "update-validator",
+    "workflow-task-processor"
+  ],
+  "concepts": [
+    "read-only-context",
+    "command-blocking",
+    "error-handling",
+    "workflow-execution",
+    "validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Prevents silent failures and unexpected behavior when developers accidentally issue workflow commands in read-only contexts.",
+  "rootCause": null,
+  "proposedFix": "Implement language-appropriate blocking mechanisms: panic in Go, throw exceptions in Java, with graceful workflow task failure rather than full workflow failure.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1000,
+    1748
+  ],
+  "keyQuote": "Block users, in some language appropriate way, from producing workflow commands in a read only context",
+  "number": 305,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:04.462Z"
+}

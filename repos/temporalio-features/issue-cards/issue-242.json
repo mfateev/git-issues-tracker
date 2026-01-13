@@ -1,0 +1,39 @@
+{
+  "summary": "Implement eager workflow task dispatch on SDKs to reduce latency between WorkflowClient start call and task dispatch to worker. The server can dispatch the first workflow task immediately in the start response, eliminating a transaction and improving performance.",
+  "category": "feature",
+  "subcategory": "workflow-dispatch",
+  "apis": [
+    "WorkflowClient",
+    "WorkerFactory",
+    "Worker",
+    "WorkflowStub",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "worker-factory",
+    "worker",
+    "task-dispatch"
+  ],
+  "concepts": [
+    "eager-dispatch",
+    "latency-reduction",
+    "task-scheduling",
+    "transaction-optimization",
+    "local-worker-awareness"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can achieve lower latency for workflow starts by enabling eager task dispatch when a local worker is available to process tasks immediately.",
+  "rootCause": "Standard workflow task dispatch requires two transactions and a matching step, adding latency between start call and task execution.",
+  "proposedFix": "Add disableEagerExecution flag to WorkflowOptions (default false), implement WorkerFactory registration with WorkflowClient, add reserveWorkflowExecutor and WFTDispatchHandle to Worker, and enable Server to return eager task in start response.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across all SDKs (Java, Go, TypeScript, Python, .NET) with server-side support already in place.",
+  "related": [
+    1646
+  ],
+  "keyQuote": "skip matching for this workflow task; use one transaction instead of two for persisting both the WorkflowExecutionStarted+WorkflowTaskScheduled events and WorkflowTaskStarted event",
+  "number": 242,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:55:12.010Z"
+}

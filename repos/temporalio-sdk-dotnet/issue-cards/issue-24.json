@@ -1,0 +1,35 @@
+{
+  "summary": "User needs to specify activity names at runtime rather than compile-time via attributes. Requests an overload for TemporalWorkerOptions.AddActivity(string name, Delegate del) to support dynamic activity naming.",
+  "category": "feature",
+  "subcategory": "activity-definition",
+  "apis": [
+    "AddActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-definition",
+    "attributes"
+  ],
+  "concepts": [
+    "runtime-configuration",
+    "dynamic-naming",
+    "activity-registration",
+    "compile-time-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now dynamically specify activity names at runtime instead of being limited to compile-time attribute definitions.",
+  "rootCause": "ActivityAttribute can only be applied at compile-time, preventing dynamic activity naming for general-purpose libraries.",
+  "proposedFix": "Add TemporalWorkerOptions.AddActivity(string name, Delegate del) overload to specify activity names explicitly at runtime.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Released via PR #31 with non-attribute definition of activities support.",
+  "related": [
+    27,
+    29,
+    31
+  ],
+  "keyQuote": "A simple solution would be to add a TemporalWorkerOptions.AddActivity(string name, Delegate del) overload that allows me to specify the activity name explicitly.",
+  "number": 24,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:07:12.702Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Using async functions in TypeScript SDK workflows causes severe performance degradation (10-15x slower). The issue is traced to promiseHooks in vm-shared worker that capture stack traces for workflow queries, adding significant overhead to every promise.",
+  "category": "bug",
+  "subcategory": "performance-async",
+  "apis": [],
+  "components": [
+    "worker",
+    "vm-shared",
+    "promise-hooks"
+  ],
+  "concepts": [
+    "performance",
+    "async-functions",
+    "stack-trace-capture",
+    "promise-handling",
+    "overhead"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using async functions experience 10-15x performance degradation compared to sync equivalents, making async code impractical in production workflows.",
+  "rootCause": "promiseHooks in vm-shared.ts captures stack traces via prepareStackTrace for __stack_trace and __enhanced_stack_trace workflow queries, adding overhead on every promise creation in async functions.",
+  "proposedFix": "Investigate methods to reduce runtime overhead of stack trace capture to nearly zero without removing the feature. Potentially add a worker config option to disable stack trace capture if needed.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would however like to investigate first what can be done to reduce the runtime overhead of capturing stack traces on async contexts.",
+  "number": 1587,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:33.593Z"
+}

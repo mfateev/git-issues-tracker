@@ -1,0 +1,31 @@
+{
+  "summary": "TestWorkflowRule enforces a 10-second timeout by default for tests, which is problematic during debugging. The request is to disable this timeout when the TEMPORAL_DEBUG environment variable is present to improve developer productivity.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowRule",
+    "test-framework",
+    "debugging"
+  ],
+  "concepts": [
+    "timeout",
+    "testing",
+    "debugging",
+    "environment-variable",
+    "productivity",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers debugging tests are forced to wait for or work around the 10-second timeout, reducing debugging productivity.",
+  "rootCause": null,
+  "proposedFix": "Disable TestWorkflowRule timeout when TEMPORAL_DEBUG environment variable is present",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement implemented to disable timeouts when TEMPORAL_DEBUG env variable is set",
+  "related": [],
+  "keyQuote": "This is useful during running a build with all tests, but it's annoying for debugging and hurts productivity.",
+  "number": 632,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:30:54.976Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Intermittent UNKNOWN gRPC error occurs when calling describe on workflows in TestWorkflowEnvironment, caused by a NullPointerException when processing pending child execution info during workflow description.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "test-server",
+    "workflow-state",
+    "child-workflow-management"
+  ],
+  "concepts": [
+    "race-condition",
+    "null-pointer",
+    "child-workflows",
+    "test-environment",
+    "concurrency"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using TestWorkflowEnvironment experience intermittent failures when describing workflows with child workflows, making test suites unreliable.",
+  "rootCause": "Race condition in TestWorkflowMutableStateImpl.constructPendingChildExecutionInfo where data.execution can be null when processing child workflow information during describeWorkflowExecution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as a null pointer exception in child execution processing; likely fixed by adding null checks or synchronization.",
+  "related": [],
+  "keyQuote": "Cannot invoke \"io.temporal.api.common.v1.WorkflowExecution.getWorkflowId()\" because \"data.execution\" is null",
+  "number": 2652,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:57.894Z"
+}

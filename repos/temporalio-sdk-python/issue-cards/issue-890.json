@@ -1,0 +1,32 @@
+{
+  "summary": "The pydantic_data_converter incorrectly serializes Pydantic's SecretStr values as asterisks ('*') instead of preserving the actual secret value during activity execution. This prevents users from passing secrets through activities using the SecretStr type.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "execute_workflow"
+  ],
+  "components": [
+    "pydantic_data_converter",
+    "data-serialization",
+    "activity-input"
+  ],
+  "concepts": [
+    "serialization",
+    "secrets",
+    "data-conversion",
+    "pydantic-types",
+    "type-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Pydantic's SecretStr type for passing sensitive data to activities because the values are serialized as asterisks, making them unusable.",
+  "rootCause": "Pydantic intentionally formats SecretStr values as '**********' when converting to JSON to prevent accidental exposure of secrets in logs/serialization.",
+  "proposedFix": null,
+  "workaround": "Use an alternative data type instead of SecretStr for serialization purposes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue is a design limitation of Pydantic itself - SecretStr is intentionally not serializable to prevent secret exposure. Users should choose an alternative data type if they need serializable secrets.",
+  "related": [],
+  "keyQuote": "The SecretStr and SecretBytes will be formatted as either '**********' or '' on conversion to json. It seems Pydantic intentionally doesn't allow serialization of this value.",
+  "number": 890,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:55.215Z"
+}

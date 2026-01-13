@@ -1,0 +1,31 @@
+{
+  "summary": "Dependency security vulnerabilities in martincostello.logging.xunit.0.3.0 package used in tests: two transitive vulnerabilities in System.Text.RegularExpressions (CVE-2019-0820, CVSS 7.5) and System.Net.Http (CVE-2018-8292, CVSS 5.3).",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "dependency-management",
+    "nuget-packages"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-update",
+    "transitive-dependency",
+    "denial-of-service",
+    "information-disclosure",
+    "cvss-rating"
+  ],
+  "severity": "high",
+  "userImpact": "Test dependencies contain unpatched security vulnerabilities that could potentially be exploited in development and testing environments.",
+  "rootCause": "Transitive dependencies (System.Text.RegularExpressions 4.3.0 and System.Net.Http 4.3.0) included via martincostello.logging.xunit 0.3.0 have known CVEs without available fixes in the dependency chain.",
+  "proposedFix": "Upgrade System.Text.RegularExpressions to 4.3.1 and System.Net.Http to 4.3.4 or later versions; consider upgrading martincostello.logging.xunit to a version with non-vulnerable transitive dependencies.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed, likely resolved by upgrading the affected dependencies or updating the test package versions.",
+  "related": [],
+  "keyQuote": "CVE-2019-0820: A denial of service vulnerability exists when .NET Framework and .NET Core improperly process RegEx strings",
+  "number": 19,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:06:59.857Z"
+}

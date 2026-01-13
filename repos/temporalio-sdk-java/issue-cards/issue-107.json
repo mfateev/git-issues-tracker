@@ -1,0 +1,30 @@
+{
+  "summary": "Intermittent test failure in testWorkflowMetrics when running in constrained CI/CD environments. The test asserts a timing constraint (3.39s) that fails sporadically under resource constraints.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "metrics",
+    "test-framework",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timing-constraint",
+    "resource-constraint",
+    "test-flakiness",
+    "ci-environment",
+    "performance-variability"
+  ],
+  "severity": "medium",
+  "userImpact": "Test reliability is compromised in CI/CD environments, causing intermittent build failures that reduce developer confidence in the test suite.",
+  "rootCause": "Test uses hard-coded timing assertions that fail when system resources are constrained, likely due to GC pauses or CPU contention in the CI environment.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as possibly fixed by vitarb, suggesting a solution was implemented to handle timing variability.",
+  "related": [],
+  "keyQuote": "When running in a constrained CI/CD environment it sometimes fails",
+  "number": 107,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:56:44.872Z"
+}

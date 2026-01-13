@@ -1,0 +1,36 @@
+{
+  "summary": "Request to allow workflows to specify benign error exhaustion thresholds for activities, enabling suppression of error logs and metrics for the first N retry attempts while treating subsequent failures as non-benign. This allows activities that poll services to avoid noisy error reporting during expected retry periods.",
+  "category": "feature",
+  "subcategory": "activity-retry-policy",
+  "apis": [
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "error-handling",
+    "retry-logic",
+    "interceptor"
+  ],
+  "concepts": [
+    "retry",
+    "benign-errors",
+    "activity-polling",
+    "error-suppression",
+    "metrics",
+    "thresholds"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot currently suppress error logs and metrics for expected activity retries when polling services, requiring workarounds with context propagators and interceptors.",
+  "rootCause": "Activity benign error classification is controlled at the activity level, not at the activity invocation site in the workflow, preventing flexible per-call configuration of error handling behavior.",
+  "proposedFix": "Add benign exhaustion threshold configuration to ActivityOptions alongside retry policy, with server-side or interceptor-based logic to classify exceptions as BENIGN until thresholds are breached.",
+  "workaround": "Use ContextPropagator and WorkflowThreadLocal to pass benign retry policy from workflow to activity, with activity-side interceptor transforming exceptions to BENIGN when under thresholds.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    704
+  ],
+  "keyQuote": "A workflow will call an activity that polls a service. We don't want error logs and metrics for the first, say, N activity retry attempts, but we want it thereafter.",
+  "number": 8611,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:24.374Z"
+}

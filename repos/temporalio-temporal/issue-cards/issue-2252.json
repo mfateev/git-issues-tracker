@@ -1,0 +1,32 @@
+{
+  "summary": "User-facing error messages when database constraints are violated are opaque and don't indicate the actual problem. For example, a workflow type name exceeding the 255-character limit shows a raw database error instead of actionable guidance.",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "persistence",
+    "database",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-messages",
+    "database-constraints",
+    "user-experience",
+    "validation",
+    "actionable-feedback"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter cryptic database error messages that require understanding of internal schema to diagnose and fix the underlying issue.",
+  "rootCause": "Database constraint violations are returned as raw database errors without interpretation or mapping to user-understandable problems.",
+  "proposedFix": "Create an adapter that interprets database-specific errors and transforms them into actionable user messages that explain the constraint and its limit.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2122
+  ],
+  "keyQuote": "These messages should be actionable by users without understanding the database schema / temporal internals.",
+  "number": 2252,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:11.960Z"
+}

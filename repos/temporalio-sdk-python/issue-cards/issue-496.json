@@ -1,0 +1,29 @@
+{
+  "summary": "The README incorrectly instructs users to mark Pydantic datetime fields as passthrough when they should be marked as unrestricted. The documentation needs correction and should include a code snippet example from the samples repository.",
+  "category": "docs",
+  "subcategory": "pydantic-datetime-serialization",
+  "apis": [],
+  "components": [
+    "pydantic-converter",
+    "readme-documentation"
+  ],
+  "concepts": [
+    "datetime-serialization",
+    "pydantic-configuration",
+    "passthrough-vs-unrestricted",
+    "type-conversion",
+    "documentation-accuracy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following the README are given incorrect instructions for configuring Pydantic datetime fields, leading to potential serialization issues in their workflows.",
+  "rootCause": "README contains outdated or incorrect guidance on Pydantic datetime handling mechanism.",
+  "proposedFix": "Update README to mark datetime as unrestricted instead of passthrough, and include code snippet from samples-python repository demonstrating correct configuration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the right answer is to mark it as unrestricted. Fix this in README, and also consider providing snippet from samples-python",
+  "number": 496,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:57.566Z"
+}

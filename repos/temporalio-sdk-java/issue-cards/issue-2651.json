@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add an overload for WorkflowStub.cancel() that targets the exact workflow execution used to create the stub, rather than the latest workflow in the execution chain.",
+  "category": "feature",
+  "subcategory": "workflow-control",
+  "apis": [
+    "WorkflowStub.cancel"
+  ],
+  "components": [
+    "workflow-stub",
+    "cancellation",
+    "execution-targeting"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "execution-chain",
+    "continue-as-new",
+    "exact-targeting",
+    "api-overload"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably cancel a specific workflow execution instance, forcing them to use the latest workflow ID instead of the exact execution they created the stub with.",
+  "rootCause": null,
+  "proposedFix": "Add an overload for WorkflowStub.cancel() that targets the exact workflow execution instead of the latest workflow in the execution chain, with appropriate warnings about flakiness with continue-as-new.",
+  "workaround": "Potentially set first_execution_run_id (needs verification for cancel operations).",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented as an API overload for precise execution targeting.",
+  "related": [],
+  "keyQuote": "Add overload for `WorkflowStub.cancel` to target exact workflow execution instead of the latest workflow ID/execution chain",
+  "number": 2651,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:37.562Z"
+}

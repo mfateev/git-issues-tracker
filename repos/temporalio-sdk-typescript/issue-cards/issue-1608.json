@@ -1,0 +1,29 @@
+{
+  "summary": "A vulnerability in the hashbrown Rust dependency (GHSA-wwq9-3cpr-mm53) was reported in the TypeScript SDK's core-bridge. The team assessed the risk as low for Temporal's use case since hashbrown is never used in security-sensitive contexts or with user-controlled input.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "rust-dependencies"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency-management",
+    "security",
+    "hashbrown",
+    "cargo"
+  ],
+  "severity": "low",
+  "userImpact": "Minimal direct impact to users as the vulnerable hashbrown dependency is not used in security-sensitive contexts within the SDK.",
+  "rootCause": "hashbrown dependency contained a vulnerability (GHSA-wwq9-3cpr-mm53) in the core-bridge Rust component",
+  "proposedFix": "Update hashbrown and other Rust dependencies to patched versions",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Released version 1.11.7 with updated hashbrown dependency",
+  "related": [],
+  "keyQuote": "this specific issue wouldn't represent a vulnerability in the context of Temporal's TS SDK, as 1) we never use object comparison in any security sensitive context",
+  "number": 1608,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:03.874Z"
+}

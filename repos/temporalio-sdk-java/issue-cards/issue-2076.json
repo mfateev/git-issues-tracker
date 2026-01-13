@@ -1,0 +1,34 @@
+{
+  "summary": "Querying a running workflow causes previously logged messages to be replayed and logged again. During workflow query operations, the replaying flag is incorrectly set to false, causing exception logs to be duplicated when the workflow is replayed to handle the query.",
+  "category": "bug",
+  "subcategory": "workflow-query",
+  "apis": [
+    "WorkflowClient",
+    "newWorkflowStub"
+  ],
+  "components": [
+    "WorkflowStateMachines",
+    "WorkflowExecutionHandler",
+    "query-processing"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "logging",
+    "query-handling",
+    "state-machine",
+    "workflow-execution",
+    "exception-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see duplicate log entries when querying running workflows, causing log spam and difficulty in debugging.",
+  "rootCause": "The replaying flag is being incorrectly set to false during query processing in WorkflowStateMachines, causing logs from workflow replay to be emitted again.",
+  "proposedFix": "Ensure the replaying flag is properly maintained as true during workflow replay operations initiated by queries, as attempted in commit a41c64e.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by commit a41c64ece3876f584ebde70903668b817c5455d8 for inclusion in the next SDK release.",
+  "related": [],
+  "keyQuote": "Querying a workflow generates additional logs... replaying is being set to false... the issue is present in all of them [1.23.1, 1.23.2, master]",
+  "number": 2076,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:55.594Z"
+}

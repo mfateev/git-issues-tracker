@@ -1,0 +1,32 @@
+{
+  "summary": "Update Ruff linter configuration to target Python 3.9 instead of 3.8, completing a previous upgrade that forgot to update this setting.",
+  "category": "other",
+  "subcategory": "build-configuration",
+  "apis": [],
+  "components": [
+    "ruff",
+    "linter-config",
+    "build-system"
+  ],
+  "concepts": [
+    "python-version",
+    "linting",
+    "configuration",
+    "version-targeting",
+    "tooling"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures the linter targets the correct Python version, preventing false positives or misaligned linting rules.",
+  "rootCause": null,
+  "proposedFix": "Update Ruff target version configuration from Python 3.8 to 3.9 in the project settings.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Ruff target version was updated to Python 3.9 as part of the version upgrade maintenance.",
+  "related": [
+    694
+  ],
+  "keyQuote": "we forgot to do this on 3.8 upgrade",
+  "number": 728,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:09.288Z"
+}

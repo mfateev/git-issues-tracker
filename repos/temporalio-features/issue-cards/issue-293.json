@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to expose UpdateID in workflow update handlers, allowing users to access the unique identifier of an update request within handler logic for use cases like continue-as-new, targeted update cancellation, and business process tracking.",
+  "category": "feature",
+  "subcategory": "update-handler",
+  "apis": [
+    "SetUpdateHandlerWithOptions",
+    "GetUpdateInfo"
+  ],
+  "components": [
+    "workflow-update",
+    "update-handler",
+    "workflow-context"
+  ],
+  "concepts": [
+    "update-id",
+    "handler-context",
+    "update-request",
+    "workflow-state",
+    "continue-as-new"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently access the UpdateID within update handlers, limiting their ability to track specific updates or perform update-dependent operations.",
+  "rootCause": null,
+  "proposedFix": "Add GetUpdateInfo(ctx) function similar to existing GetWorkflowInfo/GetActivityInfo that returns UpdateID and potentially other update metadata; also consider exposing UpdateID in interceptors.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1317
+  ],
+  "keyQuote": "Add a way for users to obtain an update requests `UpdateID` in a handler.",
+  "number": 293,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:50.869Z"
+}

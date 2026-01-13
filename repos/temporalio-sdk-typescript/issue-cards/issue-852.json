@@ -1,0 +1,30 @@
+{
+  "summary": "NYC test coverage instrumentation for Jest tests is not generating coverage reports despite following the package documentation. When manually instrumented with NYC, the workflow function body is not being marked as covered even though tests execute successfully.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "nyc-test-coverage",
+    "jest",
+    "workflow-testing",
+    "coverage-instrumentation"
+  ],
+  "concepts": [
+    "code-coverage",
+    "test-instrumentation",
+    "coverage-reporting",
+    "jest-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot obtain accurate code coverage reports for their TypeScript Temporal workflows when using Jest with the NYC test coverage tool.",
+  "rootCause": "Possible issue with how NYC instrument and coverage reporting interacts with the workflow testing setup, or rebuild occurring after instrumentation that overwrites instrumented code.",
+  "proposedFix": null,
+  "workaround": "Use mocha test runner instead of Jest for coverage reporting, though workflow body coverage may still not be captured correctly.",
+  "resolution": "fixed",
+  "resolutionDetails": "Investigator was unable to reproduce the issue in the test suite and coverage appeared to be working correctly in their testing, suggesting the root cause was likely user error (rebuilding after instrumentation) rather than a framework bug.",
+  "related": [],
+  "keyQuote": "My best guess is that you're somehow re-building after manually instrumenting.",
+  "number": 852,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:20:18.122Z"
+}

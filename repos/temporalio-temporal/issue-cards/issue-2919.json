@@ -1,0 +1,32 @@
+{
+  "summary": "DescribeWorkflowExecution API does not work with archived workflows from filestore, S3, or GCloud providers, unlike GetWorkflowExecutionRawHistoryV2 which can display archived workflow histories.",
+  "category": "bug",
+  "subcategory": "archival",
+  "apis": [
+    "DescribeWorkflowExecution",
+    "GetWorkflowExecutionRawHistoryV2"
+  ],
+  "components": [
+    "archival",
+    "mutable-state",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "archival",
+    "workflow-state",
+    "history-retrieval",
+    "storage-providers"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve workflow execution details for archived workflows, limiting visibility into completed workflow executions stored in external archives.",
+  "rootCause": "DescribeWorkflowExecution reads from mutable state, which no longer exists for archived workflows since archival only preserves history events.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be expected behavior - archival only stores history events, not mutable state required by DescribeWorkflowExecution.",
+  "related": [],
+  "keyQuote": "Archival only saved history events, not mutable states. DescribeWorkflow reads info from mutable state. For archived workflow, there is no mutable state anymore.",
+  "number": 2919,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:18.465Z"
+}

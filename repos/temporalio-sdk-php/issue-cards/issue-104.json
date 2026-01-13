@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflows are not automatically inheriting the parent workflow's namespace, requiring manual propagation despite documentation suggesting it should work automatically. This breaks custom namespace configurations until explicitly passed through ChildWorkflowOptions.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "Workflow.newChildWorkflowStub",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "child-workflow-execution",
+    "workflow-options",
+    "namespace-handling"
+  ],
+  "concepts": [
+    "namespace-inheritance",
+    "workflow-context",
+    "configuration-propagation",
+    "parent-child-relationship",
+    "default-values"
+  ],
+  "severity": "high",
+  "userImpact": "Users working with custom namespaces (especially Temporal Cloud) must manually propagate namespace to child workflows or use interceptor workarounds, breaking expected inheritance behavior.",
+  "rootCause": "ChildWorkflowOptions initializes namespace to ClientOptions::DEFAULT_NAMESPACE instead of inheriting the parent workflow's current namespace context.",
+  "proposedFix": "Modify ChildWorkflowOptions to automatically inherit the parent workflow's namespace when not explicitly specified, similar to how TaskQueue is already being transferred.",
+  "workaround": "Manually pass namespace through workflow parameters or use a WorkflowOutboundRequestInterceptor to set namespace on all child workflow requests.",
+  "resolution": "fixed",
+  "resolutionDetails": "The fix ensures namespace is inherited from parent workflow context even when users don't explicitly specify it in ChildWorkflowOptions.",
+  "related": [],
+  "keyQuote": "Namespace should be inherited even when the user has specified options for a ChildWorkflow that don't include a custom Namespace value.",
+  "number": 104,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:50.466Z"
+}

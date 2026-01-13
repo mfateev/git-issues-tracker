@@ -1,0 +1,31 @@
+{
+  "summary": "Create test containers from sdk-features test suite for each SDK to enable continuous testing of different SDK versions against Temporal Cloud and OSS deployments. The approach evolved from creating separate containers per SDK version to building a single reusable sdk-features container that can download and test any SDK language/version/commit hash.",
+  "category": "feature",
+  "subcategory": "test-infrastructure",
+  "apis": [],
+  "components": [
+    "sdk-features",
+    "docker",
+    "test-runner",
+    "sdk-compatibility"
+  ],
+  "concepts": [
+    "containerization",
+    "continuous-testing",
+    "version-compatibility",
+    "e2e-testing",
+    "sdk-versions"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables reliable testing of SDK compatibility across versions and deployments, ensuring users can depend on stable SDK behavior across upgrades.",
+  "rootCause": null,
+  "proposedFix": "Build a single flexible sdk-features container that downloads and runs tests for any SDK language, version, or commit hash, rather than creating separate containers per version.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented by creating a single reusable container that uses a runner to download SDKs and build docker images dynamically for any SDK version.",
+  "related": [],
+  "keyQuote": "build a separate container per SDK version but make sure to use the runner for downloading the SDK and building the docker image",
+  "number": 71,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:47.173Z"
+}

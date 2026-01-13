@@ -1,0 +1,32 @@
+{
+  "summary": "PHP SDK should set the Temporal-Namespace header on every gRPC request, as specified in the features repository specification.",
+  "category": "feature",
+  "subcategory": "grpc-client",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "request-headers",
+    "namespace-handling"
+  ],
+  "concepts": [
+    "grpc",
+    "headers",
+    "namespace",
+    "request-metadata",
+    "client-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the Temporal-Namespace header to be automatically included in all gRPC requests for proper namespace isolation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed, indicating the feature has been implemented",
+  "related": [
+    475
+  ],
+  "keyQuote": "Set Temporal-Namespace header on every gRPC request",
+  "number": 582,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:41:47.765Z"
+}

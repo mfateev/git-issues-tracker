@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add support for workflow metadata query in the Java SDK, aligning with feature specifications and Go SDK implementation.",
+  "category": "feature",
+  "subcategory": "workflow-metadata",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "metadata-service"
+  ],
+  "concepts": [
+    "metadata-query",
+    "workflow-introspection",
+    "cross-sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query workflow metadata in Java SDK, limiting visibility into workflow state and creating inconsistency with other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow metadata query support as described in feature spec and Go SDK implementation",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #335, which tracks the same feature request",
+  "related": [
+    335,
+    486,
+    1565
+  ],
+  "keyQuote": "Duplicate of https://github.com/temporalio/sdk-java/issues/335",
+  "number": 2217,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:02:53.640Z"
+}

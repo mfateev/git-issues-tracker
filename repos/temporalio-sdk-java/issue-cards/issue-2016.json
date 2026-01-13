@@ -1,0 +1,32 @@
+{
+  "summary": "The isReplaying() method incorrectly returns false during workflow replay when a query is executed after a workflow task that doesn't generate commands. This occurs because the replay state is prematurely set to false based on a flawed check in the WorkflowStateMachines class.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "isReplaying"
+  ],
+  "components": [
+    "workflow-state-machines",
+    "replay-engine",
+    "query-handler"
+  ],
+  "concepts": [
+    "replay",
+    "query",
+    "workflow-task",
+    "state-management",
+    "event-processing"
+  ],
+  "severity": "high",
+  "userImpact": "Users get incorrect isReplaying() values when querying workflows during replay, potentially breaking query logic that depends on accurate replay state.",
+  "rootCause": "The replay flag is incorrectly set to false when processing a query after a workflow task that didn't generate a command, due to insufficient conditions in the replay state check at WorkflowStateMachines.java:427.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The flawed replay state check was corrected to properly handle queries after workflow tasks without command generation.",
+  "related": [],
+  "keyQuote": "This check is flawed since if we receive a query after a workflow task that didn't generate a command will cause the Java SDK to incorrectly assume the workflow is no longer replaying.",
+  "number": 2016,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:06.063Z"
+}

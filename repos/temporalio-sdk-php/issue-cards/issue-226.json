@@ -1,0 +1,32 @@
+{
+  "summary": "Add OpenTelemetry tracing support to the PHP SDK, built on top of interceptors. The functionality will be provided in a separate repository.",
+  "category": "feature",
+  "subcategory": "otel-tracing",
+  "apis": [],
+  "components": [
+    "interceptors",
+    "tracing",
+    "opentelemetry"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "instrumentation",
+    "distributed-tracing",
+    "otel"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can instrument their Temporal workflows with OpenTelemetry tracing for better observability and monitoring.",
+  "rootCause": null,
+  "proposedFix": "Implement OTEL tracing support using interceptors, following patterns from other SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Functionality provided in separate repository (sdk-php-interceptors-opentelemetry) after completion of PR #313.",
+  "related": [
+    313
+  ],
+  "keyQuote": "The functionality will be provided in a separate repository (github.com/temporalio/sdk-php-interceptors-opentelemetry).",
+  "number": 226,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:21.970Z"
+}

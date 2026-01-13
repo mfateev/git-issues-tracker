@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal worker needs a background maintenance workflow to clean up stale queue tasks (workflow and activity tasks) even in Cassandra, where tasks are considered stale if their workflow is finished and no poller is actively polling the task queue.",
+  "category": "feature",
+  "subcategory": "maintenance-workflow",
+  "apis": [],
+  "components": [
+    "worker",
+    "scanner",
+    "task-queue",
+    "cassandra"
+  ],
+  "concepts": [
+    "stale-tasks",
+    "cleanup",
+    "maintenance",
+    "queue-management",
+    "background-workflow",
+    "task-polling"
+  ],
+  "severity": "medium",
+  "userImpact": "Without automatic cleanup, stale tasks accumulate in task queues, potentially degrading system performance and consuming storage resources.",
+  "rootCause": null,
+  "proposedFix": "Implement a maintenance workflow similar to the existing scanner service (service/worker/scanner) to identify and remove stale tasks from queues.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A task is considered stale if corresponding workflow is finished and no poller is polling the corresponding task queue.",
+  "number": 1021,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:46:56.825Z"
+}

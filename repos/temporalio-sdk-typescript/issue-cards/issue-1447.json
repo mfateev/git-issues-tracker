@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow users to set search attributes in the dev server startup options, which would translate to --search-attribute command-line flags. This follows the CLI implementation in temporalio/cli#593.",
+  "category": "feature",
+  "subcategory": "dev-server",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "search-attributes",
+    "configuration"
+  ],
+  "concepts": [
+    "search-attributes",
+    "dev-server",
+    "startup-configuration",
+    "cli-integration",
+    "testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users can configure search attributes directly in dev server startup options instead of manually passing command-line flags.",
+  "rootCause": null,
+  "proposedFix": "Implement search attributes parameter in dev server options that translates to --search-attribute calls, matching the CLI implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support search attributes configuration in dev server startup options.",
+  "related": [
+    494
+  ],
+  "keyQuote": "users should be allowed to set search attributes in dev server option that translate to `--search-attribute` calls",
+  "number": 1447,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:18:09.898Z"
+}

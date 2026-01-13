@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to add `id_conflict_policy` argument to `execute_child_workflow()` for Python SDK, similar to the parameter recently added for other workflow start methods. The feature would reduce boilerplate try/except error handling when starting child workflows.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "execute_child_workflow",
+    "start_child_workflow",
+    "get_external_workflow_handle"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-api",
+    "error-handling"
+  ],
+  "concepts": [
+    "id-conflict-policy",
+    "child-workflows",
+    "error-handling",
+    "conflict-resolution",
+    "api-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users must write manual try/except blocks with WorkflowAlreadyStartedError to handle ID conflicts in child workflows, adding complexity that could be simplified with the policy parameter.",
+  "rootCause": "The `id_conflict_policy` parameter was added to the Temporal API but not yet exposed in the Python SDK's child workflow methods.",
+  "proposedFix": "Add `id_conflict_policy` parameter to `execute_child_workflow()` and `start_child_workflow()` methods to match API capabilities.",
+  "workaround": "Manually catch `WorkflowAlreadyStartedError` and use `get_external_workflow_handle()` to retrieve existing child workflow results, or store child handles on the workflow class.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided against adding this parameter, recommending explicit try/except handling as it's clearer for code readability and workflow history semantics.",
+  "related": [
+    359
+  ],
+  "keyQuote": "We recommend using `WorkflowAlreadyStartedError` and consider it a healthy use of try/except. You can wrap it in a helper if needed.",
+  "number": 587,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:01.526Z"
+}

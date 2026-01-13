@@ -1,0 +1,33 @@
+{
+  "summary": "User reports that when a long-lived workflow execution is rescheduled across multiple workers, each worker reports its own gauge metric with outdated values instead of a single consolidated metric. The issue raises questions about whether gauges should be workflow-aware or worker-specific.",
+  "category": "question",
+  "subcategory": "metrics-gauges",
+  "apis": [
+    "Workflow.getMetricScope()"
+  ],
+  "components": [
+    "metrics",
+    "worker",
+    "gauge",
+    "micrometer"
+  ],
+  "concepts": [
+    "gauge",
+    "metric-deduplication",
+    "workflow-scheduling",
+    "worker-affinity",
+    "metric-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Users may see duplicate and stale gauge metrics when workflows are rescheduled across multiple workers, potentially causing confusion about actual metric values.",
+  "rootCause": "Gauges in the metrics system are host/worker-specific, not workflow-aware. When a workflow moves to a new worker, the old worker continues reporting its own gauge instance with the last recorded value.",
+  "proposedFix": "SDK could add a listener interface around workflow scheduling to allow users to evict metric gauges from the registry when workflows stop running on a worker.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Marked invalid because the reported behavior is the expected and correct behavior of worker gauges. Gauges are host-specific metrics, not workflow-isolated. Users should not create unique gauges per workflow.",
+  "related": [],
+  "keyQuote": "This gauge is not some magic Temporal Workflow aware Gauge. It's a standard gauge in this host's metrics set.",
+  "number": 1260,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:19:05.669Z"
+}

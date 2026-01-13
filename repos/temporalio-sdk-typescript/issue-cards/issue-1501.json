@@ -1,0 +1,34 @@
+{
+  "summary": "Activity retry options are not exposed through the activity Info interface in TypeScript SDK, unlike in the Java SDK. This feature request asks to add this capability.",
+  "category": "feature",
+  "subcategory": "activity-configuration",
+  "apis": [
+    "Info"
+  ],
+  "components": [
+    "activity",
+    "activity-interface",
+    "info-interface"
+  ],
+  "concepts": [
+    "retry",
+    "activity-configuration",
+    "options",
+    "api-exposure",
+    "interface-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access activity retry options at runtime through the Info interface, limiting observability and runtime configuration checks.",
+  "rootCause": null,
+  "proposedFix": "Expose retry options in the activity Info interface similar to the Java SDK implementation",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was marked as duplicate of #1210",
+  "related": [
+    1210
+  ],
+  "keyQuote": "Feature request is to add this ability like its possible to do for example in Java sdk.",
+  "number": 1501,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:35:16.233Z"
+}

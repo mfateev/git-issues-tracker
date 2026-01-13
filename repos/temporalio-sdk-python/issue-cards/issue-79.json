@@ -1,0 +1,33 @@
+{
+  "summary": "Python SDK should accept `host:port` format for client configuration instead of requiring full URLs, aligning with other SDKs. The tls_config parameter should be updated to handle both boolean and TLSConfig options.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [
+    "Client"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "configuration"
+  ],
+  "concepts": [
+    "host-port",
+    "tls-configuration",
+    "backwards-compatibility",
+    "sdk-alignment",
+    "client-setup",
+    "url-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can configure the client using consistent `host:port` notation across all Temporal SDKs, improving API consistency and developer experience.",
+  "rootCause": "Python SDK differs from other SDKs by requiring full URLs instead of accepting host:port format.",
+  "proposedFix": "Change tls_config parameter from Optional[TLSConfig] to Union[bool, TLSConfig] with default False. When no scheme is present, set 'http' if tls_config is false or 'https' otherwise. Consider renaming tls_config to tls for consistency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation accepted the proposed solution with parameter changes and scheme handling logic.",
+  "related": [],
+  "keyQuote": "All other SDKs use `host:port`, we should too",
+  "number": 79,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:12.624Z"
+}

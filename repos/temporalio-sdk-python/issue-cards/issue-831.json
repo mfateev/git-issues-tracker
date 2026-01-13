@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to display the retry policy on activity info, allowing developers to inspect retry configuration at runtime.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-info"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-metadata",
+    "configuration-inspection",
+    "runtime-introspection"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would be able to programmatically access retry policy information from ActivityInfo for debugging and monitoring purposes.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to expose retry policy information in ActivityInfo",
+  "related": [
+    615
+  ],
+  "keyQuote": "Show retry policy on activity info",
+  "number": 831,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:35.425Z"
+}

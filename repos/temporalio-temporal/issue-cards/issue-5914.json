@@ -1,0 +1,31 @@
+{
+  "summary": "Activity timeout failure messages and timeoutFailureInfo are mismatched when activity retry exceeds the schedule-to-close timeout. The timeoutFailureInfo is updated but the failure message is not kept in sync, leading to inconsistent error information.",
+  "category": "bug",
+  "subcategory": "activity-timeout",
+  "apis": [],
+  "components": [
+    "timer-queue",
+    "activity-executor",
+    "failure-info"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "activity-lifecycle",
+    "schedule-to-close",
+    "failure-message",
+    "consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive inconsistent failure information when activities timeout after retries, making debugging difficult.",
+  "rootCause": "The timeoutFailureInfo is updated during activity retry timeout handling (timer_queue_active_task_executor.go:307) but the failure message is not updated to match, causing a mismatch between the message and the structured timeout info.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The mismatch between failure message and timeoutFailureInfo was fixed by ensuring both are updated consistently.",
+  "related": [],
+  "keyQuote": "The timeoutFailureInfo got updated but not the failure message.",
+  "number": 5914,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:21.503Z"
+}

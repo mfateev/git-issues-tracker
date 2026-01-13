@@ -1,0 +1,32 @@
+{
+  "summary": "The return type of env.run() in the testing framework is not being inferred from the activity, returning `unknown` instead of the expected type. A user has provided a potential fix but wants guidance on whether it would be a breaking change.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "env.run"
+  ],
+  "components": [
+    "testing",
+    "type-inference",
+    "activity-testing"
+  ],
+  "concepts": [
+    "type-inference",
+    "generics",
+    "testing",
+    "activity-result",
+    "TypeScript"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers testing activities cannot rely on type inference for env.run results, requiring manual type annotations to get proper type checking.",
+  "rootCause": "The env.run generic type parameters are not properly inferring the activity's return type from the function signature.",
+  "proposedFix": "Update generic type parameter inference in env.run to automatically derive return type from the activity function, as shown in the provided commit.",
+  "workaround": "Explicitly pass generic type parameters to env.run: env.run<[InputType], OutputType, typeof activityFunction>(activityFunction, ...)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The return type of env.run is `unknown` when I would expect that it would be inferred from the activity.",
+  "number": 1601,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:03.921Z"
+}

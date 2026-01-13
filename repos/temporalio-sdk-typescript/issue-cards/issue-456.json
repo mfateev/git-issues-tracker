@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to add SAGA (Saga pattern) helpers to the TypeScript SDK for consistency with Java and PHP SDKs, which already include built-in SAGA implementations.",
+  "category": "feature",
+  "subcategory": "saga-pattern",
+  "apis": [],
+  "components": [
+    "sdk-typescript",
+    "samples"
+  ],
+  "concepts": [
+    "saga-pattern",
+    "distributed-transactions",
+    "compensation",
+    "workflow-orchestration",
+    "parity"
+  ],
+  "severity": "low",
+  "userImpact": "Users implementing SAGA patterns would have access to helper utilities similar to those in Java and PHP SDKs, reducing boilerplate code.",
+  "rootCause": null,
+  "proposedFix": "Add SAGA helper utilities to the TypeScript SDK, similar to existing implementations in Java and PHP SDKs.",
+  "workaround": "Implement SAGA pattern manually in user code or reference sample implementations.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided not to implement built-in helpers, preferring to provide SAGA examples in samples instead. Will reconsider if demand increases.",
+  "related": [],
+  "keyQuote": "Decided not to do this for now, we'll reopen if we see demand.",
+  "number": 456,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:52.614Z"
+}

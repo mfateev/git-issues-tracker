@@ -1,0 +1,31 @@
+{
+  "summary": "Add Summary field to Nexus operations, similar to the existing Summary support for activities and child workflows. This cross-SDK feature request seeks consistent access to operation metadata across all SDK implementations.",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "Summary"
+  ],
+  "components": [
+    "nexus-operation",
+    "sdk-core",
+    "operation-metadata"
+  ],
+  "concepts": [
+    "operation-context",
+    "metadata-exposure",
+    "cross-sdk-consistency",
+    "nexus-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access summary information for Nexus operations, limiting visibility into operation context compared to activities and child workflows.",
+  "rootCause": null,
+  "proposedFix": "Expose Summary field in Nexus operation metadata across all SDKs, consistent with how it is currently exposed for activities and child workflows.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add `Summary` to Nexus operation like we have for activities or child workflow",
+  "number": 610,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:26:24.591Z"
+}

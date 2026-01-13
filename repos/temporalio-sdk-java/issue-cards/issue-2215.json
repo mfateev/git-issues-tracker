@@ -1,0 +1,36 @@
+{
+  "summary": "Test Server does not correctly treat internal errors from Nexus operations as retryable. When a Nexus operation throws an internal error (RuntimeException), the test server marks it as non-retryable when it should be retryable.",
+  "category": "bug",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "Workflow.newNexusServiceStub",
+    "NexusOperationOptions",
+    "NexusServiceOptions"
+  ],
+  "components": [
+    "test-server",
+    "nexus-operations",
+    "error-handling",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retryable-errors",
+    "internal-errors",
+    "nexus-operations",
+    "error-classification",
+    "test-framework",
+    "timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Users testing Nexus operations with the test server cannot properly test retry behavior for internal errors, leading to incorrect test coverage and potential production issues.",
+  "rootCause": "Test server's error handling logic incorrectly classifies internal errors from Nexus operations as non-retryable instead of retryable.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test server error handling for Nexus operations was updated to properly treat internal errors as retryable.",
+  "related": [],
+  "keyQuote": "Test server treats internal errors from nexus operations as non-retryable",
+  "number": 2215,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:02:37.745Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Version ranges for dependencies are lost during artifact publication to Nexus, being replaced with strict requirements. This causes dependency conflicts for Temporal users.",
+  "category": "bug",
+  "subcategory": "artifact-publication",
+  "apis": [],
+  "components": [
+    "gradle-publication",
+    "nexus-repository",
+    "dependency-management"
+  ],
+  "concepts": [
+    "version-ranges",
+    "dependency-constraints",
+    "artifact-metadata",
+    "gradle-modules",
+    "nexus-publication"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience dependency conflicts and struggle with the dependency matrix due to overly strict version requirements in published artifacts.",
+  "rootCause": "Version ranges are not being preserved during the Gradle publication process to Nexus, likely due to Gradle module metadata (POM or .module file) generation replacing ranges with locked versions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the publication process was updated to preserve version ranges in artifacts.",
+  "related": [],
+  "keyQuote": "The version ranges are lost during publication and replaced with strict requirements as may be seen here",
+  "number": 964,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:55:36.029Z"
+}

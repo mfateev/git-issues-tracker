@@ -1,0 +1,34 @@
+{
+  "summary": "TestActivityEnvironment lacks support for setting heartbeat details to test Activity methods that resume from previous heartbeats. Currently, the test framework cannot simulate retries or persist heartbeat data, making it difficult to test resumable activities.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestActivityEnvironment",
+    "HeartbeatDetails"
+  ],
+  "components": [
+    "testing",
+    "activity-executor",
+    "test-activity-environment"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-retry",
+    "resumable-workflow",
+    "test-simulation",
+    "checkpoint",
+    "fault-tolerance"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot easily test long-running activities that use heartbeats to resume from checkpoints after failures.",
+  "rootCause": "TestActivityEnvironment does not provide a mechanism to set or retrieve heartbeat details before activity execution, and treats all exceptions as non-retryable.",
+  "proposedFix": "Add setHeartbeatDetails() method to TestActivityEnvironment that accepts activity name and heartbeat payload, with corresponding getHeartbeatDetails() called during executeActivity execution.",
+  "workaround": "Use TestWorkflowEnvironment with an ad-hoc workflow that wraps the activity being tested, or refactor activities to avoid heartbeat dependency in tests.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented setHeartbeatDetails method in TestActivityEnvironment to allow simulating previous heartbeat calls during activity testing.",
+  "related": [],
+  "keyQuote": "It doesn't seem easy (or possible) to test Activity methods which make use of HeartbeatDetails for resuming an aborted process",
+  "number": 1310,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:24:46.606Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Request to add ActivityExecutionContext#isCancelled method to allow activities to check cancellation status without heartbeating. Currently, activities can only detect cancellation through heartbeat exceptions, which is problematic for non-heartbeating and local activities that have no way to be notified of cancellation.",
+  "category": "feature",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "ActivityExecutionContext",
+    "isCancelled"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-context",
+    "local-activity",
+    "heartbeat-mechanism"
+  ],
+  "concepts": [
+    "cancellation",
+    "activity-timeout",
+    "interruption",
+    "context-flag",
+    "heartbeat-alternative"
+  ],
+  "severity": "high",
+  "userImpact": "Activities currently lack a clean, non-heartbeat mechanism to detect cancellation, making it difficult to implement proper cancellation handling in local activities and non-heartbeating activities.",
+  "rootCause": "The SDK's current cancellation notification design relies exclusively on heartbeat exceptions, which doesn't work for activities that don't heartbeat or for local activities that don't heartbeat at all.",
+  "proposedFix": "Add ActivityExecutionContext#isCancelled method as a flag-based alternative to heartbeat exception handling, with a possible additional method returning detailed cancellation reasons.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1004
+  ],
+  "keyQuote": "Not all activities need to heartbeat and making them do it just to check for cancelation is ugly.",
+  "number": 1005,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:58:59.837Z"
+}

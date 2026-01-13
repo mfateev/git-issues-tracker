@@ -1,0 +1,31 @@
+{
+  "summary": "The @grpc/grpc-js library version 1.13.0 fails to connect to the custom HTTP proxy used in TypeScript harness testing, causing proxy-related tests to fail. An override to version 1.10.10 was added as a workaround, but needs investigation to determine if this is a proxy artifact or a broader compatibility issue.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "grpc-js",
+    "http-proxy",
+    "test-harness"
+  ],
+  "concepts": [
+    "dependency-pinning",
+    "version-compatibility",
+    "proxy-connection",
+    "testing-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "TypeScript harness users cannot upgrade to the latest gRPC library without breaking proxy-based tests.",
+  "rootCause": "Compatibility issue between @grpc/grpc-js 1.13.0 and the custom HTTP proxy implementation used for testing",
+  "proposedFix": "Investigate the root cause of the incompatibility between gRPC 1.13.0 and the proxy to enable removal of the version pin",
+  "workaround": "Pin @grpc/grpc-js to version 1.10.10",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by pinning the dependency; investigation is pending to determine if removal of the pin is possible",
+  "related": [
+    611
+  ],
+  "keyQuote": "The latest @grpc/grpc-js library 1.13.0 fails to connect to our custom http proxy for testing, and two related proxy features fail.",
+  "number": 612,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:43:39.227Z"
+}

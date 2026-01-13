@@ -1,0 +1,32 @@
+{
+  "summary": "Namespace lookup in the UI and API is case-sensitive, but namespace names are displayed in lowercase. Clicking on a namespace in the UI fails because it constructs URLs with the lowercased name instead of the original case-sensitive name that the service expects.",
+  "category": "bug",
+  "subcategory": "namespace-lookup",
+  "apis": [
+    "ListOpenWorkflowExecutions"
+  ],
+  "components": [
+    "ui",
+    "namespace-service",
+    "api-gateway"
+  ],
+  "concepts": [
+    "case-sensitivity",
+    "namespace-resolution",
+    "ui-routing",
+    "api-consistency",
+    "url-construction"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot access namespaces through the UI if the namespace name contains uppercase letters, receiving internal errors instead.",
+  "rootCause": "Namespace names are displayed in lowercase in the UI, but the service performs case-sensitive lookups. The UI constructs URLs using the lowercased display name instead of the original case-sensitive namespace identifier.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by fetching namespace names directly from the temporal service, ensuring case-sensitivity is handled correctly throughout the lookup chain.",
+  "related": [],
+  "keyQuote": "this is not an issue anymore since the namespace names are actually fetched from the temporal service",
+  "number": 289,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:25:33.003Z"
+}

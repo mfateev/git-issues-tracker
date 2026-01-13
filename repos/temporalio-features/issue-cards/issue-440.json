@@ -1,0 +1,42 @@
+{
+  "summary": "Feature request to integrate the Cloud Ops API client into Temporal SDKs. This involves creating high-level cloud clients separate from existing SDK clients while sharing underlying gRPC service mechanisms across all language SDKs.",
+  "category": "feature",
+  "subcategory": "cloud-api-client",
+  "apis": [],
+  "components": [
+    "cloud-client",
+    "grpc-service",
+    "connection-management",
+    "rpc-metadata"
+  ],
+  "concepts": [
+    "cloud-operations",
+    "api-integration",
+    "sdk-client",
+    "high-level-wrapper",
+    "multi-language-support",
+    "service-mechanism"
+  ],
+  "severity": "high",
+  "userImpact": "Enables users to interact with Temporal Cloud operations through native SDK clients in all supported languages.",
+  "rootCause": null,
+  "proposedFix": "Create separate high-level cloud clients per SDK language that share underlying gRPC logic but maintain independence from namespace-specific clients. Integrate metrics and RPC metadata handling consistently across SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Approach was deprecated in favor of creating separate Cloud SDKs per language (cloud-sdk-go started). Cloud service APIs in existing SDKs will be removed once language-specific cloud SDKs are available.",
+  "related": [
+    1459,
+    2059,
+    737,
+    1416,
+    522,
+    244,
+    476,
+    378,
+    20
+  ],
+  "keyQuote": "We are making Cloud SDKs in each language. We have started with cloud-sdk-go and will be making others.",
+  "number": 440,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:17.902Z"
+}

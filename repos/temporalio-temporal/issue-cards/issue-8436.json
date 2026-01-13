@@ -1,0 +1,30 @@
+{
+  "summary": "PostgreSQL connection configuration does not support sslmode=verify-ca because the code unconditionally sets sslmode to require/disable/verify-full based on TLS settings, causing a duplicate connection attribute panic when users try to override it.",
+  "category": "bug",
+  "subcategory": "postgresql-ssl-configuration",
+  "apis": [],
+  "components": [
+    "postgresql-session",
+    "sql-persistence",
+    "tls-configuration"
+  ],
+  "concepts": [
+    "ssl-mode",
+    "connection-attributes",
+    "certificate-verification",
+    "postgresql-driver",
+    "configuration-override"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use PostgreSQL's verify-ca SSL mode, which provides certificate verification without hostname verification, forcing them to use less secure or overly strict alternatives.",
+  "rootCause": "The buildDSNAttr function in postgresql/session/session.go unconditionally sets sslmode based on cfg.TLS settings, then iterates over cfg.ConnectAttributes and panics if any key already exists in the parameters, making it impossible to override or use alternate SSL modes.",
+  "proposedFix": "Add an EnableCaVerification field to TLS config and modify the SSL mode logic to set sslMode to verify-ca when this flag is enabled, or allow ConnectAttributes to override the auto-set sslmode instead of panicking.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by implementing support for verify-ca SSL mode in the PostgreSQL connection configuration.",
+  "related": [],
+  "keyQuote": "duplicate connection attr: sslmode:require, sslmode:verify-ca when cfg.TLS.Enabled == true",
+  "number": 8436,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:07.345Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Signal requestID is not carried over when a workflow is reset, breaking deduplication for signals that were sent before the reset. The signal event is picked up in the new run but its corresponding requestID is lost.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-reset",
+    "signal-deduplication",
+    "event-history"
+  ],
+  "concepts": [
+    "signal-deduplication",
+    "workflow-reset",
+    "requestID",
+    "event-replay",
+    "state-preservation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose signal deduplication guarantees after workflow reset, potentially allowing duplicate signal processing when signals are re-executed.",
+  "rootCause": "Signal requestID is not being carried forward when the workflow history is reset, only the signal event itself is preserved.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "After reset, signal event got picked but not signal request ID.",
+  "number": 4028,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:34.965Z"
+}

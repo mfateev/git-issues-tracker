@@ -1,0 +1,31 @@
+{
+  "summary": "Multiple CVEs discovered in the temporalio/admin-tools:1.29 Docker image, including critical and high-severity vulnerabilities in sqlite, golang.org/x/net, and OpenTelemetry dependencies that require package updates.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "admin-tools",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "cve",
+    "dependency-update",
+    "docker-image",
+    "vulnerability-scanning",
+    "package-management"
+  ],
+  "severity": "critical",
+  "userImpact": "Users running the admin-tools Docker image are exposed to critical and high-severity security vulnerabilities that could be exploited.",
+  "rootCause": "Outdated dependencies with known CVEs in the Docker image build, including sqlite 3.49.2-r0, golang.org/x/net v0.35.0, and go.opentelemetry.io/contrib v0.36.4.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Team indicated they are reworking Docker images to address these vulnerabilities soon.",
+  "related": [],
+  "keyQuote": "We are reworking our docker images and many of these issues will be addressed soon.",
+  "number": 8535,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:48.975Z"
+}

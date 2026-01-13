@@ -1,0 +1,33 @@
+{
+  "summary": "Task backlog metrics in the matching service persist incorrectly after task queue partitions move between pods during rebalancing. The matching service should reset gauge metrics to zero when queues are unloaded.",
+  "category": "bug",
+  "subcategory": "metrics-matching-service",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "task-queue",
+    "metrics",
+    "rebalancing"
+  ],
+  "concepts": [
+    "backlog-metrics",
+    "gauge-reset",
+    "partition-movement",
+    "unloading",
+    "pod-rebalancing"
+  ],
+  "severity": "medium",
+  "userImpact": "Incorrect task backlog metrics can mislead monitoring and alerting systems about queue health during task queue rebalancing.",
+  "rootCause": "Gauge metrics are not reset to zero when task queue partitions are unloaded during rebalancing between pods.",
+  "proposedFix": "Reset gauge metrics to zero when queues are unloaded during rebalancing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #8375, though local replication was challenging so the fix is being actively monitored in production.",
+  "related": [
+    8375
+  ],
+  "keyQuote": "The matching service should reset gauge metrics to zero when queues are unloaded during rebalancing.",
+  "number": 8297,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:49.329Z"
+}

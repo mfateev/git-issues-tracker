@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow Task pollers should implement backpressure by pausing polling when no executor threads are available, rather than continuously polling and causing task backlog. This prevents configuration imbalances between pollers and executors from creating significant delays.",
+  "category": "feature",
+  "subcategory": "workflow-task-polling",
+  "apis": [],
+  "components": [
+    "poller",
+    "executor",
+    "workflow-task-processor"
+  ],
+  "concepts": [
+    "backpressure",
+    "polling",
+    "thread-pool",
+    "queue-management",
+    "load-balancing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experiencing misconfigured poller/executor ratios will see reduced task processing delays and better adaptive behavior to workload changes.",
+  "rootCause": "Pollers always poll first before attempting to send tasks to executors, causing task backlog when executor capacity is limited.",
+  "proposedFix": "Implement backpressure logic to pause polling until a processing thread becomes available, similar to the activity polling implementation.",
+  "workaround": "Manually scale by decreasing pollers or increasing worker threads to match workload.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #1431 with backpressure mechanism for workflow task pollers.",
+  "related": [
+    286,
+    1431
+  ],
+  "keyQuote": "Poller should pause polling in this case until a processing thread is freed up.",
+  "number": 760,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:40:51.420Z"
+}

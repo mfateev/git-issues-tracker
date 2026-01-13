@@ -1,0 +1,30 @@
+{
+  "summary": "User requested the ability to inject dynamic config files into the Temporal Docker image, making server configuration more flexible for containerized deployments. The request was resolved by confirming that dynamic config file paths are already configurable via the DYNAMIC_CONFIG_FILE_PATH environment variable.",
+  "category": "feature",
+  "subcategory": "deployment-configuration",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "dynamic-config",
+    "server-configuration"
+  ],
+  "concepts": [
+    "configuration-injection",
+    "environment-variables",
+    "docker-deployment",
+    "volume-mounting",
+    "kubernetes-deployment"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now configure dynamic config files for Temporal server deployments using environment variables and volume mounts.",
+  "rootCause": null,
+  "proposedFix": "Expose dynamic config file path as an environment variable (DYNAMIC_CONFIG_FILE_PATH) for the server Docker image.",
+  "workaround": "Attach a volume to the Docker image and pass the config file path using the DYNAMIC_CONFIG_FILE_PATH environment variable.",
+  "resolution": "fixed",
+  "resolutionDetails": "Dynamic config file path is already configurable via DYNAMIC_CONFIG_FILE_PATH environment variable, implemented in commit 2a4449cc764dc4d24e226525e85ce0a05539dfab.",
+  "related": [],
+  "keyQuote": "you could volume mount a config file at runtime and set the `DYNAMIC_CONFIG_FILE_PATH` env var to tell the temporal server which path to read the config from",
+  "number": 321,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:14.246Z"
+}

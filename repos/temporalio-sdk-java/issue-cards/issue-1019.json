@@ -1,0 +1,30 @@
+{
+  "summary": "Java SDK should log long poll failures similar to Core and Go implementations to help with debugging and monitoring without spamming logs.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "polling",
+    "logging",
+    "worker"
+  ],
+  "concepts": [
+    "long-polling",
+    "failure-logging",
+    "observability",
+    "log-frequency",
+    "debugging"
+  ],
+  "severity": "low",
+  "userImpact": "Users lack visibility into long poll failures in Java SDK, making it harder to diagnose connection and polling issues compared to other language SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement logging of long poll failures with frequency throttling to match Go SDK implementation (PR #708).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This is already implemented in Core and now in Go. Java should have the same behavior.",
+  "number": 1019,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:00:20.077Z"
+}

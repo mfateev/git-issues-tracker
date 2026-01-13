@@ -1,0 +1,32 @@
+{
+  "summary": "Test server's update/poll-update endpoints should implement proper long-poll timeout behavior instead of potentially throwing timeout exceptions. The timeout should either match the get-history call's 20-second hardcoded value or be set to 10 seconds before the user-set deadline.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "update-polling",
+    "long-poll-handler"
+  ],
+  "concepts": [
+    "long-polling",
+    "timeout",
+    "deadline",
+    "poll-update",
+    "test-framework"
+  ],
+  "severity": "medium",
+  "userImpact": "Test server may throw timeout exceptions during update/poll-update operations, causing flaky or failing tests for users relying on proper long-poll behavior.",
+  "rootCause": "Test server does not properly implement long-poll timeout semantics for update/poll-update endpoints, potentially causing premature timeout exceptions.",
+  "proposedFix": "Update the test server to handle update/poll-update long-poll timeouts similar to get-history (either use hardcoded 20s or set to 10s before user-set deadline).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing proper long-poll timeout behavior in the test server for update/poll-update endpoints.",
+  "related": [
+    1903
+  ],
+  "keyQuote": "Start/poll update long poll timeout should return empty response. This could be updated to just match the get-history call which is hardcoded to 20s",
+  "number": 2142,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:13.027Z"
+}

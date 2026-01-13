@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add PARENT_CLOSE_POLICY_DISCONNECTED mode for child workflows that completely disconnects them from parent supervision, eliminating overhead and UnhandledCommand errors. Child start events are reported but completion/failure events are not, and parent completion doesn't affect the child.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartChildWorkflow",
+    "ParentClosePolicy"
+  ],
+  "components": [
+    "workflow-execution",
+    "child-workflow",
+    "parent-close-policy"
+  ],
+  "concepts": [
+    "disconnected-workflows",
+    "parent-child-relationship",
+    "performance-optimization",
+    "workflow-supervision",
+    "event-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot start independent child workflows without incurring performance overhead and UnhandledCommand errors from completion/failure event handling.",
+  "rootCause": "Current ParentClosePolicy options always maintain parent-child event coupling, even when child independence is desired.",
+  "proposedFix": "Add DISCONNECTED mode to ParentClosePolicy where only ChildWorkflowExecutionStartedEvent is reported to parent, while completion and failure events are not.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It is not possible to start child workflows in a fully disconnected mode which will not report completion/failure to the parent.",
+  "number": 5725,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:56.787Z"
+}

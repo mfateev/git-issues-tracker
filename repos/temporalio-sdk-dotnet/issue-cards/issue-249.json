@@ -1,0 +1,32 @@
+{
+  "summary": "Request to delay workflow completion until all coroutines have settled in the task, preventing premature completion before all async operations finish.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "coroutine-manager",
+    "task-completion"
+  ],
+  "concepts": [
+    "coroutine-settlement",
+    "workflow-completion",
+    "async-operations",
+    "timing",
+    "task-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows may complete prematurely before all async operations have finished, causing data loss or incomplete execution.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation of coroutine settlement check before workflow completion in the task completion logic.",
+  "related": [
+    481
+  ],
+  "keyQuote": "Do not set workflow completion until after all coroutines have settled in the task",
+  "number": 249,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:37:43.313Z"
+}

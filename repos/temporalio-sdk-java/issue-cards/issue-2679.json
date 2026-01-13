@@ -1,0 +1,36 @@
+{
+  "summary": "User reported that WorkflowIdReusePolicy.WORKFLOW_ID_REUSE_POLICY_REJECT_DUPLICATE does not throw WorkflowExecutionAlreadyStarted when executing a workflow with a duplicate ID, but the issue was clarified as expected behavior: the SDK attaches to existing workflows instead of throwing exceptions when using execute().",
+  "category": "docs",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowClient.newWorkflowStub",
+    "WorkflowClient.execute",
+    "WorkflowClient.start",
+    "WorkflowOptions",
+    "WorkflowIdReusePolicy"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-invocation-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-reuse-policy",
+    "duplicate-detection",
+    "workflow-attachment",
+    "exception-handling",
+    "api-behavior"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about exception behavior when reusing workflow IDs, as the SDK attaches to existing executions rather than throwing exceptions as the javadoc suggests.",
+  "rootCause": "Javadoc and exception handling behavior were out of sync; the SDK design intentionally attaches to existing workflows on reuse rather than throwing exceptions, but this was not clearly documented.",
+  "proposedFix": null,
+  "workaround": "Use WorkflowClient.start() instead of execute() if you want WorkflowExecutionAlreadyStarted to be thrown on duplicate workflow IDs.",
+  "resolution": "invalid",
+  "resolutionDetails": "Maintainer clarified this is expected behavior by design; the SDK attaches to existing workflow executions instead of throwing exceptions when using execute(). Users should use start() if exceptions are desired.",
+  "related": [],
+  "keyQuote": "This behavior is by design. When the workflow is started by calling the stub's workflow method, or by calling WorkflowClient::execute, it waits for the result of the workflow... it will attach to the existing workflow execution",
+  "number": 2679,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:04.839Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Invalid task tokens passed to activityCompletionClient.complete() cause a timeout instead of an immediate error. The server correctly rejects the token but returns UNKNOWN status code, which all SDKs treat as retryable, resulting in multi-minute timeouts.",
+  "category": "bug",
+  "subcategory": "activity-completion",
+  "apis": [
+    "activityCompletionClient.complete"
+  ],
+  "components": [
+    "grpc-client",
+    "activity-completion",
+    "grpc-retry",
+    "error-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "invalid-token",
+    "grpc-status",
+    "error-response"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience long timeouts (several minutes) when accidentally using invalid task tokens instead of getting immediate errors, degrading debugging experience.",
+  "rootCause": "Server returns UNKNOWN gRPC status code for invalid task tokens. All SDKs treat UNKNOWN as retryable, causing retry loops until timeout instead of failing immediately.",
+  "proposedFix": "Server should return a different status code like INVALID_ARGUMENTS for invalid task tokens instead of UNKNOWN to prevent retryable behavior.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the server realized the invalid task token and returned the error immediately to the client. However, by design the grpcRetryer implementation catches this error, keeps retrying until expiration",
+  "number": 5171,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:17.770Z"
+}

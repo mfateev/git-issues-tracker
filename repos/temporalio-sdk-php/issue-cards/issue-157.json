@@ -1,0 +1,32 @@
+{
+  "summary": "Integrate test server into the PHP SDK testing framework, similar to implementations in Java and TypeScript SDKs. This would provide a standardized way to test Temporal workflows without requiring a full server setup.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing-framework",
+    "test-server",
+    "test-utilities"
+  ],
+  "concepts": [
+    "testing",
+    "test-isolation",
+    "server-integration",
+    "testing-infrastructure",
+    "workflow-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can more easily test Temporal workflows in the PHP SDK with a lightweight test server, improving the testing experience and consistency across SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement test server integration following the patterns established in the Java SDK (temporal-test-server) and TypeScript SDK (PR #543).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented in the PHP SDK testing framework following the established patterns from other SDKs.",
+  "related": [
+    1158
+  ],
+  "keyQuote": "Is blocked by https://github.com/temporalio/sdk-java/issues/1158",
+  "number": 157,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:52.907Z"
+}

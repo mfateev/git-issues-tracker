@@ -1,0 +1,32 @@
+{
+  "summary": "The OpenTelemetry interceptor lacks support for tracing propagation on inbound update requests. A comprehensive review is needed to identify and implement any other missing hooks in the interceptor.",
+  "category": "feature",
+  "subcategory": "observability-tracing",
+  "apis": [
+    "update"
+  ],
+  "components": [
+    "otel-interceptor",
+    "tracing",
+    "propagation"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "observability",
+    "instrumentation",
+    "context-propagation",
+    "hooks"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly trace inbound update requests in distributed systems, limiting observability and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement tracing propagation for inbound update requests and conduct a comprehensive review of the OTel interceptor for other missing hooks.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The OTel interceptor currently does not support tracing propagation on inbound update requests. We need to implement it.",
+  "number": 1678,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:02.864Z"
+}

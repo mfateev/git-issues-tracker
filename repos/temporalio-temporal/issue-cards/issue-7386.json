@@ -1,0 +1,31 @@
+{
+  "summary": "Internal frontend HTTP port (7246) for Nexus operations is not listening despite being configured, causing connection refused errors when attempting cross-namespace Nexus communication. The service only listens on gRPC port 7236 instead of the configured HTTP port.",
+  "category": "bug",
+  "subcategory": "nexus-operations",
+  "apis": [],
+  "components": [
+    "internal-frontend",
+    "nexus-operations",
+    "http-server"
+  ],
+  "concepts": [
+    "nexus",
+    "cross-namespace-communication",
+    "port-binding",
+    "configuration",
+    "http-endpoint",
+    "network-connectivity"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Nexus endpoints for cross-namespace communication as the required HTTP port on internal frontend is not accessible.",
+  "rootCause": "Internal frontend HTTP port (7246) is not being bound/listened on despite being configured, only gRPC port 7236 is active",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was acknowledged and team indicated they are investigating",
+  "related": [],
+  "keyQuote": "dial tcp 10.1.251.74:7246: connect: connection refused",
+  "number": 7386,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:19.786Z"
+}

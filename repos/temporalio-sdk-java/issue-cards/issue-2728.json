@@ -1,0 +1,32 @@
+{
+  "summary": "ScheduleRange constructor has a duplicate validation check for the step parameter instead of checking the end parameter. The code checks step twice when it should validate that end is within valid bounds.",
+  "category": "bug",
+  "subcategory": "schedule-validation",
+  "apis": [
+    "ScheduleRange"
+  ],
+  "components": [
+    "schedule",
+    "validation",
+    "preconditions"
+  ],
+  "concepts": [
+    "input-validation",
+    "typo",
+    "parameter-checking",
+    "precondition",
+    "bounds-checking"
+  ],
+  "severity": "low",
+  "userImpact": "Users creating ScheduleRange objects with invalid end values may not receive appropriate validation errors due to the missing check.",
+  "rootCause": "Typo in validation logic: step parameter is checked twice instead of checking both step and end parameters.",
+  "proposedFix": "Replace the second step >= 0 check with end >= 0 check in the Preconditions.checkState() call.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Why do we need to check step twice?",
+  "number": 2728,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:01.612Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add a user_identity field to HistoryEvent that captures the identity of users who initiated events like signals and cancellation requests. This field should be set by the server based on context and work consistently across OSS and cloud deployments.",
+  "category": "feature",
+  "subcategory": "history-events",
+  "apis": [
+    "HistoryEvent"
+  ],
+  "components": [
+    "history",
+    "server",
+    "events",
+    "authorization"
+  ],
+  "concepts": [
+    "user-identity",
+    "signals",
+    "cancellation",
+    "history-events",
+    "server-context",
+    "authorization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to track which users initiated events like signals and cancellation requests, enabling better auditing and authorization decisions.",
+  "rootCause": null,
+  "proposedFix": "Add a user_identity field to HistoryEvent that is set by the server for user-initiated events (signals, cancellation requests) based on context.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need something like `HistoryEvent.user_identity` that is set for any events that are initiated by users (so signals and cancellation requests and such, but not timer firing).",
+  "number": 8538,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:58.971Z"
+}

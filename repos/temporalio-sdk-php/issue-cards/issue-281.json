@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add EnumType support by default for PHP 8.1 and later versions. This would leverage PHP 8.1's native enum feature to improve type safety in the SDK.",
+  "category": "feature",
+  "subcategory": "type-system",
+  "apis": [],
+  "components": [
+    "type-system",
+    "php-runtime"
+  ],
+  "concepts": [
+    "enum",
+    "type-safety",
+    "php-version",
+    "native-types"
+  ],
+  "severity": "low",
+  "userImpact": "Users on PHP 8.1+ would benefit from native enum type support, providing better type safety and IDE support.",
+  "rootCause": null,
+  "proposedFix": "Add EnumType support for PHP >=8.1 by default in the SDK",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "EnumType support was added for PHP 8.1+",
+  "related": [
+    278
+  ],
+  "keyQuote": "I think we should add the `EnumType` by default for PHP >=8.1",
+  "number": 281,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:51.444Z"
+}

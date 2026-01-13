@@ -1,0 +1,31 @@
+{
+  "summary": "The CLI workflow start command fails to parse the --input parameter when it contains multiple arguments. The processJSONInput function cannot unmarshal the input because it expects valid JSON, but the CLI documentation suggests users should be able to pass multiple space-separated arguments.",
+  "category": "bug",
+  "subcategory": "cli-input-parsing",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "cli",
+    "tctl",
+    "input-parser"
+  ],
+  "concepts": [
+    "json-parsing",
+    "command-line-arguments",
+    "input-marshaling",
+    "parameter-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot start workflows with multiple input parameters via the CLI, blocking a documented workflow operation.",
+  "rootCause": "The processJSONInput function attempts to unmarshal space-separated arguments as a single JSON value, but JSON format requires proper structure and doesn't support bare values separated by spaces.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was acknowledged by a maintainer as needing a proper fix after a quick fix was applied for single parameter support.",
+  "related": [],
+  "keyQuote": "CLI should be able to start a workflow with --input param containing multiple args",
+  "number": 502,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:03:06.529Z"
+}

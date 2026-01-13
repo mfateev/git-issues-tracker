@@ -1,0 +1,30 @@
+{
+  "summary": "temporal-sql-tool requires client certificates to establish TLS connections, even when the server doesn't require them. The tool fails with 'must provide tls certs to use' error when TLS is enabled but client certs are not provided.",
+  "category": "bug",
+  "subcategory": "cli-tools",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "tls-configuration",
+    "client-connection"
+  ],
+  "concepts": [
+    "tls",
+    "client-certificates",
+    "database-connection",
+    "configuration",
+    "ssl-verification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot run temporal-sql-tool with TLS-enabled databases that don't require client certificates, blocking schema setup operations.",
+  "rootCause": "temporal-sql-tool incorrectly requires client certificates for all TLS connections instead of making them optional when the server doesn't mandate them.",
+  "proposedFix": null,
+  "workaround": "Upgrade to temporalio/admin-tools:1.29.0-tctl-1.18.4-cli-1.4.2 or later, where this issue is resolved.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed in a later version (admin-tools:1.29.0-tctl-1.18.4-cli-1.4.2). User confirmed the problem no longer exists in the latest tag.",
+  "related": [],
+  "keyQuote": "Fails without a client cert, despite my server not needing or desiring a client cert, but it does require TLS.",
+  "number": 8546,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:00.610Z"
+}

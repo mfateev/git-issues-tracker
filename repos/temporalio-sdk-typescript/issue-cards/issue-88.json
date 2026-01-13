@@ -1,0 +1,30 @@
+{
+  "summary": "Snipsync comments (// @@@SNIP{START,END}) are incorrectly appearing in generated code when creating a new package via npm init @temporalio. These comments should be stripped away during code generation.",
+  "category": "bug",
+  "subcategory": "code-generation",
+  "apis": [],
+  "components": [
+    "code-generator",
+    "package-scaffolding"
+  ],
+  "concepts": [
+    "code-generation",
+    "template-processing",
+    "comment-handling",
+    "initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see unwanted snipsync comments in their generated project code, creating confusion and clutter.",
+  "rootCause": "Code generation template processor is not removing snipsync comment markers",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by #91",
+  "related": [
+    91
+  ],
+  "keyQuote": "// @@@SNIP{START,END} comment show up in generated code.",
+  "number": 88,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:12.144Z"
+}

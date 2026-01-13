@@ -1,0 +1,30 @@
+{
+  "summary": "Request to support loading TLS CA certificates from URLs in tctl CLI, eliminating the need to manually download and save certificates to files before use.",
+  "category": "feature",
+  "subcategory": "tctl-cli",
+  "apis": [],
+  "components": [
+    "tctl",
+    "tls",
+    "cli"
+  ],
+  "concepts": [
+    "certificate-management",
+    "tls-configuration",
+    "url-loading",
+    "environment-variables",
+    "ca-certificate"
+  ],
+  "severity": "low",
+  "userImpact": "Users can simplify their TLS setup workflow by directly referencing certificate URLs instead of manually downloading and saving files.",
+  "rootCause": null,
+  "proposedFix": "Modify TEMPORAL_CLI_TLS_CA handling to support both file paths and HTTP/HTTPS URLs for loading CA certificates.",
+  "workaround": "Download certificate to file using curl or similar tool, then reference the local file path in TEMPORAL_CLI_TLS_CA.",
+  "resolution": "fixed",
+  "resolutionDetails": "Author indicated they were working on implementing the feature.",
+  "related": [],
+  "keyQuote": "Be able to load the CA certificate from a URL, in addition to from a file.",
+  "number": 1768,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:25.698Z"
+}

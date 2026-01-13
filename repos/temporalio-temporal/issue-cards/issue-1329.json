@@ -1,0 +1,30 @@
+{
+  "summary": "Organization needs to customize Zap logger configuration for their specific JSON log format requirements and additional values. A request to make Zaplogger configurable through server options was implemented by allowing custom logger instances via WithLogger() server option.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "server",
+    "logger",
+    "zap-logger"
+  ],
+  "concepts": [
+    "logging",
+    "configuration",
+    "customization",
+    "log-format",
+    "dependency-injection"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now provide custom logger implementations to match their organization's specific logging format and requirements instead of being locked into the default Zaplogger configuration.",
+  "rootCause": null,
+  "proposedFix": "Add temporal.WithLogger() server option that accepts a log.Logger interface implementation, allowing custom logger instances and tag implementations to be supplied.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented WithLogger() server option accepting log.Logger interface with Tag support, enabling custom Zap logger instances and alternative logging implementations.",
+  "related": [],
+  "keyQuote": "It will be great if there is an option to customize Zaplogger through server options.",
+  "number": 1329,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:12.948Z"
+}

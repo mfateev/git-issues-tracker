@@ -1,0 +1,39 @@
+{
+  "summary": "Add `first_execution_run_id` field to workflow info APIs across all Temporal SDKs. This field is already present in Java and TypeScript but missing from Go, Python, Ruby, and PHP SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo",
+    "GetWorkflowInfo"
+  ],
+  "components": [
+    "workflow-info-api",
+    "sdk-integration",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-metadata",
+    "execution-tracking",
+    "api-consistency",
+    "multi-sdk-parity",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users across Go, Python, Ruby, and PHP SDKs cannot access first execution run ID, limiting their ability to track workflow execution history consistently.",
+  "rootCause": null,
+  "proposedFix": "Add `first_execution_run_id` field to WorkflowInfo API in Go, Python, Ruby, and PHP SDKs following the existing implementation in Java and TypeScript.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2017,
+    1025,
+    505,
+    311,
+    642
+  ],
+  "keyQuote": "Add \"first execution run ID\" to workflow info",
+  "number": 29,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:21.114Z"
+}

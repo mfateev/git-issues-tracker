@@ -1,0 +1,29 @@
+{
+  "summary": "The @temporalio/interceptors-opentelemetry package has peer dependencies on @temporalio/activity, @temporalio/common, @temporalio/worker, and @temporalio/workflow, causing Yarn warnings when consuming only @temporalio/client. The fix is to mark these peer dependencies as optional.",
+  "category": "bug",
+  "subcategory": "package-dependencies",
+  "apis": [],
+  "components": [
+    "interceptors-opentelemetry",
+    "package-configuration"
+  ],
+  "concepts": [
+    "peer-dependencies",
+    "optional-dependencies",
+    "package-management",
+    "dependency-resolution",
+    "yarn"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get Yarn peer dependency warnings when using @temporalio/interceptors-opentelemetry with only @temporalio/client, requiring unnecessary package installations.",
+  "rootCause": "Peer dependencies in @temporalio/interceptors-opentelemetry are not marked as optional, causing package managers to warn about missing dependencies in projects that don't need all components.",
+  "proposedFix": "Add peerDependenciesMeta entries with optional: true for all @temporalio/* peer dependencies, and add runtime detection to handle missing optional packages gracefully.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Peer dependencies were marked as optional using peerDependenciesMeta configuration with runtime package detection.",
+  "related": [],
+  "keyQuote": "The correct thing to do would be to add a `peerDependenciesMeta.*.optional: true` entry for all `@temporalio/*` dependencies.",
+  "number": 1785,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:01:38.776Z"
+}

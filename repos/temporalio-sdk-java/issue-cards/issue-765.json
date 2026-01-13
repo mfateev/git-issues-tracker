@@ -1,0 +1,34 @@
+{
+  "summary": "Worker identity is not being included in describeWorkflow results and recordActivityTaskHeartbeatById calls when using a dockerized Temporal server, causing tests that verify worker identity to fail.",
+  "category": "bug",
+  "subcategory": "worker-identity",
+  "apis": [
+    "describeWorkflow",
+    "recordActivityTaskHeartbeatById"
+  ],
+  "components": [
+    "worker",
+    "activity-heartbeat",
+    "docker-integration"
+  ],
+  "concepts": [
+    "worker-identity",
+    "heartbeat",
+    "describe-workflow",
+    "docker-compose"
+  ],
+  "severity": "high",
+  "userImpact": "Tests validating worker identity fail with dockerized Temporal servers, and applications cannot reliably track worker identity in heartbeats.",
+  "rootCause": "Worker identity field (last_worker_identity) is missing from describeWorkflow results and not being included in recordActivityTaskHeartbeatById calls when using docker-compose Temporal server.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker identity tracking was implemented in #698 but did not work correctly with dockerized Temporal servers; this regression was fixed.",
+  "related": [
+    698
+  ],
+  "keyQuote": "last_worker_identity is missing from the result of `describeWorkflow` with dockerized temporal.",
+  "number": 765,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:41:30.569Z"
+}

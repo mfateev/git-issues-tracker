@@ -1,0 +1,35 @@
+{
+  "summary": "ReplayAwareLogger incorrectly identifies workflow as replaying when handling ActivityFailure with CanceledFailure cause, causing incorrect logging behavior and breaking mutableSideEffect calls in detached CancellationScopes.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ExecuteActivity",
+    "mutableSideEffect"
+  ],
+  "components": [
+    "ReplayAwareLogger",
+    "WorkflowStateMachines",
+    "MutableSideEffectStateMachine",
+    "WorkflowUnsafe"
+  ],
+  "concepts": [
+    "replay-mode",
+    "activity-cancellation",
+    "state-machine",
+    "event-loop",
+    "workflow-execution",
+    "side-effects"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably use mutableSideEffect or logging in detached CancellationScopes when activities are canceled, and workflow replay state becomes incorrect.",
+  "rootCause": "In WorkflowStateMachines.scheduleActivityTask, when an activity throws CanceledFailure, the event loop runs prematurely while the workflow is still in replaying state, rather than waiting for WorkflowTaskScheduled/WorkflowTaskStarted events to complete event history processing.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When that if statement evaluates to true (meaning the activity has thrown a CanceledFailure), and the event loop is allowed to run, it causes the Workflow to make progress while it is still in the replaying state",
+  "number": 1558,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:49.300Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Remove the PollWorkflowUpdateAsync method from ClientOutboundInterceptor as it doesn't need to be interceptable, similar to how getting a workflow result is not interceptable.",
+  "category": "feature",
+  "subcategory": "interceptor-api",
+  "apis": [
+    "PollWorkflowUpdateAsync"
+  ],
+  "components": [
+    "client",
+    "interceptor",
+    "workflow-update"
+  ],
+  "concepts": [
+    "interception",
+    "api-design",
+    "workflow-updates",
+    "client-outbound"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies the interceptor API by removing an unnecessary interception point that adds complexity without practical value.",
+  "rootCause": null,
+  "proposedFix": "Remove ClientOutboundInterceptor.PollWorkflowUpdateAsync method",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The method was removed from the ClientOutboundInterceptor as it was determined to not need interception capability",
+  "related": [],
+  "keyQuote": "This does not need to be interceptable any more than getting a workflow result does",
+  "number": 148,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:33:51.705Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Update .NET SDK test framework to target .NET 10 instead of .NET 6, and remove the dotNetVersionOverride concept from CI configuration. Discussion needed on whether to maintain .NET 6 compatibility for backward compatibility testing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-infrastructure",
+    "ci-configuration",
+    "build-system"
+  ],
+  "concepts": [
+    "dotnet-version",
+    "target-framework",
+    "compatibility",
+    "lts-release",
+    "ci-pipeline"
+  ],
+  "severity": "low",
+  "userImpact": "Users benefit from updated test coverage on latest .NET versions, ensuring the SDK works reliably with current .NET LTS releases.",
+  "rootCause": null,
+  "proposedFix": "Update TargetFramework to net10.0 in Temporalio.Tests.csproj and remove dotNetVersionOverride from ci.yml",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by upgrading tests to .NET 10 when LTS release became available, as indicated by the comment from maciejdudko.",
+  "related": [
+    517
+  ],
+  "keyQuote": "We should probably update tests/Temporalio.Tests/Temporalio.Tests.csproj to use <TargetFramework>net10.0</TargetFramework>",
+  "number": 522,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:33:08.547Z"
+}

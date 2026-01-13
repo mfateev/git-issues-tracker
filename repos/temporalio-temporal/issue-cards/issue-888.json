@@ -1,0 +1,32 @@
+{
+  "summary": "Web UI displays completed workflows in the open workflows list instead of only showing running workflows. The root cause is that the visibility API provides eventually consistent semantics, so closed workflows may appear in open workflow responses when the visibility queue has a backlog.",
+  "category": "bug",
+  "subcategory": "web-ui-visibility",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "web-ui",
+    "visibility-api",
+    "workflow-list"
+  ],
+  "concepts": [
+    "eventual-consistency",
+    "visibility-queue",
+    "workflow-state",
+    "backlog",
+    "elasticsearch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see completed workflows listed as open in the Web UI, causing confusion about actual workflow status.",
+  "rootCause": "Visibility API provides eventually consistent semantics rather than strong consistency. When the visibility queue has a backlog, closed workflows may not be immediately removed from the open workflows list.",
+  "proposedFix": null,
+  "workaround": "Use DescribeWorkflowExecution API directly, which is strongly consistent, for accurate workflow status.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Marked as expected behavior. Visibility API is designed with eventual consistency semantics; the issue is by design and related to Kafka removal effort.",
+  "related": [],
+  "keyQuote": "Visibility API provides eventually consistent semantics, so in the case of certain failure conditions like backlog on visibility queue a closed workflow might appear in the list of open workflow executions",
+  "number": 888,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:08.067Z"
+}

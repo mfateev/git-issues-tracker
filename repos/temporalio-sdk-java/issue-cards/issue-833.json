@@ -1,0 +1,31 @@
+{
+  "summary": "Builder classes for *Option need refactoring to move validation logic from validateBuildWithDefaults to standard build method, and normalize validation patterns across all Option classes which currently have inconsistent validation strategies.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "option-builders",
+    "validation",
+    "api-design"
+  ],
+  "concepts": [
+    "builder-pattern",
+    "validation",
+    "api-normalization",
+    "interface-cleanup",
+    "defaults",
+    "consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are forced to call validateBuildWithDefaults explicitly instead of using standard build method, and validation behavior is inconsistent across different Option classes.",
+  "rootCause": "validateBuildWithDefaults is mixed with the standard build pattern, and validation logic is scattered across different Option classes with no consistent approach.",
+  "proposedFix": "Move validation logic from validateBuildWithDefaults into standard build method, rename current build to partialBuild, and establish consistent validation patterns across all Option classes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through API cleanup and normalization of builder patterns.",
+  "related": [],
+  "keyQuote": "Our users are forced to use Builder#validateBuildWithDefaults everywhere. It's not ideal behavior.",
+  "number": 833,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:45:29.621Z"
+}

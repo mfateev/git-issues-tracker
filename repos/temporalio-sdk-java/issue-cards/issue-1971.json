@@ -1,0 +1,28 @@
+{
+  "summary": "Configuration parameter for starting workers is incorrectly named 'startWorkers' instead of using the correct configuration key naming convention.",
+  "category": "bug",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "configuration"
+  ],
+  "concepts": [
+    "config",
+    "naming",
+    "startup",
+    "initialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot properly configure worker startup due to incorrect configuration parameter naming.",
+  "rootCause": "Configuration parameter was named 'startWorkers' instead of the correct convention.",
+  "proposedFix": "Rename the configuration parameter to use the correct naming convention.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration parameter name was corrected.",
+  "related": [],
+  "keyQuote": "Fix start-workers config. Currently its \"startWorkers\"",
+  "number": 1971,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:38.303Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add worker-level identity configuration in WorkerOptions. Currently, only client-level identity is available, but users need per-worker identity specification for multi-worker deployments operating on different queues.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerFactory",
+    "WorkerOptions",
+    "SingleWorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "worker-factory",
+    "worker-options"
+  ],
+  "concepts": [
+    "identity",
+    "queue-routing",
+    "multi-worker",
+    "configuration",
+    "infrastructure-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running multiple workers for different queues cannot specify per-worker identity, forcing them to create separate clients and factories as a workaround.",
+  "rootCause": "Worker identity configuration is only available at the client level, not at the individual worker level in WorkerOptions.",
+  "proposedFix": "Add an identity option to WorkerOptions that takes priority over the client-level identity when SingleWorkerOptions are configured.",
+  "workaround": "Create a separate WorkflowClient and WorkerFactory for each queue that requires a different identity.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I propose the introduction of an option to assign an identity within WorkerOptions, and for this identity to be treated as a priority when SingleWorkerOptions are being configured.",
+  "number": 2078,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:07.111Z"
+}

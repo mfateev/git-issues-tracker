@@ -1,0 +1,32 @@
+{
+  "summary": "System workers fail to authenticate with the frontend service when JWT authorization is enabled on a Temporal cluster, resulting in \"Request unauthorized\" errors. The issue can be resolved by using the internal-frontend deployment option or mTLS configuration.",
+  "category": "bug",
+  "subcategory": "authentication-authorization",
+  "apis": [],
+  "components": [
+    "worker",
+    "frontend",
+    "authorization",
+    "jwt"
+  ],
+  "concepts": [
+    "authentication",
+    "jwt",
+    "authorization",
+    "system-workers",
+    "internal-frontend",
+    "credentials"
+  ],
+  "severity": "high",
+  "userImpact": "System workers cannot perform essential operations like history scanning and workflow cleanup when JWT authorization is enabled, causing cluster functionality to degrade.",
+  "rootCause": "System workers lack proper authentication credentials when JWT authorization is enforced; they need either internal-frontend bypass or mTLS configuration to authenticate.",
+  "proposedFix": "Enable internal-frontend deployment using `internalFrontend: enabled: true` configuration, or configure mTLS with proper claim mapper integration.",
+  "workaround": "Use internal-frontend deployment or implement mTLS authentication for system workers as documented in samples-server.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue resolved as working as intended - users must use internal-frontend or mTLS for system worker authentication when JWT is enabled.",
+  "related": [],
+  "keyQuote": "You'll want to use internal-frontend for the easiest integration. It was introduced exactly to support this purpose.",
+  "number": 7857,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:32.729Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Import statement for 'proxyActivities' from '@temporalio/workflow' fails with a module export error. User is attempting to import a function that appears to be either missing or exported under a different name in the TypeScript SDK version 0.17.1.",
+  "category": "bug",
+  "subcategory": "imports-exports",
+  "apis": [
+    "proxyActivities"
+  ],
+  "components": [
+    "workflow-module",
+    "exports",
+    "typescript-sdk"
+  ],
+  "concepts": [
+    "module-resolution",
+    "import-statement",
+    "api-availability",
+    "export-visibility"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot import proxyActivities from the workflow module, blocking the ability to create workflow activities.",
+  "rootCause": "The proxyActivities function is either not exported from the @temporalio/workflow module or was exported under a different name in version 0.17.1.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was likely resolved by correcting the API exports or by users updating to a version where proxyActivities was properly exported.",
+  "related": [],
+  "keyQuote": "Module '@temporalio/workflow' has no exported member 'proxyActivities'.",
+  "number": 984,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:15.523Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Mend security vulnerability report for Apache Thrift transitive dependency (v0.10.0) with 3 vulnerabilities including 2 high-severity issues (CVE-2019-0205, CVE-2019-0210) affecting availability and 1 medium-severity issue (CVE-2018-11798) affecting confidentiality. Issue was autoclosed as the vulnerable dependency is no longer part of the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "thrift-client",
+    "ringpop-go"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "transitive-dependency",
+    "apache-thrift",
+    "availability",
+    "confidentiality",
+    "cve"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on temporalio/temporal v1.17.1 were exposed to high-severity denial-of-service vulnerabilities in Apache Thrift 0.10.0 through transitive dependencies.",
+  "rootCause": "Apache Thrift 0.10.0 vulnerable to endless loops and panics when fed specific input data; path traversal vulnerability in static web server affecting Go bindings.",
+  "proposedFix": "Upgrade Apache Thrift to version 0.13.0 or later",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Autoclosed by Mend as the vulnerable library is no longer part of the Mend inventory (likely due to upstream dependency updates)",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 88,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:42.399Z"
+}

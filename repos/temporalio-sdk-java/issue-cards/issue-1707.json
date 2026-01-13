@@ -1,0 +1,35 @@
+{
+  "summary": "ServiceWorkflowHistoryIterator should eagerly request the next page of workflow history instead of waiting until the current page is fully processed, improving performance for long workflow replays by reducing blocking time.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ServiceWorkflowHistoryIterator"
+  ],
+  "components": [
+    "workflow-history-iterator",
+    "pagination",
+    "replay-engine"
+  ],
+  "concepts": [
+    "pagination",
+    "eager-loading",
+    "performance-optimization",
+    "blocking",
+    "workflow-replay",
+    "history-fetching"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experiencing issues with replays of long workflow histories can see improved performance through reduced blocking time.",
+  "rootCause": "ServiceWorkflowHistoryIterator only requests the next page when the worker is blocked after finishing the previous page, causing unnecessary waiting.",
+  "proposedFix": "Eagerly request the next page immediately instead of on-demand, following the pattern already implemented in EagerPaginator.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1242
+  ],
+  "keyQuote": "Currently `ServiceWorkflowHistoryIterator` requests the next page only when the worker is already blocked and finished processing the previous page.",
+  "number": 1707,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:52.705Z"
+}

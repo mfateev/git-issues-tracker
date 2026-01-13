@@ -1,0 +1,31 @@
+{
+  "summary": "gRPC v1.33 was removed from the upstream repository, but both Temporal and its API module are still pinned to this deprecated version. This breaks `go mod vendor` operations for users trying to vendor dependencies.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "module-dependencies",
+    "vendor"
+  ],
+  "concepts": [
+    "dependency-version",
+    "breaking-change",
+    "module-vendoring",
+    "upstream-incompatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot successfully run `go mod vendor` due to the incompatible pinned gRPC version in both Temporal and API modules.",
+  "rootCause": "Temporal and API modules depend on gRPC v1.33.0 which was removed from the upstream grpc-go repository.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The gRPC dependency was updated to a supported version.",
+  "related": [
+    3945
+  ],
+  "keyQuote": "go mod vendor will failed now, both temporal and api use grpc v1.33.0",
+  "number": 842,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:11.615Z"
+}

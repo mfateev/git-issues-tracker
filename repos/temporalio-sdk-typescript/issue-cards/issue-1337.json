@@ -1,0 +1,30 @@
+{
+  "summary": "The workflow update feature was added to the TypeScript SDK but lacks comprehensive stress testing in the nightly CI suite. This request is to add workflow update tests to the nightly test suite to ensure the feature is robust under various conditions.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "workflow-update",
+    "test-suite",
+    "ci"
+  ],
+  "concepts": [
+    "stress-testing",
+    "nightly-tests",
+    "feature-validation",
+    "ci-pipeline",
+    "test-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Without comprehensive stress testing in CI, workflow update feature reliability may not be thoroughly validated before release.",
+  "rootCause": null,
+  "proposedFix": "Add workflow update tests to the nightly test suite",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We added the feature without running stress tests for it in CI",
+  "number": 1337,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:54.136Z"
+}

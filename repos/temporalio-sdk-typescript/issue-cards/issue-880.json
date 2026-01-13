@@ -1,0 +1,31 @@
+{
+  "summary": "Client doesn't retry the 'sticky worker unavailable' error from the server, but should treat it as a retryable server error like other similar errors.",
+  "category": "feature",
+  "subcategory": "client-retry-logic",
+  "apis": [],
+  "components": [
+    "client",
+    "grpc-retry",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry",
+    "error-handling",
+    "server-errors",
+    "sticky-worker",
+    "task-queue",
+    "availability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience failures when sticky workers become unavailable instead of having the client automatically retry the request.",
+  "rootCause": "The client's list of retryable server errors does not include the 'UNAVAILABLE: sticky worker unavailable' error code.",
+  "proposedFix": "Add 'sticky worker unavailable' error to the list of retryable server errors in the gRPC retry logic.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Server now handles this error in recent versions; SDK already retries configured retryable server errors.",
+  "related": [],
+  "keyQuote": "Error: 14 UNAVAILABLE: sticky worker unavailable, please use original task queue",
+  "number": 880,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:33.714Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "SQLite database tables disappear at runtime in development mode, causing HTTP 503 errors and operation failures. The issue occurs after running temporal server start-dev for extended periods, requiring a restart to recover.",
+  "category": "bug",
+  "subcategory": "sqlite-persistence",
+  "apis": [],
+  "components": [
+    "sqlite-persistence",
+    "metadata-client",
+    "task-queue-persistence",
+    "namespace-registry"
+  ],
+  "concepts": [
+    "database-corruption",
+    "table-missing",
+    "sqlite-driver",
+    "persistence-layer",
+    "dev-server",
+    "schema-integrity"
+  ],
+  "severity": "high",
+  "userImpact": "Developers using temporal server start-dev experience unexpected server crashes with missing database tables, requiring manual restarts and losing work state.",
+  "rootCause": "SQLite driver bug causing table metadata loss at runtime, fixed in sqlite driver merge request 74",
+  "proposedFix": "Upgrade to Temporal v1.26 or later which includes the SQLite driver fix from https://gitlab.com/cznic/sqlite/-/merge_requests/74",
+  "workaround": "Restart the temporal server process to recover from the error state",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in Temporal v1.26 by updating the SQLite driver with a bug fix from the upstream sqlite project",
+  "related": [
+    124
+  ],
+  "keyQuote": "SQL logic error: no such table: cluster_metadata_info (1)",
+  "number": 3784,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:02.900Z"
+}

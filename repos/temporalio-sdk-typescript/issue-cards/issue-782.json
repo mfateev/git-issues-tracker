@@ -1,0 +1,30 @@
+{
+  "summary": "Test server downloads are rate-limited when fetching directly from GitHub. The solution is to serve test server binaries through a CDN to avoid GitHub's rate limiting.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "download-script",
+    "ci-infrastructure"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "cdn",
+    "distribution",
+    "test-infrastructure",
+    "binary-delivery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running tests with the testing package encounter rate limit errors when downloading the test server binary from GitHub.",
+  "rootCause": "Direct downloads from GitHub API hit rate limits under repeated or concurrent access patterns.",
+  "proposedFix": "Implement CDN-based distribution for test server binaries instead of direct GitHub downloads.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by moving test server distribution behind a CDN to handle rate limiting.",
+  "related": [],
+  "keyQuote": "Users using testing package may get: `HTTPError: Response code 403 (rate limit exceeded)` from: `node ./scripts/download-test-server.mjs`",
+  "number": 782,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:11:54.172Z"
+}

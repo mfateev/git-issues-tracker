@@ -1,0 +1,30 @@
+{
+  "summary": "Kotlin Standard Library 1.5.31 has a medium severity vulnerability (CVE-2022-24329) related to dependency locking in Multiplatform Gradle Projects. The vulnerability is compile-time only and users should upgrade to modern Kotlin versions in their runtimes.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "gradle-build",
+    "kotlin-stdlib",
+    "multiplatform-projects"
+  ],
+  "concepts": [
+    "dependency-management",
+    "vulnerability",
+    "compile-time-security",
+    "gradle",
+    "kotlin-version"
+  ],
+  "severity": "low",
+  "userImpact": "Users may have compile-time dependency locking vulnerabilities in Multiplatform Gradle Projects when using Kotlin 1.5.31.",
+  "rootCause": "Kotlin before 1.6.0 lacked proper dependency locking mechanism for Multiplatform Gradle Projects.",
+  "proposedFix": "Upgrade kotlin-stdlib from 1.5.31 to 1.6.0-M1 or later.",
+  "workaround": "Use modern Kotlin versions in runtime environments.",
+  "resolution": "fixed",
+  "resolutionDetails": "Upgrade available to Kotlin 1.6.0-M1 which includes the fix for CVE-2022-24329. Issue closed as the vulnerability is compile-time only.",
+  "related": [],
+  "keyQuote": "Compile-time vulnerability, users should use modern Kotlin versions in their runtimes.",
+  "number": 1393,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:32:34.377Z"
+}

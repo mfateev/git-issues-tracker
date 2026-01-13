@@ -1,0 +1,33 @@
+{
+  "summary": "The recently added Payload field in the Failure message needs to be processed through payload codecs, similar to other failure attributes. This is a follow-up to add codec support for encoded attributes.",
+  "category": "feature",
+  "subcategory": "codecs",
+  "apis": [
+    "Failure"
+  ],
+  "components": [
+    "codecs",
+    "failure-handling",
+    "payload-processing"
+  ],
+  "concepts": [
+    "payload-codecs",
+    "encoding",
+    "failure-attributes",
+    "data-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Without codec support for Failure.encodedAttributes, custom payload codecs cannot properly encode/decode failure data, limiting codec functionality.",
+  "rootCause": null,
+  "proposedFix": "Apply the payload codec pipeline to the newly added Payload field in the Failure message.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented by applying codecs to Failure.encodedAttributes as part of the payload codec integration.",
+  "related": [
+    164
+  ],
+  "keyQuote": "Recently added Payload to the `Failure` message, needs to be run through the payload codecs.",
+  "number": 131,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:11.959Z"
+}

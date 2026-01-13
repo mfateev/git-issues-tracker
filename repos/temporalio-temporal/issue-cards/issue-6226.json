@@ -1,0 +1,30 @@
+{
+  "summary": "The `-c` flag for specifying a config path in `temporal-server start` is not working as expected, returning a \"flag provided but not defined\" error. The correct usage requires `-c` as a global flag before `start` and `-e` for the filename.",
+  "category": "docs",
+  "subcategory": "cli-help",
+  "apis": [],
+  "components": [
+    "temporal-server",
+    "cli",
+    "configuration"
+  ],
+  "concepts": [
+    "config-path",
+    "flag-parsing",
+    "cli-usage",
+    "global-flags",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused about the correct syntax for specifying config paths, leading to errors and poor developer experience.",
+  "rootCause": "CLI help messages do not clearly indicate that `-c` is a global flag that must precede the `start` subcommand, and that `-e` is needed to specify the filename.",
+  "proposedFix": "Update CLI help messages to clarify the correct flag usage and ordering.",
+  "workaround": "Use `-c` as a global flag before `start` and specify the filename with `-e` (without the `.yaml` extension).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should probably change the CLI help messages then, since this isn't clear at all otherwise.",
+  "number": 6226,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:11.866Z"
+}

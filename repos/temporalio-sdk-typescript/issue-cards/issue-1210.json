@@ -1,0 +1,35 @@
+{
+  "summary": "Activity interceptors need access to retry configuration to determine if an activity is on its final attempt, enabling selective error reporting to monitoring services.",
+  "category": "feature",
+  "subcategory": "activity-interceptor",
+  "apis": [
+    "ActivityInboundCallsInterceptor",
+    "Info"
+  ],
+  "components": [
+    "activity-executor",
+    "interceptor",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "monitoring",
+    "error-handling",
+    "activity-lifecycle",
+    "final-attempt"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot distinguish between transient failures and final failures in activity interceptors, causing unnecessary error reports to monitoring services.",
+  "rootCause": "ActivityInfo does not expose retry configuration or remaining attempt count, even though this data is available in the PollActivityTaskQueueResponse proto and known to the server.",
+  "proposedFix": "Expose retry options or remaining attempt count in the ActivityInfo interface to allow interceptors to conditionally report errors.",
+  "workaround": "None identified in discussion.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of a cross-SDK issue. Blocking issue is server-side: server is not populating retry policy field in PollActivityTaskQueueResponse (temporal#6502).",
+  "related": [
+    6502
+  ],
+  "keyQuote": "We'd like to only report exceptions that are thrown on the final attempt, but ActivityInboundExceptionInterceptor only knows which attempt the activity threw the exception on, it doesn't know how many attempts the activity has left.",
+  "number": 1210,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:14.656Z"
+}

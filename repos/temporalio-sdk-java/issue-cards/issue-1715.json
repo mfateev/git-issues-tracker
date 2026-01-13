@@ -1,0 +1,32 @@
+{
+  "summary": "WorkerOptions configuration allows invalid executor counts that prevent proper queue polling. The maxConcurrentWorkflowTaskExecutionSize setting can be set lower than the minimum required executors (2: one for sticky queue, one for main queue), causing worker initialization failures.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "task-queue-polling",
+    "executor-management"
+  ],
+  "concepts": [
+    "executor-pool",
+    "queue-polling",
+    "sticky-queue",
+    "configuration-validation",
+    "worker-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users can create non-functional worker configurations that silently fail or behave unexpectedly, leading to workers unable to process tasks properly.",
+  "rootCause": "WorkerOptions lacks validation to enforce that maxConcurrentWorkflowTaskExecutionSize >= 2, which is the minimum needed to maintain separate executor threads for sticky and main queue polling.",
+  "proposedFix": "Add validation in WorkerOptions to enforce minimum executor count constraints and reject configurations that would prevent dual-queue polling.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Every worker needs at least 2 executors: one to be reserved and allow polling on the main task queue and another to be reserved and allow polling on a sticky task queue.",
+  "number": 1715,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:18.620Z"
+}

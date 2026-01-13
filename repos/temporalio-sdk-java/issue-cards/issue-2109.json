@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowHistoryLoader fails to load event history downloaded from Temporal UI with the 'Decode History' option enabled. The UI produces a JSON format that is incompatible with the SDK's protobuf parser, causing InvalidProtocolBufferException when attempting to load the history for testing and replay purposes.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "WorkflowHistoryLoader.readHistory"
+  ],
+  "components": [
+    "WorkflowHistoryLoader",
+    "WorkflowExecutionHistory",
+    "DataConverter"
+  ],
+  "concepts": [
+    "history-replay",
+    "testing",
+    "data-format-compatibility",
+    "deserialization",
+    "UI-SDK-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot load decoded event histories downloaded from Temporal UI for local testing with WorkflowReplayer, limiting their ability to test workflow changes against actual execution histories.",
+  "rootCause": "The UI 'Decode History' feature produces JSON in a format incompatible with the SDK's protobuf parser expectations, specifically for BYTES type fields.",
+  "proposedFix": "Add SDK utilities to decode encrypted payloads in history to make replay easier (planned as per comment reference to temporalio/features#468).",
+  "workaround": "Download history from CLI or SDK instead of UI, as documented in the testing suite guide.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The UI 'Decode History' feature is designed for human consumption, not SDK consumption, and is intentionally not compatible with SDKs. The recommended approach is to download history from CLI or SDK.",
+  "related": [
+    468
+  ],
+  "keyQuote": "The UI 'Decode History' is designed for human consumption not SDK consumption and is not intended to be compatible with SDKs",
+  "number": 2109,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:01.851Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "NullPointerException occurs in RetryOptions#merge when attempting to merge non-primitive Duration values. The merge method fails to properly handle null Duration parameters.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "RetryOptions"
+  ],
+  "components": [
+    "retry-options",
+    "merge-logic"
+  ],
+  "concepts": [
+    "null-handling",
+    "retry-configuration",
+    "duration",
+    "merge-operation",
+    "type-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly merge retry options when maximum intervals are involved, blocking retry policy configuration.",
+  "rootCause": "The merge method calls Duration.class merge with non-primitive Duration values that may be null, causing NullPointerException without proper null handling.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was fixed by adding proper null handling in the RetryOptions#merge method for non-primitive Duration values.",
+  "related": [],
+  "keyQuote": "RetryOptions#merge(RetryOptions o) calls to merge(getMaximumInterval(), o.getMaximumInterval(), Duration.class) which throws NullPointer for non-primitive values.",
+  "number": 832,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:45:28.797Z"
+}

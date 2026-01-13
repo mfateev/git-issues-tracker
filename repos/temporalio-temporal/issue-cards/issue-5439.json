@@ -1,0 +1,31 @@
+{
+  "summary": "When workers restart or crash, cached workflow histories are lost, causing increased latency for previously cached workflows. This feature request proposes a cache handover mechanism where workflows are recovered on other workers before new tasks are generated.",
+  "category": "feature",
+  "subcategory": "worker-cache-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-cache",
+    "history-cache"
+  ],
+  "concepts": [
+    "cache-invalidation",
+    "worker-restart",
+    "graceful-shutdown",
+    "cache-recovery",
+    "latency-optimization",
+    "workflow-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience increased latency when workers restart due to loss of cached workflow histories, especially problematic during updates or maintenance.",
+  "rootCause": "Worker restart invalidates all cached histories on that worker, requiring cache rebuilding on other workers before processing new tasks",
+  "proposedFix": "Implement a cache handover mechanism during graceful worker shutdown (or crash recovery) that proactively recovers cached workflows on other workers before task generation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Moving workflows that have a high history size from one worker to another when you have to kill the worker (to update for example) can be painful",
+  "number": 5439,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:28.451Z"
+}

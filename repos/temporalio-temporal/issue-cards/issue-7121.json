@@ -1,0 +1,31 @@
+{
+  "summary": "Multiple high-severity CVEs found in the admin-tools Docker image (1.26.2-tctl-1.18.1-cli-1.2.0), including vulnerabilities in setuptools, pip, postgresql, golang.org/x/net/html, and curl. These security vulnerabilities pose significant risks to users running this image.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "admin-tools",
+    "dependencies"
+  ],
+  "concepts": [
+    "CVE",
+    "vulnerability",
+    "security",
+    "dependency-management",
+    "container-security",
+    "patch-management"
+  ],
+  "severity": "critical",
+  "userImpact": "Users running the admin-tools Docker image are exposed to multiple high-severity CVEs that could allow remote code execution and denial of service attacks.",
+  "rootCause": "Outdated dependencies in the admin-tools Docker image including vulnerable versions of setuptools, pip, postgresql, golang.org/x/net/html, and curl.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Multiple CVEs are resolved in the latest version v1.27.1",
+  "related": [],
+  "keyQuote": "Multiple CVEs are resolved in latest version v1.27.1",
+  "number": 7121,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:28.578Z"
+}

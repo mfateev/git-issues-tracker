@@ -1,0 +1,30 @@
+{
+  "summary": "Users expect Date objects to be preserved when passed through Temporal workflows, but instead receive ISO strings due to JSON serialization. The feature request seeks to improve the default data converter to handle Dates and other types lost during JSON.parse.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "payload-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization",
+    "data-conversion",
+    "type-preservation",
+    "JSON-roundtrip",
+    "cross-language-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use Date objects in TypeScript workflows without manual conversion, requiring workarounds and custom serialization logic.",
+  "rootCause": "JSON serialization converts Dates to ISO strings and there is no automatic deserialization back to Date objects in the default converter.",
+  "proposedFix": "Use EjsonCompositePayloadConverter or EjsonDataConverter for TypeScript-only projects to handle Dates, Uint8Array, special numbers, and RegExp; document this in the SDK guides and samples.",
+  "workaround": "Users can use EjsonCompositePayloadConverter or implement custom serialize/deserialize methods on their classes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The team decided not to implement this feature in the default converter, preferring to document the EJSON solution for TypeScript-only projects. Cross-language compatibility concerns and protobuf data converters were considered as future alternatives.",
+  "related": [],
+  "keyQuote": "Users expect that when they return or pass a `Date`, they'll receive a `Date`. Instead, they receive an ISO string.",
+  "number": 443,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:08.304Z"
+}

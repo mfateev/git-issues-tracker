@@ -1,0 +1,32 @@
+{
+  "summary": "Users need granular control over QueryRejectCondition settings. Currently, QueryRejectCondition can only be specified globally at the WorkflowClientOptions level, affecting all queries from that client. This request seeks the ability to configure rejection conditions per query or per workflow stub.",
+  "category": "feature",
+  "subcategory": "query-configuration",
+  "apis": [
+    "WorkflowClientOptions"
+  ],
+  "components": [
+    "client",
+    "query-handler",
+    "workflow-stub"
+  ],
+  "concepts": [
+    "query-rejection",
+    "configuration",
+    "granularity",
+    "conditional-logic",
+    "client-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot apply different rejection policies to different workflows or queries, limiting their ability to handle various workflow states appropriately.",
+  "rootCause": null,
+  "proposedFix": "Support specifying QueryRejectCondition at the query level or workflow stub level in addition to the global WorkflowClientOptions setting.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should be able to specify QueryRejectCondition for each query or at least for each specific workflow stub to have a granular enough control.",
+  "number": 851,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:47:29.093Z"
+}

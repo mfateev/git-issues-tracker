@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to record headers on LocalActivities in EventHistory. Currently, RecordMarkerCommandAttributes supports headers but they are not set for LocalActivities, preventing visibility in EventHistory as users have requested.",
+  "category": "feature",
+  "subcategory": "local-activity-headers",
+  "apis": [
+    "RecordMarkerCommandAttributes"
+  ],
+  "components": [
+    "local-activity-executor",
+    "command-state-machine",
+    "event-history"
+  ],
+  "concepts": [
+    "headers",
+    "event-history",
+    "local-activities",
+    "markers",
+    "metadata-propagation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot see LocalActivity headers in EventHistory, limiting visibility into activity execution context and metadata propagation.",
+  "rootCause": "LocalActivity marker recording does not populate the Headers field in RecordMarkerCommandAttributes, though the field is available in the command structure.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Hrmm, usually for local activity input we don't record it in history since we're usually only concerned with the output.",
+  "number": 663,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:04.773Z"
+}

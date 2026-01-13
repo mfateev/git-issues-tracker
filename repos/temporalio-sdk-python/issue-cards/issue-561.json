@@ -1,0 +1,31 @@
+{
+  "summary": "User reported that workflow task timeout is capped at 2 minutes and cannot be set higher, even though they tried to set it to 15 minutes. The maintainer clarified this is a server-enforced maximum timeout by design, not a Python SDK limitation.",
+  "category": "question",
+  "subcategory": "workflow-timeout",
+  "apis": [
+    "execute_workflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "timeout-configuration"
+  ],
+  "concepts": [
+    "task-timeout",
+    "timeout-limit",
+    "server-enforcement",
+    "workflow-task",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about workflow task timeout limits and attempt to set values that the server will reject.",
+  "rootCause": "Server-enforced maximum timeout for workflow tasks, as documented in Temporal architecture.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified this is intentional server-side behavior. Recommended that users reconsider if they need to modify this value, as workflow tasks should complete in milliseconds.",
+  "related": [],
+  "keyQuote": "This is the maximum timeout of this value as enforced on the server. It is unrelated to Python... Workflow tasks should only take milliseconds.",
+  "number": 561,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:34.913Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "A panic occurs in the Neon bridge when a workflow fails nondeterministic replay validation. The error manifests as a Rust panic about improper Root handle cleanup followed by a channel closed error, preventing proper error handling.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "runReplayHistory"
+  ],
+  "components": [
+    "neon-bridge",
+    "replay-engine",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "error-handling",
+    "async-channels",
+    "rust-interop"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly catch and handle errors from nondeterministic workflow replay, causing uncaught panics that crash the application.",
+  "rootCause": "Bug in the TypeScript-Rust bridge code (Neon) where the Root handle is not properly cleaned up when a workflow replay fails, violating Neon's drop safety requirements.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by recent changes to Runtime; reporter indicated the issue was no longer reproducible after runtime modifications.",
+  "related": [],
+  "keyQuote": "Must call `into_inner` or `drop` on `Root` ... thread '<unnamed>' panicked",
+  "number": 800,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:12:52.989Z"
+}

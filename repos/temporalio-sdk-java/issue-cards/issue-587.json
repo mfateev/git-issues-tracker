@@ -1,0 +1,33 @@
+{
+  "summary": "Add TemporalChangeVersion search attribute to Java SDK when workflow version is updated, enabling users to query workflows by their version state. This feature is already implemented in the Go SDK but missing from Java.",
+  "category": "feature",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "Workflow.upsertTypedSearchAttributes",
+    "Workflow.getVersion"
+  ],
+  "components": [
+    "workflow-versioning",
+    "search-attributes",
+    "history-events"
+  ],
+  "concepts": [
+    "workflow-versioning",
+    "search-attributes",
+    "query-workflows",
+    "backwards-compatibility",
+    "state-machine"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot query running workflows by their version state in Java SDK, limiting visibility into version deployment across workflows.",
+  "rootCause": "Java SDK versioning implementation differs significantly from Go SDK; versioning state machine is complex and writing search attributes creates non-deterministic workflow changes when removing old version code paths.",
+  "proposedFix": "Set TemporalChangeVersion search attribute to the changeid-version when a new version is set on workflow, similar to Go SDK implementation.",
+  "workaround": "Use workflow history markers to query version information, though this requires custom querying logic not provided by SDK.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to set TemporalChangeVersion search attribute when workflow version is updated.",
+  "related": [],
+  "keyQuote": "This is a really needed feature when using workflow versioning. It works in Go SDK already.",
+  "number": 587,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:26:18.878Z"
+}

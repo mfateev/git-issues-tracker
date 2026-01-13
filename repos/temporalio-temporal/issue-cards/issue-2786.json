@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Server enforces a hard 4MB limit on inbound gRPC messages, which is insufficient for large workflow task completions with many parallel activities and metadata markers. The request is to either lift this limit to match the maximum history size or make it configurable.",
+  "category": "feature",
+  "subcategory": "grpc-limits",
+  "apis": [],
+  "components": [
+    "grpc-server",
+    "workflow-task-execution",
+    "history-persistence"
+  ],
+  "concepts": [
+    "message-size-limit",
+    "configuration",
+    "scalability",
+    "workflow-completion",
+    "history-batch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with large-scale workflows that spawn many parallel activities cannot complete workflow tasks if the serialized markers and metadata exceed 4MB, forcing workarounds or workflow restructuring.",
+  "rootCause": "Fixed 4MB inbound gRPC message size limit without configurability or alignment with other system limits like max history size and transaction size.",
+  "proposedFix": "Lift the incoming gRPC message limit to match max history size, or expose it as a configurable option. Ideally, coordinate this with transaction size limit and history batch size to derive all limits from a single max history size parameter.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The limit was relaxed to be configurable and aligned with other system limits.",
+  "related": [],
+  "keyQuote": "Limit for an incoming gRPC message to be lifted to a max history size. Or some percentage of max history size.",
+  "number": 2786,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:52.428Z"
+}

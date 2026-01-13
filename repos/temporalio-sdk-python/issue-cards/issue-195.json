@@ -1,0 +1,34 @@
+{
+  "summary": "User requests support for intermediate results from long-running iterable activities in Python SDK. Currently, activities can only return final results after completion, not stream intermediate values during execution.",
+  "category": "feature",
+  "subcategory": "activity-results",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-engine",
+    "result-serialization"
+  ],
+  "concepts": [
+    "streaming",
+    "intermediate-results",
+    "async-iteration",
+    "long-running-tasks",
+    "activity-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot stream intermediate results from long-running activities, limiting use cases like batch processing with progress updates.",
+  "rootCause": "Temporal architecture design: activities serialize results back to workflows as a single final value, with no intermediate result streaming mechanism.",
+  "proposedFix": "Implement support for activities to yield intermediate results during execution, or provide examples of signaling patterns as an alternative.",
+  "workaround": "Use signaling from the activity to the calling workflow via a Temporal client, combined with heartbeats on long-running activities.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Core Temporal limitation by design - activities return single serialized results. Maintainer suggested workaround using workflow signaling instead.",
+  "related": [
+    175
+  ],
+  "keyQuote": "There is no concept of \"intermediate results\" in Temporal I am afraid. You'll have to rework your code if you need something different.",
+  "number": 195,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:15.232Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The `reuseV8Context` feature in v1.9.0 breaks workflow isolation by allowing global variables and module state to leak between workflow runs. Users discovered that cleanup steps and signal handlers persisted across different workflow executions when using a shared V8 context.",
+  "category": "bug",
+  "subcategory": "workflow-isolation",
+  "apis": [],
+  "components": [
+    "v8-context",
+    "workflow-executor",
+    "module-cache"
+  ],
+  "concepts": [
+    "isolation",
+    "global-state",
+    "context-reuse",
+    "workflow-execution",
+    "state-leakage",
+    "replay",
+    "nondeterminism"
+  ],
+  "severity": "high",
+  "userImpact": "Users' workflow code breaks in production when using global variables or module-level state due to isolation violations between different workflow executions.",
+  "rootCause": "The reuseV8Context feature shares V8 contexts across workflow runs, causing global variables and module cache state to persist and leak between executions. The Webpack module cache is not discarded during workflow replay.",
+  "proposedFix": "Make AsyncLocalStorage available to workflow code for safe state management, or properly isolate module caches between workflow executions during replay.",
+  "workaround": "Use bundleWorkflowCode with the provided Webpack hook to isolate code; avoid global variables and use AsyncLocalStorage instead.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by recommending bundleWorkflowCode and proper isolation patterns. Documentation was updated to warn against global state.",
+  "related": [],
+  "keyQuote": "With reuseV8Context however it caused the cleanup steps to leak into other workflow runs. If workflow run X added a cleanup step and went to sleep and then another workflow run Y got executed with the same V8 context, then Y would also invoke the cleanup steps of X.",
+  "number": 1355,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:49.227Z"
+}

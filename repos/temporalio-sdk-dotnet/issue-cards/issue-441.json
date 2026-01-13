@@ -1,0 +1,32 @@
+{
+  "summary": "Activities should be interrupted when paused, including their heartbeating mechanisms. This issue tracks the need to ensure heartbeat operations respect the paused state of activities.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat",
+    "activity-lifecycle"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-pause",
+    "interruption",
+    "activity-state",
+    "lifecycle-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities continue heartbeating even when paused, potentially causing unnecessary communication and masking state management issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue has been closed, indicating the heartbeat interruption for paused activities has been resolved.",
+  "related": [
+    602
+  ],
+  "keyQuote": "Heartbeating activities should be interrupted when the activities are paused.",
+  "number": 441,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:25:50.760Z"
+}

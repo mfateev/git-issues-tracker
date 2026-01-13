@@ -1,0 +1,33 @@
+{
+  "summary": "Assertions that fail in TestWorkflowEnvironment.registerDelayedCallback are swallowed instead of propagating to the test, causing tests that should fail to succeed with only error logs.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "registerDelayedCallback"
+  ],
+  "components": [
+    "test-environment",
+    "timer-callback",
+    "assertion-handling"
+  ],
+  "concepts": [
+    "test-failure",
+    "error-propagation",
+    "callback-execution",
+    "assertion",
+    "testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Test developers cannot rely on assertions in delayed callbacks to properly fail tests, making it difficult to catch bugs in callback logic.",
+  "rootCause": "The SelfAdvancingTimerImpl catches exceptions in timer callbacks and logs them as errors instead of propagating them to fail the test.",
+  "proposedFix": "Propagate the error from the callback to the test method so assertions properly fail the test.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When assertions fail in TestWorkflowEnvironment.registerDelayedCallback, the errors in the callback are swallowed. This is counterintuitive.",
+  "number": 597,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:26:57.976Z"
+}

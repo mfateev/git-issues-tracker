@@ -1,0 +1,32 @@
+{
+  "summary": "Add GrpcMessageTooLarge as a failure_reason for workflow task failed metric in the Java SDK to better track and diagnose gRPC message size limit violations.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-handler",
+    "grpc-client"
+  ],
+  "concepts": [
+    "failure-tracking",
+    "gRPC-limits",
+    "observability",
+    "message-size",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can better monitor and troubleshoot workflow task failures caused by exceeding gRPC message size limits.",
+  "rootCause": null,
+  "proposedFix": "Add GrpcMessageTooLarge as a recognized failure_reason value in the workflow task failed metric.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing the feature to track GrpcMessageTooLarge failures in metrics.",
+  "related": [
+    695
+  ],
+  "keyQuote": null,
+  "number": 2732,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:59.331Z"
+}

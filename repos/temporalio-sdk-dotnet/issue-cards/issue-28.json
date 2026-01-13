@@ -1,0 +1,31 @@
+{
+  "summary": "A transitive dependency vulnerability (CVE-2022-41723) in golang.org/x/net v0.4.0 was reported via Mend, causing excessive CPU consumption in HTTP/2 HPACK decoder. The issue was automatically closed as the vulnerable library was removed from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "grpc-middleware",
+    "http2"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "cpu-consumption",
+    "transitive-dependency",
+    "http2",
+    "cvss"
+  ],
+  "severity": "high",
+  "userImpact": "Users could experience denial of service attacks through maliciously crafted HTTP/2 streams that consume excessive CPU resources.",
+  "rootCause": "Vulnerability in golang.org/x/net v0.4.0 HPACK decoder allowing malicious HTTP/2 streams to cause excessive CPU consumption.",
+  "proposedFix": "Upgrade golang.org/x/net to v0.7.0 or later.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was either ignored or no longer part of the dependency inventory.",
+  "related": [],
+  "keyQuote": "A maliciously crafted HTTP/2 stream could cause excessive CPU consumption in the HPACK decoder, sufficient to cause a denial of service",
+  "number": 28,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:07:29.407Z"
+}

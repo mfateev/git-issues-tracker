@@ -1,0 +1,31 @@
+{
+  "summary": "Integration tests currently cannot verify that specific metrics are emitted as expected. The task is to build infrastructure for metric verification and add integration tests for key metrics to prevent regressions like the disappearance of 'action' metrics.",
+  "category": "feature",
+  "subcategory": "testing-metrics",
+  "apis": [],
+  "components": [
+    "integration-tests",
+    "metrics",
+    "observability"
+  ],
+  "concepts": [
+    "metrics-emission",
+    "regression-prevention",
+    "test-coverage",
+    "observability",
+    "integration-testing",
+    "metric-verification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably verify that expected metrics are emitted, making it harder to monitor system behavior and detect regressions in metric collection.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to build that ability and add integration test to cover some key metrics. For example, prevent regression that cause \"action\" metrics to disappear.",
+  "number": 3436,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:11.849Z"
+}

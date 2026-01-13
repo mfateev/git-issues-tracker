@@ -1,0 +1,32 @@
+{
+  "summary": "Currently, incoming signals are rejected when a workflow attempts continueAsNew but fails due to buffered signals, preventing infinite loops. The feature request proposes flushing buffered signals to the new run instead of the current run, allowing continueAsNew to succeed without rejecting signals.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-buffer",
+    "task-processor"
+  ],
+  "concepts": [
+    "signal-buffering",
+    "workflow-continuation",
+    "signal-carryover",
+    "continueAsNew",
+    "task-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows using continueAsNew with buffered signals currently fail and require retry, but could succeed by carrying signals to the new run.",
+  "rootCause": "Current implementation rejects incoming signals during continueAsNew to prevent infinite loops, but this applies the same logic as complete/fail operations.",
+  "proposedFix": "Flush buffered signals to the new run during continueAsNew instead of rejecting them, allowing the operation to succeed without task failure.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Upon continueAsNew, we can simply flush buffered signals to the new run instead of current run, and we don't have to fail & retry the workflow task",
+  "number": 8097,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:53.563Z"
+}

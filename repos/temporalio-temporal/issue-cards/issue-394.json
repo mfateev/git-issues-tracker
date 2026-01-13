@@ -1,0 +1,31 @@
+{
+  "summary": "Canary workflow stops executing after ~20 minutes on v0.23.0, with the cron workflow being invoked repeatedly but never spawning the sanity workflow. The timer_tasks table grows at >1 row/second, and the reset canary fails consistently.",
+  "category": "bug",
+  "subcategory": "canary-testing",
+  "apis": [],
+  "components": [
+    "cron-workflow",
+    "timer-tasks",
+    "workflow-execution",
+    "task-scheduler"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "workflow-scheduling",
+    "timer-accumulation",
+    "database-growth",
+    "canary-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal cluster operators cannot reliably use the canary to verify cluster correctness, breaking their quality assurance workflow.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Once the cluster was upgraded, I started running the canary...it ran for almost 20 minutes then the cron workflow...stopped starting.",
+  "number": 394,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:54:39.595Z"
+}

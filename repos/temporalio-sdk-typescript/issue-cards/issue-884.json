@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for OpenTelemetry (OTel) temporality configuration in the TypeScript SDK by exposing the temporality configuration from sdk-core PR #402.",
+  "category": "feature",
+  "subcategory": "observability-otel",
+  "apis": [],
+  "components": [
+    "otel-integration",
+    "metrics-configuration",
+    "sdk-core-binding"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "temporality",
+    "metrics",
+    "observability",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users can configure OpenTelemetry temporality settings to control how metrics are aggregated and exported.",
+  "rootCause": null,
+  "proposedFix": "Expose the temporality configuration parameter that was implemented in sdk-core PR #402",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged",
+  "related": [
+    402
+  ],
+  "keyQuote": "Expose temporality configuration from https://github.com/temporalio/sdk-core/pull/402",
+  "number": 884,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:30.236Z"
+}

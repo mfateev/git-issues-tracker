@@ -1,0 +1,31 @@
+{
+  "summary": "User reported that workflows weren't being picked up by workers unless the WorkflowId was prefixed with the TaskQueue name. Investigation revealed this was a user error—the workflow had been originally started on a different task queue (cron) and needed to be terminated before a new workflow with the same ID could be created on the target queue (aura).",
+  "category": "question",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-scheduler",
+    "task-queue-dispatcher",
+    "execution-model"
+  ],
+  "concepts": [
+    "workflow-id",
+    "task-queue",
+    "execution-isolation",
+    "workflow-identity"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about workflow identity and task queue relationships when attempting to reuse workflow IDs across different task queues.",
+  "rootCause": "User attempted to start a workflow with the same ID on a different task queue while the original workflow was still running on the first queue, causing execution conflicts.",
+  "proposedFix": null,
+  "workaround": "Terminate the existing workflow with the same ID on the original task queue before starting a new workflow with that ID on a different task queue.",
+  "resolution": "invalid",
+  "resolutionDetails": "Reporter identified the issue as user error and closed it. The behavior is correct—workflows with the same ID cannot execute on different task queues simultaneously.",
+  "related": [],
+  "keyQuote": "I had originally started a workflow with my ID as a cron... Once I terminated this old workflow, everything worked.",
+  "number": 2902,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:55.314Z"
+}

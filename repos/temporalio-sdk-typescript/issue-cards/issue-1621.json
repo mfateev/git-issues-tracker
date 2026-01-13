@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to include musl-based shared library in the TypeScript SDK package for better compatibility with musl-based Linux distributions (Alpine Linux containers).",
+  "category": "feature",
+  "subcategory": "packaging",
+  "apis": [],
+  "components": [
+    "native-bindings",
+    "package-distribution"
+  ],
+  "concepts": [
+    "musl-libc",
+    "platform-compatibility",
+    "shared-library",
+    "alpine-linux",
+    "linux-distributions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running the SDK in musl-based environments (like Alpine Linux) need native library binaries compatible with musl instead of glibc.",
+  "rootCause": null,
+  "proposedFix": "Include musl-based shared library variants in the npm package distribution.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    594
+  ],
+  "keyQuote": "Include musl-based shared library in package",
+  "number": 1621,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:46.986Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to expose update-with-start operations through the PHP SDK. This feature allows combining workflow updates with workflow start operations, similar to functionality available in other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "UpdateWithStart"
+  ],
+  "components": [
+    "workflow-client",
+    "update-handler",
+    "api-surface"
+  ],
+  "concepts": [
+    "workflow-updates",
+    "workflow-start",
+    "combined-operations",
+    "api-parity",
+    "SDK-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot leverage update-with-start patterns in PHP applications, limiting their ability to atomically start and update workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide API parity with other SDKs",
+  "related": [],
+  "keyQuote": "Expose update-with-start operations via the SDK",
+  "number": 503,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:32.323Z"
+}

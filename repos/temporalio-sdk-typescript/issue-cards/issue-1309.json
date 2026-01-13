@@ -1,0 +1,31 @@
+{
+  "summary": "The comment in the Worker.shutdown() method should clarify that activities are cancelled after the shutdownGraceTime expires, not immediately when shutdown is called.",
+  "category": "docs",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "Worker.shutdown"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "documentation"
+  ],
+  "concepts": [
+    "shutdown",
+    "graceful-termination",
+    "activity-cancellation",
+    "timeout"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may misunderstand when their running activities are actually cancelled during worker shutdown, leading to incorrect assumptions about cleanup timing.",
+  "rootCause": "The existing comment in the source code at line 733 does not mention that activity cancellation occurs after shutdownGraceTime has elapsed.",
+  "proposedFix": "Edit the comment in the Worker.shutdown() method to clarify that activities are cancelled after shutdownGraceTime expires.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It should mention that the activities are cancelled after `shutdownGraceTime`.",
+  "number": 1309,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:13.464Z"
+}

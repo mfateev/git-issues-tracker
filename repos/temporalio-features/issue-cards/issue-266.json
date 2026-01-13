@@ -1,0 +1,31 @@
+{
+  "summary": "Add feature tests for the update workflow capability across multiple SDK languages (Go, Java, TypeScript, Python, and .NET). Some SDKs already have tests implemented, while others still need them.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "update-workflow",
+    "feature-tests"
+  ],
+  "concepts": [
+    "testing",
+    "workflow-update",
+    "cross-sdk-compatibility",
+    "ci-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need comprehensive feature tests for the update workflow across all supported SDK languages to ensure consistent behavior and reliability.",
+  "rootCause": "Missing test implementations for update workflow feature in some SDK languages; server version compatibility issues detected in CI",
+  "proposedFix": "Implement update workflow feature tests for remaining SDKs (particularly .NET) and ensure server version compatibility",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were implemented for Go, Java, TypeScript, and Python. .NET tests remain incomplete but the primary request was addressed.",
+  "related": [
+    150
+  ],
+  "keyQuote": "I noticed that the update tests are failing in CI because the server version is too old.",
+  "number": 266,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:24.100Z"
+}

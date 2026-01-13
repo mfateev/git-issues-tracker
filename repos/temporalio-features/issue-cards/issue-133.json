@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add specification tests for workflow handles with different run ID types (result run ID, first execution run ID, and generic run ID). The issue identifies a gap in test coverage for how these different run ID types are used in workflow handles.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowHandle"
+  ],
+  "components": [
+    "workflow-handle",
+    "test-framework",
+    "spec-tests"
+  ],
+  "concepts": [
+    "run-id",
+    "workflow-execution",
+    "test-coverage",
+    "handle-types",
+    "specification"
+  ],
+  "severity": "low",
+  "userImpact": "Lack of comprehensive test specifications for workflow handle run ID types may lead to inconsistent implementations across SDKs.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We have various run IDs in our workflow handles: run ID for getting a result, first execution run ID, \"just\" run ID. We're missing the spec for how those are used.",
+  "number": 133,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:02.431Z"
+}

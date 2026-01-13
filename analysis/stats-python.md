@@ -1,6 +1,6 @@
 # Python SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/sdk-python](https://github.com/temporalio/sdk-python)
 
 ## Related Documents
@@ -22,10 +22,10 @@
 | Enhancements/Features (open) | 63 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 33 |
-| Total Comments on open | 204 |
+| Total Comments on open | 206 |
 | Issues with Upvotes | 18 (16%) |
-| Issues with Comments | 54 (47%) |
-| Average Age (days) | 477 |
+| Issues with Comments | 55 (48%) |
+| Average Age (days) | 480 |
 | Stale Issues (>12 months) | 53 (46%) |
 
 ---
@@ -65,11 +65,11 @@
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
 | 2025-02 | 12 | 6 | +6 |
-| 2025-03 | 15 | 5 | +10 |
+| 2025-03 | 16 | 5 | +11 |
 | 2025-04 | 23 | 15 | +8 |
 | 2025-05 | 10 | 9 | +1 |
 | 2025-06 | 16 | 12 | +4 |
-| 2025-07 | 14 | 16 | -2 |
+| 2025-07 | 13 | 16 | -3 |
 | 2025-08 | 17 | 13 | +4 |
 | 2025-09 | 25 | 26 | -1 |
 | 2025-10 | 19 | 27 | -8 |
@@ -122,11 +122,11 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 4 | 4% |
-| 1-3 months | 6 | 5% |
-| 3-6 months | 11 | 10% |
+| 1-3 months | 5 | 4% |
+| 3-6 months | 12 | 11% |
 | 6-12 months | 26 | 23% |
-| 1-2 years | 43 | 38% |
-| 2-3 years | 18 | 16% |
+| 1-2 years | 42 | 37% |
+| 2-3 years | 19 | 17% |
 | 3+ years | 6 | 5% |
 
 ---

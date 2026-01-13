@@ -1,0 +1,30 @@
+{
+  "summary": "Worker.create fails when activities is set to undefined, throwing MODULE_NOT_FOUND error instead of handling the undefined value gracefully. The SDK should either accept undefined activities or provide a clear error message.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "activity-loader"
+  ],
+  "concepts": [
+    "initialization",
+    "module-resolution",
+    "undefined-handling",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot create workers with undefined activities parameter, preventing flexible worker initialization patterns.",
+  "rootCause": "The Worker.create method attempts to load activities module even when activities parameter is explicitly set to undefined, causing MODULE_NOT_FOUND error.",
+  "proposedFix": null,
+  "workaround": "Provide an activities object instead of leaving it undefined, or omit the activities parameter entirely.",
+  "resolution": "fixed",
+  "resolutionDetails": "SDK was updated to handle undefined activities parameter gracefully without attempting module resolution.",
+  "related": [],
+  "keyQuote": "Worker.create with workDir and activities undefined does not work...it failed because of activities MODULE_NOT_FOUND",
+  "number": 227,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:52.393Z"
+}

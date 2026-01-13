@@ -1,0 +1,34 @@
+{
+  "summary": "Client query calls hang for 60 seconds when the worker is executing a local activity that exceeds the timeout period. The client should fail with a WorkflowServiceException based on rpcTimeout (default 10s) instead of waiting for the max workflow task timeout.",
+  "category": "bug",
+  "subcategory": "query-timeout",
+  "apis": [
+    "Query"
+  ],
+  "components": [
+    "query-handler",
+    "local-activity-executor",
+    "workflow-task-executor"
+  ],
+  "concepts": [
+    "timeout",
+    "rpc-timeout",
+    "local-activity",
+    "query-execution",
+    "deadline"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience 60-second delays on query calls during local activity execution instead of timely failures, degrading application responsiveness.",
+  "rootCause": "Query execution flow does not properly respect rpcTimeout when the worker is executing local activities; appears related to workflow task execution structure.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [
+    1346
+  ],
+  "keyQuote": "The client call should instead fail with WorkflowServiceException according to rpcTimeout (default 10s).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 1246,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:18:25.198Z"
+}

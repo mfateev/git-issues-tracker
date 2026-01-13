@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to display only the agent name in the timeline instead of the Activity Type + Summary. The requester suggests modifying the _TemporalModelStub class to include agent_name information that could be used for timeline display.",
+  "category": "feature",
+  "subcategory": "agents-timeline-display",
+  "apis": [],
+  "components": [
+    "openai_agents",
+    "_openai_runner",
+    "_temporal_model_stub"
+  ],
+  "concepts": [
+    "agent-name",
+    "timeline-display",
+    "agent-handoff",
+    "model-invocation",
+    "agentic-loop"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently display only agent names in timelines, making it difficult to track agent changes during multi-agent workflows.",
+  "rootCause": "The Agent object in the runner is only the starting agent, while the model is reused across all invocations including handoffs. Additionally, model names are not specified at the agent level, preventing different models from being used in different portions of the same agentic loop.",
+  "proposedFix": "Update _TemporalModelStub class to include agent_name field, with changes to the agents SDK to properly track agent context throughout the agentic loop.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by fixing the underlying issue where model names are not specified at agent level, which will enable different models in different portions of agentic loops and allow agent context tracking.",
+  "related": [],
+  "keyQuote": "The model names themselves are not specified at the agent level, so it is not currently possible to use different models in different portions of the same agentic loop.",
+  "number": 1024,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:49.558Z"
+}

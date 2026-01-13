@@ -1,0 +1,30 @@
+{
+  "summary": "User requests support for Cassandra 4 upgrade from Cassandra 3, citing the ability to set custom connection ports per host in a cluster. The issue was resolved by confirming Cassandra 4.0 is already supported in Temporal.",
+  "category": "feature",
+  "subcategory": "cassandra-upgrade",
+  "apis": [],
+  "components": [
+    "persistence",
+    "cassandra",
+    "database-configuration"
+  ],
+  "concepts": [
+    "cassandra",
+    "upgrade",
+    "port-configuration",
+    "database-dependency",
+    "cluster"
+  ],
+  "severity": "low",
+  "userImpact": "Users wanting to use Cassandra 4 with custom port configurations per host can now do so with Temporal.",
+  "rootCause": null,
+  "proposedFix": "Upgrade to Cassandra 4.0, which provides the flexibility to set different connection ports on different hosts in the same cluster.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Cassandra 4.0 is already supported as documented in Temporal's dependency versions documentation.",
+  "related": [],
+  "keyQuote": "Cassandra 4.0 is supported: https://docs.temporal.io/clusters#dependency-versions",
+  "number": 2132,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:05.406Z"
+}

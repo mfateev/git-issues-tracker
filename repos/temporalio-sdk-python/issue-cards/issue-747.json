@@ -1,0 +1,34 @@
+{
+  "summary": "User seeks a way to retrieve the worker ID that is executing the current activity, particularly within activity interceptors. After discussion, the solution involves passing worker state to interceptors at instantiation time rather than querying it at runtime.",
+  "category": "question",
+  "subcategory": "worker-identity",
+  "apis": [
+    "Worker",
+    "activity.info"
+  ],
+  "components": [
+    "worker",
+    "activity-interceptor",
+    "client"
+  ],
+  "concepts": [
+    "worker-identity",
+    "distributed-execution",
+    "activity-context",
+    "interceptor-state",
+    "runtime-introspection",
+    "worker-tracking"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot directly query the worker ID executing an activity at runtime, requiring alternative patterns like passing state to interceptors.",
+  "rootCause": "The activity context does not expose the executing worker's identity; worker information is available at Worker instantiation but not in the activity execution context.",
+  "proposedFix": "Pass worker identity to the interceptor at instantiation time: ActivityStatusInterceptor(worker_name), since each worker has its own interceptor instance.",
+  "workaround": "Instantiate activity interceptors with worker-specific state or use different activity instances per worker with different state.",
+  "resolution": "fixed",
+  "resolutionDetails": "User accepted the suggested pattern of passing worker identity to interceptor during instantiation, leveraging the fact that each worker has its own interceptor instance.",
+  "related": [],
+  "keyQuote": "You know that each worker has its own instance of the interceptor so you know if the interceptor for an activity is called, its state (e.g. worker identity) is only for the worker you're running on.",
+  "number": 747,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:42.847Z"
+}

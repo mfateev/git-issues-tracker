@@ -1,0 +1,32 @@
+{
+  "summary": "Telemetry initialization fails when using the replayer without a client, causing a panic exception about uninitialized metrics.",
+  "category": "bug",
+  "subcategory": "telemetry-replayer",
+  "apis": [],
+  "components": [
+    "telemetry",
+    "replayer",
+    "metrics"
+  ],
+  "concepts": [
+    "initialization",
+    "telemetry",
+    "replayer",
+    "process-wide",
+    "metrics"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use the replayer functionality without encountering a panic exception when telemetry is not properly initialized.",
+  "rootCause": "Process-wide telemetry is not initialized when using replayer without a client.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in issue #158",
+  "related": [
+    158
+  ],
+  "keyQuote": "Tried to use a metric but telemetry has not been initialized",
+  "number": 151,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:18.126Z"
+}

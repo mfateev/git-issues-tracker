@@ -1,0 +1,30 @@
+{
+  "summary": "Add validation to prohibit cross-domain calls for global domains, which are currently broken due to domains being active in different data centers. This temporary validation will prevent failures until full cross-domain support for global domains is implemented.",
+  "category": "feature",
+  "subcategory": "domain-validation",
+  "apis": [],
+  "components": [
+    "history-service",
+    "command-checker",
+    "domain-validation"
+  ],
+  "concepts": [
+    "cross-domain-calls",
+    "global-domains",
+    "data-center",
+    "validation",
+    "domain-isolation"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting cross-domain calls with global domains will receive validation errors instead of silent failures or broken behavior.",
+  "rootCause": "Global domains can be active in different data centers, making cross-domain calls incompatible until full support is implemented.",
+  "proposedFix": "Add validation in the command checker to fail any cross-domain call attempts for global domains.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Validation check was implemented in service/history/commandChecker.go at line 641.",
+  "related": [],
+  "keyQuote": "Cross domain calls for global domains are currently broken as domains can be active in different DCs.",
+  "number": 154,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:20:55.655Z"
+}

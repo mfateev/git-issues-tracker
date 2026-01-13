@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow.newUntypedActivityStub does not inherit default options from WorkflowImplementationOptions.Builder customizer, unlike Workflow.newActivityStub. The untyped variant requires explicit options to be passed and ignores the configured defaults.",
+  "category": "bug",
+  "subcategory": "activity-options",
+  "apis": [
+    "Workflow.newActivityStub",
+    "Workflow.newUntypedActivityStub",
+    "TemporalOptionsCustomizer"
+  ],
+  "components": [
+    "workflow-implementation",
+    "activity-stub",
+    "options-customizer"
+  ],
+  "concepts": [
+    "default-options",
+    "type-safety",
+    "configuration-inheritance",
+    "builder-pattern",
+    "spring-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Spring-configured default activity options with untyped activity stubs, requiring them to either pass explicit options or use internal APIs as a workaround.",
+  "rootCause": "The newUntypedActivityStub method does not call setDefaultActivityOptions during initialization, while newActivityStub does via the referenced line in WorkflowInternal.java",
+  "proposedFix": null,
+  "workaround": "Call WorkflowInternal.getRootWorkflowContext().getDefaultActivityOptions() directly (requires package-hacking access to internal API)",
+  "resolution": "wontfix",
+  "resolutionDetails": "Design decision: setDefaultActivityOptions is intentionally documented as only applying to newActivityStub, since activity interface is required to construct final default activity options. Untyped stubs do not have this constraint.",
+  "related": [],
+  "keyQuote": "Yes this is intentional `setDefaultActivityOptions` specifies it only applies to `newActivityStub` in general the activity interface is required to construct the final default activities options",
+  "number": 2200,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:40.324Z"
+}

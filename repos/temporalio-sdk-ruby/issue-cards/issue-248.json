@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to display the retry policy on activity information in the Ruby SDK, referenced from a cross-SDK features issue.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-info",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-metadata",
+    "configuration-visibility",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily inspect the retry policy configuration for activities at runtime, requiring them to reference code or configuration files.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented to show retry policy on activity info, consistent with cross-SDK feature request",
+  "related": [
+    615
+  ],
+  "keyQuote": "Show retry policy on activity info",
+  "number": 248,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:48.994Z"
+}

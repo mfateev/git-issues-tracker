@@ -1,0 +1,30 @@
+{
+  "summary": "The Java test server should log when task failures occur due to invalid commands (e.g., invalid search attributes) in TestWorkflowMutableStateImpl, rather than silently failing. Currently CommandVerifier.verifyCommand validates commands but doesn't log failures.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowMutableStateImpl",
+    "CommandVerifier",
+    "test-service"
+  ],
+  "concepts": [
+    "logging",
+    "command-validation",
+    "task-failure",
+    "error-reporting",
+    "test-debugging"
+  ],
+  "severity": "low",
+  "userImpact": "Test developers cannot see why their test server workflows are silently failing due to invalid commands, making debugging difficult.",
+  "rootCause": "CommandVerifier validates commands and causes task failures, but no logging is performed to inform users of the validation error.",
+  "proposedFix": "Add logging in TestWorkflowMutableStateImpl where CommandVerifier.verifyCommand is called to log when task failures occur from command validation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should log (where it's called from `TestWorkflowMutableStateImpl`). This only applies to search attributes today, because that's the only thing we check command validity on.",
+  "number": 1767,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:32.564Z"
+}

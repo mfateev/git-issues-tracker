@@ -1,0 +1,30 @@
+{
+  "summary": "Activity retry intervals are not being respected consistently. Some retry attempts occur with less than 1 second between them instead of the configured 1-minute interval, causing the backoff policy to be violated.",
+  "category": "bug",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "retry-handler",
+    "worker"
+  ],
+  "concepts": [
+    "retry-policy",
+    "backoff-interval",
+    "timing-accuracy",
+    "activity-execution",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot rely on retry intervals to space out activity attempts, breaking load management and timing assumptions in their workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some attempts have less than 1 minute between them. In the logs below, attempts 6, 17, and 53 occur less than 1 second after the log for the preceding event.",
+  "number": 7515,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:06.739Z"
+}

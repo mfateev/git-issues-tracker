@@ -1,0 +1,33 @@
+{
+  "summary": "Users get confusing error messages when using Workflow APIs (like condition or sleep) outside of the workflow VM context, such as in Activities. The error messages don't clearly indicate the underlying problem, causing confusion about what's wrong.",
+  "category": "bug",
+  "subcategory": "error-messages",
+  "apis": [
+    "condition",
+    "sleep"
+  ],
+  "components": [
+    "workflow-runtime",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "context-isolation",
+    "vm-boundary",
+    "api-misuse",
+    "error-clarity",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are unable to quickly identify why they're getting runtime errors when accidentally using Workflow APIs in Activities, leading to time wasted debugging.",
+  "rootCause": "Workflow APIs are only available within the workflow VM context. When called outside this context, the error message doesn't clearly explain that the API was used in the wrong execution context.",
+  "proposedFix": "Provide better error messages that explicitly indicate when Workflow APIs are being used outside of the VM context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error messages were improved to provide clearer guidance when Workflow APIs are used outside the VM context.",
+  "related": [],
+  "keyQuote": "user using `import { sleep } from '@temporalio/workflow';` in an Activity, getting IllegalStateError, and not knowing what's wrong",
+  "number": 553,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:00:47.926Z"
+}

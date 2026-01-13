@@ -1,0 +1,33 @@
+{
+  "summary": "Request to pass the activity implementation object to ActivityInboundCallInterceptor's init method to enable reflection-based analysis of activity annotations. This would allow interceptors to apply behavior based on activity metadata without maintaining separate references.",
+  "category": "feature",
+  "subcategory": "activity-interceptor",
+  "apis": [
+    "ActivityInboundCallInterceptor"
+  ],
+  "components": [
+    "activity-interceptor",
+    "activity-executor",
+    "reflection"
+  ],
+  "concepts": [
+    "interceptor",
+    "reflection",
+    "annotations",
+    "activity-metadata",
+    "monitoring",
+    "encapsulation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now implement sophisticated interceptor logic based on activity annotations without maintaining workarounds to access the activity implementation object.",
+  "rootCause": null,
+  "proposedFix": "Change the init(context) method signature to init(context, activity) to pass the activity implementation object to the interceptor.",
+  "workaround": "Users currently maintain references to activity implementations using other patterns outside the interceptor framework.",
+  "resolution": "fixed",
+  "resolutionDetails": "The ActivityInboundCallInterceptor init method was updated to accept the activity implementation object as a parameter.",
+  "related": [],
+  "keyQuote": "To allow reflection to work properly a reference to the real object should be passed to the interceptor, not the proxy.",
+  "number": 1750,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:54.615Z"
+}

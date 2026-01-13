@@ -1,0 +1,31 @@
+{
+  "summary": "The TypeScript SDK docs reference a deprecated `nodeModulesPaths` option that was removed from WorkerOptions, causing type errors when developers follow the documentation. The option is no longer needed as the SDK now automatically detects node_modules correctly.",
+  "category": "docs",
+  "subcategory": "documentation-accuracy",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "documentation"
+  ],
+  "concepts": [
+    "configuration",
+    "node-modules",
+    "dependency-resolution",
+    "type-safety",
+    "API-deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers following the official documentation receive TypeScript compilation errors when trying to use the outdated nodeModulesPaths option.",
+  "rootCause": "The nodeModulesPaths option was removed from WorkerOptions because the SDK now automatically detects node_modules, but the documentation was not updated to reflect this change.",
+  "proposedFix": "Update the documentation to remove references to nodeModulesPaths and explain that the SDK now handles node_modules detection automatically.",
+  "workaround": "Remove the nodeModulesPaths option from Worker.create() configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated in temporalio/documentation PR #1425 to remove references to the deprecated nodeModulesPaths option.",
+  "related": [],
+  "keyQuote": "We removed it, as we should now always detect it correctly. If you remove the option, does it work?",
+  "number": 822,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:17:35.724Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add PostgreSQL table partitioning support using hash-based partitioning on shard_id to improve scalability for large tables, with discussion of in-database partitioning as an alternative to multi-db sharding.",
+  "category": "feature",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "database",
+    "persistence-layer",
+    "postgres-driver"
+  ],
+  "concepts": [
+    "partitioning",
+    "scaling",
+    "sharding",
+    "schema-design",
+    "performance",
+    "data-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with large Temporal deployments on PostgreSQL would benefit from native hash partitioning for improved query performance and data distribution.",
+  "rootCause": null,
+  "proposedFix": "Implement hash-based table partitioning in PostgreSQL schema, using shard_id (and optionally run_id) as partition key, with partition count aligned to number of shards.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Most temporal sql query use shard_id as condition, for postgres database partition by hash is nice for large table.",
+  "number": 4044,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:59.376Z"
+}

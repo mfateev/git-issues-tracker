@@ -1,0 +1,32 @@
+{
+  "summary": "ScheduleClient and ScheduleHandle throw exceptions that are not subclasses of TemporalException, violating the SDK's exception hierarchy contract where all SDK exceptions should extend TemporalException.",
+  "category": "bug",
+  "subcategory": "exception-handling",
+  "apis": [
+    "ScheduleClient",
+    "ScheduleHandle"
+  ],
+  "components": [
+    "schedule-client",
+    "schedule-handle",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-hierarchy",
+    "API-contract",
+    "error-consistency",
+    "type-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably catch and handle all SDK exceptions uniformly, breaking the expected exception hierarchy contract.",
+  "rootCause": "ScheduleClient and ScheduleHandle implementations throw exceptions that do not inherit from TemporalException",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "All exceptions thrown from the SDK should be subclasses of TemporalException",
+  "number": 1820,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:56.199Z"
+}

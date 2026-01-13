@@ -1,0 +1,31 @@
+{
+  "summary": "Users experience transient errors when adding new activities to existing workflows during rolling deployments. The system routes activity tasks to workers that don't have implementations of the new activities, causing confusion and requiring error handling workarounds.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-router",
+    "task-queue"
+  ],
+  "concepts": [
+    "deployment",
+    "rolling-upgrade",
+    "activity-routing",
+    "worker-versioning",
+    "backwards-compatibility",
+    "canary-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must add error handling and distinguish transient errors from real deployment issues when rolling out new activities, complicating operational procedures.",
+  "rootCause": "Activity task router lacks awareness of which workers implement specific activities, causing tasks to be routed to workers without the required implementation.",
+  "proposedFix": "Implement worker versioning that allows the system to track which workers implement which activities and route tasks accordingly based on worker capabilities.",
+  "workaround": "Use separate task queues for old and new code versions, though this requires complex operational setup and configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing worker versioning feature that allows automatic routing based on worker capabilities.",
+  "related": [],
+  "keyQuote": "It would be a cleaner experience all around if the system could somehow understand which workers implement which activities and routed the activities accordingly.",
+  "number": 1689,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:16.153Z"
+}

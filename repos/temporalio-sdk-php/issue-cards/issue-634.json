@@ -1,0 +1,32 @@
+{
+  "summary": "Abandoned child workflows should not receive a cascading cancellation from their parent workflow. This aligns with Temporal's child workflow cancellation policy where abandoned children should be independent.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "cancellation-policy",
+    "child-workflow-handler"
+  ],
+  "concepts": [
+    "child-workflows",
+    "cancellation",
+    "workflow-lifecycle",
+    "parent-child-relationship",
+    "abandonment"
+  ],
+  "severity": "high",
+  "userImpact": "Parent workflows incorrectly cancel abandoned child workflows, causing unexpected workflow terminations and potential data loss.",
+  "rootCause": "Cancellation policy not correctly differentiating between normal child workflows and abandoned child workflows when propagating parent cancellation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented proper abandonment handling to prevent cascading cancellation to abandoned child workflows per the Temporal specification.",
+  "related": [
+    644
+  ],
+  "keyQuote": "Abandoned Child Workflows should not receive a cascading Cancel from the parent",
+  "number": 634,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:02.153Z"
+}

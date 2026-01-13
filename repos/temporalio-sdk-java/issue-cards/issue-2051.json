@@ -1,0 +1,35 @@
+{
+  "summary": "Request to add timeout configuration at the activity method level via annotation (e.g., @ActivityTimeouts or extension to @MethodRetry) instead of requiring configuration at the activity stub level, which forces interface fragmentation for per-method settings.",
+  "category": "feature",
+  "subcategory": "activity-configuration",
+  "apis": [
+    "ActivityInterface",
+    "ActivityMethod",
+    "MethodRetry"
+  ],
+  "components": [
+    "activity-interface",
+    "activity-stub",
+    "annotations"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "configuration",
+    "annotation",
+    "start-to-close",
+    "schedule-to-close"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must either split activity interfaces into smaller pieces or use string-based activity names to configure per-method timeouts, losing type safety and code maintainability.",
+  "rootCause": null,
+  "proposedFix": "Add timeout parameters to @MethodRetry annotation or create a new @ActivityTimeouts annotation to specify start-to-close and schedule-to-close timeouts at the method level with precedence over stub-level config.",
+  "workaround": "Use WorkflowImplementationOptions with string-based activity names, though this loses type safety and stub-level config still takes precedence.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "you specify retry and timeout options on the activity stub, which is based on the interface, so in order to have specific config for each activity you have to go out of your way and break up the interface",
+  "number": 2051,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:38.020Z"
+}

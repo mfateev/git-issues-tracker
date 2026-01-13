@@ -1,0 +1,31 @@
+{
+  "summary": "Serialization fails when a DTO class has a nullable array property (?array). The marshaller throws an InvalidArgumentException when null is passed instead of properly handling the nullable type.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "marshaller",
+    "type-system",
+    "attribute-mapper"
+  ],
+  "concepts": [
+    "nullable-types",
+    "dto-serialization",
+    "type-validation",
+    "array-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use DTOs with nullable array properties in workflow/activity arguments, forcing workarounds or restructuring their data models.",
+  "rootCause": "ArrayType.parse() does not handle null values for nullable array types (?array), always expecting a valid array.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #245 which was merged to handle nullable array types in serialization.",
+  "related": [
+    245
+  ],
+  "keyQuote": "When developer using class as DTO with public properties to pass values to workflow with property type `?array` it got an error",
+  "number": 246,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:10.733Z"
+}

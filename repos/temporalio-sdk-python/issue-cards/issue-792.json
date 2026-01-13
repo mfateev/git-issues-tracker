@@ -1,0 +1,36 @@
+{
+  "summary": "wait_condition with timeout causes test to hang indefinitely instead of timing out, preventing workflows with signal timeouts from being properly tested. The issue was traced to a missing asyncio import and unregistered activities in the test, but highlights a broader problem with timeout exception handling in workflow testing.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "wait_condition"
+  ],
+  "components": [
+    "workflow-testing",
+    "wait-condition",
+    "timeout-handling",
+    "signal-management"
+  ],
+  "concepts": [
+    "timeout",
+    "signal",
+    "test-framework",
+    "asyncio",
+    "workflow-execution",
+    "exception-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot properly test workflows that use signal timeouts, making it impossible to verify timeout behavior in test suites.",
+  "rootCause": "Test failures in workflow code (unregistered activities, missing imports) do not cause the workflow to fail by default, leaving wait_condition indefinitely suspended.",
+  "proposedFix": "Set `workflow_failure_exception_types=[Exception]` worker option to make workflow failures from exceptions visible. Related issue #798 opened to allow timeouts to properly cause workflow failures.",
+  "workaround": "Wrap wait_condition in try-except to catch TimeoutError and handle it explicitly; ensure all activities are registered and imports are correct in workflow code.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved through debugging guidance; root cause identified as test setup issues. Related issue #798 tracks proper timeout failure handling.",
+  "related": [
+    798
+  ],
+  "keyQuote": "The error you are getting now is... NameError: name 'asyncio' is not defined. This is the case where it is a legitimate task failure suspended waiting for a code fix",
+  "number": 792,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:00.817Z"
+}

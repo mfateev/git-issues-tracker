@@ -1,0 +1,35 @@
+{
+  "summary": "Make heartbeat throttling interval configurable across Java SDK with explicit defaults. Currently Java has implicit maximum (30s) and default (0s), causing confusion. Need to add WorkerOptions for maxHeartbeatThrottleInterval (default 60s) and defaultHeartbeatThrottleInterval (default 30s) for consistency with other SDKs.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "WorkerOption"
+  ],
+  "components": [
+    "worker",
+    "activity-heartbeat",
+    "configuration"
+  ],
+  "concepts": [
+    "heartbeat",
+    "throttling",
+    "timeout",
+    "configuration",
+    "cancellation",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently experience confusing and inconsistent heartbeat throttling behavior across SDKs, with no way to configure it explicitly.",
+  "rootCause": "Implicit default values (0s default, 30s max) and lack of configurable options make behavior unclear and inconsistent between SDKs.",
+  "proposedFix": "Add maxHeartbeatThrottleInterval and defaultHeartbeatThrottleInterval WorkerOptions with defaults of 60s and 30s respectively, using formula: throttleInterval = min(heartbeat_timeout * 0.8 if provided else defaultHeartbeatThrottleInterval, maxHeartbeatThrottleInterval)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to add configurable heartbeat throttling options with explicit defaults matching the proposed specification.",
+  "related": [
+    656
+  ],
+  "keyQuote": "Make the behavior explicit and configurable. Java currently has an implicit maximum (30s) and default (0). Not heartbeating means no cancellations, need a default value.",
+  "number": 906,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:52:18.146Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The RootScheduleClientInvoker.createSchedule method swallows exceptions that don't match ScheduleAlreadyRunningException, instead of rethrowing them. The catch clause needs to be more specific to only handle the intended exception type.",
+  "category": "bug",
+  "subcategory": "schedule-client",
+  "apis": [
+    "createSchedule"
+  ],
+  "components": [
+    "RootScheduleClientInvoker",
+    "schedule-client",
+    "error-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "error-swallowing",
+    "catch-clause",
+    "schedule-operations"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot see real errors that occur during schedule creation, making debugging and error recovery difficult.",
+  "rootCause": "The catch clause in RootScheduleClientInvoker.createSchedule is too broad and catches all exceptions instead of only the intended ScheduleAlreadyRunningException.",
+  "proposedFix": "Change the catch clause to only catch ScheduleAlreadyRunningException and rethrow other exceptions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Catch clause was made specific to ScheduleAlreadyRunningException and other exceptions are now rethrown.",
+  "related": [
+    1776
+  ],
+  "keyQuote": "the RootScheduleClientInvoker.createSchedule code will swallow all exceptions that don't satisfy the ScheduleAlreadyRunningException conditions",
+  "number": 1817,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:00.372Z"
+}

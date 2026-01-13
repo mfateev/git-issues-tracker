@@ -1,0 +1,30 @@
+{
+  "summary": "The activity_info_maps table in PostgreSQL may be experiencing unbounded growth without proper cleanup. Investigation needed to confirm if this is a bug or expected behavior.",
+  "category": "bug",
+  "subcategory": "database-storage",
+  "apis": [],
+  "components": [
+    "postgres",
+    "activity-info-map",
+    "database-cleanup"
+  ],
+  "concepts": [
+    "unbounded-growth",
+    "table-cleanup",
+    "memory-management",
+    "database-maintenance",
+    "storage-optimization"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience database disk space exhaustion due to unchecked growth of the activity_info_maps table.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was investigated and resolved through database cleanup mechanisms",
+  "related": [],
+  "keyQuote": "activity_info_maps table in postgres suspected unbounded growth",
+  "number": 6689,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:47.370Z"
+}

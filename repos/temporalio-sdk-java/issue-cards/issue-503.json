@@ -1,0 +1,30 @@
+{
+  "summary": "User requests making the DEFAULT_DEADLOCK_DETECTION_TIMEOUT configurable because their custom data converter can exceed the 1 second timeout under certain cluster conditions. Currently hardcoded, this limitation forces users to fork the SDK to work around it.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "DeterministicRunner",
+    "worker",
+    "data-converter"
+  ],
+  "concepts": [
+    "timeout",
+    "configuration",
+    "deadlock-detection",
+    "data-conversion",
+    "worker-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with slow custom data converters are forced to fork the SDK or work around the 1 second timeout limitation.",
+  "rootCause": "DEFAULT_DEADLOCK_DETECTION_TIMEOUT is hardcoded and not exposed as a configurable worker option.",
+  "proposedFix": "Add a new worker option to make DEFAULT_DEADLOCK_DETECTION_TIMEOUT configurable.",
+  "workaround": "Fork the SDK to modify the hardcoded timeout value.",
+  "resolution": "fixed",
+  "resolutionDetails": "Added as a configurable worker option as suggested in the discussion.",
+  "related": [],
+  "keyQuote": "Make DEFAULT_DEADLOCK_DETECTION_TIMEOUT configurable",
+  "number": 503,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:22:59.035Z"
+}

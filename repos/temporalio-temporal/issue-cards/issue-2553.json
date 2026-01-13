@@ -1,0 +1,35 @@
+{
+  "summary": "SQL GetTransfer/VisibilityTasks implementation ignores the page size parameter and returns all tasks instead of respecting pagination limits.",
+  "category": "bug",
+  "subcategory": "pagination",
+  "apis": [
+    "GetTransfer",
+    "VisibilityTasks"
+  ],
+  "components": [
+    "sql-persistence",
+    "visibility-store",
+    "task-store"
+  ],
+  "concepts": [
+    "pagination",
+    "performance",
+    "query-optimization",
+    "result-limiting",
+    "api-compliance"
+  ],
+  "severity": "medium",
+  "userImpact": "Queries return excessive data instead of respecting requested page sizes, causing performance degradation with large result sets.",
+  "rootCause": "SQL GetTransfer/VisibilityTasks implementation does not apply the page size parameter from the request when fetching tasks.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Author was working on fix dependent on PR #2547 landing.",
+  "related": [
+    2547
+  ],
+  "keyQuote": "SQL GetTransfer/VisibilityTasks implementation ignores the page size parameter in the request and always return all tasks",
+  "number": 2553,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:11.672Z"
+}

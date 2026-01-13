@@ -1,0 +1,30 @@
+{
+  "summary": "System Worker spawns repeated Prometheus metric registration errors when multiple workers register the same metric descriptor with variable labels in different orders, causing warning logs to flood the output.",
+  "category": "bug",
+  "subcategory": "prometheus-metrics",
+  "apis": [],
+  "components": [
+    "system-worker",
+    "prometheus-reporter",
+    "metrics"
+  ],
+  "concepts": [
+    "metric-registration",
+    "label-ordering",
+    "prometheus-descriptors",
+    "concurrency",
+    "worker-startup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience warning spam in logs that obscures actual issues and indicates potential problems with metric collection across multiple workers.",
+  "rootCause": "Prometheus descriptor registration fails when the same metric (temporal_worker_task_slots_available) is registered multiple times with the same label set but in different orders, which Prometheus treats as different descriptors.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was not reproducible in versions 1.20 and 1.21, indicating it was fixed in a later release.",
+  "related": [],
+  "keyQuote": "a previously registered descriptor with the same fully-qualified name as Desc{fqName: \"temporal_worker_task_slots_available\"...} has different label names or a different help string",
+  "number": 3265,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:57.061Z"
+}

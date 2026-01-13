@@ -1,0 +1,35 @@
+{
+  "summary": "Namespace registration in Temporal is asynchronous, causing a 10-15 second delay before a newly registered namespace becomes available for use. Users currently must implement workarounds to detect when a namespace is ready, which is unreliable and impacts developer experience.",
+  "category": "feature",
+  "subcategory": "namespace-management",
+  "apis": [
+    "RegisterNamespace",
+    "DescribeNamespace",
+    "ListNamespaces",
+    "GetWorkflowExecutionHistory"
+  ],
+  "components": [
+    "namespace-manager",
+    "namespace-cache",
+    "grpc-service"
+  ],
+  "concepts": [
+    "namespace-registration",
+    "synchronous-operations",
+    "propagation-delay",
+    "developer-experience",
+    "initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably use newly registered namespaces immediately, requiring error-prone workarounds to detect namespace availability.",
+  "rootCause": "Namespace registration is asynchronous with a propagation delay of 10-15 seconds before the namespace becomes available across the system.",
+  "proposedFix": "Make namespace registration synchronous so RegisterNamespace returns only after the namespace is immediately available, or reduce the delay to at most one second in locally deployed versions.",
+  "workaround": "Call GetWorkflowExecutionHistory with a fake workflow ID and check the error status code to detect when namespace is propagated.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing synchronous namespace registration or reducing propagation delay.",
+  "related": [],
+  "keyQuote": "Namespace registration is synchronous. I.e. after the RegisterNamespace returned then it can be used without errors.",
+  "number": 1336,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:16.184Z"
+}

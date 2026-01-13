@@ -1,0 +1,35 @@
+{
+  "summary": "Temporal currently creates a timeout task for every workflow execution with a server default of 10 years, which creates unnecessary timers in the database for short-lived workflows. The proposal is to introduce an infinite timeout concept and switch the server default to infinite, avoiding creation of timeout tasks when not needed.",
+  "category": "feature",
+  "subcategory": "workflow-timeout",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "timeout-management",
+    "timer-service",
+    "server-config"
+  ],
+  "concepts": [
+    "timeout",
+    "scalability",
+    "resource-cleanup",
+    "infinite-timeout",
+    "database-accumulation",
+    "server-defaults",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would benefit from reduced database overhead and improved scalability by eliminating unnecessary timeout timers for workflows that don't need them.",
+  "rootCause": "Server default timeout of 10 years creates timeout tasks for all workflow executions, accumulating timers in the database even for short-lived workflows that don't require cleanup timeouts.",
+  "proposedFix": "Introduce a concept of infinite timeout and change the server default for workflow execution/run timeout to infinite, preventing creation of workflow timeout tasks in these cases.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The infinite timeout concept was implemented and the server default was changed to infinite timeout.",
+  "related": [],
+  "keyQuote": "Introduce a concept of infinite timer and switch the server default for workflow execution/run timeout to be infinite.",
+  "number": 573,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:16:10.066Z"
+}

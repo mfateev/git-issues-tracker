@@ -1,0 +1,30 @@
+{
+  "summary": "Integration test TestWorkflowTerminationSignalBeforeTransientDecisionStarted is flaky, timing out after a minute instead of completing reliably within seconds. The test appears to have race conditions in the workflow termination and signal handling logic.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "workflow-termination",
+    "signal-handling"
+  ],
+  "concepts": [
+    "flaky-test",
+    "timeout",
+    "race-condition",
+    "workflow-lifecycle",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky integration tests reduce confidence in the codebase and slow down development workflows by causing sporadic test failures.",
+  "rootCause": "Race condition in workflow termination signal handling during transient decision started state",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TestWorkflowTerminationSignalBeforeTransientWorkflowTaskStarted is now passing consistently, indicating the underlying issue was resolved",
+  "related": [],
+  "keyQuote": "TestWorkflowTerminationSignalBeforeTransientWorkflowTaskStarted is passing consistently.",
+  "number": 496,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:02:27.661Z"
+}

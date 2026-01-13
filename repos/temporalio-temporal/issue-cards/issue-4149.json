@@ -1,0 +1,31 @@
+{
+  "summary": "After upgrading to v1.20.1, queries to temporal_visibility table cause context deadline exceeded errors and MySQL slow logs. The query optimizer incorrectly chooses the PRIMARY key index instead of the default_idx index, resulting in poor performance on large datasets (3M+ rows).",
+  "category": "bug",
+  "subcategory": "visibility-query-performance",
+  "apis": [],
+  "components": [
+    "visibility-manager",
+    "persistence-layer",
+    "query-optimizer",
+    "mysql-adapter"
+  ],
+  "concepts": [
+    "index-selection",
+    "query-performance",
+    "query-timeout",
+    "database-optimization",
+    "execution-visibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to v1.20.1 experience frequent context deadline exceeded errors and MySQL slow queries when the server queries the visibility table, potentially causing operational issues and performance degradation.",
+  "rootCause": "MySQL query optimizer incorrectly selects PRIMARY key index instead of the more efficient default_idx index for namespace_id lookups, causing full scans on large visibility tables.",
+  "proposedFix": "Force or hint the query planner to use the default_idx index, or restructure the query to encourage proper index selection.",
+  "workaround": "Use USE INDEX(default_idx) hint in the SQL query to force the optimizer to use the correct index.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "MySQL did not use the \"default_idx\" index as I forced, instead, it used the PrimaryKey as index",
+  "number": 4149,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:42.658Z"
+}

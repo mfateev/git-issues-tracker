@@ -1,0 +1,33 @@
+{
+  "summary": "Query handler returning incorrect time.Time values in query responses due to using time.Now() instead of workflow.Now() in workflow code. The StartedAt and FinishedAt pointer fields were being evaluated at query time rather than being captured at workflow execution time, causing non-deterministic values.",
+  "category": "question",
+  "subcategory": "workflow-query",
+  "apis": [
+    "SetQueryHandler"
+  ],
+  "components": [
+    "query-handler",
+    "workflow-execution",
+    "serialization"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "time-handling",
+    "pointers",
+    "query-responses",
+    "workflow-code"
+  ],
+  "severity": "low",
+  "userImpact": "Users may observe incorrect timestamp values in query responses when using time.Now() instead of workflow.Now() in workflow code, leading to non-deterministic behavior across replays.",
+  "rootCause": "User was calling time.Now() in workflow code instead of workflow.Now(), which is non-deterministic across replays and causes pointers to time.Time values to be re-evaluated on each query call.",
+  "proposedFix": "Replace time.Now() with workflow.Now() in workflow code to ensure deterministic time handling.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "User confirmed the issue was in their workflow code, not in Temporal. Using workflow.Now() instead of time.Now() fixed the problem.",
+  "related": [],
+  "keyQuote": "This is a bug in your workflow code, you should not be using `time.Now` in workflow code since the result is not deterministic across replay.",
+  "number": 5460,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:51.310Z"
+}

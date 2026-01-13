@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to enable graceful worker shutdown based on operating system signals (SIGTERM, SIGINT). This would allow the Ruby SDK to properly handle termination signals and cleanly shut down workers.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "signal-handling",
+    "shutdown"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "signal-handling",
+    "process-termination",
+    "lifecycle-management",
+    "clean-exit"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to gracefully shut down workers in response to OS signals, which is essential for containerized deployments and proper process management.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker signal handling was implemented to support graceful shutdown based on OS signals.",
+  "related": [],
+  "keyQuote": null,
+  "number": 98,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:54.108Z"
+}

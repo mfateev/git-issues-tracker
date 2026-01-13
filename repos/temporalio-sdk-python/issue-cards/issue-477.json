@@ -1,0 +1,32 @@
+{
+  "summary": "Update handler inputs and responses are not being processed through payload converters and codecs, causing data serialization inconsistencies.",
+  "category": "bug",
+  "subcategory": "data-conversion",
+  "apis": [
+    "UpdateHandler"
+  ],
+  "components": [
+    "update-handler",
+    "data-converter",
+    "codec"
+  ],
+  "concepts": [
+    "serialization",
+    "data-conversion",
+    "payload-handling",
+    "codec-pipeline",
+    "input-processing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use custom data converters or codecs with workflow updates, breaking data serialization consistency across update operations.",
+  "rootCause": "Update input and response handling bypasses the standard payload converter/codec pipeline used for other workflow operations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The input to and responses to updates are not currently being run through the payload converters / codecs.",
+  "number": 477,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:58.256Z"
+}

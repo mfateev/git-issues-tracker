@@ -1,0 +1,32 @@
+{
+  "summary": "CLI server has a hard-coded, unconfigurable limit on custom search attributes that is too restrictive for development use cases. Users need the ability to add more than the pre-allocated custom search attributes to match production environment capabilities.",
+  "category": "feature",
+  "subcategory": "cli-server",
+  "apis": [],
+  "components": [
+    "cli-server",
+    "visibility-schema",
+    "search-attributes"
+  ],
+  "concepts": [
+    "custom-search-attributes",
+    "development-environment",
+    "configuration-limit",
+    "search-capabilities",
+    "schema-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers are forced to use Docker Compose instead of the CLI server for development when they need more than the pre-allocated custom search attributes, degrading developer experience.",
+  "rootCause": "Hard-coded pre-allocated number of custom search attributes in the visibility schema that is not configurable and is lower than production limits.",
+  "proposedFix": "Have a large upper limit—one that's much less likely to be run into.",
+  "workaround": "Going back to Docker Compose for local development.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    318
+  ],
+  "keyQuote": "This hard (unconfigurable) upper limit makes the CLI server unusable in dev for some use cases.",
+  "number": 4802,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:42.497Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Ephemeral test server startup failures in CI provide no error details about why the server failed to start. Users only see a generic timeout error after 5 seconds with no indication of the root cause.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment.createLocal"
+  ],
+  "components": [
+    "ephemeral-server",
+    "test-environment",
+    "subprocess-spawning"
+  ],
+  "concepts": [
+    "error-logging",
+    "debugging",
+    "timeout",
+    "subprocess",
+    "file-descriptors",
+    "stdio-inheritance"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers debugging random CI test failures cannot determine why the ephemeral test server failed to start, making it impossible to fix underlying issues.",
+  "rootCause": "On POSIX platforms, stdout and stderr were not properly inherited by ephemeral servers spawned from native code because NodeJS was setting FD_CLOEXEC on file descriptors, which prevented their inheritance in child processes.",
+  "proposedFix": "Ensure stdout and stderr from the ephemeral test server subprocess are properly captured and logged to provide users with detailed error information about startup failures.",
+  "workaround": "Set the server logging level to 'debug' instead of 'warn' to get more detailed output, though this may not capture subprocess stderr properly.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by ensuring stdout and stderr file descriptors are properly inherited by child processes on POSIX platforms, allowing server startup errors to be visible to users.",
+  "related": [],
+  "keyQuote": "nodejs is setting FD_CLOEXEC on all of its standard file descriptors, which means that these file descriptors are not inherited by child processes",
+  "number": 1396,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:03.719Z"
+}

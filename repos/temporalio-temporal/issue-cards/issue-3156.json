@@ -1,0 +1,32 @@
+{
+  "summary": "The tdbg and tctl admin commands require direct database access but should instead rely exclusively on frontend admin APIs. This issue tracks removing direct DB connections and replacing them with API-based equivalents.",
+  "category": "bug",
+  "subcategory": "admin-tools",
+  "apis": [],
+  "components": [
+    "tctl",
+    "admin-api",
+    "database-access"
+  ],
+  "concepts": [
+    "database-abstraction",
+    "api-migration",
+    "admin-commands",
+    "workflow-deletion",
+    "frontend-apis"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to have database access to run admin commands, which increases operational complexity and security surface area.",
+  "rootCause": "Admin commands like tctl are directly accessing the database instead of going through frontend admin APIs.",
+  "proposedFix": "Replace direct database connections with admin API calls. Implement workflow deletion through a new force workflow deletion API instead of direct DB connection.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by implementing admin workflow delete command to use the new force workflow deletion API via PR #2841, removing direct database access.",
+  "related": [
+    2841
+  ],
+  "keyQuote": "We should remove any db access from tctl and rely only on frontend admin APIs.",
+  "number": 3156,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:04.553Z"
+}

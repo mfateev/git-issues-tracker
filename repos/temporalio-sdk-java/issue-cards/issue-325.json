@@ -1,0 +1,30 @@
+{
+  "summary": "Javadoc for WorkflowClient class refers to an incorrect method signature `newInstance(temporalServiceHost, temporalServicePort, namespace)` that doesn't exist in the actual API. The documentation needs to be updated to reference the correct method.",
+  "category": "docs",
+  "subcategory": "javadoc",
+  "apis": [
+    "WorkflowClient"
+  ],
+  "components": [
+    "WorkflowClient",
+    "documentation"
+  ],
+  "concepts": [
+    "API documentation",
+    "method signature",
+    "javadoc",
+    "API reference"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the documentation may attempt to use a non-existent API method, leading to compilation errors.",
+  "rootCause": "Javadoc references an outdated or incorrect method signature that is not available in the current implementation.",
+  "proposedFix": "Update the Javadoc to reference the actual available method signature for creating WorkflowClient instances.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was corrected to reference the correct API method signature.",
+  "related": [],
+  "keyQuote": "The Javadoc for WorkflowClient class refers to `WorkflowClient.newInstance(temporalServiceHost, temporalServicePort, namespace)` API... This `newInstance` method signature is not available.",
+  "number": 325,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:07:55.985Z"
+}

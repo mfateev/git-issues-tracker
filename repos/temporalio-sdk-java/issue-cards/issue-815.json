@@ -1,0 +1,33 @@
+{
+  "summary": "Port Go SDK's DNS-based approach for distributing connections across multiple frontend servers. The original feature request sought to allow multiple host:port specifications and distribute pollers across multiple connections for better load distribution.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "connection-pool",
+    "frontend-client"
+  ],
+  "concepts": [
+    "load-distribution",
+    "connection-pooling",
+    "dns-resolution",
+    "frontend-servers",
+    "pollers"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with multiple workers and multiple frontend servers can better distribute polling load across servers instead of concentrating on a single connection.",
+  "rootCause": null,
+  "proposedFix": "Implement DNS-based approach for distributing connections across multiple frontend servers, following the Go SDK implementation pattern.",
+  "workaround": "Users must start more workers to achieve load distribution across frontend servers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed in favor of DNS-based approach which was adopted instead of explicit multiple host:port specification.",
+  "related": [
+    577,
+    582
+  ],
+  "keyQuote": "Closing as original Go PR was closed in favour of DNS based approach",
+  "number": 815,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:44:08.644Z"
+}

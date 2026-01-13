@@ -1,0 +1,39 @@
+{
+  "summary": "Advanced metrics support feature request for the Python SDK following sdk-core PR #544. Implements missing Prometheus/OpenTelemetry options, metric buffer forwarding, and metrics access from workflows and activities.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus",
+    "opentelemetry",
+    "worker",
+    "activity-executor",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "monitoring",
+    "prometheus",
+    "opentelemetry",
+    "forwarding",
+    "tags"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to access and forward metrics from workflows and activities with proper tag support for better observability.",
+  "rootCause": null,
+  "proposedFix": "Implement metric buffer-based forwarding, add access to metrics from runtime/activities/workflows with appropriate default tags.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature request completed through multiple PRs (#380 for missing options, #384 for runtime/activity/workflow metrics access).",
+  "related": [
+    380,
+    384,
+    544
+  ],
+  "keyQuote": "Support user-accessible metric buffer-based forwarding",
+  "number": 369,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:59.863Z"
+}

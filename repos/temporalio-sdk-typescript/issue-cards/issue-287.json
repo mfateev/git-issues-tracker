@@ -1,0 +1,31 @@
+{
+  "summary": "The SDK is explicitly setting a default value for workflowIdReusePolicy, but the server already provides a default. This causes unnecessary duplication and potential inconsistency.",
+  "category": "bug",
+  "subcategory": "client-configuration",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-options",
+    "defaults"
+  ],
+  "concepts": [
+    "default-values",
+    "server-configuration",
+    "configuration-override",
+    "client-server-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected behavior due to SDK-level defaults overriding server-level defaults, or confusion about which default applies.",
+  "rootCause": "The SDK explicitly sets a default value for workflowIdReusePolicy in workflow-options.ts instead of allowing the server to provide the default.",
+  "proposedFix": "Remove the SDK-level default for workflowIdReusePolicy and allow the server to provide the default value.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK-level default was removed to allow the server to handle the default value.",
+  "related": [],
+  "keyQuote": "The default is set by the server already.",
+  "number": 287,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:50.714Z"
+}

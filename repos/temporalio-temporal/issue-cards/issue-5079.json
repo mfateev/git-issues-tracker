@@ -1,0 +1,32 @@
+{
+  "summary": "Users upgrading from Temporal v1.19 to v1.22 encounter errors when attempting to add search attributes, with the error message indicating zero Keyword search attributes are allowed. The issue appears related to missing Custom Attributes configuration in the cluster_metadata_info during the upgrade process.",
+  "category": "bug",
+  "subcategory": "search-attributes-upgrade",
+  "apis": [],
+  "components": [
+    "cluster-metadata",
+    "search-attributes",
+    "operator-cli",
+    "persistence"
+  ],
+  "concepts": [
+    "upgrade-migration",
+    "database-schema",
+    "search-attributes",
+    "postgres",
+    "cluster-configuration",
+    "metadata-corruption"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot add search attributes after upgrading their Temporal cluster, blocking workflow configuration and visibility features.",
+  "rootCause": "The cluster_metadata_info binary data is missing Custom Attributes configuration after upgrade from v1.19 to v1.22, preventing new search attributes from being created.",
+  "proposedFix": null,
+  "workaround": "Use pure PostgreSQL instead of Aurora PostgreSQL clusters, as the issue appears specific to Aurora.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue identified as Aurora-specific; workaround is to use standard PostgreSQL. Not a general Temporal bug.",
+  "related": [],
+  "keyQuote": "This happens with Aurora PostgreSQL clusters even with fresh Temporal installs.",
+  "number": 5079,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:27.545Z"
+}

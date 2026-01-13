@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support readonly properties in workflow and activity input objects. Currently, properties must be set individually after object creation, which is incompatible with readonly fields.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "workflow-inputs",
+    "activity-inputs",
+    "dto-serialization"
+  ],
+  "concepts": [
+    "readonly-properties",
+    "object-initialization",
+    "data-transfer-objects",
+    "immutability",
+    "property-binding"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use readonly properties in DTO classes for workflow and activity arguments, limiting their ability to use immutable patterns.",
+  "rootCause": "The SDK sets object properties individually after instantiation, which bypasses constructor-based initialization required for readonly properties.",
+  "proposedFix": null,
+  "workaround": "Avoid using readonly properties in DTO classes for workflow and activity inputs.",
+  "resolution": "fixed",
+  "resolutionDetails": "Pull request #232 added unit tests demonstrating that readonly properties in DTOs work correctly with workflow and activity arguments.",
+  "related": [
+    232
+  ],
+  "keyQuote": "readonly properties in DTO's are actually work.",
+  "number": 211,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:40.206Z"
+}

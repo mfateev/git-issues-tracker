@@ -1,0 +1,31 @@
+{
+  "summary": "Add LastFailure and LastResult properties to WorkflowInfo in the .NET SDK to match functionality available in other Temporal SDKs. These properties are useful for workflow retries and cron/schedule workflows.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "dotnet-sdk"
+  ],
+  "concepts": [
+    "workflow-retry",
+    "cron-workflows",
+    "schedule-workflows",
+    "failure-handling",
+    "result-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access last failure and result information in .NET SDK workflows, limiting debugging and retry logic capabilities compared to other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add LastFailure and LastResult properties to the WorkflowInfo class to provide parity with other SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and added to WorkflowInfo class in .NET SDK.",
+  "related": [],
+  "keyQuote": "These are present on other SDKs. LastResult is mostly only for cron/schedule, but LastFailure can also have value for workflow retry.",
+  "number": 133,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:19:09.104Z"
+}

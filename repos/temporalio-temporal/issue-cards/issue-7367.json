@@ -1,0 +1,31 @@
+{
+  "summary": "Activity failure truncation is applied uniformly regardless of the number of pending activities. The server should use a more intelligent strategy that only truncates when the aggregated failure size from all activities exceeds a larger threshold, to support both single-activity workflows and workflows with many pending activities.",
+  "category": "feature",
+  "subcategory": "activity-failure-handling",
+  "apis": [],
+  "components": [
+    "mutable-state",
+    "activity-executor",
+    "failure-handling"
+  ],
+  "concepts": [
+    "truncation",
+    "failure-info",
+    "pending-activities",
+    "mutable-state-size",
+    "workflow-termination",
+    "buffered-events"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows with few activities are forced to truncate failure information with insufficient limits, while workflows with many pending activities may reach termination limits due to accumulated failure data.",
+  "rootCause": "Fixed 2KB per-activity failure size limit does not account for the total number of pending activities or the actual criticality of preserving failure information.",
+  "proposedFix": "Implement a total failure size limit across all pending activities instead of a per-activity limit, and consider flushing buffered events or truncating failure messages before terminating workflows when mutable state size reaches limits.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A total failure size limit across activities. When ms size reaches the limit, before directly terminating the workflow, see if we can flush buffered events or truncate activity failure message.",
+  "number": 7367,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:06.580Z"
+}

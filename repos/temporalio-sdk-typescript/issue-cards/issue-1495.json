@@ -1,0 +1,31 @@
+{
+  "summary": "OTLP export integration tests for Core metrics have become noisy due to recent Core dependency updates causing grpc response errors. Tests were disabled pending a proper mock collector implementation.",
+  "category": "bug",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "otel-metrics",
+    "grpc-client"
+  ],
+  "concepts": [
+    "metrics-export",
+    "otlp",
+    "grpc",
+    "test-infrastructure",
+    "mocking",
+    "collector"
+  ],
+  "severity": "medium",
+  "userImpact": "Integration tests are disabled, reducing test coverage for OTLP metrics export functionality and preventing validation of metrics export behavior.",
+  "rootCause": "Recent update to Core or its underlying dependencies changed how the OTLP emitter handles grpc responses from the collector service, causing the bare HTTP2 mock server to fail validation.",
+  "proposedFix": "Rewrite the integration tests to use a more convincing mock OTLP collector that properly handles grpc responses.",
+  "workaround": "Tests have been disabled temporarily until proper mock implementation is available.",
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were disabled as a temporary measure pending rewrite of the mock collector infrastructure.",
+  "related": [],
+  "keyQuote": "OpenTelemetry metrics error occurred. Metrics exporter otlp failed with the grpc server returns error (Internal error): , detailed error message: Missing response message.",
+  "number": 1495,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:51:59.617Z"
+}

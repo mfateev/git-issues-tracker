@@ -1,0 +1,32 @@
+{
+  "summary": "The listTaskQueuePartitions API in MatchingService has a bug that should have been caught by basic unit tests. A fix is ready but the codebase needs better test coverage for this functionality.",
+  "category": "bug",
+  "subcategory": "matching-service",
+  "apis": [
+    "listTaskQueuePartitions"
+  ],
+  "components": [
+    "matching-service",
+    "task-queue",
+    "matching-engine"
+  ],
+  "concepts": [
+    "unit-testing",
+    "api-implementation",
+    "bug-detection",
+    "test-coverage",
+    "code-quality"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter unexpected behavior from the listTaskQueuePartitions API due to implementation bugs that lack test coverage.",
+  "rootCause": "Implementation bug in listTaskQueuePartitions, potentially introduced during merge",
+  "proposedFix": "Add comprehensive unit tests for listTaskQueuePartitions implementation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There was a fairly blatant bug in the implementation of the API... Even the most basic of unit tests would have caught this.",
+  "number": 589,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:18:04.992Z"
+}

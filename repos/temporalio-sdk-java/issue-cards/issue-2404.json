@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add ARM64 (Mac and Linux) distribution support for temporal-test-server, which is currently only available for AMD64. This is needed to access the start_time_skipping test environment for validating wait_condition behavior on ARM64-based Macs.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "temporal-test-server",
+    "build-distribution",
+    "testing-tools"
+  ],
+  "concepts": [
+    "ARM64-support",
+    "platform-compatibility",
+    "test-environment",
+    "time-skipping",
+    "cross-platform-builds"
+  ],
+  "severity": "medium",
+  "userImpact": "ARM64 Mac users cannot access time-skipping test environment functionality, limiting their ability to validate wait_condition behavior.",
+  "rootCause": "temporal-test-server releases only include AMD64 binaries, not ARM64 builds",
+  "proposedFix": "Add ARM64 Linux and Mac distribution builds to temporal-test-server releases",
+  "workaround": "Run Linux containers with amd64 platform emulation, though this causes compatibility issues with ARM64-dependent packages",
+  "resolution": "fixed",
+  "resolutionDetails": "Team confirmed this is a priority and indicated work is underway to change the test server build to support ARM64",
+  "related": [],
+  "keyQuote": "Yes this is something we would like to support, hopefully in the very near future. Currently working on changing the test server build to support this.",
+  "number": 2404,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:07:30.585Z"
+}

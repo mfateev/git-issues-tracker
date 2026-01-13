@@ -1,0 +1,34 @@
+{
+  "summary": "Parent workflow with POLICY_ABANDON child close policy incorrectly waits for child workflow completion instead of abandoning it. Using yield causes parent to block, while omitting yield prevents parent from starting.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "Workflow::newUntypedChildWorkflowStub",
+    "ChildWorkflowOptions",
+    "ParentClosePolicy"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-scheduler",
+    "policy-handling"
+  ],
+  "concepts": [
+    "parent-close-policy",
+    "abandon-policy",
+    "async-execution",
+    "workflow-lifecycle",
+    "child-workflow-completion"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly implement fire-and-forget child workflows with abandon policy, breaking async patterns for background tasks.",
+  "rootCause": "Parent workflow incorrectly waits for child completion despite POLICY_ABANDON setting, suggesting policy is not properly applied during child workflow execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in PHP SDK by properly implementing POLICY_ABANDON semantics so parent workflows don't wait for child completion.",
+  "related": [],
+  "keyQuote": "Having yield in the parent - it always waits for child to be completed. Without yield the parent event doesn't start.",
+  "number": 239,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:53.116Z"
+}

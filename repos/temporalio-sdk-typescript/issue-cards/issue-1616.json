@@ -1,0 +1,35 @@
+{
+  "summary": "Add memoization support to the patched() API with a new memoized argument, maintaining backward compatibility while deprecating non-memoized signatures. Delegate the patched logic handling to Core.",
+  "category": "feature",
+  "subcategory": "patched-api",
+  "apis": [
+    "patched",
+    "deprecatePatch"
+  ],
+  "components": [
+    "patched-api",
+    "core-delegation",
+    "api-compatibility"
+  ],
+  "concepts": [
+    "memoization",
+    "backward-compatibility",
+    "deprecation",
+    "feature-flag",
+    "api-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will gain memoization capabilities in the patched API with a clear migration path for existing code.",
+  "rootCause": null,
+  "proposedFix": "Add memoized argument to patched and deprecatePatch APIs, deprecate non-memoized signatures, and delegate handling to Core.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    591
+  ],
+  "keyQuote": "Add a `memoized` argument to the `patched` and `deprecatePatch` APIs.",
+  "number": 1616,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:34.989Z"
+}

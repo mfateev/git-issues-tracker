@@ -1,0 +1,31 @@
+{
+  "summary": "WorkflowStub queries incorrectly target only the first workflow run after the stub is used to start a workflow, instead of following the ContinueAsNew chain and targeting the latest run as expected.",
+  "category": "bug",
+  "subcategory": "workflow-stub-query",
+  "apis": [
+    "WorkflowStub"
+  ],
+  "components": [
+    "workflow-stub",
+    "query-engine",
+    "run-tracking"
+  ],
+  "concepts": [
+    "query-targeting",
+    "continue-as-new",
+    "workflow-runs",
+    "stub-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users unable to query the correct workflow run after using a stub to start a workflow, breaking expected query behavior.",
+  "rootCause": "After start call, the WorkflowStub internally tracks the specific runId and targets that run for queries instead of maintaining the default behavior of targeting the latest run.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if this stub is used to start a workflow, after this start call the query targets the specific run that was started by this stub",
+  "number": 1601,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:05.319Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose the Initiator enum through WorkflowInfo, allowing workflows to determine whether execution was triggered by retry, continue-as-new, cron, or other mechanisms.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "StartWorkflow",
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "workflow-info",
+    "initiator"
+  ],
+  "concepts": [
+    "execution-initiation",
+    "retry",
+    "continue-as-new",
+    "cron",
+    "workflow-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users need visibility into why a workflow execution was initiated to implement conditional logic based on restart cause.",
+  "rootCause": null,
+  "proposedFix": "Expose startWorkflow.continueInitiator as WorkflowInfo.more.initiator with the Initiator enum values",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "One possible use case is determining whether the current Execution was initiated due to retry vs continue as new.",
+  "number": 668,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:51.518Z"
+}

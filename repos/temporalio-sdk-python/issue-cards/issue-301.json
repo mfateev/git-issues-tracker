@@ -1,0 +1,31 @@
+{
+  "summary": "Proxied classes in workflows are raising 'unhashable type' errors for datetime objects despite having `__hash__` defined, indicating a problem with the proxy implementation's hashability.",
+  "category": "bug",
+  "subcategory": "proxying",
+  "apis": [],
+  "components": [
+    "proxy-system",
+    "workflow-execution",
+    "type-handling"
+  ],
+  "concepts": [
+    "hashability",
+    "object-identity",
+    "proxy-pattern",
+    "workflow-constraints",
+    "type-wrapping",
+    "serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter runtime errors when datetime or other objects are used in workflows due to improper proxy class hashing.",
+  "rootCause": "Proxied classes do not properly implement or preserve the `__hash__` method, causing hashability failures even when defined.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Getting `unhashable type: '_RestrictedProxy'` possibly on a datetime in a workflow even though we define `__hash__`",
+  "number": 301,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:20.030Z"
+}

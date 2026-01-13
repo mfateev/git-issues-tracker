@@ -1,0 +1,33 @@
+{
+  "summary": "The temporal-sql-tool fails during schema updates when attempting to modify the `timer_tasks` table, causing the update process to fail partway through version 1.2 schema migrations.",
+  "category": "bug",
+  "subcategory": "schema-migration",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "schema-migration",
+    "database-setup",
+    "aurora-mysql"
+  ],
+  "concepts": [
+    "schema-versioning",
+    "database-migration",
+    "table-creation",
+    "data-persistence"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot successfully update their Temporal database schema, blocking initial setup and schema upgrades on AWS Aurora MySQL.",
+  "rootCause": "Aurora MySQL fails to create or modify the `timer_tasks` table, returning error 1146 (table doesn't exist) even though the creation statement appears to execute.",
+  "proposedFix": "Potential fix mentioned in PR #2104, though specifics not detailed in the issue.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Likely resolved by PR #2104 based on comment suggesting testing against that PR.",
+  "related": [
+    1087,
+    2104
+  ],
+  "keyQuote": "error executing statement:Error 1146: Table 'temporal.timer_tasks' doesn't exist",
+  "number": 1477,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:33:48.024Z"
+}

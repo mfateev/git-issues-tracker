@@ -1,0 +1,27 @@
+{
+  "summary": "Documentation for the `maxCachedWorkflows` config option incorrectly references a non-existent option `maxIsolateMemoryMB`, creating a broken link in the API documentation.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [],
+  "components": [
+    "worker",
+    "documentation"
+  ],
+  "concepts": [
+    "configuration",
+    "documentation-accuracy",
+    "removed-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users viewing the API documentation encounter broken links and references to options that do not exist.",
+  "rootCause": "The option `maxIsolateMemoryMB` was removed from the codebase but the documentation referencing it was not updated.",
+  "proposedFix": "Update the documentation to remove the reference to the non-existent `maxIsolateMemoryMB` option.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The documentation was corrected to remove the reference to the removed option.",
+  "related": [],
+  "keyQuote": "Thanks, we removed this option and forgot to update the docs.",
+  "number": 699,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:49.892Z"
+}

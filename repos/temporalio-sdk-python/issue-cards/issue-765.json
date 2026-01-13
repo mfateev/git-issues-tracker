@@ -1,0 +1,33 @@
+{
+  "summary": "Python 3.11's enhanced traceback information (code lines and position markers) significantly increases failure payload sizes, potentially exceeding server limits. The feature request asks for a way to disable this extra traceback data, though research determined the setting is global and users can use environment variables to disable it.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "failure-handling",
+    "traceback-formatting",
+    "error-serialization"
+  ],
+  "concepts": [
+    "traceback-size",
+    "payload-limits",
+    "Python-3.11",
+    "error-reporting",
+    "debugging-information",
+    "serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users running Python 3.11+ may experience failures that exceed server-side payload size limits due to enhanced traceback information.",
+  "rootCause": "Python 3.11's PEP 657 adds code context and position markers (`^` and `~`) to tracebacks, increasing payload size.",
+  "proposedFix": "Either provide opt-in/opt-out behavior to strip enhanced traceback data, or manually walk frames to build custom stack traces.",
+  "workaround": "Set PYTHONNODEBUGRANGES environment variable or use -X no_debug_ranges command-line argument to disable debug ranges.",
+  "resolution": "wontfix",
+  "resolutionDetails": "After investigation, the enhanced traceback markers don't contribute significantly to size. Closing as won't do, recommending users use the environment variable workaround.",
+  "related": [
+    597
+  ],
+  "keyQuote": "If this is a concern for users, they can set PYTHONNODEBUGRANGES env var or -X no_debug_ranges cmd arg.",
+  "number": 765,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:29.129Z"
+}

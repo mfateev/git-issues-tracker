@@ -1,0 +1,33 @@
+{
+  "summary": "Client process exits with status 0 when calling start() or execute() with an unresolvable DNS address, instead of rejecting the promise with an error.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "start",
+    "execute"
+  ],
+  "components": [
+    "grpc-retry",
+    "connection",
+    "client"
+  ],
+  "concepts": [
+    "dns-resolution",
+    "error-handling",
+    "process-exit",
+    "connection-failure",
+    "interceptor"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience silent process termination instead of proper error handling when DNS resolution fails, making debugging difficult.",
+  "rootCause": "Issue in makeGrpcRetryInterceptor, specifically at line 103 in grpc-retry.ts that causes improper error handling for unresolvable addresses.",
+  "proposedFix": "Fix the interceptor logic; connection constructor will be changed to async factory soon which will resolve this issue.",
+  "workaround": "Setting interceptors to an empty array causes the call to fail with a ServiceError as expected.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue no longer occurs after upgrading grpc-js.",
+  "related": [],
+  "keyQuote": "Setting the Connection address to an address that won't resolve causes subsequent start and execute calls from the client to exit the process.",
+  "number": 580,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:02:38.749Z"
+}

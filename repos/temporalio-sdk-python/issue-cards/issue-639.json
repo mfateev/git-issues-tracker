@@ -1,0 +1,36 @@
+{
+  "summary": "User experiences intermittent 'operation was canceled' errors when calling start_workflow with multiple concurrent requests. Out of 10 workflows, only 6 succeed while 4 fail with RPC errors, with no consistent reproduction pattern.",
+  "category": "bug",
+  "subcategory": "workflow-start",
+  "apis": [
+    "start_workflow",
+    "signal_workflow"
+  ],
+  "components": [
+    "client",
+    "rpc-layer",
+    "workflow-starter"
+  ],
+  "concepts": [
+    "concurrency",
+    "network",
+    "timeout",
+    "retry",
+    "connection",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably start multiple workflows due to intermittent cancellation errors, impacting workflow initialization reliability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Add retry logic when calling start_workflow, though it only reduces the error frequency rather than eliminating it.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    807
+  ],
+  "keyQuote": "It happens when I called method `start_workflow`. Maybe it cant connect to create workflow on temporal and return `temporal_sdk_bridge.RPCError: (1, 'operation was canceled', b'')`",
+  "number": 639,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:33.612Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Change the logging extra field to use dict-based temporal_activity and temporal_workflow instead of info data classes, improving compatibility with standard loggers.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logger",
+    "activity-executor",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "logging",
+    "structured-logging",
+    "logger-extra",
+    "info-objects",
+    "dict-format"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have better logger compatibility and more standard logging output when using Temporal activities and workflows.",
+  "rootCause": null,
+  "proposedFix": "Stop setting activity_info and workflow_info as data classes in extra, instead set temporal_activity and temporal_workflow as dict entries in the logger details.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented change to use dict-based temporal_activity and temporal_workflow in logger extra instead of info data classes.",
+  "related": [],
+  "keyQuote": "Stop doing this by default, and start setting `temporal_activity` and `temporal_workflow` as the logger details dict",
+  "number": 489,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:46.008Z"
+}

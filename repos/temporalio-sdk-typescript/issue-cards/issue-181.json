@@ -1,0 +1,39 @@
+{
+  "summary": "Proposal for a React-like API design for the TypeScript SDK that leverages the popularity and proven patterns of React to improve Temporal adoption and API design, while adapting for Temporal-specific concepts like Sagas, hook registration, and external invocations.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "Activity",
+    "Workflow",
+    "InfiniteWorkflow",
+    "Signal",
+    "Query"
+  ],
+  "components": [
+    "workflow-runtime",
+    "activity-executor",
+    "client-api",
+    "type-system"
+  ],
+  "concepts": [
+    "api-design",
+    "developer-experience",
+    "type-safety",
+    "react-patterns",
+    "workflow-definition",
+    "activity-invocation",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "A React-like API could significantly improve developer adoption and experience for JavaScript developers familiar with React, while providing better type safety and more intuitive workflow definition patterns.",
+  "rootCause": null,
+  "proposedFix": "Implement a class-based workflow API with decorator-like signal/query registration, activity registration as class properties, and factory functions for type-safe workflow instantiation, with optional factory pattern and function-style definitions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The strawman proposal was used to inform the actual TypeScript SDK API design, which incorporated many of these concepts including class-based workflows, signals, and queries.",
+  "related": [],
+  "keyQuote": "it might help solve some of our API design challenges (by starting from something already proven) and our adoption might be helped GREATLY since most JS people know React.",
+  "number": 181,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:37.755Z"
+}

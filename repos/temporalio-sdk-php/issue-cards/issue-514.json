@@ -1,0 +1,33 @@
+{
+  "summary": "Empty searchAttributes array passed to child workflow options causes a protobuf parsing panic in the Go SDK with error 'expected { character for map value'. The PHP SDK fails to properly serialize empty search attributes when creating child workflows.",
+  "category": "bug",
+  "subcategory": "child-workflow-serialization",
+  "apis": [
+    "StartChildWorkflow",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "proto-codec",
+    "child-workflow",
+    "search-attributes"
+  ],
+  "concepts": [
+    "serialization",
+    "protobuf-parsing",
+    "empty-collections",
+    "message-encoding",
+    "map-encoding"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create child workflows with empty search attributes, causing workflow execution to panic and fail.",
+  "rootCause": "The protobuf codec incorrectly serializes an empty searchAttributes array, producing invalid protobuf syntax that the Go SDK cannot parse when decoding.",
+  "proposedFix": null,
+  "workaround": "Avoid passing empty searchAttributes arrays; either omit the parameter or provide non-empty search attributes.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the protobuf serialization of empty search attributes in the PHP SDK.",
+  "related": [],
+  "keyQuote": "proto_codec_parse_message: expected { character for map value",
+  "number": 514,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:02.332Z"
+}

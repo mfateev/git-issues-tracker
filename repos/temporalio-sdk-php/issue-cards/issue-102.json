@@ -1,0 +1,32 @@
+{
+  "summary": "Request to implement GetSearchAttributesRequest in PHP SDK to enable programmatic workflow and activity search similar to Java SDK. User needs this for writing integration tests that check workflow states without relying on shell commands.",
+  "category": "feature",
+  "subcategory": "search-api",
+  "apis": [
+    "GetSearchAttributesRequest"
+  ],
+  "components": [
+    "client",
+    "search",
+    "grpc-wrapper"
+  ],
+  "concepts": [
+    "workflow-search",
+    "activity-search",
+    "integration-testing",
+    "search-attributes",
+    "query-api"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot programmatically search workflows and activities in PHP SDK, forcing them to use shell commands or manual gRPC requests for integration testing.",
+  "rootCause": null,
+  "proposedFix": "Implement a search API wrapper similar to Java SDK that abstracts gRPC complexity and provides a user-friendly interface for searching workflows and activities.",
+  "workaround": "Use manual gRPC requests or create a user-defined gRPC wrapper, or use shell_exec to call tctl commands.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer decided to defer implementation pending resolution of other backlog items. Recommended users use gRPC wrappers or tctl as interim solution.",
+  "related": [],
+  "keyQuote": "It would be sufficient to get the same functionality as in the java sdk",
+  "number": 102,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:34.010Z"
+}

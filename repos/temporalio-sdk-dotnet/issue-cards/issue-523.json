@@ -1,0 +1,33 @@
+{
+  "summary": "Serialization context is being incorrectly applied to all workflow calls in .NET SDK, but should only be selectively applied based on specific situations to match Java SDK behavior. This requires a backwards-incompatible change decision.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "failure-converter",
+    "payload-codec",
+    "workflow-context"
+  ],
+  "concepts": [
+    "serialization",
+    "data-conversion",
+    "context-application",
+    "backwards-compatibility",
+    "sdk-parity"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows may fail or behave incorrectly due to improper serialization context being applied to all workflow calls instead of selectively.",
+  "rootCause": "Over-generalization from #446 where serialization context was assumed to be needed for all data conversion use cases in workflow context, but Java SDK only applies it selectively.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Serialization context application was corrected to selectively apply based on situation context rather than applying to all workflow calls.",
+  "related": [
+    446
+  ],
+  "keyQuote": "every use of data conversion in a .NET workflow context needed a .NET workflow context. But to match Java, we actually need to only selectively apply contexts based on their situation",
+  "number": 523,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:33:07.557Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Users encounter cryptic and inconsistent TLS CA certificate error messages when running in slim Docker images without root CA certificates. The error message lacks clarity on what users need to do to resolve the issue.",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "worker",
+    "client",
+    "connection",
+    "error-handling"
+  ],
+  "concepts": [
+    "TLS",
+    "CA-certificate",
+    "error-messages",
+    "Docker",
+    "connectivity",
+    "transport-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running in minimal environments receive unhelpful error messages that obscure the root cause and solution path for missing TLS certificates.",
+  "rootCause": "Error messages from underlying transport layers (tonic/hyper) are not being wrapped with user-friendly context about missing CA certificates.",
+  "proposedFix": "Provide nicer, more informative error messages that clearly indicate missing CA certificates and guide users toward solutions.",
+  "workaround": "Install ca-certificates package (though this is not always sufficient in all environments).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if root CA certificates are not available locally (ie. running with `-slim` docker images), then the error message is cryptic and inconsistent",
+  "number": 1258,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:29.694Z"
+}

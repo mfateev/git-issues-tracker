@@ -1,0 +1,32 @@
+{
+  "summary": "Request to include update handler and ID information in logging context for better observability and debugging of update handlers in Python SDK.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "update-handler",
+    "context"
+  ],
+  "concepts": [
+    "observability",
+    "debugging",
+    "context-propagation",
+    "handler-identification",
+    "logging-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users have limited visibility into which update handler and ID is executing when reviewing logs.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented to include update handler and ID in logging context as requested in the features issue.",
+  "related": [
+    466
+  ],
+  "keyQuote": "Show update handler and ID in logging context",
+  "number": 648,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:03.957Z"
+}

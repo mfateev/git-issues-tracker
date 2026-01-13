@@ -1,0 +1,29 @@
+{
+  "summary": "Two bugs found in EncodedValues: incorrect null value decoding and incorrect named argument encoding in workflows.",
+  "category": "bug",
+  "subcategory": "encoded-values",
+  "apis": [],
+  "components": [
+    "EncodedValues",
+    "argument-encoding",
+    "test-framework"
+  ],
+  "concepts": [
+    "null-handling",
+    "argument-encoding",
+    "named-parameters",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building workflow tests encounter incorrect behavior when using null values or named arguments in activities.",
+  "rootCause": "EncodedValues implementation has bugs in null decoding logic and named argument encoding for PHP syntax.",
+  "proposedFix": "PR with fixes was planned by the reporter.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bugs were fixed as indicated by the closed status and reporter's intent to create a PR.",
+  "related": [],
+  "keyQuote": "noticed two small bugs: wrong decoding of `null` values, wrong encoding of named arguments",
+  "number": 180,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:54.609Z"
+}

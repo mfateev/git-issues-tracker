@@ -1,0 +1,32 @@
+{
+  "summary": "ScopedLogger fails when comparing log levels against non-integer values like symbols. This occurs when using libraries like semantic_logger that return symbols for Logger#level instead of integers, causing a type comparison error during workflow execution.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "scoped-logger",
+    "replay-safe-logger",
+    "semantic-logger-compatibility"
+  ],
+  "concepts": [
+    "logging",
+    "type-compatibility",
+    "logger-abstraction",
+    "rails-integration",
+    "level-comparison"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail with type comparison errors when running in Rails applications using semantic_logger instead of the standard Logger.",
+  "rootCause": "ScopedLogger performs integer comparison on Logger#level, but semantic_logger returns symbols instead of integers, causing 'comparison of Integer with :debug failed' error.",
+  "proposedFix": "Update ScopedLogger to handle both integer and symbol log levels, converting symbols to their integer equivalents for comparison.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    316
+  ],
+  "keyQuote": "When I inspect those values, severity is 2, Logger::Unknown is undefined (should be Logger::UNKNOWN?), and level is :debug.",
+  "number": 315,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:51:35.676Z"
+}

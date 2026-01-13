@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to deserialize Python tracebacks from stack trace strings in Temporal failures. The SDK should parse stack trace strings back into traceback objects similar to how the Java SDK does, allowing better error context preservation and logging.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "failure-error",
+    "exception-handling",
+    "traceback"
+  ],
+  "concepts": [
+    "stack-trace",
+    "error-deserialization",
+    "exception-chain",
+    "logging",
+    "traceback-preservation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily reconstruct and log stack traces from Temporal failures, requiring manual workarounds to append stack information to exception messages.",
+  "rootCause": "Python SDK does not deserialize stack trace strings from Temporal failures back into traceback objects like the Java SDK does.",
+  "proposedFix": "Parse stack trace strings using a library like python-tblib to reconstruct traceback objects, similar to Java's implementation.",
+  "workaround": "Use a helper function to append stack traces to exception args when formatting logs, as demonstrated in comment #4.",
+  "resolution": "wontfix",
+  "resolutionDetails": "After investigation, the team decided not to deserialize tracebacks due to Python's traceback immutability constraints. Instead, users can opt-in to appending stack traces to exception messages using a custom helper function.",
+  "related": [
+    75
+  ],
+  "keyQuote": "I am closing this for now, but will refer back to it anytime anyone is curious why we can't deserialize tracebacks.",
+  "number": 58,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:25.690Z"
+}

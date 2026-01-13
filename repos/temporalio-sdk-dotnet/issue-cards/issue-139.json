@@ -1,0 +1,30 @@
+{
+  "summary": "Document and clarify that the .NET NuGet package doesn't support Windows ARM, 32-bit, or Linux MUSL architectures. Consider building separate runtime packages for these alternative architectures if GitHub runners become available.",
+  "category": "feature",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "nuget-package",
+    "build-system",
+    "runtime-support"
+  ],
+  "concepts": [
+    "architecture-support",
+    "cross-platform",
+    "distribution",
+    "documentation",
+    "build-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to use the SDK on unsupported architectures encounter missing documentation and cannot use the package on Windows ARM, 32-bit, or Linux MUSL systems.",
+  "rootCause": null,
+  "proposedFix": "Better document lack of support in README; optionally create separate architecture-specific runtime packages similar to ephemeral-mongo's approach",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Support limitations clarified in the README",
+  "related": [],
+  "keyQuote": "Do a better job of documenting that our NuGet package doesn't support Windows ARM, 32-bit, or Linux MUSL",
+  "number": 139,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:19:26.730Z"
+}

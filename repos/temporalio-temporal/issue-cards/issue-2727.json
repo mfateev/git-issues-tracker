@@ -1,0 +1,31 @@
+{
+  "summary": "Users cannot establish mTLS connections between Temporal and PostgreSQL through an HAProxy proxy. While plain TCP connections work and mTLS works with curl, temporal-sql-tool fails with a generic TLS handshake error without detailed diagnostic information.",
+  "category": "bug",
+  "subcategory": "database-connectivity",
+  "apis": [],
+  "components": [
+    "sql-tool",
+    "tls-client",
+    "database-driver"
+  ],
+  "concepts": [
+    "mTLS",
+    "proxy",
+    "database-connection",
+    "tls-handshake",
+    "certificate-validation",
+    "connection-pooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot securely connect Temporal to PostgreSQL through HAProxy proxies with mTLS, limiting deployment options in production environments.",
+  "rootCause": "The temporal-sql-tool or underlying database driver may not properly handle TLS handshakes through intermediate proxies, or certificate validation issues specific to proxy scenarios.",
+  "proposedFix": null,
+  "workaround": "Use plain TCP connections from Temporal to HAProxy and configure HAProxy to handle the mTLS connection to PostgreSQL.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Forum discussion indicated limitations in proxy TLS support; no fix was implemented.",
+  "related": [],
+  "keyQuote": "Is Temporal designed to communicate with a postgresql server through haproxy in mTLS?",
+  "number": 2727,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:09.600Z"
+}

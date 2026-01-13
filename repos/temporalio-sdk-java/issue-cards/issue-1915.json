@@ -1,0 +1,32 @@
+{
+  "summary": "Java SDK doesn't verify it replays up to the StartedEventId sent in workflow task polls, which can cause incomplete workflow history replay if fetching from GetWorkflowExecutionHistory after receiving partial history with no cached execution on stale history nodes.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "GetWorkflowExecutionHistory"
+  ],
+  "components": [
+    "workflow-task-processor",
+    "history-replay",
+    "task-poller"
+  ],
+  "concepts": [
+    "replay",
+    "history",
+    "StartedEventId",
+    "partial-history",
+    "stale-history"
+  ],
+  "severity": "high",
+  "userImpact": "Users may encounter incomplete workflow history replay in edge cases with older servers, leading to potential workflow state inconsistencies.",
+  "rootCause": "Java SDK does not validate that replayed history matches the StartedEventId boundary from the workflow task poll request.",
+  "proposedFix": null,
+  "workaround": "Upgrade to server version 1.21 or greater where the server won't send partial history on normal task queues.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing verification of replay up to StartedEventId in the Java SDK workflow task processing.",
+  "related": [],
+  "keyQuote": "Java SDK does not verify it replays up to `StartedEventId` sent on the poll request when processing a workflow task.",
+  "number": 1915,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:34.902Z"
+}

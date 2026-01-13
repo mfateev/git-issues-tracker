@@ -1,0 +1,31 @@
+{
+  "summary": "Remove the dependency on database visibility configuration when Elasticsearch is being used. This is an enhancement to simplify configuration by eliminating an unnecessary DB visibility config requirement for users who have ES enabled.",
+  "category": "feature",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "database",
+    "visibility",
+    "configuration"
+  ],
+  "concepts": [
+    "dependency-management",
+    "configuration-simplification",
+    "elasticsearch",
+    "visibility-config",
+    "optional-dependency"
+  ],
+  "severity": "low",
+  "userImpact": "Users with Elasticsearch enabled can simplify their configuration by removing unnecessary database visibility settings.",
+  "rootCause": "DB visibility configuration is unnecessarily required even when Elasticsearch is used for visibility purposes.",
+  "proposedFix": "Make DB visibility configuration optional when Elasticsearch is enabled.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The DB visibility configuration dependency was removed for systems using Elasticsearch.",
+  "related": [],
+  "keyQuote": null,
+  "number": 1280,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:11.538Z"
+}

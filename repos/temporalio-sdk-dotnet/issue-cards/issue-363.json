@@ -1,0 +1,35 @@
+{
+  "summary": "ActivityInboundInterceptor needs access to the scoped IServiceProvider to handle cross-cutting concerns that depend on injected services. Currently, only Activities can use constructor injection, preventing interceptors from accessing scoped dependencies.",
+  "category": "feature",
+  "subcategory": "dependency-injection",
+  "apis": [
+    "ExecuteActivityAsync"
+  ],
+  "components": [
+    "ActivityInboundInterceptor",
+    "ServiceProvider",
+    "dependency-injection",
+    "interceptors"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "cross-cutting-concerns",
+    "scoped-services",
+    "service-locator",
+    "interceptor-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement interceptors that depend on scoped services, forcing them to choose between using interceptors or injected dependencies.",
+  "rootCause": "ActivityInboundInterceptor lacks access to the scoped IServiceProvider instance during ExecuteActivityAsync invocation, and the Temporalio.Worker.Interceptors namespace is intentionally agnostic of Microsoft.Extensions.DependencyInjection.",
+  "proposedFix": "Implement a mechanism similar to ASP.NET's HttpContextAccessor to provide access to the scoped IServiceProvider within the interceptor context, keeping the knowledge about IServiceProvider separate from the agnostic interceptor components.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    364
+  ],
+  "keyQuote": "if a given cross-cutting concern depends on a service provided by the scoped IServiceProvider instance, this insulation can't be maintained because only Activities can have dependencies injected via constructor injection",
+  "number": 363,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:15:16.439Z"
+}

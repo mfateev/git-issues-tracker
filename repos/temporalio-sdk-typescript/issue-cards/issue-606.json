@@ -1,0 +1,31 @@
+{
+  "summary": "Test environment tests fail intermittently on Windows with Node 14, causing CI failures during test execution. The issue appears to be environment-specific flakiness rather than a fundamental bug.",
+  "category": "bug",
+  "subcategory": "test-environment",
+  "apis": [],
+  "components": [
+    "test-environment",
+    "ci",
+    "windows"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "platform-specific",
+    "timing",
+    "activity-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers on Windows encounter intermittent test failures in CI pipelines, reducing confidence in test results.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Tests were skipped to work around the failures.",
+  "resolution": "stale",
+  "resolutionDetails": "No recent occurrences reported; maintainer indicated issue hasn't been seen in a while and appears to have resolved naturally.",
+  "related": [
+    551
+  ],
+  "keyQuote": "I haven't seen these in a while.",
+  "number": 606,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:03:47.440Z"
+}

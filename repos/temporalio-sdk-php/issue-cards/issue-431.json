@@ -1,0 +1,34 @@
+{
+  "summary": "Deadline verification logic in BaseClient is reversed, causing incorrect timeout exceptions when ServiceClientException occurs. The comparison checks if deadline is before current time (should not trigger timeout) instead of after.",
+  "category": "bug",
+  "subcategory": "deadline-verification",
+  "apis": [
+    "WorkflowClientInterface",
+    "ActivityCompletionClientInterface",
+    "completeByToken"
+  ],
+  "components": [
+    "BaseClient",
+    "GRPC",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "deadline",
+    "timeout",
+    "exception-handling",
+    "comparison-logic",
+    "ServiceClientException"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience incorrect timeout exceptions when calling completeByToken() with invalid tokens, disrupting activity completion workflows.",
+  "rootCause": "Comparison direction is reversed in deadline verification logic at BaseClient.php line 314 - checks if deadline is before current time instead of after.",
+  "proposedFix": "Swap the comparison direction in the deadline verification check to correctly identify when deadline has passed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in v2.9.1 release",
+  "related": [],
+  "keyQuote": "Comparison direction should be swapped. Now it checks if deadline is before current time, what should not be a trigger for timeout exception.",
+  "number": 431,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:23.549Z"
+}

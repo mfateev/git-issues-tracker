@@ -1,0 +1,30 @@
+{
+  "summary": "The temporalio-features repository has 2 security vulnerabilities in json-path-2.6.0.jar and its transitive dependency json-smart-2.4.7.jar. CVE-2023-1370 is a high-severity stack overflow in JSON parsing, while CVE-2023-51074 is a medium-severity stack overflow in the Criteria.parse() method.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "json-path",
+    "json-smart",
+    "build-system"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "stack-overflow",
+    "denial-of-service",
+    "dependency-management",
+    "nested-parsing"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to denial-of-service attacks through stack overflow vulnerabilities when processing malformed JSON input.",
+  "rootCause": "json-smart-2.4.7.jar lacks limits on nesting depth of arrays/objects causing stack exhaustion; json-path-2.6.0.jar has similar issue in Criteria.parse() method",
+  "proposedFix": "Upgrade json-path to version 2.9.0 (fixes both CVE-2023-1370 via json-smart upgrade to 2.4.9 and CVE-2023-51074)",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "nesting too many of them can cause a stack exhaustion (stack overflow) and crash the software",
+  "number": 254,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:55:46.806Z"
+}

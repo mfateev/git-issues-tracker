@@ -1,0 +1,30 @@
+{
+  "summary": "SDK-core local activities may lose progress when completing near the workflow task timeout. If a local activity completes and the response to the workflow takes longer than remaining timeout, the WFT will timeout before the completion is acknowledged, potentially causing workflows to get stuck.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "local-activity",
+    "workflow-task-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "heartbeat",
+    "activity-completion",
+    "progress-flushing",
+    "workflow-task"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows can timeout and become unable to progress when local activity completions occur near the workflow task timeout boundary.",
+  "rootCause": "SDK-core does not flush local activity progress or issue heartbeats until the workflow has been notified and activated with the completion, leaving a window where progress can be lost if the notification takes too long.",
+  "proposedFix": "Always flush completed local work and issue a workflow task heartbeat when nearing the workflow task timeout to ensure progress is not lost.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If these timing are consistent enough, the workflow will be stuck and not be able to progress.",
+  "number": 168,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:50:46.886Z"
+}

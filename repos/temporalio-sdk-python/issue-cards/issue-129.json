@@ -1,0 +1,32 @@
+{
+  "summary": "Conditions are incorrectly triggered when processing queries and patch notifications in Python SDK, causing unwanted commands to be generated. This issue was previously fixed in TypeScript SDK and needs the same fix applied to Python.",
+  "category": "bug",
+  "subcategory": "workflow-query",
+  "apis": [
+    "wait_condition"
+  ],
+  "components": [
+    "query-processor",
+    "patch-notification-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "condition-triggering",
+    "query-processing",
+    "patch-notifications",
+    "command-generation",
+    "event-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected command generation when using patched statements within wait_condition functions, leading to incorrect workflow behavior.",
+  "rootCause": "Python SDK does not properly filter out queries and patch notifications when processing conditions, unlike the TypeScript SDK which has this fix.",
+  "proposedFix": "Apply the same fix that was implemented in TypeScript SDK to the Python SDK's condition handling logic.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the fix was applied to match TypeScript SDK behavior.",
+  "related": [],
+  "keyQuote": "We recently fixed this for TypeScript, Python should do the same.",
+  "number": 129,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:55.229Z"
+}

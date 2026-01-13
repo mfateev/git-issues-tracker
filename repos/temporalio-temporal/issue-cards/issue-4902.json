@@ -1,0 +1,34 @@
+{
+  "summary": "Request to implement custom authentication between Temporal microservices (frontend, matching, history, worker). Currently, only mTLS is supported for inter-node communication, but users need the ability to send authorization tokens between internal services similar to how the Go SDK's HeadersProvider works for external clients.",
+  "category": "feature",
+  "subcategory": "authentication",
+  "apis": [],
+  "components": [
+    "frontend",
+    "matching",
+    "history",
+    "worker",
+    "authorization"
+  ],
+  "concepts": [
+    "authentication",
+    "authorization",
+    "internode-communication",
+    "mTLS",
+    "tokens",
+    "custom-authenticator",
+    "HeadersProvider"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement custom authentication mechanisms for inter-service communication in Temporal clusters, limiting authentication flexibility and forcing reliance on mTLS.",
+  "rootCause": "The server-side lacks a HeadersProvider-like interface for microservices to inject custom authentication headers, unlike the Go SDK which supports this for external clients.",
+  "proposedFix": "Implement an interceptor mechanism to allow custom authentication headers in all requests between Temporal's microservices, similar to the HeadersProvider interface in the Go SDK.",
+  "workaround": "Configure mTLS for internode communication, but this doesn't support custom claim mappers and is less flexible than token-based authentication.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "there is no option to send authorization token from \"matching\", \"history\" and \"worker\" services to the \"frontend\"",
+  "number": 4902,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:23.791Z"
+}

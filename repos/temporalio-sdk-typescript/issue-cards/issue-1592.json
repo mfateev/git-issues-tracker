@@ -1,0 +1,31 @@
+{
+  "summary": "When reusable V8 context is enabled, symbol properties on globalThis are not properly swapped between workflow executions, causing context leaks and memory issues. Libraries like Effect that store global state as symbol properties are particularly affected.",
+  "category": "bug",
+  "subcategory": "workflow-context",
+  "apis": [],
+  "components": [
+    "reusable-v8-context",
+    "global-context-management",
+    "workflow-isolation"
+  ],
+  "concepts": [
+    "memory-leak",
+    "context-isolation",
+    "symbol-properties",
+    "global-state",
+    "workflow-execution",
+    "garbage-collection"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience memory leaks when using libraries that store global state via symbol properties in workflow code with reuseV8Context enabled.",
+  "rootCause": "The context swapping logic only handles regular properties on globalThis and ignores symbol properties, allowing them to persist across workflow executions.",
+  "proposedFix": "Update the logic that swaps global variables to also handle and isolate symbol properties on globalThis.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was updated to properly swap symbol properties when switching between workflow execution contexts.",
+  "related": [],
+  "keyQuote": "Symbol properties may therefore leak from one Workflow Execution to another.",
+  "number": 1592,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:34.779Z"
+}

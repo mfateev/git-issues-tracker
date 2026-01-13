@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal server crashes with CrashLoopBackOff and cannot recover when GKE nodes are replaced during cluster updates due to unhandled database connection errors. The service requires manual redeployment to re-establish database connectivity.",
+  "category": "bug",
+  "subcategory": "database-connection",
+  "apis": [],
+  "components": [
+    "persistence",
+    "sql-plugin",
+    "database-driver",
+    "connection-pool"
+  ],
+  "concepts": [
+    "connection-refresh",
+    "error-handling",
+    "node-replacement",
+    "kubernetes-deployment",
+    "database-resilience",
+    "recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience service unavailability and require manual intervention to restore Temporal during infrastructure updates, breaking automated deployment workflows.",
+  "rootCause": "SQL driver returns unrecognized error types during node replacement that don't trigger the connection refresh logic, preventing automatic reconnection attempts.",
+  "proposedFix": "Extend connection refresh logic to handle additional error types returned by the database driver in network disruption scenarios.",
+  "workaround": "Disable GKE auto-upgrade to prevent node replacement, or manually redeploy Temporal with Helm after node updates.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "unable to read DB schema version keyspace/database: temporal error: no usable database connection found",
+  "number": 8202,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:47.241Z"
+}

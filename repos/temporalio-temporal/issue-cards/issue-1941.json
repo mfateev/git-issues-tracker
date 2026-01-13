@@ -1,0 +1,36 @@
+{
+  "summary": "Newly registered namespaces are not immediately available to workers polling for tasks because the namespace cache takes ~10 seconds to update, causing NOT_FOUND errors. The namespace database write completes but workers use a separate cache that lags behind.",
+  "category": "bug",
+  "subcategory": "namespace-caching",
+  "apis": [
+    "RegisterNamespace",
+    "PollActivityTaskQueue",
+    "PollWorkflowTaskQueue"
+  ],
+  "components": [
+    "namespace-cache",
+    "worker-poller",
+    "grpc-service"
+  ],
+  "concepts": [
+    "caching",
+    "namespace-propagation",
+    "eventual-consistency",
+    "timing-race-condition",
+    "database-cache-sync"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot immediately use newly registered namespaces with workers, requiring artificial delays or polling logic as a workaround.",
+  "rootCause": "Namespace-centric APIs (registerNamespace, listNamespaces) write directly to the database while worker task polling APIs use a separate namespace cache that is neither read-through nor write-through and takes approximately 10 seconds to update. Cross-namespace replication failover notification complexity prevents a simple cache invalidation solution.",
+  "proposedFix": "Restructure background task processing logic to remove the requirement for reliable namespace failover notifications, then make the namespace cache read-through to ensure immediate consistency.",
+  "workaround": "Add a 10-second delay after registering a namespace before starting workers, or implement polling logic to retry until the namespace is available.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by pull request #3908 which restructured the background task processing logic and made the namespace cache read-through.",
+  "related": [
+    3908
+  ],
+  "keyQuote": "This cache is not a read-thought or write-through cache and takes about 10s to be updated.",
+  "number": 1941,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:13.746Z"
+}

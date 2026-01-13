@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to enable OTel metrics export over HTTP instead of the default gRPC protocol in the TypeScript SDK. Comment indicates the feature was implemented but not working correctly with HTTP URLs.",
+  "category": "bug",
+  "subcategory": "telemetry-otel",
+  "apis": [],
+  "components": [
+    "metrics-exporter",
+    "otel-collector",
+    "telemetry"
+  ],
+  "concepts": [
+    "observability",
+    "metrics",
+    "HTTP",
+    "gRPC",
+    "OpenTelemetry",
+    "protocol-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot export OTel metrics over HTTP, limiting integration options with HTTP-only collectors despite the feature being marked as implemented.",
+  "rootCause": "The HTTP protocol implementation for OTel metrics exporter appears incomplete or incompatible with the actual OTLP-HTTP endpoint behavior.",
+  "proposedFix": "Add a simple default-false http boolean option to OtelCollectorExporter to enable HTTP protocol support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, suggesting the HTTP metrics export feature was implemented, though the comment indicates initial implementation had issues.",
+  "related": [
+    820
+  ],
+  "keyQuote": "Expose ability to have Core OTel metrics use HTTP instead of default gRPC protocol. Would recommend a simple default-false http boolean.",
+  "number": 1600,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:48.132Z"
+}

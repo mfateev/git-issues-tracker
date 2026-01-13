@@ -1,0 +1,33 @@
+{
+  "summary": "Memo fields are not populated in listOpenWorkflowExecutions results when using temporal-testing, despite being set in the workflow. The same code correctly returns memos when using an external Temporal server.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "listOpenWorkflowExecutions",
+    "getWorkflowServiceStubs"
+  ],
+  "components": [
+    "temporal-testing",
+    "workflow-execution-info",
+    "memo"
+  ],
+  "concepts": [
+    "test-server",
+    "in-memory-server",
+    "workflow-metadata",
+    "query-results",
+    "data-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing with temporal-testing cannot rely on memo data in listOpenWorkflowExecutions queries, limiting test coverage and requiring workarounds.",
+  "rootCause": "The temporal-testing implementation does not properly persist or return memo data when listing open workflow executions.",
+  "proposedFix": null,
+  "workaround": "Use setUseExternalService(true) with a running temporal server start-dev instance for testing memos.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "memo is empty despite being filled in workflow. The same piece of code run with setUseExternalService(true) and temporal server start-dev outputs memo-s as expected.",
+  "number": 2480,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:46.958Z"
+}

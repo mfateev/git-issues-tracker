@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to warn when the server-provided task start time differs significantly from when the SDK begins processing the task. This helps detect timing discrepancies that may indicate synchronization issues.",
+  "category": "feature",
+  "subcategory": "task-timing",
+  "apis": [],
+  "components": [
+    "task-processor",
+    "time-tracking"
+  ],
+  "concepts": [
+    "task-start-time",
+    "timing-mismatch",
+    "server-client-sync",
+    "diagnostics",
+    "warning"
+  ],
+  "severity": "low",
+  "userImpact": "Users would receive warnings when task processing timing differs from server expectations, helping identify timing-related issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Declined as too niche - not enough user demand or impact to justify implementation.",
+  "related": [
+    616
+  ],
+  "keyQuote": "We're not gonna do this. Too niche.",
+  "number": 603,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:49.303Z"
+}

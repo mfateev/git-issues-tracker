@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request for a catch-all signal handler in TypeScript workflows to ensure in-order delivery of all signals regardless of type. Currently requires either a single signal type or multiple individual handlers, making it difficult to guarantee ordering across different signal types.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "setGlobalSignalHandler"
+  ],
+  "components": [
+    "workflow",
+    "signal-handler",
+    "signal-dispatch"
+  ],
+  "concepts": [
+    "signal-ordering",
+    "catch-all-handler",
+    "signal-types",
+    "handler-precedence",
+    "in-order-delivery"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must use workarounds (single signal type or fat handler) to guarantee in-order signal processing across multiple signal types.",
+  "rootCause": null,
+  "proposedFix": "Add a setGlobalSignalHandler API that acts as a catch-all for any signal type not handled by specific handlers, with catch-all only triggering when no more specific handler is defined.",
+  "workaround": "Use a single 'fat handler' signal type or only define one signal handler to process all signals in order.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with catch-all handler API added to SDK.",
+  "related": [],
+  "keyQuote": "Easy to add, has been brought up before, API TBD. For the behavior, I'd recommend this being a catch all, meaning it doesn't get triggered if a more specific handler is set.",
+  "number": 846,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:19:57.806Z"
+}

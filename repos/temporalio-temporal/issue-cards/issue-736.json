@@ -1,0 +1,33 @@
+{
+  "summary": "Request to enable TLS configuration through Docker environment variables in the config template, allowing easier deployment in containerized environments like Kubernetes without requiring ConfigMap merges.",
+  "category": "feature",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "docker",
+    "config-template",
+    "tls"
+  ],
+  "concepts": [
+    "tls",
+    "docker",
+    "environment-variables",
+    "configuration",
+    "kubernetes",
+    "deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal Server in Docker/Kubernetes environments cannot configure TLS through environment variables, requiring workarounds like ConfigMaps.",
+  "rootCause": null,
+  "proposedFix": "Add TLS-related keys to docker/config_template.yaml to support environment variable configuration",
+  "workaround": "Use Kubernetes ConfigMap to override the entire config file, though this requires handling merges with auto-generated setup config",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #783",
+  "related": [
+    783
+  ],
+  "keyQuote": "Add the related keys to docker/config_template.yaml",
+  "number": 736,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:50.806Z"
+}

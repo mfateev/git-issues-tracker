@@ -1,0 +1,36 @@
+{
+  "summary": "List workflow execution APIs require namespace and filter parameters that should have sensible defaults. The namespace should default to 'default' and time filters should not have confusing validation errors when only some fields are set.",
+  "category": "bug",
+  "subcategory": "list-workflows-api",
+  "apis": [
+    "ListOpenWorkflowExecutions",
+    "ListClosedWorkflowExecutions"
+  ],
+  "components": [
+    "list-workflows-api",
+    "namespace-handling",
+    "time-filter-validation"
+  ],
+  "concepts": [
+    "api-defaults",
+    "required-parameters",
+    "namespace-management",
+    "time-filtering",
+    "validation-logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must explicitly provide namespace and carefully craft time filters when calling list workflow APIs, increasing API complexity and causing unexpected validation errors.",
+  "rootCause": "Server design philosophy delegates default namespace handling to SDKs rather than providing server-side defaults. Time filter validator requires both earliest and latest time even when only one is logically necessary.",
+  "proposedFix": "SDKs should follow GoSDK pattern of setting default namespace client-side. Fix time filter validation to allow earliest time without requiring latest time.",
+  "workaround": "Explicitly set namespace to 'default' and provide both earliest and latest time values when calling list operations.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by SDK implementation guidance (SDKs handle default namespace) and time filter validation fixes in related issues #641 and #1631.",
+  "related": [
+    641,
+    1631
+  ],
+  "keyQuote": "Server doesn't have a concept of 'default namespace'. Clients are supposed to set default namespace if it is not set.",
+  "number": 636,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:21:19.366Z"
+}

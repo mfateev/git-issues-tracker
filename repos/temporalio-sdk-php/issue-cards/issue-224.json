@@ -1,0 +1,37 @@
+{
+  "summary": "SDK should support both lazy and eager connection modes for the Temporal client, with lazy connections avoiding server calls and eager connections validating connectivity. Additionally, expose a gRPC health check method for users who need it.",
+  "category": "feature",
+  "subcategory": "client-connectivity",
+  "apis": [
+    "getSystemInfo",
+    "getCapabilities"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "interceptor",
+    "grpc"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "eager-connection",
+    "health-check",
+    "connectivity",
+    "system-info",
+    "client-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now choose between lazy connections (no server validation) and eager connections (with server validation) when creating Temporal clients, improving flexibility and reliability.",
+  "rootCause": "PHP SDK lacked dual connection modes and health check capabilities available in other Temporal SDKs.",
+  "proposedFix": "Implement lazy connection by default (PHP gRPC native behavior), add SystemInfoInterceptor for eager validation, and expose gRPC health service for client health checks.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via SystemInfoInterceptor in v2.7.0 release which calls getSystemInfo() and getCapabilities() on first request, with option to disable by passing empty interceptor list.",
+  "related": [
+    223
+  ],
+  "keyQuote": "In other languages we have a lazy method to create a connection (client) that doesn't make any calls to the server, and an eager connection method that fails if getSystemInfo fails.",
+  "number": 224,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:09.900Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "gRPC dependency versions have breaking changes in v1.59.0+ that move InProcessServerBuilder to a separate artifact. The Java SDK needs to upgrade to support Quarkus and other frameworks using recent gRPC versions.",
+  "category": "other",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "grpc-core",
+    "grpc-inprocess",
+    "dependencies"
+  ],
+  "concepts": [
+    "dependency-management",
+    "version-compatibility",
+    "breaking-changes",
+    "grpc-migration",
+    "class-relocation"
+  ],
+  "severity": "high",
+  "userImpact": "Users using Quarkus or other frameworks with recent gRPC versions face ClassNotFound errors unless they manually add grpc-inprocess and grpc-services dependencies.",
+  "rootCause": "gRPC v1.59.0 moved InProcessServerBuilder from grpc-core to grpc-inprocess artifact, breaking binary compatibility for downstream projects not recompiled with the new version.",
+  "proposedFix": "Upgrade gRPC dependencies to version > 1.59.0 and add grpc-inprocess as a dependency in the SDK.",
+  "workaround": "Manually add io.grpc:grpc-inprocess and io.grpc:grpc-services dependencies, or pin to older gRPC version < 1.59.0.",
+  "resolution": "fixed",
+  "resolutionDetails": "Users confirmed the workaround works by explicitly including grpc-inprocess and grpc-services dependencies.",
+  "related": [],
+  "keyQuote": "Class io.grpc.internal.AbstractServerImplBuilder is deleted, and no longer in the class hierarchy of the server builders",
+  "number": 1985,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:19.321Z"
+}

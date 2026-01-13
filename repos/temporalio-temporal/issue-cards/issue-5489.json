@@ -1,0 +1,30 @@
+{
+  "summary": "User encounters validation error when attempting to configure dual visibility store with Elasticsearch as primary and PostgreSQL as secondary. The server rejects the configuration with 'cannot set secondaryVisibilityStore when visibilityStore is setting elasticsearch datastore' error.",
+  "category": "bug",
+  "subcategory": "visibility-store",
+  "apis": [],
+  "components": [
+    "visibility-store",
+    "persistence-config",
+    "elasticsearch",
+    "postgres"
+  ],
+  "concepts": [
+    "dual-visibility",
+    "migration",
+    "configuration-validation",
+    "datastore"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot migrate from Elasticsearch to PostgreSQL using the dual visibility store feature as documented.",
+  "rootCause": "Validation logic in persistence config incorrectly prevents secondary visibility store when primary is Elasticsearch, contradicting documented dual visibility store feature.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "cannot set secondaryVisibilityStore when visibilityStore is setting elasticsearch datastore",
+  "number": 5489,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:05.514Z"
+}

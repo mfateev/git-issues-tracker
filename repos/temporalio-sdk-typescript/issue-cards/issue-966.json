@@ -1,0 +1,32 @@
+{
+  "summary": "Review all deprecated imports in the TypeScript SDK to determine if alternatives are available or needed. The issue involves enabling ESLint rules to identify deprecated imports and assessing whether to update or remove them.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "eslint-config",
+    "import-resolution",
+    "dependency-management"
+  ],
+  "concepts": [
+    "deprecation",
+    "imports",
+    "linting",
+    "code-quality",
+    "dependency-updates"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures the SDK uses current, non-deprecated imports, maintaining code quality and avoiding potential future breaking changes.",
+  "rootCause": null,
+  "proposedFix": "Enable ESLint rule `import/no-deprecated` to highlight deprecated imports and update them to current alternatives.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by pruning all dependencies as part of issue #1330. The deprecation/deprecation ESLint rule already provides sufficient coverage, and enabling import/no-deprecated caused false positives.",
+  "related": [
+    1330
+  ],
+  "keyQuote": "Pruned all dependencies as part of #1330. Also tried enabling `import/no-deprecated`, but it caused a lot of false-positives, with nothing pertinent over what `deprecation/deprecation` already provides.",
+  "number": 966,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:25:07.106Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow TemporalFailure instances from converters and codecs to fail the entire workflow, not just individual tasks. Currently, failures in these components only fail the task, but users need the ability to propagate critical failures to the workflow level.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "TemporalFailure"
+  ],
+  "components": [
+    "converters",
+    "codecs",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "failure-propagation",
+    "error-handling",
+    "converter-lifecycle",
+    "codec-lifecycle",
+    "workflow-failure",
+    "task-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot fail an entire workflow when converters or codecs encounter critical errors, limiting error handling flexibility.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": null,
+  "number": 1139,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:52.826Z"
+}

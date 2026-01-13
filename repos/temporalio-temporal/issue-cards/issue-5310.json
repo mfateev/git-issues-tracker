@@ -1,0 +1,36 @@
+{
+  "summary": "Allow workflows to optionally omit activity input/arguments in the activity task scheduled event to reduce storage costs, similar to local activity options. This is particularly useful since the input is primarily for debugging rather than replay.",
+  "category": "feature",
+  "subcategory": "activity-input-optimization",
+  "apis": [
+    "ExecuteActivity",
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "history-event",
+    "task-scheduling",
+    "server-event-storage"
+  ],
+  "concepts": [
+    "storage-optimization",
+    "activity-input",
+    "history-replay",
+    "debugging",
+    "cost-reduction",
+    "local-activity",
+    "sideffect-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can reduce storage costs for workflows with many activities by optionally omitting activity input from scheduled events, addressing a practical scalability concern.",
+  "rootCause": "Activity input is retained in task scheduled events primarily for debugging purposes, but this increases storage overhead for large-scale deployments.",
+  "proposedFix": "Implement optional input omission in activity task scheduled events similar to LocalActivityOptions, requiring server-side support to still pass input to activity workers.",
+  "workaround": "Use local activities, though they have tradeoffs with failure handling and retry management that can cause history bloat with timer events.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow workflow to not include argument/input in the activity task scheduled event. Just like local activity options",
+  "number": 5310,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:39.750Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "tctl wf desc command shows that a workflow failed but doesn't display the failure reason, requiring users to run separate commands or use temporal-web to understand why the workflow failed.",
+  "category": "feature",
+  "subcategory": "cli-tooling",
+  "apis": [],
+  "components": [
+    "tctl",
+    "workflow-description",
+    "cli"
+  ],
+  "concepts": [
+    "error-reporting",
+    "developer-experience",
+    "workflow-diagnostics",
+    "failure-context",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot quickly diagnose workflow failures from tctl, forcing them to use alternative tools or commands for troubleshooting.",
+  "rootCause": null,
+  "proposedFix": "Enhance tctl wf desc to include failure reason details, potentially making additional server calls if needed.",
+  "workaround": "Use wf show command or temporal-web to view failure details.",
+  "resolution": "wontfix",
+  "resolutionDetails": "tctl is deprecated, so the issue was closed without implementing the requested enhancement.",
+  "related": [],
+  "keyQuote": "tctl wf desc tells me that my workflow failed but gives me zero context as to why.",
+  "number": 549,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:14:13.015Z"
+}

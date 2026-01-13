@@ -1,0 +1,30 @@
+{
+  "summary": "Kubernetes service discovery for Elasticsearch seeds configuration fails when service names contain ports. The server incorrectly concatenates multiple seed IPs with commas, resulting in malformed requests to Elasticsearch.",
+  "category": "bug",
+  "subcategory": "elasticsearch-configuration",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "server-configuration",
+    "seed-discovery"
+  ],
+  "concepts": [
+    "kubernetes-service-discovery",
+    "elasticsearch-connection",
+    "configuration-parsing",
+    "high-availability",
+    "service-naming"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal on Kubernetes cannot reliably configure Elasticsearch seeds using service discovery, blocking highly available cluster deployments.",
+  "rootCause": "The ES_SEEDS configuration parser does not properly handle Kubernetes service names with ports, and comma-separated seed lists are concatenated incorrectly in requests to Elasticsearch.",
+  "proposedFix": "Make ES_PORT optional and handle Kubernetes service discovery properly, or allow ES_SERVER to directly override seed configuration.",
+  "workaround": "Manually specify individual cluster node IPs instead of using Kubernetes service discovery.",
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We don't want to give only one ip for ES_SEEDS because it can be changed thus we want to give our Kubernetes service definition.",
+  "number": 6531,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:10.273Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to convert per-instance rate limiters (task scheduler and persistence) to global cluster-wide configuration that automatically adjusts per-instance limits based on the number of instances in the ring.",
+  "category": "feature",
+  "subcategory": "rate-limiting",
+  "apis": [],
+  "components": [
+    "task-scheduler",
+    "persistence",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "cluster-configuration",
+    "scaling",
+    "per-instance-limits",
+    "cluster-wide-config"
+  ],
+  "severity": "medium",
+  "userImpact": "Current per-instance rate limiter configuration is difficult to use and requires manual adjustment; global configuration would simplify cluster management.",
+  "rootCause": null,
+  "proposedFix": "Provide global (cluster-wide) rate limiter configuration that automatically adjusts per-instance limits based on the number of instances in the ring",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The config for lost of rate limiters in the system is per instance, which is very hard to use. The ask is to provide a global (cluster-wide) config",
+  "number": 4806,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:52.073Z"
+}

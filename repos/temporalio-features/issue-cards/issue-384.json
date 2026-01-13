@@ -1,0 +1,29 @@
+{
+  "summary": "Two high-severity vulnerabilities (CVE-2023-6481, CVE-2023-6378) in logback-classic 1.2.9 and logback-core 1.2.9 allow Denial-of-Service attacks via poisoned serialized data. Both vulnerabilities have CVSS scores of 7.5 and can be fixed by upgrading to logback 1.2.13.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "logback-classic",
+    "logback-core",
+    "build-gradle"
+  ],
+  "concepts": [
+    "denial-of-service",
+    "serialization-vulnerability",
+    "dependency-upgrade",
+    "network-attack"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using this version are vulnerable to network-based Denial-of-Service attacks that can crash the service without authentication.",
+  "rootCause": "Serialization vulnerability in logback receiver component that allows processing of poisoned data leading to DoS conditions.",
+  "proposedFix": "Upgrade logback-classic and logback-core to version 1.2.13 or later.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A serialization vulnerability in logback receiver component allows an attacker to mount a Denial-Of-Service attack by sending poisoned data.",
+  "number": 384,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:58.071Z"
+}

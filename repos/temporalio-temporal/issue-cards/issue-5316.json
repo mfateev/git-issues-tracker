@@ -1,0 +1,34 @@
+{
+  "summary": "Activity context cancellation doesn't properly propagate to the activity function. The activity continues executing even after workflow.WithCancel() is called because the context.Done() event is not being received in the activity.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "ExecuteActivity",
+    "WithCancel",
+    "WithActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "context-propagation",
+    "cancellation-handling"
+  ],
+  "concepts": [
+    "context-cancellation",
+    "activity-heartbeat",
+    "context-done-event",
+    "activity-lifecycle",
+    "signal-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities continue executing after cancellation is requested, potentially causing resource waste and unexpected behavior in workflows.",
+  "rootCause": "Activity context cancellation requires heartbeat mechanism; without heartbeats, the activity doesn't receive the cancellation signal.",
+  "proposedFix": "Activity must use heartbeat mechanism to detect context cancellation, as documented in Temporal activity documentation.",
+  "workaround": "Add heartbeat calls in the activity loop to enable cancellation detection.",
+  "resolution": "invalid",
+  "resolutionDetails": "Resolved as invalid - this is expected behavior per Temporal documentation. Activities need to use heartbeat to detect cancellation.",
+  "related": [],
+  "keyQuote": "Activity needs to do heartbeat to know that context is cancelled.",
+  "number": 5316,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:51.498Z"
+}

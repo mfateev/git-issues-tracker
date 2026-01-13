@@ -1,0 +1,33 @@
+{
+  "summary": "Activity retry policy was not using server-defined defaults as expected, causing workflows to fail with 'RetryPolicyNotSet' error when no explicit retry policy was provided. The issue was resolved after investigation confirmed that default policies are indeed being set correctly.",
+  "category": "bug",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "options"
+  ],
+  "concepts": [
+    "retry",
+    "retry-policy",
+    "defaults",
+    "timeout",
+    "error-handling",
+    "activity-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experienced workflow failures when activities lacked explicit retry policies, leading to confusion about default behavior across SDKs.",
+  "rootCause": "Misunderstanding about whether default retry policies were being applied; documentation was unclear about server-defined defaults.",
+  "proposedFix": "Align TypeScript SDK retry policy defaults with Go SDK and official Temporal documentation defaults.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Investigation confirmed that default retry policies are being set correctly and match the expected behavior; issue was user misunderstanding rather than actual bug.",
+  "related": [],
+  "keyQuote": "A default policy is indeed being set, and it does match the default policy.",
+  "number": 440,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:08.762Z"
+}

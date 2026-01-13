@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add registerDelayedCallback method for more efficient testing in PHP SDK, similar to implementations in other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "test-utilities",
+    "php-sdk"
+  ],
+  "concepts": [
+    "delayed-callbacks",
+    "test-efficiency",
+    "testing-utilities",
+    "cross-sdk-compatibility",
+    "workflow-testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot write efficient tests that require delayed callbacks, limiting test coverage capabilities compared to other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement registerDelayedCallback method following the pattern used in Go SDK (https://github.com/temporalio/samples-go/blob/main/updatabletimer/workflow_test.go#L24)",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "To write more efficient tests would be nice to support method like in other SDKs - `registerDelayedCallback`",
+  "number": 529,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:17.368Z"
+}

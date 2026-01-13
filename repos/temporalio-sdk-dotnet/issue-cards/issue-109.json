@@ -1,0 +1,28 @@
+{
+  "summary": "Standardize exception naming to use single-L for 'canceled' type names (e.g., CanceledFailureException) to align with .NET conventions, while keeping double-L for 'cancellation' in other contexts like CancellationToken.",
+  "category": "other",
+  "subcategory": "api-naming",
+  "apis": [],
+  "components": [
+    "exception-handling",
+    "api-design"
+  ],
+  "concepts": [
+    "naming-conventions",
+    "compatibility",
+    "api-consistency",
+    "exceptions"
+  ],
+  "severity": "low",
+  "userImpact": "Developers will have more intuitive and consistent exception names that align with .NET naming conventions.",
+  "rootCause": null,
+  "proposedFix": "Rename exception types to use single-L spelling for 'canceled' (e.g., CanceledFailureException instead of CancelledFailureException), while preserving double-L for CancellationToken and related types.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Exception naming was standardized to use single-L for 'canceled' types to match .NET conventions.",
+  "related": [],
+  "keyQuote": "For example, .NET has `OperationCanceledException` so ours should be `CanceledFailureException`",
+  "number": 109,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:05:58.077Z"
+}

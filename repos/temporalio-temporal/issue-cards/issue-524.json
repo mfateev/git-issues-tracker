@@ -1,0 +1,31 @@
+{
+  "summary": "String search attributes are returned with quotation marks included, requiring manual trimming before decoding JSON or other encoded values.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "GetSearchAttributes"
+  ],
+  "components": [
+    "search-attributes",
+    "indexing",
+    "data-serialization"
+  ],
+  "concepts": [
+    "string-encoding",
+    "data-formatting",
+    "search-queries",
+    "attribute-retrieval"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually strip quotation marks from retrieved string search attributes before decoding, adding unnecessary complexity to search attribute handling.",
+  "rootCause": "Search attributes encoding/retrieval includes quotation marks that should be stripped for string values before returning to caller.",
+  "proposedFix": "Trim quotation marks from the first and last characters of string search attributes before returning them.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was post code complete and corresponding issues were created in SDK repositories.",
+  "related": [],
+  "keyQuote": "The string retrieved from Search attributes includes quotations marks. If json is stored, or any other string encoded value, the first and last characters must be trimmed before decoding.",
+  "number": 524,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:13:33.515Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "TestWorkflowRule enforces a 10-second global timeout by default, which creates unnecessary friction for users and duplicates JUnit's built-in timeout capabilities. The proposal is to move timeout logic to the internal SDKTestWorkflowRule, remove it from the public TestWorkflowRule, and deprecate the functionality.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowRule",
+    "SDKTestWorkflowRule",
+    "test-infrastructure"
+  ],
+  "concepts": [
+    "timeout",
+    "test-configuration",
+    "junit-integration",
+    "api-design",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must work around or disable the default 10-second timeout unnecessarily, reducing developer productivity.",
+  "rootCause": "TestWorkflowRule conflates SDK test infrastructure concerns with user-facing test utilities, enforcing a timeout that duplicates JUnit capabilities.",
+  "proposedFix": "Move timeout implementation to internal SDKTestWorkflowRule, remove from public TestWorkflowRule, deprecate timeout functionality in public API with removal planned for the release after next.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Timeout logic was relocated to internal SDKTestWorkflowRule and removed from public TestWorkflowRule API.",
+  "related": [],
+  "keyQuote": "Move existing global timeout implementation into Temporal internal `SDKTestWorkflowRule`. Remove logic of TestWorkflowRule that enforces timeout.",
+  "number": 634,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:30:56.177Z"
+}

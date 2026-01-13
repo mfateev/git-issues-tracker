@@ -1,0 +1,32 @@
+{
+  "summary": "Enhancement request to allow context propagators and interceptors to populate ActivityExecutionContext, enabling cleaner access to propagated context information from activities instead of relying on ThreadLocal patterns.",
+  "category": "feature",
+  "subcategory": "context-propagation",
+  "apis": [
+    "ActivityExecutionContext"
+  ],
+  "components": [
+    "context-propagator",
+    "interceptor",
+    "activity-executor"
+  ],
+  "concepts": [
+    "context-propagation",
+    "ergonomics",
+    "activity-context",
+    "data-accessibility",
+    "interceptor-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users can access propagated context from activities with improved ergonomics compared to managing ThreadLocal variables.",
+  "rootCause": null,
+  "proposedFix": "Extend ActivityExecutionContext to be populatable by context propagators and interceptors, providing a standard mechanism for accessing propagated values.",
+  "workaround": "Use ThreadLocal pattern in context propagators to make data accessible from activities.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Being able to access propagated context via `Activity.getExecutionContext()` would be have better ergonomics.",
+  "number": 525,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:23:38.780Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to verify and support Protocol Buffers 5.x in the Python SDK. The issue was resolved by upgrading to protobuf 3.13, which only works with protobuf 5.x, and CI is now passing with this configuration.",
+  "category": "feature",
+  "subcategory": "dependency-upgrade",
+  "apis": [],
+  "components": [
+    "protobuf",
+    "ci",
+    "dependency-management"
+  ],
+  "concepts": [
+    "protobuf",
+    "version-compatibility",
+    "dependency-constraint",
+    "ci-testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now use the Python SDK with Protobuf 5.x without version conflicts or compatibility issues.",
+  "rootCause": "SDK was not tested against Protobuf 5.x and had unclear version support",
+  "proposedFix": "Upgrade to protobuf 3.13 which requires 5.x, ensuring CI passes with the new version",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved as part of issue #694 by upgrading to protobuf 3.13, which only supports 5.x. Lock file now uses protobuf 5.x and CI is passing.",
+  "related": [
+    694
+  ],
+  "keyQuote": "This was done as part of #694 (the lock file now uses proto 5.x)",
+  "number": 497,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:01.538Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add an option for UpsertSearchAttribute command to fail immediately if the search attribute doesn't exist, rather than causing infinite workflow task retries. This would help developers catch configuration errors early instead of silently failing at runtime.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "UpsertSearchAttribute"
+  ],
+  "components": [
+    "workflow-engine",
+    "search-attributes",
+    "command-processing"
+  ],
+  "concepts": [
+    "search-attributes",
+    "configuration-validation",
+    "error-handling",
+    "workflow-execution",
+    "command-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to upsert non-existent search attributes experience infinite workflow task retries instead of fast-failing with clear feedback.",
+  "rootCause": "The UpsertSearchAttribute command retries indefinitely when the search attribute doesn't exist, lacking an option to fail-fast for validation purposes.",
+  "proposedFix": "Add a command option to make UpsertSearchAttribute fail immediately if the search attribute does not exist, rather than retrying.",
+  "workaround": "Use an activity or local activity to check if the search attribute exists before calling UpsertSearchAttribute.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Give option for workflow to fail the command if SA does not exists",
+  "number": 6647,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:24.112Z"
+}

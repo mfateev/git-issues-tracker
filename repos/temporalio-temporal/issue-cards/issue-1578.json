@@ -1,0 +1,37 @@
+{
+  "summary": "Request to add a workflow_id-level option to tctl batch start command to enable operations on workflow IDs without requiring specific run IDs. This would provide a more systematic way to handle cron workflow cancellations.",
+  "category": "feature",
+  "subcategory": "batch-operations",
+  "apis": [
+    "ScanWorkflowExecutions",
+    "CountWorkflow",
+    "ExecuteWorkflow",
+    "SearchAttributes"
+  ],
+  "components": [
+    "tctl",
+    "batch-operations",
+    "visibility-api",
+    "search-attributes"
+  ],
+  "concepts": [
+    "cron-workflows",
+    "workflow-cancellation",
+    "batch-operations",
+    "search-attributes",
+    "workflow-id-filtering",
+    "visibility-query"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have a more convenient and systematic way to perform batch operations on workflow IDs, particularly for canceling cron workflows, without needing to construct manual queries.",
+  "rootCause": null,
+  "proposedFix": "Generate a query from the workflow_id flag (e.g., 'batch start --workflow_id test_workflow_id' translates to query like \"WorkflowId='default.test_workflow_id'\") to avoid backend API changes. Alternatively, add WorkflowId field to CountWorkflow and ExecuteWorkflow APIs.",
+  "workaround": "Run visibility query after batch operation and rerun if additional running cron workflows are found. Use WorkflowId as a search attribute in the existing query flag.",
+  "resolution": "wontfix",
+  "resolutionDetails": "No plan to implement. Batch Operation APIs have inherent limitations where workflow state can change during batch execution, making reliable cron workflow termination challenging. Workaround recommended instead.",
+  "related": [],
+  "keyQuote": "The challenge is the workflow state could change while that batch operation is running, and a cron workflow may have completed and started a new run.",
+  "number": 1578,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:42.488Z"
+}

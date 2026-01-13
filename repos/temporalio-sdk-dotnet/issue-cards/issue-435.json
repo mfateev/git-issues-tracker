@@ -1,0 +1,33 @@
+{
+  "summary": "NLog async calls in workflows trigger non-determinism errors due to thread transfer tasks. A request for an unsafe API method to allow async logging without breaking workflow determinism.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-tracing",
+    "event-listener"
+  ],
+  "concepts": [
+    "logging",
+    "non-determinism",
+    "async-calls",
+    "NLog",
+    "HTTP-target",
+    "thread-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use async logging frameworks like NLog with HTTP targets in workflows without triggering non-determinism errors.",
+  "rootCause": "NLog's AsyncTaskTarget.Write() performs thread transfer operations that violate workflow determinism requirements.",
+  "proposedFix": "Expose an unsafe method in the .NET SDK for bypassing non-determinism checks specifically for logging purposes.",
+  "workaround": "Set TemporalWorkerOptions.DisableWorkflowTracingEventListener to true, though this disables tracing protection globally.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    436
+  ],
+  "keyQuote": "Workflow attempted to perform a thread transfer task which is non-deterministic. This can be caused by timers or other non-deterministic async calls.",
+  "number": 435,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:24:31.674Z"
+}

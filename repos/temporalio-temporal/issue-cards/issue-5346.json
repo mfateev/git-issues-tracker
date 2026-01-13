@@ -1,0 +1,30 @@
+{
+  "summary": "Schedule list and detail pages show inconsistent \"Upcoming runs\" and \"Interval\" values. The schedule functionality appears to work correctly, suggesting the issue is a data synchronization problem between two storage systems.",
+  "category": "bug",
+  "subcategory": "schedule-visibility",
+  "apis": [],
+  "components": [
+    "ui",
+    "visibility-store",
+    "schedule-service"
+  ],
+  "concepts": [
+    "schedule-metadata",
+    "data-sync",
+    "visibility",
+    "memoization",
+    "list-vs-detail-discrepancy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see different schedule information when listing schedules versus viewing individual schedule details, causing confusion about actual schedule timing.",
+  "rootCause": "Schedule metadata updates are not propagating to the visibility store; resolved by using advanced visibility instead of standard visibility on PostgreSQL",
+  "proposedFix": "Configure advanced visibility on PostgreSQL (or Elasticsearch) instead of standard visibility, as schedule metadata in list results is not supported with standard visibility",
+  "workaround": "Enable advanced visibility configuration as documented in https://docs.temporal.io/visibility",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by clarifying that standard visibility on PostgreSQL does not support schedule metadata in list results. Users need to configure advanced visibility instead.",
+  "related": [],
+  "keyQuote": "Schedule metadata in list results isn't supported with standard visibility. You should configure advanced visibility on postgres",
+  "number": 5346,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:51.074Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "The value_to_type function fails when handling dictionaries with custom string types (string subclasses or NewType aliases) as keys, converting them to character lists or throwing isinstance errors.",
+  "category": "bug",
+  "subcategory": "converter",
+  "apis": [
+    "value_to_type"
+  ],
+  "components": [
+    "converter",
+    "data-converter",
+    "type-conversion"
+  ],
+  "concepts": [
+    "type-conversion",
+    "dictionary-keys",
+    "custom-types",
+    "newtype",
+    "string-subclass",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use custom string types (subclasses or NewType aliases) as dictionary keys in dataclasses passed to workflows.",
+  "rootCause": "The isinstance check added in commit 4933dc5 fails on NewType because NewType creates a callable, not a proper type. String subclasses are incorrectly treated as iterables.",
+  "proposedFix": "Handle NewType by extracting the supertype for isinstance checks; treat string subclasses as strings rather than iterables.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #1059 fixed the NewType case by properly handling the isinstance check. CustomStr subclass support was deferred as a potential future feature.",
+  "related": [
+    1059
+  ],
+  "keyQuote": "The value_to_type function has two bugs when handling dictionary keys with custom string types: String subclasses are converted to character lists, and NewType fails isinstance check.",
+  "number": 1032,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:07.017Z"
+}

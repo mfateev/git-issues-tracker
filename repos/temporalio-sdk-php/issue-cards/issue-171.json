@@ -1,0 +1,32 @@
+{
+  "summary": "The Workflow::getVersion() method returns an EncodedValues object instead of the expected integer type, causing type comparisons to fail. Users must manually decode the result using EncodedValues::decodePromise() as a workaround.",
+  "category": "bug",
+  "subcategory": "versioning",
+  "apis": [
+    "Workflow::getVersion"
+  ],
+  "components": [
+    "workflow",
+    "data-converter",
+    "type-handling"
+  ],
+  "concepts": [
+    "versioning",
+    "type-mismatch",
+    "encoded-values",
+    "promise-resolution",
+    "yield"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot use Workflow::getVersion() as documented because the return type is incorrect, requiring a workaround to properly handle versioning in workflows.",
+  "rootCause": "Workflow::getVersion() returns an unresolved promise containing EncodedValues instead of automatically decoding to the integer type.",
+  "proposedFix": null,
+  "workaround": "Wrap the getVersion call with EncodedValues::decodePromise() to manually decode the result to the correct integer type.",
+  "resolution": "fixed",
+  "resolutionDetails": "The method was fixed to properly return an integer type when yielded, resolving the type mismatch issue.",
+  "related": [],
+  "keyQuote": "Method call `yield Workflow::getVersion(...)` don't return integer type.",
+  "number": 171,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:20.768Z"
+}

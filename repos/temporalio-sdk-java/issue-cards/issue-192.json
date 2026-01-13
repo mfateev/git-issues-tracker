@@ -1,0 +1,30 @@
+{
+  "summary": "Intermittent NioEventLoop exceptions causing gRPC selector failures in unit tests, manifesting as 'Invalid argument' errors in the KQueue selector on macOS.",
+  "category": "bug",
+  "subcategory": "grpc-netty-transport",
+  "apis": [],
+  "components": [
+    "grpc-netty",
+    "event-loop",
+    "selector"
+  ],
+  "concepts": [
+    "network-io",
+    "selector-loop",
+    "threading",
+    "platform-specific",
+    "intermittent-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Unit tests intermittently block with gRPC errors, reducing test reliability and developer experience.",
+  "rootCause": "KQueue selector receiving 'Invalid argument' error in poll operation, likely due to file descriptor state or platform-specific NIO issue",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was not noticed in recent unit test configurations, indicating it may have been resolved through dependency updates or environment changes",
+  "related": [],
+  "keyQuote": "Intermittently unit tests get blocked producing a bunch of exceptions into the log: java.io.IOException: Invalid argument",
+  "number": 192,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:00:44.021Z"
+}

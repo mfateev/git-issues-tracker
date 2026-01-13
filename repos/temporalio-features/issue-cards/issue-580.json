@@ -1,0 +1,36 @@
+{
+  "summary": "PHP schedule/basic test fails when run against cloud due to marshalling errors with ScheduleSpec.jitter field, which appears to be receiving null values that cannot be properly deserialized.",
+  "category": "bug",
+  "subcategory": "schedule-marshalling",
+  "apis": [
+    "Schedule",
+    "ScheduleListEntry",
+    "ScheduleSpec"
+  ],
+  "components": [
+    "php-sdk",
+    "schedule-client",
+    "marshaller"
+  ],
+  "concepts": [
+    "serialization",
+    "deserialization",
+    "null-handling",
+    "cloud-compatibility",
+    "type-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "PHP applications using schedules fail in cloud environments due to unmarshalling errors when null jitter values are encountered.",
+  "rootCause": "ScheduleSpec.jitter field receives null values that the marshaller cannot properly deserialize/handle",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by handling null jitter values in ScheduleSpec marshalling logic",
+  "related": [
+    577
+  ],
+  "keyQuote": "Unable to unmarshal field `jitter` of class Temporal\\Client\\Schedule\\Spec\\ScheduleSpec",
+  "number": 580,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:56.123Z"
+}

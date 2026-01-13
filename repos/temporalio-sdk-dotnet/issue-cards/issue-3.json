@@ -1,0 +1,31 @@
+{
+  "summary": "Transitive dependency newtonsoft.json 9.0.1 has a high-severity vulnerability (CVE WS-2022-0161) that could cause DoS through stack overflow exploitation. The issue was auto-closed after the vulnerable library was removed from the dependency inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "test-framework",
+    "package-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-upgrade",
+    "denial-of-service",
+    "stack-overflow",
+    "transitive-dependency",
+    "version-management"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using microsoft.testplatform.testhost could be exploited through a DoS vulnerability in nested JSON processing.",
+  "rootCause": "Newtonsoft.Json prior to 13.0.1 improperly handles StackOverflow exceptions during nested expression processing, allowing attackers to cause DoS.",
+  "proposedFix": "Upgrade Newtonsoft.Json to 13.0.1 or later and Microsoft.Extensions.ApiDescription.Server to 6.0.0",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was removed from the dependency inventory (no longer part of Mend inventory for this branch).",
+  "related": [],
+  "keyQuote": "Newtonsoft.Json prior to version 13.0.1 is vulnerable to Insecure Defaults due to improper handling of StackOverFlow exception",
+  "number": 3,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:06:24.240Z"
+}

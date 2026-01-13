@@ -1,0 +1,33 @@
+{
+  "summary": "ChildWorkflowStub incorrectly caches RunID when sending signals to child workflows that have continued. When a child workflow continues, its RunID changes, but the stub still uses the old RunID, causing signal delivery to fail.",
+  "category": "bug",
+  "subcategory": "child-workflow-signals",
+  "apis": [
+    "ChildWorkflowStub",
+    "ExternalWorkflowStub"
+  ],
+  "components": [
+    "child-workflow",
+    "signal-delivery",
+    "workflow-stub"
+  ],
+  "concepts": [
+    "signal-routing",
+    "runid-caching",
+    "workflow-continuation",
+    "child-workflow-lifecycle",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably send signals to child workflows that have continued, forcing them to use ExternalWorkflowStub as a workaround.",
+  "rootCause": "ChildWorkflowStub caches the RunID at stub creation time and reuses it for signal delivery, but RunID changes when a workflow continues.",
+  "proposedFix": null,
+  "workaround": "Use ExternalWorkflowStub instead of ChildWorkflowStub for sending signals to child workflows that may continue.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Signal is erroring as RunID changed but cached in WorkflowStub.",
+  "number": 464,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:32:16.892Z"
+}

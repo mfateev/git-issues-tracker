@@ -1,0 +1,32 @@
+{
+  "summary": "Request to allow workflows to force complete the current workflow task when local activities finish, enabling faster query and signal processing. Currently workflow tasks wait up to 80% of the timeout (10s) before completing, causing delays.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "workflow-task",
+    "local-activity",
+    "task-heartbeat"
+  ],
+  "concepts": [
+    "timeout",
+    "workflow-task-boundary",
+    "local-activity-retry",
+    "query-processing",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently handle scenarios with many sequential or parallel local activities, forcing them to wait for workflow task timeout before processing queries or signals.",
+  "rootCause": "Workflow tasks are designed to wait until 80% of the timeout before completing, which delays query and signal processing when multiple local activities are executed sequentially or in parallel.",
+  "proposedFix": "Add a flag to LocalActivityOptions to force complete the workflow task when the local activity completes/fails, or provide an API like activity.forceCompleteWorkflowTask() for user code to invoke.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This will then make it possible to process query task, or new signals by letting user workflow decide when to report task completed and get a new workflow task.",
+  "number": 424,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:17.553Z"
+}

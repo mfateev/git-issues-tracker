@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to allow workflow retention to be specified in finer-grained units (hours) instead of just days. Discussion includes concerns about implications for global namespaces with replication.",
+  "category": "feature",
+  "subcategory": "workflow-retention",
+  "apis": [],
+  "components": [
+    "retention-policy",
+    "namespace-configuration",
+    "replication"
+  ],
+  "concepts": [
+    "retention",
+    "time-granularity",
+    "global-namespace",
+    "replication",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now configure workflow retention with hourly precision instead of daily, with appropriate safeguards for replicated namespaces.",
+  "rootCause": "Retention granularity is currently hardcoded to days, limiting flexibility for users with different retention needs.",
+  "proposedFix": "Implement finer-grained retention units (hours) while restricting very small retention periods (less than 1 day) to non-global/non-replicated namespaces to avoid replication failures.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with safeguards to prevent replication issues in global namespaces with very small retention periods.",
+  "related": [],
+  "keyQuote": "maybe we should only allow non-global namespace (those does not enable replications) to have small retention (less than 1 day)?",
+  "number": 1000,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:31:15.480Z"
+}

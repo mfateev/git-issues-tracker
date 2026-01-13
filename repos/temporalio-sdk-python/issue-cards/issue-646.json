@@ -1,0 +1,33 @@
+{
+  "summary": "Activity fails with payload conversion error when SQLModel objects with table=True are used as return values. The error references os.environ.get access from within workflow context, though this appears to be a side effect of SQLAlchemy mapper initialization rather than direct activity code.",
+  "category": "bug",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "converter",
+    "payload-conversion",
+    "sqlmodel-integration",
+    "workflow-instance"
+  ],
+  "concepts": [
+    "determinism",
+    "environment-access",
+    "orm-integration",
+    "type-conversion",
+    "mapper-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Activities fail intermittently when returning SQLModel objects with table=True, preventing database operation results from being properly serialized back to workflows.",
+  "rootCause": "SQLAlchemy mapper initialization triggered during payload deserialization accesses os.environ.get, which is blocked in workflow context. The issue occurs when SQLModel objects with table=True are instantiated during type conversion.",
+  "proposedFix": "Use SQLModel with table=False (Pydantic BaseModel mode) for objects passed between workflows and activities, as these don't trigger ORM mapper initialization.",
+  "workaround": "Define a base SQLModel class with table=False for cross-boundary communication instead of using ORM-backed models (table=True). ORM models should only be used within activity/worker context.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue is due to fundamental non-determinism in SQLAlchemy ORM initialization. Temporal SDK's environment restrictions are by design for deterministic workflow execution. Users should use non-ORM SQLModel variants for inter-process communication.",
+  "related": [
+    254
+  ],
+  "keyQuote": "I would not recommend using sqlalchemy models in workflows because they are likely non-deterministic.",
+  "number": 646,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:52.852Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "PostgreSQL password exposed in plain text in auto-setup logging output. The -x flag in docker/auto-setup.sh script causes sensitive credentials including database passwords to be logged without masking.",
+  "category": "bug",
+  "subcategory": "security-logging",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "docker",
+    "logging",
+    "credential-handling"
+  ],
+  "concepts": [
+    "password-exposure",
+    "credential-leakage",
+    "shell-script-debugging",
+    "security-vulnerability",
+    "sensitive-data-logging"
+  ],
+  "severity": "critical",
+  "userImpact": "Users deploying Temporal via docker-compose with auto-setup may have database passwords exposed in container logs, creating a significant security vulnerability.",
+  "rootCause": "The -x flag (set -x) in auto-setup.sh enables shell script debugging which echoes all executed commands including variable assignments with passwords to stdout/logs without redaction.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "last line is plain text ^ [password exposed in logs]",
+  "number": 3022,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:38.887Z"
+}

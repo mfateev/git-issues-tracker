@@ -1,0 +1,29 @@
+{
+  "summary": "Test Server usage message is unclear about what 'command' means, doesn't indicate optional parameters, and provides no feedback when the server starts successfully. User requests clarification in help text and startup confirmation message.",
+  "category": "docs",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "cli"
+  ],
+  "concepts": [
+    "usability",
+    "documentation",
+    "startup-feedback",
+    "command-line-interface",
+    "error-messages"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused by unclear usage documentation and lack of startup confirmation, making it difficult to verify the Test Server is running correctly.",
+  "rootCause": null,
+  "proposedFix": "Clarify 'command' in usage text (referring to the executable itself), indicate optional parameters with brackets, and display a confirmation message when the server starts successfully and is ready for requests.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer decided not to change the usage message because the command path varies by platform (./temporal-test-server vs ./temporal-test-server.exe) and users may rename the executable.",
+  "related": [],
+  "keyQuote": "for linux it's \"./temporal-test-server\", for windows it's \"./temporal-test-server.exe\" and what if users renamed the file?",
+  "number": 1222,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:15:46.891Z"
+}

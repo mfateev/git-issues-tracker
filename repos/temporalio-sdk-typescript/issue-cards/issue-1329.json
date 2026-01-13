@@ -1,0 +1,32 @@
+{
+  "summary": "Dependency security vulnerability report for nyc-test-coverage package with 2 transitive vulnerabilities: CVE-2023-45133 in traverse (CVSS 8.8) and CVE-2022-25883 in semver (CVSS 7.5). Issue was automatically closed as the vulnerable library is no longer part of the Mend inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "build-tools",
+    "nyc-test-coverage",
+    "traverse",
+    "semver"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "code-execution",
+    "regex-denial-of-service",
+    "transitive-dependency",
+    "dependency-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the SDK are exposed to potential arbitrary code execution attacks and denial of service vulnerabilities through transitive dependencies used in testing and build processes.",
+  "rootCause": "Vulnerable transitive dependencies in nyc-test-coverage: @babel/traverse before 7.23.2 allows arbitrary code execution during compilation, and semver before 7.5.2 is vulnerable to ReDoS attacks via Range validation.",
+  "proposedFix": "Upgrade @babel/traverse to 7.23.2 or later and semver to 7.5.2 or later. Update affected packages: @babel/plugin-transform-runtime, @babel/preset-env, and babel polyfill plugins to their latest versions.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend as the vulnerable library was marked as ignored or is no longer part of the Mend inventory. The transitive vulnerabilities could not be remediated at the direct dependency level.",
+  "related": [],
+  "keyQuote": "using Babel to compile code that was specifically crafted by an attacker can lead to arbitrary code execution during compilation, when using plugins that rely on the path.evaluate() or path.evaluateTruthy() internal Babel methods",
+  "number": 1329,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:42.946Z"
+}

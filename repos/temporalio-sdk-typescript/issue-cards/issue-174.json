@@ -1,0 +1,29 @@
+{
+  "summary": "Worker fails to start when no workflows directory is configured, throwing an error about missing WorkerOptions. If the workflows directory exists but is empty, webpack fails with a file not found error.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [],
+  "components": [
+    "worker",
+    "isolate-builder",
+    "webpack-bundler"
+  ],
+  "concepts": [
+    "worker-startup",
+    "configuration",
+    "workflow-loading",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create a Worker without specifying workflows, blocking basic worker setup scenarios.",
+  "rootCause": "Worker initialization code requires either a workDir option or both workflowsPath and nodeModulesPath, and webpack fails when the workflows directory is empty or missing.",
+  "proposedFix": "Allow Worker to start with no configured workflowsPath or nodeModulesPath, and skip creating Workflow isolates in such cases.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker initialization logic was modified to handle cases where no workflows are configured.",
+  "related": [],
+  "keyQuote": "Worker starts with no configured `workflowsPath` or `nodeModulesPath`, does not create Workflow isolates.",
+  "number": 174,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:24.701Z"
+}

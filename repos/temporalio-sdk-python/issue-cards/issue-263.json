@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to propagate contextvars when executing threaded activities using asyncio.run_in_executor. Currently contextvars are not passed to the executor, requiring manual context population as a workaround since to_thread() doesn't use custom executors.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "threading",
+    "contextvars"
+  ],
+  "concepts": [
+    "contextvars",
+    "thread-pool",
+    "asyncio-executor",
+    "context-propagation",
+    "activity-threading"
+  ],
+  "severity": "medium",
+  "userImpact": "Threaded activities cannot access contextvars from the parent async context, requiring workarounds or custom context management by users.",
+  "rootCause": "asyncio.run_in_executor does not automatically propagate contextvars to the executor thread.",
+  "proposedFix": "Manually populate the context in the executor call since run_in_executor doesn't support contextvars propagation and to_thread() doesn't use custom executors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Since there is no way with `run_in_executor` and we don't want to use `to_thread` as suggested at https://github.com/python/cpython/issues/78195 because it doesn't use a custom executor, we need to just populate the context ourselves.",
+  "number": 263,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:54.671Z"
+}

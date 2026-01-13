@@ -1,0 +1,31 @@
+{
+  "summary": "SDK workers intentionally timeout failed workflow tasks to implement backoff, which makes retry behavior opaque to users. The proposal is to add a server capability and disable this timeout behavior when the server supports backoff, improving visibility into workflow task retries.",
+  "category": "feature",
+  "subcategory": "workflow-task-retry",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-executor",
+    "retry-mechanism"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "backoff",
+    "workflow-task",
+    "system-resilience",
+    "visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot clearly see that workflow tasks are being retried, and the number of retry attempts and failure reasons are not exposed, making debugging and monitoring difficult.",
+  "rootCause": "Worker intentionally times out workflow tasks on retry attempts as the mechanism for implementing backoff, which obscures retry behavior and lacks transparency.",
+  "proposedFix": "Add a server capability check and disable worker timeout behavior for failed workflow tasks when the server supports backoff.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It is not clear that workflow task is being retried. Number of attempts is not exposed as well as the last failure that caused the task failure.",
+  "number": 219,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:11.553Z"
+}

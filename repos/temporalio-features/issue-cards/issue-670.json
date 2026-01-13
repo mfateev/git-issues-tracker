@@ -1,0 +1,39 @@
+{
+  "summary": "Feature request to reclassify benign application errors in OpenTelemetry across multiple SDKs. Exceptions should still be recorded in telemetry but not marked as errors to better distinguish between expected failures and actual problems.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "error-handling",
+    "telemetry"
+  ],
+  "concepts": [
+    "observability",
+    "error-classification",
+    "exception-handling",
+    "telemetry",
+    "monitoring",
+    "benign-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see application errors in OpenTelemetry that are not actual failures, cluttering error dashboards and making it harder to identify real problems.",
+  "rootCause": "Current implementation marks all exceptions as errors in OpenTelemetry regardless of whether they are expected application behavior or actual failures.",
+  "proposedFix": "Reclassify benign application errors to not be marked as errors in OpenTelemetry while still recording them for observability.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1041,
+    2034,
+    2643,
+    1776,
+    510,
+    328,
+    648
+  ],
+  "keyQuote": "Exceptions should still be recorded, but not marked as error.",
+  "number": 670,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:35.802Z"
+}

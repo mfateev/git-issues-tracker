@@ -1,0 +1,29 @@
+{
+  "summary": "The tctl describe command fails when a workflow has pending activities with failures, unable to decode the failure details due to JSON unmarshaling into an incorrect Go type.",
+  "category": "bug",
+  "subcategory": "tctl-describe",
+  "apis": [],
+  "components": [
+    "tctl",
+    "failure-decoder",
+    "workflow-describe"
+  ],
+  "concepts": [
+    "failure-handling",
+    "pending-activities",
+    "json-deserialization",
+    "type-mismatch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot inspect workflows that have pending activities with failures, blocking troubleshooting and monitoring operations.",
+  "rootCause": "JSON unmarshaling attempts to decode a failure details object into a string type instead of the correct object structure.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was likely fixed in subsequent releases after verification.",
+  "related": [],
+  "keyQuote": "Error: Unable to decode last failure details. Error Details: payload item 0: unable to decode JSON: json: cannot unmarshal object into Go value of type string",
+  "number": 361,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:52:42.712Z"
+}

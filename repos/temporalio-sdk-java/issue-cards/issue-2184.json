@@ -1,0 +1,29 @@
+{
+  "summary": "Documentation issue: workflow start delay documentation incorrectly states that signals can interrupt the delay. This needs to be corrected to clarify that signals do not interrupt workflow start delays.",
+  "category": "docs",
+  "subcategory": "workflow-delay",
+  "apis": [],
+  "components": [
+    "documentation",
+    "workflow-lifecycle"
+  ],
+  "concepts": [
+    "signal",
+    "delay",
+    "workflow-start",
+    "interruption",
+    "timing"
+  ],
+  "severity": "low",
+  "userImpact": "Users may misunderstand signal behavior during workflow start delays, leading to incorrect workflow implementations.",
+  "rootCause": "Documentation inaccuracy regarding signal semantics",
+  "proposedFix": "Update workflow start delay documentation to clarify that signals do not interrupt the initial delay",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was corrected to accurately reflect that signals do not interrupt workflow start delays",
+  "related": [],
+  "keyQuote": "signal does not interrupt delay",
+  "number": 2184,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:23.481Z"
+}

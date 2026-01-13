@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add BadScheduleActivityAttributes failure_reason to the temporal_workflow_task_execution_failed metric to help differentiate failure causes, such as when activity payload exceeds size limits.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-execution",
+    "activity-scheduling"
+  ],
+  "concepts": [
+    "failure-reasons",
+    "metric-tags",
+    "cardinality",
+    "payload-limits",
+    "diagnostics"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily differentiate failure reasons in metrics when scheduling activities fails, requiring them to rely on logs instead.",
+  "rootCause": "Current metric implementation limits failure_reason tag to two values due to cardinality constraints in metric systems.",
+  "proposedFix": "Either add BadScheduleActivityAttributes failure_reason to the temporal_workflow_task_execution_failed metric, or discuss including all possible reasons from the failed_cause.proto enum.",
+  "workaround": "Rely on logs to differentiate all failure reasons instead of using metrics.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDKs have limited this tag in the metrics to only two values and have suggested relying on logs to differentiate all of the reasons.",
+  "number": 666,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:20.890Z"
+}

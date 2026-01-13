@@ -1,0 +1,34 @@
+{
+  "summary": "AddAllActivities method fails to recognize mock activities when the [Activity] attribute is only placed on the implementation class. The attribute must also be present on interface methods for the activities to be discovered.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "AddAllActivities",
+    "TemporalWorker"
+  ],
+  "components": [
+    "worker",
+    "activity-registration",
+    "test-utilities"
+  ],
+  "concepts": [
+    "activity-discovery",
+    "attribute-inheritance",
+    "mock-testing",
+    "interface-implementation",
+    "reflection",
+    "unit-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Unit testing workflows with mock activities fails with unclear error message about missing activities.",
+  "rootCause": "The [Activity] attribute is not inherited from implementation to interface; it must be explicitly added to both the interface method signature and the implementation method.",
+  "proposedFix": "Add the [Activity] attribute to both the interface method and the implementation method.",
+  "workaround": "Place [Activity] attributes on both interface and implementation class methods.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was self-resolved by the reporter who discovered the attribute must be on both interface and implementation. Maintainer agreed to improve documentation to clarify that attributes are not inherited.",
+  "related": [],
+  "keyQuote": "The [Activity] attribute must not only be added to the method, but also the interface should the Activity Class implement the interface",
+  "number": 187,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:25:20.710Z"
+}

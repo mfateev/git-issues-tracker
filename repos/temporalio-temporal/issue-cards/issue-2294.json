@@ -1,0 +1,32 @@
+{
+  "summary": "Nil pointer dereference panic in temporal-sql-tool update command when running schema migrations, causing the tool to crash with a segmentation violation before migrations complete.",
+  "category": "bug",
+  "subcategory": "sql-tool",
+  "apis": [],
+  "components": [
+    "sql-tool",
+    "schema-migration",
+    "connection-handler"
+  ],
+  "concepts": [
+    "nil-pointer",
+    "panic-recovery",
+    "database-connection",
+    "error-handling",
+    "schema-update"
+  ],
+  "severity": "critical",
+  "userImpact": "Users cannot run temporal-sql-tool migrations due to random panics, blocking deployment and initialization.",
+  "rootCause": "Connection object is nil when ReadSchemaVersion is called, causing nil pointer dereference in Connection.Close() method.",
+  "proposedFix": "Add nil checks before dereferencing connection object and implement proper error handling in UpdateTask.Run()",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #2250",
+  "related": [
+    2250
+  ],
+  "keyQuote": "panic: runtime error: invalid memory address or nil pointer dereference in go.temporal.io/server/tools/sql.(*Connection).ReadSchemaVersion",
+  "number": 2294,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:24.062Z"
+}

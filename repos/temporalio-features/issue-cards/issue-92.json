@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to provide details about the previous Activity Task failure in retries, including the failure reason (error, timeout types) and the actual failure object when applicable.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ActivityContext"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-handler",
+    "workflow-context"
+  ],
+  "concepts": [
+    "retry",
+    "failure-reason",
+    "timeout",
+    "heartbeat",
+    "activity-task",
+    "error-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently log or access details about why an Activity failed during retries, making it difficult to diagnose retry behavior and log meaningful error information.",
+  "rootCause": "ActivityContext lacks fields to expose previous failure reasons and failure objects, which requires changes to both the API and SDK implementations.",
+  "proposedFix": "Add `lastFailureReason` (enum: RETURNED_FAILURE, START_TO_CLOSE_TIMEOUT, HEARTBEAT_TIMEOUT) and `lastFailure` (Failure object) fields to ActivityContext.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3517
+  ],
+  "keyQuote": "User wants to be able to log why an Activity fails (error vs startToCloseTimeout vs heartbeatTimeout).",
+  "number": 92,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:13.290Z"
+}

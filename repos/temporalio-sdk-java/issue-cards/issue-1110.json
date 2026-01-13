@@ -1,0 +1,30 @@
+{
+  "summary": "jackson-databind 2.13.1 contains CVE-2020-36518, a denial of service vulnerability (CVSS 7.5) caused by stack overflow from deeply nested objects. The issue was automatically resolved by removing the vulnerable dependency from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "jackson-databind",
+    "dependency-management",
+    "temporal-opentracing"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "stack-overflow",
+    "dependency-upgrade",
+    "CVE"
+  ],
+  "severity": "high",
+  "userImpact": "Users are vulnerable to denial of service attacks through deeply nested objects in jackson-databind 2.13.1.",
+  "rootCause": "jackson-databind versions up to 2.13.2 allow StackOverflow exceptions via large depth of nested objects",
+  "proposedFix": "Upgrade jackson-databind to version 2.13.2.1 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was removed from the inventory or marked as ignored",
+  "related": [],
+  "keyQuote": "jackson-databind before 2.13.0 allows a Java StackOverflow exception and denial of service via a large depth of nested objects",
+  "number": 1110,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:07:02.630Z"
+}

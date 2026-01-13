@@ -1,0 +1,39 @@
+{
+  "summary": "Feature request to implement activity reset support across all Temporal SDKs. When an activity is reset, it should restart from the beginning, with optional heartbeat clearing. The implementation should handle reset events similarly to pause and cancel operations, allowing users to write exception handlers that can differentiate between interruption types.",
+  "category": "feature",
+  "subcategory": "activity-reset",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-handler",
+    "exception-handler"
+  ],
+  "concepts": [
+    "activity-reset",
+    "heartbeat-clearing",
+    "exception-handling",
+    "interruption",
+    "cleanup",
+    "consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Users need a consistent mechanism to handle activity resets across all SDKs, allowing them to clean up resources and differentiate between cancellation, pause, and reset scenarios.",
+  "rootCause": null,
+  "proposedFix": "Implement activity reset support that: (1) restarts activity from the beginning, (2) optionally clears heartbeats, (3) throws an error to notify user code, (4) works consistently with pause and cancel operations, (5) allows exception handlers to differentiate interruption types",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    254,
+    1693,
+    847,
+    605,
+    1931,
+    464,
+    2488
+  ],
+  "keyQuote": "Users should be able to write a simple exception handler that cleans up after *any* interruption, including cancellation, pausing, and reset.",
+  "number": 620,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:01:24.450Z"
+}

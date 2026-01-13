@@ -1,0 +1,31 @@
+{
+  "summary": "Error objects sent to Sink functions lose important fields (type, details, custom ApplicationFailure properties) due to structured clone serialization limitations in postMessage. When errors are transferred from worker threads to the main thread, only basic Error properties (name, message, stack) are preserved.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "sink-function",
+    "worker-threads",
+    "error-serialization"
+  ],
+  "concepts": [
+    "postMessage",
+    "structured-clone",
+    "error-propagation",
+    "worker-threads",
+    "serialization",
+    "data-loss"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access custom error attributes (type, details, nonRetryable flag) in sink functions, limiting error handling and observability in workflows.",
+  "rootCause": "Node.js structured clone algorithm used by postMessage does not serialize custom properties on Error objects or complex nested structures like ApplicationFailure.",
+  "proposedFix": "Extend the error serialization format to manually preserve custom fields before postMessage transfer and reconstruct them on the receiving end.",
+  "workaround": "Documentation should clearly document this limitation and advise users on what fields are available in sinks.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This is a known limitation of sinks...the data is transferred over postMessage from a worker thread to the main Node.js thread which uses the structured clone algorithm.",
+  "number": 1274,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:09.182Z"
+}

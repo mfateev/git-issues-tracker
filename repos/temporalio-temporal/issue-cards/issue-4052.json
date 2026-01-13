@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Frontend incorrectly rejects valid JWTs with long expiration times (24+ hours), marking them as expired even when iat, nbf, and exp claims are valid. Tokens with shorter validity periods (1 hour) are accepted without issue.",
+  "category": "bug",
+  "subcategory": "jwt-validation",
+  "apis": [],
+  "components": [
+    "authorization-interceptor",
+    "jwt-validator",
+    "frontend-server"
+  ],
+  "concepts": [
+    "jwt-validation",
+    "token-expiration",
+    "authentication",
+    "timestamp-validation",
+    "claim-verification"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot authenticate with JWTs that have longer validity periods (24+ hours), blocking server access even when tokens are technically valid.",
+  "rootCause": "The JWT validator appears to have a logic error when processing tokens with extended expiration times, possibly related to timestamp comparison or clock skew handling.",
+  "proposedFix": null,
+  "workaround": "Use shorter JWT validity periods (under 1 hour) as a temporary workaround, though this conflicts with external auth provider settings.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Apparently, the \"long\" token validity of 24 hours is what confuses the validator. Unfortunately, we do not control validity of the token",
+  "number": 4052,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:26.010Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add codec support for `to_payload` and `from_payload` methods in the Ruby SDK, enabling users to implement custom serialization and deserialization logic.",
+  "category": "feature",
+  "subcategory": "codec-support",
+  "apis": [
+    "to_payload",
+    "from_payload"
+  ],
+  "components": [
+    "codec",
+    "serialization",
+    "ruby-sdk"
+  ],
+  "concepts": [
+    "payload-encoding",
+    "custom-serialization",
+    "data-transformation",
+    "encoding",
+    "codec-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement custom codecs for payload serialization, limiting flexibility in data encoding strategies.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Codec support for to_payload and from_payload methods was implemented in the Ruby SDK.",
+  "related": [],
+  "keyQuote": null,
+  "number": 77,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:02.193Z"
+}

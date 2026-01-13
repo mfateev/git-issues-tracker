@@ -1,0 +1,33 @@
+{
+  "summary": "ESM custom payload converters fail to load because the SDK uses `require()` instead of dynamic `import()` to load them. Users get an ERR_REQUIRE_ESM error when trying to use ESM modules as custom payload converters.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "data-converter-helpers",
+    "worker-options",
+    "bundler"
+  ],
+  "concepts": [
+    "ESM",
+    "CommonJS",
+    "module-loading",
+    "payload-converter",
+    "dynamic-import",
+    "bundling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use ESM modules as custom payload converters without manually bundling them to CommonJS, creating a developer experience barrier.",
+  "rootCause": "The SDK uses synchronous `require()` in data-converter-helpers.ts to load payload converters, which doesn't support ESM modules. Node.js requires dynamic `import()` for ESM compatibility.",
+  "proposedFix": "Replace `require()` with dynamic `import()` for loading payload converters to support both CommonJS and ESM modules.",
+  "workaround": "Manually bundle ESM payload converters to CommonJS using esbuild or tsup with appropriate external dependencies, then use `require.resolve()` to reference them.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Instead change the require of payload-converter.js to a dynamic import() which is available in all CommonJS modules.",
+  "number": 1292,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:34.529Z"
+}

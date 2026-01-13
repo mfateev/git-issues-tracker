@@ -1,0 +1,30 @@
+{
+  "summary": "SelfAdvancingTimerImplTest flakes intermittently in CI pipelines when the test machine is under load, showing timing assertion failures where the actual elapsed time exceeds the expected value by 55ms.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "SelfAdvancingTimerImpl",
+    "test-service",
+    "timing-logic"
+  ],
+  "concepts": [
+    "flaky-test",
+    "timing-sensitive",
+    "load-dependent",
+    "test-reliability",
+    "timer-accuracy"
+  ],
+  "severity": "medium",
+  "userImpact": "Test flakiness reduces confidence in test suite reliability and makes it harder to identify real failures in CI pipelines.",
+  "rootCause": "SelfAdvancingTimerImpl test is sensitive to machine load, causing timer assertions to fail when actual elapsed time exceeds expected values under system resource contention.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "expected:<20000.0> but was:<20055.0>",
+  "number": 726,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:37:31.218Z"
+}

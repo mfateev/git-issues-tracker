@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal server frontend closes connections with nginx ingress, causing 502 bad-gateway errors. The issue was caused by the default 5-minute keepAliveMaxConnectionAge setting that triggered connection closures during active gRPC polling, which conflicted with nginx's connection management.",
+  "category": "bug",
+  "subcategory": "grpc-connection-management",
+  "apis": [],
+  "components": [
+    "frontend",
+    "grpc-server",
+    "connection-management",
+    "keepalive"
+  ],
+  "concepts": [
+    "connection-timeout",
+    "keepalive",
+    "grpc",
+    "nginx-ingress",
+    "kubernetes",
+    "http2",
+    "connection-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience intermittent 502 bad-gateway errors when accessing Temporal frontend through nginx ingress due to unexpected connection closures.",
+  "rootCause": "The default frontend.keepAliveMaxConnectionAge setting of 5 minutes causes the server to close connections via GoAway, which conflicts with long-lived gRPC polling requests and nginx's connection handling.",
+  "proposedFix": "Set dynamic config 'frontend.keepAliveMaxConnectionAge' to 0 to disable automatic connection closure.",
+  "workaround": "Disable the MaxConnectionAge by setting the dynamic config 'frontend.keepAliveMaxConnectionAge' to 0.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by disabling the keepAliveMaxConnectionAge setting, which prevents premature connection closures during long-lived gRPC connections.",
+  "related": [],
+  "keyQuote": "Please try to disable the MaxConnectionAge by set dynamic config of 'frontend.keepAliveMaxConnectionAge` to 0, and see if that fixed the problem.",
+  "number": 1980,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:40.852Z"
+}

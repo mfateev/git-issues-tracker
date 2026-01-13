@@ -1,0 +1,37 @@
+{
+  "summary": "Add documentation and validation to disallow keyword arguments in activities, workflows, signals, queries, and updates, ensuring consistency with Temporal's positional-only parameter model across all SDKs.",
+  "category": "feature",
+  "subcategory": "validation-documentation",
+  "apis": [
+    "StartWorkflow",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-definition",
+    "activity-definition",
+    "parameter-validation",
+    "serialization"
+  ],
+  "concepts": [
+    "keyword-arguments",
+    "positional-parameters",
+    "parameter-validation",
+    "documentation",
+    "api-consistency",
+    "sdk-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may attempt to use keyword arguments in workflows/activities not realizing they are unsupported, leading to runtime failures or confusion.",
+  "rootCause": "Temporal only supports positional parameters in its serialized form, and keyword arguments create ambiguity in parameter arity across different SDKs.",
+  "proposedFix": "Add validation at workflow/activity/signal/query/update definition time with clear error messages, and document this restriction prominently in README.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed indicating the feature request was addressed with documentation and validation rules implemented.",
+  "related": [
+    255
+  ],
+  "keyQuote": "All Temporal SDKs only support positional parameters, and all Temporal SDKs strongly encourage a single parameter that is an object/dict that can have fields added.",
+  "number": 226,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:47.954Z"
+}

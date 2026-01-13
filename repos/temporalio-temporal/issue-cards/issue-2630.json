@@ -1,0 +1,31 @@
+{
+  "summary": "User requests support for DNS names in BroadcastAddress configuration for Docker Swarm deployments. Currently only IP addresses are supported due to validation in ringpop.go, which limits flexibility in containerized environments where DNS-based service discovery would be beneficial.",
+  "category": "feature",
+  "subcategory": "docker-deployment",
+  "apis": [],
+  "components": [
+    "ringpop",
+    "membership-coordination",
+    "network-configuration"
+  ],
+  "concepts": [
+    "dns-resolution",
+    "docker-swarm",
+    "service-discovery",
+    "broadcast-address",
+    "network-binding",
+    "containerization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to deploy Temporal in Docker Swarm mode face limitations requiring either complex static IP allocation, Kubernetes adoption, or DNS workarounds at the container level.",
+  "rootCause": "Validation in ringpop.go:75 restricts BroadcastAddress to IP addresses only, not supporting DNS names which would simplify containerized deployments.",
+  "proposedFix": "Allow BroadcastAddress to accept DNS names in addition to IP addresses; ensure BIND_ON_IP defaults to 0.0.0.0 for all interfaces.",
+  "workaround": "Resolve DNS names to IP addresses in entrypoint.sh using `hostname -i` command before setting TEMPORAL_BROADCAST_ADDRESS environment variable.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "TEMPORAL_BROADCAST_ADDRESS can be dns name... can not understand reason for this restriction",
+  "number": 2630,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:11.306Z"
+}

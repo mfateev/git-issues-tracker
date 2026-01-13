@@ -1,0 +1,30 @@
+{
+  "summary": "User requested that Temporal metrics be grouped under a common prefix for better organization in monitoring systems. The issue was resolved by pointing out that the `global.metrics.prefix` configuration option already exists for this purpose.",
+  "category": "feature",
+  "subcategory": "metrics-configuration",
+  "apis": [],
+  "components": [
+    "metrics",
+    "configuration",
+    "monitoring"
+  ],
+  "concepts": [
+    "metrics-prefix",
+    "namespace-organization",
+    "monitoring-observability",
+    "backward-compatibility",
+    "configuration-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users setting up self-hosted Temporal clusters can organize their metrics under a common prefix to improve clarity in monitoring systems.",
+  "rootCause": null,
+  "proposedFix": "Use the existing `global.metrics.prefix` configuration option to group metrics under a common label.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was already implemented via the `global.metrics.prefix` config option. The resolution documented the existing capability and clarified that custom metric naming should not be allowed to avoid user confusion.",
+  "related": [],
+  "keyQuote": "Temporal supports a `global.metrics.prefix` config option. I've confirmed that this works as expected with a self-hosted Temporal cluster.",
+  "number": 5679,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:32.534Z"
+}

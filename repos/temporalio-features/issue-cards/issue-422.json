@@ -1,0 +1,37 @@
+{
+  "summary": "When workflows are triggered via scheduler, only RunActivity spans are reported in distributed tracing instead of all expected spans (StartWorkflow, RunWorkflow, StartActivity, RunActivity, CompleteWorkflow) that appear when workflows are started manually.",
+  "category": "bug",
+  "subcategory": "distributed-tracing",
+  "apis": [
+    "create_schedule",
+    "start_workflow",
+    "execute_workflow"
+  ],
+  "components": [
+    "tracing",
+    "scheduler",
+    "workflow-execution",
+    "span-generation"
+  ],
+  "concepts": [
+    "observability",
+    "distributed-tracing",
+    "spans",
+    "jaeger",
+    "opentelemetry",
+    "schedule-triggered-workflows",
+    "manual-workflow-start"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot establish comprehensive distributed tracing observability for scheduled workflows, making it difficult to monitor and debug schedule-triggered executions.",
+  "rootCause": "For scheduled workflows, the server invokes start workflow rather than the client SDK, so the SDK's tracing interceptors cannot apply the outer span context that would normally be created during client-side workflow start.",
+  "proposedFix": "Consider creating an outer span when the workflow is first run server-side, potentially using the WorkflowRunId to generate consistent trace IDs across schedule executions.",
+  "workaround": "Implement a custom TracingWorkflowInboundInterceptor that generates a trace_id based on WorkflowRunId and sets the context globally using an IdempotentIdGenerator.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The problem is that for schedules the server invokes start workflow and not your client. Therefore the server can't possibly know what OTel server you've setup with your SDK to send spans to.",
+  "number": 422,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:20.227Z"
+}

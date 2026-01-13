@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowEnvironment does not set the close time on the visibility record for workflow execution info. This causes tests to not properly reflect workflow completion time metadata.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowExecutionInfo"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "visibility-record",
+    "workflow-execution-info"
+  ],
+  "concepts": [
+    "test-server",
+    "workflow-execution",
+    "metadata",
+    "close-time",
+    "visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with TestWorkflowEnvironment cannot properly validate or inspect workflow execution close time, affecting test completeness and accuracy.",
+  "rootCause": "TestWorkflowEnvironment is not populating the close time field on the visibility record when workflows complete.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "TestWorkflowEnvironment does not set WorkflowExecutionInfo closeTime",
+  "number": 262,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:04:38.926Z"
+}

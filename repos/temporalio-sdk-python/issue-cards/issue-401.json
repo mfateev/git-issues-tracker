@@ -1,0 +1,33 @@
+{
+  "summary": "User wants to trigger activity retry logic when a workflow receives a signal that indicates failure or timeout. They're looking for a Temporal-idiomatic way to retry failed activities based on signal conditions rather than manually implementing retry loops.",
+  "category": "question",
+  "subcategory": "activity-retry",
+  "apis": [
+    "execute_activity",
+    "wait_condition"
+  ],
+  "components": [
+    "activity-executor",
+    "signal-handler",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "retry-policy",
+    "signal-handling",
+    "timeout",
+    "activity-failure",
+    "workflow-pattern"
+  ],
+  "severity": "low",
+  "userImpact": "Users need guidance on idiomatic Temporal patterns for retrying activities based on signal-driven conditions.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use a for loop with manual retry logic instead of relying on Temporal's built-in retry policy.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that using a for loop is a valid Temporal pattern and closed as a question rather than a feature request.",
+  "related": [],
+  "keyQuote": "A for loop is very much a Temporal pattern",
+  "number": 401,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:19.400Z"
+}

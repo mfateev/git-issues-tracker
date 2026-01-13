@@ -1,0 +1,34 @@
+{
+  "summary": "Node.js fatal error occurs when signalWithStart is used to create a new workflow and send a signal to it. The worker crashes with a V8 internal check failure. The root cause was identified as a missing await on the sleep promise in the workflow code.",
+  "category": "bug",
+  "subcategory": "signal-delivery",
+  "apis": [
+    "signalWithStart",
+    "defineSignal",
+    "setHandler"
+  ],
+  "components": [
+    "workflow-runtime",
+    "signal-handler",
+    "promise-handling"
+  ],
+  "concepts": [
+    "signal-delivery",
+    "workflow-creation",
+    "promise-await",
+    "crash-recovery",
+    "async-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably use signalWithStart to create workflows and send signals, causing worker crashes with V8 fatal errors.",
+  "rootCause": "Missing await on sleep('1 year') promise in the workflow handler caused improper async state management during signal processing.",
+  "proposedFix": "Await the sleep promise, and use await CancellationScope.current().cancelRequested or await condition(() => false) for indefinite workflow blocking.",
+  "workaround": "Ensure all promises in workflows are properly awaited; add ESLint rules to catch missing awaits.",
+  "resolution": "fixed",
+  "resolutionDetails": "User identified the issue was a missing await on sleep() in their workflow code. The issue was not a framework bug but a user error in async handling.",
+  "related": [],
+  "keyQuote": "Turns out, the issue was just a missing `await` in the workflow's `while(true) { sleep('1 year') }` loop.",
+  "number": 797,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:12:27.665Z"
+}

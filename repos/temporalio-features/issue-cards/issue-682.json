@@ -1,0 +1,31 @@
+{
+  "summary": "Remove fetchResult and fetchInfo APIs from Nexus SDKs across all languages. These APIs were recently removed from the Nexus RPC specification and need to be removed from the Go, Java, TypeScript, Python, and .NET SDK implementations.",
+  "category": "feature",
+  "subcategory": "nexus-api",
+  "apis": [],
+  "components": [
+    "nexus-sdk-go",
+    "nexus-sdk-java",
+    "nexus-sdk-typescript",
+    "nexus-sdk-python",
+    "nexus-sdk-dotnet"
+  ],
+  "concepts": [
+    "api-cleanup",
+    "spec-compliance",
+    "backward-incompatible-change",
+    "multi-sdk-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to update their Nexus SDK implementations to remove deprecated fetchResult and fetchInfo methods from their Handler implementations.",
+  "rootCause": "APIs were removed from the Nexus RPC specification in nexus-rpc/api#25, requiring corresponding SDK updates.",
+  "proposedFix": "Remove [Get|Fetch]Info and [Get|Fetch]Result requests at all Handler levels; remove associated Operation Context types; remove OperationStillRunning error type.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "All five SDK implementations completed removal of fetchResult and fetchInfo APIs as tracked in per-SDK tickets.",
+  "related": [],
+  "keyQuote": "Remove [Get|Fetch]Info and [Get|Fetch]Result requests at all Handler levels.",
+  "number": 682,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:53:29.341Z"
+}

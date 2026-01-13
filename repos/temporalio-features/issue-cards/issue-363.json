@@ -1,0 +1,30 @@
+{
+  "summary": "gRPC message size limits cause task completion failures when completing many medium-payload activities in a single task. The proposed solution is to implement multi-RPC partial task completion support.",
+  "category": "feature",
+  "subcategory": "task-completion",
+  "apis": [],
+  "components": [
+    "task-completion",
+    "grpc",
+    "activity-executor"
+  ],
+  "concepts": [
+    "message-size-limit",
+    "partial-completion",
+    "multi-rpc",
+    "payload-handling",
+    "grpc-protocol"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot complete tasks with many medium-payload activities due to gRPC message size constraints.",
+  "rootCause": "gRPC has a maximum message size limit that is exceeded when task completion includes many medium-input-payload activities.",
+  "proposedFix": "Implement support for multi-RPC partial task completion to allow completion messages to be split across multiple RPC calls.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Task completion of many medium-input-payload activities in one task will cause issue with gRPC max message size.",
+  "number": 363,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:55.241Z"
+}

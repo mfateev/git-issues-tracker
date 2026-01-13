@@ -1,0 +1,30 @@
+{
+  "summary": "Need an official, documented way to export the SDK version at runtime in the TypeScript SDK. Currently version can be accessed via internal import paths or package.json, but should have a blessed public API.",
+  "category": "feature",
+  "subcategory": "sdk-metadata",
+  "apis": [],
+  "components": [
+    "package-exports",
+    "worker",
+    "meta-package"
+  ],
+  "concepts": [
+    "version-export",
+    "sdk-metadata",
+    "runtime-information",
+    "public-api",
+    "package-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily access the SDK version at runtime through an official public API, forcing them to use internal imports or read package.json.",
+  "rootCause": null,
+  "proposedFix": "Export SDK version from a blessed location, either the meta package or common package.",
+  "workaround": "Users can currently access version via `import pkg from '@temporalio/worker/lib/pkg'` and `pkg.version` or read package.json directly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently can get at a worker level via `import pkg from '@temporalio/worker/lib/pkg'` and `pkg.version` or by using the `package.json` directly, but should be in a more blessed/official place.",
+  "number": 417,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:23.332Z"
+}

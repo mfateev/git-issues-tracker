@@ -1,0 +1,35 @@
+{
+  "summary": "Add three new client methods for signal-with-start and update-with-start workflows in Ruby SDK, aligning with the design pattern used in Python and .NET SDKs. This includes signal_with_start_workflow, start_update_with_start_workflow, and execute_update_with_start_workflow methods.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "signal_with_start_workflow",
+    "start_update_with_start_workflow",
+    "execute_update_with_start_workflow",
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-handle",
+    "update-handle"
+  ],
+  "concepts": [
+    "signal-with-start",
+    "update-with-start",
+    "workflow-operations",
+    "client-methods",
+    "api-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now signal or update workflows at the time of starting them, providing feature parity with Python and .NET SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement three new methods on the client: signal_with_start_workflow, start_update_with_start_workflow, and execute_update_with_start_workflow, all accepting WithStartWorkflowOperation parameter.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to achieve API parity with Python and .NET SDKs for signal-with-start and update-with-start operations.",
+  "related": [],
+  "keyQuote": "We need the following methods on client: signal_with_start_workflow, start_update_with_start_workflow, execute_update_with_start_workflow",
+  "number": 188,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:45:09.156Z"
+}

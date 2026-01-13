@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal Server fails to start with TiDB due to differences in transaction handling. TiDB's optimistic transaction model returns duplicate key errors during COMMIT rather than during INSERT, which the Server cannot handle.",
+  "category": "bug",
+  "subcategory": "database-compatibility",
+  "apis": [],
+  "components": [
+    "database",
+    "persistence",
+    "sql",
+    "transaction-handling"
+  ],
+  "concepts": [
+    "transaction-model",
+    "error-handling",
+    "database-compatibility",
+    "TiDB",
+    "optimistic-transactions",
+    "pessimistic-transactions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to use TiDB as a Temporal Server database backend experience startup failures.",
+  "rootCause": "TiDB uses optimistic transaction model by default, returning duplicate key errors at COMMIT time rather than INSERT time like MySQL, and Temporal Server's error handling doesn't account for this difference.",
+  "proposedFix": null,
+  "workaround": "Set TiDB global variables: SET GLOBAL tidb_enable_noop_functions=1; and SET GLOBAL tidb_txn_mode=\"pessimistic\";",
+  "resolution": "wontfix",
+  "resolutionDetails": "Temporal team lacks bandwidth to support TiDB's optimistic transaction model natively. Workaround of switching TiDB to pessimistic mode allows server to operate successfully.",
+  "related": [],
+  "keyQuote": "We currently do not have the bandwidth to work on supporting TiDB's optimistic transaction model, but contribution is welcomed",
+  "number": 1684,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:01.283Z"
+}

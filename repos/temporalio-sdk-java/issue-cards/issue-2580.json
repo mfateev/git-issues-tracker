@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add a summary field to LocalActivityOptions in the Java SDK. This feature aligns with the parent issue in the features repository and has already been implemented.",
+  "category": "feature",
+  "subcategory": "local-activity-options",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "local-activity",
+    "activity-options",
+    "api"
+  ],
+  "concepts": [
+    "metadata",
+    "activity-configuration",
+    "summary-field",
+    "options-builder"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now include summary information when configuring local activities, improving activity documentation and introspection.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The summary field was already added to LocalActivityOptions class in the codebase at temporal-sdk/src/main/java/io/temporal/activity/LocalActivityOptions.java",
+  "related": [
+    637
+  ],
+  "keyQuote": "This is already done https://github.com/temporalio/sdk-java/blob/4afe41b6ca638775e4e6ecaa3a5171b32670f9d4/temporal-sdk/src/main/java/io/temporal/activity/LocalActivityOptions.java#L171",
+  "number": 2580,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:10.900Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "HandlerException constructor allows null cause, but the serialization code crashes when attempting to handle this case. The PayloadAndFailureDataConverter doesn't properly handle null causes in Nexus HandlerExceptions.",
+  "category": "bug",
+  "subcategory": "nexus-error-handling",
+  "apis": [
+    "HandlerException"
+  ],
+  "components": [
+    "nexus",
+    "error-handling",
+    "payload-converter",
+    "failure-data-converter"
+  ],
+  "concepts": [
+    "null-handling",
+    "exception-serialization",
+    "error-type",
+    "nexus-operations",
+    "type-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot throw HandlerException with null cause in Nexus operations without triggering a crash.",
+  "rootCause": "PayloadAndFailureDataConverter line 136-145 does not handle the case where HandlerException has a null cause.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "keyQuote": "HandlerException has a constructor inviting operation authors to throw a HandlerException with no cause, such as throw new HandlerException(HandlerException.ErrorType.NOT_FOUND, (Throwable) null); But this crashes",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 2582,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:28.624Z"
+}

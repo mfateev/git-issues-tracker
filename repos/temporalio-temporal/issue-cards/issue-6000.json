@@ -1,0 +1,31 @@
+{
+  "summary": "User asks how to prevent activity starvation when multiple activities are part of the same workflow and a batch of tasks is initiated. The concern is about prioritization and execution ordering to ensure fair resource allocation.",
+  "category": "question",
+  "subcategory": "activity-scheduling",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "worker",
+    "workflow-task-dispatcher"
+  ],
+  "concepts": [
+    "starvation",
+    "prioritization",
+    "task-scheduling",
+    "batch-execution",
+    "resource-allocation",
+    "fairness"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot guarantee fair execution of multiple activities within the same workflow when processing batches, risking some activities being starved of resources.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use local activities for some tasks instead of regular activities",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "this isn't really possible right now. We're starting to work on related issues so we might have a better answer in a while.",
+  "number": 6000,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:32.321Z"
+}

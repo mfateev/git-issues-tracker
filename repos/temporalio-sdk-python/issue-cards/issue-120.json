@@ -1,0 +1,37 @@
+{
+  "summary": "Refactor all Python SDK tests to use a test framework with multiple server forms instead of the current Go-based binary wrapper. This involves converting client/workflow tests to use injected test environments, updating activity tests, and running CI tests against both time-skipping and Temporalite test servers.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "client-tests",
+    "workflow-tests",
+    "activity-tests",
+    "ci"
+  ],
+  "concepts": [
+    "testing",
+    "test-server",
+    "temporalite",
+    "time-skipping",
+    "test-environment",
+    "go-removal",
+    "ci-automation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will have a more robust and maintainable test framework that works with multiple server forms, reducing Go binary dependencies.",
+  "rootCause": null,
+  "proposedFix": "Migrate tests to use injected test environments, convert activity tests to use local workflows or activity test environment, and update CI to run against multiple test servers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were successfully converted to use the test framework with support for multiple server forms.",
+  "related": [
+    81,
+    121
+  ],
+  "keyQuote": "Change all client/workflow tests to inject a test environment instead of the Go-based one",
+  "number": 120,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:27.763Z"
+}

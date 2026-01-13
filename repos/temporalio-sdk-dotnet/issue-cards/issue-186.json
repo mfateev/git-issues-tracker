@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for exposing the next retry delay field from ApplicationFailureInfo across all SDKs. This field was recently added to the API to allow activities to specify custom retry delays on failure.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ApplicationFailureInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "failure-handling",
+    "api-bindings"
+  ],
+  "concepts": [
+    "retry",
+    "failure",
+    "delay",
+    "activity",
+    "error-handling",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now specify custom retry delays when activities fail, enabling more granular control over retry behavior.",
+  "rootCause": null,
+  "proposedFix": "Expose the next retry delay field from ApplicationFailureInfo in the .NET SDK to match other SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to expose the ApplicationFailureInfo retry delay field in the .NET SDK.",
+  "related": [],
+  "keyQuote": "We recently added the ability for an activity to specify the next retry delay on failure via a field on ApplicationFailureInfo.",
+  "number": 186,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:25:21.567Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Multiple ChildWorkflowStarted events are being written for the same child workflow when a parent workflow attempts ContinueAsNew and the server fails with UnhandledCommand. This appears to be a buffering/resurrection issue in event history, potentially related to Cassandra 5 compatibility.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "StartChildWorkflow",
+    "ContinueAsNew"
+  ],
+  "components": [
+    "event-history",
+    "child-workflow-executor",
+    "workflow-task-processing"
+  ],
+  "concepts": [
+    "event-duplication",
+    "buffering",
+    "continue-as-new",
+    "unhandled-command",
+    "cassandra"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience duplicate ChildWorkflowStarted events in their workflow history, causing incorrect event ordering and potential replay inconsistencies.",
+  "rootCause": "Server records buffered/resurrected ChildWorkflowExecutionStarted events to event history after workflow task failure when ContinueAsNew is attempted with UnhandledCommand error, potentially related to Cassandra 5 support issues.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "server also seems to record a second ChildWorkflowExecutionStarted (seems buffered / resurrected) event to event history after workflow task failure",
+  "number": 7591,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:31.280Z"
+}

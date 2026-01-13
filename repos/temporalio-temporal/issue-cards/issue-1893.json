@@ -1,0 +1,31 @@
+{
+  "summary": "User requests that released versions of Temporal Server include bundled versioned database schemas. Currently, schemas must be manually downloaded from GitHub, making manual server setup difficult.",
+  "category": "feature",
+  "subcategory": "release-distribution",
+  "apis": [],
+  "components": [
+    "release-artifacts",
+    "schema-management",
+    "server-setup",
+    "database-initialization"
+  ],
+  "concepts": [
+    "release-packaging",
+    "schema-versioning",
+    "deployment",
+    "installation",
+    "distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users manually deploying Temporal Server must separately source and manage database schemas, adding complexity to the installation process.",
+  "rootCause": null,
+  "proposedFix": "Include schema files tied to each release version in the release artifacts alongside compiled binaries.",
+  "workaround": "Download schemas directly from the GitHub repository tag.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In addition to the compiled binaries, include the schemas that are tied to a version.",
+  "number": 1893,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:35.095Z"
+}

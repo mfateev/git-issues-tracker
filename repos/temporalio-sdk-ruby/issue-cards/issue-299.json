@@ -1,0 +1,35 @@
+{
+  "summary": "Ruby SDK does not allow multiple workflow handlers (signal, update, query) to share the same name, unlike other SDKs. This causes a RuntimeError when attempting to define handlers with identical names for different handler types.",
+  "category": "bug",
+  "subcategory": "workflow-handlers",
+  "apis": [
+    "workflow_signal",
+    "workflow_update"
+  ],
+  "components": [
+    "workflow-handler",
+    "decorator",
+    "signal-handler",
+    "update-handler"
+  ],
+  "concepts": [
+    "handler-naming",
+    "handler-type",
+    "workflow-signals",
+    "workflow-updates",
+    "api-consistency",
+    "multi-language-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Ruby developers cannot implement the same handler logic for different handler types with a shared name, forcing workarounds and reducing code reusability compared to other SDKs.",
+  "rootCause": "The Ruby SDK's handler decorator implementation does not allow multiple handler types to share the same name, enforcing a one-name-per-handler-type constraint that other SDKs do not have.",
+  "proposedFix": "Modify the Ruby SDK handler registration mechanism to allow multiple handlers of different types to share the same name, matching the behavior of Python and other SDKs.",
+  "workaround": "Use different names for each handler type (signal, update, query) even if they implement the same business logic.",
+  "resolution": "fixed",
+  "resolutionDetails": "The Ruby SDK was updated to allow multiple workflow handlers of different types to share the same name, bringing it into parity with other Temporal SDKs.",
+  "related": [],
+  "keyQuote": "Workflow signal UpdateOrder already defined as a different handler type (RuntimeError)",
+  "number": 299,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:50:20.194Z"
+}

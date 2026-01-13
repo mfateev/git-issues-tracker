@@ -1,0 +1,31 @@
+{
+  "summary": "Workflows encounter a NotDeadLetterException (NDE) during replay in SDK 1.11.0 and 1.11.1 despite no code changes. The issue typically involves TimerCanceled commands or command ordering changes.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "workflow-replay",
+    "timer-execution",
+    "command-ordering"
+  ],
+  "concepts": [
+    "replay",
+    "determinism",
+    "command-ordering",
+    "timer-cancellation",
+    "non-determinism",
+    "version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Existing workflows that previously ran successfully now fail during replay without any code changes, blocking workflow execution and causing production issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "some Workflows may result in NDE on replay, even though there's been no change to Workflow Code",
+  "number": 1533,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:41.362Z"
+}

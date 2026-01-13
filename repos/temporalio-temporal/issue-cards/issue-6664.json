@@ -1,0 +1,36 @@
+{
+  "summary": "SQL search attributes operations fail with authorization errors because claims are not passed to internal DescribeNamespace calls. The authorization interceptor rejects requests for get-search-attributes and related operations when using SQL databases for visibility instead of Elasticsearch.",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [
+    "ListSearchAttributes",
+    "DescribeNamespace",
+    "UpdateNamespace"
+  ],
+  "components": [
+    "authorization",
+    "frontend",
+    "admin_handler",
+    "search-attributes",
+    "SQL-visibility"
+  ],
+  "concepts": [
+    "claims",
+    "authorization",
+    "internal-calls",
+    "namespace-scoping",
+    "visibility-store"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot manage search attributes in SQL-based visibility setups without bypassing authorization, breaking admin workflows.",
+  "rootCause": "Claims are not propagated to internal DescribeNamespace calls made by ListSearchAttributesSQL, causing the authorization interceptor to deny requests even for authorized admin users.",
+  "proposedFix": "Pass claims context through internal frontend-to-frontend calls for DescribeNamespace and UpdateNamespace operations, or exempt internal service calls from authorization checks.",
+  "workaround": "Bypass claims check for DescribeNamespace and UpdateNamespace endpoints in the default authorizer, or use Elasticsearch instead of SQL for visibility.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "claims are not send for DescribeNamespace... In docker-builds/temporal/service/frontend/admin_handler.go I see function `getSearchAttributesSQL` which executes the `DescribeNamespace` function.",
+  "number": 6664,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:37.410Z"
+}

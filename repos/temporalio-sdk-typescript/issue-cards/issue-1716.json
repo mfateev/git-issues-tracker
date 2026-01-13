@@ -1,0 +1,31 @@
+{
+  "summary": "Create a high-level client for control plane operations concerning worker deployments in the TypeScript SDK, following the pattern established in the Go SDK.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "control-plane",
+    "client",
+    "deployment"
+  ],
+  "concepts": [
+    "versioning",
+    "worker-deployment",
+    "control-plane",
+    "high-level-api",
+    "client-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "TypeScript SDK users need a high-level client API to manage worker versioning and deployments, currently unavailable.",
+  "rootCause": null,
+  "proposedFix": "Implement a worker versioning control plane client following the Go SDK implementation as a reference.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Create the high-level client for control plane operations concerning worker deployments. See the Go one as an example",
+  "number": 1716,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:29.288Z"
+}

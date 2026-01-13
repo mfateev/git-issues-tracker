@@ -1,0 +1,31 @@
+{
+  "summary": "Request for workflow pause/unpause functionality to prevent task scheduling during pauses and support batch operations. The feature would help handle workflow failures due to bugs and enable conditional pausing on activity failures.",
+  "category": "feature",
+  "subcategory": "workflow-control",
+  "apis": [],
+  "components": [
+    "workflow-task-scheduler",
+    "visibility-api",
+    "activity-executor"
+  ],
+  "concepts": [
+    "pause",
+    "workflow-state",
+    "retry-policy",
+    "failure-handling",
+    "batch-operations",
+    "task-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot pause failing workflows to prevent further task scheduling, forcing them to either let failed tasks retry indefinitely or manually intervene.",
+  "rootCause": null,
+  "proposedFix": "Implement pause/unpause workflow commands with state replication to passive side, add default pause policy for continued workflow task failures, enable pausing on activity failures, and support batch unpause operations through visibility API.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Pause a workflow would mean no more workflow task would be scheduled for that workflow. The unpause would mean create new workflow task if one is needed.",
+  "number": 3006,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:14.542Z"
+}

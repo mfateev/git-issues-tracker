@@ -1,0 +1,32 @@
+{
+  "summary": "User metadata and other non-search attribute payloads are not being encoded outbound in the Python SDK. The issue requires ensuring all workflow payloads go through the codec both on inbound (activation/decoding) and outbound (completion/encoding), with comprehensive tests added.",
+  "category": "bug",
+  "subcategory": "codec-payloads",
+  "apis": [],
+  "components": [
+    "codec",
+    "workflow-payload",
+    "user-metadata"
+  ],
+  "concepts": [
+    "encoding",
+    "decoding",
+    "payload-processing",
+    "serialization",
+    "codec-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience data loss or corruption when using codecs with workflow metadata and other payloads that are not being properly encoded/decoded.",
+  "rootCause": "Non-search attribute payloads, particularly user metadata, are not being routed through the codec during outbound transmission from the SDK.",
+  "proposedFix": "Implement a general code-generated payload visitor utility (similar to Go and Ruby implementations) to ensure all payloads are consistently encoded/decoded, and add comprehensive tests for all future payloads.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    468
+  ],
+  "keyQuote": "Not only must we make sure _every_ non-search attribute payload is decoded on activation and encoded on completion, we must write a test to ensure this for all future payloads.",
+  "number": 1071,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:24.192Z"
+}

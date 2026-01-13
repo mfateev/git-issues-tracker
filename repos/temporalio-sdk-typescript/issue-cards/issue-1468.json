@@ -1,0 +1,35 @@
+{
+  "summary": "Module alias imports (using module-alias package) don't work in workflow interceptors because the bundler doesn't recognize the aliases. User needs to configure webpack resolver aliases in bundleWorkflowCode() options.",
+  "category": "bug",
+  "subcategory": "workflow-interceptors",
+  "apis": [
+    "Worker.create",
+    "bundleWorkflowCode",
+    "WorkflowInboundCallsInterceptor"
+  ],
+  "components": [
+    "worker",
+    "workflow-bundler",
+    "workflow-interceptors",
+    "module-resolution"
+  ],
+  "concepts": [
+    "module-aliasing",
+    "webpack-configuration",
+    "bundling",
+    "import-resolution",
+    "interceptor-modules"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use module alias imports in workflow interceptors without manually updating all imports to relative paths and recursively updating all dependencies.",
+  "rootCause": "The workflow bundler uses Webpack which doesn't automatically apply module-alias configuration; aliases must be explicitly configured in the webpack config via webpackConfigHook.",
+  "proposedFix": "Configure webpack resolver aliases in bundleWorkflowCode() options using webpackConfigHook to map aliases, or use TsconfigPathsPlugin to read tsconfig.json paths.",
+  "workaround": "Convert all module-alias imports to relative paths in interceptor files and their dependencies, or configure webpackConfigHook with aliases.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved by implementing webpackConfigHook with TsconfigPathsPlugin to apply tsconfig path aliases to webpack bundler configuration.",
+  "related": [],
+  "keyQuote": "module-alias's magic doesn't automatically extend to bundlers. You will therefore need to provide specific configuration to the Workflow Bundler to apply your aliases.",
+  "number": 1468,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:07.849Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Stack trace queries on closed workflows throw an INVALID_ARGUMENT error instead of gracefully returning empty stack or a human-readable message indicating the workflow is closed.",
+  "category": "bug",
+  "subcategory": "workflow-query",
+  "apis": [
+    "query"
+  ],
+  "components": [
+    "SyncWorkflow",
+    "DeterministicRunnerImpl",
+    "ReplayWorkflowExecutor"
+  ],
+  "concepts": [
+    "workflow-closure",
+    "query-handling",
+    "error-messaging",
+    "stack-trace",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query stack traces for completed, failed, or terminated workflows and receive cryptic errors instead of clear feedback.",
+  "rootCause": "DeterministicRunnerImpl.checkClosed() throws an error when querying a closed workflow instead of returning empty results or a descriptive message.",
+  "proposedFix": "Return empty stack trace or a human-readable message indicating the workflow is closed instead of throwing INVALID_ARGUMENT error.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by modifying stack trace query handling to gracefully handle closed workflows.",
+  "related": [],
+  "keyQuote": "A human readable string that indicates that workflow is closed.",
+  "number": 310,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:06:36.825Z"
+}

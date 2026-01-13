@@ -1,0 +1,30 @@
+{
+  "summary": "TypeScript SDK should drop signals with unparseable payloads instead of failing, matching behavior in Go and Java SDKs. This prevents runtime errors when signal arguments cannot be deserialized.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "payload-deserialization",
+    "error-handling"
+  ],
+  "concepts": [
+    "deserialization",
+    "error-handling",
+    "signal-processing",
+    "backwards-compatibility",
+    "payload-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Currently, signals with unparseable payloads cause failures in the TypeScript SDK, whereas Go and Java SDKs gracefully drop them.",
+  "rootCause": "TypeScript SDK does not implement signal payload deserialization failure handling that exists in Go and Java implementations.",
+  "proposedFix": "Implement signal dropping behavior for failed payload deserialization to match Go and Java SDK behavior.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In Go and Java we drop signals whose args can't be deserialized, we should here too.",
+  "number": 1174,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:57.402Z"
+}

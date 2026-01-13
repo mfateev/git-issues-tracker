@@ -1,0 +1,30 @@
+{
+  "summary": "Request to support multiple custom Elasticsearch indices in Temporal with per-index search attribute configuration. Currently, all custom search attributes are stored in a single index, limiting flexibility for users who want to organize attributes across multiple indices.",
+  "category": "feature",
+  "subcategory": "elasticsearch-visibility",
+  "apis": [],
+  "components": [
+    "visibility",
+    "elasticsearch",
+    "search-attributes"
+  ],
+  "concepts": [
+    "custom-indices",
+    "search-attributes",
+    "elasticsearch-mapping",
+    "attribute-organization",
+    "multi-index-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with multiple custom search attributes cannot organize them across different Elasticsearch indices, forcing all attributes into a single index and limiting search flexibility.",
+  "rootCause": null,
+  "proposedFix": "Allow users to configure multiple custom Elasticsearch indices, each with its own customized search field mapping, enabling per-index search attribute configuration.",
+  "workaround": "Custom Elasticsearch indices can be updated directly via workflow activities, but Temporal native rollback will not work with this approach.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "User should be able to setup multiple, in this example 3 custom indices with customized custom search field mapping and update.",
+  "number": 1840,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:23.422Z"
+}

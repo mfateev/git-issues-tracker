@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to improve error messages when invalid arguments are passed to client.workflow.start(). Currently shows opaque error for incorrect args format (object instead of array).",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [
+    "workflow.start"
+  ],
+  "components": [
+    "client",
+    "workflow-client",
+    "input-validation"
+  ],
+  "concepts": [
+    "error-messages",
+    "validation",
+    "developer-experience",
+    "debugging"
+  ],
+  "severity": "low",
+  "userImpact": "Users receive confusing error messages when passing incorrectly formatted arguments to workflow.start(), making debugging difficult.",
+  "rootCause": null,
+  "proposedFix": "Throw a clear error message like 'args must be an array' when invalid argument types are passed.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Marked as no longer pertinent by maintainer - likely resolved in subsequent updates or determined to be out of scope.",
+  "related": [],
+  "keyQuote": "Throw an error like `args must be an array`",
+  "number": 1327,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:28.790Z"
+}

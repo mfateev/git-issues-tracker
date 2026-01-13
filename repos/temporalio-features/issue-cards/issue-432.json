@@ -1,0 +1,39 @@
+{
+  "summary": "SDKs currently return update handles even when the update hasn't reached the desired lifecycle stage, which is dangerous because updates aren't durable until accepted. The fix requires SDKs to poll the update request until it reaches the desired state before returning the handle to the user.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflowExecution",
+    "PollWorkflowExecutionUpdate"
+  ],
+  "components": [
+    "workflow-update",
+    "client-sdk",
+    "polling-mechanism"
+  ],
+  "concepts": [
+    "durability",
+    "lifecycle-stages",
+    "polling",
+    "state-management",
+    "timeout-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users can receive update handles for non-durable updates that may be lost, leading to incorrect assumptions about update state and potential data loss.",
+  "rootCause": "SDKs pass the desired lifecycle stage option to gRPC but don't handle server internal timeouts that return empty responses, immediately returning a handle instead of polling.",
+  "proposedFix": "SDKs should poll the update request when the server returns an empty response or a response not in the desired lifecycle stage until it reaches the desired state before returning the handle.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Server-side support was merged to properly handle update lifecycle states and return specific errors for lost updates. SDKs implement polling logic per alexshtin's protocol.",
+  "related": [
+    1414,
+    2002,
+    1372,
+    485,
+    199
+  ],
+  "keyQuote": "updates are not durable until accepted so it is possible to return a handle to a non durable update that can be lost",
+  "number": 432,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:01.984Z"
+}

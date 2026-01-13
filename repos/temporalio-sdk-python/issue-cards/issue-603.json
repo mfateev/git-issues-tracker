@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to investigate and document how to use PyCharm debugger with Temporal workflows. PyCharm's asyncio debugging has compatibility issues with the SDK's custom asyncio implementation, requiring investigation and documentation of workarounds.",
+  "category": "docs",
+  "subcategory": "debugging-ide-integration",
+  "apis": [
+    "Replayer"
+  ],
+  "components": [
+    "debugger-support",
+    "asyncio-integration",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "debugging",
+    "ide-integration",
+    "asyncio",
+    "workflow-task-timeout",
+    "sandbox",
+    "breakpoints"
+  ],
+  "severity": "low",
+  "userImpact": "Python developers using PyCharm cannot effectively debug workflows due to asyncio compatibility issues, requiring documentation of workarounds.",
+  "rootCause": "PyCharm's asyncio debugger has patching/expectations around asyncio that don't hold true for the SDK's custom asyncio implementation.",
+  "proposedFix": "Use Replayer with debugger attached to step through workflow code without Task timeouts interfering; toggle python.debug.asyncio.repl in PyCharm Registry.",
+  "workaround": "Execute workflow code within a Replayer while debugger is attached; this bypasses Workflow Task timeouts (default 10s, max 120s) that would otherwise interfere with debugging.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    238
+  ],
+  "keyQuote": "You can get around this Task boundary by executing your code within a `Replayer`. This is done by passing Workflow Execution history into the Replayer while the debugger is attached to step through the code.",
+  "number": 603,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:46.638Z"
+}

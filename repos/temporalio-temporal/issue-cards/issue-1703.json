@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal services fail to reconnect to a new MySQL/Aurora master after failover, requiring manual service restart. The request is for automatic detection and reconnection to the new master instance.",
+  "category": "feature",
+  "subcategory": "database-failover",
+  "apis": [],
+  "components": [
+    "database-connection",
+    "persistence-layer",
+    "mysql-driver"
+  ],
+  "concepts": [
+    "failover",
+    "high-availability",
+    "connection-recovery",
+    "read-only-detection",
+    "auto-reconnect"
+  ],
+  "severity": "high",
+  "userImpact": "Aurora/MySQL failovers cause Temporal cluster outages until services are manually restarted, disrupting availability.",
+  "rootCause": "Temporal services don't detect when they're connected to a read-only replica after failover and fail to reconnect to the new master.",
+  "proposedFix": "Set rejectReadOnly=true in the go-sql-driver/mysql configuration to enable Aurora MySQL failover support.",
+  "workaround": "Manually restart all Temporal services after failover to force reconnection to the new master.",
+  "resolution": "fixed",
+  "resolutionDetails": "The fix was implemented via #1705 and included in v1.11.2, enabling automatic failover support through rejectReadOnly configuration.",
+  "related": [
+    1705
+  ],
+  "keyQuote": "Set rejectReadOnly=true to support Aurora MySQL failover",
+  "number": 1703,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:49.791Z"
+}

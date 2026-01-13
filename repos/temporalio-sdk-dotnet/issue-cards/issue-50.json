@@ -1,0 +1,34 @@
+{
+  "summary": "Move the .NET SDK testing infrastructure from Temporalite (deprecated) to the newer Temporal CLI for local testing. Includes unskipping a previously disabled workflow patch test once the CLI supports necessary features.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflowAsync"
+  ],
+  "components": [
+    "test-environment",
+    "local-development",
+    "cli-integration"
+  ],
+  "concepts": [
+    "testing",
+    "development-tools",
+    "temporal-cli",
+    "temporalite",
+    "environment-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using the .NET SDK need to update their local testing setup from the deprecated Temporalite to the new Temporal CLI.",
+  "rootCause": "Temporalite is deprecated; Temporal CLI is the modern replacement but initially lacked required features.",
+  "proposedFix": "Migrate testing infrastructure to use Temporal CLI instead of Temporalite, pending required Temporal CLI feature implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Completed by migrating to Temporal CLI once PR #4317 was merged into the CLI.",
+  "related": [
+    4317
+  ],
+  "keyQuote": "Temporalite is the old way, CLI is the new. Also, we need to unskip `ExecuteWorkflowAsync_Patched_ProperlyHandled` once we do.",
+  "number": 50,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:08:35.955Z"
+}

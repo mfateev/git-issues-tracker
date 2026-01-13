@@ -1,0 +1,34 @@
+{
+  "summary": "Add a utility or sample code demonstrating how to integrate Temporal core logs into Python's standard logging framework using the new log forwarding feature introduced in #405.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "python-sdk",
+    "log-forwarding"
+  ],
+  "concepts": [
+    "logging",
+    "log-integration",
+    "forwarding",
+    "utilities",
+    "samples",
+    "core-logs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need guidance on how to incorporate Temporal's core logs into their Python logging infrastructure for better observability.",
+  "rootCause": null,
+  "proposedFix": "Create a utility function or provide a sample demonstrating log forwarding from Temporal core to Python loggers, with consideration for log ordering (researching TypeScript SDK's approach).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Folded into #311 as part of the MVP requirement for Python SDK logging integration.",
+  "related": [
+    405,
+    311
+  ],
+  "keyQuote": "Need to demonstrate how to use the new log forwarding feature (#405) to push logs into Python loggers automatically.",
+  "number": 407,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:31.214Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Worker process fails to pick up tasks when Temporal server on-prem Kubernetes cluster connects to AWS RDS Postgres database, with persistent fetch operation failures and context cancellation errors during workflow execution retrieval.",
+  "category": "bug",
+  "subcategory": "database-connectivity",
+  "apis": [],
+  "components": [
+    "history-service",
+    "workflow-execution",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "database-timeout",
+    "context-cancellation",
+    "network-latency",
+    "signal-retrieval",
+    "persistence-qps"
+  ],
+  "severity": "high",
+  "userImpact": "Workers cannot process tasks when using AWS RDS as the database backend, causing complete workflow processing failures in production deployments.",
+  "rootCause": "Database operation timeouts and delays when Temporal pods interact with remote AWS RDS, particularly during signal info retrieval operations.",
+  "proposedFix": "Tune dynamic configurations like history.persistenceGlobalMaxQPS to rate limit database requests and prevent overload from persistence operations.",
+  "workaround": "Adjust persistence configuration settings to rate limit requests sent to the database and maintain database stability.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as the issue was determined to be a configuration/deployment problem rather than a code bug. Community support recommended for self-hosting issues.",
+  "related": [],
+  "keyQuote": "Temporal pod is highly sensitive to delays and timeouts when interacting with the database. However, I couldn't find any environment configuration that could mitigate this issue.",
+  "number": 7900,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:59.654Z"
+}

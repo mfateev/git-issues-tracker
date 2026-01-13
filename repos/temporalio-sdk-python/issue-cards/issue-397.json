@@ -1,0 +1,34 @@
+{
+  "summary": "Clients may not be auto-reconnecting when the server shuts down and restarts. Investigation and testing confirmed that clients do recover after server restart, though the issue was initially unconfirmed.",
+  "category": "bug",
+  "subcategory": "client-reconnection",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "connection-management"
+  ],
+  "concepts": [
+    "reconnection",
+    "server-restart",
+    "auto-recovery",
+    "retry",
+    "fault-tolerance"
+  ],
+  "severity": "medium",
+  "userImpact": "Clients may experience temporary failures when servers restart, potentially requiring manual intervention or application-level error handling.",
+  "rootCause": "Unclear - testing showed clients do eventually reconnect after server restart, but initial reports suggested potential reconnection issues.",
+  "proposedFix": "Related to issue #396, which may address the reconnection behavior.",
+  "workaround": "Existing retry logic handles reconnection; clients can trap exceptions during server downtime.",
+  "resolution": "fixed",
+  "resolutionDetails": "Investigation confirmed that clients automatically recover and reconnect after server restart. Worker and client instances remain usable without manual intervention.",
+  "related": [
+    396
+  ],
+  "keyQuote": "The worker automatically recovers. The same exact client instance is usable again for starting workflows.",
+  "number": 397,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:01.730Z"
+}

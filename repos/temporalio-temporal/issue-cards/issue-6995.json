@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal Server logging extreme amounts of \"context deadline exceeded\" errors during VisibilityDeleteExecution tasks, causing visibility index records to accumulate beyond retention period and degrade database performance.",
+  "category": "bug",
+  "subcategory": "visibility-management",
+  "apis": [],
+  "components": [
+    "visibility-manager",
+    "visibility-queue-processor",
+    "mysql-persistence",
+    "task-scheduler"
+  ],
+  "concepts": [
+    "context-deadline",
+    "visibility-cleanup",
+    "retention-policy",
+    "database-performance",
+    "error-logging",
+    "task-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience degraded database performance and accumulation of stale workflow records in visibility tables despite retention policies being configured.",
+  "rootCause": "Context deadline exceeded errors in DeleteWorkflowExecution visibility operations, potentially triggered by database connectivity issues following MySQL password changes and service restarts.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we can see past events listed in temporal-ui, way after retention period... logs flooding since then",
+  "number": 6995,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:05.312Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Java SDK 1.8.0 introduced version ranges in Gradle platform dependencies, which Maven translates to unsupported version range syntax in dependencyManagement sections. This causes Maven 3.8.4 to fail with a resolution error for jackson-bom and other dependencies.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "maven-integration",
+    "dependency-resolution",
+    "gradle-platform-translation"
+  ],
+  "concepts": [
+    "version-ranges",
+    "maven-bug",
+    "dependency-management",
+    "gradle-platforms",
+    "bom-import"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Java SDK 1.8.0 with Maven 3.8.4, the default Maven version for many environments.",
+  "rootCause": "Maven does not support version ranges in dependencyManagement sections. Gradle platforms with version ranges are incorrectly translated to Maven's unsupported [min,max) syntax. This is a known Maven bug (MNG-4463) unfixed in current releases.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating dependency declarations to use concrete versions instead of version ranges, or by waiting for Maven 4.0.0 fix",
+  "related": [],
+  "keyQuote": "Gradle Platforms with version range are translated effectively into the Maven dependencyManagement section that looks like... It's a long-time Maven bug of not supporting version ranges in dependencyManagement sections.",
+  "number": 1033,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:01:43.534Z"
+}

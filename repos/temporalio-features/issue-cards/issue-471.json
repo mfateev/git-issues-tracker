@@ -1,0 +1,35 @@
+{
+  "summary": "Users need the ability to update TLS certificates for a running worker without requiring a shutdown. This is a cross-SDK feature request to enable certificate rotation on active worker instances.",
+  "category": "feature",
+  "subcategory": "tls-certificate-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "tls-client",
+    "connection-management"
+  ],
+  "concepts": [
+    "certificate-rotation",
+    "tls-security",
+    "runtime-updates",
+    "connection-refresh",
+    "zero-downtime"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently cannot update TLS certificates without shutting down their workers, preventing certificate rotation and renewal without service disruption.",
+  "rootCause": null,
+  "proposedFix": "Implement worker client replacement capability or certificate update mechanism across SDKs (already supported in Go and Java via client replacement in Core SDK).",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #11",
+  "related": [
+    11,
+    1412,
+    513,
+    235
+  ],
+  "keyQuote": "Users need to be able to change TLS certificate for a running worker without shutting the worker down",
+  "number": 471,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:56.710Z"
+}

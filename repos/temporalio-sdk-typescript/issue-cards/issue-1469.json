@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to allow paginating through workflow histories larger than the 4MB gRPC limit by adding `pageSize` parameter to `fetchHistory()`. The issue was closed in favor of #1470 which identified this as a bug rather than a feature request.",
+  "category": "bug",
+  "subcategory": "workflow-history",
+  "apis": [
+    "fetchHistory",
+    "getWorkflowExecutionHistory"
+  ],
+  "components": [
+    "WorkflowHandle",
+    "history-retrieval",
+    "gRPC-client"
+  ],
+  "concepts": [
+    "pagination",
+    "message-size-limit",
+    "gRPC-constraints",
+    "history-events",
+    "page-token"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot fetch workflow execution histories larger than 4MB without manually implementing pagination workarounds.",
+  "rootCause": "The WorkflowHandle.fetchHistory() method does not support pagination, and is constrained by the 4MB gRPC message size limit.",
+  "proposedFix": "Add `pageSize` parameter to `fetchHistory()` and return an iterable similar to `workflow.list()` for paginated access.",
+  "workaround": "Users can manually paginate through `getWorkflowExecutionHistory` directly on `workflowService`.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of #1470, which identified this as a bug rather than a feature request.",
+  "related": [
+    1470
+  ],
+  "keyQuote": "Event histories larger than the gRPC limit of 4MB are not fetchable via `handle.fetchHistory()`.",
+  "number": 1469,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:06.638Z"
+}

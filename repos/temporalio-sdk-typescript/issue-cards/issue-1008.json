@@ -1,0 +1,30 @@
+{
+  "summary": "Webpack bundling for workflows fails with cryptic error messages that don't indicate which source files are causing dependency issues. Users need better diagnostic output to debug webpack failures during workflow bundling.",
+  "category": "feature",
+  "subcategory": "bundler",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "webpack"
+  ],
+  "concepts": [
+    "error-reporting",
+    "debugging",
+    "build-output",
+    "dependency-resolution",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively debug webpack bundling failures because error messages don't identify the problematic source files or dependencies.",
+  "rootCause": "Webpack bundler error output is insufficient; the bundler catches errors but doesn't provide detailed diagnostic information about which files/dependencies caused the failure.",
+  "proposedFix": "Customize webpack output to provide more detailed information when hasError is true in the bundler error handling code.",
+  "workaround": "Manually customize webpack output in the bundler code to get more diagnostic information.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I am getting this error, and it is hard to debug unless I know what source files are leading to these dependencies",
+  "number": 1008,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:15.514Z"
+}

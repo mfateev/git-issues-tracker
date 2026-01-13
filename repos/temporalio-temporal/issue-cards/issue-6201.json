@@ -1,0 +1,33 @@
+{
+  "summary": "Add a tdbg diagnose command to help debug stuck workflows by dumping relevant state information (mutable state, history, shard info, task queue info, namespace info) and performing basic analysis to identify scheduling issues, missed timers, and worker polling problems.",
+  "category": "feature",
+  "subcategory": "debugging-tools",
+  "apis": [],
+  "components": [
+    "tdbg",
+    "workflow-executor",
+    "task-queue",
+    "shard",
+    "namespace"
+  ],
+  "concepts": [
+    "workflow-diagnosis",
+    "debugging",
+    "state-inspection",
+    "task-scheduling",
+    "timer-execution",
+    "worker-polling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have better tooling to diagnose and understand why workflows are stuck, reducing debugging time and improving operational observability.",
+  "rootCause": null,
+  "proposedFix": "Implement tdbg workflow diagnose command that collects mutable state, workflow history, shard info, task queue info, and namespace info, then performs checks for scheduling issues, missed timers, and worker polling.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "tdbg command that could help dump all relevant information and do some basic analysis",
+  "number": 6201,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:46.866Z"
+}

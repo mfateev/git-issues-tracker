@@ -1,0 +1,39 @@
+{
+  "summary": "Feature request to add OpenTelemetry trace_id and span_id attributes to workflow log messages. Currently these attributes appear in activity and client logs but are missing from workflow logs due to the sandboxed execution environment.",
+  "category": "feature",
+  "subcategory": "observability-logging",
+  "apis": [
+    "workflow.log",
+    "WorkflowOutboundInterceptor",
+    "getLogAttributes"
+  ],
+  "components": [
+    "workflow-logger",
+    "workflow-interceptor",
+    "observability",
+    "otel-integration"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "tracing",
+    "logging",
+    "distributed-tracing",
+    "workflow-context",
+    "log-attributes",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot correlate workflow logs with distributed traces in OpenTelemetry-instrumented applications, making it harder to troubleshoot workflow execution issues.",
+  "rootCause": "Workflow code executes in a sandboxed environment that is decoupled from OpenTelemetry's call scope by the time log messages reach the runtime logger through the Workflow Sink and MessagePort.",
+  "proposedFix": "Register a WorkflowOutboundInterceptor that intercepts getLogAttributes function and injects trace_id and span_id attributes from the OpenTelemetry context.",
+  "workaround": "Use a custom logger that manually injects trace and span IDs by emitting structured logs via OpenTelemetry's logging API instead of relying on auto-instrumentation.",
+  "resolution": "fixed",
+  "resolutionDetails": "Community member provided working implementation using WorkflowOutboundInterceptor to inject trace IDs into log attributes, and created a sample PR demonstrating the solution.",
+  "related": [
+    415
+  ],
+  "keyQuote": "What you can do instead is to register a WorkflowOutboundInterceptor on your Workflow Worker that intercepts the getLogAttributes function and injects the trace_id and span_id attributes from there.",
+  "number": 1425,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:01:13.752Z"
+}

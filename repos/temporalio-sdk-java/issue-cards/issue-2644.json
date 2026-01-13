@@ -1,0 +1,31 @@
+{
+  "summary": "The `workflow_task_queue_poll_succeed` metric is not being emitted when poller autoscaling is enabled in the Java SDK. This metric should be reported regardless of autoscaling configuration.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "poller",
+    "autoscaling",
+    "metrics"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "autoscaling",
+    "polling",
+    "task-queue"
+  ],
+  "severity": "medium",
+  "userImpact": "Users monitoring workflow task queue polling behavior cannot properly observe poll success rates when autoscaling is enabled, affecting observability and debugging.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "`workflow_task_queue_poll_succeed` is not emitted when poller autoscaling is on",
+  "number": 2644,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:20.055Z"
+}

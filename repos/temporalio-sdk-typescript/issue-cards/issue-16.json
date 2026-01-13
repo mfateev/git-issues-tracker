@@ -1,0 +1,32 @@
+{
+  "summary": "Request to distribute pre-built binaries for native Rust code used in the TypeScript SDK worker and workflow-isolate-extension to simplify installation and avoid requiring node-gyp compilation.",
+  "category": "feature",
+  "subcategory": "build-distribution",
+  "apis": [],
+  "components": [
+    "worker",
+    "native-bindings",
+    "build-system"
+  ],
+  "concepts": [
+    "binary-distribution",
+    "native-code",
+    "build-automation",
+    "node-gyp",
+    "rust-compilation"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently need to compile native dependencies during SDK installation, which requires build tools like node-gyp to be installed.",
+  "rootCause": null,
+  "proposedFix": "Distribute pre-built binaries for native worker code and workflow-isolate-extension similar to approaches used in Neon bindings",
+  "workaround": "Install node-gyp system dependency for compilation during installation",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue deprioritized after implementing precompilation of Rust code (#58). Determined that node-gyp is a common and simple enough dependency for SDK installation.",
+  "related": [
+    58
+  ],
+  "keyQuote": "Won't do, only system dependency to install the SDK is node-gyp which is quite common and simple to install.",
+  "number": 16,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:53:52.550Z"
+}

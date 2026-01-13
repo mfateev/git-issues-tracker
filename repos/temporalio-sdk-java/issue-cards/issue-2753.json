@@ -1,0 +1,34 @@
+{
+  "summary": "User reports that activities don't retry after worker crashes during execution if the StartToCloseTimeout is exceeded, and requests a way to check CancellationScope cancellation status after scope exit.",
+  "category": "question",
+  "subcategory": "activity-timeout-recovery",
+  "apis": [
+    "CancellationScope",
+    "Async.procedure"
+  ],
+  "components": [
+    "activity-executor",
+    "worker-recovery",
+    "cancellation-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "worker-crash",
+    "cancellation",
+    "activity-lifecycle",
+    "cleanup-logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building DSL systems with activity cancellation cleanup logic cannot reliably handle worker crashes and lack visibility into cancellation scope status for conditional state updates.",
+  "rootCause": "Activities are non-durable with no guarantees for cleanup logic execution on failure or worker crash; after cancellation request, activities are not retried by design.",
+  "proposedFix": null,
+  "workaround": "Use saga design pattern with compensation activities for cleanup; check CancellationScope.isCancelRequested() after scope completion; memorize activity results in variables for post-execution status checks.",
+  "resolution": "invalid",
+  "resolutionDetails": "Resolved as working-as-designed. Activity cancellation prevents retries by design. Users should use saga pattern for cleanup guarantees and isCancelRequested() to check scope status.",
+  "related": [],
+  "keyQuote": "Activities are non-durable and there are no guarantees that any cleanup logic will execute in case of failure or worker crash.",
+  "number": 2753,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:18:06.185Z"
+}

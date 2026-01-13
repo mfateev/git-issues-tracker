@@ -1,0 +1,33 @@
+{
+  "summary": "Heartbeating activities should be interrupted when activities are paused to properly handle pause state transitions. This ensures that heartbeat operations don't continue sending signals during pause periods.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-manager",
+    "activity-state-manager"
+  ],
+  "concepts": [
+    "heartbeat",
+    "pause",
+    "activity-lifecycle",
+    "signal-interruption",
+    "state-management",
+    "resource-cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unexpected heartbeat signals continuing during paused activities, which can cause state inconsistencies and resource management issues.",
+  "rootCause": "Heartbeat loops are not respecting or reacting to pause state changes in activities, continuing to send heartbeat signals even when activities should be paused.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Heartbeat interruption logic was implemented to stop heartbeating when activities transition to paused state.",
+  "related": [
+    602
+  ],
+  "keyQuote": "Heartbeating activities should be interrupted when the activities are paused.",
+  "number": 812,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:45.106Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Test flake in testUntypedChildStubWorkflowAsyncInvoke when using in-memory test service. This appears to be related to issue #814 and suggests a common underlying problem with the test framework or in-memory service implementation.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-service",
+    "in-memory-service",
+    "child-workflow"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "async-invocation",
+    "in-memory-testing",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience intermittent test failures when using the in-memory test service with typed child stub async invocations, reducing test reliability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as related to #814 and resolved as part of addressing the underlying test framework problem.",
+  "related": [
+    814
+  ],
+  "keyQuote": "This failure looks very similar to #814. They are most likely related and should be evaluated together.",
+  "number": 830,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:45:29.395Z"
+}

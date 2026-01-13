@@ -1,0 +1,30 @@
+{
+  "summary": "Tokio dependency (version 1.21.2) contains two security vulnerabilities: WS-2023-0027 (CVSS 9.8) affecting Pin contract soundness, and CVE-2023-22466 (CVSS 5.4) affecting Windows named pipe security. Issue was auto-closed after vulnerability was removed from the repository.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "tokio-runtime",
+    "security-scanning"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency-upgrade",
+    "security-patch",
+    "CVE",
+    "soundness"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of the Python SDK are exposed to critical security vulnerabilities in the tokio dependency that could allow remote code execution or unauthorized access.",
+  "rootCause": "Tokio version 1.21.2 contains unpatched security vulnerabilities in Pin contract handling and Windows named pipe configuration.",
+  "proposedFix": "Upgrade tokio to version 1.24.2 (for WS-2023-0027) or 1.23.1 (for CVE-2023-22466) to fix both vulnerabilities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was auto-closed by Mend after the vulnerable library was removed from or updated in the repository inventory.",
+  "related": [],
+  "keyQuote": "A soundness issue was discovered in tokio. tokio::io::ReadHalf<T>::unsplit can violate the Pin contract.",
+  "number": 244,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:10.739Z"
+}

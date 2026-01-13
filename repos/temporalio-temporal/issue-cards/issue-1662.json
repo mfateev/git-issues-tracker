@@ -1,0 +1,31 @@
+{
+  "summary": "The default token key provider incorrectly rejects JWT tokens signed with the ES256 algorithm due to a typo in the algorithm name check (checking for 'ec256' instead of 'es256').",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "default-token-key-provider",
+    "authorization-interceptor"
+  ],
+  "concepts": [
+    "JWT",
+    "token-signing",
+    "EC-algorithm",
+    "authentication",
+    "key-provider"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot authenticate to Temporal using JWT tokens signed with EC public keys, preventing access to the server.",
+  "rootCause": "Typo in the algorithm name comparison: checking for 'ec256' instead of the correct 'es256' (RFC 7518 standard).",
+  "proposedFix": "Correct the typo in the if statement to check for 'es256' instead of 'ec256'.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #1664 which corrected the algorithm name from 'ec256' to 'es256'.",
+  "related": [
+    1664
+  ],
+  "keyQuote": "It looks like there's a typo in this `if` statement as it's referring to `ec256` instead of `es256`",
+  "number": 1662,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:33.132Z"
+}

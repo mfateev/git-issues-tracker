@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to enable replacing the worker client with a new client that may be connected with different options, such as a new TLS certificate. This allows dynamic client updates without recreating the worker.",
+  "category": "feature",
+  "subcategory": "client-management",
+  "apis": [
+    "Client"
+  ],
+  "components": [
+    "worker",
+    "client",
+    "connection"
+  ],
+  "concepts": [
+    "client-replacement",
+    "tls-certificate",
+    "connection-options",
+    "dynamic-update",
+    "worker-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to update worker clients with different connection options at runtime, particularly for certificate rotation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow client replacement in worker with different connection options",
+  "related": [
+    11
+  ],
+  "keyQuote": "Need to be able to replace the worker client with a new client that may be connected with different options (e.g. a new TLS cert)",
+  "number": 235,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:46:37.273Z"
+}

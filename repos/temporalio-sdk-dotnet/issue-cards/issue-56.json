@@ -1,0 +1,33 @@
+{
+  "summary": "Implement OpenTelemetry support for distributed tracing in the .NET SDK via an interceptor-based approach. The feature requires careful handling of span context propagation across service boundaries and resolution of activity context restoration challenges in .NET's distributed tracing model.",
+  "category": "feature",
+  "subcategory": "observability-tracing",
+  "apis": [],
+  "components": [
+    "interceptor",
+    "distributed-tracing",
+    "activity-context",
+    "baggage-propagation"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "tracing",
+    "distributed-context",
+    "span-propagation",
+    "activity-context",
+    "baggage",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can integrate OpenTelemetry tracing to monitor and visualize Temporal workflow execution across distributed systems.",
+  "rootCause": ".NET's distributed tracing model only supports setting current Activity, not restoring arbitrary ActivityContext as current context like other OTel SDKs, requiring activity recreation rather than simple context attachment.",
+  "proposedFix": "Create a Temporalio.Extensions.Tracing project (instead of OTel-specific) using interceptor pattern similar to Python SDK; leverage DistributedContextPropagator for span serialization to Temporal headers.",
+  "workaround": "For metrics, users can create custom TemporalRuntime with metrics telemetry options pointed to OTel gRPC URL; for tracing, must recreate Activity and copy fields, setting as Activity.Current.",
+  "resolution": "fixed",
+  "resolutionDetails": "OpenTelemetry tracing support was implemented in the .NET SDK via interceptor-based approach in a separate extensions project.",
+  "related": [],
+  "keyQuote": "So it will be interceptor powered (like Python's), but I am struggling with how best to split the project up.",
+  "number": 56,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:24:52.648Z"
+}

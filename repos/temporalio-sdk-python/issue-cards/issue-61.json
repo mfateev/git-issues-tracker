@@ -1,0 +1,32 @@
+{
+  "summary": "High-severity vulnerability (CVE-2023-22895, CVSS 7.5) in transitive dependency bzip2-0.4.3 used by temporal-sdk-core-0.1.0 allows denial of service through integer overflow. Enterprise customers unable to adopt SDK due to security policy restrictions.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "temporal-sdk-core",
+    "dependency-management",
+    "bzip2-compression"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "integer-overflow",
+    "dependency-chain",
+    "transitive-dependency",
+    "cvss-score",
+    "security-policy"
+  ],
+  "severity": "critical",
+  "userImpact": "Enterprise customers cannot use the SDK due to high-severity security vulnerabilities blocking adoption.",
+  "rootCause": "bzip2 crate version 0.4.3 contains integer overflow in mem.rs triggered by large files, causing DoS; transitive dependency via temporal-sdk-core → zip → bzip2.",
+  "proposedFix": "Upgrade bzip2 dependency from 0.4.3 to 0.4.4 or higher where the vulnerability is fixed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue automatically closed by Mend after vulnerable library was removed from inventory or marked as resolved in dependency chain.",
+  "related": [],
+  "keyQuote": "The sdk cannot be used by our enterprise customers because of this vulnerability. I believe this is probably the case for temporal customers too.",
+  "number": 61,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:39.953Z"
+}

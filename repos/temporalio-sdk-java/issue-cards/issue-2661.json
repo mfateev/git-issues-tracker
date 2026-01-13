@@ -1,0 +1,32 @@
+{
+  "summary": "The test server should populate `suggest_continue_as_new` and `history_size_bytes` fields in WorkflowTaskStartedEventAttributes to better match production server behavior and enable more comprehensive testing.",
+  "category": "feature",
+  "subcategory": "test-server",
+  "apis": [
+    "WorkflowTaskStartedEventAttributes"
+  ],
+  "components": [
+    "test-server",
+    "workflow-task-handler",
+    "event-attributes"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "history-size",
+    "task-started-event",
+    "server-defaults",
+    "testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows cannot verify behavior that depends on continue-as-new suggestions or history size constraints, limiting test coverage.",
+  "rootCause": null,
+  "proposedFix": "Populate `WorkflowTaskStartedEventAttributes.suggest_continue_as_new` with Temporal server defaults and `history_size_bytes` with calculated values in test server.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Populate `WorkflowTaskStartedEventAttributes.suggest_continue_as_new` and `WorkflowTaskStartedEventAttributes.history_size_bytes` on the test server.",
+  "number": 2661,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:15:10.526Z"
+}

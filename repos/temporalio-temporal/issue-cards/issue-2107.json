@@ -1,0 +1,31 @@
+{
+  "summary": "Add per-namespace gauge metrics to report how many task queues are loaded on each matching service. This helps diagnose issues with excessive task queue loading.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "metrics",
+    "task-queue-manager"
+  ],
+  "concepts": [
+    "monitoring",
+    "diagnostics",
+    "task-queues",
+    "namespace-isolation",
+    "performance-metrics",
+    "resource-usage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can better diagnose and troubleshoot issues related to too many task queues being loaded on matching services through new observability metrics.",
+  "rootCause": null,
+  "proposedFix": "Implement new per-namespace gauge metrics tracking the number of loaded task queues on each matching service.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed as indicated by the author's comment 'this is done'.",
+  "related": [],
+  "keyQuote": "Need new metrics to report per-namespace gauge on how many task queues are loaded on each matching service.",
+  "number": 2107,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:25.582Z"
+}

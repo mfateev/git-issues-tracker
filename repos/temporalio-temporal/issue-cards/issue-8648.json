@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add ExecutionStatus as a visibility column for archived executions so users can search and filter archived workflows by execution status without needing to examine event history.",
+  "category": "feature",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "archival",
+    "visibility-columns",
+    "search-attributes"
+  ],
+  "concepts": [
+    "archived-executions",
+    "execution-status",
+    "visibility",
+    "search",
+    "workflow-history"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot search archived workflows by execution status and must examine event history as a workaround.",
+  "rootCause": null,
+  "proposedFix": "Add ExecutionStatus as an exported search attribute for archival providers",
+  "workaround": "Users can examine event history to determine execution status of archived workflows",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add ExecutionStatus as one of the exported search attributes for archival",
+  "number": 8648,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:34.897Z"
+}

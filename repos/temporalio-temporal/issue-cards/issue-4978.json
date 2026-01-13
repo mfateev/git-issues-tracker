@@ -1,0 +1,34 @@
+{
+  "summary": "Visibility query syntax errors on SQL advanced visibility are not being returned to the client immediately. Instead, errors get swallowed and retried internally, causing the client to block and eventually timeout.",
+  "category": "bug",
+  "subcategory": "visibility-query",
+  "apis": [
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "visibility-manager",
+    "visibility-persistence",
+    "sql-visibility",
+    "query-parser"
+  ],
+  "concepts": [
+    "error-handling",
+    "query-parsing",
+    "client-communication",
+    "timeout",
+    "error-propagation",
+    "retry-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Users with invalid visibility queries experience client timeouts instead of receiving immediate error feedback, making debugging query issues difficult.",
+  "rootCause": "Query syntax errors in SQL advanced visibility are being logged but not properly returned to the client in the gRPC response, causing the RetryableInterceptor to retry the operation internally until timeout.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Query syntax errors are now properly propagated to the client immediately instead of being retried internally.",
+  "related": [],
+  "keyQuote": "On SQL advanced visibility (not ES) the error gets swallowed somewhere and retried internally, while the client is blocked and eventually times out.",
+  "number": 4978,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:10.781Z"
+}

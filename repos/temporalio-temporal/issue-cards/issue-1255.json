@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support timezone-aware cron schedules in Temporal workflows. Currently, cron schedules only work with UTC times, but users need to run workflows at specific local times (e.g., 9AM Zurich time) with proper DST handling. The underlying robfig/cron library already supports CRON_TZ parameter, but this feature is undocumented and untested in Temporal.",
+  "category": "feature",
+  "subcategory": "cron-scheduling",
+  "apis": [],
+  "components": [
+    "cron-scheduler",
+    "workflow-execution",
+    "time-handling"
+  ],
+  "concepts": [
+    "timezone",
+    "DST",
+    "cron-schedule",
+    "UTC",
+    "time-zone-aware",
+    "scheduling",
+    "workflow-timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working across timezones cannot reliably schedule workflows at specific local times without manual UTC conversion and DST management.",
+  "rootCause": "Temporal uses robfig/cron which supports CRON_TZ parameter, but the version (v1.2.0) in use lacks this support; needs upgrade to v3.0.1+",
+  "proposedFix": "Upgrade robfig/cron dependency to v3.0.1 or later and expose CRON_TZ parameter support in the cron schedule configuration with proper documentation",
+  "workaround": "Manually convert local times to UTC and manage DST changes in application code",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via PR #2215 which added timezone support to the cron scheduling implementation",
+  "related": [
+    2215
+  ],
+  "keyQuote": "It seems that temporal already could support timezones as the library used already provides timezone support... this should work out of the box already today",
+  "number": 1255,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:08:36.133Z"
+}

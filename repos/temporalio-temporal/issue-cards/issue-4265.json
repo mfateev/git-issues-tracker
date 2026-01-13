@@ -1,0 +1,32 @@
+{
+  "summary": "gocql library fails to refresh Cassandra node IP addresses after cluster/node restarts, requiring explicit service restarts. A bug in gocql v1.3.1 prevents the client from discovering new node IPs, addressed in gocql 1.4.0+.",
+  "category": "bug",
+  "subcategory": "cassandra-connectivity",
+  "apis": [],
+  "components": [
+    "cassandra-client",
+    "gocql-driver",
+    "service-initialization"
+  ],
+  "concepts": [
+    "node-discovery",
+    "ip-refresh",
+    "cluster-restart",
+    "connection-management",
+    "dependency-update"
+  ],
+  "severity": "high",
+  "userImpact": "Users must manually restart Temporal services after Cassandra cluster maintenance to re-establish connectivity with new node IPs.",
+  "rootCause": "Bug in gocql v1.3.1 preventing IP address refresh for Cassandra nodes after cluster restarts",
+  "proposedFix": "Update gocql dependency to version 1.4.0 or later where the issue is resolved",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by updating gocql dependency to version 1.4.0+",
+  "related": [
+    1582
+  ],
+  "keyQuote": "new IP addresses of Cassandra are not getting refreshed by the gocql and after the cluster maintenance each temporal service with a dependency on gocql have to be restarted explicitly",
+  "number": 4265,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:34.484Z"
+}

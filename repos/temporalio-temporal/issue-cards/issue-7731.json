@@ -1,0 +1,31 @@
+{
+  "summary": "User reports that running temporal dev server prevents their application from accessing remote PostgreSQL databases (e.g., Neon), with connections timing out. The issue was resolved through refactoring shared database management code used across activities.",
+  "category": "bug",
+  "subcategory": "dev-server-networking",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "networking",
+    "database-connections"
+  ],
+  "concepts": [
+    "network-isolation",
+    "database-access",
+    "remote-connections",
+    "port-conflicts",
+    "activity-execution",
+    "shared-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using temporal dev server cannot access remote databases from their application code, blocking development and testing workflows.",
+  "rootCause": "Shared database management code across activities was breaking when temporal dev server was running, causing connection timeouts.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "User refactored shared database management code that was being used across activities, which resolved the connectivity issue.",
+  "related": [],
+  "keyQuote": "the issue was around shared database management code that was being shared across activities and breaking everything",
+  "number": 7731,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:58.066Z"
+}

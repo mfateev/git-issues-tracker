@@ -1,0 +1,31 @@
+{
+  "summary": "Worker silently fails when reporting workflow task completion to the server, without logging the error. This causes issues to go unnoticed, particularly when invalid commands are sent, and also fails to invalidate the workflow thread cache as it should.",
+  "category": "bug",
+  "subcategory": "worker-task-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-handler",
+    "workflow-task-processing"
+  ],
+  "concepts": [
+    "logging",
+    "error-handling",
+    "task-completion",
+    "server-communication",
+    "exception-handling",
+    "cache-invalidation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot see server-side errors during workflow task result reporting, making debugging difficult and leaving stale workflow thread cache entries.",
+  "rootCause": "Exceptions in WorkflowWorker.TaskHandlerImpl#sendReply are not logged and occur outside the WorkflowTaskHandler scope, preventing proper exception handling and cache invalidation.",
+  "proposedFix": "Logging should be added when reporting workflow task results fails, and the exception handling should be refactored to occur within the proper scope to trigger workflow thread destruction and cache invalidation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating a fix was applied to add logging for failures during workflow task result reporting.",
+  "related": [],
+  "keyQuote": "If a worker logs a problem during workflow task processing, the worker should log a problem during reporting the workflow task processing result to the server.",
+  "number": 900,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:51:37.771Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to implement application failure logging and metrics behavior according to ApplicationErrorCategory in the TypeScript SDK. This requires core SDK changes to handle metrics, with the TypeScript SDK needing to apply corresponding logging behavior.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "logging",
+    "metrics"
+  ],
+  "concepts": [
+    "application-error-category",
+    "failure-logging",
+    "metrics-behavior",
+    "error-classification",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have better visibility into application failures through standardized logging and metrics behavior based on error categories.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed as part of core SDK updates with corresponding logging behavior applied in TypeScript SDK",
+  "related": [
+    614,
+    897
+  ],
+  "keyQuote": "Core-based SDKs only need to apply corresponding logging behaviour, core handles metrics.",
+  "number": 1672,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:47.045Z"
+}

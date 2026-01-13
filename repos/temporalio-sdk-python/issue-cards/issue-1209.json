@@ -1,0 +1,33 @@
+{
+  "summary": "Users need the ability to override the Worker Deployment Version when invoking a Child Workflow, similar to how it works when creating workflows from a client. This feature would support pre-deployment testing scenarios.",
+  "category": "feature",
+  "subcategory": "child-workflow-deployment",
+  "apis": [
+    "ChildWorkflow",
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "child-workflow",
+    "deployment-versioning"
+  ],
+  "concepts": [
+    "deployment-version",
+    "pre-deployment-testing",
+    "workflow-invocation",
+    "version-override",
+    "child-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test pre-deployment scenarios with child workflows by overriding deployment versions, limiting their testing capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement version override capability for child workflow invocations, mirroring the existing functionality available in client-side workflow creation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users want to override the target version on a workflow, especially when doing pre-deployment testing. This should work the same as it does when creating a Workflow from a client.",
+  "number": 1209,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:55.341Z"
+}

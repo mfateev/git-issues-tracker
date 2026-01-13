@@ -1,0 +1,32 @@
+{
+  "summary": "LocalActivity completion incorrectly advances the workflow task timestamp to the current system time instead of respecting the TestEnvironment's initial time setting. When running tests with a custom initial timestamp, it gets overridden when a LocalActivity completes.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow.currentTimeMillis()"
+  ],
+  "components": [
+    "LocalActivity",
+    "TestEnvironment",
+    "workflow-task-execution"
+  ],
+  "concepts": [
+    "timestamp",
+    "test-framework",
+    "time-override",
+    "LocalActivity",
+    "workflow-clock"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using TestEnvironment with custom timestamps cannot reliably test time-dependent workflows when LocalActivities are involved, as the timestamp gets reset unexpectedly.",
+  "rootCause": "LocalActivity completion logic directly uses the current system time instead of using an offset from the TestEnvironment's configured initial time.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by ensuring LocalActivity completion respects the TestEnvironment's time settings rather than using the current system time.",
+  "related": [],
+  "keyQuote": "When LocalActivity runs, Workflow.currentTimeMillis() gets updated to the current DateTime that is nothing around the time set on TestEnv.",
+  "number": 1187,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:11:03.819Z"
+}

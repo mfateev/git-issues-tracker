@@ -1,0 +1,28 @@
+{
+  "summary": "User requested support for applying patches at the top level of workflow code before the workflow function is required. The feature was later decided against due to confusion from patches at top level applying to all workflows.",
+  "category": "feature",
+  "subcategory": "patches",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "patch-system"
+  ],
+  "concepts": [
+    "patches",
+    "workflow-initialization",
+    "code-execution-order",
+    "replay-mechanism"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot conditionally load workflow logic based on patches applied before the workflow function definition.",
+  "rootCause": "The workflow runtime required the workflow function to be available before patches could be applied, preventing top-level patch usage.",
+  "proposedFix": "Support patches at the top level of user code to conditionally enable/disable workflow features before workflow function execution.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature was deliberately disallowed because patches at top level apply to all workflows, creating a confusing user experience.",
+  "related": [],
+  "keyQuote": "We decided to disallow this because patches at top level apply to all workflows and the experience is too confusing.",
+  "number": 362,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:42.924Z"
+}

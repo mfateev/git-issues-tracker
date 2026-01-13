@@ -1,0 +1,30 @@
+{
+  "summary": "TypeScript SDK requires allowSyntheticDefaultImports and esModuleInterop flags enabled, causing compilation errors in projects with these flags disabled. This incompatibility extends to the @temporalio/testing package which still uses default imports from CommonJS modules.",
+  "category": "bug",
+  "subcategory": "typescript-configuration",
+  "apis": [],
+  "components": [
+    "typescript-sdk",
+    "testing-package",
+    "tsconfig"
+  ],
+  "concepts": [
+    "module-interoperability",
+    "typescript-configuration",
+    "default-imports",
+    "commonjs-compatibility",
+    "esmodule-interop"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with stricter TypeScript configurations cannot use the SDK without modifying their tsconfig.json settings or applying patches to the SDK code.",
+  "rootCause": "SDK's tsconfig.json has allowSyntheticDefaultImports and esModuleInterop set to true, and the testing package uses default imports from CommonJS modules that require these flags.",
+  "proposedFix": "Disable allowSyntheticDefaultImports and esModuleInterop flags in tsconfig.json and update imports to use 'import * as' syntax for modules that don't have proper default exports.",
+  "workaround": "Apply small patches to use 'import * as webpack from webpack' instead of 'import webpack from webpack' syntax.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Module '\"node:events\"' can only be default-imported using the 'allowSyntheticDefaultImports' flag",
+  "number": 982,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:13.319Z"
+}

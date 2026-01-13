@@ -1,0 +1,32 @@
+{
+  "summary": "Support for protobuf 3.x alongside 4.x in the Python SDK to address library compatibility issues. Users are encountering problems due to mixed protobuf version dependencies across the ecosystem, requiring investigation of multi-version code generation strategies.",
+  "category": "feature",
+  "subcategory": "protobuf-compatibility",
+  "apis": [],
+  "components": [
+    "protobuf-generation",
+    "build-system",
+    "dependencies",
+    "proto-compilation",
+    "grpc-tools"
+  ],
+  "concepts": [
+    "dependency-compatibility",
+    "version-management",
+    "code-generation",
+    "transitive-dependencies",
+    "library-ecosystem"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with libraries depending on protobuf 3.x experience conflicts and cannot use the SDK until protobuf 3.x support is available.",
+  "rootCause": "Mixed protobuf version dependencies across the ecosystem - some libraries upgraded to protobuf 4.x while others remain on 3.x, creating transitive dependency conflicts. Additionally, C static state sharing in protobuf 3.x can harm sandbox isolation.",
+  "proposedFix": "Generate both proto 3.x and 4.x forms; modify initialization to dynamically import appropriate version based on installed protobuf; add CI testing for protobuf 3.x compatibility; investigate making 4.x default while maintaining 3.x compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by supporting protobuf 3.x compatibility through code generation strategies and CI validation.",
+  "related": [],
+  "keyQuote": "Many libraries have not upgraded to 4.x while many have (including us). Depending on libraries that haven't is causing a problem for users.",
+  "number": 181,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:44.073Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "StackTrace is empty when failure comes from another language SDK. The system cannot deserialize stack traces from other languages into Java-specific format, making cross-language error debugging difficult.",
+  "category": "bug",
+  "subcategory": "cross-language-errors",
+  "apis": [],
+  "components": [
+    "exception-handling",
+    "deserialization",
+    "failure-proto"
+  ],
+  "concepts": [
+    "stack-trace",
+    "cross-language",
+    "error-messaging",
+    "deserialization",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging cross-language workflows cannot see stack traces from non-Java SDKs, hindering troubleshooting of distributed failures.",
+  "rootCause": "Temporal cannot deserialize stack traces from other languages into language-specific Java stack trace objects.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal can't deserialize a stacktrace from another language into a language-specific stack trace.",
+  "number": 302,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:05:56.872Z"
+}

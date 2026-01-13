@@ -1,0 +1,30 @@
+{
+  "summary": "Implement a GetServerInfo RPC on the workflow service to expose server capabilities, version information, and metadata. This enables clients to discover server capabilities like signal/query headers and error differentiation support for better compatibility.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "workflow-service",
+    "api-definitions",
+    "capabilities-discovery"
+  ],
+  "concepts": [
+    "server-metadata",
+    "capability-negotiation",
+    "version-discovery",
+    "backwards-compatibility",
+    "client-server-communication"
+  ],
+  "severity": "medium",
+  "userImpact": "Clients can discover server capabilities at runtime, enabling better error handling and feature adaptation without hardcoding assumptions.",
+  "rootCause": null,
+  "proposedFix": "Add GetServerInfo RPC to WorkflowService that returns server version, version info, metadata, and a Capabilities message containing boolean flags for supported features.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with GetServerInfo RPC returning server capabilities including signal/query headers and internal error differentiation support.",
+  "related": [],
+  "keyQuote": "All capabilities the server supports. It is clearer and more forward compatible as a message than a repeated enum or other form.",
+  "number": 2190,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:46.953Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "WorkflowStub.getResult and getResultAsync methods do not throw TimeoutException when the workflow doesn't complete within the specified timeout period. Instead, they throw WorkflowServiceException with DEADLINE_EXCEEDED errors, and timeout handling is inconsistent based on the timeout value.",
+  "category": "bug",
+  "subcategory": "workflow-result-handling",
+  "apis": [
+    "WorkflowStub.getResult",
+    "WorkflowStub.getResultAsync"
+  ],
+  "components": [
+    "workflow-stub",
+    "grpc-client",
+    "retry-logic",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "exception-handling",
+    "deadline",
+    "retry",
+    "async-operations"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably catch TimeoutException when waiting for workflow results, making it difficult to implement proper timeout handling in client code.",
+  "rootCause": "WorkflowStub.getResult and getResultAsync use gRPC retry logic that throws WorkflowServiceException on deadline exceeded rather than TimeoutException, and the behavior is inconsistent for timeouts >= 10 seconds.",
+  "proposedFix": null,
+  "workaround": "Use getResultAsync with CompletableFuture.get(timeout, TimeUnit) to catch TimeoutException, though this still produces DEADLINE_EXCEEDED logs for timeouts >= 10 seconds.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    1203
+  ],
+  "keyQuote": "The only way to catch TimeoutException is if you use getResultAsync and put the timeout on Future.get",
+  "number": 1177,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:11:04.460Z"
+}

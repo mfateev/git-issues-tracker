@@ -1,0 +1,34 @@
+{
+  "summary": "Worker fails to start when using a custom data converter that encrypts payloads. The worker cannot decode the encrypted workflow initialization payload, as the PHP SDK lacks support for custom payload encodings in the worker initialization process.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "DataConverterInterface",
+    "DataConverter",
+    "Payload"
+  ],
+  "components": [
+    "worker",
+    "data-converter",
+    "payload-encoding"
+  ],
+  "concepts": [
+    "encryption",
+    "custom-converter",
+    "payload-encoding",
+    "worker-initialization",
+    "data-serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use custom data converters with encrypted payloads because workers fail to initialize when receiving encrypted workflow execution payloads.",
+  "rootCause": "The SDK's worker initialization process does not respect or support custom data converters when decoding the initial workflow definition payload, only supporting known encodings like 'json/plain' and 'binary/plain'.",
+  "proposedFix": "Modify the worker initialization logic to use the configured data converter when decoding payloads instead of only supporting hardcoded encodings.",
+  "workaround": "Check for specific workflow initialization payload structure and skip encryption for those payloads while encrypting actual workflow input/output data.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after discussion; likely resolved through implementation of custom converter support in worker initialization or documentation of the workaround pattern.",
+  "related": [],
+  "keyQuote": "encoding binary/encrypted: payload encoding is not supported",
+  "number": 276,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:41.140Z"
+}

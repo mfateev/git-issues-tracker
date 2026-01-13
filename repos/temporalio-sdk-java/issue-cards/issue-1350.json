@@ -1,0 +1,31 @@
+{
+  "summary": "The Java SDK should support setting the reason parameter in workflow cancellation requests, matching the functionality already available for termination requests. This feature was added to the server's RequestCancelWorkflowExecutionRequest.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "RequestCancelWorkflowExecutionRequest"
+  ],
+  "components": [
+    "workflow-client",
+    "cancellation-request"
+  ],
+  "concepts": [
+    "cancellation",
+    "workflow-lifecycle",
+    "request-parameters",
+    "API-parity",
+    "server-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot provide a cancellation reason when canceling workflows, limiting the ability to document why a workflow was cancelled.",
+  "rootCause": null,
+  "proposedFix": "Allow the reason field to be set in cancellation requests similar to how it's implemented for termination requests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The reason parameter was wired into the workflow cancellation request implementation.",
+  "related": [],
+  "keyQuote": "JavaSDK should allow this field to be set the same way it's allowed for termination requests.",
+  "number": 1350,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:29:04.117Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Retry logic with context timeout returns a generic context deadline exceeded error instead of the actual last error that caused the retry to fail. This masks the real error from users and makes debugging difficult.",
+  "category": "bug",
+  "subcategory": "retry-mechanism",
+  "apis": [],
+  "components": [
+    "backoff",
+    "retry",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry",
+    "timeout",
+    "error-propagation",
+    "context-deadline",
+    "error-masking",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see the actual error that caused retries to fail, only a generic timeout error, making it harder to diagnose and fix issues.",
+  "rootCause": "The retry logic prioritizes context deadline exceeded error over the actual last error encountered during retries.",
+  "proposedFix": "Return the last error (or most prominent error) instead of timeout error when giving up on retries.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Retry with context should return the last error (or most prominent error?) instead of timeout error when giving up",
+  "number": 3630,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:37.623Z"
+}

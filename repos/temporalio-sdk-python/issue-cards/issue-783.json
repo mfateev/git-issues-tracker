@@ -1,0 +1,36 @@
+{
+  "summary": "Worker shutdown with sticky execution causes workflow tasks to be scheduled to the now-unavailable sticky queue, resulting in timeout errors. Investigation revealed this is expected behavior where tasks are scheduled on both sticky and normal queues, with the timeout occurring only when no worker is available to pick up the task.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Worker",
+    "Client"
+  ],
+  "components": [
+    "worker",
+    "task-scheduling",
+    "sticky-execution"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "sticky-execution",
+    "task-timeout",
+    "worker-availability",
+    "task-queue",
+    "scheduling"
+  ],
+  "severity": "low",
+  "userImpact": "Users see timeout errors in workflow history during worker restarts, though runtime behavior is not affected; cosmetic issue that may cause confusion.",
+  "rootCause": "When a worker shuts down, pending workflow tasks scheduled to the sticky queue cannot be picked up. The task timeout occurs because there is no worker available to service the sticky queue, forcing rescheduling on the normal queue.",
+  "proposedFix": null,
+  "workaround": "Keep at least one worker running to pick up tasks from the sticky queue during other workers' shutdown, or disable sticky execution with max_cached_workflows=0.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be expected behavior. A separate server-side issue was opened to improve the timeout presentation cosmetics.",
+  "related": [
+    7566
+  ],
+  "keyQuote": "The task timeout is only to re-schedule the task back on the normal queue explicitly instead of implicitly, and that only happens because there is no worker around.",
+  "number": 783,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:22:32.445Z"
+}

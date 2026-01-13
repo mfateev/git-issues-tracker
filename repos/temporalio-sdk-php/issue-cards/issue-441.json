@@ -1,0 +1,37 @@
+{
+  "summary": "User unable to run PHP SDK tests following the documentation; tests hang when executed. Issue resolved by adding missing `temporal` section to RoadRunner configuration.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkerFactory",
+    "WorkflowClient",
+    "ActivityMocker",
+    "ServiceClient"
+  ],
+  "components": [
+    "testing-framework",
+    "roadrunner-integration",
+    "worker-configuration",
+    "documentation"
+  ],
+  "concepts": [
+    "test-setup",
+    "configuration",
+    "roadrunner",
+    "workflow-testing",
+    "activity-mocking",
+    "environment-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the documentation cannot run tests and experience hanging test execution, requiring external resources to troubleshoot.",
+  "rootCause": "Missing `temporal` section in RoadRunner configuration file (.rr.test.yaml)",
+  "proposedFix": null,
+  "workaround": "Add the `temporal` section to the RoadRunner configuration as shown in the example repository",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was not a bug but a documentation/configuration issue. User resolved it by consulting testing guide and example repository.",
+  "related": [],
+  "keyQuote": "There is no `temporal` section in config",
+  "number": 441,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:53.586Z"
+}

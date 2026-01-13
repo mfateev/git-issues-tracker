@@ -1,0 +1,32 @@
+{
+  "summary": "Heartbeating activities should be interrupted when activities are paused to prevent unnecessary heartbeat messages during pause periods.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-manager",
+    "worker-pause"
+  ],
+  "concepts": [
+    "heartbeat",
+    "pause",
+    "activity-lifecycle",
+    "concurrency",
+    "resource-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unnecessary heartbeat overhead when activities are paused, wasting resources and potentially causing confusion.",
+  "rootCause": "Heartbeat mechanism does not respect activity pause state, continuing to send heartbeats even when activities are suspended.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Heartbeat interruption during pause was implemented to prevent unnecessary heartbeat messages.",
+  "related": [
+    602
+  ],
+  "keyQuote": "Heartbeating activities should be interrupted when the activities are paused.",
+  "number": 2465,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:14.445Z"
+}

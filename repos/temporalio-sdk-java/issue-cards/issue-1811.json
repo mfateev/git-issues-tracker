@@ -1,0 +1,37 @@
+{
+  "summary": "SpringBoot autoconfig should annotate the default WorkflowClient bean with @Primary to allow autowiring without requiring @Qualifier when custom WorkflowClient beans are defined for different namespaces.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowServiceStubs",
+    "WorkflowClientOptions"
+  ],
+  "components": [
+    "spring-boot-autoconfig",
+    "bean-registration",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "spring-beans",
+    "primary-bean",
+    "autowiring",
+    "qualifier",
+    "multiple-clients",
+    "namespace-isolation"
+  ],
+  "severity": "low",
+  "userImpact": "Users creating additional WorkflowClient beans for different namespaces must use @Qualifier annotations everywhere, reducing code convenience.",
+  "rootCause": "The default WorkflowClient bean is not annotated with @Primary, making qualifier resolution ambiguous when multiple WorkflowClient beans exist.",
+  "proposedFix": "Annotate the default WorkflowClient bean with @Primary annotation in the SpringBoot autoconfig to make it the default autowiring target.",
+  "workaround": "Use property name matching: @Autowired WorkflowClient temporalWorkflowClient; (property name matches bean name)",
+  "resolution": "fixed",
+  "resolutionDetails": "The @Primary annotation was added to the default WorkflowClient bean in SpringBoot autoconfig.",
+  "related": [
+    1799
+  ],
+  "keyQuote": "annotate the default WorkflowClient bean with @Primary in order to allow autowiring the default one without having to use Qualifier",
+  "number": 1811,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:43.302Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The ProtobufJSONPayloadConverter cannot handle binary protobuf fields because it requires Node.js Buffer class which is not accessible in workflow context. This prevents workflows from encoding/decoding protobufs with binary data using this converter.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "ProtobufJSONPayloadConverter",
+    "proto3-json-serializer",
+    "data-converter"
+  ],
+  "concepts": [
+    "binary-data",
+    "base64-encoding",
+    "protobuf-serialization",
+    "workflow-context",
+    "buffer-access"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows cannot serialize or deserialize Protocol Buffer messages containing binary fields when using the ProtobufJSONPayloadConverter.",
+  "rootCause": "The proto3-json-serializer library requires Node.js Buffer class for binary field encoding/decoding, but Buffer is not available in the workflow execution context.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating a fix was implemented to provide Buffer access or alternative binary handling in workflow context.",
+  "related": [],
+  "keyQuote": "workflows cannot encode/decode protobufs that contain binary data by using this converter",
+  "number": 1169,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:47.030Z"
+}

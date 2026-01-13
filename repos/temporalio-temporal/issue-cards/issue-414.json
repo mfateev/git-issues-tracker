@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to improve workflow query consistency by making strong consistency the default and updating documentation. The user encountered an error when attempting strongly consistent queries and had to manually enable a dynamic config setting.",
+  "category": "docs",
+  "subcategory": "workflow-query",
+  "apis": [],
+  "components": [
+    "workflow-query",
+    "dynamic-config",
+    "consistency-level"
+  ],
+  "concepts": [
+    "strong-consistency",
+    "query-latency",
+    "dynamic-configuration",
+    "namespace-settings",
+    "api-documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users encounter errors when attempting strongly consistent workflow queries and must manually configure dynamic settings to enable this functionality.",
+  "rootCause": "Dynamic config setting (history.EnableConsistentQueryByNamespace) needs to be enabled for strong consistency; documentation is outdated.",
+  "proposedFix": "Make history.EnableConsistentQueryByNamespace default to true and update documentation to reflect current behavior.",
+  "workaround": "Manually enable the dynamic config variable history.EnableConsistentQueryByNamespace: true",
+  "resolution": "fixed",
+  "resolutionDetails": "Query consistency level was removed with default changed to strong consistency; dynamic config setting eliminated. Documentation needs updating.",
+  "related": [
+    468
+  ],
+  "keyQuote": "Query consistency level was completely removed together with dynamic config settings... Default is `strong`. Docs need to be updated though.",
+  "number": 414,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:55:57.982Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow needs access to the activity ID of scheduled activities to enable external cancellation and async activity completion. Currently, activities cannot retrieve their own ID, forcing users to maintain separate correlation IDs and pass them manually.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity",
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-execution",
+    "activity-stub"
+  ],
+  "concepts": [
+    "activity-id",
+    "activity-cancellation",
+    "async-completion",
+    "determinism",
+    "correlation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot directly cancel activities from external code without complex workarounds, and async activity completion is unreliable due to inability to pass activity ID reliably.",
+  "rootCause": "Activity execution context does not expose the assigned activity ID to the activity code, and activity IDs are treated as internal implementation details rather than accessible identifiers.",
+  "proposedFix": "Create an ActivityInvocationStub that binds activity type, parameters, and exposes the activity ID. Allow workflows to generate and pass activity IDs to stubs while ensuring uniqueness for determinism. Stub should also allow overriding ActivityOptions per invocation.",
+  "workaround": "Users must create and maintain separate correlation IDs, map them to cancellation scopes or activities, and pass these IDs manually between workflow and activity.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1009
+  ],
+  "keyQuote": "An activity sends its own id to some external code and this code has a need to cancel the activity if something happens or finishes before the activity is done.",
+  "number": 1010,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:59:41.017Z"
+}

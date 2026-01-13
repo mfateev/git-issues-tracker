@@ -1,0 +1,31 @@
+{
+  "summary": "Move the stable user-facing APIs from the unstable temporalio.bridge.runtime package to a stable location, either at the top level or under temporalio.runtime or temporalio.common.",
+  "category": "feature",
+  "subcategory": "api-stability",
+  "apis": [],
+  "components": [
+    "bridge",
+    "runtime",
+    "telemetry",
+    "package-structure"
+  ],
+  "concepts": [
+    "api-stability",
+    "package-organization",
+    "telemetry",
+    "public-api",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently need to import from an unstable package for telemetry and runtime features, creating concerns about API breaking changes in future versions.",
+  "rootCause": null,
+  "proposedFix": "Move user-facing parts to a stable package location: either temporalio top level, temporalio.runtime, or temporalio.common.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The request was implemented by moving the stable user-facing APIs to a stable package location.",
+  "related": [],
+  "keyQuote": "Move it somewhere stable, probably either temporalio top level or temporalio.runtime or temporalio.common.",
+  "number": 230,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:21.256Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "User asks how to orchestrate and coordinate multiple workflows running in different microservices in sequence (A→C→B). Clarification on workflow composition patterns across service boundaries.",
+  "category": "question",
+  "subcategory": "workflow-composition",
+  "apis": [
+    "StartChildWorkflow",
+    "ChildWorkflowFuture"
+  ],
+  "components": [
+    "workflow-orchestration",
+    "child-workflows",
+    "temporal-client"
+  ],
+  "concepts": [
+    "workflow-coordination",
+    "microservices",
+    "asynchronous-execution",
+    "parent-child-workflows",
+    "cross-service-integration",
+    "workflow-sequencing"
+  ],
+  "severity": "low",
+  "userImpact": "Users need guidance on structuring workflows across multiple microservices to execute them in a specific sequence.",
+  "rootCause": null,
+  "proposedFix": "Use a parent workflow that orchestrates child workflows sequentially by awaiting each child workflow's completion before starting the next one.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was answered by suggesting parent workflow pattern with sequential child workflow execution using StartChildWorkflow and Future.Get() pattern.",
+  "related": [],
+  "keyQuote": "start child workflow A (workflow A) and get future A / future A.Get() / start child workflow B (workflow B) and get future B",
+  "number": 1225,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:08:17.960Z"
+}

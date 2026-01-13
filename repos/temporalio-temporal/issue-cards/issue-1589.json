@@ -1,0 +1,31 @@
+{
+  "summary": "Admin tool's workflow delete command fails with an unclear error when RunID is not specified. The tool should either make RunID a required argument or automatically determine the latest RunID if omitted.",
+  "category": "bug",
+  "subcategory": "admin-tool",
+  "apis": [],
+  "components": [
+    "tctl",
+    "admin-tool",
+    "workflow-deletion",
+    "mutableState"
+  ],
+  "concepts": [
+    "workflow-deletion",
+    "runid-resolution",
+    "error-handling",
+    "admin-operations",
+    "usability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to delete workflows without specifying RunID encounter cryptic error messages instead of clear guidance or automatic RunID detection.",
+  "rootCause": "Admin tool does not validate or resolve RunID parameter before attempting deletion, resulting in invalid UUID error when deleting mutableState.",
+  "proposedFix": "Either make RunID a required argument with validation, or implement logic to automatically determine and use the latest/current RunID if not specified.",
+  "workaround": "Use the tdbg tool instead: `tdbg workflow delete --wid <workflow_id>` which prompts for confirmation and handles RunID resolution.",
+  "resolution": "fixed",
+  "resolutionDetails": "Functionality moved to tdbg tool which properly handles RunID resolution and provides better user experience with confirmation prompts.",
+  "related": [],
+  "keyQuote": "Either reject the command and make RunID required argument, OR figure out latest / current RunID if RunID is not specified. (preferred option)",
+  "number": 1589,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:55.323Z"
+}

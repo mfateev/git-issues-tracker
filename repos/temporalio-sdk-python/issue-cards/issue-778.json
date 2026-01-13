@@ -1,0 +1,30 @@
+{
+  "summary": "Worker is experiencing workflow task timeouts, with some activities not being polled and executed until several hours after being scheduled. The issue manifests as workflow tasks timing out despite a 3600 second activity timeout setting.",
+  "category": "bug",
+  "subcategory": "workflow-task-timeout",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-dispatcher",
+    "activity-poller"
+  ],
+  "concepts": [
+    "timeout",
+    "task-execution",
+    "polling",
+    "scheduling",
+    "worker-responsiveness"
+  ],
+  "severity": "high",
+  "userImpact": "Activities are delayed by hours and workflow tasks fail with timeouts, preventing timely workflow execution and task completion.",
+  "rootCause": "Workflow task timeout indicates worker-side blocking preventing workflow task response within 10 seconds; likely caused by blocking operations in async functions or activities.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow task timeout means something worker side is preventing that workflow task from responding within 10 seconds.",
+  "number": 778,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:59.217Z"
+}

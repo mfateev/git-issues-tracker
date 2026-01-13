@@ -1,0 +1,32 @@
+{
+  "summary": "The @temporalio/interceptors-opentelemetry library bypasses the required OTEL SpanProcessor, passing spans directly to SpanExporter, which causes errors when accessing resource attributes before they're awaited. The fix requires accepting a SpanProcessor instead of a SpanExporter and calling onEnd() instead of directly exporting.",
+  "category": "bug",
+  "subcategory": "opentelemetry-integration",
+  "apis": [],
+  "components": [
+    "interceptors-opentelemetry",
+    "span-processor",
+    "span-exporter"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "instrumentation",
+    "resource-attributes",
+    "span-processing",
+    "async-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter frequent OTEL diagnostic errors about accessing resource attributes before they are settled, disrupting observability.",
+  "rootCause": "The interceptors-opentelemetry library bypasses the SpanProcessor (which handles async resource attribute settlement) and passes spans directly to SpanExporter, violating OTEL SDK requirements.",
+  "proposedFix": "Accept a SpanProcessor instead of SpanExporter in makeWorkflowExporter(), and call spanProcessor.onEnd(extractReadableSpan(serialized, resource)) instead of directly exporting spans.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1741
+  ],
+  "keyQuote": "@temporalio/interceptors-opentelemetry bypasses the SpanProcessor and passes spans directly to SpanExporter, breaking OTEL SDK requirements.",
+  "number": 1779,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:33:07.954Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The replayer API currently discards the workflow execution result when replaying workflows to validate determinism. Users need the replayer to return the result of the replayed workflow so they can verify both determinism and result consistency.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "workflow-execution",
+    "test-framework"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-validation",
+    "result-verification",
+    "replay-testing",
+    "workflow-result"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot fully validate workflow changes by confirming that replayed workflows produce identical results alongside deterministic behavior.",
+  "rootCause": null,
+  "proposedFix": "Add a new replayer API that returns the replayed workflow result.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A new replayer API that returns the replayed workflow result.",
+  "number": 233,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:55.056Z"
+}

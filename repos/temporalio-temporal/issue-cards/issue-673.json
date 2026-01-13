@@ -1,0 +1,31 @@
+{
+  "summary": "Setting PROMETHEUS_ENDPOINT in docker-compose causes bind address conflicts and metric registration errors because multiple service roles (frontend, history, matching, worker) attempt to listen on the same port simultaneously.",
+  "category": "bug",
+  "subcategory": "metrics-prometheus",
+  "apis": [],
+  "components": [
+    "prometheus-reporter",
+    "metrics",
+    "server-roles"
+  ],
+  "concepts": [
+    "port-binding",
+    "metrics-collection",
+    "prometheus-integration",
+    "docker-compose",
+    "service-isolation",
+    "metric-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot enable Prometheus metrics in docker-compose deployments due to port conflicts and incomplete metrics collection.",
+  "rootCause": "All four service roles (frontend, history, matching, worker) are instantiated with the same listen address in docker-compose, causing TCP bind failures on the same port and metric descriptor conflicts.",
+  "proposedFix": "Support multiple Prometheus ports for each service role, or run each role as a separate container/pod with its own port.",
+  "workaround": "Run each service role as a separate pod in Kubernetes where each has its own process and port.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed but the fix was initially merged only to miroswan/temporal fork before being merged to main temporalio/temporal repository.",
+  "related": [],
+  "keyQuote": "Since docker compose runs each service on the same host, we'll need four different prometheus ports for TCP binding.",
+  "number": 673,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:22:36.246Z"
+}

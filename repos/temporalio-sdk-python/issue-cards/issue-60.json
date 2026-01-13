@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for headers on interceptors and create an OpenTelemetry module with an interceptor for proper span handling throughout the SDK, with testing across SDKs.",
+  "category": "feature",
+  "subcategory": "interceptors-observability",
+  "apis": [],
+  "components": [
+    "interceptor",
+    "opentelemetry",
+    "instrumentation"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "spans",
+    "headers",
+    "instrumentation",
+    "optional-dependency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can add observability headers to interceptors and integrate OpenTelemetry for distributed tracing across their Temporal workflows.",
+  "rootCause": null,
+  "proposedFix": "Provide headers on all interceptors where applicable and create opentelemetry module with an interceptor for handling spans similar to the TypeScript implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with headers support on interceptors and OpenTelemetry module added to the Python SDK.",
+  "related": [],
+  "keyQuote": "Provide headers on all interceptors where applicable and create opentelemetry module w/ optional dependency that has an interceptor for properly handling spans",
+  "number": 60,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:27.700Z"
+}

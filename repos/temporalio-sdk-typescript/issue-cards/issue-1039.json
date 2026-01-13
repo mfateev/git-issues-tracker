@@ -1,0 +1,37 @@
+{
+  "summary": "Unhandled promise rejections in workflows cause WFT failures with insufficient context information, making it difficult to diagnose the root cause and locate where the failing promise was created. The issue is compounded by errors being misclassified as WFT failures instead of WF failures and information loss during V8 serialization.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "executeChild",
+    "ApplicationFailure.nonRetryable",
+    "condition"
+  ],
+  "components": [
+    "worker",
+    "workflow-executor",
+    "error-handling",
+    "sandbox",
+    "activator-methods"
+  ],
+  "concepts": [
+    "unhandled-promise-rejection",
+    "error-diagnostics",
+    "stack-trace",
+    "v8-serialization",
+    "workflow-failure",
+    "context-loss"
+  ],
+  "severity": "high",
+  "userImpact": "Users struggle to diagnose WFT failures caused by unhandled promise rejections due to missing context and stack trace information, and experience unexpected error classification.",
+  "rootCause": "When unhandled promise rejections occur, the WFT failure carries minimal context information. Additionally, non-TemporalFailure async errors cannot bubble up through the sandbox, becoming unhandled rejections instead. Errors in activator methods may be V8 serialized through worker threads, causing information loss.",
+  "proposedFix": "WFT failures caused by unhandled promise rejections should include a clear error message indicating 'Unhandled promise rejection', carry the stack trace to where the promise was created, and log this information to the Worker's log.",
+  "workaround": "Use TEMPORAL_DEBUG=true to enable single-threaded workflow executor to preserve error information during V8 serialization.",
+  "resolution": "fixed",
+  "resolutionDetails": "Error context and diagnostics have been improved for unhandled promise rejections in workflow tasks.",
+  "related": [],
+  "keyQuote": "when this happens, the WFT failure actually carries very little context information, making it difficult for the user to 1) understand the reason why the WFT failed and 2) the origin of the failing Promise.",
+  "number": 1039,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:39.619Z"
+}

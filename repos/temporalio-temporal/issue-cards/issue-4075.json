@@ -1,0 +1,29 @@
+{
+  "summary": "CVE-2023-24535 vulnerability in google.golang.org/protobuf-v1.29.0 (CVSS 7.5) affects the Temporal SDK. Parsing invalid text-format messages can cause a panic, impacting availability.",
+  "category": "bug",
+  "subcategory": "security-dependency",
+  "apis": [],
+  "components": [
+    "protobuf-dependency",
+    "message-parsing"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "panic",
+    "transitive-dependency",
+    "protocol-buffers"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the Temporal SDK are vulnerable to denial-of-service attacks through malformed protobuf messages.",
+  "rootCause": "google.golang.org/protobuf-v1.29.0 contains a panic when parsing invalid text-format messages with whitespace-only number sequences",
+  "proposedFix": "Upgrade google.golang.org/protobuf to v1.29.1 or later",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend because the vulnerable library was either ignored or no longer part of the inventory",
+  "related": [],
+  "keyQuote": "Parsing a text-format message which contains a potential number consisting of a minus sign, one or more characters of whitespace, and no further input will cause a panic.",
+  "number": 4075,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:51.384Z"
+}

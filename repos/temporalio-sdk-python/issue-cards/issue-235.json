@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to raise clear exceptions when payload sizes exceed gRPC's 4MB maximum limit, instead of silently retrying and timing out. Currently, oversized payloads result in ResourceExhausted gRPC errors that are treated as transient and retried indefinitely, causing confusing timeouts without clear error messages.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "grpc-client",
+    "retry-logic"
+  ],
+  "concepts": [
+    "payload-size",
+    "grpc-limits",
+    "error-handling",
+    "retry-strategy",
+    "diagnostics",
+    "resource-exhaustion"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers receive confusing timeout errors instead of clear exceptions when payloads exceed gRPC limits, making debugging significantly harder.",
+  "rootCause": "ResourceExhausted gRPC status is treated as a transient error and retried indefinitely, even though oversized payloads will never succeed on retry.",
+  "proposedFix": "Add payload size validation in the data converter to check against the 4MB limit and raise a clear exception, or handle ResourceExhausted status specially to fail immediately rather than retry.",
+  "workaround": "Extend the JSONPlainPayloadConverter to check payload size before serialization and raise an exception if it exceeds MAX_PAYLOAD_SIZE (4194304 bytes).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    462
+  ],
+  "keyQuote": "ResourceExhausted is seen as a transient error even though it's not in this case... I think this is an issue in all SDKs today.",
+  "number": 235,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:37.879Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "@temporalio/proto package had an unnecessary dependency on @temporalio/core-bridge, which was added only to work around a Lerna versioning issue. This caused clients to indirectly depend on core-bridge despite the Rust compilation overhead being irrelevant to proto consumers.",
+  "category": "bug",
+  "subcategory": "package-dependencies",
+  "apis": [],
+  "components": [
+    "proto-package",
+    "core-bridge-package",
+    "package-management"
+  ],
+  "concepts": [
+    "dependency-management",
+    "package-structure",
+    "build-tooling",
+    "version-sync",
+    "monorepo"
+  ],
+  "severity": "medium",
+  "userImpact": "Clients consuming @temporalio/proto are forced to depend on core-bridge, introducing unnecessary Rust compilation overhead and build complexity.",
+  "rootCause": "Lerna doesn't increment a package's version unless something changes in git, so core-bridge was added as a dependency to @temporalio/proto to trigger version bumps.",
+  "proposedFix": "Move proto definitions into the proto package or create a separate package for the sdk-core submodule. The issue was resolved by using a single version for all SDK packages, allowing safe removal of the dependency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Adopted a single version numbering scheme for all SDK packages, eliminating the need for the artificial dependency on core-bridge.",
+  "related": [],
+  "keyQuote": "the client relies on the proto package while it shouldn't rely on core because of the Rust compilation dependency",
+  "number": 172,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:10.715Z"
+}

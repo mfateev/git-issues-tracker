@@ -1,0 +1,32 @@
+{
+  "summary": "WithWorkflowArgs type was removed from @temporalio/common and is not exported from @temporalio/client, breaking code that relies on this type for strong typing in SignalWithStart client calls.",
+  "category": "bug",
+  "subcategory": "exports",
+  "apis": [
+    "SignalWithStart"
+  ],
+  "components": [
+    "client",
+    "common",
+    "type-exports"
+  ],
+  "concepts": [
+    "type-exports",
+    "strong-typing",
+    "breaking-change",
+    "api-stability",
+    "client-libraries"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot import WithWorkflowArgs from expected packages, forcing them to use internal imports as a workaround.",
+  "rootCause": "Type was removed from public API exports during refactoring without proper re-export or migration path",
+  "proposedFix": "Re-export WithWorkflowArgs from @temporalio/client as suggested in CHANGELOG instructions",
+  "workaround": "Import directly from @temporalio/internal-workflow-common",
+  "resolution": "fixed",
+  "resolutionDetails": "Type was re-exported from the appropriate public package",
+  "related": [],
+  "keyQuote": "This type used to be exported under @temporalio/common, but no longer is. It's also not available in @temporalio/client",
+  "number": 557,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:01:04.533Z"
+}

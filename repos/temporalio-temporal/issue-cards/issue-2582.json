@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a gRPC health check handler to the worker service, similar to matching and history services. Discussion reveals design challenges around what \"healthy\" means for application workers with context-specific requirements.",
+  "category": "feature",
+  "subcategory": "worker-health-check",
+  "apis": [],
+  "components": [
+    "worker",
+    "health-check",
+    "grpc-handler"
+  ],
+  "concepts": [
+    "health-check",
+    "service-readiness",
+    "worker-connectivity",
+    "application-health",
+    "resource-availability",
+    "monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Users must manually implement custom health check endpoints for worker services, while other Temporal services have built-in handlers.",
+  "rootCause": "Health status is application-specific and context-dependent; no universal definition exists for what constitutes a healthy worker.",
+  "proposedFix": "Add a flag during worker initialization to enable a built-in health check server, providing sensible defaults that users can customize.",
+  "workaround": "Implement a custom HTTP health check server that spins up after the worker connects to Temporal, similar to existing SDK examples.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I suspect lots of users would be happy if there was a flag we could set during worker initiation that would handle this for us.",
+  "number": 2582,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:23.579Z"
+}

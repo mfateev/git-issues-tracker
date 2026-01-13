@@ -1,0 +1,33 @@
+{
+  "summary": "The PHP SDK fails to unmarshal DateInterval values during schedule operations, throwing 'Unrecognized date time interval format' when parsing the jitter field in ScheduleSpec.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "listSchedules"
+  ],
+  "components": [
+    "marshaller",
+    "date-interval-type",
+    "schedule-client"
+  ],
+  "concepts": [
+    "date-time-parsing",
+    "unmarshalling",
+    "schedule-specification",
+    "format-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot list schedules; the SDK crashes when trying to retrieve schedule information from the server.",
+  "rootCause": "The DateInterval parsing logic in DateInterval.php:109 does not recognize the date time interval format returned by the Temporal server for the jitter field.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was fixed by updating the DateInterval parsing to handle the server's date time interval format.",
+  "related": [
+    580
+  ],
+  "keyQuote": "Unrecognized date time interval format",
+  "number": 555,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:18.366Z"
+}

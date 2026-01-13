@@ -1,0 +1,31 @@
+{
+  "summary": "The `tctl workflow list` command with `ExecutionStatus=1` query returns inconsistent results when run repeatedly - sometimes showing an empty list and sometimes returning completed workflows that should not match the query. The issue is that completed workflows are appearing in results for a query that should only return running workflows.",
+  "category": "bug",
+  "subcategory": "tctl-cli",
+  "apis": [],
+  "components": [
+    "tctl",
+    "workflow-list",
+    "query-engine",
+    "execution-status-filter"
+  ],
+  "concepts": [
+    "execution-status",
+    "query-filtering",
+    "consistency",
+    "completed-workflows",
+    "running-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably query for running workflows using tctl, as results are inconsistent and may include completed workflows that should be excluded.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When running tctl -n prd workflow list --pdt --query=\"ExecutionStatus=1\" multiple times, occasionally a set of completed WFs are returned",
+  "number": 5364,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:04.102Z"
+}

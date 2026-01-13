@@ -1,0 +1,35 @@
+{
+  "summary": "Removing a Workflow.GetVersion call can cause NullDeferenceException when multiple parallel workflow threads are running, because GetVersion blocks the current thread and its removal changes execution order during replay.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Workflow.GetVersion",
+    "Workflow.sleep",
+    "Async.procedure"
+  ],
+  "components": [
+    "workflow-execution",
+    "replay-engine",
+    "threading"
+  ],
+  "concepts": [
+    "replay",
+    "versioning",
+    "multithreading",
+    "execution-order",
+    "determinism",
+    "blocking"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot safely refactor workflows by removing GetVersion calls without risking NullDeferenceExceptions in production replays with concurrent threads.",
+  "rootCause": "Workflow.GetVersion blocks the current thread; when removed, the execution order of parallel threads changes during replay, causing non-deterministic behavior.",
+  "proposedFix": null,
+  "workaround": "Do not remove Workflow.GetVersion calls from existing workflows.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This happens because Workflow.getVersion causes the current thread to block so when it is removed the order of execution can change.",
+  "number": 2307,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:09.674Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "README lacks documentation on how to build the SDK from source as a dependency. Users need clear instructions on cloning recursively (including the sdk-core git submodule) and using the locally-built version.",
+  "category": "docs",
+  "subcategory": "build-documentation",
+  "apis": [],
+  "components": [
+    "build-system",
+    "sdk-core",
+    "repository-structure"
+  ],
+  "concepts": [
+    "build-from-source",
+    "git-submodule",
+    "dependency-management",
+    "developer-experience",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily build and use the Python SDK from source without clear instructions, hindering local development and alternative installation workflows.",
+  "rootCause": null,
+  "proposedFix": "Add a section to README documenting how to build from source, including recursive clone requirement for the sdk-core submodule and example usage of locally-built version.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was added to README with build-from-source instructions and submodule clone requirements.",
+  "related": [],
+  "keyQuote": "Add a section for building from source and even an example for using after built from source. Also make it clear that users must clone recursively because `temporalio/bridge/sdk-core` is a git submodule.",
+  "number": 39,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:46:43.754Z"
+}

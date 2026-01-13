@@ -1,0 +1,29 @@
+{
+  "summary": "Add support for Nexus Error rehydration in the Java SDK, matching the functionality implemented in the Go SDK (PR #1751).",
+  "category": "feature",
+  "subcategory": "nexus-error-handling",
+  "apis": [],
+  "components": [
+    "nexus",
+    "error-handling",
+    "serialization"
+  ],
+  "concepts": [
+    "error-rehydration",
+    "nexus-integration",
+    "cross-sdk-parity",
+    "error-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly rehydrate and handle Nexus errors in the Java SDK, limiting error handling capabilities compared to other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement Nexus Error rehydration following the pattern established in the Go SDK PR #1751.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support Nexus Error rehydration in alignment with Go SDK implementation.",
+  "related": [],
+  "keyQuote": "Add support for Nexus Error rehydration.",
+  "number": 2358,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:22.567Z"
+}

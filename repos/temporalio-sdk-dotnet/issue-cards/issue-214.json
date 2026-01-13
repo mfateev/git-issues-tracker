@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to document asynchronous activity completion in the .NET SDK README, allowing activities to return early while completion is handled via the Temporal Client using heartbeating and manual completion.",
+  "category": "docs",
+  "subcategory": "activity-completion",
+  "apis": [
+    "GetAsyncActivityHandle",
+    "CompleteAsyncException",
+    "ActivityExecutionContext"
+  ],
+  "components": [
+    "activity-executor",
+    "client",
+    "documentation"
+  ],
+  "concepts": [
+    "asynchronous-completion",
+    "activity-heartbeat",
+    "task-token",
+    "manual-completion"
+  ],
+  "severity": "low",
+  "userImpact": "Users are unaware that asynchronous activity completion is supported, leading to confusion about available patterns.",
+  "rootCause": null,
+  "proposedFix": "Document asynchronous activity completion feature in the README with examples of using CompleteAsyncException and GetAsyncActivityHandle.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed in favor of comprehensive async activity completion documentation in the official Temporal docs.",
+  "related": [],
+  "keyQuote": "You can `throw new Temporalio.Activities.CompleteAsyncException()` to tell the activity you'll be completing outside of the function",
+  "number": 214,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:57:55.612Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Schedules with local timestamps don't handle Daylight Saving Time transitions properly, potentially causing cron jobs to run zero, one, or two times during DST shifts. The issue requests configurable DST policies (similar to Airflow) or sensible defaults to deduplicate/shift missing runs.",
+  "category": "feature",
+  "subcategory": "schedules-dst",
+  "apis": [],
+  "components": [
+    "schedules",
+    "cron-engine",
+    "timezone-handling"
+  ],
+  "concepts": [
+    "daylight-saving-time",
+    "timezone-transitions",
+    "cron-scheduling",
+    "time-handling",
+    "schedule-policy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users scheduling local time cron jobs during DST transitions may experience unexpected behavior with jobs running zero, one, or multiple times, affecting reliability of time-sensitive operations.",
+  "rootCause": "The underlying cron library used by Temporal does not implement special handling for DST transitions, leaving the behavior undefined during DST boundaries.",
+  "proposedFix": "Implement configurable DST transition policies (duplicate_dst: RUN_FIRST/RUN_LAST/RUN_NONE; missing_dst: SHIFT/SKIP) or adopt Airflow's default behavior of deduplicating and shifting missing runs.",
+  "workaround": "Schedule cron jobs in UTC timezone or avoid scheduling during known DST transition periods (e.g., 2:00-3:00 AM in Europe).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If not configurable, maybe make the default the most intuitive one, i.e. de-duplicate and shift missing run. It's the default behavior of Airflow.",
+  "number": 8205,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:48.486Z"
+}

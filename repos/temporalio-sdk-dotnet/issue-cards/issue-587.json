@@ -1,0 +1,32 @@
+{
+  "summary": "Refactor Bridge.Client from SafeHandle to IDisposable pattern to match Bridge.Worker implementation and eliminate duplicate SafeHandle wrappers for unmanaged Interop.TemporalCoreClient pointers.",
+  "category": "feature",
+  "subcategory": "interop-refactoring",
+  "apis": [],
+  "components": [
+    "Bridge.Client",
+    "SafeHandle",
+    "Interop.TemporalCoreClient"
+  ],
+  "concepts": [
+    "resource-management",
+    "disposal-pattern",
+    "unmanaged-memory",
+    "interop",
+    "lifetime-management"
+  ],
+  "severity": "low",
+  "userImpact": "Improves consistency of resource disposal patterns in the SDK interop layer without direct user-facing changes.",
+  "rootCause": "PR #583 introduced SafeHandle separation but deferred full conversion of Bridge.Client to IDisposable for later work.",
+  "proposedFix": "Convert Bridge.Client to implement IDisposable pattern matching the Bridge.Worker class design.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    583
+  ],
+  "keyQuote": "This conversion should be done to match the pattern established for the `Bridge.Worker` class so that there aren't two SafeHandle implementations",
+  "number": 587,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:38:21.080Z"
+}

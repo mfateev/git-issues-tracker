@@ -1,0 +1,30 @@
+{
+  "summary": "The history_node table continues to grow despite setting a 3-day retention period, while the workflow count appears to respect retention. User reports 19.4M rows in history_node table when workflow count is only 7,274.",
+  "category": "bug",
+  "subcategory": "data-retention",
+  "apis": [],
+  "components": [
+    "history-scanner",
+    "database",
+    "retention-policy"
+  ],
+  "concepts": [
+    "data-retention",
+    "table-growth",
+    "history-cleanup",
+    "worker-configuration",
+    "database-size"
+  ],
+  "severity": "high",
+  "userImpact": "Database storage continues to grow uncontrollably despite retention policies being configured, potentially leading to disk space issues and performance degradation.",
+  "rootCause": "History scanner may not be properly enabled or configured; possible failure in cleanup process leaves first event batch in DB until scanner processes it.",
+  "proposedFix": "Verify worker.historyScannerEnabled flag is enabled (should be default); check that internal scanner workflows (temporal-sys-history-scanner-workflow) are running; consider reducing worker.historyScannerDataMinAge to trigger cleanup sooner.",
+  "workaround": "Reduce worker.historyScannerDataMinAge from default 60 days to a lower value to allow history scanner to clean up rows more aggressively.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "history_node table keep growing, now has 19402165 count",
+  "number": 8790,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:15.939Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to add WorkflowIdConflictPolicy support to ChildWorkflowOptions in the Java SDK. This option was added to WorkflowOptions but is not available for child workflows, though it requires Temporal Server support first.",
+  "category": "feature",
+  "subcategory": "child-workflow-options",
+  "apis": [
+    "ChildWorkflowOptions",
+    "WorkflowOptions",
+    "setWorkflowIdConflictPolicy"
+  ],
+  "components": [
+    "child-workflow",
+    "workflow-options",
+    "api"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "child-workflow",
+    "policy",
+    "options-api"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot set WorkflowIdConflictPolicy on child workflows, limiting workflow ID conflict handling capabilities.",
+  "rootCause": "WorkflowIdConflictPolicy is not supported by Temporal Server for child workflows, blocking SDK-level exposure.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2055,
+    558
+  ],
+  "keyQuote": "WorkflowIdConflictPolicy is not supported on Child workflows by the Temporal Server. The option would need to be supported by the Temporal Server before it could be exposed on the SDK.",
+  "number": 2308,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:11.365Z"
+}

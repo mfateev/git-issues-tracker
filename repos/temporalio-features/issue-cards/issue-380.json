@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to create DataDog integration samples for all Temporal SDKs demonstrating metrics and tracing integration with DataDog agents. Currently users struggle to integrate DataDog metrics (via Prometheus) and distributed tracing without clear examples.",
+  "category": "feature",
+  "subcategory": "observability-samples",
+  "apis": [],
+  "components": [
+    "samples",
+    "metrics",
+    "tracing",
+    "datadog-agent"
+  ],
+  "concepts": [
+    "observability",
+    "metrics-integration",
+    "distributed-tracing",
+    "prometheus",
+    "monitoring",
+    "sdk-samples"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently struggle to integrate DataDog metrics and tracing with Temporal SDKs, requiring significant effort to figure out integration patterns without clear guidance.",
+  "rootCause": null,
+  "proposedFix": "Create DataDog sample applications for all SDKs (Go, Java, TypeScript, Python, .NET) demonstrating both metrics and tracing integration with DataDog agents, with educational documentation on the integration approach.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "People are doing this today, but they are struggling or have to figure a lot out themselves. It is important that the metrics _and_ tracing be demonstrated from workers/clients using the DataDog agent.",
+  "number": 380,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:43.585Z"
+}

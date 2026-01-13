@@ -1,0 +1,38 @@
+{
+  "summary": "WorkflowIdReusePolicy.TERMINATE_IF_RUNNING is marked as deprecated in SDK code but still documented as valid in official Temporal.io docs, causing confusion. User needs clarification on whether it's safe to use, especially for child workflows that need to reset with their parent.",
+  "category": "question",
+  "subcategory": "workflow-options",
+  "apis": [
+    "WorkflowIdReusePolicy",
+    "WorkflowIdConflictPolicy",
+    "StartChildWorkflowExecution"
+  ],
+  "components": [
+    "workflow-options",
+    "child-workflow-execution",
+    "api-documentation"
+  ],
+  "concepts": [
+    "workflow-id-reuse",
+    "deprecation",
+    "conflict-policy",
+    "child-workflow",
+    "workflow-reset",
+    "documentation-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are uncertain whether deprecated TERMINATE_IF_RUNNING policy is safe to use and lack clear guidance on implementing child workflow reset behavior.",
+  "rootCause": "Deprecation of TERMINATE_IF_RUNNING was not fully communicated across all documentation surfaces, and the server continues to support it despite deprecation.",
+  "proposedFix": null,
+  "workaround": "Continue using WorkflowIdReusePolicy.TERMINATE_IF_RUNNING for child workflows, as it remains supported by the server despite deprecation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "TERMINATE_IF_RUNNING is deprecated but will remain supported indefinitely in the server. Maintainer clarified no exact alternative exists for child workflow reset use case, making continued use acceptable despite deprecation.",
+  "related": [
+    1628,
+    8314
+  ],
+  "keyQuote": "Even though that option has been deprecated, the server still accepts terminate as a reuse policy...we have no intent of actually removing that option support in the server at any time.",
+  "number": 1783,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:01:40.861Z"
+}

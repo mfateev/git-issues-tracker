@@ -1,0 +1,30 @@
+{
+  "summary": "Fix compatibility issues with the OpenAI extension on Python 3.9 and 3.10. Ensure all previously identified errors on older Python versions are resolved and validated through CI testing across all supported versions.",
+  "category": "bug",
+  "subcategory": "openai-extension",
+  "apis": [],
+  "components": [
+    "openai-extension",
+    "python-runtime",
+    "ci-tests"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "python-3.9",
+    "python-3.10",
+    "extension-support",
+    "regression-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on Python 3.9 and 3.10 who use the OpenAI extension experience errors and reliability issues.",
+  "rootCause": "Compatibility problems with the OpenAI extension on older Python versions (3.9-3.10).",
+  "proposedFix": "Run tests on all CI versions to ensure the extension works correctly across Python 3.9-3.10.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Errors on Python 3.9-3.10 were identified and fixed; tests validated across all CI versions.",
+  "related": [],
+  "keyQuote": "Previously errors were seen on older python versions, ensure those problems are gone and run the tests on all CI versions.",
+  "number": 914,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:27:30.555Z"
+}

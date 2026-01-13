@@ -1,0 +1,30 @@
+{
+  "summary": "Request to clarify in ITemporalClient documentation that the client is thread-safe and should be reused across threads to effectively leverage connection pooling.",
+  "category": "docs",
+  "subcategory": "documentation",
+  "apis": [
+    "ITemporalClient"
+  ],
+  "components": [
+    "client",
+    "documentation"
+  ],
+  "concepts": [
+    "thread-safety",
+    "connection-pooling",
+    "client-reuse",
+    "concurrency"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may not understand that ITemporalClient is thread-safe and can be safely shared across threads, potentially missing optimization opportunities.",
+  "rootCause": null,
+  "proposedFix": "Add clarification to ITemporalClient documentation stating it is thread-safe and should be reused across threads for effective connection pooling.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to clarify that ITemporalClient is thread-safe and should be reused across threads.",
+  "related": [],
+  "keyQuote": "clarify that it is thread safe and not only meant for multithreaded use, but encouraged so it can leverage connection pooling effectively",
+  "number": 156,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:34:04.885Z"
+}

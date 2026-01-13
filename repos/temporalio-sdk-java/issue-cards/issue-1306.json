@@ -1,0 +1,38 @@
+{
+  "summary": "Signal and query handlers should inherit client OpenTracing/OpenTelemetry spans as parent spans to form a complete distributed tracing chain, but currently lack this capability due to historical limitations in Temporal server APIs.",
+  "category": "feature",
+  "subcategory": "observability-tracing",
+  "apis": [
+    "signal",
+    "query"
+  ],
+  "components": [
+    "client",
+    "signal-handler",
+    "query-handler",
+    "tracing"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "span-hierarchy",
+    "observability",
+    "opentracing",
+    "opentelemetry",
+    "signal-propagation",
+    "context-inheritance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot trace signal and query calls end-to-end from client to handler, breaking distributed tracing visibility.",
+  "rootCause": "Temporal server signal and query APIs historically didn't support headers for transferring context like spanId from caller to handler.",
+  "proposedFix": "Add header support to signal and query APIs to propagate span context from client calls to handlers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in PR #1819 to support header propagation for signal and query calls.",
+  "related": [
+    1819
+  ],
+  "keyQuote": "Signal and query handlers and threads inherit the client span as a parent span and form a solid spans chain",
+  "number": 1306,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:23:44.080Z"
+}

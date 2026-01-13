@@ -1,0 +1,30 @@
+{
+  "summary": "Investigation into a better approach for handling Docker builds with private repositories. The Dockerfile was updated to support the private temporal repo, but needs a more sustainable solution (multiple Dockerfile versions or Makefile docker target) for when the repo becomes public.",
+  "category": "other",
+  "subcategory": "docker-build",
+  "apis": [],
+  "components": [
+    "dockerfile",
+    "build-system"
+  ],
+  "concepts": [
+    "private-repository",
+    "docker-build",
+    "build-configuration",
+    "deployment"
+  ],
+  "severity": "low",
+  "userImpact": "Developers need a flexible way to build Docker images regardless of repository privacy status without manual Dockerfile modifications.",
+  "rootCause": "Dockerfile hardcoded to work with private repo, lacking support for public repo access patterns.",
+  "proposedFix": "Consider multiple Dockerfile versions or adding a docker target in Makefile to handle SSH key specification when needed.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The Dockerfile has been refactored since this issue was opened and the approach is no longer relevant. The repository is now public and the original concern is moot.",
+  "related": [
+    14
+  ],
+  "keyQuote": "From what I can tell the Dockerfile has since been refactored and it seems like this might not be relevant anymore.",
+  "number": 20,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T10:22:54.199Z"
+}

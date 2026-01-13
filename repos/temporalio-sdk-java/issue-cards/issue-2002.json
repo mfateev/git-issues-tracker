@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to prevent the SDK from returning an update handle if the update hasn't reached the desired state. This ensures clients don't receive incomplete or invalid update results.",
+  "category": "feature",
+  "subcategory": "update-handle",
+  "apis": [
+    "update"
+  ],
+  "components": [
+    "update-handler",
+    "client-api",
+    "state-management"
+  ],
+  "concepts": [
+    "state-validation",
+    "handle-lifecycle",
+    "desired-state",
+    "update-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may receive invalid update handles in certain conditions, leading to incorrect state management in their workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed and the SDK now properly validates update state before returning handles.",
+  "related": [
+    432
+  ],
+  "keyQuote": "SDK should not return an update handle if the update has not reached the desired state",
+  "number": 2002,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:09.393Z"
+}

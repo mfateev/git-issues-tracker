@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowExecutionUtils#getInstanceCloseEvent can enter an infinite loop after a timeout when receiving empty responses, never enforcing the timeout check.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "GetWorkflowExecutionHistory"
+  ],
+  "components": [
+    "WorkflowExecutionUtils",
+    "history-client",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "infinite-loop",
+    "timeout",
+    "retry",
+    "empty-response",
+    "control-flow"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow execution utilities can hang indefinitely after network timeouts, requiring process restart to recover.",
+  "rootCause": "Timeout check is performed after the continue statement, so if an empty response is received after timeout expiration, the loop never exits.",
+  "proposedFix": "Move timeout check before the continue statement to ensure timeout is enforced even with empty responses.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #472",
+  "related": [
+    472
+  ],
+  "keyQuote": "if we are here and it's a timeout - we will never return from this cycle, we will never get to the following timeout check",
+  "number": 471,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:20:20.664Z"
+}

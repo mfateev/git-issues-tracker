@@ -1,0 +1,34 @@
+{
+  "summary": "Enforce runtime checks to prevent WorkflowClient and Activity interface usage from workflow code, which violates nondeterminism requirements and can cause bugs. New developers may inadvertently use these prohibited APIs without understanding the constraints.",
+  "category": "feature",
+  "subcategory": "workflow-enforcement",
+  "apis": [
+    "WorkflowClient",
+    "ActivityCompletionClient",
+    "WorkflowServiceStubs"
+  ],
+  "components": [
+    "workflow-runtime",
+    "enforcement-checks",
+    "activity-client"
+  ],
+  "concepts": [
+    "nondeterminism",
+    "workflow-isolation",
+    "api-validation",
+    "thread-safety",
+    "developer-experience"
+  ],
+  "severity": "high",
+  "userImpact": "Developers are protected from accidentally introducing nondeterministic code by receiving explicit exceptions when prohibited APIs are called from workflow threads.",
+  "rootCause": "Lack of runtime enforcement allowing incorrect usage patterns from workflow code, leading to subtle bugs related to nondeterminism violations.",
+  "proposedFix": "Add explicit checks that throw exceptions from WorkflowClient and Activity APIs if called from workflow threads, with an optional environment variable for backward compatibility.",
+  "workaround": "Set environment variable `TEMPORAL_DISABLE_NON_WORKFLOW_CODE_ENFORCEMENTS` to 'true' for legacy implementations, though this is discouraged for new code.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented prohibition of WorkflowClient, ActivityCompletionClient, and WorkflowServiceStubs from workflow threads with configurable enforcement via environment variable.",
+  "related": [],
+  "keyQuote": "Add explicit checks that throw exceptions from WorkflowClient and Activity APIs if they are called from workflow threads.",
+  "number": 402,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:17:04.250Z"
+}

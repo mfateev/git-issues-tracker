@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowLocal instances created via withInitial() were being shared across different Workflows instead of creating unique instances per Workflow. This regression from v1.19.1 caused child workflows to access the same WorkflowLocal instance as their parent, breaking isolation.",
+  "category": "bug",
+  "subcategory": "workflow-local-storage",
+  "apis": [
+    "WorkflowLocal"
+  ],
+  "components": [
+    "workflow-local",
+    "child-workflow",
+    "workflow-context"
+  ],
+  "concepts": [
+    "thread-local-storage",
+    "workflow-isolation",
+    "instance-creation",
+    "state-sharing",
+    "lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpected state sharing between workflows when using WorkflowLocal, breaking workflow isolation guarantees and causing silent data corruption.",
+  "rootCause": "WorkflowLocal.withInitial() was not properly isolating the supplier function calls per workflow context, causing all workflows to share the same initial instance.",
+  "proposedFix": "Add a new caching behavior API for WorkflowLocal (referenced in PR #1878) that ensures each workflow gets its own unique instance, with the old API deprecated.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #1878 which added a new caching API for WorkflowLocal and deprecated the non-caching withInitial() version to maintain backwards compatibility.",
+  "related": [
+    1878
+  ],
+  "keyQuote": "I get the same instance of MyClass returned in every Workflow.",
+  "number": 1876,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:18.704Z"
+}

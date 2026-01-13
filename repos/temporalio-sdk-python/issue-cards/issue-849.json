@@ -1,0 +1,32 @@
+{
+  "summary": "Add a new `workflow_start_time` field to workflow.Info to provide the actual workflow start time from the initialize job. The existing start_time field was incorrectly representing the first task start time instead of the workflow start time.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "workflow.Info"
+  ],
+  "components": [
+    "workflow-runtime",
+    "workflow-info",
+    "initialize-job"
+  ],
+  "concepts": [
+    "workflow-lifecycle",
+    "timing",
+    "initialization",
+    "start-time",
+    "task-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now distinguish between workflow start time and first task execution time, enabling more accurate workflow timing analysis.",
+  "rootCause": "The existing start_time field was incorrectly set to the first task start time instead of the workflow start time from the initialize job.",
+  "proposedFix": "Add a new workflow_start_time field to workflow.Info containing the actual workflow start time from the initialize job.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to add workflow_start_time field to workflow.Info",
+  "related": [],
+  "keyQuote": "add a new `workflow_start_time` that has the actual workflow start time from the initialize job",
+  "number": 849,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:30.797Z"
+}

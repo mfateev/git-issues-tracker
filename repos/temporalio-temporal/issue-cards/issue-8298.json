@@ -1,0 +1,31 @@
+{
+  "summary": "Enable Nexus to work seamlessly without configuration by allowing temporal://system URLs as callbacks and automatically dispatching them internally. This involves adding a callback token to the Nexus specification and SDKs, then making temporal://system the default callback URL behind a dynamic config.",
+  "category": "feature",
+  "subcategory": "nexus-callbacks",
+  "apis": [],
+  "components": [
+    "nexus-operations",
+    "callbacks",
+    "server-config"
+  ],
+  "concepts": [
+    "callback-token",
+    "zero-configuration",
+    "system-urls",
+    "service-discovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users will be able to use Nexus operations without manually configuring callback URLs, reducing setup complexity and making the feature more accessible.",
+  "rootCause": null,
+  "proposedFix": "Implement temporal://system URL support as default callback, add CallbackToken field to Nexus SDKs, update SPEC.md with callback token requirements, and provide dynamic config for gradual migration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8308
+  ],
+  "keyQuote": "Allow `temporal://system` URLs always to be attached as callbacks. Dispatch `temporal://system` callback URLs internally, automatically.",
+  "number": 8298,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:50.366Z"
+}

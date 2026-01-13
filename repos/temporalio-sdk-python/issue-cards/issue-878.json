@@ -1,0 +1,32 @@
+{
+  "summary": "The workflow.in_workflow() function throws a RuntimeError when called from a sync activity because it expects an event loop, but sync activities run in a ThreadPoolExecutor without one. The function should safely return False when no event loop is present instead of raising an error.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "in_workflow"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-context",
+    "event-loop"
+  ],
+  "concepts": [
+    "context-detection",
+    "thread-pool",
+    "event-loop",
+    "activity-sync",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely check if code is running inside a workflow from sync activities, blocking utility functions that need to guard against workflow context.",
+  "rootCause": "in_workflow() calls maybe_current() which expects a running event loop, but sync activities execute in ThreadPoolExecutor threads without event loops.",
+  "proposedFix": "Return False (via None from maybe_current) when no running event loop exists instead of raising RuntimeError.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The in_workflow() function was fixed to handle the case where no event loop is running, returning False instead of raising an error.",
+  "related": [],
+  "keyQuote": "We expect this to be able to be called from all contexts and we need to return False (via None on maybe_current) if there is no running loop.",
+  "number": 878,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:38.573Z"
+}

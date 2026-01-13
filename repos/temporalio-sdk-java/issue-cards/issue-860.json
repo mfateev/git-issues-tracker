@@ -1,0 +1,32 @@
+{
+  "summary": "When passing a blob larger than the server limit as an activity input, users receive a non-descriptive gRPC error about a closed stream instead of a clear server error message and clean activity failure.",
+  "category": "bug",
+  "subcategory": "activity-input-validation",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "grpc-client",
+    "error-handling"
+  ],
+  "concepts": [
+    "blob-size-limit",
+    "input-validation",
+    "error-messaging",
+    "grpc-channel",
+    "server-limits"
+  ],
+  "severity": "high",
+  "userImpact": "Users passing large files (PDFs, images) as activity inputs receive cryptic gRPC errors instead of actionable error messages about size limits.",
+  "rootCause": "The gRPC channel is broken when the server rejects oversized input, and the error is not properly translated to a user-friendly activity failure.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Received data on closed stream",
+  "number": 860,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:48:10.309Z"
+}

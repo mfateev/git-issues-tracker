@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal's Elasticsearch integration uses deprecated index templates (v1 format) instead of the new composable index templates format introduced in Elasticsearch 7.x. Settings from the new template version are not combined, requiring migration to the modern template format.",
+  "category": "feature",
+  "subcategory": "elasticsearch-integration",
+  "apis": [],
+  "components": [
+    "elasticsearch-integration",
+    "index-templates",
+    "persistence"
+  ],
+  "concepts": [
+    "elasticsearch",
+    "index-templates",
+    "schema-migration",
+    "backwards-compatibility",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal with Elasticsearch cannot use the modern composable index template format and may experience configuration management issues.",
+  "rootCause": "Temporal hardcodes deprecated v1 index template format instead of supporting Elasticsearch 7.17+ composable templates",
+  "proposedFix": "Convert index templates to use the new composable format as documented in Elasticsearch 7.17 reference",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal uses deprecated index templates to work with Elasticsearch and does not combine the settings from the index template of the new version",
+  "number": 4816,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:54.945Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "When signaling a closed workflow, the API throws an error without indicating whether the workflow is truly non-existent or simply closed. The request is to include WorkflowStatus in the error response to allow applications to handle these two cases differently without requiring a separate DescribeWorkflowExecution API call.",
+  "category": "feature",
+  "subcategory": "workflow-signaling",
+  "apis": [
+    "SignalWorkflowExecution",
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "signal-handler",
+    "workflow-execution",
+    "error-response"
+  ],
+  "concepts": [
+    "error-handling",
+    "workflow-status",
+    "api-efficiency",
+    "closed-workflows",
+    "signal-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications must make additional API calls to distinguish between non-existent and closed workflows when signaling, increasing latency and code complexity.",
+  "rootCause": null,
+  "proposedFix": "Return WorkflowStatus in the error response when attempting to signal a closed workflow.",
+  "workaround": "Make a separate DescribeWorkflowExecution API call to determine workflow status before or after signaling.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1969
+  ],
+  "keyQuote": "The error should be able to return \"WorkflowStatus\" inside.",
+  "number": 5303,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:27.305Z"
+}

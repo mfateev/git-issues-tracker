@@ -1,0 +1,31 @@
+{
+  "summary": "The TypeScript SDK's gRPC inbound message size limit is capped at 4MB, but should be increased to 128MB to match other SDKs and handle larger server responses.",
+  "category": "bug",
+  "subcategory": "grpc-configuration",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "message-handler",
+    "server-communication"
+  ],
+  "concepts": [
+    "message-size-limit",
+    "grpc-configuration",
+    "inbound-messages",
+    "sdk-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users unable to handle responses larger than 4MB from the server, causing failures in workflows with large data payloads.",
+  "rootCause": "gRPC inbound message size limit is hardcoded or set to 4MB instead of 128MB.",
+  "proposedFix": "Increase inbound message size limit from 4MB to 128MB to match other SDK implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the inbound message size limit was increased to 128MB.",
+  "related": [
+    1469
+  ],
+  "keyQuote": "To match other SDKs, _inbound_ message size limit from server should be 128MB (not to be confused with outbound).",
+  "number": 1470,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:18.453Z"
+}

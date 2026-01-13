@@ -1,0 +1,30 @@
+{
+  "summary": "A test for deleting executions is failing intermittently with an activity execution error. The test expects specific byte output but receives nil, and the activity is calling runtime.Goexit, causing the workflow execution to fail.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-testsuite",
+    "activity-executor",
+    "internal-worker"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "activity-execution",
+    "runtime-error",
+    "nil-value",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience intermittent test failures when testing deletion workflows with many executions, making test suites unreliable.",
+  "rootCause": "Activity is calling runtime.Goexit during execution, causing unexpected nil return values and workflow execution failures in the test suite.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating a fix was applied to address the activity execution error and test flakiness.",
+  "related": [],
+  "keyQuote": "activity called runtime.Goexit (type: wrapError, retryable: true): unable to execute activity",
+  "number": 2792,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:50.463Z"
+}

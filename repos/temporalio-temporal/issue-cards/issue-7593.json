@@ -1,0 +1,30 @@
+{
+  "summary": "Activities are not being executed in workers despite being scheduled, leading to startToClose timeouts. The issue occurs sporadically and resolves after restarting the worker.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-queue"
+  ],
+  "concepts": [
+    "activity-scheduling",
+    "task-polling",
+    "worker-connection",
+    "timeout",
+    "sporadic-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Activities scheduled in workflows fail to execute on workers, causing workflow timeouts and requiring manual worker restarts to resolve.",
+  "rootCause": "Likely related to worker starting before the temporal cluster is available, causing a stale or corrupted connection state in the task queue polling mechanism.",
+  "proposedFix": null,
+  "workaround": "Restart the worker to recover from the issue.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer determined issue is not related to server bug and will be troubleshot in Slack thread with user.",
+  "related": [],
+  "keyQuote": "activity is not actually executed in the worker, which eventually leads to the startToClose timeout. When I try to restart the worker, it works fine",
+  "number": 7593,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:29.534Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Integration tests for the GetWorkflowExecutionRawHistoryV2 API need to be created. Previous tests for this API were removed in PR #744 and require reimplementation.",
+  "category": "other",
+  "subcategory": "integration-tests",
+  "apis": [
+    "GetWorkflowExecutionRawHistoryV2"
+  ],
+  "components": [
+    "admin-api",
+    "history",
+    "test-framework"
+  ],
+  "concepts": [
+    "integration-testing",
+    "workflow-execution",
+    "raw-history",
+    "api-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Lack of integration tests for GetWorkflowExecutionRawHistoryV2 API reduces confidence in the stability and correctness of this API functionality.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Integration tests were created to cover the GetWorkflowExecutionRawHistoryV2 API functionality that was previously removed.",
+  "related": [
+    744
+  ],
+  "keyQuote": "Removed in this PR",
+  "number": 745,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:01.537Z"
+}

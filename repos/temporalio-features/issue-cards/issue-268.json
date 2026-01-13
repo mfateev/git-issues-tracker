@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add SDK-side metrics for the Update API, including UpdateRejected, UpdateAccepted, UpdateCompletedSuccess, and UpdateCompletedFailure. Discussion centers on whether these metrics are useful enough to add given the existing metric quantity and consistency with other features like signals and queries.",
+  "category": "feature",
+  "subcategory": "metrics-update",
+  "apis": [
+    "Update"
+  ],
+  "components": [
+    "metrics",
+    "sdk-core",
+    "update-api"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "update-lifecycle",
+    "consistency",
+    "feature-parity"
+  ],
+  "severity": "low",
+  "userImpact": "Users would gain visibility into Update API execution patterns through SDK-side metrics, but the team is cautious about adding metrics without clear demand.",
+  "rootCause": null,
+  "proposedFix": "Implement UpdateRejected, UpdateAccepted, UpdateCompletedSuccess, and UpdateCompletedFailure metrics on the SDK side.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'm inclined to say we shouldn't add these until we have explicit asks for them. We already have such an overwhelming quantity of metrics.",
+  "number": 268,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:20.578Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a ServerOption to support custom gRPC request rate limiting logic on the frontend service. This would enable multi-tenant deployments to enforce namespace-specific RPS limits on various Temporal operations (workflows, activities, signals, timers).",
+  "category": "feature",
+  "subcategory": "rate-limiting",
+  "apis": [],
+  "components": [
+    "frontend-service",
+    "grpc-interceptor",
+    "server-options"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "multi-tenant",
+    "custom-interceptor",
+    "gRPC",
+    "extensibility",
+    "request-rate"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators running multi-tenant Temporal services can now implement custom rate limiting logic per namespace to guarantee consistent QoS across customers.",
+  "rootCause": null,
+  "proposedFix": "Add WithChainedFrontendGrpcInterceptors ServerOption allowing operators to supply multiple ordered gRPC UnaryServerInterceptors that are appended after internal interceptors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #2156 with a general-purpose custom interceptor extension point allowing multiple ordered gRPC interceptors to be chained on the frontend service.",
+  "related": [
+    2156
+  ],
+  "keyQuote": "We need to enforce RPS limits on various aspects of namespace-specific customer workload in order to guarantee a good experience for all customers.",
+  "number": 1996,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:10.859Z"
+}

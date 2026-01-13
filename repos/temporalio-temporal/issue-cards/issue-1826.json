@@ -1,0 +1,31 @@
+{
+  "summary": "MySQL 8.0 fails to initialize Temporal schema due to TIMESTAMP DEFAULT value compatibility issue. Error occurs during schema setup where version mismatch is detected (Expected 1.6 vs Actual 0.0) caused by invalid default TIMESTAMP values.",
+  "category": "bug",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "sql-schema",
+    "mysql-driver",
+    "schema-setup"
+  ],
+  "concepts": [
+    "timestamp",
+    "timezone",
+    "mysql-compatibility",
+    "schema-versioning",
+    "default-values",
+    "database-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot initialize or start Temporal server with MySQL 8.0+ due to schema setup failures.",
+  "rootCause": "MySQL 8.0+ requires timezone information in TIMESTAMP DEFAULT values. The schema uses TIMESTAMP DEFAULT '1970-01-01 00:00:01' without UTC indicator (+00:00), causing compatibility issues.",
+  "proposedFix": "Add +00:00 to all default TIMESTAMP values in schema files to explicitly indicate UTC timezone, or use TIMESTAMP with timezone specification.",
+  "workaround": "Use MySQL version 8.0.19 or earlier (as mentioned in comments), or manually modify schema to add timezone indicators.",
+  "resolution": "fixed",
+  "resolutionDetails": "Existing schema files updated to work with MySQL 8.0.19+ by adding UTC timezone indicators to TIMESTAMP DEFAULT values.",
+  "related": [],
+  "keyQuote": "It seems that `+00:00` needs to be added to all default `TIMESTAMP` values to indicate UTC time zone.",
+  "number": 1826,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:08.903Z"
+}

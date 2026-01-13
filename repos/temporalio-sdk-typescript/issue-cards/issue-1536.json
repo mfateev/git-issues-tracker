@@ -1,0 +1,32 @@
+{
+  "summary": "Worker thread terminates due to out-of-memory error, causing the Worker to silently stop processing workflow tasks while the process remains running. The Worker should detect this condition and initiate graceful shutdown instead of continuing to accept tasks.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-worker-thread",
+    "memory-management",
+    "shutdown"
+  ],
+  "concepts": [
+    "memory-limit",
+    "thread-termination",
+    "process-state",
+    "error-handling",
+    "graceful-shutdown",
+    "deadlock-detection"
+  ],
+  "severity": "critical",
+  "userImpact": "Worker silently becomes unresponsive after running out of memory, blocking all workflow progress until manual process restart, with no diagnostic indication of the failure.",
+  "rootCause": "When Node.js terminates the Workflow Worker Thread due to ERR_WORKER_OUT_OF_MEMORY, the Temporal Worker is unaware and continues attempting to process tasks, creating a silent failure state.",
+  "proposedFix": "Detect ERR_WORKER_OUT_OF_MEMORY condition and initiate Worker shutdown with critical-level logging, terminating the process to prevent silent failures.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "After that point, it appears that the Worker is no longer making any progress on pending Workflow Tasks, despite the fact that the Worker process is still running.",
+  "number": 1536,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:52.982Z"
+}

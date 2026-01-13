@@ -1,0 +1,30 @@
+{
+  "summary": "Installing an older version of @temporalio/worker pulls in the latest minor version of @temporalio/common due to caret (^) version constraints, causing breaking changes. Version 1.3.0 fails when @temporalio/common 1.4.0 unexports the errorMessage function.",
+  "category": "bug",
+  "subcategory": "dependency-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "common",
+    "package-management"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "version-pinning",
+    "breaking-changes",
+    "npm-caret-constraints",
+    "package-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users installing specific older versions of the SDK encounter runtime errors due to incompatible dependency versions being automatically pulled in.",
+  "rootCause": "Package dependencies use caret (^) version constraints allowing minor version updates, but breaking changes were introduced in minor releases without proper version pinning.",
+  "proposedFix": "Pin exact versions of Temporal SDK dependencies across all packages instead of using caret constraints.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.3.1 by switching to tilde (~) constraints for patch-only updates. Issue remained in 1.4.x versions which continued using caret constraints.",
+  "related": [],
+  "keyQuote": "Since @temporalio/workflow depends on \"@temporalio/common\": \"^1.3.0\" instead of \"@temporalio/common\": \"1.3.0\", it installs the latest minor version.",
+  "number": 900,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:25.875Z"
+}

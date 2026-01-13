@@ -1,0 +1,34 @@
+{
+  "summary": "Python SDK fails to serialize exceptions when `e.__cause__` references itself (recursive exception), causing silent failures and timeout retries. The DefaultFailureConverter needs to handle this edge case and properly report serialization failures.",
+  "category": "bug",
+  "subcategory": "failure-converter",
+  "apis": [],
+  "components": [
+    "DefaultFailureConverter",
+    "failure-serialization",
+    "exception-handling"
+  ],
+  "concepts": [
+    "recursive-exception",
+    "exception-serialization",
+    "error-reporting",
+    "cause-chain",
+    "stack-overflow",
+    "edge-case"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter silent failures and startToClose timeouts when accidentally creating recursive exceptions with 'raise e from e' pattern.",
+  "rootCause": "DefaultFailureConverter does not detect or handle recursive exception cause chains, and failures during serialization are not properly reported.",
+  "proposedFix": "Add cycle detection in DefaultFailureConverter to handle cases where e.__cause__ == e or generally truncate exception chains at a maximum depth (e.g., 10), similar to how deep stacks are truncated during serialization.",
+  "workaround": "Avoid using 'raise e from e' pattern; reraise exceptions directly without specifying from clause, or manually reset e.__cause__ to None if it points to itself.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    696,
+    685
+  ],
+  "keyQuote": "The re-raised exception will have `e.__cause__` referencing itself resulting in failure to serialize error and python sdk won't report anything",
+  "number": 697,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:29.931Z"
+}

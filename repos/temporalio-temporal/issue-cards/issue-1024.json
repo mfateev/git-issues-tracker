@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a CLI command and web dashboard tab to display all task queues and their associated pollers. Currently, pollers can only be viewed by navigating through a workflow detail page, making it difficult to debug dynamically registered task queues.",
+  "category": "feature",
+  "subcategory": "taskqueue-management",
+  "apis": [],
+  "components": [
+    "web-dashboard",
+    "cli-tctl",
+    "task-queue-service"
+  ],
+  "concepts": [
+    "debugging",
+    "task-queues",
+    "pollers",
+    "visibility",
+    "dynamic-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers and operators cannot easily discover and monitor all task queues and their active pollers without drilling through workflow details.",
+  "rootCause": null,
+  "proposedFix": "Add a new 'taskqueues' tab in the web dashboard (before 'settings') and a corresponding TCTL CLI command to list all task queues with their pollers and metadata.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "taskQueues are dynamically registered in Temporal, it can be a great debugger option to check the actual taskQueues",
+  "number": 1024,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:47:00.645Z"
+}

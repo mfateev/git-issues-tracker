@@ -1,0 +1,40 @@
+{
+  "summary": "Feature request to expose history size bytes to workflow execution info to help workflows determine when to use continue-as-new. The value is available in WorkflowTaskStartedEventAttributes but needs to be accessible through the execution info API.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowExecutionInfo",
+    "WorkflowTaskStartedEventAttributes"
+  ],
+  "components": [
+    "workflow-execution",
+    "api",
+    "history"
+  ],
+  "concepts": [
+    "history-size",
+    "continue-as-new",
+    "workflow-task",
+    "execution-info",
+    "search-attributes"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows cannot efficiently determine when to use continue-as-new without expensive describe calls, impacting workflow scalability and performance.",
+  "rootCause": "History size bytes information is available in WorkflowTaskStartedEventAttributes but not exposed through WorkflowExecutionInfo API for workflow access.",
+  "proposedFix": "Add history_size_bytes to WorkflowTaskStartedEventAttributes in the poll response, or calculate it in the SDK, making it accessible to workflows.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    16,
+    178,
+    1114,
+    2726,
+    242,
+    3055
+  ],
+  "keyQuote": "Since this is for helping with continue as new, they also added `history_size_bytes` and even `suggest_continue_as_new` to `WorkflowTaskStartedEventAttributes`",
+  "number": 140,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:36.368Z"
+}

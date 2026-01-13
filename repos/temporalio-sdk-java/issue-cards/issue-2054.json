@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for next-retry-delay in local activity application failures, allowing local activities to return retry delay information similar to regular activities.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "retry-handler",
+    "activity-failure"
+  ],
+  "concepts": [
+    "retry",
+    "delay",
+    "local-activity",
+    "failure-handling",
+    "application-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now specify retry delays for local activity failures, providing consistent retry behavior across local and remote activities.",
+  "rootCause": null,
+  "proposedFix": "Implement next-retry-delay support in local activity execution path to match remote activity behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by pull request #2081 which implemented the requested feature.",
+  "related": [
+    419
+  ],
+  "keyQuote": "it was decided we need to support next retry delay in application failures from local activity too",
+  "number": 2054,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:51.653Z"
+}

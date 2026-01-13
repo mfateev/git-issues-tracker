@@ -1,0 +1,33 @@
+{
+  "summary": "The Java SDK's Worker and WorkflowClient classes do not expose RPC timeout configuration, defaulting to 1 second which is insufficient for some use cases. Customer requests the ability to set RPC timeout from client code.",
+  "category": "feature",
+  "subcategory": "rpc-configuration",
+  "apis": [
+    "Worker",
+    "WorkflowClient"
+  ],
+  "components": [
+    "worker",
+    "workflow-client",
+    "rpc-layer"
+  ],
+  "concepts": [
+    "timeout",
+    "rpc",
+    "configuration",
+    "client-settings",
+    "connection-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure RPC timeout for their use cases, forcing them to work around the 1-second default which may be too short for their operations.",
+  "rootCause": null,
+  "proposedFix": "Expose RPC timeout as a configurable parameter on Worker and WorkflowClient classes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "RPC timeout configuration was exposed to client code in Worker and WorkflowClient classes.",
+  "related": [],
+  "keyQuote": "Worker and WorkflowClient classes from the Java client do not expose a way to set the RPC timeout. It defaults to 1 second, which was not enough in some of my testing scenarios.",
+  "number": 19,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:14:12.102Z"
+}

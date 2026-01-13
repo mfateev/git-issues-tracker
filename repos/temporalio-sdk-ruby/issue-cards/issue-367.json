@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to support executing activities outside of workflow context. Workers and clients need to be enhanced to start, manage, and retrieve activity results independently, leveraging new upcoming server APIs.",
+  "category": "feature",
+  "subcategory": "activities",
+  "apis": [],
+  "components": [
+    "worker",
+    "client",
+    "activity-executor"
+  ],
+  "concepts": [
+    "activities",
+    "non-workflow-execution",
+    "server-api",
+    "activity-management",
+    "asynchronous-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to execute and manage activities independently without requiring a workflow context, enabling new use cases for activity-based processing.",
+  "rootCause": null,
+  "proposedFix": "Implement support for new server APIs (referenced in temporalio/api#640) to allow clients to start activities and workers to execute activities outside workflow context.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow executing activities without a workflow. The clients must support the new (upcoming) server APIs for starting, managing and getting results of activities.",
+  "number": 367,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:53:19.688Z"
+}

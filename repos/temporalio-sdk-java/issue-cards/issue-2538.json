@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a counter metric for unaccessed failed promises in the Java SDK to help developers detect when they forget to wait on promises or handle promise failures.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "DeterministicRunnerImpl",
+    "promise-handling",
+    "metrics"
+  ],
+  "concepts": [
+    "metrics",
+    "promises",
+    "error-handling",
+    "observability",
+    "debugging"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would have better visibility into unhandled promise failures, helping them identify and fix oversights in their workflow code.",
+  "rootCause": null,
+  "proposedFix": "Add a counter metric for unaccessed failed promises similar to what exists in the codebase at DeterministicRunnerImpl.java lines 336-347",
+  "workaround": "Developers can explicitly handle failed promises using promise.exceptionally(e->null) or promise.handle((ex, failure) -> null)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Would be useful to have a counter metric for this. Would allow detection so can fix in code if was oversight not to wait on promise",
+  "number": 2538,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:21.691Z"
+}

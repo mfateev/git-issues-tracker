@@ -1,0 +1,31 @@
+{
+  "summary": "Task list partitioning configuration in v0.23.0 causes \"Error updating timer ack level for shard\" errors in the history service, along with persistence errors in the matching service when adding/updating task lists, though no canary workflow executions actually failed.",
+  "category": "bug",
+  "subcategory": "task-list-partitioning",
+  "apis": [],
+  "components": [
+    "history-service",
+    "matching-service",
+    "timer-queue-processor",
+    "shard-management"
+  ],
+  "concepts": [
+    "task-list-partitioning",
+    "shard-management",
+    "timer-ack-level",
+    "persistence",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Enabling task list partitioning triggers error logging and persistence failures in the history and matching services, potentially impacting reliability perception even if workflows continue to execute.",
+  "rootCause": "Range ID conflict when updating shard state during task list partitioning, causing failed shard updates with \"Previous range ID: 46; new range ID: 47\" errors.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Closed as too old (reported in 2020) with no similar issues observed in load testing. Requested reopen only if issue reproduces in v1.7.x or later.",
+  "related": [],
+  "keyQuote": "Failed to update shard. Previous range ID: 46; new range ID: 47",
+  "number": 530,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:13:34.651Z"
+}

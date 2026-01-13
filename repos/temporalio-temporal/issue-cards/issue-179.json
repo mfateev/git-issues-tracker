@@ -1,0 +1,30 @@
+{
+  "summary": "The CLI hangs when attempting to list workflows in a domain that doesn't exist. The command `./cadence -do sample workflow list` blocks indefinitely instead of returning an error when the specified domain is not found.",
+  "category": "bug",
+  "subcategory": "cli-domain-handling",
+  "apis": [],
+  "components": [
+    "cli",
+    "domain-client",
+    "workflow-list"
+  ],
+  "concepts": [
+    "error-handling",
+    "timeout",
+    "domain-validation",
+    "blocking-behavior",
+    "user-feedback"
+  ],
+  "severity": "high",
+  "userImpact": "Users are unable to work with the CLI when using non-existent domains, as the application hangs without providing feedback.",
+  "rootCause": "The CLI does not validate domain existence before attempting to list workflows, and lacks a timeout mechanism to prevent indefinite blocking.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This hangs if domain sample doesn't exist: `./cadence -do sample workflow list`",
+  "number": 179,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:21:33.364Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "When one activity in a parallel asyncio.gather() fails, it causes the entire workflow to fail and cancels remaining activities, preventing their successful results from being saved to workflow history. Users expected successful activity completions to be persisted even when other parallel activities fail.",
+  "category": "bug",
+  "subcategory": "parallel-activities",
+  "apis": [
+    "execute_activity",
+    "gather"
+  ],
+  "components": [
+    "workflow-executor",
+    "activity-orchestration",
+    "error-handling"
+  ],
+  "concepts": [
+    "parallel-execution",
+    "exception-handling",
+    "activity-cancellation",
+    "workflow-state",
+    "asyncio",
+    "error-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose successful activity results when any parallel activity fails, making it impossible to partially recover from failures in parallel workflows.",
+  "rootCause": "asyncio.gather() with return_exceptions=False (default) propagates the first exception immediately, causing the workflow to complete and cancel all outstanding activities per Temporal server behavior.",
+  "proposedFix": "Use asyncio.gather() with return_exceptions=True to handle exceptions individually and allow other activities to complete before the workflow fails.",
+  "workaround": "Set return_exceptions=True in asyncio.gather() to allow activities to fail individually without cancelling the entire workflow.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was determined to be user error - expected behavior clarified. Users should use return_exceptions=True in gather() to handle individual activity failures.",
+  "related": [],
+  "keyQuote": "If return_exceptions is False (default), the first raised exception is immediately propagated to the task that awaits on gather().",
+  "number": 150,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:18.589Z"
+}

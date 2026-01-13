@@ -1,0 +1,31 @@
+{
+  "summary": "Request to mark activity calls as 'optional' in workflows to allow adding/removing activity invocations without breaking determinism. This would enable easier workflow evolution for fire-and-forget activities that don't impact workflow results.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "activity-executor",
+    "determinism-validator"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-replay",
+    "fire-and-forget",
+    "activity-invocation",
+    "backward-compatibility",
+    "workflow-evolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to extend workflows with new activity calls without risking determinism violations, limiting the ability to evolve workflows safely over time.",
+  "rootCause": null,
+  "proposedFix": "Introduce an 'optional' marker for activity calls that informs the runtime these activities can be skipped during replay without affecting workflow determinism",
+  "workaround": "Use external event publishing with custom listeners and separate infrastructure for fan-out patterns instead of direct activity invocations",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "adding/removing activities will break determinism. We would like to have an ability to mark an activity call as 'optional'",
+  "number": 6521,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:56.321Z"
+}

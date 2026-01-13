@@ -1,0 +1,30 @@
+{
+  "summary": "Request to provide build steps and pre-built binaries for temporal-sql-tool so users can build it without installing extra dependencies, potentially leveraging Docker for reproducible builds.",
+  "category": "feature",
+  "subcategory": "tooling-build",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "build-system",
+    "docker"
+  ],
+  "concepts": [
+    "binary-distribution",
+    "build-automation",
+    "docker-containerization",
+    "developer-experience",
+    "reproducible-builds"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clearer documentation and easier methods to build temporal-sql-tool binaries without installing Go or other dependencies.",
+  "rootCause": null,
+  "proposedFix": "Add build steps to documentation, provide pre-built binaries on GitHub/DockerHub, or create a Dockerfile to build the tool in a container.",
+  "workaround": "Download source, use Docker with Go image to build using the Makefile target, then install the binary manually to /usr/local/bin/",
+  "resolution": "fixed",
+  "resolutionDetails": "Cassandra/SQL tool made available via Docker Hub at temporalio/admin-tools",
+  "related": [],
+  "keyQuote": "Cassandra /SQL tool is available here: https://hub.docker.com/r/temporalio/admin-tools",
+  "number": 1271,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:11:59.415Z"
+}

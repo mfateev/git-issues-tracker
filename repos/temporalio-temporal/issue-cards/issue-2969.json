@@ -1,0 +1,33 @@
+{
+  "summary": "DescribeTaskQueue and other RPC calls return incomplete data when called on a task queue that hasn't finished loading. The issue is that matchingEngine calls RPCs on newly created taskQueueManager instances before the taskWriter has acquired the initial lease.",
+  "category": "bug",
+  "subcategory": "task-queue-manager",
+  "apis": [
+    "DescribeTaskQueue"
+  ],
+  "components": [
+    "matchingEngine",
+    "taskQueueManager",
+    "taskWriter",
+    "taskReader"
+  ],
+  "concepts": [
+    "lease-acquisition",
+    "async-initialization",
+    "blocking",
+    "task-queue-loading",
+    "data-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users calling DescribeTaskQueue on newly accessed task queues may receive incomplete or missing metadata.",
+  "rootCause": "taskQueueManager returns before taskWriter has finished acquiring the initial lease, causing downstream RPC calls to operate on uninitialized state.",
+  "proposedFix": "Add a blocking method to taskQueueManager that waits until taskWriter has acquired the lease (or failed), called from matchingEngine methods. Alternatively, make newTaskQueueManager not return until lease acquisition is complete using a context for timeout/cancellation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add a method to tqm that blocks (up to the context timeout) until taskWriter has acquired the lease (or failed to), and call that from most of the matchingEngine methods.",
+  "number": 2969,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:49.102Z"
+}

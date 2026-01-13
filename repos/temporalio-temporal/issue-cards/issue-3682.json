@@ -1,0 +1,33 @@
+{
+  "summary": "Task queue scavenger feature is not functional for Cassandra persistence because the ListTaskQueue API is not implemented in the Cassandra persistence layer. This prevents stale task queues from being cleaned up.",
+  "category": "bug",
+  "subcategory": "persistence-cassandra",
+  "apis": [],
+  "components": [
+    "persistence",
+    "cassandra",
+    "matching-task-store",
+    "task-queue-scavenger"
+  ],
+  "concepts": [
+    "task-queue",
+    "cleanup",
+    "scavenger",
+    "persistence-api",
+    "stale-data"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with Cassandra persistence will accumulate stale task queues that cannot be cleaned up, potentially affecting system resource management and maintenance.",
+  "rootCause": "ListTaskQueue persistence API is not implemented in Cassandra matching_task_store.go",
+  "proposedFix": "Implement the ListTaskQueue API for Cassandra persistence to enable task queue scavenger functionality",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1021
+  ],
+  "keyQuote": "Task queue scavenger is not working for cassandra. This is mostly because the ListTaskQueue persistence API is not implemented by Cassandra persistence.",
+  "number": 3682,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:01.756Z"
+}

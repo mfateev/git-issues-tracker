@@ -1,0 +1,29 @@
+{
+  "summary": "Allow users to specify a configurable root path prefix for the HTTP API endpoints (/namespaces, /cluster, /system-info) instead of relying solely on proxy trimming.",
+  "category": "feature",
+  "subcategory": "http-api",
+  "apis": [],
+  "components": [
+    "http-api",
+    "server"
+  ],
+  "concepts": [
+    "path-prefix",
+    "routing",
+    "configuration",
+    "http-endpoints",
+    "api-gateway"
+  ],
+  "severity": "low",
+  "userImpact": "Users can configure a custom root path for HTTP API endpoints without requiring proxy-level path manipulation.",
+  "rootCause": null,
+  "proposedFix": "Add configuration option to specify a path prefix for HTTP API endpoints",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "allow users to specify a path prefix",
+  "number": 6212,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:10.174Z"
+}

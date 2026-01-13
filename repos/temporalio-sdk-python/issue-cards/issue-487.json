@@ -1,0 +1,30 @@
+{
+  "summary": "Users with advanced logger handlers that don't work in sandbox mode need a way to opt-out of sandboxing for the workflow logger. The request is to add a helper function that allows wrapping logger process calls in unrestricted sandbox context.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "workflow-logger",
+    "workflow-sandbox",
+    "logging"
+  ],
+  "concepts": [
+    "sandboxing",
+    "logger-handlers",
+    "unsafe-operations",
+    "workflow-context",
+    "advanced-logging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with third-party logging libraries like structlog cannot use advanced handler features due to sandbox restrictions and must find workarounds.",
+  "rootCause": "The workflow sandbox prevents certain logging library operations (like json serialization and threadlocal imports) that advanced handlers require.",
+  "proposedFix": "Add a `temporalio.workflow.logger.unsafe_disable_sandbox()` helper that wraps logger process calls in `sandbox_unrestricted()` and `imports_passed_through()` contexts, or provide a base `SandboxDisabledLoggerAdapter` class.",
+  "workaround": "Users can manually create a custom LoggerAdapter that wraps the process method in `with temporalio.workflow.unsafe.sandbox_unrestricted()` and `with temporalio.workflow.unsafe.imports_passed_through()` contexts.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some users have advanced logger handlers that cannot work in sandbox mode. I think we can add a temporalio.workflow.logger.unsafe_disable_sandbox() call",
+  "number": 487,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:31.181Z"
+}

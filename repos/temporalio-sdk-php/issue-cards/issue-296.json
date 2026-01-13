@@ -1,0 +1,31 @@
+{
+  "summary": "Protocol errors in the PHP SDK's GRPC client are not being retried, only service-level errors are. The issue requests that protocol errors be included in the retry logic for better resilience.",
+  "category": "bug",
+  "subcategory": "grpc-client",
+  "apis": [],
+  "components": [
+    "BaseClient",
+    "GRPC",
+    "client-connection"
+  ],
+  "concepts": [
+    "retry",
+    "protocol-error",
+    "error-handling",
+    "resilience",
+    "connection",
+    "service-errors"
+  ],
+  "severity": "high",
+  "userImpact": "Applications may fail to recover from transient protocol errors that could otherwise be retried, reducing reliability.",
+  "rootCause": "BaseClient retry logic only handles service-level errors, not protocol-level errors from the GRPC layer.",
+  "proposedFix": "Include protocol errors in the retry logic alongside service-level errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fix was included in the next release with improved error handling and more verbose error messages for connection issues.",
+  "related": [],
+  "keyQuote": "protocol errors are not being retried (only service level errors) ... please retry protocol errors too.",
+  "number": 296,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:25.253Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to allow TLS client certificate and key to be passed as strings instead of Buffers, eliminating the need for Buffer.from() conversions when using environment variables.",
+  "category": "feature",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "tls",
+    "client-config",
+    "connection"
+  ],
+  "concepts": [
+    "tls",
+    "certificate",
+    "configuration",
+    "string-conversion",
+    "environment-variables"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces boilerplate code and improves convenience for users configuring TLS certificates from environment variables.",
+  "rootCause": null,
+  "proposedFix": "Support Buffer | { content: string | Buffer } | { path: string } to allow strings while directing users toward the correct format.",
+  "workaround": "Use Buffer.from() to convert string environment variables to Buffers.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented support for strings in addition to Buffers for clientCertPair configuration.",
+  "related": [],
+  "keyQuote": "So that I don't have to use `Buffer.from` with env vars",
+  "number": 1017,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:41.096Z"
+}

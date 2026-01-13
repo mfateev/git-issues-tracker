@@ -1,0 +1,30 @@
+{
+  "summary": "Request for clearer error messages when List Filters contain invalid syntax, specifically when string values are missing quotes. Currently, unquoted values produce opaque errors instead of helpful guidance about required quoting.",
+  "category": "other",
+  "subcategory": "list-filters",
+  "apis": [],
+  "components": [
+    "list-filters",
+    "error-messages",
+    "query-parser"
+  ],
+  "concepts": [
+    "error-handling",
+    "user-experience",
+    "input-validation",
+    "string-formatting",
+    "filter-syntax"
+  ],
+  "severity": "low",
+  "userImpact": "Users receive confusing error messages when forgetting quotes in List Filter values, making it difficult to diagnose and fix filter syntax errors.",
+  "rootCause": "Error message does not clearly indicate that unquoted values are interpreted differently or explain the syntax requirement",
+  "proposedFix": "Return specific error message like 'Invalid List Filter: the right side of `ExecutionStatus = Running` should be a string (needs quotes around it).'",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Invalid List Filter: the right side of `ExecutionStatus = Running` should be a string (needs quotes around it).",
+  "number": 3494,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:47.040Z"
+}

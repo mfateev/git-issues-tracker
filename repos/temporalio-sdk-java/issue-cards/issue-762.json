@@ -1,0 +1,32 @@
+{
+  "summary": "AuthorizationGrpcMetadataProvider class lacks a public constructor, making it impossible to instantiate outside its package. Users must either extend the class or wait for a future fix.",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [
+    "AuthorizationGrpcMetadataProvider"
+  ],
+  "components": [
+    "authorization",
+    "grpc-metadata",
+    "client-api"
+  ],
+  "concepts": [
+    "constructor",
+    "visibility",
+    "access-control",
+    "instantiation",
+    "api-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot directly instantiate AuthorizationGrpcMetadataProvider and must extend the class or use workarounds.",
+  "rootCause": "AuthorizationGrpcMetadataProvider constructor is not public, restricting instantiation to the same package.",
+  "proposedFix": null,
+  "workaround": "Extend the AuthorizationGrpcMetadataProvider class and expose the constructor.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.4.0 by making the constructor public.",
+  "related": [],
+  "keyQuote": "If you need a workaround now, please extend the `AuthorizationGrpcMetadataProvider ` class and expose the constructor.",
+  "number": 762,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:40:49.784Z"
+}

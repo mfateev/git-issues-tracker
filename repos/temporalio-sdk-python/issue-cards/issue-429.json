@@ -1,0 +1,34 @@
+{
+  "summary": "asyncio.wait() is non-deterministic when passed coroutines instead of tasks, causing activity results to be randomly reassigned across concurrent executions. This occurs because asyncio.wait() internally converts coroutines to a set, which has no ordering guarantees.",
+  "category": "bug",
+  "subcategory": "concurrency-determinism",
+  "apis": [
+    "execute_activity",
+    "execute_activity"
+  ],
+  "components": [
+    "workflow-execution",
+    "async-orchestration",
+    "activity-executor"
+  ],
+  "concepts": [
+    "determinism",
+    "asyncio-wait",
+    "coroutines",
+    "concurrency",
+    "task-ordering",
+    "non-deterministic-behavior"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience random mismatches in activity result assignments when using asyncio.wait() with coroutines, causing workflows to produce incorrect outputs and breaking deterministic execution guarantees.",
+  "rootCause": "Python's asyncio.wait() non-deterministically converts coroutines to a set (unordered), causing them to start in unpredictable order. With async functions like execute_activity(), the coroutine isn't created until awaited, unlike sync functions that return awaitables.",
+  "proposedFix": "Wrap coroutines in asyncio.create_task() before passing to asyncio.wait(), which ensures tasks are created deterministically and executed in order.",
+  "workaround": "Use asyncio.create_task() to wrap execute_activity() calls, or use asyncio.gather() which uses an ordered dictionary internally for futures.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be a Python asyncio limitation, not a Temporal SDK issue. Documented as a gotcha. Mitigated in Python 3.11+ which disallows passing coroutines to asyncio.wait().",
+  "related": [],
+  "keyQuote": "asyncio.wait is non-deterministically converts the input to a set (which unlike even dict, does not have any reliable ordering). This means the coroutines are not even started in the same order.",
+  "number": 429,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:35.155Z"
+}

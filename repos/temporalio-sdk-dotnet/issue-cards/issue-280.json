@@ -1,0 +1,35 @@
+{
+  "summary": "TaskQueue is not being forwarded when using the Test Environment, causing ContinueAsNew operations to hang due to a missing TaskQueue error. The TaskQueue should be auto-assigned by the workflow if not explicitly provided.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflowAsync",
+    "ContinueAsNewException"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-execution",
+    "task-queue-routing"
+  ],
+  "concepts": [
+    "task-queue",
+    "continue-as-new",
+    "workflow-continuation",
+    "test-server",
+    "auto-assignment"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use ContinueAsNew in test environments as workflows hang waiting for a properly forwarded TaskQueue.",
+  "rootCause": "TaskQueue is not being automatically forwarded/assigned during workflow continuation in the test environment, causing the core SDK to report a missing TaskQueue error.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1424
+  ],
+  "keyQuote": "The TaskQueue should really be getting auto-assigned by the Workflow if not provided explicitly.",
+  "number": 280,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T12:30:05.234Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Support multiple stages of namespace deletion to manage abandoned or misspelled namespaces. Proposed stages include disabling new submissions, hiding from namespace lists, soft delete with undelete capability, and hard delete from the database.",
+  "category": "feature",
+  "subcategory": "namespace-management",
+  "apis": [],
+  "components": [
+    "namespace-service",
+    "database",
+    "ui",
+    "api"
+  ],
+  "concepts": [
+    "namespace-deletion",
+    "namespace-disabling",
+    "data-cleanup",
+    "soft-delete",
+    "hard-delete",
+    "namespace-visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to clean up abandoned or misspelled namespaces to reduce UI clutter and confusion about active namespaces.",
+  "rootCause": null,
+  "proposedFix": "Implement staged namespace deletion with four levels: (1) disable new submissions, (2) disable and hide from list API, (3) soft delete with undelete capability, (4) hard delete from database after checking for no references.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Delete namespace functionality was released in version 1.17.0. Users can delete namespaces using the 'temporal operator namespace delete' command.",
+  "related": [],
+  "keyQuote": "Delete namespace functionality was released in 1.17.0",
+  "number": 1679,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:43.729Z"
+}

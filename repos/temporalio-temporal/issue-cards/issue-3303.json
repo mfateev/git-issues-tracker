@@ -1,0 +1,33 @@
+{
+  "summary": "Workers need visibility into when they can be retired by understanding which workflow versions are still in use. The issue proposes adding BuildIDs search attributes and possibly APIs to enable automatic worker retirement discovery and notifications.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "GetWorkerBuildIDOrdering"
+  ],
+  "components": [
+    "worker",
+    "versioning",
+    "visibility-api",
+    "search-attributes"
+  ],
+  "concepts": [
+    "worker-retirement",
+    "build-ids",
+    "version-graph",
+    "workflow-compatibility",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack visibility into when workers supporting deprecated versions can be safely retired, making it difficult to manage worker lifecycle and automate cleanup.",
+  "rootCause": "Missing visibility mechanism to determine which workflow versions are still actively running and require worker support.",
+  "proposedFix": "Add BuildIDs search attribute (preferably with ES alias support), combine with version graph data, and potentially create new API or augment GetWorkerBuildIDOrdering to determine worker retirement eligibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker versioning feature with visibility support was implemented to address this requirement.",
+  "related": [],
+  "keyQuote": "We need a way for users to be able to understand when a set of workers can be retired because no more workflows require the version those workers support.",
+  "number": 3303,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:36.324Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User asks about scaling PHP SDK workers across multiple Kubernetes pods in different AWS zones. Concern about RoadRunner's internal process orchestration and potential issues with pod scaling.",
+  "category": "question",
+  "subcategory": "kubernetes-scaling",
+  "apis": [],
+  "components": [
+    "worker",
+    "roadrunner"
+  ],
+  "concepts": [
+    "scaling",
+    "kubernetes",
+    "pod-orchestration",
+    "multi-zone",
+    "load-balancing",
+    "clustering"
+  ],
+  "severity": "low",
+  "userImpact": "Users need guidance on properly scaling PHP workers horizontally across Kubernetes clusters without architectural conflicts.",
+  "rootCause": "Misunderstanding that RoadRunner's internal process management is incompatible with Kubernetes pod scaling strategies.",
+  "proposedFix": "Use Temporal and/or RoadRunner metrics (queue_size, Temporal worker metrics) to drive cluster scaling decisions.",
+  "workaround": "Scale pods independently; RoadRunner manages internal processes while Kubernetes manages pod replicas.",
+  "resolution": "fixed",
+  "resolutionDetails": "Clarified that RoadRunner works fine for pod scaling. Pods can scale independently while RoadRunner manages internal PHP processes. Use queue_size and Temporal metrics for scaling triggers.",
+  "related": [],
+  "keyQuote": "RoadRunner works fine for such type of scaling. It's just an application, it doesn't scale (up or down) the PHP processes, and they are constant.",
+  "number": 178,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:37.592Z"
+}

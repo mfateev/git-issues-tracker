@@ -1,0 +1,33 @@
+{
+  "summary": "Request to support dynamic activity timeout configuration via a Supplier<ActivityOptions> instead of requiring application redeployment. This would allow workers to update activity timeouts on a faster cycle in response to incidents without rebuilding and restarting the entire application.",
+  "category": "feature",
+  "subcategory": "activity-options",
+  "apis": [
+    "ActivityOptions",
+    "WorkerImplementationOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "configuration"
+  ],
+  "concepts": [
+    "dynamic-configuration",
+    "timeout",
+    "activity-options",
+    "supplier-pattern",
+    "deployment-cycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently rebuild and redeploy applications to change activity timeouts, creating long turnaround times for operational changes in response to incidents.",
+  "rootCause": null,
+  "proposedFix": "Add support for ActivityOptions provided via Supplier<ActivityOptions> in WorkerImplementationOptions to enable dynamic configuration from external stores.",
+  "workaround": "Changing configs in code and redeploying, or restarting workers after configuration changes",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "ActivityOptions provided via WorkerImplementationOptions to support a Supplier<ActivityOptions> would help allow us to plugin a dynamic config store",
+  "number": 753,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:40:11.328Z"
+}

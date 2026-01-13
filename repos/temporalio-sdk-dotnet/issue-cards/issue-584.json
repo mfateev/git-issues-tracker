@@ -1,0 +1,34 @@
+{
+  "summary": "The .NET SDK's TLS certificate loading from file paths doesn't work for Temporal Cloud mTLS authentication. When using the TEMPORAL_TLS_CLIENT_CERT_PATH environment variable, connection fails with a certificate error, but the same certificate works when provided via TEMPORAL_TLS_CLIENT_CERT_DATA.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [
+    "TemporalClient.ConnectAsync",
+    "ClientEnvConfig.LoadClientConnectOptions"
+  ],
+  "components": [
+    "ClientEnvConfig",
+    "TLS",
+    "connection-options"
+  ],
+  "concepts": [
+    "TLS",
+    "mTLS",
+    "certificate-loading",
+    "file-path",
+    "environment-variables",
+    "authentication"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot connect to Temporal Cloud using mTLS authentication when providing certificates via file paths, forcing them to use less convenient environment variable alternatives.",
+  "rootCause": "ClientEnvConfig.Tls.ToTlsOptions only reads the Data property of DataSource and ignores the Path property, preventing file-based certificate loading.",
+  "proposedFix": null,
+  "workaround": "Use TEMPORAL_TLS_CLIENT_CERT_DATA environment variable instead of TEMPORAL_TLS_CLIENT_CERT_PATH to provide the certificate content directly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Looks like `ClientEnvConfig.Tls.ToTlsOptions` only reads `Data` and ignores `Path` property of `DataSource`",
+  "number": 584,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:37:41.721Z"
+}

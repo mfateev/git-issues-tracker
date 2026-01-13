@@ -1,0 +1,31 @@
+{
+  "summary": "During workflow result handling, the retry_state field from WorkflowExecutionFailedEventAttributes is hardcoded instead of being read from the actual event attributes.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowExecutionFailedEventAttributes"
+  ],
+  "components": [
+    "workflow-execution",
+    "result-handling",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry-state",
+    "workflow-failure",
+    "event-attributes",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow retry state information is not correctly propagated, potentially causing incorrect retry behavior or loss of retry context information.",
+  "rootCause": "retry_state field is hardcoded in workflow result handling instead of being read from WorkflowExecutionFailedEventAttributes",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The retry_state field is now properly read from WorkflowExecutionFailedEventAttributes instead of being hardcoded",
+  "related": [],
+  "keyQuote": "Seems during workflow result, retry state is hardcoded instead of using that field",
+  "number": 464,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:10:05.783Z"
+}

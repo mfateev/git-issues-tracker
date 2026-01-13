@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose histogram bucket overrides for custom metric bucket sizes in the TypeScript SDK, as implemented in sdk-core.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "histogram",
+    "observability"
+  ],
+  "concepts": [
+    "metrics",
+    "histogram",
+    "bucket-configuration",
+    "customization",
+    "observability",
+    "monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot customize histogram bucket sizes for metrics collection, limiting their ability to tailor metrics to their specific monitoring needs.",
+  "rootCause": null,
+  "proposedFix": "Expose histogram bucket overrides made available in sdk-core PR #844",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    606
+  ],
+  "keyQuote": "Need to expose histogram bucket overrides made available in https://github.com/temporalio/sdk-core/pull/844",
+  "number": 1634,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:11:42.396Z"
+}

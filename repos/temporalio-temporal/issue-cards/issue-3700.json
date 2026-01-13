@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add ExecutionStatus field to archival visibility syntax for S3 and Google Cloud Storage archivers, enabling users to query archived workflow status without scanning workflow history.",
+  "category": "feature",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "archival",
+    "visibility",
+    "s3-archiver",
+    "gcloud-archiver"
+  ],
+  "concepts": [
+    "workflow-status",
+    "archived-workflows",
+    "visibility-query",
+    "workflow-search",
+    "archival-storage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently scan entire workflow history to determine archived workflow status instead of querying it directly.",
+  "rootCause": null,
+  "proposedFix": "Add ExecutionStatus as a queryable field in archival visibility syntax alongside existing fields (WorkflowType, WorkflowID, StartTime, CloseTime, SearchPrecision).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Please add ExecutionStatus to this so finding archived wf status does not have to be done by scanning workflow history.",
+  "number": 3700,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:25.026Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "After calling getVersion() in a workflow, business logic exceptions thrown immediately after are being suppressed instead of propagating to the Temporal UI. The workflow task appears to be consuming the exception.",
+  "category": "bug",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "getVersion"
+  ],
+  "components": [
+    "workflow-engine",
+    "exception-handling",
+    "task-processor"
+  ],
+  "concepts": [
+    "exception-suppression",
+    "workflow-versioning",
+    "error-propagation",
+    "task-execution",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Business logic exceptions are hidden from users when thrown immediately after version checks, making debugging impossible and masking errors in production workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed due to insufficient information. A test was created showing the behavior works correctly in simple cases, and the reporter did not provide additional reproduction details.",
+  "related": [],
+  "keyQuote": "The exception should not be eaten up. Instead the business logic exception should come in the Temporal UI",
+  "number": 1736,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:09.502Z"
+}

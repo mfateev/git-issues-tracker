@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add TestNexusEnvironment for testing Nexus operations without requiring a full workflow, similar to the existing TestActivityEnvironment.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "nexus",
+    "test-environment"
+  ],
+  "concepts": [
+    "testing",
+    "nexus-operations",
+    "unit-testing",
+    "test-framework",
+    "isolation"
+  ],
+  "severity": "low",
+  "userImpact": "Users must currently write workaround workflows to test Nexus operations, which adds complexity to testing.",
+  "rootCause": null,
+  "proposedFix": "Add TestNexusEnvironment as a direct analog to TestActivityEnvironment.",
+  "workaround": "Write a short workflow to invoke the operation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add TestNexusEnvironment similar to TestActivityEnvironment",
+  "number": 2229,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:03:06.967Z"
+}

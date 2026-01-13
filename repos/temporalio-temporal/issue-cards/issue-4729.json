@@ -1,0 +1,34 @@
+{
+  "summary": "Custom text search attributes with dashes in values fail in SQLite backend with column not found errors, while working correctly with Elasticsearch. Query parsing incorrectly splits the dashed value, treating the suffix as a separate column name.",
+  "category": "bug",
+  "subcategory": "visibility-search",
+  "apis": [],
+  "components": [
+    "sqlite-backend",
+    "visibility-search",
+    "custom-attributes",
+    "query-parser"
+  ],
+  "concepts": [
+    "search-attributes",
+    "sqlite",
+    "escaping",
+    "parsing",
+    "custom-fields",
+    "text-search"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot query workflows by custom text fields containing dashes when using SQLite backend, causing visibility feature to fail.",
+  "rootCause": "Escaping or parsing issue with dashes in custom attribute values - the dash is incorrectly handled causing the value to be split and treated as separate column references.",
+  "proposedFix": "Fix escaping/parsing logic in SQLite query handler to properly handle dashed values in custom text fields, as referenced in PR #4755.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #4755 which addresses the escaping/parsing issue with dashes in SQLite custom attribute queries.",
+  "related": [
+    4755
+  ],
+  "keyQuote": "SQL logic error: no such column: stresstest (1) - occurs when querying custom text fields with dash-containing values like 'configdriven-stresstest'",
+  "number": 4729,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:17.573Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Updates can be processed before the first workflow code executes if they arrive in the same task as the start workflow message. The SDK needs to buffer updates similar to how other SDKs handle this, or reorder activation job processing to prevent updates from executing before workflow initialization.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "update-handler",
+    "activation-job-processor"
+  ],
+  "concepts": [
+    "update-ordering",
+    "buffer",
+    "initialization",
+    "activation-task",
+    "signal-ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Users may encounter unexpected behavior where workflow update handlers execute before the workflow's initial code runs, breaking expected execution semantics.",
+  "rootCause": "Core reorders updates to come before signals, but the Python SDK does not properly buffer or reorder activation jobs to ensure updates only execute after workflow initialization.",
+  "proposedFix": "Buffer updates as implemented in other SDKs, or ensure activation job reordering matches Core's behavior while preventing updates from executing before workflow code starts.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    176
+  ],
+  "keyQuote": "it's currently possible to handle an update before running the first bit of workflow code if an update comes in same task as start workflow",
+  "number": 462,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:27.419Z"
+}

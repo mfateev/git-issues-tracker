@@ -1,0 +1,38 @@
+{
+  "summary": "Child workflow execution gets stuck in WorkflowEnvironment when triggered from a workflow update. The test environment's automatic time-skipping doesn't work when waiting on an update result, preventing child workflows from progressing.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "execute_child_workflow",
+    "execute_update",
+    "wait_condition"
+  ],
+  "components": [
+    "WorkflowEnvironment",
+    "time-skipping",
+    "workflow-updates",
+    "child-workflows"
+  ],
+  "concepts": [
+    "automatic-time-skipping",
+    "testing",
+    "workflow-updates",
+    "child-workflows",
+    "deadlock",
+    "event-progression"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test parent workflows that use child workflow execution triggered by workflow updates in the test environment.",
+  "rootCause": "Automatic time skipping in WorkflowEnvironment only advances time when waiting on workflow results, not when waiting on update results, causing child workflow events to never be processed.",
+  "proposedFix": "Enable automatic time-skipping when waiting on an update result, similar to how it works for workflow results.",
+  "workaround": "Use `asyncio.create_task(handle.result())` to wait for the workflow result in the background, or use `env.time_skipping_unlocked()` context manager to manually control time skipping.",
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by opening issue #675 to enable auto time-skipping when waiting on an update result.",
+  "related": [
+    675
+  ],
+  "keyQuote": "Automatic time skipping only works when you're waiting on the workflow result. If you start the workflow and do not wait on the result, the automatic time skipping will not occur.",
+  "number": 661,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:42.897Z"
+}

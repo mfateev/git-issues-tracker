@@ -1,0 +1,30 @@
+{
+  "summary": "SpringBoot configuration documentation states that HTTPS is automatically enabled when an API key is specified, but testing shows that HTTPS is not enabled unless explicitly set with enable-https: true.",
+  "category": "docs",
+  "subcategory": "springboot-configuration",
+  "apis": [],
+  "components": [
+    "springboot-configuration",
+    "https-configuration",
+    "api-key-handling"
+  ],
+  "concepts": [
+    "https",
+    "api-key",
+    "configuration",
+    "documentation",
+    "auto-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following documentation expecting automatic HTTPS enablement with API keys must manually set enable-https: true, causing confusion and potential misconfiguration.",
+  "rootCause": "Documentation claims automatic HTTPS enablement that does not actually occur in the implementation",
+  "proposedFix": null,
+  "workaround": "Explicitly set enable-https: true in SpringBoot configuration even when API key is defined",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely indicating documentation was corrected or implementation was fixed to match documented behavior",
+  "related": [],
+  "keyQuote": "docs mention that \"If an API key is specified, https will automatically be enabled.\" after testing it seems that its not automatically set",
+  "number": 2443,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:46.270Z"
+}

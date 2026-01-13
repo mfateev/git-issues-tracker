@@ -1,0 +1,35 @@
+{
+  "summary": "Python SDK's ScheduleHandle.update() method doesn't support updating the memo field, which users need to keep schedule metadata in sync when updating other schedule configuration. Request to add memo support to ScheduleUpdate object.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ScheduleHandle.update",
+    "ScheduleUpdateInput",
+    "ScheduleUpdate",
+    "client.create_schedule"
+  ],
+  "components": [
+    "schedule-api",
+    "python-sdk",
+    "schedule-update"
+  ],
+  "concepts": [
+    "schedule-metadata",
+    "memo-field",
+    "schedule-configuration",
+    "update-operations",
+    "metadata-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot update schedule memo when modifying other schedule properties, forcing them to work with stale metadata or rebuild schedules entirely.",
+  "rootCause": null,
+  "proposedFix": "Add memo field support to ScheduleUpdate object and ScheduleUpdateInput in Python SDK's ScheduleHandle.update() method.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow an updated memo object to be passed in the ScheduleHandle.update call in the ScheduleUpdate object.",
+  "number": 5510,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:16.576Z"
+}

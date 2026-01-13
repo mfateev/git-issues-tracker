@@ -1,0 +1,32 @@
+{
+  "summary": "listWorkflowExecutions API call throws 'Namespace is empty' error when namespace parameter is omitted. The namespace should be marked as mandatory in the API to provide better developer guidance.",
+  "category": "bug",
+  "subcategory": "api-validation",
+  "apis": [
+    "listWorkflowExecutions"
+  ],
+  "components": [
+    "client",
+    "grpc-api",
+    "workflow-service"
+  ],
+  "concepts": [
+    "namespace",
+    "required-parameters",
+    "api-design",
+    "error-handling",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers receive confusing gRPC error messages instead of clear API documentation indicating namespace is required.",
+  "rootCause": "The low-level gRPC API (auto-generated from protobuf) does not enforce required properties, and protobuf 3 lacks a concept of required fields.",
+  "proposedFix": "Mark namespace as mandatory in API documentation or add runtime validation in the client library.",
+  "workaround": "Use the high-level client.workflow.list() API instead, which handles namespace requirements internally and provides better developer experience.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by recommending users use the high-level client.workflow.list() API instead of the low-level gRPC connection.workflowService API, which provides better error handling and required parameter validation.",
+  "related": [],
+  "keyQuote": "I strongly recommend you use client.workflow.list instead, which is the high level API to list workflows. It provides a more intuitive API, and handle pagination internally.",
+  "number": 1347,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:06.292Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowExtension needs support for WorkflowImplementationOptions to allow configurable behavior like failWorkflowExceptionTypes during testing, currently only using defaults.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "registerWorkflowImplementationTypes"
+  ],
+  "components": [
+    "TestWorkflowExtension",
+    "worker",
+    "testing"
+  ],
+  "concepts": [
+    "testing",
+    "configuration",
+    "exception-handling",
+    "workflow-registration",
+    "retry-behavior"
+  ],
+  "severity": "low",
+  "userImpact": "Test authors cannot configure failWorkflowExceptionTypes and other WorkflowImplementationOptions when using TestWorkflowExtension, limiting test flexibility.",
+  "rootCause": null,
+  "proposedFix": "Add a WorkflowImplementationOptions property to TestWorkflowExtension and its builder, used in beforeEach when calling worker.registerWorkflowImplementationTypes, with default value of WorkflowImplementationOptions.newBuilder().build().",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Already implemented and will be included in the next Java SDK release (commit bb43d37).",
+  "related": [],
+  "keyQuote": "Add a WorkflowImplementationOptions property to TestWorkflowExtension and its builder to be used in beforeEach when calling worker.registerWorkflowImplementationTypes.",
+  "number": 1953,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:50.768Z"
+}

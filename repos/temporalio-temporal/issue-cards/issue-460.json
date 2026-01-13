@@ -1,0 +1,30 @@
+{
+  "summary": "Setting POSTGRES_PWD to empty in docker-compose-postgres.yml causes the POSTGRES_SEEDS environment variable to be ignored and defaults to 127.0.0.1, preventing users from specifying custom database seed hosts.",
+  "category": "bug",
+  "subcategory": "docker-configuration",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "postgres-driver",
+    "configuration"
+  ],
+  "concepts": [
+    "environment-variables",
+    "database-seeds",
+    "default-values",
+    "docker-compose",
+    "postgres-connection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure custom PostgreSQL seed hosts when they set an empty password, forcing them to use localhost which may not be accessible in their environment.",
+  "rootCause": "The docker-compose configuration likely has conditional logic that defaults POSTGRES_SEEDS to 127.0.0.1 when POSTGRES_PWD is empty or unset.",
+  "proposedFix": null,
+  "workaround": "Do not set POSTGRES_PWD to empty; use a placeholder password value instead.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the docker-compose configuration to properly honor POSTGRES_SEEDS regardless of POSTGRES_PWD value.",
+  "related": [],
+  "keyQuote": "Setting POSTGRES_PWD to nothing or '' causes POSTGRES_SEEDS value to be ignored and defaulted to 127.0.0.1",
+  "number": 460,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:59:52.518Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to support Amazon Keyspaces as a persistence backend for Temporal. AWS Keyspaces claims to support LWT (Lightweight Transactions), which would enable Temporal to run on AWS's managed Cassandra-compatible database.",
+  "category": "feature",
+  "subcategory": "database-support",
+  "apis": [],
+  "components": [
+    "persistence",
+    "database-adapter",
+    "cassandra-client"
+  ],
+  "concepts": [
+    "database-backend",
+    "cassandra-compatibility",
+    "aws-integration",
+    "lightweight-transactions",
+    "managed-database"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running on AWS would be able to use Temporal with Amazon Keyspaces instead of needing to manage their own Cassandra or PostgreSQL database.",
+  "rootCause": null,
+  "proposedFix": "Implement support for Amazon Keyspaces as a persistence backend, leveraging its LWT support to meet Temporal's requirements.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This would be great for users running on AWS.",
+  "number": 328,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:50:45.255Z"
+}

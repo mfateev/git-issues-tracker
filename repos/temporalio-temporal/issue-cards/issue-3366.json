@@ -1,0 +1,36 @@
+{
+  "summary": "Request to officially support SQLite in production for Temporal Server, enabling low-cost self-hosting for small projects and edge deployments without requiring PostgreSQL or other enterprise databases.",
+  "category": "feature",
+  "subcategory": "database-support",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "sql-driver",
+    "setup-scripts",
+    "visibility"
+  ],
+  "concepts": [
+    "sqlite",
+    "production-readiness",
+    "cost-efficiency",
+    "self-hosting",
+    "edge-deployment",
+    "database-durability",
+    "single-node"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with limited budgets cannot deploy Temporal to production without expensive managed databases or complex infrastructure.",
+  "rootCause": null,
+  "proposedFix": "Add sqlite as an option to the sql tool, update auto-setup shell scripts to support sqlite, and add sqlite visibility support (potentially using fulltext search extension).",
+  "workaround": "Use Temporalite with litestream for replication to S3-compatible storage, or use temporal CLI dev-server with on-disk SQLite database.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    23,
+    110
+  ],
+  "keyQuote": "Officially support sqlite in production... enabling deployment on micro budgets (think 5USD to 100USD a month at most).",
+  "number": 3366,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:00.292Z"
+}

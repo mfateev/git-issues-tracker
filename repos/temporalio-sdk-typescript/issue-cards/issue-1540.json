@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to allow direct imports of workflow functions in TypeScript SDK instead of requiring a file path (workflowsPath), similar to how activities are imported. This is particularly challenging for NX/Nest monorepos using webpack where the build output is a single file.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "workflow-loader",
+    "bundler"
+  ],
+  "concepts": [
+    "imports",
+    "webpack-bundling",
+    "monorepo-support",
+    "nx-integration",
+    "nestjs-compatibility",
+    "determinism"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with webpack-based build systems (particularly NX/Nest monorepos) cannot use the convenient import-based workflow registration pattern available for activities.",
+  "rootCause": "Workflows require file-based loading because they run in isolated VM contexts within Worker Threads. V8 serialization protocol cannot serialize functions between threads, and VM sandboxing requires separate copies of modules for determinism and isolation.",
+  "proposedFix": "Allow passing workflow objects/functions directly via `workflows` property in Worker.create options, similar to activities pattern.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The technical requirement for workflows to run in isolated VM contexts and Worker Threads makes direct function passing impossible. V8 serialization doesn't support function serialization, and Node Worker API requires file paths.",
+  "related": [],
+  "keyQuote": "Workflows are registered using a path as they run in a separate JS context. That 'separate JS context' is a Node.js VM, itself running in a Node.js Worker Thread.",
+  "number": 1540,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:53.787Z"
+}

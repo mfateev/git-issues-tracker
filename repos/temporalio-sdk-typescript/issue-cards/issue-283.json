@@ -1,0 +1,33 @@
+{
+  "summary": "Users can easily become confused by importing activity implementations directly instead of using registered activities, leading to unexpected behavior and potential webpack errors. The issue discusses whether to enforce stricter validation at registration time or improve documentation to guide proper activity usage.",
+  "category": "docs",
+  "subcategory": "activity-imports",
+  "apis": [
+    "createActivityHandle"
+  ],
+  "components": [
+    "activity-registration",
+    "worker",
+    "import-resolution"
+  ],
+  "concepts": [
+    "type-inference",
+    "module-imports",
+    "activity-registration",
+    "runtime-behavior",
+    "webpack-bundling",
+    "documentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers may accidentally import activity implementations directly, causing workflows to use unintended activity registrations or encounter webpack errors during bundling.",
+  "rootCause": "Workflows can only use activity type definitions at runtime, not implementations. TypeScript's type system is lost at runtime, making it impossible to enforce proper activity usage at compile time.",
+  "proposedFix": "Improve documentation with a FAQ entry explaining proper activity usage patterns and warning about webpack errors from incorrect imports.",
+  "workaround": "Use the same activities registered in the worker rather than importing implementations directly; rely on createActivityHandle's type inference for safety.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Cannot be fixed due to TypeScript's type erasure at runtime. Solution is documentation-focused: help users understand proper activity patterns and troubleshoot webpack errors.",
+  "related": [],
+  "keyQuote": "Workflows can't import activity implementations, only type definitions, these types are lost at runtime. Due to this limitation it isn't possible to \"fix\" the issue.",
+  "number": 283,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:39.305Z"
+}

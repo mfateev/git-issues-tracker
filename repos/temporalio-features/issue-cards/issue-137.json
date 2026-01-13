@@ -1,0 +1,32 @@
+{
+  "summary": "Request to conduct a comprehensive stress test of eager activity dispatch feature on production-like cluster infrastructure. Test should compare performance with and without eager dispatch across different SDK implementations using serial and parallel activity workflows.",
+  "category": "feature",
+  "subcategory": "activity-dispatch",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "worker",
+    "dispatcher",
+    "performance-testing"
+  ],
+  "concepts": [
+    "eager-dispatch",
+    "activity-scheduling",
+    "performance",
+    "stress-testing",
+    "concurrency",
+    "throughput"
+  ],
+  "severity": "medium",
+  "userImpact": "Understanding eager activity dispatch implications helps users optimize their workflow configurations for better performance and resource utilization.",
+  "rootCause": null,
+  "proposedFix": "Set up dedicated testing infrastructure to run stress tests with configurable eager activity dispatch (adjusting maximum from default of 3) across both serial and parallel activity scenarios on multiple SDK types.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We may as well try to set this up to be something that can be re-usable for general perf testing as well. We'll want a dedicated host for this too",
+  "number": 137,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:20.919Z"
+}

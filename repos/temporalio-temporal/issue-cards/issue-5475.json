@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal UI cannot display workflow data when using Elasticsearch/OpenSearch as the advanced visibility store. The issue was resolved by ensuring the Elasticsearch index name matches the expected naming pattern (prefix of `temporal_visibility_v1`).",
+  "category": "bug",
+  "subcategory": "elasticsearch-visibility",
+  "apis": [],
+  "components": [
+    "frontend",
+    "visibility-store",
+    "elasticsearch"
+  ],
+  "concepts": [
+    "visibility",
+    "elasticsearch",
+    "index-pattern",
+    "configuration",
+    "ui-connectivity"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot view workflow data in the Temporal UI despite data being successfully written to Elasticsearch.",
+  "rootCause": "The Elasticsearch index template is hardcoded to expect indices with a prefix of `temporal_visibility_v1`, but users may configure different index names that don't match this pattern.",
+  "proposedFix": "Change the Elasticsearch index name to follow the `temporal_visibility_v1` prefix pattern, or make the index template pattern configurable.",
+  "workaround": "Rename the Elasticsearch index to use the `temporal_visibility_v1` prefix (e.g., `temporal_visibility_v1_dev`).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Pattern for template index is fixed to match index with prefix of `temporal_visibility_v1`",
+  "number": 5475,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:05.167Z"
+}

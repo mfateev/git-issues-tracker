@@ -1,0 +1,35 @@
+{
+  "summary": "Context propagators configured at WorkflowClient level are not being invoked when starting workflows. Users must configure them on WorkflowOptions instead, but should be able to set them once at the client level and have them applied to all workflow stubs created from that client.",
+  "category": "bug",
+  "subcategory": "context-propagation",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowClientOptions",
+    "WorkflowOptions",
+    "WorkerFactory"
+  ],
+  "components": [
+    "workflow-client",
+    "context-propagation",
+    "workflow-stub"
+  ],
+  "concepts": [
+    "context-propagation",
+    "client-configuration",
+    "interceptors",
+    "workflow-invocation",
+    "options-inheritance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must redundantly configure context propagators on each WorkflowOptions instead of setting them once at the WorkflowClient level, increasing boilerplate and configuration complexity.",
+  "rootCause": "Context propagators defined in WorkflowClientOptions are not being passed through to WorkflowStubImpl, RootWorkflowClientInvoker, or RootWorkflowClientHelper during workflow creation.",
+  "proposedFix": "Propagate context propagators from WorkflowClientOptions to workflow stubs created via client.newWorkflowStub() so they are automatically applied without requiring separate configuration on WorkflowOptions.",
+  "workaround": "Set context propagators on individual WorkflowOptions, or use an interceptor to add them to all client stubs centrally.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was acknowledged as a bug and fixed in a later SDK version (targeted for 1.4.0 or 1.5.0).",
+  "related": [],
+  "keyQuote": "If in the snippets above context propagators are not promoted to the stubs created this way, it's a bug.",
+  "number": 796,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:42:50.133Z"
+}

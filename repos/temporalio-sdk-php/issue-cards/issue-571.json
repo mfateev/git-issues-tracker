@@ -1,0 +1,36 @@
+{
+  "summary": "Rare nondeterministic workflow errors occur when activity scheduling commands are lost during event processing, causing workflow replay failures with 'extra replay command' errors. The issue appears to involve complex interactions between the PHP SDK, RoadRunner, and the Temporal Go SDK event handling pipeline.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ActivityProxy",
+    "newActivityStub",
+    "ProcessEvent"
+  ],
+  "components": [
+    "event-handler",
+    "command-state-machine",
+    "activity-scheduler",
+    "workflow-replay"
+  ],
+  "concepts": [
+    "nondeterminism",
+    "event-loss",
+    "replay",
+    "activity-scheduling",
+    "determinism",
+    "race-condition"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unpredictable workflow failures after many retries, with no clear way to recover or prevent the issue.",
+  "rootCause": "Event (command) to start an Activity is lost somewhere in the chain between PHP SDK/RoadRunner and Temporal Service event recording.",
+  "proposedFix": "Bug fix released in SDK version 2.15.1 that resolved the non-deterministic behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed and released in v2.15.1 of the PHP SDK.",
+  "related": [],
+  "keyQuote": "[TMPRL1100] nondeterministic workflow: extra replay command for ScheduleActivityTask",
+  "number": 571,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:41:21.437Z"
+}

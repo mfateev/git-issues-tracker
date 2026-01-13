@@ -1,0 +1,30 @@
+{
+  "summary": "User asks whether Temporal server supports database sharding to handle 20 million workflow executions per day across a distributed database setup. Temporal maintainer clarifies that multiple database support is not currently available.",
+  "category": "question",
+  "subcategory": "deployment-scaling",
+  "apis": [],
+  "components": [
+    "server",
+    "database",
+    "persistence"
+  ],
+  "concepts": [
+    "sharding",
+    "scaling",
+    "high-throughput",
+    "database-distribution",
+    "multi-tenancy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users unable to deploy Temporal at scale across sharded databases for high-volume workflow execution scenarios.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Direct users to community forum or Slack for deployment recommendations and workarounds.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal server doesn't support multiple databases at this time.",
+  "number": 7503,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:52.756Z"
+}

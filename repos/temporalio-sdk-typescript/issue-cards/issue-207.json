@@ -1,0 +1,32 @@
+{
+  "summary": "Enable the TypeScript SDK gRPC client to work in web browsers by leveraging gRPC-Web, with a client package free of non-proto core dependencies. This requires both client-side support and server-side infrastructure (proxy or HTTP/1.1 API).",
+  "category": "feature",
+  "subcategory": "browser-client",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "web-client",
+    "proto-generation"
+  ],
+  "concepts": [
+    "browser-compatibility",
+    "gRPC-Web",
+    "proxy-support",
+    "HTTP-compatibility",
+    "type-safe-client"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can run the Temporal TypeScript SDK client in browser environments for web-based workflow interactions.",
+  "rootCause": null,
+  "proposedFix": "Leverage gRPC-Web library and implement server-side proxy support (Envoy or built-in) or develop HTTP/1.1 API backend compatibility",
+  "workaround": "Use Envoy proxy or grpc-web proxy sidecar to translate browser requests to gRPC for server",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    301
+  ],
+  "keyQuote": "We're working on an HTTP/1.1 API that can be used to back running the TS SDK client in a browser.",
+  "number": 207,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:22.107Z"
+}

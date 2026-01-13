@@ -1,0 +1,34 @@
+{
+  "summary": "Migration from gogo/protobuf to a modern, actively maintained Protocol Buffers library. The team evaluated multiple options including protobuf-go, vtprotobuf, and csproto before ultimately deciding to migrate to the standard Google library.",
+  "category": "feature",
+  "subcategory": "protobuf-migration",
+  "apis": [],
+  "components": [
+    "protobuf-compiler",
+    "serialization",
+    "grpc-transport",
+    "code-generation"
+  ],
+  "concepts": [
+    "protobuf-runtime",
+    "performance-optimization",
+    "dependency-management",
+    "code-generation",
+    "stdlib-compatibility",
+    "maintenance-sustainability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users benefit from moving to a well-maintained standard library that ensures long-term stability and performance improvements in Temporal's Protocol Buffer handling.",
+  "rootCause": "gogo/protobuf is no longer actively maintained, requiring migration to a supported alternative",
+  "proposedFix": "Migrate from gogo/protobuf to google.golang.org/protobuf standard library, with optional optimization using vtprotobuf code generator",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Migration completed in PR #5032 and followed-up PRs to the standard Google Protocol Buffers library",
+  "related": [
+    5032
+  ],
+  "keyQuote": "The best alternative available today for performance-conscious Go programmers is vtprotobuf...It's pretty easy to integrate with grpc-go.",
+  "number": 38,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T11:30:00.211Z"
+}

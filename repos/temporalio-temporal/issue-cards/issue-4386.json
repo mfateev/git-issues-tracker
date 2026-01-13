@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add a new Workflow ID Reuse Policy that queues duplicate workflow submissions instead of rejecting them. This would allow workflows with the same ID to be processed sequentially without requiring the master-workflow + signal + child-workflow pattern.",
+  "category": "feature",
+  "subcategory": "workflow-id-reuse-policy",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "duplicate-handling",
+    "queue-management",
+    "state-machine"
+  ],
+  "concepts": [
+    "workflow-id-reuse",
+    "queueing",
+    "duplicate-submissions",
+    "sequential-processing",
+    "observability",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users processing high-volume sequential workflows by user ID would benefit from simpler design and better observability instead of requiring complex master-workflow patterns.",
+  "rootCause": null,
+  "proposedFix": "Add new Workflow ID Reuse Policy option (e.g., 'Queue Duplicate') that queues workflows with duplicate IDs in a 'Queued' state instead of rejecting them.",
+  "workaround": "Use master-workflow + signal + child-workflow recipe, though this reduces observability and increases design complexity.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be useful to add a new reuse policy like 'Queue Duplicate' where the workflow would be queued with a new state like 'Queued'.",
+  "number": 4386,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:38.463Z"
+}

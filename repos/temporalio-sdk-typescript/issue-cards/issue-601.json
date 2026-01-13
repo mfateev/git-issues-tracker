@@ -1,0 +1,31 @@
+{
+  "summary": "Automated security vulnerability scan detected 9 vulnerabilities in transitive dependencies of the core package beta 18, with the highest severity being 7.8 (CVE-2021-43138 in async library). The issue was automatically closed when the vulnerable dependencies were removed from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "npm-dependencies",
+    "dev-dependencies",
+    "documentation-package"
+  ],
+  "concepts": [
+    "security-vulnerabilities",
+    "dependency-management",
+    "supply-chain",
+    "transitive-dependencies",
+    "prototype-pollution",
+    "regex-denial-of-service"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the SDK were potentially exposed to security vulnerabilities in transitive dependencies used in development and documentation builds.",
+  "rootCause": "Outdated transitive dependencies in webpack-dev-server, cli-table3, mdx-loader and other build/dev tools contained known CVEs including prototype pollution and ReDoS vulnerabilities.",
+  "proposedFix": "Upgrade vulnerable dependencies: async to 2.6.4 or 3.2.2, ansi-regex to 5.0.1 or 6.0.1, trim to latest, node-forge to patched version, minimist to 1.2.6+, nth-check to 2.0.1+, and got to 11.8.5+.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable libraries were no longer part of the inventory, indicating they were updated or removed from dependencies.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 601,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:03:44.617Z"
+}

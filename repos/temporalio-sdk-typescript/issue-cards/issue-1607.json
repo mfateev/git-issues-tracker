@@ -1,0 +1,33 @@
+{
+  "summary": "TypeScript compilation errors occur when using `client.workflow.list()` due to type mismatches in the EventEmitter-based iterator type definitions in iterators-utils.ts. The issue is caused by type incompatibilities between `AsyncIterableIterator<any[]>` and the expected `AsyncIterable<[B]>` generic types.",
+  "category": "bug",
+  "subcategory": "type-safety",
+  "apis": [
+    "workflow.list"
+  ],
+  "components": [
+    "iterators-utils",
+    "type-definitions",
+    "workflow-client"
+  ],
+  "concepts": [
+    "TypeScript type checking",
+    "AsyncIterable",
+    "generic types",
+    "type compatibility",
+    "node_modules",
+    "skipLibCheck"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot call workflow.list() without encountering TypeScript compilation errors, requiring workarounds like enabling skipLibCheck or patching node_modules.",
+  "rootCause": "Type annotations in iterators-utils.ts use `AsyncIterable<[B]>` (single-element tuple) but EventEmitter.on() returns `AsyncIterableIterator<any[]>` (array type), causing type incompatibility.",
+  "proposedFix": "Change type annotations from `AsyncIterable<[B]>` to `AsyncIterable<B[]>` and from `AsyncIterator<void>` to `AsyncIterator<any[]>` in iterators-utils.ts lines 59 and 65.",
+  "workaround": "Set `skipLibCheck: true` in tsconfig.json or ensure imports use the package exports rather than internal src paths (e.g., import from `@temporalio/client` instead of `@temporalio/client/src/types`).",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the type annotations in iterators-utils.ts to correctly match the EventEmitter return types, allowing proper type checking.",
+  "related": [],
+  "keyQuote": "But found this is not necessary if TypeScript errors are ignored, which they would have been with `skipLibCheck` if there wasn't some bogus imports",
+  "number": 1607,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:01.996Z"
+}

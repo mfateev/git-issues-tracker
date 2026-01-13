@@ -1,0 +1,30 @@
+{
+  "summary": "NonRootBeanPostProcessor eagerly initializes meter-registry before customizers are applied, causing custom tags and other customizations to be missing from metrics. This was a Spring Boot integration issue that prevented MeterRegistryCustomizer beans from being properly applied.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "meter-registry",
+    "NonRootBeanPostProcessor",
+    "spring-boot-autoconfigure"
+  ],
+  "concepts": [
+    "bean-post-processor",
+    "eager-initialization",
+    "spring-beans",
+    "customization",
+    "metrics-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users using Spring Boot with custom meter-registry customizers would find their custom tags and configurations not applied to metrics.",
+  "rootCause": "NonRootBeanPostProcessor requests meter-registry from application context during bean-post-processor creation stage, which occurs before customizers are registered.",
+  "proposedFix": "Ensure meter-registry initialization is deferred until after all customizers are available to the application context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed in version 1.30.0",
+  "related": [],
+  "keyQuote": "customizers are not applied as NonRootBeanPostProcessor requests meter-registry from application context at bean-post-processor creation stage",
+  "number": 2608,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:13:13.476Z"
+}

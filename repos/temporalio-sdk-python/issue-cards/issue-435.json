@@ -1,0 +1,30 @@
+{
+  "summary": "MyPy type checking is not catching invalid single-parameter workflow calls where no parameter is provided. This is a regression in type safety that affects multiple areas of the SDK.",
+  "category": "bug",
+  "subcategory": "type-checking",
+  "apis": [],
+  "components": [
+    "type-stubs",
+    "mypy-plugin",
+    "workflow-decorator"
+  ],
+  "concepts": [
+    "type-checking",
+    "overload",
+    "mypy",
+    "parameter-validation",
+    "type-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users can write invalid code that violates the workflow signature without MyPy catching the error, breaking type safety guarantees.",
+  "rootCause": "Recent changes in MyPy version or SDK overload definitions are not properly enforcing parameter requirements for single-parameter workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "you can execute a single-param workflow with no param and MyPy won't catch it",
+  "number": 435,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:51.262Z"
+}

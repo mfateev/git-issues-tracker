@@ -1,0 +1,29 @@
+{
+  "summary": "The cibuildwheel configuration is using an outdated manylinux2014 image (from March 2024) with an expired CentOS 7 repository mirror, causing build failures. Updating cibuildwheel to a newer version with updated repositories should resolve this.",
+  "category": "bug",
+  "subcategory": "ci-build-wheels",
+  "apis": [],
+  "components": [
+    "ci-build-wheels",
+    "cibuildwheel",
+    "manylinux-images"
+  ],
+  "concepts": [
+    "build-system",
+    "docker-images",
+    "repository-mirrors",
+    "dependency-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build Python SDK wheel binaries due to expired repository mirrors in the CI environment.",
+  "rootCause": "The manylinux2014 image pinned in cibuildwheel configuration uses outdated CentOS 7 repository mirrors that are no longer accessible.",
+  "proposedFix": "Update cibuildwheel to use a newer version with current manylinux images and repository mirrors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "cibuildwheel was updated to use current manylinux images with valid repository mirrors",
+  "related": [],
+  "keyQuote": "Could not retrieve mirrorlist http://mirrorlist.centos.org/?release=7&arch=x86_64&repo=os&infra=container error was 14: curl#6 - \"Could not resolve host\"",
+  "number": 577,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:26.882Z"
+}

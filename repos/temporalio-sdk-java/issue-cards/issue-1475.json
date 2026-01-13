@@ -1,0 +1,31 @@
+{
+  "summary": "CVE-2022-3171 vulnerability in protobuf-java 3.21.6 with CVSS score 4.3 was reported as a transitive dependency. The parsing issue with binary data in protobuf-java can lead to denial of service through repeated garbage collection pauses.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "protobuf",
+    "serialization"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "denial-of-service",
+    "garbage-collection",
+    "dependency-version",
+    "CVE"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could experience denial of service attacks if an attacker sends specially crafted binary data with non-repeated embedded messages to SDK applications.",
+  "rootCause": "Protobuf-java versions prior to 3.21.7 have a parsing issue with binary data that causes objects to be converted between mutable and immutable forms, resulting in long garbage collection pauses.",
+  "proposedFix": "Upgrade protobuf-java to version 3.21.7 or later (also available in 3.20.3, 3.19.6, or 3.16.3).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was marked as ignored or is no longer part of the Mend inventory, indicating the dependency was upgraded.",
+  "related": [],
+  "keyQuote": "Inputs containing multiple instances of non-repeated embedded messages with repeated or unknown fields causes objects to be converted back-n-forth between mutable and immutable forms",
+  "number": 1475,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:36:33.034Z"
+}

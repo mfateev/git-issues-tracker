@@ -1,0 +1,29 @@
+{
+  "summary": "User proposes changing the parameter order for injected workflow functions so that `workflowInfo` is passed as the last optional parameter instead of first, arguing this is more intuitive and aligns better with the method signature defined in the interface.",
+  "category": "feature",
+  "subcategory": "workflow-function-signature",
+  "apis": [],
+  "components": [
+    "workflow-function-injection",
+    "parameter-binding"
+  ],
+  "concepts": [
+    "parameter-order",
+    "function-signature",
+    "developer-experience",
+    "api-design",
+    "workflow-definition"
+  ],
+  "severity": "low",
+  "userImpact": "Users find the current parameter order counter-intuitive and would prefer `workflowInfo` as the last parameter to match common patterns and better align with defined interfaces.",
+  "rootCause": null,
+  "proposedFix": "Move `workflowInfo` from the first parameter position to the last optional parameter position in injected workflow functions.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Acknowledged as probably too late for a breaking change, indicating the team decided not to implement this due to backwards compatibility concerns.",
+  "related": [],
+  "keyQuote": "Having it first clashes more in my mind with the interface than if it were last. In both cases, the signature doesn't match, but if it's last, at least my assumption that the first arg will be `message` holds.",
+  "number": 242,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:39.290Z"
+}

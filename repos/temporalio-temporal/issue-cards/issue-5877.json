@@ -1,0 +1,39 @@
+{
+  "summary": "Handle activity failure when CompleteByID request is received during retry backoff. Need to allow force-failing retryable errors and fail non-retryable errors immediately, while avoiding wasted attempts.",
+  "category": "feature",
+  "subcategory": "activity-completion",
+  "apis": [
+    "RespondActivityTaskFailedById",
+    "RespondActivityTaskCanceledById",
+    "CompleteByID"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "backoff-handler",
+    "activity-resolver"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "force-fail",
+    "activity-completion",
+    "non-retryable-error",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better control over activity failure resolution when requests arrive during retry backoff periods to prevent workflow deadlocks.",
+  "rootCause": "When CompleteByID receives a failure request while activity is in retry backoff, the server doesn't distinguish between force-fail and retry-backoff scenarios, potentially wasting attempts.",
+  "proposedFix": "Implement behavior: (1) Force-fail non-retryable failures immediately, (2) Make retryable failures a noop or trigger immediate retry, (3) Consider adding explicit flag to force failure.",
+  "workaround": "Use non-retryable ApplicationFailure as a marker to force activity failure.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    987,
+    5724
+  ],
+  "keyQuote": "This call should IMHO be a noop to avoid wasting an activity attempt without having a chance to get started and triggering the next retry backoff.",
+  "number": 5877,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:58.246Z"
+}

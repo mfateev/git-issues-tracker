@@ -1,0 +1,32 @@
+{
+  "summary": "Error \"failed to downcast any\" occurs when creating a Worker without passing a required NativeConnection parameter. The error message from the Rust bridge is unclear and lacks context about what input was invalid.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "native-bridge",
+    "rust-bindings"
+  ],
+  "concepts": [
+    "type-safety",
+    "input-validation",
+    "native-interop",
+    "error-messages",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying to Render or similar environments get cryptic error messages when misconfiguring Worker initialization, making it difficult to debug.",
+  "rootCause": "Missing required NativeConnection parameter passed to Worker.create; the Rust bridge's downcast error doesn't indicate what was wrong or what was expected.",
+  "proposedFix": "Upgrade downcast error messages in the bridge to include context about what type was expected and what was received. Add input validation to Worker.create and related methods.",
+  "workaround": "Ensure NativeConnection is properly instantiated and passed to Worker.create as shown in corrected examples.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was user error (missing NativeConnection parameter). Commenter suggested the downcast error is fundamentally input validation and that IDEs should catch type errors.",
+  "related": [],
+  "keyQuote": "Failed to downcast is input validation, it's a type error. We can add more input validation at worker creation time but I think that's overkill, an IDE should catch this.",
+  "number": 877,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:36.842Z"
+}

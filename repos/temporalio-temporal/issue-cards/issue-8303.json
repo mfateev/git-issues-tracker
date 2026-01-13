@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for a CLI command to display Temporal services, their metadata (such as IP addresses), and applied dynamic configuration. This would help operators manage service-level settings at scale without needing to dig through configuration files.",
+  "category": "feature",
+  "subcategory": "cli-commands",
+  "apis": [],
+  "components": [
+    "cli",
+    "service-discovery",
+    "dynamic-configuration"
+  ],
+  "concepts": [
+    "service-metadata",
+    "operational-visibility",
+    "configuration-management",
+    "multi-instance-deployment",
+    "dynamic-settings"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators gain direct visibility into service configurations and metadata, reducing the need to access configuration files or environment variables and improving error-prone management at scale.",
+  "rootCause": null,
+  "proposedFix": "Add a service details command to the Temporal CLI that returns service information including IPs and dynamic configuration in JSON format, potentially addressed by PR #8214.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #421 and addressed by PR #8214.",
+  "related": [
+    421,
+    8214
+  ],
+  "keyQuote": "This deserves to be a part of the CLI because it is information that operators would benefit from having up-front rather than needing to dig into from configuration files",
+  "number": 8303,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:01.665Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "The temporal-sql-tool's `-y` flag for dry-run is not working correctly - it still performs the schema migration instead of just simulating it.",
+  "category": "bug",
+  "subcategory": "sql-tool",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "schema-migration",
+    "postgres-plugin"
+  ],
+  "concepts": [
+    "dry-run",
+    "schema-migration",
+    "command-line-flags",
+    "database-operations"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely preview schema migrations before applying them, risking unintended database changes.",
+  "rootCause": "The `-y` flag is not being interpreted as a dry-run flag; instead it appears to trigger the actual migration.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed as a bug fix in the sql-tool dry-run functionality.",
+  "related": [],
+  "keyQuote": "adding `-y` command should not run - rather perform dry-run.",
+  "number": 1197,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:36.644Z"
+}

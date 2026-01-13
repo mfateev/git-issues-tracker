@@ -1,0 +1,38 @@
+{
+  "summary": "Spring Boot application fails to start when Temporal server is unreachable or under heavy load, throwing DEADLINE_EXCEEDED error during worker initialization. User expects graceful degradation with health check reporting instead of blocking startup.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "WorkflowService",
+    "SystemInfo"
+  ],
+  "components": [
+    "spring-boot-autoconfigure",
+    "worker-factory",
+    "system-info-interceptor",
+    "grpc-client"
+  ],
+  "concepts": [
+    "startup-blocking",
+    "deadline-exceeded",
+    "connection-failure",
+    "health-check",
+    "graceful-degradation",
+    "timeout",
+    "server-overload"
+  ],
+  "severity": "high",
+  "userImpact": "Spring Boot applications cannot start if Temporal server is unavailable or overloaded, preventing deployments during peak load scenarios and preventing health checks from reporting connection issues.",
+  "rootCause": "WorkerFactory.start() synchronously calls SystemInfoInterceptor which makes a blocking gRPC call to getSystemInfo() during application startup, with no timeout configuration flexibility or fallback mechanism.",
+  "proposedFix": "Make worker startup non-blocking or add configuration property to enable graceful startup with connection issues reported via health checks instead of failing application startup.",
+  "workaround": "Use manual start instead of auto-configuration and configure WorkflowServiceStubsOptions.Builder.setSystemInfoTimeout() to handle timeouts.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Core issue is server overload, not SDK behavior. Workaround provided via manual configuration of SystemInfoTimeout.",
+  "related": [
+    2466
+  ],
+  "keyQuote": "The root problem is your Temporal server is overloaded and needs to be scaled up, taking over 10s for a simple RPC is too long",
+  "number": 2680,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:02.571Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Activity heartbeat feature for Ruby SDK. This is a feature request to implement heartbeat support for long-running activities, allowing them to report progress and prevent timeout errors.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordActivityHeartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "heartbeat-handler"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-timeout",
+    "progress-reporting",
+    "long-running-tasks",
+    "cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to report activity progress and prevent timeouts for long-running activities in Ruby SDK.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activity heartbeat functionality was implemented in the Ruby SDK.",
+  "related": [],
+  "keyQuote": null,
+  "number": 83,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:14.049Z"
+}

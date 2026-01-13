@@ -1,0 +1,30 @@
+{
+  "summary": "CI workflow isolation timeout was too short, causing failures on slow GitHub Actions worker nodes. The fix involved increasing the isolate timeout to provide more time for the test environment to initialize.",
+  "category": "bug",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "ci-pipeline",
+    "workflow-isolation"
+  ],
+  "concepts": [
+    "timeout",
+    "ci-reliability",
+    "slow-workers",
+    "test-initialization",
+    "resource-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "CI builds were failing intermittently on slow GitHub Actions runners, blocking development and causing unreliable test results.",
+  "rootCause": "Workflow isolate timeout was configured too aggressively for the variability in GitHub Actions worker node performance.",
+  "proposedFix": "Increase the workflow isolate timeout to accommodate slower worker nodes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Timeout was increased to handle slow GitHub Actions worker nodes. Subsequent comment indicates the issue hasn't been seen recently, confirming the fix.",
+  "related": [],
+  "keyQuote": "Haven't seen this recently",
+  "number": 140,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:11.800Z"
+}

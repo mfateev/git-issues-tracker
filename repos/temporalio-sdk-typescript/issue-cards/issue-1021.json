@@ -1,0 +1,32 @@
+{
+  "summary": "User requests support for async generators within CancellationScope to implement update logic with nested cancellation scopes. The feature would allow yielding results from previous iterations while maintaining cancellation semantics across nested scopes.",
+  "category": "feature",
+  "subcategory": "cancellation-scope",
+  "apis": [
+    "CancellationScope"
+  ],
+  "components": [
+    "cancellation-scope",
+    "workflow-execution",
+    "signal-handling"
+  ],
+  "concepts": [
+    "async-generator",
+    "nested-cancellation",
+    "signal-injection",
+    "state-persistence",
+    "cancellation-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing complex update patterns with nested cancellation scopes cannot elegantly yield intermediate results while maintaining proper cancellation semantics, forcing them to work around the limitation with ugly code.",
+  "rootCause": "CancellationScope.run() uses AsyncLocalStorage which may not properly handle yield operations within async generators, causing scope context to be lost when execution resumes.",
+  "proposedFix": "Extend CancellationScope to natively support async generators, or provide built-in helper utilities that properly maintain cancellation context across yield points.",
+  "workaround": "Move yield operations outside the cancellation scope and create helper functions that wrap cancellable operations around individual Promises/sleeps rather than entire generator blocks.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I want to use an async generator... to inject results from the previous iteration where it was at that point. Mind that the internal cancellationScope could have a long duration.",
+  "number": 1021,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:57.575Z"
+}

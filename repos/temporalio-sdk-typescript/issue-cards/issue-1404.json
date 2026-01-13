@@ -1,0 +1,35 @@
+{
+  "summary": "Unexpected errors during Activity Task processing in TypeScript Worker can cause complete Worker failure due to null values and TypeErrors not being caught. This requires proper error handling on the TypeScript side since Core cannot handle these exceptions.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "task-processing",
+    "worker-failure",
+    "null-safety",
+    "exception-handling"
+  ],
+  "severity": "critical",
+  "userImpact": "Workers can completely fail when encountering unexpected errors during Activity Task processing, causing service disruption.",
+  "rootCause": "TypeScript Worker does not properly catch and handle unexpected errors (such as TypeError from null ActivityInfo.startTime) that occur during task processing, causing them to propagate and crash the entire worker.",
+  "proposedFix": "Implement proper error catching and handling on the TypeScript side to gracefully handle unexpected errors during Activity Task processing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by #1473 / #1477",
+  "related": [
+    1473,
+    1477
+  ],
+  "keyQuote": "This kind of unexpected errors must be caught and handled on TS side, as Core can't properly handle them.",
+  "number": 1404,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:27.835Z"
+}

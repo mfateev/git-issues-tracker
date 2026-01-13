@@ -1,0 +1,33 @@
+{
+  "summary": "TestWorkflowEnvironment returns null for typed search attributes that work correctly in production environments, indicating a test framework implementation gap.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow.getTypedSearchAttributes",
+    "SearchAttributeKey.forOffsetDateTime"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "search-attributes",
+    "workflow-context"
+  ],
+  "concepts": [
+    "search-attributes",
+    "typed-queries",
+    "test-environment",
+    "mocking",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot properly test workflows that use typed search attributes, as test environments do not correctly simulate production behavior.",
+  "rootCause": "TestWorkflowEnvironment does not properly initialize or populate typed search attributes for test workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating it was resolved in a subsequent version or through a fix.",
+  "related": [],
+  "keyQuote": "When running a workflow that does getTypedSearchAttributes in test using TestWorkflowEnvironment the value of getTypedSearchAttributes is null. When run outside of test env this works fine",
+  "number": 1875,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:15.816Z"
+}

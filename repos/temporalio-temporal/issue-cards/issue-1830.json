@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose healthCheck and idleConnectionCloseInterval as configuration options on Elasticsearch configuration to enable Temporal to work with AWS Elasticsearch service.",
+  "category": "feature",
+  "subcategory": "elasticsearch-configuration",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "persistence",
+    "configuration"
+  ],
+  "concepts": [
+    "health-check",
+    "connection-pooling",
+    "idle-connections",
+    "aws-elasticsearch",
+    "configuration-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal against AWS Elasticsearch cannot configure health checks and idle connection behavior, limiting compatibility with AWS Elasticsearch.",
+  "rootCause": null,
+  "proposedFix": "Add healthCheck and idleConnectionCloseInterval as configuration settings in the Elasticsearch configuration",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration options were added to the Elasticsearch configuration to expose health check and idle connection close interval settings",
+  "related": [],
+  "keyQuote": "The ability to disable/enable health check and to periodically close idle connections enables Temporal to work against AWS Elasticsearch.",
+  "number": 1830,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:19.284Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow tasks fail with unspecified cause when activities started in parallel lack proper error handling, causing the workflow to remain in running state instead of failing properly and preventing catch blocks from executing.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "activity-error-handling",
+    "promise-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "parallel-execution",
+    "unhandled-rejection",
+    "workflow-failure",
+    "promise-rejection"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter confusing workflow failures with unspecified causes when running parallel activities without proper error handling, requiring workarounds to manually catch and propagate errors.",
+  "rootCause": "Activities started in parallel without await result in promises without proper error handling, causing unhandled rejections that manifest as WorkflowTaskFailed with unspecified cause instead of proper workflow failure.",
+  "proposedFix": "Make unhandled rejection clearer to users to reduce confusion around error handling in parallel activity execution.",
+  "workaround": "Add catch blocks to each activity promise, save errors, and manually check for errors in the main workflow function before throwing an ApplicationFailure.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1039; root cause identified as unhandled promise rejections in parallel activity execution requiring explicit error handling.",
+  "related": [
+    1039
+  ],
+  "keyQuote": "I managed to solve the problem. The issue was that activities that were started in parallel (without `await`) resulted in promises without proper error handling.",
+  "number": 1115,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:28.434Z"
+}

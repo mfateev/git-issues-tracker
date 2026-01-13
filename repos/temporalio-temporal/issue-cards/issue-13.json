@@ -1,0 +1,35 @@
+{
+  "summary": "Activities with multiple phases need different timeouts for each phase. Currently, users work around this by creating separate activities and using workflow signals, but this complicates code. The proposal is to model activity execution as a list of phases, each with its own timeout and retry policy.",
+  "category": "feature",
+  "subcategory": "activity-phases",
+  "apis": [
+    "CompleteActivityTask",
+    "heartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-scheduler",
+    "retry-engine",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "activity-phases",
+    "timeout",
+    "retry-policy",
+    "heartbeat",
+    "activity-completion",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with multi-phase activities must create complex workarounds using multiple activities and signals, significantly complicating workflow code.",
+  "rootCause": null,
+  "proposedFix": "Two options proposed: (1) Allow specifying phase/timeout/retryPolicy triples when scheduling activities and add phase completion API, or (2) Allow activities to override heartbeat timeout during execution to handle different phase requirements.",
+  "workaround": "Create separate activities for each phase and use workflow signals to coordinate state changes between phases.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "An activity execution as a list of phases with each phase having its own timeout.",
+  "number": 13,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T10:22:53.915Z"
+}

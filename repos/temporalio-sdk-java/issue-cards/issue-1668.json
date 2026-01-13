@@ -1,0 +1,34 @@
+{
+  "summary": "Subsequent MutableSideEffect calls with the same ID within a single workflow task can cause non-deterministic replay errors. When multiple calls produce different results, only some markers are recorded in history, causing markers to be misaligned to wrong calls on replay.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "MutableSideEffect"
+  ],
+  "components": [
+    "workflow-execution",
+    "history-replay",
+    "side-effect-handler"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "marker-alignment",
+    "history-consistency",
+    "mutable-side-effect"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using multiple MutableSideEffect calls with the same ID will fail non-deterministically during replay, causing workflow execution failures.",
+  "rootCause": "When consecutive MutableSideEffect calls with the same ID produce different results, not all results create markers in history. During replay, markers created by later calls are applied to earlier calls, causing misalignment.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1014
+  ],
+  "keyQuote": "On replay the marker created by the third mutable side effect call will be applied to a second call instead causing a non-deterministic replay.",
+  "number": 1668,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:36.022Z"
+}

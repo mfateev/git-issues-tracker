@@ -1,0 +1,31 @@
+{
+  "summary": "The .NET SDK needs enhanced test workflow replay capabilities. Currently tests don't replay workflows or run without cache, which could miss issues. The request is to auto-replay workflows that complete in tests to improve test coverage.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "workflow-replay",
+    "cache-management"
+  ],
+  "concepts": [
+    "test-replay",
+    "workflow-execution",
+    "cache-invalidation",
+    "test-coverage",
+    "determinism",
+    "reproducibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot thoroughly test their workflows, leaving potential issues undetected due to missing replay and cache validation during test runs.",
+  "rootCause": null,
+  "proposedFix": "Implement auto-replay of workflows that complete in tests and add option to run tests without cache.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to replay our test workflows more. Today we don't replay nor do we run without cache, both of which could catch issues.",
+  "number": 291,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:03:58.065Z"
+}

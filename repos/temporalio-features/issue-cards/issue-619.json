@@ -1,0 +1,35 @@
+{
+  "summary": "ExecuteWorkflow API needs to expose fields from StartWorkflowExecutionResponse, particularly the Started boolean for UseExisting conflict policy and links for Nexus WorkflowRunOperation integration.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "workflow-client",
+    "api-response-handling",
+    "nexus-integration"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "response-visibility",
+    "workflow-started-detection",
+    "links",
+    "result-information"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot determine if a workflow actually started when using UseExisting conflict policy and cannot access links needed for Nexus operations.",
+  "rootCause": "ExecuteWorkflow wrapper does not expose StartWorkflowExecutionResponse fields to callers.",
+  "proposedFix": "Add optional StartWorkflowResultInfo object pointer to StartWorkflowOptions that SDK internals can populate with response data like Link and Started boolean.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    563
+  ],
+  "keyQuote": "ExecuteWorkflow wraps StartWorkflowExecution call, and don't provide visibility to the StartWorkflowExecutionResponse.",
+  "number": 619,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:01:22.239Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Timer cancellation is not being properly cleaned up when a condition resolves, leading to unnecessary system load. The issue requests implementation of proper timer cancellation to reduce resource consumption.",
+  "category": "bug",
+  "subcategory": "timer-management",
+  "apis": [],
+  "components": [
+    "timer",
+    "cancellation",
+    "resource-cleanup"
+  ],
+  "concepts": [
+    "timer-lifecycle",
+    "resource-management",
+    "cleanup",
+    "system-load",
+    "condition-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unnecessary resource consumption due to timers not being properly cancelled when conditions are met.",
+  "rootCause": "Timer cancellation logic is not being invoked when a condition resolves, leaving timers active in the system.",
+  "proposedFix": "Implement proper timer cancellation when conditions resolve to reduce system load.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It is better to cancel in order to reduce load on the system.",
+  "number": 363,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:44.708Z"
+}

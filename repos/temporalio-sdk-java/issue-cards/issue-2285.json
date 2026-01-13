@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowClient.updateWithStart does not pass workflow arguments when starting a new workflow. The update operation arguments are incorrectly being passed as workflow arguments instead of the actual workflow arguments provided to the method.",
+  "category": "bug",
+  "subcategory": "workflow-update",
+  "apis": [
+    "WorkflowClient.updateWithStart",
+    "UpdateWithStartWorkflowOperation"
+  ],
+  "components": [
+    "workflow-client",
+    "update-with-start",
+    "workflow-arguments"
+  ],
+  "concepts": [
+    "workflow-initialization",
+    "update-operations",
+    "argument-passing",
+    "workflow-start"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly initialize workflows with arguments when using updateWithStart, causing workflows to receive incorrect or missing initialization data.",
+  "rootCause": "Line 299 in UpdateWithStartWorkflowOperation.java passes update operation arguments as workflow arguments instead of the intended workflow arguments.",
+  "proposedFix": "Fix line 299 to correctly pass the workflow arguments instead of the update arguments when starting the workflow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The root cause was identified in UpdateWithStartWorkflowOperation.java:299 where update args were incorrectly being passed as workflow args.",
+  "related": [],
+  "keyQuote": "WorkflowClient.updateWithStart does not pass workflow arguments... Think the issue is this line were we pass the update args as workflow args.",
+  "number": 2285,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:35.013Z"
+}

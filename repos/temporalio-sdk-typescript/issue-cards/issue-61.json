@@ -1,0 +1,30 @@
+{
+  "summary": "Worker times out when attempting graceful shutdown via Ctrl-C. This issue affects the shutdown process of the TypeScript SDK worker, making it difficult to cleanly stop workers.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "shutdown"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "timeout",
+    "signal-handling",
+    "cleanup"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot gracefully shut down workers via Ctrl-C without experiencing timeouts, affecting operational workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved through implementation of proper shutdown handling in the worker (likely merged with #58 referenced in the issue).",
+  "related": [
+    58
+  ],
+  "keyQuote": "Easily reproducible via starting a worker and hitting Ctrl-C.",
+  "number": 61,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:55:41.143Z"
+}

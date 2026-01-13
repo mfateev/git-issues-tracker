@@ -1,0 +1,32 @@
+{
+  "summary": "Request to update the .NET SDK with the latest Cloud Operations API definitions, which are 8 months outdated. Users currently face namespace conflicts when trying to use newer Cloud Operations API versions alongside the .NET SDK, particularly needing the usage API for billing and activity tracking.",
+  "category": "feature",
+  "subcategory": "cloud-operations-api",
+  "apis": [],
+  "components": [
+    "cloud-operations-api",
+    "protobuf-definitions",
+    "api-cloud"
+  ],
+  "concepts": [
+    "api-versioning",
+    "protobuf-management",
+    "namespace-conflicts",
+    "cloud-integration",
+    "billing-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily use the latest Cloud Operations API versions with the .NET SDK without manual protobuf editing and compilation workarounds.",
+  "rootCause": "The .NET SDK's bundled Cloud Operations API definitions become stale between SDK releases, and compiled protobuf definitions cause namespace conflicts with newer upstream versions.",
+  "proposedFix": "Refresh Cloud Operations API definitions during .NET SDK releases, similar to how OSS API definitions are updated.",
+  "workaround": "Users can manually edit and selectively compile Cloud Operations protobuf messages to avoid namespace conflicts.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was updated in #407 and released as version 1.5.0 of the .NET SDK.",
+  "related": [
+    407
+  ],
+  "keyQuote": "The current version of the Cloud Operations API included in the .NET SDK is 8 months old",
+  "number": 404,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:20:34.339Z"
+}

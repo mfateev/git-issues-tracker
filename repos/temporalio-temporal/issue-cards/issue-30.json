@@ -1,0 +1,29 @@
+{
+  "summary": "Update Temporal Server's error handling to use Go's new error checking methods (errors.Is and errors.As) instead of type assertions and comparisons, following Go's error handling best practices.",
+  "category": "other",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "service",
+    "client"
+  ],
+  "concepts": [
+    "error-checking",
+    "type-assertions",
+    "error-wrapping",
+    "go-best-practices"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact; improves code maintainability and aligns with Go best practices for error handling.",
+  "rootCause": "Server uses type assertions for error checking instead of the newer, more idiomatic Go error handling methods introduced in Go 1.13.",
+  "proposedFix": "Replace error type comparisons and assertions with errors.Is and errors.As methods throughout the Server codebase.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was active for too long without consensus on priority. Decision made to close without implementing the refactoring.",
+  "related": [],
+  "keyQuote": "this issue is active for too long. We should make a call and decide if anything is needed here. Otherwise let's close the issue.",
+  "number": 30,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T10:40:02.414Z"
+}

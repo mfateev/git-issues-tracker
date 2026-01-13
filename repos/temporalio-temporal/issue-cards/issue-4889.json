@@ -1,0 +1,30 @@
+{
+  "summary": "User reported that logs were not being written to the configured outputFile when running the Temporal server from source code with `go run`. The issue was caused by a configuration setting where stdout logging was enabled by default, preventing file-based logging.",
+  "category": "bug",
+  "subcategory": "logging-configuration",
+  "apis": [],
+  "components": [
+    "logger",
+    "configuration",
+    "server-startup"
+  ],
+  "concepts": [
+    "logging",
+    "file-output",
+    "stdout",
+    "configuration",
+    "server-initialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users running the server from source code cannot verify logs are being written to files if stdout logging is unintentionally enabled.",
+  "rootCause": "The stdout logging configuration was not properly disabled, causing all logs to be written to standard output instead of the configured outputFile.",
+  "proposedFix": null,
+  "workaround": "Set stdout configuration to false in the logging configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "User self-resolved by discovering the stdout configuration option needed to be disabled to enable file-based logging.",
+  "related": [],
+  "keyQuote": "Ah, I see, I need to set the stdout as false",
+  "number": 4889,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:10.034Z"
+}

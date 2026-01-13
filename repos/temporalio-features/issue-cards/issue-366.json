@@ -1,0 +1,31 @@
+{
+  "summary": "Two vulnerabilities detected in transitive dependencies of xunit.assert 2.5.3 used in the .NET SDK features project. CVE-2019-0820 (severity 7.5) affects System.Text.RegularExpressions 4.3.0 causing denial of service, and CVE-2018-8292 (severity 5.3) affects System.Net.Http 4.3.0 exposing authentication information in redirects.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "system.text.regularexpressions",
+    "system.net.http",
+    "xunit.assert",
+    "netstandard.library"
+  ],
+  "concepts": [
+    "security vulnerability",
+    "dependency management",
+    "denial of service",
+    "information disclosure",
+    "transitive dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the .NET SDK are exposed to security vulnerabilities through transitive dependencies that could lead to denial of service attacks or authentication credential exposure.",
+  "rootCause": "Outdated transitive dependencies (System.Text.RegularExpressions 4.3.0 and System.Net.Http 4.3.0) pulled in by xunit.assert 2.5.3 contain known security vulnerabilities.",
+  "proposedFix": "Upgrade System.Text.RegularExpressions to 4.3.1 and System.Net.Http to 4.3.4 or newer versions that contain the security fixes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A denial of service vulnerability exists when .NET Framework and .NET Core improperly process RegEx strings",
+  "number": 366,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:58.045Z"
+}

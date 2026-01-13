@@ -1,0 +1,32 @@
+{
+  "summary": "The `sleep()` function fails with UnhandledCommand WorkflowTaskFailed error when using ms-style duration strings like '1 month' that the ms library doesn't recognize, returning undefined instead of a number.",
+  "category": "bug",
+  "subcategory": "workflow-timers",
+  "apis": [
+    "sleep"
+  ],
+  "components": [
+    "workflow-execution",
+    "timer-handler",
+    "ms-duration-parsing"
+  ],
+  "concepts": [
+    "duration-parsing",
+    "undefined-handling",
+    "error-handling",
+    "workflow-task-failure",
+    "ms-library-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using certain duration strings (like '1 month') crash with WorkflowTaskFailed instead of providing clear error messages.",
+  "rootCause": "The ms() library returns undefined for unrecognized duration strings like '1 month', and the SDK doesn't validate against undefined values before using them in sleep().",
+  "proposedFix": "Add explicit error throwing when ms() returns undefined, especially in mandatory contexts like sleep(x), and be more defensive in places where ms-like values are passed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Guards added to detect and throw errors when ms-style duration strings result in undefined values.",
+  "related": [],
+  "keyQuote": "Maybe we guard at runtime against undefined any place we support ms strings?",
+  "number": 1046,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:50.382Z"
+}

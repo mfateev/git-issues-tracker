@@ -1,0 +1,30 @@
+{
+  "summary": "Activity failure warning logs for not-found activities lack contextual workflow information because these activities never enter the activity context. This feature request seeks to ensure that activity failure warnings include relevant workflow information for better debugging and observability.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "logging",
+    "worker"
+  ],
+  "concepts": [
+    "activity-not-found",
+    "logging",
+    "workflow-context",
+    "error-reporting",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users have difficulty debugging activity failures because log messages lack workflow context when activities are not found.",
+  "rootCause": "Not-found activities never enter activity context, preventing workflow information from being attached to failure logs.",
+  "proposedFix": "Ensure activity failure warning logs include workflow information even for not-found activities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement implemented to include contextual workflow information in activity failure warning logs.",
+  "related": [],
+  "keyQuote": "Today for not-found activities since they never enter activity context, they don't have workflow info. Make sure they get workflow info.",
+  "number": 416,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:46.874Z"
+}

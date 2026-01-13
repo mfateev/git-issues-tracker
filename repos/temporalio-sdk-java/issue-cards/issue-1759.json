@@ -1,0 +1,31 @@
+{
+  "summary": "Request to support Spring property placeholders in @WorkflowImpl and @ActivityImpl task queue names to enable dynamic queue configuration across different environments while maintaining worker auto-discovery.",
+  "category": "feature",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "annotation-processor",
+    "auto-configuration"
+  ],
+  "concepts": [
+    "property-placeholder",
+    "environment-specific-config",
+    "worker-auto-discovery",
+    "task-queue",
+    "spring-integration",
+    "dynamic-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use worker auto-discovery with dynamic task queue names across multiple environments without reverting to manual configuration.",
+  "rootCause": null,
+  "proposedFix": "Allow Spring property placeholders (e.g., ${task-queue.suffix:}) in the taskQueues property of @WorkflowImpl and @ActivityImpl annotations.",
+  "workaround": "Disable auto-configuration and manually configure task queue names in Spring configuration with property placeholder values.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support property placeholders in annotation task queue names.",
+  "related": [],
+  "keyQuote": "Allow spring property placeholders to be used for the taskQueues property value",
+  "number": 1759,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:12.814Z"
+}

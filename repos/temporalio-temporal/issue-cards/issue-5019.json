@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for non-blocking PollWorkflowExecutionUpdate API calls. The request proposes adding a bool non_blocking option to PollWorkflowExecutionUpdateRequest to allow polling without blocking, while ensuring update details and status are properly included in the poll response.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "PollWorkflowExecutionUpdate"
+  ],
+  "components": [
+    "workflow-update-handler",
+    "poll-api",
+    "response-builder"
+  ],
+  "concepts": [
+    "non-blocking",
+    "polling",
+    "update-status",
+    "async-operations",
+    "request-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to poll for workflow updates without blocking, providing more flexibility in update handling patterns.",
+  "rootCause": null,
+  "proposedFix": "Add a bool non_blocking option to PollWorkflowExecutionUpdateRequest, or use an unset or 'admitted' wait stage to imply non-blocking behavior. Ensure update details and status are included in poll responses for both blocking and non-blocking calls.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add a bool non_blocking option to PollWorkflowExecutionUpdateRequest (or maybe you can just assume unset or 'admitted' wait stage implies non blocking)",
+  "number": 5019,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:47.344Z"
+}

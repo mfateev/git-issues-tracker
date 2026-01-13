@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to expose `originalExecutionRunId` in `workflowInfo()` to enable deterministic PRNG seeding that remains stable through Resets but changes on Continue-As-New/Cron operations.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [
+    "workflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "determinism",
+    "random-seeding",
+    "workflow-reset",
+    "continue-as-new",
+    "cron",
+    "execution-id"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently seed PRNGs deterministically in workflows with a value that changes on Continue-As-New/Cron but persists through Resets.",
+  "rootCause": null,
+  "proposedFix": "Expose `originalExecutionRunId` through the `workflowInfo()` API",
+  "workaround": "Math.random() is already deterministic and seeded using originalRunId, updated when run ID changes",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Can we get this `originalExecutionRunId` exposed in `workflowInfo()`?",
+  "number": 1222,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:27.577Z"
+}

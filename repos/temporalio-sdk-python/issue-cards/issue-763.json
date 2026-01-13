@@ -1,0 +1,36 @@
+{
+  "summary": "Remove experimental deprecation warnings from several mature APIs in the Python SDK that are no longer experimental, including local activities, eager workflow/activity execution, runtime module, logging configuration, and workflow update decorator.",
+  "category": "feature",
+  "subcategory": "api-stability",
+  "apis": [
+    "local_activities",
+    "eager_start",
+    "eager_activity_execution",
+    "workflow_update"
+  ],
+  "components": [
+    "runtime",
+    "logger",
+    "decorator",
+    "api"
+  ],
+  "concepts": [
+    "deprecation",
+    "api-maturity",
+    "experimental-flag",
+    "api-stability",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users see unnecessary experimental warnings for stable APIs, creating confusion about API maturity status.",
+  "rootCause": null,
+  "proposedFix": "Remove experimental warnings from: local activities, eager workflow start, eager activity execution, runtime module, runtime logging/log-forwarding config, and workflow update decorator",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The following items should no longer be considered experimental: Local activities, Eager workflow start, Eager activity execution, Runtime module, Runtime logging and log-forwarding config, Workflow update decorator",
+  "number": 763,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:10.062Z"
+}

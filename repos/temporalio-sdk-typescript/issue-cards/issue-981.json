@@ -1,0 +1,32 @@
+{
+  "summary": "Request to expose the WHATWG URL API class in the workflow sandbox to enable URL parsing, validation, and manipulation without breaking workflow determinism. Currently users must delegate this to activities or use polyfills.",
+  "category": "feature",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "runtime-environment",
+    "API-exposure"
+  ],
+  "concepts": [
+    "URL-parsing",
+    "determinism",
+    "API-availability",
+    "workflow-context",
+    "polyfill-alternative"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now use native WHATWG URL API directly in workflows instead of delegating to activities or loading polyfills.",
+  "rootCause": null,
+  "proposedFix": "Expose the WHATWG URL API in workflow context",
+  "workaround": "Delegate URL operations to a local activity or regular activity, or load an appropriate polyfill",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1173",
+  "related": [
+    1173
+  ],
+  "keyQuote": "Expose the WHATWG URL API in workflow context. This API includes no feature that could break workflow determinism",
+  "number": 981,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:14.214Z"
+}

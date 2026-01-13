@@ -1,0 +1,33 @@
+{
+  "summary": "When a workflow with an active timer is cancelled while the worker is restarting, the timer cancellation fails with a BadCancelTimerAttributes error, leaving the workflow in a Running state until WorkflowExecutionTimeout is reached instead of properly handling the cancellation.",
+  "category": "bug",
+  "subcategory": "timer-cancellation",
+  "apis": [
+    "Workflow.timer"
+  ],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "timer-manager",
+    "history-builder"
+  ],
+  "concepts": [
+    "timer",
+    "cancellation",
+    "worker-restart",
+    "history-state",
+    "workflow-execution-timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflows getting stuck in Running state when attempting to cancel workflows with active timers during worker restarts, requiring manual intervention via WorkflowExecutionTimeout.",
+  "rootCause": "Invalid history builder state for add-timer-canceled-event action when timer cancellation is processed during worker downtime, indicating a mismatch between the timer state and the history state expectations.",
+  "proposedFix": "Implement retry logic for cancellation attempts after worker restart, or fail the workflow with an explicit error rather than leaving it stuck.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in a RoadRunner patch release following investigation into the deeper integration issues between PHP SDK timer management and RoadRunner worker lifecycle.",
+  "related": [],
+  "keyQuote": "If the worker is restarted at the moment the cancellation request is made for a workflow with a timer, the timer does not get cancelled.",
+  "number": 625,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:51.630Z"
+}

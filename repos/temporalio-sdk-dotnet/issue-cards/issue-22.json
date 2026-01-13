@@ -1,0 +1,32 @@
+{
+  "summary": "Request to opt out of version check for ephemeral Temporal servers started by the SDK test framework, since these servers lack UI and cannot display upgrade notifications. The issue was closed as a duplicate of #50.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "server"
+  ],
+  "concepts": [
+    "version-check",
+    "ephemeral-server",
+    "cli",
+    "testing",
+    "temporal-cli"
+  ],
+  "severity": "low",
+  "userImpact": "SDK test framework developers need to suppress unnecessary version checks when running ephemeral Temporal servers for testing purposes.",
+  "rootCause": null,
+  "proposedFix": "Opt out of version check for servers started by the SDK test framework",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #50",
+  "related": [
+    50,
+    485
+  ],
+  "keyQuote": "Opt out of version check for servers started by the SDK test framework - there's no value for users since we typically start it without the UI",
+  "number": 22,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:06:56.614Z"
+}

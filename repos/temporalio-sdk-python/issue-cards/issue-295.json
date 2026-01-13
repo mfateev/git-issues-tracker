@@ -1,0 +1,32 @@
+{
+  "summary": "Request for dependency injection support in Python SDK using pinject to manage scoped dependencies (global, customer-specific) for workflows and activities, similar to Spring Boot support in Java SDK.",
+  "category": "feature",
+  "subcategory": "dependency-injection",
+  "apis": [],
+  "components": [
+    "workflow",
+    "activity",
+    "worker"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "scoping",
+    "configuration-management",
+    "resource-management",
+    "pinject"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily manage scoped dependencies like database connections and authentication data in their workflows and activities.",
+  "rootCause": null,
+  "proposedFix": "Add support for pinject dependency injection framework in Python SDK, similar to Spring Boot support in Java SDK (issue #745)",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate; discussion moved to community forum at https://community.temporal.io/t/python-support-for-dependency-injection-pinject/7538",
+  "related": [
+    745
+  ],
+  "keyQuote": "we need the ability to inject dependencies such as grpc connections, db connections, kafka connections, auth data into temporal workflows and activities",
+  "number": 295,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:49.582Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The aarch64-unknown-linux-gnu binary release is 228 MB, significantly larger than other platform builds. The issue was resolved by automating the build process for this target in GitHub Actions instead of building on macOS.",
+  "category": "feature",
+  "subcategory": "build-optimization",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "release-artifacts",
+    "build-system"
+  ],
+  "concepts": [
+    "binary-size",
+    "cross-compilation",
+    "build-automation",
+    "platform-targets",
+    "distribution"
+  ],
+  "severity": "low",
+  "userImpact": "Reduced download size for users installing the TypeScript SDK on aarch64 Linux systems.",
+  "rootCause": "Building the aarch64-unknown-linux-gnu target on macOS resulted in larger binary artifacts compared to building on the target platform.",
+  "proposedFix": "Automate the aarch64-unknown-linux-gnu build in GitHub Actions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automated build for aarch64-unknown-linux-gnu target in GitHub Actions (GHA) instead of cross-compiling from macOS.",
+  "related": [],
+  "keyQuote": "228 MB is too large... Increased size was due to us building for this target on MacOS. Need to automate this build.",
+  "number": 539,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:00:12.273Z"
+}

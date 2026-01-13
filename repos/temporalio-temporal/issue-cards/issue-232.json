@@ -1,0 +1,31 @@
+{
+  "summary": "The attempt field in ActivityTaskStarted is confusing because it starts at 0 for the first execution. Should either start at 1 for consistency or be renamed to retryCount for clarity.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ActivityTaskStarted"
+  ],
+  "components": [
+    "activity-executor",
+    "event-processing"
+  ],
+  "concepts": [
+    "attempt",
+    "retry",
+    "activity-execution",
+    "naming-convention",
+    "api-semantics"
+  ],
+  "severity": "low",
+  "userImpact": "Developers find the 0-based attempt numbering unintuitive and confusing when implementing activity retry logic.",
+  "rootCause": "API design choice to use 0-based indexing for attempt field inconsistent with typical retry counting conventions.",
+  "proposedFix": "Either start attempt numbering from 1 instead of 0, or rename the field to retryCount.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It is usually set 0 on the first activity execution and then to 1 and more in case of retries. I find value of 0 for \"attempt\" very confusing.",
+  "number": 232,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:23:34.227Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add .NET SDK support for building and running features tests. This is needed to complete the .NET SDK implementation as referenced in sdk-dotnet issue #23.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "features-repository",
+    "sdk-dotnet",
+    "test-framework"
+  ],
+  "concepts": [
+    "testing",
+    "sdk-support",
+    "feature-coverage",
+    "dotnet-runtime"
+  ],
+  "severity": "medium",
+  "userImpact": ".NET SDK users cannot run feature tests, blocking complete SDK validation and feature parity assessment.",
+  "rootCause": null,
+  "proposedFix": "Implement .NET SDK support in the features repository to allow building and running feature tests for the .NET SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature has been implemented as the .NET SDK is now fully tracked and supported in the features repository.",
+  "related": [
+    23
+  ],
+  "keyQuote": "Need to support building/running .NET SDK features. Needed for temporalio/sdk-dotnet#23",
+  "number": 226,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:26.019Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Add SDK name and version metadata to workflow tasks, similar to the client-name and client-version gRPC headers. This allows tracking which SDK version processed each task.",
+  "category": "feature",
+  "subcategory": "metadata",
+  "apis": [],
+  "components": [
+    "workflow-task",
+    "sdk-metadata",
+    "grpc-headers"
+  ],
+  "concepts": [
+    "sdk-version",
+    "metadata",
+    "task-tracking",
+    "client-identification",
+    "sdk-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users can identify which SDK version created each workflow task for better debugging and monitoring.",
+  "rootCause": null,
+  "proposedFix": "Set SDK name and version on workflow task proto when values change from previous version, mirroring the client-name and client-version gRPC headers approach.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across API, Go SDK, Java SDK, and SDK Core with coordinated updates to propagate SDK metadata through the system.",
+  "related": [
+    306,
+    1194,
+    1838,
+    588
+  ],
+  "keyQuote": "Add the same value we do on `client-name` and `client-version` gRPC header on the workflow task.",
+  "number": 321,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:22.000Z"
+}

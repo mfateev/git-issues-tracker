@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to enforce restrictions preventing wait condition callbacks, update validators, and queries from adding commands in read-only contexts within .NET SDK.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "wait-conditions",
+    "update-validators",
+    "queries",
+    "workflow-context"
+  ],
+  "concepts": [
+    "read-only-context",
+    "command-restrictions",
+    "validation",
+    "enforcement",
+    "workflow-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need guaranteed enforcement of no-command restrictions in read-only contexts to prevent accidental workflow state mutations.",
+  "rootCause": null,
+  "proposedFix": "Add validation/enforcement in wait condition callbacks, update validators, and queries to fail when attempting to add commands",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Wait condition callbacks, update validators, and queries should fail if they try to add commands",
+  "number": 243,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:02:43.463Z"
+}

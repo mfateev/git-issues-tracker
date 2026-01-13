@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for injecting context into headers when starting workflows and executing activities through client and activity interceptors.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [
+    "StartWorkflow",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "client-interceptor",
+    "activity-interceptor",
+    "header-management"
+  ],
+  "concepts": [
+    "context-injection",
+    "interceptors",
+    "headers",
+    "metadata-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently set custom headers from client and activity interceptors, limiting context propagation capabilities.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was fully implemented as confirmed by Spikhalskiy in the issue comments.",
+  "related": [],
+  "keyQuote": "It should be possible to inject context into the header when starting workflow and executing an activity.",
+  "number": 373,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:11:19.050Z"
+}

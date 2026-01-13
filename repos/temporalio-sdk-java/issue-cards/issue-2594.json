@@ -1,0 +1,32 @@
+{
+  "summary": "User requests support for Kotlin 2.0 and newer versions of gRPC, Netty, and related JVM dependencies in the Temporal Java SDK. The maintainer clarified that the Java SDK already supports the latest gRPC versions and noted that while no official Kotlin SDK exists, many users successfully use the Java SDK from Kotlin.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-configuration",
+    "java-sdk",
+    "grpc-integration"
+  ],
+  "concepts": [
+    "kotlin-support",
+    "dependency-versions",
+    "grpc-upgrade",
+    "netty-upgrade",
+    "jvm-compatibility",
+    "build-dependencies"
+  ],
+  "severity": "low",
+  "userImpact": "Kotlin users wanting to use newer versions of gRPC and related dependencies with the Temporal Java SDK need to verify compatibility and may face version conflicts.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue resolved as not applicable - Temporal Java SDK already supports latest gRPC versions (1.72.0+), and no official Kotlin SDK is planned, though users can use the Java SDK from Kotlin.",
+  "related": [],
+  "keyQuote": "Temporal Java SDK supports the lates grpc (We run CI with `1.72.0` but will update to `1.73.0` soon)",
+  "number": 2594,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:58.890Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Exceptions thrown from workflow executor/control code are currently subject to failWorkflowExceptionTypes logic, which can cause internal SDK errors (like outdated cached instance detection) to fail workflow executions instead of just failing workflow tasks. The request is to exclude control code exceptions from user-configured exception type filters, with an exception for NonDeterministicException.",
+  "category": "other",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowImplementationOptions"
+  ],
+  "components": [
+    "workflow-executor",
+    "control-code",
+    "exception-handling",
+    "task-processing"
+  ],
+  "concepts": [
+    "exception-filtering",
+    "workflow-task-failure",
+    "execution-failure",
+    "determinism",
+    "retry-logic",
+    "control-flow"
+  ],
+  "severity": "high",
+  "userImpact": "Users setting broad failWorkflowExceptionTypes filters may inadvertently fail entire workflow executions when internal SDK errors occur, instead of just failing the workflow task.",
+  "rootCause": "failWorkflowExceptionTypes is applied to all exceptions including those from workflow executor control code, not just user workflow code exceptions.",
+  "proposedFix": "Don't apply failWorkflowExceptionTypes to exceptions from control code; introduce explicit FailWorkflowTaskException for SDK internals to distinguish between task-level and execution-level failures, with NonDeterministicException as an exception to always fail executions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "users expect `failWorkflowExceptionTypes` to be applied only to the workflow exceptions, but it's also applied to the workflow executor exception",
+  "number": 1681,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:09.461Z"
+}

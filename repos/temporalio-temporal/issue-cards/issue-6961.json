@@ -1,0 +1,33 @@
+{
+  "summary": "Add existing run ID field to StartChildWorkflowExecutionFailedEventAttributes when child workflow startup fails due to already-existing workflow. This provides the same information already available in WorkflowExecutionAlreadyStartedFailure for clients.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflowExecutionFailedEventAttributes",
+    "WorkflowExecutionAlreadyStartedFailure"
+  ],
+  "components": [
+    "event-attributes",
+    "child-workflow-executor",
+    "failure-handling"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "already-exists",
+    "run-id",
+    "child-workflow",
+    "error-information"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have access to the already-existing run ID when child workflow startup fails, improving error handling and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add existing_run_id field to StartChildWorkflowExecutionFailedEventAttributes to contain the run ID of the already-existing workflow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need the already-exists run ID on StartChildWorkflowExecutionFailedEventAttributes when the child start fails because it already exists.",
+  "number": 6961,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:39.363Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Core SDKs need support for gRPC binary metadata keys (with `-bin` suffix) to allow passing bytes as RPC metadata values, matching native gRPC library capabilities. Currently, Core SDKs only support string values as ASCII headers, causing Tonic to fail when binary headers are attempted.",
+  "category": "feature",
+  "subcategory": "rpc-metadata",
+  "apis": [],
+  "components": [
+    "rpc-metadata",
+    "grpc-client",
+    "tonic",
+    "core-sdk"
+  ],
+  "concepts": [
+    "binary-headers",
+    "metadata-handling",
+    "grpc-protocol",
+    "interoperability",
+    "protocol-compliance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot pass binary metadata in RPC calls across most Core SDKs, limiting interoperability with systems that require binary header support.",
+  "rootCause": "Core SDKs assume string values as ASCII headers without support for the gRPC `-bin` key convention for binary data, while native gRPC libraries already support this standard.",
+  "proposedFix": "Accept bytes as RPC metadata values and update Tonic to set those as binary headers on the metadata map for `-bin` keys.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    991,
+    1778,
+    1063,
+    512,
+    329
+  ],
+  "keyQuote": "We need to accept bytes as RPC metadata values and need to update code to have Tonic set those as binary headers on the metadata map for `-bin` keys.",
+  "number": 671,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:38.293Z"
+}

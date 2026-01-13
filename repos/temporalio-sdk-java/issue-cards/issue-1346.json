@@ -1,0 +1,33 @@
+{
+  "summary": "Local activities currently block the workflow executor thread while waiting for completion, causing inefficient resource utilization and requiring users to carefully tune the number of workflow executor threads. The request is to release the thread during local activity execution while properly implementing backpressure mechanisms.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-executor",
+    "local-activity-worker",
+    "thread-pool"
+  ],
+  "concepts": [
+    "thread-blocking",
+    "resource-efficiency",
+    "backpressure",
+    "local-activities",
+    "thread-management",
+    "load-balancing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must carefully tune workflow executor thread counts based on local activity profiles, leading to suboptimal resource utilization and uneven load distribution.",
+  "rootCause": "Workflow executor thread actively waits (busy-waits or blocks) for local activity completion instead of releasing the thread for other work.",
+  "proposedFix": "Restructure workflow executor worker code so the thread is released during local activity execution and resumed when the activity completes, with proper backpressure handling.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow executor thread shouldn't actively wait for local activities completion and release the thread.",
+  "number": 1346,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:28:15.819Z"
+}

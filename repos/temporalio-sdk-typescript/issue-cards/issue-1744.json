@@ -1,0 +1,30 @@
+{
+  "summary": "NDE (nondeterminism error) occurs during workflow replay when using nested Promise.all() with multiple activities. The activity execution order differs between initial execution and replay, causing a 'No command scheduled' error.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "activity-scheduler",
+    "promise-handling"
+  ],
+  "concepts": [
+    "nondeterminism",
+    "replay",
+    "nested-promises",
+    "activity-ordering",
+    "determinism"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using nested Promise.all() patterns fail during replay with a nondeterminism error, making this pattern unreliable in production.",
+  "rootCause": "Promise.all() execution order is not guaranteed to be deterministic across replay when nested - the activity scheduling order differs between the first execution and subsequent replays.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Nondeterminism error: No command scheduled for event HistoryEvent(id: 38, ActivityTaskScheduled)",
+  "number": 1744,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:43.198Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Convert NDC RPC stack from periodic polling to gRPC stream functionality to reduce complexity in handling replication task throttling, lag management, and backpressure control.",
+  "category": "feature",
+  "subcategory": "replication",
+  "apis": [],
+  "components": [
+    "NDC",
+    "RPC stack",
+    "replication",
+    "gRPC"
+  ],
+  "concepts": [
+    "streaming",
+    "replication tasks",
+    "throttling",
+    "backpressure",
+    "lag management",
+    "shard isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves reliability and efficiency of cross-cluster replication by simplifying control flow and reducing replication lag.",
+  "rootCause": "Periodic polling approach requires fine-grained manual control over wait times, throttling, and lag monitoring that could be simplified with stream-based approach.",
+  "proposedFix": "Replace periodic query-based approach with gRPC stream functionality to handle replication task delivery with built-in backpressure.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented gRPC stream-based approach for NDC replication",
+  "related": [],
+  "keyQuote": "Using stream functionality can potentially reduce the above complexity",
+  "number": 1046,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:51:58.009Z"
+}

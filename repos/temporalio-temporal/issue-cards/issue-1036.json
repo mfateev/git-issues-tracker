@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add support for sending batch workflow signals instead of only one signal at a time. Currently, signal workflow and signal with start workflow APIs only accept a single signal, but users need the ability to send multiple signals together.",
+  "category": "feature",
+  "subcategory": "workflow-signals",
+  "apis": [
+    "SignalWorkflow",
+    "SignalWithStartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-dispatcher",
+    "client-api"
+  ],
+  "concepts": [
+    "signaling",
+    "batch-operations",
+    "workflow-interaction",
+    "bulk-requests",
+    "asynchronous-communication"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot efficiently send multiple signals to a workflow in a single operation, requiring multiple API calls instead.",
+  "rootCause": null,
+  "proposedFix": "Extend signal workflow and signal with start workflow APIs to accept batch/multiple signals",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently, the signal workflow / signal with start workflow only allow one and only one signal, we should consider allowing batch of signals",
+  "number": 1036,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:51:46.407Z"
+}

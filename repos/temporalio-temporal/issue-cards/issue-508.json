@@ -1,0 +1,35 @@
+{
+  "summary": "DescribeWorkflowExecutionResponse lacks information about whether a workflow has received a cancellation request. Adding a CANCELLATION_REQUESTED status to WorkflowExecutionStatus enum or a new field would help with troubleshooting.",
+  "category": "feature",
+  "subcategory": "workflow-status",
+  "apis": [
+    "DescribeWorkflowExecutionResponse",
+    "WorkflowExecutionStatus"
+  ],
+  "components": [
+    "workflow-execution",
+    "api-response",
+    "status-tracking"
+  ],
+  "concepts": [
+    "cancellation",
+    "workflow-status",
+    "observability",
+    "troubleshooting",
+    "execution-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily determine if a workflow has been requested to cancel, making troubleshooting and monitoring more difficult.",
+  "rootCause": null,
+  "proposedFix": "Add CANCELLATION_REQUESTED status to WorkflowExecutionStatus enum or add a dedicated field to DescribeWorkflowExecutionResponse",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1018",
+  "related": [
+    1018
+  ],
+  "keyQuote": "DescribeWorkflowExecutionResponse doesn't contain information if a workflow has received a cancellation request.",
+  "number": 508,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:03:45.322Z"
+}

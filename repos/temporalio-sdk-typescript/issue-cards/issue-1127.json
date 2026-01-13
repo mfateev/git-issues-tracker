@@ -1,0 +1,32 @@
+{
+  "summary": "User expects activity errors to be caught in workflow try-catch blocks, but Temporal automatically retries failed activities instead. The user wants to decide retry policy at the workflow level rather than in the activity itself.",
+  "category": "question",
+  "subcategory": "activity-error-handling",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-runtime",
+    "retry-policy"
+  ],
+  "concepts": [
+    "error-handling",
+    "retry-policy",
+    "activity-failure",
+    "workflow-exception-handling",
+    "non-retryable-errors"
+  ],
+  "severity": "low",
+  "userImpact": "Users confused about activity failure behavior may implement incorrect error handling patterns, expecting standard JavaScript promise rejection behavior.",
+  "rootCause": "Temporal activities are retried indefinitely by default unless they throw non-retryable errors, which differs from standard JavaScript promise behavior and can be counterintuitive.",
+  "proposedFix": "Use ApplicationFailure.create({ message: 'foo', nonRetryable: true }) to throw non-retryable errors from activities, allowing workflow-level control over retry decisions.",
+  "workaround": "Throw ApplicationFailure with nonRetryable flag set to true from the activity to prevent automatic retries and allow workflow-level exception handling.",
+  "resolution": "wontfix",
+  "resolutionDetails": "This is expected Temporal behavior, not a bug. Users should throw non-retryable ApplicationFailure from activities if they want workflow-level retry control.",
+  "related": [],
+  "keyQuote": "Activities are retired indefinitely by default unless they throw an error that's specified in the non retryable types in the retry policy",
+  "number": 1127,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:40.162Z"
+}

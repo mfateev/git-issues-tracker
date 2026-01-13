@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency vulnerability in modernc.org/libc-v1.24.1 (a transitive dependency of modernc.org/sqlite) with a buffer overflow issue in wcsnrtombs. The issue was automatically closed by Mend after the vulnerable library was removed from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "go-module-cache",
+    "modernc.org/sqlite"
+  ],
+  "concepts": [
+    "buffer-overflow",
+    "memory-safety",
+    "vulnerability-management",
+    "transitive-dependency",
+    "security-patch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal Server with the vulnerable modernc.org/sqlite dependency are exposed to a potential buffer overflow vulnerability in the underlying libc library.",
+  "rootCause": "wcsnrtombs in musl libc through 1.2.1 mishandles particular combinations of destination buffer size and source character limit, causing invalid write access.",
+  "proposedFix": "Upgrade musl to version 1.2.2-1 or later as suggested by the vulnerability database.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend after the vulnerable library was removed from the Mend inventory, indicating the dependency was either upgraded or removed from the codebase.",
+  "related": [],
+  "keyQuote": "wcsnrtombs mishandles particular combinations of destination buffer size and source character limit, as demonstrated by an invalid write access (buffer overflow)",
+  "number": 4536,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:52.330Z"
+}

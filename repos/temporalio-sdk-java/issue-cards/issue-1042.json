@@ -1,0 +1,34 @@
+{
+  "summary": "User requested ability to dynamically limit parallel activities based on runtime conditions like available heap space. The solution involves a pluggable component that can inspect poll requests and delay polling if certain conditions aren't satisfied.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "poll-handler"
+  ],
+  "concepts": [
+    "resource-management",
+    "concurrency-control",
+    "dynamic-limiting",
+    "heap-space",
+    "polling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now dynamically control activity parallelism based on runtime conditions like available heap space to prevent resource exhaustion.",
+  "rootCause": null,
+  "proposedFix": "Implement a pluggable component that intercepts poll requests and can delay polling based on user-defined conditions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Interface implemented as of PR #2014 in experimental state, with evolution based on user feedback.",
+  "related": [
+    2014
+  ],
+  "keyQuote": "Provide a pluggable component that the user can tailor for his needs. This component would be called with poll request and can decide to delay the poll",
+  "number": 1042,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:02:22.626Z"
+}

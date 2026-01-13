@@ -1,0 +1,33 @@
+{
+  "summary": "listArchivedWorkflowExecutions returns both archived and unarchived workflows instead of only archived ones. The archival feature archives visibility data immediately upon workflow completion, not when the retention period expires, causing confusion in the UI and incorrect filtering behavior.",
+  "category": "bug",
+  "subcategory": "archival",
+  "apis": [
+    "listArchivedWorkflowExecutions",
+    "describeWorkflowExecution"
+  ],
+  "components": [
+    "archival",
+    "visibility",
+    "search-attributes"
+  ],
+  "concepts": [
+    "archival",
+    "retention",
+    "workflow-visibility",
+    "data-lifecycle",
+    "filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably filter for only archived workflows, leading to confusion in the archival UI tab and incorrect application logic when retrieving archived workflow data.",
+  "rootCause": "Visibility data is archived immediately upon workflow completion rather than when the retention period expires, causing unarchived workflows to appear in archived results.",
+  "proposedFix": "Fix archival behavior to archive both workflow history and visibility data together when the retention period expires, ensuring listArchivedWorkflowExecutions only returns truly archived workflows.",
+  "workaround": "Users can filter results by closed time window to limit results to workflows within a specific time range.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Archival feature remains experimental. The team indicated they would revisit archival holistically when ready to productionize it, deferring this fix.",
+  "related": [],
+  "keyQuote": "The archival feature is still experimental. We will revisit it holistically when we are ready to productionize it.",
+  "number": 2457,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:57.748Z"
+}

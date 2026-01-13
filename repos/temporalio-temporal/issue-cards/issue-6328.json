@@ -1,0 +1,30 @@
+{
+  "summary": "Unit tests fail in v1.24.2 due to missing mock method calls in the MutableState test suite. The TestTotalEntitiesCount test expects specific calls to MockMetadata.ClusterNameForFailoverVersion() and GetCurrentClusterName() that are not being made.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "mutable-state",
+    "cluster-metadata",
+    "test-controller"
+  ],
+  "concepts": [
+    "unit-testing",
+    "mock-verification",
+    "test-failure",
+    "method-calls",
+    "cluster-failover"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot run unit tests on v1.24.2, blocking validation of changes and releases.",
+  "rootCause": "Test expectations for mock calls to cluster metadata methods are not satisfied during test execution, indicating missing implementation or incorrect mock setup.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "missing call(s) to *cluster.MockMetadata.ClusterNameForFailoverVersion(is equal to false (bool), is equal to 1234 (int64))",
+  "number": 6328,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:10.252Z"
+}

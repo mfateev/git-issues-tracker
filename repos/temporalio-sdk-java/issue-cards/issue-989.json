@@ -1,0 +1,35 @@
+{
+  "summary": "LocalActivity retry intervals are ignored due to incorrect Duration checking. The code checks if getNanos() > 0, but getNanos() returns 0 even when seconds are specified, causing the default retry interval to be used instead of the configured value.",
+  "category": "bug",
+  "subcategory": "local-activity-retry",
+  "apis": [
+    "LocalActivityOptions",
+    "RetryOptions",
+    "MethodRetry"
+  ],
+  "components": [
+    "LocalActivityWorker",
+    "retry-policy",
+    "local-activity-executor"
+  ],
+  "concepts": [
+    "retry",
+    "duration",
+    "interval",
+    "local-activity",
+    "configuration",
+    "default-values"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot configure custom retry intervals for local activities, as their settings are silently ignored and default values are used instead.",
+  "rootCause": "LocalActivityWorker.handleLocalActivity() checks only getNanos() > 0 to validate the maximum interval, ignoring the seconds component of Duration. This causes valid durations like Duration.ofSeconds(30, 1) to be treated as zero.",
+  "proposedFix": "Check the complete Duration value (both seconds and nanos) instead of only getNanos() when validating the maximum interval.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue confirmed by maintainer Spikhalskiy",
+  "related": [],
+  "keyQuote": "The problem is that getNanos() always returns 0, so default value is used. It doesn't matter if use MethodRetry annotation or specify RetryOptions via setRetryOptions method",
+  "number": 989,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:57:41.058Z"
+}

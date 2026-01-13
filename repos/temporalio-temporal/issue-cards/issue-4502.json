@@ -1,0 +1,32 @@
+{
+  "summary": "Support data references to avoid storing the same Payload multiple times in history. When the same value is used as an argument across many activities, it's currently stored redundantly. The proposal is to introduce a mechanism to store values once and reference them by eventId in subsequent commands.",
+  "category": "feature",
+  "subcategory": "payload-storage",
+  "apis": [],
+  "components": [
+    "history",
+    "workflow-execution",
+    "activity-scheduling",
+    "payload-management"
+  ],
+  "concepts": [
+    "data-deduplication",
+    "payload-references",
+    "storage-efficiency",
+    "memory-optimization",
+    "workflow-arguments",
+    "event-references"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with large payloads or workflows that reuse the same data across many activities experience unnecessary storage overhead and increased history size.",
+  "rootCause": "Temporal currently stores complete payload copies in each activity's schedule command, leading to redundant storage when the same value is used multiple times.",
+  "proposedFix": "Introduce a special command (or reuse Marker command) to store values as Payloads in history once, then allow activity/child workflow inputs and outputs to reference that value by eventId instead of including it directly.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In this case, the document is going to be stored 1k+1 times in the history which is wasteful.",
+  "number": 4502,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:39.794Z"
+}

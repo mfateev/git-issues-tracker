@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for custom metrics in the TypeScript SDK following the pattern established by DotNET and Python SDKs. This includes updating to the latest Core SDK, ensuring existing Prometheus and OpenTelemetry options work correctly, adding user-facing metrics APIs, and removing Tracing support.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus",
+    "opentelemetry",
+    "core-sdk"
+  ],
+  "concepts": [
+    "custom-metrics",
+    "observability",
+    "telemetry",
+    "prometheus",
+    "opentelemetry",
+    "sdk-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now record custom metrics in their Temporal TypeScript applications, improving observability and alignment with other SDK implementations.",
+  "rootCause": null,
+  "proposedFix": "Follow the API patterns established by DotNET SDK PR #129 and Python SDK PR #380 for adding custom metrics support",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented custom metrics support following established patterns from other SDKs",
+  "related": [
+    1177
+  ],
+  "keyQuote": "With https://github.com/temporalio/sdk-core/pull/544 landed, we need to: Add support for users to add/record metrics",
+  "number": 1229,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:51.105Z"
+}

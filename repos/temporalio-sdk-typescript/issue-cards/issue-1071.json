@@ -1,0 +1,32 @@
+{
+  "summary": "Package.json files for @temporalio packages are missing the `repository` field, which causes package audit tools to report warnings. Adding the repository configuration to each package's package.json would resolve this issue.",
+  "category": "feature",
+  "subcategory": "package-metadata",
+  "apis": [],
+  "components": [
+    "activity",
+    "client",
+    "common",
+    "proto",
+    "workflow"
+  ],
+  "concepts": [
+    "package-configuration",
+    "package-metadata",
+    "monorepo-setup",
+    "package-audit",
+    "npm-package"
+  ],
+  "severity": "low",
+  "userImpact": "Package audit tools report warnings about missing repository metadata, creating noise in dependency analysis.",
+  "rootCause": null,
+  "proposedFix": "Add `repository` field to the `package.json` configuration of each package in the monorepo.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Repository field was added to package.json files for all packages.",
+  "related": [],
+  "keyQuote": "This should be easy to solve by providing a `repository` config to the `package.json` of each package.",
+  "number": 1071,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:55.439Z"
+}

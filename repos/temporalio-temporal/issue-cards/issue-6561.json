@@ -1,0 +1,31 @@
+{
+  "summary": "The current Temporal server configuration is overly complex, requiring a directory-based structure with multiple files for static and dynamic configuration. This feature request seeks a simplified, single-file configuration format to improve developer experience and enable configuration support in the Temporal CLI.",
+  "category": "feature",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "server-configuration",
+    "config-loader",
+    "dynamic-config",
+    "cli"
+  ],
+  "concepts": [
+    "configuration-simplification",
+    "file-format",
+    "developer-experience",
+    "backward-compatibility",
+    "configuration-merging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle with complex multi-file configuration requirements, limiting server adoption and CLI integration capabilities.",
+  "rootCause": "Current design requires separate static and dynamic config files with directory-based structure and complex merging logic.",
+  "proposedFix": "Collapse configuration into a single file with optional dynamic configuration section (top-level `dynamic` key) that reloads on change, with optional polling interval setting.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This complexity hurts the developer experience and is the reason we don't expose server configuration in the Temporal CLI.",
+  "number": 6561,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:33.382Z"
+}

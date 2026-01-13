@@ -1,0 +1,36 @@
+{
+  "summary": "User asks how to perform dependency injection with scoped services in the .NET SDK, particularly for Activity instances. The SDK doesn't manage Activity instance creation, requiring manual DI handling in user code.",
+  "category": "question",
+  "subcategory": "dependency-injection",
+  "apis": [
+    "TemporalWorker",
+    "Activity"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "scoped-lifetime",
+    "service-provider",
+    "activity-instantiation",
+    "di-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually manage dependency injection scopes in Activity implementations, increasing boilerplate code and potential for scope mismanagement.",
+  "rootCause": "Activity instances are created and managed by user code rather than the SDK, preventing integration with Microsoft.Extensions.DependencyInjection's scoped lifetime pattern.",
+  "proposedFix": "Pass IServiceProvider to TemporalWorkerOptions and let the SDK manage Activity instance creation and disposal using the DI container.",
+  "workaround": "Manually inject IServiceProvider into Activity class and create/dispose service scopes within each Activity method.",
+  "resolution": "fixed",
+  "resolutionDetails": "Dependency injection extension implemented as part of issue #92, with sample provided in samples-dotnet PR #16 demonstrating Activity factory pattern using service provider.",
+  "related": [
+    62,
+    92
+  ],
+  "keyQuote": "We now have a dependency injection extension as part of #92.",
+  "number": 66,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:41:57.515Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for exposing the next retry delay field on ApplicationFailureInfo across all SDKs. The API now supports specifying retry delays on activity failures, and the Python SDK needs to expose this capability.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ApplicationFailureInfo"
+  ],
+  "components": [
+    "activity",
+    "failure-handling",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "delay",
+    "failure",
+    "activity",
+    "backoff",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now programmatically specify custom retry delays when activities fail, enabling more granular control over retry behavior.",
+  "rootCause": null,
+  "proposedFix": "Expose the next retry delay field from ApplicationFailureInfo in the Python SDK, following the implementation in the API.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The field was exposed in the SDK to align with the API changes.",
+  "related": [],
+  "keyQuote": "We recently added the ability for an activity to specify the next retry delay on failure via a field on ApplicationFailureInfo.",
+  "number": 468,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:44.629Z"
+}

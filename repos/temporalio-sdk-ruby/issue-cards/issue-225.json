@@ -1,0 +1,31 @@
+{
+  "summary": "Request to implement custom slot suppliers in the Ruby SDK, similar to the existing Python implementation. This feature would allow users to provide custom logic for managing worker slot allocation.",
+  "category": "feature",
+  "subcategory": "worker-slots",
+  "apis": [],
+  "components": [
+    "worker",
+    "slot-management"
+  ],
+  "concepts": [
+    "slot-supplier",
+    "worker-configuration",
+    "resource-allocation",
+    "customization",
+    "pool-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can customize slot supplier behavior to implement specialized resource allocation strategies for their workers.",
+  "rootCause": null,
+  "proposedFix": "Implement custom slot suppliers following the pattern established in the Python SDK (PR #690)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with comprehensive tests to verify slot info fields",
+  "related": [
+    672
+  ],
+  "keyQuote": "Support custom slot suppliers, e.g. like Python did",
+  "number": 225,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:32.016Z"
+}

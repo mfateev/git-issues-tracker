@@ -1,0 +1,28 @@
+{
+  "summary": "Type annotation error in metrics configuration where MetricsConfig type is incorrectly specified in the runtime bridge module.",
+  "category": "bug",
+  "subcategory": "metrics-configuration",
+  "apis": [],
+  "components": [
+    "runtime",
+    "bridge",
+    "metrics"
+  ],
+  "concepts": [
+    "type-annotation",
+    "configuration",
+    "metrics-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using metrics configuration may encounter type checking errors or IDE warnings when configuring metrics.",
+  "rootCause": "Incorrect type annotation for MetricsConfig parameter in runtime.py line 150",
+  "proposedFix": "Change the type annotation to MetricsConfig",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Type annotation was corrected to use MetricsConfig",
+  "related": [],
+  "keyQuote": "should be `MetricsConfig`",
+  "number": 198,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:14.064Z"
+}

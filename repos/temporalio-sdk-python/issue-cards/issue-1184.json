@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to allow direct invocation of decorated activity functions within workflows (syntactic sugar over execute_activity), similar to Prefect's pattern. The request was closed with a detailed explanation of why the Python SDK intentionally requires explicit activity invocation for clarity and flexibility.",
+  "category": "feature",
+  "subcategory": "activity-invocation",
+  "apis": [
+    "execute_activity",
+    "start_activity",
+    "execute_local_activity",
+    "start_local_activity"
+  ],
+  "components": [
+    "activity-decorator",
+    "workflow-execution",
+    "activity-invocation"
+  ],
+  "concepts": [
+    "syntactic-sugar",
+    "decorator-pattern",
+    "ergonomics",
+    "explicitness",
+    "determinism",
+    "activity-options",
+    "activity-semantics"
+  ],
+  "severity": "low",
+  "userImpact": "Users unfamiliar with Temporal's design patterns expect decorated activities to be directly callable within workflows, leading to confusion and perceived boilerplate.",
+  "rootCause": "Intentional API design decision to maintain explicit activity invocation for clarity, consistency, and flexibility in supporting multiple invocation modes (start vs execute, local vs non-local).",
+  "proposedFix": "Create a custom decorator/utility outside the SDK that wraps activities to support both awaited and non-awaited invocation patterns with pre-configured options.",
+  "workaround": "Users can create custom decorators/utilities to provide more ergonomic activity invocation if needed, as suggested in the maintainer response.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer explained that explicit activity invocation is intentional: it communicates intent, supports multiple invocation modes, allows flexible option specification at call sites, and maintains consistency with workflow invocation patterns. The design was deliberately backed away from in Java/TypeScript after initial experiments.",
+  "related": [],
+  "keyQuote": "We don't want activity invocation to look like regular function invocation. You need to understand that you are invoking an activity and not just calling a Python function.",
+  "number": 1184,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:56.160Z"
+}

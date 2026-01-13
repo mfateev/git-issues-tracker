@@ -1,0 +1,34 @@
+{
+  "summary": "Unit tests for activity replication were removed during 2DC deprecation in PR #692. Need to create equivalent NDC tests to restore coverage for activity sync scenarios including activity completion, running states, and version/attempt comparisons.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "activity-replicator",
+    "test-suite",
+    "ndc"
+  ],
+  "concepts": [
+    "testing",
+    "activity-sync",
+    "replication",
+    "version-management",
+    "multi-region",
+    "deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Lack of test coverage for activity replication in NDC mode reduces confidence in replication correctness and makes future changes riskier.",
+  "rootCause": "2DC code path deprecation required removal of tests that exercised 2DC-specific replication behavior, leaving gaps in NDC test coverage.",
+  "proposedFix": "Create equivalent NDC tests for the nine removed test cases covering activity completion, running states, version comparisons, and zombie workflow scenarios.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #974 which implemented NDC equivalent tests for the removed 2DC test cases.",
+  "related": [
+    692,
+    974
+  ],
+  "keyQuote": "We had to remove certain unit test in TestActivityReplicatorSuite as they were not exercising NDC code path. Need to create equivalent test for NDC.",
+  "number": 698,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:53.683Z"
+}

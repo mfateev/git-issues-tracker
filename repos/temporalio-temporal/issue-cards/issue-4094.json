@@ -1,0 +1,31 @@
+{
+  "summary": "After a cluster version upgrade, the version info still displays an outdated \"new release available\" alert even though the current version matches the recommended version. The alert should be cleared when the upgrade is complete.",
+  "category": "bug",
+  "subcategory": "version-management",
+  "apis": [],
+  "components": [
+    "cluster-admin",
+    "version-info",
+    "alert-system"
+  ],
+  "concepts": [
+    "version-notification",
+    "cluster-upgrade",
+    "alert-clearing",
+    "version-synchronization"
+  ],
+  "severity": "low",
+  "userImpact": "Users see confusing upgrade notifications after their cluster has already been upgraded, creating confusion about the actual cluster state.",
+  "rootCause": "The versionInfo alert is not cleared when the cluster version is upgraded; the lastUpdateTime updates but alerts persist despite current and recommended versions matching.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    7650
+  ],
+  "keyQuote": "Note that the `lastUpdateTime` is after the cluster was upgraded.",
+  "number": 4094,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:50.219Z"
+}

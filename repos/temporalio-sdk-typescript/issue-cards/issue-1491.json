@@ -1,0 +1,34 @@
+{
+  "summary": "The log.error() method in workflow interceptors doesn't properly serialize Error objects, logging only the message and context fields while omitting all error properties like the stack trace.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [
+    "log.error"
+  ],
+  "components": [
+    "workflow",
+    "interceptor",
+    "logging"
+  ],
+  "concepts": [
+    "error-logging",
+    "error-serialization",
+    "interceptor",
+    "debugging",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot effectively debug workflow interceptors because Error objects lose their properties when logged, making it difficult to diagnose issues.",
+  "rootCause": "The log.error() method does not properly handle Error object serialization, stripping error properties during logging.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1274",
+  "related": [
+    1274
+  ],
+  "keyQuote": "all properties of `e` are missing from this log!",
+  "number": 1491,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:35:00.788Z"
+}

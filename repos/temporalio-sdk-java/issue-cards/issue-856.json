@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowClient.execute() doesn't properly synchronize with workflowStub.getResult(), causing tests to hang. The issue occurs when calling getResult() immediately after execute() without intermediate operations like sleep() or waiting on the returned future.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowClient.execute",
+    "WorkflowStub.getResult",
+    "WorkflowStub.fromTyped"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-stub",
+    "async-execution"
+  ],
+  "concepts": [
+    "synchronization",
+    "race-condition",
+    "completable-future",
+    "blocking",
+    "workflow-result"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably retrieve workflow results using the standard execute() + getResult() pattern, forcing workarounds like sleep() or explicit future waiting.",
+  "rootCause": "Missing synchronization between WorkflowClient.execute() and workflowStub.getResult() results in a race condition where getResult() may be called before the workflow execution is properly registered.",
+  "proposedFix": null,
+  "workaround": "Add Thread.sleep() between execute() and getResult(), or wait on the CompletableFuture returned by execute() before calling getResult().",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This test hangs (times out), but uncommenting of either sleep or waiting for a completable future makes it pass",
+  "number": 856,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:48:11.490Z"
+}

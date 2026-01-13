@@ -1,0 +1,31 @@
+{
+  "summary": "Request to implement eager activity dispatch in the Java SDK, enabling activities to be dispatched immediately rather than waiting for the next polling cycle.",
+  "category": "feature",
+  "subcategory": "activity-dispatch",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "worker",
+    "task-dispatcher"
+  ],
+  "concepts": [
+    "eager-dispatch",
+    "activity-scheduling",
+    "performance-optimization",
+    "latency-reduction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can achieve lower latency for activity execution by enabling eager dispatch instead of relying on polling-based scheduling.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented as requested for the Java SDK",
+  "related": [
+    55
+  ],
+  "keyQuote": "Add support for an eager activity dispatch in java-sdk.",
+  "number": 1339,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:27:21.544Z"
+}

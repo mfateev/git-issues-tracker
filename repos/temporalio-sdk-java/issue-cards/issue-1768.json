@@ -1,0 +1,32 @@
+{
+  "summary": "Spring Boot AutoConfigure version 2.7.9 contains CVE-2023-20883, a high-severity (7.5 CVSS) denial-of-service vulnerability affecting Spring MVC with reverse proxy caches. The issue requires upgrading to version 2.7.12 or later.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "spring-mvc",
+    "build-dependencies"
+  ],
+  "concepts": [
+    "denial-of-service",
+    "security-vulnerability",
+    "cvss-score",
+    "reverse-proxy",
+    "caching",
+    "dependency-upgrade",
+    "spring-framework"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Spring Boot applications with Spring MVC behind reverse proxy caches are vulnerable to denial-of-service attacks.",
+  "rootCause": "Spring Boot versions 2.7.0-2.7.11 have potential for DoS attacks when Spring MVC is used with reverse proxy caching.",
+  "proposedFix": "Upgrade spring-boot-autoconfigure to version 2.7.12 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically remediated through dependency upgrade.",
+  "related": [],
+  "keyQuote": "Can you pls fix this by upgrading spring boot as it is flagged by Snyk as a High risk issue?",
+  "number": 1768,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:31.388Z"
+}

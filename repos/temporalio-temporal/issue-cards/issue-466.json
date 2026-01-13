@@ -1,0 +1,32 @@
+{
+  "summary": "Docker Compose README documentation claims graphite metrics dashboard is available at localhost:8080/dashboard, but the default docker-compose.yml (with Cassandra) does not actually run graphite, making the dashboard inaccessible.",
+  "category": "docs",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker",
+    "docker-compose",
+    "graphite"
+  ],
+  "concepts": [
+    "docker-setup",
+    "metrics",
+    "dashboard",
+    "documentation-accuracy",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the README documentation attempt to access a metrics dashboard that is not actually running in the default configuration, leading to confusion and failed browser connections.",
+  "rootCause": "README.md documentation was not updated when Graphite was removed as a default component/dependency in the docker-compose configuration.",
+  "proposedFix": "Update README.md to reflect that Graphite is no longer a default component, or add Graphite to the default docker-compose.yml.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "README documentation was updated in PR #548 to reflect that Graphite is no longer a default component/dependency.",
+  "related": [
+    548
+  ],
+  "keyQuote": "Graphite is no longer a default component/dependency. The temporal/docker/README file has been updated to reflect this",
+  "number": 466,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:59:53.080Z"
+}

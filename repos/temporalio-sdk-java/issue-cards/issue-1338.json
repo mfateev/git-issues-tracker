@@ -1,0 +1,30 @@
+{
+  "summary": "Epic to develop a static analyzer tool for detecting non-deterministic code in Java workflows. A proof-of-concept implementation was created at temporal-workflowcheck-java.",
+  "category": "feature",
+  "subcategory": "workflow-validation",
+  "apis": [],
+  "components": [
+    "workflow-validator",
+    "static-analyzer",
+    "determinism-checker"
+  ],
+  "concepts": [
+    "determinism",
+    "static-analysis",
+    "code-validation",
+    "workflow-correctness",
+    "tooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Helps Java SDK users identify and prevent non-deterministic code patterns in workflows that could cause replay failures.",
+  "rootCause": null,
+  "proposedFix": "Create a static analyzer tool to detect non-deterministic patterns in Java workflows, building on the PoC at cretz/temporal-workflowcheck-java",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Proof-of-concept implementation was created and shared by community member cretz",
+  "related": [],
+  "keyQuote": "I did a PoC of this at https://github.com/cretz/temporal-workflowcheck-java",
+  "number": 1338,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:27:22.167Z"
+}

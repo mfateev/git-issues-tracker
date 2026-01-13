@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add Spring Boot autowiring support for ScheduleClient in the temporal-spring-boot-starter-alpha to simplify migration from legacy cron workflows to Schedules.",
+  "category": "feature",
+  "subcategory": "spring-integration",
+  "apis": [
+    "ScheduleClient"
+  ],
+  "components": [
+    "spring-boot-starter",
+    "schedule-client",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "spring-boot",
+    "autowiring",
+    "schedules",
+    "migration",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users migrating from cron workflows to Schedules can use Spring Boot autowiring to simplify integration and reduce boilerplate code.",
+  "rootCause": null,
+  "proposedFix": "Add ScheduleClient autowiring capability to temporal-spring-boot-starter-alpha",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ScheduleClient autowiring support was implemented in the spring-boot-starter",
+  "related": [],
+  "keyQuote": "Autowire ScheduleClient using the spring-boot-starter",
+  "number": 1812,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:43.403Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Wrap the output of WorkflowHandle.describe() in a JavaScript-friendly object instead of returning the raw gRPC response, improving usability for TypeScript/JavaScript developers.",
+  "category": "feature",
+  "subcategory": "api-usability",
+  "apis": [
+    "WorkflowHandle.describe"
+  ],
+  "components": [
+    "workflow-handle",
+    "grpc-response-wrapper"
+  ],
+  "concepts": [
+    "api-ergonomics",
+    "type-safety",
+    "developer-experience",
+    "protobuf",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently receive raw gRPC protobuf responses from describe() that are difficult to work with in JavaScript; wrapping them in a friendly object makes the API more accessible.",
+  "rootCause": "The raw gRPC response from describe() uses protobuf serialization which is not naturally idiomatic for JavaScript developers.",
+  "proposedFix": "Wrap the output of describe in a JS-friendly object, similar to implementations already done in Java and Python SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The team implemented wrapping of the describe output in a JavaScript-friendly object, following the pattern established in Java and Python SDKs.",
+  "related": [
+    17
+  ],
+  "keyQuote": "We're going to wrap the output of `describe` in a JS friendly object instead of returning the raw grpc response.",
+  "number": 482,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:57:45.157Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "After adding a custom search attribute via tctl, workflows fail to complete due to a type conversion error in the Temporal server. The panic occurs when attempting to convert an interface value expected to be float64 but received as int, specifically in the retry policy validation code.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "history-service",
+    "command-validator",
+    "retry-policy"
+  ],
+  "concepts": [
+    "search-attributes",
+    "type-conversion",
+    "retry-policy",
+    "elasticsearch",
+    "configuration"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows cannot complete execution after adding custom search attributes, preventing normal workflow operation.",
+  "rootCause": "Type mismatch in configuration parsing: retry policy coefficients are being parsed as integers but the code expects float64 values, causing a panic in FromConfigToDefaultRetrySettings",
+  "proposedFix": null,
+  "workaround": "Manually convert all retry policy coefficients in development_es.yaml configuration file from integers to floats",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating configuration to use proper float types for retry coefficients, related to PR #1464",
+  "related": [
+    1464
+  ],
+  "keyQuote": "After adding a new search attribute, workflows won't end because of a conversion error: \"interface conversion: interface {} is int, not float64\"",
+  "number": 1474,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:33:48.235Z"
+}

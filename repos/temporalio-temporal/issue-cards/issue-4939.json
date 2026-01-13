@@ -1,0 +1,32 @@
+{
+  "summary": "DescribeBatchOperation API returns a 400 Bad Request error when attempting to describe batch operations of type 'reset', even though the reset operation was successfully created. The API incorrectly rejects the reset operation type during the describe call.",
+  "category": "bug",
+  "subcategory": "batch-operations",
+  "apis": [
+    "DescribeBatchOperation"
+  ],
+  "components": [
+    "frontend",
+    "workflow-handler",
+    "batch-operations"
+  ],
+  "concepts": [
+    "batch-operations",
+    "reset",
+    "api-compatibility",
+    "operation-types",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot inspect or manage reset batch operations after creating them, blocking workflow reset functionality.",
+  "rootCause": "The DescribeBatchOperation API handler does not support the 'reset' operation type in its validation logic, despite the operation type being supported for creation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The DescribeBatchOperation API was updated to support the 'reset' operation type.",
+  "related": [],
+  "keyQuote": "After creating a \"reset\" batch operation, call DescribeBatchOperation API and receive a 400 Bad Request response, with error message \"The operation type reset is not supported\"",
+  "number": 4939,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:46.639Z"
+}

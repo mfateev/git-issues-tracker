@@ -1,0 +1,34 @@
+{
+  "summary": "User requests a helper method `ActivityDefinition.CreateWithoutAttribute` to allow custom runtime naming of activities without needing to subclass the sealed `ActivityAttribute`. This would enable reusable activity contract patterns using generics and custom naming logic.",
+  "category": "feature",
+  "subcategory": "activity-definition",
+  "apis": [
+    "ActivityDefinition.Create",
+    "ActivityAttribute"
+  ],
+  "components": [
+    "activity-definition",
+    "activity-attributes",
+    "reflection"
+  ],
+  "concepts": [
+    "naming-strategy",
+    "runtime-customization",
+    "activity-contracts",
+    "generics",
+    "sealed-attributes",
+    "reflection-based-invocation"
+  ],
+  "severity": "low",
+  "userImpact": "Users wanting to implement reusable activity patterns with custom naming logic are currently forced to manually replicate internal helper methods or use dynamic approaches, reducing code maintainability.",
+  "rootCause": "The `ActivityAttribute` is sealed per CA1813 recommendations, preventing subclassing for custom naming logic. The `ActivityDefinition.Create` overload requires manual parameter handling that duplicates internal logic.",
+  "proposedFix": "Expose a helper method `ActivityDefinition.CreateWithoutAttribute(string? name, MethodInfo method, Func<object?[], object?> invoker)` that provides the same functionality as the reflection-based `Create` method but without requiring the attribute, similar to existing `WorkflowSignalDefinition.CreateWithoutAttribute`.",
+  "workaround": "Users can use the `ActivityDefinition.Create` overload that accepts name and other parameters directly, though this requires manually handling parameter defaults and other internal logic.",
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was accepted by the maintainers. They agreed to expose `ActivityDefinition.CreateWithoutAttribute` as a helper method to support custom runtime naming without attribute subclassing, accepting attribute options as parameters similar to existing patterns.",
+  "related": [],
+  "keyQuote": "We would be ok exposing a helper like: public static ActivityDefinition CreateWithoutAttribute(string? name, MethodInfo method, Func<object?[], object?> invoker)",
+  "number": 439,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:25:13.054Z"
+}

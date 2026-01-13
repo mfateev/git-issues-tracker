@@ -1,0 +1,32 @@
+{
+  "summary": "The CHANGELOG for version 0.18.0 doesn't document a breaking change in client error handling where users must now catch specific errors instead of relying on gRPC error codes.",
+  "category": "bug",
+  "subcategory": "documentation",
+  "apis": [
+    "grpc"
+  ],
+  "components": [
+    "error-handling",
+    "client",
+    "changelog"
+  ],
+  "concepts": [
+    "breaking-change",
+    "error-codes",
+    "exception-handling",
+    "api-compatibility",
+    "documentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to 0.18.0 may encounter unexpected errors if their code depends on gRPC error codes for error handling, with inadequate documentation of the change.",
+  "rootCause": "CHANGELOG was not updated to reflect the breaking change introduced in version 0.18.0 for client error handling",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed after CHANGELOG was updated to document the breaking change in error handling behavior",
+  "related": [],
+  "keyQuote": "Before 0.18.0 users could rely on grpc error code for handling errors, after the change they need to catch specific errors.",
+  "number": 493,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:10.048Z"
+}

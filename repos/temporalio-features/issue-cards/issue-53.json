@@ -1,0 +1,30 @@
+{
+  "summary": "Request for new metrics to distinguish between widespread task failures and individual stuck workflows/activities. Proposes counters tracking consecutive failures at different thresholds (10, 100, 1000 times) to better identify failure patterns.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-executor",
+    "activity-executor"
+  ],
+  "concepts": [
+    "failure-tracking",
+    "consecutive-failures",
+    "observability",
+    "metrics-histogram",
+    "failure-patterns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot distinguish between isolated failures across many workflows and repeated failures of stuck workflows, limiting debugging and monitoring capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add counters for activity_failed_10_times, activity_failed_100_times, activity_failed_1000_times and corresponding workflow_task_failed_* metrics, or implement histogram with buckets following OpenMetrics specification.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it's impossible to distinguish between two situations. A lot of workflows are failing once or twice or there is 1 or 2 workflows that are completely stuck.",
+  "number": 53,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:44:47.055Z"
+}

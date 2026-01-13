@@ -1,0 +1,29 @@
+{
+  "summary": "Request to make the Destroyable interface public so developers can define custom memory cleanup rules when workflows are unloaded from memory.",
+  "category": "feature",
+  "subcategory": "workflow-lifecycle",
+  "apis": [],
+  "components": [
+    "destroyable-interface",
+    "workflow-memory-management"
+  ],
+  "concepts": [
+    "memory-cleanup",
+    "resource-disposal",
+    "workflow-lifecycle",
+    "interface-visibility",
+    "developer-customization"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot currently implement custom cleanup logic when workflows are removed from memory without access to the Destroyable interface.",
+  "rootCause": null,
+  "proposedFix": "Make the Destroyable interface public to allow developers to implement custom cleanup rules.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Destroyable interface was made public in a subsequent release.",
+  "related": [],
+  "keyQuote": "Make the Destroyable interface public so that developers can define memory cleanup rules when unloading a Workflow from memory.",
+  "number": 584,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:06.140Z"
+}

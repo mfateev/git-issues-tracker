@@ -1,0 +1,31 @@
+{
+  "summary": "MySQL INSERT statement with ON DUPLICATE KEY UPDATE returns 2 rows affected instead of 1, causing workflow creation failures. The persistence layer incorrectly validates that exactly 1 row must be affected, but duplicate key updates can legitimately affect 2 rows.",
+  "category": "bug",
+  "subcategory": "persistence-mysql",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "persistence",
+    "history-store",
+    "mysql-plugin"
+  ],
+  "concepts": [
+    "duplicate-key-update",
+    "row-affected-count",
+    "workflow-creation",
+    "child-workflows"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience significant delays in creating child workflows due to false error conditions in the MySQL persistence layer.",
+  "rootCause": "The AppendHistoryNodes validation in history_store.go checks for exactly 1 row affected, but MySQL's ON DUPLICATE KEY UPDATE can affect up to 2 rows (insert + update), causing the validation to fail incorrectly.",
+  "proposedFix": "Change the validation from `if rowsAffected != 1` to `if rowsAffected > 2` to allow for the legitimate 2-row case from duplicate key updates.",
+  "workaround": "Modify the persistence validation check to accept rowsAffected up to 2.",
+  "resolution": "fixed",
+  "resolutionDetails": "The validation was corrected to handle the case where ON DUPLICATE KEY UPDATE affects 2 rows.",
+  "related": [],
+  "keyQuote": "This particular statement can affect 2 rows at the max. But the check above was if rowsAffected != 1 which seems to be causing the issue",
+  "number": 2408,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:08.474Z"
+}

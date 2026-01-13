@@ -1,0 +1,30 @@
+{
+  "summary": "Nexus samples and documentation currently use request ID as workflow ID, which contradicts the documented best practice of using business-meaningful IDs. The request is to update samples and docs to demonstrate proper workflow ID usage.",
+  "category": "docs",
+  "subcategory": "nexus-samples",
+  "apis": [],
+  "components": [
+    "nexus",
+    "samples",
+    "documentation"
+  ],
+  "concepts": [
+    "workflow-id",
+    "request-id",
+    "best-practices",
+    "code-examples",
+    "documentation-accuracy"
+  ],
+  "severity": "low",
+  "userImpact": "Users learning Nexus from samples and docs may adopt incorrect patterns for workflow ID assignment, deviating from recommended practices.",
+  "rootCause": "Samples demonstrate using request ID for workflow ID despite documentation recommending business-meaningful IDs",
+  "proposedFix": "Update Nexus samples and documentation to use business-meaningful IDs for workflows instead of request IDs",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Today Nexus samples and docs use request ID for workflow ID even though they document that you should use a \"business-meaningful ID\"",
+  "number": 692,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:21.870Z"
+}

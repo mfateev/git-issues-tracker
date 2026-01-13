@@ -1,0 +1,32 @@
+{
+  "summary": "The gRPC API incorrectly requires Namespace to be set on DescribeHistoryHostRequest, but the tdbg CLI tool doesn't provide this field, causing the request to fail. The issue appears to be in the frontend namespace validator interceptor which should not enforce this requirement for history host describe operations.",
+  "category": "bug",
+  "subcategory": "rpc-interceptor",
+  "apis": [
+    "DescribeHistoryHostRequest"
+  ],
+  "components": [
+    "namespace-validator",
+    "rpc-interceptor",
+    "frontend"
+  ],
+  "concepts": [
+    "validation",
+    "namespace",
+    "interceptor",
+    "history-host",
+    "rpc-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use the tdbg history-host describe command to inspect history host details due to incorrect namespace validation.",
+  "rootCause": "Frontend namespace validator interceptor incorrectly enforces Namespace requirement for DescribeHistoryHostRequest, which should not require this field.",
+  "proposedFix": "Update the namespace validator interceptor to exclude DescribeHistoryHostRequest from namespace validation requirements.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The namespace validator was updated to allow DescribeHistoryHostRequest without requiring Namespace to be set.",
+  "related": [],
+  "keyQuote": "rpc error: code = InvalidArgument desc = Namespace not set on request.",
+  "number": 5933,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:22.767Z"
+}

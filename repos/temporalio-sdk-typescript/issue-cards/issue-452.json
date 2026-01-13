@@ -1,0 +1,30 @@
+{
+  "summary": "Add a simplified API to inject headers into the gRPC connection without requiring users to write custom interceptors. This is a common pattern that should be easier to accomplish.",
+  "category": "feature",
+  "subcategory": "grpc-connection",
+  "apis": [],
+  "components": [
+    "connection",
+    "grpc-client",
+    "interceptor"
+  ],
+  "concepts": [
+    "headers",
+    "metadata",
+    "grpc",
+    "connection-configuration",
+    "api-simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently need to write custom interceptors to inject headers, which is unnecessarily complex for a common use case.",
+  "rootCause": null,
+  "proposedFix": "Expose a simpler API for header injection instead of requiring interceptor implementation",
+  "workaround": "Use gRPC interceptors to inject headers (current workaround mentioned in issue)",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This currently requires an interceptor, a simpler API should be exposed for this common pattern.",
+  "number": 452,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:33.545Z"
+}

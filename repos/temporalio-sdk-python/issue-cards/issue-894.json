@@ -1,0 +1,30 @@
+{
+  "summary": "User requested the ability to install the Temporal Python SDK via conda/anaconda without requiring pip. The feature was successfully implemented by the community through conda-forge.",
+  "category": "feature",
+  "subcategory": "package-distribution",
+  "apis": [],
+  "components": [
+    "package-manager",
+    "conda-forge",
+    "distribution"
+  ],
+  "concepts": [
+    "installation",
+    "package-management",
+    "conda",
+    "dependency-resolution",
+    "version-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now install the Temporal Python SDK directly from conda-forge without needing pip, simplifying setup for conda-based environments.",
+  "rootCause": null,
+  "proposedFix": "Publish Temporal Python SDK to conda-forge repository to enable conda installation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Community member (Achira via dgasmith) committed to maintaining the package on conda-forge. Temporalio is now available on conda-forge at https://github.com/conda-forge/temporalio-feedstock",
+  "related": [],
+  "keyQuote": "Temporalio is now on conda-forge: https://github.com/conda-forge/temporalio-feedstock",
+  "number": 894,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:27:15.578Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add metadata.messageType field to protobuf payloads in PHP SDK to match Java and Go SDK implementations. This requires accessing the protobuf message's full name/type information.",
+  "category": "feature",
+  "subcategory": "protobuf-serialization",
+  "apis": [],
+  "components": [
+    "protobuf-codec",
+    "serialization",
+    "message-handling"
+  ],
+  "concepts": [
+    "message-type",
+    "protobuf-metadata",
+    "type-information",
+    "serialization",
+    "cross-sdk-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users can include message type metadata in protobuf payloads for better interoperability and debugging across Temporal SDKs.",
+  "rootCause": "PHP Protobuf library's DescriptorPool API not initially discoverable for accessing message full names.",
+  "proposedFix": "Use DescriptorPool::getGeneratedPool()->getDescriptorByClassName($value::class)->getFullName() to extract message type.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Solution provided in comment showing how to access message type using Google Protobuf's DescriptorPool API.",
+  "related": [],
+  "keyQuote": "To get message type you can use the following: $pool = \\Google\\Protobuf\\Internal\\DescriptorPool::getGeneratedPool(); $pool->getDescriptorByClassName($value::class)->getFullName();",
+  "number": 137,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:19.494Z"
+}

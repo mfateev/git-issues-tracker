@@ -1,0 +1,34 @@
+{
+  "summary": "User asks how to update search attribute values during workflow/activity runtime, particularly for use cases like tracking when the last email was sent. A solution using `Workflow.upsertSearchAttributes` is provided, though it only works from workflow code, not from activities.",
+  "category": "question",
+  "subcategory": "search-attributes",
+  "apis": [
+    "WorkflowOptions",
+    "Workflow.upsertSearchAttributes",
+    "Workflow.currentTimeMillis"
+  ],
+  "components": [
+    "workflow-execution",
+    "search-attributes",
+    "activity-runtime"
+  ],
+  "concepts": [
+    "search-attributes",
+    "workflow-state",
+    "runtime-updates",
+    "activity-limitations",
+    "query-capability"
+  ],
+  "severity": "low",
+  "userImpact": "Users need to understand how to dynamically update search attributes during workflow execution to track runtime state changes like task completion timestamps.",
+  "rootCause": "Activities do not have access to Workflow methods like upsertSearchAttributes, creating an asymmetry in update capabilities between workflow and activity contexts.",
+  "proposedFix": "Use Workflow.upsertSearchAttributes from within the workflow code to update search attributes at runtime.",
+  "workaround": "Perform search attribute updates only from the workflow code, not from activities.",
+  "resolution": "fixed",
+  "resolutionDetails": "Answer provided: Workflow.upsertSearchAttributes is available for updating search attributes from workflow code, though activities cannot perform this operation.",
+  "related": [],
+  "keyQuote": "There is `Workflow.upsertSearchAttributes` to add/update search attributes from the workflow code. It's not possible from Activities runtime though, activities don't have an access to `Workflow` methods.",
+  "number": 487,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:21:41.584Z"
+}

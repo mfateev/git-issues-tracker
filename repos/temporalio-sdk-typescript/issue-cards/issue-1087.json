@@ -1,0 +1,34 @@
+{
+  "summary": "User encountered 'too many filter conditions specified' error when querying active workflows using WorkflowClient.list() with a two-condition filter, while the same query works with direct gRPC calls to listWorkflowExecutions(). The issue was identified as a server limitation related to visibility database configuration, not an SDK bug.",
+  "category": "bug",
+  "subcategory": "workflow-query",
+  "apis": [
+    "WorkflowClient.list",
+    "listWorkflowExecutions",
+    "countWorkflowExecutions"
+  ],
+  "components": [
+    "workflow-client",
+    "visibility-query",
+    "grpc-client"
+  ],
+  "concepts": [
+    "query-filters",
+    "visibility-database",
+    "pagination",
+    "elasticsearch",
+    "persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to query workflows with reasonable filter conditions receive a server error and cannot list filtered workflow executions through the client API.",
+  "rootCause": "Server-side limitation: the visibility database (Cassandra/ScyllaDB without ElasticSearch) does not support the enhanced visibility queries that the SDK attempts to construct.",
+  "proposedFix": null,
+  "workaround": "Use the direct gRPC connection's listWorkflowExecutions() method instead of WorkflowClient.list(). Alternatively, enable ElasticSearch as the visibility database to support enhanced queries.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not planned - determined to be a server configuration issue rather than an SDK bug. User's persistence layer (Cassandra/ScyllaDB) does not support enhanced visibility without ElasticSearch.",
+  "related": [],
+  "keyQuote": "It's not an SDK bug, it's a server limitation.",
+  "number": 1087,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:24.611Z"
+}

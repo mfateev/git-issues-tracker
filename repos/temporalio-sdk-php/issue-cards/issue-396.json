@@ -1,0 +1,32 @@
+{
+  "summary": "LocalActivity in SDK 2.7 generates full activity events (ActivityTaskScheduled, ActivityTaskStarted, ActivityTaskCompleted) instead of a single MarkerRecorded event in workflow history, reverting to behavior like a normal activity.",
+  "category": "bug",
+  "subcategory": "local-activity",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "workflow-history",
+    "activity-scheduling"
+  ],
+  "concepts": [
+    "local-activity",
+    "workflow-history",
+    "activity-events",
+    "marker-recording",
+    "regression"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on local activities to produce minimal workflow history (only MarkerRecorded events) experience unexpected full activity scheduling events after upgrading to SDK 2.7+.",
+  "rootCause": "Regression introduced in SDK 2.7 where local activity execution logic was changed to dispatch full activity events instead of inline marker recording.",
+  "proposedFix": null,
+  "workaround": "Downgrade to SDK 2.6 where local activity produces only MarkerRecorded events.",
+  "resolution": "fixed",
+  "resolutionDetails": "The regression from 2.7 was addressed in a subsequent version, restoring local activity to correctly generate only MarkerRecorded events.",
+  "related": [],
+  "keyQuote": "During local activity execution, there are three events in the workflow history (ActivityTaskScheduled, ActivityTaskStarted, ActivityTaskCompleted).",
+  "number": 396,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:26.751Z"
+}

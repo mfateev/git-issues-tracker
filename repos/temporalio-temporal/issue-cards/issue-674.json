@@ -1,0 +1,31 @@
+{
+  "summary": "For workflows with long history, paginating through history events during replay can exceed the workflow task timeout, causing task retries and system thrashing. The request is to implement workflow task heartbeats during history pagination to keep the timeout renewed.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "history-pagination",
+    "replay-engine"
+  ],
+  "concepts": [
+    "timeout",
+    "heartbeat",
+    "history-pagination",
+    "workflow-task",
+    "replay",
+    "long-history"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows with long history fail with timeout errors and cause cascading retries that degrade system performance.",
+  "rootCause": "History pagination during workflow replay can take longer than the workflow task timeout, causing the task to be retried on a different host, restarting the entire history replay.",
+  "proposedFix": "Implement workflow task heartbeat mechanism during history pagination to extend the timeout while the client is reading paginated history, similar to the heartbeat mechanism used for local activities.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For workflow executions with long history it could take a longer than workflow task timeout to paginate through history events during replay.",
+  "number": 674,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:23:14.265Z"
+}

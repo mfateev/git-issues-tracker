@@ -1,0 +1,34 @@
+{
+  "summary": "User requested a way to mock Workflow.currentTimeMillis() in test environments. The issue was resolved by pointing out the existing setInitialTime() method in TestEnvironmentOptions.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow.currentTimeMillis",
+    "TestWorkflowEnvironment",
+    "TestEnvironmentOptions"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-runtime",
+    "time-management"
+  ],
+  "concepts": [
+    "mocking",
+    "time-control",
+    "test-environment",
+    "thread-safety",
+    "static-methods"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now easily control time in test workflows using setInitialTime() instead of attempting complex Mockito mocking workarounds.",
+  "rootCause": "User was unaware of the existing setInitialTime() method in TestEnvironmentOptions for controlling workflow time in tests.",
+  "proposedFix": "Use TestEnvironmentOptions.newBuilder().setInitialTime(WORKFLOW_START_TIME) when creating TestWorkflowEnvironment",
+  "workaround": "Create a wrapper around Workflow.currentTimeMillis() with conditional test mode logic",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by the maintainer pointing out the existing setInitialTime() method which provides the exact functionality requested.",
+  "related": [],
+  "keyQuote": "To control the initial in the test environment use `setInitialTime`.",
+  "number": 2329,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:39.387Z"
+}

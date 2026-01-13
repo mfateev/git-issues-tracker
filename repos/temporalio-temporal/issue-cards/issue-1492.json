@@ -1,0 +1,31 @@
+{
+  "summary": "Large payloads passed to many activities or child workflows are repeated in history, causing excessive history size. The request is for a payload deduplication mechanism, such as storing payloads once and referencing them elsewhere, or using content hashing to avoid duplication.",
+  "category": "feature",
+  "subcategory": "payload-deduplication",
+  "apis": [],
+  "components": [
+    "history",
+    "workflow-engine",
+    "activity-scheduler"
+  ],
+  "concepts": [
+    "payload-deduplication",
+    "history-optimization",
+    "memory-efficiency",
+    "content-hashing",
+    "large-payloads",
+    "fan-out"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with workflows that fan out large payloads to many activities or child workflows experience excessive history size that can exceed limits.",
+  "rootCause": "Temporal's current model repeats the entire payload in history for each invocation rather than deduplicating shared payloads.",
+  "proposedFix": "Payload deduplication mechanism, either via special commands to save and reference payloads, or by storing large payload hashes in mutable state similar to Plan 9's Venti approach.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Recording the same payload many times is clearly nonoptimal.",
+  "number": 1492,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:34:04.613Z"
+}

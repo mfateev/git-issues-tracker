@@ -1,0 +1,31 @@
+{
+  "summary": "Child workflows terminated during reset operations incorrectly report to their parent using IsTerminatedByResetter check instead of verifying if the current run is the base run. This causes incorrect parent-child workflow behavior during reset scenarios.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "transfer_queue_active_task_executor",
+    "workflow_execution_info",
+    "replication"
+  ],
+  "concepts": [
+    "reset",
+    "child-workflow",
+    "parent-workflow",
+    "termination",
+    "base-run",
+    "state-based-replication"
+  ],
+  "severity": "high",
+  "userImpact": "Child workflows may incorrectly report completion to parent workflows during reset operations, leading to incorrect workflow execution behavior in multi-level workflow hierarchies.",
+  "rootCause": "The replyToParentWorkflow logic checks IsTerminatedByResetter instead of checking if the current run is the base run of a reset operation using the ResetRunId field.",
+  "proposedFix": "Change replication logic to either: (1) Generate SyncWorkflowState task instead of historyReplicationTask when workflow closes during reset, or (2) Add new fields to Terminated event to indicate if workflow is base run. Current limitation: ResetRunID field not replicated in event-based replication until state-based replication goes live.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If current run is base run, then we should not report to parent, as we will have a new run for the child. If current run is not base run, then we should report to parent.",
+  "number": 6954,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:40.863Z"
+}

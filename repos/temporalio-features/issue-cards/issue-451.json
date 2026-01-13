@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request for SDK test coverage confirming that workflow updates are processed with higher priority than the main workflow completion, including handling of unhandled commands and proper coroutine ordering when updates arrive during task processing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "workflow.run",
+    "workflow.update",
+    "workflow.signal",
+    "workflow.wait_condition"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-execution",
+    "update-handler",
+    "signal-handler"
+  ],
+  "concepts": [
+    "unhandled-command",
+    "coroutine-ordering",
+    "task-processing",
+    "priority",
+    "replay",
+    "cache",
+    "concurrency"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures SDKs properly handle updates sent during workflow task processing, preventing data loss and maintaining correct execution order.",
+  "rootCause": "Need for comprehensive feature test coverage across SDKs to verify update priority and unhandled command behavior during workflow execution.",
+  "proposedFix": "Create two feature tests: one verifying updates processed before completion with unhandled command assertion, and another testing signal/update ordering in same task on cached workflow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "make sure an update is sent while the initial task is processed, causing unhandled command, and that the workflow result is properly updated",
+  "number": 451,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:45.607Z"
+}

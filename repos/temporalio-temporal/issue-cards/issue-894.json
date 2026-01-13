@@ -1,0 +1,29 @@
+{
+  "summary": "DynamicConfig TaskQueuePartitions has a TaskType constraint that compares an ENUM to a string/int, causing it to never match. The TaskType constraint should also be optional to allow applying the same partition count to both Activity and Workflow tasks.",
+  "category": "bug",
+  "subcategory": "dynamic-config",
+  "apis": [],
+  "components": [
+    "dynamic-config",
+    "task-queue",
+    "partitioning"
+  ],
+  "concepts": [
+    "task-type",
+    "enum-comparison",
+    "configuration-constraint",
+    "task-queue-partitions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly configure different partition counts for activity vs workflow tasks in DynamicConfig due to the TaskType constraint failing to match.",
+  "rootCause": "TaskType constraint implementation compares ENUM values against string/int types, causing the comparison to always fail.",
+  "proposedFix": "Fix the comparison logic to handle both ENUM and string/int values, and make the TaskType constraint optional.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TaskType constraint fix was completed in v1.2 to accept both 'Activity'/'Workflow' string values and numeric representations. Making TaskType optional was landed to master branch.",
+  "related": [],
+  "keyQuote": "This has been fixed. The TaskType Constraint failure is in 1.2 (specify Activity or Workflow as TaskType) and making TaskType optional is landed to master and will be available on the next release.",
+  "number": 894,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:05.833Z"
+}

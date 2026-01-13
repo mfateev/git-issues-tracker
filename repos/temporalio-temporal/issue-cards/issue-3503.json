@@ -1,0 +1,33 @@
+{
+  "summary": "Request for dynamic rate limiting on task queues to act as a circuit breaker, scaling back task consumption when downstream services are struggling, without requiring worker restarts.",
+  "category": "feature",
+  "subcategory": "task-queue-rate-limiting",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "worker",
+    "rate-limiting"
+  ],
+  "concepts": [
+    "circuit-breaker",
+    "rate-limiting",
+    "dynamic-configuration",
+    "backoff",
+    "downstream-resilience",
+    "retry-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to dynamically adjust task queue rate limits to handle downstream service failures without restarting workers.",
+  "rootCause": null,
+  "proposedFix": "Implement dynamic rate limiting similar to issue #3288, allowing rate limit changes without worker restarts. Consider supporting dynamic backoff adjustments for individual activity retries via custom error metadata.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3288
+  ],
+  "keyQuote": "Ability to be able to change the rate limit with changing having to restart the worker",
+  "number": 3503,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:00.792Z"
+}

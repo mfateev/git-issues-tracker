@@ -1,0 +1,33 @@
+{
+  "summary": "The temporal-cassandra-tool and auto-setup Docker image default to consistency level ALL, which is not supported by AWS Keyspaces. Users need CLI arguments and environment variables to configure alternative consistency levels for cloud-managed Cassandra services.",
+  "category": "feature",
+  "subcategory": "cassandra-configuration",
+  "apis": [],
+  "components": [
+    "temporal-cassandra-tool",
+    "auto-setup",
+    "gocql-driver"
+  ],
+  "concepts": [
+    "consistency-level",
+    "cassandra-configuration",
+    "aws-keyspaces",
+    "cloud-compatibility",
+    "database-connection"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Temporal with AWS Keyspaces due to unsupported consistency level defaults, blocking cloud adoption.",
+  "rootCause": "temporal-cassandra-tool and auto-setup Docker image hardcode consistency level ALL, which AWS Keyspaces does not support (only ONE, LOCAL_QUORUM, LOCAL_ONE supported).",
+  "proposedFix": "Add CLI argument to temporal-cassandra-tool for consistency level selection and environment variable to auto-setup Docker image to control gocql driver consistency level.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was unblocked by PR #1189 starting from version 1.6.x which made consistency level configurable.",
+  "related": [
+    513,
+    1189
+  ],
+  "keyQuote": "AWS Keyspaces does not support the consistency level that the CLI tool is defaulting to. A temporal-cassandra-tool CLI argument should be provided to select alternative consistency levels.",
+  "number": 1168,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:23.613Z"
+}

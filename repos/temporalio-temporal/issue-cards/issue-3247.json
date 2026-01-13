@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose an HTTP healthcheck endpoint on the Temporal Frontend service to support deployment engines that cannot make gRPC calls due to infrastructure limitations.",
+  "category": "feature",
+  "subcategory": "healthcheck",
+  "apis": [],
+  "components": [
+    "frontend",
+    "healthcheck"
+  ],
+  "concepts": [
+    "healthcheck",
+    "http",
+    "grpc",
+    "deployment",
+    "monitoring",
+    "service-health"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with infrastructure constraints that only support HTTP healthchecks cannot easily deploy and monitor self-hosted Temporal servers.",
+  "rootCause": "Frontend service only exposes gRPC healthcheck, not HTTP.",
+  "proposedFix": "Expose a \"/healthcheck\" endpoint on the Frontend service.",
+  "workaround": "Use TCP calls instead of HTTP healthchecks for deployment engine health monitoring.",
+  "resolution": "fixed",
+  "resolutionDetails": "HTTP API implementation was undertaken as work in progress to provide HTTP endpoint support.",
+  "related": [],
+  "keyQuote": "Exposing a \"/healthcheck\" endpoint on the Frontend service so service deployment engines can utilize this endpoint if they can't support gRPC calls.",
+  "number": 3247,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:43.625Z"
+}

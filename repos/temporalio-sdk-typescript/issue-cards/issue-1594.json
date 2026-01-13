@@ -1,0 +1,33 @@
+{
+  "summary": "When creating a schedule with triggerImmediately: true, the initial run ignores the schedule's overlap policy and always uses AllowAll, causing subsequent runs to execute immediately instead of being buffered according to the configured policy.",
+  "category": "bug",
+  "subcategory": "schedule-overlap-policy",
+  "apis": [
+    "ScheduleClient.create",
+    "Schedule.trigger"
+  ],
+  "components": [
+    "schedule-client",
+    "overlap-policy",
+    "schedule-state"
+  ],
+  "concepts": [
+    "overlap-policy",
+    "schedule-execution",
+    "buffering",
+    "concurrency-control",
+    "immediate-trigger"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably enforce overlap policies when immediately triggering schedules, potentially causing concurrent workflow executions when buffering was intended.",
+  "rootCause": "The initial schedule run triggered via triggerImmediately always uses a default AllowAll overlap policy instead of inheriting the schedule's configured overlap policy.",
+  "proposedFix": "Make triggerImmediately honor the schedule's overlap policy (e.g., BUFFER_ONE) for the initial run instead of defaulting to AllowAll.",
+  "workaround": "Create the schedule without triggerImmediately, then manually call schedule.trigger() with the desired overlap policy.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "triggerImmediately: true should honor the schedule's overlap policy instead of defaulting to the AllowAll policy",
+  "number": 1594,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:46.084Z"
+}

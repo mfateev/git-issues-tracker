@@ -1,0 +1,30 @@
+{
+  "summary": "Python features test for query timeout is not checking for the correct deadline exceeded error type, unlike implementations in other languages. This is a leftover from manual client-side timeout handling that needs to be fixed.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "features-test",
+    "python-sdk",
+    "query-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "error-handling",
+    "cross-language-consistency",
+    "test-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Test cases may not properly validate timeout behavior, potentially masking issues in query timeout handling across language implementations.",
+  "rootCause": "Manual client-side timeout implementation left as legacy code without proper deadline exceeded error type checking",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Updated the test to check for the correct deadline exceeded error type consistent with other language implementations",
+  "related": [],
+  "keyQuote": "Other langs check for the right error type, this one does not because it was left over from manual client-side timeout",
+  "number": 184,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:44.446Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow code that mistakenly uses Java synchronization primitives (e.g., synchronized methods) causes deadlocks since the dispatcher relies on cooperative multithreading. This feature proposes implementing a deadlock detector that fails the decision task with a clear error message when such blocking primitives are detected.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-dispatcher",
+    "workflow-executor",
+    "synchronization-detection"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "cooperative-multithreading",
+    "synchronization-primitives",
+    "workflow-safety",
+    "thread-blocking",
+    "error-detection"
+  ],
+  "severity": "high",
+  "userImpact": "Developers who accidentally use Java locking primitives in workflows experience mysterious deadlocks that are difficult to diagnose; clearer early detection would save significant debugging time.",
+  "rootCause": "Workflow dispatcher uses cooperative multithreading, but Java synchronized primitives cause hard blocking that prevents the scheduler from making progress when multiple threads contend for the same lock.",
+  "proposedFix": "Implement a deadlock detection feature that monitors for Java synchronization primitives usage within workflow code and fails the decision task with a descriptive error message when detected.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to detect and prevent Java synchronization primitives in workflow code.",
+  "related": [],
+  "keyQuote": "Currently if a workflow code by mistake uses Java synchronization primitives it deadlocks as dispatcher relies on cooperative multithreading.",
+  "number": 28,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:35:51.139Z"
+}

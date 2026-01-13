@@ -1,0 +1,36 @@
+{
+  "summary": "Workflows with PHP 8.4 promoted properties fail in SDK 2.14.0 when the workflow method has arguments, causing those arguments to incorrectly propagate to the workflow constructor instead of the workflow method.",
+  "category": "bug",
+  "subcategory": "workflow-initialization",
+  "apis": [
+    "WorkflowInterface",
+    "WorkflowMethod",
+    "SignalMethod",
+    "newWorkflowStub"
+  ],
+  "components": [
+    "workflow-constructor",
+    "property-promotion",
+    "argument-handling",
+    "workflow-instantiation"
+  ],
+  "concepts": [
+    "promoted-properties",
+    "constructor-injection",
+    "argument-passing",
+    "workflow-state",
+    "PHP-8.4"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to SDK 2.14.0 with PHP 8.4 promoted properties in workflows cannot start workflows with method arguments, breaking existing applications.",
+  "rootCause": "SDK 2.14.0 introduced a regression in handling promoted properties where workflow method arguments are incorrectly passed to the workflow constructor during instantiation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in SDK version 2.14.1",
+  "related": [],
+  "keyQuote": "After upgrade of sdk to 2.14.0 noticed that some workflows which have constructors with promoted properties started to fail. Seems that it only fails if workflow method has arguments.",
+  "number": 610,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:05.354Z"
+}

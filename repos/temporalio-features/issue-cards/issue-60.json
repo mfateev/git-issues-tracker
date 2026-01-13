@@ -1,0 +1,33 @@
+{
+  "summary": "Dependency security vulnerability in go-yaml (transitive dependency of testify v1.7.0) with CVE-2022-28948 causing denial of service through YAML deserialization. Issue was autoclosed after vulnerability was addressed.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "testify",
+    "go-yaml",
+    "dependencies",
+    "unmarshal",
+    "yaml-parser"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "deserialization",
+    "dependency-management",
+    "transitive-dependency",
+    "cvss-score"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using testify v1.7.0 are vulnerable to denial of service attacks through malformed YAML input.",
+  "rootCause": "Unmarshal function in go-yaml v3 crashes when attempting to deserialize invalid YAML input",
+  "proposedFix": "Upgrade go-yaml to version 3.0.0 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory in the specific branch",
+  "related": [],
+  "keyQuote": "An issue in the Unmarshal function in Go-Yaml v3 causes the program to crash when attempting to deserialize invalid input.",
+  "number": 60,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:16.792Z"
+}

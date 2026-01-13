@@ -1,0 +1,35 @@
+{
+  "summary": "Replayer fails when workflow_runner is set to UnsandboxedWorkflowRunner() but works with SandboxedWorkflowRunner. User is debugging workflow history files from Temporal UI and needs the unsandboxed runner for their use case.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Replayer",
+    "UnsandboxedWorkflowRunner",
+    "SandboxedWorkflowRunner",
+    "WorkflowHistory"
+  ],
+  "components": [
+    "replayer",
+    "workflow-runner",
+    "sandbox"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "debugging",
+    "sandboxing",
+    "workflow-execution",
+    "history-replay"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot debug workflows using the unsandboxed runner with the replayer, limiting debugging options for certain use cases.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use SandboxedWorkflowRunner with default restrictions and passthrough_all_modules instead of UnsandboxedWorkflowRunner",
+  "resolution": "fixed",
+  "resolutionDetails": "Maintainer assumed the issue was resolved by the user without requiring SDK changes",
+  "related": [],
+  "keyQuote": "It works in this specific runner though: workflow_runner=SandboxedWorkflowRunner(restrictions=SandboxRestrictions.default.with_passthrough_all_modules())",
+  "number": 1018,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:31.317Z"
+}

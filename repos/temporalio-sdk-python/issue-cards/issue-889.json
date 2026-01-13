@@ -1,0 +1,32 @@
+{
+  "summary": "Activity heartbeater incorrectly accesses the current context to retrieve the task token. This breaks the design that allows heartbeating outside of the activity context. The interceptor needs to receive the task token through an alternative mechanism.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeater",
+    "interceptor"
+  ],
+  "concepts": [
+    "context-access",
+    "heartbeat",
+    "task-token",
+    "activity-execution",
+    "design-flaw"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably heartbeat activities from outside the activity context, limiting the flexibility of heartbeat implementations.",
+  "rootCause": "The outbound activity heartbeater accesses the current context to get the task token instead of receiving it as a parameter.",
+  "proposedFix": "Pass the task token to the interceptor through an alternative mechanism rather than accessing the current context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    279
+  ],
+  "keyQuote": "we allow heartbeating outside of context. So we should give the interceptor the task token another way.",
+  "number": 889,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:38.897Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Security vulnerability in transitive dependency: CVE-2022-24713 in regex-1.5.4 crate (CVSS 7.5) causes denial of service through specially crafted regular expressions. This was automatically closed after the vulnerable library was removed from the project inventory.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "regex-parser",
+    "build-system"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-upgrade",
+    "transitive-dependency",
+    "cvss-score",
+    "regex-parsing"
+  ],
+  "severity": "high",
+  "userImpact": "Users could be affected by denial of service attacks if the vulnerable regex crate version was used to process untrusted regular expressions.",
+  "rootCause": "Bug in regex-1.5.4 crate's mitigations designed to prevent denial of service attacks caused by untrusted regexes, allowing specially crafted regexes to bypass the mitigations.",
+  "proposedFix": "Upgrade regex dependency from 1.5.4 to 1.5.5 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was removed from the project inventory or marked as ignored in Mend dependency tracking.",
+  "related": [],
+  "keyQuote": "It's possible to craft regexes that bypass such mitigations. This makes it possible to perform denial of service attacks by sending specially crafted regexes",
+  "number": 18,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:45:48.349Z"
+}

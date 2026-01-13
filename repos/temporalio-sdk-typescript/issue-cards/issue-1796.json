@@ -1,0 +1,34 @@
+{
+  "summary": "TypeScript SDK 1.12.2 introduced a regression in type inference for activity return types when using proxyActivities, causing 'implicitly has type any' errors in code that previously compiled successfully. The issue is linked to changes in the ActivityInterfaceFor type definition in PR #1657.",
+  "category": "bug",
+  "subcategory": "type-inference",
+  "apis": [
+    "proxyActivities"
+  ],
+  "components": [
+    "activity-proxy",
+    "type-definitions",
+    "workflow-context"
+  ],
+  "concepts": [
+    "type-inference",
+    "generic-types",
+    "typescript-compilation",
+    "activity-return-type",
+    "circular-reference"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to SDK 1.12.2+ experience TypeScript compilation failures in previously working code that uses proxyActivities with implicit type inference.",
+  "rootCause": "Changes to ActivityInterfaceFor type in PR #1657 wrapping activity functions with ActivityFunctionWithOptions introduced circular type references that break TypeScript's type inference.",
+  "proposedFix": null,
+  "workaround": "Explicitly type variables storing activity return values (e.g., `const result: { pointer: number } = await sampleActivity(...)`) or rearrange code to initialize with destructuring before use in loops.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1657
+  ],
+  "keyQuote": "error TS7022: '...' implicitly has type 'any' because it does not have a type annotation and is referenced directly or indirectly in its own initializer.",
+  "number": 1796,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:01:56.613Z"
+}

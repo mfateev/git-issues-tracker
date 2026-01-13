@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add access to the original run ID in mutable state. Users need a way to retrieve the original run ID from the mutable state object for tracking and correlation purposes.",
+  "category": "feature",
+  "subcategory": "mutable-state",
+  "apis": [],
+  "components": [
+    "mutable-state",
+    "history",
+    "workflow-state"
+  ],
+  "concepts": [
+    "run-id",
+    "state-management",
+    "workflow-execution",
+    "tracking",
+    "correlation"
+  ],
+  "severity": "low",
+  "userImpact": "Users will be able to access the original run ID directly from mutable state, enabling better tracking and correlation of workflow executions.",
+  "rootCause": null,
+  "proposedFix": "Add a new field in the mutable state to record the original run id",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    6499
+  ],
+  "keyQuote": "Added a new field in the mutable state to record the original run id",
+  "number": 6501,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:44.861Z"
+}

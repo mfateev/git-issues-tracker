@@ -1,0 +1,29 @@
+{
+  "summary": "The docstring for OtelCollectorExporter's url parameter incorrectly states that OTEL_EXPORTER_OTLP_ENDPOINT environment variable will override the provided value, but no such code exists. This documentation is confusing and should be removed.",
+  "category": "docs",
+  "subcategory": "opentelemetry-exporter",
+  "apis": [],
+  "components": [
+    "OtelCollectorExporter",
+    "runtime-options"
+  ],
+  "concepts": [
+    "documentation",
+    "environment-variables",
+    "opentelemetry",
+    "metrics-export",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading the documentation are confused about whether environment variables override the url parameter when they actually do not.",
+  "rootCause": "Inaccurate docstring that references non-existent code for environment variable handling",
+  "proposedFix": "Remove the note about OTEL_EXPORTER_OTLP_ENDPOINT environment variable override from the docstring",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This appears to be incorrect given that there is no code that references the environment variable.",
+  "number": 1854,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:55:41.571Z"
+}

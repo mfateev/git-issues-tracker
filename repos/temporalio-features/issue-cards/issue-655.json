@@ -1,0 +1,31 @@
+{
+  "summary": "User requests support for mapping Microsoft Entra ID security groups directly to Temporal namespace permissions instead of managing individual user access. This would simplify permission management in organizations using SSO with Entra ID.",
+  "category": "feature",
+  "subcategory": "authentication-authorization",
+  "apis": [],
+  "components": [
+    "authentication",
+    "authorization",
+    "namespace-management"
+  ],
+  "concepts": [
+    "sso",
+    "group-management",
+    "entra-id",
+    "scim",
+    "access-control",
+    "permissions"
+  ],
+  "severity": "medium",
+  "userImpact": "Organizations using Entra ID SSO can simplify permission management by leveraging existing group structures instead of manually assigning permissions to individual users.",
+  "rootCause": null,
+  "proposedFix": "Implement support for SCIM with Entra ID for user and group management integration with Temporal",
+  "workaround": "SCIM with Entra can solve the user/group management (available end of July per comment)",
+  "resolution": "fixed",
+  "resolutionDetails": "SCIM with Entra ID integration was identified as a solution to address the group-based permission management requirement",
+  "related": [],
+  "keyQuote": "SCIM with Entra can solve the user/group management. This feature release will be available end of July.",
+  "number": 655,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:18:18.147Z"
+}

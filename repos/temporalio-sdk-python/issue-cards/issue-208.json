@@ -1,0 +1,32 @@
+{
+  "summary": "Sandbox importer fails to respect relative import levels when `__import__` is called with level > 0, causing issues during non-binary Pydantic installations. The importer needs to properly resolve module names for relative imports by calculating the fully qualified name based on the package context.",
+  "category": "bug",
+  "subcategory": "sandbox-importer",
+  "apis": [],
+  "components": [
+    "sandbox-importer",
+    "import-resolution",
+    "module-loading"
+  ],
+  "concepts": [
+    "relative-imports",
+    "module-resolution",
+    "import-levels",
+    "package-context",
+    "importlib"
+  ],
+  "severity": "medium",
+  "userImpact": "Users installing Pydantic in non-binary mode experience import failures due to improper relative import handling in the sandbox environment.",
+  "rootCause": "The sandbox importer does not handle relative imports with level > 0 correctly; it needs to calculate fully qualified module names based on package context using `__package__` and `__spec__` globals.",
+  "proposedFix": "Implement `_resolve_module_name()` helper function that mimic's CPython's importlib logic to properly resolve relative imports by calculating package name and reconstructing fully qualified module names.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented relative import resolution logic matching CPython's importlib._bootstrap to properly handle __import__ calls with level > 0.",
+  "related": [
+    207
+  ],
+  "keyQuote": "Some relative imports are respected, but ones that call `__import__` with a level > 0 are not properly.",
+  "number": 208,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:03.931Z"
+}

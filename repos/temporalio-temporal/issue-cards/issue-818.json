@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow reset redundantly creates new history trees multiple times instead of once. The reset process should create a single new history tree for the workflow.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-reset",
+    "history-tree",
+    "state-management"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "history-tree",
+    "state-recreation",
+    "performance",
+    "idempotency"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow resets incur unnecessary performance overhead by creating duplicate history tree structures.",
+  "rootCause": "The workflow reset logic creates new history trees more than once during a single reset operation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the workflow reset logic to create only one new history tree per reset operation.",
+  "related": [],
+  "keyQuote": "Workflow reset should only create a new history tree for new workflow once",
+  "number": 818,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:59.265Z"
+}

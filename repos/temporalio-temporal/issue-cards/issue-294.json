@@ -1,0 +1,30 @@
+{
+  "summary": "Request to return LongPollExpirationInterval in poll call results so worker code can automatically adjust long poll intervals. Should be included in timeout errors returned by the frontend.",
+  "category": "feature",
+  "subcategory": "polling",
+  "apis": [],
+  "components": [
+    "worker",
+    "frontend",
+    "polling"
+  ],
+  "concepts": [
+    "long-poll",
+    "timeout",
+    "expiration",
+    "interval",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers cannot currently auto-adjust their long poll intervals without manual configuration, leading to potential inefficiencies.",
+  "rootCause": null,
+  "proposedFix": "Return LongPollExpirationInterval as part of poll call results and include it in timeout error responses from frontend",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This way worker code can adjust automatically for the correct long poll interval.",
+  "number": 294,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:26:12.632Z"
+}

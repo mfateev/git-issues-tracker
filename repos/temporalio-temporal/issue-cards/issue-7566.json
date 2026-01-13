@@ -1,0 +1,33 @@
+{
+  "summary": "After ShutdownWorker is called, workflow tasks scheduled when no workers are available may fail with a timeout on the shutdown sticky queue instead of waiting indefinitely on the normal queue. This causes spurious WFT failures in the workflow history despite graceful worker shutdown.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "ShutdownWorker"
+  ],
+  "components": [
+    "worker",
+    "sticky-queue",
+    "workflow-task-scheduler"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "task-scheduling",
+    "sticky-queue",
+    "timeout",
+    "worker-availability",
+    "queue-routing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users observe spurious workflow task failures in their history after gracefully shutting down workers, creating confusion and potentially complicating workflow debugging.",
+  "rootCause": "When a workflow task is scheduled after ShutdownWorker is called and no workers are available, the task is routed to the shutdown sticky queue where it times out instead of being routed to the normal queue to wait for workers.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A WFT failure should not be observable in a workflow's history if all workers are shut down gracefully.",
+  "number": 7566,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:19.300Z"
+}

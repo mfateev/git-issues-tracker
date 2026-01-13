@@ -1,0 +1,34 @@
+{
+  "summary": "User cannot test activities that use ManualActivityCompletionClient with TestActivityEnvironment. The feature request asks for either direct support for manual completion in the test environment or a way to mock the ManualActivityCompletionClient.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Activity.getExecutionContext",
+    "ManualActivityCompletionClient",
+    "useLocalManualCompletion"
+  ],
+  "components": [
+    "test-activity-environment",
+    "manual-completion-client",
+    "activity-execution-context"
+  ],
+  "concepts": [
+    "testing",
+    "manual-completion",
+    "mocking",
+    "unit-testing",
+    "activity-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively unit test activities that use manual completion, limiting test coverage for this workflow pattern.",
+  "rootCause": "TestActivityEnvironment does not provide built-in support for ManualActivityCompletionClient, and useLocalManualCompletion creates new client instances that cannot be mocked.",
+  "proposedFix": "Either add native support for manual completion in TestActivityEnvironment, provide a way to return a mock ManualActivityCompletionClient through a client supplier, or document recommended patterns for testing with manual completion.",
+  "workaround": "Use TestWorkflowEnvironment for end-to-end testing, or mock ManualActivityCompletionClient and inject it through the same channel as the activity worker.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Testing an Activity in isolation is feasible with the TestActivityEnvironment. However is a challenge when using ManualActivityCompletionClient",
+  "number": 2573,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:55.677Z"
+}

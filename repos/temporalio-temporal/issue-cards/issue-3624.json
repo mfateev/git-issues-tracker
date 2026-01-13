@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow reset is blocked when a parent workflow is closed with pending child workflows in its mutable state, even though the child workflows may have closed independently. This creates a deadlock condition preventing legitimate resets after parent termination, timeout, or failure.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "ResetWorkflow"
+  ],
+  "components": [
+    "workflow-resetter",
+    "mutable-state",
+    "child-workflow-management"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "child-workflows",
+    "deadlock",
+    "workflow-closure",
+    "pending-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reset closed parent workflows to any point, blocking recovery operations when legitimate resets should be allowed.",
+  "rootCause": "Child workflows can close independently after parent closure, but the parent's mutable state retains them as pending indefinitely, triggering the pending child workflow check in the resetter.",
+  "proposedFix": "Allow reset if the current run is already closed, as child workflows can close asynchronously after parent closure without sending close signals back to the parent.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    705,
+    5030
+  ],
+  "keyQuote": "after parent is closed for any reasons(terminate/timeout/fail/etc), this parent is never allowed to reset to anywhere because it has a pending childWFs",
+  "number": 3624,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:25.021Z"
+}

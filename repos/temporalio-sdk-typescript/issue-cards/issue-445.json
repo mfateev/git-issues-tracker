@@ -1,0 +1,32 @@
+{
+  "summary": "Add parent workflow information to the WorkflowInfo object to enable child workflows to access details about their parent workflow context.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "workflow-execution",
+    "child-workflow"
+  ],
+  "concepts": [
+    "parent-workflow",
+    "workflow-hierarchy",
+    "context-propagation",
+    "workflow-metadata",
+    "execution-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently access parent workflow information from child workflows, limiting the ability to track workflow lineage and implement parent-aware logic.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged to add parent workflow information to WorkflowInfo",
+  "related": [],
+  "keyQuote": null,
+  "number": 445,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:22.327Z"
+}

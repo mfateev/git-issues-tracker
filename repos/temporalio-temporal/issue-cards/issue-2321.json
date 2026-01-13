@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTelemetry dependencies between Temporal server and Go SDK are out of sync (v1.1.0/v0.24.0 vs v1.2.0/v0.25.0), causing conflicts when importing both into a monorepo. User requests keeping these dependencies synchronized across both projects.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "metrics",
+    "go-sdk",
+    "temporal-server"
+  ],
+  "concepts": [
+    "dependency-sync",
+    "version-conflict",
+    "monorepo",
+    "opentelemetry-migration",
+    "breaking-changes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who integrate both Temporal server and Go SDK into a single monorepo face dependency conflicts requiring workarounds like forking releases.",
+  "rootCause": "OpenTelemetry has breaking changes in minor versions, and server and SDK independently upgrade to different versions without coordination.",
+  "proposedFix": "Keep OpenTelemetry dependencies synchronized across server and Go SDK, or decouple OpenTelemetry by moving related code to its own module with an abstracted metrics interface.",
+  "workaround": "Fork the server release and manually update OpenTelemetry versions to match the SDK.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #2385 was merged to upgrade OpenTelemetry to v1.2.0, bringing server and SDK dependencies into sync.",
+  "related": [
+    2385
+  ],
+  "keyQuote": "Because of this we had to fork the server release and update OpenTelemetry.",
+  "number": 2321,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:05.998Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Activity with a 1-second heartbeat timeout that performs a heartbeat and then sleeps for 3 seconds fails to trigger a heartbeat timeout in the workflow. The test server is not properly detecting the timeout condition after the heartbeat is sent.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-handler",
+    "test-server",
+    "timeout-detection"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "activity-lifecycle",
+    "workflow-server-communication",
+    "test-framework"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test activity heartbeat timeout scenarios, making it difficult to validate timeout handling logic in workflows.",
+  "rootCause": "Test server's heartbeat timeout detection mechanism is not functioning correctly after a heartbeat is received and the activity continues sleeping.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The heartbeat timeout detection in the test server was corrected to properly trigger timeouts even after heartbeats have been recorded.",
+  "related": [],
+  "keyQuote": "An activity with a heartbeat timeout of 1s that does a heartbeat then sleeps for 3s should give the workflow a heartbeat timeout",
+  "number": 1427,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:22.514Z"
+}

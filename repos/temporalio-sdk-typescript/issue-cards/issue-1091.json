@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose URL and URLSearchParams APIs to the workflow sandbox. These are deterministic APIs available in all major JS runtimes and would enable more flexible URL handling within workflows.",
+  "category": "feature",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "javascript-runtime"
+  ],
+  "concepts": [
+    "determinism",
+    "sandbox",
+    "web-apis",
+    "url-handling",
+    "javascript-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use URL and URLSearchParams APIs within workflows, limiting their ability to parse and manipulate URLs in a deterministic manner.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #981",
+  "related": [
+    981
+  ],
+  "keyQuote": "Both APIs are available in every major JS runtime and are deterministic.",
+  "number": 1091,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:35.947Z"
+}

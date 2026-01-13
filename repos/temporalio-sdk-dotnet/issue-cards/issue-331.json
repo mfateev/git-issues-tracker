@@ -1,0 +1,32 @@
+{
+  "summary": "The WorkflowUpdateOptions RPC documentation has a copy-paste error that incorrectly states 'for starting the workflow' when it should say 'for sending the update'. This misleading documentation needs correction.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "WorkflowUpdateOptions"
+  ],
+  "components": [
+    "documentation",
+    "api-reference",
+    "client-sdk"
+  ],
+  "concepts": [
+    "documentation-accuracy",
+    "copy-paste-error",
+    "api-docs",
+    "workflow-update",
+    "clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Developers reading the API documentation may be confused about the purpose of RPC options in WorkflowUpdateOptions.",
+  "rootCause": "Copy-paste error in documentation where the description was duplicated from a different method without updating the context.",
+  "proposedFix": "Update the docstring to read 'Gets or sets RPC options for sending the update' instead of 'for starting the workflow'.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation string corrected to accurately reflect that RPC options apply to sending updates, not starting workflows.",
+  "related": [],
+  "keyQuote": "This should be more like 'for sending the update'.",
+  "number": 331,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:01:15.517Z"
+}

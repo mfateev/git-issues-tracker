@@ -1,0 +1,31 @@
+{
+  "summary": "User encountered build failures when trying to build the .NET SDK due to missing recursive git clone of sdk-core and missing C++ build tools. After resolving these dependencies, compilation errors in the Rust bridge code appeared, which were resolved by using the correct sdk-core version.",
+  "category": "docs",
+  "subcategory": "build-setup",
+  "apis": [],
+  "components": [
+    "bridge",
+    "build-system",
+    "cargo"
+  ],
+  "concepts": [
+    "build-failure",
+    "dependency-management",
+    "toolchain-configuration",
+    "submodule",
+    "rust-compilation",
+    "windows-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot build and debug the SDK locally without correct setup instructions and dependencies.",
+  "rootCause": "Incomplete build instructions - documentation did not explicitly mention the need for recursive git clone of submodules and C++ build tools for MSVC toolchain.",
+  "proposedFix": "Update build documentation to explicitly require recursive clone and specify C++ build tools as mandatory dependencies.",
+  "workaround": "Manually copy sdk-core source into the Bridge directory; ensure Visual Studio C++ build tools are installed.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved the issue by following correct recursive clone procedure and installing C++ build tools for Visual Studio. Maintainer agreed to update documentation.",
+  "related": [],
+  "keyQuote": "I will make sure to update the build instructions to say they are required.",
+  "number": 33,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:07:48.123Z"
+}

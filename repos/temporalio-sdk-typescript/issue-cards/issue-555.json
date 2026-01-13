@@ -1,0 +1,32 @@
+{
+  "summary": "Request to implement a remote codec converter for TypeScript SDK, equivalent to the Go SDK's NewRemoteDataConverter functionality for encoding/decoding workflow data.",
+  "category": "feature",
+  "subcategory": "codec-converter",
+  "apis": [
+    "DataConverter"
+  ],
+  "components": [
+    "converter",
+    "codec",
+    "data-encoding"
+  ],
+  "concepts": [
+    "remote-codec",
+    "data-conversion",
+    "encoding",
+    "decoding",
+    "payload-transformation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use remote codec converters in TypeScript SDK, limiting their ability to implement centralized encoding/decoding strategies.",
+  "rootCause": null,
+  "proposedFix": "Implement RemoteDataConverter equivalent matching Go SDK's NewRemoteDataConverter API and functionality.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add the equivalent of `NewRemoteDataConverter` in Go",
+  "number": 555,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:01:05.237Z"
+}

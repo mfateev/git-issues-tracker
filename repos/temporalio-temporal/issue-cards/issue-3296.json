@@ -1,0 +1,33 @@
+{
+  "summary": "The system lacks guarantees on the ordering of child-to-parent signals and child workflow completion events, potentially causing race conditions where completion events arrive before signals from the child workflow.",
+  "category": "feature",
+  "subcategory": "child-workflow-ordering",
+  "apis": [
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "event-processing",
+    "signal-handling"
+  ],
+  "concepts": [
+    "ordering",
+    "child-workflow",
+    "signals",
+    "event-ordering",
+    "completion",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably depend on the ordering of signals sent from child workflows relative to their completion, leading to potential race conditions in parent workflow logic.",
+  "rootCause": "No guarantee mechanism exists in the workflow execution engine to ensure signal events from child workflows are ordered before their completion events.",
+  "proposedFix": "Provide a guarantee on the ordering of child-to-parent signals before child workflow completion events.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We don't have any guarantees that a signal sent from a child to its parent happens before child workflow completion event.",
+  "number": 3296,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:24.715Z"
+}

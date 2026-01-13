@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to allow historyArchiver and visibilityArchiver to read AWS credentials from a file path instead of relying solely on global environment variables, improving security and supporting Kubernetes workloads with mounted secrets.",
+  "category": "feature",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "historyArchiver",
+    "visibilityArchiver",
+    "s3-archiving"
+  ],
+  "concepts": [
+    "aws-credentials",
+    "security",
+    "kubernetes",
+    "secret-management",
+    "iam-role"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal on Kubernetes or shared EC2 instances cannot securely pass AWS credentials to archiving components without exposing them globally.",
+  "rootCause": "Archivers only support global AWS credentials via environment variables or instance profiles, not credential files, limiting deployment options.",
+  "proposedFix": "Add first lookup on AWS secret from a file path before falling back to global environment variables, AWS profiles, or instance profiles.",
+  "workaround": "Set the AWS_SHARED_CREDENTIALS_FILE environment variable to specify a credential file location, following AWS SDK best practices.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as the requested functionality is already available through standard AWS SDK environment variables (AWS_SHARED_CREDENTIALS_FILE), following AWS best practices.",
+  "related": [],
+  "keyQuote": "I think you can just set the AWS_SHARED_CREDENTIALS_FILE environment variable if you want to specify a specific file.",
+  "number": 2894,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:40.839Z"
+}

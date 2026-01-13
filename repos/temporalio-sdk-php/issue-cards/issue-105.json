@@ -1,0 +1,31 @@
+{
+  "summary": "A bug in the RetryOptions setter where the maximum interval parameter incorrectly sets the initial interval instead. This causes incorrect retry behavior for activities.",
+  "category": "bug",
+  "subcategory": "retry-options",
+  "apis": [
+    "RetryOptions"
+  ],
+  "components": [
+    "RetryOptions",
+    "activity-executor"
+  ],
+  "concepts": [
+    "retry",
+    "maximum-interval",
+    "initial-interval",
+    "activity-configuration",
+    "timeout"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities use incorrect initial retry intervals, causing unpredictable retry behavior in production workflows.",
+  "rootCause": "The setter for maximum interval in RetryOptions.php line 172 incorrectly assigns the value to the initial interval property instead of the maximum interval property.",
+  "proposedFix": "Fix the setter to correctly assign the maximum interval parameter to the maximum interval property.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed and released in v1.0.3",
+  "related": [],
+  "keyQuote": "setter for maximum interval sets the initial interval",
+  "number": 105,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:44.409Z"
+}

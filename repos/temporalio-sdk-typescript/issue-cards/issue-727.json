@@ -1,0 +1,34 @@
+{
+  "summary": "The `temporalio` meta package doesn't work with strict dependency resolution package managers like pnpm and yarn3. The team decided to deprecate it and recommend installing individual packages (@temporalio/client, @temporalio/worker, @temporalio/workflow, @temporalio/activity, @temporalio/common) directly instead.",
+  "category": "bug",
+  "subcategory": "package-management",
+  "apis": [],
+  "components": [
+    "package-manager",
+    "npm",
+    "pnpm",
+    "yarn",
+    "meta-package"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "package-management",
+    "transitive-dependencies",
+    "strict-resolution",
+    "module-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of pnpm and yarn3 cannot use the simplified `npm install temporalio` command and must install individual packages instead, creating confusion and inconsistent documentation.",
+  "rootCause": "Package managers like pnpm and yarn3 enforce strict dependency resolution and don't support transitive dependencies without explicit installation, making the umbrella package non-functional for these users.",
+  "proposedFix": "Deprecate the `temporalio` meta package and update all setup instructions and samples to recommend installing individual packages: `npm install @temporalio/{client,worker,workflow,activity,common}`",
+  "workaround": "Install individual packages directly instead of using the meta package, as most utilities are re-exported from relevant client/activity/workflow packages.",
+  "resolution": "fixed",
+  "resolutionDetails": "The meta package was deprecated and documentation was updated to recommend installing individual packages for all users, providing a consistent approach across package managers.",
+  "related": [
+    421
+  ],
+  "keyQuote": "I'd rather steer users in the right direction... it seems like the node ecosystem is going towards the more strict package layout scheme",
+  "number": 727,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:08:25.901Z"
+}

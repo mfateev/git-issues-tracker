@@ -1,0 +1,29 @@
+{
+  "summary": "Worker should log an informational message when initialized with no workflows registered, to help users diagnose configuration issues where they accidentally skip workflow bundle initialization.",
+  "category": "feature",
+  "subcategory": "worker-initialization",
+  "apis": [],
+  "components": [
+    "worker",
+    "logging"
+  ],
+  "concepts": [
+    "worker-configuration",
+    "workflow-registration",
+    "debugging",
+    "initialization",
+    "polling"
+  ],
+  "severity": "low",
+  "userImpact": "Users who accidentally skip workflow bundle initialization will see a confusing hung worker instead of a clear message explaining why no work is being polled.",
+  "rootCause": null,
+  "proposedFix": "Log at INFO level: 'This worker has no workflows registered and will not poll for workflow tasks!'",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation added logging in worker initialization to detect activity-only mode",
+  "related": [],
+  "keyQuote": "We should log at the `INFO` level something like \"This worker has no workflows registered and will not poll for workflow tasks!\"",
+  "number": 471,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:10:32.857Z"
+}

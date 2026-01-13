@@ -1,0 +1,35 @@
+{
+  "summary": "Tag names are inconsistent between Temporal Server and SDKs (Java, Go), causing SDK metrics to not appear in Grafana dashboards. The issue involves discrepancies like 'Namespace' in SDK vs 'namespace' in Server, preventing real namespace data from being displayed.",
+  "category": "bug",
+  "subcategory": "metrics-tagging",
+  "apis": [],
+  "components": [
+    "metrics",
+    "logging-tags",
+    "serviceclient"
+  ],
+  "concepts": [
+    "metrics",
+    "tags",
+    "grafana",
+    "prometheus",
+    "namespace",
+    "consistency",
+    "dashboard"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see SDK metrics in Grafana dashboards due to tag name mismatches between server and SDK implementations.",
+  "rootCause": "Tag naming conventions differ between Server (common/metrics/tags.go) and SDKs (MetricsTag.java, internal_logging_tags.go), with inconsistencies like case sensitivity and naming (e.g., 'Namespace' vs 'namespace', 'WorkflowType' vs 'workflowType').",
+  "proposedFix": "Standardize tag names across Server and all SDKs, and update Grafana dashboard JSON to use consistent tag names. PRs #318 (Java SDK), #345 (Go SDK), and dashboards #8 were proposed to address this.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed through coordinated PRs in Java SDK (#318), Go SDK (#345), and dashboards repository (#8) to standardize tag names.",
+  "related": [
+    318,
+    345
+  ],
+  "keyQuote": "The graphana dashboard use names like namespace, workerType etc which seems to be in consistent with tags originated from server",
+  "number": 315,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:06:38.328Z"
+}

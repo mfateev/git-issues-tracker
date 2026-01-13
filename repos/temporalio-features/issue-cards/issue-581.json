@@ -1,0 +1,37 @@
+{
+  "summary": "A workaround environment variable `TEMPORAL_FEATURES_DISABLE_WORKFLOW_COMPLETION_CHECK` was introduced to bypass test failures in cloud where workflows appear to still be running according to ListWorkflow APIs even after they complete. This workaround needs to be removed by properly resolving the underlying stale data issue.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ListOpenWorkflowExecutions",
+    "ListClosedWorkflowExecutions",
+    "ListWorkflow"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-completion",
+    "cloud-compatibility"
+  ],
+  "concepts": [
+    "stale-data",
+    "workflow-status",
+    "test-validation",
+    "timing-issue",
+    "cloud-behavior"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably run integration tests against Temporal Cloud due to stale workflow status data causing test assertions to fail incorrectly.",
+  "rootCause": "Cloud APIs return stale data indicating workflows are still running even after they complete and confirm completion within milliseconds; the issue persists even after switching from ListOpenWorkflowExecutions/ListClosedWorkflowExecutions to the preferred ListWorkflow API.",
+  "proposedFix": "Properly resolve the underlying stale data issue in the cloud APIs or test framework rather than working around it with environment variables.",
+  "workaround": "Environment variable `TEMPORAL_FEATURES_DISABLE_WORKFLOW_COMPLETION_CHECK` was introduced to skip the workflow completion check during tests.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    577,
+    579
+  ],
+  "keyQuote": "The workflows were completing (in milliseconds) but even after 5s these were returning stale data in cloud saying that status was still running.",
+  "number": 581,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:53.706Z"
+}

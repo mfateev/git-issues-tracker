@@ -1,0 +1,34 @@
+{
+  "summary": "Performance regression from SDK version 1.13.1 to 1.13.2 causes significant CPU degradation in worker processing despite no obvious changes in the release. A comment suggests a lazy-loaded module added in 1.13.2 may be responsible.",
+  "category": "bug",
+  "subcategory": "performance",
+  "apis": [],
+  "components": [
+    "worker",
+    "plugin-system",
+    "interceptors",
+    "async-local-storage"
+  ],
+  "concepts": [
+    "performance-regression",
+    "cpu-usage",
+    "memory-management",
+    "module-loading",
+    "lazy-loading"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience significant CPU usage degradation and performance degradation when upgrading from 1.13.1 to 1.13.2, impacting worker efficiency.",
+  "rootCause": "A lazy-loaded module that was added in 1.13.2 is suspected to be causing the performance regression.",
+  "proposedFix": "Try version 1.14.1 where the lazy-loaded module was removed, which may resolve the regression.",
+  "workaround": "Revert to SDK version 1.13.1 with the patch from PR #1834 to maintain performance.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1859,
+    1834
+  ],
+  "keyQuote": "Updating to `1.13.2` shows a significant degradation in performance. We removed a lazy loaded module that was added in `1.13.2` that might be behind the regression you saw.",
+  "number": 1860,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T09:13:11.041Z"
+}

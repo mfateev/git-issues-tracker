@@ -1,0 +1,34 @@
+{
+  "summary": "ContextPropagator lacks access to workflow/activity instances and awareness of context type, preventing proper ThreadLocal/WorkflowLocal usage and lifecycle management. A redesign is needed to reimplement it as Interceptors with proper integration into the SDK's context propagation model.",
+  "category": "feature",
+  "subcategory": "context-propagation",
+  "apis": [],
+  "components": [
+    "ContextPropagator",
+    "Interceptor",
+    "ThreadLocal",
+    "WorkflowLocal"
+  ],
+  "concepts": [
+    "context-propagation",
+    "lifecycle-management",
+    "thread-local-storage",
+    "workflow-context",
+    "activity-context",
+    "interceptors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly implement custom context propagators that need to access entity instances or decide between ThreadLocal and WorkflowLocal storage strategies.",
+  "rootCause": "Current ContextPropagator design lacks reference to propagation target (workflow/activity instance) and lacks awareness of context type, preventing informed lifecycle and storage decisions.",
+  "proposedFix": "Reimplement ContextPropagator as Interceptors with proper access to entity references and context type information, including lifecycle methods for ThreadLocal cleanup.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    525
+  ],
+  "keyQuote": "ContextPropagator should be reimplemented as Interceptors from scratch and its design should be reimplemented taking into account the points mentioned above.",
+  "number": 1644,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:07.660Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Coverlet.collector dependency has a vulnerability (CVE-2024-21907) in Newtonsoft.Json before 13.0.1 that can cause denial of service via StackOverflow when deserializing crafted data. The vulnerability is rated High (CVSS 7.5) and requires upgrading the transitive dependency.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "dependencies",
+    "nuget-packages"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-upgrade",
+    "deserialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users running tests could experience denial of service if test data is crafted maliciously, or if the vulnerable deserialization path is exercised in test scenarios.",
+  "rootCause": "Newtonsoft.Json versions before 13.0.1 improperly handle exceptional conditions during JSON deserialization, allowing StackOverflow exceptions.",
+  "proposedFix": "Upgrade Newtonsoft.Json dependency to version 13.0.1 or later through the coverlet.collector dependency update.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Newtonsoft.Json before version 13.0.1 is affected by a mishandling of exceptional conditions vulnerability. Crafted data that is passed to the JsonConvert.DeserializeObject method may trigger a StackOverflow exception resulting in denial of service.",
+  "number": 194,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:41:18.206Z"
+}

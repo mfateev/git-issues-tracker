@@ -1,0 +1,30 @@
+{
+  "summary": "The @WorkflowImpl annotation's workers attribute does not support Spring property placeholders like ${my.property}, while taskQueues does. This inconsistency breaks placeholder-based configuration sharing across multiple services with different worker names.",
+  "category": "bug",
+  "subcategory": "spring-integration",
+  "apis": [],
+  "components": [
+    "WorkersTemplate",
+    "WorkflowImpl",
+    "spring-boot-starter"
+  ],
+  "concepts": [
+    "property-placeholder",
+    "spring-configuration",
+    "worker-registration",
+    "configuration-consistency",
+    "multi-service-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Spring property placeholders for worker names in @WorkflowImpl, forcing them to hardcode values or use taskQueues workaround instead, breaking configuration consistency.",
+  "rootCause": "The configureWorkflowImplementationsByWorkerName() and related methods in WorkersTemplate.java do not apply placeholder resolution to the workers attribute, unlike the taskQueues implementation.",
+  "proposedFix": "Add placeholder resolution in configureWorkflowImplementationsByWorkerName(), configureActivityBeansByWorkerName(), and configureNexusServiceBeansByWorkerName() methods in WorkersTemplate.java to match taskQueues behavior.",
+  "workaround": "Use taskQueues with a property placeholder instead of workers attribute, though this is inconsistent with the intended workers API.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently, only taskQueues supports Spring property placeholders (e.g., ${my.property}), while workers does not.",
+  "number": 2747,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:51.284Z"
+}

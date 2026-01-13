@@ -1,0 +1,32 @@
+{
+  "summary": "The proto-google-common-protos dependency used by StatusUtils is missing from the shaded SDK, causing NoClassDefFoundErrors or IncompatibleClassChangeErrors when converting status objects to/from exceptions.",
+  "category": "bug",
+  "subcategory": "shading-dependencies",
+  "apis": [
+    "StatusUtils"
+  ],
+  "components": [
+    "shaded-sdk",
+    "status-conversion",
+    "exception-handling"
+  ],
+  "concepts": [
+    "dependency-shading",
+    "classpath-issues",
+    "protobuf",
+    "class-resolution",
+    "runtime-errors"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the shaded SDK encounter runtime errors when the SDK attempts to convert gRPC status objects to exceptions.",
+  "rootCause": "com.google.api.grpc:proto-google-common-protos is not included in the SDK shading configuration despite being a dependency of StatusUtils.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The missing dependency was added to the shading configuration to ensure proto-google-common-protos is included in the shaded SDK JAR.",
+  "related": [],
+  "keyQuote": "com.google.api.grpc:proto-google-common-protos that is used by StatusUtils is not included in the shaded SDK. This causes NoClassDefFoundErrors or IncompatibleClassChangeError",
+  "number": 1911,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:18.018Z"
+}

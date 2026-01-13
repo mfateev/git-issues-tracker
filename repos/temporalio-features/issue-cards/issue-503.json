@@ -1,0 +1,36 @@
+{
+  "summary": "Child workflows started via CAN (continue as new) do not receive explicit cancel and signal requests from parent workflows, even though they should propagate through the child chain. The server should treat run_id with child_workflow_only flag the same way as first_execution_run_id in client APIs.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "RequestCancelExternalWorkflowExecution",
+    "SignalExternalWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "child-workflow-handler",
+    "cancellation-logic",
+    "signal-propagation"
+  ],
+  "concepts": [
+    "child-workflows",
+    "continue-as-new",
+    "cancellation",
+    "signal-propagation",
+    "workflow-hierarchy",
+    "run-id",
+    "parent-close-policy"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably cancel or signal child workflows after a child has executed continue-as-new, breaking expected behavior for workflow orchestration patterns.",
+  "rootCause": "Server does not treat RequestCancelExternalWorkflowExecutionCommandAttributes with run_id and child_workflow_only=true the same way as first_execution_run_id, preventing propagation to child-of-child workflows.",
+  "proposedFix": "Server should treat run_id with child_workflow_only=true identically to first_execution_run_id in client APIs to propagate cancellations and signals through the child workflow chain.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "One would reasonably expect Workflow B to receive the cancellation (same for signals). In fact, this is what indeed happens _after the parent workflow closes_",
+  "number": 503,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:17.519Z"
+}

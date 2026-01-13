@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for new Worker Versioning API through annotations on workflows. This feature aligns Python SDK with versioning capabilities available in other SDKs.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-annotations",
+    "versioning-api"
+  ],
+  "concepts": [
+    "versioning",
+    "worker-compatibility",
+    "api-design",
+    "sdk-alignment",
+    "workflow-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables Python SDK users to leverage new worker versioning APIs for managing workflow code evolution and compatibility.",
+  "rootCause": null,
+  "proposedFix": "Add annotations to workflows to support the new versioning APIs, following the design documented in the shared Google Doc and implemented in the Go SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented by adding worker versioning annotation support to Python SDK workflows.",
+  "related": [
+    548
+  ],
+  "keyQuote": "We need to add annotations to workflows to support the new versioning APIs. Refer to temporalio/features#548 for the Go equivalents.",
+  "number": 793,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:02.446Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a batch operation API to delete workflows that have exceeded their retention period. This is needed when retention policies are reduced after workflows have already closed, requiring bulk deletion of workflows that should no longer be retained.",
+  "category": "feature",
+  "subcategory": "workflow-deletion",
+  "apis": [],
+  "components": [
+    "workflow-store",
+    "retention-policy",
+    "batch-operations"
+  ],
+  "concepts": [
+    "retention",
+    "deletion",
+    "batch-operations",
+    "workflow-lifecycle",
+    "data-cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently delete workflows that exceed updated (shorter) retention policies, requiring manual cleanup or waiting for natural expiration.",
+  "rootCause": null,
+  "proposedFix": "Implement a batch operation API to support deleting workflows based on retention criteria.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Batch operation to support delete would be ideal.",
+  "number": 3461,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:34.611Z"
+}

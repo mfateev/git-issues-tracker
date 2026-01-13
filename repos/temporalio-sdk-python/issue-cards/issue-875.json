@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to expose a worker metric for tracking when workflows fail to evict, allowing proactive detection and alerting on situations where workers get stuck in infinite eviction loops that can cause pod scaling issues and hung shutdowns.",
+  "category": "feature",
+  "subcategory": "worker-metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "eviction",
+    "task-slots"
+  ],
+  "concepts": [
+    "eviction-failure",
+    "workflow-slot",
+    "deadlock",
+    "monitoring",
+    "alerting",
+    "resource-exhaustion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot proactively detect when workers get stuck in eviction loops, leading to unexpected pod scaling and hung worker shutdowns.",
+  "rootCause": "Unknown - issue reporter notes 'for reasons that we still need to root cause' but indicates eviction job failures cause workflows to remain unevicted indefinitely.",
+  "proposedFix": "Expose `worker._count_not_evict_count` as a metric; alternatively suggest forcing worker shutdown after prolonged eviction loop or providing more threads than `max_concurrent_workflow_tasks`.",
+  "workaround": "Use existing `temporal_worker_task_slots_available` and `temporal_worker_task_slots_used` metrics to infer if slots are never returned, though this is less direct.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Shutting down workflow worker, but 46 workflow(s) could not be evicted previously, so the shutdown may hang",
+  "number": 875,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:42.995Z"
+}

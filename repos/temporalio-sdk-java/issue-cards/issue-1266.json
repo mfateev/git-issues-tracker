@@ -1,0 +1,32 @@
+{
+  "summary": "Add unit test covering scenario of Server outage during Worker sending workflow task execution result. This addresses the bug fixed in PR #1265 where workers fail to handle Temporal Server being down when reporting results.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "test-server",
+    "result-reporting"
+  ],
+  "concepts": [
+    "server-outage",
+    "fault-tolerance",
+    "test-coverage",
+    "error-handling",
+    "result-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need reliable unit tests to verify worker behavior during server outages to prevent similar bugs and ensure stability.",
+  "rootCause": "No test coverage exists for the scenario where Temporal Server is down when workers attempt to report workflow task execution results.",
+  "proposedFix": "Add support in Test Server to simulate outages during result reporting and implement corresponding unit test for this scenario.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1265
+  ],
+  "keyQuote": "Temporal SDK should add support for such tests to Test Server. Also, a unit test for this bug and fix should be implemented.",
+  "number": 1266,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:19:44.604Z"
+}

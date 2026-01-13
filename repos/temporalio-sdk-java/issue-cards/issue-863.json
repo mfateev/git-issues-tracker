@@ -1,0 +1,35 @@
+{
+  "summary": "After long periods of inactivity (~40 min), WorkflowServiceStubs encounters an internal gRPC error ('INTERNAL: Panic! This is a bug!') caused by a race condition between gRPC's idle timer and Temporal's connection reset mechanism, rendering the channel unusable.",
+  "category": "bug",
+  "subcategory": "grpc-channel",
+  "apis": [
+    "WorkflowServiceStubs"
+  ],
+  "components": [
+    "grpc-channel",
+    "connection-management",
+    "idle-timer"
+  ],
+  "concepts": [
+    "race-condition",
+    "connection-pooling",
+    "channel-state",
+    "idle-timeout",
+    "load-balancing",
+    "reconnection"
+  ],
+  "severity": "high",
+  "userImpact": "Applications experience workflow execution failures after periods of inactivity, with the gRPC channel becoming permanently unusable until restarted.",
+  "rootCause": "Race condition between gRPC netty channel's IdleModeTimer (30 min default) and Temporal's setGrpcReconnectFrequency() mechanism both calling enterIdle() on the channel, causing nameResolver state inconsistency.",
+  "proposedFix": "Manual calling of enterIdle() should be replaced with automatic gRPC load balancing mechanisms or coordinated idle management.",
+  "workaround": "A temporary workaround was implemented in the Temporal SDK pending upstream gRPC fix in grpc-java.",
+  "resolution": "fixed",
+  "resolutionDetails": "Workaround implemented in Temporal SDK while waiting for grpc-java fix (grpc/grpc-java#8714). Long-term solution planned as part of issue #888.",
+  "related": [
+    888
+  ],
+  "keyQuote": "After long period of inactivity (~40min) at some point of time we see an internal exception when trying to start a new workflow",
+  "number": 863,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:48:53.941Z"
+}

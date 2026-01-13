@@ -1,0 +1,29 @@
+{
+  "summary": "BigDecimal type causes IllegalFormatConversionException when used with System.out.printf formatting in activity code. The issue occurs in the money-transfer-project-java sample when attempting to use BigDecimal instead of integer types.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "type-serialization"
+  ],
+  "concepts": [
+    "type-handling",
+    "serialization",
+    "activity-implementation",
+    "format-conversion",
+    "data-types"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to use BigDecimal in activity implementations encounter runtime formatting exceptions.",
+  "rootCause": "System.out.printf format specifier mismatch when BigDecimal is passed to integer format conversion (%d)",
+  "proposedFix": null,
+  "workaround": "Use integer types instead of BigDecimal, or handle formatting separately before printf",
+  "resolution": "invalid",
+  "resolutionDetails": "The failure was determined to be in the application's use of System.out.printf formatting, not an SDK issue",
+  "related": [],
+  "keyQuote": "Failure was in the formatting on the System.out",
+  "number": 7172,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:53.770Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "When switching a namespace's active cluster in a multi-cluster replication setup, there is an unexpected 10+ minute lag between TimerStarted and TimerFired events when using Workflow.sleep(). Investigation suggests possible timer queue backlog during cluster failover.",
+  "category": "bug",
+  "subcategory": "timer-execution",
+  "apis": [
+    "sleep"
+  ],
+  "components": [
+    "timer-queue",
+    "multi-cluster-replication",
+    "namespace-failover"
+  ],
+  "concepts": [
+    "cluster-switching",
+    "timer-latency",
+    "queue-backlog",
+    "replication",
+    "workflow-sleep",
+    "active-cluster"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows using Workflow.sleep() experience significant delays during namespace active cluster changes, causing unexpected workflow execution delays.",
+  "rootCause": "Suspected timer queue backlog during active cluster switching based on metrics showing task_latency_queue_bucket staying flat and ReadHistoryBranchReverse persistence requests increasing.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the time between `TimerStarted` and `TimerFired` to be more than 10 minutes",
+  "number": 4020,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:25.058Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Local activities in the Python SDK are still experimental in core but lack documentation marking them as such in docstrings. This feature request asks to add experimental status documentation to local activities.",
+  "category": "docs",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivity"
+  ],
+  "components": [
+    "local-activities",
+    "documentation",
+    "docstrings"
+  ],
+  "concepts": [
+    "experimental",
+    "documentation",
+    "api-stability",
+    "local-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users are not aware that local activities are experimental, which could lead to adoption of unstable features.",
+  "rootCause": null,
+  "proposedFix": "Add experimental status markers to local activity docstrings to align with core SDK status",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Docstrings were updated to mark local activities as experimental",
+  "related": [],
+  "keyQuote": "Local activities are still experimental in core but we have not documented this as such in Python docstrings.",
+  "number": 246,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:23.386Z"
+}

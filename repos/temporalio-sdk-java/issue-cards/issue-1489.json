@@ -1,0 +1,37 @@
+{
+  "summary": "Scala method references passed to Async.function() are not properly detected as async workflow method calls, causing them to be submitted as regular functions instead, which leads to excessive thread creation and RejectedExecutionException. The issue is in MethodReferenceDisassembler which only checks for REF_invokeInterface, but Scala uses REF_invokeStatic.",
+  "category": "bug",
+  "subcategory": "async-workflow-execution",
+  "apis": [
+    "Async.function",
+    "Workflow.newChildWorkflowStub"
+  ],
+  "components": [
+    "MethodReferenceDisassembler",
+    "async-execution",
+    "method-reference-detection",
+    "scala-interop"
+  ],
+  "concepts": [
+    "method-references",
+    "scala-compatibility",
+    "thread-pool-exhaustion",
+    "lambda-introspection",
+    "workflow-invocation",
+    "interop"
+  ],
+  "severity": "high",
+  "userImpact": "Scala developers using Async.function with workflow method references experience thread pool exhaustion and RejectedExecutionException, forcing them to use Java workarounds.",
+  "rootCause": "The isAsyncJava method in MethodReferenceDisassembler only accepts MethodHandleInfo.REF_invokeInterface, but Scala method references use REF_invokeStatic, causing them to be classified as regular functions instead of async workflow calls.",
+  "proposedFix": "Modify the method implementation kind check in MethodReferenceDisassembler.isAsync() to also accept REF_invokeStatic, or create a MethodReferenceDisassemblyService implementation for Scala similar to the existing KotlinMethodReferenceDisassemblyService.",
+  "workaround": "Create a Java wrapper method that calls Async.function with a Java method reference, then invoke that wrapper from Scala.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1007
+  ],
+  "keyQuote": "With a Scala method reference, the implementation method kind is equal to MethodHandleInfo.REF_invokeStatic. I'm hoping that allowing both types of method implementation kinds may be all that's required here.",
+  "number": 1489,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:37:14.466Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Workers filling up with activities stop polling and disappear from the task-queue endpoint and UI, even though they continue functioning. The task-queue endpoint only shows workers that are actively polling.",
+  "category": "bug",
+  "subcategory": "task-queue-visibility",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "worker-registry",
+    "ui"
+  ],
+  "concepts": [
+    "polling",
+    "visibility",
+    "worker-status",
+    "activity-capacity",
+    "heartbeat"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see workers in the UI when they are busy processing long-running activities, causing confusion about worker availability and status.",
+  "rootCause": "Task-queue endpoint only returns workers that have actively polled within the last 5 minutes. Workers blocked by activity backlog stop polling and become invisible.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Behavior is by design - task-queue only tracks active pollers for 5 minutes. Workers disappear when not polling and reappear when polling resumes.",
+  "related": [],
+  "keyQuote": "The workers list from task queue is collected when worker poll from task queue. The info is keep for 5m. If worker stops polling for that task queue for more than 5m, that worker will disappear.",
+  "number": 2882,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:27.346Z"
+}

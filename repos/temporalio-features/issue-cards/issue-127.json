@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency security vulnerability report for go.temporal.io/server-v1.17.4 containing 4 vulnerabilities in transitive dependencies (Apache Thrift 0.10.0 and modernc.org/libc), with the highest severity being 7.5 (CVSS). Issue was automatically closed by Mend.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "server-dependencies",
+    "ringpop-go"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "transitive-dependency",
+    "cvss-score",
+    "apache-thrift",
+    "denial-of-service"
+  ],
+  "severity": "high",
+  "userImpact": "Users running go.temporal.io/server-v1.17.4 are exposed to security vulnerabilities that could lead to denial of service attacks or unauthorized file access through vulnerable transitive dependencies.",
+  "rootCause": "Apache Thrift 0.10.0 (transitive dependency via ringpop-go) contains multiple CVEs related to endless loops with specific input data and panic conditions in JSON protocol handlers. modernc.org/libc v1.16.10 contains CVE-2020-28928.",
+  "proposedFix": "Upgrade Apache Thrift dependency to version 0.13.0 or later (referenced as fix resolution for CVE-2019-0205 and CVE-2019-0210). Update ringpop-go or its dependency chain to use a patched Thrift version.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was marked as ignored or is no longer part of the Mend inventory in the specific branch.",
+  "related": [],
+  "keyQuote": "Apache Thrift all versions up to and including 0.12.0, a server or client may run into an endless loop when feed with specific input data.",
+  "number": 127,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:09.004Z"
+}

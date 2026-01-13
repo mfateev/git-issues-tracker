@@ -1,0 +1,30 @@
+{
+  "summary": "User requested dependency injection support for workflows, but the maintainer explained that workflows must be deterministic and self-contained, so DI is not supported by design.",
+  "category": "feature",
+  "subcategory": "dependency-injection",
+  "apis": [],
+  "components": [
+    "workflow-construction",
+    "hosting-extensions",
+    "service-collection"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "determinism",
+    "workflow-constraints",
+    "service-lifetime",
+    "self-contained"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot inject dependencies into workflows even when using the dependency injection package, limiting flexibility in workflow construction.",
+  "rootCause": "Workflows must be deterministic and event-sourced to support durable resumption, which precludes external dependency injection.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer closed as not an issue, explaining that workflow determinism constraints prevent DI support by design, similar to Azure Durable Functions.",
+  "related": [],
+  "keyQuote": "Workflows are inherently self-contained, deterministic units of work and therefore should never call anything external.",
+  "number": 181,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:31.262Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add helper methods to generate UUIDs within workflows, supporting multiple versions (v4, v7, v8) like `Workflow::uuid()` or version-specific variants. Discussion centers on whether to provide a single generic method or allow users to choose specific UUID versions.",
+  "category": "feature",
+  "subcategory": "workflow-utilities",
+  "apis": [
+    "Workflow"
+  ],
+  "components": [
+    "workflow-context",
+    "uuid-generation",
+    "workflow-api"
+  ],
+  "concepts": [
+    "uuid",
+    "workflow-helpers",
+    "sugar-methods",
+    "idempotency",
+    "deterministic-ids"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have a convenient way to generate UUIDs within workflows without manual UUID library integration.",
+  "rootCause": null,
+  "proposedFix": "Implement Workflow::uuid() methods supporting UUID v4, v7, and v8, with decision between single generic method or version-specific methods (uuid4(), uuid7(), uuid8()).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged, providing UUID generation utilities for workflows.",
+  "related": [],
+  "keyQuote": "Add UUID sugar like `Workflow::uuid()` or `Workflow::uuid4(), ::uuid7(), ::uuid8()`",
+  "number": 350,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:51.942Z"
+}

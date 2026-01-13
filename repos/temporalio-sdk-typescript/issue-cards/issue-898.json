@@ -1,0 +1,30 @@
+{
+  "summary": "Webpack bundling errors in the TypeScript SDK worker produce an opaque error message that doesn't help users diagnose the actual problem. Request to include more detailed error information from Webpack in the error output.",
+  "category": "feature",
+  "subcategory": "bundler-errors",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "webpack"
+  ],
+  "concepts": [
+    "error-messages",
+    "debugging",
+    "developer-experience",
+    "build-tools",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter vague Webpack errors that don't indicate the root cause, forcing them to dig into Webpack internals or troubleshooting docs without actionable guidance.",
+  "rootCause": "Webpack errors are caught and re-thrown with a generic message that hides the actual compilation errors from webpack output.",
+  "proposedFix": "Include webpack compilation error details in the Temporal error message so users can understand what went wrong without manual investigation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error messages were enhanced to include detailed webpack compilation errors.",
+  "related": [],
+  "keyQuote": "if you're unsure what went wrong, visit our troubleshooting page at https://docs.temporal.io/typescript/troubleshooting#webpack-errors",
+  "number": 898,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:10.298Z"
+}

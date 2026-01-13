@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add ActivityStub#fromTyped method to provide a unified typed/untyped experience for activity stubs, similar to the existing WorkflowStub#fromTyped pattern.",
+  "category": "feature",
+  "subcategory": "activity-stub-api",
+  "apis": [
+    "ActivityStub"
+  ],
+  "components": [
+    "activity-stub",
+    "stub-factory"
+  ],
+  "concepts": [
+    "typed-stub",
+    "untyped-stub",
+    "api-consistency",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot create typed activity stubs from untyped stubs, limiting the flexibility and consistency of the activity stub API compared to workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "As we have `WorkflowStub#fromTyped`, we should have `ActivityStub#fromTyped`. Untyped activity stubs have significantly limited usage in comparison with WorkflowStub, but there is no reason why there shouldn't be a unified experience.",
+  "number": 1098,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:05:41.145Z"
+}

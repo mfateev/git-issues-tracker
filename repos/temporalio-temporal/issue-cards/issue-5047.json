@@ -1,0 +1,30 @@
+{
+  "summary": "User requests a configuration option to disable or reduce the verbosity of the 'ignoring permission in unexpected format' warning message in the JWT claim mapper, as this error is expected in their setup.",
+  "category": "feature",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "authorization",
+    "jwt-claim-mapper",
+    "config"
+  ],
+  "concepts": [
+    "logging",
+    "configuration",
+    "jwt",
+    "permissions",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users with expected permission format variations are unable to suppress noisy warning messages, reducing observability clarity.",
+  "rootCause": null,
+  "proposedFix": "Add a configuration option to disable the warning message, or change it to debug level logging instead of warning level.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add a configuration option to turn off this message as this error is expected in our setup.",
+  "number": 5047,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:59.436Z"
+}

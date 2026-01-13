@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowService doesn't pass headers into workflow retry. When workflow retries occur after a failure, the retry runs receive empty headers instead of the same headers as the initial run.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestWorkflowService",
+    "workflow-retry",
+    "header-propagation"
+  ],
+  "concepts": [
+    "retry",
+    "headers",
+    "testing",
+    "workflow-execution",
+    "test-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers testing workflows with retry logic in TestWorkflowService cannot properly verify that headers are correctly propagated across retry attempts.",
+  "rootCause": "TestWorkflowService does not propagate headers from the initial workflow execution to subsequent retry attempts.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in PR #419",
+  "related": [
+    419
+  ],
+  "keyQuote": "When we use TestWorkflowService, workflow retry runs get an empty set of headers.",
+  "number": 420,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:18:23.033Z"
+}

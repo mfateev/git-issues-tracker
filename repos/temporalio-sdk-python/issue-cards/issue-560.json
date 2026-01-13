@@ -1,0 +1,31 @@
+{
+  "summary": "Rust dependency updates from PR #520 need to be released to pip to address security vulnerabilities. Users currently receive an outdated version of the Python SDK on pip that still contains the vulnerable dependencies.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "rust-bindings",
+    "pip-distribution"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-updates",
+    "release-cycle",
+    "distribution"
+  ],
+  "severity": "high",
+  "userImpact": "Users installing the SDK from pip receive a version with known security vulnerabilities that have already been fixed in the codebase.",
+  "rootCause": "Rust dependency updates from PR #520 have not yet been included in a release published to pip.",
+  "proposedFix": "Include the Rust dependency updates from #520 in the next release to pip.",
+  "workaround": "Build and install the SDK from source to get the latest Rust dependencies.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by releasing a new version of the SDK to pip with the updated Rust dependencies included.",
+  "related": [
+    520
+  ],
+  "keyQuote": "The changes in #520 have not yet propagated to `pip`, leading to the vulnerabilities previously identified to still exist in the latest version",
+  "number": 560,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:36.630Z"
+}

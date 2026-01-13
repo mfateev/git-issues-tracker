@@ -1,0 +1,30 @@
+{
+  "summary": "CPU profiling reveals that emitting metrics during shard read/write lock acquisition causes performance overhead. The request is to either eliminate metrics emission during lock acquisition or implement sampling to reduce the impact.",
+  "category": "other",
+  "subcategory": "shard-lock-metrics",
+  "apis": [],
+  "components": [
+    "shard-lock",
+    "metrics-emission",
+    "lock-acquisition"
+  ],
+  "concepts": [
+    "cpu-profiling",
+    "performance-overhead",
+    "metrics-sampling",
+    "lock-contention",
+    "metric-filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "High CPU usage during shard lock acquisition degrades overall system performance and scalability.",
+  "rootCause": "Metrics are being emitted during every shard r/w lock acquisition, creating excessive overhead.",
+  "proposedFix": "Do not emit metrics when acquiring shard r/w lock, or implement sampling to reduce metric emission frequency.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "CPU profiling shows that logic probably should not emitting metrics during / before acquisition of shard r/w lock.",
+  "number": 3086,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:39.734Z"
+}

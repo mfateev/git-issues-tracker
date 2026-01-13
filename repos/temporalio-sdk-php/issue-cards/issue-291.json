@@ -1,0 +1,34 @@
+{
+  "summary": "Add a dedicated CountWorkflowExecutions API to count workflows instead of relying on the listWorkflowExecutions paginator. This is a separate API call that needs to be exposed as a distinct endpoint in the PHP SDK.",
+  "category": "feature",
+  "subcategory": "workflow-execution-queries",
+  "apis": [
+    "CountWorkflowExecutions",
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "workflow-client",
+    "api-layer",
+    "query-interface"
+  ],
+  "concepts": [
+    "workflow-counting",
+    "query-api",
+    "pagination",
+    "execution-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need an efficient way to count workflows without iterating through paginated results, improving query performance and API usability.",
+  "rootCause": "The paginator approach for counting workflows is insufficient; a dedicated CountWorkflowExecutions API call is needed as a separate endpoint.",
+  "proposedFix": "Expose CountWorkflowExecutions as a separate API endpoint in the PHP SDK, potentially supporting more than just integer responses.",
+  "workaround": "Use listWorkflowExecutions paginator to manually count workflows, though this is inefficient.",
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented and made available in the 2.6 release with CountWorkflowExecutions as a separate API endpoint.",
+  "related": [
+    303
+  ],
+  "keyQuote": "The paginator isn't good enough I don't think, this is a separate `CountWorkflowExecutions` API call.",
+  "number": 291,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:09.354Z"
+}

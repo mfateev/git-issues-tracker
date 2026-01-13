@@ -1,0 +1,31 @@
+{
+  "summary": "Replace the service locator pattern (Resource and RPCFactory) with proper dependency injection using a compile-time dependency container like Wire or Uber FX to improve testability and maintainability.",
+  "category": "feature",
+  "subcategory": "architecture",
+  "apis": [],
+  "components": [
+    "resource",
+    "rpc-factory",
+    "service-locator"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "architecture-pattern",
+    "testability",
+    "maintainability",
+    "service-locator",
+    "inversion-of-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Better architecture reduces technical debt and improves code quality, making the codebase easier to maintain and test.",
+  "rootCause": "Use of service locator pattern (anti-pattern) instead of proper dependency injection throughout the codebase.",
+  "proposedFix": "Implement dependency injection using a compile-time dependency container such as Wire (from Google) or Uber FX.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing dependency injection with Uber FX as noted in final comment.",
+  "related": [],
+  "keyQuote": "The good alternative is to use dependency injection. It requires dependency container. Wire is a compile time dependency container from Google.",
+  "number": 67,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:09:45.030Z"
+}

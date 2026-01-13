@@ -1,0 +1,32 @@
+{
+  "summary": "Build fails for 32-bit Linux systems (GOARCH=386) due to untyped int64 constants exceeding 32-bit signed integer limits in the Elasticsearch visibility store.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "persistence",
+    "elasticsearch",
+    "visibility-store"
+  ],
+  "concepts": [
+    "32-bit-architecture",
+    "compilation",
+    "constants",
+    "overflow",
+    "int64"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot build Temporal server binaries for 32-bit Linux systems; support for 386 architecture is not viable.",
+  "rootCause": "Untyped int64 constants (INT64_MIN/MAX) in esVisibilityStore.go overflow when compiled for 32-bit systems; Go treats untyped constants as errors on 32-bit platforms per Go spec.",
+  "proposedFix": "Type constants explicitly as int64 (e.g., MAX_INT64 = int64(math.MaxInt64)) or use string conversion approaches, though 32-bit support may not be feasible due to service logic requiring int64.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Team determined 32-bit support is not a viable option since service logic fundamentally requires int64 types.",
+  "related": [
+    23086
+  ],
+  "keyQuote": "for now, i don't think support 32bit will be an option.",
+  "number": 1207,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:51.823Z"
+}

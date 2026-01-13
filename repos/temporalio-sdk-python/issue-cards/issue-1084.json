@@ -1,0 +1,32 @@
+{
+  "summary": "The OpenAI plugin replaces the entire data converter instead of just the payload converter, which clobbers user payload codec customization. The request is to either modify the plugin to only replace the payload converter or error if a non-default payload converter is provided.",
+  "category": "feature",
+  "subcategory": "openai-plugin",
+  "apis": [],
+  "components": [
+    "openai-plugin",
+    "data-converter",
+    "payload-codec"
+  ],
+  "concepts": [
+    "codec-customization",
+    "plugin-architecture",
+    "data-conversion",
+    "user-configuration",
+    "override-prevention"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize their payload codec when using the OpenAI plugin without it being overridden by the plugin's data converter replacement.",
+  "rootCause": "OpenAI plugin replaces the entire data converter rather than composing with or respecting the user's existing payload converter configuration.",
+  "proposedFix": "Either modify the plugin to only replace the payload converter component, or error if the data converter is provided with a non-default payload converter, or error only if the user's payload converter is incompatible with what OpenAI plugin needs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by modifying the OpenAI plugin to respect user payload codec customization rather than clobbering it.",
+  "related": [
+    1083
+  ],
+  "keyQuote": "OpenAI plugin replaces the entire data converter instead of just the payload converter.",
+  "number": 1084,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:57.232Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Four security vulnerabilities detected in transitive dependencies of temporalio/temporal v1.14.4, including high-severity issues in Apache Thrift and Prometheus client library that could lead to denial of service attacks.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "thrift-rpc",
+    "prometheus-monitoring"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-upgrade",
+    "transitive-dependency",
+    "CVSS-scoring"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to high-severity denial of service vulnerabilities through outdated transitive dependencies in the SDK.",
+  "rootCause": "temporalio/temporal v1.14.4 depends on apache/thrift-0.10.0 (via ringpop-go) and prometheus/client_golang-v1.11.0 which contain known security vulnerabilities.",
+  "proposedFix": "Upgrade temporalio/temporal to a version using thrift >= 0.13.0 and prometheus/client_golang >= 1.11.1",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was removed from the Mend inventory or marked as ignored in this branch.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 30,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:46:29.935Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The tdbg workflow show command does not support pagination, which limits the ability to view large workflow histories.",
+  "category": "bug",
+  "subcategory": "cli-tools",
+  "apis": [],
+  "components": [
+    "tdbg",
+    "cli",
+    "workflow-show"
+  ],
+  "concepts": [
+    "pagination",
+    "cli-tools",
+    "workflow-inspection",
+    "data-retrieval",
+    "usability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot paginate through large workflow execution histories in the tdbg tool, making it difficult to inspect workflows with many events.",
+  "rootCause": "The workflow show command implementation does not include pagination logic in the CLI code.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "tdbg workflow show does not support pagination",
+  "number": 3154,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:05.564Z"
+}

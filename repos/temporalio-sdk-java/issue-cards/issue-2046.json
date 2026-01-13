@@ -1,0 +1,33 @@
+{
+  "summary": "Promise.allOf() ignores failures in promises that have already failed before being passed to allOf(), causing workflows to complete successfully when they should fail. The issue is in AllOfPromise#addPromise which only handles non-completed promises.",
+  "category": "bug",
+  "subcategory": "promise-handling",
+  "apis": [
+    "Promise.allOf",
+    "Async.procedure"
+  ],
+  "components": [
+    "AllOfPromise",
+    "promise-coordination",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "promise-composition",
+    "error-handling",
+    "async-coordination",
+    "state-management",
+    "failure-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail silently when combining already-failed promises with allOf(), leading to incorrect workflow completion and potential data consistency issues.",
+  "rootCause": "AllOfPromise#addPromise only registers callbacks for non-completed promises, ignoring the completion state (success or failure) of already-completed promises.",
+  "proposedFix": "Check if each promise has completed exceptionally in AllOfPromise#addPromise and propagate the failure immediately.",
+  "workaround": "Implement a wrapper function that checks all promises for prior failures before calling Promise.allOf().",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If one Promise in promises is already failed before calling allOf, the failure is ignored.",
+  "number": 2046,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:20.737Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "When an activity fails repeatedly and then hits the ScheduleToClose timeout, the timeout failure event only includes the timeout information and loses the original activity failure details, making debugging difficult. The request is to include the last activity failure as a cause in the timeout failure.",
+  "category": "bug",
+  "subcategory": "activity-timeout",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "failure-handling",
+    "event-history"
+  ],
+  "concepts": [
+    "timeout",
+    "failure-chaining",
+    "error-context",
+    "activity-lifecycle",
+    "debugging",
+    "cause-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose visibility into the root cause of activities when they fail multiple times before hitting a timeout, making troubleshooting and debugging significantly harder.",
+  "rootCause": "ScheduleToClose timeout failure event does not include the cause chain from previous activity failures, truncating the error context.",
+  "proposedFix": "Include the last activity failure into the timeout failure as a cause field in the ActivityTaskTimedOut event.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Already fixed by the time of the comment. MichaelSnowden confirmed that the latest server version includes the failure cause of the latest failed activity attempt in the event.",
+  "related": [],
+  "keyQuote": "Include the last activity failure into the timeout failure as a cause.",
+  "number": 3304,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:37.594Z"
+}

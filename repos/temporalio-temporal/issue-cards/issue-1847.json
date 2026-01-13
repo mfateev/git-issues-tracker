@@ -1,0 +1,32 @@
+{
+  "summary": "Workers connected to a standby cluster in XDC (Cross-Datacenter) setup fail to pick up tasks after failover to active cluster. The issue is non-deterministic: sometimes workers never pick up tasks, sometimes they only process new workflows but not in-progress ones from the previously active cluster.",
+  "category": "bug",
+  "subcategory": "xdc-failover",
+  "apis": [],
+  "components": [
+    "worker",
+    "xdc-replication",
+    "task-dispatcher",
+    "namespace-failover"
+  ],
+  "concepts": [
+    "failover",
+    "cross-datacenter",
+    "task-dispatch",
+    "cluster-promotion",
+    "replication",
+    "active-standby"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow interruptions during failover events as workers in the promoted standby cluster cannot pick up existing or new tasks.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The workers (java sdk) connected to the standby cluster is still not getting any workflows/tasks dispatched.",
+  "number": 1847,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:39.742Z"
+}

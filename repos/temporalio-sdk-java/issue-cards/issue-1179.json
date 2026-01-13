@@ -1,0 +1,32 @@
+{
+  "summary": "The workflow_active_thread_count metric is incorrectly tagged with WORKFLOW_TYPE, causing double-counting since all workflows share the same ThreadPoolExecutor. This tag should be removed to ensure accurate metric aggregation.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "worker",
+    "thread-pool-executor",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "metric-tagging",
+    "aggregation",
+    "thread-pool",
+    "double-counting",
+    "monitoring",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see inflated workflow_active_thread_count metrics when aggregating across multiple workflow types due to incorrect WORKFLOW_TYPE tagging.",
+  "rootCause": "The metric is being emitted with a WORKFLOW_TYPE tag despite the underlying ThreadPoolExecutor being shared across all workflows, leading to duplicate counts when aggregated by host.",
+  "proposedFix": "Remove the WORKFLOW_TYPE tag from the workflow_active_thread_count metric emission.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This metric should not contain the WORKFLOW_TYPE tag to avoid double-counting of workflow_active_thread_count given that every workflow shared the same ThreadPoolExecutor.",
+  "number": 1179,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:11:03.231Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Request for a first-class way to disable StartToClose and ScheduleToClose timeouts in Activities to support indefinitely running Activities that execute until explicitly canceled.",
+  "category": "feature",
+  "subcategory": "activity-timeout",
+  "apis": [
+    "StartToClose",
+    "ScheduleToClose"
+  ],
+  "components": [
+    "activity-executor",
+    "timeout-manager",
+    "activity-options"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-lifecycle",
+    "cancellation",
+    "duration",
+    "long-running-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily express indefinitely running Activities without using awkward workarounds like ChronoUnit.FOREVER that throw exceptions.",
+  "rootCause": "SDK API design requires explicit durations for all timeout options; no first-class support for \"run until canceled\" pattern.",
+  "proposedFix": "Provide a convenient Duration \"MAX\" type compatible with Temporal or allow timeout options to remain unspecified.",
+  "workaround": "Use ChronoUnit.FOREVER or set an effectively unreachable max duration value.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    397
+  ],
+  "keyQuote": "Temporal is really good at this use case, other than a bit of awkwardness around expressing it.",
+  "number": 377,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:27.524Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "NumHistoryShards configuration value can currently be changed after initial cluster setup, which should not be allowed. The issue proposes persisting this value in a new CLUSTER_METADATA table and enforcing consistency between config and persisted values.",
+  "category": "feature",
+  "subcategory": "cluster-configuration",
+  "apis": [],
+  "components": [
+    "cluster-metadata",
+    "configuration",
+    "persistence"
+  ],
+  "concepts": [
+    "immutability",
+    "cluster-initialization",
+    "configuration-validation",
+    "schema-design",
+    "database-persistence"
+  ],
+  "severity": "high",
+  "userImpact": "Users could inadvertently misconfigure their cluster by changing NumHistoryShards after initialization, potentially causing system inconsistencies and corruption.",
+  "rootCause": "NumHistoryShards lacks persistence mechanism and validation to prevent changes after initial configuration",
+  "proposedFix": "Create CLUSTER_METADATA table to persist configuration values; implement validation logic to compare config with persisted values on startup",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented CLUSTER_METADATA table with serialized protobuf storage, added ClusterName configuration validation, mismatch behavior logs error and continues with persisted value, and created Manager/Store interface for cluster metadata management",
+  "related": [],
+  "keyQuote": "Creating a new table 'cluster_metadata' with data stored as serialized protobuf. No versioning, only one row should exist.",
+  "number": 61,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:09:45.684Z"
+}

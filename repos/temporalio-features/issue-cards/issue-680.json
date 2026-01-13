@@ -1,0 +1,29 @@
+{
+  "summary": "Remove deprecated tctl references from SDK codebases (Go, Python, TypeScript) and replace them with CLI tool mentions, as tctl is no longer maintained.",
+  "category": "feature",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "documentation",
+    "examples",
+    "comments"
+  ],
+  "concepts": [
+    "deprecation",
+    "migration",
+    "tooling",
+    "sdk-maintenance"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may encounter outdated documentation or comments referencing deprecated tctl tool instead of the current CLI alternative.",
+  "rootCause": null,
+  "proposedFix": "Switch all mentions of tctl in comments and documentation across Go, Python, and TypeScript SDKs to reference the CLI tool instead.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the tctl references were updated or removed in favor of CLI references.",
+  "related": [],
+  "keyQuote": "We should probably switch over to using CLI instead, since tctl is deprecated.",
+  "number": 680,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:04:53.308Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Add ActivityType field to MutableState's ActivityInfo to avoid expensive history lookups when describing workflow execution. Currently, determining activity types requires reading workflow history events, which is costly with up to 2k pending activities.",
+  "category": "feature",
+  "subcategory": "mutable-state",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "mutable-state",
+    "history-service",
+    "activity-info"
+  ],
+  "concepts": [
+    "performance-optimization",
+    "activity-scheduling",
+    "workflow-history",
+    "pending-activities"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves performance of DescribeWorkflowExecution by eliminating expensive history lookups for activity type information.",
+  "rootCause": "ActivityType information not stored in MutableState, requiring expensive history event lookups for each pending activity during DescribeWorkflowExecution.",
+  "proposedFix": "Add ActivityType field to MutableState's ActivityInfo structure and populate it during activity scheduling to avoid history reads.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ActivityType was added to the ActivityInfo structure in MutableState to cache the activity type without requiring history lookups.",
+  "related": [],
+  "keyQuote": "Add ActivityType to MutableState's ActivityInfo... Do not read history event if activityType is available in activityInfo",
+  "number": 4537,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:51.045Z"
+}

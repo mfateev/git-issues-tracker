@@ -1,0 +1,35 @@
+{
+  "summary": "CallCredentials and ChannelCredentials are not being applied to gRPC connections, preventing users from sending Authorization headers for secured Temporal clusters. The issue stems from credentials being dropped during connection setup when TLS is not used.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "Connection.connect",
+    "ChannelCredentials",
+    "CallCredentials"
+  ],
+  "components": [
+    "connection",
+    "channel-credentials",
+    "grpc-client"
+  ],
+  "concepts": [
+    "authorization",
+    "credentials",
+    "grpc-metadata",
+    "tls",
+    "authentication",
+    "header-passing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot authenticate with secured Temporal clusters that require JWT bearer tokens, blocking production deployments with Azure AD or similar auth systems.",
+  "rootCause": "The connection setup code destructures and discards the credentials parameter when TLS is not configured, preventing call credentials from being applied to the gRPC channel.",
+  "proposedFix": "Ensure credentials are preserved and applied to the gRPC channel configuration regardless of TLS status, similar to how metadata is handled.",
+  "workaround": "Use static metadata with Authorization header in connection options and override it per-call via an interceptor that refreshes the token on each request.",
+  "resolution": "fixed",
+  "resolutionDetails": "The credentials handling was corrected in the connection setup to properly apply CallCredentials regardless of TLS configuration.",
+  "related": [],
+  "keyQuote": "I believe the issue comes from this line... In essence I believe that this removes credentials from the resolved options.",
+  "number": 1248,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:18.085Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "User asks if there's a way to start workflows from a separate client application without requiring the full workflow type definition and dependency tree. They want to use a string-based workflow name instead of a typed lambda expression, similar to how the CLI works.",
+  "category": "question",
+  "subcategory": "client-worker-separation",
+  "apis": [
+    "StartWorkflowAsync"
+  ],
+  "components": [
+    "client",
+    "workflow-invocation",
+    "api-design"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "type-safety",
+    "distributed-architecture",
+    "workflow-registration",
+    "task-queue",
+    "decoupling"
+  ],
+  "severity": "low",
+  "userImpact": "Users needing separate worker and client applications must either duplicate workflow/activity code or pull in large dependency trees to use the type-safe API.",
+  "rootCause": null,
+  "proposedFix": "Use string-based workflow type names with object argument collections instead of lambda expressions.",
+  "workaround": "Use the existing overloads of StartWorkflowAsync that accept string workflow type names and object collections of arguments.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was a question about API capabilities. The maintainer confirmed that string-based overloads for StartWorkflowAsync already exist as an alternative to lambda expressions.",
+  "related": [],
+  "keyQuote": "Absolutely. See the overloads for `StartWorkflowAsync`. One accepts a string workflow type name and an object collection of arguments.",
+  "number": 502,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:30:31.110Z"
+}

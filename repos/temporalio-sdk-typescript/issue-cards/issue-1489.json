@@ -1,0 +1,37 @@
+{
+  "summary": "Next.js bundling fails with a critical dependency error when importing the Temporal client in server-side code. The error originates from data-converter-helpers.js which uses a dynamic require expression that bundlers cannot statically analyze.",
+  "category": "bug",
+  "subcategory": "bundler-compatibility",
+  "apis": [
+    "Client",
+    "Connection"
+  ],
+  "components": [
+    "data-converter-helpers",
+    "internal-non-workflow",
+    "client"
+  ],
+  "concepts": [
+    "bundling",
+    "dynamic-imports",
+    "next.js-integration",
+    "critical-dependency",
+    "static-analysis",
+    "expression-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot use @temporalio/client in Next.js server-side code without bundler errors, blocking legitimate use cases for signaling workflows.",
+  "rootCause": "The data-converter-helpers.js file uses dynamic require expressions that bundlers like webpack (used by Next.js) cannot statically analyze, triggering critical dependency warnings/errors during build time.",
+  "proposedFix": "Implement #1458 to address bundler compatibility, though the commenter suggests this alone may not fully resolve the issue.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1292,
+    1458
+  ],
+  "keyQuote": "Critical dependency: the request of a dependency is an expression",
+  "number": 1489,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:35:03.251Z"
+}

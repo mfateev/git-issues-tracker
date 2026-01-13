@@ -1,0 +1,32 @@
+{
+  "summary": "Archived workflow executions are displayed multiple times in the Temporal UI and CLI, despite only a single copy existing in the S3 archival storage. The issue appears to be with the gRPC API's query logic when fetching archived workflows without filters.",
+  "category": "bug",
+  "subcategory": "archival-visibility",
+  "apis": [],
+  "components": [
+    "grpc-api",
+    "archival",
+    "visibility-store",
+    "ui"
+  ],
+  "concepts": [
+    "archival",
+    "visibility",
+    "duplication",
+    "s3",
+    "filtering",
+    "query-results"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see duplicate workflow executions in the archived section of the UI and CLI, causing confusion and making it harder to navigate archived workflows.",
+  "rootCause": "The gRPC API that fetches archived workflows from S3 appears to be returning duplicate results when querying without filters, despite S3 containing only single copies of each workflow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was reproduced by maintainer and identified as a gRPC API bug in the query logic for archived workflows.",
+  "related": [],
+  "keyQuote": "I suspect you're right that this is an issue with the the gRPC API which fetches the actual workflows as there are no duplicates in S3.",
+  "number": 4432,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:03.228Z"
+}

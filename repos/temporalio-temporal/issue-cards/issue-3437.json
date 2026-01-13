@@ -1,0 +1,32 @@
+{
+  "summary": "When a child workflow is reset, the parent workflow incorrectly registers a ChildWorkflowExecutionTerminated event instead of understanding the reset occurred. This causes the parent workflow to exit prematurely, leaving the child workflow orphaned.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "child-workflow-execution",
+    "event-history"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "parent-child-relationship",
+    "event-handling",
+    "workflow-termination",
+    "orphaned-workflows"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely reset child workflows without causing parent workflows to terminate unexpectedly and abandon running child workflows.",
+  "rootCause": "The parent workflow's event processing does not distinguish between actual child workflow termination and reset operations, treating resets as terminations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #2913, available in v1.17",
+  "related": [
+    2913
+  ],
+  "keyQuote": "When I reset a child workflow, the parent workflow should understand that the child workflow was reset to a certain event instead of registering a ChildWorkflowExecutionTerminated event.",
+  "number": 3437,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:11.209Z"
+}

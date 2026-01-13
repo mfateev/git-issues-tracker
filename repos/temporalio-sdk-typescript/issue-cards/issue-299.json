@@ -1,0 +1,37 @@
+{
+  "summary": "Queries are not properly registered when interceptors are involved and multiple jobs (start workflow, signal, query) are delivered in a single activation. The issue appears to be a race condition where async interceptor functions prevent the workflow function from being invoked before query handlers are needed.",
+  "category": "bug",
+  "subcategory": "interceptors-query-registration",
+  "apis": [
+    "StartWorkflow",
+    "SignalWorkflow",
+    "QueryWorkflow"
+  ],
+  "components": [
+    "interceptors",
+    "query-handler",
+    "workflow-activation",
+    "test-framework"
+  ],
+  "concepts": [
+    "race-condition",
+    "async-execution",
+    "activation-processing",
+    "handler-registration",
+    "timing-issue"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably use interceptors with workflow queries, as queries fail with INVALID_ARGUMENT when sent concurrently with signals and workflow start in a single activation.",
+  "rootCause": "Interceptors running async functions cause a race condition where the workflow function is not invoked before query handlers are registered, causing queries to fail when delivered in the same activation as start workflow and signal jobs.",
+  "proposedFix": "Buffer the query until the workflow function has been invoked to ensure handler registration completes before query processing.",
+  "workaround": "Ensure signals are awaited before sending queries to the workflow.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    296
+  ],
+  "keyQuote": "I think the solution here is to buffer the query until workflow function has been invoked.",
+  "number": 299,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:24.639Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Identity equality checks (`is`) on IntEnum values fail when passed as workflow arguments because type conversion uses the definition's type hint instead of the sandbox's type context. This causes type mismatch issues for IntEnum and potentially isinstance checks on dataclasses.",
+  "category": "bug",
+  "subcategory": "type-conversion",
+  "apis": [],
+  "components": [
+    "argument-converter",
+    "sandbox",
+    "type-hints"
+  ],
+  "concepts": [
+    "type-identity",
+    "enum-handling",
+    "sandboxing",
+    "type-coercion",
+    "context-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot reliably use identity checks on IntEnum workflow arguments, causing logic errors in workflows.",
+  "rootCause": "Argument conversion uses type hints from the workflow definition context rather than re-referencing types within the sandbox context, causing type identity mismatches.",
+  "proposedFix": "Re-reference the full type's qualified name during conversion instead of reusing the type hint itself, or use type hints from inside the sandbox.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing proper type referencing in the sandbox context using qualified names.",
+  "related": [],
+  "keyQuote": "Maybe re-reference the full type's qualified name when converting instead of reusing the type hint itself?",
+  "number": 200,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:29.794Z"
+}

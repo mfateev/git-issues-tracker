@@ -1,0 +1,32 @@
+{
+  "summary": "Go SDK needs to implement opt-in support for build-id based versioning by polling on a specific task queue using the worker ID option. This enables tasks to be routed to appropriate versioned workers while maintaining compatibility.",
+  "category": "feature",
+  "subcategory": "build-id-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-queue",
+    "versioning"
+  ],
+  "concepts": [
+    "build-id-versioning",
+    "task-routing",
+    "worker-id",
+    "opt-in",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Go SDK users cannot use build-id based versioning for safe, zero-downtime deployments until this feature is implemented.",
+  "rootCause": null,
+  "proposedFix": "Implement opt-in flag that enables polling on task queue with worker ID option as added in api PR #217",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in Go SDK with build-id based versioning support",
+  "related": [
+    217
+  ],
+  "keyQuote": "SDKs must opt-in to build-id based versioning. When SDKs enable this, they poll on TQ `foo`, using the worker id option",
+  "number": 84,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:46:44.175Z"
+}

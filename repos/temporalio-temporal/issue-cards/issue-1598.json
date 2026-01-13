@@ -1,0 +1,30 @@
+{
+  "summary": "Reducing namespace retention period only affects new workflows; users must wait for the original retention period to expire before old workflows are cleaned up. Users requested automatic cleanup of completed workflows exceeding the new retention period.",
+  "category": "feature",
+  "subcategory": "namespace-retention",
+  "apis": [],
+  "components": [
+    "namespace-manager",
+    "workflow-retention",
+    "scavenger"
+  ],
+  "concepts": [
+    "retention-period",
+    "workflow-cleanup",
+    "data-management",
+    "namespace-configuration",
+    "batch-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot immediately clean up workflows when reducing retention periods, requiring manual batch operations and causing unexpected storage growth.",
+  "rootCause": "Retention period changes only apply to newly created workflows; existing workflows use their original retention period.",
+  "proposedFix": "Provide automatic cleanup capability or at minimum clearer UI guidance on batch operations for handling workflows exceeding reduced retention periods.",
+  "workaround": "Users can manually trigger batch delete operations with query filters to remove workflows closed for more than X days.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by implementing batch operations capability. Users can now trigger batch delete with query filters, though auto-cleanup was not implemented.",
+  "related": [],
+  "keyQuote": "This is now possible to do via batch operation. We decided to not auto trigger a batch delete but user has the ability to trigger a batch delete with query filter",
+  "number": 1598,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:15:10.753Z"
+}

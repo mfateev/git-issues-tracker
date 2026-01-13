@@ -1,0 +1,32 @@
+{
+  "summary": "SDKs need to send a `supported-features` header to the server to enable server-side behavior changes and optimizations based on SDK capabilities. Initial value should be `follows-next-run-id` which all SDKs now support.",
+  "category": "feature",
+  "subcategory": "sdk-server-communication",
+  "apis": [],
+  "components": [
+    "sdk-client",
+    "server-communication",
+    "headers"
+  ],
+  "concepts": [
+    "feature-negotiation",
+    "backwards-compatibility",
+    "sdk-versioning",
+    "server-optimization",
+    "protocol-headers"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables server to apply SDK-specific optimizations and reduce unnecessary data transmission based on declared SDK capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add `supported-features` header to all SDK client implementations with initial value of `follows-next-run-id`.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1949
+  ],
+  "keyQuote": "SDKs should send the `supported-features` header with an initial value of `follows-next-run-id`, since they all support that now.",
+  "number": 91,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:11.322Z"
+}

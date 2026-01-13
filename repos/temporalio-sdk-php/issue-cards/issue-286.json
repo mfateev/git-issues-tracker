@@ -1,0 +1,30 @@
+{
+  "summary": "PHP SDK should accept null for CA certificate in SSL client creation, matching gRPC's behavior. Most production servers don't need CA override as they use system-level CAs or known CAs.",
+  "category": "feature",
+  "subcategory": "ssl-tls-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "ssl-credentials",
+    "channel-configuration"
+  ],
+  "concepts": [
+    "ssl-tls",
+    "certificate-authority",
+    "client-authentication",
+    "configuration",
+    "security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running against production servers with standard CAs are forced to provide unnecessary CA certificate parameters, complicating client configuration.",
+  "rootCause": "PHP SDK requires CA certificate in createSSL while most production use cases don't need to override the default system CA.",
+  "proposedFix": "Accept null for CA certificate parameter in createSSL, similar to gRPC's channel credentials implementation.",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed due to inactivity by maintainers after multiple requests for clarification went unanswered.",
+  "related": [],
+  "keyQuote": "Most production servers, including our cloud, don't need to override the CA as its either signed by a known CA or they install the CA root at the system level.",
+  "number": 286,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:55.833Z"
+}

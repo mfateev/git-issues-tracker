@@ -1,0 +1,30 @@
+{
+  "summary": "User unable to access Laravel facades inside Temporal workflows and activities due to missing facade context. Received RuntimeException when attempting integration with Laravel 8.x.",
+  "category": "question",
+  "subcategory": "framework-integration",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "activity-runtime",
+    "laravel-integration"
+  ],
+  "concepts": [
+    "facade",
+    "framework-integration",
+    "determinism",
+    "context-isolation",
+    "service-container"
+  ],
+  "severity": "low",
+  "userImpact": "Users integrating Temporal with Laravel cannot use Laravel facades in workflows and activities without encountering runtime errors.",
+  "rootCause": "Laravel facade context is not available in Temporal workflow and activity execution contexts, which run outside the normal Laravel request lifecycle.",
+  "proposedFix": "Use Laravel commands or other facade-safe contexts for workflow/activity setup. Avoid facades in workflows to preserve determinism; use them only in activities.",
+  "workaround": "Execute Temporal workflows and activities inside Laravel command context where facade context is already established.",
+  "resolution": "fixed",
+  "resolutionDetails": "User confirmed the workaround of using Laravel commands resolved the issue. Recommendation to avoid facades in workflows for determinism was accepted.",
+  "related": [],
+  "keyQuote": "I would recommend starting working inside laravel command, where facade context is already set. However, I'd like to also recommend avoid using facades in Workflows, they might break the determinism of that code.",
+  "number": 94,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:18.326Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Cassandra schema uses Level Tiered Compaction Strategy (LCS) for all tables, but should use the default Size Tiered Compaction Strategy (STCS) instead. LCS causes significant write amplification (up to 13x) and is not suitable for general-purpose workloads.",
+  "category": "other",
+  "subcategory": "cassandra-schema",
+  "apis": [],
+  "components": [
+    "cassandra",
+    "schema",
+    "persistence"
+  ],
+  "concepts": [
+    "compaction-strategy",
+    "write-amplification",
+    "database-tuning",
+    "performance-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unnecessary write amplification and reduced performance with Temporal's current Cassandra configuration.",
+  "rootCause": "All Cassandra tables are configured with LCS, which causes significant write magnification unsuitable for general-purpose workloads.",
+  "proposedFix": "Change all Cassandra tables from LevelTieredCompactionStrategy (LCS) to the default SizeTieredCompactionStrategy (STCS).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Level compaction (LCS) can involve significant write magnification, where data is re-written multiple times. In performance testing, reports show up to 13-fold write amplification with LCS.",
+  "number": 3633,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:49.422Z"
+}

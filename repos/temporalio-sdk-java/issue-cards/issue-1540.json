@@ -1,0 +1,37 @@
+{
+  "summary": "Time skipping in child workflows doesn't work when a parent workflow uses continue-as-new. The test service fails to skip time for Workflow.sleep calls in child workflows after the parent continues as new.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow.sleep",
+    "continueAsNew"
+  ],
+  "components": [
+    "test-service",
+    "child-workflow",
+    "time-skipping"
+  ],
+  "concepts": [
+    "time-skipping",
+    "child-workflow",
+    "continue-as-new",
+    "workflow-execution",
+    "test-framework",
+    "timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test workflows with child workflows that use continue-as-new, as time skipping breaks in the child workflow execution.",
+  "rootCause": "Time skipping mechanism doesn't properly handle the state transition when a parent workflow executes continue-as-new before child workflow time skipping occurs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1539,
+    1618
+  ],
+  "keyQuote": "When a parent calls continue-as-new time skipping in a child is not happening.",
+  "number": 1540,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:00.608Z"
+}

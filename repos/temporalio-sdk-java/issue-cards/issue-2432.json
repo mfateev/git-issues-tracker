@@ -1,0 +1,34 @@
+{
+  "summary": "Add getStaticSummary() and getStaticDetails() methods to WorkflowExecutionDescription to expose static workflow metadata from the describe operation, separate from the base WorkflowExecutionMetadata class used by listExecutions.",
+  "category": "feature",
+  "subcategory": "workflow-metadata",
+  "apis": [
+    "describe",
+    "WorkflowExecutionDescription",
+    "WorkflowExecutionMetadata",
+    "listExecutions"
+  ],
+  "components": [
+    "workflow-execution",
+    "metadata",
+    "visibility"
+  ],
+  "concepts": [
+    "user-metadata",
+    "workflow-description",
+    "static-information",
+    "API-exposure"
+  ],
+  "severity": "low",
+  "userImpact": "Users can access static workflow summary and details through the describe API, enabling richer workflow execution information retrieval.",
+  "rootCause": null,
+  "proposedFix": "Add getStaticSummary() and getStaticDetails() methods to WorkflowExecutionDescription class",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Methods were added to WorkflowExecutionDescription to expose static summary and details as requested",
+  "related": [],
+  "keyQuote": "we should have `getStaticSummary()` and `getStaticDetails()` on the result of `describe` which is `WorkflowExecutionDescription`",
+  "number": 2432,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:31.661Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow with CRON schedule \"0 0 29 2 1\" (intended to run on Feb 29 of leap years on Mondays) executes at an unexpected date in 2024 instead of 2032. The issue stems from cron's \"or\" logic for day-of-month and day-of-week fields, which Temporal's workflow CronSchedule implementation follows differently than standard cron.",
+  "category": "bug",
+  "subcategory": "workflow-scheduling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "cron-scheduler",
+    "schedule-parser"
+  ],
+  "concepts": [
+    "cron-syntax",
+    "scheduling",
+    "leap-year",
+    "date-calculation",
+    "field-logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on complex CRON expressions with both day-of-month and day-of-week constraints get unexpected schedule execution times, making it difficult to effectively disable workflows or control their execution timing.",
+  "rootCause": "Temporal's CronSchedule implementation treats day-of-month and day-of-week as an \"or\" condition (standard cron behavior) rather than an \"and\" condition, causing the schedule to execute on Feb 5, 2024 (Monday) instead of waiting for Feb 29, 2032 (Monday of a leap year).",
+  "proposedFix": null,
+  "workaround": "Do not specify both day-of-month and day-of-week fields simultaneously; use only one constraint or accept the \"or\" semantics.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be working as designed per cron standard behavior (day-of-month and day-of-week use \"or\" logic). The behavior is consistent with crontab.guru and standard cron implementations.",
+  "related": [],
+  "keyQuote": "Classic cron syntax has the \"feature\" than when both day-of-month and day-of-week are specified, then they're treated as \"or\" instead of \"and\".",
+  "number": 4288,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:01.737Z"
+}

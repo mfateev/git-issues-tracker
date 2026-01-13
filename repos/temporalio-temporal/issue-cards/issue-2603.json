@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow execution history was not displaying in the Temporal UI after restarting a Cassandra-backed setup with Persistence Volume Claims, despite the data being retained in the database. The issue was resolved by correcting the volume mount path from 'var/lib/elasticsearch' to '/usr/share/elasticsearch/data'.",
+  "category": "bug",
+  "subcategory": "persistence-visibility",
+  "apis": [],
+  "components": [
+    "cassandra",
+    "persistence",
+    "visibility-store",
+    "ui"
+  ],
+  "concepts": [
+    "volume-mounting",
+    "data-persistence",
+    "visibility-indexing",
+    "kubernetes-statefulset",
+    "elasticsearch-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose visibility of workflow executions in the UI after restarting their Temporal setup with persistent storage, even though the data is preserved in the database.",
+  "rootCause": "Incorrect volume mount path configuration for Elasticsearch (/var/lib/elasticsearch instead of /usr/share/elasticsearch/data) prevented the visibility store from accessing persisted data.",
+  "proposedFix": "Change the volume mount path in the Kubernetes StatefulSet from 'var/lib/elasticsearch' to '/usr/share/elasticsearch/data'.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved the issue by correcting the Elasticsearch volume mount path in their Kubernetes configuration.",
+  "related": [],
+  "keyQuote": "The volume mount path needs to be changed from \"var/lib/elasticsearch\" to \"/usr/share/elasticsearch/data\".",
+  "number": 2603,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:46.728Z"
+}

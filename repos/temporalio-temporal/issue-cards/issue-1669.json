@@ -1,0 +1,31 @@
+{
+  "summary": "MySQL 5.7 compatibility issue during schema initialization where the auto-setup container fails to create the temporal database due to an invalid default value for the 'session_start' column. The schema version compatibility check reports a version mismatch (Expected 1.5, Actual 0.0) preventing server startup.",
+  "category": "bug",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "database",
+    "schema-migration",
+    "auto-setup",
+    "mysql"
+  ],
+  "concepts": [
+    "schema-initialization",
+    "version-compatibility",
+    "database-startup",
+    "mysql-5.7",
+    "docker-setup"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to run Temporal server with MySQL 5.7 using docker-compose experience startup failures, blocking server deployment.",
+  "rootCause": "MySQL 5.7 does not support certain default value syntax used in the schema initialization scripts, causing the 'session_start' column creation to fail with 'Invalid default value' error.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Error 1067: Invalid default value for 'session_start'",
+  "number": 1669,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:33.426Z"
+}

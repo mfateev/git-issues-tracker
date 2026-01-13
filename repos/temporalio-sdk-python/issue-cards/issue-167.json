@@ -1,0 +1,32 @@
+{
+  "summary": "Timer presence check is too strict when a signal cancels a timer in the same job activation. The timer may not exist if it was already cancelled, but the current code requires it to be present when fired.",
+  "category": "bug",
+  "subcategory": "timer-execution",
+  "apis": [],
+  "components": [
+    "timer-executor",
+    "signal-handler",
+    "activation-processor"
+  ],
+  "concepts": [
+    "timer",
+    "signal",
+    "cancellation",
+    "job-activation",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows crash or behave incorrectly when signals cancel timers in the same activation.",
+  "rootCause": "The timer presence validation is overly strict and doesn't account for timers being cancelled in the same job activation.",
+  "proposedFix": "Remove or relax the timer presence requirement when handling fire-timer events, allowing graceful handling of already-cancelled timers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Timer presence check was removed to handle cases where timers are cancelled before being fired in the same activation.",
+  "related": [
+    466
+  ],
+  "keyQuote": "if a timer is fired in the same job that a signal is received that cancels it, the timer won't be present when fired",
+  "number": 167,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:29.237Z"
+}

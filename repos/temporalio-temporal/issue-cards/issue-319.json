@@ -1,0 +1,33 @@
+{
+  "summary": "Statsd container in docker-compose grows to 7-8GB within days when the system is idle, causing excessive disk usage. The issue questions whether statsd should be included in the default development docker-compose setup.",
+  "category": "bug",
+  "subcategory": "docker-compose",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "statsd",
+    "metrics"
+  ],
+  "concepts": [
+    "disk-usage",
+    "storage-growth",
+    "development-setup",
+    "monitoring",
+    "metrics-collection",
+    "container-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using default docker-compose experience unexpected and rapid disk space consumption from statsd, impacting local development environments.",
+  "rootCause": "Statsd container accumulates metrics indefinitely without proper cleanup or retention policies, causing unbounded volume growth.",
+  "proposedFix": "Remove statsd from default development docker-compose configuration or implement proper metrics retention/cleanup policies.",
+  "workaround": "Manually remove statsd from docker-compose files or configure prometheus as an alternative metrics backend.",
+  "resolution": "fixed",
+  "resolutionDetails": "Statsd was removed from docker-compose-es.yml and addressed in remaining docker-compose files. Users can alternatively configure prometheus endpoint via environment variables.",
+  "related": [
+    311
+  ],
+  "keyQuote": "After 4/5 days having left the system IDLE, without doing anything, the graphite/statsd container volume grew to 7/8GB size",
+  "number": 319,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:17.027Z"
+}

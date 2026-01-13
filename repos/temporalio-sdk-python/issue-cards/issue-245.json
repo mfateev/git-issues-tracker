@@ -1,0 +1,31 @@
+{
+  "summary": "When a worker process in ProcessPoolExecutor is terminated (e.g., segfault, OOMkill), the executor enters a BrokenProcessPool state that permanently disables activity execution. The worker cannot recover and continues failing all subsequent activities indefinitely.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "process-pool",
+    "worker"
+  ],
+  "concepts": [
+    "process-pool",
+    "fault-recovery",
+    "executor-state",
+    "activity-execution",
+    "process-termination",
+    "resilience"
+  ],
+  "severity": "high",
+  "userImpact": "Users running synchronous activities with ProcessPoolExecutor cannot recover from worker process crashes, requiring manual worker restart and losing in-flight activities.",
+  "rootCause": "ProcessPoolExecutor becomes permanently broken (BrokenProcessPool) when a worker process terminates, and the Temporal SDK does not handle this state by recovering the executor or failing the worker appropriately.",
+  "proposedFix": "The Temporal Worker should fatally error and terminate when encountering a BrokenExecutor exception from run_in_executor, allowing orchestration systems (systemd, k8s) to restart the service.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker now fatally errors on BrokenExecutor exceptions, allowing proper recovery and restart.",
+  "related": [],
+  "keyQuote": "The temporal Worker could cope with a ProcessPoolExecutor that has entered a bad state",
+  "number": 245,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:09.377Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "The workflow_task_execution_failed metric is missing the failure_reason tag in some cases. This inconsistency makes it difficult to diagnose task failures through metrics.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "observability",
+    "metrics-tagging",
+    "failure-tracking",
+    "error-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use the workflow_task_execution_failed metric for monitoring and debugging because the failure_reason tag is inconsistently present.",
+  "rootCause": "There appears to be a code path where task failures are reported without properly setting the failure_reason tag, likely in an exception catch clause.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "workflow_task_execution_failed metric sometimes doesn't have `failure_reason` tag",
+  "number": 2418,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:02.188Z"
+}

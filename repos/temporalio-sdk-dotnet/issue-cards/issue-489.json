@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to provide last result and last failure information to workflows. This has already been implemented in PR #136.",
+  "category": "feature",
+  "subcategory": "workflow-state",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "workflow-context"
+  ],
+  "concepts": [
+    "state-persistence",
+    "error-handling",
+    "workflow-history",
+    "retry-logic"
+  ],
+  "severity": "low",
+  "userImpact": "Workflows can now access the last execution result and failure information for better error recovery and conditional logic.",
+  "rootCause": null,
+  "proposedFix": "See feature issue #635 in the features repository",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Implementation already completed in PR #136",
+  "related": [
+    635,
+    136
+  ],
+  "keyQuote": "Already done in #136",
+  "number": 489,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:29:48.897Z"
+}

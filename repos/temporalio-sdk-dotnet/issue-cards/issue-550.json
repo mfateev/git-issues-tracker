@@ -1,0 +1,34 @@
+{
+  "summary": "The test `CanRunWith_CustomSlotSupplier` flakes intermittently with an assertion failure (expected 27 but got 28) and a worker finalization error indicating an unexpected reference count during shutdown.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "worker",
+    "slot-supplier",
+    "test-framework",
+    "worker-shutdown"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "race-condition",
+    "reference-counting",
+    "worker-lifecycle",
+    "concurrency",
+    "shutdown"
+  ],
+  "severity": "medium",
+  "userImpact": "Intermittent test failures reduce confidence in the worker tuning implementation and may indicate a subtle concurrency or resource management issue.",
+  "rootCause": "Likely a race condition or incorrect reference counting in worker shutdown when using a custom slot supplier, as evidenced by the 'expected 1 reference, got 2' error during finalization.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    569
+  ],
+  "keyQuote": "Cannot finalize, expected 1 reference, got 2",
+  "number": 550,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:35:05.308Z"
+}

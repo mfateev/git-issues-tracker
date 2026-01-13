@@ -1,0 +1,35 @@
+{
+  "summary": "Error messages when connecting to Temporal Cloud with an invalid serverRootCACertificate are cryptic, showing 'Failed to connect before the deadline' instead of a TLS-related error. User requests improved diagnostics to help troubleshoot certificate configuration issues.",
+  "category": "feature",
+  "subcategory": "tls-configuration",
+  "apis": [
+    "Connection.connect"
+  ],
+  "components": [
+    "connection",
+    "tls-configuration",
+    "error-handling",
+    "grpc-layer"
+  ],
+  "concepts": [
+    "tls-validation",
+    "certificate-configuration",
+    "error-messaging",
+    "connection-diagnostics",
+    "mTLS-handshake",
+    "debugging",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users troubleshooting connection failures to Temporal Cloud with invalid TLS certificates receive misleading error messages that point them in the wrong direction, making diagnosis slow and frustrating.",
+  "rootCause": "gRPC treats connection-level TLS failures as transient errors and retries transparently, masking the actual certificate validation error with a generic 'deadline exceeded' message. TLS libraries close connections without detailed error information on handshake failure.",
+  "proposedFix": "Improve error messaging to indicate TLS validation or certificate-related issues when connecting to Temporal Cloud, possibly by detecting and surfacing certificate validation failures before they become generic timeout errors.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I had expected the message to be something related to TLS validation or similar, not a failed connection before the deadline...",
+  "number": 1431,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:01:31.486Z"
+}

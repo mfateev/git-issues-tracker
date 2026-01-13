@@ -1,0 +1,34 @@
+{
+  "summary": "ActivityOptions lacks support for WaitForCancellation, leaving no way to wait for activity cancellation when it occurs. Activities are currently abandoned on cancellation without a way to handle cleanup or wait for completion.",
+  "category": "feature",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "cancellation-handler",
+    "activity-options"
+  ],
+  "concepts": [
+    "cancellation",
+    "activity-lifecycle",
+    "resource-cleanup",
+    "async-operations",
+    "graceful-shutdown"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly handle activity cancellation or wait for activities to complete their cancellation logic, making it difficult to implement cleanup operations.",
+  "rootCause": "ActivityOptions API does not provide a WaitForCancellation option to control cancellation behavior.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed through PR #61 which added WaitForCancellation support to ActivityOptions.",
+  "related": [
+    61
+  ],
+  "keyQuote": "Currently on cancellation activity is abandoned. There is no way to wait for its cancellation.",
+  "number": 27,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:35:50.205Z"
+}

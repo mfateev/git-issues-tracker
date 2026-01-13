@@ -1,0 +1,32 @@
+{
+  "summary": "A state machine exception occurs during workflow termination in replay when handling EVENT_TYPE_WORKFLOW_EXECUTION_TERMINATED, causing an IllegalArgumentException in event processing. This was observed once during a load test.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "state-machine",
+    "replay-handler",
+    "workflow-executor",
+    "event-processor"
+  ],
+  "concepts": [
+    "workflow-termination",
+    "state-machine",
+    "event-replay",
+    "exception-handling",
+    "load-testing",
+    "event-processing"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail during replay when terminated, causing production workload failures in load test scenarios.",
+  "rootCause": "WorkflowStateMachines.handleNonStatefulEvent() throws IllegalArgumentException when encountering EVENT_TYPE_WORKFLOW_EXECUTION_TERMINATED event during replay, suggesting incomplete event handling logic for termination scenarios.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "keyQuote": "Failure handling event 19 of type 'EVENT_TYPE_WORKFLOW_EXECUTION_TERMINATED' during replay. Unexpected event: EVENT_TYPE_WORKFLOW_EXECUTION_TERMINATED",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 1457,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:54.126Z"
+}

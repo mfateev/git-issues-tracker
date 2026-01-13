@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add a convenient `cancel()` method directly on `ChildWorkflowHandle` for canceling child workflows, instead of requiring users to cancel a scope or use external workflow handles.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "ChildWorkflowHandle",
+    "getExternalWorkflowHandle",
+    "WorkflowHandle"
+  ],
+  "components": [
+    "workflow-handle",
+    "child-workflow",
+    "cancellation"
+  ],
+  "concepts": [
+    "cancellation",
+    "child-workflows",
+    "handle-api",
+    "workflow-control",
+    "convenience"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot directly cancel child workflows via handle and must resort to workarounds like cancellation scopes or external workflow handles.",
+  "rootCause": null,
+  "proposedFix": "Add a `cancel()` method to the `ChildWorkflowHandle` interface for direct child workflow cancellation.",
+  "workaround": "Use `getExternalWorkflowHandle()` to get a regular `WorkflowHandle` for the child workflow and call cancel on that, or start the child in a cancellation scope and cancel the scope.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Would be convenient to be able to do `childHandle.cancel()`",
+  "number": 740,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:09:48.679Z"
+}

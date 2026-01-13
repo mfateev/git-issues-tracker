@@ -1,0 +1,29 @@
+{
+  "summary": "Request to add a service metric (gauge) tracking the number of currently running executions in Temporal, as this information is frequently requested but not available through metrics outside of visibility queries.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "server"
+  ],
+  "concepts": [
+    "monitoring",
+    "observability",
+    "execution-tracking",
+    "gauge-metric",
+    "visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a direct metric to monitor running executions without relying on visibility queries, improving observability and operational monitoring.",
+  "rootCause": null,
+  "proposedFix": "Add a service metric (gauge) to track the number of running executions",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Metric was implemented to provide gauge tracking of running executions",
+  "related": [],
+  "keyQuote": "Would be nice to have a service metric (gauge) on number of running executions instead of just completion counters.",
+  "number": 4581,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:01.700Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The gRPC PHP extension (ext-grpc) is a hard requirement for client operations but was not documented as a composer requirement, causing runtime errors when the extension wasn't installed. The issue requests adding it to composer.json to make the dependency explicit.",
+  "category": "other",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "ServiceClient",
+    "composer-dependencies",
+    "gRPC-extension"
+  ],
+  "concepts": [
+    "dependency-management",
+    "installation",
+    "runtime-error",
+    "extension-requirement",
+    "documentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter cryptic 'Class not found' errors when installing the SDK without the gRPC extension, requiring investigation to understand the missing dependency.",
+  "rootCause": "ext-grpc is a hard requirement for client calls but is not listed in composer.json requires section, only implied in documentation.",
+  "proposedFix": "Add ext-grpc to the composer.json suggest section and supplement the Installation section in readme.md with clear guidance on the requirement.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by adding ext-grpc to the suggest section of composer.json and updating documentation in the Installation section to clarify the requirement for client usage.",
+  "related": [],
+  "keyQuote": "The gRPC extension is only required for client calls. The server part works without this extension.",
+  "number": 394,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:07.552Z"
+}

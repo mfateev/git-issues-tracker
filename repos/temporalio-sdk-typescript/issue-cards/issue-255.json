@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add workflow history replay capability to the TypeScript SDK. This is a critical feature for debugging workflows by replaying exported history from tctl and Temporal web, similar to other SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "worker",
+    "mock-pollers",
+    "core"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "history-export",
+    "debugging",
+    "testing",
+    "worker-api"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot replay exported workflow histories for debugging purposes, limiting their ability to troubleshoot workflow behavior issues.",
+  "rootCause": null,
+  "proposedFix": "Expose a convenient API in the TypeScript SDK to replay workflow history against a given Worker, leveraging mock pollers in the core.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented history replay capability in the TypeScript SDK by exposing a convenient API that uses core mock pollers.",
+  "related": [
+    729
+  ],
+  "keyQuote": "Other SDKs have the ability to replay exported Workflow history, this is a critical feature for Workflow debuggability.",
+  "number": 255,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:22.984Z"
+}

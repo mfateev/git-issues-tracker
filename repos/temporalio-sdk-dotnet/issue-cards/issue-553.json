@@ -1,0 +1,40 @@
+{
+  "summary": "User requests that OperatorService and WorkflowService RPC methods be marked virtual or extracted to interfaces to enable mocking with NSubstitute for unit testing Kubernetes operators. The discussion explores alternatives like using ephemeral dev servers and subclassing with public delegator methods.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "OperatorService",
+    "WorkflowService",
+    "ITemporalClient",
+    "ITemporalConnection"
+  ],
+  "components": [
+    "OperatorService",
+    "WorkflowService",
+    "RpcClient",
+    "testing"
+  ],
+  "concepts": [
+    "mocking",
+    "unit-testing",
+    "testability",
+    "virtual-methods",
+    "interfaces",
+    "dependency-injection",
+    "nsubstitute"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively mock OperatorService and WorkflowService for unit testing without using ephemeral dev servers, limiting test flexibility for Kubernetes operator development.",
+  "rootCause": "OperatorService.Rpc and WorkflowService.Rpc methods are not virtual and do not expose public APIs that NSubstitute can mock; InvokeRpcAsync is protected rather than public.",
+  "proposedFix": "Mark methods in OperatorService.Rpc and WorkflowService.Rpc as virtual, or extract them into interfaces. Alternatively, create public abstract subclasses that delegate InvokeRpcAsync to public methods.",
+  "workaround": "Use ephemeral dev server via WorkflowEnvironment.StartLocalAsync for testing instead of mocking; or create custom subclasses of WorkflowService/OperatorService that expose InvokeRpcAsync through public delegator methods.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    419
+  ],
+  "keyQuote": "We usually discourage mocking these kinds of things instead of using an ephemeral dev server in your tests since that will truly test your calls as opposed to assuming how Temporal server behavior is.",
+  "number": 553,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:35:44.804Z"
+}

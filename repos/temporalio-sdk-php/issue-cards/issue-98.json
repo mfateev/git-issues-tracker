@@ -1,0 +1,33 @@
+{
+  "summary": "PHP 7.4 docblock annotations were not recognized by the SDK, which only supported PHP 8 attributes. The client would throw an error claiming the required attribute was missing even when using docblock-style annotations that should be compatible with the minimum supported PHP 7.4 version.",
+  "category": "bug",
+  "subcategory": "attribute-parsing",
+  "apis": [
+    "WorkflowInterface",
+    "WorkflowMethod"
+  ],
+  "components": [
+    "client",
+    "workflow-loader",
+    "annotation-parser"
+  ],
+  "concepts": [
+    "php-version-compatibility",
+    "attribute-parsing",
+    "docblock-annotations",
+    "workflow-discovery",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users targeting PHP 7.4 could not use the SDK with docblock-style annotations, forcing them to upgrade to PHP 8 or switch to attribute syntax despite the declared minimum version support.",
+  "rootCause": "The WorkflowClient only supported PHP 8 attributes and did not fall back to parsing docblock-style annotations, despite PHP 7.4 being the minimum supported version in composer.json.",
+  "proposedFix": "Add docblock annotation parsing support to WorkflowClient (similar to the implementation that likely existed elsewhere in the SDK).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in SDK 1.0.2+ by adding docblock annotation support to the WorkflowClient, likely mirroring existing implementation patterns used in other parts of the codebase.",
+  "related": [],
+  "keyQuote": "the SDK is unable to parse my workflows because I'm not using PHP 8 style attributes, but older PHP 7.4 docblock style",
+  "number": 98,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:31.404Z"
+}

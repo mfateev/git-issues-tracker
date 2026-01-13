@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow customization of the webpack configuration used for bundling Temporal workflows in the TypeScript SDK. Users need flexibility to apply webpack plugins, overrides, and custom configurations for various use cases.",
+  "category": "feature",
+  "subcategory": "webpack-bundling",
+  "apis": [],
+  "components": [
+    "bundler",
+    "webpack-config",
+    "workflow-bundling"
+  ],
+  "concepts": [
+    "webpack-customization",
+    "bundler-configuration",
+    "plugin-extensibility",
+    "transpilation",
+    "type-checking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize webpack configuration for advanced bundling needs like using webpack plugins (e.g., DefinePlugin) or configuring absolute paths.",
+  "rootCause": "The SDK has a fixed webpack configuration with limited extensibility points, preventing users from applying custom webpack overrides or plugins.",
+  "proposedFix": "Add an optional webpackConfigOverrides property or override function to BundleOptions that allows users to merge with or modify the default webpack configuration, similar to how Gatsby handles custom webpack config.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed by implementing webpack configuration customization capabilities in the SDK bundler.",
+  "related": [
+    516,
+    525,
+    534
+  ],
+  "keyQuote": "Allow users to apply more generic overrides to the Webpack config...merged with the default/calculated Webpack configuration",
+  "number": 537,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:00:14.419Z"
+}

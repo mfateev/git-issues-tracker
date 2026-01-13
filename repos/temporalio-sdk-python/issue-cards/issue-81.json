@@ -1,0 +1,32 @@
+{
+  "summary": "Request to create a test framework for the Python SDK that leverages the test server. This is a foundational testing infrastructure feature needed to support test development across the SDK.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "test-server",
+    "testing-infrastructure"
+  ],
+  "concepts": [
+    "testing",
+    "test-server",
+    "test-framework",
+    "integration-testing",
+    "sdk-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot effectively test their workflows without a proper test framework integrated with the test server, limiting the ability to validate Temporal SDK usage.",
+  "rootCause": null,
+  "proposedFix": "Leverage the test server to build a comprehensive test framework for the Python SDK",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test framework was implemented leveraging the test server, with dependency on sdk-core issue #368",
+  "related": [
+    368
+  ],
+  "keyQuote": "Need test framework that leverages the test server",
+  "number": 81,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:12.610Z"
+}

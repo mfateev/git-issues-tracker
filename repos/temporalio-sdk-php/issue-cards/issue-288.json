@@ -1,0 +1,30 @@
+{
+  "summary": "PHP SDK has multiple bugs when running with PHP 8.2, affecting both functional and unit tests across different dependency versions and Windows platform.",
+  "category": "bug",
+  "subcategory": "php-version-compatibility",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "sdk-core",
+    "windows-support"
+  ],
+  "concepts": [
+    "php-compatibility",
+    "version-support",
+    "test-failures",
+    "dependency-management",
+    "cross-platform"
+  ],
+  "severity": "high",
+  "userImpact": "Users running PHP 8.2 experience test failures and potential runtime issues with the SDK.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through compatibility fixes for PHP 8.2 support",
+  "related": [],
+  "keyQuote": "There are few bugs when SDK-PHP is run with PHP 8.2",
+  "number": 288,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:10.035Z"
+}

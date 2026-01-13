@@ -1,0 +1,30 @@
+{
+  "summary": "Releases are not being automatically pushed to Docker Hub after GitHub releases are created. Currently this requires manual intervention, resulting in Docker Hub missing recent releases.",
+  "category": "feature",
+  "subcategory": "release-automation",
+  "apis": [],
+  "components": [
+    "docker-hub",
+    "release-pipeline",
+    "github-actions"
+  ],
+  "concepts": [
+    "automation",
+    "release-management",
+    "ci-cd",
+    "docker-registry",
+    "deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may not have access to the latest Temporal Server versions on Docker Hub if releases are not manually published.",
+  "rootCause": "Manual process for publishing releases to Docker Hub is prone to being missed or delayed.",
+  "proposedFix": "Implement automated GitHub release to Docker Hub publishing pipeline.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "An internal pipeline was implemented to automatically carry out the publish of docker images.",
+  "related": [],
+  "keyQuote": "we have an internal pipeline which carries out the publish of docker",
+  "number": 472,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:00:31.973Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to reclassify benign application errors in OpenTelemetry spans to prevent noise in monitoring systems. This mirrors a similar request from the Python SDK.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "instrumentation",
+    "error-handling"
+  ],
+  "concepts": [
+    "observability",
+    "error-classification",
+    "span-attributes",
+    "monitoring",
+    "telemetry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive noisy error signals in OpenTelemetry for application errors that don't represent actual problems, complicating monitoring and alerting.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [
+    1041
+  ],
+  "keyQuote": "See issue description here: https://github.com/temporalio/sdk-python/issues/1041",
+  "number": 1776,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:33:04.732Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "RpcException with 'operation was canceled' error when calling DescribeNamespaceAsync in health check, occurring immediately without timeout. User questions whether sharing TemporalClient across threads is safe.",
+  "category": "bug",
+  "subcategory": "client-rpc",
+  "apis": [
+    "DescribeNamespaceAsync",
+    "ConnectAsync"
+  ],
+  "components": [
+    "temporal-client",
+    "rpc-connection",
+    "health-check"
+  ],
+  "concepts": [
+    "cancellation",
+    "concurrency",
+    "threading",
+    "connection-pooling",
+    "rpc-error"
+  ],
+  "severity": "high",
+  "userImpact": "Health check operations fail immediately with cancellation errors, preventing proper monitoring of Temporal connectivity in production environments.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Considering this timeout exception is being thrown immediately, should I not be sharing my TemporalClient across threads?",
+  "number": 395,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:19:15.370Z"
+}

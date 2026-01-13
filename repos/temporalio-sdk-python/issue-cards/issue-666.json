@@ -1,0 +1,33 @@
+{
+  "summary": "User requests a way to manage cleanup of shared resources (like HTTP clients) used by worker activities. Currently, there's no clear lifespan mechanism to ensure proper cleanup of resources when the worker shuts down.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "shutdown"
+  ],
+  "concepts": [
+    "resource-cleanup",
+    "lifespan",
+    "context-manager",
+    "async-cleanup",
+    "shutdown",
+    "worker-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily manage cleanup of shared resources (like HTTP clients) used across multiple activities without manually implementing complex cleanup logic.",
+  "rootCause": null,
+  "proposedFix": "Include cleanup callback mechanism or formalize worker shutdown cleanup pattern in documentation.",
+  "workaround": "Add cleanup code after worker.run() completes or after exiting the async context manager.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that worker shutdown guarantees all activities are complete, making the current pattern (cleanup after worker.run() or context manager exit) sufficient.",
+  "related": [],
+  "keyQuote": "Worker shutdown should be sufficient. If you add your cleanup code after worker is shutdown (or after context manager is complete), that is enough to guarantee the worker isn't using things anymore.",
+  "number": 666,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:54.416Z"
+}

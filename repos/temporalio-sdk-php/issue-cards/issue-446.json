@@ -1,0 +1,33 @@
+{
+  "summary": "PHP SDK needs to warn or error when update handlers are not completed before workflow cancellation or exit. The feature implements a handler completion policy mechanism similar to Python SDK, allowing workflows to either wait for handlers to finish or receive warnings about unfinished handlers.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [
+    "all_handlers_finished",
+    "HandlerUnfinishedPolicy"
+  ],
+  "components": [
+    "worker",
+    "workflow-runtime",
+    "update-handler"
+  ],
+  "concepts": [
+    "handler-lifecycle",
+    "workflow-exit",
+    "cancellation",
+    "signal-handling",
+    "policy-enforcement"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need visibility into unfinished update handlers during workflow exit to prevent silent data loss or unexpected behavior.",
+  "rootCause": "Update handlers can dangle (remain unfinished) when workflows are cancelled or exit, leaving handlers in an incomplete state without user awareness.",
+  "proposedFix": "Implement HandlerUnfinishedPolicy mechanism with WARN_AND_ABANDON default, all_handlers_finished() method for workflows to wait, and per-handler policy override capability. Add TMPRL1102 rule identifier to warning messages.",
+  "workaround": "Users can manually track handler completion or implement custom cancellation logic, but this is error-prone.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed following Python SDK pattern with handler completion policies and warnings for unfinished handlers.",
+  "related": [],
+  "keyQuote": "Workflow code can wait on a method named similarly to `workflow.all_handlers_finished()` with warnings controlled by HandlerUnfinishedPolicy",
+  "number": 446,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:56.733Z"
+}

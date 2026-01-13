@@ -1,0 +1,32 @@
+{
+  "summary": "The test server's time skipping feature does not work on ARM architecture. Users need documentation about this limitation and workarounds such as using Intel/AMD-to-ARM translation on macOS or non-ARM Linux.",
+  "category": "docs",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "time-skipping"
+  ],
+  "concepts": [
+    "ARM architecture",
+    "test infrastructure",
+    "platform compatibility",
+    "time manipulation",
+    "testing",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "ARM users cannot use time skipping in tests and must use workarounds or alternative platforms.",
+  "rootCause": "Time skipping test server implementation does not support ARM architecture",
+  "proposedFix": "Document the ARM limitation and available workarounds",
+  "workaround": "Use auto Intel/AMD-to-ARM translation with macOS or use non-ARM Linux",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was added to inform users about the ARM limitation and available workarounds",
+  "related": [
+    1407
+  ],
+  "keyQuote": "This is a known issue. In the meantime, people have to use the auto intel/amd-to-arm translation with macOS or use non-ARM Linux.",
+  "number": 379,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:17.161Z"
+}

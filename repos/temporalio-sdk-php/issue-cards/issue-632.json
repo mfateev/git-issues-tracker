@@ -1,0 +1,33 @@
+{
+  "summary": "Implement application failure logging and metrics behavior in the PHP SDK according to ApplicationErrorCategory, following the pattern established in core SDKs. The PHP SDK needs to apply corresponding logging behavior while core handles metrics.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "logger",
+    "error-handler",
+    "metrics"
+  ],
+  "concepts": [
+    "application-error",
+    "logging",
+    "metrics",
+    "error-category",
+    "failure-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "PHP SDK users will have consistent application failure logging and metrics behavior aligned with other Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Apply logging behavior for application errors according to ApplicationErrorCategory, coordinating with core SDK updates",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented application failure logging behavior according to ApplicationErrorCategory specification",
+  "related": [
+    614,
+    897
+  ],
+  "keyQuote": "Core-based SDKs only need to apply corresponding logging behaviour, core handles metrics.",
+  "number": 632,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:48.284Z"
+}

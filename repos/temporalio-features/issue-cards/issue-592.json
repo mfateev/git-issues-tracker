@@ -1,0 +1,31 @@
+{
+  "summary": "Add a `temporalNamespace` tag to all distributed tracing spans across SDKs to provide namespace context in observability data.",
+  "category": "feature",
+  "subcategory": "tracing",
+  "apis": [],
+  "components": [
+    "tracing",
+    "spans",
+    "observability"
+  ],
+  "concepts": [
+    "namespace",
+    "distributed-tracing",
+    "observability",
+    "span-tags",
+    "context",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to better identify and filter distributed traces by namespace, improving observability and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Include a `temporalNamespace` tag in all tracing spans across all SDK implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Spans have several tags but not the namespace. Based on user request, we should consider including a `temporalNamespace` tag in all spans.",
+  "number": 592,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:37.570Z"
+}

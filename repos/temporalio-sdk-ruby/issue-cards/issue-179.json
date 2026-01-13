@@ -1,0 +1,32 @@
+{
+  "summary": "Add workflow-local storage capability to Ruby SDK, allowing users to store and retrieve data scoped to the current workflow execution. Request sketches using `Workflow[\"myValue\"]` syntax similar to thread-local and fiber-local variables.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [],
+  "components": [
+    "workflow",
+    "context-storage",
+    "ruby-runtime"
+  ],
+  "concepts": [
+    "workflow-local-storage",
+    "thread-local",
+    "fiber-local",
+    "execution-scope",
+    "context-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack a convenient way to store workflow-scoped data, forcing them to use workarounds instead of idiomatic storage patterns.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow-local storage accessible via `Workflow[\"myValue\"]` syntax, similar to existing thread-local and fiber-local patterns.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    571
+  ],
+  "keyQuote": "like thread-local and fiber-local, a user can use `Workflow[\"myValue\"]` to get or set workflow-local data",
+  "number": 179,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:21.384Z"
+}

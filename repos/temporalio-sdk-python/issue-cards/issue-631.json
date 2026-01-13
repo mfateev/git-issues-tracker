@@ -1,0 +1,35 @@
+{
+  "summary": "Worker hangs indefinitely when polling workflow task queue with incorrect authorization token. The worker receives 504 Gateway Timeout errors and PermissionDenied responses, eventually raising a RuntimeError without properly recovering or shutting down gracefully.",
+  "category": "bug",
+  "subcategory": "worker-authorization",
+  "apis": [
+    "Worker",
+    "Client.connect"
+  ],
+  "components": [
+    "worker",
+    "grpc-client",
+    "error-handling",
+    "polling"
+  ],
+  "concepts": [
+    "authorization",
+    "authentication",
+    "connection-timeout",
+    "error-recovery",
+    "graceful-shutdown",
+    "retry-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Users with incorrect authorization tokens experience indefinite hangs and unclear error messages instead of immediate, actionable failures.",
+  "rootCause": "Ingress gateway timeout configuration requires minimum 70-second polling intervals; worker does not properly handle authorization errors during long polls and fails to shut down gracefully.",
+  "proposedFix": null,
+  "workaround": "Reduce long polling interval via Temporal server dynamic config: `matching.longPollExpirationInterval: ['50s']`",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as ingress configuration issue - Temporal requires ability to support 70-second calls. The root cause was determined to be infrastructure-related rather than SDK defect.",
+  "related": [],
+  "keyQuote": "The worker ends up raising a RuntimeError and not recovering from it.",
+  "number": 631,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:06.734Z"
+}

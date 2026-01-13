@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add a whitelist mechanism for retryable error types in RetryPolicy, allowing developers to specify which error types should trigger retries instead of only blacklisting non-retryable errors.",
+  "category": "feature",
+  "subcategory": "retry-policy",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "retry-policy",
+    "error-handling",
+    "dotnet-sdk"
+  ],
+  "concepts": [
+    "retry",
+    "error-types",
+    "whitelist",
+    "error-handling",
+    "policy-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have more granular control over which error types trigger retries, enabling more precise retry behavior for their workflows.",
+  "rootCause": null,
+  "proposedFix": "Add a RetryableErrorTypes property to RetryPolicy that accepts a list of error type names to whitelist for retry handling.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed without implementation. The team questioned the use case, noting that the existing NonRetryableErrorTypes blacklist approach is generally sufficient since all errors are retryable by default unless explicitly marked otherwise.",
+  "related": [],
+  "keyQuote": "Generally all errors are retryable unless the error says not to retry it or the retry policy says so through `NonRetryableErrorTypes`.",
+  "number": 387,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:01.551Z"
+}

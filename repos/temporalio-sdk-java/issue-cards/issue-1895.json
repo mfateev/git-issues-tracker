@@ -1,0 +1,32 @@
+{
+  "summary": "Audit and verify that SerializationContext is applied consistently across all data conversion sites in the Java SDK, particularly in areas like memo fields during StartWorkflow calls where it may be missing.",
+  "category": "bug",
+  "subcategory": "serialization-context",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "data-converter",
+    "serialization",
+    "workflow-start"
+  ],
+  "concepts": [
+    "serialization",
+    "data-conversion",
+    "context-consistency",
+    "audit",
+    "memo"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience inconsistent serialization behavior across different SDK operations, potentially leading to unexpected data transformation results.",
+  "rootCause": "SerializationContext is not being applied uniformly across all data conversion sites in the SDK, with specific gaps identified in memo handling during StartWorkflow.",
+  "proposedFix": "Audit all data conversion sites in the SDK and add comprehensive tests to verify SerializationContext is consistently applied everywhere.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the audit was completed and inconsistencies were addressed.",
+  "related": [],
+  "keyQuote": "SerializationContext should be applied consistently in the Java SDK",
+  "number": 1895,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:01.365Z"
+}

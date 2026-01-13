@@ -1,0 +1,31 @@
+{
+  "summary": "The tctl workflow start command fails with an 'Invalid Format' error for execution_timeout, which is no longer required by the server. The command should work without specifying this field.",
+  "category": "bug",
+  "subcategory": "cli-workflow-commands",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "tctl",
+    "cli",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timeout",
+    "command-parsing",
+    "validation",
+    "required-fields"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start workflows using tctl without specifying execution_timeout, blocking a common workflow operation.",
+  "rootCause": "CLI validation requires execution_timeout parameter even though the server no longer requires it, causing a format validation error.",
+  "proposedFix": "Make execution_timeout optional in the tctl workflow start command validation and update to support the new run_timeout parameter.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The cli validation was updated to not require execution_timeout, and run_timeout support was added.",
+  "related": [],
+  "keyQuote": "execution_timeout is not required by the server anymore",
+  "number": 553,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:14:51.670Z"
+}

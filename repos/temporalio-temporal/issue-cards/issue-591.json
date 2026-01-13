@@ -1,0 +1,30 @@
+{
+  "summary": "The TestCronWorkflow integration test is flaky, with a backoff calculation assertion failing intermittently. The test expects backoff 2-0 to be a multiplier of target backoff 3, but occasionally gets different values.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "integration-test",
+    "cron-workflow",
+    "backoff-calculator"
+  ],
+  "concepts": [
+    "flaky-test",
+    "backoff",
+    "multiplier",
+    "cron",
+    "timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the codebase and can block releases or CI pipelines.",
+  "rootCause": "Timing or race condition in backoff calculation during cron workflow execution, causing intermittent assertion failures.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test was fixed or underlying cron/backoff logic was corrected to eliminate the flakiness.",
+  "related": [],
+  "keyQuote": "exected backoff 2-0 should be multiplier of target backoff 3",
+  "number": 591,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:18:43.718Z"
+}

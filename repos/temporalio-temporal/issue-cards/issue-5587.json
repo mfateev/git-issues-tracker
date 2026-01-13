@@ -1,0 +1,32 @@
+{
+  "summary": "The dev-server crashes when receiving an AddOrUpdateRemoteCluster RPC with an invalid frontend address (missing port). The server should reject the request with an error instead of calling Fatal() and crashing.",
+  "category": "bug",
+  "subcategory": "cluster-management",
+  "apis": [
+    "AddOrUpdateRemoteCluster"
+  ],
+  "components": [
+    "frontend-operator-handler",
+    "rpc-factory",
+    "client-factory"
+  ],
+  "concepts": [
+    "error-handling",
+    "input-validation",
+    "remote-cluster",
+    "rpc-address",
+    "crash-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run the dev-server if an invalid remote cluster address is accidentally provided, as the server crashes instead of rejecting the request gracefully.",
+  "rootCause": "CreateRemoteFrontendGRPCConnection calls Fatal() when address parsing fails instead of returning an error that can be handled by the caller.",
+  "proposedFix": "Replace Fatal() call with proper error handling and return an error to the RPC handler so it can reject the request with a gRPC error status.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Server rejects the RPC with an error, but continues to run.",
+  "number": 5587,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:39.628Z"
+}

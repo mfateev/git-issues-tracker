@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to use exception full messages (including stack traces) in workflow and activity task failure logs instead of just logging the exception object. This would improve debugging visibility.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "workflow-task-executor",
+    "logging"
+  ],
+  "concepts": [
+    "exception-handling",
+    "logging",
+    "debugging",
+    "stack-traces",
+    "error-reporting"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have better visibility into workflow and activity failures through more detailed log messages including stack traces.",
+  "rootCause": null,
+  "proposedFix": "Use the full_message field when logging exceptions for activities and workflow task failures to include stack trace information.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "After review, determined that the SDK is already logging the full activity and workflow task failure by sending the exception as a separate log statement which shows the stack trace.",
+  "related": [],
+  "keyQuote": "After review, it looks like we are logging the full activity and workflow task failure by sending the exception as a separate log statement which seems to show the stack trace.",
+  "number": 261,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:33.653Z"
+}

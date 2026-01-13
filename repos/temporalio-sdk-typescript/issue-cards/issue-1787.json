@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to allow querying the port and address from TestWorkflowEnvironment when using a random free port with createLocal(), enabling manual client creation without needing to pass the address separately to the application.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "createLocal"
+  ],
+  "components": [
+    "testing",
+    "dev-server",
+    "client-connection"
+  ],
+  "concepts": [
+    "port-discovery",
+    "test-setup",
+    "ephemeral-server",
+    "configuration",
+    "integration-testing"
+  ],
+  "severity": "low",
+  "userImpact": "Users must use undocumented APIs or pass port/address separately when creating clients with randomly allocated ports in tests.",
+  "rootCause": "TestWorkflowEnvironment.createLocal() does not expose a public API to query the allocated port/address when using random free ports.",
+  "proposedFix": "Add a public method to TestWorkflowEnvironment to query the port/address (similar to the undocumented native.ephemeralServerGetTarget approach).",
+  "workaround": "Use native.ephemeralServerGetTarget(env[\"server\"]) to access the internal server target.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose port/address query capability in TestWorkflowEnvironment.",
+  "related": [],
+  "keyQuote": "Allow querying the port/address so it's possible to use a random free port when creating clients manually.",
+  "number": 1787,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:01:54.792Z"
+}

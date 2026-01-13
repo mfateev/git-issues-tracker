@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose internal RawInfo and RawDescription properties on WorkflowExecution and WorkflowExecutionDescription to provide access to raw proto objects and pending activities information.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowExecution",
+    "WorkflowExecutionDescription"
+  ],
+  "components": [
+    "workflow-execution",
+    "proto-bindings"
+  ],
+  "concepts": [
+    "raw-proto-objects",
+    "pending-activities",
+    "api-exposure",
+    "internal-visibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access detailed pending activities and raw proto information currently hidden behind internal properties.",
+  "rootCause": null,
+  "proposedFix": "Expose RawInfo and RawDescription as public properties on WorkflowExecution and WorkflowExecutionDescription types.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Right now `RawInfo` and `RawDescription` are `internal` and should be exposed to see things like pending activities",
+  "number": 246,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:20:25.073Z"
+}

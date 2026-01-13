@@ -1,0 +1,34 @@
+{
+  "summary": "Add ability to get an update handle from a workflow handle. Ensure update handles use the returned run ID when starting updates, and provide clear documentation about consequences of getting update handles on workflow handles without a run ID.",
+  "category": "feature",
+  "subcategory": "update-handle",
+  "apis": [
+    "update_handle",
+    "workflow_handle",
+    "start"
+  ],
+  "components": [
+    "workflow-handle",
+    "update-handle",
+    "run-id"
+  ],
+  "concepts": [
+    "update-handle",
+    "workflow-handle",
+    "run-id",
+    "idempotency",
+    "handle-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve update handles from workflow handles and lack clarity on run ID behavior, limiting their ability to manage workflow updates programmatically.",
+  "rootCause": null,
+  "proposedFix": "Implement getter method for update handles on workflow handles; ensure update handle uses returned run ID from start operations; add comprehensive documentation about run ID implications.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide update handle retrieval from workflow handles with proper run ID handling.",
+  "related": [],
+  "keyQuote": "Should be able to get an update handle from a workflow handle. Also since updates are always run-specific, when using \"start\", the update handle should use the returned run ID",
+  "number": 424,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:19.757Z"
+}

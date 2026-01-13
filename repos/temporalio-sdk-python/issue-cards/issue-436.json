@@ -1,0 +1,32 @@
+{
+  "summary": "A continue_as_new exception raised from an update handler may be swallowed as an uncaught exception in a task, rather than being properly handled as a task failure.",
+  "category": "bug",
+  "subcategory": "update-handler",
+  "apis": [
+    "continue_as_new"
+  ],
+  "components": [
+    "update-handler",
+    "task-execution",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "task-failure",
+    "continue-as-new",
+    "update-handler",
+    "error-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Updates that invoke continue_as_new may not properly fail the task, leading to unexpected workflow behavior and silent failures.",
+  "rootCause": "continue_as_new raised from an update handler is a base exception that may be re-raised and left uncaught in the task execution path.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "this may end up being swallowed (it's a base exception that I think is re-raised and uncaught in a task)",
+  "number": 436,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:49.517Z"
+}

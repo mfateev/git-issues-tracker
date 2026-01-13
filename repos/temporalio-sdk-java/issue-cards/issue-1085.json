@@ -1,0 +1,32 @@
+{
+  "summary": "Protobuf version range dependency [3.10.0,) in SDK 1.8.1 allows installation of incompatible protobuf-java-util 4.0.0-rc-2, causing NoSuchMethodError at runtime when health checks are performed. Explicit downgrade to protobuf 3.19.4 resolves the issue.",
+  "category": "bug",
+  "subcategory": "dependency-conflict",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "grpc-client",
+    "health-check",
+    "protobuf-serialization"
+  ],
+  "concepts": [
+    "version-constraint",
+    "dependency-resolution",
+    "binary-compatibility",
+    "protobuf-version",
+    "maven-dependency",
+    "runtime-error"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use SDK 1.8.1 without explicitly pinning protobuf version, causing workflow initialization failures with NoSuchMethodError.",
+  "rootCause": "Overly permissive version range [3.10.0,) in protobuf-java-util dependency allows incompatible protobuf 4.0.0-rc-2 which removed the isStringEmpty method used by generated gRPC code.",
+  "proposedFix": "Tighten protobuf-java-util version constraint to exclude incompatible 4.x versions, or explicitly pin to 3.19.4.",
+  "workaround": "Add explicit dependency on protobuf-java-util version 3.19.4 in pom.xml to override the range constraint.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in master branch before next release, likely by constraining protobuf version range to compatible versions.",
+  "related": [],
+  "keyQuote": "com.google.protobuf:protobuf-java-util:jar:4.0.0-rc-2:compile (version selected from constraint [3.10.0,))",
+  "number": 1085,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:05:02.610Z"
+}

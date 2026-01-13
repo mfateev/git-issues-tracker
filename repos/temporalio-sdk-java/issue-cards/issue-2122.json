@@ -1,0 +1,33 @@
+{
+  "summary": "Java SDK lacks a method to register workflows with static names during registration. Users need this to share workflow definitions across different language platforms (Go, Python) via protobuf enums, which annotations alone cannot support.",
+  "category": "feature",
+  "subcategory": "workflow-registration",
+  "apis": [
+    "WorkflowImplementationOptions",
+    "registerWorkflowImplementationTypes"
+  ],
+  "components": [
+    "worker",
+    "workflow-registration",
+    "implementation-options"
+  ],
+  "concepts": [
+    "static-naming",
+    "cross-platform-compatibility",
+    "workflow-definition-sharing",
+    "protocol-buffers",
+    "multi-language-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users sharing workflows across Java and non-Java services cannot use static names for workflow registration, limiting cross-platform workflow execution.",
+  "rootCause": null,
+  "proposedFix": "Add a setDefaultWorkflowImplementationTypeName() method to WorkflowImplementationOptions to allow static name registration during worker.registerWorkflowImplementationTypes() call.",
+  "workaround": "Use annotation-based names or accept the default short name of the workflow interface, though this doesn't work for cross-language scenarios.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need a way to set a default workflow implementation type name during registration... to define workflows that can be triggered across different apps with a shared static name.",
+  "number": 2122,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:42.775Z"
+}

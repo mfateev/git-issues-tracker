@@ -1,0 +1,30 @@
+{
+  "summary": "User reports extremely slow loading (~1 minute) of the workflow-count API endpoint in the Temporal Web UI when using MySQL database backend. Responder suggests troubleshooting by checking if the issue is with the web server or temporal server itself.",
+  "category": "question",
+  "subcategory": "web-ui-performance",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "api-server",
+    "database-query"
+  ],
+  "concepts": [
+    "performance",
+    "latency",
+    "web-loading",
+    "api-response-time",
+    "mysql-database"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience significant delays (1+ minute) when loading workflow statistics in the web interface, impacting operational visibility and usability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'm seeing a very slow loading of the resource http://10.0.0.57:32080/api/v1/namespaces/Answer-Flow/workflow-count?query=GROUP+BY+ExecutionStatus, which takes nearly 1 minute.",
+  "number": 6206,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:57.879Z"
+}

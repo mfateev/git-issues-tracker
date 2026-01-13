@@ -1,0 +1,33 @@
+{
+  "summary": "TestWorkflowRule timeout diagnostics need improvement to include DescribeWorkflowExecution results, stack traces for open workflows, and better formatting to help troubleshoot stuck tests.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "TestWorkflowRule",
+    "test-framework",
+    "diagnostics"
+  ],
+  "concepts": [
+    "timeout",
+    "debugging",
+    "diagnostics",
+    "test-failure",
+    "workflow-execution",
+    "activity-retry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging stuck JUnit tests receive incomplete diagnostic information, making it harder to identify the root cause of test timeouts.",
+  "rootCause": null,
+  "proposedFix": "Enhance TestWorkflowRule to include DescribeWorkflowExecution results for each workflow, stack trace queries for open workflows, and improved output formatting.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This is useful, but misses a lot of useful information that could be used to troubleshoot a stuck test problem.",
+  "number": 1535,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:41.438Z"
+}

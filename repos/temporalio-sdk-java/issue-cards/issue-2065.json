@@ -1,0 +1,34 @@
+{
+  "summary": "null Duration values in options classes like SchedulePolicy are sent as zero duration instead of being treated as unset, causing the server to apply minimum defaults instead of expected defaults (e.g., 10 second MinCatchupWindow instead of 1 year DefaultCatchupWindow).",
+  "category": "bug",
+  "subcategory": "protobuf-serialization",
+  "apis": [
+    "SchedulePolicy",
+    "Schedule"
+  ],
+  "components": [
+    "ProtobufTimeUtils",
+    "schedule-creation",
+    "protobuf-conversion"
+  ],
+  "concepts": [
+    "duration-handling",
+    "null-semantics",
+    "protobuf-defaults",
+    "schedule-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create schedules with unset durations and receive incorrect server-side defaults, breaking schedule configuration behavior.",
+  "rootCause": "ProtobufTimeUtils converts null Duration to zero duration instead of preserving null to indicate unset value in protobuf messages, as required by the server's schedule handling logic.",
+  "proposedFix": "Add conversion functions for Duration that preserve null values to distinguish between unset and zero duration in protobuf serialization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely resolved by adding proper null-preserving duration conversion functions.",
+  "related": [
+    1950
+  ],
+  "keyQuote": "null values are sent as zero duration... server side treats it as 0 and uses MinCatchupWindow (=10 sec) instead of expected DefaultCatchupWindow (=1yr)",
+  "number": 2065,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:26.033Z"
+}

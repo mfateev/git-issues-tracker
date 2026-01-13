@@ -1,0 +1,30 @@
+{
+  "summary": "The new Temporal CLI is missing functionality to update a namespace with multiple clusters. Users need a command equivalent to the old tctl namespace update command that accepts a list of clusters.",
+  "category": "feature",
+  "subcategory": "cli-namespace-management",
+  "apis": [],
+  "components": [
+    "cli",
+    "namespace-operator",
+    "multi-cluster-replication"
+  ],
+  "concepts": [
+    "namespace-update",
+    "cluster-replication",
+    "multi-cluster",
+    "cli-parity",
+    "migration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure multi-cluster replication for existing namespaces using the new CLI, forcing them to rely on deprecated tctl or manually manage namespace configuration.",
+  "rootCause": "The new temporal operator namespace update command does not support accepting multiple clusters as a list parameter.",
+  "proposedFix": "Modify the temporal operator namespace update command to accept a --cluster parameter that can handle multiple cluster names (e.g., --cluster 'clusterA clusterB')",
+  "workaround": "Continue using the deprecated tctl CLI for namespace updates with multiple clusters until the new CLI is updated.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Have the cluster accept a list of clusters and not only a single one.",
+  "number": 5589,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:53.070Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to allow ApplicationFailure exceptions thrown from within update handlers to fail the workflow directly, instead of requiring a workaround with flags and conditional logic in the workflow code.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "ApplicationFailure",
+    "WorkflowFailedError",
+    "WorkflowUpdateFailedError"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "failure-propagation",
+    "error-handling",
+    "workflow-state",
+    "update-handler-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users must implement awkward workarounds with flags to fail workflows from update handlers, making the API less intuitive.",
+  "rootCause": null,
+  "proposedFix": "throw ApplicationFailure should return WorkflowFailedError instead of WorkflowUpdateFailedError when called from an update handler.",
+  "workaround": "Set a flag in the update handler and check for it in the workflow code to throw the failure.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    650
+  ],
+  "keyQuote": "throw ApplicationFailure should return (or at least have the option to return) WorkflowFailedError instead of WorkflowUpdateFailedError.",
+  "number": 1418,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:49.357Z"
+}

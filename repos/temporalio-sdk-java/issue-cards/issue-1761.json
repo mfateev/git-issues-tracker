@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowLocal.set(null) causes subsequent get() calls to throw NullPointerException because the Optional wrapper cannot distinguish between unset state and null values. Additionally, withInitial callbacks are re-invoked on each get() rather than being cached.",
+  "category": "bug",
+  "subcategory": "workflow-local-state",
+  "apis": [
+    "WorkflowLocal"
+  ],
+  "components": [
+    "DeterministicRunnerImpl",
+    "RunnerLocalInternal",
+    "WorkflowLocal"
+  ],
+  "concepts": [
+    "null-handling",
+    "state-management",
+    "optional-semantics",
+    "initialization",
+    "local-variables",
+    "determinism"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot set WorkflowLocal values to null, which breaks expected null-handling semantics and forces workarounds.",
+  "rootCause": "Optional<T> return type in DeterministicRunnerImpl.getRunnerLocal() cannot differentiate between unset state and null values, and Optional.of(null) throws NullPointerException.",
+  "proposedFix": "Replace Optional<T> return type with a custom state wrapper that can represent three states: unset, set-to-null, and set-to-value.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Optional<T> return type just doesn't work here, since this method needs to differentiate between two states: set has not been called, or set has been called, inclusive of set being called with null",
+  "number": 1761,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:15.446Z"
+}

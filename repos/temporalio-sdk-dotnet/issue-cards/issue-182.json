@@ -1,0 +1,30 @@
+{
+  "summary": "Request to make Workflow instances testable like minimal APIs instead of static classes. User argues the static design prevents true TDD/unit testing and goes against software principles.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-class",
+    "testing-framework"
+  ],
+  "concepts": [
+    "testability",
+    "dependency-injection",
+    "static-context",
+    "mocking",
+    "TDD",
+    "unit-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot perform true unit testing of workflows using standard TDD practices due to static class design.",
+  "rootCause": "Workflow class uses static context model similar to ASP.NET classic HttpContext, intentionally designed to prevent mocking and inheritance.",
+  "proposedFix": "Refactor Workflow to be instance-based with abstractions/interfaces, similar to minimal APIs approach with dependency injection.",
+  "workaround": "Use the Temporal testing framework provided in the SDK documentation as an alternative to mocking.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers declined the request, explaining the static design is intentional and necessary because the Workflow represents the entire environment (similar to System.Environment), not just individual methods. The design rationale is documented in the SDK phase 2 proposal.",
+  "related": [],
+  "keyQuote": "The Workflow is part of the environment, not just part of specific methods. Think of it like System.Environment or System.Threading.ThreadPool.",
+  "number": 182,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:43.688Z"
+}

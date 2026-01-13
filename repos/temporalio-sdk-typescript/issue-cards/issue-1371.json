@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to ensure SDK clients automatically set an UpdateID on update requests even when users don't explicitly specify one. The issue was resolved as the functionality was already implemented in the codebase.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "update-request"
+  ],
+  "concepts": [
+    "update-id",
+    "automatic-generation",
+    "workflow-update",
+    "request-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users may not need to manually specify UpdateID values when calling update operations, simplifying the API usage.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The functionality was already implemented in the codebase as confirmed by the maintainer, with UpdateID being automatically set on update requests.",
+  "related": [
+    431
+  ],
+  "keyQuote": "This appears to be already working this way just fine",
+  "number": 1371,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:14.337Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to allow workflow and activity parameters (timeouts, retry policies, task queues, etc.) to be specified at the definition/declaration site rather than requiring specification at every call site. The SDK would use call-site values first and fall back to declaration defaults.",
+  "category": "feature",
+  "subcategory": "activity-configuration",
+  "apis": [
+    "start_activity",
+    "execute_activity"
+  ],
+  "components": [
+    "activity-decorator",
+    "activity-executor",
+    "workflow-executor",
+    "parameter-handling"
+  ],
+  "concepts": [
+    "default-values",
+    "configuration-inheritance",
+    "retry-policy",
+    "timeout-management",
+    "activity-definition"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently must specify activity/workflow parameters at every call site, leading to code duplication and copy-pasting of configuration values.",
+  "rootCause": "SDK architecture lacks support for worker-side default options that would allow the Temporal platform to enforce definition-site parameters, and the server has no mechanism to be aware of activities ahead of time.",
+  "proposedFix": "Allow parameters like task_queue, start_to_close_timeout, heartbeat_timeout, and retry_policy to be specified in @activity.defn() decorator, with call-site values taking precedence over declaration defaults.",
+  "workaround": "Users can create wrapper functions (e.g., 'start_my_activity') that encapsulate reusable parameters, or manage options in their own code layers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined that without platform-level support for worker-side options, implementing this would create a false sense of what the options actually are, since callers can override them. Platform support for this feature is planned for future versions.",
+  "related": [
+    6339
+  ],
+  "keyQuote": "The SDK is unable to make these general assumptions about which definition site is the actual one desired because the call site may be a completely different set of code",
+  "number": 588,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:17.261Z"
+}

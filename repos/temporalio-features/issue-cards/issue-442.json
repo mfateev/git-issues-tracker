@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to allow activities to specify backoff intervals for retries when returning failures, leveraging server-side support already implemented.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "failure-handling",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently control retry backoff intervals from activity failures, limiting fine-grained retry behavior configuration.",
+  "rootCause": null,
+  "proposedFix": "Implement activity-side support for specifying backoff intervals on failure returns, aligned with existing server-side capability.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of #419",
+  "related": [
+    419,
+    1515
+  ],
+  "keyQuote": "Allow activity to specify backoff interval for next retry when return failure. This is now supported by server",
+  "number": 442,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:32.443Z"
+}

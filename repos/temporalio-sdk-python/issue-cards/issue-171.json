@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow completion fails with 'legacy query response along with other commands' error during dataclass typed workflow tests, particularly with Java test server. Investigation revealed this is caused by SDK-core issue #390.",
+  "category": "bug",
+  "subcategory": "workflow-completion",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "query-handling",
+    "completion-handler"
+  ],
+  "concepts": [
+    "query-response",
+    "workflow-completion",
+    "malformed-message",
+    "legacy-protocol",
+    "test-reliability"
+  ],
+  "severity": "high",
+  "userImpact": "Tests fail unexpectedly with cryptic errors when running workflow dataclass tests, particularly against Java test server.",
+  "rootCause": "SDK-core issue #390 causes legacy query response to be sent alongside other commands in workflow completion",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Root cause identified as SDK-core issue #390",
+  "related": [
+    390
+  ],
+  "keyQuote": "Workflow completion had a legacy query response along with other commands. This is not allowed and constitutes an error in the lang SDK",
+  "number": 171,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:31.059Z"
+}

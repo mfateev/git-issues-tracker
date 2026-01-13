@@ -1,0 +1,31 @@
+{
+  "summary": "The features repository has hardcoded dynamic config values in run.go and a separate docker.yaml file. This issue requests consolidating these into a single YAML configuration file to ensure consistency and allow the server team to reference the same options for nightly pipeline testing.",
+  "category": "feature",
+  "subcategory": "test-configuration",
+  "apis": [],
+  "components": [
+    "embedded-server",
+    "docker-configuration",
+    "dynamic-config"
+  ],
+  "concepts": [
+    "configuration-management",
+    "centralization",
+    "testing-infrastructure",
+    "consistency",
+    "yaml-configuration",
+    "server-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers and server operators can use a single, consistent dynamic config file for both local testing and CI/nightly pipeline environments.",
+  "rootCause": null,
+  "proposedFix": "Consolidate hardcoded dynamic config values from run.go and docker.yaml into a single YAML configuration file that both the embedded server and Docker-based testing can reference.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after consolidating the dynamic configuration into a single file format.",
+  "related": [],
+  "keyQuote": "We should use one file, I suppose keep the yaml format, so that we always use the same options.",
+  "number": 529,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:00.300Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Test server incorrectly overwrites last heartbeat details on activity failure even when heartbeat details are not set, causing issues for Core-based SDKs that expect this behavior to be conditional.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "activity-heartbeat",
+    "failure-handling"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-failure",
+    "test-server",
+    "state-management",
+    "sdk-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Test server behavior is inconsistent with SDK expectations, potentially causing test failures or incorrect heartbeat state in Core-based SDKs.",
+  "rootCause": "As of PR #2354, test server unconditionally overwrites last heartbeat details regardless of whether they were actually set on the fail request.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    2354,
+    293
+  ],
+  "keyQuote": "Test server should not overwrite last heartbeat details on activity failure unless it is actually set",
+  "number": 2459,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:57.616Z"
+}

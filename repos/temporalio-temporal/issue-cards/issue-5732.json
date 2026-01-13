@@ -1,0 +1,31 @@
+{
+  "summary": "Batch operations fail with a 400 error when using standard visibility instead of advanced visibility (Elasticsearch or SQL). Users attempting batch operations receive an error about 'TemporalNamespaceDivision' not being supported by standard visibility.",
+  "category": "bug",
+  "subcategory": "batch-operations",
+  "apis": [],
+  "components": [
+    "batch-operations",
+    "visibility",
+    "query-filter"
+  ],
+  "concepts": [
+    "visibility-modes",
+    "standard-visibility",
+    "advanced-visibility",
+    "deprecation",
+    "elasticsearch",
+    "sql"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting batch operations with standard visibility configurations receive errors and cannot proceed, forcing migration to advanced visibility.",
+  "rootCause": "Batch operations require advanced visibility (Elasticsearch or SQL), but standard visibility does not support the 'TemporalNamespaceDivision' filter attribute used by batch operations.",
+  "proposedFix": null,
+  "workaround": "Migrate to advanced visibility (Elasticsearch or SQL based) as per v1.20.0+ upgrade instructions.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Standard visibility is deprecated and being removed. Batch operations require advanced visibility. Users must upgrade to Elasticsearch or SQL-based visibility.",
+  "related": [],
+  "keyQuote": "Batch operation require advanced visibility (ElasticSearch or SQL based). Standard visibility has been deprecated.",
+  "number": 5732,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:10.227Z"
+}

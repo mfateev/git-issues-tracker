@@ -1,0 +1,31 @@
+{
+  "summary": "tctl admin commands that interface with the database directly fail for users with custom transaction isolation levels. The issue requests support for setting transaction isolation levels in tctl to enable these commands to work with custom database configurations.",
+  "category": "feature",
+  "subcategory": "tctl",
+  "apis": [],
+  "components": [
+    "tctl",
+    "shard-manager",
+    "database-connection"
+  ],
+  "concepts": [
+    "transaction-isolation",
+    "database-connection",
+    "admin-commands",
+    "sql-attributes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with custom database transaction isolation levels cannot use tctl admin commands that require direct database access.",
+  "rootCause": "tctl does not support setting SQL connection attributes like transaction isolation levels, causing it to fail when the database uses non-default isolation levels.",
+  "proposedFix": "Add support to tctl for configuring transaction isolation levels and other SQL connection attributes.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "tctl is being redesigned to move away from direct database connections; all requests will be routed through the admin API instead, eliminating the need for this feature.",
+  "related": [
+    2075
+  ],
+  "keyQuote": "Tctl is moving away from direct connection to database. We will be removing all direct database dependencies from tctl.",
+  "number": 2081,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:00.611Z"
+}

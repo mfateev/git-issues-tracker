@@ -1,0 +1,32 @@
+{
+  "summary": "Multiple classes in the .NET SDK have incorrect type casting in their Clone() methods. ScheduleOptions casts to WorkflowOptions instead of ScheduleOptions, and similar issues exist in ScheduleTriggerOptions, WorkflowHistoryFetchOptions, ScheduleListOptions, and WorkflowCancelOptions.",
+  "category": "bug",
+  "subcategory": "type-casting",
+  "apis": [],
+  "components": [
+    "ScheduleOptions",
+    "ScheduleTriggerOptions",
+    "WorkflowHistoryFetchOptions",
+    "ScheduleListOptions",
+    "WorkflowCancelOptions"
+  ],
+  "concepts": [
+    "type-casting",
+    "clone-method",
+    "object-serialization",
+    "code-quality",
+    "dotnet-sdk"
+  ],
+  "severity": "medium",
+  "userImpact": "Incorrect type casting in Clone() methods could cause runtime errors or unexpected behavior when cloning schedule and workflow option objects.",
+  "rootCause": "Copy-paste error where Clone() methods cast to incorrect parent or unrelated classes instead of their own types.",
+  "proposedFix": "Correct each Clone() method to cast to the appropriate class type (e.g., ScheduleOptions.Clone() should cast to ScheduleOptions, not WorkflowOptions).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Acknowledged by maintainer as an obvious bug that would be fixed shortly.",
+  "related": [],
+  "keyQuote": "This is an obvious (embarrassing) bug on our part and we will fix shortly.",
+  "number": 274,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T12:12:49.095Z"
+}

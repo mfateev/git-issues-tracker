@@ -1,0 +1,30 @@
+{
+  "summary": "Move OpenAI interceptor configuration from a context manager to worker-level configuration for better scoping and ease of use.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "interceptor",
+    "openai-integration"
+  ],
+  "concepts": [
+    "configuration",
+    "scope",
+    "interceptor",
+    "worker-setup",
+    "ease-of-use"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have an easier and more intuitive way to configure OpenAI overrides at the worker level instead of managing them through a context manager.",
+  "rootCause": null,
+  "proposedFix": "Configure OpenAI overrides directly on the worker instead of using a context manager approach.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration was moved from context manager to worker-level interceptor.",
+  "related": [],
+  "keyQuote": "Currently the overrides are provided by a contextmanager, they should be configured on the worker instead to narrow the scope and make it easier to use.",
+  "number": 913,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:27:31.681Z"
+}

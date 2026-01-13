@@ -1,0 +1,33 @@
+{
+  "summary": "Add validation warnings and errors for invalid query patterns in the Python SDK. Queries should warn if async, error if using workflow constructs like wait_condition, and error if creating commands.",
+  "category": "feature",
+  "subcategory": "query-validation",
+  "apis": [
+    "query"
+  ],
+  "components": [
+    "query-executor",
+    "validation",
+    "runtime"
+  ],
+  "concepts": [
+    "async-patterns",
+    "workflow-constructs",
+    "command-generation",
+    "validation",
+    "error-handling",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will receive early warnings and errors when using queries incorrectly, preventing silent failures or unexpected behavior.",
+  "rootCause": null,
+  "proposedFix": "Implement validation logic to: (1) warn on async def queries with override option, (2) error on workflow constructs usage, (3) error if queries create commands",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Query validation was implemented to detect and prevent invalid usage patterns",
+  "related": [],
+  "keyQuote": "If a query is an `async def` we should warn by default but allow overriding/silencing that warning",
+  "number": 250,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:25.503Z"
+}

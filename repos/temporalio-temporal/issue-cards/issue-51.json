@@ -1,0 +1,33 @@
+{
+  "summary": "Failure reasons are hardcoded as strings with proto enum values, creating a fragile contract between server and client. The string format (e.g., 'cadenceInternal:Timeout TimeoutTypeStartToClose') should be replaced with a proper proto/thrift enum field.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "failure-reason",
+    "error-handling",
+    "proto-enum",
+    "client-server-contract"
+  ],
+  "concepts": [
+    "timeout",
+    "error-parsing",
+    "string-serialization",
+    "enum-representation",
+    "protocol-contract"
+  ],
+  "severity": "high",
+  "userImpact": "Client retry logic depends on fragile string parsing of hardcoded error reasons, making the system brittle when error codes or formats change.",
+  "rootCause": "Failure reasons are encoded as strings with hardcoded prefixes and enum values (e.g., 'cadenceInternal:Timeout TimeoutTypeStartToClose') rather than using proper proto/thrift enum fields in the contract.",
+  "proposedFix": "Replace hardcoded string failure reasons with proper proto/thrift enum fields, using timeSequence.go as a reference implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in issue #397 and temporal-go-sdk PR #138 by replacing string-based error reason parsing with structured enum-based approach.",
+  "related": [
+    397
+  ],
+  "keyQuote": "This string is a part of contract and it relies on proto/thrift enum representation in string format. There should be a better approach!",
+  "number": 51,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T11:30:00.683Z"
+}

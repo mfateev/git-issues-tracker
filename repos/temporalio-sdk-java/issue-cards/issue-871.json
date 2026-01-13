@@ -1,0 +1,37 @@
+{
+  "summary": "Deadlock occurs during activity state machine cancelation when a cancellation scope cancels an async activity and forces a workflow end. The activity state machine triggers an event loop on a workflow thread that has already completed, causing a potential deadlock exception.",
+  "category": "bug",
+  "subcategory": "activity-cancelation",
+  "apis": [
+    "Async.procedure",
+    "CancellationScope.cancel",
+    "Workflow.sleep"
+  ],
+  "components": [
+    "activity-state-machine",
+    "cancelation-scope",
+    "event-loop",
+    "workflow-thread",
+    "deterministic-runner"
+  ],
+  "concepts": [
+    "deadlock",
+    "concurrency",
+    "state-machine-transition",
+    "event-loop-re-entrancy",
+    "thread-synchronization",
+    "cancelation-semantics"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows that cancel async activities during error handling or cleanup will deadlock and fail to execute properly.",
+  "rootCause": "Activity state machine takes SCHEDULE_COMMAND_CREATED → CANCELED: CANCEL transition route, triggering an event loop callback on a workflow thread that has already completed execution, causing re-entrancy deadlock in the thread synchronization logic.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activity state machine cancelation logic was fixed to prevent triggering event loops on workflow threads that have already completed or are in a blocked state.",
+  "related": [],
+  "keyQuote": "Potential deadlock detected: workflow thread didn't yield control for over a second",
+  "number": 871,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:49:34.975Z"
+}

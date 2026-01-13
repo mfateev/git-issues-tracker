@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to group Temporal-specific log tags in structured logging across SDKs. Currently, log tags are generic/unqualified, and the proposal is to use a structured \"temporal\" object with detailed fields to improve log organization and clarity.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "structured-logging",
+    "sdk"
+  ],
+  "concepts": [
+    "logging",
+    "structured-logging",
+    "tags",
+    "observability",
+    "sdk-standardization"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have better organized and more discoverable Temporal-specific logs through consistent structured logging across SDKs.",
+  "rootCause": null,
+  "proposedFix": "Use a \"temporal\" object with detailed fields as the structured log info in SDKs that support structured logging (e.g., Go)",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need to try and use a \"temporal\" object with detailed fields as the structured log info where we can.",
+  "number": 94,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:25.613Z"
+}

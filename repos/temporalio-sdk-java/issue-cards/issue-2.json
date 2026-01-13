@@ -1,0 +1,30 @@
+{
+  "summary": "Refactor hardcoded MDC initialization and replay context logic from WorkflowThreadImpl into a generic interceptor pattern. Currently, WorkflowThread has hardcoded dependencies that should be moved to interceptors to improve extensibility and separation of concerns.",
+  "category": "feature",
+  "subcategory": "interceptor-framework",
+  "apis": [],
+  "components": [
+    "WorkflowThreadImpl",
+    "interceptor-framework",
+    "MDC-initialization"
+  ],
+  "concepts": [
+    "interceptor",
+    "thread-initialization",
+    "dependency-injection",
+    "extensibility",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize thread initialization behavior or MDC setup without modifying core framework code.",
+  "rootCause": "Hardcoded MDC and replay context initialization in WorkflowThreadImpl prevents extensibility through interceptors.",
+  "proposedFix": "Move MDC initialization logic into a new Interceptor that intercepts WorkflowThread creation, leveraging existing interceptor capabilities.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should refactor out MDC initialization logic from `WorkflowThreadImpl` into a new Interceptor. Interceptors already allow intercepting creation of WorkflowThreads.",
+  "number": 2,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T15:39:37.827Z"
+}

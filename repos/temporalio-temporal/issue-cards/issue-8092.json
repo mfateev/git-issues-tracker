@@ -1,0 +1,33 @@
+{
+  "summary": "Multiple security vulnerabilities (CVEs) were found in the Temporalio/admin-tools:1.28.0 Docker image, including high-severity issues in JWT, networking, OAuth2, and OpenTelemetry packages. Some vulnerabilities were resolved in version 1.28.1.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "admin-tools",
+    "dependencies"
+  ],
+  "concepts": [
+    "security",
+    "CVE",
+    "vulnerability",
+    "dependency-management",
+    "container-image",
+    "version-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users running the admin-tools Docker image are exposed to multiple high-severity security vulnerabilities that could be exploited to compromise their systems.",
+  "rootCause": "Outdated dependencies in the admin-tools Docker image including github.com/golang-jwt/jwt, golang.org/x/net, golang.org/x/oauth2, and go.opentelemetry.io packages with known CVEs.",
+  "proposedFix": "Upgrade vulnerable dependencies to patched versions: jwt/v4 to 4.5.2, httpproxy to 0.36.0, oauth2 to 0.27.0, and otelgrpc to 0.46.0.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in version 1.28.1 with dependency updates. Additional CVEs reported separately in issue #8219.",
+  "related": [
+    8219
+  ],
+  "keyQuote": "some CVEs are resolved in latest version v1.28.1. The new reported CVEs are informed in https://github.com/temporalio/temporal/issues/8219",
+  "number": 8092,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:40.772Z"
+}

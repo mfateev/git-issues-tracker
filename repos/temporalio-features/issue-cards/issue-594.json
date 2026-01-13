@@ -1,0 +1,38 @@
+{
+  "summary": "Add native support for musl-based environments across Temporal SDKs and tooling. This includes publishing musl-specific libraries for core-based SDKs, building musl binaries for the time-skipping test server, and updating temporal.download to support musl platform detection.",
+  "category": "feature",
+  "subcategory": "build-infrastructure",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "test-server",
+    "temporal.download",
+    "ci-infrastructure"
+  ],
+  "concepts": [
+    "musl-libc",
+    "platform-support",
+    "binary-distribution",
+    "ci-setup",
+    "environment-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users in musl-based environments (Alpine Linux, etc.) can use Temporal SDKs and tooling natively without requiring glibc compatibility layers.",
+  "rootCause": null,
+  "proposedFix": "Publish musl-based libraries for core SDKs, build musl test server binaries, add musl=true URL parameter support to temporal.download, and update Core to detect and flag musl compilation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2402,
+    1621,
+    761,
+    408,
+    215,
+    872
+  ],
+  "keyQuote": "For any core-based SDKs, publish musl-based libraries and have musl-based CI",
+  "number": 594,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:37.294Z"
+}

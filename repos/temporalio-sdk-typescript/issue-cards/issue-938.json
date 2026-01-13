@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to formally validate public API modifications between releases using a tool in CI/CD. This would identify exported API changes and prevent accidental breaking changes in patch/minor releases and exposure of internal APIs.",
+  "category": "feature",
+  "subcategory": "api-validation",
+  "apis": [],
+  "components": [
+    "build-system",
+    "ci-cd",
+    "package-exports"
+  ],
+  "concepts": [
+    "breaking-changes",
+    "api-compatibility",
+    "public-api",
+    "version-management",
+    "release-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users risk encountering unexpected breaking changes in patch/minor releases due to lack of API modification tracking.",
+  "rootCause": null,
+  "proposedFix": "Implement a CI/CD tool (such as Microsoft's API Extractor) to identify the exact set of publicly exported APIs and report changes relative to the appropriate baseline.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Use a tool run in CICD that: 1. Identify the exact set of publicly exported APIs 2. Reports changes in these exported APIs relative to the appropriate baseline",
+  "number": 938,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:07.716Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose build ID via WorkflowInfo to help users handle workflow determinism breaks. Users need to identify which build version generated a workflow history so they can conditionally apply logic without using versioning APIs when multiple build versions coexist.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "worker",
+    "core-sdk"
+  ],
+  "concepts": [
+    "build-id",
+    "determinism",
+    "workflow-versioning",
+    "deployment",
+    "history",
+    "binary-checksum"
+  ],
+  "severity": "medium",
+  "userImpact": "Users dealing with bad deployments that break determinism can now identify workflow build versions and conditionally apply logic without versioning APIs.",
+  "rootCause": "Build ID information stored on workflow task completions was not exposed to user code, forcing fallback to heuristics like start time when determinism breaks.",
+  "proposedFix": "Expose build ID through WorkflowInfo API in all language SDKs, using naming convention like 'latest build ID' or 'most recent build ID'.",
+  "workaround": "Users had to use start time or other heuristics to switch between old and new workflow logic, or terminate/reset workflows.",
+  "resolution": "fixed",
+  "resolutionDetails": "Build ID was exposed via WorkflowInfo in all SDK implementations (Java, Go, and other language SDKs).",
+  "related": [],
+  "keyQuote": "Expose build ID via WorkflowInfo so that users can switch based on it and unblock both new and old workflows.",
+  "number": 253,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:55:44.917Z"
+}

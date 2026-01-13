@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to support setting Temporal headers through CLI and GUI for workflow restarts. Currently, headers set by ContextPropagator are lost when restarting failed workflows from the GUI.",
+  "category": "feature",
+  "subcategory": "headers-context-propagation",
+  "apis": [
+    "ContextPropagator"
+  ],
+  "components": [
+    "cli",
+    "gui",
+    "context-propagation",
+    "workflow-restart"
+  ],
+  "concepts": [
+    "headers",
+    "context-propagation",
+    "metadata",
+    "workflow-restart",
+    "MDC",
+    "client-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose contextual headers when restarting failed workflows from GUI, breaking tracing and debugging workflows that depend on propagated context.",
+  "rootCause": "Headers set by ContextPropagator on the client are not persisted or accessible when restarting workflows through CLI/GUI interfaces.",
+  "proposedFix": "Add support for setting temporal headers through CLI and GUI restart mechanisms.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed because it doesn't have SDK-specific aspects. Separate issues were opened for CLI (cli#876) and UI (ui#3029) projects.",
+  "related": [
+    876,
+    3029
+  ],
+  "keyQuote": "When a workflow fails and we attempt to restart it from GUI, the headers set by the ContextPropagator are no longer available.",
+  "number": 703,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:47.374Z"
+}

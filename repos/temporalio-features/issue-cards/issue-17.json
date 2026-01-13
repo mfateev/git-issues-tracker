@@ -1,0 +1,32 @@
+{
+  "summary": "SDKs need a standardized API for describing workflows that wraps gRPC responses in language-idiomatic types, exposing both high-level helpers (like status shortcuts) and access to the underlying DescribeWorkflowExecutionResponse.",
+  "category": "feature",
+  "subcategory": "sdk-api",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "sdk-api",
+    "grpc-wrapper",
+    "response-types"
+  ],
+  "concepts": [
+    "api-design",
+    "language-idioms",
+    "grpc-wrapping",
+    "response-abstraction",
+    "sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users across all SDKs need a consistent, language-appropriate way to describe workflows with convenient access to common fields like status.",
+  "rootCause": null,
+  "proposedFix": "Create a wrapper type in each SDK that exposes a DescribeWorkflowExecutionResponse and provides higher-level helper methods (e.g., status shortcut).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDKs should make describing a workflow easy... the response is a language-idiomatic wrapper that exposes a shortcut for status",
+  "number": 17,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:38.541Z"
+}

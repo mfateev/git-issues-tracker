@@ -1,0 +1,30 @@
+{
+  "summary": "Client connection currently does not emit metrics, with metrics only being emitted from NativeConnection used by workers. This feature request asks for metrics emission to be extended to client connections as well.",
+  "category": "feature",
+  "subcategory": "metrics-client",
+  "apis": [],
+  "components": [
+    "client-connection",
+    "metrics-emitter"
+  ],
+  "concepts": [
+    "metrics",
+    "monitoring",
+    "observability",
+    "client",
+    "connection",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot monitor and observe client connection behavior and performance without metrics emission.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently metrics are only emitted when using NativeConnection (only used by the worker). We need to emit metrics from the client connection as well.",
+  "number": 915,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:23:15.607Z"
+}

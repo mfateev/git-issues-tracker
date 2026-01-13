@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to expose schedule-specific information (scheduled start time and schedule ID) through a dedicated workflow API instead of requiring users to access it via search attributes.",
+  "category": "feature",
+  "subcategory": "schedule-integration",
+  "apis": [
+    "GetInfo",
+    "GetTypedSearchAttributes"
+  ],
+  "components": [
+    "workflow-context",
+    "search-attributes",
+    "schedule-system"
+  ],
+  "concepts": [
+    "schedule",
+    "search-attributes",
+    "workflow-metadata",
+    "temporal-info",
+    "discoverability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must access schedule information through search attributes, which is difficult to discover and work with across different SDKs.",
+  "rootCause": "Schedule-specific information is stored only as search attributes without a dedicated API, making it hard for users to access and requiring knowledge of internal implementation details.",
+  "proposedFix": "Expose a separate API to return schedule information if the workflow was started by a schedule.",
+  "workaround": "Use the deprecated GetInfo API to access search attributes directly, or use GetTypedSearchAttributes with SearchAttributeKeyTime from the temporal package.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    6364
+  ],
+  "keyQuote": "A separate API to return this information if the workflow was started by a schedule.",
+  "number": 243,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:55:28.910Z"
+}

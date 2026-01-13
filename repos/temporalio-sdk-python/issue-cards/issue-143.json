@@ -1,0 +1,31 @@
+{
+  "summary": "Pydantic models with nested non-JSON-serializable field types (like UUID lists) cannot be serialized because `dict()` doesn't produce JSON-friendly output. The SDK needs to handle custom types or provide workarounds for users.",
+  "category": "bug",
+  "subcategory": "pydantic-serialization",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "json-encoder",
+    "pydantic-support"
+  ],
+  "concepts": [
+    "serialization",
+    "json-compatibility",
+    "custom-types",
+    "pydantic-models",
+    "type-conversion",
+    "nested-objects"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Pydantic models with non-JSON-friendly types like UUID as workflow/activity parameters without custom workarounds.",
+  "rootCause": "Pydantic's `dict()` method doesn't convert non-JSON-friendly types like UUID to JSON-serializable forms, and Pydantic lacks a built-in `json_dict()` method for nested serialization.",
+  "proposedFix": "Add support for specific types like UUID through Pydantic's type system, and provide sample code showing how to create custom payload converters for full Pydantic model support using the slower JSON string approach.",
+  "workaround": "Users can create a custom payload converter by replacing the default JSONPlainPayloadConverter with their own implementation, optionally using orjson for better performance.",
+  "resolution": "fixed",
+  "resolutionDetails": "Decided to add support for UUID and other specific types, provide documentation for custom converters, and wait for Pydantic to add JSON-able dict support rather than accepting the performance penalty of json() round-tripping.",
+  "related": [],
+  "keyQuote": "The best solution right now I think is to accept anything that has a callable `json` attribute and invoke it, then turn it _back_ to Python object form via `json.loads`.",
+  "number": 143,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:48.649Z"
+}

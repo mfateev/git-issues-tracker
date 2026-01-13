@@ -1,0 +1,28 @@
+{
+  "summary": "Feature request to enable replacement of the client on a live worker in the Ruby SDK. Currently, workers cannot update their client configuration at runtime without stopping and restarting.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "client"
+  ],
+  "concepts": [
+    "runtime-replacement",
+    "client-management",
+    "worker-lifecycle",
+    "dynamic-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot update the worker's client connection at runtime, requiring worker restarts to switch clients.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow dynamic client replacement on live workers",
+  "related": [],
+  "keyQuote": "Need to be able to replace the client on a live worker",
+  "number": 165,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:43:53.521Z"
+}

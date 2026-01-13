@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflow cancellation fails with state machine error when attempting to cancel a schedule command that hasn't been sent to the server yet. The error occurs due to an invalid state transition (START_COMMAND_CREATED→CANCEL) when the workflow is in SCHEDULE state.",
+  "category": "bug",
+  "subcategory": "child-workflow-cancellation",
+  "apis": [
+    "StartChildWorkflow",
+    "CancellationScope"
+  ],
+  "components": [
+    "ChildWorkflowStateMachine",
+    "StateMachine",
+    "WorkflowStateMachines"
+  ],
+  "concepts": [
+    "state-machine",
+    "cancellation",
+    "child-workflow",
+    "state-transition",
+    "command-scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot cancel child workflows that are scheduled but not yet started on the server, resulting in runtime exceptions.",
+  "rootCause": "Invalid state transition in ChildWorkflowStateMachine: attempting to execute CANCEL transition from START_COMMAND_CREATED state when the actual state is SCHEDULE, causing NullPointerException in CanceledFailure initialization.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "State machine transition logic was corrected to properly handle cancellation of child workflow schedule commands.",
+  "related": [],
+  "keyQuote": "ChildWorkflow: failure executing START_COMMAND_CREATED->CANCEL, transition history is [CREATED->SCHEDULE]",
+  "number": 1037,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:02:23.796Z"
+}

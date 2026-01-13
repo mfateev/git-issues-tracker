@@ -1,0 +1,30 @@
+{
+  "summary": "The TEMPORAL_DEBUG flag is not being checked by the deadlock detector in the SyncWorkflow eventLoop, preventing developers from disabling deadlock detection during testing and debugging.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "SyncWorkflow",
+    "eventLoop",
+    "deadlock-detector"
+  ],
+  "concepts": [
+    "debugging",
+    "deadlock-detection",
+    "testing",
+    "flag-handling",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot disable the deadlock detector during debugging and testing, even with the TEMPORAL_DEBUG flag set.",
+  "rootCause": "SyncWorkflow#eventLoop is missing a check for the TEMPORAL_DEBUG flag before applying deadlock detection logic.",
+  "proposedFix": "Add a check for TEMPORAL_DEBUG flag in SyncWorkflow#eventLoop to skip or bypass deadlock detection when enabled.",
+  "workaround": "Users can use snapshot builds or fork/build their own artifacts with a fix applied.",
+  "resolution": "fixed",
+  "resolutionDetails": "The missing TEMPORAL_DEBUG flag check was added to the eventLoop deadlock detector.",
+  "related": [],
+  "keyQuote": "SyncWorkflow#eventLoop lacks a check for `TEMPORAL_DEBUG` flag",
+  "number": 724,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:36:51.373Z"
+}

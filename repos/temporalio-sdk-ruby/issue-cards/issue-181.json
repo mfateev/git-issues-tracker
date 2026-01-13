@@ -1,0 +1,34 @@
+{
+  "summary": "Allow users to access a Temporal client instance from within an activity context. Currently, there's no direct way to get the client from Activity::Context, which users need for various operations within activities.",
+  "category": "feature",
+  "subcategory": "activity-context",
+  "apis": [
+    "Activity::Context"
+  ],
+  "components": [
+    "activity",
+    "context",
+    "client"
+  ],
+  "concepts": [
+    "activity-execution",
+    "client-access",
+    "context-api",
+    "activity-utilities",
+    "temporal-client"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the Temporal client from within activities, limiting their ability to perform client operations during activity execution.",
+  "rootCause": null,
+  "proposedFix": "Add a `client` instance method on `Activity::Context` to provide access to the Temporal client.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide client access from activity context via Activity::Context method.",
+  "related": [
+    203
+  ],
+  "keyQuote": "Allow users to access Temporal client from within an activity. This is likely a `client` instance method on `Activity::Context`.",
+  "number": 181,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:35.509Z"
+}

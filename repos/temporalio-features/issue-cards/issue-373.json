@@ -1,0 +1,32 @@
+{
+  "summary": "User requests guidance on using Temporal with Elixir through community SDKs. Asks for either a maintained list of community SDK implementations or documentation on generating unofficial clients from gRPC definitions.",
+  "category": "feature",
+  "subcategory": "community-sdks",
+  "apis": [],
+  "components": [
+    "grpc-api",
+    "sdk-ecosystem",
+    "documentation"
+  ],
+  "concepts": [
+    "community-contribution",
+    "sdk-implementation",
+    "protobuf-generation",
+    "language-support",
+    "grpc-client"
+  ],
+  "severity": "low",
+  "userImpact": "Users evaluating Temporal with unsupported languages lack clear guidance on using community SDKs or generating unofficial clients from gRPC definitions.",
+  "rootCause": null,
+  "proposedFix": "Maintain a list of working/popular community SDKs/wrappers or publish documentation on generating unofficial clients from gRPC definitions",
+  "workaround": "Use existing community wrappers like temporalio.ex for Elixir, or manually generate gRPC clients from the Temporal API repository",
+  "resolution": "wontfix",
+  "resolutionDetails": "Resolved by pointing to awesome-temporal repository for community SDK list and noting that protobuf generation guide is the extent of official support; detailed SDK guide is beyond scope",
+  "related": [
+    266
+  ],
+  "keyQuote": "it would be cool if the Temporal team could either maintain a list of working/popular community SDKs/wrappers that the community could contribute to",
+  "number": 373,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:13.409Z"
+}

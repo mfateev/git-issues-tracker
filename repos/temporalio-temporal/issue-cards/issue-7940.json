@@ -1,0 +1,31 @@
+{
+  "summary": "Request to allow authentication headers to be sent over HTTP for localhost development, particularly for codec servers. Currently, auth headers are only allowed over HTTPS, requiring developers to use workarounds like ngrok to test locally.",
+  "category": "feature",
+  "subcategory": "codec-server",
+  "apis": [],
+  "components": [
+    "codec-server",
+    "http-client",
+    "authentication"
+  ],
+  "concepts": [
+    "localhost",
+    "development",
+    "auth-headers",
+    "http-tls",
+    "oauth",
+    "certificate-validation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must use tunneling services like ngrok instead of testing codec servers directly on localhost during development.",
+  "rootCause": "Strict HTTPS requirement for sending authentication headers prevents localhost HTTP usage despite OAuth providers allowing it.",
+  "proposedFix": "Allow http://localhost as an exception to the HTTPS requirement for auth headers",
+  "workaround": "Use ngrok or similar tunneling service to provide HTTPS endpoint for localhost development",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When developing a codec server, it's always frustrating to have to run my localhost version through ngrok to get an HTTPS address.",
+  "number": 7940,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:24.830Z"
+}

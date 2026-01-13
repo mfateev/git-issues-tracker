@@ -1,0 +1,32 @@
+{
+  "summary": "Add warnings or errors when update handlers don't complete before workflow exits due to cancellation or workflow end. The proposal includes methods like `all_handlers_finished()` to allow workflows to wait for handler completion, with configurable policies to warn or abandon unfinished handlers.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [
+    "all_handlers_finished"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-exit",
+    "signal-handler"
+  ],
+  "concepts": [
+    "handler-lifecycle",
+    "workflow-completion",
+    "cancellation",
+    "policy-configuration",
+    "warning-system"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now detect and handle situations where update or signal handlers don't complete before workflow exits, preventing silent failures and data loss.",
+  "rootCause": null,
+  "proposedFix": "Implement `workflow.all_handlers_finished()` method, emit `UnfinishedUpdateHandlersWarning` and `UnfinishedSignalHandlersWarning` on worker side, provide `HandlerUnfinishedPolicy` with WARN_AND_ABANDON default and ABANDON options, include TMPRL1102 rule identifier in warning messages.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as cross-SDK feature with Python PR merged first, then rolled out to other SDKs including Java with configurable handler completion policies and warnings.",
+  "related": [],
+  "keyQuote": "Users can wait on a method named similarly to `workflow.all_handlers_finished()` and warnings are controlled by a policy whose default value is `HandlerUnfinishedPolicy.WARN_AND_ABANDON`",
+  "number": 2090,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:20.650Z"
+}

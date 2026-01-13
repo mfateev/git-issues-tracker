@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTracing spans are not properly propagated when activities are chained using .thenCompose, resulting in orphaned spans disconnected from the parent workflow span.",
+  "category": "bug",
+  "subcategory": "tracing-context-propagation",
+  "apis": [
+    "executeAsync",
+    "thenCompose"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "promise-chain",
+    "span-context"
+  ],
+  "concepts": [
+    "context-propagation",
+    "distributed-tracing",
+    "promise-composition",
+    "opentracing",
+    "span-correlation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with OpenTracing enabled cannot properly trace activity execution chains, making distributed tracing unreliable for workflows using .thenCompose.",
+  "rootCause": "Tracing context is not properly propagated through promise chains when using .thenCompose for activity composition.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through a fix to context propagation in promise chains, as evidenced by author engagement and offer to submit PR.",
+  "related": [],
+  "keyQuote": "Some spans end up severed from the parent. This seems to be isolated to spans that are generated with a promise chain using .thenCompose.",
+  "number": 1962,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:22.552Z"
+}

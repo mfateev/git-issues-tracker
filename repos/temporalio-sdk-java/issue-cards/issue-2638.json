@@ -1,0 +1,34 @@
+{
+  "summary": "Spring Boot starter non-standard bean resolution for TemporalOptionsCustomizer prevents multiple customizers per namespace and violates Spring conventions. Request to support ordered composition of customizers and namespace filtering.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "TemporalOptionsCustomizer",
+    "AutoConfigurationUtils"
+  ],
+  "concepts": [
+    "spring-conventions",
+    "bean-precedence",
+    "ordering",
+    "namespace-configuration",
+    "customizer-composition",
+    "enterprise-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Enterprise users cannot extend Spring Boot starter behavior predictably or use multiple customizers per namespace, forcing workarounds like BeanPostProcessor.",
+  "rootCause": "AutoConfigurationUtils.chooseTemporalCustomizerBean uses bean name resolution and findFirst semantics instead of Spring's standard List<T> composition and bean precedence/ordering conventions.",
+  "proposedFix": "Add namespace filter method to TemporalOptionsCustomizer interface and accept List<TemporalOptionsCustomizer<T>> applying them in order instead of selecting single bean.",
+  "workaround": "Implement custom BeanPostProcessor to register bean definitions for each namespace and handle customizer composition manually.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2117,
+    2656
+  ],
+  "keyQuote": "Because the starter forces 1 customizer per-namespace, it would take away the freedom from our users to customize either of these options builders.",
+  "number": 2638,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:03.927Z"
+}

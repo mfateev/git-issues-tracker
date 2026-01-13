@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose the `init()` method in `WorkflowInboundCallInterceptor` for the PHP SDK, following the pattern already implemented in the Java SDK.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [
+    "WorkflowInboundCallInterceptor"
+  ],
+  "components": [
+    "interceptors",
+    "workflow-engine",
+    "php-sdk"
+  ],
+  "concepts": [
+    "interceptor-pattern",
+    "workflow-initialization",
+    "extensibility",
+    "api-parity"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot customize workflow initialization behavior through the interceptor pattern, limiting extensibility for advanced use cases.",
+  "rootCause": null,
+  "proposedFix": "Expose `WorkflowInboundCallInterceptor::init()` method similar to the Java SDK implementation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Expose `WorkflowInboundCallInterceptor::init()` like in Java SDK",
+  "number": 601,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:50.747Z"
+}

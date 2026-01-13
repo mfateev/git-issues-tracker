@@ -1,0 +1,33 @@
+{
+  "summary": "Customer requested ability to terminate or cancel a single run of a cron workflow without killing the entire cron job. Currently, terminating/canceling a cron workflow always stops all runs, not just the specified one.",
+  "category": "feature",
+  "subcategory": "cron-workflows",
+  "apis": [
+    "TerminateWorkflow",
+    "CancelWorkflow"
+  ],
+  "components": [
+    "cron-workflow",
+    "workflow-termination",
+    "workflow-cancellation"
+  ],
+  "concepts": [
+    "cron",
+    "workflow-lifecycle",
+    "selective-termination",
+    "run-isolation",
+    "scheduler-independence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot selectively terminate or cancel individual runs of cron workflows; they must choose between letting the run complete or killing the entire cron scheduler.",
+  "rootCause": "Cron workflow termination logic does not differentiate between terminating a specific run versus the entire cron job when a runID is specified.",
+  "proposedFix": "Modify termination/cancellation behavior to only target a specific cron run when runID is provided, leaving the cron scheduler intact.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by the new Schedule feature which separates the scheduler from individual workflow runs, allowing termination of individual runs without stopping the scheduler.",
+  "related": [],
+  "keyQuote": "This is handled by the new schedule feature. The target workflow is separate from the scheduler. Terminate an individual workflow run won't stop the scheduler.",
+  "number": 246,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:24:14.975Z"
+}

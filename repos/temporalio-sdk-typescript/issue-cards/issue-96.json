@@ -1,0 +1,31 @@
+{
+  "summary": "Implement automated load testing that runs on every PR to stress-test the system and uncover bugs that integration tests miss. Testing should include cloud deployment scenarios to validate address and TLS options.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "benchmarking",
+    "ci-pipeline",
+    "cloud-integration"
+  ],
+  "concepts": [
+    "load-testing",
+    "stress-testing",
+    "ci-automation",
+    "regression-detection",
+    "tls-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Automated load testing will catch bugs early in the development cycle before they reach users in production.",
+  "rootCause": null,
+  "proposedFix": "Set up benchmark tests to run on every PR, including scenarios testing cloud deployment with address and TLS options",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automated load testing feature was implemented and integrated into the CI/PR workflow",
+  "related": [],
+  "keyQuote": "The simple bench test stresses the system uncovering bugs that integration tests tend to miss.",
+  "number": 96,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:28.578Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow.getVersion() markers are not being respected during replay when new version markers are added before existing ones in a V2 implementation. Previously recorded version markers return -1 instead of reusing their recorded values, despite the DecisionsHelper logic that should preserve them.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Workflow.getVersion"
+  ],
+  "components": [
+    "workflow-executor",
+    "decision-helper",
+    "version-marker",
+    "replay-engine"
+  ],
+  "concepts": [
+    "versioning",
+    "replay",
+    "decision-history",
+    "marker-preservation",
+    "workflow-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely add new version markers before existing ones in workflow updates without breaking replay of existing workflow instances, which return -1 for all version checks.",
+  "rootCause": "Version markers in history are not being properly matched and reused during replay when the order of Workflow.getVersion() calls changes between implementations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by fixing the logic in DecisionsHelper to properly respect and reuse version markers from history during replay regardless of order changes.",
+  "related": [],
+  "keyQuote": "Why did changeFoo not reuse the previous version 1 from the marker? It is falling into here, in DecisionsHelper",
+  "number": 80,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:35:52.090Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "A workflow became permanently stuck due to a corrupted history event batch with non-continuous event IDs (event 1851 missing between 1850 and 1852). The workflow repeatedly encounters an error and cannot progress.",
+  "category": "bug",
+  "subcategory": "history-event-batch",
+  "apis": [],
+  "components": [
+    "history-store",
+    "frontend",
+    "event-batch-processing"
+  ],
+  "concepts": [
+    "event-continuity",
+    "history-corruption",
+    "workflow-execution",
+    "event-sequencing",
+    "data-integrity"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows can become permanently stuck and unusable when encountering corrupted event batches, with no recovery possible.",
+  "rootCause": "Event ID 1851 was lost or not persisted correctly, creating a gap in the event sequence (1850 -> 1852), though the persistence layer (Cassandra) showed no errors.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Closed due to issue age and no reproduction in CICD pipeline.",
+  "related": [],
+  "keyQuote": "corrupted history event batch, eventID is not continouous",
+  "number": 584,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:17:26.929Z"
+}

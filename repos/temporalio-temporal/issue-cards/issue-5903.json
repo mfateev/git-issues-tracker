@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal Server 1.23.0 emits multiple \"Unspecified task queue kind\" warnings when running workflows via the CLI development server, despite normal operation. The warnings appear to be benign but create unnecessary noise in the terminal output.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "frontend",
+    "task-queue",
+    "logging"
+  ],
+  "concepts": [
+    "task-queue-kind",
+    "warning-messages",
+    "development-server",
+    "logging-noise",
+    "cli-output"
+  ],
+  "severity": "low",
+  "userImpact": "Users see warning messages in terminal output that may cause concern despite the server functioning normally.",
+  "rootCause": "Server code not properly specifying task queue kind in certain scenarios, leading to unspecified kind warnings.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Already fixed in server code via PR #5661, to be included in version 1.23.2 or 1.24.0.",
+  "related": [
+    5897,
+    5661
+  ],
+  "keyQuote": "Unspecified task queue kind warnings appear despite normal operation of the development server.",
+  "number": 5903,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:21.978Z"
+}

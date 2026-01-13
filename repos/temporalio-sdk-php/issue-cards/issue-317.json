@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for UUID objects in the PHP SDK marshaller. Currently users must manually cast UUID objects to strings when generating, passing in activities, or receiving as results.",
+  "category": "feature",
+  "subcategory": "marshaller",
+  "apis": [],
+  "components": [
+    "marshaller",
+    "typecaster",
+    "serialization"
+  ],
+  "concepts": [
+    "UUID",
+    "type-conversion",
+    "data-serialization",
+    "optional-dependency",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users need to manually cast UUID objects to strings, adding unnecessary boilerplate code.",
+  "rootCause": null,
+  "proposedFix": "Implement optional typecasters for UUID objects using ramsey/uuid or symfony/uid libraries that are only activated if the respective library is installed.",
+  "workaround": "Manually cast UUID objects to strings before passing to activities or returning as results.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented UUID marshaller support with optional dependency handling for ramsey/uuid library.",
+  "related": [
+    345,
+    346,
+    350
+  ],
+  "keyQuote": "Users use UUID a lot: generate like a side effect, pass in activities, get as results. Right now users must cast UUID objects to string manually.",
+  "number": 317,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:57.264Z"
+}

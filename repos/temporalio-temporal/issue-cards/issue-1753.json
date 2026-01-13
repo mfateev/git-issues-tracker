@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal services use non-reentrant locks which can cause deadlocks when the same coroutine attempts to acquire the same lock twice. The proposal is to investigate and potentially replace non-reentrant locks with reentrant alternatives across frontend, matching, history, and worker services.",
+  "category": "feature",
+  "subcategory": "concurrency-primitives",
+  "apis": [],
+  "components": [
+    "frontend",
+    "matching",
+    "history",
+    "worker",
+    "locks"
+  ],
+  "concepts": [
+    "deadlock",
+    "reentrancy",
+    "concurrency",
+    "locking",
+    "coroutine",
+    "mutex"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience deadlocks when Temporal services internally attempt to acquire locks multiple times from the same coroutine context.",
+  "rootCause": "Non-reentrant locks in Temporal services cannot be safely acquired twice by the same coroutine, causing deadlock conditions.",
+  "proposedFix": "Investigate existing reentrant lock libraries and substitute all non-reentrant locks with reentrant alternatives. Alternative approaches include reusing PriorityMutex variant with timeout or adopting channels instead of locks.",
+  "workaround": null,
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "most locks used within Temporal are non reentrant lock, meaning when the same coroutine trying to acquire the same lock twice, deadlock will occur",
+  "number": 1753,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:13.912Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Proposal to rename WorkflowStub.update to WorkflowStub.executeUpdate in the Java SDK to align with naming conventions used across all Temporal SDKs, where 'execute' methods return results.",
+  "category": "other",
+  "subcategory": "api-design",
+  "apis": [
+    "WorkflowStub.update",
+    "WorkflowStub.executeUpdate"
+  ],
+  "components": [
+    "workflow-stub",
+    "untyped-stub",
+    "java-sdk"
+  ],
+  "concepts": [
+    "naming-consistency",
+    "sdk-alignment",
+    "api-design",
+    "execute-pattern",
+    "semantic-clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Improves consistency within Java SDK and across all Temporal SDKs, making API naming more intuitive and reducing confusion.",
+  "rootCause": null,
+  "proposedFix": "Rename WorkflowStub.update method to WorkflowStub.executeUpdate to follow the established naming pattern where 'executeXXX' returns results and 'startXXX' returns handles.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided it is too late to make this breaking change to the Java SDK API.",
+  "related": [],
+  "keyQuote": "We think it's too late.",
+  "number": 2340,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:53.187Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to provide dynamic workflow and activity resolution as fallback mechanisms when the SDK does not find matching implementations, similar to Java's DynamicWorkflow and DynamicActivity. Multiple SDKs still lack this functionality.",
+  "category": "feature",
+  "subcategory": "workflow-activity-resolution",
+  "apis": [
+    "DynamicWorkflow",
+    "DynamicActivity"
+  ],
+  "components": [
+    "worker",
+    "workflow-executor",
+    "activity-executor",
+    "interceptor"
+  ],
+  "concepts": [
+    "dynamic-resolution",
+    "fallback-mechanism",
+    "workflow-execution",
+    "activity-execution",
+    "extensibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot dynamically resolve workflows and activities at runtime, limiting SDK flexibility and requiring hardcoded implementations.",
+  "rootCause": null,
+  "proposedFix": "Either add inbound interceptor methods for resolution (e.g., resolve, prepare, preExecute) or implement a worker option callback mechanism.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue consolidated with #201 which tracks dynamic workflow/activity support needed for Go and TypeScript SDKs.",
+  "related": [
+    201,
+    543
+  ],
+  "keyQuote": "Java has DynamicWorkflow and DynamicActivity that serve as fallback for when the SDK does not find a matching workflow or activity implementation to execute.",
+  "number": 125,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:48:51.981Z"
+}

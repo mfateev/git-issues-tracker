@@ -1,0 +1,32 @@
+{
+  "summary": "Payload converters in the workflow context return objects (like Uint8Array) that use constructors from the node context, breaking instanceof checks and third-party libraries. Additionally, some converters rely on the Buffer class which is not visible in the workflow context.",
+  "category": "bug",
+  "subcategory": "payload-converters",
+  "apis": [],
+  "components": [
+    "payload-converters",
+    "binary-converter",
+    "protobuf-converter",
+    "workflow-context"
+  ],
+  "concepts": [
+    "type-equality",
+    "instanceof-checks",
+    "context-isolation",
+    "constructor-mismatch",
+    "buffer-availability",
+    "serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Third-party libraries that rely on instanceof checks for Uint8Array and similar types fail when using binary and protobuf payload converters.",
+  "rootCause": "Payload converters execute in the workflow context but return objects constructed with node context constructors, causing type identity mismatches. Some converters depend on the Buffer class which is not available in the workflow context.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by addressing the context isolation problem in payload converters.",
+  "related": [],
+  "keyQuote": "Payload converters run in the workflow context but sometimes return objects, e.g., Uint8Array, that use constructors defined in the node context.",
+  "number": 1142,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:06.610Z"
+}

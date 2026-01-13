@@ -1,0 +1,34 @@
+{
+  "summary": "When a local activity is invoked that doesn't exist, the system retries at the activity level indefinitely instead of failing the workflow task. Local activities should fail the entire workflow task when the activity cannot be found.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "execute_local_activity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "workflow-task-handler",
+    "retry-logic"
+  ],
+  "concepts": [
+    "local-activities",
+    "error-handling",
+    "workflow-failure",
+    "activity-resolution",
+    "retry-behavior"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot catch missing local activity errors; workflows hang in retry loops instead of failing gracefully.",
+  "rootCause": "Local activity invocation retries at the activity level instead of propagating the error to fail the workflow task when the activity definition cannot be found.",
+  "proposedFix": "Modify local activity execution to detect missing activities and fail the workflow task instead of retrying at the activity level.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    221
+  ],
+  "keyQuote": "Right now if an LA is invoked that doesn't exist, it will just retry at the _activity_ level which doesn't make sense and will never work.",
+  "number": 845,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:10.740Z"
+}

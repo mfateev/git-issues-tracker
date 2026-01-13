@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow execution sometimes fails to continue after an await condition with signals is satisfied, causing the workflow to hang indefinitely even after resending signals. The issue appears intermittently in production (~10% of cases) and couldn't be replicated in development environments.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow::await"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-handling",
+    "process-execution"
+  ],
+  "concepts": [
+    "signal-processing",
+    "await-condition",
+    "workflow-continuation",
+    "process-halting",
+    "concurrency",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows hang unexpectedly in production when waiting for signals, requiring manual intervention and preventing process execution from resuming even after signals are resent.",
+  "rootCause": "Issue was in the Roadrunner (RR) version 2.10.2 and earlier, fixed in RR v2.10.3.",
+  "proposedFix": "Update Roadrunner to v2.10.3 and SDK to v1.3.2.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in RR v2.10.3 and SDK v1.3.2. User confirmed stable operation after one week of running updated versions.",
+  "related": [],
+  "keyQuote": "It has been nearly one week running RR v2.10.3 and sdk v1.3.2 with no issues. It seems the issue has been fixed.",
+  "number": 174,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:22.154Z"
+}

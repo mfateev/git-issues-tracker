@@ -1,0 +1,33 @@
+{
+  "summary": "Request to support externally-provided unique tokens for async activities instead of Temporal-generated task tokens. This would enable better integration with external systems (like GitHub webhooks) that provide their own unique IDs, eliminating the need for manual ID correlation via side databases.",
+  "category": "feature",
+  "subcategory": "async-activities",
+  "apis": [
+    "ExecuteAsyncActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "async-completion",
+    "task-routing"
+  ],
+  "concepts": [
+    "async-completion",
+    "external-id-correlation",
+    "webhook-integration",
+    "task-token",
+    "idempotency",
+    "external-system-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users integrating with external systems that provide unique IDs must maintain separate ID correlation databases instead of using Temporal's native async activity mechanism.",
+  "rootCause": null,
+  "proposedFix": "Provide an async activity API where users supply their own unique ID instead of receiving a task token from Temporal, with Temporal responsible for validating uniqueness and throwing errors on conflicts.",
+  "workaround": "Manually maintain a side database table to correlate Temporal task tokens with external system IDs (e.g., GitHub workflow_run_id).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Provide the same async activity mechanism, but with an API where I hand temporal a unique ID instead of getting a unique Id from temporal.",
+  "number": 6192,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:34.877Z"
+}

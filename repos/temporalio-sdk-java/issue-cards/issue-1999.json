@@ -1,0 +1,34 @@
+{
+  "summary": "GrpcRetryer fails to retry requests when the initial serviceCapabilities.get() call fails, instead failing immediately without applying retry policies. This breaks reliability for scenarios where the Temporal server is temporarily unavailable or unhealthy.",
+  "category": "bug",
+  "subcategory": "grpc-retry-policy",
+  "apis": [
+    "WorkflowServiceStubs",
+    "WorkflowClient"
+  ],
+  "components": [
+    "GrpcRetryer",
+    "WorkflowServiceStubs",
+    "RpcRetryOptions",
+    "gRPC connection"
+  ],
+  "concepts": [
+    "retry-policy",
+    "connection-health",
+    "fault-tolerance",
+    "service-availability",
+    "gRPC error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "CLI applications and clients connecting to temporarily unavailable Temporal servers fail immediately instead of retrying, breaking reliability expectations for intermittent network issues.",
+  "rootCause": "The serviceCapabilities.get() call failure during initial connection is not wrapped in the retry logic, causing the entire request to fail before retries can be applied.",
+  "proposedFix": null,
+  "workaround": "Use eager connection with appropriate timeout configuration to differentiate between connection failures and RPC failures.",
+  "resolution": "fixed",
+  "resolutionDetails": "The serviceCapabilities call is now retried as part of the standard retry mechanism.",
+  "related": [],
+  "keyQuote": "If serviceCapabilities.get() fails (not initialized yet + network issue or whatever) actual request under retry is not getting retried according to retry policies",
+  "number": 1999,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:54.816Z"
+}

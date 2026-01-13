@@ -1,0 +1,32 @@
+{
+  "summary": "Multiple CVEs detected in Temporal server 1.29 Docker image, including high-severity vulnerabilities in golang.org/x/net and OpenTelemetry instrumentation packages. Security patches are available for several dependencies.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "dependencies",
+    "grpc-instrumentation",
+    "http-proxy"
+  ],
+  "concepts": [
+    "vulnerability",
+    "cve",
+    "security-patch",
+    "dependency-management",
+    "container-security",
+    "supply-chain"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal server 1.29 in production are exposed to known security vulnerabilities that could be exploited by attackers.",
+  "rootCause": "Outdated dependencies with known CVEs: golang.org/x/net v0.34.0 (should be 0.36.0), OpenTelemetry contrib v0.36.4 (should be 0.46.0), and other packages not updated to patched versions.",
+  "proposedFix": "Update vulnerable dependencies to fixed versions: golang.org/x/net to 0.36.0, go.opentelemetry.io/contrib to 0.46.0, curl to 8.14.1-r2, and openssl to 3.5.4-r0.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are some CVEs found from the latest Temporal image: temporalio/server:1.29",
+  "number": 8579,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:13.380Z"
+}

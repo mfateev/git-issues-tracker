@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow.await(duration, condition) should automatically cancel the timer when the condition is resolved early, rather than requiring users to manually manage cancellation scopes.",
+  "category": "feature",
+  "subcategory": "workflow-await",
+  "apis": [
+    "Workflow.await"
+  ],
+  "components": [
+    "workflow-execution",
+    "timer-management",
+    "cancellation-scope"
+  ],
+  "concepts": [
+    "timer-cancellation",
+    "condition-resolution",
+    "determinism",
+    "workflow-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently manually implement cancellation scopes around await calls to cancel timers when conditions resolve, adding unnecessary boilerplate code.",
+  "rootCause": null,
+  "proposedFix": "Automatically cancel timers in Workflow.await() when the condition is satisfied, with SDK flag versioning to maintain determinism.",
+  "workaround": "Users can manually wrap await calls in a cancellation scope to cancel the timer when the condition resolves.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow.await(duration, condition) should automatically cancel the timer when the condition is resolved",
+  "number": 2312,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:25.928Z"
+}

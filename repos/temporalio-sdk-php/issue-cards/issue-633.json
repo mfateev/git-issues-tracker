@@ -1,0 +1,35 @@
+{
+  "summary": "Under high-concurrency conditions (2000+ workflows), the PHP SDK experiences unexpected workflow failures and signal handling issues. Child workflows fail to complete or remain suspended despite proper signal logic, with type conversion errors and undefined request responses.",
+  "category": "bug",
+  "subcategory": "concurrency-signals",
+  "apis": [
+    "StartWorkflow",
+    "SignalWorkflow"
+  ],
+  "components": [
+    "worker",
+    "workflow-executor",
+    "signal-handler",
+    "roadrunner-integration"
+  ],
+  "concepts": [
+    "concurrency",
+    "high-load",
+    "signal-handling",
+    "workflow-suspension",
+    "durable-execution",
+    "type-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail to complete or hang indefinitely under high concurrency, breaking the durable execution guarantee and blocking production workloads.",
+  "rootCause": "Inadequate default concurrency settings (cache_size and MaxConcurrentWorkflowTaskExecutionSize) in Roadrunner-PHP integration cause buffer exhaustion and request queueing issues under load.",
+  "proposedFix": "Increase cache_size to 100 in .rr.yaml and set WorkerOptions::withMaxConcurrentWorkflowTaskExecutionSize to 100.",
+  "workaround": "Manually configure cache_size and MaxConcurrentWorkflowTaskExecutionSize parameters to higher values (100 recommended).",
+  "resolution": "fixed",
+  "resolutionDetails": "Community provided workaround via configuration parameter adjustment. Suggestion made to reduce RoadRunner defaults from 10K to 1K.",
+  "related": [],
+  "keyQuote": "Do you have any recommendations on how to precisely calculate the `cache_size` and `MaxConcurrentWorkflowTaskExecutionSize` parameters in a PHP + Roadrunner setup?",
+  "number": 633,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:07.748Z"
+}

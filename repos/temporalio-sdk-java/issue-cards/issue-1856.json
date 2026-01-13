@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose worker versioning configuration options through Spring Boot autoconfiguration, allowing developers to manage worker versions via properties/YAML files instead of programmatic configuration.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfiguration",
+    "worker",
+    "versioning"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "configuration",
+    "spring-boot-properties",
+    "autoconfig",
+    "declarative-config"
+  ],
+  "severity": "low",
+  "userImpact": "Spring Boot users currently cannot configure worker versioning through standard property files and must resort to programmatic configuration.",
+  "rootCause": null,
+  "proposedFix": "Add worker versioning configuration options to Spring Boot autoconfiguration to support properties/YAML-based setup.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker versioning was exposed via Spring Boot autoconfig, allowing configuration through properties/YAML files.",
+  "related": [],
+  "keyQuote": "allow worker versioning configs to be added to autoconfig (properties/yaml)",
+  "number": 1856,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:34.995Z"
+}

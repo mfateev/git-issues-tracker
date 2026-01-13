@@ -1,0 +1,31 @@
+{
+  "summary": "Customer request for Temporal Schedules to support running on the last day of each month. This requires extending the Schedule feature to handle this specific recurring pattern, which is not currently supported.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [
+    "Schedule"
+  ],
+  "components": [
+    "schedules",
+    "cron-like-scheduling"
+  ],
+  "concepts": [
+    "scheduling",
+    "recurring-patterns",
+    "calendar-based-execution",
+    "month-end-tasks",
+    "temporal-expressions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot schedule workflows to run on the last day of each month, requiring workarounds for a common business requirement.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We have the same ask from customers",
+  "number": 446,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:46.791Z"
+}

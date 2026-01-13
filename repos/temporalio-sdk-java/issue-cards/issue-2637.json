@@ -1,0 +1,31 @@
+{
+  "summary": "User encounters TypeAlreadyRegisteredException when registering multiple Activity implementations that inherit from a common interface with non-@ActivityMethod methods. The error occurs because the SDK treats the inherited method name as a duplicate activity type.",
+  "category": "question",
+  "subcategory": "activity-registration",
+  "apis": [
+    "registerActivitiesImplementations"
+  ],
+  "components": [
+    "activity-handler",
+    "worker",
+    "activity-registration"
+  ],
+  "concepts": [
+    "activity-interface",
+    "method-inheritance",
+    "type-registration",
+    "duplicate-detection"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot register multiple Activity implementations that share inherited non-annotated methods without encountering registration errors.",
+  "rootCause": "The activity registration logic treats all inherited methods as activity types, causing name conflicts when multiple implementations inherit the same non-@ActivityMethod from a parent interface.",
+  "proposedFix": "Use namePrefix in @ActivityInterface to make each activity type name unique and avoid conflicts from inherited methods.",
+  "workaround": "Apply namePrefix parameter in @ActivityInterface annotations on each Activity interface to ensure unique activity type names.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers clarified this is expected behavior - duplicate activity methods cannot be registered. Users should use namePrefix as a solution.",
+  "related": [],
+  "keyQuote": "This is expected behaviour, duplicate activity methods cannot be registered. You can consider using namePrefix in ActivityInterface so each method has a unique activity type",
+  "number": 2637,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:06.839Z"
+}

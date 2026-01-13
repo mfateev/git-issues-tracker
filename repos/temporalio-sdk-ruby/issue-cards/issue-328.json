@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to reclassify benign application errors in OpenTelemetry spans, following the same approach implemented in the Python SDK. This involves distinguishing between user code exceptions and system errors for better observability.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "instrumentation",
+    "error-handling"
+  ],
+  "concepts": [
+    "observability",
+    "error-classification",
+    "spans",
+    "telemetry",
+    "user-errors",
+    "system-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain better visibility into which errors are caused by their application code versus system issues, improving debugging and monitoring capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement the same error reclassification logic as was done in the Python SDK (issue #1041) to mark benign application errors appropriately in OpenTelemetry spans.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "This is a feature request that was tracked and likely implemented to align Ruby SDK observability with other SDKs.",
+  "related": [
+    1041
+  ],
+  "keyQuote": "See issue description here: https://github.com/temporalio/sdk-python/issues/1041",
+  "number": 328,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:12.729Z"
+}

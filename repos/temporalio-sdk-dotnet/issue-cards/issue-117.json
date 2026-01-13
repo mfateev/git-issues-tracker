@@ -1,0 +1,30 @@
+{
+  "summary": "Activity definition caching incorrectly reuses the invoker instance across different activity instances registered on different objects, causing the wrong invoker to be used. Only non-invocable details should be cached, not the instance-bound invoker.",
+  "category": "bug",
+  "subcategory": "activity-caching",
+  "apis": [],
+  "components": [
+    "activity-definition",
+    "cache",
+    "invoker"
+  ],
+  "concepts": [
+    "caching",
+    "instance-binding",
+    "method-registration",
+    "invoker-reuse",
+    "activity-discovery"
+  ],
+  "severity": "high",
+  "userImpact": "Activities registered on different instances with the same method will incorrectly share the same invoker, causing method calls to execute on the wrong instance.",
+  "rootCause": "The activity definition cache stores both non-invocable details and the instance-bound invoker together, causing the cached invoker from the first instance to be reused for subsequent registrations of the same method on different instances.",
+  "proposedFix": "Only cache the non-invocable details of the activity definition, not the invoker which is bound to a specific instance.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When an activity is added for the same method on different instances, we reuse the cache for the first instance which also has the invoker cached which is bound to that one instance.",
+  "number": 117,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:06:14.471Z"
+}

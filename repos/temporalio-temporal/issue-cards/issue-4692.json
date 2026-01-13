@@ -1,0 +1,31 @@
+{
+  "summary": "Optimization request to reduce unnecessary database writes by checking if the ack level has changed before persisting, avoiding duplicate persistence operations when workers are idle.",
+  "category": "feature",
+  "subcategory": "persistence-optimization",
+  "apis": [],
+  "components": [
+    "taskReader",
+    "ackLevel",
+    "persistence",
+    "updateAckTimer"
+  ],
+  "concepts": [
+    "database-optimization",
+    "duplicate-elimination",
+    "idle-worker",
+    "persistence",
+    "ackLevel-tracking"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces unnecessary database requests and improves performance for long-idle workflow or activity workers by eliminating redundant ack level persistence.",
+  "rootCause": "The taskReader persists ack level on every updateAckTimer without checking if the ack level has actually changed, causing unnecessary database writes.",
+  "proposedFix": "Store the last persisted ack level in taskReader and only persist when the current ack level differs from the last persisted value.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "taskReader store last persist ack level and do persistAckLevel only when current ack level not match last persist ack level",
+  "number": 4692,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:51.329Z"
+}

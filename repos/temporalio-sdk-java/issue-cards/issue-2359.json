@@ -1,0 +1,30 @@
+{
+  "summary": "The `UnableToAcquireLockException` error message lacks clarity and context that would help users understand the issue. A PR improves the exception message to provide better guidance based on community feedback and clarification from maintainers.",
+  "category": "docs",
+  "subcategory": "exception-messaging",
+  "apis": [],
+  "components": [
+    "exception-handling",
+    "documentation"
+  ],
+  "concepts": [
+    "error-messaging",
+    "lock-acquisition",
+    "user-guidance",
+    "clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Users encountering `UnableToAcquireLockException` receive unclear error messages that don't help them understand the root cause or resolution.",
+  "rootCause": null,
+  "proposedFix": "Improve the `UnableToAcquireLockException` error message to include context and guidance, as addressed in PR #2360",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2360
+  ],
+  "keyQuote": "I suspect Kapa could have given better direction if this exception message contained the info that Tiho corrected with.",
+  "number": 2359,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:24.306Z"
+}

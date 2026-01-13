@@ -1,0 +1,38 @@
+{
+  "summary": "LocalActivity state machine enters an invalid state when executed within a detached cancellation scope after a child workflow cancellation. The state transition REQUEST_PREPARED→NON_REPLAY_WORKFLOW_TASK_STARTED fails, causing WorkflowTask execution to fail.",
+  "category": "bug",
+  "subcategory": "local-activity-state-machine",
+  "apis": [
+    "Workflow.newLocalActivityStub",
+    "Workflow.newChildWorkflowStub",
+    "Workflow.newDetachedCancellationScope",
+    "CancellationScope.isCancelRequested"
+  ],
+  "components": [
+    "local-activity-executor",
+    "state-machine",
+    "cancellation-scope",
+    "child-workflow-handler",
+    "workflow-task-processor"
+  ],
+  "concepts": [
+    "state-transition",
+    "cancellation",
+    "local-activity",
+    "child-workflow",
+    "detached-scope",
+    "invalid-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot execute local activities in detached cancellation scopes after child workflow cancellations, causing workflow execution failures.",
+  "rootCause": "LocalActivity state machine does not properly handle state transitions when executed within a detached cancellation scope following child workflow cancellation events.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "State machine logic was corrected to handle the REQUEST_PREPARED→NON_REPLAY_WORKFLOW_TASK_STARTED transition in detached cancellation scope contexts.",
+  "related": [],
+  "keyQuote": "LocalActivity: invalid REQUEST_PREPARED->NON_REPLAY_WORKFLOW_TASK_STARTED, transition history is [CREATED->CHECK_EXECUTION_STATE, EXECUTING->SCHEDULE]",
+  "number": 2155,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:39.011Z"
+}

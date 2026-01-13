@@ -1,0 +1,43 @@
+{
+  "summary": "Built-in query responses need to return RawValue from default converters instead of structures to avoid requiring users to have a specific converter configured. This is a backwards-incompatible change affecting multiple SDKs.",
+  "category": "feature",
+  "subcategory": "query-responses",
+  "apis": [
+    "Query",
+    "RawValue"
+  ],
+  "components": [
+    "query-handler",
+    "converter",
+    "metadata-query"
+  ],
+  "concepts": [
+    "serialization",
+    "converter-configuration",
+    "backwards-compatibility",
+    "query-response",
+    "default-converter",
+    "type-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to explicitly convert RawValue payloads to the expected metadata type when using built-in metadata queries after this change.",
+  "rootCause": "Built-in queries currently return structures that expect a certain form of converter the user may not have configured, causing failures when users have custom converter setups.",
+  "proposedFix": "Return RawValue from default converters for all built-in queries instead of structures, limiting this backwards-incompatible change to the built-in metadata query.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    603,
+    1843,
+    2426,
+    1630,
+    773,
+    414,
+    224,
+    575
+  ],
+  "keyQuote": "this is a backwards incompatible change and should be limited to the built-in metadata query only",
+  "number": 604,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:25:55.755Z"
+}

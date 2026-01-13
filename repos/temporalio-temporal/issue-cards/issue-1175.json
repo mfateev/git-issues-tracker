@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose ActivityStarted, ActivityCompleted, and ActivityTimedOut events directly to running workflows so they can query activity state without iterating through the entire workflow history, which is slow and unscalable.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-executor",
+    "history",
+    "query-engine"
+  ],
+  "concepts": [
+    "activity-lifecycle",
+    "event-exposure",
+    "workflow-query",
+    "history-iteration",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently cannot efficiently query activity state during workflow execution and must resort to slow history iteration.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow code can now access activity event information directly through the workflow context.",
+  "related": [],
+  "keyQuote": "If we want to store data about when the activity started, completed or timed out etc so that we can query those in Workflow. Currently - we have to iterate over workflow history which is slow and not scalable.",
+  "number": 1175,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:39.868Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User reported that upgrading gRPC from 1.58.1 to 1.60.0 causes NoClassDefFoundError for AbstractManagedChannelImplBuilder, preventing use of Java SDK with modern gRPC versions in applications using other gRPC functionality.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "ChannelManager",
+    "WorkflowServiceStubs",
+    "serviceclient"
+  ],
+  "concepts": [
+    "grpc-compatibility",
+    "dependency-version",
+    "classpath-conflict",
+    "library-versioning",
+    "gradle-maven"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications using the Java SDK alongside other gRPC libraries with newer versions cannot initialize the Temporal client due to missing internal gRPC classes.",
+  "rootCause": "AbstractManagedChannelImplBuilder was removed from gRPC internal APIs between versions, but the Java SDK was built against older gRPC version and may have dependencies that conflict with newer versions.",
+  "proposedFix": "Upgrade gRPC dependency to current version (1.73.0 or later) and ensure compatibility with internal API changes.",
+  "workaround": "Downgrade other gRPC dependencies to 1.58.1 to match the Java SDK's gRPC version, though this is not recommended as 1.58.1 is from 2023.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was determined to be user-side dependency version conflict rather than SDK bug; SDK is tested and confirmed compatible with gRPC 1.72.0+. Root cause was likely mixed gRPC versions in user's classpath.",
+  "related": [],
+  "keyQuote": "The Java SDK builds against an older version of grpc since we are a library but you are encouraged to use a more recent version in your application.",
+  "number": 2565,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:54.915Z"
+}

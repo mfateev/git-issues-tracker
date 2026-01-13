@@ -1,0 +1,34 @@
+{
+  "summary": "Built-in authorizers and claimMappers cannot be configured via YAML config files; they are hardcoded to noop implementations. Users must build their own server from code or use server options to enable JWT-based authorization.",
+  "category": "feature",
+  "subcategory": "authorization-configuration",
+  "apis": [],
+  "components": [
+    "server-config",
+    "authorizer",
+    "claim-mapper",
+    "jwt-provider"
+  ],
+  "concepts": [
+    "configuration-management",
+    "authorization",
+    "jwt",
+    "claim-mapping",
+    "security",
+    "plugin-architecture"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use official Temporal Docker images with built-in JWT authorization without building their own server or using custom server options.",
+  "rootCause": "Authorizers and claim mappers are hardcoded in cmd/server/main.go instead of being selectable through configuration files.",
+  "proposedFix": "Extend the YAML configuration system to allow selection and configuration of built-in claim mappers and authorizers like NewDefaultJWTClaimMapper().",
+  "workaround": "Build Temporal server from code using server options, or use the customization-samples/extensibility/authorizer example.",
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in issue #1291 and merged, enabling built-in plugins to be configurable through config for use with standard Docker images.",
+  "related": [
+    1291
+  ],
+  "keyQuote": "The provided claim mappers and authorizers (JWT) should be usable through config... rather than building their own upstream CI/CD pipeline.",
+  "number": 1134,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:06:44.009Z"
+}

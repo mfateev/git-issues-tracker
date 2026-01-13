@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for exposing workflow cancellation cause/reason to workflows receiving cancels, and allow users to provide this information when issuing cancels from clients or commands.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "WorkflowExecutionCancelRequestedEventAttributes"
+  ],
+  "components": [
+    "workflow-runtime",
+    "cancel-handler",
+    "client-api"
+  ],
+  "concepts": [
+    "cancellation",
+    "cause",
+    "reason",
+    "workflow-lifecycle",
+    "event-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see the reason why a workflow was cancelled, making debugging and auditing workflow cancellations difficult.",
+  "rootCause": "The cause field exists in WorkflowExecutionCancelRequestedEventAttributes but is not exposed through the Java SDK API.",
+  "proposedFix": "Expose the cause field when workflows receive cancels and as an input parameter when users issue cancels from clients or commands.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The cause field from WorkflowExecutionCancelRequestedEventAttributes has been exposed to running workflows and is now available when issuing cancellations.",
+  "related": [],
+  "keyQuote": "WorkflowExecutionCancelRequestedEventAttributes has a cause field that should be exposed when workflows receive cancels",
+  "number": 2414,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:07:44.210Z"
+}

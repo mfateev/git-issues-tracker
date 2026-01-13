@@ -1,0 +1,32 @@
+{
+  "summary": "Dynamic configuration initialization is failing on local dev setups, spamming logs with errors about missing keys. The issue is that development.yaml path doesn't resolve correctly, causing repeated warnings for each ServiceRole.",
+  "category": "bug",
+  "subcategory": "dynamic-config",
+  "apis": [],
+  "components": [
+    "dynamicconfig",
+    "config",
+    "service"
+  ],
+  "concepts": [
+    "configuration",
+    "initialization",
+    "logging",
+    "error-handling",
+    "local-development"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience log spam and configuration failures when setting up local dev environments.",
+  "rootCause": "The path referenced by development.yaml for dynamic config YAML does not resolve correctly, and errors are repeated per ServiceRole.",
+  "proposedFix": "Update the path reference in development.yaml configuration as mentioned in #234.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Path resolution was updated in #234 to correctly reference the dynamic config YAML file.",
+  "related": [
+    234
+  ],
+  "keyQuote": "the path referenced by development.yaml for the dynamic config yaml, did not appear to resolve correctly, this was updated in #234",
+  "number": 226,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:22:55.692Z"
+}

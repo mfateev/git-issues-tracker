@@ -1,0 +1,29 @@
+{
+  "summary": "A block of code appears to be duplicated in ActivityPollTask.java around line 78, though it doesn't appear to cause functional issues. This was resolved as a duplicate of issue #478.",
+  "category": "bug",
+  "subcategory": "code-quality",
+  "apis": [],
+  "components": [
+    "ActivityPollTask",
+    "worker"
+  ],
+  "concepts": [
+    "code-duplication",
+    "code-cleanup",
+    "refactoring"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact as the duplicate code does not cause problems, but indicates code quality concerns.",
+  "rootCause": "Accidental code duplication during development",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #478",
+  "related": [
+    478
+  ],
+  "keyQuote": "Looks like there was a block of code copied twice here... Does not look like it is a problem though.",
+  "number": 204,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:01:24.526Z"
+}

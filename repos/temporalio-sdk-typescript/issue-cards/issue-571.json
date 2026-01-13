@@ -1,0 +1,30 @@
+{
+  "summary": "TypeDoc 0.21.6 contains transitive vulnerability in marked library (CVE-2022-21681 and CVE-2022-21680) with CVSS score of 7.5, causing potential ReDoS attacks through malicious markdown input.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "typedoc",
+    "marked",
+    "documentation-generation"
+  ],
+  "concepts": [
+    "vulnerability",
+    "regex-denial-of-service",
+    "dependency-management",
+    "security-patch",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users running untrusted markdown through the documentation toolchain are vulnerable to denial of service attacks via catastrophic backtracking in regular expressions.",
+  "rootCause": "Regular expressions `inline.reflinkSearch` and `block.def` in marked 2.1.3 exhibit catastrophic backtracking behavior against certain input strings.",
+  "proposedFix": "Upgrade typedoc to version 0.22.11 or marked to version 4.0.10",
+  "workaround": "Avoid running untrusted markdown through marked or run marked on a worker thread with a reasonable time limit to prevent resource exhaustion.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by WhiteSource as the vulnerable library was either ignored or is no longer part of the inventory, indicating the dependency has been updated or removed.",
+  "related": [],
+  "keyQuote": "Marked is a markdown parser and compiler. Prior to version 4.0.10, the regular expression may cause catastrophic backtracking and lead to a denial of service (DoS).",
+  "number": 571,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:01:52.459Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Server startup fails intermittently due to concurrent map writes. This race condition occurs during initialization and prevents successful server startup.",
+  "category": "bug",
+  "subcategory": "startup",
+  "apis": [],
+  "components": [
+    "server",
+    "initialization",
+    "concurrency"
+  ],
+  "concepts": [
+    "race-condition",
+    "concurrent-access",
+    "map-writes",
+    "startup",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably start the Temporal server, experiencing intermittent startup failures that require retries.",
+  "rootCause": "Concurrent writes to a map during server initialization without proper synchronization",
+  "proposedFix": null,
+  "workaround": "Retry the server startup command",
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #4000 which addresses the same concurrent map write problem",
+  "related": [
+    4000
+  ],
+  "keyQuote": "Server startup fail at concurrent map writes",
+  "number": 4434,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:02.837Z"
+}

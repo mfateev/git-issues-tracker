@@ -1,0 +1,31 @@
+{
+  "summary": "PostgreSQL schema updates fail on busy Temporal instances when creating indexes due to query timeouts. The issue occurs when index creation blocks longer than PostgreSQL's configured deadlock detection limit, causing the schema migration to fail with 'bad connection' errors.",
+  "category": "bug",
+  "subcategory": "schema-migration",
+  "apis": [],
+  "components": [
+    "schema-migration",
+    "postgresql-driver",
+    "index-management"
+  ],
+  "concepts": [
+    "index-creation",
+    "concurrent-operations",
+    "database-locking",
+    "query-timeout",
+    "schema-versioning",
+    "production-deployment"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy schema updates to production Temporal instances without experiencing migration failures during peak usage.",
+  "rootCause": "CREATE INDEX operations block table access on large, actively-used tables, causing PostgreSQL to terminate the query when it exceeds the configured timeout limit.",
+  "proposedFix": "Use CREATE INDEX CONCURRENTLY instead of CREATE INDEX in schema migration SQL files to allow concurrent access to the table during index creation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "CREATE INDEX CONCURRENTLY by_root_workflow_id ON executions_visibility... would allow concurrent access during index creation.",
+  "number": 6273,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:45.060Z"
+}

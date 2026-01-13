@@ -1,0 +1,30 @@
+{
+  "summary": "AWS SDK Go dependency (github.com/aws/aws-sdk-go v1.55.6) contains known vulnerabilities including in-band key negotiation and CBC padding oracle issues in the S3 Crypto SDK. An open PR bumps the version to 1.55.8 which includes fixes.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "aws-sdk"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "cryptography",
+    "s3-encryption",
+    "dependency-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using Temporal with AWS S3 functionality are exposed to cryptographic vulnerabilities that could compromise data confidentiality and integrity.",
+  "rootCause": "AWS SDK Go library contains unpatched security vulnerabilities in the S3 Crypto SDK (GO-2022-0635 and GO-2022-0646)",
+  "proposedFix": "Upgrade AWS SDK to version 1.55.8 or later which includes fixes for the identified vulnerabilities",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #7884 bumps AWS SDK to 1.55.8 which includes the security fixes, merging in progress",
+  "related": [
+    7884
+  ],
+  "keyQuote": "GO-2022-0635: In-band key negotiation issue in AWS S3 Crypto SDK for golang in github.com/aws/aws-sdk-go",
+  "number": 8465,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:18.688Z"
+}

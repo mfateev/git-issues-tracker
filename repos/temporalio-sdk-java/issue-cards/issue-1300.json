@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose WorkflowInfo#getHistoryLength() allowing users to directly check if continue-as-new is needed by comparing history length against a threshold, rather than estimating based on event production.",
+  "category": "feature",
+  "subcategory": "workflow-lifecycle",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "history-management",
+    "deterministic-replay"
+  ],
+  "concepts": [
+    "history-length",
+    "continue-as-new",
+    "deterministic-behavior",
+    "replay",
+    "custom-metrics",
+    "threshold-comparison"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain a direct, reliable way to determine when to call continue-as-new without manually tracking event counts or guessing.",
+  "rootCause": null,
+  "proposedFix": "Expose getHistoryLength() method on WorkflowInfo that returns the exact history length value, ensuring it remains deterministic during replays.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Method was implemented and aligned with TypeScript SDK naming (historylength) to maintain consistency across SDKs.",
+  "related": [],
+  "keyQuote": "Users should be able to have a more direct way to check if it's time to call continue-as-new than guessing how many events their code produces",
+  "number": 1300,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:22:43.071Z"
+}

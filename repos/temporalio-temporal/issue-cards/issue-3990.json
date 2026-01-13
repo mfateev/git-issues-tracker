@@ -1,0 +1,30 @@
+{
+  "summary": "Request for operator API to blacklist workers by version and identity to prevent misconfigured old workers from connecting to production clusters. Should also consider IP address-based blacklisting.",
+  "category": "feature",
+  "subcategory": "worker-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "server",
+    "operator-api"
+  ],
+  "concepts": [
+    "worker-blacklist",
+    "version-control",
+    "deployment-safety",
+    "worker-identity",
+    "access-control"
+  ],
+  "severity": "high",
+  "userImpact": "Allows operators to prevent problematic worker versions from connecting to production, reducing deployment mistakes and their cascading effects.",
+  "rootCause": null,
+  "proposedFix": "Provide operator API to blacklist workers by version, identity string, and optionally IP address ranges",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Provide an operator API to blacklist workers that have a specific version from connecting, as well as blacklist specific workers by their identity string.",
+  "number": 3990,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:59.930Z"
+}

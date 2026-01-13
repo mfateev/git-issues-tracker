@@ -1,0 +1,32 @@
+{
+  "summary": "Allow failure fields (message, stack_trace, type) to be encrypted through codec. Currently only the details field supports Payloads conversion; other sensitive failure fields are not processed through codecs.",
+  "category": "feature",
+  "subcategory": "encryption-codec",
+  "apis": [],
+  "components": [
+    "failure-handling",
+    "codec",
+    "data-converter"
+  ],
+  "concepts": [
+    "encryption",
+    "sensitive-data",
+    "codec",
+    "payload-conversion",
+    "security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot encrypt sensitive failure information (error messages, stack traces) in their workflows, creating security risks for sensitive data.",
+  "rootCause": "Failure message, stack_trace, and type fields are not converted to Payloads and therefore cannot be processed through configured encryption codecs.",
+  "proposedFix": "Convert failure fields (message, stack_trace, type) to Payload types to enable codec processing, similar to how details field is currently handled.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    204
+  ],
+  "keyQuote": "Failure fields may have sensitive info, including message, stack_trace, and details, and maybe type.",
+  "number": 66,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:18.126Z"
+}

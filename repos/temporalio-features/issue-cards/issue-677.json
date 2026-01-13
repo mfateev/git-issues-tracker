@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a unique identifier that persists across activity retries to enable idempotent activity execution. Currently, activities lack a globally unique identifier independent of workflow context, making it difficult to implement idempotency patterns.",
+  "category": "feature",
+  "subcategory": "activity-idempotency",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "workflow-execution",
+    "retry-mechanism"
+  ],
+  "concepts": [
+    "idempotency",
+    "retry",
+    "activity-identity",
+    "side-effects",
+    "state-persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must implement custom idempotency logic outside the SDK, increasing complexity and error-prone code when retrying activities.",
+  "rootCause": null,
+  "proposedFix": "Add a globally unique activity identifier at the Cadence/Temporal SDK level that persists across retries and is independent of workflow context.",
+  "workaround": "Generate UUIDs using UUIDv5(runId, activityId) within activity code and maintain idempotency state in external datastore.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "there isn't an identifier that uniquely identifies a specific activity...it would be very handy to have at the Cadence level",
+  "number": 677,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:53:16.933Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Add SIGUSR2 signal to the default list of worker shutdown signals. This signal is commonly used by nodemon for graceful shutdown and should be included by default.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "signal-handling"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "signal-handling",
+    "process-termination",
+    "nodemon"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using nodemon for development will need to manually add SIGUSR2 to shutdown signals instead of having it included by default.",
+  "rootCause": null,
+  "proposedFix": "Include SIGUSR2 in the default shutdownSignals list for workers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SIGUSR2 was added to the default worker shutdown signals.",
+  "related": [],
+  "keyQuote": "This is the signal nodemon uses for graceful shutdown, it should be in the default list.",
+  "number": 345,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:09.320Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature test harness needs to enforce timeout requirements on all started workflows. Currently workflows may start without timeouts, which is problematic for regular cloud testing. All workflows should have a default 1-hour timeout unless shorter timeouts are needed for specific tests.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-harness",
+    "workflow-execution",
+    "timeout-management"
+  ],
+  "concepts": [
+    "timeout",
+    "workflow-lifecycle",
+    "test-reliability",
+    "cloud-testing",
+    "test-defaults"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests may fail unpredictably or hang indefinitely when workflows lack proper timeout configuration in cloud environments.",
+  "rootCause": "Test harness does not enforce or apply default timeouts to workflows started during feature testing.",
+  "proposedFix": "Apply a default 1-hour timeout to all workflows started in the test harness, with ability to override for specific tests.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #315, consolidating timeout enforcement work into a single tracking issue.",
+  "related": [
+    315
+  ],
+  "keyQuote": "every started workflow needs a reasonable timeout attached. All workflows should get something like a 1hr timeout by default",
+  "number": 181,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:32.291Z"
+}

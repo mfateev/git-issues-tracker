@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal UI cannot be displayed in an iframe when CORS is set to '*', with content being blocked. The user wants to embed the UI in a dashboard application to avoid separate authentication.",
+  "category": "bug",
+  "subcategory": "ui-cors",
+  "apis": [],
+  "components": [
+    "temporal-ui",
+    "cors"
+  ],
+  "concepts": [
+    "cors",
+    "iframe",
+    "cross-origin",
+    "embedding",
+    "authentication",
+    "dashboard"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot embed Temporal UI in external applications via iframe, limiting integration capabilities and forcing separate authentication flows.",
+  "rootCause": "CORS configuration does not properly handle iframe embedding even when set to '*'",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was determined to belong in the dedicated UI repository rather than the core temporal repository and was redirected there.",
+  "related": [],
+  "keyQuote": "I want to use the UI as part of a dashboard because here I have the benefit of not having the user authenticate in temporal, but beforehand in the dashboard.",
+  "number": 4285,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:00.506Z"
+}

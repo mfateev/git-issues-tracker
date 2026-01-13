@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow.getInfo() method fails when called from within a query handler because the query thread is not a workflow thread. Users need access to workflow information from query methods.",
+  "category": "bug",
+  "subcategory": "workflow-queries",
+  "apis": [
+    "Workflow.getInfo"
+  ],
+  "components": [
+    "workflow-query-handler",
+    "workflow-context"
+  ],
+  "concepts": [
+    "workflow-information",
+    "query-execution",
+    "thread-context",
+    "workflow-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access workflow metadata (like execution details) from query handler methods, limiting query functionality.",
+  "rootCause": "Query execution runs on a different thread than the workflow thread, causing Workflow.getInfo() to fail with thread context validation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Support was added to allow Workflow.getInfo() to be called from query method bodies.",
+  "related": [],
+  "keyQuote": "Workflow.getInfo returns workflow information",
+  "number": 294,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:04:39.438Z"
+}

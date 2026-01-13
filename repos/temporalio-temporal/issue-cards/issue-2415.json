@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add ARM64 support to the temporalio/web Docker image to achieve parity with other Temporal images like temporalio/auto-setup which already support ARM64.",
+  "category": "feature",
+  "subcategory": "docker-image",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "web-ui"
+  ],
+  "concepts": [
+    "arm64",
+    "multi-architecture",
+    "docker-hub",
+    "platform-support"
+  ],
+  "severity": "low",
+  "userImpact": "Users with ARM64 architecture systems cannot use the temporalio/web Docker image, limiting their ability to run the web UI on ARM-based infrastructure.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of temporalio/web repository issue #420",
+  "related": [
+    420
+  ],
+  "keyQuote": "I was hoping to see if the temporalio/web docker hub image could get support for arm64?",
+  "number": 2415,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:18.699Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Refactor metrics recording to use the new metricDefinition.With() pattern instead of the redundant metrics.Handler approach, eliminating duplicate information and safety risks in metric recording calls.",
+  "category": "feature",
+  "subcategory": "metrics-refactoring",
+  "apis": [],
+  "components": [
+    "metrics-handler",
+    "metric-definitions"
+  ],
+  "concepts": [
+    "code-refactoring",
+    "metrics-recording",
+    "api-safety",
+    "redundancy-elimination"
+  ],
+  "severity": "low",
+  "userImpact": "Improves code maintainability and safety for developers working with Temporal metrics by reducing redundant and error-prone metric recording patterns.",
+  "rootCause": "The metrics.Handler API design required redundant specification of metric type (e.g., 'Histogram') alongside metric definition objects that already contained this information.",
+  "proposedFix": "Migrate all metrics.metricDefinition usages to the new metricDefinition.With() pattern introduced in PR #5187, which eliminates redundancy by recording metrics directly from the definition object.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Completed via PR #5236 which migrated all usage of metrics.metricDefinition objects to the new recording style.",
+  "related": [
+    5187,
+    5236
+  ],
+  "keyQuote": "Redundant and Unsafe: 'Histogram' is specified despite knowing 'myHisto' is a histogram. There's also a risk if 'myHisto.Name()' refers to a metric definition that is not a histogram.",
+  "number": 5189,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:28.187Z"
+}

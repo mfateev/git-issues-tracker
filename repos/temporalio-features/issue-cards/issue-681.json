@@ -1,0 +1,35 @@
+{
+  "summary": "User requests exposure of client identity information to workflows for auditing purposes. Currently, identity information is available in the WorkflowExecutionStarted event but workflows cannot access it without making additional API calls.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowExecutionStarted"
+  ],
+  "components": [
+    "workflow",
+    "workflow-context",
+    "history-events"
+  ],
+  "concepts": [
+    "auditing",
+    "user-identity",
+    "client-identity",
+    "workflow-metadata",
+    "security",
+    "access-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to manually call the Temporal API from an activity to retrieve client identity information for audit logging of user-initiated workflows.",
+  "rootCause": null,
+  "proposedFix": "Add the identity field from WorkflowExecutionStarted event to the Workflow info, potentially as user identity information accessible from within workflows.",
+  "workaround": "Create an activity that calls the Temporal API to retrieve the identity information from the WorkflowExecutionStarted event.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of temporalio/temporal#8538 which tracks the broader request for exposing user identity from UI-triggered workflows.",
+  "related": [
+    8538
+  ],
+  "keyQuote": "Add the identity field of the WorkflowExecutionStarted event somewhere in the Workflow info.",
+  "number": 681,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:53:27.972Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Worker identity is not being recorded in the lastWorkerIdentity field during activity heartbeats. The field remains empty instead of containing the worker's identity information.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "heartbeat",
+    "activity-executor"
+  ],
+  "concepts": [
+    "worker-identity",
+    "heartbeat",
+    "monitoring",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot identify which worker executed an activity when reviewing heartbeat records, reducing observability and debugging capability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing worker identity recording during heartbeat operations.",
+  "related": [],
+  "keyQuote": "lastWorkerIdentity is not empty",
+  "number": 590,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:26:16.405Z"
+}

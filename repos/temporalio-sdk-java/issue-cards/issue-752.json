@@ -1,0 +1,40 @@
+{
+  "summary": "Refactoring epic to improve code quality and maintainability of ActivityExecutionContext, ActivityCompletionClient, and ManualActivityCompletionClient. Addresses inconsistent error handling, missing documentation, and heartbeat behavior issues across these activity lifecycle components.",
+  "category": "other",
+  "subcategory": "activity-execution-context",
+  "apis": [
+    "ActivityExecutionContext",
+    "ActivityCompletionClient",
+    "ManualActivityCompletionClient"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-completion",
+    "heartbeat-mechanism"
+  ],
+  "concepts": [
+    "heartbeat",
+    "error-handling",
+    "manual-completion",
+    "code-quality",
+    "maintainability",
+    "throttling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers working with manual activity completion and heartbeating experience inconsistent error handling and lack of documentation, making it harder to use these features correctly.",
+  "rootCause": "ActivityExecutionContext, ActivityCompletionClient, and ManualActivityCompletionClient have grown with inconsistent patterns for error handling, heartbeat behavior, and documentation.",
+  "proposedFix": "Refactor these components to improve code quality, unify error handling approaches, add documentation for throttling behavior, and ensure consistent heartbeat error handling.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed because GitHub issues are no longer used as epics for tracking ongoing work. The specific sub-tasks were addressed in individual issues (#943, #1181, #1233, #1354).",
+  "related": [
+    943,
+    1181,
+    1233,
+    1354
+  ],
+  "keyQuote": "Code quality and readability around ActivityExecutionContext, ActivityCompletionClient, ManualActivityCompletionClient requires refactoring to make code more maintainable.",
+  "number": 752,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:39:32.255Z"
+}

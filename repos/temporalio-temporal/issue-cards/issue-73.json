@@ -1,0 +1,31 @@
+{
+  "summary": "Refactor the Makefile to remove Thrift-related targets after gRPC migration and consolidate remaining targets. Update golint installation to prevent command not found errors during builds.",
+  "category": "other",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "makefile",
+    "build-tooling",
+    "development-environment"
+  ],
+  "concepts": [
+    "build-configuration",
+    "dependency-management",
+    "development-workflow",
+    "migration",
+    "tooling",
+    "build-automation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers will have cleaner, more maintainable build configuration and improved build experience without spurious command not found errors.",
+  "rootCause": "Post-gRPC migration, Thrift targets are obsolete and should be removed; golint installation is missing causing build spam.",
+  "proposedFix": "Remove Thrift targets from Makefile, add golint installation via 'go get -u golang.org/x/lint/golint', remove tools.go file.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating refactoring was completed and Thrift targets were removed.",
+  "related": [],
+  "keyQuote": "After gRPC migration is done, remove all Thrift targets and arrange all existing ones.",
+  "number": 73,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:09:56.553Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The tctl admin hist desc command fails with 'Request is nil' error when attempting to describe history hosts. This prevents administrators from querying history host information via the CLI.",
+  "category": "bug",
+  "subcategory": "tctl-admin-commands",
+  "apis": [],
+  "components": [
+    "tctl",
+    "admin-commands",
+    "history-host",
+    "rpc"
+  ],
+  "concepts": [
+    "CLI",
+    "admin-interface",
+    "request-validation",
+    "nil-pointer",
+    "history-service"
+  ],
+  "severity": "medium",
+  "userImpact": "Administrators cannot use tctl to describe history hosts, blocking a critical administrative operation.",
+  "rootCause": "The request object passed to the history host describe RPC call is nil, indicating a marshaling or construction error in the CLI argument handling.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #1013 which fixed the request construction in the tctl admin hist describe command.",
+  "related": [
+    1013
+  ],
+  "keyQuote": "Describe history host failed - rpc error: code = InvalidArgument desc = Request is nil.",
+  "number": 897,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:21.269Z"
+}

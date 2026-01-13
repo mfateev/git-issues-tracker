@@ -1,0 +1,31 @@
+{
+  "summary": "Test Server does not populate the FirstExecutionRunId field in WorkflowExecutionStartedEventAttributes when retrieving workflow history, while the normal Temporal server correctly sets it to the run ID of the started workflow.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetWorkflowExecutionHistory"
+  ],
+  "components": [
+    "test-server",
+    "history",
+    "event-attributes"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "history-events",
+    "run-id",
+    "test-server-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests that validate FirstExecutionRunId behavior fail on Test Server despite passing on production Temporal server, breaking test compatibility.",
+  "rootCause": "Test Server implementation does not populate the FirstExecutionRunId field in WorkflowExecutionStartedEventAttributes during history retrieval.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the Test Server to properly populate FirstExecutionRunId in history events.",
+  "related": [],
+  "keyQuote": "On the \"normal\" server, it is a non-null, non-whitespace string that is the same as the run-id just of the run started. On Test Server it is empty.",
+  "number": 1221,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:15:46.435Z"
+}

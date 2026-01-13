@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add SDK samples demonstrating how to replace mTLS certificates at runtime without application restart. Useful for certificate rotation and updates in production environments.",
+  "category": "feature",
+  "subcategory": "sample-code",
+  "apis": [],
+  "components": [
+    "sample-code",
+    "mTLS",
+    "certificate-management",
+    "client-configuration"
+  ],
+  "concepts": [
+    "certificate-rotation",
+    "mTLS",
+    "client-replacement",
+    "runtime-updates",
+    "zero-downtime-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Customers need guidance on rotating mTLS certificates in production without restarting applications, impacting operational continuity.",
+  "rootCause": null,
+  "proposedFix": "Add sample code to each SDK's sample repository demonstrating certificate replacement patterns, with language-specific variations (e.g., Python uses full client replacement on Worker).",
+  "workaround": "For Python SDK, full client replacement can be set via the `client` property setter on the `Worker`.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    11
+  ],
+  "keyQuote": "Add samples to each SDKs sample repo showing how to replace certificates without restarting the application.",
+  "number": 464,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:30.026Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Add extension point to control MDC (Mapped Diagnostic Context) key naming conventions in the Java SDK worker. Currently MDC keys are statically defined, but users need flexibility to implement custom naming conventions that align with Python SDK and other services.",
+  "category": "feature",
+  "subcategory": "logging-mdc",
+  "apis": [],
+  "components": [
+    "worker",
+    "logging",
+    "mdc"
+  ],
+  "concepts": [
+    "logging",
+    "mdc",
+    "naming-convention",
+    "extension-point",
+    "observability",
+    "integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users managing multiple language stacks cannot align logging naming conventions across services without implementing custom workarounds.",
+  "rootCause": null,
+  "proposedFix": "Provide an extension point or configuration mechanism to allow custom MDC key naming strategies in the worker.",
+  "workaround": "Implement custom logging code as a workaround (as mentioned by the author).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we have multiple stacks: Java + Python and trying to unite our services logs/metrics/traces with single naming conventions",
+  "number": 2124,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:44.356Z"
+}

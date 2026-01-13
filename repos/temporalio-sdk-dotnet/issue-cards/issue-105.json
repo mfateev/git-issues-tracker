@@ -1,0 +1,29 @@
+{
+  "summary": "Signals with args that can't be deserialized should be dropped/ignored in the .NET SDK, consistent with Go and Java implementations.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "deserialization",
+    "worker"
+  ],
+  "concepts": [
+    "signal-handling",
+    "deserialization",
+    "error-recovery",
+    "cross-language-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Unhandled deserialization errors in signals may cause worker failures instead of gracefully dropping invalid signals.",
+  "rootCause": ".NET SDK does not drop signals with non-deserializable args, unlike Go and Java SDKs",
+  "proposedFix": "Implement signal dropping behavior for deserialization failures, matching Go and Java implementations",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Signal deserialization error handling was implemented to match behavior in other SDKs",
+  "related": [],
+  "keyQuote": "In Go and Java we drop signals whose args can't be deserialized, we should here too.",
+  "number": 105,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:58:12.451Z"
+}

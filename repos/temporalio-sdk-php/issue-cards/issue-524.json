@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to allow mocking child workflows in tests, similar to how activities can be stubbed. User reports unexpected behavior when child workflows with timers are tested, suggesting child workflow mocking could help isolate and fix the issue.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "asyncDetached"
+  ],
+  "components": [
+    "testing",
+    "workflow-execution",
+    "child-workflows",
+    "stubs"
+  ],
+  "concepts": [
+    "mocking",
+    "testing",
+    "child-workflows",
+    "timers",
+    "stubs",
+    "test-isolation",
+    "integration-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot mock child workflows in tests, making it difficult to test parent workflows in isolation and potentially masking bugs related to child workflow behavior.",
+  "rootCause": "The SDK lacks a mechanism to replace child workflows with stubs during testing, unlike the existing activity stubbing capability.",
+  "proposedFix": "Implement child workflow mocking/stubbing similar to the existing activity mocking feature.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In a situation where one workflow starts a child workflow, there is no way to replace the child workflow with a stub.",
+  "number": 524,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:13.984Z"
+}

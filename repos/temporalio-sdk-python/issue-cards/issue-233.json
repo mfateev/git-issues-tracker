@@ -1,0 +1,30 @@
+{
+  "summary": "Setuptools 65.3.0 contains a ReDoS vulnerability (CVE-2022-40897) in package_index.py that allows remote attackers to cause denial of service through malicious HTML in packages or custom package index pages. Fixed in setuptools 65.5.1.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "setuptools",
+    "package-index"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "regular-expression",
+    "redos",
+    "dependency-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with setuptools 65.3.0 are vulnerable to denial of service attacks via specially crafted packages or malicious package index pages.",
+  "rootCause": "Regular Expression Denial of Service (ReDoS) in setuptools package_index.py",
+  "proposedFix": "Upgrade setuptools to version 65.5.1 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automatically closed by Mend when the vulnerable library was removed from the Mend inventory or marked as ignored",
+  "related": [],
+  "keyQuote": "Python Packaging Authority (PyPA) setuptools before 65.5.1 allows remote attackers to cause a denial of service via HTML in a crafted package",
+  "number": 233,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:23.085Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to allow explicit dev server version specification in TypeScript SDK and mark unstable API options. The issue notes that version specification is already supported but suggests clarifying documentation about API stability, particularly for advanced arguments like 'extra args'.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-server",
+    "dev-server",
+    "documentation"
+  ],
+  "concepts": [
+    "version-control",
+    "stability",
+    "api-contract",
+    "backward-compatibility",
+    "test-environment",
+    "server-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users benefit from explicit version control and clear documentation about which SDK options are stable versus unstable.",
+  "rootCause": null,
+  "proposedFix": "Review and update docstrings to clearly mark unstable options, particularly 'extra args', similar to what is already done in Python and .NET SDKs.",
+  "workaround": "Version specification is already supported via the 'version' parameter in the cached-download configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was already implemented but required documentation updates. The issue was resolved by clarifying docstrings about API stability.",
+  "related": [],
+  "keyQuote": "Users should be able to put a specific version in for downloading dev server. Also, we should make it clear that besides the obvious arguments, other arguments may not be stable.",
+  "number": 1464,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:02.896Z"
+}

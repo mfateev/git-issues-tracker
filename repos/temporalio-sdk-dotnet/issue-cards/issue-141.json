@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support dynamic TLS/SSL certificate refresh on the Temporal .NET client without restarting workers. Users need the ability to update TLS options at runtime to handle short-lived certificates required by compliance policies.",
+  "category": "feature",
+  "subcategory": "tls-certificates",
+  "apis": [],
+  "components": [
+    "client",
+    "tls-options",
+    "grpc-connection"
+  ],
+  "concepts": [
+    "certificate-refresh",
+    "dynamic-configuration",
+    "security",
+    "compliance",
+    "connection-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with short-lived TLS certificates must restart workers when certificates expire instead of refreshing them dynamically, causing service disruptions.",
+  "rootCause": "gRPC connection lives in unmanaged Rust, preventing standard .NET certificate refresh approaches from working.",
+  "proposedFix": "Implement DynamicTlsOptions class with async callback mechanism to retrieve updated TLS options, with guaranteed minimum callback frequency.",
+  "workaround": "Create new clients with different TLS options and set them on workers for successive client calls to use newer client.",
+  "resolution": "fixed",
+  "resolutionDetails": "Completed by allowing new clients to be created with different TLS options and set on workers for successive calls.",
+  "related": [
+    477
+  ],
+  "keyQuote": "We would like the ability to dynamically refresh the TLS options on the Temporal client instead of having to restart the Temporal worker itself",
+  "number": 141,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:33:38.185Z"
+}

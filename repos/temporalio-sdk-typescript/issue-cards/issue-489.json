@@ -1,0 +1,30 @@
+{
+  "summary": "When using `npm i --production`, the TypeScript SDK's workflow bundler fails to resolve dependencies like `ms` because webpack's module resolution doesn't include `node_modules` in its search paths, causing production builds to fail.",
+  "category": "bug",
+  "subcategory": "workflow-bundler",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "webpack-configuration"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "production-build",
+    "npm-installation",
+    "module-resolution",
+    "workflow-bundling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy TypeScript workflows to production using standard `npm i --production` installations, forcing them to install all dependencies including dev dependencies.",
+  "rootCause": "The webpack bundler's default `resolve.modules` configuration only includes absolute paths and doesn't include 'node_modules', making it incompatible with Node's module resolution algorithm when certain dependencies are hoisted differently during production installs.",
+  "proposedFix": "Add 'node_modules' to the `resolve.modules` array in the webpack bundler configuration to make webpack's dependency resolution compatible with Node's algorithm.",
+  "workaround": "Manually specify `nodeModulesPaths` in worker configuration and include 'node_modules' in the array, or use `npm i` instead of `npm i --production` (installs dev dependencies).",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by updating webpack configuration to include 'node_modules' in the resolve.modules array, enabling production builds to properly resolve dependencies.",
+  "related": [],
+  "keyQuote": "To get webpack to resolve dependencies using an algorithm compatible with Node's algorithm, we must also include the string 'node_modules' in `resolve.modules`.",
+  "number": 489,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:58:48.972Z"
+}

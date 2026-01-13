@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add actual span time to spans created by workflow OpenTelemetry interceptors. Currently, spans use workflow task time which differs from actual processing time, limiting visibility into system behavior.",
+  "category": "feature",
+  "subcategory": "observability-tracing",
+  "apis": [],
+  "components": [
+    "otel-interceptor",
+    "workflow-isolate",
+    "span-generation"
+  ],
+  "concepts": [
+    "tracing",
+    "observability",
+    "workflow-time",
+    "span-timing",
+    "determinism",
+    "replay"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot accurately measure actual processing time of workflow spans, limiting their ability to diagnose system performance issues.",
+  "rootCause": "Spans in workflow isolate use workflow task time rather than real time because spans can span multiple workflow tasks running on different workers with replays, making reliable real start time unavailable.",
+  "proposedFix": "Use `workflowInfo().unsafe.now()` to access actual time for span timing.",
+  "workaround": "Use `workflowInfo().unsafe.now()` method as suggested in comments.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Spans created in the workflow isolate use workflow task time which different than the actual processing time.",
+  "number": 384,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:39.475Z"
+}

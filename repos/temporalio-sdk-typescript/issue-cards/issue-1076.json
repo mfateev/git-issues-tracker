@@ -1,0 +1,31 @@
+{
+  "summary": "A CVSS 9.1 severity vulnerability in the transitive dependency remove_dir_all-0.5.3 affects temporal-client-0.1.0, enabling arbitrary path deletion through TOCTOU race conditions. The issue was resolved by upgrading the dependency to remove_dir_all-0.8.0.",
+  "category": "bug",
+  "subcategory": "dependency-vulnerability",
+  "apis": [],
+  "components": [
+    "temporal-client",
+    "dependency-management",
+    "build-system"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "TOCTOU",
+    "symlink",
+    "race-condition",
+    "arbitrary-file-deletion"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of temporal-client-0.1.0 are exposed to a critical vulnerability allowing attackers to delete arbitrary files on their systems.",
+  "rootCause": "TOCTOU (Time-of-Check-Time-of-Use) race condition in remove_dir_all crate enabling symlink substitution after path type checking.",
+  "proposedFix": "Upgrade remove_dir_all to version 0.8.0",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependency remove_dir_all was upgraded from 0.5.3 to 0.8.0, which fixes the TOCTOU vulnerability.",
+  "related": [],
+  "keyQuote": "TOCTOU race conditions, with the ability to cause arbitrary paths to be deleted by substituting a symlink for a path after the type of the path was checked.",
+  "number": 1076,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:10.086Z"
+}

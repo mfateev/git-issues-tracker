@@ -1,0 +1,32 @@
+{
+  "summary": "User requests that JSONPlainPayloadConverter handle protobuf-encoded JSON payloads when type hints are protobuf.Message subclasses, enabling workflows started via tctl with json/plain encoding to work with protobuf arguments.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "JSONPlainPayloadConverter",
+    "payload-converter",
+    "protobuf-support"
+  ],
+  "concepts": [
+    "payload-encoding",
+    "type-conversion",
+    "protobuf-serialization",
+    "interoperability",
+    "json-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users who start workflows via tctl with json/plain encoding cannot use protobuf arguments, requiring them to use alternative tools or custom converters.",
+  "rootCause": "JSONPlainPayloadConverter does not have special handling for proto.Message types like the JSON protobuf converter does.",
+  "proposedFix": "Add protobuf support to JSONPlainPayloadConverter to decode json-encoded protobufs when type hints indicate a protobuf.Message subclass.",
+  "workaround": "Users can implement a custom converter to handle json-encoded protobufs.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers declined to add proto support to the general json/plain converter, preferring proto support only in the dedicated proto converter. The underlying issue is with tctl's lack of encoding metadata support, which will be addressed in the new Temporal CLI.",
+  "related": [
+    185
+  ],
+  "keyQuote": "I hesitate to do this by default. We only want the JSON proto converter to have special rules about proto.",
+  "number": 452,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:13.020Z"
+}

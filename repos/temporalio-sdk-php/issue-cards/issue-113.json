@@ -1,0 +1,33 @@
+{
+  "summary": "Parent workflow gets stuck in running state when starting a child workflow fails due to the child workflow ID already existing. The parent workflow should either complete or fail, but instead remains indefinitely in running state until timeout.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "StartChildWorkflowExecution"
+  ],
+  "components": [
+    "workflow-engine",
+    "child-workflow-handler",
+    "event-processor"
+  ],
+  "concepts": [
+    "workflow-execution-failure",
+    "error-handling",
+    "idempotency",
+    "child-workflow-lifecycle",
+    "state-management",
+    "event-processing"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows become stuck indefinitely when attempting to start a child workflow with a duplicate ID, requiring manual intervention or timeout to resolve.",
+  "rootCause": "The workflow engine does not properly handle START_CHILD_WORKFLOW_EXECUTION_FAILED events, leaving the parent workflow in an incomplete state instead of transitioning to completed or failed status.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in roadrunner-temporal PR #77",
+  "related": [],
+  "keyQuote": "Workflow instance will stuck at running, and the last event is WorkflowTaskCompleted until it timeout.",
+  "number": 113,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:18.301Z"
+}

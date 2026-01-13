@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow cancellation requests return 204 but fail to cancel workflows that are stuck after a workflow task failure. The workflow continues running indefinitely with no way to cancel it via the API, though new workflows can be canceled normally.",
+  "category": "bug",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "WorkflowImplementationOptions"
+  ],
+  "components": [
+    "workflow-engine",
+    "cancellation-handler",
+    "task-processor"
+  ],
+  "concepts": [
+    "cancellation",
+    "workflow-failure",
+    "exception-handling",
+    "workflow-state",
+    "api-response"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot cancel workflows that fail during task processing, requiring them to use terminate commands as a workaround.",
+  "rootCause": "When a workflow task fails, the workflow gets stuck and doesn't properly handle cancellation requests. NPE and unknown exceptions cause workflows to get stuck by default, waiting for a new deployment.",
+  "proposedFix": "Configure WorkflowImplementationOptions.failWorkflowExceptionTypes to include Throwable.class so workflows fail immediately on exceptions instead of getting stuck.",
+  "workaround": "Use the terminate command instead of cancel, or configure failWorkflowExceptionTypes to fail the workflow on all exceptions.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by explaining the default behavior of exception handling and providing configuration guidance. Users should set failWorkflowExceptionTypes to handle exceptions appropriately.",
+  "related": [],
+  "keyQuote": "By default NPE (as well as any unknown exception) will cause the workflow to get stuck. This is to give you chance to find the bug and fix it through a new deployment.",
+  "number": 371,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:11:22.453Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Users find it difficult to mock SDK functions in tests. Current mocking approaches (Jest, Sinon) don't work well with the SDK's export structure, and testing workflows requires setting up a full Worker and test client, which is cumbersome for unit testing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "proxyActivities",
+    "startChildWorkflow",
+    "scheduleActivity",
+    "Worker.create"
+  ],
+  "components": [
+    "workflow",
+    "testing",
+    "mock-support",
+    "interceptors"
+  ],
+  "concepts": [
+    "mocking",
+    "unit-testing",
+    "test-utilities",
+    "workflow-isolation",
+    "dependency-injection",
+    "test-framework-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers struggle to write simple unit tests for workflows and helper functions without setting up complex Worker infrastructure, leading to slower test iteration and lower test coverage.",
+  "rootCause": "SDK doesn't provide built-in mocking utilities and the architectural design (no default exports, complex internal state management) makes standard mocking libraries ineffective.",
+  "proposedFix": "Add built-in mocking support, possibly: 1) allow mocks to be passed directly to Worker.create(), 2) create first-class mocking utilities that work with standard mocking frameworks, 3) support local activities that don't produce markers for mocking child workflows.",
+  "workaround": "Use a Worker with test connection and mock activities, or register helper functions as workflows and execute them via workflowClient.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Mocking an SDK function is difficult...we'll be working on improving this experience in the future",
+  "number": 665,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:40.153Z"
+}

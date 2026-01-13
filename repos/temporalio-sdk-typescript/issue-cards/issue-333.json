@@ -1,0 +1,30 @@
+{
+  "summary": "The @temporalio/create package initializer fails with ENOENT errors when cloning sample projects, as the tar extraction doesn't properly validate that the package.json exists in the cloned folder before attempting to read it.",
+  "category": "bug",
+  "subcategory": "package-initializer",
+  "apis": [],
+  "components": [
+    "create-project",
+    "install-helper",
+    "sample-downloader"
+  ],
+  "concepts": [
+    "error-handling",
+    "file-system",
+    "initialization",
+    "validation",
+    "sample-setup"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot successfully initialize new Temporal TypeScript projects using the create command, blocking project setup entirely.",
+  "rootCause": "The install script attempts to read package.json via readFileSync before validating that the tar extraction successfully produced the file, and lacks graceful error handling for missing sample files.",
+  "proposedFix": "Add validation to check for package.json existence after tar extraction and provide better error messages when samples are not found or invalid URLs are provided.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Improved error handling and validation in the sample download and extraction process with clearer error messages when package.json is missing.",
+  "related": [],
+  "keyQuote": "the root cause is not the file read, it is the lack of package.json in the cloned folder",
+  "number": 333,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:38.760Z"
+}

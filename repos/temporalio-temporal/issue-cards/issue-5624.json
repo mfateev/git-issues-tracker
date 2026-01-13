@@ -1,0 +1,32 @@
+{
+  "summary": "The Archival tab in Temporal UI fails to display archived workflows, returning HTTP 400 error with message 'Cluster is not configured for reading archived visibility records' despite the configuration having archival visibility read enabled.",
+  "category": "bug",
+  "subcategory": "archival-visibility",
+  "apis": [],
+  "components": [
+    "frontend",
+    "archival-metadata",
+    "visibility-archival",
+    "workflow-handler"
+  ],
+  "concepts": [
+    "archival",
+    "visibility",
+    "configuration",
+    "S3-backend",
+    "namespace-settings",
+    "read-enabled"
+  ],
+  "severity": "high",
+  "userImpact": "Users with archived workflows cannot view them in the Archival tab despite proper configuration, making archived workflow data inaccessible through the UI.",
+  "rootCause": "The archivalMetadata.GetVisibilityConfig().ReadEnabled() check is failing even though archival.visibility.enableRead is set to true in the configuration file, suggesting a configuration loading or mapping issue.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Cluster is not configured for reading archived visibility records.",
+  "number": 5624,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:06.774Z"
+}

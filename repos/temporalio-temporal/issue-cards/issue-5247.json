@@ -1,0 +1,30 @@
+{
+  "summary": "Prometheus metrics histogram buckets are missing intermediate boundaries, only showing le=\"1\" and le=\"+Inf\" instead of the expected multiple boundaries. The user discovered this was caused by a minimal default histogram configuration with only one boundary defined.",
+  "category": "bug",
+  "subcategory": "metrics-prometheus",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus",
+    "tally"
+  ],
+  "concepts": [
+    "histogram-buckets",
+    "prometheus-metrics",
+    "observability",
+    "configuration",
+    "metric-boundaries"
+  ],
+  "severity": "medium",
+  "userImpact": "Prometheus histogram metrics produce incomplete data with only two buckets, making latency analysis and visualization in Grafana unreliable.",
+  "rootCause": "Default histogram boundaries configuration in Temporal 1.22.3 only includes a single boundary value of 1, resulting in incomplete histogram buckets.",
+  "proposedFix": null,
+  "workaround": "Configure additional histogram boundaries in the metrics prometheus configuration instead of relying on defaults.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue reporter identified the cause as a configuration problem (defaultHistogramBoundaries set to [1] only) rather than a bug in Temporal itself.",
+  "related": [],
+  "keyQuote": "Look what I found while viewing the config for something else: metrics: prometheus: defaultHistogramBoundaries: - 1",
+  "number": 5247,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:52.127Z"
+}

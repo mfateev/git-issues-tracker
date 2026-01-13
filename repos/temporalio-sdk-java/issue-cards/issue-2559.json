@@ -1,0 +1,30 @@
+{
+  "summary": "Add `WorkflowTaskFailedCause` to `RespondQueryTaskCompletedRequest` to provide the same failure cause information available for workflow task failures.",
+  "category": "feature",
+  "subcategory": "query-tasks",
+  "apis": [
+    "RespondQueryTaskCompletedRequest"
+  ],
+  "components": [
+    "query-task-handler",
+    "workflow-task-failure"
+  ],
+  "concepts": [
+    "failure-cause",
+    "query-tasks",
+    "workflow-tasks",
+    "error-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now understand why query task completion failed with detailed cause information.",
+  "rootCause": null,
+  "proposedFix": "Add `WorkflowTaskFailedCause` field to `RespondQueryTaskCompletedRequest` following the same pattern as workflow task failures",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented by adding `WorkflowTaskFailedCause` to the request object",
+  "related": [],
+  "keyQuote": "Should work the same as for workflow task failures",
+  "number": 2559,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:36.046Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Users need an SLA dashboard to monitor error codes and SDK/worker metrics, helping track Service Level Agreements based on real SDK metrics in a metrics visualization tool.",
+  "category": "feature",
+  "subcategory": "metrics-monitoring",
+  "apis": [],
+  "components": [
+    "metrics",
+    "sdk",
+    "worker",
+    "dashboard"
+  ],
+  "concepts": [
+    "SLA",
+    "error-tracking",
+    "metrics-visualization",
+    "monitoring",
+    "observability",
+    "worker-health"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack visibility into SLA compliance and error patterns across their Temporal deployments, making it difficult to monitor and track service level objectives.",
+  "rootCause": null,
+  "proposedFix": "Add metrics dashboard to https://github.com/temporalio/dashboards to track SLA based on SDK metrics and error codes received by workers.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users of temporal want to be able to see the SLA based on error codes received by SDK/workers.",
+  "number": 429,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:45.823Z"
+}

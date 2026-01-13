@@ -1,0 +1,38 @@
+{
+  "summary": "Time skipping in TestWorkflowEnvironment fails to advance time for workflows started via signalWithStart when called from an activity. The timer in the second workflow (W2) doesn't complete immediately despite time skipping being enabled.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "signalWithStart",
+    "Worker",
+    "workflow.execute",
+    "workflow.getHandle"
+  ],
+  "components": [
+    "test-server",
+    "time-skipping",
+    "workflow-client",
+    "signal-with-start"
+  ],
+  "concepts": [
+    "time-skipping",
+    "timer",
+    "test-environment",
+    "workflow-execution",
+    "signal-handling",
+    "activity-invocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test workflows that use signalWithStart to start child workflows with timers in time-skipping test environments.",
+  "rootCause": "The worker is shut down before the second workflow gets a chance to complete, preventing proper time advancement for workflows started via signalWithStart from activities.",
+  "proposedFix": "Ensure the worker remains active long enough for all started workflows to complete, or improve time-skipping coordination for dynamically started workflows.",
+  "workaround": "Reconfigure the WorkflowClient used in activities to use the time-skipping workflow client via interceptors, though this may not fully resolve the issue.",
+  "resolution": "fixed",
+  "resolutionDetails": "Identified that worker shutdown timing was the root cause; user confirmed reproduction case.",
+  "related": [],
+  "keyQuote": "Looks like the worker in this example is shut down before the second workflow gets a chance to complete.",
+  "number": 1565,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:20.573Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Release notes for version 1.24.0 failed to mention a required schema upgrade, which should have been documented according to the upgrade guidelines.",
+  "category": "docs",
+  "subcategory": "release-notes",
+  "apis": [],
+  "components": [
+    "release-notes",
+    "documentation",
+    "schema-migration"
+  ],
+  "concepts": [
+    "schema-upgrade",
+    "documentation",
+    "release-process",
+    "deployment",
+    "version-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to 1.24.0 were not informed of the required schema upgrade, potentially causing confusion during deployment.",
+  "rootCause": "Release notes documentation was incomplete and did not include schema upgrade information as required by the upgrade process guidelines.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Release notes were updated to include the schema upgrade requirement.",
+  "related": [],
+  "keyQuote": "The release notes have been updated now.",
+  "number": 6059,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:58.503Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Creating a search attribute via CLI produces an error message despite successfully creating the attribute in the server. The error states the attribute already exists when it actually doesn't, indicating a response/error handling issue in the server.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "cli",
+    "operator",
+    "search-attributes",
+    "advanced-visibility"
+  ],
+  "concepts": [
+    "error-handling",
+    "search-attributes",
+    "operator-commands",
+    "sql-visibility",
+    "namespace-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter confusing error messages when creating search attributes, making it unclear whether the operation succeeded or failed despite the attribute being created successfully.",
+  "rootCause": "The Temporal server responds with an error message even though the search attribute is successfully created, suggesting an issue with response handling or error state checking in the server.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Server was returning an error response even when the search attribute was successfully created. The issue was fixed to return proper success responses.",
+  "related": [],
+  "keyQuote": "A new custom search attribute is still created while producing an error",
+  "number": 4145,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:40.783Z"
+}

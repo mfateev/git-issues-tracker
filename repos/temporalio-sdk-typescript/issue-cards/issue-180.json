@@ -1,0 +1,32 @@
+{
+  "summary": "Implement incremental sequence numbers for correlation IDs between the TypeScript SDK and core runtime to improve tracing and debugging capabilities.",
+  "category": "feature",
+  "subcategory": "correlation-ids",
+  "apis": [],
+  "components": [
+    "correlation-id-system",
+    "core-integration",
+    "lang-binding"
+  ],
+  "concepts": [
+    "correlation-id",
+    "sequence-number",
+    "tracing",
+    "debugging",
+    "integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have better ability to trace requests between the TypeScript SDK and core runtime through unique, sequential correlation IDs.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing incremental sequence numbers for correlation IDs, dependent on the completion of sdk-core issue #164",
+  "related": [
+    164
+  ],
+  "keyQuote": "Depends on https://github.com/temporalio/sdk-core/issues/164",
+  "number": 180,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:38.509Z"
+}

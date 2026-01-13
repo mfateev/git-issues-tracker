@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose internal-non-workflow-common functionality to users, either by adding it to the API reference or restructuring internal packages to provide a non-workflow public entry point.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "internal-non-workflow-common",
+    "codec-helpers",
+    "data-converter"
+  ],
+  "concepts": [
+    "public-api",
+    "package-structure",
+    "entry-points",
+    "internal-modules",
+    "accessibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently need to reference internal package files directly, making it difficult to use non-workflow common functionality without relying on implementation details.",
+  "rootCause": "Non-workflow common utilities are in internal packages without a stable public API or documented entry point.",
+  "proposedFix": "Either add the internal-non-workflow-common package to the API reference or restructure internal packages into a 'common' folder with a separate '@temporalio/common/non-workflow' entry point.",
+  "workaround": "Users can import directly from the GitHub repository: `import { encodeToPayload, loadDataConverter } from '@temporalio/internal-non-workflow-common'`",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Either: Add to API ref - Combine internal* packages into `common`, using a separate folder & entry point for any non-workflow APIs",
+  "number": 776,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:11:26.484Z"
+}

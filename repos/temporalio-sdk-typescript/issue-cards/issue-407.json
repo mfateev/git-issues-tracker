@@ -1,0 +1,35 @@
+{
+  "summary": "User requested enhanced shell logging during workflow execution to provide visibility into workflow progress, activity execution, and failures without requiring the web console. This was addressed through logging interceptors added to the SDK.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "worker.run()"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "logging"
+  ],
+  "concepts": [
+    "debugging",
+    "observability",
+    "error-reporting",
+    "progress-tracking",
+    "activity-execution",
+    "task-polling"
+  ],
+  "severity": "low",
+  "userImpact": "Users had difficulty debugging workflow issues without access to the web console, leading to hanging processes with no visible error information.",
+  "rootCause": null,
+  "proposedFix": "Add conditional logging (when NODE_ENV is not staging/production) to display task polling, workflow execution, activity invocation, and activity failures in the shell output.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by adding logging interceptors to the SDK that provide more informative default logs.",
+  "related": [
+    305
+  ],
+  "keyQuote": "Give the user more information in the shell on what's happening.",
+  "number": 407,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:08.652Z"
+}

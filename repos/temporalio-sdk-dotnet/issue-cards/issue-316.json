@@ -1,0 +1,36 @@
+{
+  "summary": "Add support for WorkflowIdConflictPolicy parameter to the Signal-With-Start API in the .NET SDK, following the implementation already added to StartWorkflow in PR #304.",
+  "category": "feature",
+  "subcategory": "signal-with-start",
+  "apis": [
+    "SignalWithStart",
+    "StartWorkflow"
+  ],
+  "components": [
+    "signal-with-start",
+    "workflow-client",
+    "api"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "idempotency",
+    "signal",
+    "workflow-start",
+    "policy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to specify conflict resolution behavior when signaling workflows that may not exist, enabling more flexible workflow initiation patterns.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implementation completed to match StartWorkflow API capabilities",
+  "related": [
+    304,
+    437
+  ],
+  "keyQuote": "This is a follow-up to #304 which added it to StartWorkflow.",
+  "number": 316,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:38:43.847Z"
+}

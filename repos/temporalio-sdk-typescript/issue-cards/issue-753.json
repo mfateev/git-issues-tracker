@@ -1,0 +1,31 @@
+{
+  "summary": "The test framework causes segmentation faults when run with Jest on macOS M1, though it works consistently with Mocha. The issue appears related to Jest's handling of the SDK rather than the test server itself.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "jest-integration",
+    "worker",
+    "vm-contexts"
+  ],
+  "concepts": [
+    "segmentation-fault",
+    "test-runner",
+    "dynamic-import",
+    "vm-modules",
+    "memory-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably run SDK tests with Jest, forcing them to switch to alternative test runners like Mocha.",
+  "rootCause": "Issue with Jest handling of the SDK, likely related to ESM module loading and vm contexts created in the main nodejs thread, exacerbated by get-port ESM version.",
+  "proposedFix": "Downgrade get-port to non-ESM version to resolve module loading issues.",
+  "workaround": "Use Mocha or other test runners instead of Jest for running tests with the SDK.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by downgrading get-port to the non-ESM version, which resolved Jest compatibility issues with the SDK.",
+  "related": [],
+  "keyQuote": "This is probably the 4th jest related issue we've gotten.",
+  "number": 753,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:10:13.360Z"
+}

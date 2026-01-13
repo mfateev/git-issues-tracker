@@ -1,0 +1,31 @@
+{
+  "summary": "TestWorkflowEnvironment should support connecting to already-running servers instead of always spawning new ones, allowing developers to run integration tests against persistent servers with UI and history.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "connection",
+    "worker"
+  ],
+  "concepts": [
+    "integration-testing",
+    "external-server",
+    "connection-pooling",
+    "test-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot easily run integration tests against existing servers, limiting their ability to leverage UI features and maintain test run history during development.",
+  "rootCause": null,
+  "proposedFix": "Support instantiation from a Connection object and use the same connection for both client and worker to avoid translating between NativeConnection and pure JS Connection classes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should support instantiation from a `Connection`. I would rather also have the worker be powered by the same connection to avoid translating between the objects",
+  "number": 1332,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:39.299Z"
+}

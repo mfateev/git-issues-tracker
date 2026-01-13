@@ -1,0 +1,33 @@
+{
+  "summary": "Implement a Temporal CLI-based ephemeral server for Python SDK testing instead of Temporalite. This requires support for additional namespaces and depends on CLI features and SDK core updates.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "cli-integration",
+    "namespace-support"
+  ],
+  "concepts": [
+    "ephemeral-server",
+    "testing",
+    "cli-integration",
+    "namespaces",
+    "temporalite-migration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain better testing capabilities with an ephemeral server solution that supports the full Temporal feature set including SDK metadata.",
+  "rootCause": null,
+  "proposedFix": "Integrate Temporal CLI as an ephemeral server for testing, replacing Temporalite while maintaining backward compatibility during transition.",
+  "workaround": "Continue using Temporalite for testing, though it lacks support for SDK metadata and other features.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented Temporal CLI-based ephemeral server support after required dependencies (sdk-core#485, temporal#4317) were completed.",
+  "related": [
+    485,
+    4317
+  ],
+  "keyQuote": "Make sure to accept additional namespaces here beyond the primary one.",
+  "number": 272,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:27.193Z"
+}

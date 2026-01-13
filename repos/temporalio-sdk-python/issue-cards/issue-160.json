@@ -1,0 +1,34 @@
+{
+  "summary": "OpenTelemetry interceptors in the Python SDK fail with a 'Failed to detach context' ValueError when the event loop is garbage collected during workflow execution, particularly on worker exit when context variables from different contexts collide.",
+  "category": "bug",
+  "subcategory": "opentelemetry-interceptor",
+  "apis": [
+    "TracingInterceptor"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "context-management",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "context-propagation",
+    "generator-exit",
+    "context-vars",
+    "async-cleanup",
+    "garbage-collection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users instrumenting Temporal workflows with OpenTelemetry tracing experience errors on worker exit, causing log spam and potentially masking actual issues.",
+  "rootCause": "Context token created in one async context is being reset in a different context during generator cleanup, particularly when the event loop is garbage collected. Similar to OpenTelemetry Python issue #2606.",
+  "proposedFix": "Swallow detachment failures in the Temporal OpenTelemetry interceptor to gracefully handle context cleanup during generator exit.",
+  "workaround": "Ensure workflows are in separate files and do not recreate global tracer provider instances - only set it once globally.",
+  "related": [
+    2606
+  ],
+  "keyQuote": "ValueError: <Token var=<ContextVar name='current_context'...> was created in a different Context",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 160,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:01.324Z"
+}

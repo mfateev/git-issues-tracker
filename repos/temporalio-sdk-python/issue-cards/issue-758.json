@@ -1,0 +1,34 @@
+{
+  "summary": "Request for utilities to automatically extract activities from classes, class instances, and modules, making it easier to register all activities with a worker without manually listing each one.",
+  "category": "feature",
+  "subcategory": "activity-collection",
+  "apis": [
+    "activity.defn",
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "activity-registry",
+    "activity-decorator"
+  ],
+  "concepts": [
+    "activity-discovery",
+    "activity-registration",
+    "developer-experience",
+    "code-organization",
+    "module-introspection",
+    "decorator-detection"
+  ],
+  "severity": "low",
+  "userImpact": "Users must manually maintain an explicit list of all activity-decorated functions when registering them with workers, which is error-prone and violates separation of concerns.",
+  "rootCause": "No public API or utility exists to programmatically discover activities by introspecting classes or modules.",
+  "proposedFix": "Provide utility functions like get_activities_from_class(), get_activities_from_module(), and enhance Worker constructor to accept classes/modules directly for automatic activity extraction.",
+  "workaround": "Users can manually wrap decorators or use AST parsing to discover activities, as shown in the issue and confirmed by multiple commenters who implemented similar solutions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would like: worker = Worker(activities=[*ActivitiesClass.get_activities(), *get_activities(activities_module)])",
+  "number": 758,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:58.671Z"
+}

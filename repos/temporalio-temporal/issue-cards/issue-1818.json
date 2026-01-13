@@ -1,0 +1,33 @@
+{
+  "summary": "CronSchedule workflows were executing twice within the scheduled interval (e.g., twice in two minutes for */2 * * * *). The issue was caused by incorrect logic in PR #560 that set the next schedule time to a value in the past, triggering immediate re-execution.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [],
+  "components": [
+    "cron-scheduler",
+    "workflow-scheduling",
+    "schedule-calculation"
+  ],
+  "concepts": [
+    "cron-expression",
+    "scheduling",
+    "timing",
+    "execution-frequency",
+    "backoff"
+  ],
+  "severity": "high",
+  "userImpact": "Cron-scheduled workflows execute more frequently than specified, causing unexpected duplicate executions and potential resource waste.",
+  "rootCause": "The condition `if nowUTC.Before(scheduledUTCTime)` in PR #560 caused nextScheduleTime to be set incorrectly, leading to immediate re-dispatch when scheduledUTCTime was set to a future value that was actually in the past relative to the next scheduled execution.",
+  "proposedFix": "Remove the `if nowUTC.Before(scheduledUTCTime)` judgment and directly set `nextScheduleTime = schedule.Next(scheduledUTCTime)`, as implemented in the Cadence codebase.",
+  "workaround": "Downgrade to a version before PR #560 or manually remove the problematic conditional check.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in patch release 1.11.4 which included two fixes to cron scheduling logic.",
+  "related": [
+    560,
+    1828
+  ],
+  "keyQuote": "After I deleted the if judgment, directly set nextScheduleTime = schedule.Next(scheduledUTCTime), there is no repeated execution",
+  "number": 1818,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:07.219Z"
+}

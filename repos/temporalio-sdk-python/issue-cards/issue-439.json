@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to enable continue-as-new workflow capability from within update handlers in the Python SDK, allowing workflows to restart with new input parameters without losing context.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-executor",
+    "api"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "state-management",
+    "handler-capabilities",
+    "workflow-restart"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot restart workflows with new parameters from update handlers, limiting workflow composition patterns and requiring workarounds.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow continue as new from update handler",
+  "number": 439,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:07.044Z"
+}

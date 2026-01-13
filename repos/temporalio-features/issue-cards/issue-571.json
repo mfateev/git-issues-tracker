@@ -1,0 +1,37 @@
+{
+  "summary": "Users need a thread-local-like mechanism to access and mutate workflow-specific values across SDKs. This feature already exists in Java but needs to be implemented in Go, Python, .NET, Ruby, and PHP to provide a consistent way to manage state within workflows and interceptors.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "interceptor-system",
+    "context-management"
+  ],
+  "concepts": [
+    "thread-local",
+    "workflow-scope",
+    "state-management",
+    "context-isolation",
+    "library-integration",
+    "interceptor-access"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily access and manage workflow-specific state in reusable libraries and interceptors across multiple SDKs, limiting code reusability and cross-cutting concerns.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow-local value storage mechanism similar to Java implementation across Go, Python, .NET, Ruby, and PHP SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1760,
+    719,
+    387,
+    179,
+    545
+  ],
+  "keyQuote": "Users need a thread-local-like way to access/mutate workflow-specific values.",
+  "number": 571,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:39.908Z"
+}

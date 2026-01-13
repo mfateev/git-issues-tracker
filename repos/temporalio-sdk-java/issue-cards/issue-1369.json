@@ -1,0 +1,36 @@
+{
+  "summary": "User reported that calling a synchronous workflow stub in tests doesn't propagate workflow exceptions and causes the workflow to block indefinitely. The issue was resolved by clarifying that non-TemporalFailure exceptions cause workflow task failures rather than workflow failures by design, and that ApplicationFailure should be used to properly fail workflows.",
+  "category": "question",
+  "subcategory": "exception-handling",
+  "apis": [
+    "WorkflowStub",
+    "ApplicationFailure",
+    "TemporalFailure"
+  ],
+  "components": [
+    "workflow-stub",
+    "test-framework",
+    "exception-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "exception-propagation",
+    "workflow-failure",
+    "task-failure",
+    "error-handling",
+    "test-execution",
+    "synchronous-stub"
+  ],
+  "severity": "low",
+  "userImpact": "Users calling synchronous workflow stubs in tests may experience confusion when exceptions don't propagate as expected, leading to workflow blocking and debugging difficulty.",
+  "rootCause": "Non-TemporalFailure exceptions cause workflow task failures rather than whole workflow failures by design, allowing users to fix issues and continue execution.",
+  "proposedFix": "Use ApplicationFailure to properly fail a workflow instead of throwing generic exceptions.",
+  "workaround": "Throw ApplicationFailure instead of other exception types to fail a workflow.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as working as designed. The issue was actually a misunderstanding of the exception handling design. Non-TemporalFailure exceptions intentionally cause task failures, not workflow failures, allowing recovery. Users should use ApplicationFailure to fail a workflow.",
+  "related": [],
+  "keyQuote": "Any other exception other than subclasses of TemporalFailure lead to failure of a workflow task, not a whole workflow.",
+  "number": 1369,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:29:58.176Z"
+}

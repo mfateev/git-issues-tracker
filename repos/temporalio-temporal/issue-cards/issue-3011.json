@@ -1,0 +1,29 @@
+{
+  "summary": "Dependency security vulnerability in uber/tchannel-go v1.31.0 with 2 high-severity CVEs (CVE-2019-0205 and CVE-2019-0210) affecting Apache Thrift versions up to 0.12.0. The vulnerabilities can cause endless loops or panics in server/client implementations.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "tchannel-go",
+    "apache-thrift"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dos-availability",
+    "dependency-upgrade",
+    "input-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal with the vulnerable tchannel-go dependency are exposed to denial-of-service attacks that can cause server/client hangs or panics.",
+  "rootCause": "Apache Thrift versions up to 0.12.0 have improper input validation that causes endless loops when processing specific data or panics on invalid JSON protocol input.",
+  "proposedFix": "Upgrade Apache Thrift to version 0.13.0 or later.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 3011,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:27.622Z"
+}

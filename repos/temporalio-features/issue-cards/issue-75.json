@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to improve the listWorkflowExecutions API by making pagination easier, converting returned executions to friendly types, and providing a list filter query builder. The discussion focuses on designing a filter builder that balances ease of use with support for both basic and advanced visibility filters.",
+  "category": "feature",
+  "subcategory": "list-workflow-executions",
+  "apis": [
+    "listWorkflowExecutions",
+    "WorkflowExecutionDescription"
+  ],
+  "components": [
+    "visibility",
+    "list-api",
+    "filter-builder",
+    "pagination"
+  ],
+  "concepts": [
+    "pagination",
+    "filtering",
+    "query-builder",
+    "visibility",
+    "user-experience",
+    "type-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a more ergonomic way to list and filter workflow executions with easier pagination handling and type conversions across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Design a TypeScript proposal for a filter builder API that handles both basic filters (without advanced visibility) and advanced filters, without building a full AST-based DSL. Reuse WorkflowExecutionDescription for returned types.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    17,
+    754
+  ],
+  "keyQuote": "One of the important things we must capture is that some filters can work without \"advanced visibility\" and some can work with.",
+  "number": 75,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:46:01.225Z"
+}

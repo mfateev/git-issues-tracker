@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowExecutionInfo.task_queue field is blank in DescribeWorkflowExecutionResponse, though the same information is available in execution_config.task_queue. This is a low-priority bug that doesn't block users due to the workaround.",
+  "category": "bug",
+  "subcategory": "workflow-introspection",
+  "apis": [
+    "DescribeWorkflowExecutionResponse",
+    "WorkflowExecutionInfo"
+  ],
+  "components": [
+    "workflow-service",
+    "api-response",
+    "protobuf-definitions"
+  ],
+  "concepts": [
+    "task-queue",
+    "workflow-metadata",
+    "response-fields",
+    "data-completeness",
+    "api-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access task_queue information from WorkflowExecutionInfo in DescribeWorkflowExecutionResponse, though they can retrieve it from execution_config as a workaround.",
+  "rootCause": "The task_queue field was missing in the response implementation",
+  "proposedFix": null,
+  "workaround": "Use DescribeWorkflowExecutionResponse.execution_config.task_queue instead of WorkflowExecutionInfo.task_queue",
+  "resolution": "fixed",
+  "resolutionDetails": "Field was added to the response as confirmed by maintainer",
+  "related": [],
+  "keyQuote": "DescribeWorkflowExecutionResponse.execution_config.task_queue is set. That unblocks us - this bug is extremely low priority.",
+  "number": 2374,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:30.490Z"
+}

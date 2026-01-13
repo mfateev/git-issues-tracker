@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add a workflow metadata query that returns supported queries and signals. Currently, UI must emit unsupported queries and parse error messages to discover supported operations, causing unnecessary service logging.",
+  "category": "feature",
+  "subcategory": "workflow-metadata",
+  "apis": [
+    "WorkflowQuery"
+  ],
+  "components": [
+    "workflow-engine",
+    "query-handler",
+    "metadata-service"
+  ],
+  "concepts": [
+    "workflow-metadata",
+    "query-discovery",
+    "signal-discovery",
+    "dynamic-capabilities",
+    "workflow-introspection"
+  ],
+  "severity": "medium",
+  "userImpact": "UI developers must implement unreliable workarounds to discover workflow capabilities, generating error logs and requiring custom parsing logic.",
+  "rootCause": "No standard mechanism exists for workflows to expose their supported queries and signals metadata to callers.",
+  "proposedFix": "Add a built-in metadata query that returns lists of supported queries and signals for a workflow, accessible through all SDKs.",
+  "workaround": "UI can emit unsupported queries and parse the returned error message to infer supported operations, though this is unreliable and generates service-level error logs.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    51
+  ],
+  "keyQuote": "Add a query that would return metadata about workflow. Lists of supported queries and signals should be included into the result.",
+  "number": 335,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:09:16.339Z"
+}

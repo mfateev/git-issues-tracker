@@ -1,0 +1,35 @@
+{
+  "summary": "Request to add ActivityCompletionClient support in TestActivityEnvironment to enable asynchronous activity completion testing. This is a duplicate of issue #2097.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ActivityCompletionClient",
+    "TestActivityEnvironment"
+  ],
+  "components": [
+    "activity-executor",
+    "test-framework",
+    "activity-completion"
+  ],
+  "concepts": [
+    "asynchronous-completion",
+    "testing",
+    "activity-lifecycle",
+    "test-utilities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test activities that use asynchronous completion patterns with TestActivityEnvironment, limiting test coverage for complex activity scenarios.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #2097, which tracks the same feature request.",
+  "related": [
+    1185,
+    2097
+  ],
+  "keyQuote": "Please add ActivityCompletionClient support in TestActivityEnvironment",
+  "number": 460,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:19:41.494Z"
+}

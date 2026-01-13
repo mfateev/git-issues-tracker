@@ -1,0 +1,34 @@
+{
+  "summary": "User reports that calling CancelWorkflow does not cancel currently executing activities in a workflow. Activities continue to run even after workflow cancellation is requested, and the user seeks a way to properly cancel all running workflow tasks.",
+  "category": "question",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "CancelWorkflow",
+    "RequestCancelWorkflowExecution",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-executor",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "activity-lifecycle",
+    "workflow-shutdown",
+    "heartbeat",
+    "context-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably cancel running activities when canceling a workflow, causing unexpected continued execution of activity logic.",
+  "rootCause": "Activities need to be cancelled from within the workflow context rather than at the workflow level; activities only respond to cancellation if they perform heartbeats to check cancellation status.",
+  "proposedFix": "Use the context passed to ExecuteActivity to cancel individual activities from within the workflow; ensure activities perform heartbeats to detect cancellation signals.",
+  "workaround": "Cancel activities from within the workflow by passing a context with cancellation capability and ensure the activity implementation includes heartbeat calls to check for cancellation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Marked as question/guidance issue. The behavior is by design - workflow cancellation must be handled at the activity level within the workflow context, not externally.",
+  "related": [],
+  "keyQuote": "Cancel activity from within the workflow via the context that is used to start the activity. If the activity is already started, the activity needs to do heartbeat to be able to notice that it is cancelled.",
+  "number": 4507,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:40.623Z"
+}

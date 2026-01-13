@@ -1,0 +1,33 @@
+{
+  "summary": "Aggressive retry logic for resource exhausted errors amplifies server load and makes resource contention worse. The system should throttle or disable retries for resource exhausted errors to allow the server to stabilize.",
+  "category": "bug",
+  "subcategory": "retry-logic",
+  "apis": [],
+  "components": [
+    "client",
+    "server",
+    "history-service"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "resource-exhaustion",
+    "service-busy",
+    "load-amplification",
+    "stability"
+  ],
+  "severity": "high",
+  "userImpact": "Aggressive retries during resource exhaustion events worsen server overload and delay system recovery.",
+  "rootCause": "Retry mechanisms don't account for resource exhausted errors, causing exponential load amplification during periods of high resource contention.",
+  "proposedFix": "Slow down or stop retrying resource exhausted errors to allow the system to stabilize naturally.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed through PR #3069 which implements more intelligent retry handling for resource exhausted errors.",
+  "related": [
+    3069
+  ],
+  "keyQuote": "When there's resource exhausted error, the retry between client/server and within history service is too aggressive. This amplifies the load on the server and often makes the situation worse.",
+  "number": 3023,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:39.980Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Memory usage in TypeScript SDK v1.9.0 grows during load testing (120MB to 300MB) and doesn't decrease after 5-10 minutes. Investigation suggests OperatorSubscriber instances (43,890 found) may be accumulating in the workflow cache without proper cleanup.",
+  "category": "bug",
+  "subcategory": "memory-management",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "workflow-cache",
+    "OperatorSubscriber"
+  ],
+  "concepts": [
+    "memory-leak",
+    "garbage-collection",
+    "workflow-caching",
+    "heap-utilization",
+    "load-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Workers experience significant memory growth under load, reaching 300MB+ and failing to reclaim memory, impacting production deployments on Kubernetes nodes.",
+  "rootCause": "Unclear from discussion, but suspected to involve OperatorSubscriber instances accumulating in the workflow cache; maintainer requests reproduction code and heap snapshot analysis.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed by maintainer after author failed to respond to diagnostic requests (provide heap snapshot, workflow count, maxCachedWorkflows setting, or reproduction code).",
+  "related": [],
+  "keyQuote": "Your screenshot indicates 43'890 instances of `OperatorSubscriber`. That's certainly a lot, yet could still be legitimate, depending on the number of cached Workflows",
+  "number": 1541,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:08.028Z"
+}

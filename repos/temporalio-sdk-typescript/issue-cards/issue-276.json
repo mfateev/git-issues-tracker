@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add validation in createChildWorkflowHandle to ensure the child workflow is registered and exported, with the workflow function name matching the export name. This helps catch configuration errors early with better error messages.",
+  "category": "feature",
+  "subcategory": "child-workflow",
+  "apis": [
+    "createChildWorkflowHandle"
+  ],
+  "components": [
+    "workflow-handle",
+    "child-workflow",
+    "registration"
+  ],
+  "concepts": [
+    "validation",
+    "error-message",
+    "registration",
+    "workflow-export",
+    "configuration",
+    "task-queue"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get confusing errors when they mistakenly create child workflow handles for unregistered workflows, making debugging difficult.",
+  "rootCause": null,
+  "proposedFix": "Add a check in createChildWorkflowHandle that validates the workflow is registered (exported) and verify that the function name matches the export name, with validation scoped to the same Worker/task queue.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with validation added to createChildWorkflowHandle for registered workflows on the same Worker.",
+  "related": [],
+  "keyQuote": "Add a check in createChildWorkflowHandle that it gets a registered workflow (e.g. exported) and verify that the function name matches the export name.",
+  "number": 276,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:23.410Z"
+}

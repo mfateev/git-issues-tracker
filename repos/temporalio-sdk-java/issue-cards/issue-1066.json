@@ -1,0 +1,30 @@
+{
+  "summary": "When a workflow is killed by the Deadlock Detector, it throws IllegalStateException instead of a proper Error, which can be caught by user code and cause side effects. The SDK should throw DestroyWorkflowThreadError or similar to properly terminate the workflow thread.",
+  "category": "bug",
+  "subcategory": "deadlock-detection",
+  "apis": [],
+  "components": [
+    "deadlock-detector",
+    "workflow-thread",
+    "event-loop"
+  ],
+  "concepts": [
+    "deadlock",
+    "thread-termination",
+    "exception-handling",
+    "determinism",
+    "control-thread"
+  ],
+  "severity": "high",
+  "userImpact": "Users may catch IllegalStateException in their workflow code and execute unintended side effects when deadlock detection kills the workflow.",
+  "rootCause": "Deadlock Detector raises PotentialDeadlockException in control thread, but workflow thread receives IllegalStateException instead of a proper Error that prevents catchable exceptions.",
+  "proposedFix": "Throw DestroyWorkflowThreadError or similar Error type instead of IllegalStateException when workflow is killed by Deadlock Detector.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SDK was updated to throw proper Error type instead of IllegalStateException when workflow thread is destroyed by deadlock detection.",
+  "related": [],
+  "keyQuote": "Temporal SDK should throw DestroyWorkflowThreadError or some other kind of Error in this situation that will lead to the killing of the workflow thread.",
+  "number": 1066,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:03:42.601Z"
+}

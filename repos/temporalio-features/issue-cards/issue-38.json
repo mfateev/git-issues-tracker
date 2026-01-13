@@ -1,0 +1,31 @@
+{
+  "summary": "Three vulnerabilities detected in Apache Thrift 0.10.0 transitive dependency (CVE-2019-0205, CVE-2019-0210, CVE-2018-11798) with CVSS scores up to 7.5. Issue was auto-closed by dependency scanner after vulnerability was addressed.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "ringpop-go",
+    "thrift-dependency",
+    "dependency-management"
+  ],
+  "concepts": [
+    "vulnerability",
+    "security",
+    "dependency-upgrade",
+    "transitive-dependency",
+    "cvss-score",
+    "denial-of-service"
+  ],
+  "severity": "high",
+  "userImpact": "Users could experience denial-of-service attacks through vulnerable transitive dependencies in Thrift library.",
+  "rootCause": "Apache Thrift 0.10.0 contains three security vulnerabilities: endless loop in protocol handling (CVE-2019-0205), panic in JSON protocol with invalid input (CVE-2019-0210), and path traversal in Node.js web server (CVE-2018-11798).",
+  "proposedFix": "Upgrade Apache Thrift from 0.10.0 to 0.13.0 or higher to address all three vulnerabilities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Auto-closed by WhiteSource after vulnerable library was marked as ignored or removed from inventory.",
+  "related": [],
+  "keyQuote": "found in base branch: main. Publish Date: 2019-10-29. CVSS 3 Score Details (7.5) - Availability Impact: High",
+  "number": 38,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:59.593Z"
+}

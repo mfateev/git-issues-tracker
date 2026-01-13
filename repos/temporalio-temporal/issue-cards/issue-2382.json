@@ -1,0 +1,31 @@
+{
+  "summary": "Request to make TokenKeyProvider more flexible by passing the JWT token to GetKey() method, enabling dynamic key fetching based on token claims (like issuer). This allows providers to handle multi-tenant scenarios where JWK URLs are issuer-specific without prefetching all keys.",
+  "category": "feature",
+  "subcategory": "jwt-authentication",
+  "apis": [],
+  "components": [
+    "authorization",
+    "token-validation",
+    "jwt-handler"
+  ],
+  "concepts": [
+    "jwt-token",
+    "issuer",
+    "key-provider",
+    "dynamic-lookup",
+    "multi-tenant",
+    "openid-connect"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with dynamic JWT issuers (e.g., multi-tenant SaaS services) currently cannot implement custom TokenKeyProviders that fetch keys based on token issuer, forcing them to prefetch keys for all possible issuers.",
+  "rootCause": "Current TokenKeyProvider interface's GetKey(alg, kid) signature lacks access to token context (like issuer claim), preventing dynamic JWK URL resolution based on token metadata.",
+  "proposedFix": "Create a new RawTokenKeyProvider interface with GetKey(token *jwt.Token) signature, and add NewDefaultJWTClaimMapperWithRawKeyProvider() to support both interfaces without breaking changes.",
+  "workaround": "Users can implement custom token parsing that calls their key provider with full token context before passing to validation, but this breaks the standard flow.",
+  "resolution": "fixed",
+  "resolutionDetails": "Proposal accepted to create a separate RawTokenKeyProvider interface alongside existing TokenKeyProvider to support both use cases without breaking changes.",
+  "related": [],
+  "keyQuote": "It's impossible to prefetch pubkey, issuer like `*.example.com` is all valid issuer, they point to different keycloak like service.",
+  "number": 2382,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:42.592Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to add information about unresolved commands to workflow task completions, allowing users to understand why a workflow is waiting or stuck by recording counts of executing local activities, signals, timers, and other awaitable items.",
+  "category": "feature",
+  "subcategory": "workflow-task-completion",
+  "apis": [
+    "RespondWorkflowTaskCompletedRequest",
+    "DescribeWorkflowExecutionResponse",
+    "CompletedWorkflowTaskInfo",
+    "PendingWorkflowTaskInfo"
+  ],
+  "components": [
+    "workflow-task-completion",
+    "history-inspection",
+    "workflow-debugging",
+    "api-design"
+  ],
+  "concepts": [
+    "workflow-progress-tracking",
+    "command-resolution",
+    "activity-awaiting",
+    "signal-awaiting",
+    "timer-awaiting",
+    "workflow-stuck-detection",
+    "debugging-visibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users will be able to diagnose why workflows are stuck or waiting by examining what unresolved commands and awaitable items are blocking progress.",
+  "rootCause": null,
+  "proposedFix": "Add a new field to workflow task completions (generic map or dedicated proto CompletedWorkflowTaskInfo) to record counts of executing local activities and awaited items (signals, activities, timers, children), exposed via DescribeWorkflowExecutionResponse.last_completed_workflow_task.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This will allow us to understand why a workflow completed a task with no commands. If it's not waiting on anything, then by definition the workflow is now stuck.",
+  "number": 65,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:15.861Z"
+}

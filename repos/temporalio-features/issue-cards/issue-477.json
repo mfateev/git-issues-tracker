@@ -1,0 +1,37 @@
+{
+  "summary": "Add namespace validation on worker startup by calling describe namespace to ensure the user has access to the namespace and it exists. This is a consistency enhancement across SDKs, with Go already implemented and Java needing completion.",
+  "category": "feature",
+  "subcategory": "worker-initialization",
+  "apis": [
+    "DescribeNamespace"
+  ],
+  "components": [
+    "worker",
+    "initialization",
+    "namespace-validation",
+    "client"
+  ],
+  "concepts": [
+    "namespace-access",
+    "validation",
+    "startup-check",
+    "error-handling",
+    "configuration",
+    "authentication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will get early feedback if they lack namespace access or the namespace doesn't exist, preventing silent failures later.",
+  "rootCause": null,
+  "proposedFix": "Call describe namespace API during worker initialization",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2060,
+    738
+  ],
+  "keyQuote": "Worker start should call describe namespace on start just to make sure user has access to the namespace and that it exists.",
+  "number": 477,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:04:10.652Z"
+}

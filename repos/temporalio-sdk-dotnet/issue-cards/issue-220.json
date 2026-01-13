@@ -1,0 +1,35 @@
+{
+  "summary": "Documentation needed for Temporalio.Extensions.Hosting about a caveat where host.Run() (synchronous) doesn't poll for workers while host.RunAsync() (asynchronous) does, and about a known issue from dotnet/runtime that confuses users.",
+  "category": "docs",
+  "subcategory": "hosting-extensions",
+  "apis": [
+    "TemporalClient.ConnectAsync",
+    "StartWorkflowAsync",
+    "AddHostedTemporalWorker",
+    "ExecuteAsync"
+  ],
+  "components": [
+    "hosting-extensions",
+    "worker",
+    "client"
+  ],
+  "concepts": [
+    "async-sync-behavior",
+    "host-builder",
+    "polling",
+    "dependency-injection",
+    "runtime-caveat"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused when using host.Run() with the host builder pattern because workers don't poll, requiring them to discover that host.RunAsync() is needed instead.",
+  "rootCause": "Difference in behavior between synchronous host.Run() and asynchronous host.RunAsync() methods, compounded by a known dotnet/runtime issue",
+  "proposedFix": "Document in Temporalio.Extensions.Hosting README the caveat about using host.RunAsync() instead of host.Run(), and reference the known dotnet/runtime issue #36063",
+  "workaround": "Use host.RunAsync() instead of host.Run() when using the host builder pattern with Temporal workers",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was added to clarify the async/sync behavior difference and the dotnet/runtime caveat",
+  "related": [],
+  "keyQuote": "Change next line to \"await host.RunAsync();\" and it will start working",
+  "number": 220,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:14:16.797Z"
+}

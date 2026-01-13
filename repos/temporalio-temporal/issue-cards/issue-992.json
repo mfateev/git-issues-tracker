@@ -1,0 +1,33 @@
+{
+  "summary": "GetLastCompletionResult returns null when a cron workflow times out or fails in the previous run, instead of flowing the result from the actual last completion. The completion result should be preserved across cron reruns regardless of timeout/failure status.",
+  "category": "bug",
+  "subcategory": "cron-workflow",
+  "apis": [
+    "GetLastCompletionResult"
+  ],
+  "components": [
+    "cron-workflow",
+    "workflow-execution",
+    "state-management"
+  ],
+  "concepts": [
+    "cron-job",
+    "timeout",
+    "failure-handling",
+    "state-preservation",
+    "workflow-retry",
+    "completion-result"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on GetLastCompletionResult for cron workflows lose access to completion data when the previous run times out or fails, breaking business logic that depends on this state.",
+  "rootCause": "GetLastCompletionResult does not properly flow results from the last actual completion when the immediately preceding run terminated due to timeout or failure.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved to properly flow LastCompletionResult from the most recent successful completion in cron workflows, even when intermediate runs timeout or fail.",
+  "related": [],
+  "keyQuote": "Flow LastCompletionResult from previous run if the cron workflow times out",
+  "number": 992,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:31:17.976Z"
+}

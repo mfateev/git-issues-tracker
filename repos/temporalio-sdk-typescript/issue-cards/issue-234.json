@@ -1,0 +1,37 @@
+{
+  "summary": "Load tests fail intermittently due to DEADLINE EXCEEDED errors on query requests in the TypeScript SDK. Investigation revealed the root cause was a server-side query timeout issue, which was fixed upstream. Test stability was also improved by tuning down cached workflow limits.",
+  "category": "bug",
+  "subcategory": "testing",
+  "apis": [
+    "WorkflowClient"
+  ],
+  "components": [
+    "query-handler",
+    "grpc-client",
+    "test-framework",
+    "workflow-client"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "query",
+    "grpc",
+    "sticky-workers",
+    "buildkite",
+    "load-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Users running load tests experience intermittent failures due to query timeouts, making CI/CD pipelines unreliable.",
+  "rootCause": "Server-side bug in query implementation causing timeouts on sticky worker queries, fixed in temporalio/temporal#2033",
+  "proposedFix": "Tune down the number of cached workflows to stabilize builds; server-side fix applied upstream",
+  "workaround": "Retrying queries was attempted but proved unreliable as it could also result in timeouts",
+  "resolution": "fixed",
+  "resolutionDetails": "Root cause fixed in upstream Temporal server (PR #2033). Stability improved by tuning cached workflow limits.",
+  "related": [
+    2033
+  ],
+  "keyQuote": "The occasional DEADLINE EXCEEDED on query requests is a server issue which was fixed here: https://github.com/temporalio/temporal/pull/2033",
+  "number": 234,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:20.570Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Dependency security vulnerability in jackson-databind (CVE-2020-36518) affecting temporal-sdk-1.14.0.jar, allowing denial of service through nested object stack overflow.",
+  "category": "bug",
+  "subcategory": "dependency-vulnerability",
+  "apis": [],
+  "components": [
+    "jackson-databind",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "denial-of-service",
+    "dependency",
+    "stack-overflow",
+    "jackson",
+    "deserialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users of temporal-sdk-1.14.0 are exposed to a denial of service vulnerability through malicious input with deeply nested objects.",
+  "rootCause": "jackson-databind versions up to 2.13.2 are vulnerable to stack overflow exceptions when processing deeply nested objects during deserialization.",
+  "proposedFix": "Upgrade jackson-databind to version 2.12.6.1 or 2.13.2.1",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or no longer part of the Mend inventory.",
+  "related": [],
+  "keyQuote": "jackson-databind before 2.13.0 allows a Java StackOverflow exception and denial of service via a large depth of nested objects.",
+  "number": 108,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:54.254Z"
+}

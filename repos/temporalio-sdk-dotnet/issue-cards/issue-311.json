@@ -1,0 +1,30 @@
+{
+  "summary": "Update the default schedule policy timeout value from the current value to 1 year to match the server default, as specified in the Temporal API changes. The team decided to update the client-side default value rather than making it fully optional.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [],
+  "components": [
+    "SchedulePolicy",
+    "schedules-client"
+  ],
+  "concepts": [
+    "default-values",
+    "schedule-timeout",
+    "api-alignment",
+    "server-defaults"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have a corrected default schedule timeout value that matches server expectations, ensuring consistent behavior.",
+  "rootCause": null,
+  "proposedFix": "Change SchedulePolicy.cs default timeout value to 1 year to match server default",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Default value was updated to match the server default",
+  "related": [
+    308
+  ],
+  "keyQuote": "For now it was decided to just change this default value to match server default",
+  "number": 311,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:21:48.161Z"
+}

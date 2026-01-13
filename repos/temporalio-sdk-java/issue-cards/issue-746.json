@@ -1,0 +1,35 @@
+{
+  "summary": "ActivityStubs created outside of a workflow context (e.g., via DI frameworks as singletons) leak between workflow instances, causing cryptic event loop errors. The issue requests either better diagnostics to identify this misconfiguration or making ActivityStubs safely shareable across workflows.",
+  "category": "feature",
+  "subcategory": "activity-stubs",
+  "apis": [
+    "ActivityStub",
+    "LocalActivityStub"
+  ],
+  "components": [
+    "activity-stub",
+    "dependency-injection",
+    "workflow-context",
+    "event-loop"
+  ],
+  "concepts": [
+    "context-isolation",
+    "singleton-misuse",
+    "workflow-isolation",
+    "diagnostic-error-messages",
+    "stub-lifecycle",
+    "thread-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users employing dependency injection frameworks may accidentally create workflow-instance-agnostic activity stubs that fail with misleading event loop errors instead of clear diagnostics.",
+  "rootCause": "ActivityStubs are bound to a specific workflow context/event loop. When improperly configured as singletons in DI frameworks, they're reused across workflow instances, violating the context requirement and causing cryptic IllegalStateException errors.",
+  "proposedFix": "Either (1) detect when ActivityStubs are reused across workflow instances and provide clear diagnostic errors, or (2) refactor ActivityStubs to be workflow context-independent by making internal changes to safely share them.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if somebody uses Dependency Injection frameworks with Temporal it's very easy to misconfigure the wiring... We should detect or provide better protection or diagnostic if this happens",
+  "number": 746,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:38:51.586Z"
+}

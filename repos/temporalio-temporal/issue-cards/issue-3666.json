@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add a flag controlling when ParentClosePolicy applies: either on individual run completion or on entire workflow chain completion. Currently, keeping children alive during continue-as-new requires ABANDON policy, which prevents automatic child termination when parent is terminated.",
+  "category": "feature",
+  "subcategory": "parent-close-policy",
+  "apis": [
+    "ContinueAsNew",
+    "ParentClosePolicy"
+  ],
+  "components": [
+    "workflow-engine",
+    "parent-child-coordination",
+    "retention-handler"
+  ],
+  "concepts": [
+    "parent-close-policy",
+    "continue-as-new",
+    "workflow-chain",
+    "child-termination",
+    "retention"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot keep children running across a chain of parent continue-as-new calls while maintaining the ability to terminate all children when the final parent run is terminated.",
+  "rootCause": "ParentClosePolicy currently only applies at individual run completion, not at workflow chain completion level.",
+  "proposedFix": "Add a `parentClosePolicyScope` flag with options RUN or WORKFLOW_CHAIN that determines the scope of policy application. When set to WORKFLOW_CHAIN, terminating the last run terminates all children from the entire chain, respecting parent retention intervals.",
+  "workaround": "Set ParentClosePolicy to ABANDON to keep children running during continue-as-new, but this disables automatic child termination on parent termination.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add a flag that specifies if ParentClosePolicy applies when the chain is done or the run is done.",
+  "number": 3666,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:01.724Z"
+}

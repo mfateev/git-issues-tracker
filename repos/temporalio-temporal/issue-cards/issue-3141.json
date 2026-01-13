@@ -1,0 +1,32 @@
+{
+  "summary": "Enable workflow reset to any point even when there are pending ChildWorkflows. Currently, workflows with ChildWorkflows cannot be reset, making disaster recovery difficult and limiting the natural use of this feature.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "child-workflow",
+    "reset-handler"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "child-workflow",
+    "disaster-recovery",
+    "outage-recovery",
+    "workflow-state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely reset workflows containing ChildWorkflows during outages, limiting their ability to recover from failures and constraining how they can design workflows.",
+  "rootCause": null,
+  "proposedFix": "Mirror Cadence feature to support reset to any point with pending ChildWorkflows, as described in referenced Cadence issue #3914.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3914
+  ],
+  "keyQuote": "a workflow with childWorkflow can be not resettable which will be hard to recover from outage",
+  "number": 3141,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:40.410Z"
+}

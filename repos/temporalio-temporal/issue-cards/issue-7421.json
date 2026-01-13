@@ -1,0 +1,37 @@
+{
+  "summary": "Temporal must migrate from AWS SDK for Go v1 (ending support July 31, 2025) to AWS SDK for Go v2. This affects S3 archiver and Elasticsearch client components.",
+  "category": "feature",
+  "subcategory": "aws-sdk-migration",
+  "apis": [],
+  "components": [
+    "s3store",
+    "elasticsearch-client",
+    "archiver",
+    "persistence"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "migration",
+    "sdk-compatibility",
+    "end-of-support",
+    "maintenance-mode",
+    "aws-services"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal on AWS will be at risk when AWS SDK v1 reaches end-of-support, potentially causing service disruptions if not migrated beforehand.",
+  "rootCause": "AWS SDK for Go v1 entered maintenance mode July 31, 2024 and will reach end-of-support July 31, 2025, requiring migration to v2.",
+  "proposedFix": "Migrate to AWS SDK for Go v2 using the official migration guide; update /common/archiver/s3store and /common/persistence/visibility/store/elasticsearch/client packages.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4499,
+    7930,
+    7985,
+    8173
+  ],
+  "keyQuote": "This SDK entered maintenance mode on July 31, 2024 and will reach end-of-support on July 31, 2025.",
+  "number": 7421,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:30.520Z"
+}

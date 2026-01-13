@@ -1,0 +1,33 @@
+{
+  "summary": "Expose the ability for activities to specify the next retry delay on failure via the ApplicationFailureInfo field, making this feature available across all SDKs. This field was recently added to the API proto definition but needs SDK-level exposure.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ApplicationFailureInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "failure-handling",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "failure-handling",
+    "activity-execution",
+    "delay",
+    "backoff",
+    "API-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities can now provide custom retry delay strategies on failure, giving developers more fine-grained control over retry behavior.",
+  "rootCause": null,
+  "proposedFix": "Expose the nextRetryDelay field from ApplicationFailureInfo proto in the Java SDK API surface",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose the ApplicationFailureInfo nextRetryDelay field in the SDK",
+  "related": [],
+  "keyQuote": "We recently added the ability for an activity to specify the next retry delay on failure via a field on `ApplicationFailureInfo`.",
+  "number": 1983,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:05.532Z"
+}

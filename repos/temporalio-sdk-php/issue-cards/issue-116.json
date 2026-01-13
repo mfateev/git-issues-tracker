@@ -1,0 +1,32 @@
+{
+  "summary": "Stack trace from workflow failures shows incorrect line numbers pointing to the workflow method call site instead of the actual activity method invocation, and the correct stack trace is stored in an inaccessible originalStackTrace property rather than the standard trace property.",
+  "category": "bug",
+  "subcategory": "exception-handling",
+  "apis": [
+    "WorkflowStub"
+  ],
+  "components": [
+    "exception-handling",
+    "stack-trace",
+    "workflow-stub"
+  ],
+  "concepts": [
+    "stack-trace",
+    "error-reporting",
+    "exception-context",
+    "debugging",
+    "call-stack"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot properly debug workflow failures because stack traces point to incorrect locations and the useful information is hidden in a non-standard property.",
+  "rootCause": "PHP does not allow overwriting exception traces at runtime like Java does, so the SDK stores the correct trace in originalStackTrace instead of the standard trace property.",
+  "proposedFix": "Train exception renderers (like Sentry) to recognize and display the originalStackTrace property from Temporal exceptions.",
+  "workaround": "Manually inspect the originalStackTrace property when debugging workflow failures.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be expected behavior due to PHP language limitations. The correct trace is stored in originalStackTrace as a workaround since PHP doesn't allow overwriting exception traces.",
+  "related": [],
+  "keyQuote": "Unfortunately, it is not possible to overwrite the PHP exception trace as it possible in Java. So the only option was to include it into the originalStackTrace.",
+  "number": 116,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:33.178Z"
+}

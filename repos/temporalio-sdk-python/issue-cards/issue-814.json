@@ -1,0 +1,37 @@
+{
+  "summary": "Python client fails to connect to self-hosted Temporal server through a proxy with authorization headers, experiencing PermissionDenied and Unimplemented errors after 60 seconds of initial connection.",
+  "category": "bug",
+  "subcategory": "proxy-connection",
+  "apis": [
+    "Client.connect"
+  ],
+  "components": [
+    "client",
+    "bridge",
+    "network-connection",
+    "proxy"
+  ],
+  "concepts": [
+    "proxy",
+    "authorization",
+    "connection-timeout",
+    "gRPC",
+    "503-error",
+    "polling",
+    "authentication"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably establish connections to self-hosted Temporal servers through proxies with authorization headers, causing worker failures and service unavailability.",
+  "rootCause": "Proxy misconfiguration with improper timeout parameters (soft max connection age < 6m, hard max < 8m) causing connection interruption during long-lived gRPC calls that require 70+ seconds.",
+  "proposedFix": "Configure proxy with proper parameters: allow calls for more than 80s, soft max connection age of no less than 6m, and hard max connection age of 8m to align with Temporal server expectations.",
+  "workaround": "Reconfigure the proxy with appropriate timeout and connection age settings as per Temporal server requirements (70s, 5m, 6m10s).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    631
+  ],
+  "keyQuote": "proxy has to be setup with the proper parameters, specifically it should allow individual calls for more than 80s, have a soft max connection age of no less than 6m",
+  "number": 814,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:48.146Z"
+}

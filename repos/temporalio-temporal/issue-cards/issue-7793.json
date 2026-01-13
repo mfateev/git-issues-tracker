@@ -1,0 +1,32 @@
+{
+  "summary": "GetNextTime function enters an infinite loop when processing certain bad schedule specifications, causing high CPU usage on the Temporal frontend process. A nonsensical schedule that tries to run on Sundays while also skipping Sundays triggers this issue despite a previous fix attempt in PR #7389.",
+  "category": "bug",
+  "subcategory": "scheduling",
+  "apis": [],
+  "components": [
+    "GetNextTime",
+    "schedule-processor",
+    "frontend"
+  ],
+  "concepts": [
+    "infinite-loop",
+    "CPU-usage",
+    "schedule-validation",
+    "bad-input-handling",
+    "performance-degradation"
+  ],
+  "severity": "high",
+  "userImpact": "Users can accidentally create schedules that cause their Temporal frontend process to consume all available CPU and become unresponsive.",
+  "rootCause": "The schedule validation logic does not properly handle contradictory schedule specifications (e.g., intervals that skip all possible execution days), causing GetNextTime to loop infinitely.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified and a fix was implemented, though the initial fix in PR #7389 was incomplete and the issue persisted in version 1.27.2.",
+  "related": [
+    7389
+  ],
+  "keyQuote": "This is a nonsensical spec, as it's trying to run on Sundays and also skip Sundays, but I think Temporal should handle that in some way",
+  "number": 7793,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:09.549Z"
+}

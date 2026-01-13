@@ -1,0 +1,31 @@
+{
+  "summary": "GitHub Actions deprecated Node16-based actions in favor of Node20, which is incompatible with GLIBC 2.27 or earlier. This breaks .NET SDK CI workflows that rely on older Linux distros with GLIBC 2.24 for backward compatibility with customer environments.",
+  "category": "bug",
+  "subcategory": "ci-build",
+  "apis": [],
+  "components": [
+    "ci-workflows",
+    "docker-images",
+    "native-artifacts"
+  ],
+  "concepts": [
+    "compatibility",
+    "glibc",
+    "node-version",
+    "github-actions",
+    "linux-distros",
+    "ci-cd"
+  ],
+  "severity": "high",
+  "userImpact": "CI builds are failing and SDK releases may not work on customers' older Linux distributions that lack GLIBC 2.27 support.",
+  "rootCause": "GitHub Actions Runner agent now enforces Node20 for all actions, deprecating Node16 support. Node20 requires GLIBC 2.27+, breaking compatibility with older Linux distros previously supported via GLIBC 2.24 Docker images.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating CI configuration to use Node20-compatible approaches or alternative build methods.",
+  "related": [],
+  "keyQuote": "Node20 is incompatible with GLIBC 2.27 or earlier, this no longer works, and our CI workflows are now failing.",
+  "number": 373,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:16:41.653Z"
+}

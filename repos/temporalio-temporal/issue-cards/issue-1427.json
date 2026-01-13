@@ -1,0 +1,32 @@
+{
+  "summary": "Request to enhance the gRPC protocol to allow servers to track client language, version, and namespace information. This would enable operators to identify and manage client versions with known issues and restrict access if needed.",
+  "category": "feature",
+  "subcategory": "observability-client-tracking",
+  "apis": [],
+  "components": [
+    "frontend",
+    "gRPC-protocol",
+    "interceptor",
+    "client-metadata"
+  ],
+  "concepts": [
+    "client-tracking",
+    "version-management",
+    "namespace-isolation",
+    "client-identification",
+    "security",
+    "operator-tooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators gain the ability to track and manage clients by language and version across namespaces, enabling better control over problematic client versions.",
+  "rootCause": null,
+  "proposedFix": "Enhance the frontend gRPC protocol to collect and expose client metadata (language, version, IP, identifier) tracked per namespace.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The functionality was already implemented in the codebase via the sdk_version interceptor, making this a duplicate or already-resolved request.",
+  "related": [],
+  "keyQuote": "This information should be collected in such a way that it is relatively easy for operators to track down all users of version X of source language client Y",
+  "number": 1427,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:15:19.483Z"
+}

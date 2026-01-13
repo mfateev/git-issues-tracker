@@ -1,0 +1,34 @@
+{
+  "summary": "User requests better support for testing workflows that execute activities across multiple task queues. Current approach requires subclassing workflows in tests to override task queue names, and there's no straightforward way to run multiple workers in test scenarios.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "testing",
+    "worker",
+    "task-queue",
+    "activity-executor"
+  ],
+  "concepts": [
+    "multi-worker-testing",
+    "task-queue-routing",
+    "workflow-testing",
+    "test-isolation",
+    "activity-registration",
+    "async-context-manager"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with multi-queue activity routing must use workarounds like subclassing workflows or running workers in separate threads instead of using standard nested context managers.",
+  "rootCause": "The SDK's async context manager design doesn't support nested Worker instances, and the testing environment doesn't provide mechanisms to override task queue routing for simplified multi-worker scenarios.",
+  "proposedFix": "Suggested solutions include: adding WorkflowEnvironment.with_overridden_task_queue() to route all workflows to a single queue in tests, supporting nested Worker() context managers, or providing a WorkerGroup helper for managing multiple workers.",
+  "workaround": "Use workflow input parameters to drive task queue names instead of subclassing, or run additional workers in separate threads rather than nested contexts.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer indicated running multiple workers in tests is the recommended approach and works the same as production. The limitation is not a bug but a design choice; users can implement their own WorkerGroup helper if needed.",
+  "related": [],
+  "keyQuote": "Running multiple workers is no different in tests or production. The library code is intentionally the same.",
+  "number": 576,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:27.302Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow metadata resolution doesn't respect generic type parameters specified in interface hierarchies. When a workflow interface extends a generic base interface like TemporalWorkflow<T>, the SDK fails to resolve the concrete type parameter and uses Object instead for query results.",
+  "category": "bug",
+  "subcategory": "metadata-resolution",
+  "apis": [
+    "QueryMethod",
+    "WorkflowMethod",
+    "WorkflowInterface"
+  ],
+  "components": [
+    "metadata-resolver",
+    "type-reflection",
+    "data-converter"
+  ],
+  "concepts": [
+    "generics",
+    "type-erasure",
+    "reflection",
+    "inheritance",
+    "type-resolution",
+    "metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use generic type parameters in workflow interfaces, forcing data converters to treat query results as Object instead of the intended concrete type.",
+  "rootCause": "Java's generic type information is erased at runtime for dynamically created instances, but preserved in class hierarchies when a concrete class extends a generic base. The SDK's metadata resolution code doesn't leverage reflection to extract preserved generic type parameters from the inheritance chain.",
+  "proposedFix": "Implement reflection-based generic type parameter resolution for straightforward 1-1 unbounded cases. Reject or log warnings for complex scenarios (diamond inheritance, bounded wildcards, multiple levels of indirection) where resolution would be ambiguous.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was implemented to support generic type resolution in common cases.",
+  "related": [],
+  "keyQuote": "Java erases generic information for dynamically created instances. But Java do preserve information about generic typed for defined standalone classes.",
+  "number": 1106,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:06:23.366Z"
+}

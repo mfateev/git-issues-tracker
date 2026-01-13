@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for interceptors to the PHP SDK for context propagation, authorization, and instrumentation use cases, following patterns from other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [],
+  "components": [
+    "interceptor",
+    "context-propagation",
+    "authorization",
+    "instrumentation"
+  ],
+  "concepts": [
+    "interceptors",
+    "context-propagation",
+    "authorization",
+    "instrumentation",
+    "middleware",
+    "cross-cutting-concerns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement cross-cutting concerns like distributed tracing, authorization checks, and context propagation in PHP workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement interceptor pattern following reference implementations from other Temporal SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in version 2.7 release as indicated by comment from wolfy-j.",
+  "related": [],
+  "keyQuote": "Can use any of the other SDKs as reference. The main uses for interceptors are context propagation, authorization and instrumentation.",
+  "number": 225,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:23.685Z"
+}

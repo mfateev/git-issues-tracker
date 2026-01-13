@@ -1,0 +1,35 @@
+{
+  "summary": "WorkflowHistoryIterator throws DEADLINE_EXCEEDED during history retrieval, causing workflow execution failure instead of task retry. Investigation determined the root cause lies elsewhere (issue #1408) and the SDK behavior is actually correct when failWorkflowExceptionTypes is properly configured.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "WorkflowHistoryIterator",
+    "ReplayWorkflowRunTaskHandler",
+    "ReplayWorkflowTaskHandler",
+    "WorkflowWorker"
+  ],
+  "concepts": [
+    "deadline-exceeded",
+    "error-handling",
+    "workflow-task-retry",
+    "history-retrieval",
+    "gRPC-errors"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail permanently when gRPC deadline is exceeded during history retrieval, instead of allowing workers to retry and recover.",
+  "rootCause": "Issue #1408 - the actual root cause lies in a different part of the codebase; the SDK behavior is correct when failWorkflowExceptionTypes is properly configured",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Investigation determined the error handling is working as designed; the actual root cause is in issue #1408 with related fix in PR #1404",
+  "related": [
+    1242,
+    1408,
+    1404
+  ],
+  "keyQuote": "There is no code path that may lead to workflow execution failure on this Error if failWorkflowExceptionTypes is not set.",
+  "number": 1395,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:33:41.679Z"
+}

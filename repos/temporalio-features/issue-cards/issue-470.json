@@ -1,0 +1,34 @@
+{
+  "summary": "Add CI tests across SDKs to verify that dev-server and test-server processes are properly shut down when requested. Various reports indicate processes are not being killed on shutdown across different languages and OS/arch combinations.",
+  "category": "feature",
+  "subcategory": "test-infrastructure",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "test-server",
+    "subprocess-management",
+    "process-lifecycle"
+  ],
+  "concepts": [
+    "process-termination",
+    "cleanup",
+    "resource-management",
+    "ci-testing",
+    "cross-platform",
+    "shutdown-verification"
+  ],
+  "severity": "medium",
+  "userImpact": "Improper shutdown of dev/test servers can cause resource leaks, port binding issues, and test failures across SDKs on different operating systems.",
+  "rootCause": null,
+  "proposedFix": "Add CI tests for all SDKs with subprocess management to confirm that after shutdown the PID is gone.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    731
+  ],
+  "keyQuote": "Various reports in various languages and across different OS/arch combinations are reporting that the process is not killed upon shutdown.",
+  "number": 470,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:44.134Z"
+}

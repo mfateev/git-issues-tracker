@@ -1,0 +1,30 @@
+{
+  "summary": "Elasticsearch visibility API calls lack timeout configuration, using context.Background() instead of a timeout context. This can cause requests to hang indefinitely if the Elasticsearch service becomes unresponsive.",
+  "category": "bug",
+  "subcategory": "visibility-elasticsearch",
+  "apis": [],
+  "components": [
+    "visibility-store",
+    "elasticsearch-client",
+    "persistence"
+  ],
+  "concepts": [
+    "timeout",
+    "context",
+    "elasticsearch",
+    "visibility",
+    "hanging-requests"
+  ],
+  "severity": "high",
+  "userImpact": "Elasticsearch visibility queries can hang indefinitely without a timeout, potentially blocking workflow execution visibility operations.",
+  "rootCause": "ESVisibilityStore.SearchWithDSL() calls use context.Background() which has no timeout, allowing requests to block indefinitely",
+  "proposedFix": "Add timeout context to Elasticsearch API calls in visibility store operations",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Timeout context was added to Elasticsearch visibility API calls",
+  "related": [],
+  "keyQuote": "All visibility API calls to elastic search does not set any timeout",
+  "number": 581,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:16:47.446Z"
+}

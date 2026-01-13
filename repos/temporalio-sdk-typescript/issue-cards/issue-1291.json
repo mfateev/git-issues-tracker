@@ -1,0 +1,35 @@
+{
+  "summary": "Custom payload converter works for encoding but fails during activity resolution with 'Unknown encoding' error. Issue stems from ESM bundling of the custom converter - the converter is passed correctly for initial workflow activation but fails when activities complete.",
+  "category": "bug",
+  "subcategory": "payload-converter",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "workflow-activator",
+    "activity-resolution",
+    "worker"
+  ],
+  "concepts": [
+    "custom-converter",
+    "bundling",
+    "ESM",
+    "CommonJS",
+    "encoding",
+    "serialization",
+    "activity-completion"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use custom payload converters with ESM bundling in TypeScript workers as activities fail to resolve with encoding errors.",
+  "rootCause": "Issue with how ESM TypeScript is transformed into CommonJS bundle for custom payload converters - the converter works for toPayload but fails for fromPayload during activity completion",
+  "proposedFix": "Provide guidelines or fix for properly bundling ESM payload converters to CommonJS format that works correctly in both encoding and decoding phases",
+  "workaround": "Pass a raw TS file directly to payloadConverterPath instead of a bundled version",
+  "resolution": "invalid",
+  "resolutionDetails": "Reporter determined the root cause was their own bundling configuration (ESM to CommonJS transformation), not an SDK bug. Related issue #1292 opened to track ESM converter support separately.",
+  "related": [
+    1292
+  ],
+  "keyQuote": "I think it is indeed an issue with how I transformed my ESM ts into a commonjs bundle, but it is weird that it works to create the payload and start the activity, but not when the activity completes.",
+  "number": 1291,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:36.220Z"
+}

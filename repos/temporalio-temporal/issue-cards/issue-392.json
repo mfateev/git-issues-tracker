@@ -1,0 +1,32 @@
+{
+  "summary": "The dryrun option in temporal-sql-tool misleads users by appearing to simulate schema changes without applying them, but actually executes the schema updates regardless. The feature was removed because it provided false confidence without meaningful protection.",
+  "category": "bug",
+  "subcategory": "schema-management",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "schema-setup",
+    "database-migration"
+  ],
+  "concepts": [
+    "dryrun",
+    "schema-migration",
+    "database-changes",
+    "tool-behavior",
+    "safety-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to safely preview schema changes with --dryrun are misled into thinking changes won't be applied, but the schema is actually modified, defeating the purpose of the dry run.",
+  "rootCause": "The dryrun functionality creates a temporary database and executes schema updates on it, but still applies the actual schema changes, making the dryrun option meaningless and confusing.",
+  "proposedFix": "Remove the dryrun functionality entirely since it does not provide the intended safety mechanism.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Dry run ability was removed entirely because the functionality did not provide meaningful protection and only allowed users to inadvertently cause problems.",
+  "related": [
+    1300
+  ],
+  "keyQuote": "dry run ability is removed, since dry run functionality does not really do anything other than letting user to shoot them in the foot.",
+  "number": 392,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:54:00.719Z"
+}

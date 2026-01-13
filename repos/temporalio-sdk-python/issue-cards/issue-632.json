@@ -1,0 +1,32 @@
+{
+  "summary": "OpenTelemetry export fails when using TLS connections. This is a feature request to update the Python SDK to match a fix implemented in sdk-core.",
+  "category": "bug",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "telemetry",
+    "tls",
+    "core-update"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "export",
+    "tls",
+    "observability",
+    "telemetry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot export OpenTelemetry data when their Temporal connection uses TLS, limiting observability capabilities.",
+  "rootCause": "OpenTelemetry export implementation does not properly handle TLS connections",
+  "proposedFix": "Update Python SDK core to match the fix implemented in sdk-core v1.7.1",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed with the 1.7.1 release of the Python SDK",
+  "related": [
+    801
+  ],
+  "keyQuote": "This should now be fixed with the 1.7.1 release",
+  "number": 632,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:02.063Z"
+}

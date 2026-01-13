@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for gRPC binary metadata headers in the Ruby SDK by requiring ASCII-based string values for `-bin` keys and setting them as Tonic metadata binary values.",
+  "category": "feature",
+  "subcategory": "grpc-metadata",
+  "apis": [],
+  "components": [
+    "grpc",
+    "metadata",
+    "tonic"
+  ],
+  "concepts": [
+    "binary-metadata",
+    "grpc-headers",
+    "interoperability",
+    "protocol-compliance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need gRPC binary metadata header support to ensure compatibility with Temporal services and cross-language communication patterns.",
+  "rootCause": null,
+  "proposedFix": "Require ASCII-based string values for `-bin` keys and set those as Tonic metadata binary values",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented gRPC binary metadata header support by handling ASCII-based string values for `-bin` keys as Tonic metadata binary values",
+  "related": [
+    671
+  ],
+  "keyQuote": "Probably just need to require ASCII-based string values for `-bin` keys and set those as Tonic metadata binary values",
+  "number": 329,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:10.287Z"
+}

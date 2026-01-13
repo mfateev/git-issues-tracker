@@ -1,0 +1,35 @@
+{
+  "summary": "Request to add a metadata field to commands and history events for attaching additional troubleshooting and diagramming information, such as thread IDs. After discussion, this evolved into a user metadata system with well-known enumerated keys and encryptable payload values.",
+  "category": "feature",
+  "subcategory": "metadata-tracking",
+  "apis": [],
+  "components": [
+    "command",
+    "history-event",
+    "api"
+  ],
+  "concepts": [
+    "metadata",
+    "troubleshooting",
+    "diagramming",
+    "event-tracking",
+    "user-defined-data",
+    "encryptable-payload"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now attach custom metadata to workflow commands and events for better observability, troubleshooting, and UI integration.",
+  "rootCause": null,
+  "proposedFix": "Add WorkflowEventMetadata with enumerated well-known keys and encryptable payload values to Command and HistoryEvent protobuf messages.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as user metadata feature with well-known enumerated keys and payload values. API PR #371 provided the implementation approach.",
+  "related": [
+    486,
+    371,
+    259
+  ],
+  "keyQuote": "Add a metadata field to the Command protobuf. Then SDKs would be able to add use case specific information to commands.",
+  "number": 141,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:37.914Z"
+}

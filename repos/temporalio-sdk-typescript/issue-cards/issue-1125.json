@@ -1,0 +1,30 @@
+{
+  "summary": "TypeScript compilation fails in projects created with `npx @temporalio/create` on Node 20 because the `es2023` library definitions are not available in the pinned TypeScript 4.x version. The create tool updates `@tsconfig/node16` to `@tsconfig/node20`, which references `es2023`, but the project still uses TypeScript 4.x which doesn't support that library.",
+  "category": "bug",
+  "subcategory": "project-setup",
+  "apis": [],
+  "components": [
+    "create-project",
+    "tsconfig",
+    "typescript-compiler"
+  ],
+  "concepts": [
+    "typescript-version",
+    "node-compatibility",
+    "library-definitions",
+    "build-configuration",
+    "dependency-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "New users following the official documentation cannot successfully create and run projects on Node 20 without manual fixes.",
+  "rootCause": "The create-project tool automatically updates @tsconfig/nodeXX based on the user's Node version, but the pinned TypeScript version (4.x) doesn't support the es2023 library definitions that node20 tsconfig requires.",
+  "proposedFix": "Either bump TypeScript version to 5.x in all samples, or stop automatically updating @tsconfig/nodeXX and use a version-agnostic config instead.",
+  "workaround": "Manually downgrade @tsconfig/node20 to @tsconfig/node16 or upgrade TypeScript to 5.x.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was fixed by updating TypeScript and related dependencies to version 5.x.",
+  "related": [],
+  "keyQuote": "TypeScript compilation fails in an unmodified new project, based on the `child-workflow` sample, because the `es2023` library definitions are not included with the version of TypeScript used in the sample project",
+  "number": 1125,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:41.368Z"
+}

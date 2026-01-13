@@ -1,0 +1,32 @@
+{
+  "summary": "Child workflow fails to retry when retryPolicy is set but retryPolicy.maximumAttempts is 0 or not set. The server needs intelligent defaults for child workflow retry options instead of relying on explicit client-side settings.",
+  "category": "bug",
+  "subcategory": "child-workflow-retry",
+  "apis": [
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "child-workflow",
+    "retry-policy",
+    "server-defaults"
+  ],
+  "concepts": [
+    "retry",
+    "maximumAttempts",
+    "backoff",
+    "defaults",
+    "child-workflow"
+  ],
+  "severity": "high",
+  "userImpact": "Child workflows fail permanently instead of retrying when retry policy is configured but maximumAttempts is 0, requiring workarounds by setting explicit attempt counts.",
+  "rootCause": "Server does not apply intelligent defaults for retry policy fields when maximumAttempts is 0 or unset; client SDK defaults like BackoffCoefficient are not consistently applied.",
+  "proposedFix": "Implement intelligent defaults for ChildWorkflowOptions on the server side; remove client SDK defaults like BackoffCoefficient=2 and rely on server settings instead.",
+  "workaround": "Explicitly set RetryPolicy.MaximumAttempts to a non-zero value (e.g., 5) to enable retries.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by implementing server-side intelligent defaults for retry policies in child workflows.",
+  "related": [],
+  "keyQuote": "We need to basically set intelligent defaults for ChildWorkflowOptions on the server.",
+  "number": 437,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:57:54.906Z"
+}

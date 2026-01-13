@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to implement environment configuration support in the PHP SDK, following the external client configuration proposal and features issue #441.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "configuration",
+    "environment"
+  ],
+  "concepts": [
+    "environment-configuration",
+    "external-client",
+    "sdk-standardization",
+    "configuration-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to configure Temporal clients through environment variables, improving deployment flexibility and consistency across SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement environment configuration following the external-client-configuration proposal for consistent cross-SDK behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support environment-based client configuration in PHP SDK.",
+  "related": [
+    441
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/441 and https://github.com/temporalio/proposals/blob/master/all-sdk/external-client-configuration.md",
+  "number": 628,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:46.854Z"
+}

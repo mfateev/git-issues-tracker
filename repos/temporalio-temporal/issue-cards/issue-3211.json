@@ -1,0 +1,32 @@
+{
+  "summary": "Admin API currently queries the database directly for history tasks instead of using the history service as the source of truth. This should be changed to query the history service, which may cache tasks in memory for better performance.",
+  "category": "feature",
+  "subcategory": "admin-api",
+  "apis": [],
+  "components": [
+    "admin-handler",
+    "history-service",
+    "frontend-service"
+  ],
+  "concepts": [
+    "caching",
+    "source-of-truth",
+    "api-design",
+    "history-queries",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users querying history tasks through the Admin API may not see up-to-date cached data that the history service maintains in memory.",
+  "rootCause": "Admin API queries the database directly instead of routing through the history service abstraction layer",
+  "proposedFix": "Refactor Admin API to query history tasks from the history service instead of querying the database directly",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #5426 which implemented the change to query history service",
+  "related": [
+    5426
+  ],
+  "keyQuote": "Admin API should query history tasks from source of truth, i.e. history service, instead of query DB directly",
+  "number": 3211,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:54.272Z"
+}

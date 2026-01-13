@@ -1,0 +1,35 @@
+{
+  "summary": "SDK-Java 1.22.3 broke the ability to query workflow executions after calling testEnv.sleep(). Queries fail with WorkflowQueryException after testEnv.sleep() in tests, though this functionality worked in v1.22.2.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "query",
+    "newUntypedWorkflowStub",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-stub",
+    "query-handler"
+  ],
+  "concepts": [
+    "test-execution",
+    "time-simulation",
+    "query-state",
+    "test-server-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot query workflow state in tests after advancing test time with testEnv.sleep(), breaking common test patterns that were working in previous versions.",
+  "rootCause": "Regression introduced in v1.22.3 related to changes in PR #1916; actual root cause was old temporal-test-server version being resolved instead of 1.22.3.",
+  "proposedFix": null,
+  "workaround": "Ensure temporal-test-server dependency is explicitly set to version 1.22.3 or later.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by confirming temporal-test-server version was up to date; the SDK change in 1.22.3 was not the actual cause, but an outdated test-server dependency.",
+  "related": [
+    1916
+  ],
+  "keyQuote": "It used to be possible to issue a testEnv.sleep(Duration) in a test and subsequently query the execution in v1.22.2 but this seems to have been broken in v1.22.3",
+  "number": 1931,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:05.777Z"
+}

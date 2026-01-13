@@ -1,0 +1,33 @@
+{
+  "summary": "CVE-2021-44716, a Go runtime vulnerability, is present in Temporal Server container images. This security vulnerability affects binaries compiled with vulnerable Go versions prior to v1.17.5.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "base-builder",
+    "container-image",
+    "temporal-server"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "golang",
+    "cve",
+    "container-image",
+    "dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal Server containers are exposed to the CVE-2021-44716 vulnerability until they upgrade to a version built with Go v1.17.5 or later.",
+  "rootCause": "Temporal Server binaries were compiled with a vulnerable version of Go (prior to v1.17.5) that contains CVE-2021-44716.",
+  "proposedFix": "Rebuild Temporal Server binaries and container images with Go v1.17.5 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by rebuilding container images with Go v1.17.5 or later, which patches the CVE-2021-44716 vulnerability.",
+  "related": [
+    2184
+  ],
+  "keyQuote": "Golang Vulnerability CVE-2021-44716 is present in Temporal binaries such as temporal-server. Apparently this is fixed in Golang v1.17.5.",
+  "number": 2451,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:55.986Z"
+}

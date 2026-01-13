@@ -1,0 +1,32 @@
+{
+  "summary": "Eliminate unnecessary deserialization and serialization cycles of workflow history events between frontend and SDKs. Currently, events are deserialized, then serialized, then deserialized again when passed to SDKs, which is inefficient and redundant.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [],
+  "components": [
+    "frontend",
+    "history-events",
+    "sdk-interface",
+    "serialization"
+  ],
+  "concepts": [
+    "performance-optimization",
+    "serialization",
+    "deserialization",
+    "workflow-history",
+    "data-pipeline",
+    "efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience improved performance and reduced CPU usage from eliminating redundant serialization/deserialization cycles in workflow history processing.",
+  "rootCause": "Current architecture unnecessarily cycles workflow history events through multiple serialization stages instead of passing raw history events directly.",
+  "proposedFix": "Use raw history events API to pass history directly from frontend to SDKs without intermediate serialization steps.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should remove the unnecessary deserialized then serialized logic within frontend",
+  "number": 1080,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:01:40.080Z"
+}

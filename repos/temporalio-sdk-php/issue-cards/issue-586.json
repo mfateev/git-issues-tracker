@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for the new Worker Versioning API in PHP SDK through annotations. This involves implementing workflow annotations similar to Python and .NET SDKs to enable the versioning features.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "workflow-annotations",
+    "versioning-api",
+    "worker"
+  ],
+  "concepts": [
+    "versioning",
+    "compatibility",
+    "workflow-evolution",
+    "annotations",
+    "api-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to manage workflow versioning and compatibility in PHP applications using standardized annotations.",
+  "rootCause": null,
+  "proposedFix": "Implement annotations following the design patterns specified in the cross-language design document, using examples from Python and .NET SDKs as reference.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with annotations support for the new Worker Versioning API in PHP SDK.",
+  "related": [
+    548
+  ],
+  "keyQuote": "There are some designs for our other languages here... In PHP, I fully expect that we should use annotations like in the Python and .NET examples",
+  "number": 586,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:04.969Z"
+}

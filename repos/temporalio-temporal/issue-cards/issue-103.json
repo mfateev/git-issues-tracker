@@ -1,0 +1,30 @@
+{
+  "summary": "Remove the 30-day maximum retention limit that was inherited from Cadence. This limit is problematic for external users with low event rates who don't use archival, as it forces them to configure retention within an arbitrary constraint.",
+  "category": "feature",
+  "subcategory": "retention-policy",
+  "apis": [],
+  "components": [
+    "retention",
+    "archival",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "retention-limit",
+    "data-archival",
+    "workflow-lifetime",
+    "event-rate",
+    "storage-policy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with low event rates and no archival setup are constrained by an arbitrary 30-day retention maximum, limiting their ability to keep workflows active longer.",
+  "rootCause": "The 30-day limit was carried over from Cadence and doesn't align with external user needs for workflows with infrequent events.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The limit was removed via PR #3148",
+  "related": [],
+  "keyQuote": "Obviously this is not what most external users want if they have low rate and no archival.",
+  "number": 103,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:18:19.238Z"
+}

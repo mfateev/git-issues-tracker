@@ -1,0 +1,30 @@
+{
+  "summary": "User deployed Temporal server behind an Istio gateway with TLS termination at the gateway but plain HTTP to the backend. The .NET SDK failed with an unknown certificate issuer error because the server certificate CA was not trusted by default.",
+  "category": "question",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "tls-client",
+    "transport-layer",
+    "connection-handling"
+  ],
+  "concepts": [
+    "tls",
+    "certificate-validation",
+    "gateway",
+    "authentication",
+    "ca-certificate"
+  ],
+  "severity": "low",
+  "userImpact": "Users deploying Temporal behind TLS-terminating gateways need to provide custom CA certificates to establish connections.",
+  "rootCause": "Server certificate was signed by a CA not in the system's default trusted root store, causing certificate validation to fail.",
+  "proposedFix": "Set TlsOptions.ServerRootCACert with the appropriate CA certificate that signed the gateway's TLS certificate.",
+  "workaround": "Download and provide the root certificate from your CA when creating TlsOptions.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved the issue by downloading the root CA certificate from DigiCert and setting it as ServerRootCACert in TlsOptions.",
+  "related": [],
+  "keyQuote": "downloading the root certficate and setting it as `ServerRootCACert` worked",
+  "number": 513,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:31:51.913Z"
+}

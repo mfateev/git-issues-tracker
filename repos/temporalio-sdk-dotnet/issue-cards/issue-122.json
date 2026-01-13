@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose history-related properties (`HistoryLength`, `HistorySize`, and `ShouldContinueAsNew`) to the Workflow class in the .NET SDK for better history management within workflows.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [
+    "Workflow"
+  ],
+  "components": [
+    "workflow",
+    "history-management"
+  ],
+  "concepts": [
+    "history-length",
+    "history-size",
+    "continue-as-new",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow developers can now monitor and react to history growth to optimize workflow execution and prevent history bloat.",
+  "rootCause": null,
+  "proposedFix": "Add HistoryLength, HistorySize, and ShouldContinueAsNew as properties on the Workflow class",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The requested properties were added to the Workflow class in the .NET SDK",
+  "related": [],
+  "keyQuote": "Need `HistoryLength`, `HistorySize`, and `ShouldContinueAsNew` properties on `Workflow`.",
+  "number": 122,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:06:29.575Z"
+}

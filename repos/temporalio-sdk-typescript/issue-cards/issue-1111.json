@@ -1,0 +1,30 @@
+{
+  "summary": "npm install fails in Docker when building with TypeScript SDK 1.7.3 due to missing prebuilt binaries for the core-bridge native module, requiring Rust/Cargo to compile from source.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "build-system",
+    "npm-packaging"
+  ],
+  "concepts": [
+    "native-modules",
+    "prebuilt-binaries",
+    "docker-build",
+    "dependency-installation",
+    "rust-compilation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build Docker containers with the TypeScript SDK 1.7.3 unless Rust/Cargo is installed in the image.",
+  "rootCause": "The 1.7.3 release was published without prebuilt binaries for the @temporalio/core-bridge native module, forcing npm install to attempt compilation with cargo.",
+  "proposedFix": null,
+  "workaround": "Lock the SDK version to 1.7.2 in package.json until 1.7.4 is released with prebuilt binaries.",
+  "resolution": "fixed",
+  "resolutionDetails": "Version 1.7.4 was published with prebuilt binaries included, resolving the compilation requirement.",
+  "related": [],
+  "keyQuote": "I just published 1.7.4 that includes the prebuilt binaries.",
+  "number": 1111,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:01.774Z"
+}

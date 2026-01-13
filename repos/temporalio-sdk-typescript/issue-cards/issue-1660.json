@@ -1,0 +1,32 @@
+{
+  "summary": "RESOURCE_EXHAUSTED error occurs when describing a schedule that has been running for a while, causing the schedule workflow's consistent query buffer to fill up. The issue appears to be server-side rather than SDK-related.",
+  "category": "bug",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ScheduleClient.describe"
+  ],
+  "components": [
+    "schedule-client",
+    "grpc-client",
+    "query-processing"
+  ],
+  "concepts": [
+    "resource-exhaustion",
+    "query-buffer",
+    "schedule-workflow",
+    "workflow-replay",
+    "cluster-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot describe schedules after they have been running for a period of time, preventing them from checking schedule status or making modifications.",
+  "rootCause": "The Temporal Server's consistent query buffer for the schedule workflow fills up when too many queries are pending, potentially due to underpowered worker nodes or a bug in schedule workflow replay logic triggered by the specific schedule definition.",
+  "proposedFix": "Upgrade Temporal server to the latest release; review cluster configuration and worker node capacity; examine the specific schedule definition that triggers the issue.",
+  "workaround": "Delete and recreate the problematic schedule to temporarily resolve the issue.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The error most probably indicates an issue with your Temporal Cluster configuration, or a bug in the Temporal Server. In any case, this is not a TS SDK side bug.",
+  "number": 1660,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:36.213Z"
+}

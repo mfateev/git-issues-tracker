@@ -1,0 +1,30 @@
+{
+  "summary": "The `long` package is incorrectly listed as a devDependency instead of a dependency in the TypeScript SDK, causing worker failures in production Docker containers that only install production dependencies with `yarn workspaces focus --production`.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "internal-workflow-common",
+    "package-management"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "production-deployment",
+    "yarn-pnp",
+    "protobufjs",
+    "package-layout"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy workers in production Docker containers using yarn with `--production` flag, resulting in runtime errors when workers try to execute workflows.",
+  "rootCause": "@protobufjs/inquire delegates loading of `long` to protobufjs/light but doesn't declare `long` as a dependency. Yarn 3 PnP and PNPM enforce strict dependency resolution, unlike traditional node_modules layout.",
+  "proposedFix": "Add `long` as a proper dependency (not devDependency) in the internal-workflow-common package.json, or configure Yarn with packageExtensions to declare the dependency in @protobufjs/inquire.",
+  "workaround": "Add the following to .yarnrc.yml file: packageExtensions: \"@protobufjs/inquire@*\": dependencies: long: \"5.2.0\"",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in a subsequent release by properly declaring the `long` dependency.",
+  "related": [],
+  "keyQuote": "The problem is that `protobufjs/light` delegates loading of `long` to the `@protobufjs/inquire` package... Yarn 3's PnP is essentially the strictest of all.",
+  "number": 810,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:13:11.184Z"
+}

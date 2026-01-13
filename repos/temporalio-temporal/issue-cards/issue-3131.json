@@ -1,0 +1,32 @@
+{
+  "summary": "Spike test scenario on AWS RDS PostgreSQL causes database corruption, resulting in 'context deadline exceeded' errors that persist until the database is destroyed and rebuilt. After investigation, the issue was traced to Kubernetes infrastructure configuration rather than database corruption.",
+  "category": "bug",
+  "subcategory": "testing-infrastructure",
+  "apis": [],
+  "components": [
+    "database",
+    "history-service",
+    "worker",
+    "kubernetes"
+  ],
+  "concepts": [
+    "timeout",
+    "spike-testing",
+    "database-stability",
+    "infrastructure",
+    "resource-exhaustion",
+    "connection-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users running benchmark/spike tests on AWS RDS PostgreSQL encounter persistent database failures requiring database recreation.",
+  "rootCause": "Kubernetes EKS Fargate profile, CNI plugin configuration, and node capacity settings caused resource exhaustion and inter-node communication failures rather than actual database corruption.",
+  "proposedFix": "Remove EKS Fargate profile, adjust CNI plugin configuration, change node capacity type to 'on-demand', and update security profile to allow traffic between nodes.",
+  "workaround": "Destroy and rebuild the database to recover from the error state.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was determined to be infrastructure/Kubernetes configuration problem, not database corruption. Resolved by adjusting cluster configuration: removing Fargate profile, updating CNI plugin, switching to on-demand nodes, and fixing security policies.",
+  "related": [],
+  "keyQuote": "this is not a database corruption issue but a problem with Kubernetes setup",
+  "number": 3131,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:15.980Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to provide additional metadata when starting or executing workflows, including whether a workflow actually started, its current status, whether it was eagerly started, and workflow links. Requires research into implementing mutable placeholders in start options across SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-start-execution",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-starter",
+    "start-options",
+    "result-metadata"
+  ],
+  "concepts": [
+    "workflow-metadata",
+    "start-conflict-policy",
+    "eager-start",
+    "workflow-status",
+    "workflow-links"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now access detailed information about workflow start operations, improving visibility into workflow creation outcomes and enabling better conflict handling.",
+  "rootCause": null,
+  "proposedFix": "Implement mutable placeholders in start options across SDKs to allow start calls to set additional details like actual start confirmation, status, eager start flag, and links.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users may need ability to see some details about workflow start/execute beyond just the normal result they get.",
+  "number": 657,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:18:21.001Z"
+}

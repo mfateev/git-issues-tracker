@@ -1,0 +1,34 @@
+{
+  "summary": "Add a `limit` parameter to `ReplayWorkflowsAsync` method to control the number of workflows replayed, improving performance when replaying large workflow histories. This aligns with similar functionality in the Python SDK.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "ReplayWorkflowsAsync"
+  ],
+  "components": [
+    "replay-engine",
+    "workflow-executor",
+    "async-enumerable"
+  ],
+  "concepts": [
+    "replay",
+    "limit",
+    "performance",
+    "batch-processing",
+    "workflow-history"
+  ],
+  "severity": "medium",
+  "userImpact": "Users replaying workflows will be able to control throughput and memory usage by limiting the number of concurrent or processed replays.",
+  "rootCause": null,
+  "proposedFix": "Add a `limit` parameter to both overloads of `ReplayWorkflowsAsync`, with the `IAsyncEnumerable` version being the primary use case.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to add limit parameter to ReplayWorkflowsAsync method for consistency with Python SDK.",
+  "related": [
+    610
+  ],
+  "keyQuote": "ReplayWorkflowsAsync should take limit parameter - same justification as Python SDK issue #610",
+  "number": 332,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:01:14.995Z"
+}

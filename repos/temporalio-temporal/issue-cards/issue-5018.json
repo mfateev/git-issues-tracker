@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support an Accepted stage on UpdateWorkflowExecution that allows the caller to continue without waiting for the update to complete, enabling long-running async operations initiated by updates.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "UpdateWorkflowExecution"
+  ],
+  "components": [
+    "workflow-execution",
+    "update-handler",
+    "client-api"
+  ],
+  "concepts": [
+    "asynchronous-operations",
+    "workflow-updates",
+    "accepted-stage",
+    "long-running-tasks",
+    "async-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now start long-running async operations via workflow updates without blocking on update completion.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in pull request #4309",
+  "related": [
+    4309
+  ],
+  "keyQuote": "you want the update to start long running async operations and you don't want to return from UpdateWorkflowExecution as soon as update is accepted",
+  "number": 5018,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:47.646Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "HTTP/2 vulnerability (CVE-2023-39325) in golang.org/x/net-v0.15.0 transitive dependency allowing malicious clients to cause excessive server resource consumption through rapid request creation and resets. CVSS score 7.5.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "http2-server",
+    "dependency-management",
+    "networking"
+  ],
+  "concepts": [
+    "http2",
+    "resource-exhaustion",
+    "denial-of-service",
+    "security-vulnerability",
+    "cvss",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal servers using vulnerable google.golang.org/api library are exposed to DoS attacks via malicious HTTP/2 clients that can exhaust server resources.",
+  "rootCause": "HTTP/2 servers did not properly bound the number of simultaneously executing handler goroutines, allowing attackers to reset in-progress requests and create new ones beyond the stream concurrency limit.",
+  "proposedFix": "Upgrade golang.org/x/net to v0.17.0 or later, or upgrade Go to version go1.20.10 or go1.21.3.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was either marked as ignored or is no longer part of the Mend inventory in the monitored branches.",
+  "related": [],
+  "keyQuote": "A malicious HTTP/2 client which rapidly creates requests and immediately resets them can cause excessive server resource consumption.",
+  "number": 5006,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:36.542Z"
+}

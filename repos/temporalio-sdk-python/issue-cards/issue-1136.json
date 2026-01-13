@@ -1,0 +1,37 @@
+{
+  "summary": "Langfuse tracing instrumentation fails to work with Temporal OpenAI Agents Plugin, preventing observable tracing of agent execution. User found partial workarounds using OpenAIAgentsInstrumentor but encounters context detachment errors.",
+  "category": "bug",
+  "subcategory": "openai-agents-plugin-tracing",
+  "apis": [],
+  "components": [
+    "openai-agents-plugin",
+    "tracing",
+    "instrumentation",
+    "worker",
+    "activities"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "langfuse",
+    "opentelemetry",
+    "context-propagation",
+    "instrumentation",
+    "agents"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly trace and monitor OpenAI agent execution within Temporal workflows, blocking observability for production multi-tenant applications.",
+  "rootCause": "Plugin-based agent execution creates context isolation issues with OpenTelemetry instrumentation; logfire's TracingProvider overrides conflict with Temporal's tracing setup, and context variables created in different contexts cause detachment failures.",
+  "proposedFix": null,
+  "workaround": "Use OpenAIAgentsInstrumentor().instrument() which provides traces but generates context detachment errors; or use logfire.instrument_openai() for partial tracing with null input/output.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1134,
+    441
+  ],
+  "keyQuote": "Tracing is absolutely critical for us, we can't avoid it. The specific tracing tool doesn't matter as long as it works reliably with Temporal.",
+  "number": 1136,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:51.455Z"
+}

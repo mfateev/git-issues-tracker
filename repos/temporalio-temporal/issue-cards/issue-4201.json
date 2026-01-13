@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to add native support for controlling workflow concurrency based on workflow ID. Users want to ensure only one workflow with the same ID runs at a time, with subsequent runs queued serially, to avoid the cumbersome workaround of using SignalWithStartWorkflow.",
+  "category": "feature",
+  "subcategory": "workflow-concurrency-control",
+  "apis": [
+    "StartWorkflow",
+    "ExecuteWorkflow",
+    "SignalWithStartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "task-queue",
+    "workflow-scheduler",
+    "client"
+  ],
+  "concepts": [
+    "concurrency-control",
+    "workflow-id-deduplication",
+    "serial-execution",
+    "queueing",
+    "workflow-history",
+    "traceability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must implement complex custom queueing logic using SignalWithStartWorkflow instead of having native concurrency control, limiting workflow history traceability.",
+  "rootCause": null,
+  "proposedFix": "Extend StartWorkflowOptions with a WorkflowIDConcurrencyPolicy parameter supporting UNLIMITED and SERIAL modes to control concurrency per workflow ID.",
+  "workaround": "Use SignalWithStartWorkflow with custom signal channel draining, though this extends history rather than creating separate workflow runs.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4386
+  ],
+  "keyQuote": "We want to ensure that only one workflow with the same ID runs at the same time and that subsequent workflow runs are queued with a concurrency of 1.",
+  "number": 4201,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:58.972Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User requests support for cron schedules faster than one minute per workflow, such as every 15 seconds. The standard cron format only supports minute-level precision.",
+  "category": "feature",
+  "subcategory": "workflow-scheduling",
+  "apis": [
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "workflow-scheduler",
+    "cron-scheduler"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "timing-precision",
+    "workflow-execution",
+    "scheduling"
+  ],
+  "severity": "low",
+  "userImpact": "Users who need sub-minute scheduling intervals for workflows are unable to achieve this with standard cron syntax.",
+  "rootCause": null,
+  "proposedFix": "Extend cron format to support seconds using 6 tokens instead of 5 (e.g., '*/15 * * * * *' for every 15 seconds)",
+  "workaround": "Use '@every 30s' syntax as an alternative to cron schedules",
+  "resolution": "fixed",
+  "resolutionDetails": "User discovered that the '@every' syntax already provides sub-minute scheduling capability as a workaround",
+  "related": [],
+  "keyQuote": "try using `@every 30s`",
+  "number": 1426,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:15:16.919Z"
+}

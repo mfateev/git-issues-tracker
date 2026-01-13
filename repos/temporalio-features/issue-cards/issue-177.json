@@ -1,0 +1,31 @@
+{
+  "summary": "Prevent SDK APIs that generate workflow commands from being invoked within workflow side effects, as this causes non-deterministic errors during workflow replay. Extended concern about restricting any operations that cause thread/coroutine yielding.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "side-effect-handler",
+    "command-generator"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-replay",
+    "side-effects",
+    "command-generation",
+    "thread-yielding",
+    "non-deterministic-errors"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience non-deterministic failures when workflow replay occurs if they accidentally invoke command-generating APIs within side effects.",
+  "rootCause": "APIs that generate commands or yield thread/coroutine control within side effects violate workflow determinism requirements and cause replay failures.",
+  "proposedFix": "Add validation to prevent invocation of command-generating APIs and operations that yield thread/coroutine control from within side effect blocks.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This leads to non-deterministic errors on internal wf replay. Feature request is to no allow any apis that generate commands to be invoked from inside side effects.",
+  "number": 177,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:16.912Z"
+}

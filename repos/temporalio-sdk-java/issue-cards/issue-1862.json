@@ -1,0 +1,31 @@
+{
+  "summary": "Request to implement support for the Build ID reachability API in the Java SDK, as documented in the Temporal workers documentation.",
+  "category": "feature",
+  "subcategory": "build-id-reachability",
+  "apis": [
+    "BuildIDReachability"
+  ],
+  "components": [
+    "worker",
+    "build-id-management"
+  ],
+  "concepts": [
+    "build-id",
+    "reachability",
+    "compatibility",
+    "versioning",
+    "worker-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Java SDK users cannot query which workflow/activity types are reachable from a given build ID, limiting deployment compatibility checking.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Build ID reachability API was implemented and integrated into the Java SDK.",
+  "related": [],
+  "keyQuote": "Build ID reachability API should be supported in the Java SDK",
+  "number": 1862,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:32.608Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow executeChild to accept and propagate headers through its options argument. Currently, headers are hardcoded to empty object, preventing context propagation from parent to child workflows when using executeChild, while code client workflows can propagate context via headers and interceptors.",
+  "category": "feature",
+  "subcategory": "workflow-child-execution",
+  "apis": [
+    "executeChild"
+  ],
+  "components": [
+    "workflow",
+    "child-workflow-execution",
+    "headers-propagation"
+  ],
+  "concepts": [
+    "context-propagation",
+    "interceptors",
+    "headers",
+    "workflow-composition",
+    "child-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot propagate context headers to child workflows started via executeChild, creating inconsistent behavior between code client-initiated and child workflow-initiated executions.",
+  "rootCause": "executeChild hardcodes headers to empty object instead of accepting them as a parameter in the options argument.",
+  "proposedFix": "Modify executeChild to accept headers in the opts argument, allowing headers to be passed through to child workflows.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "executeChild to take headers in the `opts` argument",
+  "number": 1700,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:55.866Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The CLI 'workflow run' command times out after 2 minutes while polling for workflow completion events, even though the workflow continues executing. The gRPC connection used for history event streaming has a default 2-minute timeout that causes the client to stop polling.",
+  "category": "bug",
+  "subcategory": "cli-workflow-timeout",
+  "apis": [],
+  "components": [
+    "cli",
+    "workflow-run-command",
+    "grpc-connection",
+    "history-event-polling"
+  ],
+  "concepts": [
+    "timeout",
+    "context-deadline",
+    "long-polling",
+    "grpc-connection",
+    "event-streaming",
+    "workflow-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot wait for workflow completion via CLI for long-running workflows without manually specifying a context timeout flag.",
+  "rootCause": "The gRPC connection listening to history events has a default 2-minute timeout; when it expires, the client stops making long poll requests even though the workflow continues executing.",
+  "proposedFix": "Either change the default context timeout behavior, improve the long polling mechanism to refresh before timeout, or provide better documentation/automatic handling of the --context_timeout flag.",
+  "workaround": "Add the --context_timeout flag when running workflows expected to take longer than 2 minutes.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue addressed through improved timeout handling and context management in the CLI workflow run command.",
+  "related": [],
+  "keyQuote": "The workflow execution continues regardless of the error, what happens is that the gRPC connection that listens to history events is getting timed out. By default it is set to 2 minutes.",
+  "number": 329,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:50:46.567Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to enable input validation before workflow start. Currently impossible to reject StartWorkflow calls with invalid input data; proposal is to implement worker queries for validation before workflow execution begins.",
+  "category": "feature",
+  "subcategory": "workflow-validation",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "service-api"
+  ],
+  "concepts": [
+    "input-validation",
+    "error-handling",
+    "synchronous-operations",
+    "workflow-initialization",
+    "worker-queries"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot validate workflow input before starting workflows, forcing them to accept invalid data or implement external validation mechanisms.",
+  "rootCause": "Workflow execution is asynchronous, preventing synchronous validation before StartWorkflow returns.",
+  "proposedFix": "Implement worker queries with a special built-in query for application-specific workflow input validation, allowing rejection of invalid start calls.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    390
+  ],
+  "keyQuote": "Ability to invoke user code that performs input argument validation before returning start call.",
+  "number": 804,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:45.634Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "OTEL trace and span context propagation is missing for `execute_update_with_start_workflow` and `start_update_with_start_workflow` methods in the Python SDK. The methods were not included in the `_TracingClientOutboundInterceptor` after PR #702, causing trace context to be lost when invoking workflow updates with start.",
+  "category": "bug",
+  "subcategory": "opentelemetry-instrumentation",
+  "apis": [
+    "execute_update_with_start_workflow",
+    "start_update_with_start_workflow",
+    "execute_activity"
+  ],
+  "components": [
+    "opentelemetry-contrib",
+    "client-interceptor",
+    "workflow-update"
+  ],
+  "concepts": [
+    "observability",
+    "trace-propagation",
+    "span-context",
+    "instrumentation",
+    "distributed-tracing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see complete distributed traces for workflow updates started with start_workflow because OTEL trace context is not propagated from the client through the update handler to activities.",
+  "rootCause": "The `_TracingClientOutboundInterceptor` class in `temporalio/contrib/opentelemetry.py` was not updated to include methods for `execute_update_with_start_workflow` and `start_update_with_start_workflow` after PR #702 added these methods.",
+  "proposedFix": "Add implementations of `execute_update_with_start_workflow` and `start_update_with_start_workflow` to `_TracingClientOutboundInterceptor` that wrap the calls with `_start_as_current_span()` to properly propagate trace context, similar to the pattern shown in the issue's patched version.",
+  "workaround": "Users can subclass `_TracingClientOutboundInterceptor` and `TracingInterceptor` to manually add span wrapping for these methods, as demonstrated in the minimal reproduction.",
+  "resolution": "fixed",
+  "resolutionDetails": "The missing tracing interceptor methods were added to handle the new update-with-start-workflow operations.",
+  "related": [
+    702
+  ],
+  "keyQuote": "start_update_with_start_workflow was not included in _TracingClientOutboundInterceptor after this PR. When I add it manually, propagation works as expected.",
+  "number": 1053,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:55.393Z"
+}

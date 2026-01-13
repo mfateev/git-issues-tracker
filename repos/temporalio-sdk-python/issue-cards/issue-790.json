@@ -1,0 +1,31 @@
+{
+  "summary": "Add warnings to help developers detect lazy imports from third-party libraries that execute in the workflow sandbox. Support both an opt-out warning for all imports and an opt-in strict mode that warns only when non-passed-through imports occur.",
+  "category": "feature",
+  "subcategory": "import-detection",
+  "apis": [],
+  "components": [
+    "sandbox",
+    "import-system",
+    "workflow-loader"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "import-detection",
+    "sandbox-isolation",
+    "third-party-libraries",
+    "memory-overhead",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers will receive warnings about unexpected runtime imports that consume memory and may indicate compatibility issues with third-party libraries.",
+  "rootCause": "Third-party libraries sometimes perform lazy imports at runtime, which execute in the workflow sandbox where users cannot control them, causing unexpected memory overhead.",
+  "proposedFix": "Implement opt-out warning for any imports after workflow file load, and opt-in strict mode with context manager `workflow.unsafe.imports_intentionally_reloaded()` to mark safe imports.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Sometimes third party libraries, even passed through ones, import things lazily at runtime which causes them to be imported in the sandbox which users can't see",
+  "number": 790,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:22:44.688Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to integrate migration tool functionality into tctl to simplify database schema setup and upgrades. Currently requires running separate migration tools from Docker or source, but embedding migration capabilities in tctl would provide a unified tool for all migration operations.",
+  "category": "feature",
+  "subcategory": "tooling-migration",
+  "apis": [],
+  "components": [
+    "tctl",
+    "migration-tool",
+    "schema-setup"
+  ],
+  "concepts": [
+    "database-migration",
+    "schema-upgrade",
+    "bootstrap",
+    "embedded-tools",
+    "binary-distribution"
+  ],
+  "severity": "low",
+  "userImpact": "Users must currently use multiple tools or enter Docker containers to perform database migrations, making production setup and upgrades cumbersome.",
+  "rootCause": null,
+  "proposedFix": "Integrate temporal-*-tool migration functions into tctl and embed migration SQL files and artifacts directly in the tctl binary.",
+  "workaround": "Run migration tools from Docker image or compile from source directly.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #2059",
+  "related": [
+    2059
+  ],
+  "keyQuote": "tctl can integrate temporal-*-tool's function, reduce the setup work. tctl contain all these tool's functions, one tool for all job.",
+  "number": 2383,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:54.565Z"
+}

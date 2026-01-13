@@ -1,0 +1,28 @@
+{
+  "summary": "Worker crashes with 'Invalid regular expression flags' error when using workflowBundle with inline code and sourceMap properties instead of codePath and sourceMapPath. The user was passing file paths instead of actual code content to the code property.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-bundle"
+  ],
+  "concepts": [
+    "bundle-configuration",
+    "code-loading",
+    "source-mapping",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to 1.0.0-rc.1 may encounter cryptic crashes if they misuse the workflowBundle API by passing file paths instead of actual code content.",
+  "rootCause": "User passed file paths to the 'code' property instead of the actual bundled code content, causing the worker to interpret the path string as invalid regex flags.",
+  "proposedFix": null,
+  "workaround": "Use codePath and sourceMapPath properties instead of inline code and sourceMap properties.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as invalid - the issue was user error/misunderstanding of the API documentation rather than a bug in the SDK.",
+  "related": [],
+  "keyQuote": "If I just change my workflowBundle bundle to use the codePath and sourceMapPath properties, the worker does not crash.",
+  "number": 758,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:10:31.765Z"
+}

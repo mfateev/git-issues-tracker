@@ -1,0 +1,34 @@
+{
+  "summary": "Test `test_unfinished_handler_on_workflow_termination` fails in Python 3.13 with time skipping test server when using update handlers with continue-as-new workflow termination, reporting 'workflow execution already completed' error.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "workflow-termination",
+    "update-handler",
+    "time-skipping"
+  ],
+  "concepts": [
+    "time-skipping",
+    "workflow-termination",
+    "continue-as-new",
+    "update-handler",
+    "test-server",
+    "handler-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests cannot run reliably on Python 3.13 with time skipping, blocking test coverage for handler termination scenarios.",
+  "rootCause": "Interaction between time skipping, update handlers, continue-as-new workflow termination, and handler waiting logic causes premature completion detection.",
+  "proposedFix": null,
+  "workaround": "Tests remain skipped to avoid failure.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    644
+  ],
+  "keyQuote": "when running in Python 3.13 with time skipping test server, all permutations fail with 'workflow execution already completed'",
+  "number": 826,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:19.274Z"
+}

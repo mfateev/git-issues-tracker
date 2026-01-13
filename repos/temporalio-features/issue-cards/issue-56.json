@@ -1,0 +1,30 @@
+{
+  "summary": "Prototype Pollution vulnerability (CVE-2022-25878) discovered in protobufjs 6.11.2, a transitive dependency of temporalio SDK. The vulnerability allows attackers to modify Object.prototype properties through untrusted input or .proto file parsing.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "protobufjs",
+    "client",
+    "dependency-management"
+  ],
+  "concepts": [
+    "prototype-pollution",
+    "security-vulnerability",
+    "cvss-7.5",
+    "dependency-update",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users of temporalio SDK version 0.21.1 are exposed to prototype pollution attacks through the vulnerable protobufjs transitive dependency.",
+  "rootCause": "protobufjs versions before 6.11.3 contain a prototype pollution vulnerability allowing modification of Object.prototype via untrusted input or .proto file parsing",
+  "proposedFix": "Upgrade protobufjs to version 6.11.3 or update temporalio SDK to version 0.22.0 which includes the fix",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed after the vulnerable library was removed from the dependency tree or marked as ignored in the Mend inventory",
+  "related": [],
+  "keyQuote": "protobufjs before 6.11.3 are vulnerable to Prototype Pollution which can allow an attacker to add/modify properties of the Object.prototype",
+  "number": 56,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:44:59.923Z"
+}

@@ -1,0 +1,47 @@
+{
+  "summary": "Feature request for a plugin model that allows users to configure multiple SDK configuration points at once (dataconverters, sandboxes, activities, interceptors, etc.) rather than having to set them individually.",
+  "category": "feature",
+  "subcategory": "plugin-system",
+  "apis": [
+    "Client",
+    "Worker",
+    "ClientConfig",
+    "WorkerConfig",
+    "Interceptor"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "configuration",
+    "plugin-system",
+    "interceptor"
+  ],
+  "concepts": [
+    "plugin-architecture",
+    "configuration-management",
+    "dataconverter",
+    "activity-registration",
+    "interceptor-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a simpler way to apply multiple configuration changes across client and worker setup, reducing boilerplate and improving integration patterns.",
+  "rootCause": null,
+  "proposedFix": "Implement a Plugin interface for both client and worker that follows an interceptor chain pattern, allowing plugins to hook into connect_client, create_client, create_worker, and run_worker lifecycle methods.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2020,
+    1764,
+    950,
+    1011,
+    507,
+    318,
+    644,
+    2626
+  ],
+  "keyQuote": "A plugin model to allow configuring all these points at once.",
+  "number": 652,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:18:07.771Z"
+}

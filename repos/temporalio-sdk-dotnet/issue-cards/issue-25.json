@@ -1,0 +1,31 @@
+{
+  "summary": "A transitive dependency vulnerability (WS-2023-0366) in rustix-0.38.8 affecting temporal-sdk-core-api-0.1.0 can cause memory explosion in the Dir iterator on Linux. The issue was automatically closed by Mend when the vulnerable library was removed from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "bridge",
+    "cargo-dependencies",
+    "temporal-sdk-core"
+  ],
+  "concepts": [
+    "vulnerability",
+    "memory-exhaustion",
+    "denial-of-service",
+    "transitive-dependency",
+    "rust-bindings",
+    "security-patch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of temporal-sdk-core-api-0.1.0 are exposed to a potential memory exhaustion vulnerability through a transitive dependency that could be exploited locally.",
+  "rootCause": "rustix-0.38.8's Dir iterator with the linux_raw backend can cause memory explosion due to unsafe handling of directory iteration.",
+  "proposedFix": "Upgrade rustix to version 0.35.15, 0.36.16, 0.37.25, or 0.38.19 which contain the security fix.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The issue was automatically closed by Mend because the vulnerable library was marked as ignored or removed from the inventory. It was later reopened when the library was detected again, then closed again when it was confirmed to be no longer part of the inventory.",
+  "related": [],
+  "keyQuote": "rustix's rustix::fs::Dir iterator with the linux_raw backend can cause memory explosion",
+  "number": 25,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:07:14.746Z"
+}

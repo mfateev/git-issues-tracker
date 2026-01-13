@@ -1,0 +1,33 @@
+{
+  "summary": "Workers currently use static concurrency limits that don't account for varying workload profiles (CPU-bound vs IO-bound vs memory-heavy tasks), creating a false trade-off between resource utilization and stability. The proposal is to introduce resource-aware concurrency controls that dynamically adjust task polling based on pod CPU/memory thresholds, aligning with Kubernetes autoscaling.",
+  "category": "feature",
+  "subcategory": "worker-concurrency",
+  "apis": [],
+  "components": [
+    "worker",
+    "concurrency-control",
+    "task-poller",
+    "slot-supplier"
+  ],
+  "concepts": [
+    "resource-awareness",
+    "dynamic-scaling",
+    "backpressure",
+    "pod-utilization",
+    "kubernetes-integration",
+    "cost-efficiency",
+    "autoscaling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must choose between wasting resources (setting limits too low) or risking pod overload and OOM errors (setting limits too high), compromising both cost-efficiency and reliability.",
+  "rootCause": "Static concurrency limits assume uniform workloads but don't adapt to actual pod resource availability or Kubernetes autoscaling signals.",
+  "proposedFix": "Introduce resource-aware concurrency controls: (1) stop polling when pod CPU/memory reaches configurable thresholds (70-80%), (2) scale concurrency dynamically based on available resources, (3) expose hooks for custom resource metrics or scaling policies.",
+  "workaround": "Use resource-based slot suppliers as documented in Temporal docs, which offer auto-tuning capabilities for fluctuating workloads and protection from OOM.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Pods never overload themselves. Idle capacity is minimized. Scaling is smooth and cost-efficient.",
+  "number": 8356,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:31.057Z"
+}

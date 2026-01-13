@@ -1,0 +1,30 @@
+{
+  "summary": "Users need to query the most recent workflow execution per workflow ID to identify which actors/workflows are currently in a failed state, filtering out those that have since recovered. Current list APIs return all executions, not the latest per workflow.",
+  "category": "feature",
+  "subcategory": "visibility-querying",
+  "apis": [],
+  "components": [
+    "visibility",
+    "list-apis",
+    "elasticsearch-integration"
+  ],
+  "concepts": [
+    "workflow-execution-state",
+    "filtering",
+    "query-aggregation",
+    "actor-model",
+    "latest-run"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot efficiently query the state of millions of actors to identify which ones are currently failing, requiring workarounds or custom Elasticsearch queries outside the Temporal API.",
+  "rootCause": "Temporal list APIs return all workflow executions chronologically, but there is no built-in way to get only the most recent execution per workflow ID for aggregated state queries.",
+  "proposedFix": "Add support for querying the most recent execution per workflow through either enhanced tctl/SDK list APIs or official Elasticsearch aggregation support, potentially requiring additional indexing on current run state.",
+  "workaround": "Issue direct Elasticsearch aggregation queries (not officially supported, requires depending on internal unstable interfaces).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "what I really want is to list the set of most recent executions per workflow",
+  "number": 351,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:52:03.937Z"
+}

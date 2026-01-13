@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to allow RawValue objects to be used as search attribute values during upsert operations. This capability is needed for testing purposes and for workflows that need to transfer search attributes between different workflow instances.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "UpsertSearchAttributes"
+  ],
+  "components": [
+    "search-attributes",
+    "type-system",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "raw-value",
+    "type-flexibility",
+    "testing",
+    "attribute-transfer",
+    "serialization",
+    "search-index"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently use RawValue objects when upserting search attributes, limiting flexibility for advanced use cases like testing and cross-workflow attribute migration.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There's no way at the moment to pass `RawValues` as a search attribute value. This is useful for ourselves for certain testing purposes, but could also be desirable for users shuttling SAs from one workflow to another, etc.",
+  "number": 438,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:04.030Z"
+}

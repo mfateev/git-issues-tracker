@@ -1,0 +1,32 @@
+{
+  "summary": "Users need clear documentation and samples showing how to map a single Nexus Operation input to multiple Workflow arguments. Currently this information is only available for Java SDK and scattered across Slack discussions, but should be documented across all SDK dev guides with consistent examples.",
+  "category": "docs",
+  "subcategory": "nexus",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "nexus-operation",
+    "workflow-arguments",
+    "documentation"
+  ],
+  "concepts": [
+    "parameter-mapping",
+    "multi-argument-binding",
+    "nexus-handler",
+    "cross-sdk-consistency",
+    "developer-guide"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to understand and implement Nexus Operation input-to-workflow-argument mapping across SDK languages due to incomplete or missing documentation.",
+  "rootCause": null,
+  "proposedFix": "Create Nexus multi-arg samples for all SDKs, add documentation sections in all Nexus SDK dev guides mirroring the Java SDK guide, and ensure dev guide samples link to code examples.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed indicating that the documentation and samples were created across SDKs.",
+  "related": [],
+  "keyQuote": "This knowledge is often passed along on Slack DMs but should be broadly available to all users.",
+  "number": 665,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:19.187Z"
+}

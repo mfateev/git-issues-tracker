@@ -1,0 +1,32 @@
+{
+  "summary": "The TypeScript SDK's WorkflowExecutionAlreadyStartedError does not include the runId when the server provides it, even though the SDK already has the capability to extract this information from protobuf-encoded error details.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "WorkflowExecutionAlreadyStartedError"
+  ],
+  "components": [
+    "error-handling",
+    "protobuf-decoding",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "error-details",
+    "workflow-execution",
+    "server-response",
+    "protocol-buffers",
+    "run-id"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily identify which workflow execution is already running when encountering this error, making debugging and recovery more difficult.",
+  "rootCause": "The TS SDK decodes protobuf error details but does not extract or include the runId field in the WorkflowExecutionAlreadyStartedError exception.",
+  "proposedFix": "Extract the runId from protobuf-encoded error details and include it in the thrown WorkflowExecutionAlreadyStartedError.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The runId is stored as part of the protobuf-encoded error details, which the TS SDK already knows how to decode.",
+  "number": 1838,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:54:26.798Z"
+}

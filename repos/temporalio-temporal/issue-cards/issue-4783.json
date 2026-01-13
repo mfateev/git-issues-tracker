@@ -1,0 +1,35 @@
+{
+  "summary": "Users with temporal-system:read permission should have access to the ListSearchAttributes read-only API when using Temporal's default JWT authorizer, but currently lack this access, preventing them from using the Temporal UI and CLI.",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [
+    "ListSearchAttributes"
+  ],
+  "components": [
+    "authorization",
+    "default-authorizer",
+    "frontend-api"
+  ],
+  "concepts": [
+    "permissions",
+    "jwt",
+    "access-control",
+    "search-attributes",
+    "role-based-access"
+  ],
+  "severity": "high",
+  "userImpact": "Users with temporal-system:read role cannot use Temporal UI or CLI to list search attributes, blocking their upgrade to v1.21.x.",
+  "rootCause": "The ListSearchAttributes API is not included in the temporal-system:read permission scope in the default JWT authorizer implementation.",
+  "proposedFix": "Add ListSearchAttributes API to the authorization rules for temporal-system:read permission in the default authorizer.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #4794 which added ListSearchAttributes access to the temporal-system:read role.",
+  "related": [
+    4654,
+    4794
+  ],
+  "keyQuote": "Users with temporal-system:read role cannot use Temporal UI (after logging in they are immediately redirected back to the login screen because of the 403 error for the ListSearchAttributes API).",
+  "number": 4783,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:16.895Z"
+}

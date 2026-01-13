@@ -1,0 +1,32 @@
+{
+  "summary": "User requests additional schedule states beyond Running and Pause (e.g., Completed, Terminated) to track one-time schedules and maintain record history longer than the default 1-week auto-deletion.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [],
+  "components": [
+    "schedule",
+    "workflow-execution",
+    "state-management"
+  ],
+  "concepts": [
+    "schedule-states",
+    "lifecycle-management",
+    "record-retention",
+    "one-time-execution",
+    "auto-deletion"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot track schedule completion status or retain schedule records beyond automatic deletion, limiting their ability to maintain schedule execution history.",
+  "rootCause": null,
+  "proposedFix": "Introduce additional schedule states (e.g., Completed, Terminated) similar to Workflow states to provide better lifecycle tracking and state persistence.",
+  "workaround": "Use StartDelay to schedule one-time workflow execution instead of creating a schedule that runs once.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The feature request was not implemented. Instead, guidance was provided on using StartDelay as an alternative for one-time workflow execution.",
+  "related": [
+    338
+  ],
+  "keyQuote": "i want to more schedule state, example: completed, terminated... just like WorkFlow state.",
+  "number": 4737,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:42.064Z"
+}

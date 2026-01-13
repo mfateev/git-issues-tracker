@@ -1,0 +1,31 @@
+{
+  "summary": "Update Cargo dependencies to use a newer version of Tonic (newer than 0.12.1) to enable system CA certificate usage by default for secure connections.",
+  "category": "feature",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "tonic",
+    "cargo-dependencies",
+    "grpc-client"
+  ],
+  "concepts": [
+    "certificate-management",
+    "system-ca",
+    "dependencies",
+    "tls",
+    "grpc",
+    "security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use system CA certificates by default with the current Tonic version, requiring manual certificate configuration.",
+  "rootCause": "Tonic 0.12.1 does not use system CAs by default for certificate validation.",
+  "proposedFix": "Update to a newer version of Tonic that supports system CA usage by default.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tonic dependency was updated to a newer version supporting system CA certificates.",
+  "related": [],
+  "keyQuote": "Need to get the latest Tonic since we are on 0.12.1 and it is not using system CAs by default",
+  "number": 358,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:02:11.964Z"
+}

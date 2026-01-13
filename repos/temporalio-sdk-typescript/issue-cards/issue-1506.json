@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to allow passing live `payloadConverter` and `failureConverter` objects directly to Client and Activity-only workers, rather than requiring file paths. For Workflow workers, propose extracting payload converters from workflow bundles.",
+  "category": "feature",
+  "subcategory": "payload-converter",
+  "apis": [
+    "payloadConverter",
+    "failureConverter"
+  ],
+  "components": [
+    "client",
+    "activity-worker",
+    "payload-converter",
+    "workflow-bundle"
+  ],
+  "concepts": [
+    "payload-conversion",
+    "deployment-flexibility",
+    "api-consistency",
+    "serialization",
+    "sandbox-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Activity and Client components through different deployment systems are forced to adapt their deployment logic to accommodate an unnecessary file path requirement.",
+  "rootCause": "Original design decision to keep payloadConverter APIs consistent across all contexts, requiring file paths everywhere due to Workflow sandbox constraints, even where not technically necessary.",
+  "proposedFix": "Support pre-instantiated Payload Converters for Client and Activity-only workers; for Workflow workers, extract payload converter from workflow bundle by looking for a named export at `workflowsPath` or in the prebuilt bundle.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #1458",
+  "related": [
+    1458
+  ],
+  "keyQuote": "the burden of having to adapt those other deployment logic to that artificial requirement is not reasonable",
+  "number": 1506,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:12.490Z"
+}

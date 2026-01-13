@@ -1,0 +1,37 @@
+{
+  "summary": "User reported an error where activities appeared unregistered when using RetryOptions with maxAttempts(1), but investigation revealed the actual issue was multiple workers on the same task queue with different activities registered, not a bug with RetryOptions.",
+  "category": "question",
+  "subcategory": "activity-registration",
+  "apis": [
+    "Workflow.newActivityStub",
+    "ActivityOptions",
+    "RetryOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-stub",
+    "retry-policy",
+    "task-queue"
+  ],
+  "concepts": [
+    "activity-registration",
+    "retry-configuration",
+    "task-queue",
+    "worker-configuration",
+    "activity-discovery",
+    "multi-worker",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "User mistakenly believed RetryOptions caused activity registration failures when the real issue was improper worker configuration with multiple workers sharing a task queue.",
+  "rootCause": "Multiple workers listening on the same task queue with different activities registered. The InventoryWorker and PaymentWorker both listened on ORDER_TASK_QUEUE but only had their own activities registered.",
+  "proposedFix": "Use different task queues for workers with different activities, or ensure all workers on the same task queue register the same activities.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Marked as invalid after investigation revealed this was a user configuration issue, not a bug with RetryOptions or the SDK.",
+  "related": [],
+  "keyQuote": "In Temporal workers listening on the same task queue need to have the same activities registered, or they need to use different task queues.",
+  "number": 2647,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:40.485Z"
+}

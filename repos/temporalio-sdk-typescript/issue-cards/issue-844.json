@@ -1,0 +1,30 @@
+{
+  "summary": "The @types/long stub types definition is unnecessarily listed as a dependency in @temporalio/client's package.json. Since long v5 includes its own types, this @types package should be removed from dependencies and moved to devDependencies if needed.",
+  "category": "bug",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "client",
+    "package-dependencies",
+    "type-definitions"
+  ],
+  "concepts": [
+    "type-safety",
+    "dependencies",
+    "package-management",
+    "typescript-compatibility",
+    "version-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users installing @temporalio/client unnecessarily receive an obsolete type definition package, increasing bundle size and causing deprecation warnings.",
+  "rootCause": "The @types/long stub was required for type definitions in earlier versions of the long library, but long v5 includes native type definitions making the stub unnecessary.",
+  "proposedFix": "Remove @types/long from dependencies in packages/client/package.json since long v5 provides its own types.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The deprecated @types/long dependency was removed from the client package as long v5 includes native type definitions.",
+  "related": [],
+  "keyQuote": "it can be removed since v5 of `long`",
+  "number": 844,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:19:27.188Z"
+}

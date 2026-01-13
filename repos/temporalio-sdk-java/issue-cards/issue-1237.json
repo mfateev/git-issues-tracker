@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow.getWorkflowExecution() throws ClassCastException when called with an external workflow stub created via Workflow.newExternalWorkflowStub(). The method expects a ChildWorkflowStub but receives an ExternalWorkflowStubImpl, despite the javadoc indicating both should be supported.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow.getWorkflowExecution",
+    "Workflow.newExternalWorkflowStub",
+    "Workflow.getInfo"
+  ],
+  "components": [
+    "external-workflow-stub",
+    "workflow-execution",
+    "type-casting"
+  ],
+  "concepts": [
+    "external-workflow",
+    "parent-workflow",
+    "stub-creation",
+    "type-compatibility",
+    "workflow-execution-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve workflow execution information when working with external workflow stubs, limiting parent-child workflow communication capabilities.",
+  "rootCause": "ExternalWorkflowStubImpl is cast to ChildWorkflowStub in Workflow.getWorkflowExecution(), but the method should accept both stub types as documented.",
+  "proposedFix": "Modify Workflow.getWorkflowExecution() to accept ExternalWorkflowStubImpl in addition to ChildWorkflowStub, or adjust the type hierarchy to support both.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug fix implemented to support both ChildWorkflowStub and ExternalWorkflowStubImpl types in getWorkflowExecution().",
+  "related": [],
+  "keyQuote": "per javadoc it should also work with externalworkflow stub",
+  "number": 1237,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:17:06.241Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Worker reported memory leak with error \"Got the response to undefined request\" occurring in production. After investigation, the root cause was identified as misconfiguration: excessively high sticky cache size (15000) combined with PHP memory limit of 128MB, causing out-of-memory conditions rather than an actual SDK memory leak.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "cache",
+    "memory-management",
+    "configuration"
+  ],
+  "concepts": [
+    "memory-leak",
+    "sticky-cache",
+    "worker-scaling",
+    "garbage-collection",
+    "out-of-memory",
+    "configuration-error"
+  ],
+  "severity": "high",
+  "userImpact": "Workers experienced task timeouts and apparent memory leaks in production when improperly configured, affecting workflow processing reliability at scale.",
+  "rootCause": "Misconfigured sticky cache size (15000) with insufficient PHP memory limit (128MB) caused workers to attempt serving too many workflows in memory, triggering out-of-memory conditions and task timeouts.",
+  "proposedFix": "Reduce sticky cache size to match available memory and worker capacity. Set cache_size to 500, concurrent_workflows to 200, and workflow_pollers to 15. Ensure PHP memory limit accommodates the sticky cache (e.g., 500 workflows ≈ 140MB).",
+  "workaround": "Adjust worker configuration parameters: cache_size, num_workers, and max_worker_memory to match actual resource constraints and workflow load.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was not a memory leak but a configuration error. SDK team verified no memory leaks existed in PHP codebase and provided corrected configuration settings that resolved the production issues.",
+  "related": [],
+  "keyQuote": "Issue number one - 'Task processing failed with error - Workflow task not found'. This issue is NOT connected to a memory leak but is related to your configuration.",
+  "number": 289,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:09.746Z"
+}

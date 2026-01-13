@@ -1,0 +1,32 @@
+{
+  "summary": "The .NET SDK should expose the cancel cause/reason field from WorkflowExecutionCancelRequestedEventAttributes when workflows receive cancellations, and allow users to specify this field when issuing cancellations from clients or commands.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "WorkflowExecutionCancelRequestedEventAttributes"
+  ],
+  "components": [
+    "workflow-runtime",
+    "client-api",
+    "command-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "workflow-lifecycle",
+    "event-attributes",
+    "cause-tracking",
+    "user-input"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access or provide cancellation reasons when cancelling workflows, limiting visibility into why workflows were terminated.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "WorkflowExecutionCancelRequestedEventAttributes has a cause field that should be exposed when workflows receive cancels",
+  "number": 412,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:21:12.142Z"
+}

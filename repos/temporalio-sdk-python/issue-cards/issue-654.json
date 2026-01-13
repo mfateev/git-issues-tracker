@@ -1,0 +1,34 @@
+{
+  "summary": "MultiProcess executor reuses the same worker process when sequentially executing activities in a workflow, instead of distributing them across different processes as expected. The issue is resolved when activities run concurrently rather than sequentially.",
+  "category": "bug",
+  "subcategory": "multiprocess-executor",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "multiprocess-executor",
+    "activity-executor",
+    "worker-process-pool"
+  ],
+  "concepts": [
+    "process-reuse",
+    "sequential-execution",
+    "concurrent-execution",
+    "worker-distribution",
+    "multiprocessing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users expecting multiprocess executor to distribute sequential activities across different worker processes find all activities running on the same process, defeating the purpose of multiprocessing.",
+  "rootCause": "Multiprocess executor does not allocate new processes for sequential activity executions; it only distributes concurrent (parallel) activity executions across different processes.",
+  "proposedFix": null,
+  "workaround": "Run activities concurrently using asyncio.create_task() instead of sequentially awaiting them, which allows the multiprocess executor to distribute them across different worker processes.",
+  "resolution": "invalid",
+  "resolutionDetails": "This is not a bug but rather the expected behavior - multiprocess executor is designed to distribute concurrent activities across processes, not sequential ones. The user discovered the correct usage pattern through their own investigation.",
+  "related": [
+    1651
+  ],
+  "keyQuote": "I would have expected to see a different PID when the activity runs the second time!",
+  "number": 654,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:24.928Z"
+}

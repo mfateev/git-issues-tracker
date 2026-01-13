@@ -1,0 +1,32 @@
+{
+  "summary": "Test environment hangs indefinitely when an unregistered activity is called, with scheduleToStartTimeout being ignored. Discussion clarifies that timeout applies to scheduling, not to activity type registration, leading to documentation clarification as the resolution.",
+  "category": "docs",
+  "subcategory": "test-framework",
+  "apis": [
+    "ScheduleToStartTimeout"
+  ],
+  "components": [
+    "test-environment",
+    "activity-execution",
+    "task-queue"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-registration",
+    "task-scheduling",
+    "worker-polling",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using the test environment can experience indefinite hangs when activities aren't registered, and may misunderstand how ScheduleToStartTimeout applies to task scheduling vs activity type availability.",
+  "rootCause": "User misunderstanding of the Temporal protocol: ScheduleToStartTimeout applies to the time between scheduling and a worker picking up the task, not to whether an activity type is registered. When an activity type isn't registered, workers still start the task (from the server's perspective) and then fail it.",
+  "proposedFix": "Improve documentation to clarify that ScheduleToStartTimeout applies to task scheduling, not activity type registration, and explain how workers poll by task queue rather than activity type.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Behavior confirmed as working as designed. User determined this is a documentation issue rather than a product bug, closing in favor of community discussion.",
+  "related": [],
+  "keyQuote": "Workers poll for work by task queue, not by activity type. If a worker is listening on a task queue it can get any tasks assigned to that task queue.",
+  "number": 2305,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:09.988Z"
+}

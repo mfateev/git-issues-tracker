@@ -1,0 +1,31 @@
+{
+  "summary": "GitHub Actions is enforcing Node16 EOL, requiring actions to use Node20. This breaks compatibility with GLIBC 2.27-based runners used to support older Linux distributions, potentially causing CI build failures in release workflows.",
+  "category": "bug",
+  "subcategory": "ci-build",
+  "apis": [],
+  "components": [
+    "ci-pipeline",
+    "github-actions",
+    "test-server",
+    "build-runner"
+  ],
+  "concepts": [
+    "glibc-compatibility",
+    "node-runtime",
+    "linux-distro-support",
+    "ci-infrastructure",
+    "action-deprecation"
+  ],
+  "severity": "high",
+  "userImpact": "CI build failures will prevent releases and updates to the Java SDK on systems running older Linux distributions.",
+  "rootCause": "GitHub Actions enforced Node16 EOL, forcing actions to run on Node20. Node20 requires GLIBC 2.29+, incompatible with older GLIBC 2.27-based runners previously used.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the incompatibility was addressed or mitigated through infrastructure updates.",
+  "related": [],
+  "keyQuote": "the latest release of GHA's Runner agent ignores the fact that an action is requesting node16, and instead just calls node20 anyway",
+  "number": 2331,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:55.367Z"
+}

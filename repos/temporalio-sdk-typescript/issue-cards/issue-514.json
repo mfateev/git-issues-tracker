@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to allow codec/custom data converter to process headers, particularly OpenTelemetry baggage headers, with contextual information passed to encode/decode operations.",
+  "category": "feature",
+  "subcategory": "codec-headers",
+  "apis": [],
+  "components": [
+    "codec",
+    "data-converter",
+    "headers",
+    "otel-integration"
+  ],
+  "concepts": [
+    "codec",
+    "headers",
+    "opentelemetry-baggage",
+    "data-conversion",
+    "context-propagation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently route headers through custom codecs, limiting ability to apply custom serialization logic to header data like OpenTelemetry baggage.",
+  "rootCause": null,
+  "proposedFix": "Allow codec to be run on headers with contextual information passed to Codec.encode/decode methods, with OTEL baggage as the default use case.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "by default, don't put headers through codec / custom data converter, except for otel baggage",
+  "number": 514,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:25.767Z"
+}

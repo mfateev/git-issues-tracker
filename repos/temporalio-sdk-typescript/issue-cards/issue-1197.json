@@ -1,0 +1,29 @@
+{
+  "summary": "User requests a programmatic way to roll back workflow execution step-by-step by reverting the event history, rather than just resetting to the beginning. They want workflow logic to undo previous steps.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "event-history"
+  ],
+  "concepts": [
+    "rollback",
+    "event-history",
+    "workflow-reset",
+    "undo",
+    "state-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users seeking step-by-step rollback capability would need to implement their own compensating transactions or use the CLI reset command instead.",
+  "rootCause": null,
+  "proposedFix": "Possible programmatic reset API like `workflowHandle.reset(eventId)` was suggested but not endorsed as a solution.",
+  "workaround": "Use try/catch blocks with compensating activities in workflow code, or use the CLI `workflow reset` command for full resets.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers recommended existing approaches: implementing rollback logic in workflow code via try/catch with compensating activities, or using the CLI reset command. Closed as unresolved but with suggested workarounds.",
+  "related": [],
+  "keyQuote": "It is much more preferable coding and handling rollback in workflow code where you have access to the full execution context.",
+  "number": 1197,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:48.950Z"
+}

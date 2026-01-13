@@ -1,0 +1,33 @@
+{
+  "summary": "Java SDK 1.0.8 logs InterruptedException and StatusRuntimeException errors during graceful worker shutdown, despite the shutdown completing successfully. These errors pollute application logs and appear to be related to thread interruption in gRPC polling operations.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "pollWorkflowTaskQueue"
+  ],
+  "components": [
+    "worker",
+    "poller",
+    "grpc-client",
+    "thread-executor"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "thread-interruption",
+    "error-logging",
+    "polling",
+    "worker-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Graceful worker shutdown produces noisy error logs that alarm users despite successful operation, making it difficult to distinguish actual errors from expected shutdown behavior.",
+  "rootCause": "Worker threads are interrupted during graceful shutdown, causing gRPC's ThreadlessExecutor to throw InterruptedException and StatusRuntimeException. These exceptions are logged even though they're expected during shutdown.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved in a later version by suppressing or properly handling the expected exceptions during shutdown.",
+  "related": [],
+  "keyQuote": "Graceful worker shutdown should result in no errors in application logs.",
+  "number": 521,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:23:39.232Z"
+}

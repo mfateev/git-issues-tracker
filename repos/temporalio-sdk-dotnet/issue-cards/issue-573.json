@@ -1,0 +1,36 @@
+{
+  "summary": "Allow custom meter implementations to disable the tracing event listener when emitting metrics from workflows. Users with custom meters that use non-deterministic threading should be able to wrap meter calls with Workflow.Unsafe.WithTracingEventListenerDisabled to prevent tracing violations.",
+  "category": "feature",
+  "subcategory": "metrics-tracing",
+  "apis": [
+    "Workflow.Unsafe.WithTracingEventListenerDisabled",
+    "Workflow.InWorkflow",
+    "CustomMetricMeter"
+  ],
+  "components": [
+    "metrics",
+    "tracing",
+    "workflow-execution",
+    "custom-meter"
+  ],
+  "concepts": [
+    "metrics",
+    "tracing",
+    "determinism",
+    "threading",
+    "custom-implementation",
+    "listener-disabling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with custom metric meters using non-deterministic threading can avoid tracing event listener violations when emitting metrics from workflows.",
+  "rootCause": "Custom metric meters may use threads/tasks in non-deterministic ways, causing metrics emission to trigger tracing event listener violations during workflow execution.",
+  "proposedFix": "Add an option to CustomMetricMeter that wraps underlying Meter calls with Workflow.Unsafe.WithTracingEventListenerDisabled when Workflow.InWorkflow is true, likely enabled by default.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to allow disabling tracing event listener for custom meter implementations",
+  "related": [],
+  "keyQuote": "Allow custom meter implementation to disable tracing event listener when calling the underlying Meter inside workflows",
+  "number": 573,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:37:01.696Z"
+}

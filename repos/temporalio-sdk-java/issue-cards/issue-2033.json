@@ -1,0 +1,35 @@
+{
+  "summary": "Support for WorkflowIdConflictPolicy in the Java SDK to align with feature support across Temporal SDKs, as defined in the cross-repository features issue #437.",
+  "category": "feature",
+  "subcategory": "workflow-configuration",
+  "apis": [
+    "StartWorkflowOptions",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-options",
+    "client-api"
+  ],
+  "concepts": [
+    "workflow-id",
+    "conflict-policy",
+    "workflow-creation",
+    "idempotency",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Java SDK users cannot configure how workflow ID conflicts are handled when starting workflows, limiting control over workflow creation behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support WorkflowIdConflictPolicy configuration in the Java SDK",
+  "related": [
+    437
+  ],
+  "keyQuote": "Support for WorkflowIdConflictPolicy",
+  "number": 2033,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:51.183Z"
+}

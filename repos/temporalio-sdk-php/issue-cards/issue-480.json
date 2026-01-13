@@ -1,0 +1,36 @@
+{
+  "summary": "Add a Workflow initialization method that's guaranteed to run before signals and updates, allowing handlers to access initialized values. The proposal is to implement a `getTypedInput()` method or constructor-based initialization to provide typed workflow arguments.",
+  "category": "feature",
+  "subcategory": "workflow-initialization",
+  "apis": [
+    "Workflow::getInput",
+    "Workflow::getTypedInput"
+  ],
+  "components": [
+    "workflow-handler",
+    "constructor",
+    "input-values"
+  ],
+  "concepts": [
+    "initialization",
+    "signals",
+    "updates",
+    "type-safety",
+    "workflow-lifecycle",
+    "input-arguments"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can reliably initialize workflow state before signal/update handlers execute, improving code reliability and reducing boilerplate for type conversion.",
+  "rootCause": "Current `getInput()` returns untyped ValuesInterface, requiring manual type specification and object recreation instead of reusing handler arguments.",
+  "proposedFix": "Implement `Workflow::getTypedInput()` method to return typed arguments matching the Workflow Handler signature, possibly combined with constructor-based initialization via annotation.",
+  "workaround": "Manually call `Workflow::getInput()->getValue(index, ClassName::class)` in constructor with explicit type specifications.",
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow initialization feature implemented using `getTypedInput()` method approach in PHP SDK.",
+  "related": [
+    400
+  ],
+  "keyQuote": "Add a new method `Workflow::getTypedInput()`, which will return the same arguments that will be sent to the Workflow Handler after initialization.",
+  "number": 480,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:32:50.268Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for accepting search attributes in dev server startup configuration for the Python SDK. Users should be able to set search attributes through dev server options that translate to CLI --search-attribute calls.",
+  "category": "feature",
+  "subcategory": "dev-server",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "configuration",
+    "cli-integration"
+  ],
+  "concepts": [
+    "search-attributes",
+    "dev-server-setup",
+    "configuration",
+    "cli-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users will be able to configure search attributes when starting the dev server, eliminating the need for manual CLI argument management.",
+  "rootCause": null,
+  "proposedFix": "Implement search attribute option in dev server startup that translates to --search-attribute CLI calls",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented following the deployment of CLI PR #593 and related features issue #494",
+  "related": [
+    494
+  ],
+  "keyQuote": "users should be allowed to set search attributes in dev server option that translate to `--search-attribute` calls",
+  "number": 558,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:37.144Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Activity heartbeat options are duplicated in the API documentation, appearing twice on the same documentation page. This suggests a potential documentation generation or configuration issue.",
+  "category": "docs",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "Context.heartbeat"
+  ],
+  "components": [
+    "documentation-generation",
+    "api-docs",
+    "activity-context"
+  ],
+  "concepts": [
+    "documentation",
+    "duplication",
+    "api-reference",
+    "heartbeat",
+    "activity"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused by redundant documentation entries for the same heartbeat functionality.",
+  "rootCause": "Documentation generation process may have a bug causing duplicate entries, or the source configuration has duplicate definitions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation duplication issue was resolved through fix to documentation generation or source configuration.",
+  "related": [],
+  "keyQuote": "is this a symptom that something is wrong?",
+  "number": 271,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:07.265Z"
+}

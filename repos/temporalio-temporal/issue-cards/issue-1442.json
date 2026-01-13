@@ -1,0 +1,31 @@
+{
+  "summary": "Custom search attributes cannot be searched in Elasticsearch because the visibility index mapping has dynamic set to false, preventing new attributes from being indexed. This blocks users from using the documented workflow to add custom searchable attributes.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "visibility-index",
+    "search-attributes",
+    "dynamic-config"
+  ],
+  "concepts": [
+    "elasticsearch-mapping",
+    "search-indexing",
+    "custom-attributes",
+    "dynamic-fields",
+    "schema-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot add custom search attributes as documented because newly added attributes are not indexed and therefore not searchable in the Advanced search interface.",
+  "rootCause": "The Elasticsearch visibility index mapping has dynamic set to false at the root level, which prevents dynamic field addition to the Attr object even though the documentation suggests this should be supported.",
+  "proposedFix": "Either set dynamic to true on the Attr object specifically, or include all dynamic search attribute definitions in the initial mapping schema.",
+  "workaround": "Manually update the mapping with PUT /temporal-visibility-{namespace}/_mapping to set dynamic: true on the Attr object.",
+  "resolution": "fixed",
+  "resolutionDetails": "Starting from v1.10.0, dynamic config is no longer used for custom search attributes. The tctl admin cluster add-search-attributes command now updates both internal metadata and Elasticsearch schema directly, with dynamic always set to false to control index field count.",
+  "related": [],
+  "keyQuote": "The elasticsearch mapping has dynamic: false which means any added attributes are not indexed, and therefore not searchable in the Advanced search.",
+  "number": 1442,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:15:36.216Z"
+}

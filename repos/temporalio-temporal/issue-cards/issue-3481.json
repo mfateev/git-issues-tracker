@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add batch reset functionality to the service batch API, allowing users to reset multiple workflows in a single batch operation.",
+  "category": "feature",
+  "subcategory": "batch-operations",
+  "apis": [
+    "ResetWorkflowExecution"
+  ],
+  "components": [
+    "batch-api",
+    "workflow-reset",
+    "service"
+  ],
+  "concepts": [
+    "batch-processing",
+    "workflow-reset",
+    "api-extension",
+    "bulk-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a more efficient way to reset multiple workflows without making individual API calls.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Batch reset functionality was implemented in the service batch API",
+  "related": [],
+  "keyQuote": "Support batch reset in service batch API",
+  "number": 3481,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:46.748Z"
+}

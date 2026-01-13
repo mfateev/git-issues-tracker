@@ -1,0 +1,30 @@
+{
+  "summary": "Remove the broken Worker suspend and resume polling methods from the TypeScript SDK. Core has moved WFT polling to background execution, making the current suspend/resume implementation incompatible. These methods should be disabled for now until properly reimplemented.",
+  "category": "feature",
+  "subcategory": "worker-polling",
+  "apis": [],
+  "components": [
+    "worker",
+    "polling",
+    "wft-polling"
+  ],
+  "concepts": [
+    "polling",
+    "suspend",
+    "resume",
+    "background-execution",
+    "workflow-task-fetch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on suspend and resume methods for Worker control will have these features removed until properly reimplemented.",
+  "rootCause": "Core changed WFT polling to run in the background regardless of language-level polling requests, which breaks the suspend/resume implementation.",
+  "proposedFix": "Disable suspend and resume methods for now; reimplement properly in core at a later time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was removed as part of the TypeScript SDK update to align with Core's background WFT polling approach.",
+  "related": [],
+  "keyQuote": "Since implemented we've decided to change WFT polling in Core to run in the background regardless of lang polling requests.",
+  "number": 203,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:05.992Z"
+}

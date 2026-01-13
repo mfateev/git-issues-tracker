@@ -1,0 +1,30 @@
+{
+  "summary": "LIKE operator with wildcard characters causes a URI malformed error in the frontend and doesn't work as expected when searching visibility attributes. The issue is compounded by unclear documentation about which field types support wildcards.",
+  "category": "bug",
+  "subcategory": "visibility-search",
+  "apis": [],
+  "components": [
+    "visibility-search",
+    "ui-frontend",
+    "query-parser"
+  ],
+  "concepts": [
+    "wildcards",
+    "visibility-query",
+    "string-matching",
+    "search-attributes",
+    "uri-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience crashes (URIError) when trying to use LIKE with wildcards in visibility search, and the feature doesn't work as documented.",
+  "rootCause": "Percent characters in wildcard queries aren't being properly URI escaped, causing frontend errors. Additionally, LIKE operator support for various field types is unclear or not fully implemented.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "LIKE does not appear to be working as expected. I tried with WorkflowType and no results were returned.",
+  "number": 3885,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:53.302Z"
+}

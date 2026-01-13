@@ -1,0 +1,30 @@
+{
+  "summary": "Worker initialization is slow in large codebases when build_id is not explicitly set because the system automatically generates an identifier by MD5 hashing all modules. The code comment should be updated to warn about this performance impact.",
+  "category": "docs",
+  "subcategory": "worker-initialization",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "build_id-generation"
+  ],
+  "concepts": [
+    "performance",
+    "initialization-time",
+    "codebase-hashing",
+    "large-codebases"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with large codebases (15M+ lines) experience significantly longer worker initialization times if they don't explicitly set the build_id field.",
+  "rootCause": "The automatic build_id generation process traverses and MD5 hashes all modules in the codebase, which becomes a bottleneck for large codebases.",
+  "proposedFix": "Update the code comment to include a warning about potential long initialization times for large codebases when build_id is not explicitly set.",
+  "workaround": "Explicitly set the build_id field to a pre-computed hash of the source code to avoid the automatic generation process.",
+  "resolution": "fixed",
+  "resolutionDetails": "Code comment was updated to warn about initialization time impact in large codebases.",
+  "related": [],
+  "keyQuote": "In very large codebases this automatic process may significantly increase initialization time.",
+  "number": 1160,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:08.125Z"
+}

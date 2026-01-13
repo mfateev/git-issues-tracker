@@ -1,0 +1,27 @@
+{
+  "summary": "The file path in the envconfig ClientConfig.java needs to be changed to use 'temporalio' as the directory instead of the current incorrect path.",
+  "category": "bug",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "envconfig",
+    "ClientConfig"
+  ],
+  "concepts": [
+    "file-path",
+    "configuration",
+    "directory-structure"
+  ],
+  "severity": "low",
+  "userImpact": "Users may encounter incorrect file path resolution when using the SDK Java envconfig module.",
+  "rootCause": "Improper directory path specification in the envconfig ClientConfig class.",
+  "proposedFix": "Change the directory path to 'temporalio' in the referenced file.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The file path was corrected to use the 'temporalio' directory.",
+  "related": [],
+  "keyQuote": "needs to be changed to have the dir be `temporalio`",
+  "number": 2714,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:31.079Z"
+}

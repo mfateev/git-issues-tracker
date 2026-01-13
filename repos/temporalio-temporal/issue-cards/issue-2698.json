@@ -1,0 +1,33 @@
+{
+  "summary": "Internode TLS configuration uses a single certificate for both client and server authentication, and applies the same SAN across all services, creating security risks. This prevents using properly scoped certificates with specific key usage restrictions.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "tls-configuration",
+    "internode-communication",
+    "frontend",
+    "matching",
+    "history"
+  ],
+  "concepts": [
+    "mTLS",
+    "certificate-validation",
+    "key-usage",
+    "SAN",
+    "service-authentication",
+    "security"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use properly scoped TLS certificates with specific key usage restrictions, forcing them to use overly permissive certificates that violate security best practices.",
+  "rootCause": "Code assumes a single certificate for dual purpose (client and server) and uses the same SAN for all services, rather than supporting separate certificates and SANs per component.",
+  "proposedFix": "Add separate CertFile/CertData and KeyFile/KeyData fields to ClientTLS configuration to allow distinct client and server certificates.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ability to feed separate certificates for clients and their respective server certificates for each service with different server names for each component",
+  "number": 2698,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:43.238Z"
+}

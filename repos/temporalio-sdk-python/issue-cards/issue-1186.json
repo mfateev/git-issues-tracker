@@ -1,0 +1,35 @@
+{
+  "summary": "The _TemporalModelStub.get_response() method in the OpenAI agents plugin lacks default values for optional parameters (conversation_id, previous_response_id, prompt), causing TypeError despite being marked as Optional. A previous fix (PR #1092) added the parameters but didn't provide defaults, leaving them functionally required.",
+  "category": "bug",
+  "subcategory": "openai-agents-integration",
+  "apis": [],
+  "components": [
+    "openai_agents",
+    "_TemporalModelStub",
+    "get_response",
+    "contrib"
+  ],
+  "concepts": [
+    "optional-parameters",
+    "type-hints",
+    "default-values",
+    "backwards-compatibility",
+    "integration-plugin",
+    "method-signature"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use the OpenAI agents integration plugin with the Python SDK as get_response() throws TypeError when called without explicitly passing optional parameters.",
+  "rootCause": "Parameters added to method signature without default values, causing them to be functionally required at runtime despite Optional type annotation.",
+  "proposedFix": "Add default values (= None) to optional parameters: previous_response_id: Optional[str] = None, conversation_id: Optional[str] = None, prompt: Optional[ResponsePromptParam] = None",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as invalid - issue was determined to be in openai-agents library, not the SDK. OpenAI Agents should be passing conversation_id parameter.",
+  "related": [
+    1091,
+    1092
+  ],
+  "keyQuote": "the fix was incomplete - the parameters were added without default values.",
+  "number": 1186,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:58.262Z"
+}

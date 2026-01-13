@@ -1,0 +1,30 @@
+{
+  "summary": "MySQL InnoDB's trx_rseg_history_len metric grows excessively during heavy temporal workload processing, indicating long-running transactions that prevent undo log cleanup and can cause CPU spikes.",
+  "category": "bug",
+  "subcategory": "database-performance",
+  "apis": [],
+  "components": [
+    "sql-persistence-layer",
+    "mysql-backend",
+    "transaction-management"
+  ],
+  "concepts": [
+    "transaction-lifecycle",
+    "undo-log",
+    "database-cleanup",
+    "performance-degradation",
+    "resource-leak"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with large workflow backlogs may experience database performance degradation and CPU spikes as InnoDB attempts to clean up accumulated transaction history.",
+  "rootCause": "Long-running transactions (possibly read-only) in the SQL persistence layer prevent InnoDB from cleaning up the undo log, causing trx_rseg_history_len to grow unbounded.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed due to lack of evidence and activity. Maintainers noted that Temporal transactions complete within milliseconds and suspected the issue was specific to a misbehaving cluster configuration.",
+  "related": [],
+  "keyQuote": "any transaction should be done within within few ms meaning there is no acquire lock on DB, do something that can take minutes, then release lock operation.",
+  "number": 1646,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:15.903Z"
+}

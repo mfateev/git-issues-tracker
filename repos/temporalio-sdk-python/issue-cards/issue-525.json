@@ -1,0 +1,28 @@
+{
+  "summary": "A codec that returns the same payload object it was given on decode causes issues due to a bug in how the original payload is updated. This can lead to unexpected behavior when codecs attempt to reuse payload objects.",
+  "category": "bug",
+  "subcategory": "codec",
+  "apis": [],
+  "components": [
+    "codec",
+    "payload-handling"
+  ],
+  "concepts": [
+    "payload-mutation",
+    "object-reuse",
+    "codec-decode",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom codecs may encounter unexpected behavior if their codec returns the same payload object instance that was passed to it.",
+  "rootCause": "Bug in how the original payload is updated when a codec returns the same payload object it was given on decode",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a codec returns the same payload object it was given on decode, it can cause issues due to a bug with how we update the original payload",
+  "number": 525,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:59.575Z"
+}

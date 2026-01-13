@@ -1,0 +1,34 @@
+{
+  "summary": "During garbage collection, finally clauses in Python workflows execute on a different event loop, causing commands to cross workflow contexts. This leads to activities from one workflow incorrectly executing in another workflow, resulting in non-determinism errors.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "start_activity",
+    "start_workflow"
+  ],
+  "components": [
+    "workflow-runtime",
+    "event-loop",
+    "garbage-collector",
+    "task-cache"
+  ],
+  "concepts": [
+    "garbage-collection",
+    "event-loop-context",
+    "coroutine-finalization",
+    "task-eviction",
+    "thread-safety"
+  ],
+  "severity": "critical",
+  "userImpact": "Activities from one workflow may execute in another workflow's context, causing data corruption and non-determinism errors that break workflow correctness guarantees.",
+  "rootCause": "GeneratorExit during garbage collection of cached workflows can be interleaved on the same thread as another workflow's asyncio._set_running_loop, causing finally clauses to execute in the wrong event loop context.",
+  "proposedFix": "Force tasks to complete before GC eviction similar to other SDKs, ensuring coroutines finish execution before cache eviction to prevent finally clauses from running on the wrong workflow's event loop.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by implementing task completion before workflow cache eviction to prevent cross-context execution during garbage collection.",
+  "related": [],
+  "keyQuote": "during GC, finally clauses in Python will end up on a different workflow's even loop. This is very bad.",
+  "number": 494,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:46.062Z"
+}

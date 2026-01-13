@@ -1,0 +1,33 @@
+{
+  "summary": "Ruby SDK needs support for activity reset functionality, similar to what's available in other Temporal SDKs. This feature is partially implemented in PR #283 but requires a released dev server and test confirmation before being marked complete.",
+  "category": "feature",
+  "subcategory": "activity-reset",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "ruby-sdk",
+    "test-framework"
+  ],
+  "concepts": [
+    "activity-reset",
+    "activity-state",
+    "testing",
+    "feature-parity",
+    "dev-server"
+  ],
+  "severity": "medium",
+  "userImpact": "Ruby SDK users cannot reset activities during testing and development, limiting testing capabilities compared to other Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement activity reset functionality in the Ruby SDK, with implementation partially done in PR #283",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Partially implemented in PR #283; awaiting released dev server with functionality and test confirmation",
+  "related": [
+    283,
+    620
+  ],
+  "keyQuote": "Half of this is done in #283, but not marking this complete until we can have a test confirming behavior",
+  "number": 254,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:16.566Z"
+}

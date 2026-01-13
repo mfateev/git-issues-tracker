@@ -1,0 +1,30 @@
+{
+  "summary": "A deleted schedule continues to appear in the schedule list command and UI even after deletion. Attempting to delete it again results in an error about the workflow execution already being completed.",
+  "category": "bug",
+  "subcategory": "schedule-management",
+  "apis": [],
+  "components": [
+    "schedule-service",
+    "visibility-backend",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "schedule-deletion",
+    "visibility-sync",
+    "state-consistency",
+    "elasticsearch",
+    "postgres"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot fully delete schedules; deleted schedules continue to appear in listings and cannot be removed via CLI, requiring namespace recreation to resolve.",
+  "rootCause": "The status change of the schedule workflow hasn't propagated to the visibility backend, causing a mismatch between the actual workflow state and what visibility queries return.",
+  "proposedFix": null,
+  "workaround": "Delete and recreate the namespace to clean up the orphaned schedule entries.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "That looks like the change to the status of the schedule workflow hasn't made it to visibility.",
+  "number": 5785,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:34.836Z"
+}

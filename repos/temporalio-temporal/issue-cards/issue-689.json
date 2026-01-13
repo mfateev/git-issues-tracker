@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a dynamic configuration option to enforce maximum duration limits on Workflow Timers. Administrators want the ability to prevent timers exceeding a specified duration from being scheduled, forcing users to adopt ContinueAsNew patterns and preventing workflows from becoming too old.",
+  "category": "feature",
+  "subcategory": "workflow-timers",
+  "apis": [
+    "TimerStarted"
+  ],
+  "components": [
+    "workflow-engine",
+    "timer-management",
+    "configuration"
+  ],
+  "concepts": [
+    "timer-duration",
+    "workflow-age",
+    "configuration-management",
+    "enforcement",
+    "ContinueAsNew",
+    "scheduler-limits"
+  ],
+  "severity": "medium",
+  "userImpact": "Administrators gain operational control to enforce organizational policies on workflow timer durations and prevent workflows from exceeding acceptable age limits.",
+  "rootCause": null,
+  "proposedFix": "Add a dynamic config knob to limit the maximum duration allowed for Workflow Timers",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Administrators may want to enforcer that Workflow Timers beyond a certain duration are not allowed to be scheduled",
+  "number": 689,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:41.360Z"
+}

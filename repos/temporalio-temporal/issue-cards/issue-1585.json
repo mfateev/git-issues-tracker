@@ -1,0 +1,32 @@
+{
+  "summary": "tctl rejects primitive values (strings) passed as workflow input parameters, requiring them to be valid JSON objects. The issue was resolved by clarifying that string values must be double-quoted to be parsed correctly as JSON.",
+  "category": "bug",
+  "subcategory": "cli-input-handling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "tctl",
+    "cli",
+    "input-parser"
+  ],
+  "concepts": [
+    "JSON-parsing",
+    "input-parameters",
+    "primitive-types",
+    "string-handling",
+    "type-coercion"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to pass primitive string values as workflow input parameters via tctl receive an error and must work around it by properly formatting input as valid JSON.",
+  "rootCause": "tctl's input parsing expects valid JSON format and does not automatically wrap primitive values in JSON-compatible syntax.",
+  "proposedFix": null,
+  "workaround": "Double-quote string values so they are parsed correctly as JSON strings.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved as user error - string values must be double-quoted to be valid JSON. Issue was closed after clarification from the author.",
+  "related": [],
+  "keyQuote": "Works as desired -- string values must be double-quoted to be parsed correctly.",
+  "number": 1585,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:54.204Z"
+}

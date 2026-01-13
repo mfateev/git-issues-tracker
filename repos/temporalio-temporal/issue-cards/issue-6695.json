@@ -1,0 +1,32 @@
+{
+  "summary": "XDC cache continues to grow unbounded when multi-cluster replication is not enabled, causing potential OOM issues in the history service. The cache lacks TTL-based eviction and operators may not realize they should tune its size limit when not using multi-cluster replication.",
+  "category": "bug",
+  "subcategory": "memory-management",
+  "apis": [],
+  "components": [
+    "history-service",
+    "xdc-cache"
+  ],
+  "concepts": [
+    "memory-leak",
+    "cache-eviction",
+    "multi-cluster-replication",
+    "ttl",
+    "configuration",
+    "oom"
+  ],
+  "severity": "high",
+  "userImpact": "History service can crash with out-of-memory errors if XDC cache is not manually tuned, particularly for operators not using multi-cluster replication features.",
+  "rootCause": "XDC cache entries are not evicted according to their TTL, causing unbounded memory growth; the cache is active even when multi-cluster replication is disabled.",
+  "proposedFix": "Minimize XDC cache overheads when multi-cluster replication is not enabled, likely by disabling or significantly reducing cache activity in non-MCR deployments.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4379
+  ],
+  "keyQuote": "If operators don't tune the XDC cache size limit (and it's not apparent that they should, especially if they're not using multi-cluster replication) the history service will OOM.",
+  "number": 6695,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:49.059Z"
+}

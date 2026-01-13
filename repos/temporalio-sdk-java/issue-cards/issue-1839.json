@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a Spring Boot HealthIndicator to the temporal-spring-boot-autoconfigure-alpha library to expose Temporal SDK connection and worker health status through the /health actuator endpoint.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure-alpha",
+    "health-indicator",
+    "actuator-integration"
+  ],
+  "concepts": [
+    "health-monitoring",
+    "spring-boot-actuator",
+    "connection-state",
+    "worker-health",
+    "observability",
+    "application-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can monitor Temporal SDK health status through Spring Boot Actuator, enabling external monitoring tools to detect failures and trigger restarts.",
+  "rootCause": null,
+  "proposedFix": "Create a HealthIndicator and AutoConfiguration in temporal-spring-boot-autoconfigure-alpha library, using Spring's RabbitHealthIndicator and RabbitHealthContributorAutoConfiguration as reference implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "HealthIndicator allows external monitoring tools to check whether the application has entered a failed state and needs a restart.",
+  "number": 1839,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:45.086Z"
+}

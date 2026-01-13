@@ -1,0 +1,30 @@
+{
+  "summary": "User requests the ability to configure PollerOptions.uncaughtExceptionHandler through WorkflowOptions or similar configuration mechanism, as currently there is no way to customize exception handling for uncaught exceptions thrown by the poller.",
+  "category": "feature",
+  "subcategory": "exception-handling",
+  "apis": [],
+  "components": [
+    "PollerOptions",
+    "WorkflowOptions",
+    "WorkflowWorker"
+  ],
+  "concepts": [
+    "exception-handling",
+    "configuration",
+    "error-logging",
+    "task-processing",
+    "worker-threads"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize how uncaught exceptions from the poller are handled, limiting their ability to integrate with monitoring and error tracking systems.",
+  "rootCause": null,
+  "proposedFix": "Expose uncaughtExceptionHandler configuration through WorkflowOptions or another accessible configuration mechanism",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be good if I can configure my own uncaughtExceptionHandler from workflowOptions or somewhere else.",
+  "number": 235,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:02:43.513Z"
+}

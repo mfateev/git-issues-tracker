@@ -1,0 +1,30 @@
+{
+  "summary": "User encounters 'Unknown system variable transaction_isolation' error when running temporal-sql-tool on MySQL 5.7 (Aurora RDS). The issue is resolved by setting the SQL_CONNECT_ATTRIBUTES environment variable to specify the transaction isolation level.",
+  "category": "bug",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "mysql-driver",
+    "connection-configuration"
+  ],
+  "concepts": [
+    "transaction-isolation",
+    "mysql-compatibility",
+    "database-connection",
+    "environment-variables",
+    "rds-mysql"
+  ],
+  "severity": "medium",
+  "userImpact": "Users setting up Temporal with MySQL 5.7 on RDS encounter blocking errors when initializing the database schema tool.",
+  "rootCause": "MySQL 5.7 uses 'tx_isolation' variable name instead of 'transaction_isolation', and the connection string must explicitly configure this for compatibility.",
+  "proposedFix": "Set SQL_CONNECT_ATTRIBUTES environment variable with tx_isolation parameter when running temporal-sql-tool on MySQL 5.7.",
+  "workaround": "Use 'SQL_CONNECT_ATTRIBUTES=tx_isolation=\"READ-COMMITTED\" ./temporal-sql-tool ...' to work around the issue on Aurora MySQL 5.7.",
+  "resolution": "fixed",
+  "resolutionDetails": "Workaround provided by maintainers specifying the correct environment variable and parameter name for MySQL 5.7 compatibility.",
+  "related": [],
+  "keyQuote": "Use env to pass in the necessary: SQL_CONNECT_ATTRIBUTES=tx_isolation=\"READ-COMMITTED\" ./temporal-sql-tool",
+  "number": 1251,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:08:33.003Z"
+}

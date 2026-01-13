@@ -1,0 +1,32 @@
+{
+  "summary": "The Temporal server's gRPC health check implementation doesn't support empty service queries and requires separate probes for each service (workflow, history, matching). The request is to use the standard gRPC health package which provides better service discovery and supports both empty queries and per-service health checks.",
+  "category": "feature",
+  "subcategory": "grpc-health-checks",
+  "apis": [],
+  "components": [
+    "frontend",
+    "matching-service",
+    "history-service",
+    "workflow-service"
+  ],
+  "concepts": [
+    "health-checks",
+    "grpc",
+    "service-discovery",
+    "monitoring",
+    "server-health",
+    "probes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must craft separate health probe commands for each Temporal service instead of having a single unified health check endpoint.",
+  "rootCause": "Custom gRPC health check implementation doesn't handle empty service queries and doesn't support the standard grpc.health.v1.Health service interface.",
+  "proposedFix": "Replace the custom health check implementation with the standard gRPC health package from google.golang.org/grpc/health, which supports empty queries, multiple services, and the Watch API.",
+  "workaround": "Users can specify the full service name explicitly: grpc_health_probe -addr localhost:7233 -service temporal.api.workflowservice.v1.WorkflowService",
+  "resolution": "fixed",
+  "resolutionDetails": "The standard gRPC health check implementation was adopted, allowing both empty service queries and per-service health checks to work across all components.",
+  "related": [],
+  "keyQuote": "Health checking without specifying a service should respond with the overall health of the server.",
+  "number": 2096,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:13.411Z"
+}

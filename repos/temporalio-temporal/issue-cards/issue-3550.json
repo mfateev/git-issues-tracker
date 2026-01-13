@@ -1,0 +1,31 @@
+{
+  "summary": "Helm chart installation for Temporal fails when deployed via Terraform, with pods stuck in Init:2/4 state during initialization. Manual Helm installation works, but Terraform deployment does not complete successfully.",
+  "category": "bug",
+  "subcategory": "deployment-kubernetes",
+  "apis": [],
+  "components": [
+    "helm-chart",
+    "kubernetes",
+    "cassandra",
+    "init-containers"
+  ],
+  "concepts": [
+    "deployment",
+    "terraform",
+    "initialization",
+    "job-timeout",
+    "helm-release"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal via Terraform and Helm automation, forcing manual workarounds or disabling safety checks.",
+  "rootCause": "Helm chart initialization jobs fail to complete when deployed through Terraform, possibly due to timing or job configuration differences between manual and automated deployments.",
+  "proposedFix": "Configure helm_release resource with wait_for_jobs = true and appropriate timeout values (e.g., 300 seconds)",
+  "workaround": "Set wait = false in the helm_release Terraform resource to skip waiting for pod initialization and avoid blocking failures",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was resolved by user through workaround. Root cause was determined to be Terraform/Helm configuration expectations rather than Temporal chart defect.",
+  "related": [],
+  "keyQuote": "use \"wait = false\" in the helm_release resource to avoid blocking and failing temporal instalation",
+  "number": 3550,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:49.476Z"
+}

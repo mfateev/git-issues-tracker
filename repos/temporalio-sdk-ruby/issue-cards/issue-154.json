@@ -1,0 +1,37 @@
+{
+  "summary": "Initialize Ruby SDK with scaffolding, bare-bones client for starting/executing workflows, and Ruby/Rust bridge. Excludes full RBS signatures, complete gRPC service set, and advanced features like payload codecs.",
+  "category": "feature",
+  "subcategory": "sdk-initialization",
+  "apis": [
+    "StartWorkflow",
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "client",
+    "ruby-rust-bridge",
+    "grpc-service",
+    "interceptor",
+    "workflow-handle"
+  ],
+  "concepts": [
+    "scaffolding",
+    "initialization",
+    "client-setup",
+    "testing-infrastructure",
+    "bare-bones-implementation",
+    "data-conversion",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Enables Ruby developers to start using the Temporal Ruby SDK with basic workflow starting and execution capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement scaffolding (proto gen, build, lint, docs, test, GitHub actions), Ruby/Rust bridge, bare-bones client with minimal gRPC calls, workflow handle, basic interceptor, and test infrastructure with local ephemeral server.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed after implementing the requested scaffolding and bare-bones client for the Ruby SDK.",
+  "related": [],
+  "keyQuote": "Need the scaffolding and initial client for this repo. Namely: Proto gen, build, lint, docs, test, etc tasks; Ruby/Rust bridge; Bare-bones start/exec-workflow-only client.",
+  "number": 154,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:43:40.634Z"
+}

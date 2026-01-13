@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to support OpenTelemetry v2 and newer library versions (0.200.0+). The SDK currently only supports OTel v1, and upgrading would be a breaking change for existing users.",
+  "category": "feature",
+  "subcategory": "opentelemetry-instrumentation",
+  "apis": [],
+  "components": [
+    "interceptors",
+    "opentelemetry-plugin",
+    "observability"
+  ],
+  "concepts": [
+    "instrumentation",
+    "observability",
+    "telemetry",
+    "versioning",
+    "backward-compatibility",
+    "breaking-changes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users wanting to use OpenTelemetry v2 cannot upgrade due to SDK not supporting the newer major version.",
+  "rootCause": "OTel v2 represents a breaking change that cannot be implemented in the existing v1 package without breaking existing setups.",
+  "proposedFix": "Create a new package (e.g., @temporalio/interceptors-opentelemetry2) that supports OTel v2 while maintaining v1 compatibility. Implementation roadmap: (1) Complete OTel v1 event coverage improvements, (2) Extend v1 to new plugin form, (3) Address serialization issues in workflow/sink layer, (4) Duplicate v1 as v2 package with necessary adaptations.",
+  "workaround": "Users can create their own copy of the OTel interceptors for v2 support outside the official SDK.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1835,
+    1779,
+    1738
+  ],
+  "keyQuote": "The plan is therefore to make a _new_ package for this, something like `@temporalio/interceptors-opentelemetry2`, so that both plugin versions can coexist.",
+  "number": 1658,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:21.964Z"
+}

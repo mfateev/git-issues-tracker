@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add a workflow_retried counter metric that can be filtered by namespace, to track the global retry count across workflows. Currently only workflow_retry_backoff_timer is available.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [
+    "GetInfo"
+  ],
+  "components": [
+    "metrics",
+    "workflow-engine",
+    "namespace"
+  ],
+  "concepts": [
+    "retry",
+    "counter-metric",
+    "cardinality",
+    "namespace-filtering",
+    "observability",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users managing control planes need visibility into global workflow retry counts by namespace for monitoring and debugging.",
+  "rootCause": null,
+  "proposedFix": "Add a workflow_retried counter metric with namespace tag support",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we are in a situation where we manage the control plane, but not the workflows themselves. We would like to know the global retry count, ideally by namespace",
+  "number": 5768,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:33.441Z"
+}

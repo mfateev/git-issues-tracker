@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow task timeout is not capped when using continue as new, allowing users to set arbitrary long timeouts that persist in the new run without being capped.",
+  "category": "bug",
+  "subcategory": "workflow-task-timeout",
+  "apis": [
+    "WithWorkflowTaskTimeout"
+  ],
+  "components": [
+    "workflow",
+    "task-timeout",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "timeout",
+    "capping",
+    "workflow-task",
+    "continue-as-new",
+    "task-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can bypass workflow task timeout limits using continue as new, potentially causing unexpected behavior in workflow executions.",
+  "rootCause": "Workflow task timeout capping logic is not applied when continuing as new with user-specified timeout values.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "User can set arbitrary long workflow task timeout via `workflow.WithWorkflowTaskTimeout()` and do a continue as new. And in the new run, the workflow task timeout is not capped",
+  "number": 3811,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:13.762Z"
+}

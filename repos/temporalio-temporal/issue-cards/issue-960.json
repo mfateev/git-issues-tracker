@@ -1,0 +1,31 @@
+{
+  "summary": "Request to support in-memory database option and optimize Temporal for edge/IoT deployments with limited resources (2 cores, 2GB RAM). Users need documentation and a simpler setup for running Temporal with good throughput in resource-constrained environments.",
+  "category": "feature",
+  "subcategory": "deployment-configuration",
+  "apis": [],
+  "components": [
+    "database",
+    "temporal-server",
+    "packaging"
+  ],
+  "concepts": [
+    "resource-constraints",
+    "edge-computing",
+    "in-memory-storage",
+    "iot",
+    "minimal-setup",
+    "throughput"
+  ],
+  "severity": "medium",
+  "userImpact": "Organizations running Temporal on edge/IoT devices with limited hardware resources cannot currently deploy Temporal efficiently, limiting adoption in resource-constrained environments.",
+  "rootCause": null,
+  "proposedFix": "Develop in-memory database option for Temporal and create simplified binary distribution optimized for limited resource scenarios with supporting documentation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We consider that perhaps an in-memory DB along with simple binary (temporal) would be a better choice for executing workflows with good throughput.",
+  "number": 960,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:30:26.901Z"
+}

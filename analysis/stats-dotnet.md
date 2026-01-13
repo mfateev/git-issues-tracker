@@ -1,6 +1,6 @@
 # .NET SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/sdk-dotnet](https://github.com/temporalio/sdk-dotnet)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 49 |
+| Total Open Issues | 50 |
 | Total Closed Issues | 240 |
-| Total All Issues | 289 |
-| Bugs (open) | 12 |
+| Total All Issues | 290 |
+| Bugs (open) | 13 |
 | Enhancements/Features (open) | 30 |
 | Security Issues (open) | 1 |
 | Total Upvotes (👍) on open | 13 |
 | Total Comments on open | 46 |
 | Issues with Upvotes | 6 (12%) |
-| Issues with Comments | 24 (49%) |
-| Average Age (days) | 389 |
-| Stale Issues (>12 months) | 24 (49%) |
+| Issues with Comments | 24 (48%) |
+| Average Age (days) | 384 |
+| Stale Issues (>12 months) | 24 (48%) |
 
 ---
 ## Resolution Metrics
@@ -36,7 +36,7 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 83% (240/289) |
+| Resolution Rate | 83% (240/290) |
 | Avg Time to Close (calendar) | 66 days |
 | Avg Time to Close (business) | 47 days |
 | Median Time to Close (calendar) | 21 days |
@@ -75,10 +75,10 @@
 | 2025-10 | 9 | 10 | -1 |
 | 2025-11 | 4 | 5 | -1 |
 | 2025-12 | 7 | 5 | +2 |
-| 2026-01 | 4 | 3 | +1 |
-| **Total** | **87** | **84** | **+3** |
+| 2026-01 | 5 | 3 | +2 |
+| **Total** | **88** | **84** | **+4** |
 
-📈 **Backlog Growing:** 3 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 4 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -115,11 +115,11 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 7 | 14% |
-| 1-3 months | 6 | 12% |
+| 1-3 months | 7 | 14% |
 | 3-6 months | 0 | 0% |
 | 6-12 months | 10 | 20% |
-| 1-2 years | 22 | 45% |
-| 2-3 years | 4 | 8% |
+| 1-2 years | 21 | 42% |
+| 2-3 years | 5 | 10% |
 | 3+ years | 0 | 0% |
 
 ---
@@ -182,13 +182,13 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-12 | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | 0 | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_Fa... |
 | 2026-01-07 | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
 | 2026-01-06 | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | 0 | Refactor Bridge.Client to be IDisposable instead of a SafeHa... |
 | 2026-01-06 | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | 0 | Separate unmanaged pointer lifecycle management into SafeHan... |
 | 2025-12-26 | [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | 0 | [Bug] Loading TLS certificates from path doesn't work |
 | 2025-12-17 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
 | 2025-12-17 | [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | 0 | [Feature Request] Add tests to confirm proper Nexus support ... |
-| 2025-12-12 | [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | 0 | [Feature Request] .NET Analyzer for Checking Workflows |
 
 ---
 
@@ -197,15 +197,16 @@ Priority = Upvotes × 2 + Comments
 | Label | Count |
 |-------|-------|
 | enhancement | 30 |
-| bug | 12 |
+| bug | 13 |
 | mend: dependency security vulnerability | 1 |
 
 ---
 
-## Bugs (12 open issues)
+## Bugs (13 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
+| [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | 0 | 0 | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_Fa... |
 | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
 | [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | 0 | 0 | [Bug] Loading TLS certificates from path doesn't work |
 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |

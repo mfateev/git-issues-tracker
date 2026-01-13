@@ -1,0 +1,31 @@
+{
+  "summary": "Request to enable TLS support for database connections in temporal_sql_tool. The tool accepts TLS parameters but they are not being specified in the Docker startup script, leaving database connections unencrypted.",
+  "category": "feature",
+  "subcategory": "database-configuration",
+  "apis": [],
+  "components": [
+    "docker",
+    "temporal_sql_tool",
+    "database-connection"
+  ],
+  "concepts": [
+    "tls",
+    "encryption",
+    "database-security",
+    "configuration",
+    "mysql",
+    "postgresql"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot secure their database connections with TLS, exposing database communication to potential interception.",
+  "rootCause": null,
+  "proposedFix": "Update docker/start.sh to pass TLS parameters to temporal_sql_tool invocations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "MySQL and PostgreSQL TLS support has been implemented.",
+  "related": [],
+  "keyQuote": "MySQL & PostgreSQL all support TLS now",
+  "number": 323,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:50:06.504Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add native YDB (Yandex Database) support as a storage backend for Temporal, allowing developers to leverage YDB's geographic replication, automatic scaling, and fault tolerance features. While a community fork exists, the request is for out-of-the-box YDB support with selectable database storage options.",
+  "category": "feature",
+  "subcategory": "database-support",
+  "apis": [],
+  "components": [
+    "persistence",
+    "storage-backend",
+    "database-driver"
+  ],
+  "concepts": [
+    "database-integration",
+    "scalability",
+    "fault-tolerance",
+    "replication",
+    "storage-backend-selection"
+  ],
+  "severity": "low",
+  "userImpact": "YDB users interested in building long-lived applications with Temporal would be able to use native YDB integration instead of relying on community forks or alternative storage solutions.",
+  "rootCause": null,
+  "proposedFix": "Implement YDB as a supported persistence backend option in Temporal, similar to existing PostgreSQL, MySQL, and other database drivers, with proper integration into the Temporal SDK.",
+  "workaround": "Use the community fork at https://github.com/yandex/temporal-over-ydb, though it lacks full compatibility with the main Temporal codebase.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This fork is not a 100% functional solution, it would be great to see YDB support in Temporal out of the box. With the option to select DB as storage.",
+  "number": 5302,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:27.032Z"
+}

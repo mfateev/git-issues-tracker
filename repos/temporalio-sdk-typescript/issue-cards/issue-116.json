@@ -1,0 +1,30 @@
+{
+  "summary": "Request to automatically compile TypeScript code when running a worker, eliminating the need for users to maintain a separate watch process. This would streamline local development by combining compilation and worker execution into a single command.",
+  "category": "feature",
+  "subcategory": "development-tooling",
+  "apis": [],
+  "components": [
+    "worker",
+    "typescript-compiler",
+    "development-environment"
+  ],
+  "concepts": [
+    "auto-compilation",
+    "file-watching",
+    "development-workflow",
+    "hot-reload",
+    "source-maps"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently need to manage multiple terminal processes for development; automatic compilation would simplify the local development setup.",
+  "rootCause": null,
+  "proposedFix": "Integrate TypeScript compilation into the worker startup process, potentially leveraging webpack for source map generation.",
+  "workaround": "Maintain a separate terminal process that watches for file changes and invokes the TypeScript compiler.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of the SDK's development tooling improvements.",
+  "related": [],
+  "keyQuote": "It would be great if running a worker did the compilation too. That way I could only run the worker in some cases.",
+  "number": 116,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:11.409Z"
+}

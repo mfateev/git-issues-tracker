@@ -1,0 +1,30 @@
+{
+  "summary": "User reported that listWorkflowExecutions rejects queries with multiple filter conditions (AND operators), receiving 'too many filter conditions specified' error. Investigation revealed this is a server-side limitation based on the persistence backend, not an SDK bug.",
+  "category": "question",
+  "subcategory": "list-workflows",
+  "apis": [
+    "listWorkflowExecutions"
+  ],
+  "components": [
+    "client",
+    "workflow-execution-queries"
+  ],
+  "concepts": [
+    "query-filters",
+    "persistence-backend",
+    "server-limitation",
+    "multi-condition-queries"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot query workflow executions with multiple filter conditions in their query, forcing client-side filtering as a workaround.",
+  "rootCause": "The Temporal server's persistence backend does not support queries containing two filter predicates, regardless of SDK implementation.",
+  "proposedFix": null,
+  "workaround": "Filter results on the client side after retrieving workflows with a single query parameter.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed after investigation determined the limitation is server-side, not an SDK bug. The error message indicates the persistence backend in use does not support multiple filter conditions.",
+  "related": [],
+  "keyQuote": "That error message indicates that your temporal server is using a persistance backend that do not support queries containing two filter predicates.",
+  "number": 1062,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:30.777Z"
+}

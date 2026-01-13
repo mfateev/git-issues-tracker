@@ -1,0 +1,32 @@
+{
+  "summary": "Worker crashes with 'async hook stack has become corrupted' error when Prometheus metrics are enabled under high concurrency (100+ concurrent tasks). The crash occurs in Node.js worker threads and causes continuous pod restarts in production Kubernetes deployments.",
+  "category": "bug",
+  "subcategory": "metrics-telemetry",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics-exporter",
+    "telemetry",
+    "worker-threads"
+  ],
+  "concepts": [
+    "prometheus",
+    "metrics",
+    "async-hooks",
+    "concurrency",
+    "memory-corruption",
+    "node-runtime"
+  ],
+  "severity": "critical",
+  "userImpact": "Production workers become completely unstable and crash repeatedly when monitoring with Prometheus metrics under moderate-to-high concurrency, breaking observability and service reliability.",
+  "rootCause": "Async hook stack corruption in Node.js runtime when processing high concurrency with Prometheus metrics enabled, indicating improper async context tracking or stack management in the metrics exporter.",
+  "proposedFix": null,
+  "workaround": "Disable Prometheus metrics in production or reduce worker concurrency below levels that trigger the bug.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workers crash repeatedly with Error: `async hook stack has become corrupted` when Prometheus metrics are enabled.",
+  "number": 1832,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:54:26.852Z"
+}

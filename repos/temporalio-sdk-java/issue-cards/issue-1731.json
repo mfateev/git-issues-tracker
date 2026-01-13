@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add activity attempt number to MDC context in the Java SDK's activity worker handler to differentiate between retry attempts in logs.",
+  "category": "feature",
+  "subcategory": "activity-logging",
+  "apis": [
+    "ActivityWorker"
+  ],
+  "components": [
+    "activity-worker",
+    "mdc-logging",
+    "local-activity-worker"
+  ],
+  "concepts": [
+    "logging",
+    "mdc-context",
+    "activity-retry",
+    "attempt-tracking",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now distinguish between different activity attempt logs using MDC context, improving debugging of retried activities.",
+  "rootCause": null,
+  "proposedFix": "Add MDC.put(LoggerTag.ACTIVITY_ATTEMPT, pollResponse.getAttempt()) and corresponding MDC.remove() calls to ActivityWorker#handle and LocalActivityWorker#handle methods.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in commit f2e113a49ba5d3d5b7a178bcaf14e6fb1e0df878",
+  "related": [],
+  "keyQuote": "Having the attempt added to the MDC context of the activity worker handler would allow me to differentiate between two activity attempts",
+  "number": 1731,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:06.958Z"
+}

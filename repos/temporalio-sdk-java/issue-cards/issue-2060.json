@@ -1,0 +1,34 @@
+{
+  "summary": "Request to call describe namespace on worker startup to validate namespace configuration and detect issues early. This aligns with the features repository initiative to improve worker initialization.",
+  "category": "feature",
+  "subcategory": "worker-initialization",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "namespace-client",
+    "initialization"
+  ],
+  "concepts": [
+    "namespace-validation",
+    "startup-checks",
+    "configuration-detection",
+    "error-handling",
+    "initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers could detect namespace configuration issues earlier at startup, improving debugging and preventing runtime failures.",
+  "rootCause": null,
+  "proposedFix": "Call describe namespace API during worker initialization to validate configuration",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to call describe namespace on worker start to improve startup validation",
+  "related": [
+    477
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/477",
+  "number": 2060,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:07.594Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal Docker container fails to bind when connected to multiple Docker networks, as it receives multiple IP addresses as a single string which the IPv4 parser cannot handle. The container needs to bind to 0.0.0.0 instead of specific IPs in multi-network scenarios.",
+  "category": "bug",
+  "subcategory": "docker-networking",
+  "apis": [],
+  "components": [
+    "rpc",
+    "server",
+    "docker-setup",
+    "network-binding"
+  ],
+  "concepts": [
+    "networking",
+    "docker",
+    "multi-interface",
+    "ip-binding",
+    "gRPC-listener",
+    "container-deployment"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run Temporal in Docker containers connected to multiple networks, making it impossible to use common Docker Compose setups with multiple network backends.",
+  "rootCause": "The getListenIP function in rpc.go:186 receives multiple space-separated IP addresses when a container is connected to multiple Docker networks, but the parser expects a single IPv4 address and fails to parse the string.",
+  "proposedFix": "Bind to 0.0.0.0 in Docker scenarios to accept connections on all interfaces, or modify the IP parsing logic to handle multiple addresses and select one appropriately.",
+  "workaround": "Set environment variables to explicitly bind to 0.0.0.0 and configure broadcastAddress for cluster communication, though documentation on how to do this via configuration is unclear.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    544
+  ],
+  "keyQuote": "Binding multiple networks to the temporal docker container results in: unable to parse bindOnIP value or it is not IPv4 address",
+  "number": 471,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:00:32.169Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Implement a Plugin system for the Ruby SDK to allow users to self-serve create integrations with Temporal Workflows, following the pattern already established in the Python SDK.",
+  "category": "feature",
+  "subcategory": "plugin-system",
+  "apis": [],
+  "components": [
+    "plugin-manager",
+    "ruby-sdk",
+    "integration-system"
+  ],
+  "concepts": [
+    "extensibility",
+    "plugin-architecture",
+    "user-customization",
+    "integration",
+    "workflow-extension",
+    "self-service"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can create custom integrations with Temporal Workflows without modifying SDK internals.",
+  "rootCause": null,
+  "proposedFix": "Copy the existing plugin implementation from the Python SDK to Ruby",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Plugin system implemented following Python SDK pattern",
+  "related": [],
+  "keyQuote": "Implement Plugins so that users can self-serve creating integrations with Temporal Workflows. This is done in Python and we can copy.",
+  "number": 353,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:45.511Z"
+}

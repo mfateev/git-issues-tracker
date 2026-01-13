@@ -1,0 +1,32 @@
+{
+  "summary": "Initial report suggested server version 1.21.4 incorrectly required all workflow task completions to handle buffered signals, but investigation revealed the actual issue was a server change rejecting signal API calls when the last workflow task has failures, which occurs during continueAsNew with buffered signals.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-processing",
+    "workflow-task-completion",
+    "continueAsNew"
+  ],
+  "concepts": [
+    "signal-buffering",
+    "workflow-execution",
+    "error-handling",
+    "backward-compatibility",
+    "task-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected signal rejection errors when workflow tasks fail during continueAsNew operations with buffered signals, requiring code changes to handle this new behavior.",
+  "rootCause": "Server change (commit 759aa2cfe6c1b0c291dc932f4879ca16d9e8284e) that rejects signal API when last workflow task has failure, combined with existing behavior of task failure when continueAsNew is attempted with buffered events.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was misdiagnosed; the reporter determined the actual cause was a feature request implementation change (issue #4137) that rejects signals when workflow task fails, not a requirement for all WFTs to process signals.",
+  "related": [
+    4137
+  ],
+  "keyQuote": "There is a change in the server that signal API will be rejected when last workflow task has failure",
+  "number": 4801,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:42.027Z"
+}

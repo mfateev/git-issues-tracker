@@ -1,0 +1,36 @@
+{
+  "summary": "CI test-npm-init job is rate limited when downloading from api.github.com. The issue persists despite a previous PR attempt to fix it. Suggested solution is to use a Cloudflare CDN in front of api.github.com for both package creation and testing.",
+  "category": "bug",
+  "subcategory": "ci-rate-limiting",
+  "apis": [],
+  "components": [
+    "ci",
+    "npm-init",
+    "package-creation",
+    "github-api"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "api-quota",
+    "cdn",
+    "ci-infrastructure",
+    "authentication",
+    "cloudflare"
+  ],
+  "severity": "medium",
+  "userImpact": "CI builds fail intermittently due to GitHub API rate limiting when running npm-init tests, blocking PR validation and releases.",
+  "rootCause": "Missing or insufficient authentication headers in GitHub API requests during npm package initialization in CI environment, causing requests to be rate limited more aggressively.",
+  "proposedFix": "Add Cloudflare CDN proxy in front of api.github.com and update both package creation and test scripts to use the CDN domain instead of direct API calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by ensuring auth headers are sent in all requests to GitHub API. PR #865 addresses the missing authentication header that was causing the rate limit issue.",
+  "related": [
+    721,
+    782,
+    865
+  ],
+  "keyQuote": "Looks like we weren't sending the auth header in one of the requests, I'm fixing this.",
+  "number": 834,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:19:04.652Z"
+}

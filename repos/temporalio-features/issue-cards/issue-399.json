@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add custom marker events to workflow history/timeline for recording workflow-specific decisions and pivotal events without the constraints of signals or activities. Currently users work around this by exposing information through queries.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [],
+  "components": [
+    "history",
+    "timeline",
+    "marker-recording"
+  ],
+  "concepts": [
+    "workflow-state",
+    "event-recording",
+    "history-growth",
+    "workflow-visibility",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily record custom metadata about workflow decisions in history, forcing them to use workarounds like queries or dummy activities that impact performance.",
+  "rootCause": "The system lacks a mechanism for recording opaque marker events without the constraints of signals (which require actual workflow handling) or activities (which impact performance).",
+  "proposedFix": "Add a way to record custom MarkerRecorded events that are opaque for the server, allowing developers to annotate workflow history with custom information.",
+  "workaround": "Use queries to expose workflow-specific information, or use noop activities with payloads (though this impacts history growth and recovery time).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    682
+  ],
+  "keyQuote": "A way to record custom MarkerRecorded Events that are opaque for the server would be a suitable solution.",
+  "number": 399,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:47.172Z"
+}

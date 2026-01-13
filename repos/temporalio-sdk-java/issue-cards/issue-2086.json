@@ -1,0 +1,31 @@
+{
+  "summary": "gRPC version 1.54.0 causes JVM crashes on Alpine Linux. This is a compatibility issue that was resolved by updating the Java SDK's gRPC dependency in v1.28.0.",
+  "category": "bug",
+  "subcategory": "dependency-compatibility",
+  "apis": [],
+  "components": [
+    "grpc-dependency",
+    "jvm-runtime"
+  ],
+  "concepts": [
+    "jvm-crash",
+    "alpine-linux",
+    "dependency-upgrade",
+    "version-compatibility",
+    "runtime-stability"
+  ],
+  "severity": "high",
+  "userImpact": "Users running the Java SDK on Alpine Linux experience JVM crashes due to gRPC version incompatibility.",
+  "rootCause": "gRPC version 1.54.0 has a compatibility issue with Alpine Linux JVM runtime.",
+  "proposedFix": "Upgrade to a compatible gRPC version (resolved in SDK v1.28.0).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Java SDK v1.28.0 updated the gRPC dependency to a version compatible with Alpine Linux.",
+  "related": [
+    10096
+  ],
+  "keyQuote": "Java SDK `v1.28.0` updated `grpc`",
+  "number": 2086,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:07.490Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Improve error messages when workflow or activity return type decoding fails. Currently shows generic 'Failed decoding arguments' message; should specify what failed to decode (return value vs encoding) and which child workflow or activity was affected.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "child-workflow-executor",
+    "activity-executor",
+    "return-type-decoder"
+  ],
+  "concepts": [
+    "error-handling",
+    "type-validation",
+    "debugging",
+    "return-values",
+    "encoding-decoding",
+    "error-clarity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily identify which child workflow or activity failed and whether the issue is with decoding the return value or encoding it, making debugging difficult.",
+  "rootCause": null,
+  "proposedFix": "Use more specific error messages: 'Failed to decode return value on <child workflow>' for workflows and similar messages for activities, distinguishing between decode and encode failures.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It should say 'Failed to decode return value on <child workflow>'. Same for activities (and make sure it's clear what child/activity failed to _encode_ if needed too).",
+  "number": 536,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:52.329Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add custom metadata support for workers in Temporal, allowing users to attach operational information like environment, version, and team ownership that can be viewed in the UI and CLI.",
+  "category": "feature",
+  "subcategory": "worker-metadata",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "worker-registration",
+    "temporal-ui",
+    "temporal-cli"
+  ],
+  "concepts": [
+    "metadata",
+    "worker-identity",
+    "operational-visibility",
+    "worker-deployment",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users without worker deployments or versioning features lack operational visibility into worker-specific metadata in the UI and CLI.",
+  "rootCause": null,
+  "proposedFix": "Add setMetadata() method to WorkerOptions to allow setting custom metadata during worker registration, with display support in UI and CLI describe task queue commands.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workers currently only support identity information, which appears in the UI and CLI via temporal describe task queue. There's no way to attach custom metadata to workers.",
+  "number": 715,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:06:10.924Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "WorkerFactoryOptions.getDefaultInstance() doesn't return an instance with actual default values populated. Users expected the method to return an object with all default configuration values set, but instead it returns an instance requiring manual merging of properties from different sources.",
+  "category": "question",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerFactoryOptions"
+  ],
+  "components": [
+    "worker-factory",
+    "configuration"
+  ],
+  "concepts": [
+    "default-values",
+    "configuration-merging",
+    "api-expectations",
+    "builder-pattern"
+  ],
+  "severity": "low",
+  "userImpact": "Users calling getDefaultInstance() may be confused about how to access default configuration values, requiring them to use alternative approaches like newBuilder().validateAndBuildWithDefaults().",
+  "rootCause": "The design intentionally doesn't populate unoverridden fields to support merging properties from different sources, which differs from user expectations of what getDefaultInstance() should return.",
+  "proposedFix": null,
+  "workaround": "Use WorkerFactoryOptions.newBuilder().validateAndBuildWithDefaults() to get default values.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Marked as wontfix because the current behavior is intentional - getDefaultInstance() returns a minimal instance to support property merging from multiple sources, not a fully populated defaults object.",
+  "related": [],
+  "keyQuote": "If you want to read the default values for whatever purposes, you may use WorkerFactoryOptions.newBuilder().validateAndBuildWithDefaults()",
+  "number": 1703,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:50.774Z"
+}

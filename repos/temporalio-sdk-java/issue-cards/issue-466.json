@@ -1,0 +1,33 @@
+{
+  "summary": "User asks if proxy objects (commonly used with Quarkus interceptors) can be passed to registerActivitiesImplementations. Discussion suggests this should already work if proxies implement ActivityInterface, but user seeks confirmation or feature enhancement for better interceptor support.",
+  "category": "question",
+  "subcategory": "activity-registration",
+  "apis": [
+    "registerActivitiesImplementations",
+    "DynamicActivity"
+  ],
+  "components": [
+    "activity-registration",
+    "activity-implementation",
+    "interceptor-support"
+  ],
+  "concepts": [
+    "proxy-objects",
+    "interceptors",
+    "dependency-injection",
+    "activity-interface",
+    "quarkus-extension"
+  ],
+  "severity": "low",
+  "userImpact": "Quarkus extension developers need clarity on whether proxy-based interceptor patterns are supported for activity implementation registration.",
+  "rootCause": null,
+  "proposedFix": "Consider supporting factory methods or explicit proxy handling; alternatively, clarify that existing proxy objects should work if they implement ActivityInterface.",
+  "workaround": "Use DynamicActivity as an alternative approach.",
+  "resolution": "invalid",
+  "resolutionDetails": "Community responded that proxy objects should already work if implementing ActivityInterface, suggesting the feature is not needed and the user's approach is valid.",
+  "related": [],
+  "keyQuote": "I believe you should be able to provide Proxy objects to registerActivitiesImplementations just fine if these Proxies are implementing an ActivityInterface.",
+  "number": 466,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:19:41.895Z"
+}

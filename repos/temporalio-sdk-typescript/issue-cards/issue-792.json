@@ -1,0 +1,33 @@
+{
+  "summary": "Documentation for bundleWorkflowCode is insufficient, lacking guidance on passing interceptors through the function to prevent non-determinism errors when replaying workflows. Users are unclear how to pass the bundled code to Worker.create.",
+  "category": "docs",
+  "subcategory": "bundleWorkflowCode",
+  "apis": [
+    "bundleWorkflowCode",
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "workflow-bundling",
+    "webpack"
+  ],
+  "concepts": [
+    "code-bundling",
+    "interceptors",
+    "replay",
+    "non-determinism",
+    "webpack-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot correctly implement workflow code bundling and interceptors, leading to non-determinism errors during workflow replay.",
+  "rootCause": null,
+  "proposedFix": "Add documentation to bundleWorkflowCode API reference explaining that interceptors must be passed through this function and is necessary for replay to work correctly.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was improved to clarify bundleWorkflowCode usage and interceptor handling.",
+  "related": [],
+  "keyQuote": "Better documentation around bundleWorkflowCode to indicate that interceptors should be passed in through bundleWorkflowCode and is necessary if used with replaying",
+  "number": 792,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:12:12.459Z"
+}

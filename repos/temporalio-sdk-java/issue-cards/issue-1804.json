@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add local Temporal CLI server support for testing in Java SDK, similar to TypeScript's TestWorkflowEnvironment.createLocal(). This would enable testing of features not available in the test environment, such as listWorkflowExecution.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-environment",
+    "server",
+    "cli"
+  ],
+  "concepts": [
+    "local-testing",
+    "test-server",
+    "workflow-execution",
+    "feature-parity",
+    "sdk-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Java developers cannot easily test advanced features like listWorkflowExecution locally without setting up a full Temporal server.",
+  "rootCause": null,
+  "proposedFix": "Implement a TestWorkflowEnvironment.createLocal() method or similar API to start a Temporal CLI server for testing purposes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Other SDKs allows starting a full Temporal server locally for testing purpose. Eg typescript: `TestWorkflowEnvironment.createLocal()`",
+  "number": 1804,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:31.301Z"
+}

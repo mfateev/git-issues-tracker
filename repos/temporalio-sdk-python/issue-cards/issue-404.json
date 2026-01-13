@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to expose StartDelay option in Workflow Options, allowing workflows to be scheduled with a delay before execution begins.",
+  "category": "feature",
+  "subcategory": "workflow-options",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-options",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "scheduling",
+    "delay",
+    "workflow-start",
+    "timing",
+    "execution-control"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot delay workflow execution, limiting scheduling flexibility for time-sensitive operations.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "StartDelay was added to Workflow Options in the Python SDK",
+  "related": [],
+  "keyQuote": "Expose StartDelay in Workflow Options",
+  "number": 404,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:17.258Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Move the canary testing system out of the main server repository to a separate dedicated repository. Currently it resides in the server repo due to legacy reasons and needs to be decoupled.",
+  "category": "feature",
+  "subcategory": "test-infrastructure",
+  "apis": [],
+  "components": [
+    "canary",
+    "test-framework",
+    "repository-structure"
+  ],
+  "concepts": [
+    "refactoring",
+    "repository-separation",
+    "build-organization",
+    "maintenance"
+  ],
+  "severity": "low",
+  "userImpact": "Separating the canary into its own repository will improve maintainability and reduce complexity of the main server repository.",
+  "rootCause": "Legacy architectural decision to co-locate canary testing with server code",
+  "proposedFix": "Create a separate repository for canary and migrate all canary-related code",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Canary was moved to a separate repository as indicated by the closed status and refactoring label",
+  "related": [],
+  "keyQuote": "Currently it lives in the same server repo due to legacy reason. Needs to be moved out.",
+  "number": 69,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T12:20:51.778Z"
+}

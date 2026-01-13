@@ -1,0 +1,33 @@
+{
+  "summary": "Add validation to fail workflow tasks when illegal state-mutating calls (like activities) are made within Workflow.await(), which is expected to be idempotent. This will help catch bugs in workflow implementations that violate the idempotency requirement.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow.await",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-executor",
+    "await-handler",
+    "activity-executor"
+  ],
+  "concepts": [
+    "idempotency",
+    "state-mutation",
+    "workflow-task-failure",
+    "illegal-calls",
+    "bug-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will get explicit workflow task failures when they accidentally make illegal state-mutating calls in Workflow.await(), making bugs easier to detect and fix.",
+  "rootCause": "Workflow.await() does not validate that no state-mutating operations are performed within its predicate, allowing buggy code to slip through.",
+  "proposedFix": "Detect any calls to mutate workflow state (like starting activities) within Workflow.await() and fail the workflow task with an appropriate error.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation added validation to detect illegal calls within Workflow.await() and fail the workflow task accordingly.",
+  "related": [],
+  "keyQuote": "Workflow.await is expected to be idempotent, so it is not allowed to make any calls to mutate workflow state like start an activity.",
+  "number": 2044,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:07.147Z"
+}

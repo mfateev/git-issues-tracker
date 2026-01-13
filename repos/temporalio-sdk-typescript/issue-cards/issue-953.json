@@ -1,0 +1,32 @@
+{
+  "summary": "The ConnectionOptions.connectionTimeout parameter is being ignored when creating a client connection, causing connections to always timeout at the default 10 seconds instead of the specified value.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "ConnectionOptions"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "connection",
+    "configuration",
+    "client-provisioning",
+    "deadline"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot configure connection timeout values shorter than the default 10 seconds, breaking applications that need faster timeout behavior.",
+  "rootCause": "The connectionTimeout parameter in ConnectionOptions is not being properly applied to the connection establishment logic.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The connectionTimeout configuration parameter was properly integrated into the connection establishment flow.",
+  "related": [],
+  "keyQuote": "The ConnectionOptions.connectionTimeout seems to be ignored... the timeout is still 10 seconds",
+  "number": 953,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:48.638Z"
+}

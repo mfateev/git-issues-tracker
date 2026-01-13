@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to expose UpdateID in update handlers to allow users to access it for idempotent operations. The UpdateID is already available in the client, but needs to be accessible within the handler context in the workflow.",
+  "category": "feature",
+  "subcategory": "update-handler",
+  "apis": [
+    "UpdateHandle"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-context",
+    "client-update"
+  ],
+  "concepts": [
+    "idempotency",
+    "context-passing",
+    "async-local",
+    "update-id",
+    "handler-access"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need access to UpdateID within update handlers to implement idempotent primary keys for their handler logic.",
+  "rootCause": null,
+  "proposedFix": "Implement a mechanism to pass UpdateID to the handler context (similar to Go's context approach or other languages' async-local patterns)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "UpdateID was exposed in the update handler, allowing users to access it for idempotent operations within their handler code",
+  "related": [],
+  "keyQuote": "This will allow users to use it when they want a unique idempotent primary key for handlers.",
+  "number": 448,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:11.153Z"
+}

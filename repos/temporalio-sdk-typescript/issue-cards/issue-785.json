@@ -1,0 +1,29 @@
+{
+  "summary": "The TypeScript SDK currently depends on protobufjs@6 while the latest proto3-json-serializer requires protobufjs@7, causing users to have both versions installed. This feature request proposes upgrading to protobufjs@7 to resolve the dependency conflict.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "protobuf-serialization",
+    "dependency-management",
+    "proto3-json-serializer"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "protobuf",
+    "version-compatibility",
+    "package-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience duplicate protobufjs versions in their dependency tree, increasing bundle size and potential compatibility issues.",
+  "rootCause": "SDK pins protobufjs@6 while proto3-json-serializer requires protobufjs@7, creating version mismatch.",
+  "proposedFix": "Upgrade the SDK to use protobufjs@7 and migrate CLI usage to the new protobufjs-cli package.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was upgraded to protobufjs@7, resolving the dependency conflict and aligning with proto3-json-serializer requirements.",
+  "related": [],
+  "keyQuote": "Latest proto3-json-serializer depends on protobufjs@7, and we curently depend on 6, which means users get both versions.",
+  "number": 785,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:12:10.025Z"
+}

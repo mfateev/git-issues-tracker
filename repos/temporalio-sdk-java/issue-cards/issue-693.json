@@ -1,0 +1,31 @@
+{
+  "summary": "LocalActivitiesWorkflowTaskHeartbeatTest#testLocalActivitiesWorkflowTaskHeartbeat test is flaky in buildkite, timing out after 15 seconds.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "local-activities",
+    "workflow-task-heartbeat"
+  ],
+  "concepts": [
+    "flakiness",
+    "timeout",
+    "test-reliability",
+    "heartbeat",
+    "local-activities",
+    "timing"
+  ],
+  "severity": "high",
+  "userImpact": "Flaky tests reduce developer confidence in the build system and make it difficult to distinguish real failures from timing issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through test framework improvements or timing adjustments to eliminate the flakiness.",
+  "related": [],
+  "keyQuote": "test timed out after 15 seconds",
+  "number": 693,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:34:51.781Z"
+}

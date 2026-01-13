@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose StartWorkflowExecutionResponse fields through the ExecuteWorkflow API to provide more detailed information about workflow execution initiation. This tracks a feature gap identified in the features repository.",
+  "category": "feature",
+  "subcategory": "workflow-api",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflowExecutionResponse"
+  ],
+  "components": [
+    "workflow-client",
+    "api-layer"
+  ],
+  "concepts": [
+    "api-exposure",
+    "workflow-execution",
+    "response-fields",
+    "client-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the full response details from workflow execution initiation, limiting their ability to work with complete execution metadata.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The StartWorkflowExecutionResponse fields were exposed through the ExecuteWorkflow API as requested.",
+  "related": [
+    619
+  ],
+  "keyQuote": "see https://github.com/temporalio/features/issues/619",
+  "number": 2523,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:44.037Z"
+}

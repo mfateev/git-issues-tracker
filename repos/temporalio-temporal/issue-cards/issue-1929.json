@@ -1,0 +1,34 @@
+{
+  "summary": "Expand SDK version tracking and reporting to be included in server version reports for usage tracking. Currently only server version info is collected; the system should track which SDK types, versions, and how many connections each pair establishes.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "version-reporting",
+    "metrics-collection",
+    "usage-tracking",
+    "connection-tracking"
+  ],
+  "concepts": [
+    "sdk-version",
+    "tracking",
+    "usage-metrics",
+    "version-reporting",
+    "connection-counting",
+    "telemetry"
+  ],
+  "severity": "low",
+  "userImpact": "Enables the Temporal team to better understand SDK adoption, version distribution, and deployment patterns across their user base.",
+  "rootCause": null,
+  "proposedFix": "Expand the implementation from PR #823 to collect SDK version metrics on the server side and report them in version reports. Consider adding a connection_count field to track the number of connections per SDK type/version pair.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed by implementing SDK version collection and reporting as part of the metrics infrastructure.",
+  "related": [
+    823
+  ],
+  "keyQuote": "We should collect and report that info so we can track what SDKs are being used and at what versions.",
+  "number": 1929,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:13.185Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The temporal-sql-tool create-database command fails with 'flag provided but not defined: -database' error when attempting to create MySQL databases. The tool incorrectly rejects the -database flag and requires manual database creation before schema setup.",
+  "category": "bug",
+  "subcategory": "sql-tool",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "database-setup",
+    "mysql-integration"
+  ],
+  "concepts": [
+    "flag-parsing",
+    "database-creation",
+    "command-line-interface",
+    "schema-initialization",
+    "helm-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following helm chart documentation cannot programmatically create MySQL databases, requiring manual database creation before using the tool.",
+  "rootCause": "The temporal-sql-tool's flag parser does not recognize the '-database' flag for the create-database subcommand (expects '--defaultdb' instead).",
+  "proposedFix": null,
+  "workaround": "Manually create the required databases (temporal, temporal_visibility) in MySQL before running the schema creation commands with temporal-sql-tool.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of helm-charts issue #364",
+  "related": [
+    364
+  ],
+  "keyQuote": "Incorrect Usage: flag provided but not defined: -database",
+  "number": 4378,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:37.578Z"
+}

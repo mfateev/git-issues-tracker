@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowQueue needs to implement Serializable to enable storing ordered event processing across workflow executions without long-running workflows. This is a Java SDK enhancement that would allow the technique described in a community discussion to be properly implemented.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [
+    "WorkflowQueue"
+  ],
+  "components": [
+    "workflow-queue",
+    "serialization",
+    "java-sdk"
+  ],
+  "concepts": [
+    "event-ordering",
+    "serialization",
+    "long-running-workflows",
+    "workflow-state",
+    "entity-processing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use WorkflowQueue for ordered event processing across workflow executions because it does not implement Serializable, forcing them to use alternative approaches.",
+  "rootCause": "WorkflowQueue does not implement the Serializable interface, which is required for persisting workflow state.",
+  "proposedFix": "Implement Serializable on WorkflowQueue class",
+  "workaround": "Use Java Queue instead of WorkflowQueue",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    792
+  ],
+  "keyQuote": "To implement this solution, we need WorkflowQueue to be serializable. At this time we can not use this technique as the WorkflowQueue is not implementing Serializable.",
+  "number": 227,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:02:05.037Z"
+}

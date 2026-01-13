@@ -1,0 +1,30 @@
+{
+  "summary": "FreeBSD build fails due to missing getSendQueueLen function in tchannel-go dependency. The tchannel-go library's Unix socket implementation doesn't support FreeBSD, causing compilation to fail when targeting FreeBSD.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "tchannel-go",
+    "build-system",
+    "platform-support"
+  ],
+  "concepts": [
+    "cross-platform",
+    "build-failure",
+    "dependency-issue",
+    "platform-specific-code",
+    "FreeBSD-support"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot build Temporal server for FreeBSD deployment, preventing FreeBSD adoption of the project.",
+  "rootCause": "tchannel-go dependency has platform-specific Unix socket code (getSendQueueLen) that is not implemented for FreeBSD, only for Linux and other Unix-like systems.",
+  "proposedFix": "Remove tchannel dependency (noted as planned removal by maintainers).",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers indicated plans to remove tchannel-go dependency entirely, making this a non-issue for future versions rather than fixing it in the current codebase.",
+  "related": [],
+  "keyQuote": "We plan to remove tchannel anyway.",
+  "number": 2703,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:42.208Z"
+}

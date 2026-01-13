@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to add LocalActivityOption#contextPropagators to support context propagation for local activities, analogous to the existing ActivityOption#contextPropagators API.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivityOption",
+    "ActivityOption",
+    "ContextPropagators",
+    "WorkerOptions"
+  ],
+  "components": [
+    "local-activity-executor",
+    "context-propagation",
+    "activity-options",
+    "worker"
+  ],
+  "concepts": [
+    "context-propagation",
+    "local-activities",
+    "api-consistency",
+    "cross-language-support",
+    "worker-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot specify custom context propagators for local activities, limiting context propagation capabilities when using local activities with different codebases.",
+  "rootCause": "LocalActivityOption API lacks feature parity with ActivityOption for context propagators, and context propagators on ActivityOptions only apply client-side rather than worker-side.",
+  "proposedFix": "Add LocalActivityOption#contextPropagators with the same semantic as ActivityOption#contextPropagators, though with awareness of the limited applicability.",
+  "workaround": "Specify ContextPropagators on WorkerOptions to apply them for all activities on both caller and worker sides.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Authors concluded that ActivityOption#contextPropagators has extremely limited usage and are only applied client-side. The proper approach is to specify ContextPropagators on WorkerOptions instead, making the feature addition for local activities unnecessary and potentially misleading.",
+  "related": [
+    489
+  ],
+  "keyQuote": "ActivityOptions#contextPropagators should be used carefully with full understanding that they are applied only to the client/stub side.",
+  "number": 490,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:22:21.158Z"
+}

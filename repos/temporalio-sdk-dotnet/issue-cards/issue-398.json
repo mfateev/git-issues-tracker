@@ -1,0 +1,35 @@
+{
+  "summary": "Add explicit memoization support to the Patched() API by introducing a memoized argument while maintaining backward compatibility. The implementation should delegate memoization handling to Core.",
+  "category": "feature",
+  "subcategory": "workflow-patching",
+  "apis": [
+    "Patched",
+    "DeprecatePatch"
+  ],
+  "components": [
+    "patching-api",
+    "core-delegation",
+    "backward-compatibility"
+  ],
+  "concepts": [
+    "memoization",
+    "workflow-patching",
+    "api-evolution",
+    "deprecation",
+    "core-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Enables developers to explicitly control memoization behavior in patched workflows, improving control over workflow versioning and upgrade strategies.",
+  "rootCause": null,
+  "proposedFix": "Add memoized argument to Patched and DeprecatePatch APIs, deprecate non-specifying signatures, update documentation with conversion guidance, and delegate logic handling to Core.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    591
+  ],
+  "keyQuote": "Add a `memoized` argument to the `Patched` and `DeprecatePatch` APIs.",
+  "number": 398,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:19:15.693Z"
+}

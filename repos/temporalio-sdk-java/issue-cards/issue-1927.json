@@ -1,0 +1,30 @@
+{
+  "summary": "Grpc-java v1.59.0 introduced an ABI breaking change requiring the SDK to update its grpc and protoc dependencies to v1.36.0 or later to maintain compatibility with compiled code.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "grpc-core",
+    "protoc-compiler",
+    "grpc-generator"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "ABI-compatibility",
+    "breaking-change",
+    "transitive-dependencies",
+    "version-mismatch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience ABI incompatibility issues if they have mismatched versions of gRPC transitive dependencies.",
+  "rootCause": "Grpc-java v1.59.0 introduced planned ABI breakage for @ExperimentalApi classes; issue was ultimately caused by users not updating all transitive dependencies uniformly.",
+  "proposedFix": "Upgrade grpc generator to at least v1.36.0 and potentially update the protoc compiler as the current one uses deprecated methods.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "No work needed - root cause was determined to be user error (not updating all transitive dependencies uniformly), not an SDK issue.",
+  "related": [],
+  "keyQuote": "No work needed. Root cause was the user was not also updating all the transitive dependencies as well",
+  "number": 1927,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:49.690Z"
+}

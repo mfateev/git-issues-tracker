@@ -1,0 +1,34 @@
+{
+  "summary": "TestWorkflowExtension lacks the ability to pass WorkflowImplementationOptions to setWorkflowTypes, unlike TestWorkflowRule which supports this. Users must use workarounds like calling registerWorkflowImplementationTypes directly instead of using the convenient setWorkflowTypes method.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "setWorkflowTypes",
+    "registerWorkflowImplementationTypes",
+    "WorkflowImplementationOptions"
+  ],
+  "components": [
+    "TestWorkflowExtension",
+    "TestWorkflowRule",
+    "Worker"
+  ],
+  "concepts": [
+    "testing",
+    "workflow-registration",
+    "api-consistency",
+    "developer-experience",
+    "activity-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users working with TestWorkflowExtension cannot conveniently set WorkflowImplementationOptions and must resort to more verbose workarounds in their test setup.",
+  "rootCause": "TestWorkflowExtension.setWorkflowTypes() has a simpler signature than TestWorkflowRule.setWorkflowTypes(), missing the WorkflowImplementationOptions parameter.",
+  "proposedFix": "Add an overloaded setWorkflowTypes method to TestWorkflowExtension.Builder that accepts WorkflowImplementationOptions as the first parameter, similar to TestWorkflowRule.",
+  "workaround": "Use TestWorkflowExtension.newBuilder().setDoNotStart(true) combined with @BeforeEach setupWorkflowOptions to manually call worker.registerWorkflowImplementationTypes() with the desired options.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was implemented to allow WorkflowImplementationOptions to be passed in TestWorkflowExtension.setWorkflowTypes.",
+  "related": [],
+  "keyQuote": "Allow WorkflowImplementationOptions to also be passed in setWorkflowTypes in TestWorkflowExtention.",
+  "number": 1626,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:37.170Z"
+}

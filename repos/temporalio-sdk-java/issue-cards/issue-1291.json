@@ -1,0 +1,35 @@
+{
+  "summary": "Unit tests using Workflow.await(condition) without timeout fail intermittently with WorkflowNotFoundException when time skipping is enabled, particularly under concurrent load. The issue stems from time skipping advancing too far ahead during long polls, causing workflow task timeouts before signals can be processed.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow.await"
+  ],
+  "components": [
+    "test-server",
+    "time-skipping",
+    "workflow-execution",
+    "signal-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "time-skipping",
+    "race-condition",
+    "signal-delivery",
+    "workflow-task",
+    "concurrent-load",
+    "test-framework"
+  ],
+  "severity": "medium",
+  "userImpact": "Unit tests using time skipping with condition-only await calls fail intermittently, making tests unreliable and difficult to debug.",
+  "rootCause": "Time skipping doesn't stop soon enough during long polls, advancing time too far to workflow task timeout, completing the workflow before signals can be delivered. No ordering guarantee between client code completion and server state updates.",
+  "proposedFix": null,
+  "workaround": "Add an explicit timeout to Workflow.await(timeout, condition) or avoid setting workflow timeout/time skipping in tests, though workaround is not fully reliable.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When you create a load, the client code doesn't stop time skipping soon enough and the time gets advanced A LOT to the workflow task timeout",
+  "number": 1291,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:22:43.920Z"
+}

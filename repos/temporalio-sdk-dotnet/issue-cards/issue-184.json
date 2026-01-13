@@ -1,0 +1,29 @@
+{
+  "summary": "System.Diagnostics.Process.GetCurrentProcess() is not supported in Blazor WebAssembly, causing exceptions when starting workflows. User suggests using System.Environment.ProcessId instead.",
+  "category": "bug",
+  "subcategory": "platform-compatibility",
+  "apis": [],
+  "components": [
+    "TemporalConnection",
+    "identity-resolution"
+  ],
+  "concepts": [
+    "platform-compatibility",
+    "webassembly",
+    "process-identification",
+    "blazor",
+    "environment-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use the .NET SDK with Blazor WebAssembly applications due to unsupported System.Diagnostics.Process API calls.",
+  "rootCause": "The SDK uses System.Diagnostics.Process.GetCurrentProcess().Id which relies on P/Invoke and is incompatible with WebAssembly execution environment.",
+  "proposedFix": "Use System.Environment.ProcessId (available in newer .NET versions) or add compiler directives to support multiple .NET versions.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainer determined that the SDK uses a Rust-based core via P/Invoke which is fundamentally incompatible with WASM. The issue was closed as not applicable because the entire SDK cannot support Blazor/WASM at this time.",
+  "related": [],
+  "keyQuote": "We use a Rust-based core for this library via P/Invoke and therefore it won't be Blazor/WASM compatible anyways.",
+  "number": 184,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:44.257Z"
+}

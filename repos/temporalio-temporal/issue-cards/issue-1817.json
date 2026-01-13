@@ -1,0 +1,32 @@
+{
+  "summary": "CronSchedule workflow executes twice within the scheduled interval instead of once per interval. A change in PR #560 that checks if the current time is before the scheduled time appears to cause duplicate executions for cron workflows with intervals like */2 * * * *.",
+  "category": "bug",
+  "subcategory": "workflow-scheduling",
+  "apis": [],
+  "components": [
+    "cron-scheduler",
+    "schedule-calculator",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "cron-expression",
+    "scheduling",
+    "timing",
+    "interval",
+    "duplicate-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Cron-scheduled workflows execute multiple times per interval, violating scheduling expectations and potentially causing data duplication or unintended side effects.",
+  "rootCause": "PR #560 introduced a condition that checks if current time is before scheduled time, but the subsequent logic for advancing the schedule may cause multiple executions within the same interval.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed by the reporter without resolution details provided.",
+  "related": [
+    560
+  ],
+  "keyQuote": "Sometimes it was executed twice in two minutes",
+  "number": 1817,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:53.309Z"
+}

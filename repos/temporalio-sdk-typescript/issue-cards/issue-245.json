@@ -1,0 +1,32 @@
+{
+  "summary": "Integration tests are experiencing flakiness related to shutdown ordering in the Core component. The issue was identified and fixed in Core's shutdown sequencing logic.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "core",
+    "shutdown",
+    "test-framework"
+  ],
+  "concepts": [
+    "shutdown",
+    "ordering",
+    "flakiness",
+    "test-reliability",
+    "race-condition"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests fail intermittently due to shutdown ordering issues, reducing test reliability and developer confidence in the test suite.",
+  "rootCause": "Problem with shutdown ordering in Core component causing race conditions during test execution",
+  "proposedFix": "Fixed shutdown ordering in Core",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by correcting shutdown ordering in Core component",
+  "related": [
+    224
+  ],
+  "keyQuote": "Pretty sure I fixed this actually. It was a problem with shutdown ordering in Core.",
+  "number": 245,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:50.201Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to improve error handling for payload conversion failures on workflow input by making the error type more discriminable and allowing it to be set on workflow_failure_exception_types, with consideration for reusing this exception across other payload conversion error locations.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "workflow",
+    "payload-converter",
+    "error-handling"
+  ],
+  "concepts": [
+    "payload-conversion",
+    "error-discrimination",
+    "exception-types",
+    "workflow-input",
+    "error-classification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily distinguish and handle payload conversion errors on workflow input, making it difficult to implement custom error handling logic.",
+  "rootCause": null,
+  "proposedFix": "Create a better error type for payload conversion failures on workflow input that can be set on workflow_failure_exception_types, and consider reusing this exception in other payload conversion error locations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "On invalid workflow input, if a bad value is called, the task fails with a runtime error. This should be a better error type that can be set on `workflow_failure_exception_types`.",
+  "number": 608,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:59.007Z"
+}

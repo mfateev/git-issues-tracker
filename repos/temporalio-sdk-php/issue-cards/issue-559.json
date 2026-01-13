@@ -1,0 +1,36 @@
+{
+  "summary": "Request to add support for attaching priority to workflows and activities in the PHP SDK, following the feature specification defined in the features repository.",
+  "category": "feature",
+  "subcategory": "workflow-priority",
+  "apis": [
+    "StartWorkflow",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow",
+    "activity",
+    "priority-handling"
+  ],
+  "concepts": [
+    "priority",
+    "workflow-execution",
+    "activity-execution",
+    "scheduling",
+    "resource-allocation",
+    "execution-ordering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently prioritize workflows and activities, limiting their ability to control execution order and resource allocation in time-sensitive applications.",
+  "rootCause": null,
+  "proposedFix": "Implement priority annotation support for workflows and activities as specified in the features repository issue #593.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support priority annotations on workflows and activities.",
+  "related": [
+    593
+  ],
+  "keyQuote": "Add support for attaching priority to workflows/activities",
+  "number": 559,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:32.586Z"
+}

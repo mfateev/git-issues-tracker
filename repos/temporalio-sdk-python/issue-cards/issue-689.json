@@ -1,0 +1,30 @@
+{
+  "summary": "Add runtime validation to ensure update validator methods have the same parameter signature as the update methods they validate. This prevents runtime errors from mismatched signatures.",
+  "category": "feature",
+  "subcategory": "update-validation",
+  "apis": [],
+  "components": [
+    "update-validator",
+    "signature-validation",
+    "worker"
+  ],
+  "concepts": [
+    "parameter-signature",
+    "validation",
+    "runtime-check",
+    "method-signature",
+    "type-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive early runtime errors if their update validators don't match the update method signatures they validate.",
+  "rootCause": null,
+  "proposedFix": "Add a runtime check that compares the parameter portion of the validator signature against the update method signature.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Runtime signature validation check was implemented for update validators.",
+  "related": [],
+  "keyQuote": "We need to make sure at runtime the parameter portion of the signature of the validator matches the parameter portion of the signature of the update method it is validating.",
+  "number": 689,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:13.544Z"
+}

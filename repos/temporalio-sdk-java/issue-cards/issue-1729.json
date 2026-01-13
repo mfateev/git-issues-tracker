@@ -1,0 +1,31 @@
+{
+  "summary": "User attempted to return an AWS S3Object from an activity, but Jackson serialization failed because S3Object contains non-serializable stream objects. The issue was closed as wontfix with guidance that users must implement custom serialization for complex objects.",
+  "category": "question",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "serialization",
+    "payload-converter",
+    "activity-execution"
+  ],
+  "concepts": [
+    "serialization",
+    "jackson",
+    "s3-integration",
+    "payload-conversion",
+    "stream-handling",
+    "custom-converters"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to return complex external objects like S3Object from activities must implement custom serialization logic instead of relying on default JSON serialization.",
+  "rootCause": "S3Object contains non-serializable internal stream objects (AbstractQueuedSynchronizer$ConditionObject) that Jackson cannot handle by default.",
+  "proposedFix": "Either fully fetch and convert S3 object to an in-memory serializable representation, or pass S3 object by reference/ID instead of as a return value.",
+  "workaround": "Configure custom PayloadConverter or Jackson serialization settings to handle S3Object serialization; alternatively, fetch S3 content into memory before returning.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Temporal does not handle serialization of arbitrary objects; users are responsible for configuring their own serialization logic via PayloadConverter abstractions.",
+  "related": [],
+  "keyQuote": "Generally, an object containing any kind of input stream shouldn't be used as an activity return value. The S3 object should be either fully fetched and converted into a full in-memory representation or passed by reference / id.",
+  "number": 1729,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:52.514Z"
+}

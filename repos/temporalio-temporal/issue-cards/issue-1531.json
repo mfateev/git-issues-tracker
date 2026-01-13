@@ -1,0 +1,32 @@
+{
+  "summary": "Request for server-side encryption of data at rest in the database to meet compliance requirements. Currently only client-side encryption via DataConverter is available, which requires reimplementation across multiple SDKs and adds complexity for data that doesn't need encryption in transit.",
+  "category": "feature",
+  "subcategory": "encryption",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "cassandra-storage",
+    "server-options",
+    "payload-serializer"
+  ],
+  "concepts": [
+    "encryption",
+    "compliance",
+    "data-at-rest",
+    "multi-sdk",
+    "database-security",
+    "regulatory-requirements"
+  ],
+  "severity": "high",
+  "userImpact": "Organizations with compliance and regulatory requirements cannot easily encrypt data at rest without implementing custom client-side encryption across all SDK languages.",
+  "rootCause": "Temporal server lacks built-in server-side encryption capability; encryption is only available through client-side DataConverter implementation.",
+  "proposedFix": "Refactor persistence layer to use pluggable serializer/deserializer, optionally refactor Cassandra layer, and expose PayloadSerializer in temporal/server_options.go",
+  "workaround": "Use a proxy in front of Temporal server to perform server-side encryption, works for both self-hosted and Temporal Cloud deployments",
+  "resolution": "wontfix",
+  "resolutionDetails": "No plan to add direct server-side encryption support; users advised to use proxy solution instead",
+  "related": [],
+  "keyQuote": "it's clear that the only way to currently achieve this is through client/SDK side encryption...we do _not_ need the data to be encrypted while in transit/memory",
+  "number": 1531,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:38:56.920Z"
+}

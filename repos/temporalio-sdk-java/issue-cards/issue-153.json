@@ -1,0 +1,32 @@
+{
+  "summary": "OffsetDateTime deserialization fails in version 0.27.0 due to Jackson not being able to deserialize the ZoneOffset component. This is a regression from version 0.26.0 and causes workflow execution failures.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "JacksonJsonPayloadConverter",
+    "DefaultDataConverter",
+    "serialization"
+  ],
+  "concepts": [
+    "deserialization",
+    "jackson",
+    "java.time",
+    "OffsetDateTime",
+    "ZoneOffset"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail to execute when OffsetDateTime objects are used in activity results or workflow state.",
+  "rootCause": "Jackson version upgrade lost support for OffsetDateTime deserialization; ZoneOffset cannot be deserialized from Object value without proper module configuration.",
+  "proposedFix": null,
+  "workaround": "Register JavaTimeModule from jackson-datatype-jsr310 with the ObjectMapper.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #191 added validation that OffsetDateTime is convertible, indicating the issue was resolved in a subsequent release.",
+  "related": [
+    191
+  ],
+  "keyQuote": "Cannot construct instance of `java.time.ZoneOffset` (although at least one Creator exists): cannot deserialize from Object value",
+  "number": 153,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:58:03.706Z"
+}

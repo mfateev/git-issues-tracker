@@ -1,0 +1,34 @@
+{
+  "summary": "Add built-in support for read-only user roles in Temporal, including API categorization and UI enforcement. Currently, operators must write custom authorizers to enforce read-only access, but the framework should provide out-of-the-box support with API categorization into ReadOnly/ReadWrite/Admin categories.",
+  "category": "feature",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "authorization",
+    "frontend-api",
+    "ui",
+    "claim-mapper",
+    "authorizer"
+  ],
+  "concepts": [
+    "read-only-role",
+    "access-control",
+    "authorization",
+    "rbac",
+    "api-categorization",
+    "claim-mapping",
+    "enforcement"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators can enforce read-only access without writing custom authorizers, and the UI properly reflects read-only permissions.",
+  "rootCause": null,
+  "proposedFix": "Implement built-in API categorization into ReadOnly/ReadWrite/Admin, update the default authorizer to enforce ReadOnly roles, and provide UI with access to authorization.Claims for the logged-in user.",
+  "workaround": "Write custom claim mappers and authorizers that understand the universe of APIName values.",
+  "resolution": "fixed",
+  "resolutionDetails": "Built-in read-only role support was implemented with API categorization and enforcement.",
+  "related": [],
+  "keyQuote": "The authorization.ClaimMapper interface does currently support the notion of a ReadOnly role, and so operators can write custom claim mappers that assign ReadOnly roles to namespaces",
+  "number": 1688,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:01.086Z"
+}

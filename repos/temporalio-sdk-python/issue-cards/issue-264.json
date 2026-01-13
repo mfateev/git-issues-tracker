@@ -1,0 +1,32 @@
+{
+  "summary": "Users need a way to customize JSON type conversion for their own types. The feature request proposes adding a JSONTypeConverter ABC to make it easier to convert between user types and JSON-able types during payload conversion.",
+  "category": "feature",
+  "subcategory": "type-converters",
+  "apis": [
+    "value_to_type"
+  ],
+  "components": [
+    "JSONPlainPayloadConverter",
+    "payload-converter",
+    "type-conversion"
+  ],
+  "concepts": [
+    "serialization",
+    "deserialization",
+    "type-hints",
+    "custom-types",
+    "payload-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with custom types like OpenAPI-generated models can now standardize their JSON conversion logic instead of inheriting and overriding converter methods.",
+  "rootCause": null,
+  "proposedFix": "Add a JSONTypeConverter ABC that converts to and from user types to JSON-able types, and update JSONPlainPayloadConverter to accept a collection of these converters during construction.",
+  "workaround": "Users can inherit from JSONPlainPayloadConverter and override from_payload/to_payload methods, though this has limitations with optional types and collections.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR was opened to implement JSON type converters and README updates to support the use case.",
+  "related": [],
+  "keyQuote": "Add a JSONTypeConverter ABC that converts to and from a user type to JSON-able type. Change JSONPlainPayloadConverter to accept a collection of these.",
+  "number": 264,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:13.272Z"
+}

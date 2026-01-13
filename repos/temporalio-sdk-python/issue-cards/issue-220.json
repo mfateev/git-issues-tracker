@@ -1,0 +1,30 @@
+{
+  "summary": "Using loguru library with temporal-sdk causes import errors in the workflow sandbox due to loguru extending restricted classes like datetime. The sandbox restrictions prevent loguru from loading properly during workflow initialization.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow_sandbox",
+    "importer",
+    "sandbox_restrictions"
+  ],
+  "concepts": [
+    "sandbox",
+    "import_restrictions",
+    "module_loading",
+    "datetime",
+    "third_party_libraries"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use the loguru logging library in their Temporal SDK code without manually configuring passthrough modules.",
+  "rootCause": "Loguru imports datetime internally and extends restricted classes, which triggers sandbox restrictions that prevent module loading during workflow preparation.",
+  "proposedFix": "Mark loguru as a passthrough module using SandboxRestrictions with custom passthrough_modules configuration including loguru in the access set.",
+  "workaround": "Add loguru to passthrough_modules in SandboxRestrictions.default before creating the Worker, using SandboxMatcher(access={\"loguru\"}).",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in a later release that made passthrough module configuration easier and more intuitive.",
+  "related": [],
+  "keyQuote": "This is due to a known issue with the sandbox when imports extend restricted classes like `datetime`. See the passthrough modules documentation.",
+  "number": 220,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:32.823Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "LocalActivitySlotSupplierQueue thread persists after WorkerFactory.shutdown() is called, preventing JVM termination when workers are not started. The thread is created in the constructor but shutdown is only called if the worker was started.",
+  "category": "bug",
+  "subcategory": "local-activity-worker",
+  "apis": [
+    "WorkerFactory",
+    "LocalActivityWorker",
+    "WorkerFactory.shutdown"
+  ],
+  "components": [
+    "local-activity-worker",
+    "slot-supplier-queue",
+    "worker-factory"
+  ],
+  "concepts": [
+    "thread-lifecycle",
+    "jvm-termination",
+    "resource-cleanup",
+    "worker-initialization",
+    "shutdown-sequence"
+  ],
+  "severity": "high",
+  "userImpact": "Applications cannot cleanly exit when WorkerFactory is shut down without starting workers, blocking the JVM from terminating.",
+  "rootCause": "LocalActivitySlotSupplierQueue thread is created in LocalActivityWorker constructor but shutdown() is only called in LocalActivityWorker.shutdown() if the worker was started, leaving the thread running.",
+  "proposedFix": "Move slotQueue.shutdown() call to execute independently of worker start, or initialize the slot queue in start() method rather than constructor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "LocalActivitySlotSupplierQueue should only create a thread if the worker is started, and awaitTermination should verify shutdown completion rather than calling slotQueue.shutdown().",
+  "related": [],
+  "keyQuote": "LocalActivitySlotSupplierQueue remains working and blocks jvm from exiting",
+  "number": 2194,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:36.556Z"
+}

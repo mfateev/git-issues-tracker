@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to implement advanced metrics support in the .NET SDK following sdk-core updates, including Prometheus options, OpenTelemetry options, and access to metrics from runtime, activity, and workflow contexts. Most items are completed, with .NET-provided metric implementation remaining as a non-trivial task.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "runtime",
+    "activity",
+    "workflow"
+  ],
+  "concepts": [
+    "observability",
+    "prometheus",
+    "opentelemetry",
+    "metrics-collection",
+    "monitoring",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to integrate advanced metrics collection and monitoring capabilities into their .NET-based Temporal workflows.",
+  "rootCause": null,
+  "proposedFix": "Support .NET provided metric implementation for advanced metrics integration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Most items completed including Prometheus options, OpenTelemetry options, metrics access from runtime/activity/workflow. Remaining .NET metric implementation task addressed in follow-up work.",
+  "related": [
+    129
+  ],
+  "keyQuote": "Support .NET provided metric implementation (interesting...)",
+  "number": 126,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:18:55.509Z"
+}

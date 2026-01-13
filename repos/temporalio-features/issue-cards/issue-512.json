@@ -1,0 +1,39 @@
+{
+  "summary": "Add support for updating search attributes on schedules during schedule update operations. This feature allows schedules to have their search attributes modified, similar to how workflow start actions could be updated.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "UpdateSchedule"
+  ],
+  "components": [
+    "schedule-service",
+    "search-attributes",
+    "schedule-update"
+  ],
+  "concepts": [
+    "schedule-updates",
+    "search-attributes",
+    "metadata-management",
+    "schedule-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to update search attributes on existing schedules without having to recreate them.",
+  "rootCause": null,
+  "proposedFix": "Add search attribute update capability to schedule update API calls across all SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1561,
+    2152,
+    1475,
+    594,
+    314,
+    478,
+    629
+  ],
+  "keyQuote": "Schedules can have their search attributes updated... We need to make sure they can be updated in schedule update calls.",
+  "number": 512,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:30.773Z"
+}

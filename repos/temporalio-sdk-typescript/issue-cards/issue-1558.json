@@ -1,0 +1,32 @@
+{
+  "summary": "Payload converter cannot be imported in ESM applications because the data converter helper code uses `require()` instead of dynamic imports, forcing users to write converters as CommonJS files.",
+  "category": "bug",
+  "subcategory": "payload-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "payload-converter",
+    "ESM-support"
+  ],
+  "concepts": [
+    "module-format",
+    "ESM",
+    "CommonJS",
+    "import-mechanism",
+    "worker-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running workers as ESM modules cannot use custom payload converters without converting them to CommonJS, limiting their ability to use modern JavaScript module syntax.",
+  "rootCause": "The data-converter-helpers.ts file uses `require()` for importing payload converters, which is incompatible with ESM applications that use `import` statements.",
+  "proposedFix": null,
+  "workaround": "Write the payload converter as a `.cjs` (CommonJS) file instead of ESM.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #1292, which already tracks this ESM compatibility problem.",
+  "related": [
+    1292
+  ],
+  "keyQuote": "The main code path which to import the data converter always uses `require` which means the format has to be CJS to be imported.",
+  "number": 1558,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:34.413Z"
+}

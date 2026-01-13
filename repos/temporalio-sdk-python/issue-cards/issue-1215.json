@@ -1,0 +1,34 @@
+{
+  "summary": "Python worker crashes with 'must only be set once' panic when TaskLocals are initialized twice, typically caused by calling both the async context manager and manually running the worker.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [
+    "Worker",
+    "Client.connect"
+  ],
+  "components": [
+    "worker",
+    "task-locals",
+    "python-bridge"
+  ],
+  "concepts": [
+    "initialization",
+    "task-locals",
+    "context-manager",
+    "concurrency",
+    "resource-cleanup",
+    "panic"
+  ],
+  "severity": "high",
+  "userImpact": "Users following the quickstart guide get a panic crash when using the Worker context manager incorrectly, blocking the worker process and hanging the client connection.",
+  "rootCause": "TaskLocals being set multiple times when both the async context manager runs the worker and the user manually calls await worker.run().",
+  "proposedFix": "Remove the manual await worker.run() call and rely solely on the async context manager.",
+  "workaround": "Do not call await worker.run() when using the async context manager pattern; use the context manager for cleanup.",
+  "resolution": "fixed",
+  "resolutionDetails": "User corrected their code by removing the redundant worker.run() call. The issue was user error rather than a SDK bug, but the error message could be clearer.",
+  "related": [],
+  "keyQuote": "The context manager is really just for use when you have things you want to do with that worker...if you just want the process to be a perpetual worker, there's no reason to use the context manager.",
+  "number": 1215,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:58.290Z"
+}

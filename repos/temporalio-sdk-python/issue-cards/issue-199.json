@@ -1,0 +1,30 @@
+{
+  "summary": "OpenTelemetry fails on first use inside workflow sandbox because it tries to load configuration files, which are not allowed in the sandbox. This occurs when workers are separated from clients and OpenTelemetry context hasn't been initialized outside the sandbox first.",
+  "category": "bug",
+  "subcategory": "opentelemetry-integration",
+  "apis": [],
+  "components": [
+    "opentelemetry-contrib",
+    "sandbox",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "sandboxing",
+    "lazy-loading",
+    "initialization",
+    "observability",
+    "context-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get AttributeError when using OpenTelemetry instrumentation inside workflows without first initializing it in client code.",
+  "rootCause": "OpenTelemetry uses setuptools.pkg_resources to lazily load global runtime context, which issues file open() calls. The sandbox prohibits open() operations, and this wasn't triggered in tests because context was initialized outside sandbox first.",
+  "proposedFix": "Add opentelemetry.context.get_current() to the top of the opentelemetry contrib Python file to force lazy initialization outside the sandbox before workflow execution.",
+  "workaround": "Ensure OpenTelemetry context is accessed in client code before workers execute workflows.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by initializing OpenTelemetry context outside sandbox to prevent file I/O errors during workflow execution.",
+  "related": [],
+  "keyQuote": "We don't allow open() in a sandbox. This wasn't being triggered in unit tests because the OpenTelemetry context was being used outside of the sandbox first.",
+  "number": 199,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:33.061Z"
+}

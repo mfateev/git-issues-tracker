@@ -1,0 +1,35 @@
+{
+  "summary": "User requested support for running Temporal test server in air-gapped environments without internet access. The feature request seeks ergonomic ways to provide test server binaries via environment variables or alternative delivery methods since the default download from temporal.download is unavailable offline.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowEnvironment.start_time_skipping",
+    "WorkflowEnvironment.start_local"
+  ],
+  "components": [
+    "test-server",
+    "ephemeral-server",
+    "workflow-environment",
+    "configuration"
+  ],
+  "concepts": [
+    "air-gapped-environment",
+    "offline-testing",
+    "environment-variables",
+    "binary-distribution",
+    "test-server-deployment",
+    "dependency-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users in air-gapped environments cannot easily run workflow tests without manually downloading and configuring test server binaries outside the SDK.",
+  "rootCause": "Test server binary is downloaded on-demand from temporal.download, which requires internet access and is not suitable for offline environments.",
+  "proposedFix": "Provide test server path via environment variable, or distribute test server binaries through platform-specific PyPI packages as optional dependencies.",
+  "workaround": "Manually download test server tarball, unpack it, and pass the binary path to test_server_existing_path parameter in WorkflowEnvironment.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided not to add multiple configuration methods beyond default download and the existing test_server_existing_path escape hatch. Users can handle custom downloads themselves. Documentation improvements were deferred.",
+  "related": [],
+  "keyQuote": "I am not sure we want to bake in so many ways to get a file beyond the default/no-option and the advanced option.",
+  "number": 681,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:42.048Z"
+}

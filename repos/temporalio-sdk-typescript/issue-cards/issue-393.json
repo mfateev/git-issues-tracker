@@ -1,0 +1,33 @@
+{
+  "summary": "Node 14 and 18 support was disabled in CI for the npm init verdaccio test. This issue tracks re-enabling the broken test and adding these Node versions to the CI matrix.",
+  "category": "bug",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "ci",
+    "npm-init",
+    "test-framework"
+  ],
+  "concepts": [
+    "node-versions",
+    "ci-matrix",
+    "verdaccio",
+    "npm-init",
+    "testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Node 14 and 18 compatibility is not being tested in CI, potentially missing compatibility issues for SDK users.",
+  "rootCause": "Test was disabled in #385 and needs Node 14 and 18 added to the CI matrix to re-enable it.",
+  "proposedFix": "Add node 14 and 18 to the matrix for test-npm-init in .github/workflows/ci.yml",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Completed in #1003 which added the required Node versions to the CI matrix.",
+  "related": [
+    385,
+    1003
+  ],
+  "keyQuote": "Need to add node 14 and 18 to the matrix for test-npm-init",
+  "number": 393,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:55.427Z"
+}

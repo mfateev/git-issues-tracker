@@ -1,0 +1,31 @@
+{
+  "summary": "Add stack trace information to deadlock detection exceptions in the Python SDK. Currently, deadlock errors are raised without stack trace context, making debugging difficult.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "deadlock-detection",
+    "error-reporting",
+    "coroutine-tracking"
+  ],
+  "concepts": [
+    "stack-trace",
+    "debugging",
+    "deadlock",
+    "error-context",
+    "coroutine-context",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot debug deadlock issues effectively without stack trace information showing where the deadlock occurred.",
+  "rootCause": null,
+  "proposedFix": "Include stack trace information in deadlock detection exceptions, ideally per-task or per-coroutine context if possible.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Stack trace information was added to deadlock detection exceptions to improve debugging capabilities.",
+  "related": [],
+  "keyQuote": "We raise a deadlock detection error but we don't include any stack trace info. We should try to include this.",
+  "number": 531,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:34.864Z"
+}

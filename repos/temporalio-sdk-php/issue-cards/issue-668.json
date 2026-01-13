@@ -1,0 +1,28 @@
+{
+  "summary": "PHP SDK lacks a way to dynamically set workflow details from within the workflow itself, a capability that other Temporal SDKs support.",
+  "category": "feature",
+  "subcategory": "workflow-details",
+  "apis": [],
+  "components": [
+    "workflow",
+    "details-management"
+  ],
+  "concepts": [
+    "workflow-details",
+    "dynamic-configuration",
+    "workflow-context",
+    "runtime-behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot dynamically update workflow details from within their workflow code, limiting visibility and context management capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement a SetCurrentDetails method or equivalent API for PHP workflows to allow dynamic detail setting at runtime.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Want to set current details from the workflow itself. Apparently Temporal can do that, but PHP does not yet have a way to set it.",
+  "number": 668,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:45:03.375Z"
+}

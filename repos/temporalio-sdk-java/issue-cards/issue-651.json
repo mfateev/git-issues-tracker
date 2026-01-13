@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowExecutionUtils#getInstanceCloseEvent lacks exponential backoff, causing clients to hammer the server during outages. The proposal is to add configurable retry behavior with backoff coefficients and maximum intervals.",
+  "category": "feature",
+  "subcategory": "workflow-utilities",
+  "apis": [
+    "WorkflowExecutionUtils#getInstanceCloseEvent"
+  ],
+  "components": [
+    "WorkflowExecutionUtils",
+    "retry-logic",
+    "client-networking"
+  ],
+  "concepts": [
+    "exponential-backoff",
+    "retry-strategy",
+    "server-outage",
+    "rate-limiting",
+    "client-resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Clients can overwhelm servers during outages by repeatedly calling getInstanceCloseEvent without backoff, degrading system stability.",
+  "rootCause": "No exponential backoff mechanism implemented in WorkflowExecutionUtils#getInstanceCloseEvent",
+  "proposedFix": "Add backoffCoefficient parameter, set maximumInterval to reasonable value, and implement related issue #652 to allow workflow stub proxies to pass timeout parameters",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    652
+  ],
+  "keyQuote": "We have no exponential backoff on WorkflowExecutionUtils#getInstanceCloseEvent and we should add it to avoid clients hammering the server",
+  "number": 651,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:32:15.199Z"
+}

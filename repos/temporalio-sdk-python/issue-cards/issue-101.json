@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to enable per-call gRPC configuration for timeouts and headers in the Python SDK, allowing developers to customize gRPC behavior on a per-call basis rather than globally.",
+  "category": "feature",
+  "subcategory": "grpc-configuration",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "rpc-config",
+    "metadata-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "headers",
+    "metadata",
+    "grpc-options",
+    "per-call-configuration",
+    "request-customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to set different timeouts and headers for individual gRPC calls instead of being limited to global settings.",
+  "rootCause": null,
+  "proposedFix": "Implement a RpcConfig option with timeout: Optional[timedelta] and metadata: Mapping[str, str] fields for per-call gRPC customization.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need to be able to set timeouts and headers per gRPC call",
+  "number": 101,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:12.645Z"
+}

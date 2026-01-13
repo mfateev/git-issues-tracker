@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to expose workflow history length through the Workflow info object in the PHP SDK, allowing developers to access the current history size during workflow execution.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "workflow-info",
+    "php-sdk"
+  ],
+  "concepts": [
+    "history",
+    "workflow-metadata",
+    "workflow-execution",
+    "state-inspection",
+    "developer-api"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot programmatically access the workflow history length, limiting their ability to monitor and respond to history size constraints during execution.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in version 2.7 release as indicated by the pending release comment.",
+  "related": [],
+  "keyQuote": "Pending 2.7 release.",
+  "number": 222,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:11.218Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Kotlin stdlib version 1.5.20 has a medium severity vulnerability (CVE-2022-24329) related to dependency locking in multiplatform Gradle projects. The issue was automatically resolved when the vulnerable dependency was no longer part of the project inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "kotlin-stdlib",
+    "gradle",
+    "build-system"
+  ],
+  "concepts": [
+    "dependency-locking",
+    "vulnerability",
+    "security",
+    "multiplatform",
+    "gradle-projects",
+    "version-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building the Temporal Java SDK with vulnerable Kotlin stdlib versions faced potential integrity risks in dependency resolution for multiplatform Gradle projects.",
+  "rootCause": "Kotlin stdlib 1.5.20 lacked proper dependency locking support for multiplatform Gradle projects, allowing potential integrity manipulation (CVSS 5.3).",
+  "proposedFix": "Upgrade kotlin-stdlib to version 1.6.0-M1 or later to resolve the vulnerability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was automatically closed by Mend because the vulnerable library was no longer part of the project's dependency inventory (likely upgraded in a subsequent commit).",
+  "related": [],
+  "keyQuote": "In JetBrains Kotlin before 1.6.0, it was not possible to lock dependencies for Multiplatform Gradle Projects.",
+  "number": 1287,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:21:36.777Z"
+}

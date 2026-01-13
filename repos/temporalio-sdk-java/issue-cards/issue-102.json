@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a health check mechanism to verify worker/factory connection health to Temporal servers. Users need a way to check connection status (e.g., `factory.isHealthy()`) for Kubernetes health check endpoints and automatic service restart on connection loss.",
+  "category": "feature",
+  "subcategory": "health-check",
+  "apis": [],
+  "components": [
+    "worker",
+    "factory",
+    "connection-management"
+  ],
+  "concepts": [
+    "health-check",
+    "connection-monitoring",
+    "service-recovery",
+    "kubernetes",
+    "liveness-probe",
+    "reconnection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably detect connection failures between workers and Temporal servers, making it difficult to implement automatic recovery in containerized environments.",
+  "rootCause": null,
+  "proposedFix": "Implement a health checking mechanism similar to the TChannel meta health check used in Cadence Java client, providing an API like `factory.isHealthy()` for connection status verification.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A health checking mechanism that allows me to check whether the workers/factory have a healthy connection",
+  "number": 102,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:56:45.464Z"
+}

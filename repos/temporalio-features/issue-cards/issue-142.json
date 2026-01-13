@@ -1,0 +1,33 @@
+{
+  "summary": "SDKs should send client capabilities in gRPC metadata to allow the server to make informed decisions about which code paths to use. This enables clean protocol evolution and fixes issues where the server currently relies on unreliable heuristics.",
+  "category": "feature",
+  "subcategory": "grpc-communication",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "metadata",
+    "protocol"
+  ],
+  "concepts": [
+    "capabilities",
+    "versioning",
+    "protocol-evolution",
+    "server-communication",
+    "client-state",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to access advanced features like non-final workflow retry errors and specific cron run results that currently require workarounds.",
+  "rootCause": "Server lacks a clean, reliable way to determine which client capabilities are supported, currently relying on heuristics and per-call overhead concerns.",
+  "proposedFix": "Send client capabilities in gRPC metadata on connection or per-call; alternatively, add typed proto fields to specific requests that need capability negotiation.",
+  "workaround": "Server currently uses an ugly hack and unreliable heuristics to detect when to trigger capability-dependent behavior.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1949
+  ],
+  "keyQuote": "we need to be able to evolve software and switch to newer code paths when new capabilities are supported",
+  "number": 142,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:52.327Z"
+}

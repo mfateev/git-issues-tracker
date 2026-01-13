@@ -1,0 +1,34 @@
+{
+  "summary": "History pods panic during upgrade from 1.20.4 to 1.21.6 when archival is disabled, due to compatibility check code trying to load archival queue category that was never registered when archival is disabled cluster-wide.",
+  "category": "bug",
+  "subcategory": "upgrade-compatibility",
+  "apis": [],
+  "components": [
+    "history-shard",
+    "shard-context",
+    "queue-category",
+    "compatibility-check"
+  ],
+  "concepts": [
+    "version-upgrade",
+    "archival",
+    "queue-management",
+    "persistence-layer",
+    "backward-compatibility",
+    "panic-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to upgrade from 1.20.4 to 1.21.6 with archival disabled experience service crashes, blocking the upgrade path.",
+  "rootCause": "PR #4190 introduced compatibility check code that unconditionally tries to load archival queue category by ID, but the category is not registered when archival is disabled in static config, causing a panic in loadShardInfoCompatibilityCheckWithoutReplication.",
+  "proposedFix": "Enable archival in static config during upgrade as a workaround, or fix the compatibility check code in 1.21.x to handle missing archival queue category gracefully.",
+  "workaround": "Set history.archivalProcessorSchedulerWorkerCount to 0, enable archival in static config, upgrade to 1.21 then 1.22, then disable archival and restart.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4190
+  ],
+  "keyQuote": "unable to find queue category by queye category ID: 5",
+  "number": 6307,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:58.884Z"
+}

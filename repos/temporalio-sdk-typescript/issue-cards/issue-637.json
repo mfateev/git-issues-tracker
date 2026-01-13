@@ -1,0 +1,30 @@
+{
+  "summary": "The failure type for non-TemporalFailure exceptions is incorrectly set to 'Error' instead of the actual exception class name. When throwing a custom error that extends Error (but not TemporalFailure), the type should reflect the actual class name like 'MyFailure' rather than the parent 'Error' class.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "failure-handling",
+    "error-serialization"
+  ],
+  "concepts": [
+    "exception-type",
+    "error-classification",
+    "type-resolution",
+    "prototype-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging failures see incorrect type information, making it harder to identify which custom error was thrown in workflows.",
+  "rootCause": "The code likely uses a method that returns the parent class name (Error) instead of accessing the actual constructor name through the prototype chain.",
+  "proposedFix": "Use `err.__proto__.constructor.name` to get the actual exception class name instead of the parent class name.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was identified as occurring in failure.ts at line 360, with a proposed fix to use the prototype constructor name.",
+  "related": [],
+  "keyQuote": "We could take `err.__proto__.constructor.name`",
+  "number": 637,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:05:28.824Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "GenericWorkflowClient creates a non-daemon thread (asyncThrottlerExecutor) that prevents JVM shutdown. The thread is never terminated, blocking natural process exit unless System.exit() is called.",
+  "category": "bug",
+  "subcategory": "client-lifecycle",
+  "apis": [
+    "GenericWorkflowClient"
+  ],
+  "components": [
+    "GenericWorkflowClient",
+    "asyncThrottlerExecutor",
+    "thread-management"
+  ],
+  "concepts": [
+    "thread-termination",
+    "jvm-shutdown",
+    "daemon-threads",
+    "resource-cleanup",
+    "process-exit"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using GenericWorkflowClient cannot exit gracefully and require System.exit() to terminate the JVM.",
+  "rootCause": "The asyncThrottlerExecutor thread in GenericWorkflowClient is created as a non-daemon thread with no shutdown mechanism.",
+  "proposedFix": null,
+  "workaround": "Call System.exit(0) manually to force JVM termination.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by making the asyncThrottlerExecutor thread a daemon thread or implementing proper shutdown.",
+  "related": [],
+  "keyQuote": "Once the asyncThrottlerExecutor in that class has started a thread, there is no mechanism to terminate it, and the JVM will not exit",
+  "number": 2450,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:43.433Z"
+}

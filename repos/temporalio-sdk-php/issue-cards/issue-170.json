@@ -1,0 +1,36 @@
+{
+  "summary": "After worker restart, sticky execution queries and signals become unstable, causing workflow processes to be unavailable and signal handlers not to execute properly. The issue was caused by a RoadRunner version incompatibility and was resolved by updating to RR v2.10.3 and SDK v1.3.2.",
+  "category": "bug",
+  "subcategory": "worker-restart",
+  "apis": [
+    "QueryMethod",
+    "SignalMethod",
+    "WorkflowMethod"
+  ],
+  "components": [
+    "worker",
+    "transport-router",
+    "sticky-execution",
+    "process-manager"
+  ],
+  "concepts": [
+    "worker-restart",
+    "sticky-execution",
+    "query-handling",
+    "signal-processing",
+    "process-state",
+    "reconnection"
+  ],
+  "severity": "high",
+  "userImpact": "Workers crash or become stuck after restart, making workflow queries and signals unreliable in production environments.",
+  "rootCause": "RoadRunner version incompatibility caused workflow process handles to not be properly maintained after worker restart, resulting in workflow processes being unavailable for query and signal operations.",
+  "proposedFix": "Update RoadRunner to v2.10.3 and SDK to v1.3.2",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by updating to RoadRunner v2.10.3 and temporalio/sdk-php v1.3.2, which resolved the process handle management issue after worker restart.",
+  "related": [],
+  "keyQuote": "Workflow with the specified run identifier not found - sticky execution became unstable after worker restart causing crashes",
+  "number": 170,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:24.161Z"
+}

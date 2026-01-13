@@ -1,0 +1,31 @@
+{
+  "summary": "History service exhibits excessive memory consumption in production environments, with heap analysis showing significant memory bloat even with conservative cache settings (max 50 items). Multiple users report the same issue affecting pod resource usage in Kubernetes deployments.",
+  "category": "bug",
+  "subcategory": "history-service",
+  "apis": [],
+  "components": [
+    "history-service",
+    "cache",
+    "heap-management"
+  ],
+  "concepts": [
+    "memory-usage",
+    "caching",
+    "resource-limits",
+    "performance",
+    "scaling",
+    "garbage-collection"
+  ],
+  "severity": "high",
+  "userImpact": "Excessive memory consumption forces users to allocate more pod resources than expected, increasing infrastructure costs and preventing efficient cluster utilization.",
+  "rootCause": "Cache implementation or garbage collection inefficiency in the history service is causing memory to not be released properly despite conservative cache size limits.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Could you help us understand if the history service detects available memory(available to the pod) and automatically set max cache size to available value?",
+  "number": 4233,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:24.280Z"
+}

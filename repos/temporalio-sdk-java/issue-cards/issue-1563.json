@@ -1,0 +1,32 @@
+{
+  "summary": "Local Activity Execution continues making retry attempts even after the parent Workflow Task fails, potentially causing orphaned activities to retry indefinitely if no scheduleToClose timeout is set or it's very long.",
+  "category": "bug",
+  "subcategory": "local-activity-execution",
+  "apis": [],
+  "components": [
+    "local-activity-executor",
+    "workflow-task-lifecycle",
+    "retry-mechanism"
+  ],
+  "concepts": [
+    "lifecycle-awareness",
+    "failure-propagation",
+    "orphaned-activity",
+    "retry-exhaustion",
+    "task-coordination"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience unexpected prolonged retry behavior and resource waste when local activities continue executing after their parent workflow task fails.",
+  "rootCause": "Local Activity Execution does not monitor the lifecycle state of the Workflow Task that initiated it, so it cannot detect when that task has failed and should stop retrying.",
+  "proposedFix": "Local Activity Execution should be enhanced to track and respect the Workflow Task lifecycle, stopping retry attempts when the parent task fails.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1303
+  ],
+  "keyQuote": "Local Activity will continue execution. If there is no `scheduleToClose` timeout set or `scheduleToClose` is long, such an orphan local activity can retry for a long time.",
+  "number": 1563,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:01.238Z"
+}

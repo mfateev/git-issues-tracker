@@ -1,0 +1,30 @@
+{
+  "summary": "Implement a plugin system for the Java SDK to enable users to self-serve creating integrations with Temporal Workflows, following the pattern already established in the Python SDK.",
+  "category": "feature",
+  "subcategory": "plugin-system",
+  "apis": [],
+  "components": [
+    "plugin-system",
+    "sdk-core",
+    "integration-framework"
+  ],
+  "concepts": [
+    "plugin-architecture",
+    "extensibility",
+    "self-service-integration",
+    "user-customization",
+    "cross-sdk-feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can create custom integrations with Temporal Workflows without modifying core SDK code, enabling broader ecosystem adoption.",
+  "rootCause": null,
+  "proposedFix": "Implement plugins following the Python SDK's plugin system design pattern.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Plugin system was implemented in the Java SDK following the Python SDK pattern",
+  "related": [],
+  "keyQuote": "Implement Plugins so that users can self-serve creating integrations with Temporal Workflows. This is done in Python and we can copy.",
+  "number": 2703,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:16.660Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Implement support for immediate local dispatch of new workflow tasks to the same worker in response to workflow task completion, matching an optimization available in Temporal Server.",
+  "category": "feature",
+  "subcategory": "workflow-task-dispatch",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-handler",
+    "task-dispatcher"
+  ],
+  "concepts": [
+    "optimization",
+    "dispatch",
+    "workflow-task",
+    "performance",
+    "local-execution",
+    "response-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables better performance and efficiency by allowing workflow tasks to be dispatched locally without round-trip latency.",
+  "rootCause": null,
+  "proposedFix": "Support immediate local dispatch in the JavaSDK's workflow task completion response handling to match Server implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented immediate dispatch of new workflow tasks in workflow task completion response",
+  "related": [],
+  "keyQuote": "Temporal Server implemented a new optimization. It supported an immediate local dispatch of a new workflow task to the same Worker",
+  "number": 1206,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:13:44.095Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "User seeks guidance on integrating Temporal worker and client into an existing Django application, transitioning from Zappa async tasks to Temporal workflows and activities.",
+  "category": "question",
+  "subcategory": "django-integration",
+  "apis": [],
+  "components": [
+    "worker",
+    "client",
+    "django-integration"
+  ],
+  "concepts": [
+    "asyncio",
+    "django-integration",
+    "worker-startup",
+    "async-tasks",
+    "environment-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users migrating from other async task systems to Temporal need clear guidance on integrating workers and clients into Django applications.",
+  "rootCause": null,
+  "proposedFix": "Start worker on app startup using async def with asyncio.run(), run worker in separate process, or refer to Django async documentation",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as this is a general integration question rather than a feature request. The maintainer indicated there is no one prescribed way to integrate Temporal into Django and directed the user to documentation and community channels.",
+  "related": [],
+  "keyQuote": "There is no one way to integrate Temporal into your existing Python project. Temporal uses asyncio. Integrate it like you would any asyncio software.",
+  "number": 211,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:01.806Z"
+}

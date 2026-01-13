@@ -1,0 +1,31 @@
+{
+  "summary": "Cassandra indexes on cluster_membership table (last_heartbeat, session_start) have scalability limitations for large clusters. Request to replace with inverted tables (cluster_membership_by_last_heartbeat, cluster_membership_by_session_start) for better query performance.",
+  "category": "other",
+  "subcategory": "cassandra-schema",
+  "apis": [],
+  "components": [
+    "cassandra-schema",
+    "cluster-membership",
+    "database"
+  ],
+  "concepts": [
+    "indexing",
+    "cassandra-limitations",
+    "schema-design",
+    "query-optimization",
+    "inverted-tables",
+    "scalability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users operating large Cassandra clusters experience potential performance degradation due to index restrictions when querying cluster membership state.",
+  "rootCause": "Cassandra indexes have documented restrictions that make them ineffective for large clusters, particularly for queries on cluster_membership table columns.",
+  "proposedFix": "Replace secondary indexes with inverted tables (cluster_membership_by_last_heartbeat, cluster_membership_by_session_start) that partition by the queried column and reference the membership_partition.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "indexes are not very good works in cassandra for big clusters because have a lot of restrictions",
+  "number": 5543,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:28.288Z"
+}

@@ -1,0 +1,40 @@
+{
+  "summary": "Request for built-in API to override ActivityOptions in test workflows. Currently, production code uses high retry counts on activities, but tests need low retry counts (maxAttempts=1) and custom queue names without hardcoding production configurations.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ActivityOptions",
+    "WorkflowImplementationOptions",
+    "TestWorkflowEnvironment",
+    "Workflow.newActivityStub"
+  ],
+  "components": [
+    "testing",
+    "activity-executor",
+    "workflow-implementation",
+    "options-builder"
+  ],
+  "concepts": [
+    "test-override",
+    "retry-policy",
+    "activity-configuration",
+    "task-queue",
+    "mock-stubbing",
+    "test-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must use workarounds like global state or code flags to override activity options in tests, making test setup more complex and error-prone.",
+  "rootCause": null,
+  "proposedFix": "Add methods like `overrideAllActivityOptions()` and `overrideActivityOptions(Map<Class, ActivityOptions>)` to WorkflowImplementationOptions or TestWorkflowEnvironment to allow declarative override of activity options during test execution.",
+  "workaround": "Use GlobalWorkflowOptions to store override values at test setup time, and check for overrides in workflow implementation code before creating activity stubs.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    499,
+    626
+  ],
+  "keyQuote": "In production code I have high retry count on activities, but in testing I want to override that to have maxAttempts=1 so that workflow gets it's failure right away.",
+  "number": 1988,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:38.140Z"
+}

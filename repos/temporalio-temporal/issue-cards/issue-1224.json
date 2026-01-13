@@ -1,0 +1,30 @@
+{
+  "summary": "Optimize performance by skipping visibility task generation when direct deletion of visibility records succeeds during workflow retention cleanup.",
+  "category": "feature",
+  "subcategory": "workflow-retention",
+  "apis": [],
+  "components": [
+    "visibility",
+    "task-generation",
+    "retention-cleanup"
+  ],
+  "concepts": [
+    "performance-optimization",
+    "task-generation",
+    "visibility-records",
+    "workflow-lifecycle",
+    "retention-policy"
+  ],
+  "severity": "medium",
+  "userImpact": "Reducing unnecessary task generation improves performance and reduces overhead during workflow retention cleanup.",
+  "rootCause": "Current implementation generates delete visibility tasks even when direct deletion succeeds, creating unnecessary work.",
+  "proposedFix": "Bypass visibility task generation if the direct call to delete visibility record was successful.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Performance optimization implemented by skipping task generation on successful direct visibility deletion.",
+  "related": [],
+  "keyQuote": "The code can be optimized by bypassing visibility task generation if direct call to delete visibility record was succeeded.",
+  "number": 1224,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:08:03.989Z"
+}

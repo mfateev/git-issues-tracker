@@ -1,0 +1,32 @@
+{
+  "summary": "Database migration from auto-setup:1.0.0 to 1.1.0 fails because the PostgreSQL visibility schema files were moved to a versioned subdirectory (schema/postgresql/v96), but the migration script still looks for them in the old location.",
+  "category": "bug",
+  "subcategory": "database-migration",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "schema-migration",
+    "database-tools"
+  ],
+  "concepts": [
+    "database-migration",
+    "schema-versioning",
+    "postgresql",
+    "backward-compatibility",
+    "upgrade-path"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading from 1.0.0 to 1.1.0 cannot start the Temporal server due to failed schema migration.",
+  "rootCause": "Schema files were moved from schema/postgresql/ to schema/postgresql/v96/ between versions, but the migration tool still references the old path.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in version 1.2.1 release",
+  "related": [
+    864
+  ],
+  "keyQuote": "the issue is probably due to the move of schema files from `schema/postgresql/` to `schema/postgresql/v96`",
+  "number": 862,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:38.130Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request for server-side metrics to detect workflows stuck due to repetitive Workflow Task Timeouts or failures. Currently, only logging exists; metrics would enable easier detection and monitoring of this problematic condition.",
+  "category": "feature",
+  "subcategory": "workflow-task-execution",
+  "apis": [],
+  "components": [
+    "history-service",
+    "workflow-task-state-machine",
+    "metrics"
+  ],
+  "concepts": [
+    "workflow-task-timeout",
+    "failure-detection",
+    "observability",
+    "stuck-workflows",
+    "metric-reporting"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot easily detect when workflows are stuck due to repetitive task timeouts, making it difficult to diagnose and respond to production issues.",
+  "rootCause": "Lack of metrics exposure for workflow task timeout conditions; currently only logging exists which is insufficient for automated detection.",
+  "proposedFix": "Expose as a metric reporting number of workflows exceeding N failed workflow tasks in a row, or as a histogram with failed task count as x-axis and workflow count as y-axis.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "when Workflow Task Timeout happens, something went wrong on the SDK side and SDK shouldn't be trusted in this situation. Temporal Server should be responsible for producing the metric.",
+  "number": 2526,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:33.848Z"
+}

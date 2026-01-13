@@ -1,0 +1,34 @@
+{
+  "summary": "Mismatch between workflow ID size limits: frontend service allows 1000 characters but MySQL/PostgreSQL database schemas only support 255 characters, causing insertion failures when the limit is configured higher than the database constraint.",
+  "category": "bug",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "frontend-service",
+    "database-schema",
+    "mysql",
+    "postgresql"
+  ],
+  "concepts": [
+    "workflow-id",
+    "size-limit",
+    "configuration",
+    "database-constraint",
+    "schema-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "Users setting the workflow ID length limit to the default 1000 characters encounter database insertion errors because the underlying database tables are constrained to 255 characters.",
+  "rootCause": "The frontend service business logic enforces a 1000 character maximum for workflow IDs, but the database schema only allocates 255 characters for the field, causing a constraint violation.",
+  "proposedFix": "The fix must be applied via dynamic config to align the default configuration with the actual database constraint, as mentioned in a previous fix for issue #2122.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2122,
+    2568
+  ],
+  "keyQuote": "I've left the default setting of `limit.maxIDLength = 1000` but observing the error `createOrUpdateCurrentExecution failed. Failed to insert into current_executions table. Error: pq: value too long for type character varying(255)`",
+  "number": 2695,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:30.009Z"
+}

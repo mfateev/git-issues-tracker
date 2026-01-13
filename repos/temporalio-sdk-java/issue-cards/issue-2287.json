@@ -1,0 +1,29 @@
+{
+  "summary": "Temporal metrics are not exposed through Spring Boot Actuator when the `workersAutoDiscovery` property is not configured. The issue only appears for applications using only the workflow client without starting workers, but metrics require this property to be present even as a dummy value.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "metrics",
+    "actuator"
+  ],
+  "concepts": [
+    "metrics-exposure",
+    "spring-configuration",
+    "client-only-applications",
+    "auto-discovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal client-only applications in Spring Boot cannot access Temporal metrics through the Actuator endpoint without adding a dummy `workersAutoDiscovery` configuration.",
+  "rootCause": "Metrics initialization logic appears to be tied to the `workersAutoDiscovery` property, even for applications that only use the workflow client without starting workers.",
+  "proposedFix": null,
+  "workaround": "Add a dummy `workersAutoDiscovery` property with a placeholder package value (e.g., `packages: dummy`) to enable metrics exposure.",
+  "resolution": "invalid",
+  "resolutionDetails": "The issue reporter could not provide a self-contained reproduction case, and the maintainer was unable to replicate the issue using the client bean, so it was closed due to lack of replication evidence.",
+  "related": [],
+  "keyQuote": "I found one thing. After putting the `workersAutoDiscovery` as dummy, the api application is showing metric (still worker is not started because package is dummy)",
+  "number": 2287,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:37.786Z"
+}

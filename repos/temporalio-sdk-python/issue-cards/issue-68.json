@@ -1,0 +1,37 @@
+{
+  "summary": "User requests a way to inject request/job-specific dependencies (like database sessions) into activity functions without creating circular import issues. The issue discusses various approaches including factory patterns and bootstrap functions, with uncertainty about best practices for async Python applications.",
+  "category": "feature",
+  "subcategory": "dependency-injection",
+  "apis": [
+    "Worker",
+    "activity.defn",
+    "Client.connect"
+  ],
+  "components": [
+    "activity-registration",
+    "worker-initialization",
+    "dependency-management"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "circular-dependencies",
+    "factory-pattern",
+    "hexagonal-architecture",
+    "async-patterns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to properly pass shared resources like database sessions into activities while maintaining type safety and avoiding circular imports in their application architecture.",
+  "rootCause": "Temporal Python SDK doesn't provide built-in dependency injection mechanism for activities, forcing users to choose between closures (losing type-safety) or repeated initialization (potential inefficiency).",
+  "proposedFix": "Support registering methods on class instances or classes with `__call__` as activities, allowing external state to be stored on the class instance (referenced in #52).",
+  "workaround": "Call bootstrap/initialization within each activity function to create dependencies per-activity-execution, or use string form of execute_activity to break circular imports.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through work on #52 which added support for registering instance methods and callable classes as activities, enabling dependency injection patterns.",
+  "related": [
+    52,
+    66
+  ],
+  "keyQuote": "We are actively working on #52 which will solve your problem here. You'll be able to more-easily register methods on a class instance or a class with `__call__` as an activity.",
+  "number": 68,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:56.977Z"
+}

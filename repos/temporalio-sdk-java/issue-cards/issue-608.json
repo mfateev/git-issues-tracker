@@ -1,0 +1,37 @@
+{
+  "summary": "GRPC falls into in-process server long polls after thread interruption, causing Worker Poller threads to hang during graceful shutdown. This occurs only with the in-process test server and specific timing conditions where long poll tasks are submitted after thread interruption.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [
+    "pollWorkflowTaskQueue"
+  ],
+  "components": [
+    "worker-poller",
+    "grpc-client",
+    "test-service",
+    "thread-pool"
+  ],
+  "concepts": [
+    "interruption",
+    "graceful-shutdown",
+    "long-polling",
+    "in-process-server",
+    "thread-synchronization",
+    "deadlock"
+  ],
+  "severity": "high",
+  "userImpact": "Tests hang unpredictably during shutdown when using the in-process test server, making the test suite flaky and unreliable.",
+  "rootCause": "GRPC swallows InterruptedException and continues execution, allowing a long poll task from another poller thread to be submitted to the interrupted thread's executor, causing the thread to block in the GRPC in-process server implementation.",
+  "proposedFix": null,
+  "workaround": "Trigger shutdown of GRPC in-process Temporal server before shutting down workers to prevent GRPC client from falling into a long poll after interruption.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    455,
+    601
+  ],
+  "keyQuote": "Interruption in the client thread ends up ignored and a Poller thread falls into a long poll inside the in-process GRPC server implementation.",
+  "number": 608,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:27:38.351Z"
+}

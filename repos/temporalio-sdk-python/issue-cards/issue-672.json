@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to drop Python 3.8 support and confirm 3.13 support. Issue discusses removing end-of-life Python 3.8 dependency while addressing compatibility issues with Python 3.13, including traceback problems and workflow sandbox access restrictions that are blocking users.",
+  "category": "feature",
+  "subcategory": "version-support",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "worker",
+    "asyncio-integration"
+  ],
+  "concepts": [
+    "python-version-support",
+    "compatibility",
+    "dependency-management",
+    "traceback-handling",
+    "sandbox-restrictions"
+  ],
+  "severity": "high",
+  "userImpact": "Users targeting Python 3.13 experience broken tracebacks and workflow sandbox access errors, while Python 3.8 support maintenance creates unnecessary burden.",
+  "rootCause": "Python 3.13 changed traceback handling and introduced stricter sandbox restrictions that the current implementation doesn't account for; Python 3.8 is end-of-life and no longer warranted for support.",
+  "proposedFix": "Follow the pattern established in #398 (PR #422) for dropping 3.7 and confirming 3.12 support; evaluate grpcio dependency compatibility with newer Python versions.",
+  "workaround": "Revert to Python 3.12 to see actual error tracebacks instead of clobbered ones.",
+  "resolution": "fixed",
+  "resolutionDetails": "3.13 support was implemented and included in a subsequent release; Python 3.8 support was dropped.",
+  "related": [
+    398,
+    422
+  ],
+  "keyQuote": "3.13 support is in the next release (should not be too long now, though no exact timelines)",
+  "number": 672,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:12.779Z"
+}

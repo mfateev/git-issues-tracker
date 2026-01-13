@@ -1,0 +1,43 @@
+{
+  "summary": "Feature request to support dynamic (catch-all) handlers for workflows, activities, signals, queries, and updates. Allows registering a single handler that receives the operation name and arguments for any unhandled operations of that type.",
+  "category": "feature",
+  "subcategory": "dynamic-handlers",
+  "apis": [
+    "workflow",
+    "activity",
+    "signal",
+    "query",
+    "update"
+  ],
+  "components": [
+    "workflow-runtime",
+    "activity-executor",
+    "signal-handler",
+    "query-handler",
+    "update-handler"
+  ],
+  "concepts": [
+    "dynamic-routing",
+    "catch-all-handlers",
+    "optional-registration",
+    "unhandled-operations",
+    "flexible-dispatch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can implement dynamic routing of workflows, activities, signals, queries, and updates without pre-registering each specific handler, enabling more flexible and generic implementations.",
+  "rootCause": null,
+  "proposedFix": "Register catch-all handlers that receive the operation name as first argument and args as array; signal/query/update handlers should also drain buffered unhandled operations when registered.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across multiple issues: workflows and signals in #1038, queries in #1639; activities and updates tracked separately in the checklist.",
+  "related": [
+    973,
+    1038,
+    1639,
+    846
+  ],
+  "keyQuote": "Should be able to register only one workflow as \"dynamic\" and it is given the name as a string as the first arg, then args as an array as the second arg.",
+  "number": 1015,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:42.576Z"
+}

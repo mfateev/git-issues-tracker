@@ -1,0 +1,34 @@
+{
+  "summary": "The Python SDK's dataclass type hinting support is too limited. Currently only supports basic object conversion via dacite, but lacks support for collections, mappings, unions, and optionals. The team decided to implement a custom JSON deserializer based on pyserde that respects type hints without requiring decorators.",
+  "category": "feature",
+  "subcategory": "dataclass-serialization",
+  "apis": [],
+  "components": [
+    "dataclass-converter",
+    "type-hinting",
+    "json-deserialization"
+  ],
+  "concepts": [
+    "type-hints",
+    "serialization",
+    "deserialization",
+    "collections",
+    "generics",
+    "union-types",
+    "optional-types"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily convert JSON to dataclass instances with complex types like List, Dict, Union, or Optional, limiting the flexibility of payload handling.",
+  "rootCause": "The current dacite library is too primitive and doesn't support collections, mappings, unions, and optional types out of the box.",
+  "proposedFix": "Write a custom JSON deserializer based on pyserde that respects type hints without requiring class decorators or mixins.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Custom JSON deserializer implemented based on pyserde pattern, supporting type hints without decorators.",
+  "related": [
+    243
+  ],
+  "keyQuote": "Ok, after internal discussion, we are going to write our own JSON deserializer. I am probably going to borrow from https://github.com/yukinarit/pyserde but remove the requirement to decorate the classes.",
+  "number": 78,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:58.121Z"
+}

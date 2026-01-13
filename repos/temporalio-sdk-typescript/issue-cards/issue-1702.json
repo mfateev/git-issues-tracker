@@ -1,0 +1,31 @@
+{
+  "summary": "Test suite times out on first run when SDK download takes longer than test framework timeout (2s default), with no informational message about the download. On slow/proxied connections, the download can fail or get corrupted, leaving a confusing temp file and timeout error.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "ephemeral-server",
+    "sdk-download",
+    "test-runner"
+  ],
+  "concepts": [
+    "timeout",
+    "download",
+    "network",
+    "proxy",
+    "debugging",
+    "user-experience"
+  ],
+  "severity": "high",
+  "userImpact": "Users running tests for the first time on slow or proxied connections experience unexplained test timeouts and SDK download failures, blocking their test suite.",
+  "rootCause": "SDK download happens silently in the background with a 20s timeout, but test frameworks default to 2s timeout, causing tests to fail before download completes. No logging about the download process.",
+  "proposedFix": "Trigger an informational message when SDK download is required, and potentially increase test timeout handling or improve download progress feedback.",
+  "workaround": "Increase Jest/Mocha timeout to >20s to allow the download to complete.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Failed to start ephemeral server: Temp download file at /var/folders/3w/4_q0ch0n763141t1zb61z_z80000gn/T/temporal-sdk-typescript-1.11.7.downloading not complete after 20 seconds.",
+  "number": 1702,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:58.499Z"
+}

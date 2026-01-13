@@ -1,0 +1,33 @@
+{
+  "summary": "SignalWithStart called after workflow execution creation immediately schedules a workflow task, bypassing the firstWorkflowTaskBackoff timer in cron executions. This causes workflows to execute immediately rather than respecting their cron schedule definition.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [
+    "SignalWithStart"
+  ],
+  "components": [
+    "cron-engine",
+    "workflow-task-scheduler",
+    "signal-handling"
+  ],
+  "concepts": [
+    "scheduling",
+    "timing",
+    "cron",
+    "backoff",
+    "workflow-initialization",
+    "signal-interaction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with cron workflows may experience unexpected immediate execution when using SignalWithStart, circumventing their defined schedule.",
+  "rootCause": "SignalWithStart scheduling a workflow task immediately disregards the firstWorkflowTaskBackoff timer that cron executions should respect.",
+  "proposedFix": "Modify SignalWithStart to honor the firstWorkflowTaskBackoff timer when scheduling workflow tasks for cron executions.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Acknowledged as a bug but deemed unlikely to be fixed due to potential user dependency on current behavior and concern about breaking changes in legacy cron feature.",
+  "related": [],
+  "keyQuote": "It's definitely a bug, but it's in an old feature that no one is actively working on. And as I said, I'd be worried about the fix breaking someone who happened to be depending on it.",
+  "number": 3805,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:16.923Z"
+}

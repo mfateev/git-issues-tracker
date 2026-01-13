@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowEnvironment does not support robfig-style cron expressions like \"@every 30s\", which work on a real Temporal server but fail with an INVALID_ARGUMENT error indicating the expression format is incorrect.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "cron-expression-parser",
+    "workflow-client"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "test-environment",
+    "expression-validation",
+    "compatibility",
+    "robfig-syntax"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test cron workflows using robfig-style expressions in TestWorkflowEnvironment, forcing them to switch expression formats between testing and production.",
+  "rootCause": "TestWorkflowEnvironment uses a cron expression parser that only accepts standard 5-field cron format, while the production Temporal server supports robfig-style shorthand expressions like \"@every 30s\".",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Invalid cron expression \"@every 30s\": Cron expression contains 2 parts but we expect one of [5]",
+  "number": 341,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:09:16.785Z"
+}

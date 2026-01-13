@@ -1,0 +1,30 @@
+{
+  "summary": "Test server needs to emit a predictable, standardized log message upon successful startup so that SDKs and users can reliably detect when the server is ready for use, replacing the current socket-polling approach.",
+  "category": "feature",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "startup",
+    "logging"
+  ],
+  "concepts": [
+    "readiness-detection",
+    "process-initialization",
+    "server-lifecycle",
+    "external-integration",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "SDK developers and users can reliably wait for test server readiness instead of implementing socket polling, improving integration reliability and reducing startup latency.",
+  "rootCause": null,
+  "proposedFix": "Emit a standardized output (stdout or stderr) with a predictable prefix as the first output when the test server is successfully started and ready to accept connections.",
+  "workaround": "Continuously attempt socket connections until successful, though this is inefficient and unreliable.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Create some kind of output (stdout or stderr) that is somewhat predictable (e.g. starts with a common string or something) and would be the _first_ output of the test server process when the server is successfully started and ready for use.",
+  "number": 1377,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:31:38.081Z"
+}

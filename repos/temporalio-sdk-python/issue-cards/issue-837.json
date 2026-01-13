@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal's logger adapter uses a Dict for the 'extra' field, which violates OpenTelemetry's format requirement for basic data types. Users need a way to flatten or customize the extra field to avoid OpenTelemetry warnings while retaining activity/workflow trace logs.",
+  "category": "feature",
+  "subcategory": "logging-opentelemetry",
+  "apis": [],
+  "components": [
+    "activity-logger",
+    "workflow-logger",
+    "logger-adapter"
+  ],
+  "concepts": [
+    "logging",
+    "opentelemetry",
+    "attributes",
+    "nested-data",
+    "compatibility",
+    "tracing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users integrating with OpenTelemetry receive warnings when Temporal logger adapters include nested dicts in the extra field, complicating activity/workflow tracing.",
+  "rootCause": "OpenTelemetry's Python SDK validates attribute types and removes non-basic types (dict, list) from attributes, as they don't match _VALID_ATTR_VALUE_TYPES, though nested maps are technically supported per the spec.",
+  "proposedFix": "Add an option to flatten the logger's extra field by prefixing keys with 'temporal_activity.' and 'temporal_workflow.', or enhance temporalio.contrib.opentelemetry with a handler for nested extra data.",
+  "workaround": "Disable default extra info (activity_info_on_extra = False, workflow_info_on_extra = False) and manually set logger extra fields using activity.info()._logger_details() or workflow.info()._logger_details() at the start of each activity/workflow. Alternatively, extend activity.LoggerAdapter and workflow.LoggerAdapter to override the process method.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    838
+  ],
+  "keyQuote": "OpenTelemetry's Python SDK verifies attribute types and removes non-basic types, complicating the ability to trace specific activities or workflows.",
+  "number": 837,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:55.922Z"
+}

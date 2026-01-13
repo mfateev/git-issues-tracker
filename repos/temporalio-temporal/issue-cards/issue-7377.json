@@ -1,0 +1,33 @@
+{
+  "summary": "JPA queries are intermittently returning null even though records exist in the database, but only when executed inside Temporal worker activities. The issue occurs with default retry options and a 10-minute startToCloseTimeout.",
+  "category": "bug",
+  "subcategory": "activity-database-access",
+  "apis": [
+    "Activity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "jpa-integration"
+  ],
+  "concepts": [
+    "database-query",
+    "null-return",
+    "activity-execution",
+    "retry",
+    "timeout",
+    "race-condition"
+  ],
+  "severity": "high",
+  "userImpact": "Activities using JPA queries fail intermittently in production, causing workflow failures and data consistency issues despite records existing in the database.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Jpa query (ex findByUserId) is returning null intermittently , even though the record exists in database, this is only happening inside the temporal workers",
+  "number": 7377,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:17.825Z"
+}

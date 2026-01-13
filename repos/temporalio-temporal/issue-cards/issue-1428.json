@@ -1,0 +1,33 @@
+{
+  "summary": "Rolling bounces and upgrades of Temporal generate excessive error messages related to shard stealing and state updates, making it difficult to identify real issues during deployments. The solution should be compatible with Kubernetes' default RollingUpdate strategy.",
+  "category": "feature",
+  "subcategory": "deployment-operations",
+  "apis": [],
+  "components": [
+    "shard-management",
+    "state-updates",
+    "rebalancing",
+    "error-logging"
+  ],
+  "concepts": [
+    "rolling-deployment",
+    "shard-stealing",
+    "error-suppression",
+    "graceful-shutdown",
+    "kubernetes-compatibility",
+    "monitoring",
+    "deployment-noise"
+  ],
+  "severity": "high",
+  "userImpact": "Operators experience noisy logs during routine deployments that obscure real issues, making it difficult to distinguish deployment errors from operational problems.",
+  "rootCause": "During rolling bounces/upgrades, shard rebalancing causes predictable transient errors (shard stealing, ack level updates, queue state updates) that are not indicative of actual problems.",
+  "proposedFix": "Implement throttling of expected transient errors during ring changes or shard rebalancing, either by: (1) suppressing/downgrading messages to warnings with a counter, or (2) detecting rebalance events and temporarily reducing error log levels.",
+  "workaround": "Manual monitoring systems that ignore a baseline level of these errors during deployments based on historical deployment patterns.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ideally, we should be able to do a rolling bounce or rolling upgrade of Temporal without encountering these errors on a routine basis.",
+  "number": 1428,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:15:16.705Z"
+}

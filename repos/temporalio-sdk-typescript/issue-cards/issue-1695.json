@@ -1,0 +1,33 @@
+{
+  "summary": "User requests the ability to record markers from workflows to capture intermediate state in the event history without causing workflow activations. The feature is declined by maintainers as markers are low-level primitives not intended for direct SDK usage.",
+  "category": "feature",
+  "subcategory": "workflow-markers",
+  "apis": [
+    "RecordMarker"
+  ],
+  "components": [
+    "workflow-execution",
+    "event-history",
+    "workflow-activation"
+  ],
+  "concepts": [
+    "markers",
+    "event-history",
+    "replay-logic",
+    "workflow-state",
+    "side-channels",
+    "database-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users building advanced frameworks that need to record intermediate workflow state without triggering activations cannot use markers directly as they are not intended for SDK-level usage.",
+  "rootCause": "Markers are low-level primitives designed for SDK internal use only, with replay logic that is distinct for each marker type and managed internally by Core SDKs.",
+  "proposedFix": null,
+  "workaround": "Use alternative features like Memo, Search Attributes, User Data, Local Activity, or Updates depending on the specific use case.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers clarified that markers are not meant for direct SDK usage and a general RecordMarker API is not on the roadmap. Users should use appropriate alternative features based on their use case.",
+  "related": [],
+  "keyQuote": "Markers themselves are not meant for direct usage, and a general \"Record a Marker\" API is simply not on the road map.",
+  "number": 1695,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:42.869Z"
+}

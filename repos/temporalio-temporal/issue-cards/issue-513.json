@@ -1,0 +1,33 @@
+{
+  "summary": "Docker Compose configuration lacks support for Cassandra credentials and TLS options. Users can only specify Cassandra seeds and keyspaces, but cannot configure authentication parameters, SSL/TLS settings, or replication factors, unlike the MySQL configuration which supports environment variables for credentials.",
+  "category": "feature",
+  "subcategory": "docker-compose-configuration",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "config-template",
+    "cassandra-client"
+  ],
+  "concepts": [
+    "configuration",
+    "credentials",
+    "tls",
+    "docker",
+    "authentication",
+    "environment-variables"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot deploy Temporal with Cassandra authentication enabled via Docker Compose, limiting deployment flexibility for secure environments.",
+  "rootCause": "The config_template.yaml only expands CASSANDRA_SEEDS and NAMESPACE environment variables, ignoring other Cassandra configuration parameters like CASSANDRA_USER, CASSANDRA_PASSWORD, and TLS settings.",
+  "proposedFix": "Extend config_template.yaml to support additional environment variables (CASSANDRA_USER, CASSANDRA_PASSWORD, CASSANDRA_TLS_ENABLED, SSL_VERSION, SSL_VALIDATE) similar to the MySQL docker-compose implementation.",
+  "workaround": "Create a custom config_template.yaml and modify start.sh to manually pass credentials and TLS options, then override the template in the Dockerfile.",
+  "resolution": "fixed",
+  "resolutionDetails": "Support for Cassandra credentials and TLS configuration was added to the docker-compose setup, allowing users to specify authentication parameters via environment variables.",
+  "related": [
+    885
+  ],
+  "keyQuote": "It appears that our configuration template that we use when launching via docker-compose only expands CASSANDRA_SEEDS and *NAMESPACE values.",
+  "number": 513,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:11:00.714Z"
+}

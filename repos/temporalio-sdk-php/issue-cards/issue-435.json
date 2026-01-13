@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflows cannot be started when using abstract classes with WorkflowMethod attributes. The PHP SDK fails to find the workflow method when the child workflow class extends an abstract class that defines the method.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "newChildWorkflowStub",
+    "WorkflowMethod"
+  ],
+  "components": [
+    "child-workflow-proxy",
+    "workflow-reflection",
+    "method-discovery"
+  ],
+  "concepts": [
+    "inheritance",
+    "abstract-classes",
+    "method-resolution",
+    "reflection",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use abstract classes to share workflow method logic across multiple workflow implementations.",
+  "rootCause": "The ChildWorkflowProxy method lookup fails to properly resolve WorkflowMethod attributes defined in abstract parent classes, only finding them in concrete descendant classes.",
+  "proposedFix": null,
+  "workaround": "Define the WorkflowMethod attribute explicitly in the descendant class rather than relying on inheritance from abstract class.",
+  "resolution": "fixed",
+  "resolutionDetails": "Users should explicitly define workflow method attributes in descendant classes as a workaround; SDK was fixed to support abstract workflow methods.",
+  "related": [],
+  "keyQuote": "The given stub class \"App\\\\LoanApplication\\\\Workflow\\\\AWorkflow\" does not contain a workflow method named \"start\"",
+  "number": 435,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:39.910Z"
+}

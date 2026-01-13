@@ -1,0 +1,32 @@
+{
+  "summary": "Request to include update handler information and update ID in logging context for better observability when handling workflow state updates in .NET SDK.",
+  "category": "feature",
+  "subcategory": "logging-observability",
+  "apis": [],
+  "components": [
+    "logging",
+    "update-handler",
+    "context"
+  ],
+  "concepts": [
+    "observability",
+    "logging-context",
+    "update-handler",
+    "debugging",
+    "traceability"
+  ],
+  "severity": "low",
+  "userImpact": "Users have better visibility into which update handler is being executed and its associated update ID when reviewing logs.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update handler and ID are now included in the logging context.",
+  "related": [
+    466
+  ],
+  "keyQuote": "Show update handler and ID in logging context",
+  "number": 351,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:52:03.179Z"
+}

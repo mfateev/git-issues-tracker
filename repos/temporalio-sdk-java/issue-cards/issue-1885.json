@@ -1,0 +1,30 @@
+{
+  "summary": "The Java SDK increments the temporal_workflow_task_execution_failed metric on server-side task completion rejection (e.g., UNHANDLED_COMMAND), but this metric should only reflect worker-side failures. Unlike the Go SDK which logs these cases separately, Java needs to either stop incrementing in server-side rejection scenarios or introduce a label to differentiate worker-side failures from server-side rejections.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics",
+    "workflow-task-execution"
+  ],
+  "concepts": [
+    "metric-accuracy",
+    "task-completion",
+    "error-classification",
+    "observability",
+    "metric-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use the workflow_task_execution_failed metric to distinguish worker-side failures from server-side rejections, making monitoring and debugging more difficult.",
+  "rootCause": "Java SDK increments workflow_task_execution_failed metric in both worker-side task failure and server-side task completion rejection cases, whereas the metric semantics only intend to track worker-side failures.",
+  "proposedFix": "Either stop incrementing the metric on server-side task completion rejection, or introduce a label to differentiate between worker-side task failures and server-side task rejections.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we _also_ increment this on server-side task completion rejection (e.g. `UNHANDLED_COMMAND`). We should have some way to differentiate worker-side task failure and server-side task rejection.",
+  "number": 1885,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:32.851Z"
+}

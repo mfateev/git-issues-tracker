@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose the `use_seconds_for_duration` option from sdk-core PR #706 for Prometheus metrics in the Python SDK, along with tests for duration values as seconds and ability to set duration values in custom metrics.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus",
+    "custom-metrics"
+  ],
+  "concepts": [
+    "duration",
+    "seconds",
+    "prometheus",
+    "metrics-configuration",
+    "time-unit"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to configure duration metrics to use seconds and set custom metric duration values in the Python SDK.",
+  "rootCause": null,
+  "proposedFix": "Expose `use_seconds_for_duration` option on Prometheus metrics and add ability to set duration values in custom metrics",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Partially addressed in #498; remaining work includes tests for duration values as seconds and ability to set duration values in custom metrics",
+  "related": [
+    498,
+    706
+  ],
+  "keyQuote": "Need to at least expose `use_seconds_for_duration` option on Prometheus metrics from https://github.com/temporalio/sdk-core/pull/706",
+  "number": 493,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:42.929Z"
+}

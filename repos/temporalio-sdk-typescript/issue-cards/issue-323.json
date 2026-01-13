@@ -1,0 +1,32 @@
+{
+  "summary": "Unify WorkflowClient error handling by using a single Error type with Failure objects as causes, replacing the current approach of separate error classes for each workflow failure type.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "WorkflowClient"
+  ],
+  "components": [
+    "error-handling",
+    "workflow-client",
+    "failure-classes"
+  ],
+  "concepts": [
+    "error-unification",
+    "exception-hierarchy",
+    "failure-abstraction",
+    "api-consistency",
+    "code-reuse"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would have a simpler and more consistent error handling pattern for WorkflowClient operations, aligned with the Java SDK implementation.",
+  "rootCause": "Separate error classes were implemented before failure classes were ported to the SDK, resulting in duplication of functionality.",
+  "proposedFix": "Replace multiple error classes with a single Error class that includes a Failure class in its `cause` attribute, matching the Java SDK pattern.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented unified error handling with single Error type and Failure cause attribute, aligning TypeScript SDK with Java SDK approach.",
+  "related": [],
+  "keyQuote": "Unify these errors into a single Error class and add a Failure class to its `cause` attribute.",
+  "number": 323,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:26.343Z"
+}

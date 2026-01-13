@@ -1,6 +1,6 @@
 # Features SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
 ## Related Documents
@@ -25,7 +25,7 @@
 | Total Comments on open | 397 |
 | Issues with Upvotes | 32 (13%) |
 | Issues with Comments | 129 (53%) |
-| Average Age (days) | 804 |
+| Average Age (days) | 807 |
 | Stale Issues (>12 months) | 145 (59%) |
 
 ---
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 36 |
-| Issues Closed | 20 |
+| Issues Opened | 35 |
+| Issues Closed | 19 |
 | Net Change | +16 |
 | Bugs Closed | 0 |
-| Enhancements Closed | 18 |
+| Enhancements Closed | 17 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 286 | 205 |
-| Median | 75 | 54 |
-| 90th Percentile | 823 | 587 |
+| Average | 301 | 215 |
+| Median | 76 | 54 |
+| 90th Percentile | 912 | 652 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 30% |
-| Within 90 days | 55% |
+| Within 30 days | 26% |
+| Within 90 days | 53% |
 
 
 ---
@@ -115,11 +115,11 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 2 | 1% |
-| 1-3 months | 9 | 4% |
+| 1-3 months | 8 | 3% |
 | 3-6 months | 15 | 6% |
-| 6-12 months | 34 | 14% |
-| 1-2 years | 53 | 22% |
-| 2-3 years | 44 | 18% |
+| 6-12 months | 35 | 14% |
+| 1-2 years | 52 | 21% |
+| 2-3 years | 45 | 18% |
 | 3+ years | 87 | 36% |
 
 ---

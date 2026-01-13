@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowStub methods except getResult don't properly map GRPC errors to Temporal exceptions. The cancel method and others throw generic ServiceClientException instead of domain-specific exceptions like WorkflowNotFoundException.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "WorkflowStub.getResult",
+    "WorkflowStub.cancel"
+  ],
+  "components": [
+    "WorkflowStub",
+    "error-mapping",
+    "GRPC-client"
+  ],
+  "concepts": [
+    "exception-mapping",
+    "error-handling",
+    "GRPC-integration",
+    "workflow-cancellation",
+    "API-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably catch workflow-specific exceptions from most WorkflowStub methods, making error handling inconsistent and difficult.",
+  "rootCause": "mapWorkflowFailureToException is only called in getResult method, not applied uniformly across all WorkflowStub methods",
+  "proposedFix": "Apply mapWorkflowFailureToException to all WorkflowStub methods that interact with GRPC",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "all methods of the WorkflowStub class, except for the getResult method, don't properly map errors from GRPC",
+  "number": 269,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:25.278Z"
+}

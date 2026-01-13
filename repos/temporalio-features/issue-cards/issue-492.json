@@ -1,0 +1,33 @@
+{
+  "summary": "Add comprehensive feature tests across all SDKs for the Update + Workflow Reset functionality, including tests for reapplied updates being accepted/rejected after reset and updates reapplied before completion.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Update",
+    "WorkflowReset"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-reset",
+    "update-handler"
+  ],
+  "concepts": [
+    "update",
+    "workflow-reset",
+    "reapply",
+    "feature-tests",
+    "sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need reliable tests to verify Update + Workflow Reset behavior works correctly across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Create feature tests in the features repo covering: reapplied update acceptance/rejection after reset, and update reapplication before completion.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add feature tests in this repo for all SDKs for Update + Workflow Reset. Should include the reapplied update being accepted and rejected after reset as well as the update being reapplied before completion.",
+  "number": 492,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:04:51.373Z"
+}

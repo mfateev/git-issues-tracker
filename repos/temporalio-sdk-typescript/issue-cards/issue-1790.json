@@ -1,0 +1,40 @@
+{
+  "summary": "Workflow history replay fails with a nondeterminism error when child workflows are present, even though the child workflow IDs are generated fresh from the history. The error indicates a mismatch between scheduled event IDs and command IDs for child workflows during replay.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "executeChild",
+    "startChild",
+    "Worker.runReplayHistory"
+  ],
+  "components": [
+    "worker",
+    "replay-engine",
+    "child-workflow",
+    "history-processing"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-history",
+    "child-workflows",
+    "replay",
+    "test-compatibility",
+    "nondeterminism-detection"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflow history compatibility tests in CI to prevent nondeterministic changes when workflows contain child workflows.",
+  "rootCause": "Issue #1744 identified as likely cause; related to child workflow ID generation during replay",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1582,
+    1677,
+    1744
+  ],
+  "keyQuote": "Child workflow id of scheduled event does not match child workflow id of command - This means that the workflow code as written is not compatible with the history",
+  "number": 1790,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:01:53.314Z"
+}

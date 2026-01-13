@@ -1,0 +1,28 @@
+{
+  "summary": "Investigation into whether the OpenAI data converter dependency can be removed from the Python SDK, or if it must be retained with proper justification in the code.",
+  "category": "other",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "openai-integration"
+  ],
+  "concepts": [
+    "dependency-management",
+    "code-cleanup",
+    "optional-dependencies",
+    "serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Determines whether users must have the OpenAI data converter as a required dependency or if it can be made optional.",
+  "rootCause": null,
+  "proposedFix": "Either remove the data converter entirely or add code comments justifying its necessity.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Investigation completed and decision made regarding data converter necessity.",
+  "related": [],
+  "keyQuote": "See if there's a way to remove the data converter entirely. If not, justify that reason in code.",
+  "number": 912,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:27:33.904Z"
+}

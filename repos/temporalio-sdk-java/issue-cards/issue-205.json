@@ -1,0 +1,32 @@
+{
+  "summary": "CheckedExceptionWrapper uses reflection to access java.lang.Throwable.cause, triggering illegal reflective access warnings in Java 9+. These warnings appear when running workflows and persist across versions.",
+  "category": "bug",
+  "subcategory": "exception-handling",
+  "apis": [],
+  "components": [
+    "CheckedExceptionWrapper",
+    "exception-handling",
+    "internal-common"
+  ],
+  "concepts": [
+    "reflection",
+    "Java-modules",
+    "illegal-access",
+    "exception-wrapping",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see warning messages in console output when running workflows, which may cause confusion and appears unprofessional despite the code functioning correctly.",
+  "rootCause": "io.temporal.internal.common.CheckedExceptionWrapper uses reflective access to Throwable.cause field, which violates Java 9+ module encapsulation rules and triggers warnings.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #251, which addressed the illegal reflective access operation",
+  "related": [
+    251
+  ],
+  "keyQuote": "Illegal reflective access by io.temporal.internal.common.CheckedExceptionWrapper to field java.lang.Throwable.cause",
+  "number": 205,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:02:04.515Z"
+}

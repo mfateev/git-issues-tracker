@@ -1,0 +1,31 @@
+{
+  "summary": "The delete_workflow_execution RPC call was not properly available on the workflow_service in the Python SDK, throwing a ValueError when called. The issue was caused by the call being mistakenly placed on operator_service in the Rust side.",
+  "category": "bug",
+  "subcategory": "workflow-service",
+  "apis": [
+    "delete_workflow_execution"
+  ],
+  "components": [
+    "workflow_service",
+    "rpc_client",
+    "operator_service"
+  ],
+  "concepts": [
+    "workflow_deletion",
+    "execution_cleanup",
+    "rpc_availability",
+    "service_routing"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot delete workflow executions through the Python SDK, limiting their ability to clean up failed workflows for organizational purposes.",
+  "rootCause": "The delete_workflow_execution RPC call was mistakenly placed on operator_service instead of workflow_service in the underlying service definition.",
+  "proposedFix": "Move the delete_workflow_execution RPC call from operator_service to workflow_service in the service definition.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Temporal team acknowledged the mistake and committed to fixing it by moving the RPC call to the correct service.",
+  "related": [],
+  "keyQuote": "It looks like mistakenly placed this on operator_service on our Rust side, we will fix.",
+  "number": 445,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:21.819Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The temporal-test-server POM file is invalid in version 1.9.1, missing version specifications for transitive dependencies (grpc-core and grpc-services), causing Maven 3.8.x to emit warnings during compilation.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "temporal-test-server",
+    "pom.xml",
+    "maven-build"
+  ],
+  "concepts": [
+    "pom-validation",
+    "transitive-dependencies",
+    "maven-3.8",
+    "dependency-resolution",
+    "build-warnings"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot compile projects with temporal-testing as a dependency using Maven 3.8.x without build warnings due to invalid POM configuration.",
+  "rootCause": "The temporal-test-server POM lacks explicit version specifications for grpc-core and grpc-services dependencies, violating Maven 3.8.x stricter POM validation rules.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by correcting the POM file to include explicit versions for all transitive dependencies.",
+  "related": [],
+  "keyQuote": "The POM for io.temporal:temporal-test-server:jar:1.9.1 is invalid, transitive dependencies (if any) will not be available",
+  "number": 1153,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:09:43.170Z"
+}

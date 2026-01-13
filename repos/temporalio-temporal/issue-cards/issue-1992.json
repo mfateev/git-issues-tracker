@@ -1,0 +1,33 @@
+{
+  "summary": "ListClosedWorkflowExecutions query fails during upgrade from Temporal 1.9 to 1.12 with error about parsing 'Running' as integer. The query was changed to use string format for ExecutionStatus instead of integer, breaking compatibility with existing Elasticsearch indices that expect integer values.",
+  "category": "bug",
+  "subcategory": "elasticsearch-visibility",
+  "apis": [
+    "ListClosedWorkflowExecutions"
+  ],
+  "components": [
+    "visibility-store",
+    "elasticsearch",
+    "persistence",
+    "search-attributes"
+  ],
+  "concepts": [
+    "upgrade-compatibility",
+    "schema-mismatch",
+    "query-format",
+    "index-mapping",
+    "elasticsearch-schema"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading from 1.9 to 1.12 cannot use workflow search functionality until they manually update their Elasticsearch index mapping.",
+  "rootCause": "Breaking change in query format from integer to string for ExecutionStatus field between versions, causing mismatches with existing Elasticsearch indices that expect integer values.",
+  "proposedFix": "Update Elasticsearch index mapping template to handle the new string format for ExecutionStatus field, or provide migration tooling.",
+  "workaround": "Manually update the Elasticsearch index template and recreate the visibility index using the new schema template file before upgrading.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved by manually updating their Elasticsearch index mapping with the correct schema template before completing the upgrade, and referenced the v1.11.2 release notes for upgrade path documentation.",
+  "related": [],
+  "keyQuote": "For any version below 1.11, you need to go through this manual process to upgrade to 1.11 first.",
+  "number": 1992,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:57.605Z"
+}

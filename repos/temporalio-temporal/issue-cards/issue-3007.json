@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal server fails to start with MySQL when using a remote database server, encountering an 'invalid default value for session_start' error during cluster_membership table initialization.",
+  "category": "bug",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "database-schema",
+    "mysql-driver",
+    "cluster-membership"
+  ],
+  "concepts": [
+    "database-initialization",
+    "schema-setup",
+    "remote-database",
+    "cluster-configuration",
+    "mysql-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot set up Temporal server with MySQL running on a separate server, blocking deployment in multi-server configurations.",
+  "rootCause": "Invalid default value for session_start column in cluster_membership table during schema setup with MySQL 8.0.29",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in issue #3012",
+  "related": [
+    3012
+  ],
+  "keyQuote": "Temporal server says \"invalid default value for session_start (a column in cluster_membership table created during schema setup)\"",
+  "number": 3007,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:12.352Z"
+}

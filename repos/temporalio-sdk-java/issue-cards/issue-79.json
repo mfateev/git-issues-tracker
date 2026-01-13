@@ -1,0 +1,33 @@
+{
+  "summary": "Activity failures are not logged, making it difficult to debug during unit tests with automatic activity retries. Logging was added to improve visibility into activity execution failures.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "logging",
+    "test-framework"
+  ],
+  "concepts": [
+    "logging",
+    "activity-failures",
+    "debugging",
+    "unit-tests",
+    "retries",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see activity failure details during unit tests with automatic retries, making debugging difficult.",
+  "rootCause": "Activity failures were not being logged to output",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #172 which added logging for activity failures",
+  "related": [
+    172
+  ],
+  "keyQuote": "Currently activity failures are not logged which is very inconvenient during unit tests that do automatic activity retries.",
+  "number": 79,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:35:49.742Z"
+}

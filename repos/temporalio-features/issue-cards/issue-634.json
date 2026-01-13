@@ -1,0 +1,30 @@
+{
+  "summary": "Add UnhandledCommand as a failure_reason value to the workflow_task_execution_failed metric to enable better alerting and debugging of issues related to high signal rates to executions.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-execution",
+    "signal-handling"
+  ],
+  "concepts": [
+    "failure-reason",
+    "alerting",
+    "debugging",
+    "signal-rate",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to detect and debug failures caused by unhandled commands through improved metric visibility.",
+  "rootCause": null,
+  "proposedFix": "Add UnhandledCommand to the failure_reason field in the workflow_task_execution_failed metric alongside existing NonDeterminismError and WorkflowError values.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add UnhandledCommand as well which can help alert and debug any issues with things like high signal rate to executions",
+  "number": 634,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:01:40.458Z"
+}

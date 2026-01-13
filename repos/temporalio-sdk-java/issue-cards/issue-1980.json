@@ -1,0 +1,35 @@
+{
+  "summary": "MDC (Mapped Diagnostic Context) is not propagating to Temporal worker threads when using the Spring Boot SDK. User configured MdcContextPropagator on the workflow client but logs from Temporal activities lack the MDC context.",
+  "category": "bug",
+  "subcategory": "context-propagation",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowClientOptions",
+    "MdcContextPropagator"
+  ],
+  "components": [
+    "spring-boot-starter",
+    "worker",
+    "context-propagator"
+  ],
+  "concepts": [
+    "MDC",
+    "logging",
+    "context-propagation",
+    "thread-locals",
+    "spring-boot-integration",
+    "worker-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot track requests through logs across workflow and activity boundaries, making debugging and monitoring distributed workflows difficult.",
+  "rootCause": "Context propagator was only configured on the workflow client but not on the worker client, preventing MDC context from propagating to activity threads.",
+  "proposedFix": "Configure the MdcContextPropagator on both the workflow client and the worker client. Reference TemporalOptionsConfig.java from the Spring Boot sample for the correct setup pattern.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "User was missing context propagator configuration on the worker client. Solution confirmed in comments with reference to sample code configuration.",
+  "related": [],
+  "keyQuote": "You need to also be setting the the context propagator on the client the worker uses.",
+  "number": 1980,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:52.759Z"
+}

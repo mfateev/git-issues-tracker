@@ -1,0 +1,32 @@
+{
+  "summary": "WaitConditionAsync callback is executed outside the workflow event loop, causing the task scheduler to not be the workflow instance, which makes calls to the Workflow object within the callback fail.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WaitConditionAsync"
+  ],
+  "components": [
+    "workflow-instance",
+    "event-loop",
+    "task-scheduler"
+  ],
+  "concepts": [
+    "context",
+    "event-loop",
+    "task-scheduling",
+    "async-callback",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely call Workflow methods from within WaitConditionAsync callbacks, severely limiting the utility of the API.",
+  "rootCause": "The callback for WaitConditionAsync is executed outside of the event loop instead of within the workflow instance's task scheduler context.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The callback for WaitConditionAsync is run outside of the event loop, so the current task scheduler is not the workflow instance.",
+  "number": 240,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:02:43.633Z"
+}

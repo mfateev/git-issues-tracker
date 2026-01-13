@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow task handler incorrectly fails workflow execution when encountering payload size violations or pending activity limits. The service should fail only the task and terminate execution through proper channels, not fail the entire execution.",
+  "category": "bug",
+  "subcategory": "workflow-task-handler",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "history-service",
+    "execution"
+  ],
+  "concepts": [
+    "payload-size",
+    "activity-limits",
+    "task-failure",
+    "execution-termination",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows may unexpectedly fail execution when hitting size or activity limits instead of properly terminating through intended mechanisms.",
+  "rootCause": "workflowTaskHandler fails execution directly on payload size checks and pending activity limits instead of failing the task and allowing proper execution termination flow",
+  "proposedFix": "Modify workflowTaskHandler to fail only the workflow task on size violations, then terminate execution if intended, rather than failing execution directly",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by correcting the error handling in workflowTaskHandler to properly fail tasks instead of executions",
+  "related": [],
+  "keyQuote": "Service should fail the workflow task and then terminate execution if that is the intend, but not fail (only should fail exec on sdk request)",
+  "number": 4579,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:04.102Z"
+}

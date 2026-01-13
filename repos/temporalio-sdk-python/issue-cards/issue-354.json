@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add metric forwarding support and enable custom metric recording in the Python SDK, similar to capabilities in TypeScript SDK and core.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "monitoring"
+  ],
+  "concepts": [
+    "metric-forwarding",
+    "custom-metrics",
+    "observability",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently forward metrics or record custom metrics in the Python SDK, limiting observability and integration with monitoring systems.",
+  "rootCause": null,
+  "proposedFix": "Implement metric forwarding and custom metric support similar to TypeScript SDK and core implementations",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was handled/resolved in issue #369",
+  "related": [
+    369,
+    1177,
+    544
+  ],
+  "keyQuote": "Need a way to, independently, support metric forwarding and allow people to create/record custom metrics.",
+  "number": 354,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:04.665Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to improve ApplicationFailure API by using an options object instead of positional parameters. The proposal suggests making the constructor accept a configuration object with optional message, type, retryable (instead of nonRetryable), and cause fields, along with a static helper method for creating non-retryable failures.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "error-handling",
+    "api-design"
+  ],
+  "concepts": [
+    "api-ergonomics",
+    "error-creation",
+    "configuration-object",
+    "optional-parameters",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Improves code readability and reduces confusion when creating ApplicationFailure instances by using named parameters instead of positional arguments.",
+  "rootCause": null,
+  "proposedFix": "Change ApplicationFailure constructor to accept an options object with message, type, retryable (positive boolean instead of negated nonRetryable), and cause fields. Add ApplicationFailure.nonRetryable() static helper method.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer decided the API change was too late to implement due to backward compatibility concerns.",
+  "related": [],
+  "keyQuote": "It's way too late to change now IMO, can we close this?",
+  "number": 562,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:01:22.311Z"
+}

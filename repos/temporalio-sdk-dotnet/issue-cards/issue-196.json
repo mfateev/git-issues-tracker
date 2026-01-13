@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to expose max poller options for .NET workers, matching Python and TypeScript SDKs. Also requests exposure of sticky to non-sticky ratio configuration.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "poller",
+    "configuration"
+  ],
+  "concepts": [
+    "poller-options",
+    "max-poller",
+    "sticky-ratio",
+    "worker-tuning",
+    "sdk-parity"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot configure advanced poller behavior in .NET SDK, limiting their ability to tune worker performance compared to other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Expose max poller options and sticky to non-sticky ratio configuration in .NET worker API, matching existing Python and TypeScript implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose max poller options for .NET workers, achieving parity with Python and TypeScript SDKs.",
+  "related": [],
+  "keyQuote": "We expose this in Python and TypeScript, we should expose in .NET. Also sticky to nonsticky ratio.",
+  "number": 196,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:25:49.018Z"
+}

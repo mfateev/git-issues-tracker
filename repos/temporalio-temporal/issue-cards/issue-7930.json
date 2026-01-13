@@ -1,0 +1,32 @@
+{
+  "summary": "Replace the deprecated olivere/elastic v7 client with the official elastic/go-elasticsearch client. The current dependency on olivere/elastic is deprecated and also transitively depends on AWS SDK v1 which has reached end-of-life.",
+  "category": "feature",
+  "subcategory": "dependency-upgrade",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "search-persistence"
+  ],
+  "concepts": [
+    "dependency-management",
+    "client-migration",
+    "opensearch-compatibility",
+    "aws-sdk-eol",
+    "authentication"
+  ],
+  "severity": "high",
+  "userImpact": "Users are blocked from using the latest versions of AWS SDK and Elasticsearch client libraries, and may face security or compatibility issues.",
+  "rootCause": "olivere/elastic is deprecated and depends on AWS SDK v1 which has reached end-of-life",
+  "proposedFix": "Migrate from github.com/olivere/elastic/v7 to the official github.com/elastic/go-elasticsearch client",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4499,
+    5680
+  ],
+  "keyQuote": "we are also interested in this migration...because it depends on the AWS SDK v1 which has reached EOL",
+  "number": 7930,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:10.461Z"
+}

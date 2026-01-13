@@ -1,0 +1,30 @@
+{
+  "summary": "Request to allow activities to override the retry backoff duration specified in the retry policy. This would enable dynamic backoff control at the activity level, allowing activities to specify custom retry delays based on runtime conditions.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "worker"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "activity-failure",
+    "retry-policy",
+    "dynamic-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot dynamically control retry backoff durations from within activities, limiting flexibility in handling transient failures with custom retry strategies.",
+  "rootCause": null,
+  "proposedFix": "Add an option/mechanism for activities to specify custom backoff duration that overrides the retry policy's backoff configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to allow activities to override retry backoff through activity execution options.",
+  "related": [],
+  "keyQuote": "activity should have an option to specify how long to backoff for next retry. This would overwrite the backoff from the retrypolicy.",
+  "number": 5111,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:37.620Z"
+}

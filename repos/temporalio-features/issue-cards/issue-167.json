@@ -1,0 +1,32 @@
+{
+  "summary": "The metric name local_activity_execution_failed is inconsistent across SDKs. Go SDK uses one naming convention while Java and other SDKs use a different one. This inconsistency needs to be aligned across all SDKs.",
+  "category": "feature",
+  "subcategory": "metrics-alignment",
+  "apis": [],
+  "components": [
+    "metrics",
+    "local-activity",
+    "sdk-alignment"
+  ],
+  "concepts": [
+    "metric-naming",
+    "consistency",
+    "observability",
+    "cross-sdk-alignment",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with multiple SDKs experience inconsistent metric names, making it difficult to standardize monitoring and observability across their Temporal deployments.",
+  "rootCause": "Different SDKs implemented the local activity execution failed metric with different names without cross-SDK coordination.",
+  "proposedFix": "Standardize the metric name across all SDKs to use a consistent naming convention (as documented in the SDK metrics reference).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    966
+  ],
+  "keyQuote": "Please align local_activity_failed / local_activity_execution_failed across SDKs. Currently there is a difference between Go and Java SDKs",
+  "number": 167,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:50:44.901Z"
+}

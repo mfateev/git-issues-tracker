@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow the reset API to bring new signals as an atomic operation. This would enable use cases like skipping activities post-reset, selectively preserving specific signals, or notifying workflows they're in a reset state.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "ResetWorkflow"
+  ],
+  "components": [
+    "reset-handler",
+    "signal-processor",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "atomic-operation",
+    "signal-preservation",
+    "workflow-state",
+    "reset-behavior",
+    "signal-filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently cannot selectively preserve signals during reset or inject signals atomically with reset, limiting their ability to handle complex reset scenarios.",
+  "rootCause": null,
+  "proposedFix": "Extend reset API to accept a list of signals to be delivered atomically as part of the reset operation, allowing workflows to adjust behavior accordingly.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1203
+  ],
+  "keyQuote": "allow reset API to bring a few new signals as atomic operation",
+  "number": 553,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:42.384Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Dev server experiencing persistent timeout and context cancellation errors after ~1 hour of idle operation, with logs showing SQLite database operation failures and deadline exceeded errors. Issue appears to be transient timeout-related rather than missing database tables despite the title.",
+  "category": "bug",
+  "subcategory": "server-persistence",
+  "apis": [],
+  "components": [
+    "matching-engine",
+    "transfer-queue-processor",
+    "outbound-queue-processor",
+    "sqlite-persistence"
+  ],
+  "concepts": [
+    "timeout",
+    "context-cancellation",
+    "database-operations",
+    "task-queue",
+    "persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Dev server becomes unstable and returns 500 errors after approximately one hour of idle operation, requiring restart.",
+  "rootCause": "Transient timeout errors in SQLite database operations (GetHistoryTasks, GetTransferTasks, update-task-queue operations) causing context deadlines to be exceeded.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Closed without followup after maintainer suggested testing with version 1.28.1 and noted no actual 'missing table' errors in logs, indicating the issue was likely version-specific or environment-dependent.",
+  "related": [
+    3784
+  ],
+  "keyQuote": "I don't see errors like \"no such table\" or \"missing table\" in the logs you pasted. Looks like they are all transient timeout errors.",
+  "number": 8017,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:01.182Z"
+}

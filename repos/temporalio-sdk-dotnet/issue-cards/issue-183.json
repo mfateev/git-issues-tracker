@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for Eager Workflow Start (EWS) in the .NET SDK to reduce workflow startup latency. EWS allows clients to directly schedule the first workflow task to a local worker, already implemented in Java, Python, Core, and Go SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-starter",
+    "core-integration"
+  ],
+  "concepts": [
+    "latency-reduction",
+    "eager-execution",
+    "task-scheduling",
+    "local-worker",
+    "workflow-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can reduce workflow startup latency by enabling Eager Workflow Start through an optional flag when starting workflows.",
+  "rootCause": null,
+  "proposedFix": "Add an optional flag to the workflow start mechanism to enable EWS using the Core implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Eager Workflow Start support was implemented in the .NET SDK using the Core implementation.",
+  "related": [
+    242
+  ],
+  "keyQuote": "Support for Eager Workflow Start (EWS) was added in the server in 1.20, and is currently supported in Java, Python, Core, and Go SDKs.",
+  "number": 183,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:46.360Z"
+}

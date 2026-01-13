@@ -1,0 +1,34 @@
+{
+  "summary": "Request to document SDK errors in API docs and enable type-safe error handling via error classes. Users need to discover which errors methods can throw and use instanceof for error type checking instead of runtime discovery.",
+  "category": "docs",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "api-documentation",
+    "type-system"
+  ],
+  "concepts": [
+    "error-classification",
+    "error-discovery",
+    "type-safety",
+    "error-documentation",
+    "error-handling",
+    "instanceof-checking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily discover which errors SDK methods can throw or properly type-check errors at runtime, leading to incomplete error handling in applications.",
+  "rootCause": "SDK errors are not documented in API docs and lack proper error class hierarchy for isinstance checking.",
+  "proposedFix": "Add error classes for all SDK error codes and document which errors each method can throw in the API documentation.",
+  "workaround": "Manual runtime discovery of errors and string-based error classification in user code.",
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed through cross-SDK effort to add error classes (WorkflowExecutionAlreadyStartedError, WorkflowNotFoundError already added in PR #468) and document possible errors by method.",
+  "related": [
+    468,
+    353
+  ],
+  "keyQuote": "Be able to see in a method's API docs which error types it can throw. Be able to use instanceof like this",
+  "number": 358,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:29.058Z"
+}

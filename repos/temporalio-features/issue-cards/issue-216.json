@@ -1,0 +1,30 @@
+{
+  "summary": "Docker-compose shutdown is failing intermittently with 'No such file or directory' error when trying to start a bash process in the features directory path. The issue appears to be a sporadic flake in the CI workflow that has resolved itself.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "ci-workflow",
+    "test-runner"
+  ],
+  "concepts": [
+    "working-directory",
+    "process-spawning",
+    "ci-flake",
+    "shutdown",
+    "path-resolution"
+  ],
+  "severity": "low",
+  "userImpact": "CI tests fail intermittently during docker-compose shutdown, requiring workflow re-runs.",
+  "rootCause": "Unclear - appears to be a race condition or timing issue during docker-compose shutdown affecting working directory resolution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Investigation found all subsequent runs against main were passing or failing for unrelated reasons, suggesting the issue was transient and self-resolved.",
+  "related": [],
+  "keyQuote": "I looked at runs against `main` in the last month, and all of them seem to be passing, or failing for unrelated reasons.",
+  "number": 216,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:56.905Z"
+}

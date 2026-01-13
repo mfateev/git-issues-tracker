@@ -1,0 +1,34 @@
+{
+  "summary": "Worker identity should be reported when a worker picks up an activity task to populate the lastWorkerIdentity field in PendingActivityTask. Currently this field remains empty because the server expects the identity to be sent at task pickup, not during heartbeat.",
+  "category": "feature",
+  "subcategory": "activity-worker-identity",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "heartbeat"
+  ],
+  "concepts": [
+    "worker-identity",
+    "activity-task-pickup",
+    "pending-activity-tracking",
+    "server-synchronization",
+    "task-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot identify which worker processed an activity task because lastWorkerIdentity is not populated despite heartbeat implementation.",
+  "rootCause": "Worker identity is sent during heartbeat but the Temporal server records the identity when the worker picks up the activity task, not when it heartbeats.",
+  "proposedFix": "Report worker identity when Worker picks up the activity task instead of only during heartbeat, following the pattern implemented in the Test Server (see temporalio/temporal#2007).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was unblocked after temporalio/temporal#1999 was completed, with implementation guidance provided in temporalio/temporal#2007.",
+  "related": [
+    590,
+    765,
+    1999
+  ],
+  "keyQuote": "JavaSDK should report worker identity when Worker picks up the activity task for `lastWorkerIdentity` to be correctly populated.",
+  "number": 766,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:41:31.742Z"
+}

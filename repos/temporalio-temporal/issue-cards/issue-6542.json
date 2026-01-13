@@ -1,0 +1,33 @@
+{
+  "summary": "The temporal-history pod panics with a slice bounds out of range error during protobuf marshaling of a DescribeWorkflowExecutionResponse. The panic occurs in the WorkflowExecution.MarshalToSizedBuffer function with invalid slice indices.",
+  "category": "bug",
+  "subcategory": "protobuf-marshaling",
+  "apis": [],
+  "components": [
+    "history-service",
+    "protobuf-marshaling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "marshaling",
+    "serialization",
+    "buffer-overflow",
+    "slice-bounds",
+    "panic",
+    "memory-safety"
+  ],
+  "severity": "critical",
+  "userImpact": "Production temporal-history pods crash unexpectedly, causing service disruption and data processing failures.",
+  "rootCause": "Protobuf marshaling code attempts to write to a buffer with invalid slice bounds (-30:), likely caused by incorrect buffer size calculations or data corruption in WorkflowExecution fields.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [
+    4159
+  ],
+  "keyQuote": "panic: runtime error: slice bounds out of range [-30:] in go.temporal.io/api/common/v1.(*WorkflowExecution).MarshalToSizedBuffer",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 6542,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:20.718Z"
+}

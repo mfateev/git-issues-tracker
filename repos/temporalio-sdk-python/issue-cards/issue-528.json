@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to defer workflow completion until after all coroutines have settled in the task, ensuring proper cleanup and finalization of async operations before marking the workflow as complete.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "coroutine-manager",
+    "task-completion"
+  ],
+  "concepts": [
+    "async-cleanup",
+    "coroutine-settlement",
+    "workflow-lifecycle",
+    "graceful-shutdown",
+    "task-finalization"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows may complete prematurely before all internal async operations are properly settled, potentially causing resource cleanup issues or incomplete processing.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation was completed to delay workflow completion until all coroutines have settled",
+  "related": [
+    481
+  ],
+  "keyQuote": "Do not set workflow completion until after all coroutines have settled in the task",
+  "number": 528,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:16.567Z"
+}

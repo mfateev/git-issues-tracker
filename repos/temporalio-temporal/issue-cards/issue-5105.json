@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add support for rolling Elasticsearch indexes in visibility storage, allowing periodic creation of new index names based on configurable patterns (e.g., monthly or yearly). This enables more efficient searches by date range and allows automatic migration of older content to cheaper tiers or archiving.",
+  "category": "feature",
+  "subcategory": "elasticsearch-visibility",
+  "apis": [],
+  "components": [
+    "visibility-storage",
+    "elasticsearch-provider",
+    "indexing"
+  ],
+  "concepts": [
+    "index-rotation",
+    "time-based-partitioning",
+    "index-management",
+    "performance-optimization",
+    "cost-reduction",
+    "search-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently manage large Elasticsearch clusters or cost-effectively archive older data, forcing them to maintain single growing indexes that become increasingly expensive and slow to search.",
+  "rootCause": "Temporal's Elasticsearch visibility provider does not support rolling or time-based index naming patterns, requiring all data to be written to a single index.",
+  "proposedFix": "Implement configurable index name patterns (e.g., {namespace}-{date}) that allow periodic creation of new indexes based on document timestamps, with the ability to search across multiple indexes by date range.",
+  "workaround": "Using Elasticsearch index aliases with wildcard patterns (e.g., my-index-*), though this has limitations as it always queries all matching indexes and prevents moving old indexes to cold nodes.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In order for this feature to be useful and idempotent, the date needs to come from an actual document field, not just now.",
+  "number": 5105,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:40.170Z"
+}

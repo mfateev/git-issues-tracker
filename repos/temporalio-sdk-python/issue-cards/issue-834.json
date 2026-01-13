@@ -1,0 +1,33 @@
+{
+  "summary": "Python 3.13.3 on macOS Intel hangs post-test with workers unable to shutdown properly, resulting in connection refused errors from gRPC retry attempts.",
+  "category": "bug",
+  "subcategory": "test-infrastructure",
+  "apis": [],
+  "components": [
+    "worker",
+    "shutdown",
+    "test-runner",
+    "connection-pool"
+  ],
+  "concepts": [
+    "hang",
+    "worker-shutdown",
+    "connection-refused",
+    "test-cleanup",
+    "threading",
+    "macOS-specific",
+    "Python-version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Tests hang on Python 3.13.3 macOS Intel in CI, blocking test execution and requiring manual intervention.",
+  "rootCause": "Worker unable to shutdown properly in specific Python 3.13.3 macOS Intel situation, causing lingering connections to attempt retries.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Python 3.13.3 on macOS Intel sometimes hangs post pytest run in our CI",
+  "number": 834,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:37.741Z"
+}

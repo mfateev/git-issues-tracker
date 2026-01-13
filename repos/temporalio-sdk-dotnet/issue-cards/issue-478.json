@@ -1,0 +1,33 @@
+{
+  "summary": "Test flake detected in `CanRunWith_CustomSlotSupplier` where an assertion expects 20 but occasionally gets 21. The issue appears related to slot supplier behavior during worker shutdown and is suspected to be caused by a race condition in sdk-core.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker-tuning",
+    "slot-supplier",
+    "activity-worker"
+  ],
+  "concepts": [
+    "test-flake",
+    "race-condition",
+    "slot-management",
+    "worker-shutdown",
+    "concurrency",
+    "timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Intermittent test failures reduce confidence in the test suite and may block CI/CD pipelines.",
+  "rootCause": "Almost certainly related to a race condition in sdk-core (issue temporalio/sdk-core#894) affecting slot supplier behavior during shutdown.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    894
+  ],
+  "keyQuote": "Almost certainly because of https://github.com/temporalio/sdk-core/issues/894",
+  "number": 478,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:28:30.820Z"
+}

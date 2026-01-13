@@ -1,0 +1,31 @@
+{
+  "summary": "HTTP/2 request smuggling vulnerability (CVE-2022-41721) with CVSS 7.5 in golang.org/x/net transitive dependency through temporalite-v0.1.1. The vulnerability was present in the Ruby SDK's test support files but is no longer applicable after SDK rewrite.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "temporalite",
+    "go-server-test-support",
+    "grpc-middleware"
+  ],
+  "concepts": [
+    "security",
+    "http2",
+    "request-smuggling",
+    "vulnerability",
+    "dependency",
+    "transitive"
+  ],
+  "severity": "high",
+  "userImpact": "Exposes the SDK to potential HTTP/2 request smuggling attacks through a vulnerable transitive dependency in test infrastructure.",
+  "rootCause": "MaxBytesHandler in golang.org/x/net v0.0.0-20220708220712-1185a9018129 does not fully consume HTTP request body, allowing attacker-manipulated data to be interpreted as HTTP/2 frames.",
+  "proposedFix": "Upgrade golang.org/x/net to v0.2.0 or later (released 2023-01-13).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend after SDK rewrite/refresh eliminated the vulnerable dependency from the codebase. The dependency is no longer part of the SDK inventory.",
+  "related": [],
+  "keyQuote": "The SDK is undergoing a rewrite/refresh and this issue applied to a previous version and is no longer applicable",
+  "number": 51,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:40:05.999Z"
+}

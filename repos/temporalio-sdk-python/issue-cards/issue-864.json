@@ -1,0 +1,31 @@
+{
+  "summary": "Users need a way to identify specific log records (especially for activity and workflow task failures) in custom log handlers without relying on English message patterns. The request is to research and implement a clear identifier mechanism, potentially via the `extra` field on log records.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "activity-executor",
+    "workflow-task-executor"
+  ],
+  "concepts": [
+    "log-identification",
+    "custom-handlers",
+    "log-filtering",
+    "activity-failures",
+    "workflow-task-failures",
+    "structured-logging"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now programmatically identify and handle specific types of log records without parsing English message patterns, enabling custom log level adjustments and specialized handling.",
+  "rootCause": null,
+  "proposedFix": "Add a clear identifier (potentially via `extra` field) to log records for activity failures and workflow task failures, with documentation showing how to customize log levels based on these identifiers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to provide identifiable markers on log records for activity and workflow task failures",
+  "related": [],
+  "keyQuote": "We need some kind of clear string they can use as a conditional instead of checking English message patterns.",
+  "number": 864,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:06.586Z"
+}

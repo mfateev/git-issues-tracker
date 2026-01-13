@@ -1,0 +1,32 @@
+{
+  "summary": "Signal method overloading is rejected even when @SignalMethod(name=...) assigns different signal names. The validation logic doesn't consider the signal name annotation when checking for duplicate methods, preventing legitimate method overloads.",
+  "category": "bug",
+  "subcategory": "signal-methods",
+  "apis": [
+    "SignalMethod"
+  ],
+  "components": [
+    "signal-validation",
+    "method-dispatcher",
+    "annotation-processor"
+  ],
+  "concepts": [
+    "method-overloading",
+    "signal-routing",
+    "annotation-handling",
+    "duplicate-detection",
+    "method-signatures"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use method overloading with different signal names, forcing them to use different method names or refactor their signal handler interfaces.",
+  "rootCause": "The duplicate method validation logic checks method signatures (name and parameters) but does not account for @SignalMethod(name=...) annotations that map methods to different signal names.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I can give a Signal Method a name via @SignalMethod(name = \"foo\"), but the name is not considered when evaluating if a signal method already exists or not.",
+  "number": 591,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:26:57.182Z"
+}

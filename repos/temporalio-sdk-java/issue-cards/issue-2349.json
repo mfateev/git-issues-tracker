@@ -1,0 +1,32 @@
+{
+  "summary": "Local activity queue stops processing tasks when thread allocation fails due to OutOfMemoryError, causing a silent deadlock in the local activity worker while the rest of the system continues running. The queue callback only catches InterruptedException, allowing the OutOfMemoryError to propagate and terminate the queue processing thread.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [],
+  "components": [
+    "LocalActivitySlotSupplierQueue",
+    "LocalActivityWorker",
+    "PollTaskExecutor",
+    "ThreadPoolExecutor"
+  ],
+  "concepts": [
+    "thread-allocation",
+    "out-of-memory",
+    "deadlock",
+    "exception-handling",
+    "task-queue",
+    "resource-exhaustion"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience silent deadlocks in local activity processing when the JVM runs out of memory for thread stack allocation, with no error messages and no graceful degradation.",
+  "rootCause": "The #processQueue method in LocalActivitySlotSupplierQueue only catches InterruptedException when applying the afterReservedCallback, allowing OutOfMemoryError from ThreadPoolExecutor#execute to propagate uncaught and terminate the queue processing thread, halting all local activity task processing.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The local activity task queue stops processing any tasks that go into it, and the overall local activity worker machinery deadlocks.",
+  "number": 2349,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:08.635Z"
+}

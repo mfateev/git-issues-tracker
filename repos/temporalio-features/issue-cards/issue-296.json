@@ -1,0 +1,41 @@
+{
+  "summary": "Tracking cross-SDK implementation of Workflow Update feature for public preview. This meta-issue tracks the feature across Go, Java, TypeScript, Python, .NET, PHP, and Ruby SDKs, including critical requirements for determinism when replaying updates.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "HandleWorkflowUpdate",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-update-handler",
+    "workflow-replay",
+    "history-replay",
+    "test-framework"
+  ],
+  "concepts": [
+    "workflow-update",
+    "determinism",
+    "replay",
+    "history-matching",
+    "lazy-registration",
+    "nondeterminism-detection"
+  ],
+  "severity": "high",
+  "userImpact": "SDKs must correctly implement workflow update handling to support this new feature across all Temporal SDKs, particularly ensuring deterministic replay behavior.",
+  "rootCause": "SDKs need to ensure workflow function runs at least once during replay before processing updates to allow update handler registration, preventing false nondeterminism errors when replaying with canned histories.",
+  "proposedFix": "SDKs should avoid lazy update handler registration; instead ensure workflow function executes first during replay to register handlers before processing update jobs in activation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature successfully implemented across all tracked SDKs (Go, Java, TypeScript, Python, .NET, PHP, Ruby)",
+  "related": [
+    1160,
+    336,
+    100,
+    323,
+    141
+  ],
+  "keyQuote": "If the SDK supports lazily registering update handlers... the SDK must take care to ensure that the workflow function is run at least once first so that the update handler has a chance to be registered.",
+  "number": 296,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:09.198Z"
+}

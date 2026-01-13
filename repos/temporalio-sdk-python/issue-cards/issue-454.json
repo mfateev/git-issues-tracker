@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to automatically create tracing spans for schedule creation in the Python SDK. When the tracing interceptor is enabled, schedules should create spans and set them on workflow headers when starting workflows, with an opt-out option.",
+  "category": "feature",
+  "subcategory": "tracing-spans",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "schedule-creation",
+    "workflow-header"
+  ],
+  "concepts": [
+    "tracing",
+    "spans",
+    "observability",
+    "parent-child-relationships",
+    "distributed-tracing",
+    "schedule"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly trace scheduled workflows because spans are created server-side (schedules) but client-side (workflows), breaking parent-child relationships across workers.",
+  "rootCause": "Scheduled workflows are created server-side while spans are created client-side, preventing proper span hierarchy when workflows run on different workers.",
+  "proposedFix": "Implement automatic span creation for schedules in the tracing interceptor with opt-out configuration option.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    794,
+    394
+  ],
+  "keyQuote": "scheduled workflows are created server side and spans are created client side. Even if you create your own span when workflow starts client-side, that span will not remain the parent if the workflow runs on another worker.",
+  "number": 454,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:09.757Z"
+}

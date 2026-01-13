@@ -1,0 +1,31 @@
+{
+  "summary": "The current implementation buffers poll results in a queue when polling in a separate thread, which can cause timing issues. Activities may be marked as started before the worker actually processes them, creating race conditions between polling and execution.",
+  "category": "bug",
+  "subcategory": "core-worker-polling",
+  "apis": [],
+  "components": [
+    "core-lang-bridge",
+    "worker",
+    "activity-executor",
+    "polling-thread"
+  ],
+  "concepts": [
+    "buffering",
+    "race-condition",
+    "polling",
+    "thread-synchronization",
+    "activity-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Activities may be incorrectly marked as started before they actually begin execution, causing timing issues and potential worker failures.",
+  "rootCause": "Poll results are buffered in a queue between the polling thread and JS thread, decoupling the actual start of activity execution from when it's reported as started.",
+  "proposedFix": "Replace the buffered queue with either a bounded blocking queue or poll only when JS is ready for the next result.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented on-demand polling mechanism to eliminate buffering of poll results.",
+  "related": [],
+  "keyQuote": "activities are automatically considered started when a poll request returns and if the worker is busy it might not actually start them in time",
+  "number": 33,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:40.003Z"
+}

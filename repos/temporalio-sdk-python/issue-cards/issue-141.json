@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to expose OpenTelemetry temporality configuration from sdk-core to the Python SDK, allowing users to control how metrics are aggregated over time.",
+  "category": "feature",
+  "subcategory": "observability-otel",
+  "apis": [],
+  "components": [
+    "otel-integration",
+    "metrics-configuration"
+  ],
+  "concepts": [
+    "observability",
+    "opentelemetry",
+    "temporality",
+    "metrics",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot configure OpenTelemetry temporality settings, limiting control over how metrics are aggregated in their observability stack.",
+  "rootCause": null,
+  "proposedFix": "Expose temporality configuration from sdk-core pull request #402",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Temporality configuration was exposed in the Python SDK based on sdk-core PR #402",
+  "related": [
+    402
+  ],
+  "keyQuote": "Expose temporality configuration from https://github.com/temporalio/sdk-core/pull/402",
+  "number": 141,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:27.374Z"
+}

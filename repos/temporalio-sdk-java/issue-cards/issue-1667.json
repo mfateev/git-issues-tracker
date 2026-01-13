@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowStub.getExecution() returns null after workflows are started via signalWithStart() in SDK 1.18.1, breaking unit tests that relied on this behavior in previous versions.",
+  "category": "bug",
+  "subcategory": "workflow-stub",
+  "apis": [
+    "WorkflowStub.signalWithStart",
+    "WorkflowStub.getExecution"
+  ],
+  "components": [
+    "workflow-stub",
+    "signal-handling",
+    "test-framework"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "signal-with-start",
+    "null-reference",
+    "regression",
+    "unit-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Unit tests fail unexpectedly after upgrading to 1.18.1 because getExecution() returns null for workflows started via signalWithStart().",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in patch release v1.18.2",
+  "related": [],
+  "keyQuote": "WorkflowStub.getExecution() returns null after the workflow is started via signalWithStart",
+  "number": 1667,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:37.332Z"
+}

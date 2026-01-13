@@ -1,0 +1,32 @@
+{
+  "summary": "XDC (cross-datacenter) replication failing with two errors: ShardId not set on deserialization and connection timeouts to incorrect worker port (7233 instead of 7239). Workflows don't continue after namespace failover between clusters.",
+  "category": "bug",
+  "subcategory": "xdc-replication",
+  "apis": [],
+  "components": [
+    "replicator",
+    "worker",
+    "replication-task-processor",
+    "scanner"
+  ],
+  "concepts": [
+    "xdc-replication",
+    "failover",
+    "namespace",
+    "cluster",
+    "deserialization",
+    "port-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot perform successful cross-datacenter replication and namespace failovers, preventing active-active cluster setups from functioning.",
+  "rootCause": "ShardId not being set during replication task deserialization; worker attempting to connect to wrong port (7233) instead of configured port (7239)",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved (closed status indicates fix was implemented)",
+  "related": [],
+  "keyQuote": "ShardId not set on request + connection error attempting 172.17.0.10:7233 when worker listens on 7239",
+  "number": 379,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:54:00.281Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Refactor NoSQL persistence layer by creating side interfaces similar to the existing SQL plugin architecture. This involves defining standardized interfaces for 22 different persistence concerns including cluster metadata, history activities, workflow execution, and task queue management.",
+  "category": "feature",
+  "subcategory": "persistence-layer",
+  "apis": [],
+  "components": [
+    "persistence",
+    "nosql-plugin",
+    "cluster-metadata",
+    "history-store",
+    "matching-service"
+  ],
+  "concepts": [
+    "interface-standardization",
+    "plugin-architecture",
+    "persistence-abstraction",
+    "refactoring",
+    "data-storage",
+    "task-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables organizations to implement custom NoSQL persistence backends by providing clear interface contracts for all persistence operations.",
+  "rootCause": null,
+  "proposedFix": "Create NoSQL side interface following the SQL plugin pattern with implementations for all 22 persistence concerns (cluster metadata, history activities, history nodes, matching tasks, etc.)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "NoSQL persistence interfaces were implemented following the planned refactoring checklist.",
+  "related": [],
+  "keyQuote": "Come up with NoSQL side interface, similar to the SQL plugin architecture",
+  "number": 1152,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:06:58.503Z"
+}

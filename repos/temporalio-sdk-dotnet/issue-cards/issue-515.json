@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add OpenTelemetry (OTel) support to the .NET SDK, similar to the tracing work implemented in the Java SDK. This would enable distributed tracing and observability for Temporal workflows in .NET applications.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "telemetry",
+    "tracing",
+    "instrumentation"
+  ],
+  "concepts": [
+    "observability",
+    "distributed-tracing",
+    "opentelemetry",
+    "instrumentation",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can better monitor and troubleshoot Temporal workflows in .NET applications with distributed tracing integration.",
+  "rootCause": null,
+  "proposedFix": "Implement OpenTelemetry support following the pattern established in the Java SDK PR #2278.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "OTel support was implemented in the .NET SDK following the Java SDK implementation pattern.",
+  "related": [
+    2278
+  ],
+  "keyQuote": "Like tracing work done at https://github.com/temporalio/sdk-java/pull/2278, but for OTel .NET",
+  "number": 515,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:32:29.515Z"
+}

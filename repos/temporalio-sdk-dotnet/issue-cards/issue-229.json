@@ -1,0 +1,28 @@
+{
+  "summary": "Request to decouple Temporalio.Testing from the main Temporalio NuGet package into a separate package to avoid distributing test code to production environments.",
+  "category": "feature",
+  "subcategory": "package-structure",
+  "apis": [],
+  "components": [
+    "testing-framework",
+    "nuget-packaging"
+  ],
+  "concepts": [
+    "separation-of-concerns",
+    "dependency-management",
+    "production-vs-test",
+    "package-distribution"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently receive test utilities as part of the production package, which could be avoided by separating testing into an optional NuGet package.",
+  "rootCause": null,
+  "proposedFix": "Create a separate Temporalio.Testing NuGet package and remove the reference to Temporalio.Testing from the main Temporalio package.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporalio.Testing is currently a part of the Temporalio package. I think it is better to decouple so we don't distribute test code to production",
+  "number": 229,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:30:47.144Z"
+}

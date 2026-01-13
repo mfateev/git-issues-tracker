@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal workflows with OpenAI agents enforce model names to be strings, preventing the use of custom model objects like LitellmModel that would enable per-agent configuration of API keys and base URLs for multi-tenant scenarios.",
+  "category": "bug",
+  "subcategory": "openai-agents",
+  "apis": [],
+  "components": [
+    "openai-agents",
+    "convert-agent",
+    "model-provider"
+  ],
+  "concepts": [
+    "multi-tenancy",
+    "model-configuration",
+    "api-key-management",
+    "proxy-configuration",
+    "serialization",
+    "agent-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building multi-tenant applications cannot configure different API keys or proxy URLs per agent and must use a global OpenAI client configuration.",
+  "rootCause": "The convert_agent function requires model to be a string because Model objects are not serializable and must be acquired in activities via a ModelProvider on the worker side.",
+  "proposedFix": "Support custom ModelProvider implementations that map model names (potentially including tenant identifiers) to the appropriate model instances with different configurations.",
+  "workaround": "Create a custom ModelProvider that constructs LitellmModel instances with the desired configuration based on tenant identifiers encoded in the model name string.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers clarified that string model names are a hard requirement due to serialization constraints in activity execution, but custom ModelProviders can provide the needed flexibility.",
+  "related": [],
+  "keyQuote": "You can either use an existing ModelProvider if it gives you the semantics you need, or you can always create your own to provide an arbitrary mapping from model name to the model you desire.",
+  "number": 1134,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:36.278Z"
+}

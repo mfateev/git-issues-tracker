@@ -1,0 +1,33 @@
+{
+  "summary": "Improve graceful worker shutdown to wait for all reserved local dispatch slots (from eager activities and eager workflow tasks) to be released before completing shutdown.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "eager-activity-dispatch",
+    "eager-workflow-task-dispatch",
+    "executor"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "resource-cleanup",
+    "task-dispatch",
+    "reservation-management",
+    "worker-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need reliable shutdown of workers that properly releases all reserved task slots to prevent resource leaks.",
+  "rootCause": null,
+  "proposedFix": "Wait for all eager dispatch reservations to be released during graceful worker shutdown.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by #1679",
+  "related": [
+    1679
+  ],
+  "keyQuote": "Graceful Worker shutdown should wait for all such reservations to be released by the holders.",
+  "number": 1680,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:05.818Z"
+}

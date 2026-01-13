@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for gRPC binary metadata headers in the Python SDK by accepting bytes as metadata values and sending them as binary to Tonic for keys ending in '-bin'.",
+  "category": "feature",
+  "subcategory": "gRPC-metadata",
+  "apis": [],
+  "components": [
+    "gRPC",
+    "metadata",
+    "Tonic"
+  ],
+  "concepts": [
+    "binary-metadata",
+    "gRPC-headers",
+    "interoperability",
+    "protocol-compliance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently send binary metadata through gRPC calls, limiting compatibility with gRPC binary metadata standards.",
+  "rootCause": null,
+  "proposedFix": "Accept bytes as metadata values and send as binary to Tonic for '-bin' suffixed keys",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented support for binary metadata headers in gRPC communications",
+  "related": [
+    671
+  ],
+  "keyQuote": "Probably just need to accept `bytes` as metadata value and send as binary to Tonic for `-bin` keys.",
+  "number": 1063,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:26.008Z"
+}

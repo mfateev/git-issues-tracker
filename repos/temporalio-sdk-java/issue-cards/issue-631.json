@@ -1,0 +1,30 @@
+{
+  "summary": "DeterministicRunner logs noisy warnings about unaccessed cancelled scopes and timers, even though this is expected behavior. When a cancellation scope is cancelled, it's normal that promises created within it won't be accessed, so the warning should be suppressed in these cases.",
+  "category": "bug",
+  "subcategory": "deterministic-runner",
+  "apis": [],
+  "components": [
+    "DeterministicRunner",
+    "CancellationScope",
+    "Promise"
+  ],
+  "concepts": [
+    "cancellation",
+    "exception-handling",
+    "determinism",
+    "logging",
+    "promise-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see unnecessary warning logs that obscure actual issues and create noise in production logs.",
+  "rootCause": "DeterministicRunner warns about all unaccessed failed promises without distinguishing between legitimate cancellation scenarios and actual problems that need attention.",
+  "proposedFix": "Suppress or modify the warning when a promise failure is due to cancellation scope cancellation, since not accessing promises in a cancelled scope is expected behavior.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the cancellation scope is canceled, it should be normal and expected to don't access the promises created in this scope and the logic above shouldn't be noisy about it.",
+  "number": 631,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:30:17.174Z"
+}

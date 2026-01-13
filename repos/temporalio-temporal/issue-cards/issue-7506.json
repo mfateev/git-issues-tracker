@@ -1,0 +1,33 @@
+{
+  "summary": "When starting a child workflow with a WorkflowID longer than 255 characters on SQL persistence, the workflow gets stuck instead of failing with a clear error. The issue stems from SQL column size limits and a mismatch between dynamic configuration and actual database constraints.",
+  "category": "bug",
+  "subcategory": "child-workflow-management",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "persistence-layer",
+    "workflow-execution",
+    "child-workflow-manager",
+    "current-executions"
+  ],
+  "concepts": [
+    "workflow-id-validation",
+    "persistence-constraints",
+    "error-handling",
+    "configuration-management",
+    "sql-limits"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience stuck workflows with unclear errors when attempting to start child workflows with IDs exceeding 255 characters on SQL persistence, leading to poor debugging experience.",
+  "rootCause": "The maxIDLength is a dynamic config that doesn't enforce SQL column size limits (255 chars for character varying columns), causing insert failures into current_executions table when IDs exceed the database constraint.",
+  "proposedFix": "Either hardcode maxIDLength based on the persistence implementation used, or enforce a max limit based on the persistence layer to prevent exceeding database constraints.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a workflow try to start a child with workflow ID longer than 255, the workflow would see a child initiated, and then it would stuck.",
+  "number": 7506,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:07.145Z"
+}

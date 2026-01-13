@@ -1,0 +1,30 @@
+{
+  "summary": "Shard info persistence is currently time-based (5 minutes by default), causing significant task reprocessing when the cluster experiences high load due to losing task processing progress. Propose making persistence condition based on the number of tasks completed instead of time to checkpoint more frequently under high load.",
+  "category": "feature",
+  "subcategory": "shard-persistence",
+  "apis": [],
+  "components": [
+    "shard-manager",
+    "history-task-processor",
+    "queue-state"
+  ],
+  "concepts": [
+    "persistence",
+    "checkpointing",
+    "task-deduplication",
+    "load-handling",
+    "progress-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience increased task reprocessing and harder rate limiting when cluster load is high due to stale shard info.",
+  "rootCause": "Time-based shard info persistence does not adapt to varying load levels, causing 5 minutes of progress loss during high load periods.",
+  "proposedFix": "Replace time-based persistence condition with task-count-based condition that checkpoints more frequently when load is high.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If instead of time based, we can make the condition based on # of task processed, we'll be able to check point more often when load is high",
+  "number": 4805,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:42.028Z"
+}

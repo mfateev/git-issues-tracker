@@ -1,0 +1,30 @@
+{
+  "summary": "activity_schedule_to_start_latency metric incorrectly reports activity_type dimension, including unexpected 'none' values when activities fail and are retried. The metric should either consistently report activity_type for all activities or not report it at all.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "retry-handler"
+  ],
+  "concepts": [
+    "metrics-reporting",
+    "activity-scheduling",
+    "latency-tracking",
+    "dimension-tags",
+    "retry-behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive confusing metrics with unexpected 'none' activity_type values and inconsistent metric reporting, making it difficult to monitor activity scheduling latency accurately.",
+  "rootCause": "Activity failures during retry may be generating schedule_to_start_latency metrics without an associated activity_type, resulting in 'none' being used as a default dimension value.",
+  "proposedFix": "Either ensure activity_schedule_to_start_latency always reports activity_type dimension for all activities, or remove activity_type dimension entirely and use task_queue as the lowest granularity.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There's no scenario where an activity schedule to start would not have an associated activity type (from a user perspective, not sure about the internals).",
+  "number": 2733,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:17.203Z"
+}

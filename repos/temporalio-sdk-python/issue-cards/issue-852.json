@@ -1,0 +1,31 @@
+{
+  "summary": "The Python SDK fails to serialize Literal types from the standard typing module because it only checks against typing_extensions.Literal. This causes a \"Unserializable type\" error when using Literal type hints in dataclass activity inputs.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "value_to_type"
+  ],
+  "components": [
+    "converter",
+    "type-validation",
+    "serialization"
+  ],
+  "concepts": [
+    "literal-types",
+    "type-checking",
+    "compatibility",
+    "typing-module"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Python's standard Literal type hints in activity inputs without switching to typing_extensions, creating an undocumented workaround requirement.",
+  "rootCause": "The converter performs referential equality checks against typing_extensions.Literal instead of also checking the stdlib typing.Literal, which are separate objects in Python < 3.10.",
+  "proposedFix": "Check both typing.Literal and typing_extensions.Literal during validation, or use the standard typing module instead of typing_extensions.",
+  "workaround": "Import and use Literal from typing_extensions instead of typing.",
+  "resolution": "fixed",
+  "resolutionDetails": "The maintainer acknowledged the bug and committed to fixing it by also checking the stdlib Literal instead of just typing_extensions.",
+  "related": [],
+  "keyQuote": "we need to also check the stdlib `Literal` instead of just `typing_extensions`",
+  "number": 852,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:45.687Z"
+}

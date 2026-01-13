@@ -1,0 +1,31 @@
+{
+  "summary": "Review and optimize workflow activation logic in the TypeScript SDK, including handling of signals execution order, activation errors, and microtask synchronization requirements.",
+  "category": "feature",
+  "subcategory": "workflow-activation",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "signal-handler",
+    "activation-logic"
+  ],
+  "concepts": [
+    "signal-delivery",
+    "sequential-execution",
+    "workflow-activation",
+    "concurrency",
+    "microtasks",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need clarity on how signals are processed in workflows and whether sequential delivery should be supported as an option.",
+  "rootCause": null,
+  "proposedFix": "Maintain concurrent signal delivery (current behavior) and provide channel-based syntactic sugar for users who need sequential signal processing, rather than implementing framework-level sequential delivery options.",
+  "workaround": "Users can implement sequential signal processing using UnboundedChannel to buffer signals from signal handlers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Decision made to keep concurrent signal delivery model and document channel-based alternatives for sequential processing rather than add API complexity.",
+  "related": [],
+  "keyQuote": "As a Node dev, I'm used to the thought that my current function is going to be called non-sequentially, and program accordingly.",
+  "number": 202,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:09.562Z"
+}

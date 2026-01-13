@@ -1,0 +1,30 @@
+{
+  "summary": "User asks how to inspect BLOB field details in MySQL database used by Temporal Server. The issue was answered with information about proto encoding and the tctl admin shard command.",
+  "category": "question",
+  "subcategory": "database-inspection",
+  "apis": [],
+  "components": [
+    "persistence",
+    "database",
+    "mysql"
+  ],
+  "concepts": [
+    "blob-inspection",
+    "proto-encoding",
+    "data-visibility",
+    "database-debugging",
+    "admin-tools"
+  ],
+  "severity": "low",
+  "userImpact": "Users need guidance on inspecting binary data stored in MySQL BLOB fields for debugging and administrative purposes.",
+  "rootCause": null,
+  "proposedFix": "Use tctl admin shard command to display shard info data which contains the proto-encoded blob content.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was a support question redirected to community forum and Slack; marked for closure as it's not a bug or feature request.",
+  "related": [],
+  "keyQuote": "The blob data is proto encoded. You can use tctl admin shard command to show shard info data.",
+  "number": 2157,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:32.398Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Standardize contextual logging across all Temporal SDKs to ensure identical fields are logged for workflows and activities, with consistent naming conventions and complete propagation to console output by default.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "workflow-context",
+    "activity-context"
+  ],
+  "concepts": [
+    "contextual-logging",
+    "logging-standardization",
+    "debugging",
+    "observability",
+    "context-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need consistent logging context across different SDKs for better debugging and observability of workflows and activities.",
+  "rootCause": null,
+  "proposedFix": "Ensure all SDKs log the specified contextual fields (with language-appropriate naming conventions) for workflows and activities, and propagate them to console output by default regardless of debug mode.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This is already the behavior in all of our SDKs (except for Core), need to make sure the contextual information is identical.",
+  "number": 138,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:34.148Z"
+}

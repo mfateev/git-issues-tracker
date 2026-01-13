@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add GetSignalInfo API that provides metadata about received signals (timestamp, event ID) from within signal handlers. Currently, this information is not accessible to workflows, limiting signal handling capabilities.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "GetSignalInfo",
+    "GetSignalWithInfoChannel"
+  ],
+  "components": [
+    "signal-handler",
+    "workflow-execution",
+    "event-metadata"
+  ],
+  "concepts": [
+    "signal-info",
+    "event-id",
+    "event-timestamp",
+    "signal-metadata",
+    "in-order-processing",
+    "event-information"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot access signal timing and event metadata within signal handlers, limiting their ability to implement sophisticated signal processing logic.",
+  "rootCause": null,
+  "proposedFix": "Add GetSignalInfo API for retrieving signal metadata. For Go, propose GetSignalWithInfoChannel returning Channel with Signal structures including info and value.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some information about signals is not available within a signal handler. Example of this information is a time the signal was received by a workflow and signal eventId.",
+  "number": 178,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:14.748Z"
+}

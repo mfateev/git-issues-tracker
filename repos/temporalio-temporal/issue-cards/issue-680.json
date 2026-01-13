@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow code currently cannot wait for the completion of external workflows (workflows not started as child workflows). This feature would enable deciders to await completion of any workflow by ID, similar to how child workflows can be monitored.",
+  "category": "feature",
+  "subcategory": "workflow-coordination",
+  "apis": [
+    "StartWorkflow",
+    "ExecuteChildWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "decision-handler",
+    "event-system"
+  ],
+  "concepts": [
+    "external-workflow",
+    "workflow-completion",
+    "workflow-parenting",
+    "state-coordination",
+    "async-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot elegantly coordinate with independently-started workflows from within a parent workflow, forcing workarounds like polling activities or using Nexus handlers.",
+  "rootCause": "The Temporal workflow engine lacks native support for waiting on external workflow completion within workflow code; currently only child workflows (parent-started) and external client polling are supported.",
+  "proposedFix": "Add WaitForExternalWorkflowCompletion decision, corresponding ExternalWorkflowCompleted/Failed/Cancelled/Terminated/TimedOut events, and WaitForExternalWorkflowCompletionFailed event.",
+  "workaround": "Use an 'infinite activity' that executes the client-side workflow.execute() with USE_EXISTING conflict policy and heartbeats to track progress, or use Nexus WorkflowRunOperation for looser coupling.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    656
+  ],
+  "keyQuote": "Ability waiting for the completion of any workflow from a decider code is missing.",
+  "number": 680,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:23:54.233Z"
+}

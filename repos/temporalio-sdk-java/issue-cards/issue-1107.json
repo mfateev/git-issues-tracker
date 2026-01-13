@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow metadata resolution incorrectly registers overridden methods from parent interfaces as duplicate queries/methods, causing IllegalArgumentException when using interface inheritance with @QueryMethod or @WorkflowMethod overrides.",
+  "category": "bug",
+  "subcategory": "workflow-metadata-resolution",
+  "apis": [
+    "WorkflowInterface",
+    "WorkflowMethod",
+    "QueryMethod"
+  ],
+  "components": [
+    "POJOWorkflowInterfaceMetadata",
+    "metadata-resolution",
+    "interface-processing"
+  ],
+  "concepts": [
+    "interface-inheritance",
+    "method-overriding",
+    "duplicate-detection",
+    "reflection",
+    "annotation-processing",
+    "generic-types"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot define workflow interfaces that extend parent interfaces with overridden query or workflow methods, forcing developers to flatten their interface hierarchies.",
+  "rootCause": "POJOWorkflowInterfaceMetadata.getWorkflowInterfaceMethods() does not properly handle method resolution in inheritance hierarchies, treating overridden methods as duplicates instead of recognizing them as the same method signature.",
+  "proposedFix": "Modify getWorkflowInterfaceMethods to use proper method resolution that accounts for inheritance, potentially using Method.equals() or signature-based deduplication that considers both declaring class and signature.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Duplicated name of QUERY: \"getResults\" declared at...should be fine when using interface inheritance with @QueryMethod override",
+  "number": 1107,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:06:22.828Z"
+}

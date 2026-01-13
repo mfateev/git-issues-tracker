@@ -1,0 +1,28 @@
+{
+  "summary": "User reported that `invoke_model_activity` was missing from the latest SDK release, causing OpenAI examples to fail. The issue was resolved when the user discovered they were using an outdated SDK version in their devcontainer.",
+  "category": "bug",
+  "subcategory": "release-packaging",
+  "apis": [],
+  "components": [
+    "release",
+    "packaging",
+    "openai-examples"
+  ],
+  "concepts": [
+    "version-mismatch",
+    "release-management",
+    "sample-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users with outdated SDK versions in their environment could not run the OpenAI example code.",
+  "rootCause": "User was running an outdated SDK version (1.14.0) in their devcontainer instead of the latest release (1.14.1).",
+  "proposedFix": null,
+  "workaround": "Update to the latest SDK version (1.14.1 or later).",
+  "resolution": "invalid",
+  "resolutionDetails": "The feature was already available in the latest release. The user was using an outdated version in their development container.",
+  "related": [],
+  "keyQuote": "I just tested the sample against sdk version `1.14.1` which is the latest, and it ran without issues.",
+  "number": 979,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:00.561Z"
+}

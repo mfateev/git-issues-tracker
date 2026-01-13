@@ -1,0 +1,35 @@
+{
+  "summary": "Test server with child workflow and signal is timing out when attempting unlock-with-sleep. When a parent workflow starts a child workflow and both wait on signals, time-skipping test failures occur during unlock operations.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "start_child_workflow",
+    "wait_condition",
+    "signal"
+  ],
+  "components": [
+    "test-server",
+    "time-skipping",
+    "child-workflows"
+  ],
+  "concepts": [
+    "timeout",
+    "time-skipping",
+    "signal-handling",
+    "child-workflows",
+    "workflow-activation",
+    "test-environment"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test workflows with child workflows and signals using the test server's time-skipping feature, causing test failures in development.",
+  "rootCause": "Time-skipping unlock operations appear to cause timeouts when parent and child workflows both have pending timers and signal handlers, likely related to activation/completion sequencing in the test server.",
+  "proposedFix": null,
+  "workaround": "Tests pass if child workflow is not started (as noted in the code comment).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "test passes if child workflow is not started.",
+  "number": 1618,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:20.908Z"
+}

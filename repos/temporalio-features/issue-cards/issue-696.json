@@ -1,0 +1,42 @@
+{
+  "summary": "Implement a worker heartbeating mechanism that allows users to query worker information from the server, enabling better worker debugging and visibility into runtime status across namespaces and clients.",
+  "category": "feature",
+  "subcategory": "worker-heartbeating",
+  "apis": [],
+  "components": [
+    "worker",
+    "nexus-integration",
+    "server-communication",
+    "heartbeat-system"
+  ],
+  "concepts": [
+    "worker-discovery",
+    "debugging",
+    "heartbeat",
+    "monitoring",
+    "runtime-status",
+    "namespace-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to query and monitor active workers on the server, improving visibility and debugging capabilities for distributed Temporal systems.",
+  "rootCause": null,
+  "proposedFix": "Build a new background nexus worker that sends runtime, namespace, and client level heartbeats to the server.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2094,
+    2716,
+    953,
+    1038,
+    1810,
+    1196,
+    551,
+    354,
+    868
+  ],
+  "keyQuote": "This will allow users to query the list of workers that server is aware of, to help with worker debugging, as well as seeing some basic info regarding each worker.",
+  "number": 696,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:32.756Z"
+}

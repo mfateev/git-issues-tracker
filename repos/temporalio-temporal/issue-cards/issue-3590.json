@@ -1,0 +1,31 @@
+{
+  "summary": "The GRPC_SSL_CIPHER_SUITES environment variable is not being respected by the Temporal server. When set, the server should use only the specified ciphers, but instead it continues to use default ciphers including weak and vulnerable ones.",
+  "category": "bug",
+  "subcategory": "grpc-tls-configuration",
+  "apis": [],
+  "components": [
+    "grpc-server",
+    "tls-configuration",
+    "cipher-suite-handling"
+  ],
+  "concepts": [
+    "ssl-tls",
+    "cipher-suite",
+    "security",
+    "environment-variable",
+    "configuration",
+    "cryptography"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot restrict the server to use only secure cipher suites, leaving their deployments vulnerable to weak cipher attacks.",
+  "rootCause": "The GRPC_SSL_CIPHER_SUITES environment variable is not being parsed or applied to the gRPC server's TLS configuration.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When `GRPC_SSL_CIPHER_SUITES` environment variable is set, those are the only ciphers the server will use. The default ciphers are still used",
+  "number": 3590,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:14.687Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Child workflow search attributes fail to decrypt in SDK 1.18.0 when using a custom payload codec, causing InvalidArgument errors. This is a regression from 1.17.0 where the same code worked correctly.",
+  "category": "bug",
+  "subcategory": "child-workflow",
+  "apis": [
+    "execute_child_workflow"
+  ],
+  "components": [
+    "child-workflow",
+    "payload-codec",
+    "search-attributes",
+    "converter"
+  ],
+  "concepts": [
+    "encryption",
+    "decryption",
+    "search-attributes",
+    "payload-codec",
+    "child-workflow",
+    "regression"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot launch child workflows with search attributes when using custom payload codecs in SDK 1.18.0, breaking encryption-based workflows.",
+  "rootCause": "Search attributes in child workflow commands are not being decrypted by the payload codec in version 1.18.0, likely due to changes in how search attributes are handled in the child workflow execution path.",
+  "proposedFix": null,
+  "workaround": "Downgrade to SDK 1.17.0 or wait for 1.18.1 release.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed and released as 1.18.1 patch version. User confirmed the fix resolves the issue.",
+  "related": [],
+  "keyQuote": "invalid SearchAttributes on StartChildWorkflowCommand: invalid value for search attribute show_name of type Keyword: value from <metadata:{key:\"encoding\"  value:\"binary/encrypted\"}",
+  "number": 1129,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:19.846Z"
+}

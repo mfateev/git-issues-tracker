@@ -1,0 +1,33 @@
+{
+  "summary": "User requested a way to await multiple signals in a workflow, similar to JVM SDK's Workflow.await(). Their current workaround using a polling loop with sleep is causing OutOfMemory issues due to unbounded loop caching.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "workflow.sleep",
+    "workflow.condition"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-handler",
+    "memory-management"
+  ],
+  "concepts": [
+    "signal-coordination",
+    "await-pattern",
+    "workflow-condition",
+    "memory-optimization",
+    "polling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently wait for multiple signals in workflows, forcing them to use problematic polling loops that cause memory issues in production.",
+  "rootCause": "TypeScript SDK lacked a direct equivalent to JVM's Workflow.await for coordinating multiple signals, leading users to implement inefficient polling patterns.",
+  "proposedFix": "Implement a workflow.condition or workflow.await method that allows waiting for multiple signals without memory overhead.",
+  "workaround": "Use a while loop polling with workflow.sleep, though this causes OutOfMemory issues on workers due to loop iteration caching.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue author discovered workflow.condition already exists for this exact purpose, providing the needed functionality.",
+  "related": [],
+  "keyQuote": "turns out there is `workflow.condition` for this exact purpose already!",
+  "number": 1397,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:02.116Z"
+}

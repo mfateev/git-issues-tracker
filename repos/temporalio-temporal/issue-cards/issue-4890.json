@@ -1,0 +1,30 @@
+{
+  "summary": "User requests support for specifying multiple Elasticsearch hosts in the configuration to connect to a multi-node cluster without a load balancer. The elastic client library already supports multiple URLs, but the configuration format needs to be updated.",
+  "category": "feature",
+  "subcategory": "elasticsearch-client",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "configuration",
+    "cluster-connectivity"
+  ],
+  "concepts": [
+    "multi-node",
+    "load-balancing",
+    "cluster",
+    "connection",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with multi-node Elasticsearch clusters without load balancers cannot properly configure the Temporal server connection.",
+  "rootCause": null,
+  "proposedFix": "Modify the configuration format to accept multiple hosts/URLs in the Elasticsearch config, leveraging the existing elastic.SetURL(url string...) capability.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I have an Elasticsearch cluster with no load balancer, so I must specify more than one host when creating a client.",
+  "number": 4890,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:10.388Z"
+}

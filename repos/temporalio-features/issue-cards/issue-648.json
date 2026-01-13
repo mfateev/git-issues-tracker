@@ -1,0 +1,34 @@
+{
+  "summary": "Create comprehensive test suite for worker shutdown functionality across all SDK languages to validate that activities properly handle graceful shutdown with varied responses (accept cancel, complete successfully, fail, or ignore cancel with hard timeout).",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "shutdown-handler",
+    "cancellation-mechanism"
+  ],
+  "concepts": [
+    "worker-shutdown",
+    "graceful-termination",
+    "activity-cancellation",
+    "timeout",
+    "error-handling",
+    "testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need reliable tests to verify their SDKs properly handle worker shutdown scenarios with correct activity behavior.",
+  "rootCause": null,
+  "proposedFix": "Write tests for each SDK language following the specification in features/activity/shutdown/README.md with activities demonstrating varied shutdown responses.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were implemented across SDK languages following the worker shutdown feature specification.",
+  "related": [
+    261
+  ],
+  "keyQuote": "The activities should varyingly accept the cancel, complete successfully, complete with failure, and ignore the cancel. The one which ignores the cancel should eventually encounter a hard timeout.",
+  "number": 648,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:17:53.171Z"
+}

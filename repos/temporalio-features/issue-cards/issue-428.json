@@ -1,0 +1,35 @@
+{
+  "summary": "Add a GetStatus() method to workflow update handles that allows users to check the current status of an update and optionally wait for it to reach a specific stage, with WorkflowUpdateInfo returning the stage and result if available.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "PollWorkflowExecutionUpdate",
+    "GetStatus",
+    "GetResult",
+    "WorkflowUpdateInfo"
+  ],
+  "components": [
+    "update-handle",
+    "workflow-execution",
+    "status-polling"
+  ],
+  "concepts": [
+    "status-tracking",
+    "async-waiting",
+    "stage-progression",
+    "long-polling",
+    "non-blocking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to query the status of workflow updates and optionally block until they reach a desired stage, improving the developer experience for update handling.",
+  "rootCause": null,
+  "proposedFix": "Implement GetStatus(waitForStage? = dontWait) -> WorkflowUpdateInfo on the update handle that loops on long-poll timeout, with GetResult as a thin wrapper waiting for COMPLETED stage.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "GetStatus(waitForStage? = dontWait) -> WorkflowUpdateInfo call on the update handle...waits until that stage is reached (looping if needed)",
+  "number": 428,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:32.247Z"
+}

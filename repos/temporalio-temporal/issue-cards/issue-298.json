@@ -1,0 +1,31 @@
+{
+  "summary": "Request to support running Temporal as an embedded library with only a database dependency, similar to NATS's in-process server model, to enable small-scale on-premises deployments without requiring a separate server process.",
+  "category": "feature",
+  "subcategory": "server-embedding",
+  "apis": [],
+  "components": [
+    "server",
+    "database-backend",
+    "connection-management"
+  ],
+  "concepts": [
+    "embedded-deployment",
+    "in-process-server",
+    "library-mode",
+    "on-premises",
+    "single-dependency",
+    "client-connection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running small-scale on-premises deployments could run Temporal as an embedded library without needing a separate server process.",
+  "rootCause": null,
+  "proposedFix": "Implement an embedded server API similar to NATS that allows creating an in-process connection to the server without using loopback network calls, with database as the only external dependency.",
+  "workaround": "SQL (MySQL/PostgreSQL/SQLite) can be used as both default and visibility store, though network-based connections are still required. Example embedded configuration exists at https://github.com/abtinf/temporal-a-day/blob/main/001-all-in-one-hello/main.go",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For small scale on prem deployments having ability to run Temporal as a library which has only DB as a dependency would be really great.",
+  "number": 298,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:26:52.723Z"
+}

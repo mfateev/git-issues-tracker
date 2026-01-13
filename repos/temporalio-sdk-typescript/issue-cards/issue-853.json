@@ -1,0 +1,30 @@
+{
+  "summary": "Stress tests failed to complete in CI with unclear cause. Investigation was blocked by infrastructure limitations but resolved after migrating to GitHub-hosted runners.",
+  "category": "bug",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "ci",
+    "test-runner",
+    "worker"
+  ],
+  "concepts": [
+    "stress-testing",
+    "ci-reliability",
+    "flaky-tests",
+    "infrastructure",
+    "test-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Unreliable CI stress tests prevent validation of SDK stability and reliability.",
+  "rootCause": "Infrastructure limitations in the CI runner environment causing test timeouts or incomplete execution.",
+  "proposedFix": "Migrate to GitHub-hosted runners with better resource availability and stability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by migrating to GitHub-hosted runners which provide more reliable infrastructure.",
+  "related": [],
+  "keyQuote": "Closing this as it should not happen anymore now that we have GH hosted runner.",
+  "number": 853,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:20:25.645Z"
+}

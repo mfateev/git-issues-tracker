@@ -1,0 +1,33 @@
+{
+  "summary": "User attempted to use `Workflow::getVersion()` for workflow versioning but encountered a determinism error. The root cause was that `getVersion()` returns a promise and requires `yield` to properly resolve.",
+  "category": "question",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "Workflow::getVersion",
+    "Workflow::sideEffect"
+  ],
+  "components": [
+    "workflow-engine",
+    "versioning-system",
+    "promise-handling"
+  ],
+  "concepts": [
+    "determinism",
+    "versioning",
+    "promises",
+    "side-effects",
+    "workflow-continuation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to use workflow versioning functionality may encounter determinism errors if they don't properly yield the `getVersion()` call.",
+  "rootCause": "Workflow::getVersion() returns a promise that must be yielded, but the user was assigning the result directly without yielding.",
+  "proposedFix": "Use `yield` with `Workflow::getVersion()`: `$version = yield Workflow::getVersion('test', -1, 1);`",
+  "workaround": "Properly yield the `getVersion()` call to ensure the promise resolves before using the version value.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as a user error rather than a bug. The solution is documented through comments explaining proper usage with yield.",
+  "related": [],
+  "keyQuote": "Workflow::getVersion() returns a promise. You should use `yield` with it.",
+  "number": 613,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:17.573Z"
+}

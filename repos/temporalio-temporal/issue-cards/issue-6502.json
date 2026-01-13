@@ -1,0 +1,32 @@
+{
+  "summary": "The PollActivityTaskQueueResponse API endpoint is not populating the RetryPolicy field as defined in the Protobuf specification, causing the retry policy to be null when polling activity tasks from a task queue.",
+  "category": "bug",
+  "subcategory": "activity-polling",
+  "apis": [
+    "PollActivityTaskQueueResponse"
+  ],
+  "components": [
+    "matching-engine",
+    "activity-task-queue",
+    "api-response"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-scheduling",
+    "task-polling",
+    "protobuf-api-compliance",
+    "field-population"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access retry policy information for activities when polling task queues, breaking workflows that depend on this data.",
+  "rootCause": "The createPollActivityTaskQueueResponse function in matching_engine.go does not populate the RetryPolicy field when constructing the response object.",
+  "proposedFix": "Populate the RetryPolicy field in the PollActivityTaskQueueResponse object during creation in the matching engine.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed and included in version 1.28 release.",
+  "related": [],
+  "keyQuote": "Matching's createPollActivityTaskQueueResponse does not populate the RetryPolicy field when making a PollActivityTaskQueueResponse object",
+  "number": 6502,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:46.387Z"
+}

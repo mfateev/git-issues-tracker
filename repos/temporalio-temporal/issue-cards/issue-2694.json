@@ -1,0 +1,32 @@
+{
+  "summary": "Race condition when signaling current workflow during continue-as-new: signal caller gets stale run ID from DB, then sees the old workflow as completed while the actual current workflow has moved to a new run ID.",
+  "category": "bug",
+  "subcategory": "workflow-signaling",
+  "apis": [],
+  "components": [
+    "history-engine",
+    "workflow-execution",
+    "signal-processing",
+    "mutable-state"
+  ],
+  "concepts": [
+    "race-condition",
+    "continue-as-new",
+    "signal-delivery",
+    "run-id",
+    "workflow-lock",
+    "eventual-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Signals intended for the current workflow may fail to deliver if the workflow performs a continue-as-new operation between the signal request lookup and delivery.",
+  "rootCause": "Signal caller retrieves current run ID from DB, then acquires workflow lock using that run ID. If continue-as-new occurs between these steps, the caller sees the old run as completed and returns error without retrying with the new run ID.",
+  "proposedFix": "Swap the if-block logic to check if workflow is continued-as-new and run ID is empty, returning Unavailable error to trigger retry rather than immediately returning WorkflowCompleted error.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by query logic in history engine that gets current run ID from DB, locks execution, checks if workflow is running, and if not, queries current ID again to ensure it hasn't changed before returning error.",
+  "related": [],
+  "keyQuote": "If it's not running, the logic will query current runID again and make sure the current runID doesn't change before returning.",
+  "number": 2694,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:31.554Z"
+}

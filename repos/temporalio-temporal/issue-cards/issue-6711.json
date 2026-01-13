@@ -1,0 +1,32 @@
+{
+  "summary": "Add metrics to measure how often queries are sent to closed workflows and the delay between workflow closure and query execution. This visibility would help determine whether sticky queries should be sent to closed workflows.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "metrics",
+    "workflow-cache"
+  ],
+  "concepts": [
+    "metrics",
+    "closed-workflow",
+    "query-delay",
+    "cache-eviction",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack visibility into query patterns for closed workflows, making it difficult to optimize query routing and cache policies.",
+  "rootCause": null,
+  "proposedFix": "Implement metrics to track query frequency to closed workflows and measure time delays between workflow closure and query execution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via pull request #7226",
+  "related": [
+    7226
+  ],
+  "keyQuote": "The longer the delay of the query after wf closed the higher chance the cache would be evicted on SDK side.",
+  "number": 6711,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:00.095Z"
+}

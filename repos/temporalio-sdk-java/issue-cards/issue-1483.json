@@ -1,0 +1,31 @@
+{
+  "summary": "Transitive dependency protobuf-java-3.19.2 contains three high-severity vulnerabilities (CVE-2022-3510, CVE-2022-3509, CVE-2022-3171) with CVSS scores of 7.5, affecting denial of service resilience through parsing issues.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "build-system",
+    "dependency-management",
+    "protobuf-serialization"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-upgrade",
+    "transitive-dependency",
+    "protobuf",
+    "cvss-scoring"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the SDK are exposed to denial of service attacks through specially crafted protobuf messages that trigger extended garbage collection pauses.",
+  "rootCause": "Protobuf-java versions prior to 3.21.7, 3.20.3, 3.19.6, and 3.16.3 have parsing vulnerabilities that convert messages back-and-forth between mutable and immutable forms, causing long GC pauses.",
+  "proposedFix": "Upgrade com.google.protobuf:protobuf-java to version 3.21.7, 3.20.3, 3.19.6, or 3.16.3 depending on the SDK's target version line.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory, indicating resolution through dependency upgrade or exclusion.",
+  "related": [],
+  "keyQuote": "A parsing issue similar to CVE-2022-3171, but with Message-Type Extensions in protobuf-java core and lite versions prior to 3.21.7, 3.20.3, 3.19.6 and 3.16.3 can lead to a denial of service attack.",
+  "number": 1483,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:36:53.677Z"
+}

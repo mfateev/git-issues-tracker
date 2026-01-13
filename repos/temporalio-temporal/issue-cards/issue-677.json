@@ -1,0 +1,32 @@
+{
+  "summary": "History events are currently loaded by batch count, but when users write large payloads a single batch can be oversized. This causes unnecessary events to be loaded and discarded when the actual page size limit is reached. The feature request is to support loading events based on size in bytes rather than batch count.",
+  "category": "feature",
+  "subcategory": "history-pagination",
+  "apis": [],
+  "components": [
+    "history-store",
+    "event-pagination",
+    "database-query"
+  ],
+  "concepts": [
+    "batch-loading",
+    "pagination",
+    "payload-size",
+    "memory-efficiency",
+    "database-performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with large event payloads experience inefficient history loading and unnecessary memory consumption due to oversized batch reads.",
+  "rootCause": "History store pagination uses batch count rather than cumulative byte size, causing misalignment between requested page size and actual data loaded.",
+  "proposedFix": "Implement size-based history event loading that respects byte limits instead of batch count limits, with optional throttling based on payload sizes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    675
+  ],
+  "keyQuote": "We may end of loading unnecessary events which we have to throw away when returning the events back to client based on the page size set by the caller.",
+  "number": 677,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:23:14.708Z"
+}

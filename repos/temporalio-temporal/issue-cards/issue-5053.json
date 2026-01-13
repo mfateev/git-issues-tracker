@@ -1,0 +1,30 @@
+{
+  "summary": "User unable to sign up for community.temporal.io account, receiving conflicting error messages about email registration status across multiple email addresses and login methods.",
+  "category": "bug",
+  "subcategory": "authentication",
+  "apis": [],
+  "components": [
+    "community-portal",
+    "authentication",
+    "email-verification"
+  ],
+  "concepts": [
+    "account-signup",
+    "email-registration",
+    "password-recovery",
+    "user-authentication",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are blocked from creating accounts on the community forum due to authentication and email verification issues.",
+  "rootCause": "Email registration system has conflicting logic between signup and password recovery flows, incorrectly reporting emails as both already registered and non-existent.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved and confirmed fixed by maintainer.",
+  "related": [],
+  "keyQuote": "Gives me an error saying the `Something went wrong, perhaps this email is already registered, try the forgot password link` but I try the forgot password link it says email does not exist.",
+  "number": 5053,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:14.004Z"
+}

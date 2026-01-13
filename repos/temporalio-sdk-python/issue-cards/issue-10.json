@@ -1,0 +1,31 @@
+{
+  "summary": "Investigate support for more generic manylinux tags to build Python wheels compatible with a wider range of Linux distributions and glibc versions. Currently using manylinux_2_31 which limits compatibility.",
+  "category": "feature",
+  "subcategory": "build-distribution",
+  "apis": [],
+  "components": [
+    "wheel-builder",
+    "packaging",
+    "linux-build"
+  ],
+  "concepts": [
+    "linux-compatibility",
+    "manylinux",
+    "glibc-versions",
+    "distribution-support",
+    "cross-platform-build",
+    "wheel-naming"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on Linux systems with older glibc versions cannot use the published wheels and must build from source.",
+  "rootCause": null,
+  "proposedFix": "Use manylinux container builds targeting older manylinux standards (e.g., manylinux2010 or manylinux2014) instead of manylinux_2_31.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Investigation completed and manylinux support was implemented to increase wheel compatibility across Linux distributions.",
+  "related": [],
+  "keyQuote": "We can use manylinux container to get Linux builds that work with a wider range of linuxes (e.g. `manylinux2010` or `manylinux2014`).",
+  "number": 10,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:45:31.793Z"
+}

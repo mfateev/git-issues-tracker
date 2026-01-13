@@ -1,0 +1,29 @@
+{
+  "summary": "Users encounter 'RESOURCE_EXHAUSTED: Persistence Max QPS Reached for List Operations' errors with the default frontend.visibilityListMaxQPS setting. The current default was calibrated for internal Uber use but is too restrictive for the open source version.",
+  "category": "bug",
+  "subcategory": "frontend-qps-limits",
+  "apis": [],
+  "components": [
+    "frontend",
+    "persistence",
+    "visibility-service"
+  ],
+  "concepts": [
+    "qps-limiting",
+    "resource-exhaustion",
+    "list-operations",
+    "configuration-defaults"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience resource exhaustion errors when querying workflow lists, limiting the usability of the Temporal UI.",
+  "rootCause": "The default frontend.visibilityListMaxQPS limit was designed for Uber's internal use patterns and is too low for typical open source deployments.",
+  "proposedFix": "Increase the default value for frontend.visibilityListMaxQPS to accommodate open source use cases.",
+  "workaround": "Users can manually adjust the frontend.visibilityListMaxQPS configuration setting.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue marked as no longer relevant by maintainer, suggesting it may have been addressed through configuration changes or default adjustments.",
+  "related": [],
+  "keyQuote": "A lot of users are running into 8 RESOURCE_EXHAUSTED: Persistence Max QPS Reached for List Operations.",
+  "number": 322,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:50:07.757Z"
+}

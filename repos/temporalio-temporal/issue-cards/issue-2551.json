@@ -1,0 +1,29 @@
+{
+  "summary": "Cassandra schema migration fails due to a trailing comma in the CREATE TYPE statement for serialized_event_batch, which violates CQL syntax. This prevents proper schema bootstrap, particularly affecting Azure CosmosDB Cassandra API.",
+  "category": "bug",
+  "subcategory": "schema-migration",
+  "apis": [],
+  "components": [
+    "schema-manager",
+    "cassandra-schema",
+    "migration-executor"
+  ],
+  "concepts": [
+    "schema-bootstrap",
+    "syntax-error",
+    "database-compatibility",
+    "cql"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot bootstrap Cassandra schema during initial setup, blocking deployment and cluster initialization.",
+  "rootCause": "Trailing comma in CREATE TYPE serialized_event_batch field list violates CQL syntax specification.",
+  "proposedFix": "Remove the trailing comma from the serialized_event_batch CREATE TYPE statement in the v1.0 schema migration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The trailing comma was removed from the schema definition to comply with CQL syntax standards.",
+  "related": [],
+  "keyQuote": "CREATE TYPE serialized_event_batch (encoding_type text,version int,data blob,); has one comma at the end while the syntax should be without trailing comma",
+  "number": 2551,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:58.197Z"
+}

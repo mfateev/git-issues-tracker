@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow visibility queries on large MySQL databases are extremely slow, taking 20-30 seconds to retrieve workflow lists from a namespace with 10 million visibility records. The query planner chooses the PRIMARY index resulting in a near table scan instead of using more efficient indexes.",
+  "category": "bug",
+  "subcategory": "visibility-query-performance",
+  "apis": [],
+  "components": [
+    "visibility-database",
+    "mysql-store",
+    "workflow-list-query"
+  ],
+  "concepts": [
+    "query-optimization",
+    "index-selection",
+    "database-performance",
+    "pagination",
+    "large-dataset"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience severe performance degradation (20-30 seconds) when viewing workflow lists in namespaces with large visibility databases, making the UI unusable at scale.",
+  "rootCause": "MySQL query planner selects the PRIMARY index (involving 7.7M row scan with 3.55% filter rate) instead of more selective indexes like by_status_by_close_time, causing excessive disk I/O and sorting overhead.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently it takes around 20 to 30 seconds to view the list of workflows in a namespace that has nearly 10 million records in the visibility database.",
+  "number": 1106,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:01:52.989Z"
+}

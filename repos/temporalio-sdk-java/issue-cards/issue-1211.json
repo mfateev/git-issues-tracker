@@ -1,0 +1,31 @@
+{
+  "summary": "MDC (Mapped Diagnostic Context) logging properties set before a promise handler are not propagating into the logs within the handler, affecting context-aware logging in workflows.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "promise-handler",
+    "mdc-context",
+    "logging"
+  ],
+  "concepts": [
+    "mdc",
+    "context-propagation",
+    "logging",
+    "promise",
+    "handler",
+    "diagnostic-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot track correlated log entries through promise handlers, making debugging and monitoring of workflow execution more difficult.",
+  "rootCause": "MDC context is not being properly propagated into the scope of promise handlers during execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The MDC markers placed before a promise handler do not appear in the log within the handler.",
+  "number": 1211,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:14:25.837Z"
+}

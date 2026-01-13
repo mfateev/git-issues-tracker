@@ -1,0 +1,30 @@
+{
+  "summary": "Regression in 0.28.0 where workflows implementing empty marker interfaces fail with IllegalArgumentException. The code now throws an exception for interfaces without Temporal annotations, whereas 0.26.0 allowed them.",
+  "category": "bug",
+  "subcategory": "workflow-interface-metadata",
+  "apis": [],
+  "components": [
+    "POJOWorkflowInterfaceMetadata",
+    "POJOWorkflowImplMetadata",
+    "workflow-implementation-factory"
+  ],
+  "concepts": [
+    "interface-validation",
+    "annotation-processing",
+    "backward-compatibility",
+    "reflection",
+    "metadata-extraction"
+  ],
+  "severity": "high",
+  "userImpact": "Existing code that uses marker interfaces in workflow implementations fails at runtime after upgrading to 0.28.0.",
+  "rootCause": "POJOWorkflowInterfaceMetadata.newInstanceSkipWorkflowAnnotationCheck() now throws an exception for interfaces without methods, while 0.26.0 silently skipped them. The validation logic changed to be stricter for all interfaces regardless of Temporal annotations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Interface doesn't contain any methods: WorkflowMarker - regression from 0.26.0 where empty marker interfaces were allowed",
+  "number": 165,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:58:42.003Z"
+}

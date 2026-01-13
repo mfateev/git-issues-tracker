@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal server panics with a slice bounds out of range error during protobuf marshaling operations when processing workflow task responses. The panic occurs in OpenTelemetry's span end handler and is triggered by an UnhandledCommand error in the workflow task.",
+  "category": "bug",
+  "subcategory": "protobuf-marshaling",
+  "apis": [],
+  "components": [
+    "history-engine",
+    "protobuf-marshaling",
+    "otel-instrumentation",
+    "grpc-interceptor"
+  ],
+  "concepts": [
+    "panic",
+    "slice-bounds",
+    "protobuf",
+    "opentelemetry",
+    "marshaling",
+    "workflow-task"
+  ],
+  "severity": "critical",
+  "userImpact": "Server crashes unexpectedly, causing service unavailability and potential data consistency issues during workflow task processing.",
+  "rootCause": "OpenTelemetry SDK v1.10.0 bug in span.go:393 causing incorrect slice bounds when marshaling protobuf messages, particularly WorkflowExecutionInfo structures.",
+  "proposedFix": null,
+  "workaround": "Upgrade OpenTelemetry to a newer version (1.20 or later) which contains the fix.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by upgrading OpenTelemetry version. The user confirmed no further occurrences after upgrading to version 1.20.",
+  "related": [],
+  "keyQuote": "Looks like a otel bug. We have recently upgraded otel version, could you try with 1.20",
+  "number": 4159,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:55.235Z"
+}

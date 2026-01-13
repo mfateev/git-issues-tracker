@@ -1,10 +1,10 @@
 # Contributor Statistics
 
-**Generated:** 2026-01-10
-**Total Issues:** 5771
-**Total Comments:** 9871
-**Unique Issue Authors:** 1452
-**Unique Commenters:** 1621
+**Generated:** 2026-01-13
+**Total Issues:** 5777
+**Total Comments:** 9881
+**Unique Issue Authors:** 1455
+**Unique Commenters:** 1624
 
 ## Related Documents
 
@@ -73,7 +73,7 @@
 
 | Rank | Author | Comments | Repositories |
 |------|--------|----------|---------------|
-| 1 | cretz | 1572 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
+| 1 | cretz | 1574 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 2 | bergundy | 790 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 3 | Quinn-With-Two-Ns | 610 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 4 | yiminc | 326 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
@@ -85,7 +85,7 @@
 | 10 | Sushisource | 163 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 11 | mfateev | 145 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 12 | alexshtin | 135 | temporalio/api, temporalio/features, temporalio/sdk-go... |
-| 13 | dnr | 111 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
+| 13 | dnr | 112 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 14 | roxblnfk | 109 | temporalio/features, temporalio/sdk-php |
 | 15 | rustatian | 92 | temporalio/sdk-java, temporalio/sdk-php |
 | 16 | wolfy-j | 91 | temporalio/features, temporalio/sdk-go, temporalio/sdk-php |
@@ -93,7 +93,7 @@
 | 18 | samarabbas | 87 | temporalio/sdk-go, temporalio/sdk-java, temporalio/temporal |
 | 19 | tconley1428 | 78 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-python |
 | 20 | yycptt | 73 | temporalio/sdk-go, temporalio/temporal |
-| 21 | rodrigozhou | 55 | temporalio/temporal |
+| 21 | rodrigozhou | 56 | temporalio/temporal |
 | 22 | josh-berry | 54 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 23 | dandavison | 51 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 24 | cv65kr | 51 | temporalio/sdk-java, temporalio/sdk-php |
@@ -105,7 +105,7 @@
 | 30 | yuandrew | 34 | temporalio/features, temporalio/sdk-go |
 | 31 | sergeybykov | 33 | temporalio/features, temporalio/temporal |
 | 32 | jbreiding | 33 | temporalio/temporal |
-| 33 | gow | 32 | temporalio/temporal |
+| 33 | gow | 33 | temporalio/temporal |
 | 34 | seregazhuk | 28 | temporalio/sdk-php |
 | 35 | hazcod | 26 | temporalio/sdk-go, temporalio/temporal |
 | 36 | mastermanu | 26 | temporalio/sdk-go, temporalio/temporal |
@@ -128,7 +128,7 @@
 
 | Rank | Author | Issues | Comments | Total |
 |------|--------|--------|----------|-------|
-| 1 | cretz | 925 | 1572 | 2497 |
+| 1 | cretz | 925 | 1574 | 2499 |
 | 2 | bergundy | 321 | 790 | 1111 |
 | 3 | Quinn-With-Two-Ns | 202 | 610 | 812 |
 | 4 | Spikhalskiy | 242 | 270 | 512 |
@@ -146,7 +146,7 @@
 | 16 | samarabbas | 53 | 87 | 140 |
 | 17 | drewhoskins-temporal | 103 | 24 | 127 |
 | 18 | yycptt | 47 | 73 | 120 |
-| 19 | dnr | 7 | 111 | 118 |
+| 19 | dnr | 7 | 112 | 119 |
 | 20 | dandavison | 54 | 51 | 105 |
 | 21 | vitarb | 16 | 89 | 105 |
 | 22 | tconley1428 | 21 | 78 | 99 |
@@ -158,7 +158,7 @@
 | 28 | yuandrew | 33 | 34 | 67 |
 | 29 | antstorm | 61 | 4 | 65 |
 | 30 | mastermanu | 39 | 26 | 65 |
-| 31 | rodrigozhou | 3 | 55 | 58 |
+| 31 | rodrigozhou | 3 | 56 | 59 |
 | 32 | cv65kr | 5 | 51 | 56 |
 | 33 | antlai-temporal | 35 | 16 | 51 |
 | 34 | robholland | 9 | 42 | 51 |
@@ -169,7 +169,7 @@
 | 39 | antmendoza | 32 | 10 | 42 |
 | 40 | yux0 | 17 | 20 | 37 |
 | 41 | skrul | 27 | 9 | 36 |
-| 42 | gow | 2 | 32 | 34 |
+| 42 | gow | 2 | 33 | 35 |
 | 43 | jbreiding | 1 | 33 | 34 |
 | 44 | sergeybykov | 1 | 33 | 34 |
 | 45 | shaunco | 11 | 22 | 33 |
@@ -4296,6 +4296,17 @@
 | sdk-java | [#2752](https://github.com/temporalio/sdk-java/issues/2752) | OpenTracingWorkflowClientCallsInterceptor - support for updateWithStart is not present |
 | sdk-typescript | [#1862](https://github.com/temporalio/sdk-typescript/issues/1862) | [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error |
 
+### jmaeagle99 (6 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-dotnet | [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | Use global.json file to centralize SDK version |
+| sdk-dotnet | [#565](https://github.com/temporalio/sdk-dotnet/issues/565) | Refactor test workflows into separate files |
+| sdk-dotnet | [#577](https://github.com/temporalio/sdk-dotnet/issues/577) | [Bug] Investigate test host crash flake |
+| sdk-dotnet | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | Separate unmanaged pointer lifecycle management into SafeHandles |
+| sdk-dotnet | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | Refactor Bridge.Client to be IDisposable instead of a SafeHandle |
+| sdk-dotnet | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_FailsAsExpected` flake |
+
 ### rubyhfu (6 issues)
 
 | Repo | Issue | Title |
@@ -4328,6 +4339,17 @@
 | sdk-php | [#98](https://github.com/temporalio/sdk-php/issues/98) | [Bug] PHP 7.4 docblock anotations don't work (or documentation missing?) |
 | temporal | [#1474](https://github.com/temporalio/temporal/issues/1474) | Workflow errors after adding custom search attribute |
 | temporal | [#1703](https://github.com/temporalio/temporal/issues/1703) | Add support for MySql/Aurora failover |
+
+### xepozz (6 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-php | [#114](https://github.com/temporalio/sdk-php/issues/114) | Use DateInterval instead of Carbon |
+| sdk-php | [#116](https://github.com/temporalio/sdk-php/issues/116) | [Bug] Wrong exception trace |
+| sdk-php | [#117](https://github.com/temporalio/sdk-php/issues/117) | [Bug] Wrong activity response type |
+| sdk-php | [#670](https://github.com/temporalio/sdk-php/issues/670) | [Feature Request] Symfony 8.0 support |
+| sdk-php | [#692](https://github.com/temporalio/sdk-php/issues/692) | [Bug] Minimal Composer requirements conflicts with react/promise v2 |
+| sdk-php | [#698](https://github.com/temporalio/sdk-php/issues/698) | [Chore] Drop old packages support |
 
 ### macrogreg (5 issues)
 
@@ -4368,16 +4390,6 @@
 | sdk-typescript | [#1710](https://github.com/temporalio/sdk-typescript/issues/1710) | [Feature Request] Better type inference for `MockActivityEnvironment.run` |
 | sdk-typescript | [#1785](https://github.com/temporalio/sdk-typescript/issues/1785) | [Bug] Remove peer dependencies from @temporalio/interceptors-opentelemetry |
 | sdk-typescript | [#1867](https://github.com/temporalio/sdk-typescript/issues/1867) | [Feature Request] Per-Worker Logger |
-
-### jmaeagle99 (5 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-dotnet | [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | Use global.json file to centralize SDK version |
-| sdk-dotnet | [#565](https://github.com/temporalio/sdk-dotnet/issues/565) | Refactor test workflows into separate files |
-| sdk-dotnet | [#577](https://github.com/temporalio/sdk-dotnet/issues/577) | [Bug] Investigate test host crash flake |
-| sdk-dotnet | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | Separate unmanaged pointer lifecycle management into SafeHandles |
-| sdk-dotnet | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | Refactor Bridge.Client to be IDisposable instead of a SafeHandle |
 
 ### Hades32 (5 issues)
 
@@ -4508,16 +4520,6 @@
 | sdk-php | [#112](https://github.com/temporalio/sdk-php/issues/112) | [Question] Arrays not allowed as a return type? |
 | sdk-php | [#260](https://github.com/temporalio/sdk-php/issues/260) | [Bug] Async batch gets cancelled upon Exception thrown. |
 | temporal | [#5370](https://github.com/temporalio/temporal/issues/5370) | Retention update ignored |
-
-### xepozz (5 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-php | [#114](https://github.com/temporalio/sdk-php/issues/114) | Use DateInterval instead of Carbon |
-| sdk-php | [#116](https://github.com/temporalio/sdk-php/issues/116) | [Bug] Wrong exception trace |
-| sdk-php | [#117](https://github.com/temporalio/sdk-php/issues/117) | [Bug] Wrong activity response type |
-| sdk-php | [#670](https://github.com/temporalio/sdk-php/issues/670) | [Feature Request] Symfony 8.0 support |
-| sdk-php | [#692](https://github.com/temporalio/sdk-php/issues/692) | [Bug] Minimal Composer requirements conflicts with react/promise v2 |
 
 ### KorDum (5 issues)
 
@@ -6516,6 +6518,13 @@
 |------|-------|-------|
 | sdk-typescript | [#1783](https://github.com/temporalio/sdk-typescript/issues/1783) | `WorkflowIdReusePolicy.TERMINATE_IF_RUNNING` deprecated or not? |
 | temporal | [#8314](https://github.com/temporalio/temporal/issues/8314) | `WorkflowIdReusePolicy.TERMINATE_IF_RUNNING` deprecated or not? |
+
+### maxi1555 (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-typescript | [#1880](https://github.com/temporalio/sdk-typescript/issues/1880) | ai-sdk - call tool activity |
+| sdk-typescript | [#1881](https://github.com/temporalio/sdk-typescript/issues/1881) | [Bug] AI-SDK - callToolActivity |
 
 ### mengyazhu96 (2 issues)
 
@@ -10826,6 +10835,12 @@
 |------|-------|-------|
 | sdk-typescript | [#1866](https://github.com/temporalio/sdk-typescript/issues/1866) | [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0` |
 
+### vaibhavscale (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-typescript | [#1883](https://github.com/temporalio/sdk-typescript/issues/1883) | [Bug] operatorService not accessible on `ConnectionLike` |
+
 ### mikegai (1 issues)
 
 | Repo | Issue | Title |
@@ -13183,6 +13198,12 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | temporal | [#8968](https://github.com/temporalio/temporal/issues/8968) | Same fairness key but different fairness weight? |
+
+### eyamangil (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#9005](https://github.com/temporalio/temporal/issues/9005) | Add capability to filter workflows by a substring |
 
 ### tonyabracadabra (1 issues)
 

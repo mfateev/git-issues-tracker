@@ -1,0 +1,33 @@
+{
+  "summary": "When a workflow is created via SignalWithStart and has a retry policy, the signal sent during creation is not carried over to retried executions. Retried executions only include the original workflow inputs, losing the signal that was part of the initial creation request.",
+  "category": "bug",
+  "subcategory": "workflow-retry",
+  "apis": [
+    "SignalWithStart",
+    "RetryOptions"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-processing",
+    "retry-handler"
+  ],
+  "concepts": [
+    "retry",
+    "signal",
+    "workflow-execution",
+    "state-preservation",
+    "SignalWithStart"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who use SignalWithStart to create workflows with retry policies lose the initialization signal when the workflow retries, potentially causing incorrect behavior or missed initialization data.",
+  "rootCause": "The retry mechanism does not include signals from the initial workflow creation attempt, only preserving the original workflow inputs.",
+  "proposedFix": "Could add an option to RetryOptions to copy all signals from previous workflow attempts, though maintainers questioned if this is a good pattern.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If original execution created fails, the retry does not include the signal thats also sent via SignalWithStart exec creation.",
+  "number": 8284,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:36.854Z"
+}

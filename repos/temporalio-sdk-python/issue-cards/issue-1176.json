@@ -1,0 +1,29 @@
+{
+  "summary": "Pyright type checking has a long exclude list in pyproject.toml that prevents certain files from being checked due to import resolution issues. The feature request is to clean up and reduce this exclude list by resolving the underlying import issues.",
+  "category": "feature",
+  "subcategory": "type-checking",
+  "apis": [],
+  "components": [
+    "pyright",
+    "type-checker",
+    "build-system"
+  ],
+  "concepts": [
+    "type-checking",
+    "import-resolution",
+    "ci-failure",
+    "development-workflow"
+  ],
+  "severity": "low",
+  "userImpact": "Developers experience CI lint failures and must work around import resolution issues that prevent proper type checking of Python SDK modules.",
+  "rootCause": "Import resolution failure for temporalio.bridge.temporal_sdk_bridge in CI environment despite passing locally, likely due to build order or environment differences.",
+  "proposedFix": "Review and clean up the pyright exclude list by resolving the underlying import issues that necessitate the exclusions.",
+  "workaround": "Reorder CI steps to run build-develop before lint to ensure imports are resolved.",
+  "resolution": "fixed",
+  "resolutionDetails": "The exclude list was cleaned up by addressing the underlying import resolution issues.",
+  "related": [],
+  "keyQuote": "The list of excludes is quite long, with some substantial files. We should go through and clean up the list of files that need to be excluded here.",
+  "number": 1176,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:39.196Z"
+}

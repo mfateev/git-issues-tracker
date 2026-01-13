@@ -1,0 +1,31 @@
+{
+  "summary": "Search attributes created in global namespaces via the temporal operator CLI are not persisted across replicated clusters. Changes made to the active cluster don't replicate to non-active clusters, and failover doesn't restore the attributes.",
+  "category": "bug",
+  "subcategory": "cross-replication",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "replication",
+    "namespace-management",
+    "global-namespace"
+  ],
+  "concepts": [
+    "persistence",
+    "replication",
+    "failover",
+    "cluster-synchronization",
+    "search-attribute-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably manage search attributes in cross-replicated global namespaces, breaking critical operational workflows during cluster failovers.",
+  "rootCause": "Search attribute changes made to the active cluster are not being replicated to non-active clusters, indicating a replication mechanism failure in the global namespace configuration.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "No effect / change to search attributes",
+  "number": 5853,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:46.456Z"
+}

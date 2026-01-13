@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add a configuration flag to disable Temporal bean instantiation in Spring Boot auto-configuration when Temporal is not used in certain service environments. Currently requires setting connection to 'local' to prevent errors.",
+  "category": "feature",
+  "subcategory": "spring-boot-auto-configure",
+  "apis": [],
+  "components": [
+    "spring-boot-auto-configure-alpha",
+    "ServiceStubsAutoConfiguration",
+    "RootNamespaceAutoConfiguration",
+    "client-bean"
+  ],
+  "concepts": [
+    "auto-configuration",
+    "conditional-bean-creation",
+    "spring-boot",
+    "dependency-management",
+    "environment-specific-config"
+  ],
+  "severity": "low",
+  "userImpact": "Users deploying to environments without Temporal need a clean way to disable Temporal beans instead of using workarounds like intentional connection failures.",
+  "rootCause": "Spring auto-configuration always attempts to instantiate Temporal beans if the dependency is present, even when not needed in certain environments.",
+  "proposedFix": "Add an 'enabled' feature flag to conditionally create temporal spring beans, making the auto-configuration opt-in.",
+  "workaround": "Set connection type to 'local' to intentionally fail and prevent service crash.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as Spring provides built-in mechanisms to disable specific auto-configurations, making a separate flag unnecessary.",
+  "related": [],
+  "keyQuote": "Spring provides built in way to disable auto configuration",
+  "number": 1823,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:59.951Z"
+}

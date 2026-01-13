@@ -1,0 +1,33 @@
+{
+  "summary": "Custom search attributes cache takes 1 minute to invalidate after updates, causing failures in automated tests and confusion for new users. Frontend cache invalidates immediately but history cache doesn't, creating inconsistency where tctl shows updated attributes but workflow requests fail.",
+  "category": "other",
+  "subcategory": "search-attributes-cache",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "search-attributes",
+    "cache-invalidation",
+    "history-service",
+    "gossip-protocol"
+  ],
+  "concepts": [
+    "cache-coherence",
+    "cache-invalidation",
+    "dynamic-configuration",
+    "cluster-consistency",
+    "testing-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience test failures and inconsistent behavior when using custom search attributes immediately after creation, and must wait for cache expiration.",
+  "rootCause": "Search attributes cache has a fixed 1-minute invalidation interval without cluster-wide invalidation mechanism, causing delayed propagation of updates across nodes.",
+  "proposedFix": "Add dynamic config to bypass cache for search attributes reads (especially for testing), allowing read-through cache strategy with database fallback when fresh data is required.",
+  "workaround": "Reduce cache invalidation interval to 1 second using environment variable for test environments (e.g., docker-compose), or wait for the 1-minute cache expiration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented read-through cache strategy with dynamic config flag to bypass cache when enabled, supporting testing scenarios without requiring gossip protocol or cache invalidation interval changes.",
+  "related": [],
+  "keyQuote": "make the cache read through (when a search attribute is not in the cache, reload from db), and only enable that read through if a dynamic config is enabled",
+  "number": 2094,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:14.008Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "User requests a workflow reset feature for the Python SDK similar to other Temporal SDKs. The maintainer clarifies that workflow reset is intentionally exposed only via raw gRPC calls through workflow_service for advanced users, not as a high-level API.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "workflow_service.reset_workflow_execution"
+  ],
+  "components": [
+    "workflow-service",
+    "grpc-client",
+    "api-exposure"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "error-recovery",
+    "state-management",
+    "advanced-operations",
+    "grpc-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users needing to reset workflows for error recovery must use low-level gRPC APIs directly rather than a high-level SDK method.",
+  "rootCause": null,
+  "proposedFix": "User offered to contribute a PR with production-ready code for workflow reset functionality.",
+  "workaround": "Use raw gRPC call via `await client.workflow_service.reset_workflow_execution(...)` for advanced users.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We intentionally don't expose workflow reset as high-level in most SDKs, but you can access the raw gRPC call for workflow reset via `workflow_service`.",
+  "number": 601,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:44.230Z"
+}

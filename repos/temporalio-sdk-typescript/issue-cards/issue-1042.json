@@ -1,0 +1,31 @@
+{
+  "summary": "Security vulnerability report for core-2.3.0.tgz containing 9 transitive dependencies with known CVEs, including high-severity remote code execution risk in eta (CVE-2022-25967, CVSS 8.8). Issue was automatically closed after vulnerabilities were resolved or removed from inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "package-manager",
+    "dependency-resolver",
+    "build-system"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "remote-code-execution",
+    "transitive-dependencies",
+    "cvss-score",
+    "package-updates"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of the SDK are exposed to potential remote code execution and other high-severity vulnerabilities through transitive dependencies in the package tree.",
+  "rootCause": "Outdated versions of transitive dependencies (eta, traverse, trim, http-cache-semantics, etc.) contain known security vulnerabilities that are not directly fixable without breaking upstream dependencies.",
+  "proposedFix": "Upgrade vulnerable transitive dependencies to patched versions: eta >= 2.0.0, @babel/traverse >= 7.23.2, and update other affected packages to versions without known CVEs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed when vulnerable libraries were either marked as ignored in the Mend inventory or removed from the package dependencies.",
+  "related": [],
+  "keyQuote": "9 vulnerabilities (highest severity is: 8.8) - CVE-2022-25967: RCE vulnerability in eta before 2.0.0",
+  "number": 1042,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:37.151Z"
+}

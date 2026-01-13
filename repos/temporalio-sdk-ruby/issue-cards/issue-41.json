@@ -1,0 +1,32 @@
+{
+  "summary": "Five vulnerabilities detected in the go.temporal.io/server dependency (version v1.17.5), including three high-severity CVEs affecting Apache Thrift and Uber Tally libraries. The vulnerabilities relate to SASL negotiation bypass, endless loops in Thrift processing, and metrics buffering issues.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "thrift-transport",
+    "metrics",
+    "ringpop"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency",
+    "SASL",
+    "CVE",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to multiple high-severity security vulnerabilities in transitive dependencies that could allow integrity compromise and denial of service attacks.",
+  "rootCause": "Outdated versions of Apache Thrift (v0.0.0-20161221203622) and Uber Tally (v4.1.2) in the dependency tree contain known security vulnerabilities without available fixes in those specific versions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory.",
+  "related": [],
+  "keyQuote": "Found in HEAD commit: 63b662559cd583d424ccbd121f96a1194e1fa2eb - detected in multiple dependencies: go.temporal.io/server-v1.17.5",
+  "number": 41,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:39:48.923Z"
+}

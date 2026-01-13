@@ -1,0 +1,31 @@
+{
+  "summary": "Windows CI tests are segfaulting during execution. Backtraces indicate the issue occurs within the Rust bridge's parking_lot mutex locking mechanism, which appears to be calling Ruby's rb_w32_Sleep from a non-Ruby thread, causing NULL pointer dereference.",
+  "category": "bug",
+  "subcategory": "windows-ci",
+  "apis": [],
+  "components": [
+    "temporalio_bridge",
+    "parking_lot_mutex",
+    "windows_threading"
+  ],
+  "concepts": [
+    "segmentation_fault",
+    "thread_safety",
+    "windows_interop",
+    "rust_ffi",
+    "mutex_locking",
+    "thread_local_storage"
+  ],
+  "severity": "high",
+  "userImpact": "Windows users cannot run tests reliably as CI continuously segfaults, blocking development and testing on Windows platforms.",
+  "rootCause": "parking_lot::raw_mutex::RawMutex::lock_slow appears to be calling rb_w32_Sleep from a non-Ruby thread context, but rb_w32_Sleep expects Ruby thread-local information via TlsGetValue which returns null in non-Ruby threads, causing segmentation fault.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would expect rb_w32_Sleep to segfault if called from a non-Ruby thread (it asks for Ruby thread local info using TlsGetValue and always assumes that returns a non-null pointer)",
+  "number": 172,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:24.769Z"
+}

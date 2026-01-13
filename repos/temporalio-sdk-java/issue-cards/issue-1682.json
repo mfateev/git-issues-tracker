@@ -1,0 +1,32 @@
+{
+  "summary": "Test Server does not respect the WORKFLOW_ID_REUSE_POLICY_TERMINATE_IF_RUNNING WorkflowIdReusePolicy. When this policy is set, the Test Server should terminate any running workflow with the same ID and create a new one, but currently it does not.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowIdReusePolicy"
+  ],
+  "components": [
+    "test-server",
+    "workflow-id-reuse",
+    "policy-enforcement"
+  ],
+  "concepts": [
+    "workflow-termination",
+    "workflow-reuse-policy",
+    "test-compliance",
+    "workflow-lifecycle",
+    "policy-enforcement"
+  ],
+  "severity": "medium",
+  "userImpact": "Test Server users cannot properly test workflows with the TERMINATE_IF_RUNNING reuse policy, limiting test coverage for this important workflow lifecycle scenario.",
+  "rootCause": null,
+  "proposedFix": "Test Server should implement support for WORKFLOW_ID_REUSE_POLICY_TERMINATE_IF_RUNNING by terminating existing workflows and creating new ones when this policy is configured.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Test Server should terminate the running workflow and create a new one with this WorkflowIdReusePolicy.",
+  "number": 1682,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:04.735Z"
+}

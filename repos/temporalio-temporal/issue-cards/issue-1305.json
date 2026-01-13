@@ -1,0 +1,33 @@
+{
+  "summary": "Docker builds for Temporal Server run slowly on Apple Silicon hardware due to x86 emulation, causing QEMU crashes. The feature request asks for native ARM64 builds to be published to Docker Hub for better compatibility.",
+  "category": "feature",
+  "subcategory": "docker-builds",
+  "apis": [],
+  "components": [
+    "docker-images",
+    "base-builder",
+    "server-image"
+  ],
+  "concepts": [
+    "arm64",
+    "apple-silicon",
+    "docker-buildx",
+    "multi-platform-builds",
+    "qemu-emulation",
+    "performance"
+  ],
+  "severity": "high",
+  "userImpact": "Developers using Apple Silicon Macs cannot efficiently run Temporal Server in Docker, blocking local development.",
+  "rootCause": "x86_64 Docker images require QEMU emulation on ARM64 hardware, which causes segmentation faults during database schema initialization.",
+  "proposedFix": "Build and publish ARM64 native Docker images for Temporal Server, base-builder, admin-tools, and auto-setup using docker buildx with multi-platform support.",
+  "workaround": "Delete and recreate postgres container to force fresh initialization instead of using existing state (works inconsistently on some versions).",
+  "resolution": "fixed",
+  "resolutionDetails": "New GitHub Actions pipelines were added to build and release both arm64 and amd64 images for server, admin-tools, auto-setup, and base images.",
+  "related": [
+    1575
+  ],
+  "keyQuote": "Running amd64 builds on Apple Silicon is very slow and will trigger a qemu crash on Docker for Mac on Apple Silicon hardware.",
+  "number": 1305,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:41.441Z"
+}

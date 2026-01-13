@@ -1,0 +1,29 @@
+{
+  "summary": "Worker crashes with LoaderError when a referenced workflow file is not found. The node-side error handling needs improvement and core may not be handling the failure correctly.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [],
+  "components": [
+    "worker",
+    "loader",
+    "workflow-registration"
+  ],
+  "concepts": [
+    "error-handling",
+    "file-loading",
+    "worker-startup",
+    "crash-prevention"
+  ],
+  "severity": "high",
+  "userImpact": "Worker crashes when referencing non-existent workflow files, preventing graceful error handling and making the failure difficult to debug.",
+  "rootCause": "Worker does not handle missing workflow files gracefully; core is not properly handling the loader failure.",
+  "proposedFix": "Add error handling on the node side to catch and handle LoaderError appropriately; ensure core properly handles workflow load failures.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error handling added on the node side with test coverage; core updated to properly handle workflow file loading failures.",
+  "related": [],
+  "keyQuote": "LoaderError: Could not find file: /private/tmp/example/lib/workflows/not-found.js",
+  "number": 26,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:24.315Z"
+}

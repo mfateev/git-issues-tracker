@@ -1,0 +1,38 @@
+{
+  "summary": "Request to extend Temporal server APIs to support 'chain_start_run_id' as an alternative to 'run_id' for addressing the latest run in a workflow execution chain. This allows users to continue interacting with runs in the same logical workflow chain without accidentally switching to a new chain when the same workflow ID is reused.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "QueryWorkflow",
+    "TerminateWorkflowExecution",
+    "SignalWorkflowExecution"
+  ],
+  "components": [
+    "server-api",
+    "workflow-execution",
+    "workflow-chain"
+  ],
+  "concepts": [
+    "workflow-chain",
+    "run-id",
+    "workflow-id-reuse",
+    "execution-chain",
+    "latest-run",
+    "chain-continuation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can safely interact with a specific workflow chain without accidentally switching to a new chain when the same workflow ID is reused, preventing unintended operations on wrong workflow instances.",
+  "rootCause": null,
+  "proposedFix": "Extend all workflow APIs that address 'latest run' to accept optional 'chain_start_run_id' parameter, and return the 'chain_start_run_id' in response payloads so SDKs can track which chain a workflow belongs to.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    151,
+    2608
+  ],
+  "keyQuote": "A chain represents a workflow with one or more runs. Once such a chain finishes, the workflow logically concludes. A new chain is a completely new workflow with the same workflow id.",
+  "number": 2691,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:18.629Z"
+}

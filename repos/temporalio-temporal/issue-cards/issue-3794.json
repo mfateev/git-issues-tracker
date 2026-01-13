@@ -1,0 +1,29 @@
+{
+  "summary": "User seeking proto files and documentation to implement a custom C# SDK without Rust interop. Question about whether gRPC or REST APIs are available for SDK development.",
+  "category": "question",
+  "subcategory": "sdk-development",
+  "apis": [],
+  "components": [
+    "grpc-api",
+    "proto-definitions"
+  ],
+  "concepts": [
+    "sdk-implementation",
+    "interoperability",
+    "grpc",
+    "multi-language-support",
+    "dotnet"
+  ],
+  "severity": "low",
+  "userImpact": "User looking to build alternative SDK implementation but lacks documentation on protocol contracts and gRPC definitions.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Team clarified that official .NET SDK uses Rust Core and gRPC definitions are available in api repo, but building independent SDK is infeasible. Closed as the request doesn't align with SDK architecture strategy.",
+  "related": [],
+  "keyQuote": "We have TypeScript, Python, and Ruby SDKs all being built on top of the same library",
+  "number": 3794,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:03.005Z"
+}

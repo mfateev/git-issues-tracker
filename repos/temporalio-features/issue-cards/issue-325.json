@@ -1,0 +1,34 @@
+{
+  "summary": "Support passing and retrieving reason/details for both Terminate and Cancel workflow APIs. Currently, Terminate allows passing a reason that is stored in the terminate event, but the Client cannot retrieve it; Cancel doesn't support reasons at all.",
+  "category": "feature",
+  "subcategory": "workflow-lifecycle",
+  "apis": [
+    "TerminateWorkflow",
+    "CancelWorkflow",
+    "GetWorkflowResult"
+  ],
+  "components": [
+    "client",
+    "workflow-api",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-termination",
+    "workflow-cancellation",
+    "error-details",
+    "api-consistency",
+    "user-feedback"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot pass or retrieve reason information when terminating or canceling workflows, making it harder to track why workflows were stopped.",
+  "rootCause": null,
+  "proposedFix": "Extend both Terminate and Cancel APIs to accept a reason/details parameter, and allow retrieving this information when getting workflow results through WorkflowFailure.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Passing a reason/details [and] Get the reason/details back when getting the workflow result(WorkflowFailure)",
+  "number": 325,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:37.804Z"
+}

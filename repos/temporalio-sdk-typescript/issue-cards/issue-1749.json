@@ -1,0 +1,32 @@
+{
+  "summary": "After upgrading from SDK v1.11.8 to v1.12.1, users experience 'Workflow task not found' errors on long-running workflows. The underlying cause appears to be performance degradation preventing workers from completing tasks within the 10-second timeout window.",
+  "category": "bug",
+  "subcategory": "workflow-task-processing",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-processing",
+    "performance"
+  ],
+  "concepts": [
+    "task-timeout",
+    "performance-regression",
+    "memory-leak",
+    "workflow-execution",
+    "garbage-collection"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to newer SDK versions experience workflow failures and significant delays in activity processing, blocking production deployments.",
+  "rootCause": "A memory leak bug in Worker configuration (fixed in v1.13.0 by PR #1777) causes increased garbage collection overhead, reducing worker performance and preventing task completion within timeout windows.",
+  "proposedFix": "Upgrade to v1.13.0 or later which contains a fix for the memory leak bug that surfaces as performance degradation in certain Worker configurations.",
+  "workaround": "Revert to SDK v1.11.8 until the performance regression is resolved in a newer version.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1777
+  ],
+  "keyQuote": "The Workflow task not found error is almost certainly just a secondary symptom; the real problem is that the Worker is not completing task within the allowed time",
+  "number": 1749,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:59.636Z"
+}

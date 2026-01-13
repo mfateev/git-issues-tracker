@@ -1,0 +1,30 @@
+{
+  "summary": "Dynamic configuration keys are case-sensitive, making it easy for users to misconfigure settings due to typos. The request is to make these keys case-insensitive for better usability.",
+  "category": "feature",
+  "subcategory": "dynamic-configuration",
+  "apis": [],
+  "components": [
+    "configuration",
+    "dynamic-config",
+    "config-keys"
+  ],
+  "concepts": [
+    "case-sensitivity",
+    "configuration",
+    "usability",
+    "error-prevention",
+    "dynamic-settings"
+  ],
+  "severity": "low",
+  "userImpact": "Users may fail to apply dynamic configuration changes due to case-sensitive key matching, leading to unexpected behavior.",
+  "rootCause": "Configuration key matching is implemented with case-sensitive comparison.",
+  "proposedFix": "Make dynamic configuration key matching case-insensitive.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration key matching was updated to be case-insensitive.",
+  "related": [],
+  "keyQuote": "We should make these case insensitive.",
+  "number": 1536,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:38:52.803Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to make binary the default protobuf data converter instead of JSON in the TypeScript SDK, prioritizing efficiency over human readability. This change should be coordinated across all SDKs simultaneously.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "protobuf",
+    "serialization"
+  ],
+  "concepts": [
+    "binary-encoding",
+    "protobuf",
+    "efficiency",
+    "storage-optimization",
+    "network-transfer"
+  ],
+  "severity": "low",
+  "userImpact": "Users could benefit from reduced storage space and potentially faster serialization/network transfer times if binary became the default encoding.",
+  "rootCause": null,
+  "proposedFix": "Change the default data converter encoding order to put binary protobuf first instead of JSON across all SDKs simultaneously.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The change was rejected due to concerns that the clarity and debuggability benefits of JSON outweigh the marginal efficiency gains, and lack of demonstrated real-world performance problems.",
+  "related": [],
+  "keyQuote": "I disagree with this change as I find that the clarity of JSON outweighs the slight efficiency of it.",
+  "number": 435,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:52.816Z"
+}

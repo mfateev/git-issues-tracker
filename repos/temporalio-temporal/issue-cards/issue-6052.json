@@ -1,0 +1,31 @@
+{
+  "summary": "Docker image temporalio/admin-tools:1.24.0 was not published to Docker Hub, causing pull failures. The release process was changed to include component versions in the tag.",
+  "category": "bug",
+  "subcategory": "docker-image-release",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "docker-image",
+    "tctl",
+    "cli"
+  ],
+  "concepts": [
+    "docker",
+    "release",
+    "versioning",
+    "image-tag",
+    "distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot pull the admin-tools docker image with the expected version tag, requiring them to use component-specific version tags instead.",
+  "rootCause": "Release process was separated to track individual component versions (tctl and temporal CLI) in the docker image tag.",
+  "proposedFix": null,
+  "workaround": "Use the full tag format that includes component versions, e.g., 1.24.0-tctl-1.18.1-cli-0.12.0",
+  "resolution": "fixed",
+  "resolutionDetails": "Clarified that the image versioning scheme changed to include component versions. The correct tag for 1.24.0 is 1.24.0-tctl-1.18.1-cli-0.12.0.",
+  "related": [],
+  "keyQuote": "Version tag now includes versions of tctl (deprecated but still supported CLI) and temporal (modern CLI) binaries.",
+  "number": 6052,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:46.657Z"
+}

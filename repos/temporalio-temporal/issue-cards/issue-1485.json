@@ -1,0 +1,32 @@
+{
+  "summary": "Request for a default mapping between authorization package roles and API names that can be passed through CallTarget, with the flexibility for users to customize the mapping.",
+  "category": "feature",
+  "subcategory": "authorization",
+  "apis": [
+    "CallTarget"
+  ],
+  "components": [
+    "authorizer",
+    "authorization-package",
+    "api-mapping"
+  ],
+  "concepts": [
+    "role-mapping",
+    "authorization",
+    "api-names",
+    "custom-authorizer",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users implementing custom authorizers need to manually map authorization roles to API names, which could be simplified with a sensible default mapping.",
+  "rootCause": null,
+  "proposedFix": "Provide a built-in default mapping from authorization package roles to API names while allowing customization.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In defining a custom authorizer implementation, it would be nice if there was a default mapping available of the roles found in the authorization package to API names",
+  "number": 1485,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:33:59.781Z"
+}

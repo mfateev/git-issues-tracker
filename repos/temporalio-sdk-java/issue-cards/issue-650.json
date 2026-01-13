@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowExecutionUtils class lacks unit test coverage due to being untestable and unmockable. The class needs to be decoupled into testable pieces, starting with tests for the getInstanceCloseEvent method and issues fixed in PR #472.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [
+    "WorkflowExecutionUtils"
+  ],
+  "components": [
+    "WorkflowExecutionUtils",
+    "GrpcRetryer",
+    "test-framework"
+  ],
+  "concepts": [
+    "testability",
+    "unit-testing",
+    "mocking",
+    "decoupling",
+    "code-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Lack of unit tests for WorkflowExecutionUtils makes it difficult for users to verify correct behavior and contributes to lower code quality.",
+  "rootCause": "WorkflowExecutionUtils is tightly coupled and not designed for testability or mocking.",
+  "proposedFix": "Decouple WorkflowExecutionUtils into testable pieces and add unit tests for getInstanceCloseEvent.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was mostly resolved through extensive GrpcRetryer reworking and testing completed over the following months.",
+  "related": [
+    472
+  ],
+  "keyQuote": "This was mostly covered by extensive GrpcRetryer reworking and testing done in the last couple of months.",
+  "number": 650,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:32:15.494Z"
+}

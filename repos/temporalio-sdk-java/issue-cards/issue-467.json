@@ -1,0 +1,35 @@
+{
+  "summary": "Request to register multiple activity names for a single activity to support refactoring scenarios where activity names change. This enables smooth migration where workers can recognize both old and new activity names, with potential for marking names as deprecated.",
+  "category": "feature",
+  "subcategory": "activity-registration",
+  "apis": [
+    "ActivityMethod"
+  ],
+  "components": [
+    "activity-registry",
+    "worker",
+    "activity-method-annotation"
+  ],
+  "concepts": [
+    "activity-naming",
+    "backwards-compatibility",
+    "migration",
+    "refactoring",
+    "activity-aliases",
+    "deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users performing activity name refactors currently face deployment challenges and errors, as workers reject activities with unregistered names.",
+  "rootCause": null,
+  "proposedFix": "Add name aliases mechanism to @ActivityMethod annotation to allow multiple activity names for a single activity implementation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    396
+  ],
+  "keyQuote": "I would like to have the ability to register multiple activity names for an activity - this way one could deploy the activity name change and then on the next deploy delete the previous activity name.",
+  "number": 467,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:20:20.845Z"
+}

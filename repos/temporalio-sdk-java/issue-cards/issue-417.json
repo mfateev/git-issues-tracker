@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowRule incorrectly merges workerInterceptors from two different sources, causing user-provided interceptors to be discarded when both setWorkerFactoryOptions() and setWorkerInterceptors() are used.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowRule",
+    "WorkerFactoryOptions"
+  ],
+  "components": [
+    "test-framework",
+    "worker-factory",
+    "interceptor-handling"
+  ],
+  "concepts": [
+    "interceptor-merging",
+    "configuration-conflict",
+    "test-setup",
+    "refactoring-regression"
+  ],
+  "severity": "high",
+  "userImpact": "Users' custom worker interceptors are silently ignored when setting both WorkerFactoryOptions and workerInterceptors, breaking test configurations.",
+  "rootCause": "Incorrect refactoring when setWorkerInterceptors() method was added; the method overwrites workerInterceptors in WorkerFactoryOptions instead of merging them, and naming confusion between different interceptor types (client vs worker).",
+  "proposedFix": "Remove the separate setWorkerInterceptors() method from TestWorkflowRule and Builder completely; supply workerInterceptors exclusively through WorkerFactoryOptions, consistent with how WorkflowClientOptions handles client interceptors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by the referenced refactoring to properly handle interceptor configuration through WorkerFactoryOptions.",
+  "related": [],
+  "keyQuote": "Remove this separate new setWorkflowInterceptors method from TestWorkflowRule and Builder completely and supply workerInterceptors inside WorkerFactoryOptions.",
+  "number": 417,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:17:44.236Z"
+}

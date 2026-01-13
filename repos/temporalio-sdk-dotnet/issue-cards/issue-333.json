@@ -1,0 +1,30 @@
+{
+  "summary": "Cloud tests are not actually running on cloud due to a mismatch between expected and actual environment variable names. The CLI cloud tests use `TEMPORAL_CLIENT_*` env vars but the code expects `TEMPORAL_TEST_CLIENT_*` env vars.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "cloud-tests",
+    "cli"
+  ],
+  "concepts": [
+    "environment-variables",
+    "configuration",
+    "cloud-connectivity",
+    "test-execution",
+    "alignment"
+  ],
+  "severity": "high",
+  "userImpact": "Cloud tests fail to execute against actual cloud environments because of environment variable name mismatches, preventing validation of SDK functionality in production-like conditions.",
+  "rootCause": "Environment variable naming inconsistency between the test CLI and the test code expecting different prefixes (TEMPORAL_CLIENT_* vs TEMPORAL_TEST_CLIENT_*)",
+  "proposedFix": "Bring the environment variable names into alignment by standardizing on one naming convention across the CLI and test code",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The environment variable naming was standardized to align the CLI cloud tests with the expected variable names in the code",
+  "related": [],
+  "keyQuote": "The CLI cloud tests are using env vars `TEMPORAL_CLIENT_TARGET_HOST`, `TEMPORAL_CLIENT_NAMESPACE`, `TEMPORAL_CLIENT_CERT`, and `TEMPORAL_CLIENT_KEY`. But the code is expecting env vars `TEMPORAL_TEST_CLIENT_TARGET_HOST`, `TEMPORAL_TEST_CLIENT_NAMESPACE`, `TEMPORAL_TEST_CLIENT_CERT`, and `TEMPORAL_TEST_CLIENT_KEY`.",
+  "number": 333,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:17:15.076Z"
+}

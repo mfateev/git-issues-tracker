@@ -1,0 +1,33 @@
+{
+  "summary": "The webpackConfigHook doesn't suppress all webpack output despite setting config.stats to 'none'. Webpack logging is still being printed even when users try to minimize logs through bundlerOptions configuration.",
+  "category": "bug",
+  "subcategory": "bundler-configuration",
+  "apis": [
+    "Worker.create",
+    "bundleWorkflowCode"
+  ],
+  "components": [
+    "worker",
+    "bundler",
+    "webpack-configuration"
+  ],
+  "concepts": [
+    "logging",
+    "webpack-output",
+    "bundler-options",
+    "configuration",
+    "log-suppression"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot suppress webpack bundler output through bundlerOptions.webpackConfigHook, forcing them to modify SDK source code or use alternative bundling approaches.",
+  "rootCause": "The webpackConfigHook configuration is ignored for the logger output - webpack stats configuration only affects webpack's internal reporting, not the SDK's logging of webpackOutput in bundler.ts line 270.",
+  "proposedFix": "Either provide a way to configure logging verbosity through bundlerOptions, or remove the automatic logging of webpackOutput in bundler.ts.",
+  "workaround": "Call bundleWorkflowCode() directly instead of Worker.create() and pass a custom Logger instance with suppressed output.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Is there another way, preferably through `bundlerOptions.webpackConfigHook` to not show those webpack logs?",
+  "number": 1740,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:45.450Z"
+}

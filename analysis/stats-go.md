@@ -1,6 +1,6 @@
 # Go SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/sdk-go](https://github.com/temporalio/sdk-go)
 
 ## Related Documents
@@ -22,11 +22,11 @@
 | Enhancements/Features (open) | 87 |
 | Security Issues (open) | 1 |
 | Total Upvotes (👍) on open | 91 |
-| Total Comments on open | 215 |
+| Total Comments on open | 216 |
 | Issues with Upvotes | 40 (25%) |
-| Issues with Comments | 87 (53%) |
-| Average Age (days) | 976 |
-| Stale Issues (>12 months) | 101 (62%) |
+| Issues with Comments | 88 (54%) |
+| Average Age (days) | 979 |
+| Stale Issues (>12 months) | 102 (63%) |
 
 ---
 ## Resolution Metrics
@@ -87,18 +87,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 59 |
-| Issues Closed | 63 |
-| Net Change | -4 |
-| Bugs Closed | 13 |
+| Issues Opened | 57 |
+| Issues Closed | 62 |
+| Net Change | -5 |
+| Bugs Closed | 12 |
 | Enhancements Closed | 37 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 327 | 234 |
-| Median | 21 | 15 |
+| Average | 332 | 238 |
+| Median | 22 | 16 |
 | 90th Percentile | 1531 | 1093 |
 
 ### Resolution Speed (Last 6 Months)
@@ -106,7 +106,7 @@
 | Timeframe | % Resolved |
 |-----------|------------|
 | Within 30 days | 52% |
-| Within 90 days | 67% |
+| Within 90 days | 66% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -123,8 +123,8 @@
 | 1-3 months | 11 | 7% |
 | 3-6 months | 6 | 4% |
 | 6-12 months | 15 | 9% |
-| 1-2 years | 31 | 19% |
-| 2-3 years | 28 | 17% |
+| 1-2 years | 30 | 18% |
+| 2-3 years | 29 | 18% |
 | 3+ years | 70 | 43% |
 
 ---
@@ -230,7 +230,7 @@ Priority = Upvotes × 2 + Comments
 | [#982](https://github.com/temporalio/sdk-go/issues/982) | 1 | 4 | Cannot register mock activity with string name on test workf... |
 | [#642](https://github.com/temporalio/sdk-go/issues/642) | 1 | 7 | Inconsistent behavior when asserting invocations |
 | [#2141](https://github.com/temporalio/sdk-go/issues/2141) | 0 | 1 | Activity Alias Collision in Test Environment When Using Anon... |
-| [#2140](https://github.com/temporalio/sdk-go/issues/2140) | 0 | 0 | OpenTelemetry incorrect metric type for Counter |
+| [#2140](https://github.com/temporalio/sdk-go/issues/2140) | 0 | 1 | OpenTelemetry incorrect metric type for Counter |
 | [#2103](https://github.com/temporalio/sdk-go/issues/2103) | 0 | 3 | Cosmetic bug in logger |
 | [#2090](https://github.com/temporalio/sdk-go/issues/2090) | 0 | 0 | Starting a child workflow in tests leaks goroutines |
 | [#2066](https://github.com/temporalio/sdk-go/issues/2066) | 0 | 3 | Lost messages from workflow.NewChannel(ctx) |
@@ -253,7 +253,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (101 open issues with no activity >12 months)
+## Stale Issues (102 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -273,11 +273,11 @@ Top stale issues by upvotes:
 | [#1646](https://github.com/temporalio/sdk-go/issues/1646) | 1 | 2024-09-23 | SetStartTime for activity test env |
 | [#1351](https://github.com/temporalio/sdk-go/issues/1351) | 1 | 2024-01-16 | Support interceptor on WorkflowRun.Get |
 | [#1100](https://github.com/temporalio/sdk-go/issues/1100) | 1 | 2023-05-08 | TestWorkflowEnvironment should surface errors and ... |
+| [#982](https://github.com/temporalio/sdk-go/issues/982) | 1 | 2025-01-12 | Cannot register mock activity with string name on ... |
 | [#949](https://github.com/temporalio/sdk-go/issues/949) | 1 | 2022-12-02 | Allow user to override default maximum activity at... |
 | [#754](https://github.com/temporalio/sdk-go/issues/754) | 1 | 2024-12-17 | gRPC Proxy Integration Test |
 | [#642](https://github.com/temporalio/sdk-go/issues/642) | 1 | 2024-03-15 | Inconsistent behavior when asserting invocations |
 | [#497](https://github.com/temporalio/sdk-go/issues/497) | 1 | 2021-10-28 | [Test suite] Query after signal works in SDK, but ... |
 | [#458](https://github.com/temporalio/sdk-go/issues/458) | 1 | 2021-11-16 | TestWorkflowEnvironment: Fail RegisterDelayedCallb... |
-| [#439](https://github.com/temporalio/sdk-go/issues/439) | 1 | 2021-05-11 | Include a way to perform assertions on the workflo... |
 
-*...and 81 more stale issues*
+*...and 82 more stale issues*

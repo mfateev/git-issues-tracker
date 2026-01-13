@@ -1,0 +1,32 @@
+{
+  "summary": "Request to simplify async activity implementation by supporting CompletableFuture-returning methods without tying up threads. Proposes ActivityAsync adapter class and dynamic proxy pattern for converting async implementations to standard activity interfaces.",
+  "category": "feature",
+  "subcategory": "async-activities",
+  "apis": [],
+  "components": [
+    "activity-implementation",
+    "dynamic-proxy",
+    "worker"
+  ],
+  "concepts": [
+    "asynchronous-execution",
+    "completable-future",
+    "thread-efficiency",
+    "adapter-pattern",
+    "activity-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Allows users to implement activities with CompletableFuture without blocking threads, improving resource efficiency for I/O-bound operations.",
+  "rootCause": null,
+  "proposedFix": "Add ActivityAsync adapter class with overloaded methods similar to workflow Async class, and implement dynamic proxy pattern to convert async implementations to standard activity interfaces using @ActivitiesImplementation annotation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by providing a completion client that simplifies async activity implementation, as referenced in PR #291.",
+  "related": [
+    291
+  ],
+  "keyQuote": "add adapter methods that can be called from activity (similar to Async class from workflow package)",
+  "number": 14,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T15:56:40.699Z"
+}

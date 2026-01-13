@@ -1,0 +1,36 @@
+{
+  "summary": "Implement a Remote Data Encoder framework for Java SDK to allow serving and consuming data encoding via HTTP, providing feature parity with Go and TypeScript SDKs. This enables users to encrypt data in their preferred SDK language, restrict encryption key access to a remote process, and support tctl payload encoding.",
+  "category": "feature",
+  "subcategory": "data-encoding",
+  "apis": [
+    "DataConverter",
+    "PayloadCodec"
+  ],
+  "components": [
+    "data-converter",
+    "codec-framework",
+    "http-server",
+    "encryption"
+  ],
+  "concepts": [
+    "encryption",
+    "data-encoding",
+    "http-remote-service",
+    "key-management",
+    "security",
+    "cross-sdk-compatibility",
+    "tctl-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users requiring encryption or similar use cases cannot properly view plaintext in Web UI or tctl output without Java SDK parity with Go and TypeScript SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement Remote Data Encoder framework following the protocol specification and reference implementations from Go SDK (PR #717, #733)",
+  "workaround": "Use standard data converters approach, though not suitable for all encryption scenarios",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide parity with other SDKs",
+  "related": [],
+  "keyQuote": "This is a requirement for anyone who is using encryption and wants to be able to see the plaintext in the Web UI or tctl output.",
+  "number": 1044,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:02:23.905Z"
+}

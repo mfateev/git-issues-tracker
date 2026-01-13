@@ -1,0 +1,33 @@
+{
+  "summary": "Users cannot see buffered executions when using BUFFER_ALL overlap policy on schedules. The request is to add a 'buffered_actions' field to ScheduleInfo and ScheduleListInfo to expose these queued executions.",
+  "category": "feature",
+  "subcategory": "schedules-api",
+  "apis": [
+    "DescribeSchedule",
+    "ListSchedules"
+  ],
+  "components": [
+    "schedules",
+    "api",
+    "schedule-info"
+  ],
+  "concepts": [
+    "buffering",
+    "overlap-policy",
+    "queued-executions",
+    "schedule-visibility",
+    "execution-queueing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot inspect or monitor executions that are buffered and waiting to run after the current execution completes.",
+  "rootCause": null,
+  "proposedFix": "Add 'buffered_actions' field to ScheduleInfo and ScheduleListInfo protobuf structures. Could be simple (array of timestamps) or enhanced (array of objects with timestamp and queue-reason).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "buffered executions appears neither in `info.futureActionTimes`, `info.recentActions` nor `info.runningWorkflows`, and no other field hints that some executions are currently buffered.",
+  "number": 4984,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:23.939Z"
+}

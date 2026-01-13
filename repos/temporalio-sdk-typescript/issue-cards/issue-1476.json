@@ -1,0 +1,31 @@
+{
+  "summary": "When `reuseV8Context` is enabled, global variable reassignments and deletions leak across workflow execution contexts because the context switching mechanism only tracks variable names, not their values. This allows one workflow's modifications to be visible in another workflow's context.",
+  "category": "bug",
+  "subcategory": "vm-context-isolation",
+  "apis": [],
+  "components": [
+    "vm-context",
+    "global-state",
+    "context-switching"
+  ],
+  "concepts": [
+    "context-leak",
+    "global-variables",
+    "variable-reassignment",
+    "vm-isolation",
+    "workflow-isolation",
+    "reusable-context"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using reusable V8 contexts can experience context leaks where global variables modified in one workflow become visible to concurrent workflows, causing data corruption and unpredictable behavior.",
+  "rootCause": "The context switching mechanism freezes global objects to prevent modifications but does not prevent reassignment of global variables themselves. Since the engine only checks variable names and not their actual values during context switches, reassigned globals are left untouched.",
+  "proposedFix": null,
+  "workaround": "Avoid reassigning or deleting global variables when using `reuseV8Context` option.",
+  "resolution": "fixed",
+  "resolutionDetails": "Context freezing was enhanced to prevent global variable reassignments and deletions in addition to modifications to frozen objects.",
+  "related": [],
+  "keyQuote": "we do not prevent reassignment of global variables. And since context switching is based solely on global variable names, the engine will leave those reassigned global variable untouched.",
+  "number": 1476,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:31.292Z"
+}

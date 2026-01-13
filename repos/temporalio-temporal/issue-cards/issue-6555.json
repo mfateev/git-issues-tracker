@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add EdDSA (Ed25519) support to the default JWT ClaimMapper, which currently only supports RS256 and ES256 token types.",
+  "category": "feature",
+  "subcategory": "authentication-jwt",
+  "apis": [],
+  "components": [
+    "authorization",
+    "default_token_key_provider",
+    "jwt-claim-mapper"
+  ],
+  "concepts": [
+    "jwt",
+    "authentication",
+    "eddsa",
+    "ed25519",
+    "token-validation",
+    "cryptography"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use EdDSA/Ed25519 tokens with Temporal's default JWT ClaimMapper, limiting authentication options.",
+  "rootCause": null,
+  "proposedFix": "Add EdDSA support using Ed25519 curve to the default ClaimMapper alongside existing RS256 and ES256 support.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add support for `EdDSA` using `Ed25519` curve.",
+  "number": 6555,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:33.930Z"
+}

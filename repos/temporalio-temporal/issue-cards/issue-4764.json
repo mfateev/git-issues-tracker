@@ -1,0 +1,34 @@
+{
+  "summary": "SignalWithStart operations were failing with a non-retryable FAILED_PRECONDITION error when workflows were closing, introduced in server 1.21. The server rejects signals for executions attempting to complete, causing client errors that cannot be automatically retried.",
+  "category": "bug",
+  "subcategory": "signal-with-start",
+  "apis": [
+    "SignalWithStart"
+  ],
+  "components": [
+    "server",
+    "signal-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "signal-rejection",
+    "workflow-closing",
+    "error-handling",
+    "retry-behavior",
+    "resource-exhaustion"
+  ],
+  "severity": "high",
+  "userImpact": "Applications experience non-retryable errors when signaling workflows that are closing, preventing workflow signal operations from succeeding even with retry logic.",
+  "rootCause": "Server 1.21 change to reject signals for workflow executions attempting to complete, using non-retryable FAILED_PRECONDITION error code instead of retryable error.",
+  "proposedFix": "Change error code from non-retryable FAILED_PRECONDITION to retryable RESOURCE_EXHAUSTED (ResourceExhaustedError with WorkflowBusy cause), with future plans to carry signals to next execution on continue-as-new.",
+  "workaround": "Implement slow retry on client side to allow workflow time to close before retrying SignalWithStart operation.",
+  "resolution": "fixed",
+  "resolutionDetails": "Short-term fix implemented in PR #4765, included in server 1.21.5 and 1.22 releases, converting error to retryable RESOURCE_EXHAUSTED.",
+  "related": [
+    4765
+  ],
+  "keyQuote": "This error should not use a non retryable FAILED_PRECONDITION code... will change to a retryable RESOURCE_EXHAUSTED",
+  "number": 4764,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:07.033Z"
+}

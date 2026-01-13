@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to support AggregateError with multiple child errors. Currently the SDK only supports single error causes, but AggregateError allows storing multiple errors with nested causes, which should be extracted and stored or included in stack traces.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-serialization",
+    "error-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "AggregateError",
+    "error-causes",
+    "stack-traces",
+    "error-composition",
+    "multi-error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly capture and serialize multiple errors that occur together in workflows, limiting error reporting and debugging capabilities.",
+  "rootCause": "SDK currently only supports single child errors via the cause property, not the errors array structure that AggregateError provides.",
+  "proposedFix": "Extract and store child errors from AggregateError.errors array, or include stack traces of children in the top error's stack trace using util.inspect with proper formatting.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Would be amazing if temporal extracted and stored child errors of the AggregateError, right now it supports only single child in cause.",
+  "number": 1675,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:28:47.278Z"
+}

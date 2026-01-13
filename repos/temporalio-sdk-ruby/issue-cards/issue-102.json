@@ -1,0 +1,31 @@
+{
+  "summary": "This Ruby SDK dependency pull contains 3 high-severity vulnerabilities in transitive Go dependencies (golang.org/x/net and golang.org/x/text), affecting HTTP/2 stream handling and language parsing. The issue was automatically closed by Mend as the vulnerable library was removed from inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "grpc-client",
+    "http2-transport"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency-upgrade",
+    "denial-of-service",
+    "transitive-dependency",
+    "http2"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using this SDK version are exposed to potential denial-of-service attacks through crafted HTTP/2 streams or malicious Accept-Language headers.",
+  "rootCause": "Transitive dependencies golang.org/x/net and golang.org/x/text contain unpatched vulnerabilities in HTTP/2 HPACK decoder and language parsing",
+  "proposedFix": "Upgrade golang.org/x/net to v0.7.0 or later and golang.org/x/text to v0.3.8 or later",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend as the vulnerable library was removed from the dependency inventory",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 102,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:42:13.097Z"
+}

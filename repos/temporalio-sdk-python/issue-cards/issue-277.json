@@ -1,0 +1,28 @@
+{
+  "summary": "The types-protobuf dependency is pinned to 3.x while the SDK supports protobuf 4.x. Updating the version constraint from ~3.20 to >=3.20 would resolve typings conflicts with google-cloud-sdk and align with protobuf 4.x support.",
+  "category": "bug",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "protobuf-types",
+    "dependency-management"
+  ],
+  "concepts": [
+    "type-hints",
+    "version-compatibility",
+    "protobuf",
+    "type-stubs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot upgrade types-protobuf to 4.x due to the strict version constraint, causing typing conflicts when using google-cloud-sdk alongside the SDK.",
+  "rootCause": "types-protobuf version constraint uses ~3.20 (tilde constraint) instead of >=3.20, which unnecessarily restricts to 3.x versions despite the SDK supporting protobuf 4.x.",
+  "proposedFix": "Change types-protobuf constraint from ~3.20 to >=3.20 in the dependency specification.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The version constraint was updated to allow types-protobuf 4.x, resolving the typings conflict with google-cloud-sdk.",
+  "related": [],
+  "keyQuote": "using types-protobuf 3.x overrides google cloud SDK typings, so I want to upgrade",
+  "number": 277,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:59.923Z"
+}

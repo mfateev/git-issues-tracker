@@ -1,0 +1,31 @@
+{
+  "summary": "User requests TLS support for metrics endpoint in Temporal Server. Currently metrics are served over HTTP even when TLS is enabled for all other components in a Helm-deployed cluster.",
+  "category": "feature",
+  "subcategory": "metrics-tls",
+  "apis": [],
+  "components": [
+    "metrics",
+    "server",
+    "tls"
+  ],
+  "concepts": [
+    "tls",
+    "security",
+    "metrics",
+    "encryption",
+    "helm",
+    "deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal with TLS security cannot secure metrics endpoints, creating a potential security gap in encrypted deployments.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "enabled TLS for all components but metrics continue to be served with http",
+  "number": 7742,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:55.740Z"
+}

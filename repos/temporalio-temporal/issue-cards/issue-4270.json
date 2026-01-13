@@ -1,0 +1,33 @@
+{
+  "summary": "After upgrading from Temporal 1.19.1 to 1.20.0, workflows created by schedules fail during archival with 'invalid search attribute type: Unspecified' errors. This affects the archival process for visibility and task handling, causing errors when attempting to archive workflows or process tasks.",
+  "category": "bug",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "archiver",
+    "visibility",
+    "scheduler",
+    "search-attributes"
+  ],
+  "concepts": [
+    "archival",
+    "search-attributes",
+    "migration",
+    "schedule",
+    "visibility-store"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to 1.20.0+ encounter repeated archival failures for schedule-generated workflows, preventing proper workflow archival and causing error logs.",
+  "rootCause": "Bug in archiving workflows created with schedules where search attribute type handling fails, specifically with KeywordList and Unspecified type attributes",
+  "proposedFix": "PR #4304 provides a fix for the long-term solution",
+  "workaround": "Set `history.durableArchivalEnabled` to false as a temporary workaround",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #4304 which addresses the search attribute type handling for schedule-generated workflows",
+  "related": [
+    4304
+  ],
+  "keyQuote": "failed to archive target -> invalid search attribute type : Unspecified",
+  "number": 4270,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:49.362Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Eager workflow start task uses generic search attribute names (e.g., `Keyword03`) instead of proper custom attribute names that are used in polling workflow tasks. This inconsistency occurs when starting a workflow with custom search attributes enabled.",
+  "category": "bug",
+  "subcategory": "workflow-start",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-start",
+    "search-attributes",
+    "task-creation"
+  ],
+  "concepts": [
+    "search-attributes",
+    "eager-start",
+    "attribute-mapping",
+    "task-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot rely on consistent search attribute naming when using eager workflow start with custom search attributes, breaking compatibility with polling-based workflows.",
+  "rootCause": "Eager workflow start task generation is not using the proper custom attribute name mapping when populating search attributes in the gRPC response.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #5124",
+  "related": [
+    5124
+  ],
+  "keyQuote": "Eager workflow start task has search attribute like `Keyword03`, whereas the polling workflow task has the proper attribute name.",
+  "number": 5119,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:51.270Z"
+}

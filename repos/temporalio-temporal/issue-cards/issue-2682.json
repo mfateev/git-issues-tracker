@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflow events at ID=1 show an empty identity value even when ClientOptions.Identity is configured, while other event IDs display the identity correctly.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflowExecution"
+  ],
+  "components": [
+    "child-workflow",
+    "event-history",
+    "client-options"
+  ],
+  "concepts": [
+    "identity",
+    "workflow-history",
+    "event-metadata",
+    "child-workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot track the identity of child workflow initiators in workflow history because the first event in child workflow logs shows empty identity despite configuring it in ClientOptions.",
+  "rootCause": "Child workflow event ID=1 does not properly propagate the identity parameter from ClientOptions, while subsequent events handle it correctly.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #2687 which provides clearer reproduction steps for the same identity parameter bug in child workflows.",
+  "related": [
+    2687
+  ],
+  "keyQuote": "for each child workflow event id=1 in that identity is shown empty(identity=\"\") . but for other event id it's showing correct identity",
+  "number": 2682,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:49.797Z"
+}

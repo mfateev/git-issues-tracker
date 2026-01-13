@@ -1,0 +1,30 @@
+{
+  "summary": "SDK assumes an error details list is populated when it may be empty, causing an IndexError instead of a descriptive error message. This occurs when the server throws RPCErrors like 'something went wrong, please retry (XXXXXXXX)' with empty details.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "client",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-details",
+    "index-error",
+    "error-message",
+    "server-response",
+    "rpc-error",
+    "error-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive unhelpful IndexError exceptions instead of meaningful error messages when encountering certain server-side RPC errors.",
+  "rootCause": "The SDK unconditionally accesses error details list at a specific index without checking if the list is populated, particularly when server returns RPCError with empty details.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue has been fixed in the SDK. The maintainer confirmed the fix is available for customers.",
+  "related": [],
+  "keyQuote": "The SDK assumes this list is populated, but it is empty when getting an error of the form `RPCError('something went wrong, please retry (XXXXXXXX)')`",
+  "number": 791,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:22:46.093Z"
+}

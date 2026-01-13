@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add saga pattern implementation to the Ruby SDK, similar to other Temporal SDKs. The maintainers declined, explaining that sagas are a pattern rather than a utility, and different use cases require different approaches.",
+  "category": "feature",
+  "subcategory": "saga-pattern",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "saga-pattern",
+    "compensation",
+    "error-recovery",
+    "workflow-orchestration",
+    "activity-sequencing"
+  ],
+  "severity": "low",
+  "userImpact": "Users can implement saga patterns directly in their workflows using standard Temporal APIs rather than relying on a built-in utility.",
+  "rootCause": "Saga is a pattern rather than a universal utility - different users need different compensation strategies (concurrent vs sequential, different error handling approaches).",
+  "proposedFix": "Implement saga pattern manually in workflow code using activity sequencing and exception handling, as shown in the maintainer's example.",
+  "workaround": "Use manual compensation activity sequencing with try-rescue blocks, as demonstrated in the maintainer's code example.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Not planned as a built-in utility because the pattern is already supported through standard SDK capabilities. Pattern will instead be demonstrated in samples.",
+  "related": [
+    14
+  ],
+  "keyQuote": "saga is a pattern more than a utility...different people need different approaches (e.g. some want compensations concurrently, some want to collect compensation errors in different ways)",
+  "number": 236,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:18.103Z"
+}

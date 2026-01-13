@@ -1,0 +1,31 @@
+{
+  "summary": "Request for custom failure converters in the Python SDK, similar to implementations in TypeScript and Go SDKs. This feature allows developers to customize how exceptions are converted to Temporal failures.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "failure-converter",
+    "exception-handling"
+  ],
+  "concepts": [
+    "error-conversion",
+    "exception-mapping",
+    "failure-serialization",
+    "customization",
+    "sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot customize how exceptions are converted to Temporal failures, limiting their ability to handle domain-specific error scenarios.",
+  "rootCause": null,
+  "proposedFix": "Implement custom failure converters similar to the TypeScript PR #887 and Go PR #924.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #142, which addresses the same feature request.",
+  "related": [
+    142
+  ],
+  "keyQuote": "Dupe of https://github.com/temporalio/sdk-python/issues/142",
+  "number": 152,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:30.976Z"
+}

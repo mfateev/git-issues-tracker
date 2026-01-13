@@ -1,0 +1,35 @@
+{
+  "summary": "Users need a way to cancel long-running client calls such as GetWorkflowResult or GetUpdateResult, with optional timeout support. This should follow common Java practices for cancellation.",
+  "category": "feature",
+  "subcategory": "client-cancellation",
+  "apis": [
+    "GetWorkflowResult",
+    "GetUpdateResult"
+  ],
+  "components": [
+    "client",
+    "blocking-calls",
+    "cancellation-handling"
+  ],
+  "concepts": [
+    "cancellation",
+    "timeout",
+    "long-running-calls",
+    "client-operations",
+    "async-patterns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot cancel or timeout long-running client calls, blocking threads indefinitely and limiting application responsiveness.",
+  "rootCause": null,
+  "proposedFix": "Implement cancellation mechanism for client calls with optional timeout support, following Java best practices (e.g., Future cancellation, CompletableFuture, or similar patterns).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1212
+  ],
+  "keyQuote": "Provide some way for users to cancel a long client call such as getting workflow result or getting update result.",
+  "number": 1914,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:20.423Z"
+}

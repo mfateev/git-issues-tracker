@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow update handles should automatically use the run ID returned from the start operation, ensuring consistency. The issue also calls for better documentation about the consequences of not using a workflow handle with a specific run ID.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-handle",
+    "update-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "run-id",
+    "workflow-updates",
+    "handle-management",
+    "state-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually manage run IDs when using workflow update handles, which can lead to inconsistencies if not done correctly.",
+  "rootCause": null,
+  "proposedFix": "Automatically set the run ID from the start operation result for update handles, and improve documentation about run ID requirements.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #382",
+  "related": [
+    382
+  ],
+  "keyQuote": "Updates only ever apply to one run, so we should always set the run ID as what comes back from start, regardless of input.",
+  "number": 155,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:49:32.988Z"
+}

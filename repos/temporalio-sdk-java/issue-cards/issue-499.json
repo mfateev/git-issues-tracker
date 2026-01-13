@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to handle all exceptions as non-retryable when TEMPORAL_DEBUG environment variable is set, to improve troubleshooting during development by preventing automatic retries of core exceptions like NullPointerException and InvalidArgumentException.",
+  "category": "feature",
+  "subcategory": "debugging",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "debugging",
+    "retry-policy",
+    "exception-handling",
+    "development-mode",
+    "error-behavior"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would have easier troubleshooting during development cycles when TEMPORAL_DEBUG is enabled, as exceptions would fail fast instead of being retried.",
+  "rootCause": null,
+  "proposedFix": "Reuse the existing TEMPORAL_DEBUG environment variable to configure exception handling behavior to treat all exceptions as non-retryable when the flag is set.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "TEMPORAL_DEBUG env variable is already in use to assist with debugging (e.g. timeouts) and it could be reused to handle all exception as non-retryable by default.",
+  "number": 499,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:22:20.225Z"
+}

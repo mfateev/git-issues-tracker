@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowExecutionCancelRequested event from parent workflow is not processed when a child workflow returns ContinueAsNew concurrently. The cancellation event appears to be leaked due to a race condition during the workflow transition.",
+  "category": "bug",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNew",
+    "Sleep"
+  ],
+  "components": [
+    "workflow-engine",
+    "event-processor",
+    "continuation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "concurrent-processing",
+    "continue-as-new",
+    "event-leak",
+    "race-condition",
+    "parent-child-workflow"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows that respond to cancellation requests by performing ContinueAsNew may lose the cancellation event, leading to unexpected workflow state transitions.",
+  "rootCause": "Race condition between cancellation event processing and ContinueAsNew execution when a workflow receives a cancel request but decides to continue as new instead of honoring the cancellation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be expected behavior - workflows can choose to ignore cancellation requests and perform ContinueAsNew; this is not a bug but a design choice by the workflow author.",
+  "related": [],
+  "keyQuote": "The workflow can decide to honor the cancellation request by return a CancelledError, or it can ignore that request and do something else.",
+  "number": 3241,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:31.820Z"
+}

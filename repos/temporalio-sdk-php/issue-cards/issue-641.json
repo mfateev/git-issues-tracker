@@ -1,0 +1,31 @@
+{
+  "summary": "User attempted to call `Workflow::all()` on promises but the method doesn't exist on ScopeContext. They were using an incorrect API—the correct method is `Promise::all()` which they discovered through discussion.",
+  "category": "question",
+  "subcategory": "workflow-promises",
+  "apis": [
+    "Workflow::all",
+    "Promise::all"
+  ],
+  "components": [
+    "workflow-scope",
+    "promise-handling"
+  ],
+  "concepts": [
+    "async-coordination",
+    "promise-aggregation",
+    "api-discovery",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users following incorrect documentation or AI-generated examples may attempt to use non-existent Workflow::all() method, causing runtime errors.",
+  "rootCause": "Confusion between Workflow::all() (non-existent) and the correct Promise::all() method. User was likely guided by incorrect AI-generated examples.",
+  "proposedFix": "Use Promise::all() instead of Workflow::all() to wait for multiple promises.",
+  "workaround": "Use Promise::all() method which provides the same functionality.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was resolved when the user was directed to the correct API (Promise::all) in comments. This was user confusion rather than a bug.",
+  "related": [],
+  "keyQuote": "You probably meant to call `Promise::all()`. Promise::all() is indeed what I was after.",
+  "number": 641,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:37.604Z"
+}

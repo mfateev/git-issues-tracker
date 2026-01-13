@@ -1,0 +1,33 @@
+{
+  "summary": "Request for multiple API enhancements to support Temporal Web, including combined OPEN+CLOSED workflow queries, backwards pagination, server-side event filtering in History, and parent workflow to child workflow discovery.",
+  "category": "feature",
+  "subcategory": "web-api",
+  "apis": [
+    "History"
+  ],
+  "components": [
+    "api",
+    "workflow-query",
+    "history-service",
+    "mutable-state"
+  ],
+  "concepts": [
+    "pagination",
+    "filtering",
+    "parent-child-workflows",
+    "event-types",
+    "workflow-visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Temporal Web lacks APIs for efficient workflow discovery and filtering, requiring workarounds like client-side filtering and multiple API calls.",
+  "rootCause": null,
+  "proposedFix": "Implement server-side API endpoints for: (1) combined OPEN+CLOSED workflow queries, (2) backwards pagination, (3) event-type filtering in History, (4) parent-to-child workflow discovery via mutableState ID tracking.",
+  "workaround": "Client-side filtering of event types; making multiple API calls for OPEN and CLOSED workflows separately.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Given a parent workflow, find all the child workflows - We want to make it easy to find the child workflows of a parent workflow in Temporal Web.",
+  "number": 996,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:31:16.263Z"
+}

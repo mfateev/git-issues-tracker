@@ -1,0 +1,37 @@
+{
+  "summary": "Query failures currently only support a single error string, preventing users from accessing stack traces, error details, and encryption capabilities available in other parts of the platform. The request is to support full `temporal.api.failure.v1.Failure` structures in query results, enabling proper error encoding and detailed failure information.",
+  "category": "feature",
+  "subcategory": "query-failures",
+  "apis": [
+    "WorkflowQueryResult",
+    "QueryFailedFailure"
+  ],
+  "components": [
+    "query-handler",
+    "failure-encoding",
+    "error-details"
+  ],
+  "concepts": [
+    "error-handling",
+    "structured-failures",
+    "stack-traces",
+    "error-encoding",
+    "encryption",
+    "payload"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access detailed error information, stack traces, or encrypt query failures like they can for other platform operations.",
+  "rootCause": "Query result API design only supports a single string error message instead of the full Failure structure used elsewhere",
+  "proposedFix": "Add `temporal.api.failure.v1.Failure failure` field to `temporal.api.query.v1.WorkflowQueryResult` and `temporal.api.errordetails.v1.QueryFailedFailure`",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    6947,
+    503
+  ],
+  "keyQuote": "Support a full `temporal.api.failure.v1.Failure` on query result (can be mutually exclusive with the string today)",
+  "number": 6845,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:15.065Z"
+}

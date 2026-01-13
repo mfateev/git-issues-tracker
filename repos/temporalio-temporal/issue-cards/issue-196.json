@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request for rate limiting per dynamically created partition keys in task lists. Users need to limit concurrent activity execution based on custom keys (e.g., per customer) without managing client-side workers manually.",
+  "category": "feature",
+  "subcategory": "task-list-throttling",
+  "apis": [],
+  "components": [
+    "task-list",
+    "worker",
+    "activity-dispatcher"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "partitioning",
+    "concurrency-control",
+    "throttling",
+    "multi-tenancy",
+    "dynamic-keys"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can implement rate limiting per customer or other dynamic attributes without complex client-side worker management.",
+  "rootCause": null,
+  "proposedFix": "Provide a special task list type that supports rate limiting per partition key, with the key supplied during activity scheduling and worker configuration on the server side.",
+  "workaround": "Possible to achieve using task list throttling, but requires managing client-side workers dynamically.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The proposed feature is to provide a special task list type that would support rate limiting per some \"partition key\".",
+  "number": 196,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:22:16.062Z"
+}

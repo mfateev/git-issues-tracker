@@ -1,0 +1,28 @@
+{
+  "summary": "Fix improper capitalization of 'ID' to 'Id' in the .NET SDK before beta release. This is a naming convention correction to follow proper C# capitalization standards.",
+  "category": "bug",
+  "subcategory": "naming-convention",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "api-definitions"
+  ],
+  "concepts": [
+    "naming-convention",
+    "capitalization",
+    "api-design",
+    "c#-standards"
+  ],
+  "severity": "low",
+  "userImpact": "Users will need to update their code to use 'Id' instead of 'ID' when upgrading to the beta version.",
+  "rootCause": "Incorrect capitalization applied during initial SDK development",
+  "proposedFix": "Change all instances of 'ID' to 'Id' throughout the codebase",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Naming convention was corrected to use proper C# capitalization 'Id' instead of 'ID'",
+  "related": [],
+  "keyQuote": "We erroneously uppercased `ID` instead of proper capitalization of `Id`. Fix this before beta.",
+  "number": 104,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:58:01.400Z"
+}

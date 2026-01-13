@@ -1,0 +1,30 @@
+{
+  "summary": "Error objects in 'Failed to activate workflow' log messages appear blank when serialized with JSON.stringify because Error properties are non-enumerable. The actual error details appear later in TRACE messages with less context.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "logger",
+    "workflow-activation"
+  ],
+  "concepts": [
+    "error-serialization",
+    "logging",
+    "workflow-activation",
+    "error-handling",
+    "json-serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see activation failure reasons in error logs, making it difficult to diagnose workflow failures.",
+  "rootCause": "JSON.stringify only serializes enumerable own properties, and Error.message and Error.stack are non-enumerable properties in JavaScript",
+  "proposedFix": "Use util.format(err) instead of JSON.stringify(err), define Error.prototype.toJSON, provide a replacer function to JSON.stringify, or use the serialize-error package",
+  "workaround": "Modify custom loggers to use util.format instead of JSON.stringify when logging errors",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing proper Error serialization in logging (likely using one of the suggested solutions)",
+  "related": [],
+  "keyQuote": "JSON.stringify only goes down on enumerable own properties, whereas Error.message and Error.stackTrace are not enumerable properties",
+  "number": 948,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:23.731Z"
+}

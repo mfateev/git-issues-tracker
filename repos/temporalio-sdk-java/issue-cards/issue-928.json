@@ -1,0 +1,32 @@
+{
+  "summary": "TestActivityExtension throws RejectedExecutionException when running multiple test methods in a single test class because the thread pool executor is terminated after the first test completes.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "TestActivityExtension",
+    "TestActivityEnvironmentInternal",
+    "ThreadPoolExecutor"
+  ],
+  "concepts": [
+    "lifecycle",
+    "test-isolation",
+    "thread-pool",
+    "resource-cleanup",
+    "junit5-extension"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot write multiple test methods in a single test class using TestActivityExtension, causing test failures on the second test method.",
+  "rootCause": "The thread pool executor is terminated after the first test method completes, preventing reuse across multiple test methods in the same class.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Trivial local mistake in the original implementation that was corrected without architectural changes.",
+  "related": [
+    1133
+  ],
+  "keyQuote": "Task rejected from java.util.concurrent.ThreadPoolExecutor@377fb945[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1]",
+  "number": 928,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:54:16.255Z"
+}

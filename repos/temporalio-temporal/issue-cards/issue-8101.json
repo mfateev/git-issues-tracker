@@ -1,0 +1,33 @@
+{
+  "summary": "RecordActivityStarted implementation holds workflow lock while loading ActivityScheduledEvent from history, causing unnecessary lock contention when many activities are scheduled simultaneously. The proposal is to read the event outside the lock since history is immutable.",
+  "category": "feature",
+  "subcategory": "activity-scheduling",
+  "apis": [],
+  "components": [
+    "workflow-lock",
+    "history-service",
+    "activity-scheduler",
+    "mutable-state",
+    "event-cache"
+  ],
+  "concepts": [
+    "lock-contention",
+    "concurrency",
+    "performance",
+    "history-immutability",
+    "caching",
+    "workflow-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience task failures and retries when scheduling large numbers of activities simultaneously due to workflow lock contention.",
+  "rootCause": "RecordActivityStarted loads ActivityScheduledEvent while holding workflow lock, and event is not cached, causing lock contention during high-volume activity scheduling.",
+  "proposedFix": "Read ActivityScheduledEvent outside workflow lock and ensure ActivityScheduledEvent is cached during activity scheduling.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "loading the ActivityScheduledEvent while holding the workflow lock...increases the time workflow is locked unnecessarily (because history is immutable and can be accessed without workflow being locked)",
+  "number": 8101,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:52.703Z"
+}

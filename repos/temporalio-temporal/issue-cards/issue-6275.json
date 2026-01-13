@@ -1,0 +1,32 @@
+{
+  "summary": "User requests a way to detect when a workflow is in a failed state but still shows as \"Running\" in the UI. This occurs when workflows fail internally (e.g., due to missing exports or unhandled initialization errors) but don't transition to the actual Failed state, making error detection difficult.",
+  "category": "feature",
+  "subcategory": "workflow-state-management",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-runtime",
+    "workflow-state-machine",
+    "logging"
+  ],
+  "concepts": [
+    "workflow-failure",
+    "state-detection",
+    "error-visibility",
+    "workflow-initialization",
+    "logging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably detect when workflows have failed internally, leading to silent failures and operational blindness in production systems.",
+  "rootCause": "Workflow runtime does not properly transition to Failed state for certain initialization errors; error information is not surfaced through standard logging or metadata.",
+  "proposedFix": "Implement a mechanism to either: (1) properly transition workflows to Failed state when initialization errors occur, or (2) expose workflow failure information through logs/metadata/state queries.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If I do this [...] and then start the workflow it will show up as \"Running\" but it's actually in a sort of failed state.",
+  "number": 6275,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:46.271Z"
+}

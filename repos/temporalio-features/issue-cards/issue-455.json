@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to treat TLS handshake failures as worker-fatal errors instead of retrying indefinitely. TLS failures should be differentiated from normal connection failures and cause the worker to fail after normal retry logic is exhausted.",
+  "category": "feature",
+  "subcategory": "worker-tls",
+  "apis": [],
+  "components": [
+    "worker",
+    "connection",
+    "tls",
+    "poll"
+  ],
+  "concepts": [
+    "tls",
+    "handshake",
+    "failure",
+    "retry",
+    "worker-fatal",
+    "connection"
+  ],
+  "severity": "high",
+  "userImpact": "Workers currently retry TLS handshake failures indefinitely, preventing proper failure detection and worker shutdown when TLS configuration is misconfigured.",
+  "rootCause": null,
+  "proposedFix": "Differentiate TLS handshake failures from normal connection failures and treat TLS failures as worker-fatal after normal retry logic is exhausted.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "On any TLS failure do the normal retry we should do for all worker poll calls, then consider it a fatal error to fail the worker.",
+  "number": 455,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:58.975Z"
+}

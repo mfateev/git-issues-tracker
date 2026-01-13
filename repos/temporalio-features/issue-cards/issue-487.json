@@ -1,0 +1,34 @@
+{
+  "summary": "GetWorkflowHistory can return a single page of history that exceeds gRPC payload limits (e.g., 4MB), putting workflows into an unrecoverable state. The request seeks solutions such as smaller pagination or a payload store.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [
+    "GetWorkflowHistory"
+  ],
+  "components": [
+    "workflow-history",
+    "grpc",
+    "pagination",
+    "payload-handling"
+  ],
+  "concepts": [
+    "payload-size",
+    "pagination",
+    "grpc-limits",
+    "large-payloads",
+    "history-retrieval",
+    "error-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users with large workflow history payloads can encounter unrecoverable workflow states when history pages exceed gRPC limits, blocking workflow access and management.",
+  "rootCause": "GetWorkflowHistory returns unbounded page sizes that can exceed gRPC payload limits when history contains large payloads like activity arguments.",
+  "proposedFix": "Implement pagination through smaller pages if size problem detected, or implement a payload store to decouple history size from gRPC limits.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A workflow page with large payloads can exceed the GRPC limit...it could be larger than that limit. This gets the workflow into a state that's difficult-to-impossible to recover from.",
+  "number": 487,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:04:34.540Z"
+}

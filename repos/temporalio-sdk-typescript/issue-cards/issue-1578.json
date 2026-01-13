@@ -1,0 +1,30 @@
+{
+  "summary": "Worker fails to start when Node.js --abort-on-uncaught-exception flag is set due to improper VM context configuration during bundle preloading for debuggers. The preload operation causes a TypeError that V8 can't properly track across execution contexts, resulting in process abort instead of graceful error handling.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "vm-context"
+  ],
+  "concepts": [
+    "error-handling",
+    "vm-execution-context",
+    "debugger-integration",
+    "node-options",
+    "webpack-cache"
+  ],
+  "severity": "high",
+  "userImpact": "Workers cannot be started with the --abort-on-uncaught-exception Node option, preventing users from using this safety flag in production environments.",
+  "rootCause": "Bundle preloading for debugger support executes code in a VM context where globalThis.__webpack_module_cache__ is undefined. The error occurs in a child execution context where V8's --abort-on-uncaught-exception cannot properly track cross-context exception handling, causing premature process termination.",
+  "proposedFix": "Make bundle preloading conditional on debugger presence and consider moving the preload logic to the VM to ensure proper context configuration. Quick fix: add ?? {} suffix to problematic line in bundler, but proper fix requires architectural review.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "V8's is not aware of the cross-execution-context call involved by script.runInContext(), so it can't figure out that the error happening in the child context will get properly handled by the parent context",
+  "number": 1578,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:05.783Z"
+}

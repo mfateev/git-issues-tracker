@@ -1,0 +1,30 @@
+{
+  "summary": "CrossDC configuration in Temporal still uses the legacy `cadence-cluster-topics` key for Kafka topic mapping. This needs to be renamed to `temporal-cluster-topics` to align with the Temporal branding.",
+  "category": "bug",
+  "subcategory": "config",
+  "apis": [],
+  "components": [
+    "cross-dc",
+    "kafka",
+    "cluster-config"
+  ],
+  "concepts": [
+    "configuration",
+    "naming",
+    "kafka-integration",
+    "cross-region",
+    "cluster-mapping"
+  ],
+  "severity": "low",
+  "userImpact": "Users operating Temporal in cross-datacenter mode may experience confusion due to legacy Cadence naming in configuration keys.",
+  "rootCause": "Legacy naming convention from Cadence migration not fully updated in CrossDC configuration.",
+  "proposedFix": "Rename the `cadence-cluster-topics` configuration key to `temporal-cluster-topics`.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration key was renamed from cadence-cluster-topics to temporal-cluster-topics.",
+  "related": [],
+  "keyQuote": "CrossDC config in Temporal still uses the key `cadence-cluster-topics` for Temporal cluster to Kafka topic mapping. We need to rename this to `temporal-cluster-topics`",
+  "number": 610,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:19:59.187Z"
+}

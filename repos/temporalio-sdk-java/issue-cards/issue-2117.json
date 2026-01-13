@@ -1,0 +1,31 @@
+{
+  "summary": "Java SDK uses different OpenTelemetry span tag names (workflowId, runId) compared to other SDKs (temporalWorkflowID, temporalRunID). Request to allow customization of OTel span tags so users can make them consistent across SDKs.",
+  "category": "feature",
+  "subcategory": "observability-otel",
+  "apis": [],
+  "components": [
+    "opentelemetry-interceptor",
+    "span-tags",
+    "instrumentation"
+  ],
+  "concepts": [
+    "observability",
+    "telemetry",
+    "standardization",
+    "customization",
+    "compatibility",
+    "otel-spans"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot standardize OpenTelemetry span tag naming across multi-SDK deployments without Java SDK customization support.",
+  "rootCause": "Java SDK currently uses different span tag naming conventions than other SDKs for compatibility reasons, and lacks OpenTelemetry interceptor customization.",
+  "proposedFix": "Create a first-class OpenTelemetry interceptor (replacing current OpenTracing) that allows customization of span tag names, similar to .NET SDK.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Go and Python and .NET and others use `temporalWorkflowID`, `temporalRunID`, `temporalActivityID`, etc but Java uses `workflowId` and `runId`",
+  "number": 2117,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:30.166Z"
+}

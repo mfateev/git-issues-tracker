@@ -1,0 +1,32 @@
+{
+  "summary": "Activity completions may be dropped when a worker shuts down, especially if the process exits immediately after shutdown returns. This causes activity failures to not be recorded before the worker closes.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "shutdown"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "activity-completion",
+    "signal-handling",
+    "cancellation",
+    "process-exit"
+  ],
+  "severity": "high",
+  "userImpact": "Activity failures may not be recorded if the worker shuts down and the process exits immediately, leaving workflows in an inconsistent state.",
+  "rootCause": "Running activity completions may not get recorded before the activity worker closes, particularly when sys.exit() is called immediately after shutdown returns.",
+  "proposedFix": "Properly finish running activities and ensure all activity completions are recorded before closing the activity worker during shutdown.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The activity completion, often a cancel failure as result of worker shutdown, may not get recorded before run/shutdown returns.",
+  "number": 368,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:41.957Z"
+}

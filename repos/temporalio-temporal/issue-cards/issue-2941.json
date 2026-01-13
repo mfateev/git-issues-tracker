@@ -1,0 +1,34 @@
+{
+  "summary": "History cache is currently per-shard and inefficient. Proposal is to move to a host-level cache shared among all shards, change dynamic config from entry count to byte size, and add metrics for cache size monitoring.",
+  "category": "feature",
+  "subcategory": "history-cache",
+  "apis": [],
+  "components": [
+    "history",
+    "cache",
+    "shard",
+    "metrics"
+  ],
+  "concepts": [
+    "cache",
+    "memory",
+    "configuration",
+    "shared-state",
+    "performance",
+    "metrics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to configure per-shard caches and lack visibility into cache memory usage, limiting performance optimization and resource management.",
+  "rootCause": "Current architecture uses per-shard mutable state and event caches with entry-count-based configuration, making it difficult to estimate memory usage and configure effectively.",
+  "proposedFix": "Implement host-level cache shared among all shards, change dynamic config to byte-size-based instead of entry-count-based, and emit gauge metrics for cache size monitoring.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5894
+  ],
+  "keyQuote": "History uses mutable state cache and history event cache, and the caches are per shard, this is not efficient and hard to config.",
+  "number": 2941,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:46.475Z"
+}

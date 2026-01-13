@@ -1,0 +1,31 @@
+{
+  "summary": "@temporalio/worker's deep import from @opentelemetry/api's build directory breaks when @opentelemetry/api is upgraded to version 1.9.0, as the import path './build/src/trace/NoopTracer' is no longer exported. The issue was resolved by removing the dependency on NoopTracer in a later version.",
+  "category": "bug",
+  "subcategory": "dependency-compatibility",
+  "apis": [],
+  "components": [
+    "worker",
+    "tracing",
+    "opentelemetry-integration"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "package-exports",
+    "version-compatibility",
+    "import-paths"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot install and use @temporalio/worker with the latest version of @opentelemetry/api (1.9.0), forcing them to manually lock the package to an older version.",
+  "rootCause": "The @temporalio/worker package was doing a deep import directly from the @opentelemetry/api build directory (./build/src/trace/NoopTracer), which is not exposed in the package's exports. OpenTelemetry 1.9.0 changed its exports, breaking this import path.",
+  "proposedFix": "Update all @temporalio packages to version >1.9.0, which removed the dependency on NoopTracer as mentioned in PR #1269.",
+  "workaround": "Lock @opentelemetry/api version between 1.3.0 and 1.6.0 to avoid the breaking change.",
+  "resolution": "fixed",
+  "resolutionDetails": "The import on NoopTracer was removed in PR #1269, resolving the compatibility issue when updating to newer versions of @opentelemetry/api.",
+  "related": [
+    1269
+  ],
+  "keyQuote": "The import on `NoopTracer` was removed in #1269. Please update all @temporalio to >1.9.0.",
+  "number": 1502,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:11.332Z"
+}

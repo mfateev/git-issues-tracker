@@ -1,0 +1,34 @@
+{
+  "summary": "Request to document ScyllaDB compatibility with Temporal's Cassandra backend. Currently unclear whether ScyllaDB is recommended, unsupported, or unverified despite being presented as a drop-in Cassandra alternative.",
+  "category": "docs",
+  "subcategory": "database-compatibility",
+  "apis": [],
+  "components": [
+    "cassandra-backend",
+    "storage-persistence"
+  ],
+  "concepts": [
+    "database-compatibility",
+    "scylladb",
+    "backend-support",
+    "documentation",
+    "production-readiness",
+    "testing-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users evaluating storage options for Temporal lack clear guidance on whether ScyllaDB is a viable production alternative to Cassandra.",
+  "rootCause": null,
+  "proposedFix": "Add documentation clarifying ScyllaDB support status and guidance for users, such as: expected to work but not officially tested, or compatibility may be revisited if there is interest.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2683,
+    3511,
+    1267
+  ],
+  "keyQuote": "If ScyllaDB claims itself to be compatible, then it should work out of the box. For production usage, there's obviously a risk though as we don't really do any release testing/validation on top of ScyllaDB.",
+  "number": 8652,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:37.359Z"
+}

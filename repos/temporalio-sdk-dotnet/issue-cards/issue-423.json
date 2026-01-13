@@ -1,0 +1,30 @@
+{
+  "summary": "Move the Rust C bridge implementation from the .NET SDK to sdk-core to allow other language SDKs to reuse it without duplicating the C interfacing code.",
+  "category": "feature",
+  "subcategory": "sdk-core-integration",
+  "apis": [],
+  "components": [
+    "c-bridge",
+    "rust-interop",
+    "sdk-core"
+  ],
+  "concepts": [
+    "code-sharing",
+    "interoperability",
+    "rust-binding",
+    "c-interface",
+    "sdk-architecture"
+  ],
+  "severity": "low",
+  "userImpact": "Enables other Temporal SDKs to leverage the existing Rust C bridge without maintaining separate implementations.",
+  "rootCause": null,
+  "proposedFix": "Move the Rust parts of the C bridge from the .NET SDK repository to the sdk-core repository.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented and closed, moving the Rust bridge to sdk-core as requested.",
+  "related": [],
+  "keyQuote": "Move the Rust parts of the bridge to Core. There is nothing .NET related in the C bridge.",
+  "number": 423,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:23:09.373Z"
+}

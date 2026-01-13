@@ -1,0 +1,31 @@
+{
+  "summary": "Request to automatically log the stack trace of activity threads when they fail to heartbeat within the heartbeat interval or exceed the start-to-close timeout. This would help troubleshoot common activity execution failures.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat-manager",
+    "logging"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "stack-trace",
+    "debugging",
+    "activity-thread",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have better visibility into why activities are failing to complete or heartbeat, reducing debugging time.",
+  "rootCause": null,
+  "proposedFix": "Automatically log the stack of the activity thread if an activity didn't heartbeat within heartbeat interval or an activity failed to complete for the start to close timeout.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Automatically log the stack of the activity thread if an activity didn't heartbeat within heartbeat interval or an activity failed to complete for the start to close timeout.",
+  "number": 1216,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:15:06.318Z"
+}

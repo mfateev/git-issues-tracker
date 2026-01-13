@@ -1,0 +1,36 @@
+{
+  "summary": "Testing activities that constantly fail with large timeout values causes excessive retries (thousands) in test framework, slowing down tests. Request to add option to limit retries or skip time during testing to handle this edge case.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ActivityOptions",
+    "RetryOptions"
+  ],
+  "components": [
+    "test-framework",
+    "activity-retry",
+    "test-environment"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "testing",
+    "activity-failure",
+    "time-skipping",
+    "test-performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests run extremely slowly when activities fail with long timeouts, requiring thousands of retries before timeout, making the testing experience cumbersome.",
+  "rootCause": "Test framework applies realistic retry behavior based on timeout duration, so 5-day timeout with 1-second retry interval results in ~432,000 retries during time-skipping.",
+  "proposedFix": "Add ability to override ActivityOptions (specifically RetryOptions#maxRetries) in test framework to limit retries, or provide built-in test mode that defaults maxRetries to a reasonable value like 1.",
+  "workaround": "Manually set ActivityOptions#RetryOptions#maxRetries=1 for test scenarios, though this requires modifying workflow code or using environment variable detection.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    499
+  ],
+  "keyQuote": "Ability to overwrite whole/parts of the activity options in the test (when ActivityOptions are defined inside the tested workflow code).",
+  "number": 626,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:29:36.983Z"
+}

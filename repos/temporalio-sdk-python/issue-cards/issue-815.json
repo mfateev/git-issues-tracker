@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to fail workflows directly when pydantic.ValidationError occurs during payload decoding, instead of wrapping it in RuntimeError and keeping the workflow running indefinitely with a 'Failed decoding arguments' error.",
+  "category": "feature",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "pydantic_data_converter",
+    "workflow_instance",
+    "worker"
+  ],
+  "concepts": [
+    "payload-validation",
+    "error-handling",
+    "workflow-failure",
+    "data-conversion",
+    "exception-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly fail workflows when validation errors occur during pydantic payload decoding, leading to workflows stuck in a failed state that never complete.",
+  "rootCause": "ValidationError from pydantic converter is wrapped as RuntimeError in _workflow_instance.py, preventing workflow_failure_exception_types from catching the original exception type.",
+  "proposedFix": "Stop wrapping the exception (re-raise original) if the exception is already a workflow failure exception, or raise FailureError directly from the pydantic converter.",
+  "workaround": "Specify RuntimeError in workflow_failure_exception_types, though this is overly broad and catches unrelated runtime errors.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    329,
+    321
+  ],
+  "keyQuote": "I would like to see a workflow failing directly upon 'Failed decoding arguments' while not having to specify a RuntimeError as an error in workflow_failure_exception_types.",
+  "number": 815,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:45.498Z"
+}

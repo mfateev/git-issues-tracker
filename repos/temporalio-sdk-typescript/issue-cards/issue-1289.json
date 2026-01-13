@@ -1,0 +1,32 @@
+{
+  "summary": "Users need the ability to manually control pagination when listing workflows in the TypeScript SDK. The request is for the SDK to return pagination tokens and allow users to provide those tokens on subsequent calls, similar to how the Python SDK implements this feature.",
+  "category": "feature",
+  "subcategory": "workflow-listing",
+  "apis": [
+    "ListWorkflows"
+  ],
+  "components": [
+    "workflow-client",
+    "list-workflows",
+    "pagination"
+  ],
+  "concepts": [
+    "pagination",
+    "manual-control",
+    "tokens",
+    "ui-integration",
+    "cursor-based"
+  ],
+  "severity": "low",
+  "userImpact": "Users building UIs around workflow listing cannot implement manual pagination controls, limiting their ability to create flexible pagination interfaces.",
+  "rootCause": null,
+  "proposedFix": "Accept pagination token parameter on list call and return token and page information in response, following the pattern already implemented in the Python SDK.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some users are using this list to power a UI, but we are hiding the pagination.",
+  "number": 1289,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:34.996Z"
+}

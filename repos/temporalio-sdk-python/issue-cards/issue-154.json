@@ -1,0 +1,35 @@
+{
+  "summary": "Support replaying multiple workflows by adding lazy history fetching and modifying the replayer to accept an iterable of histories instead of a single history, enabling efficient streaming of workflow histories.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "history",
+    "worker"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "streaming",
+    "workflow-replay",
+    "history-management",
+    "multi-workflow",
+    "iteration"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to replay multiple workflows efficiently without loading all histories into memory at once.",
+  "rootCause": null,
+  "proposedFix": "Support lazy history fetching integrated with stream-map on lazy lists, and refactor replayer to accept iterable of histories using sdk-core PR #400 streaming capabilities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented multi-workflow replayer support with lazy history fetching and iterable-based replayer API.",
+  "related": [
+    153,
+    158,
+    400
+  ],
+  "keyQuote": "Change replayer to accept iterable of histories instead of a single one and use streaming capabilities",
+  "number": 154,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:33.239Z"
+}

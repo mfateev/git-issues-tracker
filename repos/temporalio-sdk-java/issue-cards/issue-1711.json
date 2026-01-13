@@ -1,0 +1,32 @@
+{
+  "summary": "Child workflows started from already-cancelled workflow contexts lack unit test coverage. The code path at SyncWorkflowContext.java:586 needs tests to verify proper behavior when initiating child workflows during cancellation.",
+  "category": "feature",
+  "subcategory": "test-coverage",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "SyncWorkflowContext",
+    "child-workflow",
+    "workflow-cancellation"
+  ],
+  "concepts": [
+    "cancellation",
+    "child-workflow",
+    "test-coverage",
+    "error-handling",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Lack of test coverage for cancelled workflow context could leave edge cases in child workflow initialization untested and potentially buggy.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Unit tests were added to cover the scenario of starting child workflows from cancelled workflow contexts.",
+  "related": [],
+  "keyQuote": "A situation where we attempt to start a child workflow from a workflow scope that is already cancelled is not covered with unit tests.",
+  "number": 1711,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:19.569Z"
+}

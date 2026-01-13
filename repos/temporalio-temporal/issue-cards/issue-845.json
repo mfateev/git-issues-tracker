@@ -1,0 +1,31 @@
+{
+  "summary": "Request to generate signed tokens for workflow activities that certify worker identity and execution context (activity/workflow name, task list, etc.), enabling workers to authenticate with external systems using their temporal role.",
+  "category": "feature",
+  "subcategory": "authentication",
+  "apis": [],
+  "components": [
+    "worker",
+    "server",
+    "task-list"
+  ],
+  "concepts": [
+    "authentication",
+    "identity",
+    "token",
+    "external-systems",
+    "worker-identity",
+    "authorization"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers cannot currently authenticate with external systems using Temporal identity, limiting integration with secure external resources.",
+  "rootCause": null,
+  "proposedFix": "Server generates signed tokens (or calls configurable plugin) when worker extracts work from task list, certifying activity/workflow information.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "let temporal workers access external systems using their own identity, that certifies what activity/workflow a worker is executing",
+  "number": 845,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:13.217Z"
+}

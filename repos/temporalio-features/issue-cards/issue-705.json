@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add SDK warnings when workflow history exceeds a configurable size threshold, emitted once per workflow and only during execution (not replay) to alert users before the server terminates workflows.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-executor",
+    "history-manager"
+  ],
+  "concepts": [
+    "history-size",
+    "performance",
+    "replay",
+    "server-limits",
+    "configuration",
+    "warnings"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running on managed Temporal servers lack visibility into workflow history size problems until the server terminates their workflows, causing production issues.",
+  "rootCause": null,
+  "proposedFix": "Implement SDK-level detection of workflow history size with configurable warning threshold as a worker option, emitting warnings once per workflow during execution (not replay).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently users not hosting there own Temporal server receive no notification that there history size is a problem",
+  "number": 705,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:06:02.649Z"
+}

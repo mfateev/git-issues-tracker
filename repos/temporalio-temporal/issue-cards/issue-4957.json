@@ -1,0 +1,30 @@
+{
+  "summary": "The CurrentBranchChanged error should identify branches by event ID and version rather than branch token bytes, improving consistency in branch identification.",
+  "category": "other",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "event-handling",
+    "branch-management"
+  ],
+  "concepts": [
+    "branch-identification",
+    "event-id",
+    "versioning",
+    "error-handling",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience incorrect branch identification in error messages and logs when CurrentBranchChanged errors occur.",
+  "rootCause": "CurrentBranchChanged error currently uses branch token bytes as the branch identifier instead of a more stable identifier based on event ID and version.",
+  "proposedFix": "Change the branch ID mechanism in CurrentBranchChanged error to use event ID + version instead of branch token bytes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "CurrentBranchChanged Error should use event id + version as branch id",
+  "number": 4957,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:58.458Z"
+}

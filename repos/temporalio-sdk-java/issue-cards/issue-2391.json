@@ -1,0 +1,30 @@
+{
+  "summary": "Cancelling an activity in the same workflow task where it completes causes the time-skipping test server to return an ACTIVITY_UNKNOWN error and get stuck, while the official server handles this gracefully.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "workflow-activation",
+    "activity-cancellation"
+  ],
+  "concepts": [
+    "activity-cancellation",
+    "workflow-task-execution",
+    "error-handling",
+    "time-skipping",
+    "signal-handler"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test workflows that cancel activities using the time-skipping test server, as it gets stuck with ACTIVITY_UNKNOWN errors.",
+  "rootCause": "The test server may fail to send a subsequent workflow task after denying the workflow task completion due to attempting to cancel an unknown activity.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the workflow get stuck, and the following error message is being displayed: Network error while completing workflow activation error=status: FailedPrecondition, message: \"ACTIVITY_UNKNOWN for scheduledEventId=41\"",
+  "number": 2391,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:57.811Z"
+}

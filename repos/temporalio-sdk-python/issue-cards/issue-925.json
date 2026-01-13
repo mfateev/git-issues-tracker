@@ -1,0 +1,36 @@
+{
+  "summary": "Add opt-in support for applying codec to headers in Python SDK. Currently headers bypass the codec, unlike in .NET and Ruby SDKs. This feature would allow non-search-attribute payloads to be processed through the codec, particularly needed for workflows where the data converter with codec isn't easily accessible.",
+  "category": "feature",
+  "subcategory": "codec-headers",
+  "apis": [],
+  "components": [
+    "client",
+    "worker",
+    "data-converter",
+    "codec"
+  ],
+  "concepts": [
+    "codec",
+    "payload-processing",
+    "headers",
+    "data-conversion",
+    "search-attributes",
+    "encryption",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now encrypt/decrypt headers through codecs, enabling consistent data protection across all payload types including headers in workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement opt-in configuration at client level to route non-search-attribute payloads through codec. Update decode_activation and encode_completion in temporalio.bridge.worker.py. Create payload visitor utility for reusable payload processing.",
+  "workaround": "Users can only use data converter with codec for activities; workflows lack easy header codec access.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    331,
+    468
+  ],
+  "keyQuote": "Opt-in for all non-search-attribute payloads to go through codec (may need to be configured at client level)",
+  "number": 925,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:08.033Z"
+}

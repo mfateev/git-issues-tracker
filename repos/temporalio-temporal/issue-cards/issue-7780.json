@@ -1,0 +1,32 @@
+{
+  "summary": "Request to support HTTPS metrics endpoint on OSS Temporal with optional custom certificates, allowing secure exposure of metrics APIs in Kubernetes environments where only secure endpoints are permitted.",
+  "category": "feature",
+  "subcategory": "metrics-endpoint",
+  "apis": [],
+  "components": [
+    "metrics-endpoint",
+    "tls-configuration",
+    "certificate-management"
+  ],
+  "concepts": [
+    "https",
+    "metrics",
+    "tls",
+    "certificate",
+    "kubernetes",
+    "prometheus",
+    "security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal in Kubernetes clusters with security policies requiring HTTPS for all endpoints cannot expose metrics securely without workarounds.",
+  "rootCause": null,
+  "proposedFix": "Add support for loading a dedicated certificate different from inter-node and frontend certificates for the metrics endpoint, allowing integration with service mesh certificates.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A feature that allows to load a dedicated certificate different from the Temporal's inter-node and frontend certificate for the metrics endpoint.",
+  "number": 7780,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:09.121Z"
+}

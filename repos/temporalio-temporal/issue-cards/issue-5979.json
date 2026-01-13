@@ -1,0 +1,32 @@
+{
+  "summary": "The dns:/// prefix cannot be used for clusterInformation.rpcAddress configuration because CreateRemoteFrontendGRPCConnection uses net.SplitHostPort which cannot parse DNS-prefixed addresses, causing a 'too many colons' error.",
+  "category": "bug",
+  "subcategory": "cluster-configuration",
+  "apis": [],
+  "components": [
+    "RPCFactory",
+    "cluster-metadata",
+    "gRPC-connection"
+  ],
+  "concepts": [
+    "dns-resolver",
+    "cluster-replication",
+    "address-parsing",
+    "gRPC-client",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure multi-cluster replication with dns:// prefix for remote cluster addresses, preventing DNS round-robin load balancing.",
+  "rootCause": "net.SplitHostPort in CreateRemoteFrontendGRPCConnection cannot parse addresses with resolver prefixes like dns:///",
+  "proposedFix": "Parse the address using url.Parse to handle resolver prefixes, extracting hostname from either the Host or Path field depending on whether a resolver prefix is present",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Merged in PR #6430 to use dns resolver by default in newClient",
+  "related": [
+    6430
+  ],
+  "keyQuote": "Use dns:/// prefix to enable round-robin between IP address for DNS name... cannot handle the dns:/// prefix.",
+  "number": 5979,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:35.513Z"
+}

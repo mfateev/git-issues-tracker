@@ -1,0 +1,29 @@
+{
+  "summary": "Binaries for the 1.22.3 release failed to build due to a missing cherry-picked fix in the goreleaser workflow. The issue was resolved in the 1.22.4 release which included the binaries.",
+  "category": "bug",
+  "subcategory": "release-build",
+  "apis": [],
+  "components": [
+    "goreleaser",
+    "release-automation",
+    "binary-distribution"
+  ],
+  "concepts": [
+    "build-failure",
+    "release-process",
+    "binary-distribution",
+    "ci-cd"
+  ],
+  "severity": "medium",
+  "userImpact": "Users were unable to download pre-built binaries for the 1.22.3 release and had to find alternative ways to obtain Temporal Server binaries.",
+  "rootCause": "A fix from the main branch was not cherry-picked to the release branch before running goreleaser.",
+  "proposedFix": null,
+  "workaround": "Use the official Docker images or the Temporal CLI instead of the binaries, or build custom Docker images using binaries from the next release.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by releasing v1.22.4 with the binaries included.",
+  "related": [],
+  "keyQuote": "We just release v1.22.4 which included the binaries.",
+  "number": 5223,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:40.328Z"
+}

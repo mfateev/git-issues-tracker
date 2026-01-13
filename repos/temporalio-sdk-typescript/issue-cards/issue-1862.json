@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to improve error messages when workflow code is imported into activity dependencies or when activities and workflows are mixed in ways that violate sandbox assumptions. Current error message 'Failed to connect before the deadline' is misleading and sends developers down the wrong debugging path.",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "worker",
+    "sandbox",
+    "error-handling"
+  ],
+  "concepts": [
+    "sandbox-violation",
+    "dependency-isolation",
+    "error-messaging",
+    "debugging",
+    "code-organization",
+    "gRPC-connection"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers receive misleading error messages when they accidentally mix workflows and activities, wasting time debugging connectivity issues instead of identifying code organization problems.",
+  "rootCause": "Error messages do not distinguish between actual gRPC connectivity failures and sandbox constraint violations caused by incorrect code placement.",
+  "proposedFix": "Generate specific error messages that detect and communicate when workflow code appears in activity dependencies or when the sandbox assumptions are violated.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Improve error messages when workflow code ends up in an activity dependency / non-sandboxed side, or activities and workflows end up mixed in a way that breaks the sandbox assumptions.",
+  "number": 1862,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T09:13:10.915Z"
+}

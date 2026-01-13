@@ -1,0 +1,31 @@
+{
+  "summary": "Certificate-filters functionality is currently only available in Temporal Cloud but not in self-hosted deployments. This feature request asks for implementing certificate-based access control in on-prem environments to maintain security feature parity and address the limitation that self-hosted users lack similar security capabilities.",
+  "category": "feature",
+  "subcategory": "security-authorization",
+  "apis": [],
+  "components": [
+    "authorization",
+    "certificate-auth",
+    "namespace-config"
+  ],
+  "concepts": [
+    "certificate-filters",
+    "security",
+    "access-control",
+    "claim-mapping",
+    "on-prem",
+    "feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Self-hosted Temporal users cannot enforce certificate-based access restrictions, limiting their ability to implement the same security controls available to cloud users.",
+  "rootCause": null,
+  "proposedFix": "Implement a custom claim mapper (similar to myClaimMapper.go) that reads from a certificate-filters file and enforces restrictions based on certificate attributes, or provide native certificate-filter support in self-hosted version.",
+  "workaround": "Use an nginx gRPC proxy with certificate-based access control at the network level, though this adds complexity compared to a native solution.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be beneficial to have this functionality available in the self-hosted version as well, as it's frustrating for users running on-prem environments to lack similar security features.",
+  "number": 6529,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:08.346Z"
+}

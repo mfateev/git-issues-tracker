@@ -1,0 +1,30 @@
+{
+  "summary": "Auto-time-skipping in WorkflowEnvironment may have a logic error where an assignment or conditional is reversed, potentially causing improper reset behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "WorkflowEnvironment",
+    "time-skipping",
+    "test-utilities"
+  ],
+  "concepts": [
+    "auto-time-skipping",
+    "reset",
+    "test-framework",
+    "timing",
+    "workflow-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests using auto-time-skipping may not properly reset time state between test runs, leading to timing-related test failures.",
+  "rootCause": "Assignment or conditional logic in WorkflowEnvironment.cs lines 323-338 appears to be reversed.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Specifically, https://github.com/temporalio/sdk-dotnet/blob/d48377d698b2a2cb7a8c58d181959df473875314/src/Temporalio/Testing/WorkflowEnvironment.cs#L323-L338 might have its assignment/conditional backwards.",
+  "number": 471,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:28:29.659Z"
+}

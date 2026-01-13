@@ -1,8 +1,8 @@
 # Recent Issues (Last 30 Days)
 
-**Generated:** 2026-01-10
-**Period:** 2025-12-11 to 2026-01-10
-**New Issues:** 50
+**Generated:** 2026-01-13
+**Period:** 2025-12-14 to 2026-01-13
+**New Issues:** 51
 
 ## Related Documents
 
@@ -17,11 +17,11 @@
 | Repository | New Issues |
 |------------|------------|
 | temporal | 15 |
-| sdk-dotnet | 9 |
-| sdk-java | 7 |
+| sdk-dotnet | 8 |
+| sdk-typescript | 7 |
+| sdk-java | 6 |
 | sdk-python | 6 |
-| sdk-typescript | 5 |
-| sdk-php | 3 |
+| sdk-php | 4 |
 | sdk-go | 2 |
 | features | 2 |
 | sdk-ruby | 1 |
@@ -30,12 +30,15 @@
 
 | Author | New Issues |
 |--------|------------|
-| cretz | 4 |
 | jmaeagle99 | 3 |
-| deepika-awasthi | 3 |
-| xepozz | 2 |
+| xepozz | 3 |
+| cretz | 3 |
+| maxi1555 | 2 |
 | pvsone | 2 |
+| deepika-awasthi | 2 |
 | roshchha | 2 |
+| vaibhavscale | 1 |
+| eyamangil | 1 |
 | jrogers | 1 |
 | sashaneb | 1 |
 | stephanos | 1 |
@@ -47,9 +50,6 @@
 | LaurynasKatkus | 1 |
 | adepretis | 1 |
 | HeartLF | 1 |
-| jmcnevin | 1 |
-| NielsKSchjoedt | 1 |
-| Quinn-With-Two-Ns | 1 |
 
 ---
 
@@ -57,6 +57,12 @@
 
 | Date | Repository | # | Author | Title |
 |------|------------|---|--------|-------|
+| 2026-01-12 | sdk-dotnet | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | jmaeagle99 | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_FailsAsExpected` flake |
+| 2026-01-12 | sdk-typescript | [#1883](https://github.com/temporalio/sdk-typescript/issues/1883) | vaibhavscale | [Bug] operatorService not accessible on `ConnectionLike` |
+| 2026-01-12 | temporal | [#9005](https://github.com/temporalio/temporal/issues/9005) | eyamangil | Add capability to filter workflows by a substring |
+| 2026-01-12 | sdk-php | [#698](https://github.com/temporalio/sdk-php/issues/698) | xepozz | [Chore] Drop old packages support |
+| 2026-01-11 | sdk-typescript | [#1881](https://github.com/temporalio/sdk-typescript/issues/1881) | maxi1555 | [Bug] AI-SDK - callToolActivity |
+| 2026-01-11 | sdk-typescript | [#1880](https://github.com/temporalio/sdk-typescript/issues/1880) | maxi1555 | ai-sdk - call tool activity |
 | 2026-01-09 | sdk-java | [#2758](https://github.com/temporalio/sdk-java/issues/2758) | jrogers | Spring Metrics Configuration fails with Spring Boot 4 |
 | 2026-01-09 | sdk-python | [#1268](https://github.com/temporalio/sdk-python/issues/1268) | sashaneb | [Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings |
 | 2026-01-08 | temporal | [#8970](https://github.com/temporalio/temporal/issues/8970) | stephanos | Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory` |
@@ -102,11 +108,6 @@
 | 2025-12-17 | sdk-dotnet | [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | cretz | [Feature Request] Add tests to confirm proper Nexus support for time-skipping environment |
 | 2025-12-16 | temporal | [#8833](https://github.com/temporalio/temporal/issues/8833) | AlexMog | Scheduler does not list workflows runned when using "triggerImmediately" |
 | 2025-12-15 | sdk-python | [#1252](https://github.com/temporalio/sdk-python/issues/1252) | ClemDoum | [Feature Request] add client support for sync activities run by `ThreadPoolExecutor` |
-| 2025-12-12 | sdk-dotnet | [#577](https://github.com/temporalio/sdk-dotnet/issues/577) | jmaeagle99 | [Bug] Investigate test host crash flake |
-| 2025-12-12 | sdk-typescript | [#1862](https://github.com/temporalio/sdk-typescript/issues/1862) | deepika-awasthi | [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error |
-| 2025-12-12 | sdk-java | [#2747](https://github.com/temporalio/sdk-java/issues/2747) | karunagoyal | @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does |
-| 2025-12-12 | sdk-dotnet | [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | cretz | [Feature Request] .NET Analyzer for Checking Workflows |
-| 2025-12-11 | temporal | [#8806](https://github.com/temporalio/temporal/issues/8806) | gow | Test ticket |
 
 ---
 
@@ -114,6 +115,8 @@
 
 ### temporal (15 new)
 
+- **[#9005](https://github.com/temporalio/temporal/issues/9005)** Add capability to filter workflows by a substring
+  - *2026-01-12 by eyamangil* | Labels: enhancement
 - **[#8970](https://github.com/temporalio/temporal/issues/8970)** Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory`
   - *2026-01-08 by stephanos* | Labels: bug
 - **[#8968](https://github.com/temporalio/temporal/issues/8968)** Same fairness key but different fairness weight?
@@ -142,11 +145,11 @@
   - *2025-12-18 by vy-kauppinen* | Labels: potential-bug
 - **[#8833](https://github.com/temporalio/temporal/issues/8833)** Scheduler does not list workflows runned when using "triggerImmediately"
   - *2025-12-16 by AlexMog* | Labels: potential-bug
-- **[#8806](https://github.com/temporalio/temporal/issues/8806)** Test ticket
-  - *2025-12-11 by gow* | Labels: potential-bug
 
-### sdk-dotnet (9 new)
+### sdk-dotnet (8 new)
 
+- **[#592](https://github.com/temporalio/sdk-dotnet/issues/592)** [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_FailsAsExpected` flake
+  - *2026-01-12 by jmaeagle99* | Labels: bug
 - **[#588](https://github.com/temporalio/sdk-dotnet/issues/588)** [Bug] Some unlikely workflow task failures like failure conversion issues may be lost
   - *2026-01-07 by cretz* | Labels: bug
 - **[#587](https://github.com/temporalio/sdk-dotnet/issues/587)** Refactor Bridge.Client to be IDisposable instead of a SafeHandle
@@ -161,12 +164,25 @@
   - *2025-12-17 by cfauchere* | Labels: bug
 - **[#578](https://github.com/temporalio/sdk-dotnet/issues/578)** [Feature Request] Add tests to confirm proper Nexus support for time-skipping environment
   - *2025-12-17 by cretz* | Labels: enhancement
-- **[#577](https://github.com/temporalio/sdk-dotnet/issues/577)** [Bug] Investigate test host crash flake
-  - *2025-12-12 by jmaeagle99* | Labels: bug
-- **[#576](https://github.com/temporalio/sdk-dotnet/issues/576)** [Feature Request] .NET Analyzer for Checking Workflows
-  - *2025-12-12 by cretz* | Labels: enhancement
 
-### sdk-java (7 new)
+### sdk-typescript (7 new)
+
+- **[#1883](https://github.com/temporalio/sdk-typescript/issues/1883)** [Bug] operatorService not accessible on `ConnectionLike`
+  - *2026-01-12 by vaibhavscale* | Labels: bug
+- **[#1881](https://github.com/temporalio/sdk-typescript/issues/1881)** [Bug] AI-SDK - callToolActivity
+  - *2026-01-11 by maxi1555* | Labels: bug
+- **[#1880](https://github.com/temporalio/sdk-typescript/issues/1880)** ai-sdk - call tool activity
+  - *2026-01-11 by maxi1555* | Labels: bug
+- **[#1869](https://github.com/temporalio/sdk-typescript/issues/1869)** Environment Configuration does not read the correct file path on macOS
+  - *2026-01-04 by pvsone* | Labels: bug
+- **[#1867](https://github.com/temporalio/sdk-typescript/issues/1867)** [Feature Request] Per-Worker Logger
+  - *2025-12-30 by TastyPi* | Labels: enhancement
+- **[#1866](https://github.com/temporalio/sdk-typescript/issues/1866)** [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
+  - *2025-12-23 by justinadkins* | Labels: bug
+- **[#1864](https://github.com/temporalio/sdk-typescript/issues/1864)** [Feature Request] Update AI SDK integration to v6
+  - *2025-12-22 by tconley1428* | Labels: enhancement
+
+### sdk-java (6 new)
 
 - **[#2758](https://github.com/temporalio/sdk-java/issues/2758)** Spring Metrics Configuration fails with Spring Boot 4
   - *2026-01-09 by jrogers* | Labels: none
@@ -180,8 +196,6 @@
   - *2025-12-30 by deepika-awasthi* | Labels: enhancement
 - **[#2750](https://github.com/temporalio/sdk-java/issues/2750)** Tests not passing: TestStatsReporter Flush not flushing
   - *2025-12-28 by TbirdDuncan* | Labels: none
-- **[#2747](https://github.com/temporalio/sdk-java/issues/2747)** @WorkflowImpl(workers = "...") should support Spring property placeholders like taskQueues does
-  - *2025-12-12 by karunagoyal* | Labels: none
 
 ### sdk-python (6 new)
 
@@ -198,21 +212,10 @@
 - **[#1252](https://github.com/temporalio/sdk-python/issues/1252)** [Feature Request] add client support for sync activities run by `ThreadPoolExecutor`
   - *2025-12-15 by ClemDoum* | Labels: enhancement
 
-### sdk-typescript (5 new)
+### sdk-php (4 new)
 
-- **[#1869](https://github.com/temporalio/sdk-typescript/issues/1869)** Environment Configuration does not read the correct file path on macOS
-  - *2026-01-04 by pvsone* | Labels: bug
-- **[#1867](https://github.com/temporalio/sdk-typescript/issues/1867)** [Feature Request] Per-Worker Logger
-  - *2025-12-30 by TastyPi* | Labels: enhancement
-- **[#1866](https://github.com/temporalio/sdk-typescript/issues/1866)** [Bug] Signal caused `condition` to fail with `CancelledFailure` on `1.14.0`
-  - *2025-12-23 by justinadkins* | Labels: bug
-- **[#1864](https://github.com/temporalio/sdk-typescript/issues/1864)** [Feature Request] Update AI SDK integration to v6
-  - *2025-12-22 by tconley1428* | Labels: enhancement
-- **[#1862](https://github.com/temporalio/sdk-typescript/issues/1862)** [Feature Request] importing workflow into activity dependency causes “gRPC failed to connect before the deadline” error
-  - *2025-12-12 by deepika-awasthi* | Labels: enhancement
-
-### sdk-php (3 new)
-
+- **[#698](https://github.com/temporalio/sdk-php/issues/698)** [Chore] Drop old packages support
+  - *2026-01-12 by xepozz* | Labels: none
 - **[#692](https://github.com/temporalio/sdk-php/issues/692)** [Bug] Minimal Composer requirements conflicts with react/promise v2
   - *2026-01-08 by xepozz* | Labels: Bug
 - **[#689](https://github.com/temporalio/sdk-php/issues/689)** [Bug] Temporal PHP SDK doing its own extension check, breaking composer's `--ignore-platform-reqs`

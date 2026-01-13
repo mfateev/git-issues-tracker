@@ -1,0 +1,29 @@
+{
+  "summary": "Fix null handling in operation token parsing to treat null values as zero instead of causing an error.",
+  "category": "bug",
+  "subcategory": "operation-token",
+  "apis": [],
+  "components": [
+    "parser",
+    "operation-token"
+  ],
+  "concepts": [
+    "null-handling",
+    "parsing",
+    "token",
+    "operation",
+    "data-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter errors when operation tokens contain null values that should be interpreted as zero.",
+  "rootCause": "Operation token parser does not handle null values correctly, likely throwing an exception or failing to default to zero.",
+  "proposedFix": "Modify the operation token parser to treat null values as zero during parsing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating the parser to handle null as zero.",
+  "related": [],
+  "keyQuote": "When parsing operation token, treat `null` as zero",
+  "number": 2590,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:40.872Z"
+}

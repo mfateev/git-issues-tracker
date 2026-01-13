@@ -1,0 +1,36 @@
+{
+  "summary": "Queries for workflows that are scheduled but not yet started fail in the SDKs because they expect the workflow to have started. The server should eagerly return an error or provide a way for static queries to answer for workflows with zero completed workflow tasks.",
+  "category": "feature",
+  "subcategory": "query-execution",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "workflow-execution",
+    "event-loop"
+  ],
+  "concepts": [
+    "query",
+    "workflow-execution",
+    "scheduling",
+    "event-loop",
+    "static-queries",
+    "workflow-retry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query workflows during scheduled/retrying states, limiting the ability to inspect workflow state before execution begins.",
+  "rootCause": "SDKs expect workflows to be started before handling queries because query handlers are registered during the workflow event loop. For scheduled/retried workflows, this loop hasn't executed yet.",
+  "proposedFix": "Add QUERY_RESULT_TYPE_AWAITING_EXECUTION enum to QueryResultType and have server return a typed error. Alternatively, allow static queries to register ahead of time so they can answer for workflows with zero completed workflow tasks.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #1310. Discussion evolved to consider allowing static queries for workflows with zero completed tasks rather than just returning an error.",
+  "related": [
+    1310,
+    475,
+    2826,
+    865
+  ],
+  "keyQuote": "We do allow a signal to a workflow that didn't start yet. Why should a query be disallowed? We can implement a workaround with the registration of static queues ahead of time.",
+  "number": 2300,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:41.455Z"
+}

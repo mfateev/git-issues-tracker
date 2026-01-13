@@ -1,0 +1,33 @@
+{
+  "summary": "Upgrade @grpc/grpc-js from ~1.7.3 to 1.8+ to address a security vulnerability (GHSA-cfgp-2977-2fmm), while handling conflicts with the integrated retry mechanism that would cause duplicate retries and validating the 10-second shutdown delay is resolved.",
+  "category": "bug",
+  "subcategory": "dependency-upgrade",
+  "apis": [],
+  "components": [
+    "grpc-js",
+    "retry-mechanism",
+    "shutdown"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "retry-logic",
+    "dependency-management",
+    "shutdown-delay",
+    "version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to a security vulnerability in gRPC until the package is upgraded to a version with the fix.",
+  "rootCause": "grpc-js versions < 1.8.8 contain a security vulnerability; upgrading requires reconciling duplicate retry mechanisms and validating shutdown behavior changes",
+  "proposedFix": "Upgrade @grpc/grpc-js to 1.8+, validate the 10-second shutdown delay is resolved, and either remove the SDK's own retry mechanisms in favor of grpc-js' built-in retries or disable grpc-js' retry mechanisms to prevent duplication",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by upgrading the grpc-js dependency and handling retry mechanism integration",
+  "related": [
+    1025,
+    1023
+  ],
+  "keyQuote": "@grpc/grpc-js < 1.8.8 has a security vulnerability. https://github.com/advisories/GHSA-cfgp-2977-2fmm",
+  "number": 1026,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:11.174Z"
+}

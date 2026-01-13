@@ -1,0 +1,33 @@
+{
+  "summary": "The PayloadCodec.encode_failure and PayloadCodec.decode_failure methods are not applying codec transformations to the encoded_attributes field of Failure objects, which was missed in issue #185.",
+  "category": "bug",
+  "subcategory": "payload-codec",
+  "apis": [
+    "PayloadCodec.encode_failure",
+    "PayloadCodec.decode_failure"
+  ],
+  "components": [
+    "payload-codec",
+    "failure-handling"
+  ],
+  "concepts": [
+    "codec",
+    "payload-encoding",
+    "attribute-serialization",
+    "data-transformation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on codec customization for failure handling may experience inconsistent behavior where encoded_attributes bypass their configured codec.",
+  "rootCause": "The encoded_attributes field was not included in the codec transformation logic during the implementation of issue #185.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    185
+  ],
+  "keyQuote": "Seems `PayloadCodec.encode_failure` and `PayloadCodec.decode_failure` missed this field as part of #185",
+  "number": 247,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:22.376Z"
+}

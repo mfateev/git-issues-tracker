@@ -1,0 +1,29 @@
+{
+  "summary": "Installing @temporalio/testing@1.4.0 alongside upgraded 1.5.2 versions of activity/client/worker/workflow packages causes a protobuf error that prevents the Temporal Worker from running. The root cause is version misalignment of the @temporalio/proto dependency.",
+  "category": "bug",
+  "subcategory": "dependency-resolution",
+  "apis": [],
+  "components": [
+    "testing",
+    "dependency-management",
+    "proto"
+  ],
+  "concepts": [
+    "version-mismatch",
+    "package-management",
+    "dependency-nesting",
+    "lock-file-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users who forget to update @temporalio/testing during a major version upgrade experience a complete application crash with no clear error message.",
+  "rootCause": "@temporalio/testing@1.4.0 forces @temporalio/proto@1.4.3 to be installed at root level in package-lock.json instead of nested under its dependent packages, causing version conflicts.",
+  "proposedFix": "Ensure @temporalio/proto is listed as a nested child dependency rather than a root dependency in package-lock.json.",
+  "workaround": "Uninstall @temporalio/testing@1.4.0 and update it to 1.5.2, or manually fix package-lock.json to nest the proto dependency correctly and reinstall.",
+  "resolution": "invalid",
+  "resolutionDetails": "Author determined the issue was caused by a broken package-lock.json file from multiple problems, not an SDK defect. They fixed it manually and decided not to pursue further investigation.",
+  "related": [],
+  "keyQuote": "I don't know if this is my or Temporal SDK's fault (although all i did was `npm i`... I think I'm clean), so I won't bother you with this...",
+  "number": 1004,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:03.277Z"
+}

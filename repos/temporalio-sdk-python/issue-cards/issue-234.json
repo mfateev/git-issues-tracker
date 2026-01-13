@@ -1,0 +1,33 @@
+{
+  "summary": "Generic nested dataclasses are deserialized as plain dictionaries instead of proper dataclass instances when used as activity parameters. This causes AttributeError when trying to access nested dataclass attributes.",
+  "category": "bug",
+  "subcategory": "dataclass-serialization",
+  "apis": [
+    "activity.defn",
+    "execute_activity"
+  ],
+  "components": [
+    "data-converter",
+    "activity-serialization",
+    "type-conversion"
+  ],
+  "concepts": [
+    "generics",
+    "dataclass-deserialization",
+    "type-hints",
+    "nested-objects",
+    "serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use generic dataclasses with nested types in activity parameters, forcing workarounds for pagination and parameterized API calls.",
+  "rootCause": "The data converter does not resolve generic type parameters during deserialization of dataclass instances.",
+  "proposedFix": null,
+  "workaround": "Update documentation to warn users that data converters do not resolve dataclass generics for deserialization.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed with decision to document limitation rather than implement generic dataclass resolution in data converters.",
+  "related": [],
+  "keyQuote": "resolving dataclass generics for deserialization is not expected of temporal data converters",
+  "number": 234,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:35.426Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Memory occupied by worker instances on AWS ECS Linux environments is not being released after load testing, while the same code works properly on Windows. Setting maxCachedWorkflows to 0 releases memory but causes performance degradation.",
+  "category": "bug",
+  "subcategory": "memory-management",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "workflow-cache",
+    "memory-management"
+  ],
+  "concepts": [
+    "memory-leak",
+    "garbage-collection",
+    "workflow-caching",
+    "platform-differences",
+    "container-environment",
+    "heap-memory"
+  ],
+  "severity": "high",
+  "userImpact": "Production deployments on AWS ECS Linux may experience uncontrolled memory growth leading to potential out-of-memory crashes, requiring configuration workarounds that harm performance.",
+  "rootCause": "Platform-specific memory release behavior in workflow caching mechanism differs between Linux and Windows; default maxCachedWorkflows calculation results in different cache sizes (158 on Linux vs 914 on Windows), preventing proper garbage collection on Linux under sustained load.",
+  "proposedFix": "Upgrade to SDK version 1.8.2 or later and enable reuseV8Context option; explicitly configure maxCachedWorkflows based on performance testing in production environments rather than relying on defaults.",
+  "workaround": "Set maxCachedWorkflows to 0 to disable workflow caching (not recommended for production due to performance impact) or explicitly tune maxCachedWorkflows to an appropriate value and enable reuseV8Context.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer determined this is expected behavior and the solution requires proper configuration (upgrading to 1.8.2, enabling reuseV8Context, and tuning maxCachedWorkflows) rather than a code fix. The issue was a configuration and understanding problem, not a bug.",
+  "related": [],
+  "keyQuote": "Correctly tuning this involves performance testing. Explicitly setting maxCachedWorkflows to 0 disable workflow caching. This can be very detrimental for the performance of both your workers and your Temporal cluster.",
+  "number": 1192,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:37.909Z"
+}

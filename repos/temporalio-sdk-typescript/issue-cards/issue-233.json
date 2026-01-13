@@ -1,0 +1,31 @@
+{
+  "summary": "Developer wants linting errors caught locally during development and commits, not just in CI. Currently commitlint runs only in GitHub workflows, missing issues that could be caught before pushing.",
+  "category": "feature",
+  "subcategory": "developer-workflow",
+  "apis": [],
+  "components": [
+    "linting",
+    "commitlint",
+    "eslint",
+    "prettier"
+  ],
+  "concepts": [
+    "developer-experience",
+    "local-development",
+    "code-quality",
+    "pre-commit-hooks",
+    "ci-cd-alignment"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must wait for CI feedback to catch commit message linting errors instead of catching them locally before pushing.",
+  "rootCause": "commitlint is only run as a GitHub workflow, not integrated into the local lint command or pre-commit hooks.",
+  "proposedFix": "Add commitlint to the local `npm run lint` command or as a pre-commit hook to catch errors before pushing.",
+  "workaround": "Run `npx commitlint --from origin/main` manually before pushing changes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided to keep commitlint as a separate GH workflow rather than merging it with the lint command. Later removed commitlint from CI entirely.",
+  "related": [],
+  "keyQuote": "You can run commitlint yourself with: `npx commitlint --from origin/main`. Let's add that to `CONTRIBUTING.md`.",
+  "number": 233,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:23.266Z"
+}

@@ -1,0 +1,45 @@
+{
+  "summary": "Standardize the `patched()` and `deprecatePatch()` APIs across all Temporal SDKs with consistent behavior (memoized), while maintaining backward compatibility with existing versioning APIs like `GetVersion()`. The memoized flag should be stored in workflow history markers and inconsistent usage should trigger non-determinism errors.",
+  "category": "feature",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "patched",
+    "deprecatePatch",
+    "GetVersion"
+  ],
+  "components": [
+    "workflow-versioning",
+    "history-markers",
+    "workflow-execution",
+    "determinism-checker"
+  ],
+  "concepts": [
+    "memoization",
+    "backward-compatibility",
+    "workflow-history",
+    "non-determinism",
+    "api-standardization",
+    "versioning-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have a consistent, simplified API for workflow versioning across all SDKs, reducing confusion and making migration between SDKs easier.",
+  "rootCause": "Inconsistent implementation of workflow versioning APIs across different SDKs (GetVersion in Go/Java/PHP vs patched() in Python/.NET/Ruby vs non-memoized patched() in TypeScript) creates confusion and incompatibility.",
+  "proposedFix": "Implement uniform `patched(patchId, memoized): boolean` and `deprecatePatch(patchId, memoized): boolean` APIs in all SDKs with memoized flag stored in Marker commands. Deprecate existing inconsistent APIs while maintaining backward compatibility. Core SDK implements first, then other SDKs mirror the implementation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1796,
+    2393,
+    869,
+    1616,
+    754,
+    398,
+    209,
+    558
+  ],
+  "keyQuote": "Support the `patched(patchId, memoized): boolean` and `deprecatePatch(patchId, memoized): boolean` APIs in all SDKs",
+  "number": 591,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:26.142Z"
+}

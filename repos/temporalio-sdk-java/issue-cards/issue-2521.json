@@ -1,0 +1,33 @@
+{
+  "summary": "User requests ability to access workflow instance state directly in test environments for assertions without needing to add query methods to production code. Currently workflow objects are inaccessible after registration.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow",
+    "TestWorkflowClient"
+  ],
+  "components": [
+    "test-framework",
+    "workflow-registry",
+    "workflow-instantiation"
+  ],
+  "concepts": [
+    "testing",
+    "workflow-state",
+    "assertions",
+    "test-utilities",
+    "object-access"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must add query methods to production code for testing or use workarounds instead of being able to directly inspect workflow state in tests.",
+  "rootCause": null,
+  "proposedFix": "Add getWorkflowObject(workflowId, workflowRunId) method to TestWorkflowClient that returns the actual workflow instance with current state.",
+  "workaround": "Add QueryMethod in workflow code for testing purposes, though this is cumbersome when managing multiple test queries.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would like to access the workflow object at any point in time for test env, and it should provide me an object of workflow with latest state",
+  "number": 2521,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:49.042Z"
+}

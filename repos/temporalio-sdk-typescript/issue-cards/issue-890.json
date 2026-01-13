@@ -1,0 +1,32 @@
+{
+  "summary": "Users receive a confusing warning message when running Worker.runReplayHistory without activities registered, making them think something is wrong. The request is to suppress this warning during replay history operations since it's expected behavior.",
+  "category": "feature",
+  "subcategory": "worker-replay",
+  "apis": [
+    "Worker.runReplayHistory"
+  ],
+  "components": [
+    "worker",
+    "activity-polling",
+    "replay-engine"
+  ],
+  "concepts": [
+    "logging",
+    "warnings",
+    "replay-history",
+    "user-experience",
+    "activity-registration"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused by warning messages during normal replay operations, leading them to believe there's a problem when there isn't one.",
+  "rootCause": null,
+  "proposedFix": "Suppress the 'No activities registered' warning when Worker.runReplayHistory is active",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Warning was suppressed or modified to not appear during replay history operations",
+  "related": [],
+  "keyQuote": "Users see this in output and think something is wrong: [WARN] No activities registered, not polling for activity tasks",
+  "number": 890,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:54.308Z"
+}

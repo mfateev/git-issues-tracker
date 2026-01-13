@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a new metric worker_task_slots_total to expose the configured number of task slots a worker allows. This would enable better tuning assessment by comparing against available slots and facilitate percentage-based alerting on task slot availability.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics"
+  ],
+  "concepts": [
+    "task-slots",
+    "monitoring",
+    "alerting",
+    "worker-configuration",
+    "tuning"
+  ],
+  "severity": "low",
+  "userImpact": "Users can better monitor worker health and configure alerting based on task slot utilization percentage rather than absolute numbers.",
+  "rootCause": null,
+  "proposedFix": "Emit a metric worker_task_slots_total indicating the number of slots the worker is configured for, or alternatively worker_task_slots_usage showing the ratio of configured versus available slots.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was moved to temporalio/sdk-features repository (issue #98).",
+  "related": [
+    98
+  ],
+  "keyQuote": "A metric worker_task_slots_total which emits the number of slots the worker is configured for.",
+  "number": 3169,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:17.034Z"
+}

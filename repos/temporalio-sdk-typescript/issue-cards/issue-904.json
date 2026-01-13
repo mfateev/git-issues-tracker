@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency vulnerability in ajv 5.5.2 (transitive dependency) with CVSS score 5.6 allows prototype pollution through crafted JSON schemas. Issue was automatically closed after the vulnerable library was removed or ignored.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "nyc-test-coverage",
+    "schema-utils",
+    "ajv"
+  ],
+  "concepts": [
+    "prototype-pollution",
+    "json-schema-validation",
+    "transitive-dependency",
+    "security-vulnerability",
+    "code-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may be at risk if untrusted JSON schemas are validated using the vulnerable ajv library version.",
+  "rootCause": "Ajv 5.5.2 is vulnerable to prototype pollution attacks through carefully crafted JSON schemas in the validate() function.",
+  "proposedFix": "Upgrade ajv to version 6.12.3 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was removed from the Mend inventory or marked as ignored in the project dependencies.",
+  "related": [],
+  "keyQuote": "A carefully crafted JSON schema could be provided that allows execution of other code by prototype pollution.",
+  "number": 904,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:27.674Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Proposal to use code generators to eliminate boilerplate and hand-maintained code in persistence clients and resource implementations. This would improve development speed and safety by centralizing changes.",
+  "category": "feature",
+  "subcategory": "code-generation",
+  "apis": [],
+  "components": [
+    "persistence-clients",
+    "metrics-client",
+    "resource-impl",
+    "code-generation"
+  ],
+  "concepts": [
+    "boilerplate",
+    "code-generation",
+    "DRY-principle",
+    "maintainability",
+    "duplication",
+    "refactoring",
+    "code-quality"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces maintenance burden and potential for inconsistencies in internal codebase infrastructure.",
+  "rootCause": "Hand-maintained boilerplate code in multiple locations (persistenceRateLimitedClients, persistedMetricsClient, resourceImpl) creates maintenance overhead and increases risk of divergence.",
+  "proposedFix": "Implement code generation for boilerplate code patterns, referencing tools like dupl for identifying candidates.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Decided that refactoring would be cleaner than code generation, as noted by reviewer who questioned whether code gen was the right architectural choice.",
+  "related": [],
+  "keyQuote": "Using a code generator in some of these places would be very beneficial to future development speed and safety by keeping changes in one place.",
+  "number": 76,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:00.482Z"
+}

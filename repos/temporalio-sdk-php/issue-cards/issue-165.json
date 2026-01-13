@@ -1,0 +1,37 @@
+{
+  "summary": "Parent workflow was incorrectly waiting for child workflow completion when using POLICY_ABANDON parent close policy. The parent should only wait for the child to start, then complete independently while the child continues execution.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "newChildWorkflowStub"
+  ],
+  "components": [
+    "workflow-execution",
+    "child-workflow-manager",
+    "parent-close-policy"
+  ],
+  "concepts": [
+    "child-workflow",
+    "parent-close-policy",
+    "abandon-policy",
+    "asynchronous-execution",
+    "workflow-completion",
+    "event-history"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot spawn child workflows with abandon policy and have parent workflows complete independently, preventing asynchronous child workflow patterns.",
+  "rootCause": "The SDK implementation was blocking parent workflow completion until child workflow finished, contrary to the abandon parent close policy specification.",
+  "proposedFix": "Fix the SDK to allow parent workflow to complete once child workflow has started (ChildWorkflowExecutionStarted event appears), rather than waiting for full child completion.",
+  "workaround": "Use an activity with injected workflow client to spawn workflows from within activities instead of direct child workflow calls.",
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was fixed in a subsequent release (mentioned in PR #167). Users need to update to latest SDK version where parent only waits for child to start.",
+  "related": [
+    167,
+    166
+  ],
+  "keyQuote": "The parent only waits for child to start. Once the child is started, the parent (with abandon policy) can be completed.",
+  "number": 165,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:06.921Z"
+}

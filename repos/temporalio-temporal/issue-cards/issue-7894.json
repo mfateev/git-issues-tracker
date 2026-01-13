@@ -1,0 +1,33 @@
+{
+  "summary": "Users cannot load archived workflows on the UI despite having 10,000+ workflows archived in S3/GCS, with the API returning 504 errors and timeouts when listing archived workflows.",
+  "category": "bug",
+  "subcategory": "archived-workflows",
+  "apis": [],
+  "components": [
+    "ui",
+    "archived-workflows-api",
+    "visibility-store",
+    "storage-backend"
+  ],
+  "concepts": [
+    "timeout",
+    "performance",
+    "scalability",
+    "archived-workflows",
+    "visibility",
+    "storage-access",
+    "api-errors"
+  ],
+  "severity": "high",
+  "userImpact": "Users with large numbers of archived workflows cannot access them through the UI or CLI, blocking visibility into archived workflow history.",
+  "rootCause": "Timeout issues when retrieving large numbers of archived workflows from S3/GCS storage backends, likely due to performance degradation with high object counts (2.2GB+ buckets with 56k+ workflows).",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The bucket has around 2.2GB of objects... context deadline exceeded",
+  "number": 7894,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:56.928Z"
+}

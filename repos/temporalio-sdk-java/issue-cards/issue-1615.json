@@ -1,0 +1,30 @@
+{
+  "summary": "TemporalFailure exceptions thrown from signal methods should fail the workflow execution instead of failing only the workflow task, which can cause infinite retry loops. Currently, failures in signal handlers are not treated the same as failures in workflow methods.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "workflow-task-processor",
+    "failure-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "signal-processing",
+    "workflow-failure",
+    "infinite-loop",
+    "task-retry"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows can enter infinite loops when exceptions are thrown from signal methods, preventing proper error handling and workflow termination.",
+  "rootCause": "Signal method failures are treated as task failures rather than workflow execution failures, causing the task to be retried indefinitely instead of failing the workflow.",
+  "proposedFix": "Modify signal handler exception processing to fail the workflow execution when TemporalFailure is thrown, matching the behavior of workflow method failures.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Signal method exception handling was updated to properly propagate TemporalFailure to workflow execution failure rather than task failure.",
+  "related": [],
+  "keyQuote": "ActivityFailure or ApplicationFailure that are thrown from a signal method should fail Workflow Execution the same way it works with Workflow Method code.",
+  "number": 1615,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:18.505Z"
+}

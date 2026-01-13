@@ -1,0 +1,30 @@
+{
+  "summary": "RBS type definition files in the sig/ directory are not included in the released Ruby gem, causing Steep type checking to fail with an UnknownLibraryError when users try to use the temporalio gem.",
+  "category": "bug",
+  "subcategory": "type-definitions",
+  "apis": [],
+  "components": [
+    "gem-packaging",
+    "type-definitions",
+    "rbs-files"
+  ],
+  "concepts": [
+    "type-checking",
+    "static-analysis",
+    "gem-distribution",
+    "type-safety",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot perform type checking with Steep on projects using the temporalio gem, limiting IDE support and catching type errors at development time.",
+  "rootCause": "The sig/ directory containing RBS type definition files is not included in the released gem package specification.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The RBS files were added to the gem packaging to be included in released versions.",
+  "related": [],
+  "keyQuote": "Cannot find type definitions for library: temporalio ([nil]) (RBS::EnvironmentLoader::UnknownLibraryError)",
+  "number": 134,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:43:22.496Z"
+}

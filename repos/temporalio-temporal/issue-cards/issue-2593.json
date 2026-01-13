@@ -1,0 +1,32 @@
+{
+  "summary": "Add a new WorkflowIDReusePolicyTerminateIfRunning policy that allows starting a workflow while automatically terminating any existing workflow with the same ID. This is useful during development and for cron workflows.",
+  "category": "feature",
+  "subcategory": "workflow-reuse-policy",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "reuse-policy",
+    "workflow-termination"
+  ],
+  "concepts": [
+    "workflow-id-reuse",
+    "policy",
+    "termination",
+    "cron-workflows",
+    "development"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now automatically terminate existing workflows when starting new ones with the same ID, enabling cleaner development workflows and cron job patterns.",
+  "rootCause": null,
+  "proposedFix": "Implement WorkflowIDReusePolicyTerminateIfRunning as a new reuse policy option similar to Cadence's implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged as requested.",
+  "related": [],
+  "keyQuote": "Sometimes it is necessary to start workflow terminating any workflow which is already running. This is especially useful during development and for corn workflows.",
+  "number": 2593,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:34.809Z"
+}

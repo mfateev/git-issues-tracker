@@ -1,0 +1,34 @@
+{
+  "summary": "Request to improve error messages when the wrong worker is polling the queue or when workflow functions are not found. Currently errors like 'Task not found' and 'is not a function' are cryptic; the request suggests more helpful messages that explain what went wrong and suggest possible causes.",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "worker",
+    "error-handling",
+    "workflow-discovery"
+  ],
+  "concepts": [
+    "error-messages",
+    "troubleshooting",
+    "worker-queue-mismatch",
+    "function-discovery",
+    "grpc-timeouts",
+    "user-guidance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users spend significant time debugging cryptic error messages that don't clearly indicate what went wrong when the wrong worker polls a queue or workflow functions are missing.",
+  "rootCause": "Error messages lack context about underlying issues like mismatched workers, missing workflow functions, or configuration problems, making debugging difficult.",
+  "proposedFix": "Enhance error messages with: (1) Higher-level explanations of what went wrong in worker context, (2) Suggestions for common causes (typos, missing exports, incorrect entry points, multiple worker processes), (3) Links to documentation pages for reference and future updates.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    305,
+    56
+  ],
+  "keyQuote": "The Worker process that picked up this task doesn't have a Workflow function named 'progress' in its bundle. The issue might be...",
+  "number": 359,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:30.643Z"
+}

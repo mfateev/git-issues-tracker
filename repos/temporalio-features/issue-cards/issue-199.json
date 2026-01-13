@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to allow stack trace queries to use custom data converters across all SDKs. Currently stack trace queries bypass custom converters, but this request seeks an opt-in mechanism to apply converters consistently.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [
+    "Query"
+  ],
+  "components": [
+    "data-converter",
+    "stack-trace-query",
+    "serialization"
+  ],
+  "concepts": [
+    "custom-serialization",
+    "query-execution",
+    "stack-trace",
+    "encoding",
+    "data-conversion",
+    "remote-encoding"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot apply custom data converters to stack trace queries, limiting consistency in how query data is serialized across different query types.",
+  "rootCause": "Stack trace queries are handled specially and bypass the custom data converter pipeline to avoid complexity with remote encoders and proxies.",
+  "proposedFix": "Make stack trace query custom converter support opt-in, particularly for Java SDK which currently doesn't encode stack traces.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Won't implement due to complexity with remote encoders and proxies. Java SDK will have opt-in support instead.",
+  "related": [
+    996,
+    1586,
+    1014,
+    241
+  ],
+  "keyQuote": "Won't do this due to complexity with remote encoders and proxies. We'll need to address Java, it's the only SDK that doesn't encode stack trace query, can make it opt-in there.",
+  "number": 199,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:13.473Z"
+}

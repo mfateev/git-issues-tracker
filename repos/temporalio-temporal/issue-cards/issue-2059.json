@@ -1,0 +1,28 @@
+{
+  "summary": "Use Go's embed feature to include schema content directly within the schema tool instead of requiring external file references.",
+  "category": "other",
+  "subcategory": "schema-management",
+  "apis": [],
+  "components": [
+    "schema-tool",
+    "setup"
+  ],
+  "concepts": [
+    "code-embedding",
+    "file-embedding",
+    "schema-initialization",
+    "go-tooling"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies schema tool deployment and reduces external dependencies by embedding schema content directly in the binary.",
+  "rootCause": null,
+  "proposedFix": "Use Go's go:embed feature to embed schema content within the schema tool",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should include the schema content within schema tool using `go:embed`",
+  "number": 2059,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:34.636Z"
+}

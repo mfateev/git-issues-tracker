@@ -1,0 +1,34 @@
+{
+  "summary": "Test environment hangs indefinitely when waiting for completion of a duplicate concurrent workflow with WORKFLOW_ID_REUSE_POLICY_REJECT_DUPLICATE, while the same code works correctly with real Temporal containers.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowClient.execute"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-client",
+    "duplicate-workflow-handling"
+  ],
+  "concepts": [
+    "duplicate-workflow-id",
+    "workflow-id-reuse-policy",
+    "concurrent-workflows",
+    "workflow-proxy",
+    "completable-future",
+    "blocking-call",
+    "test-server"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test workflows with duplicate IDs in the test environment, as the second workflow execution call blocks indefinitely instead of returning the first workflow's result.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Ensure the first workflow is fully completed before starting the second workflow with the same ID.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "With Test Environment the second f2.get() call hangs forever. If the first workflow is fully completed before starting the second, all works OK.",
+  "number": 456,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:19:03.004Z"
+}

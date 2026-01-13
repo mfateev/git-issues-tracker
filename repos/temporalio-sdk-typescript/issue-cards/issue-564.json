@@ -1,0 +1,32 @@
+{
+  "summary": "Activity.heartbeat() in TypeScript SDK takes a single parameter but should accept an array of Payloads to match the Core SDK specification and be consistent with Go's varargs implementation.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "Context.heartbeat"
+  ],
+  "components": [
+    "activity-context",
+    "heartbeat-handler",
+    "payload-serialization"
+  ],
+  "concepts": [
+    "api-consistency",
+    "cross-sdk-compatibility",
+    "activity-lifecycle",
+    "heartbeat-details",
+    "varargs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may have incorrect heartbeat behavior if the API signature doesn't match the Core SDK specification, and SDK consistency is broken across languages.",
+  "rootCause": "TypeScript SDK copied Java's single-argument implementation instead of Go's varargs approach, while Core SDK explicitly defines heartbeat_details as repeated.",
+  "proposedFix": "Change Context.heartbeat() to accept an array of Payloads to match Core SDK specification and Go implementation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Core explicitly makes `coresdk.ActivityHeartbeat.details` a `repeated`. I think if we do want to limit to just one, we should do it in Core too.",
+  "number": 564,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:01:24.225Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow updates sent to cached workflows trigger transient WFT failures with 'Premature end of stream' errors. While subsequent WFT fetches recover by replaying full history, these transient failures are causing unnecessary alerts at workers.",
+  "category": "bug",
+  "subcategory": "workflow-update",
+  "apis": [],
+  "components": [
+    "workflow-task-processor",
+    "stream-handler",
+    "history-fetcher"
+  ],
+  "concepts": [
+    "workflow-update",
+    "premature-end-of-stream",
+    "transient-error",
+    "history-replay",
+    "stream-protocol",
+    "cached-workflow"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive false alerts about workflow task failures when workflow updates are applied to cached workflows, causing operational noise in monitoring systems.",
+  "rootCause": "Stream protocol handling issue when workflow updates are applied to workflows in cache, causing premature stream termination that is recovered on subsequent fetches.",
+  "proposedFix": null,
+  "workaround": "Monitor and ignore transient WFT failures as they are benign; subsequent WFT fetches will automatically recover by replaying entire history.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    7732,
+    7878
+  ],
+  "keyQuote": "We know this is a transient and benign error, subsequent WFT fetches entire history and resumes well",
+  "number": 7741,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:57.204Z"
+}

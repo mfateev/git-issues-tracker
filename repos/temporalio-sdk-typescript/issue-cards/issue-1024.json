@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowEnvironment.create() fails in Docker environments due to test-server binary incompatibility with GLIBC versions. The testing library downloads the latest test-server release which may have incompatible system dependencies not satisfied in slim Docker images.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "testing",
+    "test-server",
+    "child-process"
+  ],
+  "concepts": [
+    "test-environment",
+    "docker",
+    "system-compatibility",
+    "process-spawning",
+    "binary-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflow tests in Docker environments using the testing library, blocking test execution in containerized CI/CD pipelines.",
+  "rootCause": "The test-server binary downloaded by @temporalio/testing v1.1.0 requires GLIBC_2.32 and GLIBC_2.34, which are not available in node:16-slim Docker image that has an older GLIBC version.",
+  "proposedFix": "Pin the test-server version in the testing library instead of always downloading the latest release to avoid incompatible binaries.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was resolved in v1.3.0 according to changelog. Reporter was using outdated SDK version (v1.1.0). Closer recommended upgrading to fix.",
+  "related": [],
+  "keyQuote": "This new release is causing the bug... I believe the issue stems from the fact there have been a new test-server release and it is not pinned in the testing lib",
+  "number": 1024,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:10.111Z"
+}

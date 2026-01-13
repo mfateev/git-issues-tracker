@@ -1,0 +1,32 @@
+{
+  "summary": "serviceerror.NotFound error messages expose SQL database implementation details instead of returning persistence-agnostic error messages, leaking internal server information to users.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "persistence-layer",
+    "batch-operations"
+  ],
+  "concepts": [
+    "error-message",
+    "information-disclosure",
+    "persistence-abstraction",
+    "sql-internals",
+    "batch-jobs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see confusing SQL error messages that expose internal database implementation details, creating poor API boundaries and potentially revealing system internals.",
+  "rootCause": "serviceerror.NotFound is returning raw database errors without wrapping them in persistence-agnostic messages.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #4118",
+  "related": [
+    4118
+  ],
+  "keyQuote": "The error message for serviceerror.NotFound should return a persistence-unrelated error message.",
+  "number": 5443,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:40.407Z"
+}

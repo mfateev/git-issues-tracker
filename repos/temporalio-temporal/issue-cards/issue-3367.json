@@ -1,0 +1,30 @@
+{
+  "summary": "Consolidate multiple timer tasks into a single active timer per workflow. Currently, separate timer tasks are created for user timers, activities, workflow tasks, and workflow execution. The enhancement proposes creating only one next timer at a time and managing subsequent timers after the current one fires.",
+  "category": "feature",
+  "subcategory": "timer-management",
+  "apis": [],
+  "components": [
+    "timer-manager",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "concepts": [
+    "timer-consolidation",
+    "timer-scheduling",
+    "event-ordering",
+    "resource-optimization",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces system resource usage and complexity by consolidating multiple timer tasks into a single managed timer per workflow.",
+  "rootCause": null,
+  "proposedFix": "Create only one next timer for any kind and create the next in line after the current one fires. Add ability to delete a timer if a new timer created is earlier than the current one.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we should only create one next timer for any kind, and create next in line after current one fires",
+  "number": 3367,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:11.317Z"
+}

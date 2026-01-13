@@ -1,0 +1,31 @@
+{
+  "summary": "Kubernetes deployments of the Temporal Frontend with mTLS client authentication cannot pass health checks from cloud load balancers that don't support client certificate authentication, causing health check failures. A request to expose an anonymous HTTP/HTTPS health endpoint that doesn't require authentication.",
+  "category": "feature",
+  "subcategory": "frontend-health-checks",
+  "apis": [],
+  "components": [
+    "frontend",
+    "health-endpoint",
+    "kubernetes-deployment"
+  ],
+  "concepts": [
+    "health-checks",
+    "load-balancer",
+    "mTLS",
+    "authentication",
+    "kubernetes",
+    "ingress"
+  ],
+  "severity": "high",
+  "userImpact": "Kubernetes-deployed Temporal frontends with mTLS enabled become non-functional because load balancers cannot authenticate for health checks.",
+  "rootCause": "Frontend health endpoint requires client authentication via mTLS, but cloud load balancers (GKE, etc.) do not support client certificate authentication for health checks.",
+  "proposedFix": "Expose an anonymous HTTP/HTTPS health endpoint that does not require authentication for load balancer health checks.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Enable a health endpoint without auth so the load balancer can use it for health checks",
+  "number": 6611,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:58.152Z"
+}

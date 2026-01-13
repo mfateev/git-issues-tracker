@@ -1,0 +1,30 @@
+{
+  "summary": "When importing a workflow from a nested package, parent package __init__.py files are implicitly imported via the sandbox, causing errors if those files contain non-deterministic code. Users expect only the specific workflow module to be imported.",
+  "category": "bug",
+  "subcategory": "workflow-import",
+  "apis": [],
+  "components": [
+    "sandbox",
+    "workflow-runner",
+    "import-system"
+  ],
+  "concepts": [
+    "determinism",
+    "package-imports",
+    "implicit-execution",
+    "sandbox-validation",
+    "module-loading"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with nested package structures cannot import workflows if parent packages contain non-deterministic code, forcing them to disable the sandbox or restructure their code.",
+  "rootCause": "Python's import specification requires parent package __init__.py files to be executed when importing submodules. The SDK uses standard importlib behavior, which follows this specification.",
+  "proposedFix": null,
+  "workaround": "Disable the sandbox by passing sandboxed=False to the decorator or using UnsandboxedWorkflowRunner at worker construction.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers determined this is intended behavior per Python's import specification. Parent __init__.py files must be executed when importing nested modules, and the SDK intentionally uses standard importlib behavior.",
+  "related": [],
+  "keyQuote": "This is the proper behavior according to Python specification... We use normal `importlib` behavior by intention.",
+  "number": 453,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:11.839Z"
+}

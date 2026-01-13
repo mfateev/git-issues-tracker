@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add a new error type that allows continuing a workflow as new and signaling it in a single transaction, similar to SignalWithStartWorkflow but for the continue-as-new pattern. This is needed for workflows that iterate with input updates signaled during execution.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "NewContinueAsNewError",
+    "SignalWithStartWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "signal-handling",
+    "workflow-state-management"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "signal-workflow",
+    "transaction-atomicity",
+    "input-update",
+    "workflow-iteration",
+    "state-persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing iterative workflows with dynamic input updates via signals must duplicate input handling across workflow arguments and signals, making code awkward and error-prone.",
+  "rootCause": null,
+  "proposedFix": "Add a new error type that combines NewContinueAsNewError functionality with the ability to signal the new workflow instance in a single atomic transaction.",
+  "workaround": "Accept the same input struct through both workflow function argument and signal handlers, duplicating input handling logic.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add new error type that is like `NewContinueAsNewError` but allows signalling the new workflow in a single transaction like `SignalWithStartWorkflow`.",
+  "number": 3008,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:13.990Z"
+}

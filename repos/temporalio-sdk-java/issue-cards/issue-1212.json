@@ -1,0 +1,35 @@
+{
+  "summary": "The Java SDK's getResultAsync() method starts a long poll that continues running even if the returned Future is discarded by user code, causing resource leaks. The issue requests automatic cancellation of the background poll when the Future is garbage collected using weak or phantom references.",
+  "category": "feature",
+  "subcategory": "workflow-result-retrieval",
+  "apis": [
+    "WorkflowStub.getResultAsync",
+    "Future.get",
+    "CompletableFuture"
+  ],
+  "components": [
+    "workflow-stub",
+    "result-polling",
+    "async-execution"
+  ],
+  "concepts": [
+    "resource-leak",
+    "garbage-collection",
+    "background-polling",
+    "future-management",
+    "weak-references",
+    "lifecycle-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users unknowingly create resource leaks when using getResultAsync() without consuming the Future, forcing them to add timeouts as a workaround.",
+  "rootCause": "The SDK maintains strong references to polling tasks regardless of whether the user code still references the returned CompletableFuture.",
+  "proposedFix": "Implement weak or phantom reference tracking on the returned CompletableFuture to automatically cancel background long polls when the Future is garbage collected.",
+  "workaround": "Pass a timeout parameter to getResultAsync() to limit poll duration, though this is unconventional and not documented as a leak prevention mechanism.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal Java SDK code should maintain a weak or phantom reference on the CompletableFuture that we return to the users and cancel the background long poll when it's discarded",
+  "number": 1212,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:14:27.383Z"
+}

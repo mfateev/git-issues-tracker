@@ -1,0 +1,30 @@
+{
+  "summary": "User encounters 'schema_version table doesn't exist' error when deploying Temporal Server on Kubernetes with Cloud SQL. The error indicates the database schema was not properly initialized before the server startup.",
+  "category": "question",
+  "subcategory": "deployment-setup",
+  "apis": [],
+  "components": [
+    "sql-schema",
+    "database-initialization",
+    "server-startup"
+  ],
+  "concepts": [
+    "database-migration",
+    "schema-version",
+    "gcp-cloudsql",
+    "kubernetes-deployment",
+    "initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal Server on Cloud SQL without proper schema initialization, preventing server startup.",
+  "rootCause": "Database schema was not created/initialized before server startup. The schema_version table is missing from the temporal database.",
+  "proposedFix": null,
+  "workaround": "Ensure database schema is initialized before starting the server (typically via schema setup/migration scripts).",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed as it was determined to be a user configuration/setup issue rather than a bug. Responder redirected user to community support.",
+  "related": [],
+  "keyQuote": "temporal.schema_version' doesn't exist usually means db was not created.",
+  "number": 3765,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:51.046Z"
+}

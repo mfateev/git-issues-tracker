@@ -1,0 +1,30 @@
+{
+  "summary": "The SQL schema update tool fails on Windows due to filepath.Join() producing backslash-separated paths that are incompatible with fs.ReadFile(). The issue was resolved by using path.Join() instead, which uses forward slashes consistently across platforms.",
+  "category": "bug",
+  "subcategory": "sql-schema-tool",
+  "apis": [],
+  "components": [
+    "sql-tool",
+    "schema-handler",
+    "manifest-reader"
+  ],
+  "concepts": [
+    "cross-platform-compatibility",
+    "file-paths",
+    "windows-compatibility",
+    "schema-versioning",
+    "sql-scripts"
+  ],
+  "severity": "high",
+  "userImpact": "Windows users cannot use the update-schema command, blocking schema migrations on Windows environments.",
+  "rootCause": "filepath.Join() returns backslash-separated paths on Windows (e.g., v1.0\\manifest.json) which fs.ReadFile() cannot process; the fs package expects forward slashes regardless of OS.",
+  "proposedFix": "Replace filepath.Join() with path.Join() in updatetask.go to ensure forward-slash paths that work with fs.ReadFile() across all platforms.",
+  "workaround": "Manually edit paths or use workaround by specifying paths with forward slashes, though not practical for Windows users.",
+  "resolution": "fixed",
+  "resolutionDetails": "The maintainer confirmed the fix using path.Join() resolves the issue by aligning with Go's embed stdlib behavior, which does not consider OS-specific paths.",
+  "related": [],
+  "keyQuote": "On windows, filepath.Join() returns a path with \"\\\\\" as the separator and paths like this don't work with fs.ReadFile()",
+  "number": 7454,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:43.271Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Extend type inference improvements made in #938 to workflow-related functions like execute_activity, start_activity, execute_child_workflow, and start_child_workflow for consistent typing across the SDK.",
+  "category": "feature",
+  "subcategory": "type-inference",
+  "apis": [
+    "execute_activity",
+    "start_activity",
+    "execute_child_workflow",
+    "start_child_workflow"
+  ],
+  "components": [
+    "typing",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "concepts": [
+    "type-inference",
+    "type-safety",
+    "developer-experience",
+    "generic-types",
+    "api-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would benefit from improved type inference when using workflow-related functions, leading to better IDE support and fewer type errors.",
+  "rootCause": null,
+  "proposedFix": "Apply the same type inference improvements from #938 to execute_activity, start_activity, execute_child_workflow, and start_child_workflow functions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    938
+  ],
+  "keyQuote": "Should this also be done with workflow things like execute_activity, start_activity, execute_child_workflow, and start_child_workflow?",
+  "number": 1077,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:24.408Z"
+}

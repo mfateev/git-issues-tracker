@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a sample demonstrating per-workflow interceptor configuration. Currently, interceptors are registered globally at the worker factory level, but users need the ability to apply different interceptor behavior to specific workflows or subsets of workflows.",
+  "category": "docs",
+  "subcategory": "interceptors",
+  "apis": [],
+  "components": [
+    "interceptor",
+    "worker",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "conditional-logic",
+    "workflow-filtering",
+    "configuration-patterns",
+    "task-queue-routing",
+    "namespace-isolation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers who need different interceptor behavior for different workflows lack clear documentation on how to implement this using existing conditional logic.",
+  "rootCause": "Lack of sample code showing how to use interceptor conditions (workflow type, task queue, namespace, workflow ID prefix) to achieve per-workflow behavior.",
+  "proposedFix": "Create a sample showing how to conditionally apply interceptor logic based on workflow type or other discriminators.",
+  "workaround": "Implement conditional logic within the interceptor itself to check workflow type, task queue, namespace, or workflow ID prefix and apply different behavior accordingly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a sample is needed to show how to only do something in an interceptor based on a certain condition, we can show that.",
+  "number": 489,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:04:51.017Z"
+}

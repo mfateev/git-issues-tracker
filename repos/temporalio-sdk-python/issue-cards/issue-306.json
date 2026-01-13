@@ -1,0 +1,30 @@
+{
+  "summary": "Import of temporalio module fails with ModuleNotFoundError for 'temporalio.bridge.temporal_sdk_bridge'. The native bridge module is not built during standard installation, requiring explicit build steps.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "bridge",
+    "build-system",
+    "native-extension"
+  ],
+  "concepts": [
+    "module-loading",
+    "native-build",
+    "installation",
+    "development-setup",
+    "cargo-build"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot import temporalio without running manual build steps, blocking SDK usage entirely.",
+  "rootCause": "Native Rust bridge module (temporal_sdk_bridge) is not built during standard poetry install; requires poe build-develop and recursive git clone.",
+  "proposedFix": "Improve documentation to clarify that poe build-develop must be run after poetry install for SDK development, and that repo must be cloned recursively.",
+  "workaround": "Run 'poe build-develop' and ensure repo is cloned with --recursive flag.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved through documentation clarification and user error identification - users need to follow complete build instructions including recursive clone and poe build-develop.",
+  "related": [],
+  "keyQuote": "Did you run `poe build-develop` per https://github.com/temporalio/sdk-python?tab=readme-ov-file#local-sdk-development-environment?",
+  "number": 306,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:38.633Z"
+}

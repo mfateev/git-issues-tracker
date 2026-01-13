@@ -1,0 +1,31 @@
+{
+  "summary": "A transitive dependency vulnerability (CVE-2018-8292) in System.Net.Http 4.3.0 exposed through microsoft.extensions.logging.abstractions allows information disclosure through authentication exposure in HTTP redirects. The issue was automatically closed as the vulnerable library was removed from the dependency inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "nuget-packages",
+    "http-client"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "authentication-disclosure",
+    "transitive-dependency",
+    "cve-2018-8292",
+    "http-redirect",
+    "information-disclosure"
+  ],
+  "severity": "high",
+  "userImpact": "Users running applications with the vulnerable System.Net.Http 4.3.0 dependency are at risk of authentication information being exposed during HTTP redirects.",
+  "rootCause": "System.Net.Http 4.3.0 contains a vulnerability where authentication information can be inadvertently exposed in HTTP redirects, affecting .NET Core 1.0, 1.1, and 2.1.",
+  "proposedFix": "Upgrade System.Net.Http to version 4.3.4 or later",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory.",
+  "related": [],
+  "keyQuote": "System.Net.Http - 4.3.4 is the fixed version for CVE-2018-8292 (CVSS 7.5) which discloses authentication information in redirects",
+  "number": 15,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:06:56.030Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "gRPC message-too-large errors should fail tasks gracefully instead of being retried. This requires creating a new WorkflowTaskFailedCause enum, updating SDKs to capture and convert these errors to non-retryable failures, and adding validation tests across platforms.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "gRPC-client",
+    "task-executor"
+  ],
+  "concepts": [
+    "message-size-limit",
+    "retry-logic",
+    "error-handling",
+    "resource-exhaustion",
+    "graceful-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Currently large task messages cause workflows to fail with confusing retryable errors instead of clear, non-retryable failures, leading to workflow execution hangs or unexpected behavior.",
+  "rootCause": "gRPC enforces message size limits at the protocol boundary, returning resource-exhausted errors that are retried by the gRPC client rather than failing the task immediately.",
+  "proposedFix": "1) Create new WorkflowTaskFailedCause enum for gRPC-message-too-large, 2) Update SDKs to detect this error and convert to non-retryable failure, 3) Add SDK tests validating the behavior, 4) Validate behavior against Temporal Cloud.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    995,
+    1585,
+    462,
+    970,
+    7777,
+    198
+  ],
+  "keyQuote": "we should 1) create a new WorkflowTaskFailedCause for gRPC-message-too-large, and 2) update SDKs to capture the error in clients and convert to non-retryable failure",
+  "number": 624,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:01:25.596Z"
+}

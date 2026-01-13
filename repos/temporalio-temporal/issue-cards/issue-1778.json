@@ -1,0 +1,31 @@
+{
+  "summary": "Go struct receiver is nil in matching service forwarder, causing potential nil pointer dereference. Fixed by PR #1779.",
+  "category": "bug",
+  "subcategory": "matching-service",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "forwarder"
+  ],
+  "concepts": [
+    "nil-check",
+    "receiver",
+    "struct",
+    "pointer-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Could cause runtime crashes in the matching service forwarder when receiver is nil.",
+  "rootCause": "Missing nil check on receiver/this pointer in matching service forwarder",
+  "proposedFix": "Add nil check for receiver before use",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1779",
+  "related": [
+    1708,
+    1779
+  ],
+  "keyQuote": "Go struct `this` / receiver should not be nil",
+  "number": 1778,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:42.239Z"
+}

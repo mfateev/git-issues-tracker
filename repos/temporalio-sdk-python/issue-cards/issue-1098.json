@@ -1,0 +1,31 @@
+{
+  "summary": "Hello World workflow fails with TypeError when using OpenAI Agents SDK 0.3.0 due to breaking changes in the SDK API. The issue is caused by incompatibility between the Temporal SDK and OpenAI Agents SDK versions.",
+  "category": "bug",
+  "subcategory": "dependency-compatibility",
+  "apis": [],
+  "components": [
+    "run_worker",
+    "workflow-activation",
+    "agent-integration"
+  ],
+  "concepts": [
+    "dependency-management",
+    "breaking-changes",
+    "version-compatibility",
+    "openai-integration",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run basic hello world workflows with OpenAI Agents SDK 0.3.0, requiring immediate version pinning workaround.",
+  "rootCause": "Breaking changes in OpenAI Agents SDK 0.3.0 introduced an incompatible API (conversation_id parameter) that conflicts with the Temporal SDK's _TemporalModelStub.get_response() method.",
+  "proposedFix": "Pin openai agents dependency to version 0.2.9 or lower until the fix is released in a newer version.",
+  "workaround": "Pin openai agents to version 0.2.9 or lower",
+  "resolution": "fixed",
+  "resolutionDetails": "Breaking changes were fixed in main branch, with upper bound of <0.3.0 added to prevent using the incompatible version.",
+  "related": [],
+  "keyQuote": "Breaking changes were made in `0.2.11` and subsequently exist in `0.3.0`. It has been fixed in main, but an upper bound of `<0.3.0` has been added",
+  "number": 1098,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:32:12.537Z"
+}

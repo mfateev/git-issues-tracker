@@ -1,0 +1,33 @@
+{
+  "summary": "Add an integration test to verify that Workflows are automatically retried when experiencing multiple consecutive timeouts. This ensures the retry behavior works correctly end-to-end in the TypeScript SDK.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "integration-tests",
+    "workflow-retry",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "workflow-execution",
+    "integration-testing",
+    "end-to-end",
+    "reliability"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures reliability of workflow retry behavior under timeout conditions, providing confidence that production workflows will retry correctly.",
+  "rootCause": null,
+  "proposedFix": "Add an integration test to the TypeScript SDK that verifies workflows are retried when experiencing multiple consecutive timeouts.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Integration test was implemented to verify retry behavior on consecutive timeouts",
+  "related": [
+    219
+  ],
+  "keyQuote": "WFT timeout is configurable and server behavior might change and make this test obsolete but this is good enough.",
+  "number": 386,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:41.372Z"
+}

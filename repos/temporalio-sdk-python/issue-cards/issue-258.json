@@ -1,0 +1,32 @@
+{
+  "summary": "StartWorkflow should throw WorkflowAlreadyStartedError when attempting to start a workflow that is already running, providing users with a clear, friendly error message instead of a generic failure.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "client",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "workflow-lifecycle",
+    "idempotency",
+    "user-friendly-errors",
+    "duplicate-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to start an already-running workflow receive an unclear error message instead of a specific WorkflowAlreadyStartedError, making it difficult to debug workflow lifecycle issues.",
+  "rootCause": "StartWorkflow does not properly validate and reject duplicate workflow start attempts with a specific error type.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation of WorkflowAlreadyStartedError exception for duplicate workflow start attempts.",
+  "related": [],
+  "keyQuote": "Needs to be friendly error returned in this case",
+  "number": 258,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:39.460Z"
+}

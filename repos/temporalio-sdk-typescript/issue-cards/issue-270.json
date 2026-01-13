@@ -1,0 +1,31 @@
+{
+  "summary": "Request to make workflow.sleep() accept arguments in milliseconds (ms) for consistent API with timeout parameters throughout the SDK.",
+  "category": "feature",
+  "subcategory": "workflow-sleep",
+  "apis": [
+    "workflow.sleep"
+  ],
+  "components": [
+    "workflow-api",
+    "timing-utilities"
+  ],
+  "concepts": [
+    "timeout",
+    "milliseconds",
+    "api-consistency",
+    "sleep",
+    "duration"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have a more consistent API experience when working with sleep durations and timeouts across different Temporal SDK methods.",
+  "rootCause": null,
+  "proposedFix": "Change workflow.sleep() arguments to pass through milliseconds to align with SDK timeout parameter conventions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was implemented or resolved.",
+  "related": [],
+  "keyQuote": "for consistent api with our timeouts",
+  "number": 270,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:54.122Z"
+}

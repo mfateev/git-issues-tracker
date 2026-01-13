@@ -1,0 +1,29 @@
+{
+  "summary": "Postgres SQL plugin lacks maxConns configuration support that MySQL plugin already provides, limiting connection pool management capabilities for Postgres users.",
+  "category": "feature",
+  "subcategory": "persistence-postgres",
+  "apis": [],
+  "components": [
+    "sql-plugin",
+    "postgres-plugin",
+    "connection-pool"
+  ],
+  "concepts": [
+    "database-configuration",
+    "connection-management",
+    "sql-persistence",
+    "plugin-feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal with Postgres cannot configure maximum connections, reducing control over database resource utilization compared to MySQL deployments.",
+  "rootCause": "Postgres plugin implementation missing maxConns configuration parameter that exists in MySQL plugin.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Postgres plugin was updated to support maxConns configuration matching MySQL plugin functionality.",
+  "related": [],
+  "keyQuote": "Mysql supports it... Postgres does not",
+  "number": 325,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:50:06.976Z"
+}

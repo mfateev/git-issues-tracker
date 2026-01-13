@@ -1,0 +1,32 @@
+{
+  "summary": "Allow update handlers to be completed asynchronously rather than blocking threads, similar to how activities support manual completion. This would enable workflows to handle multiple concurrent updates without excessive thread consumption.",
+  "category": "feature",
+  "subcategory": "async-updates",
+  "apis": [
+    "UpdateHandler"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-executor",
+    "async-completion"
+  ],
+  "concepts": [
+    "async-completion",
+    "thread-efficiency",
+    "concurrent-updates",
+    "manual-completion",
+    "workflow-threading"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can implement long-running update handlers without consuming threads for each concurrent update, improving performance and scalability.",
+  "rootCause": "Update handlers are currently run synchronously in their own threads, causing thread pool exhaustion when handling multiple concurrent updates.",
+  "proposedFix": "Implement a native API similar to ActivityExecutionContext.isUseLocalManualCompletion() that allows update handlers to return a Promise that can be completed asynchronously in another thread.",
+  "workaround": "Users can currently implement async updates with existing SDK API but must wait in the thread for results, which doesn't solve the thread consumption problem.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support the ability to transform an update call into a Promise that can be completed later in another thread like the main workflow method",
+  "number": 2056,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:51.349Z"
+}

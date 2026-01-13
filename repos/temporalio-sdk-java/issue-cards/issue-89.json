@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add binary checksum support to WorkerOptions in the Java SDK, allowing developers to mark bad builds similar to functionality in other SDKs.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "worker-options",
+    "binary-checksum"
+  ],
+  "concepts": [
+    "binary-checksum",
+    "build-validation",
+    "worker-configuration",
+    "quality-assurance"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently set binary checksums in the Java SDK to mark and identify bad builds.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by issue #270",
+  "related": [
+    270
+  ],
+  "keyQuote": "Currently there is no way to set binary checksum used for marking bad builds in JavaSDK.",
+  "number": 89,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:56:05.912Z"
+}

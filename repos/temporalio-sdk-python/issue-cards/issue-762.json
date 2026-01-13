@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to enforce the no-mutable-defaults lint rule in the Python SDK to prevent common Python bugs where mutable default arguments are shared across function calls.",
+  "category": "feature",
+  "subcategory": "code-quality",
+  "apis": [],
+  "components": [
+    "linter",
+    "code-analysis",
+    "development-tooling"
+  ],
+  "concepts": [
+    "mutable-defaults",
+    "code-quality",
+    "lint-rules",
+    "python-best-practices",
+    "code-standards"
+  ],
+  "severity": "low",
+  "userImpact": "Developers will catch mutable default argument bugs earlier through automated linting, preventing subtle bugs in their code.",
+  "rootCause": null,
+  "proposedFix": "Implement ruff's mutable-argument-default rule (RUF009) as part of the SDK's linting configuration, following Google's Python style guide recommendations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": null,
+  "number": 762,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:13.364Z"
+}

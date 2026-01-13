@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to provide official Docker images for building and running Temporal TypeScript workers, addressing user uncertainty about containerization practices. The request was closed as the team decided that VM support and pre-built binaries for major architectures made dedicated Docker images unnecessary.",
+  "category": "feature",
+  "subcategory": "docker-deployment",
+  "apis": [],
+  "components": [
+    "docker",
+    "deployment",
+    "worker-runtime",
+    "build-tooling"
+  ],
+  "concepts": [
+    "containerization",
+    "deployment",
+    "build-image",
+    "runtime-image",
+    "architecture-support"
+  ],
+  "severity": "low",
+  "userImpact": "Users lack clear guidance on containerizing and running Temporal TypeScript workers in production environments.",
+  "rootCause": null,
+  "proposedFix": "Create official Docker build and runtime images and update documentation with containerization best practices.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as unnecessary given VM support and availability of pre-built binaries for all major architectures and OS targets.",
+  "related": [],
+  "keyQuote": "Now that we have `vm` support and pre-built binaries for all major architectures and os targets, I don't see a good reason to do this.",
+  "number": 368,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:58.026Z"
+}

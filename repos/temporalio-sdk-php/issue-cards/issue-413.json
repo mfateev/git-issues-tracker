@@ -1,0 +1,35 @@
+{
+  "summary": "Users need a way to check the status of running workflows in the PHP SDK. This feature request asks for a `describe()` method on workflow handles to expose workflow execution status, similar to other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowHandle",
+    "describe"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-handle",
+    "status-api"
+  ],
+  "concepts": [
+    "workflow-status",
+    "execution-state",
+    "workflow-inspection",
+    "handle-methods",
+    "api-consistency",
+    "cross-sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now query workflow execution status directly through the PHP SDK without workarounds, improving developer experience and API consistency with other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add a `describe()` method to the workflow handle that returns workflow execution information including status, following the pattern established in TypeScript SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide describe() method on workflow handles for status queries",
+  "related": [],
+  "keyQuote": "Add `describe()` method into a workflow handle like in other SDKs.",
+  "number": 413,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:56.034Z"
+}

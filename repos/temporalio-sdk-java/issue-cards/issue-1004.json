@@ -1,0 +1,32 @@
+{
+  "summary": "Local Activity Worker ignores startToClose and scheduleToClose timeouts, allowing activities to run longer than the specified startToClose timeout. The worker should respect startToClose by initiating new executions or abandoning timed-out activities.",
+  "category": "bug",
+  "subcategory": "local-activity-timeout",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "local-activity-worker",
+    "activity-executor",
+    "timeout-enforcement"
+  ],
+  "concepts": [
+    "timeout",
+    "startToClose",
+    "scheduleToClose",
+    "activity-lifecycle",
+    "execution-control"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot rely on startToClose timeouts for local activities, causing unpredictable execution times and potential workflow delays.",
+  "rootCause": "Local Activity Worker does not enforce startToClose timeout; only scheduleToClose is considered during execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented proper startToClose timeout enforcement in Local Activity Worker",
+  "related": [],
+  "keyQuote": "Local Activity Worker should respect `startToClose` timeout and initiate a new activity execution if the activity call doesn't finish during a user-defined timeout.",
+  "number": 1004,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:58:20.096Z"
+}

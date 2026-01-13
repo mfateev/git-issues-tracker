@@ -1,0 +1,34 @@
+{
+  "summary": "OpenTracing duplicates user-created spans during workflow replay. When a workflow is replayed, spans created by user code are recreated instead of being ignored, resulting in duplicate span reports. The solution should discard spans during replay when they were already reported in the original execution.",
+  "category": "bug",
+  "subcategory": "opentracing-replay",
+  "apis": [],
+  "components": [
+    "tracer",
+    "scope-manager",
+    "span",
+    "workflow-replay"
+  ],
+  "concepts": [
+    "opentracing",
+    "replay",
+    "span-duplication",
+    "tracing-library",
+    "determinism",
+    "parent-span"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see duplicate spans in trace data when workflows are replayed, making tracing output confusing and inaccurate.",
+  "rootCause": "Spans created during workflow replay are not discarded; they are finalized like normal spans, causing duplicates in the trace output. Unlike TypeScript SDK which completely evicts workflows, Java SDK must run cleanup blocks including span finalization.",
+  "proposedFix": "Create a thin wrapper layer on top of Tracer, ScopeManager, Scope, or Span that checks if the workflow is replaying when a span is finalized. If replaying, discard the span instead of finalizing it. Alternatively, serialize span data into history and recreate from serialized data on replay, ensuring deterministic span IDs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    951
+  ],
+  "keyQuote": "The user span should be duplicated under each WorkflowRun span and contain only activities that were actually executed and not replayed in that run.",
+  "number": 952,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:55:38.174Z"
+}

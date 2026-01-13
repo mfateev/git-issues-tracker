@@ -1,0 +1,32 @@
+{
+  "summary": "Calling `setHandler(signal, undefined)` to clear a signal handler while buffered signals exist causes a heap out of memory crash. The bug occurs because `setHandler` iterates over buffered signals and re-processes them, but when the handler is undefined, they get pushed back into the same buffer being iterated, creating an infinite loop.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [
+    "setHandler"
+  ],
+  "components": [
+    "signal-handlers",
+    "workflow-activation",
+    "buffer-management"
+  ],
+  "concepts": [
+    "signal-buffering",
+    "memory-leak",
+    "handler-lifecycle",
+    "activation-processing",
+    "concurrent-iteration"
+  ],
+  "severity": "high",
+  "userImpact": "Users implementing wait-for-single-signal patterns cannot safely clear handlers while signals are buffered, leading to application crashes.",
+  "rootCause": "setHandler iterates over buffered signals and calls signalWorkflow for each one. When handler is undefined, signalWorkflow pushes the signal back into the same buffer being iterated, creating an infinite loop.",
+  "proposedFix": "Move state.bufferedSignals.delete(def.name) before the for loop and skip processing buffered signals if the new handler is undefined: `if (bufferedSignals !== undefined && handler !== undefined)`",
+  "workaround": "Users can avoid clearing handlers from within signal handlers, or wait for the handler to be cleared from outside the signal context.",
+  "resolution": "fixed",
+  "resolutionDetails": "The proposed fix was accepted and implemented to prevent buffer iteration issues when handlers are set to undefined.",
+  "related": [],
+  "keyQuote": "setHandler iterates over buffered signals and try to process each one. To do so, it calls signalWorkflow, which checks if a handler for that signal is actually defined. Now, since our handler is undefined, signalWorkflow instead push the signal occurence to the corresponding signal buffer. Turns out that this is the very same array over which setHandler is iterating.",
+  "number": 612,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:04:47.052Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Remove deprecated `sourceMap` and `sourceMapPath` configuration options that were made irrelevant by PR #819 and formally deprecated in PR #827.",
+  "category": "feature",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "configuration",
+    "build-system"
+  ],
+  "concepts": [
+    "deprecation",
+    "cleanup",
+    "source-maps",
+    "sdk-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Removes deprecated configuration options from the SDK to simplify the API surface and reduce maintenance burden.",
+  "rootCause": null,
+  "proposedFix": "Remove the `sourceMap` and `sourceMapPath` options from the SDK configuration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    819,
+    827
+  ],
+  "keyQuote": "Made irrelevant in #819. Deprecated in #827",
+  "number": 830,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:18:41.073Z"
+}

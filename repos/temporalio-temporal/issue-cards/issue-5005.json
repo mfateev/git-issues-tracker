@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to allow overriding search attributes when backfilling schedules, enabling users to distinguish backfilled workflow executions from regularly scheduled ones in the UI and for tracking purposes.",
+  "category": "feature",
+  "subcategory": "schedules-backfill",
+  "apis": [
+    "ScheduleBackfill"
+  ],
+  "components": [
+    "scheduler",
+    "workflow",
+    "search-attributes"
+  ],
+  "concepts": [
+    "backfilling",
+    "schedule-overlap",
+    "workflow-identification",
+    "search-attributes",
+    "tracking",
+    "buffer-limit"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily distinguish backfilled workflow executions from regularly scheduled ones, making it difficult to track and understand backfill operations in the UI.",
+  "rootCause": null,
+  "proposedFix": "Extend the ScheduleBackfill request to support overriding search attributes of workflow executions, similar to how ScheduleOverlapPolicy can be overridden. Modify the `addStart` function to accept a mapping of search attributes and extend the `BufferedStart` message to support search attributes.",
+  "workaround": "Users can develop their own backfill abstraction on top of Temporal and track backfill metadata separately, though this is imprecise and requires external solutions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A potential solution to this problem would be to extend the ScheduleBackfill request to support overriding search attributes of the Workflow Executions that are part of the backfill.",
+  "number": 5005,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:35.291Z"
+}

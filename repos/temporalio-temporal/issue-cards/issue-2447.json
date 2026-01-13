@@ -1,0 +1,30 @@
+{
+  "summary": "User requests an option to skip the database creation step in auto-setup.sh when using managed cloud databases that don't support SQL-based database creation, while still allowing schema setup to proceed.",
+  "category": "feature",
+  "subcategory": "setup-automation",
+  "apis": [],
+  "components": [
+    "auto-setup.sh",
+    "sql-tool",
+    "schema-setup"
+  ],
+  "concepts": [
+    "database-creation",
+    "managed-database",
+    "schema-migration",
+    "setup-automation",
+    "cloud-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with managed cloud databases cannot use the auto-setup script without modifying it, forcing them to maintain custom setup scripts.",
+  "rootCause": "auto-setup.sh unconditionally attempts to create the database via sql-tool, which fails on managed database services that handle database creation separately.",
+  "proposedFix": "Add SKIP_CREATE_DB option to auto-setup.sh that skips temporal-sql-tool create commands while allowing schema setup commands to run.",
+  "workaround": "Write a custom setup script that skips the database creation step.",
+  "resolution": "fixed",
+  "resolutionDetails": "The SKIP_CREATE_DB option was implemented, allowing users with pre-existing databases to skip creation while running schema setup.",
+  "related": [],
+  "keyQuote": "Add option SKIP_CREATE_DB to auto-setup.sh witch will skipp `temporal-sql-tool create` commands",
+  "number": 2447,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:45.119Z"
+}

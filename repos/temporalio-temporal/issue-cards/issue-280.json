@@ -1,0 +1,33 @@
+{
+  "summary": "Make ScheduleToStart timeout optional for activities by defaulting it to the workflow execution timeout. Currently both ScheduleToStart and StartToClose are required when ScheduleToClose is not specified, but defaulting ScheduleToStart would simplify the common case.",
+  "category": "feature",
+  "subcategory": "activity-timeouts",
+  "apis": [],
+  "components": [
+    "activity-execution",
+    "timeout-management",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timeout",
+    "scheduling",
+    "optional-parameter",
+    "workflow-execution",
+    "activity-timeout",
+    "default-value"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have a simpler API requiring only one timeout specification instead of two in common use cases.",
+  "rootCause": null,
+  "proposedFix": "Default ScheduleToStart timeout to the workflow execution timeout when not explicitly specified, making it optional.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #292",
+  "related": [
+    292
+  ],
+  "keyQuote": "For the majority of use cases defaulting ScheduleToStart to the workflow execution timeout is the right thing to do.",
+  "number": 280,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:24:53.270Z"
+}

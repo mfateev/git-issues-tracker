@@ -1,0 +1,31 @@
+{
+  "summary": "Environment variables containing certificate and private key strings cannot be properly loaded by ServiceStubOptionsTemplate because they use escaped newline sequences (\"\\n\") instead of actual linebreaks. The template needs to handle conversion of escaped newlines to actual newlines when loading credentials from environment variables.",
+  "category": "bug",
+  "subcategory": "mtls-configuration",
+  "apis": [],
+  "components": [
+    "ServiceStubOptionsTemplate",
+    "ServiceStubsAutoConfiguration",
+    "spring-boot-autoconfigure"
+  ],
+  "concepts": [
+    "certificate-loading",
+    "environment-variables",
+    "mTLS",
+    "string-escaping",
+    "configuration",
+    "credential-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users storing Temporal Cloud certificates in environment variables cannot load them due to escaped newline characters, forcing them to either use YAML/properties files or implement custom workarounds.",
+  "rootCause": "ServiceStubOptionsTemplate does not convert escaped newline sequences (\\\\n) to actual newlines (\\n) when loading certificate strings from environment variables, while YAML/properties files automatically perform this conversion.",
+  "proposedFix": "Add logic to convert \"\\\\n\" to \"\\n\" in the cert string within ServiceStubOptionsTemplate class before certificate validation.",
+  "workaround": "Replace ServiceStubsAutoConfiguration with a customized/extended class that performs the \\\\n to \\n conversion in mtlsProperties' cert and key before loading.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the ServiceStubOptionsTemaplte fails to load cert/key saying it is not valid cert... It works perfectly with application.yaml/propeties because it converts \"\\n\" to linebreak",
+  "number": 1825,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:18.142Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Importing concurrent.futures.ProcessPoolExecutor or ThreadPoolExecutor in Python workflows causes workflow failure even when unused. The sandbox environment prevents these imports, requiring investigation into why these standard library imports are blocked.",
+  "category": "bug",
+  "subcategory": "sandbox-restrictions",
+  "apis": [],
+  "components": [
+    "sandbox",
+    "import-system",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "sandbox-isolation",
+    "concurrent-execution",
+    "standard-library-imports",
+    "process-pooling",
+    "thread-pooling",
+    "restriction"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot import standard library concurrency utilities in workflows, limiting code reusability and forcing workarounds for common Python patterns.",
+  "rootCause": "The sandbox environment has restrictions that block imports of concurrent.futures module components without clear reasoning.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The sandbox restrictions on concurrent.futures imports were addressed, allowing both ProcessPoolExecutor and ThreadPoolExecutor to be imported without causing workflow failure.",
+  "related": [],
+  "keyQuote": "from concurrent.futures import ProcessPoolExecutor causes workflow failure even if unused. Need to see why.",
+  "number": 201,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:30.128Z"
+}

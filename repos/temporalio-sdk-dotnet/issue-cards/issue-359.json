@@ -1,0 +1,42 @@
+{
+  "summary": "Add support for user metadata in .NET SDK by accepting optional static summary/details when starting workflows and timers, and optional summary for activities. Implement __temporal_workflow_metadata query handler to match feature parity with other SDKs.",
+  "category": "feature",
+  "subcategory": "user-metadata",
+  "apis": [
+    "StartWorkflow",
+    "SignalWithStart",
+    "Schedule",
+    "CreateChildWorkflow",
+    "CreateTimer",
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-client",
+    "metadata-handler",
+    "query-handler",
+    "activity-executor"
+  ],
+  "concepts": [
+    "user-metadata",
+    "workflow-summary",
+    "activity-summary",
+    "metadata-query",
+    "feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently attach custom metadata to workflows, timers, and activities in the .NET SDK, limiting visibility and debugging capabilities compared to other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add optional parameters for static summary/details across all workflow start methods, summary for timers/activities, and implement __temporal_workflow_metadata query handler",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support user metadata across workflow starts, timers, and activities with __temporal_workflow_metadata query handling",
+  "related": [
+    486,
+    830,
+    1597
+  ],
+  "keyQuote": "Accept optional \"static summary\" and \"static details\" on all ways to start a workflow and populate user metadata with them",
+  "number": 359,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:02:13.231Z"
+}

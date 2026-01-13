@@ -1,0 +1,31 @@
+{
+  "summary": "Spring Boot Starter 2.7.4 has 5 dependency vulnerabilities in snakeyaml 1.30, including a critical DoS vulnerability (CVE-2022-25857, CVSS 7.5). The issue was automatically closed after the vulnerable dependency was either marked as ignored or removed from inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "dependency-management",
+    "snakeyaml"
+  ],
+  "concepts": [
+    "denial-of-service",
+    "yaml-parsing",
+    "stack-overflow",
+    "nested-depth-limitation",
+    "vulnerability",
+    "dependency-security"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using Spring Boot Starter 2.7.4 are exposed to DoS attacks through malicious YAML parsing.",
+  "rootCause": "snakeyaml 1.30 lacks nested depth limitations for collections, allowing attackers to cause stack overflow through crafted YAML input.",
+  "proposedFix": "Upgrade snakeyaml from 1.30 to 1.31 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was either marked as ignored or removed from the dependency inventory.",
+  "related": [],
+  "keyQuote": "The package org.yaml:snakeyaml from 0 and before 1.31 are vulnerable to Denial of Service (DoS) due missing to nested depth limitation for collections.",
+  "number": 1482,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:36:51.357Z"
+}

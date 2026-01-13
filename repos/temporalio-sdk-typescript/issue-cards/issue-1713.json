@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to pass webpack object as second parameter to webpackConfigHook so users can access webpack plugins like DefinePlugin without importing webpack separately, avoiding potential version mismatches.",
+  "category": "feature",
+  "subcategory": "webpack-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "webpack-config",
+    "plugin-system"
+  ],
+  "concepts": [
+    "webpack-integration",
+    "dependency-injection",
+    "version-compatibility",
+    "plugin-management",
+    "configuration-hook"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently need to import webpack directly to use webpack plugins, which can cause version mismatches with the webpack version used by @temporalio/worker.",
+  "rootCause": null,
+  "proposedFix": "Pass webpack object as second parameter to webpackConfigHook callback function alongside the current config parameter.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if we need to use things like `DefinePlugin`, the caller has to import webpack directly. This may cause issues as the caller may wrongly use a webpack version different from the one used by `@temporalio/worker`.",
+  "number": 1713,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:26.580Z"
+}

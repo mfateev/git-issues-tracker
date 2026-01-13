@@ -1,0 +1,31 @@
+{
+  "summary": "Updates getting dropped after continue-as-new in workflows. The issue occurs when near-simultaneous updates race with workflow continuation, and the SDK doesn't prevent or clearly inform users about this behavior. Users need better SDK support or facilities to track outstanding updates.",
+  "category": "feature",
+  "subcategory": "updates-continue-as-new",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "update-handler",
+    "signal-update-serialization"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "update-delivery",
+    "race-condition",
+    "workflow-continuation",
+    "external-signals",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience dropped updates when using continue-as-new, requiring complex manual workarounds to track outstanding updates and avoid data loss.",
+  "rootCause": "Updates are not serialized relative to workflow continuation and other concurrent operations (signals, updates, workflow code), causing race conditions.",
+  "proposedFix": "SDK should either prevent updates from being dropped after continue-as-new or provide built-in facilities to track outstanding updates so users can wait for them before continuation.",
+  "workaround": "Manually track running updates with a counter (num_running_updates) and wait for it to reach zero before continue-as-new using wait_condition.",
+  "resolution": "fixed",
+  "resolutionDetails": "Partially addressed through the addition of mutexes to serialize updates and prevent races.",
+  "related": [],
+  "keyQuote": "I don't have a specific solution in mind, but I'd ideally like the SDK to prevent this from happening, or at least inform me that it is happening",
+  "number": 467,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:29.786Z"
+}

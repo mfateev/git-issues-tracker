@@ -1,0 +1,36 @@
+{
+  "summary": "User seeks guidance on proper client instantiation patterns when long-lived server connections frequently drop due to server redeployment. They question whether to reuse a single Connection/WorkflowClient or create new instances per request.",
+  "category": "question",
+  "subcategory": "connection-management",
+  "apis": [
+    "Connection",
+    "WorkflowClient"
+  ],
+  "components": [
+    "client",
+    "connection-manager",
+    "grpc-interceptors"
+  ],
+  "concepts": [
+    "connection-reuse",
+    "retry-policy",
+    "reconnection",
+    "error-handling",
+    "server-downtime",
+    "tcp-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experiencing connection drop errors need to understand the correct client usage pattern to avoid redundant instance creation and ensure reliable operation across server redeployments.",
+  "rootCause": "Connection retry logic was not fully implemented in gRPC interceptors; individual calls may fail after retry limit is hit even though the connection can be reused.",
+  "proposedFix": "Reuse Connection and WorkflowClient instances for the lifetime of the application; the connection will automatically reconnect when dropped. Adjust retry policy based on expected server downtime duration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Confirmed that Connection/WorkflowClient can be safely reused across server redeployments; individual failed calls don't destroy the connection. Related fix in sdk-core PR #213 addresses worker persistence during server downtime.",
+  "related": [
+    213
+  ],
+  "keyQuote": "you can trust the Connection and WorkflowClient instance may be re-used though, depending on your retry policy, in-progress calls may eventually fail if the connection is lost for long enough",
+  "number": 325,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:25.028Z"
+}

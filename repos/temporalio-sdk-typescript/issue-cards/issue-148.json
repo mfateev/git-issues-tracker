@@ -1,0 +1,32 @@
+{
+  "summary": "Query handlers should not be async because they can create commands and mutate state, breaking workflow determinism. The SDK should enforce this by throwing a DeterminismViolationError when a query handler returns a Promise.",
+  "category": "bug",
+  "subcategory": "query-handler",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "workflow-isolate",
+    "type-system"
+  ],
+  "concepts": [
+    "determinism",
+    "async",
+    "state-mutation",
+    "command-creation",
+    "workflow-history"
+  ],
+  "severity": "high",
+  "userImpact": "Users can accidentally create async query handlers that violate workflow determinism and break execution, but the SDK doesn't prevent this.",
+  "rootCause": "Query handler type signature allows Promise return values, but async functions that create commands or mutate state are not recorded in workflow history.",
+  "proposedFix": "Throw DeterminismViolationError if a query handler returns a Promise at runtime.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via PR #149",
+  "related": [
+    149
+  ],
+  "keyQuote": "query methods should not create commands (e.g timers / activities) or mutate state because they are not recorded in the workflow history and thus will break determinism",
+  "number": 148,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:25.622Z"
+}

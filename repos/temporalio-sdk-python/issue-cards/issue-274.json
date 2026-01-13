@@ -1,0 +1,32 @@
+{
+  "summary": "User attempted to mutate workflow instance attributes from within executed activities, expecting reference-based behavior. This is not supported—activities and workflows run in separate processes with serialized data exchange.",
+  "category": "question",
+  "subcategory": "activity-state-management",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-state",
+    "serialization"
+  ],
+  "concepts": [
+    "state-mutation",
+    "reference-semantics",
+    "inter-process-communication",
+    "data-serialization",
+    "activity-workflow-isolation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot directly mutate workflow state from activities; they must use alternative patterns like return values or signals.",
+  "rootCause": "Activities run in separate processes with serialized arguments, so mutations are not visible to the workflow.",
+  "proposedFix": null,
+  "workaround": "Use return values or signals to communicate state changes from activities back to workflows.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as a question. The behavior is by design—activities and workflows are intentionally isolated with serialized data exchange.",
+  "related": [],
+  "keyQuote": "Activities may not even run on the same machine. Activities and workflows are intentionally completely separate things that run in separate place that serialize the data sent between them.",
+  "number": 274,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:44.927Z"
+}

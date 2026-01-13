@@ -1,0 +1,30 @@
+{
+  "summary": "The CLI command to create KeywordList search attributes fails with 'unsupported search attribute type' error. The root cause was user error (trailing whitespace in the type parameter), but the team improved the error message to include quotes around the attribute type for clarity.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "cli",
+    "operator",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "KeywordList",
+    "error-messaging",
+    "command-parsing",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to create KeywordList search attributes encounter a confusing error message that doesn't immediately indicate the actual problem (trailing whitespace).",
+  "rootCause": "Whitespace in the search attribute type parameter (e.g., 'KeywordList ' with trailing space) was not being trimmed before validation, causing the type to not match the supported types.",
+  "proposedFix": "Trim whitespace from the search attribute type parameter before validation, and improve error messages to show the attribute type in quotes for clarity.",
+  "workaround": "Remove any trailing whitespace from the --type parameter value when creating search attributes.",
+  "resolution": "fixed",
+  "resolutionDetails": "Error message was improved by adding quotes around the search attribute type (CLI PR #772), making it clearer when there are parsing issues.",
+  "related": [],
+  "keyQuote": "I had white space after the keywordList like this 'KeywordList ': containerState.execInContainer(...'--type', 'KeywordList '...",
+  "number": 6700,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:47.728Z"
+}

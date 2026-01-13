@@ -1,0 +1,32 @@
+{
+  "summary": "User asks whether different fairness weights for the same fairness key on different workflows will cause issues, and which weight would take precedence. The maintainer clarified that semantically fairness weight should be a property of the key, and using different weights for the same key is semantically incorrect though technically allowed.",
+  "category": "question",
+  "subcategory": "fairness-scheduling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-scheduling",
+    "priority-queue",
+    "fairness-algorithm"
+  ],
+  "concepts": [
+    "fairness-key",
+    "fairness-weight",
+    "workflow-priority",
+    "scheduling",
+    "weighting"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about fairness behavior when using the same fairness key with different weights across workflows.",
+  "rootCause": "API design allows flexible external weight storage but doesn't enforce weight consistency per key, leading to potential confusion.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed by maintainer indicating it's a general question better suited for community forums, not a bug report. Clarification was provided that different weights for the same key behavior is undefined semantically.",
+  "related": [],
+  "keyQuote": "the effective behavior will be something like an average of the weights",
+  "number": 8968,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:30:19.851Z"
+}

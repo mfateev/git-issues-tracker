@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for MCP (Model Context Protocol) clients in native Python workflows, enabling use of existing stdio and http transport MCP servers. Implementation should initially use activity calls with an activity-local worker for stateful sessions, with future versions supporting fully durable/fault-tolerant tool calls using nexus operations.",
+  "category": "feature",
+  "subcategory": "mcp-integration",
+  "apis": [],
+  "components": [
+    "mcp-client",
+    "activity-worker",
+    "workflow-runtime",
+    "transport-layer"
+  ],
+  "concepts": [
+    "mcp-protocol",
+    "stateful-sessions",
+    "tool-calling",
+    "durable-execution",
+    "activity-worker",
+    "nexus-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Allows workflow code to directly use MCP servers for tool calling and external integrations without requiring third-party agent SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement mcp.ClientSession component using custom transport responding to tools/list and tools/call via activity calls; use activity-local activity worker for stateful sessions; support stdio and http transport initially; future versions to support nexus operations for durable tool calls.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1021
+  ],
+  "keyQuote": "The SDK should contain a component allowing MCP to be used from native workflow code (i.e. when not using a 3rd-party agent SDK).",
+  "number": 1056,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:10.482Z"
+}

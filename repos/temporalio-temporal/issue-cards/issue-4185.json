@@ -1,0 +1,32 @@
+{
+  "summary": "The persistenceGlobalMaxQPS dynamic config parameter is not being used in the codebase. The issue requests either enabling this configuration or removing/commenting it to avoid confusion about whether it has any effect.",
+  "category": "other",
+  "subcategory": "dynamic-config",
+  "apis": [],
+  "components": [
+    "dynamic-config",
+    "persistence",
+    "service"
+  ],
+  "concepts": [
+    "configuration",
+    "performance",
+    "qps-limiting",
+    "dynamic-config",
+    "unused-parameters"
+  ],
+  "severity": "low",
+  "userImpact": "Users may attempt to configure persistenceGlobalMaxQPS without realizing it has no effect on the system.",
+  "rootCause": "The persistenceGlobalMaxQPS configuration parameter is defined but not actually referenced or used in the service initialization code.",
+  "proposedFix": "Either enable the persistenceGlobalMaxQPS configuration or remove/comment the related dynamic config knobs to clarify they are not functional.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via PR #4803 which addressed the unused dynamic config parameter.",
+  "related": [
+    4803
+  ],
+  "keyQuote": "Looks as currently persistenceGlobalMaxQPS dynamic config is not used",
+  "number": 4185,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:45.932Z"
+}

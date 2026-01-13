@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add support for priority annotations on workflows and activities in the Python SDK. Implementation details are tracked in the cross-repository features issue.",
+  "category": "feature",
+  "subcategory": "priority-annotations",
+  "apis": [],
+  "components": [
+    "workflow",
+    "activity",
+    "annotations"
+  ],
+  "concepts": [
+    "priority",
+    "workflow-execution",
+    "activity-execution",
+    "scheduling",
+    "resource-allocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently specify execution priority for workflows and activities, limiting control over task scheduling and resource allocation.",
+  "rootCause": null,
+  "proposedFix": "Implement priority annotation support as detailed in temporalio/features#593",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and delivered in the Python SDK",
+  "related": [
+    593
+  ],
+  "keyQuote": "Add support for attaching priority to workflows/activities",
+  "number": 760,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:55.465Z"
+}

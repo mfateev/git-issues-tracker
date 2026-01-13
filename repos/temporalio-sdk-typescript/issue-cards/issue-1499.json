@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to implement automatic request batching in the TypeScript SDK to prevent gRPC message size errors when scheduling many activities. The SDK currently batches activity scheduling commands into a single request, which can exceed the 4MB gRPC limit when starting ~600 activities, causing workflow freezes and silent failures.",
+  "category": "feature",
+  "subcategory": "activity-batching",
+  "apis": [
+    "RespondWorkflowTaskCompleted"
+  ],
+  "components": [
+    "gRPC-client",
+    "activity-scheduler",
+    "batch-manager",
+    "payload-converter"
+  ],
+  "concepts": [
+    "request-batching",
+    "message-size-limits",
+    "gRPC-ResourceExhausted",
+    "payload-splitting",
+    "error-handling",
+    "logging"
+  ],
+  "severity": "high",
+  "userImpact": "Developers experience silent workflow freezes when scheduling large numbers of activities, with no mechanism to detect or handle gRPC message size limits.",
+  "rootCause": "SDK batches all activity scheduling commands into a single gRPC request without checking cumulative message size against the 4MB limit, causing ResourceExhausted errors on retry.",
+  "proposedFix": "Implement automatic request splitting to detect when message size approaches 4MB and split commands into smaller batches, or throw a descriptive runtime error if splitting is infeasible. Enhance logging around gRPC size limits.",
+  "workaround": "Custom payload compression using data converters, or manually batching activity scheduling in application code (incomplete pilot solution provided).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The SDK does not provide any built-in mechanism to automatically handle this limitation, nor does it throw a runtime error that could help developers detect and manage the issue proactively.",
+  "number": 1499,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:35:16.835Z"
+}

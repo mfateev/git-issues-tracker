@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for Eager Workflow Start in the Python SDK, a performance optimization that allows clients to directly schedule the first workflow task to a local worker, reducing latency. This feature is already supported in Java and Go SDKs and depends on Core implementation.",
+  "category": "feature",
+  "subcategory": "workflow-start",
+  "apis": [
+    "start_workflow"
+  ],
+  "components": [
+    "client",
+    "workflow-executor",
+    "task-scheduling"
+  ],
+  "concepts": [
+    "performance",
+    "latency-optimization",
+    "eager-execution",
+    "workflow-initialization",
+    "client-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to reduce workflow start latency by using eager workflow start when calling start_workflow with the new flag.",
+  "rootCause": null,
+  "proposedFix": "Add enable_eager_start flag to client.start_workflow method, defaulting to False until Core implementation is considered stable.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with enable_eager_start flag added to start_workflow method.",
+  "related": [
+    242,
+    606
+  ],
+  "keyQuote": "Support for Eager Workflow Start was added in the server in 1.20, and is currently supported in Java and Go SDKs. It reduces the latency to start a workflow by allowing the client to directly schedule the first workflow task to a local worker.",
+  "number": 388,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:31.295Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Nexus handler incorrectly passes a completion callback even when no completion URL is provided, causing unnecessary or incorrect behavior.",
+  "category": "bug",
+  "subcategory": "nexus-handler",
+  "apis": [],
+  "components": [
+    "nexus-handler",
+    "callback-management"
+  ],
+  "concepts": [
+    "completion-callback",
+    "completion-url",
+    "conditional-logic",
+    "handler-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing Nexus handlers may encounter unexpected callback behavior when no completion URL is configured.",
+  "rootCause": "The handler implementation always passes a completion callback regardless of whether a completion URL exists.",
+  "proposedFix": "Only pass a completion callback when a completion URL is actually provided.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed by implementing conditional callback passing based on completion URL availability.",
+  "related": [],
+  "keyQuote": "In a Nexus handler only pass a completion callback if a completion URL is provided",
+  "number": 2614,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:13:48.997Z"
+}

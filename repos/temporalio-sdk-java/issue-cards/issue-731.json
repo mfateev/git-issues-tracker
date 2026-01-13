@@ -1,0 +1,32 @@
+{
+  "summary": "Activities that return with the interrupted flag set are not properly reported as completed, causing subsequent gRPC calls to fail. The activity result should be reported successfully even when the thread's interrupted flag is set.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "gRPC-client",
+    "thread-pool"
+  ],
+  "concepts": [
+    "interrupted-flag",
+    "thread-interruption",
+    "activity-completion",
+    "result-reporting",
+    "state-restoration"
+  ],
+  "severity": "high",
+  "userImpact": "Activities that handle thread interruptions may fail to report their results to the server, causing workflow execution to hang or fail.",
+  "rootCause": "When an activity returns with the interrupted flag set to true, subsequent gRPC calls fail and prevent the activity result from being reported to the server.",
+  "proposedFix": "Hide the interrupted flag before reporting the activity result to the server, then restore it afterward to allow proper thread pool shutdown.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    722
+  ],
+  "keyQuote": "if activity returns with an interrupted flag turned on, subsequent gRPC calls fail and the Activity result never gets reported",
+  "number": 731,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:37:31.005Z"
+}

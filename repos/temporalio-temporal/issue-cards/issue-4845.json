@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow needs ability to reject signals by type, especially when performing cleanup operations. Currently workers must run to reject updates, but signal rejection should work synchronously without active workers.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "workflow-engine",
+    "command-processor"
+  ],
+  "concepts": [
+    "signal-rejection",
+    "workflow-state-management",
+    "cleanup-operations",
+    "worker-availability",
+    "command-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows can more robustly handle cleanup operations by rejecting unwanted signals without requiring active workers.",
+  "rootCause": null,
+  "proposedFix": "Add commands to enable/disable signal types, with rejected signals handled synchronously without worker execution.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add commands to enable/disable signal types. The signal type which is not enabled will be rejected synchronously.",
+  "number": 4845,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:30.859Z"
+}

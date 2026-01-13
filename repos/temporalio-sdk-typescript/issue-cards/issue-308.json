@@ -1,0 +1,32 @@
+{
+  "summary": "Timer creation fails with \"BadStartTimerAttributes\" error when StartToFireTimeout is not properly set on the timer command, causing workers to crash with an unhandled gRPC error.",
+  "category": "bug",
+  "subcategory": "timer",
+  "apis": [
+    "StartTimer"
+  ],
+  "components": [
+    "worker",
+    "timer-executor",
+    "command-validation"
+  ],
+  "concepts": [
+    "timeout",
+    "timer",
+    "validation",
+    "error-handling",
+    "gRPC"
+  ],
+  "severity": "high",
+  "userImpact": "Users encounter worker crashes when using timers without proper timeout configuration, with an unclear error message.",
+  "rootCause": "StartToFireTimeout attribute is not being validated or set correctly when creating timer commands.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through proper validation and error handling in timer command creation.",
+  "related": [],
+  "keyQuote": "BadStartTimerAttributes: A valid StartToFireTimeout is not set on command.",
+  "number": 308,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:38.307Z"
+}

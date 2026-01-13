@@ -1,0 +1,35 @@
+{
+  "summary": "Add an interceptor for WorkflowClient.listExecutions API. The request also includes exposing the constructor of WorkflowExecutionMetadata for better flexibility.",
+  "category": "feature",
+  "subcategory": "client-interceptors",
+  "apis": [
+    "WorkflowClient.listExecutions",
+    "WorkflowExecutionMetadata"
+  ],
+  "components": [
+    "workflow-client",
+    "interceptor-framework",
+    "execution-metadata"
+  ],
+  "concepts": [
+    "interceptor",
+    "client-extension",
+    "list-operations",
+    "metadata",
+    "api-extension"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now intercept and customize behavior of WorkflowClient.listExecutions operations for logging, monitoring, or other cross-cutting concerns.",
+  "rootCause": null,
+  "proposedFix": "Add interceptor support for listExecutions and expose WorkflowExecutionMetadata constructor",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide interceptor support for listExecutions and expose the WorkflowExecutionMetadata constructor",
+  "related": [
+    2326
+  ],
+  "keyQuote": "Add an interceptor for WorkflowClient.listExecutions. We should also expose the constructor of WorkflowExecutionMetadata",
+  "number": 2328,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:39.754Z"
+}

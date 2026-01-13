@@ -1,0 +1,34 @@
+{
+  "summary": "Implement true mathematical equivalence checking for task predicates to enable better queue slice merging. Current equality check only compares predicate form and value, producing false negatives when logically equivalent predicates have different arrangements (especially with boolean operations).",
+  "category": "feature",
+  "subcategory": "predicate-optimization",
+  "apis": [],
+  "components": [
+    "predicate-engine",
+    "queue-management",
+    "predicate-equals"
+  ],
+  "concepts": [
+    "equivalence-checking",
+    "boolean-logic",
+    "queue-merging",
+    "predicate-simplification",
+    "performance-optimization",
+    "mathematical-equivalence",
+    "storage-efficiency"
+  ],
+  "severity": "low",
+  "userImpact": "Users may experience suboptimal queue slice merging due to false negatives in predicate equivalence checks, resulting in increased storage overhead for queue slice metadata.",
+  "rootCause": "The current Predicate.Equals() implementation only performs form-based comparison without normalizing or re-arranging logical operations (and/or/not), missing mathematically equivalent predicates that differ in structure.",
+  "proposedFix": "Implement a real equivalence check that can normalize predicates and recognize mathematically equivalent forms, allowing more queue slices to be merged together.",
+  "workaround": "Accept false negatives in predicate merging; the performance impact is minimal as unmerged queue slices only incur negligible additional storage costs.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2988
+  ],
+  "keyQuote": "implement a real equivalence check for predicates so that more queue slices can be merged together",
+  "number": 2995,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:02.985Z"
+}

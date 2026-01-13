@@ -1,0 +1,33 @@
+{
+  "summary": "User requests a GetLastCompletionResult method in Python SDK for retrieving previous schedule run results, similar to functionality available in Go and Java SDKs.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [
+    "GetLastCompletionResult"
+  ],
+  "components": [
+    "python-sdk",
+    "schedules",
+    "workflow"
+  ],
+  "concepts": [
+    "schedule",
+    "completion-result",
+    "previous-run",
+    "cron"
+  ],
+  "severity": "medium",
+  "userImpact": "Python SDK users cannot easily access previous schedule run results within workflows, limiting schedule implementation capabilities.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #383; core request acknowledged with commitment to prioritize.",
+  "related": [
+    383
+  ],
+  "keyQuote": "I see that there is a GetLastCompletionResult method for getting previous run result of a schedule... however I couldn't find the same method in Python SDK.",
+  "number": 1028,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:07.265Z"
+}

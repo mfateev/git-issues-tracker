@@ -1,0 +1,32 @@
+{
+  "summary": "Multiprocess heartbeat and cancellation mechanism using multiprocessing.Manager() is flaky and confusing. The current implementation moves heartbeats through sync queues to async tasks, and fast heartbeating can block the event loop.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "multiprocessing-heartbeat",
+    "event-loop",
+    "activity-executor",
+    "queue-management"
+  ],
+  "concepts": [
+    "heartbeat",
+    "cancellation",
+    "multiprocessing",
+    "event-loop",
+    "async-sync-bridge",
+    "queuing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing multiprocess activities may experience flaky heartbeat/cancellation behavior and event loop blocking when heartbeating frequently.",
+  "rootCause": "Using multiprocessing.Manager() queues and events with sync-to-async conversion; fast heartbeating holds up event loop due to scheduling overhead.",
+  "proposedFix": "Streamline the threaded/multiprocess heartbeat queuing mechanism to be more reliable and efficient.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Try to streamline the threaded/multiprocess heartbeat queuing. Heartbeating too fast can hold up the event loop",
+  "number": 12,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:45:45.119Z"
+}

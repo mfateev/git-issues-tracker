@@ -1,0 +1,35 @@
+{
+  "summary": "When signaling a closed workflow throws WorkflowNotFoundException, the Java SDK should include the WorkflowStatus to distinguish between workflows that don't exist versus workflows that are closed/completed. Currently developers must make a separate DescribeWorkflowExecution API call to determine the actual state.",
+  "category": "feature",
+  "subcategory": "workflow-signaling",
+  "apis": [
+    "SignalWorkflow",
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "client",
+    "exception-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-status",
+    "error-handling",
+    "signal-workflow",
+    "workflow-lifecycle",
+    "api-enhancement"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must make additional API calls to distinguish between non-existent and closed workflows when handling signal failures, increasing latency and code complexity.",
+  "rootCause": "The server does not return WorkflowExecutionStatus in the error response when signaling a workflow that is not running.",
+  "proposedFix": "Enhance the Temporal server to include WorkflowExecutionStatus in the error details returned when signaling a non-running workflow, and update the Java SDK to expose this information in WorkflowNotFoundException.",
+  "workaround": "Call DescribeWorkflowExecution API separately to determine the workflow status after receiving WorkflowNotFoundException.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5303
+  ],
+  "keyQuote": "As an application, we sometimes need to handle the two cases differently(error handling).",
+  "number": 1969,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:37.629Z"
+}

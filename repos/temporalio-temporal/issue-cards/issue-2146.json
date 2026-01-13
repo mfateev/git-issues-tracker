@@ -1,0 +1,36 @@
+{
+  "summary": "Cron workflows that use continue as new lose their cron schedule, causing the workflow to no longer be triggered for the next scheduled run. The history limit is reduced but scheduled execution is lost.",
+  "category": "bug",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNew",
+    "CronSchedule"
+  ],
+  "components": [
+    "workflow-engine",
+    "cron-scheduler",
+    "history-management"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "continue-as-new",
+    "history-limit",
+    "workflow-execution",
+    "state-preservation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reduce workflow history in cron workflows using continue as new without losing the cron schedule, forcing them to choose between managing history or maintaining scheduled execution.",
+  "rootCause": "When user code executes continue as new, the CronSchedule option is lost on the new workflow run.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #746, which was a known issue with the same root cause of losing CronSchedule during continue as new operations.",
+  "related": [
+    148,
+    746
+  ],
+  "keyQuote": "Continue as new solves the history limit problem but creates none scheduled workflows",
+  "number": 2146,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:19.465Z"
+}

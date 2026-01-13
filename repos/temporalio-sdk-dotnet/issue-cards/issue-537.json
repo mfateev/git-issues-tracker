@@ -1,0 +1,31 @@
+{
+  "summary": "Remove the erroneous `OperationName` property from `Temporalio.Workflows.NexusOperationOptions` as it is not used and should not be part of the API.",
+  "category": "bug",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "NexusOperationOptions"
+  ],
+  "components": [
+    "nexus-operation-client",
+    "workflow-sdk",
+    "api-surface"
+  ],
+  "concepts": [
+    "api-cleanup",
+    "unused-property",
+    "nexus-integration",
+    "code-maintenance"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused by the presence of an unused property in the NexusOperationOptions API.",
+  "rootCause": "The OperationName property was included in NexusOperationOptions but is not utilized anywhere in the codebase.",
+  "proposedFix": "Remove the OperationName property from the NexusOperationOptions class.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Property was removed from the NexusOperationOptions API.",
+  "related": [],
+  "keyQuote": "`Temporalio.Workflows.NexusOperationOptions.OperationName` should not be there, it is not used",
+  "number": 537,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:33:47.109Z"
+}

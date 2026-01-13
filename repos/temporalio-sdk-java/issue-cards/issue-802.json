@@ -1,0 +1,31 @@
+{
+  "summary": "StickyWorkerTest#whenStickyIsEnabledThenTheWorkflowIsCachedChildWorkflows test flakes intermittently when running with Dockerized Temporal service in CI/CD pipeline.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "sticky-worker",
+    "child-workflows",
+    "test-framework"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "sticky-execution",
+    "workflow-caching",
+    "docker",
+    "ci-cd",
+    "race-condition"
+  ],
+  "severity": "medium",
+  "userImpact": "CI/CD builds intermittently fail due to flaky tests, reducing confidence in test reliability and blocking development workflows.",
+  "rootCause": "Timing-related issue with workflow caching behavior when using Dockerized Temporal service, likely due to resource contention or timing sensitivity.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved as indicated by author's follow-up comment 'not anymore'.",
+  "related": [],
+  "keyQuote": "StickyWorkerTest#whenStickyIsEnabledThenTheWorkflowIsCachedChildWorkflows flakes with Dockerized Temporal service in buildkite.",
+  "number": 802,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:43:29.062Z"
+}

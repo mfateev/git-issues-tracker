@@ -1,0 +1,31 @@
+{
+  "summary": "Test host process crashes intermittently on CI with SIGSEGV occurring in the P/Invoke layer during workflow activation completion. Root cause identified as premature destruction of ByteArrayRef objects during process shutdown, freeing native-visible resources that are still in use by Rust code.",
+  "category": "bug",
+  "subcategory": "test-infrastructure",
+  "apis": [],
+  "components": [
+    "bridge-interop",
+    "worker",
+    "byte-array-ref"
+  ],
+  "concepts": [
+    "memory-management",
+    "process-shutdown",
+    "use-after-free",
+    "P/Invoke",
+    "finalizers",
+    "GC-destructors"
+  ],
+  "severity": "high",
+  "userImpact": "CI tests flake unpredictably due to crashes in the .NET/Rust interop layer, affecting test reliability and blocking development.",
+  "rootCause": "ByteArrayRef destructor is freeing native-visible resources (memory pointers) during .NET process shutdown that may still be in use by Rust code on the C side, causing use-after-free and SIGSEGV.",
+  "proposedFix": "Stop freeing resources in destructors for Scope and ByteArrayRef. Use explicit Dispose() calls only and do not call Dispose() from destructors. Ensure resources are only freed when explicitly released, not during unmanaged process shutdown.",
+  "workaround": "Intentionally leak ByteArrayRef memory to prevent premature deallocation, or add ByteArrayRef.Empty to byteArrayRefs tracking to ensure proper lifetime management.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as P/Invoke interop problem where destructors were freeing native-visible resources during process shutdown while still in use by Rust code.",
+  "related": [],
+  "keyQuote": "A finalizer must never release native-visible resources whose premature release can crash the process.",
+  "number": 577,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:37:03.409Z"
+}

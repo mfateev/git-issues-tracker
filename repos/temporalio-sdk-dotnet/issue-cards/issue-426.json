@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal .NET SDK needs Nexus implementation alongside the Nexus .NET SDK. This feature request references the cross-SDK Nexus specification work being tracked in the features repository.",
+  "category": "feature",
+  "subcategory": "nexus-integration",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "nexus-service"
+  ],
+  "concepts": [
+    "nexus",
+    "service-communication",
+    "cross-sdk-feature",
+    "api-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Nexus features in .NET SDK until the Temporal-specific implementation is completed alongside the Nexus .NET SDK.",
+  "rootCause": null,
+  "proposedFix": "Implement Temporal-specific Nexus support in the .NET SDK as specified in the features repository issue #609.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented Temporal-specific Nexus support in .NET SDK following the specification from the features repository.",
+  "related": [
+    609
+  ],
+  "keyQuote": "Alongside Nexus .NET SDK, need Temporal-specific implementation in this SDK.",
+  "number": 426,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:23:09.879Z"
+}

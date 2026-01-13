@@ -1,0 +1,30 @@
+{
+  "summary": "Implement a workflow sandbox environment to run workflows with certain operations disabled, preventing non-deterministic behavior. Research on this capability has already begun.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-runner",
+    "sandbox",
+    "execution-environment"
+  ],
+  "concepts": [
+    "determinism",
+    "sandboxing",
+    "non-deterministic-behavior",
+    "workflow-isolation",
+    "execution-constraints"
+  ],
+  "severity": "high",
+  "userImpact": "Users need workflow sandboxing to ensure deterministic execution and prevent undefined behavior in their workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow sandbox was implemented to ensure deterministic workflow execution by restricting certain operations.",
+  "related": [],
+  "keyQuote": "We need to run workflows in a sandbox with some things disabled to prevent non-determinism.",
+  "number": 80,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:09.089Z"
+}

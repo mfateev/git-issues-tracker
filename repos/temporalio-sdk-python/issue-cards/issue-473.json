@@ -1,0 +1,30 @@
+{
+  "summary": "Documentation enhancement to clarify that `poetry install --all-extras` is required for building the Python SDK, and potentially document that a newer version of pip is needed.",
+  "category": "docs",
+  "subcategory": "build-setup",
+  "apis": [],
+  "components": [
+    "build-system",
+    "documentation",
+    "poetry-config"
+  ],
+  "concepts": [
+    "build-setup",
+    "dependencies",
+    "installation",
+    "documentation",
+    "development-environment"
+  ],
+  "severity": "low",
+  "userImpact": "Developers attempting to build the SDK may encounter build failures if they don't know to use the --all-extras flag with poetry install.",
+  "rootCause": null,
+  "proposedFix": "Update README to specify `poetry install --no-root --all-extras` and clarify pip version requirements",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "README and build documentation were updated to clarify the required installation flags and dependencies",
+  "related": [],
+  "keyQuote": "Need to change install command to `poetry install --no-root --all-extras`. Also may need to make clear newer version of `pip` required.",
+  "number": 473,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:56.698Z"
+}

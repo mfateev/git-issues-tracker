@@ -1,0 +1,37 @@
+{
+  "summary": "Request to transfer child workflows to a new parent run when the parent workflow calls continue as new. Currently, child workflows are not transferred and instead follow the parentClosePolicy, limiting use cases like buildQueue patterns where child workflows need to be managed across parent workflow continuations.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNew",
+    "ExecuteChildWorkflow",
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "parent-child-relationship",
+    "continue-as-new-handler"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "child-workflow-transfer",
+    "parent-close-policy",
+    "workflow-lifecycle",
+    "state-preservation",
+    "dynamic-workflow-patterns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot maintain child workflow handles when a parent workflow calls continue as new, forcing them to implement workarounds like polling or bidirectional signaling.",
+  "rootCause": "The continue as new mechanism does not preserve or transfer child workflow relationships to the new parent run, following standard parentClosePolicy instead.",
+  "proposedFix": null,
+  "workaround": "Implement bidirectional signaling between workflows or use polling patterns to track child workflow status, though this can lead to recursive signaling issues.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    373
+  ],
+  "keyQuote": "We can't move the handle over (aka just Promise.any await on the number of builds), the top level buildQueue just kinda has to poll the child workflows on an interval",
+  "number": 2609,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:57.786Z"
+}

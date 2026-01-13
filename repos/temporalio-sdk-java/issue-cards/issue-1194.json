@@ -1,0 +1,35 @@
+{
+  "summary": "When starting a workflow with `startWithSignal`, search attributes defined on the workflow stub are not applied to the workflow. The workflow starts successfully but without the specified search attributes attached.",
+  "category": "bug",
+  "subcategory": "signal-with-start",
+  "apis": [
+    "startWithSignal",
+    "newWorkflowStub",
+    "newSignalWithStartRequest",
+    "signalWithStart"
+  ],
+  "components": [
+    "workflow-stub",
+    "signal-with-start",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "workflow-start",
+    "signal",
+    "workflow-options",
+    "initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot attach search attributes to workflows started with signal, limiting their ability to index and search workflows initiated through this pattern.",
+  "rootCause": "The signal-with-start implementation does not properly transfer search attributes from the workflow stub options to the workflow execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When starting a workflow with `startWithSignal`, I would expect any search attributes defined on the workflow stub to be applied to the workflow.",
+  "number": 1194,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:11:44.123Z"
+}

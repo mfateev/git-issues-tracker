@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow setting default activity options at worker creation time, similar to Java's WorkflowImplementationOptions.activityOptions, to enable configuration via config files or environment variables rather than hardcoding.",
+  "category": "feature",
+  "subcategory": "activity-options",
+  "apis": [
+    "ActivityOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "configuration"
+  ],
+  "concepts": [
+    "default-options",
+    "configuration",
+    "environment-variables",
+    "activity-execution",
+    "worker-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users must hardcode activity options instead of configuring them via environment variables or config files across different environments.",
+  "rootCause": null,
+  "proposedFix": "Implement a mechanism similar to Java's WorkflowImplementationOptions.activityOptions to allow default activity options to be set at worker creation.",
+  "workaround": "Hardcode activity options in the workflow implementation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Use case was not considered clear enough. Suggested that if needed, such a feature should also include other types of commands.",
+  "related": [],
+  "keyQuote": "It looks like currently the only option for setting `ActivityOptions` is by hard-coding them since there is no way to pass in options by reading environment variables or config files.",
+  "number": 1061,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:31.061Z"
+}

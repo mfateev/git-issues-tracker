@@ -1,0 +1,30 @@
+{
+  "summary": "Add validation to ensure task queue partition count can only be decreased following the proper sequence (decrease write partitions first, wait for DB drain, then decrease read partitions) to prevent operational errors.",
+  "category": "feature",
+  "subcategory": "task-queue-partitioning",
+  "apis": [],
+  "components": [
+    "matching",
+    "task-queue",
+    "dynamic-config"
+  ],
+  "concepts": [
+    "partitioning",
+    "scaling",
+    "operational-safety",
+    "configuration-validation",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators can safely decrease task queue partitions without risk of misconfiguration or data loss.",
+  "rootCause": null,
+  "proposedFix": "Implement validation logic to enforce the required sequence: decrease write partitions first, verify all DB tasks drain, then allow decrease of read partitions",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If operator need to decrease number of task queue partition, operator need to first decrease num of write partition, wait for all DB tasks to drain, then decrease num of read partitions",
+  "number": 3060,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:15.289Z"
+}

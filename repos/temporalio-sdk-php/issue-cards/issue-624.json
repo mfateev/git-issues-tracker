@@ -1,0 +1,32 @@
+{
+  "summary": "Facade methods throw RuntimeException instead of the documented OutOfContextException when called from wrong context. The OutOfContextException class appears to be unused in the codebase.",
+  "category": "bug",
+  "subcategory": "facade-methods",
+  "apis": [
+    "Activity::getInfo"
+  ],
+  "components": [
+    "facade-methods",
+    "exception-handling",
+    "phpdoc-documentation"
+  ],
+  "concepts": [
+    "context-validation",
+    "exception-type-mismatch",
+    "runtime-error",
+    "api-contract",
+    "documentation-accuracy"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot rely on catching the documented OutOfContextException and must instead catch RuntimeException, breaking the documented API contract.",
+  "rootCause": "Facade methods throw RuntimeException directly instead of OutOfContextException; the OutOfContextException class is defined but never used.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Calling facade methods can only be made from the currently running process",
+  "number": 624,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:33.335Z"
+}

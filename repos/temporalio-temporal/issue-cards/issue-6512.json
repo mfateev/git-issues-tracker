@@ -1,0 +1,33 @@
+{
+  "summary": "Update latency increases linearly with the number of updates sent to a workflow, unlike signal and query latency which remain constant. This performance degradation occurs with up to 2000 updates per workflow in both local and cloud deployments.",
+  "category": "bug",
+  "subcategory": "update-latency",
+  "apis": [
+    "UpdateWorkflow",
+    "update_handler"
+  ],
+  "components": [
+    "workflow-update",
+    "update-queue",
+    "message-processing"
+  ],
+  "concepts": [
+    "latency",
+    "performance",
+    "throughput",
+    "message-ordering",
+    "state-mutation"
+  ],
+  "severity": "high",
+  "userImpact": "Users sending multiple updates to workflows experience increasing latency that degrades performance and may exceed acceptable SLAs for applications relying on workflow updates.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "keyQuote": "Update latency increases with the number of updates sent to the workflow",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 6512,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:44.139Z"
+}

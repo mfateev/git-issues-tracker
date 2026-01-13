@@ -1,0 +1,35 @@
+{
+  "summary": "Child workflows invoked via execute_child_workflow don't display as relationships in the parent workflow or dashboard UI, despite running and completing. They only appear in the parent's execution history.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "execute_child_workflow",
+    "start_child_workflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "child-workflow-tracking",
+    "dashboard-ui",
+    "parent-close-policy"
+  ],
+  "concepts": [
+    "parent-child-relationships",
+    "workflow-visibility",
+    "concurrent-execution",
+    "abandon-policy",
+    "workflow-completion-timing",
+    "future-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot track or monitor child workflow relationships when using execute_child_workflow with abandon parent_close_policy, breaking observability of hierarchical workflows.",
+  "rootCause": "Child workflows started but not fully accepted by server before parent workflow completes, causing them to become no-ops or not register as relationships.",
+  "proposedFix": "Wait for child workflow start requests to be accepted by server before parent completes using Future.all_of().wait() to ensure all child starts are properly registered.",
+  "workaround": "Add a sleep delay after invoking child workflows and before parent returns, allowing sufficient time for child workflow starts to be accepted.",
+  "resolution": "fixed",
+  "resolutionDetails": "Solution provided in comments: use Future.all_of to wait for all child workflow start requests to complete before parent workflow finishes.",
+  "related": [],
+  "keyQuote": "Future doesn't have a 'started', you'd wait until the future completes which represents start completing",
+  "number": 290,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:49.922Z"
+}

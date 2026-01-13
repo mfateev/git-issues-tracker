@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for LastHeartbeatDetails field on RespondActivityTaskFailedRequest across all Temporal SDKs to enable better error handling and diagnostics when activities fail with heartbeat information.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RespondActivityTaskFailedRequest"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "error-handling",
+    "api-proto"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-failure",
+    "error-details",
+    "diagnostics",
+    "cross-sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access heartbeat details when activities fail, limiting visibility into failure context and error diagnostics.",
+  "rootCause": null,
+  "proposedFix": "Implement LastHeartbeatDetails field support in RespondActivityTaskFailedRequest for all SDK implementations",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support this field in all SDKs",
+  "number": 241,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:54:08.235Z"
+}

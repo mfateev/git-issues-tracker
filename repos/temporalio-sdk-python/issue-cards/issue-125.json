@@ -1,0 +1,32 @@
+{
+  "summary": "Mark global tracing/telemetry options as experimental to signal that the API may change. Currently, telemetry configuration is process-global through `temporalio.bridge.telemetry`, but the team wants to enable worker-specific settings in the future.",
+  "category": "other",
+  "subcategory": "telemetry",
+  "apis": [],
+  "components": [
+    "telemetry",
+    "bridge",
+    "tracing"
+  ],
+  "concepts": [
+    "global-configuration",
+    "experimental-api",
+    "worker-specific-settings",
+    "telemetry",
+    "process-wide-settings"
+  ],
+  "severity": "low",
+  "userImpact": "Users will be informed that global telemetry configuration may change, allowing them to anticipate future API modifications.",
+  "rootCause": null,
+  "proposedFix": "Mark the top-level telemetry call in `temporalio.bridge.telemetry` as experimental to indicate the API may not last forever.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Global tracing options were marked as experimental to signal potential future changes and prevent the API from moving to public-facing packages prematurely.",
+  "related": [
+    384
+  ],
+  "keyQuote": "For now we need to make it clear on the API that this may not last forever.",
+  "number": 125,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:44.076Z"
+}

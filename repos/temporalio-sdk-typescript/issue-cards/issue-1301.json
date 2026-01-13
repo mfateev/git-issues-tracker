@@ -1,0 +1,32 @@
+{
+  "summary": "The test framework is using an outdated version of the CLI for creating ephemeral test servers, which prevents testing of the latest features like those introduced in #1300.",
+  "category": "other",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "cli",
+    "ephemeral-server"
+  ],
+  "concepts": [
+    "testing",
+    "cli-version",
+    "feature-compatibility",
+    "test-infrastructure",
+    "server-creation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot test new features during development due to outdated test server capabilities.",
+  "rootCause": "Test framework is using an old version of the CLI that lacks support for latest features",
+  "proposedFix": "Upgrade the CLI to the latest version in the test framework",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "CLI version in test framework was upgraded to support the latest features",
+  "related": [
+    1300
+  ],
+  "keyQuote": "The test framework is using an old version of the cli to create ephemeral servers during testing, and these servers do not support the latest features",
+  "number": 1301,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:47.028Z"
+}

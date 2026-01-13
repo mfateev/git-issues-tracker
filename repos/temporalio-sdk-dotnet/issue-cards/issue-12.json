@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in system.text.regularexpressions 4.3.0 (CVE-2019-0820) causing a denial of service via RegEx string processing. The vulnerable library was a transitive dependency of xunit.console test framework.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "dependencies",
+    "xunit-console"
+  ],
+  "concepts": [
+    "denial-of-service",
+    "security-vulnerability",
+    "transitive-dependency",
+    "regex-processing",
+    "cvss-7.5"
+  ],
+  "severity": "high",
+  "userImpact": "Users may be vulnerable to denial of service attacks through regular expression processing if using affected versions of the dependency.",
+  "rootCause": "system.text.regularexpressions version 4.3.0 on netcore50 has a denial of service vulnerability when improperly processing RegEx strings",
+  "proposedFix": "Upgrade system.text.regularexpressions to version 4.3.1 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend when the vulnerable library was no longer part of the inventory or was marked as ignored",
+  "related": [],
+  "keyQuote": "Mend has determined that CVE-2019-0820 only affects environments with versions 4.3.0 and 4.3.1 only on netcore50 environment",
+  "number": 12,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:06:41.458Z"
+}

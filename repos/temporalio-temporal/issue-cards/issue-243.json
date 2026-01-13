@@ -1,0 +1,30 @@
+{
+  "summary": "A test in the matcher component (TestMustOfferRemoteMatch) is flaky, failing intermittently with nil pointer and assertion errors. The test expects specific values for task list names and partition keys but sometimes receives empty strings instead.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "matcher",
+    "task-list",
+    "test-suite"
+  ],
+  "concepts": [
+    "flaky-test",
+    "race-condition",
+    "test-reliability",
+    "remote-matching",
+    "task-list-routing"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce developer productivity by causing intermittent CI failures and making it difficult to identify real regressions.",
+  "rootCause": "Race condition or timing issue in the remote matcher logic causing task list names and partition keys to sometimes be empty instead of populated with expected values.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The flaky test was resolved, likely through fixing the underlying race condition in the matcher component or adding proper synchronization to the test.",
+  "related": [],
+  "keyQuote": "Expected value not to be nil. Should be true. Not equal: expected: \"/__temporal_sys/tl0/1\" actual: \"\"",
+  "number": 243,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:23:34.226Z"
+}

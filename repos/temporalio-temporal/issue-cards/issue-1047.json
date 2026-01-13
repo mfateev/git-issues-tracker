@@ -1,0 +1,32 @@
+{
+  "summary": "TLS support for PostgreSQL was not properly configured, using 'verify-ca' mode instead of 'require' mode when host verification is disabled. The fix adds the missing SSL mode constant and corrects the SSL parameter setting logic.",
+  "category": "bug",
+  "subcategory": "postgresql-tls",
+  "apis": [],
+  "components": [
+    "persistence",
+    "sql-plugin",
+    "postgresql",
+    "tls-configuration"
+  ],
+  "concepts": [
+    "tls",
+    "ssl",
+    "postgresql",
+    "connection-security",
+    "host-verification",
+    "database-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal with PostgreSQL were unable to properly enable TLS encryption for database connections due to incorrect SSL mode configuration.",
+  "rootCause": "The dsnTSL function was setting the wrong PostgreSQL SSL mode (verify-ca) when EnableHostVerification was false, instead of using the more secure 'require' mode.",
+  "proposedFix": "Add postgreSQLSSLModeRequire constant and change the SSL mode to 'require' instead of 'verify-ca' when host verification is disabled.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was fixed by implementing the proposed solution to use the correct SSL mode for PostgreSQL TLS connections.",
+  "related": [],
+  "keyQuote": "TLS for PostgreSQL is not properly supported... sslParams.Set(postgreSQLSSLMode, postgreSQLSSLModeRequire)",
+  "number": 1047,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:56:47.560Z"
+}

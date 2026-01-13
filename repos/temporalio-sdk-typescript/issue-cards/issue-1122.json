@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal TypeScript worker fails to start when workflow code imports classes or libraries with non-deterministic dependencies like NestJS. The workflow bundler cannot include modules with I/O, network calls, or environment variable access due to sandbox constraints.",
+  "category": "bug",
+  "subcategory": "workflow-bundling",
+  "apis": [],
+  "components": [
+    "workflow-bundler",
+    "workflow-sandbox",
+    "module-resolution"
+  ],
+  "concepts": [
+    "determinism",
+    "sandbox-constraints",
+    "transitive-dependencies",
+    "bundling",
+    "module-imports"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use common utility classes or NestJS-integrated code in workflows, preventing normal development patterns.",
+  "rootCause": "Workflow code transitively imports @nestjs/core through DTO classes, which contains non-deterministic operations that violate the workflow sandbox's determinism requirements.",
+  "proposedFix": "Separate workflow-safe DTO definitions from NestJS dependencies; use type-only imports; or add problematic modules to ignoredModules option.",
+  "workaround": "Avoid instantiating classes in workflows; use plain objects instead; use 'import type' for type definitions only; exclude non-deterministic modules via WorkflowBundlingOptions.ignoredModules.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The behavior is by design - workflows must be deterministic and cannot execute non-deterministic code. Users must restructure code to isolate workflow logic from external dependencies.",
+  "related": [],
+  "keyQuote": "That doesn't mean you can't use NestJS in your project, but simply that your Workflow code may not pull anything that relates to NestJS, not even transitively.",
+  "number": 1122,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:27.743Z"
+}

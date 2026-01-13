@@ -1,0 +1,31 @@
+{
+  "summary": "Git checkout in the TypeScript SDK's CI workflow fails for forked repositories. The issue is in the workflow configuration that doesn't properly handle checking out code in fork contexts.",
+  "category": "bug",
+  "subcategory": "ci-workflow",
+  "apis": [],
+  "components": [
+    "github-actions",
+    "typescript-workflow",
+    "checkout-action"
+  ],
+  "concepts": [
+    "ci-cd",
+    "forked-repositories",
+    "workflow-configuration",
+    "git-checkout"
+  ],
+  "severity": "medium",
+  "userImpact": "Contributors using forked repositories cannot run TypeScript SDK tests through CI workflows.",
+  "rootCause": "The git checkout action in typescript.yml doesn't properly handle fork contexts where the source repository differs from the fork.",
+  "proposedFix": "Apply the fix from actions/checkout#455 to properly configure checkout for forked repositories.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Already fixed in pull request #21 with proper fork handling configuration.",
+  "related": [
+    21
+  ],
+  "keyQuote": "This is already fixed in pull request #21 -- I think probably wherever you saw this just wasn't using latest HEAD of the TS repo.",
+  "number": 23,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:54.906Z"
+}

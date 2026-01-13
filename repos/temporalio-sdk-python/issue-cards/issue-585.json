@@ -1,0 +1,32 @@
+{
+  "summary": "Intermittent test failure on Python 3.8 during workflow import validation, suspected to be related to a known Python reimporting issue with sandbox imports.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "importer",
+    "test-framework"
+  ],
+  "concepts": [
+    "import-validation",
+    "sandboxing",
+    "workflow-preparation",
+    "python-3.8",
+    "flaky-tests"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience intermittent test failures when running workflow validation tests on Python 3.8, reducing test reliability.",
+  "rootCause": "Suspected to be related to cpython issue #91351 regarding reimporting in older Python versions, triggered during pytest assertion rewrite in sandbox context.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    91351
+  ],
+  "keyQuote": "I suspect this is the previously-known issue in older Python with reimporting",
+  "number": 585,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:56.230Z"
+}

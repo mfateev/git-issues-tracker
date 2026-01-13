@@ -1,0 +1,35 @@
+{
+  "summary": "Port the fix for following execution chains from the Go SDK to Java SDK. This involves adding an option to opt-out of following runs when waiting for workflow results, consistent with implementations in Python, TypeScript, and Go SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "execute",
+    "result"
+  ],
+  "components": [
+    "workflow-client",
+    "client-api"
+  ],
+  "concepts": [
+    "execution-chain",
+    "following-runs",
+    "workflow-result",
+    "opt-out",
+    "cross-sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have the ability to control whether workflow result queries automatically follow execution chains, matching behavior available in other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement followRuns option on execute and result methods in Java workflow client, similar to TypeScript SDK implementation at workflow-client.ts lines 403 and 509.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    527,
+    791
+  ],
+  "keyQuote": "We also have a way to opt-out of following runs when waiting for the result in Python, TS, and now Go.",
+  "number": 696,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:34:52.864Z"
+}

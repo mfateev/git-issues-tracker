@@ -1,0 +1,32 @@
+{
+  "summary": "User requests MS SQL Server support as a persistence backend for Temporal Server, noting that some on-premise customers require it. There's discussion about the architectural challenges and potential solutions including plugin refactoring and gRPC-based persistence alternatives.",
+  "category": "feature",
+  "subcategory": "persistence-backend",
+  "apis": [],
+  "components": [
+    "persistence-plugin",
+    "storage-abstraction",
+    "configuration-system"
+  ],
+  "concepts": [
+    "persistence",
+    "database-backend",
+    "MS-SQL-Server",
+    "plugin-architecture",
+    "distributed-transaction",
+    "data-storage",
+    "extensibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Organizations using MS SQL Server are unable to use Temporal Server without finding third-party solutions or workarounds, limiting adoption in enterprise environments.",
+  "rootCause": "Current architecture tightly couples persistence implementations; adding new database backends requires significant maintenance overhead and lacks external contributor support infrastructure.",
+  "proposedFix": "Refactor persistence layer to allow plugins to reside in separate repositories and be injected at runtime, with generic testing infrastructure for plugin validation.",
+  "workaround": "Third-party implementation available at https://gitlab.com/lercher/temporal-sqls (unofficial).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ideally we would first refactor the persistence which allows these plugins to reside in separate repos and injected at runtime.",
+  "number": 3769,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:50.628Z"
+}

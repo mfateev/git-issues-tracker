@@ -1,0 +1,30 @@
+{
+  "summary": "GCP Objectstore archival fails because the `storage.buckets.get` IAM permission is required by Temporal's archiver implementation to verify bucket existence, but it's not included in the standard Objectstore binding which only provides object-level permissions.",
+  "category": "bug",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "archiver",
+    "gcloud-archiver",
+    "gcp-integration"
+  ],
+  "concepts": [
+    "gcp-permissions",
+    "iam-roles",
+    "bucket-verification",
+    "service-account",
+    "archival-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot set up archival with GCP Objectstore using only object-level permissions because the archiver requires bucket-level access verification.",
+  "rootCause": "The GCP archiver implementation at common/archiver/gcloud/history_archiver.go calls bucket.Exists() both during archival and namespace configuration, which requires the storage.buckets.get permission not included in standard Objectstore bindings.",
+  "proposedFix": null,
+  "workaround": "Add the storage.buckets.get IAM permission to the service account.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was closed due to lack of priority and interest. The maintainers indicated this is working as designed and suggested adding the required permission is the expected solution.",
+  "related": [],
+  "keyQuote": "This is not a priority for us now unfortunately. Happy to take a contribution if this is important and adding permission is not an option.",
+  "number": 7608,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:53.685Z"
+}

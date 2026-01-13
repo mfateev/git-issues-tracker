@@ -1,0 +1,30 @@
+{
+  "summary": "Testing with mock activities fails when using Mockito version 2+ due to annotation copying behavior. The error 'This annotation can be used only on the interface method it implements' occurs because newer Mockito versions copy all annotations to mocks, conflicting with Temporal's POJOActivityImplMetadata validation.",
+  "category": "bug",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "mock-framework",
+    "activity-metadata",
+    "testing-utilities"
+  ],
+  "concepts": [
+    "mocking",
+    "annotations",
+    "testing",
+    "compatibility",
+    "activity-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing with Mockito 2+ versions cannot mock activities without workarounds, requiring manual configuration of mock settings.",
+  "rootCause": "Mockito 2.x+ copies all annotations from source interfaces to mocks, but Temporal's POJOActivityImplMetadata validator expects clean interfaces without inherited annotations.",
+  "proposedFix": "Make Temporal's annotation validation more lenient to handle mocks created with annotation copying, or document the withoutAnnotations() workaround.",
+  "workaround": "Use Mockito.mock(ActivityInterface.class, Mockito.withSettings().withoutAnnotations()) when creating activity mocks (available in Mockito 2.11.2+).",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed without a fix, with recommendation to upgrade examples to show proper Mockito 3 usage and withoutAnnotations() pattern.",
+  "related": [],
+  "keyQuote": "Mockito has switched to annotating mock with all the annotations it can find on the source class or interface, which makes Temporal's POJOActivityImplMetadata unhappy.",
+  "number": 332,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:08:37.900Z"
+}

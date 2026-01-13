@@ -1,0 +1,31 @@
+{
+  "summary": "Multiple security vulnerabilities (CVEs) detected in Temporal server v1.27.1 release, including high-severity issues in golang.org/x/net and golang.org/x/oauth2 dependencies. Requires dependency updates to address exposed security risks.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "server",
+    "dependencies",
+    "container-image"
+  ],
+  "concepts": [
+    "security",
+    "CVE",
+    "vulnerability",
+    "dependency-management",
+    "docker-image",
+    "patching"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal server v1.27.1 are exposed to known security vulnerabilities that could be exploited by attackers.",
+  "rootCause": "Outdated dependencies in the server release, including golang.org/x/net/http/httpproxy (v0.34.0), golang.org/x/oauth2/jws (v0.25.0), and other packages with known CVEs.",
+  "proposedFix": "Update vulnerable dependencies: golang.org/x/net to v0.36.0, golang.org/x/oauth2 to v0.27.0, go-jose/v4 to v4.0.5, and other affected packages to their fixed versions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are some CVEs found from the latest Temporal image: temporalio/server:1.27.1",
+  "number": 7480,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:43.673Z"
+}

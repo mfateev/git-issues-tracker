@@ -1,0 +1,30 @@
+{
+  "summary": "Evaluate and potentially implement Ractor-based sandboxing for Ruby SDK workflows. The main blocker is Google::Protobuf incompatibility with Ractors, which would require implementing a custom Protobuf solution.",
+  "category": "feature",
+  "subcategory": "workflow-sandboxing",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "protobuf-handling",
+    "sandboxing"
+  ],
+  "concepts": [
+    "ractor",
+    "sandboxing",
+    "state-isolation",
+    "protobuf-compatibility",
+    "experimental-features"
+  ],
+  "severity": "low",
+  "userImpact": "Users could benefit from better workflow state isolation through Ractor-based sandboxing, but the feature is blocked by ecosystem limitations.",
+  "rootCause": "Google::Protobuf library does not support Ractors, and ecosystem support is still experimental",
+  "proposedFix": "Implement a custom Protobuf solution using method_missing approach (similar to Ruby extension implementation)",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Decision made to defer Ractor-based workflows due to Google::Protobuf incompatibility and experimental status. Will revisit when ecosystem support improves.",
+  "related": [],
+  "keyQuote": "It has been decided that while there are a lot of state-isolation benefits to Ractor-based workflows, since `Google::Protobuf` doesn't support them and since they are experimental, it is not worth the effort to require them today.",
+  "number": 184,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:52.153Z"
+}

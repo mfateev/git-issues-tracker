@@ -1,0 +1,33 @@
+{
+  "summary": "Apply application failure logging and metrics behavior according to ApplicationErrorCategory in the .NET SDK. This requires implementing corresponding logging behavior as core SDK handles metrics.",
+  "category": "feature",
+  "subcategory": "logging-metrics",
+  "apis": [],
+  "components": [
+    "logging",
+    "error-handling",
+    "metrics"
+  ],
+  "concepts": [
+    "application-errors",
+    "error-categorization",
+    "logging-behavior",
+    "metrics",
+    "failure-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need consistent logging and metrics behavior for application failures based on error categories across SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement logging behavior according to ApplicationErrorCategory specification, coordinating with core SDK metrics handling.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed with logging behavior applied according to ApplicationErrorCategory, coordinated with core SDK.",
+  "related": [
+    614,
+    897
+  ],
+  "keyQuote": "Core-based SDKs only need to apply corresponding logging behaviour, core handles metrics.",
+  "number": 448,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:26:31.220Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Users must manually call `applicationContext.start()` to begin workers, which is non-idiomatic Spring Boot and causes confusion. The request is to use Spring Boot's `ApplicationReadyEvent` to automatically start workers, eliminating boilerplate code in tests and main methods.",
+  "category": "other",
+  "subcategory": "spring-integration",
+  "apis": [
+    "WorkerFactory"
+  ],
+  "components": [
+    "spring-boot-starter",
+    "worker-factory",
+    "application-lifecycle"
+  ],
+  "concepts": [
+    "spring-boot-integration",
+    "lifecycle-management",
+    "idiomatic-framework-usage",
+    "test-boilerplate",
+    "application-startup",
+    "event-driven"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must add non-idiomatic boilerplate code to start workers manually, causing confusion and inconsistency with standard Spring Boot patterns.",
+  "rootCause": "The current implementation requires explicit `start()` calls deferred until an application event, rather than leveraging Spring Boot's standard lifecycle events.",
+  "proposedFix": "Use Spring Boot's `ApplicationReadyEvent` to automatically start workers after the application is ready, eliminating the need for manual `start()` calls and test boilerplate.",
+  "workaround": "Users can add `@Autowired ConfigurableApplicationContext applicationContext` and call `applicationContext.start()` in `@BeforeEach` setup methods.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented using Spring Boot's standard lifecycle events instead of requiring manual `start()` calls, making the integration idiomatic and eliminating test boilerplate.",
+  "related": [
+    1614,
+    1648,
+    1839
+  ],
+  "keyQuote": "Using `ApplicationReadyEvent` removes the need for every test to contain the boilerplate of manual `start()` invocation.",
+  "number": 1837,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:31.399Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to warn when the server-provided task start time differs significantly from when the SDK begins processing the task. Request was declined as too niche.",
+  "category": "feature",
+  "subcategory": "task-processing",
+  "apis": [],
+  "components": [
+    "task-processor",
+    "server-communication",
+    "timing"
+  ],
+  "concepts": [
+    "task-timing",
+    "time-synchronization",
+    "server-client-sync",
+    "task-start-detection",
+    "debugging",
+    "diagnostics"
+  ],
+  "severity": "low",
+  "userImpact": "Users would receive warnings when task timing discrepancies occur, helping identify timing-related issues during task execution.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Declined by maintainers as the feature was deemed too niche for the use cases it would serve.",
+  "related": [
+    616
+  ],
+  "keyQuote": "We're not gonna do this. Too niche.",
+  "number": 250,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:48.429Z"
+}

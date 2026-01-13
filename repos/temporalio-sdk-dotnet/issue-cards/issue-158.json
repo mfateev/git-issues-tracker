@@ -1,0 +1,33 @@
+{
+  "summary": "TemporalClient loses connection to Temporal Cloud after 1-2 days, timing out on workflow start operations. The connection doesn't recover automatically despite keep-alive being enabled, requiring application restart.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "StartWorkflowAsync"
+  ],
+  "components": [
+    "TemporalClient",
+    "TemporalConnection",
+    "gRPC client"
+  ],
+  "concepts": [
+    "timeout",
+    "connection-loss",
+    "keep-alive",
+    "recovery",
+    "idle-timeout",
+    "cloud-networking"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience timeout errors when starting workflows after 1-2 days, and the connection doesn't automatically recover even with configured retry logic, requiring manual application restart.",
+  "rootCause": "Likely idle connection timeout from Azure cloud environment closing outbound connections; keep-alive mechanism not preventing disconnection in this scenario",
+  "proposedFix": "Update to SDK version with improved keep-alive mechanism; monitor for connection state and implement automatic reconnection",
+  "workaround": "Configure exponential retry logic on workflow start calls; manually restart application when timeouts occur",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating to beta2 with improved keep-alive mechanism. Azure environment idle timeouts were identified as root cause; keep-alive enabled by default in newer versions prevents this.",
+  "related": [],
+  "keyQuote": "After a day or two we have noticed that Temporal client loses connection with temporal Cloud and is unable to start any new Workflow(s)",
+  "number": 158,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:49:56.528Z"
+}

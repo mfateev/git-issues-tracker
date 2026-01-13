@@ -1,0 +1,30 @@
+{
+  "summary": "User requests LIFO (Last In First Out) scheduling logic for task queues or workflow types so that newer activities execute first. The request was addressed through discussion of existing priority mechanisms and task queue fairness, but no direct LIFO support currently exists.",
+  "category": "feature",
+  "subcategory": "task-queue-scheduling",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "scheduler",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "LIFO-scheduling",
+    "task-ordering",
+    "queue-fairness",
+    "priority",
+    "workflow-precedence"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot configure task queues to prioritize newer workflows or activities over older ones, limiting scheduling flexibility.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use the Priority mechanism to give activities different priority levels to achieve preference ordering",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be a feature request without explicit LIFO support; existing priority system was suggested as alternative",
+  "related": [],
+  "keyQuote": "We don't currently provide a way to prioritize newer runs. There is feature proposal which would help here",
+  "number": 1120,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:03.352Z"
+}

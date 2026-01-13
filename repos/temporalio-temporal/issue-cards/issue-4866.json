@@ -1,0 +1,31 @@
+{
+  "summary": "Schedule updates incorrectly discard previously scheduled actions when the update occurs between the nominal and jittered time. A scheduled action with jitter (e.g., 12:20:33) is lost if the schedule is updated at 12:20:10, as the calculation restarts from the update time instead of from the previous action time.",
+  "category": "bug",
+  "subcategory": "schedules",
+  "apis": [],
+  "components": [
+    "schedules",
+    "schedule-engine",
+    "jitter"
+  ],
+  "concepts": [
+    "scheduling",
+    "jitter",
+    "update",
+    "nominal-time",
+    "action-retention",
+    "idempotency"
+  ],
+  "severity": "high",
+  "userImpact": "Users updating schedules lose previously calculated actions that fall between the update time and their jittered execution time, causing scheduled tasks to be skipped unexpectedly.",
+  "rootCause": "Schedule update logic discards previous times and recalculates from the current update time instead of looking back to the previous action time to preserve scheduled actions within the jitter window.",
+  "proposedFix": "Start schedule recalculation from max(create_time, last_update_time, previous_action_time) instead of from the update time, then discard any calculated times that fall in the past relative to the update time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If there is a matching time including jitter after the update time, it should still run, even if its nominal time was before the update time.",
+  "number": 4866,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:46.250Z"
+}

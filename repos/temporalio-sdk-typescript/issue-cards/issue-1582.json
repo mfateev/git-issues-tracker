@@ -1,0 +1,36 @@
+{
+  "summary": "Workflow histories created in v1.11.2 fail to replay in v1.11.5+ with nondeterminism errors about mismatched child workflow IDs. Root cause identified as breaking changes in OpenTelemetry interceptors affecting signal handling and local activity scheduling determinism.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "startChild",
+    "signalWithStart",
+    "setHandler"
+  ],
+  "components": [
+    "worker",
+    "replay-engine",
+    "opentelemetry-interceptors"
+  ],
+  "concepts": [
+    "determinism",
+    "nondeterminism-error",
+    "signal-handling",
+    "workflow-history",
+    "version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading from v1.11.2 to v1.11.5+ experience workflow replay failures on existing histories, blocking deployments and requiring version downgrades.",
+  "rootCause": "Breaking changes in OpenTelemetryInboundInterceptor and OpenTelemetryOutboundInterceptor altered signal handling and local activity scheduling behavior, violating workflow determinism guarantees required for replay.",
+  "proposedFix": "Revert or fix the OpenTelemetry interceptor changes to restore deterministic behavior for signal handling and local activity scheduling.",
+  "workaround": "Patch OpenTelemetryInboundInterceptor.handleSignal() and OpenTelemetryOutboundInterceptor.scheduleLocalActivity() to bypass the problematic logic when replaying.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue traced to OpenTelemetry interceptor changes and addressed in related issue #1677. Users provided working patch for immediate mitigation.",
+  "related": [
+    1677
+  ],
+  "keyQuote": "Patch needed because of a change in OpenTelemetryInboundInterceptor that broke determinism",
+  "number": 1582,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:20.403Z"
+}

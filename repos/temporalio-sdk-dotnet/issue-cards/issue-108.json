@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add a way to disable tracing events within workflows to support running non-workflow async calls in workflow interceptors. The request was closed because the proposed solution doesn't address the underlying problem of running code outside the workflow scheduler.",
+  "category": "feature",
+  "subcategory": "tracing",
+  "apis": [
+    "Workflow"
+  ],
+  "components": [
+    "workflow-interceptors",
+    "task-scheduler",
+    "tracing"
+  ],
+  "concepts": [
+    "tracing-events",
+    "workflow-scheduler",
+    "async-execution",
+    "interceptors"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot safely run non-workflow async calls within workflow interceptors without workarounds.",
+  "rootCause": "Running arbitrary async calls in workflow interceptors may use the current task scheduler instead of the workflow scheduler, making the proposed tracing disable feature insufficient to solve the actual problem.",
+  "proposedFix": "Create a mechanism to disable tracing events (initially proposed as a using statement), though this was found to be inadequate for the actual use case.",
+  "workaround": "Create a task on the default scheduler and explicitly Wait on it, then explicitly manage switching back to the workflow scheduler if needed.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The proposed solution of disabling tracing events does not solve the actual problem of safely running outside the workflow scheduler. The underlying issue requires a different architectural approach.",
+  "related": [],
+  "keyQuote": "The solution presented (disabling this inside a workflow) does not solve the actual problem of running outside the workflow scheduler.",
+  "number": 108,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:06:02.253Z"
+}

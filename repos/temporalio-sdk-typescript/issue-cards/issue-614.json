@@ -1,0 +1,30 @@
+{
+  "summary": "Jest test isolation causes `ShutdownError: Core is shut down` errors when running multiple Temporal test files simultaneously in the same process. The root cause is module duplication where different test files get separate copies of the errors module, causing incompatibility issues.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "core",
+    "error-handling"
+  ],
+  "concepts": [
+    "test-isolation",
+    "module-duplication",
+    "global-state",
+    "jest-monkeypatch",
+    "worker-shutdown"
+  ],
+  "severity": "high",
+  "userImpact": "Developers using Jest to test Temporal workflows encounter inconsistent shutdown errors when running multiple test files, preventing reliable integration testing.",
+  "rootCause": "Jest's module isolation creates separate copies of the Temporal module in different test files, causing one file's copy of the errors module to be incompatible with another file's copy, leading to Core shutdown errors.",
+  "proposedFix": "Export and handle errors consistently across module instances to prevent type mismatches caused by Jest's module duplication during test isolation.",
+  "workaround": "https://github.com/airhorns/sdk-typescript/commit/3955acdd638b2d0e5c2e7c736f1bbd19a8d4549e - manual fix by ensuring consistent error module references across test files.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR that addressed the root cause of module duplication and error handling consistency across Jest test isolation boundaries.",
+  "related": [],
+  "keyQuote": "The root cause looks like one file's copy of the Temporal module is getting another file's copy of `errors`.",
+  "number": 614,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:04:50.925Z"
+}

@@ -1,6 +1,6 @@
 # Java SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 
 ## Related Documents
@@ -22,10 +22,10 @@
 | Enhancements/Features (open) | 127 |
 | Security Issues (open) | 4 |
 | Total Upvotes (👍) on open | 104 |
-| Total Comments on open | 203 |
+| Total Comments on open | 205 |
 | Issues with Upvotes | 37 (17%) |
-| Issues with Comments | 86 (40%) |
-| Average Age (days) | 981 |
+| Issues with Comments | 87 (40%) |
+| Average Age (days) | 984 |
 | Stale Issues (>12 months) | 156 (72%) |
 
 ---
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 66 |
-| Issues Closed | 54 |
-| Net Change | +12 |
+| Issues Opened | 60 |
+| Issues Closed | 50 |
+| Net Change | +10 |
 | Bugs Closed | 2 |
-| Enhancements Closed | 24 |
+| Enhancements Closed | 21 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 137 | 99 |
-| Median | 6 | 4 |
+| Average | 148 | 106 |
+| Median | 8 | 7 |
 | 90th Percentile | 482 | 344 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 69% |
-| Within 90 days | 76% |
+| Within 30 days | 66% |
+| Within 90 days | 74% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -123,12 +123,12 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 6 | 3% |
-| 1-3 months | 8 | 4% |
-| 3-6 months | 12 | 6% |
-| 6-12 months | 16 | 7% |
-| 1-2 years | 39 | 18% |
-| 2-3 years | 32 | 15% |
+| Last 30 days | 5 | 2% |
+| 1-3 months | 9 | 4% |
+| 3-6 months | 11 | 5% |
+| 6-12 months | 17 | 8% |
+| 1-2 years | 38 | 18% |
+| 2-3 years | 33 | 15% |
 | 3+ years | 104 | 48% |
 
 ---
@@ -205,7 +205,6 @@ Priority = Upvotes × 2 + Comments
 | 2026-01-04 | [#2754](https://github.com/temporalio/sdk-java/issues/2754) | 0 | Environment Configuration does not read the correct file pat... |
 | 2025-12-30 | [#2752](https://github.com/temporalio/sdk-java/issues/2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - support for upda... |
 | 2025-12-28 | [#2750](https://github.com/temporalio/sdk-java/issues/2750) | 0 | Tests not passing: TestStatsReporter Flush not flushing |
-| 2025-12-12 | [#2747](https://github.com/temporalio/sdk-java/issues/2747) | 0 | @WorkflowImpl(workers = "...") should support Spring propert... |
 
 ---
 

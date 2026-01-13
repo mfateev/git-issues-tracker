@@ -1,0 +1,32 @@
+{
+  "summary": "The Spring Boot integration for Temporal Java SDK does not support the @WorkflowInit annotation on workflow constructors. Users can use this feature with direct SDK usage, but it's blocked by Spring's bean initialization mechanism.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "WorkflowInit"
+  ],
+  "components": [
+    "spring-boot-integration",
+    "workflow-instantiation",
+    "bean-creation"
+  ],
+  "concepts": [
+    "initialization",
+    "constructor-injection",
+    "spring-beans",
+    "workflow-lifecycle",
+    "dependency-injection"
+  ],
+  "severity": "medium",
+  "userImpact": "Spring Boot users cannot initialize workflows with arguments using the @WorkflowInit annotation, limiting their ability to use the standard workflow initialization pattern.",
+  "rootCause": "Spring Boot creates workflow instances as beans using the default constructor, which bypasses the @WorkflowInit mechanism that requires explicit constructor parameters.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing @WorkflowInit support in the Spring Boot integration.",
+  "related": [],
+  "keyQuote": "Users of the Java SDK directly are able to specify `@WorkflowInit` on constructors of their workflow class constructors that take workflow args as a parameter. Currently this is not possible in our spring boot integration",
+  "number": 2290,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:51.765Z"
+}

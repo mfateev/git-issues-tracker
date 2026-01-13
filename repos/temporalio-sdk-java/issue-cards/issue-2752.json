@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTracingWorkflowClientCallsInterceptor is missing support for the updateWithStart operation, preventing trace propagation for this workflow update pattern. The trace header remains empty for the workflow execution started event when using updateWithStart.",
+  "category": "feature",
+  "subcategory": "opentracing-interceptor",
+  "apis": [
+    "updateWithStart",
+    "StartWorkflow"
+  ],
+  "components": [
+    "opentracing-interceptor",
+    "workflow-client-calls",
+    "trace-propagation"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "trace-propagation",
+    "opentracing",
+    "workflow-updates",
+    "interceptor"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot trace updateWithStart operations, making it difficult to observe and debug this workflow pattern in distributed tracing systems.",
+  "rootCause": "OpenTracingWorkflowClientCallsInterceptor does not implement handling for the updateWithStart operation, leaving trace headers empty for the workflow execution started event.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Traces are not propagated for the operation updateWithStart; header field is empty for the first event EVENT_TYPE_WORKFLOW_EXECUTION_STARTED",
+  "number": 2752,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:18:06.357Z"
+}

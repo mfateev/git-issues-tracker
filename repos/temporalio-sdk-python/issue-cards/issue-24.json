@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add async activity support to the Python SDK for both client-side activity execution and activity implementation. This enhancement would enable users to write async activities and execute them asynchronously.",
+  "category": "feature",
+  "subcategory": "async-activities",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-client",
+    "activity-executor",
+    "worker"
+  ],
+  "concepts": [
+    "async",
+    "concurrency",
+    "activity-execution",
+    "non-blocking",
+    "async-await"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently write or execute async activities in Python SDK, limiting concurrency patterns and integration with async Python libraries.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Async activity support was implemented in the Python SDK",
+  "related": [],
+  "keyQuote": "Need async activity support in client and activity itself",
+  "number": 24,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:46:02.900Z"
+}

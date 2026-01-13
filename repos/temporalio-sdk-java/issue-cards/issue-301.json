@@ -1,0 +1,35 @@
+{
+  "summary": "Worker.replayWorkflowExecution() swallows all exceptions without reporting replay failures, causing replay tests to never fail even when breaking changes are made to the workflow. The method catches and silently ignores all exceptions, preventing detection of workflow incompatibilities.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Worker.replayWorkflowExecution",
+    "WorkflowReplayer.replayWorkflowExecutionFromResource"
+  ],
+  "components": [
+    "worker",
+    "testing-framework",
+    "workflow-replayer"
+  ],
+  "concepts": [
+    "replay-testing",
+    "exception-handling",
+    "workflow-validation",
+    "test-failure-detection",
+    "backward-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test workflow changes using replay functionality because test failures are silently swallowed, preventing detection of breaking changes.",
+  "rootCause": "The replayWorkflowExecution() method has an empty catch block that swallows all exceptions without re-throwing or reporting them.",
+  "proposedFix": "The catch block should properly handle and report exceptions instead of silently ignoring them.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The empty catch block was fixed to properly propagate exceptions during replay execution.",
+  "related": [
+    300
+  ],
+  "keyQuote": "The replay test with Java SDK never fails given it can successfully parse the workflow history, regardless of what changes are made to the workflow",
+  "number": 301,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:05:19.347Z"
+}

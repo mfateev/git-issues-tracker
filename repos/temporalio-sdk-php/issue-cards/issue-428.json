@@ -1,0 +1,30 @@
+{
+  "summary": "Unit tests hang when the workflow under test encounters a runtime or compile-time exception. The test framework doesn't properly handle or surface exceptions that occur during workflow execution, causing the test to block indefinitely.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "workflow-execution",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "test-blocking",
+    "timeout",
+    "error-reporting",
+    "workflow-failures"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot effectively unit test workflows that may throw exceptions, as tests hang instead of providing error details.",
+  "rootCause": "The testing framework does not properly propagate or handle exceptions occurring within the workflow under test, causing the client to wait indefinitely instead of failing or returning the exception.",
+  "proposedFix": null,
+  "workaround": "Use logging and event listeners/interceptors to capture errors, or extend custom data converters to pass modified structures in tests.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When unit testing a workflow, if the workflow under test encounters a runtime exception the unit test hangs.",
+  "number": 428,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:22.143Z"
+}

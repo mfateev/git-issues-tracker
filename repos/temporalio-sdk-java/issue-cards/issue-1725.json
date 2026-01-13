@@ -1,0 +1,31 @@
+{
+  "summary": "Transitive dependency json-smart-2.4.8 contains CVE-2023-1370, a stack exhaustion vulnerability (CVSS 7.5) triggered by deeply nested JSON arrays/objects. The vulnerability affects temporal-testing through the json-path dependency chain.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "json-path",
+    "json-smart",
+    "testing-framework"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "stack-overflow",
+    "dependency-management",
+    "transitive-dependency",
+    "cvss-scoring"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using temporal-testing are vulnerable to denial-of-service attacks via malformed JSON with excessive nesting, causing stack exhaustion and crashes.",
+  "rootCause": "json-smart library lacks recursive depth limits when parsing nested JSON arrays and objects, allowing stack exhaustion attacks.",
+  "proposedFix": "Upgrade net.minidev:json-smart from 2.4.8 to 2.4.9 or later version that includes the fix.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory, indicating the dependency was removed or updated.",
+  "related": [],
+  "keyQuote": "nesting too many of them can cause a stack exhaustion (stack overflow) and crash the software",
+  "number": 1725,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:53.622Z"
+}

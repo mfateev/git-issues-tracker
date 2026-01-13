@@ -1,0 +1,33 @@
+{
+  "summary": "Webpack's default eval-based devtool causes EvalError when running workflows in isolated-vm context. The issue occurs when isolate memory is below a certain threshold (~65GB), triggering code generation restrictions in isolated-vm.",
+  "category": "bug",
+  "subcategory": "webpack-bundling",
+  "apis": [],
+  "components": [
+    "webpack",
+    "isolated-vm",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "code-generation",
+    "eval",
+    "memory-limits",
+    "bundling",
+    "security-policy"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot run workflows with default webpack development settings, requiring workarounds like switching to production mode or disabling eval-based devtools.",
+  "rootCause": "Webpack's eval devtool generates code that triggers isolated-vm's code generation restrictions when isolate memory is below a critical threshold.",
+  "proposedFix": "Revert changes in #145 once isolated-vm fixes the underlying issue causing the threshold behavior.",
+  "workaround": "Use production mode instead of development, or configure webpack devtool to use something other than eval (e.g., 'source-map').",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in isolated-vm, allowing revert of #145 workaround.",
+  "related": [
+    145,
+    251
+  ],
+  "keyQuote": "If I increase `maxIsolateMemoryMB` to 66250, my hello world example works fine. If I only increase `maxIsolateMemoryMB` to 65000, I get the same error.",
+  "number": 139,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:58.492Z"
+}

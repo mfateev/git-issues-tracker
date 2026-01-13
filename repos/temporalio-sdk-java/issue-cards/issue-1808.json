@@ -1,0 +1,33 @@
+{
+  "summary": "The DataConverter interface is missing default implementations for `failureToException` and `exceptionToFailure` methods, breaking API compatibility when these methods are added to the interface.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "DataConverter"
+  ],
+  "components": [
+    "data-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "api-compatibility",
+    "interface-design",
+    "backward-compatibility",
+    "exception-handling",
+    "type-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Users implementing the DataConverter interface experience API breaks when new methods are added without default implementations.",
+  "rootCause": "DataConverter interface methods added without default implementations, violating API stability contract.",
+  "proposedFix": "Add default implementations for `failureToException` and `exceptionToFailure` methods in the DataConverter interface.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Default implementations were added to maintain API compatibility (see PR #1645).",
+  "related": [
+    1645
+  ],
+  "keyQuote": "A default implementation for `failureToException` and `exceptionToFailure` exist since adding these without one breaks the API of `DataConverter`",
+  "number": 1808,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:28.112Z"
+}

@@ -1,0 +1,39 @@
+{
+  "summary": "Feature request to add `retry_policy` parameter to `continue_as_new()` so that retry policies can be carried over across workflow continuations. Currently, when a workflow continues as new, the server doesn't carry over retry policy settings, causing workflows to fail with `RetryPolicyNotSet` instead of respecting the original retry configuration.",
+  "category": "feature",
+  "subcategory": "continue-as-new",
+  "apis": [
+    "continue_as_new",
+    "execute_activity",
+    "start_workflow"
+  ],
+  "components": [
+    "workflow-continuation",
+    "retry-policy",
+    "workflow-options"
+  ],
+  "concepts": [
+    "retry",
+    "continue-as-new",
+    "workflow-state-management",
+    "fault-tolerance",
+    "idempotency",
+    "parameter-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot maintain consistent retry behavior across workflow continuations, leading to unexpected failures when workflows continue as new.",
+  "rootCause": "The server doesn't carry over most parameters on continue_as_new requests; only explicitly specified parameters are used on the new workflow execution.",
+  "proposedFix": "Add `retry_policy` parameter to the `continue_as_new()` method similar to how `search_attributes` is supported, with the long-term solution being for the temporal server to carry over workflow options by default.",
+  "workaround": "Set retry_policy when calling start_workflow, but this only applies to the initial execution, not continuations.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue opened in sdk-core (referenced as #372) to implement in shared core code first, then implement in Python SDK.",
+  "related": [
+    1200,
+    1201,
+    372
+  ],
+  "keyQuote": "Server doesn't carry over most parameters. we could work around it by adding `retry_policy` to `continue_as_new`",
+  "number": 103,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:26.497Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Redesign cluster membership discovery and host identity management to use the persistence layer instead of Ringpop seed configuration, supporting custom host identities and separate broadcast addresses for NAT'd networking setups.",
+  "category": "feature",
+  "subcategory": "cluster-membership",
+  "apis": [],
+  "components": [
+    "ringpop",
+    "persistence-layer",
+    "cluster-metadata",
+    "configuration"
+  ],
+  "concepts": [
+    "cluster-discovery",
+    "host-identity",
+    "network-topology",
+    "membership-persistence",
+    "heartbeat",
+    "nat-networking",
+    "bootstrap"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal in NAT'd environments or with custom network topologies can now properly configure host identity and separate broadcast addresses, while cluster membership becomes more reliable through persistence-based discovery.",
+  "rootCause": null,
+  "proposedFix": "Implement persistence-based cluster membership with cluster_membership table, custom host identity support, separate broadcast address configuration, and heartbeat-based membership tracking with TTL cleanup.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after implementation of persistence-based cluster membership discovery system with support for custom host identities and separate broadcast addresses.",
+  "related": [
+    2942
+  ],
+  "keyQuote": "Support custom host identity in order to support bind on 0.0.0.0 and separate broadcast address vs bind address for nat'd networking setups.",
+  "number": 83,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:17:00.440Z"
+}

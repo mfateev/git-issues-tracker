@@ -1,0 +1,32 @@
+{
+  "summary": "Refactor workflow state machines to eliminate self-transitions and hidden conditional logic by introducing explicit states. This includes eliminating self-transitions in ActivityStateMachine and converting cancellationType from conditional logic to state-based modeling.",
+  "category": "feature",
+  "subcategory": "state-machine-refactoring",
+  "apis": [],
+  "components": [
+    "ActivityStateMachine",
+    "state-machine",
+    "activity-execution",
+    "cancellation-logic"
+  ],
+  "concepts": [
+    "state-machine-design",
+    "self-transitions",
+    "explicit-modeling",
+    "activity-cancellation",
+    "conditional-logic",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves code maintainability and clarity for SDK developers by making complex activity execution logic explicitly modeled rather than hidden in conditional branches.",
+  "rootCause": "Self-transitions and conditional logic in state machines obscure the actual state flow and make it difficult to understand and maintain activity execution logic across SDKs.",
+  "proposedFix": "Introduce additional states to eliminate self-transitions where events can only be applied once. Convert activity cancellationType from if/else conditions to dedicated states in the state machine model.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The goal of these changes is to make sure that all of the complex logic related to activity execution is explicitly modeled.",
+  "number": 193,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:00:43.464Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "TypeScript SDK needs to expose Temporal Nexus operation info (namespace and task queue) to Nexus operation authors, similar to how activity and workflow info are provided to their respective authors. This feature has been implemented in Go, Java, Python, and .NET SDKs but is still pending for TypeScript and Ruby/PHP (which don't have Nexus yet).",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [],
+  "components": [
+    "nexus-operation-handler",
+    "operation-info",
+    "typescript-sdk"
+  ],
+  "concepts": [
+    "nexus-operations",
+    "operation-context",
+    "namespace",
+    "task-queue",
+    "sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "TypeScript Nexus operation authors cannot access runtime context information (namespace and task queue) that is available in other SDKs, limiting their ability to implement context-aware operations.",
+  "rootCause": null,
+  "proposedFix": "Expose a Nexus operation info object containing namespace and task queue to TypeScript Nexus operation handlers, consistent with the implementation in Python and .NET SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2053,
+    2657
+  ],
+  "keyQuote": "Like we provide activity info to activity authors and workflow info to workflow authors, we need to provide Temporal-specific Nexus operation info to Temporal Nexus operation authors.",
+  "number": 674,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:52:57.128Z"
+}

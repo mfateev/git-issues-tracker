@@ -1,0 +1,30 @@
+{
+  "summary": "MySQL INSERT ... ON DUPLICATE KEY UPDATE queries on the custom_search_attributes table exhibit extremely high lock times and cause database crashes when the table grows beyond 30 million records. User reports that migrating to Elasticsearch resolved the issue, suggesting MySQL may have fundamental scalability limitations for this operation.",
+  "category": "bug",
+  "subcategory": "visibility-store-mysql",
+  "apis": [],
+  "components": [
+    "visibility-store",
+    "mysql-persistence",
+    "custom-search-attributes"
+  ],
+  "concepts": [
+    "database-locking",
+    "scalability",
+    "query-performance",
+    "insert-on-duplicate-key",
+    "mysql-limits"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal with MySQL visibility store experience database crashes and performance degradation when custom search attributes table exceeds 30 million records.",
+  "rootCause": "INSERT ... ON DUPLICATE KEY UPDATE statement exhibits poor performance characteristics on large MySQL tables (30M+ rows), causing excessive locking and semaphore timeouts in InnoDB.",
+  "proposedFix": null,
+  "workaround": "Migrate visibility store to Elasticsearch, which does not exhibit the same locking behavior with large datasets.",
+  "resolution": "wontfix",
+  "resolutionDetails": "User confirmed the issue is a MySQL scalability limitation rather than a Temporal bug. The recommended solution is to use Elasticsearch for visibility stores at scale, not to optimize the MySQL query.",
+  "related": [],
+  "keyQuote": "Maybe insert ... on duplicate key update is not good for large table",
+  "number": 8475,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:36.105Z"
+}

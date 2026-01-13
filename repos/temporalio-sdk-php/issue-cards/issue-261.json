@@ -1,0 +1,33 @@
+{
+  "summary": "Child async cancellation incorrectly propagates to parent scope, preventing further operations like timers or activity calls. The parent scope becomes marked as cancelled after cancelling a child async, causing CancelFailure errors.",
+  "category": "bug",
+  "subcategory": "async-cancellation",
+  "apis": [
+    "Workflow::async",
+    "Workflow::timer"
+  ],
+  "components": [
+    "async-scope",
+    "cancellation-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "cancellation",
+    "scope-isolation",
+    "nested-async",
+    "error-propagation",
+    "scope-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot cancel child asyncs without affecting parent workflow execution, breaking expected async isolation patterns.",
+  "rootCause": "Parent scope is incorrectly marked as cancelled when child async is cancelled, likely due to improper scope state management during cancellation propagation.",
+  "proposedFix": null,
+  "workaround": "Starting an empty async after cancellation appears to reset scope state, allowing subsequent operations to work.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing proper try-catch handling for cancelled child workflows; cancellation requires explicit exception handling in child scope.",
+  "related": [],
+  "keyQuote": "once the child is cancelled, the parent scope also becomes cancelled and thus any timer or activity call leads to CancelFailure error",
+  "number": 261,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:23.049Z"
+}

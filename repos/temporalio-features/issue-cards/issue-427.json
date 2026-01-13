@@ -1,0 +1,31 @@
+{
+  "summary": "SDKs currently handle unknown SDK flags inconsistently on replay—some fail the workflow task while others ignore the flag. The request is to standardize behavior across all SDKs to prevent workflows from entering inconsistent states.",
+  "category": "feature",
+  "subcategory": "sdk-flags",
+  "apis": [],
+  "components": [
+    "sdk-flag-handling",
+    "replay-engine",
+    "worker"
+  ],
+  "concepts": [
+    "downgrade",
+    "replay",
+    "consistency",
+    "backward-compatibility",
+    "flag-validation",
+    "workflow-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience inconsistent behavior when downgrading SDKs, with some SDKs failing workflows while others silently ignore unknown flags, creating operational unpredictability.",
+  "rootCause": "Lack of standardized behavior across SDKs for handling unknown flags during replay.",
+  "proposedFix": "Establish consistent behavior across all SDKs (either fail or ignore unknown flags uniformly) to prevent workflow inconsistency.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDKs should behave consistently...Currently the SDKs behave differently: Fail the workflow task (Go and Java) or Ignore the unknown flag (Core)",
+  "number": 427,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:34.965Z"
+}

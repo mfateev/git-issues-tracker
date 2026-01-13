@@ -1,0 +1,40 @@
+{
+  "summary": "Test server with time skipping throws 'Event set unexpectedly empty' when calling GetResultAsync(), and DelayAsync() waits real time instead of skipping time as expected.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "GetResultAsync",
+    "DelayAsync",
+    "StartWorkflowAsync",
+    "ExecuteAsync"
+  ],
+  "components": [
+    "test-server",
+    "time-skipping",
+    "workflow-handle",
+    "worker"
+  ],
+  "concepts": [
+    "time-skipping",
+    "unit-testing",
+    "workflow-execution",
+    "async-delay",
+    "test-environment",
+    "event-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably use the local test server with time skipping to unit test workflows due to exceptions and real-time delays instead of simulated time advancement.",
+  "rootCause": "Time skipping not properly implemented in test server's DelayAsync(); event queue handling issue in workflow result retrieval",
+  "proposedFix": null,
+  "workaround": "Start GetResultAsync earlier (backgrounded) to trigger auto-skipping; manually manage time skipping behavior",
+  "resolution": "fixed",
+  "resolutionDetails": "Issues #77 and #78 opened to address the event set issue and DelayAsync real-time delay problem",
+  "related": [
+    77,
+    78
+  ],
+  "keyQuote": "Event set unexpectedly empty on calling GetResultAsync() on the WorkflowHandle. Additionally calls to WorkflowEnvironment.DelayAsync() wait real time",
+  "number": 63,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:25:08.769Z"
+}

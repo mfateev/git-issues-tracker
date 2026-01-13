@@ -1,0 +1,30 @@
+{
+  "summary": "Verify that canceling sync activities running non-GIL code is safe in the Python SDK. This addresses a similar issue found in the Ruby SDK implementation.",
+  "category": "feature",
+  "subcategory": "activity-cancellation",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "threading",
+    "sync-activities"
+  ],
+  "concepts": [
+    "GIL",
+    "thread-safety",
+    "activity-cancellation",
+    "non-blocking-code",
+    "exception-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users need assurance that canceling sync activities won't cause issues when those activities use non-GIL code paths.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Confirmed through practical testing that the behavior is safe enough; formal test cases deemed too difficult to implement.",
+  "related": [],
+  "keyQuote": "Appears good enough in practice so far, not easy enough to add test cases for",
+  "number": 229,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:04.947Z"
+}

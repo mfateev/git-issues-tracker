@@ -1,0 +1,30 @@
+{
+  "summary": "Fresh Temporal install with Elasticsearch fails on workflow list operations with 'context deadline exceeded' and 'sql: no rows in result set' errors. The Elasticsearch schema appears properly created but queries still fail.",
+  "category": "bug",
+  "subcategory": "visibility-store",
+  "apis": [],
+  "components": [
+    "visibility-store",
+    "elasticsearch",
+    "workflow-list"
+  ],
+  "concepts": [
+    "schema-initialization",
+    "elasticsearch-query",
+    "timeout",
+    "workflow-visibility",
+    "persistence"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot list workflows or terminate workflows after fresh installation, blocking basic workflow operations.",
+  "rootCause": "Likely Elasticsearch index schema mismatch or query timeout despite index existing, possibly related to timing of index creation versus query execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue appears to be resolved through schema initialization process; marked as user configuration/setup issue rather than code defect.",
+  "related": [],
+  "keyQuote": "You didn't create schema in Elasticsearch. How did you deploy your cluster? If you don't use `auto-setup` image or helm charts, you need to run similar steps manually",
+  "number": 2649,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:24.055Z"
+}

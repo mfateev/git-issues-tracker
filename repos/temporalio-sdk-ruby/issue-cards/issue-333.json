@@ -1,0 +1,29 @@
+{
+  "summary": "Users should be able to require the payload codec from the data converter file in the Ruby SDK. Currently, the payload codec is not exported when requiring 'temporalio/converters', making it unavailable despite being part of the data converter functionality.",
+  "category": "feature",
+  "subcategory": "payload-codec",
+  "apis": [],
+  "components": [
+    "converters",
+    "data-converter",
+    "payload-codec"
+  ],
+  "concepts": [
+    "module-exports",
+    "require-path",
+    "codec-availability",
+    "data-conversion"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access the payload codec through the standard converters require path, requiring them to know about alternative import methods.",
+  "rootCause": "The payload codec is not exported from the data converter file which is required from the top-level converters file.",
+  "proposedFix": "Export the payload codec from the data converter file so it is available when requiring 'temporalio/converters'.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users should be able to `require 'temporalio/converters'` and have payload codec, but it is not required from the data converter file",
+  "number": 333,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:28.968Z"
+}

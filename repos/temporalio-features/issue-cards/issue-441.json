@@ -1,0 +1,41 @@
+{
+  "summary": "Feature request to support environment variable and file-based configuration for CLI and SDKs across all Temporal language implementations. This unified configuration approach should allow both env vars and config files (with vars overriding files) to initialize client connections.",
+  "category": "feature",
+  "subcategory": "external-client-configuration",
+  "apis": [],
+  "components": [
+    "cli",
+    "client-configuration",
+    "connection-options",
+    "config-loader"
+  ],
+  "concepts": [
+    "environment-variables",
+    "configuration-management",
+    "client-initialization",
+    "cross-sdk-standardization",
+    "config-files",
+    "profile-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have a standardized way to configure Temporal clients across all SDKs and CLI using environment variables or configuration files.",
+  "rootCause": null,
+  "proposedFix": "Implement unified environment and file-based configuration system with JSON format (not YAML) for config files, supporting environment variable overrides, and a single SDK call to create connection options. CLI can mutate config files.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1815,
+    2562,
+    1727,
+    835,
+    490,
+    287,
+    628,
+    751
+  ],
+  "keyQuote": "We want CLI to be able to use same environment variables and same config files as all SDKs",
+  "number": 441,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:15.549Z"
+}

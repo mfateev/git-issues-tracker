@@ -1,0 +1,37 @@
+{
+  "summary": "Temporal server accepts client connections before the default namespace is created during initial startup, causing workers to fail with 'Namespace default does not exist' error. The server should not accept connections until it's in a fully operable state with the default namespace initialized.",
+  "category": "bug",
+  "subcategory": "startup-initialization",
+  "apis": [
+    "NewClient",
+    "Run"
+  ],
+  "components": [
+    "frontend",
+    "namespace-management",
+    "initialization",
+    "server-startup"
+  ],
+  "concepts": [
+    "namespace-readiness",
+    "graceful-startup",
+    "initialization-order",
+    "connection-handling",
+    "default-namespace",
+    "bootstrap"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably start workers when launching Temporal server for the first time without implementing retry logic, blocking initial setup workflows.",
+  "rootCause": "Server listens for gRPC connections before the default namespace setup process completes during initialization.",
+  "proposedFix": "Defer accepting client connections until after the default namespace is created and registered.",
+  "workaround": "Implement retry logic in client/worker startup code to handle namespace-not-found errors, or use auto-setup Docker image with waiting mechanisms.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1941
+  ],
+  "keyQuote": "On initial startup, Temporal accepts connections from clients, but then fails when a worker attempts to Run() with Namespace default does not exist.",
+  "number": 1057,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:56:38.014Z"
+}

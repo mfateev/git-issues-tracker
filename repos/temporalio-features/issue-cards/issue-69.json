@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to allow developers to specify reset points directly in workflow code to enable easier workflow rollback. Currently, calculating reset points from history is impractical, especially for batch operations affecting millions of workflows.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "reset-logic",
+    "replayer"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "code-rollback",
+    "replay",
+    "batch-operations",
+    "workflow-debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can more easily roll back workflow progress by declaring reset points in code rather than calculating them manually from history.",
+  "rootCause": null,
+  "proposedFix": "Add a reset() API that marks a point in workflow code where execution should roll back to. Workflows blocked within the reset scope automatically replay from that point when code is redeployed.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ability to reset workflow to any point by specifying the reset point in the code. Given that in many cases reset point can be reached through different code paths it is practically impossible to find the reset point just looking at a history.",
+  "number": 69,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:32.564Z"
+}

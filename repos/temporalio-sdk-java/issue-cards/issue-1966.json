@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow stub creation fails when the stub interface only defines an update method without a workflow method. This prevents using update-only workflows through the workflow client stub.",
+  "category": "bug",
+  "subcategory": "workflow-stub",
+  "apis": [
+    "newWorkflowStub"
+  ],
+  "components": [
+    "workflow-stub",
+    "workflow-client",
+    "interface-binding"
+  ],
+  "concepts": [
+    "workflow-interface",
+    "update-method",
+    "stub-creation",
+    "interface-inheritance",
+    "method-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot create workflow stubs that only contain update methods, limiting workflow communication patterns.",
+  "rootCause": "The stub creation logic likely requires a @WorkflowMethod to be present in the interface hierarchy, but doesn't properly handle cases where the stub interface only inherits update methods.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the stub creation logic to handle interfaces with only update methods.",
+  "related": [],
+  "keyQuote": "Cannot use a stub that only defines an update method",
+  "number": 1966,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:38.093Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add a RawValue payload wrapper that tells converters not to apply conversion, allowing users to pass non-converted values directly without SDK transformation.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "serialization",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "conversion",
+    "serialization",
+    "payload-wrapper",
+    "type-safety",
+    "direct-values"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to pass raw, non-converted values through the SDK without automatic conversion being applied.",
+  "rootCause": null,
+  "proposedFix": "Implement a simple payload wrapper type that signals converters to skip conversion for wrapped values",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "RawValue wrapper was implemented to support non-converted payload values",
+  "related": [
+    603
+  ],
+  "keyQuote": "need a simple payload wrapper that tells converters not to apply conversion",
+  "number": 2425,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:16.695Z"
+}

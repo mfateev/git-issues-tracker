@@ -1,0 +1,30 @@
+{
+  "summary": "Two transitive dependency vulnerabilities in loader-utils (CVE-2022-37601 and CVE-2022-37603) with CVSS scores of 9.8 and 7.5 respectively affecting the nyc-test-coverage package. Both vulnerabilities lack direct remediation as the affected transitive dependency cannot be upgraded.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "loader-utils",
+    "istanbul-instrumenter-loader",
+    "dependency-management"
+  ],
+  "concepts": [
+    "prototype-pollution",
+    "regex-denial-of-service",
+    "transitive-dependency",
+    "security-vulnerability",
+    "code-injection"
+  ],
+  "severity": "critical",
+  "userImpact": "Users are exposed to critical prototype pollution and ReDoS vulnerabilities through transitive dependencies, with no direct upgrade path available for remediation.",
+  "rootCause": "loader-utils version 1.4.0 contains two unpatched vulnerabilities: a prototype pollution flaw in parseQuery.js and a ReDoS flaw in interpolateName.js, included as a transitive dependency through istanbul-instrumenter-loader.",
+  "proposedFix": "Upgrade loader-utils to version 1.4.2, 2.0.4, or 3.2.1 depending on the package structure, or replace/update istanbul-instrumenter-loader to a version that uses a patched loader-utils dependency.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Auto-closed by Mend as the vulnerable library was marked as ignored or no longer part of the inventory. The underlying vulnerabilities were not fixed but rather the issue was deprioritized.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 992,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:29.922Z"
+}

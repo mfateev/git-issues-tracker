@@ -1,0 +1,31 @@
+{
+  "summary": "Sentry's catch_warnings context manager fails in Temporal workflows with KeyError: 'warnings' because the warnings module is restricted by the workflow sandbox for determinism safety. Users need guidance on disabling the sandbox for non-deterministic modules like Sentry.",
+  "category": "bug",
+  "subcategory": "sandbox-restrictions",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "imports-system",
+    "determinism-enforcement"
+  ],
+  "concepts": [
+    "sandbox",
+    "determinism",
+    "module-restriction",
+    "third-party-integration",
+    "warnings-module",
+    "sentry-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to use Sentry or other libraries that depend on Python's warnings module in workflows encounter failures and need workarounds.",
+  "rootCause": "The workflow sandbox restricts access to the warnings module because it is not determinism-safe, causing KeyError when libraries like Sentry try to reference sys.modules['warnings'].",
+  "proposedFix": "Pass through imports and disable the sandbox for non-deterministic code sections using the documented sandbox avoidance techniques. The Sentry sample in samples-python demonstrates the correct approach.",
+  "workaround": "Use pass-through imports and disable the sandbox for the specific code sections that require non-deterministic modules like Sentry, as documented in the SDK README and demonstrated in the Sentry sample.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "warnings is not a determinism-safe module... Using non-deterministic modules like Sentry require pass through and sandbox avoidance.",
+  "number": 655,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:26.478Z"
+}

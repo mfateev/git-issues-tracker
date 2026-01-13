@@ -1,0 +1,31 @@
+{
+  "summary": "The no_poller_tasks metric disappeared from Prometheus after upgrading Temporal Server from v1.27.1.0 to v1.27.2.0 or later, breaking monitoring dashboards and alerts that depend on this metric for tracking task queue poller availability.",
+  "category": "bug",
+  "subcategory": "metrics-prometheus",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus",
+    "task-queue",
+    "poller"
+  ],
+  "concepts": [
+    "monitoring",
+    "metrics-export",
+    "prometheus-scraping",
+    "task-queue-visibility",
+    "upgrade-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot monitor task queue poller availability after upgrades, breaking existing monitoring dashboards and alerts.",
+  "rootCause": "Metric tags may have been modified in the new version; alternatively, metrics system may not be reading new nodes' metrics correctly after rolling restarts.",
+  "proposedFix": "Verify metric tags have not changed; ensure metrics system reads metrics from all nodes after upgrades/restarts.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was likely user-side; support suggested checking metric tags without filters and verifying all service pods/hosts are present in metrics collection.",
+  "related": [],
+  "keyQuote": "the metric is not removed but it could be that some tags are modified in the new version",
+  "number": 8088,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:41.289Z"
+}

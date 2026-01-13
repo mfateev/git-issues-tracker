@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal Server fails to start with authorization enabled when using the default claimMapper configuration. The worker service crashes during startup with an \"Request unauthorized\" error.",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "worker",
+    "authorization",
+    "scanner",
+    "frontend"
+  ],
+  "concepts": [
+    "JWT",
+    "authorization",
+    "claims",
+    "authentication",
+    "startup",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start the Temporal Server with authorization and claimMapper set to 'default' configuration.",
+  "rootCause": "The worker service cannot obtain a valid JWT token that passes authorization checks when connecting with the default claimMapper configuration.",
+  "proposedFix": "Use internal-frontend configuration so the worker connects to a different frontend that doesn't check JWT, as documented in the 1.20.0 release notes.",
+  "workaround": "Configure the server to use internal-frontend for the worker service to bypass JWT authorization checks.",
+  "resolution": "wontfix",
+  "resolutionDetails": "No direct fix provided. The issue is a configuration limitation where there's no easy way for the worker role to pass a JWT accepted by the frontend. The recommended solution is architectural - use internal-frontend.",
+  "related": [],
+  "keyQuote": "There's no (easy) way to get the worker role to pass a JWT that the frontend will accept. The most practical solution is to use internal-frontend",
+  "number": 4864,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:45.626Z"
+}

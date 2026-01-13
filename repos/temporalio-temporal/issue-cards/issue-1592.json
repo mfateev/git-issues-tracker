@@ -1,0 +1,30 @@
+{
+  "summary": "tctl command to update namespace retention days to 0 succeeds but doesn't actually change the retention value. The issue discusses whether to reject such requests with clear error messages or properly support zero retention, noting that proto doesn't differentiate between 0 and unset values.",
+  "category": "bug",
+  "subcategory": "retention-policy",
+  "apis": [],
+  "components": [
+    "tctl",
+    "namespace",
+    "retention"
+  ],
+  "concepts": [
+    "retention-policy",
+    "namespace-configuration",
+    "proto-serialization",
+    "replication",
+    "archival"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to set namespace retention to 0 receive a success message but the retention is not actually updated, causing confusion and potential data retention issues.",
+  "rootCause": "Proto definition does not differentiate between 0 and unset values for retention days, making it impossible to properly set retention to 0 through tctl.",
+  "proposedFix": "Either disallow 0 as retention value with clear error message, or allow tctl to specify durations (e.g., 12h, 30m) with minimum retention constraints (>0 for non-global namespaces, 24h for global namespaces).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed with target behavior defined: disallow 0 retention, support time duration specifications, and enforce minimum retention thresholds.",
+  "related": [],
+  "keyQuote": "disallow 0 as retention; allow tctl to specify > 0 retention time, e.g. 12h / 30m, etc for non global namespace; for global namespace, min retention should be 24h",
+  "number": 1592,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:54.291Z"
+}

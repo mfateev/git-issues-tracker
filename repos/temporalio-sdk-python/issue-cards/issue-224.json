@@ -1,0 +1,30 @@
+{
+  "summary": "The grpcio dependency is not being marked as an optional dependency in the Python SDK's package metadata. The dependency is defined as 'grpc' in pyproject.toml but referenced as 'grpcio' in the wheel metadata, causing the optional extra to not be properly declared.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "packaging",
+    "pyproject.toml",
+    "wheel-metadata"
+  ],
+  "concepts": [
+    "optional-dependency",
+    "grpc",
+    "packaging",
+    "extras",
+    "metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly install grpcio as an optional dependency, making it difficult to manage grpc support separately from the core SDK.",
+  "rootCause": "The pyproject.toml references the grpcio dependency with an incorrect name 'grpc' instead of 'grpcio', preventing the packaging system from properly applying the optional extra marker.",
+  "proposedFix": "Correct the dependency name in pyproject.toml from 'grpc' to 'grpcio' to match the actual package name and ensure the extra marker is properly applied.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The dependency name was corrected in pyproject.toml to properly reference 'grpcio' with the appropriate extra marker.",
+  "related": [],
+  "keyQuote": "Why does `grpcio` not have an extra listed? I think it's because it doesn't reference the `grpcio` dependency properly in `pyproject.toml` (calls it `grpc` instead).",
+  "number": 224,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:47.813Z"
+}

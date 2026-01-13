@@ -1,0 +1,34 @@
+{
+  "summary": "Worker fails to connect using intermediate certificates on macOS with 'UnknownIssuer' error when following the mTLS tutorial with the tls-full sample. The issue appears to be related to how gRPC-Node handles certificate chains on macOS.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "tls",
+    "worker",
+    "connection",
+    "certificate-chain",
+    "grpc"
+  ],
+  "concepts": [
+    "certificate-validation",
+    "intermediate-certificates",
+    "platform-specific-issue",
+    "certificate-chain",
+    "issuer-certificate"
+  ],
+  "severity": "high",
+  "userImpact": "Users on macOS cannot establish secure connections to Temporal servers using intermediate certificates, blocking mTLS deployment on that platform.",
+  "rootCause": "gRPC-Node issue with certificate chain validation on macOS when intermediate CAs are involved; likely related to grpc/grpc-node#1784 where the issuer certificate cannot be resolved.",
+  "proposedFix": null,
+  "workaround": "Use only a root CA without intermediate certificates; ensure certificates are generated with SHA256 instead of SHA1.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through gRPC-Node updates or SDK changes to handle certificate chains properly.",
+  "related": [
+    1784
+  ],
+  "keyQuote": "I believe that is this issue: https://github.com/grpc/grpc-node/issues/1784",
+  "number": 98,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:27.431Z"
+}

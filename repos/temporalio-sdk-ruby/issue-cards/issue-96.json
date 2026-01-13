@@ -1,0 +1,31 @@
+{
+  "summary": "Request to make the Connection class interrupt-friendly for the Ruby SDK, allowing proper handling of Ruby's interrupt semantics in connection operations.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [
+    "Connection"
+  ],
+  "components": [
+    "connection",
+    "client"
+  ],
+  "concepts": [
+    "interrupt",
+    "signal-handling",
+    "connection-lifecycle",
+    "ruby-semantics",
+    "thread-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with Ruby's interrupt mechanisms (signals) would have better integration with Temporal connections.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely implemented in a subsequent release",
+  "related": [],
+  "keyQuote": null,
+  "number": 96,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:57.458Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Worker service crashes and takes down the entire .NET application when connection to Temporal server fails, instead of retrying. This is especially problematic in .NET 6+ where background service exceptions propagate to the host.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [],
+  "components": [
+    "worker-service",
+    "hosting-extensions",
+    "connection-management"
+  ],
+  "concepts": [
+    "retry",
+    "connection-failure",
+    "graceful-degradation",
+    "background-service",
+    "exception-handling",
+    "resilience"
+  ],
+  "severity": "high",
+  "userImpact": "Applications crash completely when the Temporal worker fails to connect, making it unsuitable for running as a background service alongside other services.",
+  "rootCause": "Worker service does not retry on connection failures and throws unhandled exceptions, which in .NET 6+ causes the entire host to terminate due to changed background service behavior.",
+  "proposedFix": null,
+  "workaround": "Write a custom worker service wrapper around the normal workers with custom reliability and retry logic, similar to the existing TemporalWorkerService helper.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers clarified that intentional failure on worker startup is by design for visibility, and users can implement custom worker services if different behavior is needed.",
+  "related": [],
+  "keyQuote": "We intentionally fail if the worker cannot start...users have requested that if the worker cannot start it should fail which seems reasonable.",
+  "number": 290,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T12:48:06.210Z"
+}

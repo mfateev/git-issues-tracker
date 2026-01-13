@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow replays produce NondeterminismError when signals and updates overlap, causing events to be processed in a different order than the original execution. Activity completions are being processed after updates instead of before, leading to incorrect workflow behavior.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "execute_activity",
+    "signal",
+    "update"
+  ],
+  "components": [
+    "replay-engine",
+    "workflow-executor",
+    "event-ordering"
+  ],
+  "concepts": [
+    "nondeterminism",
+    "event-ordering",
+    "replay",
+    "signal-update-interaction",
+    "state-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using both signals and updates can fail during replay with NondeterminismError, making workflows unreliable in production.",
+  "rootCause": "The replay engine processes update events before completing activity completion events, violating the original event ordering from the execution history.",
+  "proposedFix": "Fix in Core SDK to ensure activity completions are delivered before updates during replay, maintaining original event ordering.",
+  "workaround": "Replace updates with signals instead of using overlapping signals and updates together.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed through a Core SDK upgrade; the fix will be available in the next Python SDK release that includes the Core update.",
+  "related": [],
+  "keyQuote": "The activity completion definitely should be delivered before update on replay if it was originally. We will likely treat this as a high priority.",
+  "number": 673,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:11.379Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to add Activity support for Worker Versioning, allowing Workflows to specify which version of an Activity to use. Currently, teams must work around this limitation by encoding Activity version into task queue names despite using Worker Versioning for both Workflows and Activities.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "ActivityOptions",
+    "WorkerDeploymentOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "versioning",
+    "deployment"
+  ],
+  "concepts": [
+    "versioning",
+    "deployment",
+    "activity-routing",
+    "version-compatibility",
+    "task-queue",
+    "worker-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Teams managing Activities and Workflows on different release cycles cannot reliably specify Activity versions, forcing workarounds like embedding versions in task queue names.",
+  "rootCause": null,
+  "proposedFix": "Add `versioningOverride` to `ActivityOptions` and have the Temporal Service use it along with `WorkerDeploymentOptions` to resolve scheduled Activities to Worker Deployments, leveraging existing Workflow Versioning infrastructure.",
+  "workaround": "Encode the Activity version into the task queue name, though this is suboptimal when Workers already use Deployments and Versioning.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support Activity versioning through the Worker Versioning system",
+  "related": [
+    1659
+  ],
+  "keyQuote": "when a Workflow calls an Activity, even if the Activity Worker uses Worker Versioning, there is no way for the Workflow to specify the version of the Activity to use",
+  "number": 1752,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:15.540Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "User requests support for kotlinx.serialization in the Java SDK's PayloadConverter interface. The issue is that kotlinx.serialization requires compile-time type information (reified generics) that the current interface cannot provide, making it impossible to create a custom adapter while avoiding silent serialization errors.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [
+    "PayloadConverter",
+    "DataConverter"
+  ],
+  "components": [
+    "payload-converter",
+    "data-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization",
+    "type-information",
+    "reified-generics",
+    "runtime-type-erasure",
+    "kotlinx-serialization",
+    "kotlin-interop"
+  ],
+  "severity": "medium",
+  "userImpact": "Kotlin developers cannot reliably use kotlinx.serialization with Temporal workflows/activities, leading to either serialization failures or silent incorrect serialization that fails only during deserialization with unrecoverable errors.",
+  "rootCause": "The PayloadConverter interface uses runtime type erasure which is incompatible with kotlinx.serialization's requirement for compile-time type information via reified generics. The Java SDK cannot access the type information needed at serialization time.",
+  "proposedFix": "Enhance the PayloadConverter interface to provide compile-time type information, potentially through a redesigned API that works with Kotlin's serialization model, or create a Kotlin SDK that natively supports reified generics.",
+  "workaround": "Developers can manually convert serializable objects to plain blob strings and deserialize them manually on the receiving side, though this is not ideal.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers declined to extend the Java SDK for Kotlin-specific features, recommending a dedicated Kotlin SDK if such support is needed. Closed as the Java library cannot use Kotlin-specific features like reified generics.",
+  "related": [],
+  "keyQuote": "The same object will result in different payloads as kotlin relies on the type information available to encode/decode.",
+  "number": 2665,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:15:31.401Z"
+}

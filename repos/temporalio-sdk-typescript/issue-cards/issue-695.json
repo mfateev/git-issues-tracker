@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add WorkflowInfo.historySizeInBytes property to the TypeScript SDK. This allows workflows to access the size of their execution history, which was blocked pending server support.",
+  "category": "feature",
+  "subcategory": "workflow-metadata",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "metadata",
+    "history"
+  ],
+  "concepts": [
+    "history",
+    "metrics",
+    "workflow-info",
+    "memory-management",
+    "monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now monitor and optimize workflow memory usage by accessing history size information.",
+  "rootCause": null,
+  "proposedFix": "Add historySizeInBytes field to WorkflowInfo class once server support is available.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented after server support became available and related suggestion (isContinueAsNewSuggested) was also added.",
+  "related": [
+    564
+  ],
+  "keyQuote": "Ready ☺️",
+  "number": 695,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:26.994Z"
+}

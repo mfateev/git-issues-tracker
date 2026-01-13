@@ -1,0 +1,33 @@
+{
+  "summary": "Activities fail with heartbeat errors when tasks are queued and workers are at max concurrency. The activity expires in the buffer before any worker can start it, causing heartbeat attempts to fail with 'workflow already completed' errors.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-worker",
+    "activity-poller",
+    "task-executor"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "concurrency",
+    "activity-queuing",
+    "start-to-close",
+    "buffering"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpected activity failures when running workflows with queued activities and limited worker concurrency, impacting reliability of activity execution.",
+  "rootCause": "Activity pollers prefetch tasks into a buffer even when no executors are available, causing activities with shorter start-to-close timeouts to expire while waiting for an executor to become free.",
+  "proposedFix": "Implement prefetch prevention when executors are unavailable, similar to the fix in PR #286 which prevents activity pollers from prefetching when there are no available executors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by implementing prefetch prevention in activity pollers to avoid buffering tasks when no executors are available (PR #286).",
+  "related": [
+    286
+  ],
+  "keyQuote": "Activity pollers don't prefetch activities if there is no executors available. It was implemented in #286",
+  "number": 256,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:03:22.593Z"
+}

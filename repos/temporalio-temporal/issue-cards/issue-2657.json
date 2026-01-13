@@ -1,0 +1,31 @@
+{
+  "summary": "SQLite build dependency breaks CGO-disabled builds and test execution. Tests fail to compile when CGO_ENABLED=0 due to sqlite package build constraints, despite the main binary building successfully.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "persistence",
+    "sql-plugin",
+    "sqlite",
+    "build-system"
+  ],
+  "concepts": [
+    "cgo-dependency",
+    "build-constraints",
+    "cross-platform-build",
+    "windows-compatibility",
+    "test-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users unable to build and run tests on Windows without a CGO-compatible C/C++ compiler, blocking pure Go builds and cross-compilation scenarios.",
+  "rootCause": "SQLite driver package imported by test code is guarded by CGO build constraints, making it unavailable when CGO_ENABLED=0, but persistence-tests package unconditionally imports it.",
+  "proposedFix": "Apply build constraints to test components that depend on sqlite, or migrate to a CGO-free SQLite implementation like modernc.org/sqlite.",
+  "workaround": "Enable CGO and install a compatible C/C++ compiler for Windows builds.",
+  "resolution": "fixed",
+  "resolutionDetails": "Moved to modernc.org/sqlite library as mentioned in comment; race detector requirement no longer blocks CGO-free builds.",
+  "related": [],
+  "keyQuote": "Opting out from CGO intentionally turns off sqlite support, so there is probably no personal need to test the sqlite driver package.",
+  "number": 2657,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:37.194Z"
+}

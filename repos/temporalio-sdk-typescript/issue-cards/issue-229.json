@@ -1,0 +1,36 @@
+{
+  "summary": "Documentation request to improve discoverability of the Context API by showing it as 'Context' instead of 'ContextImpl' in generated docs, and to list default activity options in a more accessible location.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "Context",
+    "configureActivities",
+    "ActivityOptions"
+  ],
+  "components": [
+    "documentation",
+    "api-reference",
+    "context-api"
+  ],
+  "concepts": [
+    "discoverability",
+    "api-naming",
+    "documentation-generation",
+    "activity-options",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users have difficulty finding the Context API in documentation due to implementation class names being exposed instead of public interface names.",
+  "rootCause": "Documentation generation exposes internal implementation class names (ContextImpl) instead of public API interfaces.",
+  "proposedFix": "Update documentation generation to display 'Context' as the public API name, and consolidate default activity options documentation in a discoverable location.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by issue #225 which redesigned the Context API implementation.",
+  "related": [
+    225
+  ],
+  "keyQuote": "Could this show up as `Context` instead of `ContextImpl`, so it's easier to find?",
+  "number": 229,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:05.088Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Unable to load the native 'temporal_sdk_bridge' library on Linux Docker environments, while it works fine on Windows. The DLL file is missing or not accessible in the deployment, preventing the SDK from initializing.",
+  "category": "bug",
+  "subcategory": "native-library-loading",
+  "apis": [
+    "TemporalRuntime",
+    "TemporalClient.ConnectAsync"
+  ],
+  "components": [
+    "bridge-interop",
+    "runtime-initialization",
+    "nuget-packaging"
+  ],
+  "concepts": [
+    "native-dependencies",
+    "docker-deployment",
+    "platform-compatibility",
+    "dll-loading",
+    "linux-runtime",
+    "dependency-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy .NET Temporal SDK applications to Linux Docker environments or Azure Functions, as the required native library fails to load.",
+  "rootCause": "The native temporal_sdk_bridge library is not included in the deployment output alongside the managed assemblies, likely due to build/packaging configuration issues.",
+  "proposedFix": "Ensure temporal_sdk_bridge.dll and other native dependencies are included in the bin directory during dotnet build and deployment processes.",
+  "workaround": "Manually copy the temporal_sdk_bridge.dll and related native DLLs to the deployment directory alongside managed assemblies.",
+  "resolution": "invalid",
+  "resolutionDetails": "Marked as invalid - issue was due to incomplete deployment/packaging. The SDK properly includes native dependencies in nuget package, but users must ensure they're present in their deployment.",
+  "related": [
+    53600
+  ],
+  "keyQuote": "Unable to load shared library 'temporal_sdk_bridge' or one of its dependencies. In order to help diagnose loading problems, consider setting the LD_DEBUG environment variable",
+  "number": 42,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:08:19.015Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Pydantic models with datetime fields are incorrectly instantiated with date objects instead when created within workflows using the default sandbox runner. The issue is caused by the sandbox's datetime restriction logic incorrectly handling Pydantic's field type validation.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [
+    "workflow.run",
+    "workflow.now"
+  ],
+  "components": [
+    "workflow-sandbox",
+    "pydantic-integration",
+    "field-type-validation"
+  ],
+  "concepts": [
+    "datetime-handling",
+    "type-coercion",
+    "sandbox-restrictions",
+    "pydantic-models",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use Pydantic models with datetime fields in workflows without incorrect type conversion or runtime errors.",
+  "rootCause": "The sandbox's issubclass check for datetime types fails due to Pydantic's proxied objects and the sandbox's restriction logic incorrectly converting datetime to date during field validation.",
+  "proposedFix": "Move the issubclass check for datetime before the issubclass check for date, or patch datetime.__subclasscheck__ to handle proxied objects correctly.",
+  "workaround": "Use a custom payload converter for Pydantic models as shown in python-samples, disable sandboxing on the worker, or relax sandbox restrictions to allow datetime module access.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Documented as a known limitation in the README. Users should use custom payload converters for Pydantic or relax sandbox restrictions. This is the supported approach rather than fixing the sandbox behavior.",
+  "related": [
+    219
+  ],
+  "keyQuote": "The default sandbox runner is resulting in `content` being converted to just a `date` despite being instantiated with a `datetime`.",
+  "number": 207,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:49.609Z"
+}

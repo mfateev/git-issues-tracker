@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow.getLogger() throws an exception when called outside of workflow context. Proposal is to make getLogger() gracefully fall back to a standard logger instead of ReplayAwareLogger when invoked outside workflow context.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "Workflow.getLogger"
+  ],
+  "components": [
+    "logger",
+    "workflow-context",
+    "replay-aware-logger"
+  ],
+  "concepts": [
+    "context-awareness",
+    "logging",
+    "graceful-fallback",
+    "utility-code-reuse"
+  ],
+  "severity": "medium",
+  "userImpact": "Utility code that needs to log cannot be safely invoked from both workflow and non-workflow contexts due to exceptions.",
+  "rootCause": "Workflow.getLogger() is hardcoded to only work within workflow context and throws an exception when called outside of it.",
+  "proposedFix": "Modify getLogger() to return a standard logger when called outside of workflow context instead of throwing an exception.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by pull request #143, allowing getLogger() to work in both activity and workflow contexts.",
+  "related": [
+    143
+  ],
+  "keyQuote": "Some utility code can be invoked from workflow context as well as outside of it. Workflow.getLogger fails with an exception when invoked outside of a workflow.",
+  "number": 18,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:14:11.220Z"
+}

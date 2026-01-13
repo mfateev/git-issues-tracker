@@ -1,0 +1,31 @@
+{
+  "summary": "Server version upgrades currently require manual sequential steps (v1.n.x → v1.n+1.x → ...). The request is to allow direct upgrades between non-sequential versions using automated migration logic that decouples migrations from service-specific constraints.",
+  "category": "feature",
+  "subcategory": "server-upgrade",
+  "apis": [],
+  "components": [
+    "server",
+    "cluster-metadata",
+    "history-service",
+    "migration-system"
+  ],
+  "concepts": [
+    "version-upgrade",
+    "migration",
+    "metadata-management",
+    "database-schema",
+    "proto-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must perform time-consuming sequential version upgrades instead of upgrading directly to their target version.",
+  "rootCause": "Metadata upgrades (cluster metadata, history shard metadata, queue metadata) are encoded in protos and cannot be handled by DDL-level database migrations; they require service-specific logic with proper locking rules.",
+  "proposedFix": "Decouple migration logic from the service by implementing Up & Down migrations that can handle metadata and other non-schema migrations independently of service constraints.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing migration system that decouples migration logic from service-specific constraints, enabling non-sequential version upgrades.",
+  "related": [],
+  "keyQuote": "Those upgrades are not limited to only running schema migrations. They can run metadata and other migrations too. In other words, decouple migration logic from the service.",
+  "number": 4150,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:41.902Z"
+}

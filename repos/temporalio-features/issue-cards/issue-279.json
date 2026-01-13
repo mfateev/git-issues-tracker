@@ -1,0 +1,30 @@
+{
+  "summary": "The features harness history checker breaks on compatible changes like adding new fields to history events. Users need an easy way to mark certain fields as acceptable additions to current history that weren't in stored static history.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "features-harness",
+    "history-checker",
+    "history-validation"
+  ],
+  "concepts": [
+    "backwards-compatibility",
+    "history-replay",
+    "schema-evolution",
+    "test-validation",
+    "field-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually work around false failures when new fields are added to history events, slowing down feature development and maintenance.",
+  "rootCause": null,
+  "proposedFix": "Add a mechanism to mark certain fields as optional in history validation, allowing them to be present in current history but absent in stored static history.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "An easy way to mark certain fields as \"it's ok if this is present in current history and not in stored static history\"",
+  "number": 279,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:36.883Z"
+}

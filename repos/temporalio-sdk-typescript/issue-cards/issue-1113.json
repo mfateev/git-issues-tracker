@@ -1,0 +1,31 @@
+{
+  "summary": "Create a `@temporalio/doctor` CLI tool that can be executed via `npx` to diagnose and fix common configuration issues in Temporal TypeScript SDK projects, such as version mismatches, unexpected package hoisting, deprecated dependencies, and known bugs.",
+  "category": "feature",
+  "subcategory": "developer-tools",
+  "apis": [],
+  "components": [
+    "cli",
+    "package-management",
+    "diagnostic-tool"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "configuration",
+    "diagnostics",
+    "package-hoisting",
+    "dependency-management",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggling with configuration issues would be able to quickly diagnose and fix common problems with their Temporal SDK setup.",
+  "rootCause": null,
+  "proposedFix": "Develop a @temporalio/doctor CLI program that can scan package.json, lock files, and node_modules directories to detect version mismatches, hoisting issues, deprecated packages, and known bugs, while also providing functionality to update/set version numbers on all @temporalio/* dependencies.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We could develop a `@temporalio/doctor` CLI program, meant to be executed using `npx` or similar, that provides various commands to diagnose and fix some common configuration issues",
+  "number": 1113,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:14.715Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Protobuf messages fail to deserialize in Kubernetes environments due to workflow sandbox restrictions preventing access to the google.protobuf module during JSON deserialization, even though the same code works locally.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "converter",
+    "protobuf-deserializer"
+  ],
+  "concepts": [
+    "sandbox-isolation",
+    "module-import",
+    "protobuf-serialization",
+    "kubernetes-deployment",
+    "deserialization",
+    "environment-specific"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot execute workflows with Protobuf message parameters in Kubernetes environments, causing runtime failures despite working correctly locally.",
+  "rootCause": "The workflow sandbox's import restriction mechanism blocks access to google.protobuf module during Protobuf JSON deserialization, preventing the json_format.Parse function from accessing message_type metadata.",
+  "proposedFix": "Whitelist google.protobuf module in workflow sandbox imports to allow protobuf deserialization to access required metadata during message parsing.",
+  "workaround": "Import google.protobuf explicitly within workflow.unsafe.imports_passed_through() context manager before executing workflows with Protobuf messages.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The only thing I can state is that if I add the following import, everything works: with workflow.unsafe.imports_passed_through(): import google.protobuf",
+  "number": 688,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:13.830Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add a SignalWithReset API that atomically resets a workflow to its last task and delivers a signal to it, enabling workflows to handle new signals and support complex reexecution patterns that are otherwise impossible with closed workflows.",
+  "category": "feature",
+  "subcategory": "workflow-signals",
+  "apis": [
+    "SignalWithReset"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-handler",
+    "workflow-reset"
+  ],
+  "concepts": [
+    "signal",
+    "reset",
+    "workflow-execution",
+    "state-management",
+    "atomic-operation",
+    "reexecution"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables advanced DSL workflows to support reexecution of past tasks based on signals, which is currently impossible for closed workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement SignalWithReset API that atomically resets the workflow to the last workflow task and delivers the signal to it.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When called the service is going to reset the workflow to the last workflow task and deliver the signal to it atomically.",
+  "number": 1203,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:51.655Z"
+}

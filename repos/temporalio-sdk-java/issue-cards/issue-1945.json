@@ -1,0 +1,30 @@
+{
+  "summary": "Add logic to fail tasks when workers encounter unknown history events that they must handle (when HistoryEvent.worker_may_ignore is false). Currently workers may silently ignore or mishandle critical events.",
+  "category": "feature",
+  "subcategory": "event-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "history-event-processor",
+    "task-executor"
+  ],
+  "concepts": [
+    "event-handling",
+    "error-recovery",
+    "worker-compatibility",
+    "unknown-events",
+    "graceful-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Prevents silent failures and data corruption when workers encounter unknown but required events, improving reliability and debuggability.",
+  "rootCause": null,
+  "proposedFix": "Fail the task when an event is seen that the worker must handle but is not familiar with",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Fail the task when an event is seen that the worker must handle but is not familiar with",
+  "number": 1945,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:34.340Z"
+}

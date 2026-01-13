@@ -1,0 +1,39 @@
+{
+  "summary": "Workflow with disconnected context for cancellation handling fails with 'BadRequestCancelActivityAttributes: invalid history builder state' error when trying to execute activities after cancellation using a disconnected context.",
+  "category": "bug",
+  "subcategory": "cancellation-handling",
+  "apis": [
+    "ExecuteActivity",
+    "NewDisconnectedContext",
+    "WithCancel",
+    "NewSelector",
+    "NewTimer"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-cancellation",
+    "history-builder",
+    "context-management"
+  ],
+  "concepts": [
+    "cancellation",
+    "disconnected-context",
+    "activity-execution",
+    "history-validation",
+    "graceful-shutdown"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to use disconnected contexts for graceful cancellation handling encounter workflow execution failures that prevent proper cleanup logic.",
+  "rootCause": "Invalid history builder state when attempting to add activity cancel-requested events using a disconnected context in a specific cancellation workflow pattern.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of sdk-go#1176, fixed by sdk-go PR #1181",
+  "related": [
+    1176
+  ],
+  "keyQuote": "The workflow fails with BadRequestCancelActivityAttributes: invalid history builder state for action: add-activitytask-cancel-requested-event",
+  "number": 4673,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:40.649Z"
+}

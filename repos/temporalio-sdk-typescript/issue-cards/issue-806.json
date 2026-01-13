@@ -1,0 +1,32 @@
+{
+  "summary": "Stress test CI workflow exits with timeout error (exit code 124). The worker fails to pick up new tasks, possibly related to Docker Compose setup or artifact loss during reruns.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "stress-test",
+    "docker-compose"
+  ],
+  "concepts": [
+    "timeout",
+    "task-pickup",
+    "ci-workflow",
+    "test-stability",
+    "artifact-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "CI stress tests fail intermittently, preventing validation of SDK stability under load.",
+  "rootCause": "Worker not picking up new tasks, potentially due to Docker Compose setup or lost artifacts during test reruns",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved at some point, though exact cause and fix are not documented in the discussion",
+  "related": [
+    804
+  ],
+  "keyQuote": "124 looks due to timeout. I think this is related to #804 where for some reason the worker isn't picking up new tasks.",
+  "number": 806,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:13:07.362Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to add a consistent indicator, label, or tag to log output from Temporal services to make it easier to identify Temporal-originated log lines in mixed logs. The requester notes this may need implementation in the SDK (specifically sdk-go) rather than just the server.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "output-formatting"
+  ],
+  "concepts": [
+    "log-identification",
+    "output-clarity",
+    "mixed-logs",
+    "service-identification",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users have difficulty distinguishing Temporal log lines from other services in mixed log environments.",
+  "rootCause": null,
+  "proposedFix": "Add a well-known indicator, label, or tag to log output from Temporal services",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When looking at mixed logs it's not always easy to clearly see what lines are from temporal services and what isn't.",
+  "number": 2283,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:23.444Z"
+}

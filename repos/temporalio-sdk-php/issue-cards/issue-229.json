@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose the raw gRPC OperatorService client in the PHP SDK without requiring a high-level API wrapper.",
+  "category": "feature",
+  "subcategory": "grpc-client",
+  "apis": [
+    "OperatorService"
+  ],
+  "components": [
+    "grpc-client",
+    "operator-service",
+    "php-sdk"
+  ],
+  "concepts": [
+    "grpc",
+    "low-level-api",
+    "raw-client",
+    "service-exposure"
+  ],
+  "severity": "low",
+  "userImpact": "Users can directly access gRPC OperatorService functionality without waiting for high-level SDK abstractions.",
+  "rootCause": null,
+  "proposedFix": "Expose the compiled gRPC OperatorServiceClient code available at api/v1/Temporal/Api/Operatorservice/V1/OperatorServiceClient.php",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The raw gRPC OperatorService client was exposed in the SDK, allowing direct access to the compiled gRPC code.",
+  "related": [],
+  "keyQuote": "No need for a high level API, just expose the compile grpc code",
+  "number": 229,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:38.323Z"
+}

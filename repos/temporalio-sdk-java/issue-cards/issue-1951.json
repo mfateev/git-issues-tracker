@@ -1,0 +1,31 @@
+{
+  "summary": "Spring Boot 2.7.12 dependency includes logback-core 1.2.12 with a serialization vulnerability (CVE-2023-6481) that allows attackers to mount Denial-of-Service attacks. Upgrade to logback-core 1.2.13 or later to remediate.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "logback",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "DoS",
+    "serialization",
+    "transitive-dependency",
+    "remediation"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using spring-boot-dependencies-2.7.12 are exposed to a network-based denial-of-service attack through poisoned data sent to the logback receiver component.",
+  "rootCause": "Serialization vulnerability in logback receiver component (ch.qos.logback:logback-core:1.2.12) allows remote attackers to cause availability impact without authentication.",
+  "proposedFix": "Upgrade logback-core to version 1.2.13, 1.3.14, or 1.4.14",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A serialization vulnerability in logback receiver component part of logback version 1.4.13, 1.3.13 and 1.2.12 allows an attacker to mount a Denial-Of-Service attack",
+  "number": 1951,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:33.656Z"
+}

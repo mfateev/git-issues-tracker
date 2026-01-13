@@ -1,0 +1,29 @@
+{
+  "summary": "Remove DestructMemorizedInstanceException from the PHP SDK by improving cleanup of workflow context and promises during object destruction.",
+  "category": "other",
+  "subcategory": "workflow-lifecycle",
+  "apis": [],
+  "components": [
+    "workflow-context",
+    "promises",
+    "destructor"
+  ],
+  "concepts": [
+    "object-lifecycle",
+    "resource-cleanup",
+    "memory-management",
+    "exception-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers encounter unnecessary exceptions during workflow cleanup that complicate error handling and application stability.",
+  "rootCause": "Current implementation throws DestructMemorizedInstanceException when cleaning up workflow context and promises during object destruction.",
+  "proposedFix": "Refactor the workflow context and promises cleanup logic to gracefully handle resource deallocation without throwing exceptions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to make the SDK stop throwing `DestructMemorizedInstanceException`. I think we can remove the Workflow context and promises without throwing this exception.",
+  "number": 507,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:30.050Z"
+}

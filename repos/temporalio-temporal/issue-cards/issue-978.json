@@ -1,0 +1,35 @@
+{
+  "summary": "History service panics during startup with PostgreSQL/CRDB 20.1.x when creating workflow executions due to a reflection error in the sqlx library used for SQL binding. The issue was resolved by updating the sqlx dependency with a temporal workaround.",
+  "category": "bug",
+  "subcategory": "persistence-sql",
+  "apis": [
+    "StartWorkflowExecution",
+    "CreateWorkflowExecution"
+  ],
+  "components": [
+    "persistence-sql",
+    "sqlplugin-postgresql",
+    "history-service"
+  ],
+  "concepts": [
+    "database-panic",
+    "dependency-version",
+    "sql-binding",
+    "reflection-error",
+    "startup-failure"
+  ],
+  "severity": "critical",
+  "userImpact": "Services cannot start when using PostgreSQL/CRDB, blocking all workflow execution.",
+  "rootCause": "sqlx library version v1.2.0 has a reflection bug that causes panic during struct field binding in database operations. Temporal had a workaround but it wasn't applied when used as a dependency.",
+  "proposedFix": "Override the sqlx dependency with the workaround version in go.mod: replace github.com/jmoiron/sqlx v1.2.0 => github.com/longquanzheng/sqlx v0.0.0-20191125235044-053e6130695c",
+  "workaround": "Add the replace directive to go.mod to use the patched sqlx version instead of the standard v1.2.0",
+  "resolution": "fixed",
+  "resolutionDetails": "User applied the sqlx dependency override workaround documented in Temporal's go.mod, which resolved the panic.",
+  "related": [
+    2863
+  ],
+  "keyQuote": "Adding that fixed things. Thanks!",
+  "number": 978,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:30:51.651Z"
+}

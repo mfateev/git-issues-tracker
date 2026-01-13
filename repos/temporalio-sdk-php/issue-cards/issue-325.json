@@ -1,0 +1,34 @@
+{
+  "summary": "Add a friendly wrapper around listWorkflowExecutions that returns a lazy paginator, handling pagination automatically under the hood instead of requiring direct API calls.",
+  "category": "feature",
+  "subcategory": "workflow-list-api",
+  "apis": [
+    "listWorkflowExecutions"
+  ],
+  "components": [
+    "workflow-client",
+    "pagination",
+    "api-wrapper"
+  ],
+  "concepts": [
+    "pagination",
+    "lazy-loading",
+    "api-ergonomics",
+    "workflow-discovery",
+    "list-operations"
+  ],
+  "severity": "low",
+  "userImpact": "Users can more easily retrieve workflow execution lists with automatic pagination handling instead of managing API calls directly.",
+  "rootCause": null,
+  "proposedFix": "Wrap the listWorkflowExecutions API request and return a paginator object that implements pagination logic lazily.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and the issue was closed.",
+  "related": [
+    75
+  ],
+  "keyQuote": "Wrap API request and return a paginator as result. The paginator should be lazy and implement pagination API under the hood.",
+  "number": 325,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:08.100Z"
+}

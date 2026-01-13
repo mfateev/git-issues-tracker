@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose UpdateID in update handlers to allow users to use it as a unique primary key for handlers in the Java SDK.",
+  "category": "feature",
+  "subcategory": "update-handler",
+  "apis": [
+    "UpdateID"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "unique-identifier",
+    "primary-key",
+    "handler-tracking",
+    "update-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to use UpdateID as a unique primary key to track and manage update handlers.",
+  "rootCause": null,
+  "proposedFix": "Expose UpdateID field in update handler context/parameters",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "UpdateID was exposed in the update handler to provide users with a unique identifier for handlers",
+  "related": [],
+  "keyQuote": "This will allow users to use it when they want a unique primary key for handlers.",
+  "number": 2093,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:34.152Z"
+}

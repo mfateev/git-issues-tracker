@@ -1,0 +1,32 @@
+{
+  "summary": "Add a method for workflows to wait for all handlers to complete before continuing as new or exiting. Users need explicit control over handler cleanup when transitioning workflow state.",
+  "category": "feature",
+  "subcategory": "workflow-handlers",
+  "apis": [],
+  "components": [
+    "workflow",
+    "handler-management",
+    "php-sdk"
+  ],
+  "concepts": [
+    "handler-lifecycle",
+    "workflow-continuation",
+    "async-cleanup",
+    "graceful-shutdown",
+    "state-transition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably ensure all handlers complete their work when continuing as new or exiting workflows, potentially losing work or causing resource leaks.",
+  "rootCause": null,
+  "proposedFix": "Implement a method (similar to .NET SDK issue #261) that allows workflows to explicitly wait for handlers to finish.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide a method for waiting on handler completion.",
+  "related": [
+    261
+  ],
+  "keyQuote": "Users want to easily await (or ignore) all their remaining handlers when they continue as new or exit the workflow.",
+  "number": 447,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:09.442Z"
+}

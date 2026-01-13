@@ -1,0 +1,30 @@
+{
+  "summary": "TCTL commands truncate workflow activity input/output with ellipses, making it difficult to view complete data. Users need either truncation disabled or a flag to control the truncation behavior for full output display.",
+  "category": "feature",
+  "subcategory": "cli-output",
+  "apis": [],
+  "components": [
+    "tctl",
+    "cli",
+    "workflow-display"
+  ],
+  "concepts": [
+    "truncation",
+    "output-formatting",
+    "user-experience",
+    "data-visibility",
+    "pretty-print"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot see complete workflow activity input/output in TCTL commands, forcing them to export to JSON files as a workaround.",
+  "rootCause": null,
+  "proposedFix": "Add a unified flag to control truncation limits for text displayed in Table/Card outputs, allowing users to see full content when needed.",
+  "workaround": "Export output to a local JSON file to view complete data.",
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed through CLI redesign work with a unified flag to control truncation limits for Table/Card output formatting.",
+  "related": [],
+  "keyQuote": "add a flag that lets us pretty print the full output",
+  "number": 678,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:23:53.109Z"
+}

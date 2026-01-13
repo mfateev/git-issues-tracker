@@ -1,0 +1,33 @@
+{
+  "summary": "CalendarSpec components for hour and dayOfMonth are encoded with incorrect validation ranges, rejecting valid values. Hour field accepts 0-59 instead of 0-23, and dayOfMonth accepts 0-6 instead of 1-31.",
+  "category": "bug",
+  "subcategory": "schedule-helpers",
+  "apis": [
+    "ScheduleClient",
+    "CalendarSpec"
+  ],
+  "components": [
+    "schedule-helpers",
+    "calendar-spec-encoding",
+    "validation"
+  ],
+  "concepts": [
+    "encoding",
+    "validation",
+    "range-checking",
+    "calendar-spec",
+    "schedule-creation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create temporal schedules with valid calendar specifications, as legitimate dayOfMonth and hour values are rejected with validation errors.",
+  "rootCause": "Validation range checks in makeCalendarSpecFieldCoders use incorrect upper bounds: hour field checks x <= 59 instead of x <= 23, and dayOfMonth field checks x <= 6 instead of x <= 31.",
+  "proposedFix": "Change hour validation from (x >= 0 && x <= 59) to (x >= 0 && x <= 23) and dayOfMonth validation from (x >= 0 && x <= 6) to (x >= 0 && x <= 31).",
+  "workaround": "Patch node_modules/@temporalio/client/src/schedule-helpers.ts with the provided diff to correct the validation ranges.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed by correcting the validation range checks for hour (0-23) and dayOfMonth (1-31) fields in schedule-helpers.ts",
+  "related": [],
+  "keyQuote": "Error: Invalid CalendarSpec component for field dayOfMonth: '21' of type 'number'",
+  "number": 1105,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:02.838Z"
+}

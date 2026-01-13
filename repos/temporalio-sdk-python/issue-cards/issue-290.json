@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to support result_type parameter on child workflows and activities in the Python SDK, similar to the existing Client.start_workflow functionality. This would allow type-safe result handling across different workflow invocation patterns.",
+  "category": "feature",
+  "subcategory": "type-safety",
+  "apis": [
+    "start_workflow",
+    "execute_activity",
+    "execute_child_workflow"
+  ],
+  "components": [
+    "workflow-client",
+    "activity-executor",
+    "child-workflow-invoker"
+  ],
+  "concepts": [
+    "type-safety",
+    "result-handling",
+    "workflow-invocation",
+    "activity-execution",
+    "child-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot specify result types for activities and child workflows, reducing type safety and consistency across different Temporal API usage patterns.",
+  "rootCause": null,
+  "proposedFix": "Extend result_type parameter support from Client.start_workflow to child workflow execution and activity execution methods.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support result_type on child workflows and activities, bringing parity with Client.start_workflow.",
+  "related": [],
+  "keyQuote": "Client.start_workflow accepts this for string-name-based workflows, we should do the same for activities and child workflows when invoked from workflows.",
+  "number": 290,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:33.216Z"
+}

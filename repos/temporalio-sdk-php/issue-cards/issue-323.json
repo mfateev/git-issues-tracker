@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for workflow updates in the PHP SDK by making the update handler registration interface publicly available, similar to the Go SDK implementation.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "WorkflowDefinition",
+    "update handler"
+  ],
+  "components": [
+    "workflow",
+    "handler-registration",
+    "worker"
+  ],
+  "concepts": [
+    "workflow-updates",
+    "handler-interface",
+    "public-api",
+    "sdk-compatibility",
+    "go-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "PHP developers cannot implement workflow updates without access to internal update handler registration interfaces.",
+  "rootCause": "Update handler registration interface is internal/private and not exposed for public use in PHP SDK.",
+  "proposedFix": "Make the update handler registration interface publicly available in the PHP SDK, matching the Go SDK's approach of exposing internal interfaces.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update handler interface was made public in PHP SDK to support workflow updates.",
+  "related": [],
+  "keyQuote": "we need this interface to be publicly available to register the handler",
+  "number": 323,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:11.649Z"
+}

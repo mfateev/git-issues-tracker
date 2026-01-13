@@ -1,0 +1,33 @@
+{
+  "summary": "GrpcRetryer's long polling retry code uses error-prone elapsed time calculations instead of absolute deadlines. The solution is to rework GrpcRetryer to accept absolute deadlines directly through internal RetryerOptions.",
+  "category": "feature",
+  "subcategory": "grpc-retry",
+  "apis": [],
+  "components": [
+    "GrpcRetryer",
+    "long-polling",
+    "retry-logic"
+  ],
+  "concepts": [
+    "deadline",
+    "timeout",
+    "retry",
+    "elapsed-time",
+    "connection-management",
+    "polling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using the Java SDK's retry mechanism benefit from cleaner, less error-prone timeout handling with absolute deadlines.",
+  "rootCause": "Current implementation requires manual and error-prone calculation of elapsed and remaining time instead of using absolute deadlines.",
+  "proposedFix": "Rework GrpcRetryer to support absolute deadline directly through internal RetryerOptions, eliminating the need for explicit deadline-to-timeout conversion.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #1209 which implemented the rework to use absolute deadlines.",
+  "related": [
+    1209
+  ],
+  "keyQuote": "GrpcRetryer should support an absolute deadline directly, without error-prone explicit converting of the absolute deadline to the timeout duration.",
+  "number": 1203,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:13:44.835Z"
+}

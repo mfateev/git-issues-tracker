@@ -1,0 +1,28 @@
+{
+  "summary": "Request to emit workflow execution lock wait time as metrics. The enhancement was implemented by adding metric emissions in the history cache component.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "history-cache",
+    "metrics"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "lock-contention",
+    "performance-metrics",
+    "instrumentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now monitor workflow execution lock contention through metrics, improving visibility into system performance.",
+  "rootCause": null,
+  "proposedFix": "Emit workflow execution lock wait time metrics from the history cache component",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Metrics were implemented and added to historyCache.go",
+  "related": [],
+  "keyQuote": "metrics already emitted: https://github.com/temporalio/temporal/blob/master/service/history/historyCache.go#L169",
+  "number": 1035,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:51:44.957Z"
+}

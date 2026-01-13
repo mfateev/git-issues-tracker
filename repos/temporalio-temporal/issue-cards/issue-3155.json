@@ -1,0 +1,29 @@
+{
+  "summary": "The tdbg workflow show command ignores the global namespace flag, causing it to not respect the specified namespace parameter when displaying workflow details.",
+  "category": "bug",
+  "subcategory": "cli-namespace-handling",
+  "apis": [],
+  "components": [
+    "tctl",
+    "admin-cli",
+    "workflow-show-command"
+  ],
+  "concepts": [
+    "namespace",
+    "flag-parsing",
+    "command-execution",
+    "cli-parameter-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot view workflow details in non-default namespaces using the global namespace flag, requiring workarounds to query the correct namespace.",
+  "rootCause": "The workflow show command implementation does not properly read or apply the global namespace flag passed via tctl.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was verified as fixed by the reporter",
+  "related": [],
+  "keyQuote": "verified that this is fixed",
+  "number": 3155,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:04.769Z"
+}

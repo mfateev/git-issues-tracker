@@ -1,0 +1,30 @@
+{
+  "summary": "OpenTelemetry exporter errors are silently ignored by the Temporal SDK, making it difficult to debug exporter misconfigurations. The feature request proposes adding an optional callback parameter to `makeWorkflowExporter` to propagate these errors to users.",
+  "category": "feature",
+  "subcategory": "observability-otel",
+  "apis": [],
+  "components": [
+    "interceptors-opentelemetry",
+    "worker",
+    "otel-exporter"
+  ],
+  "concepts": [
+    "error-handling",
+    "observability",
+    "opentelemetry",
+    "debugging",
+    "exporter-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot detect when the OpenTelemetry exporter fails, leading to silent data loss and difficult debugging of integration issues.",
+  "rootCause": "The SDK passes errors from the upstream exporter through a callback function but does not expose or handle these errors, resulting in silent failures.",
+  "proposedFix": "Add an optional callback parameter to `makeWorkflowExporter` that propagates upstream exporter errors, with a default implementation using `globalErrorHandler` similar to `SimpleSpanProcessor`.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add an optional callback parameter to the `makeWorkflowExporter`, and just pass it to the upstream exporter as its callback.",
+  "number": 1696,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:42.868Z"
+}

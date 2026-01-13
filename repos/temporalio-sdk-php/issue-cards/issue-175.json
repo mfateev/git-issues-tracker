@@ -1,0 +1,31 @@
+{
+  "summary": "The SDK was using an old version of psr/log (^1.1) causing dependency conflicts with packages requiring psr/log 2.0 or 3.0. This prevented users from installing the SDK alongside other packages with newer PSR-3 logging requirements.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "composer",
+    "dependencies",
+    "package-management"
+  ],
+  "concepts": [
+    "dependency-conflict",
+    "version-compatibility",
+    "psr-3-logging",
+    "composer-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot install the Temporal PHP SDK in projects that depend on newer versions of psr/log, causing installation failures.",
+  "rootCause": "The composer.json specified a restrictive version constraint (^1.1) for psr/log instead of allowing multiple major versions.",
+  "proposedFix": "Use the or operator in composer.json: ^1.0|^2.0|^3.0 to allow multiple compatible major versions of psr/log.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by merging PR #169 which updated psr/log constraint to accept multiple major versions. Released in v1.3.1.",
+  "related": [
+    169
+  ],
+  "keyQuote": "The SDK is using \"psr/log\": \"^1.1\" which is an old version and need to be updated, the latest version is 3.0.0 which is making conflict with other packages",
+  "number": 175,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:36.200Z"
+}

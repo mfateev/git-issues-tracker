@@ -1,0 +1,33 @@
+{
+  "summary": "Static clusterMetadata configuration for non-current clusters is silently ignored and deleted from the database after initialization, despite being specified in the config. The deprecation warning for ClusterInformation doesn't clearly indicate that non-current cluster configurations will be ignored.",
+  "category": "bug",
+  "subcategory": "cluster-configuration",
+  "apis": [],
+  "components": [
+    "cluster-metadata",
+    "metadata-initializer",
+    "configuration",
+    "database-initialization"
+  ],
+  "concepts": [
+    "cluster-configuration",
+    "static-config",
+    "deprecation",
+    "silent-failure",
+    "global-namespace",
+    "failover",
+    "configuration-persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who configure standby cluster information in static config are confused when that configuration is silently deleted from the database without clear notification.",
+  "rootCause": "ClusterInformation configuration for non-current clusters is deprecated and ignored during initialization, but the deprecation warning doesn't clearly communicate that the configuration will be removed.",
+  "proposedFix": "Either fully deprecate clusterMetadata with a new structure for cluster initialization, or improve logging to clearly indicate which cluster configurations will be ignored and why.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Silent failure is misleading, either complete deprecate the cluster metadata by using a new structure or improve the logging",
+  "number": 3104,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:53.355Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to remove the `namespace` option from child workflow calls in the Python SDK. Temporal plans to discontinue support for cross-namespace child workflow calls in favor of alternative approaches.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-api"
+  ],
+  "concepts": [
+    "namespace",
+    "cross-namespace-calls",
+    "workflow-isolation",
+    "api-deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to remove namespace parameters from child workflow calls as this feature will no longer be supported.",
+  "rootCause": null,
+  "proposedFix": "Remove the `namespace` option from child workflow call APIs",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature request to disable cross-namespace child workflow calls has been completed by removing the namespace option",
+  "related": [],
+  "keyQuote": "Remove `namespace` option from child workflow calls. Temporal does not want to support this approach for cross-namespace calling in the future",
+  "number": 218,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:33.240Z"
+}

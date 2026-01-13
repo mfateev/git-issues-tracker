@@ -1,0 +1,32 @@
+{
+  "summary": "Schedule list with visibility query times out on server 1.25.0-rc.0, discovered when upgrading the server version in the Go SDK test suite.",
+  "category": "bug",
+  "subcategory": "schedule-visibility-query",
+  "apis": [
+    "ListSchedules"
+  ],
+  "components": [
+    "schedule-service",
+    "visibility-query",
+    "test-suite"
+  ],
+  "concepts": [
+    "timeout",
+    "query-performance",
+    "visibility-filtering",
+    "schedule-listing",
+    "backward-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to server 1.25.0-rc.0 experience timeouts when listing schedules with visibility queries.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "May no longer be relevant, requires reproduction.",
+  "number": 6319,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:55.557Z"
+}

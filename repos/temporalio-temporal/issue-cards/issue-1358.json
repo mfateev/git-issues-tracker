@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to allow resetting workflows to the workflow task scheduled event. Requires refactoring the history builder to support multiple history batches and modifying the workflow reset logic.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "history-builder",
+    "workflow-reset",
+    "event-replay"
+  ],
+  "concepts": [
+    "reset",
+    "workflow-task",
+    "history-batch",
+    "event-sequence",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can reset workflows to a more granular state (workflow task scheduled) for better control over workflow recovery.",
+  "rootCause": null,
+  "proposedFix": "Refactor history builder to allow multiple history batches and modify workflow reset logic to support resetting to workflow task scheduled event.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented with refactoring of history builder and workflow reset logic to support multiple history batches.",
+  "related": [],
+  "keyQuote": "Allow reset to workflow task scheduled event",
+  "number": 1358,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:59.784Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowHistoryIterator needs refactoring to improve deadline handling, exception reporting, and add protection against infinite event loops from the server, similar to what exists in Core.",
+  "category": "feature",
+  "subcategory": "history-pagination",
+  "apis": [
+    "WorkflowHistoryIterator"
+  ],
+  "components": [
+    "worker",
+    "history-fetcher",
+    "deadline-handler"
+  ],
+  "concepts": [
+    "pagination",
+    "timeout",
+    "deadline",
+    "exception-handling",
+    "infinite-loop-protection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience improved reliability and visibility when paginating workflow history, with better timeout handling and protection against server-side event loop issues.",
+  "rootCause": "Current WorkflowHistoryIterator implementation lacks robust deadline calculation, comprehensive logging, and protection against server returning events in infinite loops.",
+  "proposedFix": "Implement build-in protection from server returning events in a loop (reference implementation in Core SDK), improve deadline calculations based on currentTimeMillis, enhance exception handling and logging with more information about workflow task timeout and elapsed time.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "WorkflowHistoryIterator implementation related to deadline... requires a revisit and polishing.",
+  "number": 1242,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:17:45.309Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Users need methods to wait for all handlers to finish when continuing as new or exiting a workflow. This requires explicit user specification since the SDK cannot automatically determine the desired behavior.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-executor",
+    "handler-manager"
+  ],
+  "concepts": [
+    "handler-lifecycle",
+    "workflow-exit",
+    "async-completion",
+    "resource-cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack a convenient way to await or ignore remaining handlers during workflow state transitions, requiring manual error-prone handling.",
+  "rootCause": null,
+  "proposedFix": "Provide methods that allow users to explicitly specify whether to await all handlers or ignore them when continuing as new or exiting.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SDK provides explicit methods for users to wait for or ignore handlers during workflow transitions.",
+  "related": [],
+  "keyQuote": "Users want to easily await (or ignore) all their remaining handlers when they continue as new or exit the workflow.",
+  "number": 2091,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:21.456Z"
+}

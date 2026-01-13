@@ -1,0 +1,29 @@
+{
+  "summary": "Two security vulnerabilities (CVE-2019-0205 and CVE-2019-0210) were discovered in the Apache Thrift library (version 0.12.0 and earlier) as a transitive dependency through uber-go/tally. Both vulnerabilities have high severity (CVSS 7.5) and affect availability.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-process"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-security",
+    "denial-of-service",
+    "Apache-Thrift",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the features repository are exposed to denial-of-service vulnerabilities in Apache Thrift through the uber-go/tally transitive dependency.",
+  "rootCause": "Apache Thrift versions up to 0.12.0 have vulnerabilities that cause endless loops or panics when fed with specific or invalid input data in JSON protocol implementations.",
+  "proposedFix": "Upgrade Apache Thrift to version 0.13.0 or later.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory in the specific branch(es).",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 333,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:10.418Z"
+}

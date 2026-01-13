@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to expose an enum for ExecutionStatus in workflow execution queries instead of using string literals. Users want type-safe access to execution status values like 'Running' rather than hardcoding strings.",
+  "category": "feature",
+  "subcategory": "query-api",
+  "apis": [],
+  "components": [
+    "query-builder",
+    "execution-status"
+  ],
+  "concepts": [
+    "type-safety",
+    "enum",
+    "query-language",
+    "workflow-execution",
+    "query-builder"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must use string literals for execution status in queries, reducing type safety and making code more error-prone.",
+  "rootCause": null,
+  "proposedFix": "Expose an ExecutionStatus enum that can be used in workflow execution queries to replace string literals.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer determined the feature would not add sufficient value, especially given plans for a more comprehensive query builder.",
+  "related": [],
+  "keyQuote": "Not sure this would actually add value. Closing.",
+  "number": 1065,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:44.172Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for macOS arm64 (Apple Silicon) by building and testing prebuilt wheels on this platform. This requires updating CI configuration and resolving pyo3 cross-compilation challenges.",
+  "category": "feature",
+  "subcategory": "build-infrastructure",
+  "apis": [],
+  "components": [
+    "build-system",
+    "ci-pipeline",
+    "packaging"
+  ],
+  "concepts": [
+    "cross-compilation",
+    "platform-support",
+    "macos-m1",
+    "wheel-distribution",
+    "ci-build"
+  ],
+  "severity": "medium",
+  "userImpact": "macOS arm64 users can install the SDK without fallback to slower x86_64 emulation or building from source.",
+  "rootCause": "pyo3 cross-compilation complexity and lack of dedicated macOS arm64 CI runner",
+  "proposedFix": "Update CI build and test configuration to support macOS aarch64 platform, generate prebuilt wheels for this architecture",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "CI pipeline was updated to build and test on macOS arm64, enabling prebuilt wheel distribution for Apple Silicon",
+  "related": [],
+  "keyQuote": "Need a prebuilt macOS aarch64 wheel. Don't currently have it because cross-compilation is a bit of a pain with pyo3",
+  "number": 9,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:45:29.955Z"
+}

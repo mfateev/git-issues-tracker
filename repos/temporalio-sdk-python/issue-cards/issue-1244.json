@@ -1,0 +1,31 @@
+{
+  "summary": "GitHub Actions Build Binaries workflow fails when the Temporal SDK pins an older version of nexus-rpc than the latest available. The workflow installs the latest nexus-rpc version during testing, causing dependency mismatches that break the wheel testing step.",
+  "category": "bug",
+  "subcategory": "ci-cd",
+  "apis": [],
+  "components": [
+    "build-binaries",
+    "github-actions",
+    "wheel-testing",
+    "dependency-management"
+  ],
+  "concepts": [
+    "dependency-version-mismatch",
+    "ci-cd-workflow",
+    "virtual-environment",
+    "package-constraints",
+    "testing"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot merge changes to the SDK when working with older pinned versions of nexus-rpc, blocking release workflows.",
+  "rootCause": "The Build Binaries GitHub Actions workflow installs nexus-rpc with a loose constraint (>=1.1.0) that resolves to the latest available version, conflicting with SDK pinned dependencies during wheel testing.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the nexus-rpc version constraint or workflow logic was updated to handle pinned dependency versions.",
+  "related": [],
+  "keyQuote": "The Build Binaries action installs the latest version of nexus-rpc (via `nexus-rpc>=1.1.0`) when testing the built wheel in a new virtual environment. If the Temporal SDK relies on an older version, the build binaries job fails",
+  "number": 1244,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:45.943Z"
+}

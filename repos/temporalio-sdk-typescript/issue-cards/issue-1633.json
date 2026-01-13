@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to expose root workflow execution context in the TypeScript SDK, dependent on core SDK and features implementation.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [],
+  "components": [
+    "workflow-context",
+    "execution-context"
+  ],
+  "concepts": [
+    "root-workflow",
+    "execution-context",
+    "workflow-hierarchy",
+    "context-propagation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access root workflow execution information, limiting context visibility in nested workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented following the completion of dependent core SDK and features work.",
+  "related": [
+    605,
+    881
+  ],
+  "keyQuote": "needs to wait on temporalio/sdk-core/issues/881",
+  "number": 1633,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:11:39.565Z"
+}

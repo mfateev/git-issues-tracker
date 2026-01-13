@@ -1,0 +1,33 @@
+{
+  "summary": "User needs guidance on registering a custom ContextPropagator across multiple Temporal namespaces in a Spring Boot application. Currently works for a single namespace but unclear how to apply it to multiple namespaces configured via application.yaml.",
+  "category": "question",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "WorkflowClientOptions",
+    "ContextPropagator"
+  ],
+  "components": [
+    "spring-boot-autoconfigure",
+    "workflow-client",
+    "context-propagator"
+  ],
+  "concepts": [
+    "multi-namespace",
+    "mdc-propagation",
+    "context-propagation",
+    "spring-boot-configuration",
+    "customization"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily propagate context (like tenant_id) across multiple namespaces in Spring Boot, limiting multi-tenant Temporal deployments.",
+  "rootCause": null,
+  "proposedFix": "Configure a different customizer per namespace to set the ContextPropagator, leveraging the Temporal Spring Boot autoconfiguration customization mechanism.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Community response provided solution: use per-namespace customizers to configure ContextPropagator for each namespace separately.",
+  "related": [],
+  "keyQuote": "You can configure a different customizer per namespace. So in your customizer you can set a ContextPropagator",
+  "number": 2687,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:04.366Z"
+}

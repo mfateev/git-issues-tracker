@@ -1,0 +1,32 @@
+{
+  "summary": "temporal-serviceclient library cannot be compiled with JDK 9 or later due to missing javax.annotation.Generated class. The JSR-250 javax.annotation package needs to be added as a dependency for JDK 9+ compatibility.",
+  "category": "bug",
+  "subcategory": "build-compatibility",
+  "apis": [],
+  "components": [
+    "temporal-serviceclient",
+    "build-system",
+    "grpc-code-generation"
+  ],
+  "concepts": [
+    "jdk-compatibility",
+    "dependency-management",
+    "java-modules",
+    "code-generation",
+    "build-gradle"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build the temporal-serviceclient library with JDK 9 or later versions, blocking adoption of newer Java versions.",
+  "rootCause": "JSR-250 javax.annotation package is not included as a dependency in temporal-serviceclient's build.gradle, which is required for JDK 9+ where it was removed from the standard library.",
+  "proposedFix": "Add the JSR-250 javax.annotation package as a dependency in temporal-serviceclient's build.gradle file when building with JDK 9 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fix was implemented to add JSR-250 javax.annotation dependency for JDK 9+ compatibility (see PR #231).",
+  "related": [
+    231
+  ],
+  "keyQuote": "The temporal-serviceclient library cannot be compiled with JDK 15 (actually, JDK 9 or later)",
+  "number": 232,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:02:43.607Z"
+}

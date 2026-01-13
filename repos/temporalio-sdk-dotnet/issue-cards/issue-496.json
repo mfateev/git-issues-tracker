@@ -1,0 +1,32 @@
+{
+  "summary": "The workflow logger uses 'RunId' for the workflow run identifier, while the activity logger uses 'WorkflowRunId' for the same information. This naming inconsistency causes confusion when filtering logs, though the maintainer notes this is intentional to match property names in ActivityInfo and WorkflowInfo objects.",
+  "category": "question",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logger",
+    "workflow-context",
+    "activity-context",
+    "structured-logging"
+  ],
+  "concepts": [
+    "naming-consistency",
+    "log-properties",
+    "structured-logs",
+    "workflow-identifier",
+    "activity-logging",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers experience confusion when filtering logs across workflow and activity contexts due to inconsistent property names for the same workflow run identifier.",
+  "rootCause": "The logger scope field names are intentionally matched to property names in ActivityInfo and WorkflowInfo objects, which have different naming conventions for the run identifier.",
+  "proposedFix": null,
+  "workaround": "Create a workflow interceptor that surrounds workflow execution with BeginScope to add additional scope values with consistent naming.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It is intentional that we match the field names in the logger scope with the property names in the respective \"info\" objects.",
+  "number": 496,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:29:49.709Z"
+}

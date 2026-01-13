@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add workers autoscaling capability through KEDA (Kubernetes Event Driven Autoscaling). This involves integrating KEDA as a product integration to enable automatic scaling of Temporal workers based on event-driven metrics.",
+  "category": "feature",
+  "subcategory": "worker-autoscaling",
+  "apis": [],
+  "components": [
+    "worker",
+    "autoscaling",
+    "keda-integration"
+  ],
+  "concepts": [
+    "autoscaling",
+    "kubernetes",
+    "event-driven",
+    "resource-management",
+    "worker-pool",
+    "load-balancing"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users running Temporal on Kubernetes to automatically scale worker instances based on workload demand, reducing operational overhead and improving cost efficiency.",
+  "rootCause": null,
+  "proposedFix": "Implement KEDA scaler integration for Temporal workers as a product integration/packaging feature.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "KEDA support for Temporal workers was implemented and released in KEDA v2.17.0. A community sample application (temporal-scaling-demo) demonstrates the integration.",
+  "related": [
+    6191
+  ],
+  "keyQuote": "OMG it got **released**! https://github.com/kedacore/keda/releases/tag/v2.17.0",
+  "number": 33,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T10:40:02.586Z"
+}

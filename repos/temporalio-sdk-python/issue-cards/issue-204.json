@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to simplify importing third-party modules in workflow sandboxes. Currently requires configuring the sandbox runner with unstable APIs; proposal suggests adding a context manager, AST comments, or worker-level configuration for easier passthrough module specification.",
+  "category": "feature",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "worker",
+    "activity-sandbox"
+  ],
+  "concepts": [
+    "module-imports",
+    "sandbox-configuration",
+    "security-isolation",
+    "third-party-libraries",
+    "passthrough-modules"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently face friction when needing to use third-party libraries in workflows, requiring complex sandbox configuration.",
+  "rootCause": null,
+  "proposedFix": "Three options proposed: (1) context manager syntax with `workflow.unsafe.imports_passed_through()`, (2) AST/comment-based approach with `# temporal: pass-through` annotations, (3) worker-level configuration parameter `workflow_sandbox_passthrough_modules`",
+  "workaround": "Configure the sandbox runner with unstable APIs",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged into the Python SDK",
+  "related": [],
+  "keyQuote": "Probably a simple `with`, so something like: with workflow.unsafe.imports_passed_through(): import requests",
+  "number": 204,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:44.952Z"
+}

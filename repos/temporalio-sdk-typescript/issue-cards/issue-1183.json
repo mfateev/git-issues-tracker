@@ -1,0 +1,33 @@
+{
+  "summary": "Worker shutdown in v1.8.1 causes a ShutdownError exception that terminates Jest with exit code 1, breaking test suites. Downgrading to v1.7.4 resolves the issue.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "worker.shutdown()"
+  ],
+  "components": [
+    "worker",
+    "shutdown",
+    "error-handling"
+  ],
+  "concepts": [
+    "cleanup",
+    "test-teardown",
+    "exception-handling",
+    "version-regression"
+  ],
+  "severity": "high",
+  "userImpact": "Tests fail entirely when using worker.shutdown() in v1.8.1, preventing developers from running test suites.",
+  "rootCause": "Regression introduced in v1.8.1 related to shutdown error handling",
+  "proposedFix": "PR #1166 fixes the issue",
+  "workaround": "Downgrade to v1.7.4",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #1166, included in v1.8.2 release",
+  "related": [
+    1166
+  ],
+  "keyQuote": "[ERROR] Worker failed { error: [Error [ShutdownError]: ShutDown] }",
+  "number": 1183,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:09.799Z"
+}

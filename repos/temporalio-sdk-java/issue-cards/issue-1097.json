@@ -1,0 +1,34 @@
+{
+  "summary": "WorkerFactory instantiation fails with NoSuchMethodError due to incompatible protobuf-java-util version. The issue occurs when protobuf-java-util 4.0.0-rc-2 is loaded before grpc-services 1.44.1, causing a method compatibility issue.",
+  "category": "bug",
+  "subcategory": "dependency-conflict",
+  "apis": [
+    "WorkerFactory"
+  ],
+  "components": [
+    "worker-factory",
+    "dependency-management",
+    "protobuf-integration"
+  ],
+  "concepts": [
+    "version-conflict",
+    "dependency-resolution",
+    "protobuf-compatibility",
+    "grpc-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot instantiate WorkerFactory when temporal-sdk is added to their project due to transitive protobuf dependency conflicts.",
+  "rootCause": "protobuf-java-util dependency version constraint [3.10.0,) allows newer incompatible versions like 4.0.0-rc-2 to be resolved before grpc-services 1.44.1, causing missing method errors.",
+  "proposedFix": "Pin protobuf-java-util to version 3.19.4 or earlier compatible version that is compatible with grpc-services 1.44.1.",
+  "workaround": "Explicitly specify protobuf-java-util version 3.19.4 in application pom.xml to override transitive dependency resolution.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in master branch, will be included in next release. Marked as duplicate of issues #1085 and #1091.",
+  "related": [
+    1085,
+    1091
+  ],
+  "keyQuote": "I found out that there is a new version of com.google.protobuf:protobuf-java-util with version 4.0.0-rc-2. This new version is loaded first, which seems to be incompatible with io.grpc:grpc-services:1.44.1.",
+  "number": 1097,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:05:43.267Z"
+}

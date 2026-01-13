@@ -1,0 +1,31 @@
+{
+  "summary": "Worker needs SSL/TLS configuration support for secure connections to Temporal service in production environments. Currently only the Client supports SSL configuration, creating a gap for production Worker deployments.",
+  "category": "feature",
+  "subcategory": "worker-connection",
+  "apis": [],
+  "components": [
+    "worker",
+    "grpc-connection",
+    "tls-configuration"
+  ],
+  "concepts": [
+    "ssl",
+    "tls",
+    "security",
+    "production-deployment",
+    "grpc-credentials",
+    "worker-service-connection"
+  ],
+  "severity": "high",
+  "userImpact": "Workers cannot be safely deployed in production environments without SSL/TLS support for connecting to the Temporal service.",
+  "rootCause": null,
+  "proposedFix": "Implement SSL configuration for Worker similar to the Node gRPC API pattern (grpc.credentials.createSsl)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SSL/TLS configuration support was added to the Worker connector",
+  "related": [],
+  "keyQuote": "This feature is missing in order for the Worker to function in production environments. Currently only the Client supports this.",
+  "number": 87,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:11.043Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Activity stub throws IllegalArgumentException when toString() is called, as the method invocation handler doesn't recognize Object methods that aren't defined in the activity interface. The same issue affects workflow stubs.",
+  "category": "bug",
+  "subcategory": "activity-stubs",
+  "apis": [],
+  "components": [
+    "activity-stub",
+    "activity-invocation-handler",
+    "metadata-processing",
+    "proxy-generation"
+  ],
+  "concepts": [
+    "object-methods",
+    "proxy-behavior",
+    "method-resolution",
+    "interface-metadata",
+    "stub-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot call toString() on activity or workflow stubs, and implicit toString() calls (e.g., in logging or string concatenation) cause the application to crash.",
+  "rootCause": "The ActivityInvocationHandlerBase only recognizes methods defined in the activity interface, rejecting inherited Object methods like toString() that should be handled by the proxy.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The invocation handler was modified to properly handle Object methods like toString(), equals(), and hashCode() that are inherited by all Java objects.",
+  "related": [],
+  "keyQuote": "Call toString on any activity stub.",
+  "number": 1536,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:44.508Z"
+}

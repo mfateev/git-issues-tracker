@@ -1,0 +1,30 @@
+{
+  "summary": "The macOS Intel runner was removed from the build-gems workflow's smoke test because it cannot download the CLI due to outdated CA certificates. This feature request asks to update the workflow to support macOS Intel testing again.",
+  "category": "feature",
+  "subcategory": "ci-workflow",
+  "apis": [],
+  "components": [
+    "build-gems",
+    "github-workflow",
+    "ci"
+  ],
+  "concepts": [
+    "testing",
+    "platform-support",
+    "certificates",
+    "macos",
+    "smoke-test"
+  ],
+  "severity": "low",
+  "userImpact": "macOS Intel platform is not tested in the build workflow, potentially missing platform-specific issues.",
+  "rootCause": "macOS Intel runner lacks updated CA certificates required to download the CLI",
+  "proposedFix": "Update CA certificates on the macOS Intel runner, potentially using Python's approach as reference",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "macos-intel (i.e. macos-13) runner had to be removed from build-gems run because it cannot download the CLI to do a smoke test presumably because it does not have latest CA certificates",
+  "number": 306,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:51:18.513Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "User requests a code sample or guide for resetting workflows in the Python SDK, similar to tctl's reset functionality. The discussion reveals that while raw API access exists, there are no SDK samples for this advanced operation.",
+  "category": "feature",
+  "subcategory": "workflow-management",
+  "apis": [
+    "reset_workflow_execution",
+    "workflow_service"
+  ],
+  "components": [
+    "workflow-client",
+    "api-service",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "workflow-state-management",
+    "history-reset",
+    "continued-as-new",
+    "advanced-operations"
+  ],
+  "severity": "low",
+  "userImpact": "Advanced users need to know how to reset workflows programmatically without using tctl CLI, but this capability is not well-documented in SDK samples.",
+  "rootCause": null,
+  "proposedFix": "Provide code sample showing how to use the raw WorkflowService API for workflow resets via reset_workflow_execution()",
+  "workaround": "Use tctl CLI command or call the raw WorkflowService API directly: `await client.workflow_service.reset_workflow_execution(ResetWorkflowExecutionRequest(...))`",
+  "resolution": "answered",
+  "resolutionDetails": "Answered by maintainer explaining that raw API access is available but resets are advanced operations meant for CLI, not typical SDK usage patterns",
+  "related": [],
+  "keyQuote": "you can call `await my_client.workflow_service.reset_workflow_execution(temporalio.api.workflowservice.v1.ResetWorkflowExecutionRequest(...` which would be calling the raw API",
+  "number": 262,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:58.069Z"
+}

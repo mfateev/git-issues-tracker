@@ -1,0 +1,36 @@
+{
+  "summary": "Upon namespace failover, each shard creates failover timer and transfer queues that load tasks simultaneously, causing a spike in persistence requests. The request proposes adding a host-level rate limiter for failover queue loading as a short-term solution.",
+  "category": "feature",
+  "subcategory": "failover-queue-management",
+  "apis": [],
+  "components": [
+    "failover-queue",
+    "shard-management",
+    "persistence-layer",
+    "rate-limiter",
+    "task-loading"
+  ],
+  "concepts": [
+    "failover",
+    "rate-limiting",
+    "task-loading",
+    "queue-management",
+    "namespace-failover",
+    "persistence-spike",
+    "load-balancing"
+  ],
+  "severity": "medium",
+  "userImpact": "Namespace failover causes service availability issues due to spikes in persistence requests from simultaneous queue task loading across shards.",
+  "rootCause": "Each shard creates failover timer queue and failover transfer queue that start task loading at nearly the same time, causing a persistence request spike.",
+  "proposedFix": "Add a host level rate limiter for failover queue as a short-term solution. Long-term: task guarantee execution work and multicursor will eliminate standby and failover queues.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2864
+  ],
+  "keyQuote": "Each shard will create a failover timer queue and a failover transfer queue...start task load at almost the same time and cause a spike in persistence requests",
+  "number": 2912,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:06.479Z"
+}

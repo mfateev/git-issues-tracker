@@ -1,0 +1,32 @@
+{
+  "summary": "Remove unused methods from ClientBean and add GetAdminClient method to align with Frontend Client API. This is a code cleanup and API consistency improvement for the temporal server's dependency injection layer.",
+  "category": "other",
+  "subcategory": "code-cleanup",
+  "apis": [],
+  "components": [
+    "ClientBean",
+    "fx-injection",
+    "admin-client"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "code-cleanup",
+    "api-alignment",
+    "unused-methods",
+    "refactoring"
+  ],
+  "severity": "low",
+  "userImpact": "This change improves code maintainability and API consistency for developers using the Temporal server's dependency injection framework.",
+  "rootCause": null,
+  "proposedFix": "Remove unused methods from ClientBean and add GetAdminClient method. One commenter suggested replacing the entire ClientBean with proper fx injections.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5000
+  ],
+  "keyQuote": "I would remove entire `ClientBean` and replace it with proper `fx` injections.",
+  "number": 3532,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:37.995Z"
+}

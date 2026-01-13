@@ -1,0 +1,33 @@
+{
+  "summary": "Add rate limiting to the UpdateWorkerBuildIdCompatibility API to prevent spam and keep the namespace replication queue at low bandwidth for efficient cluster failover messaging.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "UpdateWorkerBuildIdCompatibility"
+  ],
+  "components": [
+    "worker-versioning",
+    "replication",
+    "namespace-queue"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "api-protection",
+    "bandwidth-optimization",
+    "replication",
+    "cluster-failover",
+    "queue-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Without rate limiting, users could accidentally or maliciously spam the UpdateWorkerBuildIdCompatibility API, causing excessive replication traffic and impacting cluster failover performance.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need to ensure the API isn't spammed since we want the namespace replication queue to be relatively low bandwidth for cluster failover messages.",
+  "number": 4240,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:22.250Z"
+}

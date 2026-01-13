@@ -1,0 +1,34 @@
+{
+  "summary": "Custom logger passed to Runtime.install() wasn't being used by webpack for build-time logging. Webpack logs were emitted via console.error instead of flowing through the configured logger entry function.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [
+    "Runtime.install",
+    "DefaultLogger",
+    "Worker.create"
+  ],
+  "components": [
+    "logger",
+    "webpack-bundler",
+    "worker"
+  ],
+  "concepts": [
+    "logging",
+    "custom-logger",
+    "bundling",
+    "log-routing",
+    "infrastructure-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users unable to centralize webpack build logs through their custom logging infrastructure, breaking log aggregation and formatting consistency.",
+  "rootCause": "Webpack logger doesn't use the installed Runtime logger; logs are emitted directly via console.error instead of going through the configured entry function.",
+  "proposedFix": null,
+  "workaround": "Manually call bundleWorkflowCode instead of relying on Worker.create's automatic bundling, though this doesn't require instantiating the Runtime.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was confirmed to have been fixed in a later version; webpack output now routes through the custom logger when Worker.create initiates bundling.",
+  "related": [],
+  "keyQuote": "Logs are emitted using `console.error`, instead of the custom entry function passed to the `DefaultLogger` passed to `Runtime.install`",
+  "number": 604,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:03:46.935Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to display retry policy information on activity info in the PHP SDK. References feature request #615 from the features repository.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-info"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-metadata",
+    "configuration-visibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot programmatically inspect the retry policy associated with an activity during execution.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to display retry policy on activity info",
+  "related": [
+    615
+  ],
+  "keyQuote": "Show retry policy on activity info",
+  "number": 602,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:47.189Z"
+}

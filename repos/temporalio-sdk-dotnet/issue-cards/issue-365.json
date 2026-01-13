@@ -1,0 +1,33 @@
+{
+  "summary": "Add DisableEagerExecution option to WorkerOptions to allow users to disable eager activity dispatch, enabling proper rate limiting via MaxTaskQueueActivitiesPerSecond since eager dispatch bypasses task queue rate limits.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-dispatcher",
+    "task-queue"
+  ],
+  "concepts": [
+    "eager-execution",
+    "rate-limiting",
+    "activity-dispatch",
+    "task-queue",
+    "configuration",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly apply rate limits to activities when eager dispatch is enabled, limiting their ability to control resource consumption.",
+  "rootCause": null,
+  "proposedFix": "Add DisableEagerExecution configuration option to WorkerOptions",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and added to WorkerOptions",
+  "related": [],
+  "keyQuote": "This is really needed in order to be able to use MaxTaskQueueActivitiesPerSecond, as current service can apply rate limits only from matching task queue",
+  "number": 365,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:16:01.887Z"
+}

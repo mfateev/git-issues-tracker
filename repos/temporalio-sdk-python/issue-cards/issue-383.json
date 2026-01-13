@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to provide the last result and last failure from previous workflow executions to workflows, allowing access to retry state information similar to features implemented in other SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "retry-mechanism"
+  ],
+  "concepts": [
+    "retry",
+    "failure-handling",
+    "workflow-state",
+    "execution-history",
+    "error-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access previous execution results and failures in workflows, limiting retry logic capabilities and cross-attempt state passing.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide last result and last failure to workflows",
+  "related": [
+    635
+  ],
+  "keyQuote": "Provide last result and last failure to workflows",
+  "number": 383,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:31.660Z"
+}

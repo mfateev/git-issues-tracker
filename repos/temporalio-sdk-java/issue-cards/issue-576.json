@@ -1,0 +1,36 @@
+{
+  "summary": "TestEnv fails when signaling a terminated external workflow execution from another workflow, throwing a FAILED_PRECONDITION error about adding an event after completion instead of properly signaling ApplicationFailure like it does for closed workflows.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "signal",
+    "newExternalWorkflowStub",
+    "terminate",
+    "getResult"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-execution",
+    "external-workflow-signal",
+    "mutable-state"
+  ],
+  "concepts": [
+    "external-workflow",
+    "signal-handling",
+    "workflow-termination",
+    "event-state",
+    "test-simulation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test scenarios where one workflow signals a terminated external workflow in TestEnv, breaking test coverage for error handling.",
+  "rootCause": "TestWorkflowMutableStateImpl incorrectly handles signaling to terminated workflows by attempting to add a WORKFLOW_EXECUTION_SIGNALED event after the workflow has already completed, violating the event state machine.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed by properly handling signal events to terminated workflows in the test service's mutable state implementation.",
+  "related": [],
+  "keyQuote": "FAILED_PRECONDITION: Attempt to add an eBuilder after a completion eBuilder: event_type: EVENT_TYPE_WORKFLOW_EXECUTION_SIGNALED",
+  "number": 576,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:24:59.214Z"
+}

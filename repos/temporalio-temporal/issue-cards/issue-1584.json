@@ -1,0 +1,31 @@
+{
+  "summary": "The tctl describe workflow command was not returning search attributes in the response, even though they should be included according to the API proto definition. The issue was determined to be on the user's side, not a server bug.",
+  "category": "bug",
+  "subcategory": "tctl-command",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "tctl",
+    "workflow-execution",
+    "api-response"
+  ],
+  "concepts": [
+    "search-attributes",
+    "workflow-metadata",
+    "describe-workflow",
+    "tctl-output"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to retrieve search attributes via tctl describe workflow would not see them in the output.",
+  "rootCause": "User-side configuration issue, not a server-side bug.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The issue reporter confirmed after investigation that this was a problem on their side, not a bug in the product.",
+  "related": [],
+  "keyQuote": "Confirmed this was an issue on our side. Sorry for the noise!",
+  "number": 1584,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:42.980Z"
+}

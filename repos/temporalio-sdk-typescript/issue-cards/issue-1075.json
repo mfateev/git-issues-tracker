@@ -1,0 +1,32 @@
+{
+  "summary": "Six npm package vulnerabilities detected in core-2.3.0.tgz dependencies, with the highest severity being 8.8 (CVE-2022-25967 in eta package enabling Remote Code Execution). Multiple transitive dependencies require updates to remediate security risks.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "package-build",
+    "documentation-build"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency",
+    "rce",
+    "dos",
+    "transitive-dependencies",
+    "npm-packages"
+  ],
+  "severity": "critical",
+  "userImpact": "Users are exposed to critical security vulnerabilities including Remote Code Execution through outdated transitive dependencies in the TypeScript SDK.",
+  "rootCause": "Outdated transitive npm dependencies (eta 1.12.3, trim 0.0.1, http-cache-semantics 4.1.0, formula 3.0.0, got 9.6.0) with unpatched security vulnerabilities.",
+  "proposedFix": "Upgrade vulnerable dependencies: eta to 2.0.0 or later, trim to 0.0.3 or later, http-cache-semantics to 4.1.1 or later, and update other affected transitive dependencies.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Vulnerabilities were addressed by upgrading dependencies. Comment indicates all dependencies have been updated.",
+  "related": [],
+  "keyQuote": "All of these dependencies have updated a very long time ago.",
+  "number": 1075,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:12.206Z"
+}

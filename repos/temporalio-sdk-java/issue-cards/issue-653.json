@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowExecutionUtils and GrpcRetryer don't respect gRPC deadline propagation from the context, causing them to ignore DEADLINE_EXCEEDED exceptions and continue retrying indefinitely even after the deadline has passed.",
+  "category": "bug",
+  "subcategory": "grpc-deadline-propagation",
+  "apis": [
+    "WorkflowExecutionUtils",
+    "GrpcRetryer"
+  ],
+  "components": [
+    "WorkflowExecutionUtils",
+    "GrpcRetryer",
+    "grpc-context-handling"
+  ],
+  "concepts": [
+    "deadline",
+    "grpc-context",
+    "deadline-propagation",
+    "timeout",
+    "retry",
+    "context-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience indefinite retry loops when gRPC deadlines expire, potentially causing 24-day delays before operations fail instead of failing immediately.",
+  "rootCause": "WorkflowExecutionUtils ignores the absolute deadline in gRPC Context when calculating deadlines, and GrpcRetryer doesn't check if the current moment has passed the absolute deadline before retrying, resulting in ignored DEADLINE_EXCEEDED exceptions.",
+  "proposedFix": "Check the absolute deadline from gRPC Context before calculating new deadlines and respect DEADLINE_EXCEEDED exceptions instead of retrying indefinitely.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue includes unit test reproductions demonstrating the problem with deadline handling across workflow execution and retry scenarios.",
+  "related": [],
+  "keyQuote": "gRPC ignores these new deadlines that are later than the current deadline already presented in the GRPC Context",
+  "number": 653,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:32:54.910Z"
+}

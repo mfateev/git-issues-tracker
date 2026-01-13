@@ -1,0 +1,30 @@
+{
+  "summary": "The OPERATION_TOKEN header is currently using the workflow ID as its value, but it should use the operation token instead. This is a correctness fix for proper header value assignment.",
+  "category": "bug",
+  "subcategory": "headers",
+  "apis": [],
+  "components": [
+    "http-client",
+    "headers",
+    "operation-token"
+  ],
+  "concepts": [
+    "operation-token",
+    "header-value",
+    "workflow-id",
+    "http-headers",
+    "client-request"
+  ],
+  "severity": "medium",
+  "userImpact": "External systems receiving the OPERATION_TOKEN header will get incorrect identification values, potentially breaking integrations that rely on proper operation token tracking.",
+  "rootCause": "The OPERATION_TOKEN header implementation incorrectly uses workflow ID instead of the actual operation token value.",
+  "proposedFix": "Replace workflow ID with operation token in the OPERATION_TOKEN header value.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The implementation was corrected to use the operation token for the OPERATION_TOKEN header value instead of workflow ID.",
+  "related": [],
+  "keyQuote": "Use operation token for the OPERATION_TOKEN header value, currently we use the workflow ID which is not correct.",
+  "number": 2588,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:27.065Z"
+}

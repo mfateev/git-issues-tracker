@@ -1,0 +1,30 @@
+{
+  "summary": "The structuredClone() function is not available in workflow code when using the TypeScript SDK, preventing users from copying objects. While simple injection is possible, it causes prototype issues where instanceof checks fail for cloned objects.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "worker",
+    "vm",
+    "workflow-sandbox"
+  ],
+  "concepts": [
+    "structuredClone",
+    "object-cloning",
+    "prototype-context",
+    "execution-context",
+    "determinism"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use structuredClone() to copy objects in workflow code, forcing them to find alternative approaches or implement custom cloning logic.",
+  "rootCause": "Direct injection of structuredClone causes cloned objects to have prototypes associated with the wrong execution context, breaking instanceof checks for all types including built-ins like Array, Error, and Date.",
+  "proposedFix": "Load a polyfill for structuredClone instead of direct injection to properly handle prototype context issues, or provide clear documentation about sandbox limitations and workarounds.",
+  "workaround": "Use patch-package to inject structuredClone into reusable-vm.js and vm.js, though this has the instanceof prototype issue. Alternative: implement a custom polyfill.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the structuredClone function is injected this way, cloned objects prototypes will be associated with the wrong execution context, which means that instanceof will always return false",
+  "number": 1663,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:33.842Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "User encountered a 'limit on number of total updates has been reached (2000)' error when attempting to execute a workflow update from within a temporal activity. The issue was triggered when trying to send an update from a scheduled workflow's activity to a long-running workflow.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "execute_update",
+    "start_workflow_update",
+    "update_workflow_execution"
+  ],
+  "components": [
+    "client",
+    "activity-executor",
+    "workflow-updates"
+  ],
+  "concepts": [
+    "updates",
+    "activities",
+    "workflow-communication",
+    "error-handling",
+    "concurrency-limits",
+    "cross-workflow-updates"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably execute workflow updates from activities without hitting server-side limits, preventing common patterns of inter-workflow communication.",
+  "rootCause": "Server-side limit on total number of updates reached (2000), preventing new updates from being processed. User later identified a bug in their own code when sending invalid data.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was caused by a bug in the user's code when sending invalid data, not a bug in the SDK. The 'limit reached' error was a symptom of the underlying issue.",
+  "related": [],
+  "keyQuote": "There's a bug in my code when sending invalid data.",
+  "number": 633,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:20.080Z"
+}

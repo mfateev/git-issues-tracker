@@ -1,0 +1,35 @@
+{
+  "summary": "Request to expose a total worker task slots metric alongside the existing available slots metric to enable better visualization and monitoring of task slot utilization across worker nodes.",
+  "category": "feature",
+  "subcategory": "metrics-observability",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics",
+    "task-slots"
+  ],
+  "concepts": [
+    "resource-utilization",
+    "monitoring",
+    "metrics",
+    "observability",
+    "capacity-planning",
+    "dashboard-visualization",
+    "alerting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily build generic dashboards to visualize worker task slot utilization without manually tracking the configured total slots separately.",
+  "rootCause": null,
+  "proposedFix": "Expose total possible task slots as a metric (temporal_worker_task_slots_total) that SDKs can publish alongside the existing available slots metric.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    334,
+    388
+  ],
+  "keyQuote": "Providing a means to retrieve the total possible slots would make it trivial to graph the utilization percent using an 'available/total' approach.",
+  "number": 392,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:15.038Z"
+}

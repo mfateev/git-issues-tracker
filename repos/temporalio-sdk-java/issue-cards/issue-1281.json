@@ -1,0 +1,34 @@
+{
+  "summary": "Local activities scheduled asynchronously at the end of workflow execution without waiting on promises cause a NOT_FOUND exception and prevent workflow completion. The workflow should either ignore or safely execute these activities instead of failing.",
+  "category": "bug",
+  "subcategory": "local-activity-lifecycle",
+  "apis": [
+    "Async.procedure"
+  ],
+  "components": [
+    "workflow-executor",
+    "local-activity-scheduler",
+    "async-handler"
+  ],
+  "concepts": [
+    "asynchronous-execution",
+    "workflow-completion",
+    "activity-scheduling",
+    "promise-handling",
+    "lifecycle-management"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail with NOT_FOUND exception when developers schedule local activities asynchronously without awaiting them at workflow end.",
+  "rootCause": "Workflow executor does not properly handle asynchronous activity scheduling that occurs after workflow logic completes, causing a race condition where activities attempt to execute after the workflow is marked completed.",
+  "proposedFix": "Either safely ignore asynchronous activities scheduled after workflow completion or queue them for execution before completing the workflow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by commit 8b3be3bb521f7ab62b7d384ee417d053286a95d5 which properly handles asynchronous local activities at workflow end.",
+  "related": [
+    1722
+  ],
+  "keyQuote": "An activity scheduled at the end of the workflow code asynchronously without waiting on the promise should be ignored. Such a code shouldn't block workflow completion.",
+  "number": 1281,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:20:27.618Z"
+}

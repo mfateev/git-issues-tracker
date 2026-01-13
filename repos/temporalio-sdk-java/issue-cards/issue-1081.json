@@ -1,0 +1,32 @@
+{
+  "summary": "Test fails with infinite activity retries when running against real Temporal Server, showing 78,000+ retry attempts for a single failed activity. The test hangs with IllegalThreadStateException and eventually times out, potentially indicating a server-side issue with activity retry logic.",
+  "category": "bug",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "activity-worker",
+    "test-framework",
+    "retry-logic"
+  ],
+  "concepts": [
+    "infinite-retry",
+    "activity-failure",
+    "test-flakiness",
+    "timeout",
+    "server-interaction",
+    "concurrency"
+  ],
+  "severity": "high",
+  "userImpact": "Tests fail intermittently when running against real Temporal Server, blocking reliable test execution and potentially masking server-side retry handling issues.",
+  "rootCause": "Activity retry logic appears to not be respecting backoff or max retry limits when activity execution fails, causing infinite retry attempts instead of failing the workflow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It flakes with real Temporal Server only and may manifest a severe server issue.",
+  "number": 1081,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:04:21.042Z"
+}

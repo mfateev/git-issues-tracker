@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow stack traces show compiled JavaScript line numbers instead of TypeScript source line numbers, making debugging difficult. The solution is to generate and use source maps similar to ts-node, which may require building the Workflow Isolate from TypeScript sources instead of compiled JS.",
+  "category": "feature",
+  "subcategory": "debugging",
+  "apis": [],
+  "components": [
+    "workflow-isolate",
+    "webpack",
+    "stack-traces"
+  ],
+  "concepts": [
+    "source-maps",
+    "debugging",
+    "error-traces",
+    "compilation",
+    "typescript-transpilation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot easily debug workflow code because stack traces point to compiled JavaScript files instead of original TypeScript sources.",
+  "rootCause": "Workflow Isolate is built from compiled JS files (./lib) instead of TypeScript sources (./src), losing source map information in the process.",
+  "proposedFix": "Build the Workflow Isolate from TypeScript sources with proper source map generation, similar to how ts-node handles source maps.",
+  "workaround": "Use ts-node to get workflow error stack traces with proper line numbers.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented source map support for workflow isolate stack traces to show TypeScript source locations instead of compiled JavaScript.",
+  "related": [],
+  "keyQuote": "Stack traces should include the source code the way they do in ts-node.",
+  "number": 101,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:41.643Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Race condition in WorkflowRunLockManager where a thread may release a lock it doesn't own if lock acquisition times out, causing multiple threads to simultaneously execute the same workflow and corrupt state machine.",
+  "category": "bug",
+  "subcategory": "workflow-locking",
+  "apis": [],
+  "components": [
+    "WorkflowWorker",
+    "WorkflowRunLockManager",
+    "TaskHandler"
+  ],
+  "concepts": [
+    "race-condition",
+    "lock-management",
+    "thread-safety",
+    "concurrency",
+    "workflow-state",
+    "deadlock-detection"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience workflow state corruption or undefined behavior when undetected blocking causes lock timeout scenarios, potentially leading to data loss or incorrect workflow execution.",
+  "rootCause": "The finally block unconditionally releases the lock even when tryLock() fails, meaning a thread that never acquired the lock will release it while another thread still holds it, allowing concurrent access to non-thread-safe workflow state machine.",
+  "proposedFix": "Check if the lock was successfully acquired before releasing it in the finally block, or use a try-with-resources pattern with proper lock ownership validation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the exception is thrown and the lock is not taken - it means that another thread acquired the lock and still processing this runId - the finally block will actually release the lock while another thread is still working on the task",
+  "number": 1146,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:09:42.950Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add StartDelay option to ContinueAsNewOptions for workflows. Currently StartDelay is available in workflow options but not when continuing a workflow as new.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNewOptions"
+  ],
+  "components": [
+    "workflow-options",
+    "continue-as-new",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "start-delay",
+    "workflow-continuation",
+    "timing-control",
+    "workflow-options",
+    "scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot specify a start delay when continuing workflows as new, limiting scheduling flexibility for continued workflow executions.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Request is to add it also to continue-as-new options.",
+  "number": 632,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:01:42.570Z"
+}

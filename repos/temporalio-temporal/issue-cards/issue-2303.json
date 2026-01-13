@@ -1,0 +1,34 @@
+{
+  "summary": "User unable to connect to PostgreSQL database with required SSL/TLS encryption when using temporal-sql-tool and temporalio/auto-setup Docker image. The tool fails because pg_hba.conf rejects unencrypted connections.",
+  "category": "question",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "auto-setup",
+    "database-connection",
+    "postgresql-client"
+  ],
+  "concepts": [
+    "encryption",
+    "tls",
+    "ssl",
+    "database-authentication",
+    "pg_hba.conf",
+    "connection-security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot set up Temporal with PostgreSQL databases that mandate SSL/TLS encryption when using the auto-setup Docker image.",
+  "rootCause": "The temporal-sql-tool and auto-setup configuration do not properly handle or default to TLS connections for PostgreSQL, causing authentication failures with strict pg_hba.conf policies requiring encrypted connections.",
+  "proposedFix": "Pass --tls flag to temporal-sql-tool or set SQL_TLS environment variables to enable TLS connections. The docker-compose PR #82 provides an example configuration.",
+  "workaround": "Set SQL_TLS=true and SQL_TLS_DISABLE_HOST_VERIFICATION=true environment variables, or upgrade auto-setup Docker tag to 1.13.1 or later.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #2293 which addresses the same TLS configuration problem with auto-setup.",
+  "related": [
+    2293
+  ],
+  "keyQuote": "temporal-sql-tool does allow you to connect with --tls enabled. Is this the problem with auto-setup docker image?",
+  "number": 2303,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:38.428Z"
+}

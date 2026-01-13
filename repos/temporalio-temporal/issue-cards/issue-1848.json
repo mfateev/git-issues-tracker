@@ -1,0 +1,31 @@
+{
+  "summary": "Parent workflow keeps retrying child workflows indefinitely when WorkflowTaskTimeout occurs, ignoring the workflow retry policy's MaximumAttempts setting. The user expected the retry policy to limit retries but found that workflow tasks are always retried by design regardless of the policy configuration.",
+  "category": "bug",
+  "subcategory": "workflow-task-timeout",
+  "apis": [],
+  "components": [
+    "workflow-task-executor",
+    "retry-policy",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "workflow-task",
+    "retry-policy",
+    "resource-exhaustion",
+    "infinite-retry"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience infinite retry loops and resource exhaustion when workflow tasks timeout on parent workflows with multiple child workflows, blocking other workflows from execution.",
+  "rootCause": "Workflow tasks are by design always retried by the system until they succeed or until the workflow run times out, independent of the workflow-level retry policy which only applies to workflow-level failures.",
+  "proposedFix": "Set a shorter workflow run timeout to allow the workflow to time out and stop retrying after the timeout is reached, rather than relying on the workflow retry policy.",
+  "workaround": "Configure a shorter workflow run timeout instead of relying on retry policy MaximumAttempts to limit retries, since workflow task retries are handled separately from workflow-level retries.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be by design. Workflow tasks are always retried by Temporal; retry policies apply only at the workflow level when the entire workflow fails/times out. User resolved by redesigning their workflow to use shorter run timeouts.",
+  "related": [],
+  "keyQuote": "Workflow task failure does not mean the workflow run is failed. Temporal keeps retrying the workflow task until it succeed or until workflow run timed out.",
+  "number": 1848,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:37.355Z"
+}

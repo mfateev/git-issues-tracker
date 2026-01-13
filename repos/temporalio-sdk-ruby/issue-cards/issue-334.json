@@ -1,0 +1,32 @@
+{
+  "summary": "Ruby SDK needs to ensure fibers and workflow instances are properly garbage collected when workflows are evicted. Initial investigation suggested fibers held by threads need explicit cleanup, but recent analysis indicates suspended fibers can be GC'd naturally if all references are removed, though deterministic testing has proven difficult.",
+  "category": "feature",
+  "subcategory": "memory-management",
+  "apis": [],
+  "components": [
+    "fiber-scheduler",
+    "workflow-eviction",
+    "garbage-collection"
+  ],
+  "concepts": [
+    "garbage-collection",
+    "memory-management",
+    "workflow-eviction",
+    "fiber-suspension",
+    "thread-references",
+    "deterministic-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Potential memory leaks from uncollected fibers on workflow eviction could cause high memory usage in long-running Ruby Temporal applications.",
+  "rootCause": "Initial assumption that threads hold strong references to suspended fibers preventing GC has been reconsidered; actual mechanism and test verification remains unclear.",
+  "proposedFix": "Consider implementation approach similar to Python SDK PR #499 where exceptions are raised in suspended fibers to force completion without side effects, or develop deterministic GC verification tests.",
+  "workaround": null,
+  "related": [
+    336,
+    335
+  ],
+  "keyQuote": "We do not believe there is a memory leak, but we struggle to write a deterministic test for this.",
+  "number": 334,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:31.911Z"
+}

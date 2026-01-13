@@ -1,0 +1,36 @@
+{
+  "summary": "Request to add API for updating timeout and retry configuration of started activities dynamically. This would enable more reliable async activity completion and allow different backoff strategies for different error types without requiring short timeouts and frequent retries.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "GetActivityInfo",
+    "ErrResultPending"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "task-pollers",
+    "mutable-state"
+  ],
+  "concepts": [
+    "async-completion",
+    "timeout",
+    "retry-policy",
+    "backoff-strategy",
+    "heartbeat",
+    "error-handling",
+    "activity-token"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently handle async activity completion or apply different retry strategies for different error types, forcing inefficient workarounds with short timeouts and excessive retries.",
+  "rootCause": "Activity timeout and retry configuration is immutable after activity start, preventing dynamic adjustments based on runtime conditions or error types.",
+  "proposedFix": "Introduce an API to update timeout/retry config for started activities with retry, leveraging the existing mutable state storage mechanism.",
+  "workaround": "Set very short start-to-close timeouts with frequent retries, but this causes inefficiency and complications (duplicate messages, additional database logic) in external systems.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "One solution to this is to let activity set a smaller heartbeat timeout initially, and then update the heartbeat timeout to infinite() after successfully sending the token",
+  "number": 4151,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:55.573Z"
+}

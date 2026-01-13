@@ -1,0 +1,28 @@
+{
+  "summary": "Worker configured without any registered activity implementations should not request eager activity dispatch, as there is no activity worker to handle them. This prevents unnecessary overhead and aligns with Core SDK behavior.",
+  "category": "bug",
+  "subcategory": "activity-worker",
+  "apis": [],
+  "components": [
+    "activity-worker",
+    "worker-configuration"
+  ],
+  "concepts": [
+    "eager-dispatch",
+    "activity-registration",
+    "worker-initialization",
+    "resource-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers without activities configured were unnecessarily requesting eager activity dispatch, causing inefficient resource usage.",
+  "rootCause": "Activity worker was requesting eager activity dispatch regardless of whether any activities were registered.",
+  "proposedFix": "Check if activity worker has registered activities before requesting eager activity dispatch, matching Core SDK implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Already implemented correctly in ActivityWorker.java at the time of issue creation, validated through code review.",
+  "related": [],
+  "keyQuote": "Such workers should never request eager activity dispatch, as there is no activity worker to handle them.",
+  "number": 1504,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:37:29.510Z"
+}

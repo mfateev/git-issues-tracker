@@ -1,0 +1,35 @@
+{
+  "summary": "When an exception occurs during data converter encoding in activity parameters, it doesn't propagate properly as a workflow failure. Instead, an incomplete activity command is sent to the server with a missing task queue name, causing a warning and allowing the workflow to timeout instead of failing immediately.",
+  "category": "bug",
+  "subcategory": "data-serialization",
+  "apis": [
+    "execute_activity",
+    "start_workflow"
+  ],
+  "components": [
+    "data-converter",
+    "workflow-instance",
+    "activity-scheduler"
+  ],
+  "concepts": [
+    "serialization",
+    "exception-handling",
+    "workflow-failure",
+    "payload-encoding",
+    "error-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly catch and handle serialization exceptions during activity scheduling, leading to confusing timeouts instead of explicit workflow failures.",
+  "rootCause": "The command object is created before serializing activity parameters, so if serialization fails, an incomplete command with missing task queue is sent to the server.",
+  "proposedFix": "Move payload serialization to the end of _apply_schedule_command before returning the command, so exceptions during serialization prevent command creation entirely.",
+  "workaround": "Customize the converter or use failure_exception_types=[Exception] in @workflow.defn to handle exceptions differently.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was tracked separately as #564 for clearer problem statement and resolution.",
+  "related": [
+    564
+  ],
+  "keyQuote": "The issue is that we create the command before we try to serialize the contents. So if this does not fail the workflow task, the command is sent off incomplete.",
+  "number": 540,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:06.053Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose read-only headers to activity info, similar to how headers are exposed in workflow info for use in interceptors like the update handler tracing interceptor.",
+  "category": "feature",
+  "subcategory": "activity-metadata",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "interceptors",
+    "metadata-access"
+  ],
+  "concepts": [
+    "headers",
+    "metadata",
+    "activity-info",
+    "interceptors",
+    "tracing",
+    "read-only-access"
+  ],
+  "severity": "low",
+  "userImpact": "Users working with activity interceptors would be able to access request headers for tracing and observability purposes.",
+  "rootCause": null,
+  "proposedFix": "Expose headers as read-only property on ActivityInfo, consistent with existing workflow info implementation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "since we did it in workflow info (needed inside update handler tracing interceptor), we might as well for activities",
+  "number": 402,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:19:54.408Z"
+}

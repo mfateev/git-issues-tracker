@@ -1,0 +1,33 @@
+{
+  "summary": "PHP SDK workers cannot be configured to listen to a specific namespace, only to the default namespace. This prevents workers from processing tasks in non-default namespaces when clients are created with different namespace options.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkflowClient",
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "namespace-configuration",
+    "task-queue"
+  ],
+  "concepts": [
+    "namespace",
+    "worker-setup",
+    "task-queue-routing",
+    "multi-tenant",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot configure workers to listen to non-default namespaces, breaking multi-namespace deployments and requiring manual .rr.yaml configuration workarounds.",
+  "rootCause": "PHP SDK WorkerOptions lacks namespace configuration support that exists in other SDKs like Go, requiring manual RoadRunner configuration instead.",
+  "proposedFix": "Add namespace support to WorkerOptions similar to WorkflowClient, allowing workers to be configured with a specific namespace during creation.",
+  "workaround": "Manually edit the .rr.yaml RoadRunner configuration file to set the namespace for workers.",
+  "resolution": "fixed",
+  "resolutionDetails": "Namespace support was included in v2.6.1 RoadRunner release, providing the necessary configuration capability in the generated .rr.yaml file.",
+  "related": [],
+  "keyQuote": "Creating a worker only listens to the `default` namespace. How can we avoid that?",
+  "number": 128,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:01.808Z"
+}

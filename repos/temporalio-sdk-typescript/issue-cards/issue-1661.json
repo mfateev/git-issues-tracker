@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add serialization context support for codecs and converters in TypeScript SDK, with specific requirements for Nexus integration. References design discussion in the features repository.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "codec",
+    "converter",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization context",
+    "codecs",
+    "converters",
+    "data encoding",
+    "Nexus"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to pass serialization context through codecs and converters, which is required for proper Nexus support in the TypeScript SDK.",
+  "rootCause": null,
+  "proposedFix": "Implement serialization context parameter for codecs and converters, ensuring Nexus is properly integrated as discussed in features#678.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    434,
+    678
+  ],
+  "keyQuote": "Make sure to include nexus per https://github.com/temporalio/features/issues/678",
+  "number": 1661,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:36.281Z"
+}

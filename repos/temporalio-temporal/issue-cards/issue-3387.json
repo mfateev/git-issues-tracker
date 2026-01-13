@@ -1,0 +1,32 @@
+{
+  "summary": "GetWorkflowExecutionHistoryReverse API was missing from readOnlyNamespaceAPI in the default authorizer, causing Temporal UI to fail when navigating workflow details with read-only permissions. This prevented users with system:read claims from accessing workflow history.",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [
+    "GetWorkflowExecutionHistoryReverse"
+  ],
+  "components": [
+    "frontend-api",
+    "authorizer",
+    "default-authorizer"
+  ],
+  "concepts": [
+    "authorization",
+    "permissions",
+    "read-only-access",
+    "namespace-api",
+    "workflow-history"
+  ],
+  "severity": "high",
+  "userImpact": "Users with read-only permissions could not view workflow details in Temporal UI due to authorization failures.",
+  "rootCause": "GetWorkflowExecutionHistoryReverse API was not included in the readOnlyNamespaceAPI map used by the default authorizer.",
+  "proposedFix": "Add GetWorkflowExecutionHistoryReverse to the readOnlyNamespaceAPI configuration in frontend_api.go.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by commit c5ccbd5963bc280163eff2aed798b2e060b8334c, available in later server versions.",
+  "related": [],
+  "keyQuote": "GetWorkflowExecutionHistoryReverse is not included in the readonlyNamespaceAPI map and the permissions claim is system:read",
+  "number": 3387,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:34.724Z"
+}

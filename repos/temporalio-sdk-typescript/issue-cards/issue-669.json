@@ -1,0 +1,34 @@
+{
+  "summary": "protobufjs dependency version 6.11.2 contains CVE-2022-25878, a prototype pollution vulnerability with CVSS 7.5. The TypeScript SDK shipped with this vulnerable version, but the SDK's usage patterns mitigate the actual risk since it doesn't accept untrusted user input to the affected functions.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "protobufjs",
+    "build-system"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "prototype-pollution",
+    "dependency-management",
+    "cve",
+    "cvss"
+  ],
+  "severity": "high",
+  "userImpact": "Users may face security scanning failures and compliance issues due to the flagged vulnerable dependency, despite minimal actual runtime risk in the SDK.",
+  "rootCause": "protobufjs 6.11.2 is vulnerable to prototype pollution attacks through util.setProperty or ReflectionObject.setParsedOption functions, or by parsing untrusted .proto files.",
+  "proposedFix": "Upgrade protobufjs to version 6.11.3 or later which contains the fix for CVE-2022-25878.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by upgrading the protobufjs dependency to a patched version, as referenced in PR #789.",
+  "related": [
+    741,
+    789
+  ],
+  "keyQuote": "This vulnerability can occur...by providing untrusted user input to util.setProperty or to ReflectionObject.setParsedOption functions",
+  "number": 669,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:56.053Z"
+}

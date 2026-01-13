@@ -1,0 +1,29 @@
+{
+  "summary": "Docker image temporalio/server:1.6.1 reports version 1.6.0 instead of 1.6.1 when running temporal-server -version command. The release did not include the necessary version number update in the binary.",
+  "category": "bug",
+  "subcategory": "version-reporting",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "server-binary",
+    "version-reporting"
+  ],
+  "concepts": [
+    "versioning",
+    "docker-packaging",
+    "release-management",
+    "binary-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot verify the correct version of the Temporal server running in their Docker container, causing potential confusion about which version they have deployed.",
+  "rootCause": "The 1.6.1 release did not include the necessary change to update the version number reported by the server binary.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.6.2 which included the necessary version number update.",
+  "related": [],
+  "keyQuote": "the release version 1.6.1 did not include the necessary change to version number reported by server",
+  "number": 1226,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:08:18.558Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Re-investigate supporting signals, queries, and updates as properties using expression trees. Initially deferred due to delegate requirements, but modern expression support may enable this pattern.",
+  "category": "feature",
+  "subcategory": "workflow-definitions",
+  "apis": [
+    "WorkflowSignal",
+    "WorkflowQuery",
+    "WorkflowUpdate"
+  ],
+  "components": [
+    "workflow-definition",
+    "expression-trees",
+    "property-binding"
+  ],
+  "concepts": [
+    "signals",
+    "queries",
+    "updates",
+    "properties",
+    "expression-trees",
+    "getters",
+    "setters"
+  ],
+  "severity": "low",
+  "userImpact": "Users could define workflow signals and queries as properties instead of methods, providing a more natural C# API.",
+  "rootCause": ".NET lambda expression trees don't support assignment operators, limiting signal support on properties.",
+  "proposedFix": "Support WorkflowQuery on property getters; WorkflowUpdate on properties with setters returning getter values.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Determined that only WorkflowQuery as properties is feasible; signals and updates require assignment expressions which .NET doesn't support.",
+  "related": [],
+  "keyQuote": "So we can't do signals because .NET lambda expression trees don't support assignment operators. But workflow queries make plenty of sense as properties.",
+  "number": 85,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:42:14.281Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "Add support for bidirectional linking of workflows started from activities, allowing users to maintain the relationship between parent and child workflows when starting them via activity clients instead of child workflows. Links should be established in activity completion events and support signals/updates as well.",
+  "category": "feature",
+  "subcategory": "workflow-linking",
+  "apis": [
+    "RespondActivityTaskCompleted",
+    "RespondActivityTaskCompletedById"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-engine",
+    "history-events",
+    "nexus-integration"
+  ],
+  "concepts": [
+    "workflow-linking",
+    "history-events",
+    "bidirectional-references",
+    "child-workflows",
+    "activity-client",
+    "workflow-relationships"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to maintain relationship tracking between parent and child workflows started from activities, improving workflow visibility and debugging.",
+  "rootCause": null,
+  "proposedFix": "Extend history event linking mechanism (added for Nexus) to support links in activity completion events (RespondActivityTaskCompleted/RespondActivityTaskCompletedById APIs), with configuration to limit links per activity and optional automatic linking when using client from activity.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    203
+  ],
+  "keyQuote": "Links are bidirectional, which means the local activity marker event or ActivityTaskCompleted events should include a link back from any Temporal primitives initiated by the activity.",
+  "number": 534,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:01.691Z"
+}

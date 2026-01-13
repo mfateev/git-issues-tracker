@@ -1,0 +1,31 @@
+{
+  "summary": "PostgreSQL schema limits identifier lengths to 255 characters, but Go's len() function counts bytes not characters, causing validation issues with multi-byte characters. The request is to change maxIDLength validation to count characters/symbols instead of bytes.",
+  "category": "bug",
+  "subcategory": "identifier-validation",
+  "apis": [],
+  "components": [
+    "server",
+    "validation",
+    "postgresql-schema"
+  ],
+  "concepts": [
+    "identifier-length",
+    "character-encoding",
+    "multi-byte-characters",
+    "validation",
+    "postgresql-limits",
+    "internationalization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with multi-byte characters in identifiers face validation failures and database errors when maxIDLength is set to match PostgreSQL's 255-character limit.",
+  "rootCause": "Go's len() function returns byte count rather than character count, leading to incorrect validation logic when identifiers contain multi-byte UTF-8 characters.",
+  "proposedFix": "Change limit.maxIDLength validation to count symbols/characters rather than bytes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "limit.maxIDLength in symbols rather than bytes.",
+  "number": 5454,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:39.939Z"
+}

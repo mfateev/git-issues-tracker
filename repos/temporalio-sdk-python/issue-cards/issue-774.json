@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose root workflow execution in the Python SDK. This depends on completing the core SDK implementation tracked in sdk-core#881 and the features specification in features#605.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "python-sdk"
+  ],
+  "concepts": [
+    "root-workflow",
+    "execution-context",
+    "workflow-hierarchy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to access root workflow execution details, enabling better context management and parent-child workflow relationship tracking.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed after dependent work was completed in sdk-core and features specification",
+  "related": [
+    605,
+    881
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/605, but needs to wait on https://github.com/temporalio/sdk-core/issues/881",
+  "number": 774,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:42.689Z"
+}

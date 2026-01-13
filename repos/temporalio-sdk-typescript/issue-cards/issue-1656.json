@@ -1,0 +1,32 @@
+{
+  "summary": "When a workflow function is bound to an instance using `.bind()`, the function's name property becomes `bound <name>`, causing the workflow type to be incorrectly deduced as `bound example` instead of `example`. This mismatch prevents workers from executing the workflow since they register with the original function name.",
+  "category": "bug",
+  "subcategory": "workflow-client",
+  "apis": [
+    "WorkflowClient.start"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-bundle",
+    "workflow-options"
+  ],
+  "concepts": [
+    "function-binding",
+    "workflow-type-deduction",
+    "name-property",
+    "worker-registration",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start workflow executions when using the common pattern of binding workflow methods to class instances, breaking a valid architectural pattern.",
+  "rootCause": "The workflow type deduction logic uses the function's `name` property directly without accounting for bound functions, where JavaScript automatically prefixes the name with `bound `.",
+  "proposedFix": "Modify the workflow type deduction function (identified in workflow-options.ts line 240) to strip the `bound ` prefix when deducing workflow type from bound functions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Because the function is bound, its `name` property became `bound example`, so the workflow type ends up also being `bound example`.",
+  "number": 1656,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:21.110Z"
+}

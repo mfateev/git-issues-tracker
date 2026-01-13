@@ -1,0 +1,35 @@
+{
+  "summary": "Matching service recomputes task expiry times using relative timeouts, causing incorrect metrics in forwarding scenarios. Both task expiry and creation time should use absolute timestamps provided by callers rather than computed locally.",
+  "category": "bug",
+  "subcategory": "task-expiry-timing",
+  "apis": [
+    "AddDecisionTask",
+    "AddActivityTask"
+  ],
+  "components": [
+    "matching-service",
+    "history-service",
+    "task-management"
+  ],
+  "concepts": [
+    "timeout",
+    "expiry",
+    "creation-time",
+    "forwarding",
+    "metrics",
+    "timestamp",
+    "latency"
+  ],
+  "severity": "high",
+  "userImpact": "AsyncMatchLatency metrics are incorrect, and task expiry times are recomputed multiple times in forwarding scenarios, leading to inconsistent behavior.",
+  "rootCause": "Matching service computes absolute expiry time from relative scheduledToStartTimeout on each invocation, and stamps CreationTime locally instead of receiving it from history.",
+  "proposedFix": "Provide absolute timestamps for both task expiry and creation time in AddDecisionTask/AddActivityTask calls from history instead of relative times.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed; timestamps changed from relative to absolute in task management calls.",
+  "related": [],
+  "keyQuote": "Long term, absolute timestamps for both Expiry and Creation should be provided by callers rather than relative times.",
+  "number": 181,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:21:34.303Z"
+}

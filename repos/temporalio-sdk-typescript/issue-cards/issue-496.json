@@ -1,0 +1,31 @@
+{
+  "summary": "Collection of transient CI test failures in the TypeScript SDK that require fixes rather than manual rebuilds. Includes failures with verdaccio registry path handling and 'channel closed' errors during replay tests.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "CI",
+    "test-framework",
+    "worker",
+    "replay"
+  ],
+  "concepts": [
+    "flaky-tests",
+    "CI-failures",
+    "registry-setup",
+    "replay-testing",
+    "process-cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Transient CI failures require manual rebuilds, reducing developer productivity and confidence in the test suite.",
+  "rootCause": "Registry path issues on Windows (D:\\tmp vs /tmp), process cleanup failures, and race conditions in replay test execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Team confirmed that all known flakes have been addressed. Future flakes should be tracked in separate, specific issues.",
+  "related": [],
+  "keyQuote": "There are a number of transient CI failures that we'd like to fix with code instead of the \"rebuild\" button",
+  "number": 496,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:13.947Z"
+}

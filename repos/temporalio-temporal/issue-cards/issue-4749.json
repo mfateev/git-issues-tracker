@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for Temporal server to listen on both IPv4 and IPv6 addresses simultaneously in dual-stack environments, allowing operators to support both protocols during the transition to IPv6 without running multiple service instances.",
+  "category": "feature",
+  "subcategory": "network-binding",
+  "apis": [],
+  "components": [
+    "server",
+    "rpc-config",
+    "network-listener"
+  ],
+  "concepts": [
+    "ipv6-migration",
+    "dual-stack",
+    "network-binding",
+    "port-sharing",
+    "multihoming"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators can more easily support IPv6 migration by binding to both IPv4 and IPv6 addresses simultaneously without running multiple service instances.",
+  "rootCause": null,
+  "proposedFix": "By default, bind to both IPv4 and IPv6 addresses when available using the same port. Modify BindOnLocalHost to bind to both 127.0.0.1 and ::1, and add configuration to specify multiple IPs for multihomed environments.",
+  "workaround": "Run multiple instances of the same service on a host, one bound to IPv4 and one to IPv6, though this is more resource intensive.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "by default, if an external ipv4 and ipv6 address are available, bind to both using the same port",
+  "number": 4749,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:54.335Z"
+}

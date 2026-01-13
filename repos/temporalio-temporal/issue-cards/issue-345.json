@@ -1,0 +1,29 @@
+{
+  "summary": "Request to make the runId parameter optional for workflow reset operations, as manually extracting and providing it is cumbersome and error-prone when users could rely on automatic extraction based on the workflow ID.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "cli",
+    "workflow-reset"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "runId",
+    "usability",
+    "automation",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users must manually extract the runId for each workflow reset operation instead of having it automatically determined from the workflow ID.",
+  "rootCause": null,
+  "proposedFix": "Make runId optional in the reset command and automatically extract it from the workflow execution information when not provided.",
+  "workaround": "Manually extract runId using workflow describe and pass it explicitly to the reset command.",
+  "resolution": "wontfix",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Right now Im doing cadence workflow reset with manual extraction but Im not sure if that automatic extraction of runid wont cause some surprising behaviour",
+  "number": 345,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:51:24.475Z"
+}

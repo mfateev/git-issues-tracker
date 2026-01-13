@@ -1,0 +1,32 @@
+{
+  "summary": "Calling workflow.upsert_search_attributes() with an empty list causes the SDK to crash with an unclear \"malformed workflow completion\" error instead of handling the empty input gracefully or providing a helpful validation error.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "upsert_search_attributes"
+  ],
+  "components": [
+    "workflow-engine",
+    "completion-handler",
+    "search-attributes"
+  ],
+  "concepts": [
+    "validation",
+    "error-handling",
+    "input-validation",
+    "workflow-completion",
+    "search-attributes"
+  ],
+  "severity": "high",
+  "userImpact": "Developers encounter cryptic runtime errors when accidentally passing empty lists to upsert_search_attributes, making it difficult to diagnose and fix the issue.",
+  "rootCause": "The SDK does not validate empty input for upsert_search_attributes and sends a malformed workflow completion to the server, which rejects it with an opaque error message.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "At least one workflow command in the completion contained an empty variant",
+  "number": 629,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:04.296Z"
+}

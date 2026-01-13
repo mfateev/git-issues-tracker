@@ -1,0 +1,31 @@
+{
+  "summary": "CockroachDB 22.2.7 fails to execute Temporal v1.21 schema migration scripts due to unsupported PostgreSQL extensions and functions (btree_gin, convert_ts, tsvector cast). The issue involves incompatible SQL syntax between PostgreSQL and CockroachDB, preventing schema updates.",
+  "category": "bug",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "schema-migration",
+    "postgresql-driver",
+    "cockroachdb-compatibility"
+  ],
+  "concepts": [
+    "database-compatibility",
+    "sql-migration",
+    "schema-update",
+    "postgresql-extensions",
+    "cockroachdb-support",
+    "timestamp-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to deploy Temporal on CockroachDB encounter migration failures, blocking deployment and preventing database initialization.",
+  "rootCause": "CockroachDB does not support certain PostgreSQL-specific features used in Temporal's migration scripts: the btree_gin extension, the convert_ts function, and the ::tsvector cast operator.",
+  "proposedFix": "Modify migration scripts to use CockroachDB-compatible SQL syntax: replace convert_ts function with cast or CockroachDB's UDF format, and use native tsvector support (available in v23.1+).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by opening a PR to fix CockroachDB compatibility in the schema migration scripts.",
+  "related": [],
+  "keyQuote": "the `convert_ts` function: PSQL isn't supported yet (as in many pg-compatible DBs)",
+  "number": 4136,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:14.807Z"
+}

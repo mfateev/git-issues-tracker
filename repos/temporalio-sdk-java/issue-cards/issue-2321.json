@@ -1,0 +1,33 @@
+{
+  "summary": "TestWorkflowEnvironment does not allow signalWithStart when a workflow already exists, unlike standalone Temporal servers. This causes test failures when attempting to use signalWithStart on pre-existing workflows.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "signalWithStart",
+    "WorkflowStub"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "testing",
+    "workflow-client"
+  ],
+  "concepts": [
+    "signal",
+    "workflow-start",
+    "test-compatibility",
+    "server-parity",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Test developers cannot use signalWithStart with existing workflows in TestWorkflowEnvironment, forcing workarounds and limiting test scenarios compared to production server behavior.",
+  "rootCause": "TestWorkflowEnvironment's signalWithStart implementation differs from standalone server's handling of existing workflows",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "TestWorkflowEnvironment should work the same as standalone server in this matter.",
+  "number": 2321,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:41.612Z"
+}

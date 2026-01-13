@@ -1,0 +1,27 @@
+{
+  "summary": "Code style suggestions for the scheduler implementation: simplify complex conditional logic by breaking it into separate variables, and clarify the use of while(true) loop for handling event exhaustion.",
+  "category": "other",
+  "subcategory": "code-style",
+  "apis": [],
+  "components": [
+    "scheduler"
+  ],
+  "concepts": [
+    "code-readability",
+    "debugging",
+    "event-handling",
+    "loop-logic"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact; this is a code quality improvement suggestion for maintainability.",
+  "rootCause": "Complex conditional logic in scheduler.ts that makes debugging difficult",
+  "proposedFix": "Break up complex logic into separate variable assignments for better readability",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Scheduler was simplified and the first nit was addressed. The while(true) loop was explained as necessary for handling event exhaustion when waiting for completions.",
+  "related": [],
+  "keyQuote": "The scheduler might run out of events in case it's waiting for completions in which case it falls off the for loop and awaits the first completion.",
+  "number": 1,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:53:35.391Z"
+}

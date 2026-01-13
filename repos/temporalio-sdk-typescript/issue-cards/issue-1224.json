@@ -1,0 +1,33 @@
+{
+  "summary": "Worker crashes with RangeError during shutdown when log forwarding is enabled due to infinite recursion in RxJS repeat operator. The issue only occurs with log forwarding configuration and doesn't happen with alternative logging filter options.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "logging",
+    "rxjs-operators"
+  ],
+  "concepts": [
+    "stack-overflow",
+    "log-forwarding",
+    "worker-shutdown",
+    "memory-management",
+    "subscription-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Worker process crashes during shutdown when log forwarding is configured, affecting graceful termination.",
+  "rootCause": "RxJS repeat operator enters infinite recursion when handling completion during worker shutdown with log forwarding enabled.",
+  "proposedFix": "Refactor the log polling mechanism to avoid triggering repeat operator recursion, possibly by moving log processing logic to a separate function or restructuring the subscription chain.",
+  "workaround": "Switch logging configuration from log forwarding to filter-based logging: use makeTelemetryFilterString() instead of forward option.",
+  "resolution": "fixed",
+  "resolutionDetails": "Original fix attempt was reverted due to memory leak, but the issue was later restored/fixed in PR #1225.",
+  "related": [
+    1152,
+    1225
+  ],
+  "keyQuote": "This only happens if using log forwarding... No error is thrown if logging options are changed to filter option",
+  "number": 1224,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:41.031Z"
+}

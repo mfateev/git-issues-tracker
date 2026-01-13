@@ -1,0 +1,31 @@
+{
+  "summary": "Request for OpenTracing support in the TypeScript SDK to enable distributed tracing across Node.js clients and Go workers. User needs traces to flow from workflow triggers through activities using existing OpenTracing infrastructure with Datadog backend.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "client",
+    "interceptors",
+    "tracing"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "opentracing",
+    "spans",
+    "observability",
+    "datadog",
+    "cross-language-tracing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently trace workflow execution end-to-end when using Node.js clients with existing OpenTracing infrastructure.",
+  "rootCause": null,
+  "proposedFix": "Add OpenTracing support to the TypeScript SDK client, similar to Go SDK implementation, allowing tracers to be passed to client initialization and creating spans around workflow execution.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I should be able to leverage my existing opentracing infrastructure to create spans when a workflow is triggered, and have this span encapsulate the entire workflow, including all activities.",
+  "number": 219,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:38.251Z"
+}

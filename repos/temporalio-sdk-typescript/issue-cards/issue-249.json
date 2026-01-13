@@ -1,0 +1,31 @@
+{
+  "summary": "Request to hide the isolateExecutionTimeout worker option and default to the workflow task timeout instead, as there are already many exposed options and isolates are entered multiple times during a single workflow task execution.",
+  "category": "feature",
+  "subcategory": "worker-options",
+  "apis": [],
+  "components": [
+    "worker",
+    "options-configuration"
+  ],
+  "concepts": [
+    "isolation",
+    "timeout",
+    "execution-context",
+    "defaults",
+    "configuration-simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies worker configuration by reducing exposed options while maintaining sensible defaults based on workflow task timeout.",
+  "rootCause": null,
+  "proposedFix": "Hide the isolateExecutionTimeout option and default to workflow task timeout",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in PR #264",
+  "related": [
+    264
+  ],
+  "keyQuote": "There are already a lot of exposed options, it'd be better to default to the workflow task timeout.",
+  "number": 249,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:09.418Z"
+}

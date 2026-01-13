@@ -1,0 +1,34 @@
+{
+  "summary": "Simplify child workflow cancellation by using a single command instead of issuing different commands based on whether the child workflow has started. This was enabled by sdk-core PR #379.",
+  "category": "other",
+  "subcategory": "child-workflow-cancellation",
+  "apis": [
+    "CancelChildWorkflow"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "command-handler",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "cancellation",
+    "command-optimization",
+    "workflow-lifecycle",
+    "state-management",
+    "code-simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Users benefit from a simpler, more consistent API for cancelling child workflows regardless of their execution state.",
+  "rootCause": "sdk-core previously required different cancel commands based on child workflow start state, now unified",
+  "proposedFix": "Use the single cancel command provided by sdk-core PR #379",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of issue #158, utilizing the unified command from sdk-core",
+  "related": [
+    158
+  ],
+  "keyQuote": "With https://github.com/temporalio/sdk-core/pull/379 we can now just use one command",
+  "number": 111,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:41.492Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Nexus operation authors need a testing environment to mock and trigger scenarios without server involvement, similar to the activity testing framework. This feature should be built into non-Temporal Nexus SDKs first, then integrated into Temporal SDKs across all language implementations.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "nexus-testing",
+    "test-framework",
+    "operation-executor"
+  ],
+  "concepts": [
+    "testing",
+    "mocking",
+    "nexus-operations",
+    "environment",
+    "integration-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Nexus operation developers cannot effectively test their operations without server involvement, limiting their ability to develop and debug robust Nexus integrations.",
+  "rootCause": null,
+  "proposedFix": "Build a Nexus operation testing environment in non-Temporal SDKs that allows mocking and triggering scenarios, similar to existing activity test environments, then add Temporal SDK features.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Nexus operation authors, like activity authors, need an environment to test their Nexus operations. It's probably just the ability to mock and trigger certain situations without server involvement",
+  "number": 658,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:35:06.741Z"
+}

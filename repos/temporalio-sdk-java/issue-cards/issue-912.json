@@ -1,0 +1,33 @@
+{
+  "summary": "NullPointerException occurs when using startWithSignal with OpenTracing configured. The runId is null when OpenTracing tries to build span tags, causing ImmutableMap to fail during span creation.",
+  "category": "bug",
+  "subcategory": "opentracing-integration",
+  "apis": [
+    "startWithSignal",
+    "WorkflowStub"
+  ],
+  "components": [
+    "opentracing",
+    "workflow-client-interceptor",
+    "span-factory"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "opentracing-integration",
+    "workflow-execution",
+    "null-pointer",
+    "exception-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use startWithSignal when OpenTracing is configured, preventing signal-based workflow initialization with tracing enabled.",
+  "rootCause": "ActionTypeAndNameSpanBuilderProvider.getSpanTags() attempts to create an ImmutableMap with a null runId value, which ImmutableMap.of() does not allow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the OpenTracing span builder to handle null runId values properly.",
+  "related": [],
+  "keyQuote": "java.lang.NullPointerException: null value in entry: runId=null at io.temporal.opentracing.internal.ActionTypeAndNameSpanBuilderProvider.getSpanTags",
+  "number": 912,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:52:57.319Z"
+}

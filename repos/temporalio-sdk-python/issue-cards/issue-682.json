@@ -1,0 +1,31 @@
+{
+  "summary": "Update requests in the Python SDK do not set the `first_execution_run_id` field, which other SDKs do set. Additionally, there's a question about whether the run ID from the response should be used when constructing the returned update handle.",
+  "category": "bug",
+  "subcategory": "update-requests",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "client",
+    "update-handler",
+    "workflow-updates"
+  ],
+  "concepts": [
+    "execution-run-id",
+    "update-requests",
+    "consistency",
+    "sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience inconsistent behavior with update requests compared to other SDKs, potentially causing issues with workflow execution tracking and update handle construction.",
+  "rootCause": "The Python SDK's update request implementation does not populate the `first_execution_run_id` field that should be sent, and possibly does not use the run ID from the response correctly.",
+  "proposedFix": "Set `first_execution_run_id` in update requests to match other SDK implementations, and verify that the run ID from the response is correctly used in the returned update handle.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by updating the update request implementation to set the required field and align with other SDKs.",
+  "related": [],
+  "keyQuote": "Update requests do not send `first_execution_run_id`: ... However, they should, and other SDKs do.",
+  "number": 682,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:57.651Z"
+}

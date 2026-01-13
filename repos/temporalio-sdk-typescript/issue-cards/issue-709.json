@@ -1,0 +1,30 @@
+{
+  "summary": "Prototype Pollution vulnerability (CVE-2022-25878) in protobufjs 6.11.2 transitive dependency of @temporalio/client-1.0.0-rc.0 with CVSS score 7.5. The issue was automatically closed when the vulnerable library was removed from the Mend inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "protobufjs",
+    "package-dependencies",
+    "client-package"
+  ],
+  "concepts": [
+    "prototype-pollution",
+    "security-vulnerability",
+    "dependency-management",
+    "transitive-dependency",
+    "supply-chain"
+  ],
+  "severity": "high",
+  "userImpact": "Users of @temporalio/client-1.0.0-rc.0 were exposed to a prototype pollution vulnerability that could allow attackers to modify object properties.",
+  "rootCause": "Protobufjs version 6.11.2 contained a prototype pollution flaw that could be triggered via untrusted user input to util.setProperty or ReflectionObject.setParsedOption functions or by parsing untrusted .proto files.",
+  "proposedFix": "Upgrade protobufjs to version 6.10.3 or 6.11.3 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue automatically closed by Mend as the vulnerable library was removed from the inventory, indicating the dependency was updated or removed.",
+  "related": [],
+  "keyQuote": "protobufjs before 6.11.3 are vulnerable to Prototype Pollution which can allow an attacker to add/modify properties of the Object.prototype.",
+  "number": 709,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:54.854Z"
+}

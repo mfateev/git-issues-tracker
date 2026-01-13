@@ -1,0 +1,33 @@
+{
+  "summary": "SQL connection errors during autosetup with Postgres show unhelpful generic messages that hide the actual root cause (e.g., misconfigured TLS certificates), making debugging difficult. The error handling in temporal-sql-tool should include the underlying connection errors instead of a static fallback message.",
+  "category": "bug",
+  "subcategory": "sql-setup",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "sqlplugin",
+    "postgresql-plugin",
+    "database-initialization"
+  ],
+  "concepts": [
+    "error-handling",
+    "debugging",
+    "tls-configuration",
+    "connection-pooling",
+    "database-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to diagnose SQL configuration problems during Temporal setup because error messages mask the real underlying issue, leading to wasted debugging time.",
+  "rootCause": "The tryConnect/sqlx.Connect function ignores individual connection errors when trying default database names and returns only a generic static error message instead of including the actual connection failure details.",
+  "proposedFix": "Include the last error (or all errors) from the connection attempt loop in the returned error message to provide more diagnostic information.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1413 which improved error message handling in the SQL plugin connection logic.",
+  "related": [
+    1413
+  ],
+  "keyQuote": "Errors from the loop of trying different default DB names are ignored - instead a static string error is returned. Ideally this message would also include the Last error",
+  "number": 1577,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:27.560Z"
+}

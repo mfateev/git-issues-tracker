@@ -1,0 +1,37 @@
+{
+  "summary": "Activity failures in a retry sequence are not accessible - only the last failure can be viewed in the SDK and UI. Users need access to the complete failure history of retried activities for better debugging and error understanding.",
+  "category": "feature",
+  "subcategory": "activity-retry-failure-history",
+  "apis": [
+    "PollActivityTaskQueueResponse"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "retry-policy",
+    "failure-handling"
+  ],
+  "concepts": [
+    "retry",
+    "failure-history",
+    "debugging",
+    "activity-execution",
+    "error-tracking",
+    "last-failure",
+    "failure-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot debug activity failures effectively when retries occur, as they can only see the final failure and lose context from earlier attempts.",
+  "rootCause": "The activity task queue response and activity context do not include previous failure information, only the current/last failure state.",
+  "proposedFix": "Return a list of all previous Failures in PollActivityTaskQueueResponse or make failure history available in Activity Context so workers can access it.",
+  "workaround": "Activity can use a Client to describe the workflow and check pendingActivities.lastFailure, though this only provides the last failure, not full history.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    92
+  ],
+  "keyQuote": "When an activity retries more than one time, there is no way right now to access previous failures.",
+  "number": 3517,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:26.431Z"
+}

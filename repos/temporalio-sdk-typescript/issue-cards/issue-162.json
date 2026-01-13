@@ -1,0 +1,32 @@
+{
+  "summary": "Worker performance degrades significantly over time during high-concurrency workload execution, with throughput dropping from ~100 WFs/s to ~10 WFs/s. Investigation identified that the SDK was leaking isolate references, causing memory pressure and CPU overhead.",
+  "category": "bug",
+  "subcategory": "worker-performance",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-isolate",
+    "isolate-pool",
+    "memory-management"
+  ],
+  "concepts": [
+    "performance-degradation",
+    "memory-leak",
+    "isolate-lifecycle",
+    "concurrency",
+    "garbage-collection",
+    "CPU-usage"
+  ],
+  "severity": "high",
+  "userImpact": "Users running high-throughput workflows experience dramatic performance degradation over time, making the SDK unsuitable for sustained workloads.",
+  "rootCause": "SDK was leaking isolate references during workflow activation, causing memory pressure and preventing proper garbage collection.",
+  "proposedFix": "Fix pending - requires proper cleanup and disposal of workflow isolate context references after activation.",
+  "workaround": "Use a larger pool of isolates (e.g., 8 instead of 1) to reduce degradation severity, though this doesn't eliminate the problem.",
+  "resolution": "fixed",
+  "resolutionDetails": "Isolate reference leak was identified and fixed through proper lifecycle management of workflow isolate contexts.",
+  "related": [],
+  "keyQuote": "After further investigation, seems like the cause was the SDK leaking isolate references.",
+  "number": 162,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:39.846Z"
+}

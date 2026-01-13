@@ -1,0 +1,37 @@
+{
+  "summary": "OutboundInterceptor does not support get_workflow_execution_history() method calls, preventing custom interceptors from running on workflow result retrieval operations. User needs interceptor support for runtime modifications like adding hostname-pid suffixes to workflow IDs in shared testing namespaces.",
+  "category": "feature",
+  "subcategory": "interceptor-workflow-result",
+  "apis": [
+    "get_workflow_handle",
+    "result",
+    "describe",
+    "get_workflow_execution_history"
+  ],
+  "components": [
+    "interceptor",
+    "client",
+    "workflow-handle"
+  ],
+  "concepts": [
+    "interceptor-plugin",
+    "cross-cutting-concerns",
+    "outbound-requests",
+    "runtime-modification",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building cross-cutting layers via interceptors cannot intercept workflow result retrieval, limiting ability to apply dynamic modifications to workflow execution queries.",
+  "rootCause": null,
+  "proposedFix": "Add interceptor support for get_workflow_execution_history() or provide a way to intercept getting a handle so it can be subclassed.",
+  "workaround": "Extend the client and return a custom subclass of WorkflowHandle in an override of get_workflow_handle().",
+  "resolution": "fixed",
+  "resolutionDetails": "Team opened cross-SDK tracking issue (sdk-features#130) to implement interceptor support for result operations across all SDKs.",
+  "related": [
+    130
+  ],
+  "keyQuote": "there should be at least a way for OutboundInterceptor to run before get_workflow_execution_history()",
+  "number": 130,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:58.659Z"
+}

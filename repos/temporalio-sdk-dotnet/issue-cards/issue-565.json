@@ -1,0 +1,31 @@
+{
+  "summary": "Proposal to refactor test workflows into separate files following a `*.workflow.cs` naming pattern to enable removal of inline code analysis suppressions and use `.editorconfig` recommendations for the test suite.",
+  "category": "other",
+  "subcategory": "test-organization",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "code-analysis",
+    "editor-config"
+  ],
+  "concepts": [
+    "code-organization",
+    "test-structure",
+    "static-analysis",
+    "style-guidelines"
+  ],
+  "severity": "low",
+  "userImpact": "Improves test code organization and maintainability for SDK developers but does not affect runtime functionality for SDK users.",
+  "rootCause": null,
+  "proposedFix": "Refactor workflows in tests into separate source code files matching the pattern `*.workflow.cs` to allow removal of inline suppressions of code analysis rules.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer decided against the refactoring, preferring to keep tests colocated with workflow/activity implementations for better comprehension and test authoring.",
+  "related": [
+    562
+  ],
+  "keyQuote": "I think tests right next to their workflow/activity implementations is ideal for comprehension and test authoring.",
+  "number": 565,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:36:23.452Z"
+}

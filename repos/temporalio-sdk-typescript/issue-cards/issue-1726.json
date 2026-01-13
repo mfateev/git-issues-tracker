@@ -1,0 +1,30 @@
+{
+  "summary": "User reported that the `condition()` function's callback doesn't accept async functions returning Promise<boolean>, even though the Promise return type seems implied by the function signature.",
+  "category": "question",
+  "subcategory": "type-definitions",
+  "apis": [
+    "condition"
+  ],
+  "components": [
+    "workflow-api",
+    "type-definitions"
+  ],
+  "concepts": [
+    "async-functions",
+    "promise-handling",
+    "type-safety",
+    "callback-signature"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to pass async callback functions to `condition()` encounter TypeScript errors and confusion about expected function signatures.",
+  "rootCause": "The `condition()` function design intentionally does not support async callbacks—it expects synchronous functions returning boolean values for checking local state, not async operations.",
+  "proposedFix": null,
+  "workaround": "Use synchronous functions that return boolean values, checking local variables or array states instead of performing async operations.",
+  "resolution": "invalid",
+  "resolutionDetails": "Maintainer clarified that `condition()` is designed to accept only synchronous functions returning boolean values for state checks, not async callbacks. The API documentation correctly reflects this design.",
+  "related": [],
+  "keyQuote": "The function argument passed to `condition` can't be asynchronous, and must return a boolean. Typical usage is that `fn` is an inline function that returns the value of a local boolean variable.",
+  "number": 1726,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:56.664Z"
+}

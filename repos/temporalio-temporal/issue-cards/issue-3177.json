@@ -1,0 +1,30 @@
+{
+  "summary": "Add input validation in the business logic layer to ensure request ID size does not exceed the configured threshold. Currently validation is only done at the database layer.",
+  "category": "feature",
+  "subcategory": "input-validation",
+  "apis": [],
+  "components": [
+    "persistence",
+    "request-handler",
+    "business-logic"
+  ],
+  "concepts": [
+    "input-validation",
+    "request-id",
+    "size-limit",
+    "schema-compliance",
+    "database-constraints"
+  ],
+  "severity": "low",
+  "userImpact": "Prevents invalid requests from reaching the database layer by validating request ID size earlier in the processing pipeline.",
+  "rootCause": "Input validation for request ID size is currently only enforced at the database schema level rather than in business logic.",
+  "proposedFix": "Move request ID size validation from database schema constraints to the business logic layer to validate earlier in the request processing flow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Input validation for request_ID has to be uuid as it is required by persistence schema.",
+  "number": 3177,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:29.605Z"
+}

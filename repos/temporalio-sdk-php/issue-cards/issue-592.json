@@ -1,0 +1,33 @@
+{
+  "summary": "Documentation for the PHP SDK marshaller is completely missing, making it difficult for new users to learn how to serialize data objects and typed lists. Additionally, the relationship between marshallers and DataConverters is unclear, and there are undocumented quirks like constructor promotion not working as expected.",
+  "category": "docs",
+  "subcategory": "marshalling",
+  "apis": [
+    "DataConverter"
+  ],
+  "components": [
+    "marshaller",
+    "data-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization",
+    "data-marshalling",
+    "object-serialization",
+    "type-handling",
+    "constructor-promotion",
+    "documentation"
+  ],
+  "severity": "high",
+  "userImpact": "New users cannot effectively serialize data objects without external documentation or examples, and the lack of clarity between marshallers and DataConverters leads to confusion and workarounds.",
+  "rootCause": "Marshaller documentation is completely missing from official PHP SDK documentation, and constructor promotion behavior differs from common serialization frameworks like Symfony Serializer.",
+  "proposedFix": "Create comprehensive documentation explaining marshaller attributes (Marshal, MarshalArray, types), provide examples of usage, document DataConverter customization, clarify the difference between marshallers and DataConverters, and document the constructor promotion quirk.",
+  "workaround": "Users can reference examples in samples-php repository or implement custom DataConverters, though this requires discovering these approaches independently.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Documentation for the marshaller is completely missing. New users have no way to learn how to serialize data objects, typed lists, and more.",
+  "number": 592,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:18.930Z"
+}

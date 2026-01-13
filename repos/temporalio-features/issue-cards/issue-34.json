@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal Server v1.13.1 has 4 transitive dependency vulnerabilities including 3 high-severity issues in Apache Thrift (CVE-2019-0205, CVE-2019-0210, CVE-2018-11798) and Prometheus client library (CVE-2022-21698), with CVSS scores up to 7.5.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "temporal-server",
+    "dependency-management",
+    "thrift-library",
+    "prometheus-client"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency",
+    "security",
+    "denial-of-service",
+    "memory-exhaustion",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal Server with this specific version are exposed to denial-of-service and potential memory exhaustion attacks through vulnerable transitive dependencies.",
+  "rootCause": "Outdated versions of Apache Thrift (0.10.0) and Prometheus client_golang (v1.11.0) included as transitive dependencies in Temporal Server v1.13.1.",
+  "proposedFix": "Upgrade Apache Thrift to 0.13.0 or later and Prometheus client_golang to v1.11.1 or later.",
+  "workaround": "For CVE-2022-21698, filter HTTP methods before promhttp middleware, remove method label from metrics, or use a reverse proxy/WAF to limit allowed methods.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was automatically closed by WhiteSource because the vulnerable library was either marked as ignored or no longer part of the inventory.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by WhiteSource because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the WhiteSource inventory.",
+  "number": 34,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:38.811Z"
+}

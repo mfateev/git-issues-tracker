@@ -1,0 +1,32 @@
+{
+  "summary": "TestWorkflowEnvironment incorrectly schedules the first activity retry immediately instead of respecting the initial interval from the retry policy. With a retry policy having a 10-second initial interval, the first retry executes at T0 instead of waiting 10 seconds.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "RetryOptions"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "activity-executor",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "backoff-coefficient",
+    "scheduling",
+    "timing",
+    "test-server"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests using TestWorkflowEnvironment with retry policies produce incorrect timing behavior, potentially masking real retry issues in actual workflows.",
+  "rootCause": "The test environment's scheduling logic does not properly apply the initial interval before the first retry attempt, scheduling it immediately instead.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Attempts run at T0, 0, 10, 30, 70 - the first retry gets scheduled immediately.",
+  "number": 1069,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:03:42.215Z"
+}

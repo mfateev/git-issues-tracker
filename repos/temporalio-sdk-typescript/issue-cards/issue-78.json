@@ -1,0 +1,33 @@
+{
+  "summary": "Path aliases using `@` prefix in auto-generated packages cause confusion with npm package scopes like `@temporalio`, and path aliases break after `npm pack`. The issue was resolved by keeping only the necessary `@activities` alias for the webpack resolver.",
+  "category": "bug",
+  "subcategory": "project-generation",
+  "apis": [],
+  "components": [
+    "create-project",
+    "webpack-resolver",
+    "module-loader"
+  ],
+  "concepts": [
+    "path-aliases",
+    "package-scopes",
+    "npm-pack",
+    "typescript-configuration",
+    "module-resolution",
+    "build-tooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can be confused by `@` prefix aliases appearing like package scopes, and generated projects cannot be published without additional tooling due to broken path aliases.",
+  "rootCause": "TypeScript path aliases are not resolved during `npm pack`, breaking relative imports in published packages. The `@` prefix conflicts with npm package scope naming conventions.",
+  "proposedFix": "Either change the alias prefix to avoid confusion with package scopes, or use ttsc to translate path aliases before publication. Ultimately, keep only the essential `@activities` alias for webpack resolver functionality.",
+  "workaround": "Use `ttsc` tool to translate path aliases before publishing the project.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by removing unnecessary aliases and keeping only the special `@activities` alias required for the custom webpack resolver, making it configurable if needed.",
+  "related": [
+    106
+  ],
+  "keyQuote": "The aliases are definitely broken after `npm pack`. We can get rid of the interfaces alias but we need the activities alias for the module loader.",
+  "number": 78,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:55:58.636Z"
+}

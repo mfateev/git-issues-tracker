@@ -1,0 +1,35 @@
+{
+  "summary": "The external workflow cancellation API (ExternalWorkflowStub#cancel and SyncWorkflowContext#cancelWorkflow) lacks unit test coverage. This request is to add comprehensive tests for the user-facing external workflow cancellation functionality.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [
+    "ExternalWorkflowStub#cancel",
+    "SyncWorkflowContext#cancelWorkflow"
+  ],
+  "components": [
+    "external-workflow-stub",
+    "sync-workflow-context",
+    "workflow-cancellation",
+    "test-framework"
+  ],
+  "concepts": [
+    "testing",
+    "test-coverage",
+    "cancellation",
+    "external-workflow",
+    "unit-testing",
+    "api-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot verify that external workflow cancellation works correctly due to missing unit tests, potentially leaving bugs undetected.",
+  "rootCause": null,
+  "proposedFix": "Add unit tests for ExternalWorkflowStub#cancel and SyncWorkflowContext#cancelWorkflow methods.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test coverage was added for external workflow cancellation functionality.",
+  "related": [],
+  "keyQuote": "User-facing \"external\" workflow cancelation API and implementation that are not covered by any unit test.",
+  "number": 1709,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:06.143Z"
+}

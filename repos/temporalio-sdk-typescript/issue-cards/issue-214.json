@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to provide a method for accessing the worker's client instance from within activity code. Currently there's no easy way to get the same configured client from activities, which caused issues with activities using incorrect server URLs.",
+  "category": "feature",
+  "subcategory": "activity-client-access",
+  "apis": [
+    "activity.Context"
+  ],
+  "components": [
+    "activity",
+    "worker",
+    "client"
+  ],
+  "concepts": [
+    "client-instance",
+    "activity-context",
+    "worker-configuration",
+    "signal-sending",
+    "server-connection"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities cannot easily access the worker's configured client instance, forcing workarounds or incorrect client configurations.",
+  "rootCause": null,
+  "proposedFix": "Add a method to activity.Context that returns the client instance used by the worker.",
+  "workaround": "Pass class instances as activities instead of using the client from context.",
+  "resolution": "fixed",
+  "resolutionDetails": "Already supported by passing class instances as activities. Solution was documented in samples.",
+  "related": [],
+  "keyQuote": "Currently there's no easy way to get the *same* client that the worker/workflows use from inside an activity.",
+  "number": 214,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:37.574Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Worker plugins need to support replayers with shared configuration like interceptors. The issue discusses three design options for providing plugin support to replayers while maintaining a clean API and avoiding redundant configuration code across plugin authors.",
+  "category": "feature",
+  "subcategory": "worker-plugins",
+  "apis": [],
+  "components": [
+    "worker",
+    "replayer",
+    "plugins",
+    "interceptors"
+  ],
+  "concepts": [
+    "plugin-architecture",
+    "configuration-reuse",
+    "replayer-support",
+    "interceptor-integration",
+    "api-design",
+    "backward-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Plugin authors cannot currently provide plugins to replayers, forcing them to duplicate configuration logic or choose not to support replay functionality.",
+  "rootCause": "Worker plugins have configuration options that don't apply to replayers, but share important common functionality like interceptors, creating a design challenge.",
+  "proposedFix": "Create a separate worker.ReplayerPlugin interface to maintain API clarity and allow plugin authors to opt-in to replayer support without forcing unnecessary configuration code.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented separate ReplayerPlugin interface allowing plugin authors to choose replayer support independently.",
+  "related": [],
+  "keyQuote": "Have a completely separate `worker.ReplayerPlugin` which...will give type error when trying to register when creating replayer",
+  "number": 994,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:16.138Z"
+}

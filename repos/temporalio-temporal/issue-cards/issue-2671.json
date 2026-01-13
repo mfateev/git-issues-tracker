@@ -1,0 +1,32 @@
+{
+  "summary": "Fresh Temporal installation with Elasticsearch fails to list workflows due to mismatched Elasticsearch index template. The index is created with default schema instead of the required template, causing RunId field to be Text type instead of Keyword, breaking sorting operations.",
+  "category": "bug",
+  "subcategory": "elasticsearch-visibility",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "visibility",
+    "cli"
+  ],
+  "concepts": [
+    "index-template",
+    "schema-mismatch",
+    "elasticsearch-configuration",
+    "visibility-store",
+    "workflow-listing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot list or manage workflows on fresh installations when using Elasticsearch, blocking basic operational tasks.",
+  "rootCause": "Elasticsearch index name does not match the index_patterns in the visibility index template, causing Elasticsearch to create the index with default schema where RunId is Text instead of Keyword type, breaking sort operations required for ListClosedWorkflowExecutions.",
+  "proposedFix": "Upload modified index schema template matching the custom index name or change index name to match the pattern in the template. Delete existing index to allow Elasticsearch to recreate it with proper schema.",
+  "workaround": "Rename Elasticsearch index to match the default pattern or manually upload a modified index template before creating the index.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was caused by incorrect Elasticsearch index configuration. Solution provided in comments by maintainer to use proper index naming or upload modified template.",
+  "related": [
+    2649
+  ],
+  "keyQuote": "Index name should match one of `index_patterns` specified in index_template_v7.json. You index name doesn't match it and therefore it was created without applying proper template.",
+  "number": 2671,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:50.238Z"
+}

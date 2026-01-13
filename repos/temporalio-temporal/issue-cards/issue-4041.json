@@ -1,0 +1,30 @@
+{
+  "summary": "OpenTelemetry environment variables specified in the OTEL SDK specification are not being read by Temporal Server, forcing users to configure tracing via YAML config instead.",
+  "category": "bug",
+  "subcategory": "otel-configuration",
+  "apis": [],
+  "components": [
+    "otel-exporter",
+    "configuration",
+    "tracing"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "environment-variables",
+    "configuration-loading",
+    "jaeger-integration",
+    "tracing-export"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure OTEL tracing via standard OTEL environment variables as documented, requiring manual YAML configuration as a workaround.",
+  "rootCause": "Temporal Server does not read or respect OTEL_* environment variables during initialization, only accepts YAML config.",
+  "proposedFix": null,
+  "workaround": "Configure tracing via YAML config with otel.exporters section specifying endpoint, protocol, and insecure flags.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved after discussion between reporter and maintainer, with suggested fix applied.",
+  "related": [],
+  "keyQuote": "OTEL_* env variables aren't taken into account. The only way I managed to make this work is to use this config",
+  "number": 4041,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:00.671Z"
+}

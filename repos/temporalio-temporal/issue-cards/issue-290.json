@@ -1,0 +1,36 @@
+{
+  "summary": "Activity timeout and retry policy design has fundamental issues: ScheduleToClose timeout conflicts with RetryPolicy.expiration, and activities default to no retries which is counterintuitive. Proposal to redesign timeouts as real intervals, merge retry policy into activity attributes, and make unlimited retries the default with configurable MaximumAttempts.",
+  "category": "feature",
+  "subcategory": "activity-timeout-retry",
+  "apis": [
+    "ScheduleActivityTaskDecisionAttributes",
+    "RetryPolicy",
+    "MaximumAttempts"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "timeout-management",
+    "decision-attributes"
+  ],
+  "concepts": [
+    "timeout",
+    "retry-policy",
+    "activity-scheduling",
+    "expiration",
+    "backoff-strategy",
+    "api-design"
+  ],
+  "severity": "high",
+  "userImpact": "Users face confusing and unintuitive activity timeout/retry defaults that require workarounds for most real-world use cases.",
+  "rootCause": "Current design conflates ScheduleToClose timeout with RetryPolicy.expiration, and defaults to no retries which contradicts typical user expectations.",
+  "proposedFix": "Redesign timeouts as real intervals, merge retry policy into ScheduleActivityTaskDecisionAttributes, remove ExpirationIntervalInSeconds, default MaximumAttempts to 0 for unlimited retries up to ScheduleToClose, and set sensible defaults: InitialRetryInterval=1s, MaximumRetryInterval=90s, ExponentialCoefficient=2.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Design proposal accepted and implemented as part of activity timeout and retry policy redesign.",
+  "related": [],
+  "keyQuote": "By default activities are not retried which is not intuitive for the new users as well as not desired behaviour in 99.9% of use cases.",
+  "number": 290,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:25:35.225Z"
+}

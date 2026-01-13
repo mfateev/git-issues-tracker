@@ -1,0 +1,34 @@
+{
+  "summary": "When a worker is down, queries return a cryptic 'context deadline exceeded' error instead of a more informative message. The improvement implements clearer error messaging like 'no poller seen for task queue recently, worker may be down' to help users understand the actual cause of query failures.",
+  "category": "feature",
+  "subcategory": "query-error-messages",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "task-queue",
+    "worker-poller",
+    "error-messaging"
+  ],
+  "concepts": [
+    "worker-down",
+    "timeout",
+    "error-messaging",
+    "task-queue-polling",
+    "precondition-check",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users receive clearer error messages when queries fail due to workers being down, making it easier to diagnose and troubleshoot workflow issues.",
+  "rootCause": "Query handler returns generic context deadline error instead of detecting and reporting the specific condition when no worker is polling the task queue.",
+  "proposedFix": "Return a FailedPrecondition error with message 'no poller seen for task queue recently, worker may be down' when appropriate conditions are detected.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #5252 which implements proper error detection and messaging when no worker is polling the task queue.",
+  "related": [
+    5252
+  ],
+  "keyQuote": "no poller seen for task queue recently, worker may be down",
+  "number": 1546,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:39:08.642Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add a Worker-level option to specify exception types that should fail the workflow instead of causing retry loops, similar to Java's setFailWorkflowExceptionTypes. The request was ultimately declined in favor of using interceptors for more flexible error handling.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "error-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "exception-types",
+    "failure-handling",
+    "retry-loops",
+    "error-matching",
+    "determinism"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to distinguish between transient errors that should trigger retries and fatal errors that should fail the workflow immediately.",
+  "rootCause": null,
+  "proposedFix": "Add WorkerOptions.failWorkflowErrorTypes: Function[] to allow users to specify error types that should fail workflows, with a special 'ALWAYS_FAIL' option for catching all errors including non-Error types.",
+  "workaround": "Use interceptors to wrap and handle errors with more flexibility, as documented in the failure handling guide.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided against implementing this feature, choosing instead to provide interceptors as a more powerful and flexible alternative for error handling.",
+  "related": [],
+  "keyQuote": "decided against an equivalent, instead providing interceptors as the more powerful/flexible (albeit more LoC) alternative",
+  "number": 478,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:00.754Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Pyright/VSCode type checker fails with multi-parameter update methods due to typing issues. Need to simplify type hints for start_update/execute_update and add Pyright to CI alongside MyPy.",
+  "category": "feature",
+  "subcategory": "type-checking",
+  "apis": [
+    "start_update",
+    "execute_update"
+  ],
+  "components": [
+    "type-hints",
+    "ci",
+    "pyright-integration"
+  ],
+  "concepts": [
+    "type-inference",
+    "type-checking",
+    "overload-resolution",
+    "vscode-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using VSCode with Pyright cannot properly use update methods due to type checking errors, reducing IDE support and developer experience.",
+  "rootCause": "Multi-parameter update methods have overly specific typing that Pyright cannot resolve, unlike MyPy. Return types also not properly inferred in Pyright.",
+  "proposedFix": "Remove specific typing for multi-param updates (use Sequence[Any] like signal/query) and add Pyright to CI pipeline alongside MyPy.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #471 which fixed the overload issues. Pyright integration to CI was added as requested.",
+  "related": [
+    471
+  ],
+  "keyQuote": "Remove the typing for multi-param update (use Sequence[Any] like signal/query). Then we need to add pyright to CI alongside MyPy",
+  "number": 420,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:05.415Z"
+}

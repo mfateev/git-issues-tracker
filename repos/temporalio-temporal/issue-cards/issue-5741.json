@@ -1,0 +1,34 @@
+{
+  "summary": "The admin-tools Docker image v1.23.0 contains 30 security vulnerabilities (7 high, 20 medium, 3 low CVEs) including issues in pip, OpenTelemetry, and Go HTTP/2 libraries. Multiple follow-up reports indicate the issue persists in later versions (1.25.x) with 76 total vulnerabilities.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "docker-image",
+    "alpine-base-image",
+    "pip",
+    "opentelemetry-contrib",
+    "golang-net"
+  ],
+  "concepts": [
+    "security",
+    "cve",
+    "vulnerability",
+    "dependency",
+    "docker",
+    "supply-chain"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of the admin-tools Docker image are exposed to multiple known security vulnerabilities that could be exploited for privilege escalation, denial of service, or resource consumption attacks.",
+  "rootCause": "Outdated dependencies in the admin-tools Docker image, including pip 24.0, go.opentelemetry.io/contrib v0.42.0/v0.36.4, and golang.org/x/net v0.7.0. Some vulnerabilities (HTTP/2) are server-side issues not directly used by tctl but present in the linked code.",
+  "proposedFix": "Update base image to Alpine 3.19 and upgrade vulnerable dependencies (OpenTelemetry to 0.46.0+, golang.org/x/net to 0.17.0+). The team merged a fix for tctl-relevant vulnerabilities in v1.18.1.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are **30** vulnerabilities found for image temporalio/admin-tools:1.23.0, including 7 high, 20 medium and 3 low CVEs.",
+  "number": 5741,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:22.837Z"
+}

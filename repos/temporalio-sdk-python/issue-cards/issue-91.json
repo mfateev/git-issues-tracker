@@ -1,0 +1,30 @@
+{
+  "summary": "When a workflow is started and immediately cancelled, the primary task gets cancelled before the workflow code runs, preventing the cancelled event from being caught. The fix requires deferring the task cancellation to the event loop so user code can execute and respond to cancellation.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "primary_task",
+    "event_loop",
+    "cancellation"
+  ],
+  "concepts": [
+    "task_cancellation",
+    "workflow_execution",
+    "event_loop_ordering",
+    "timing_issue",
+    "race_condition"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows cannot respond to immediate cancellation requests because the cancellation occurs before the workflow code executes.",
+  "rootCause": "Primary task is being cancelled synchronously before being added to the event loop, preventing workflow code from running.",
+  "proposedFix": "Defer to self._primary_task.cancel() so cancellation is scheduled on the event loop after the workflow start, allowing user code to run first.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to defer to `self._primary_task.cancel()` so it is put on the event loop after the start so the user's code still runs and can react to cancellation.",
+  "number": 91,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:57.821Z"
+}

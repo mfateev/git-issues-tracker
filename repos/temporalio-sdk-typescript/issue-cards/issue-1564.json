@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose AbortController in the Workflow sandbox to enable compatibility with libraries like xstate that use it internally for promise-based actor implementations.",
+  "category": "feature",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "vm-context"
+  ],
+  "concepts": [
+    "AbortController",
+    "sandbox-isolation",
+    "library-compatibility",
+    "promise-handling",
+    "state-machines"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use libraries like xstate that depend on AbortController within Temporal workflows.",
+  "rootCause": null,
+  "proposedFix": "Expose AbortController API to the worker workflow sandbox, similar to how other global APIs are exposed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "AbortController was exposed to the workflow sandbox",
+  "related": [
+    1550
+  ],
+  "keyQuote": "Expose `AbortController` to the worker workflow sandbox.",
+  "number": 1564,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:52.747Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "When Elasticsearch index is deleted and rebuilt using `make install-schema-es`, existing search attributes are not automatically synced to the ES mappings. Users need a command to sync search attributes with ES schema, and the schema installation should auto-sync.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "search-attributes",
+    "visibility",
+    "schema"
+  ],
+  "concepts": [
+    "elasticsearch-mapping",
+    "schema-synchronization",
+    "search-attributes",
+    "index-management",
+    "data-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users rebuilding Elasticsearch indexes lose search attribute mappings and must manually reconfigure them, complicating disaster recovery and schema management.",
+  "rootCause": "No automatic sync mechanism exists between Temporal search attributes and Elasticsearch schema during index rebuild operations.",
+  "proposedFix": "Add a `tctl` command to sync search attributes with ES schema, and auto-sync when running `make install-schema-es`. Alternatively, add validation checks in visibility when adding documents.",
+  "workaround": "Manually recreate Elasticsearch mappings after index deletion, or use Elasticsearch Dynamic Mapping (though this doesn't guarantee correct data types).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the temporal attribute to elasticsearch mapping sync tool is needed",
+  "number": 3165,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:18.358Z"
+}

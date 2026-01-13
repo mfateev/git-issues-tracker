@@ -1,0 +1,33 @@
+{
+  "summary": "Activity registration changes broke external calling conventions. Documentation needed for how activities are called by type-string, and error messages should list available activities when a matching activity type isn't found.",
+  "category": "docs",
+  "subcategory": "activity-registration",
+  "apis": [
+    "configureActivities",
+    "createActivityHandle"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "activity-registration"
+  ],
+  "concepts": [
+    "activity-type-resolution",
+    "external-calling-convention",
+    "error-messaging",
+    "backwards-compatibility",
+    "activity-discovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily understand how to call activities externally and receive unclear errors when activity types are not found.",
+  "rootCause": "Activity registration changes altered how activities are called from outside the SDK without sufficient documentation or helpful error messages.",
+  "proposedFix": "Document the type-string calling convention and include available activities list in 'activity not found' error messages.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was added at nodejs.temporal.io/api/namespaces/workflow#createactivityhandle and error messages improved.",
+  "related": [],
+  "keyQuote": "When we changed activity registration the way activities are called from outside of the SDK was broken/different. How that works should be documented and we should maintain compatibility going forward.",
+  "number": 232,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:08.420Z"
+}

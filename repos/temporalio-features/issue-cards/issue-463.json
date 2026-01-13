@@ -1,0 +1,31 @@
+{
+  "summary": "Users need a way to customize or disable implicit activity failure logging to support patterns like activity-retry-based-polling where some failures are intentional. The request is to allow users to control logging behavior while still enabling their own custom logging approaches.",
+  "category": "feature",
+  "subcategory": "activity-logging",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "logging",
+    "error-handling"
+  ],
+  "concepts": [
+    "logging",
+    "error-handling",
+    "customization",
+    "activity-failure",
+    "observability",
+    "metrics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently cannot prevent SDK-forced activity failure logging, limiting their ability to handle intentional failures or implement custom logging strategies.",
+  "rootCause": "SDKs implicitly log all activity failures without exposing a way for users to disable or customize this behavior, preventing users from deferring to their own logging code.",
+  "proposedFix": "Allow users to disable implicit logging of activity failures so they can use their own logging/interceptor code for complete customization.",
+  "workaround": "Users can implement custom error handlers or interceptors, though this doesn't prevent SDK-level logging.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "allow users to disable our currently-forced implicit logging of activity failures so they can defer to their own logging code to do whatever they want",
+  "number": 463,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:14.927Z"
+}

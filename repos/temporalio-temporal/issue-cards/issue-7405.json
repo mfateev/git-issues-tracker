@@ -1,0 +1,31 @@
+{
+  "summary": "User reports workflow tasks not being executed by worker for several hours despite setting activity timeout to 3600 seconds. Most tasks complete normally, but some have significantly delayed execution.",
+  "category": "question",
+  "subcategory": "workflow-task-timeout",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-processor",
+    "activity-executor"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "polling",
+    "task-queue",
+    "worker-load",
+    "history-events"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow tasks experience unexplained delays of several hours, impacting application reliability and user experience.",
+  "rootCause": "Workflow task failing or timing out repeatedly, with worker potentially overloaded or slow processing. Retries not recorded in history to prevent explosion of history events.",
+  "proposedFix": null,
+  "workaround": "Check worker logs for failures, monitor worker load to detect overload conditions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "That typically means the workflow task is keep failing (or timing out) and retrying. We do not record all those retries as history from exploding",
+  "number": 7405,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:31.556Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add a disclaimer warning users that gevent's monkey patching is incompatible with asyncio and the SDK's custom event loop, until the underlying issue is resolved.",
+  "category": "docs",
+  "subcategory": "compatibility-warning",
+  "apis": [],
+  "components": [
+    "event-loop",
+    "asyncio",
+    "gevent"
+  ],
+  "concepts": [
+    "monkey-patching",
+    "compatibility",
+    "asyncio",
+    "event-loop",
+    "third-party-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to use gevent with the Python SDK may encounter unexpected behavior or failures due to incompatible event loop modifications.",
+  "rootCause": "Gevent's monkey patching interferes with asyncio and the SDK's custom event loop implementation",
+  "proposedFix": "Add a disclaimer documenting the gevent incompatibility",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "A disclaimer was added to document the gevent incompatibility",
+  "related": [
+    59
+  ],
+  "keyQuote": "Until #59 is solved, we should call out gevent's monkey patching messes up asyncio and our custom event loop",
+  "number": 291,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:33.986Z"
+}

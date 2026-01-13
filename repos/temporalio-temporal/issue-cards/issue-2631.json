@@ -1,0 +1,32 @@
+{
+  "summary": "Cron workflow encounters cascading failures after worker crash, resulting in \"unable to fetch tasks: too many workflows found\" errors on subsequent executions. The error count increments with each retry attempt.",
+  "category": "bug",
+  "subcategory": "cron-workflows",
+  "apis": [],
+  "components": [
+    "cron-scheduler",
+    "worker",
+    "task-fetcher",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "worker-crash",
+    "task-fetching",
+    "error-escalation",
+    "workflow-retry",
+    "memory-error"
+  ],
+  "severity": "high",
+  "userImpact": "Cron workflows permanently fail after any worker crash, preventing scheduled task execution from recovering.",
+  "rootCause": "Worker crash (nil pointer dereference) during cron workflow execution leaves orphaned or corrupted workflow executions, causing task fetching to fail with increasing counts on retry attempts.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue author determined the problem was on their side, not a Temporal bug.",
+  "related": [],
+  "keyQuote": "bad request - unable to fetch tasks: bad request - too many (2) workflows found",
+  "number": 2631,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:23.022Z"
+}

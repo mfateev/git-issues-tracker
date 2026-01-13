@@ -1,0 +1,33 @@
+{
+  "summary": "The `patched()` API doesn't work correctly inside `condition()` calls because the patch ID is cached and returns the same value on subsequent evaluations. Users need to support updating workflow conditions after deployment without manually creating unique patch IDs for each call.",
+  "category": "bug",
+  "subcategory": "workflow-patching",
+  "apis": [
+    "condition",
+    "patched"
+  ],
+  "components": [
+    "workflow-engine",
+    "patching-system",
+    "condition-evaluation"
+  ],
+  "concepts": [
+    "workflow-versioning",
+    "conditional-logic",
+    "replay-semantics",
+    "deployment-updates",
+    "patch-caching"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely use patched() inside condition() to update workflow logic after deployment without creating unique patch IDs for each evaluation.",
+  "rootCause": "The patched() API caches its result, returning the same value on subsequent condition evaluations rather than re-evaluating on each call.",
+  "proposedFix": "The SDK should internally generate different patch IDs on every condition call or handle re-evaluation transparently to avoid manual workarounds.",
+  "workaround": "Use different patch IDs for each condition evaluation by incrementing a counter: `patched(\"patchId\" + (i++))`",
+  "resolution": "wontfix",
+  "resolutionDetails": "Discussion revealed that patch() already works as intended - it evaluates to false during replay and returns true once the marker is seen or workflow exits replay mode. The reported issue appears to be a misunderstanding of the intended behavior.",
+  "related": [],
+  "keyQuote": "patched already works this way today. It evaluates to false during replay and once the marker is seen or workflow is no longer replaying it starts returning true.",
+  "number": 756,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:10:27.610Z"
+}

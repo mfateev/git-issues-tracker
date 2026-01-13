@@ -1,0 +1,32 @@
+{
+  "summary": "The schedule action trigger mechanism silently fails to run multiple actions when triggered within the same second due to a 1-workflow-per-second limitation and second-resolution workflow ID generation. Users need reliable support for triggering multiple schedule actions immediately.",
+  "category": "bug",
+  "subcategory": "schedules",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "schedule-engine",
+    "workflow-id-generation",
+    "trigger-handler"
+  ],
+  "concepts": [
+    "uniqueness",
+    "workflow-id-collision",
+    "schedule-actions",
+    "timestamp-resolution",
+    "duplicate-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably trigger multiple schedule actions in quick succession, as some triggers fail silently without error indication.",
+  "rootCause": "Workflow IDs are generated at second-resolution timestamps, limiting only one workflow per second. When multiple triggers occur within the same second, subsequent ones fail silently because Temporal cannot have duplicate workflow IDs running simultaneously.",
+  "proposedFix": "Modify server-side workflow ID generation to append a unique counter suffix (starting at -2) when duplicate IDs are detected, allowing multiple actions in the same second without requiring external uniqueness tracking.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We only allow 1 workflow per second and we can't fail a trigger is within that. Ideally we should/could change workflow ID to have a unique value put on the end if it duplicates",
+  "number": 3614,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:26.892Z"
+}

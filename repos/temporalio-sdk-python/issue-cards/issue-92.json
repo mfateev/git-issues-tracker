@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to implement lazy connectivity for the Python SDK client and health checks. The issue discusses design challenges with making client connection lazy when worker creation is synchronous, and proposes requiring lazy connectivity support in the core SDK.",
+  "category": "feature",
+  "subcategory": "client-connectivity",
+  "apis": [
+    "Client"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "connection-management",
+    "health-check"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "connectivity",
+    "async-initialization",
+    "worker-creation",
+    "health-check",
+    "synchronous-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot defer client connection until actually needed, forcing eager connection establishment which may impact startup time and resource usage.",
+  "rootCause": "Worker creation is synchronous in Python (like Rust) but requires an already-connected client, making lazy client connectivity difficult to implement without changing the worker creation API to async.",
+  "proposedFix": "Implement lazy connectivity support in the core SDK to allow deferring client connection. For Python workers, disallow lazy clients for now until async worker creation can be supported.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented with the constraint that lazy clients cannot be used with workers in Python until core SDK supports lazy connectivity and Python worker creation becomes async.",
+  "related": [
+    367,
+    385
+  ],
+  "keyQuote": "For now I just disallow lazy clients to be used for workers. IMO we need to support lazy connectivity in core.",
+  "number": 92,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:57.620Z"
+}

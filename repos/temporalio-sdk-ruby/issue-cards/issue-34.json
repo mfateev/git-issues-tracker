@@ -1,0 +1,28 @@
+{
+  "summary": "Issue requesting verification that all Tokio join handlers are properly joined to prevent panics from being silently ignored. This was applicable to a previous version of the SDK but is no longer relevant due to an SDK rewrite.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "tokio-runtime",
+    "panic-handling"
+  ],
+  "concepts": [
+    "panic-handling",
+    "error-propagation",
+    "async-runtime",
+    "join-handlers"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures that panics in background tasks are properly surfaced rather than being silently ignored during SDK operations.",
+  "rootCause": "Tokio join handlers may not have been fully joined, potentially allowing panics to be ignored in previous SDK versions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The SDK underwent a rewrite/refresh and this issue applied to a previous version that is no longer applicable.",
+  "related": [],
+  "keyQuote": "The SDK is undergoing a rewrite/refresh and this issue applied to a previous version and is no longer applicable",
+  "number": 34,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:39:35.511Z"
+}

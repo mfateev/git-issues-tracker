@@ -1,0 +1,34 @@
+{
+  "summary": "Request to populate activity execution context in TestActivityEnvironment for unit tests without requiring a workflow setup. Currently, developers must create a temporary workflow using TestWorkflowEnvironment to access context information like workflow type.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Activity.getExecutionContext",
+    "TestActivityEnvironment",
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "activity-testing",
+    "test-environment",
+    "execution-context"
+  ],
+  "concepts": [
+    "unit-testing",
+    "test-setup",
+    "activity-context",
+    "test-isolation",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must create tedious temporary workflows to test activities that access execution context, increasing test complexity and setup time.",
+  "rootCause": null,
+  "proposedFix": "Add an option to TestActivityEnvironment to populate execution context via TestEnvironmentOptions, such as `TestActivityEnvironment.newInstance(TestEnvironmentOptions.newBuilder().setActivityExecutionContext(...).build())`",
+  "workaround": "Setting up a test environment workflow with a sample workflow to access execution context",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ideally, I should be able to setup execution context for tests without any interactions with workflows.",
+  "number": 2034,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:51.504Z"
+}

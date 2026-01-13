@@ -1,0 +1,30 @@
+{
+  "summary": "Windows path handling bug where project directories starting with 'n' have the characters '\\n' incorrectly stripped from the path, causing workflows to fail to launch. The root cause is identified as the dedent library treating backslash-n as a newline escape sequence.",
+  "category": "bug",
+  "subcategory": "path-handling",
+  "apis": [],
+  "components": [
+    "worker-launcher",
+    "path-resolution",
+    "build-system"
+  ],
+  "concepts": [
+    "windows-paths",
+    "path-separator",
+    "escape-sequences",
+    "string-manipulation",
+    "dependency-bug"
+  ],
+  "severity": "high",
+  "userImpact": "Windows users cannot run Temporal samples or projects with folder names starting with 'n' without renaming the directory.",
+  "rootCause": "The dedent library incorrectly treats the Windows path separator backslash followed by 'n' (\\n) as a newline escape sequence and strips these characters from constructed paths.",
+  "proposedFix": "Replace the dedent dependency with an alternative like ts-dedent that properly handles Windows path separators.",
+  "workaround": "Rename project directories so they do not start with the letter 'n' (e.g., rename 'nextjs-ecommerce-oneclick' to 'ecommerce-nextjs-oneclick').",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by replacing the dedent library with an alternative that properly handles Windows paths.",
+  "related": [],
+  "keyQuote": "This is an issue in dedent. I think the correct solution would be to replace dedent by some alternative (eg. ts-dedent).",
+  "number": 450,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:21.460Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to reclassify benign application errors in OpenTelemetry traces for the PHP SDK, referencing a related Python SDK issue for implementation guidance.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "error-handling",
+    "tracing"
+  ],
+  "concepts": [
+    "error-classification",
+    "observability",
+    "telemetry",
+    "application-errors",
+    "trace-quality"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have more accurate OpenTelemetry traces that properly distinguish between benign application errors and actual SDK/system failures.",
+  "rootCause": null,
+  "proposedFix": "Implement error reclassification logic similar to the approach used in the Python SDK (issue #1041) for the PHP SDK.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1041
+  ],
+  "keyQuote": "See issue description here: https://github.com/temporalio/sdk-python/issues/1041",
+  "number": 648,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:50.018Z"
+}

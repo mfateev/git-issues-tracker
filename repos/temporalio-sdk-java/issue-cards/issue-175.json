@@ -1,0 +1,35 @@
+{
+  "summary": "LocalActivityOptions builder allows creating activity stubs without required timeout constraints (scheduleToCloseTimeout or both scheduleToStartTimeout and startToCloseTimeout), violating documented requirements. Validation was moved to the service but should also be enforced in the SDK for local activities.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "local-activity-executor",
+    "options-validation",
+    "activity-stub"
+  ],
+  "concepts": [
+    "timeout-constraints",
+    "validation",
+    "configuration",
+    "local-activities",
+    "defaults",
+    "service-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users can create invalid local activity configurations that pass in tests but fail at runtime, making it harder to catch configuration errors early in development.",
+  "rootCause": "Validation logic was moved to the service, but local activity validation was not implemented in the SDK, creating an inconsistency between local and non-local activities.",
+  "proposedFix": "Implement validation logic in the SDK for local activity options to enforce required timeout constraints at configuration time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #194 which implemented proper validation for local activity timeout constraints in the SDK.",
+  "related": [
+    194
+  ],
+  "keyQuote": "These indeed should be done in the SDK.",
+  "number": 175,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:59:23.570Z"
+}

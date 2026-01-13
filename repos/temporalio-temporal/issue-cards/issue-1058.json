@@ -1,0 +1,32 @@
+{
+  "summary": "Tasks are being dropped when polling requests are cancelled under load, particularly when workers are restarted during high activity scheduling. This causes activities and workflows to timeout instead of being dispatched to an available poller.",
+  "category": "bug",
+  "subcategory": "polling-cancellation",
+  "apis": [],
+  "components": [
+    "poller",
+    "worker",
+    "grpc-channel",
+    "task-dispatch"
+  ],
+  "concepts": [
+    "task-dispatch",
+    "polling",
+    "cancellation",
+    "worker-restart",
+    "timeout",
+    "connection-management"
+  ],
+  "severity": "high",
+  "userImpact": "Activities and workflows timeout and require retries when workers are restarted during high concurrent activity load, causing delays and potential data inconsistencies.",
+  "rootCause": "Tasks are being dispatched over cancelled GRPC channels when polling requests are cancelled, rather than being re-dispatched to available pollers or queued.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue could not be reproduced by the team; marked as not reproducible.",
+  "related": [],
+  "keyQuote": "poll requests are getting canceled and no tasks are received when this happens...they are dispatched over a cancelled GRPC channel",
+  "number": 1058,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:56:46.868Z"
+}

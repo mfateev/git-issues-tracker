@@ -1,0 +1,32 @@
+{
+  "summary": "The @temporalio/core-bridge package cannot be built from source in Alpine Linux because bridge-macros files were refactored into a separate top-level folder but were not included in the package.json files list after version 0.12.0.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "bridge-macros",
+    "package-distribution"
+  ],
+  "concepts": [
+    "source-build",
+    "alpine-linux",
+    "rust-compilation",
+    "package-contents",
+    "binary-distribution"
+  ],
+  "severity": "high",
+  "userImpact": "Users building in Alpine/musl environments cannot build the core-bridge Rust binary from source, blocking deployment in containerized environments.",
+  "rootCause": "After refactoring bridge-macros into a separate top-level folder, the files were not included in the package.json files field, making them unavailable in the installed npm package.",
+  "proposedFix": "Include bridge-macros files in the core-bridge package.json files field alongside other Rust source files, and optionally add musl target support with strip flag in Cargo.toml.",
+  "workaround": "Commit the bridge-macros files directly to the repository and apply custom patches for musl support in the build pipeline.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #1852 was opened to address the missing bridge-macros files in the package distribution.",
+  "related": [
+    1852
+  ],
+  "keyQuote": "These files should be included in the `core-bridge` package along with the other rust source files so that we can build them from source.",
+  "number": 1856,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:55:43.533Z"
+}

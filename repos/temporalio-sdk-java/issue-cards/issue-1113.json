@@ -1,0 +1,34 @@
+{
+  "summary": "The Java SDK workflow configuration system is unbalanced - the constructor-based approach and worker registration approach don't support the same configuration levels. The worker registration approach lacks support for per-activity configuration (between default and per-method), and both approaches have limitations around method polymorphism.",
+  "category": "feature",
+  "subcategory": "workflow-configuration",
+  "apis": [
+    "Workflow.newActivityStub",
+    "Worker.registerWorkflowImplementationTypes"
+  ],
+  "components": [
+    "workflow-implementation",
+    "activity-options",
+    "worker-registration"
+  ],
+  "concepts": [
+    "configuration",
+    "activity-options",
+    "retry-options",
+    "polymorphism",
+    "workflow-setup",
+    "timeout-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users struggle to configure activities consistently across different workflows without duplicating code or sacrificing flexibility in configuration strategies.",
+  "rootCause": null,
+  "proposedFix": "Balance the two configuration strategies (constructor-based and worker registration-based) to support all three levels of ActivityOptions configuration without sacrificing functionality or polymorphism support.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it would be awesome to balance this two configuration strategies to be able to achieve the same without sacrificing functionality",
+  "number": 1113,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:07:42.968Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose ability for Core OTel metrics to use HTTP protocol instead of the default gRPC. This is a feature request to add a simple boolean flag to enable HTTP-based metrics collection.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "metrics",
+    "otel",
+    "core"
+  ],
+  "concepts": [
+    "observability",
+    "metrics",
+    "protocol",
+    "http",
+    "otel",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users will be able to configure OpenTelemetry metrics to be exported over HTTP instead of gRPC, providing more flexibility in observability setups.",
+  "rootCause": null,
+  "proposedFix": "Add a simple default-false http boolean configuration option to expose HTTP protocol support for Core OTel metrics",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    820
+  ],
+  "keyQuote": "Expose ability to have Core OTel metrics use HTTP instead of default gRPC protocol. Would recommend a simple default-false http boolean.",
+  "number": 392,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:18:36.878Z"
+}

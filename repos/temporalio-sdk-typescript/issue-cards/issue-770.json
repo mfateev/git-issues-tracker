@@ -1,0 +1,32 @@
+{
+  "summary": "User experiencing timeout on the last workflow during runReplayHistory when replaying multiple workflows in parallel using Promise.all(). The final replay fails with 'Timed out waiting for task result' error while others succeed.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "runReplayHistory"
+  ],
+  "components": [
+    "replay-engine",
+    "workflow-bundle",
+    "interceptors"
+  ],
+  "concepts": [
+    "timeout",
+    "parallel-execution",
+    "bundle-configuration",
+    "interceptor-mismatch",
+    "task-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users replaying multiple workflows in parallel may experience unexpected timeouts on the final replay, preventing batch replay operations from completing successfully.",
+  "rootCause": "The workflow bundle was not created with the same interceptors that were passed into the worker, causing a mismatch in replay configuration.",
+  "proposedFix": "Ensure that when creating a workflowBundle for runReplayHistory, the same interceptors used in the worker are included in the bundle configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by identifying that the workflow bundle must be created with the same interceptors passed to the worker.",
+  "related": [],
+  "keyQuote": "We figured out that the cause was that the bundle wasn't created with the same interceptors that were passed in to the worker.",
+  "number": 770,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:11:09.894Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Test `testSuccessfulActivity` in DescribeTest fails when running with Docker, likely due to changes from merging a pull request to the Test Service.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-service",
+    "describe-test",
+    "activity-executor"
+  ],
+  "concepts": [
+    "testing",
+    "docker",
+    "test-service-integration",
+    "describe-workflow"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot run the test suite successfully in Docker environments, blocking CI/CD pipelines.",
+  "rootCause": "Changes merged from temporalio/temporal#2007 to the Test Service caused testSuccessfulActivity test to fail with Docker",
+  "proposedFix": "Implement changes to Test Service and testSuccessfulActivity test as done for issue #766",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by pull request #782",
+  "related": [
+    766,
+    782
+  ],
+  "keyQuote": "It's most likely a result of merging https://github.com/temporalio/temporal/pull/2007",
+  "number": 790,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:42:09.610Z"
+}

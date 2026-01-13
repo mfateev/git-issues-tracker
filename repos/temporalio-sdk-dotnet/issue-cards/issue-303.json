@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to create wrapper methods on the Workflow class for commonly-used async task functions like WhenAllAsync and StartNewTask, similar to existing WhenAnyAsync and DelayAsync wrappers, to provide users with confidence in using these standard library calls.",
+  "category": "feature",
+  "subcategory": "workflow-api",
+  "apis": [
+    "WhenAllAsync",
+    "WhenAnyAsync",
+    "DelayAsync",
+    "StartNewTask"
+  ],
+  "components": [
+    "workflow-class",
+    "async-wrappers",
+    "task-methods"
+  ],
+  "concepts": [
+    "async-safety",
+    "workflow-api-design",
+    "developer-confidence",
+    "standard-library-wrappers",
+    "task-composition"
+  ],
+  "severity": "low",
+  "userImpact": "Users have to use standard library task functions directly instead of having safe wrapper methods on the Workflow class, reducing confidence in their usage.",
+  "rootCause": null,
+  "proposedFix": "Add Workflow wrapper methods for WhenAllAsync, StartNewTask, and other common/popular standard library task functions as one-liners to the underlying implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Wrapper methods were implemented to provide safe alternatives to standard library async calls.",
+  "related": [],
+  "keyQuote": "We might as well add Workflow.WhenAllAsync, Workflow.StartNewTask, and any other common/popular standard library task functions",
+  "number": 303,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:04:36.950Z"
+}

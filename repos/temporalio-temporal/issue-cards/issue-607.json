@@ -1,0 +1,34 @@
+{
+  "summary": "Lack of unit/integration tests for parentclosepolicy workflow allowed a nil context bug to slip through to stress testing. The issue highlights missing test coverage that should have caught the basic error earlier in development.",
+  "category": "bug",
+  "subcategory": "test-coverage",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow",
+    "activity-executor",
+    "test-framework"
+  ],
+  "concepts": [
+    "testing",
+    "context",
+    "nil-reference",
+    "workflow-execution",
+    "bug-prevention"
+  ],
+  "severity": "medium",
+  "userImpact": "Missing test coverage allows basic bugs like nil context errors to reach production instead of being caught during development.",
+  "rootCause": "Activity was not passing in a context, causing workflow failures that were only caught by stress testing rather than unit/integration tests.",
+  "proposedFix": "Add unit/integration tests for parentclosepolicy workflow and NilContextWorkflow to ensure proper context handling in activities.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2023
+  ],
+  "keyQuote": "Although we fixed the bug, there is a lack of unit/integration testing that should have protected us against this",
+  "number": 607,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:19:59.520Z"
+}

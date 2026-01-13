@@ -1,0 +1,37 @@
+{
+  "summary": "Add `patched()` and `deprecatePatch()` APIs to the Java SDK for managing workflow versioning and patching, following Core's implementation pattern. May also deprecate the existing `GetVersion` API.",
+  "category": "feature",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "Workflow.patched",
+    "Workflow.deprecatePatch",
+    "GetVersion"
+  ],
+  "components": [
+    "workflow-runtime",
+    "versioning-system",
+    "api-surface"
+  ],
+  "concepts": [
+    "workflow-patching",
+    "versioning",
+    "backward-compatibility",
+    "memoization",
+    "deprecation",
+    "sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have new APIs for managing workflow code changes and deprecation strategies, enabling safer workflow evolution.",
+  "rootCause": null,
+  "proposedFix": "Implement `patched()` and `deprecatePatch()` APIs following Core's implementation, with optional memoization support.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    591
+  ],
+  "keyQuote": "Add the `boolean Workflow.patched(String patchId, boolean memoized)` and `Workflow.deprecatePatch(String patchId, boolean memoized)` APIs.",
+  "number": 2393,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:07:14.656Z"
+}

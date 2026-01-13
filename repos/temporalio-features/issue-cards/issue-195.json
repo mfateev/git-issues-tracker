@@ -1,0 +1,32 @@
+{
+  "summary": "Define standardized behavior across all Temporal SDKs when a Worker receives an Activity Task for an unregistered Activity Type. Currently unclear what each SDK does and what the desired behavior should be.",
+  "category": "feature",
+  "subcategory": "activity-registration",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "activity-registry"
+  ],
+  "concepts": [
+    "activity-types",
+    "unregistered-handler",
+    "error-handling",
+    "standardization",
+    "sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get inconsistent error messages and behavior across different SDKs when workers encounter unregistered activity types.",
+  "rootCause": null,
+  "proposedFix": "Error with a list of known activity types; coordinate with #201 for standardizing dynamic workflows and activities behavior",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    201
+  ],
+  "keyQuote": "We want to error with a list of known activity types.",
+  "number": 195,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:57.783Z"
+}

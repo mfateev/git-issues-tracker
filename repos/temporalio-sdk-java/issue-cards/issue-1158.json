@@ -1,0 +1,35 @@
+{
+  "summary": "Test server's WorkflowService lacks DescribeNamespace implementation, causing Go SDK workers to fail during initialization. The issue arose from a discrepancy where Go SDK explicitly calls this method while other SDKs don't.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "DescribeNamespace",
+    "WorkflowService"
+  ],
+  "components": [
+    "test-server",
+    "workflow-service",
+    "worker-initialization"
+  ],
+  "concepts": [
+    "test-compatibility",
+    "namespace-management",
+    "sdk-discrepancy",
+    "stub-implementation",
+    "initialization-flow"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot start workers with test-server using Go SDK without encountering an UNIMPLEMENTED error during worker initialization.",
+  "rootCause": "Go SDK explicitly calls DescribeNamespace during worker startup, but test-server lacks a stub implementation of this method, whereas other SDKs don't make this call.",
+  "proposedFix": "Implement a stub DescribeNamespace method in TestWorkflowService that returns valid namespace metadata or silently succeeds, or remove the call from Go SDK for consistency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test server was updated to implement a stub DescribeNamespace method to support Go SDK's initialization flow and maintain compatibility across all SDKs.",
+  "related": [
+    196
+  ],
+  "keyQuote": "It looks like we should implement some stub describeNamespace in the test server just for the sake of compatibility with older versions of Go SDK.",
+  "number": 1158,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:10:22.849Z"
+}

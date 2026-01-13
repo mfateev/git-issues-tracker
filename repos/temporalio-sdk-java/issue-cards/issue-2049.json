@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to support async activities in Java SDK by allowing activity methods to return CompletableFuture/CompletablePromise without blocking. The discussion explores whether activities should be able to handle Java's native async APIs and determinism constraints.",
+  "category": "feature",
+  "subcategory": "activity-async",
+  "apis": [
+    "ActivityMethod",
+    "ManualActivityCompletionClient",
+    "ActivityExecutionContext"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-framework",
+    "async-activities"
+  ],
+  "concepts": [
+    "async-execution",
+    "completable-future",
+    "non-blocking",
+    "determinism",
+    "concurrent-primitives",
+    "manual-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing activities with Java async APIs must currently block on Future completion or use manual activity completion, reducing efficiency and usability.",
+  "rootCause": "Java SDK cannot support Java's native concurrent primitives like CompletableFuture in workflows due to determinism requirements, limiting async activity patterns.",
+  "proposedFix": "Provide AsyncActivityMethod annotation for activities returning CompletablePromise, with automatic handling similar to ManualActivityCompletionClient, reducing boilerplate.",
+  "workaround": "Use ManualActivityCompletionClient for manual async activity completion, or use doNotCompleteOnReturn() with virtual threads.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not planned because the existing ManualActivityCompletionClient API already provides the needed functionality for async activity patterns.",
+  "related": [],
+  "keyQuote": "this case is already covered by the ManualActivityCompletionClient",
+  "number": 2049,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:39.003Z"
+}

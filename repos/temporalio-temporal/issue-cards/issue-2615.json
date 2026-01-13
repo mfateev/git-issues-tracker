@@ -1,0 +1,31 @@
+{
+  "summary": "The auto-setup.sh script fails to pass the DB_PORT parameter to temporal-sql-tool when setting up MySQL and Cassandra databases, causing connection failures when a non-default port is specified.",
+  "category": "bug",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "temporal-sql-tool",
+    "mysql-setup",
+    "cassandra-setup"
+  ],
+  "concepts": [
+    "database-configuration",
+    "connection-parameters",
+    "port-configuration",
+    "setup-script",
+    "database-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot start the Temporal server with a custom database port, blocking server initialization in environments that don't use default ports.",
+  "rootCause": "The temporal-sql-tool invocations in auto-setup.sh do not include the DB_PORT parameter in the endpoint specification.",
+  "proposedFix": "Add DB_PORT parameter to all temporal-sql-tool commands in the auto-setup.sh script for MySQL and Cassandra database setup.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "auto-setup.sh misses the DB_PORT parameter in mysql and cassandra connection",
+  "number": 2615,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:57.956Z"
+}

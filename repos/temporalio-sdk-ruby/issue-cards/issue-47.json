@@ -1,0 +1,32 @@
+{
+  "summary": "Refactor the Ruby SDK's Connection class to isolate the workflow_service, creating a structured foundation for integrating operator_service, health_service, and test_service in the future.",
+  "category": "feature",
+  "subcategory": "connection-architecture",
+  "apis": [],
+  "components": [
+    "Connection",
+    "workflow_service",
+    "operator_service",
+    "health_service",
+    "test_service"
+  ],
+  "concepts": [
+    "service-isolation",
+    "connection-management",
+    "sdk-architecture",
+    "service-integration",
+    "modularity"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves the SDK's internal architecture to support multiple services through a Connection object, enabling better organization and future extensibility.",
+  "rootCause": null,
+  "proposedFix": "Isolate workflow_service on the Connection class to establish a pattern for managing multiple services.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The workflow_service was isolated on the Connection class, establishing the foundation for integrating additional services.",
+  "related": [],
+  "keyQuote": null,
+  "number": 47,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:39:49.200Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to reclassify benign application errors in OpenTelemetry metrics to prevent them from appearing as error signals. This feature request is based on a similar Python SDK issue.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "metrics",
+    "error-handling"
+  ],
+  "concepts": [
+    "observability",
+    "error-classification",
+    "signal-noise",
+    "application-errors",
+    "telemetry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience noise in OpenTelemetry error signals from benign application errors that don't represent actual system failures.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to reclassify benign application errors in OpenTelemetry metrics.",
+  "related": [
+    1041
+  ],
+  "keyQuote": "Reclassify Benign Application errors in OpenTelemetry",
+  "number": 2643,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:22.375Z"
+}

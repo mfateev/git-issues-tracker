@@ -1,0 +1,32 @@
+{
+  "summary": "NestJS integration with Temporal SDK fails to restart the worker after code changes during hot reload due to port already in use error (3000). The issue occurs when using nest start worker --watch with nestjs-temporal package.",
+  "category": "bug",
+  "subcategory": "nestjs-integration",
+  "apis": [],
+  "components": [
+    "worker",
+    "nestjs-integration",
+    "hot-reload"
+  ],
+  "concepts": [
+    "port-binding",
+    "process-restart",
+    "hot-reload",
+    "connection-cleanup",
+    "shutdown-hooks"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use hot reload during development and must manually restart the application after code changes.",
+  "rootCause": "Proper shutdown hooks not being called before worker restart, leaving the port bound.",
+  "proposedFix": "Add app.enableShutdownHooks() to NestJS application configuration to ensure proper cleanup on reload.",
+  "workaround": "Split NestJS app into separate entry point with standalone context and separate app registered in nest-cli.json, or manually restart the application.",
+  "resolution": "stale",
+  "resolutionDetails": "Issue reporter confirmed it was resolved using the shutdown hooks tip or other solutions mentioned, and indicated it was a development-time issue that could be closed.",
+  "related": [
+    54
+  ],
+  "keyQuote": "Adding `app.enableShutdownHooks()` fixes this problem for me.",
+  "number": 1437,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:17:44.106Z"
+}

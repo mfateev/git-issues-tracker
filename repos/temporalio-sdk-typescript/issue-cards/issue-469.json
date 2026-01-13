@@ -1,0 +1,31 @@
+{
+  "summary": "When registerErrors() is called multiple times on the TypeScript SDK bridge, it panics due to improper handling of the Neon Root handle. This occurs when worker code runs multiple times or in test scenarios with Jest mocking.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "errors-registration",
+    "worker-initialization"
+  ],
+  "concepts": [
+    "initialization",
+    "resource-lifecycle",
+    "neon-bindings",
+    "testing",
+    "module-loading",
+    "idempotency"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run worker code multiple times or use Jest mocking in integration tests without encountering a panic.",
+  "rootCause": "The registerErrors function in the Neon bridge does not properly handle the Root handle cleanup when called multiple times, violating Neon's drop-safety requirements.",
+  "proposedFix": "Use OnceCell<bool> to make the initialization idempotent, doing nothing if already initialized instead of panicking.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The function was modified to use OnceCell to make registerErrors() safely callable multiple times without panic.",
+  "related": [],
+  "keyQuote": "That function should probably just use a `OnceCell<bool>` to lift the restriction it imposes on callers, and just do nothing if initialization has already occurred.",
+  "number": 469,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:10:17.621Z"
+}

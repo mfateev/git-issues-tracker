@@ -1,0 +1,32 @@
+{
+  "summary": "When a PHP worker is started with session support enabled via `withEnableSessionWorker(true)`, user-registered activities cannot be found and cause ActivityNotRegisteredError. Only internal session activities are visible to the workflow.",
+  "category": "bug",
+  "subcategory": "session-worker",
+  "apis": [
+    "ExecuteActivity",
+    "CreateSession"
+  ],
+  "components": [
+    "worker",
+    "activity-registry",
+    "session-worker"
+  ],
+  "concepts": [
+    "sessions",
+    "activity-registration",
+    "task-queue",
+    "worker-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot execute user-defined activities when using session workers in PHP SDK, blocking the use of sessions for activity execution patterns.",
+  "rootCause": "Session worker implementation was exposed in configuration before full implementation was complete. User activities are not properly registered alongside internal session activities.",
+  "proposedFix": null,
+  "workaround": "Use separate task queues for workers instead of session workers, as demonstrated in PHP SDK examples.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it's semi-bug at the moment since we exposed the configuration option for sessions ahead of the actual implementation",
+  "number": 123,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:49.876Z"
+}

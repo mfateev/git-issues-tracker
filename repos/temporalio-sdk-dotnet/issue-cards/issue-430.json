@@ -1,0 +1,33 @@
+{
+  "summary": "Allow users to construct metric meter instances for testing purposes. Currently, MetricMeter is abstract with internal constructors, preventing users from creating test instances in ActivityEnvironment.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "MetricMeter",
+    "ActivityEnvironment"
+  ],
+  "components": [
+    "testing",
+    "metrics",
+    "activity-environment"
+  ],
+  "concepts": [
+    "testing",
+    "metrics",
+    "constructors",
+    "abstraction",
+    "user-extensibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot construct metric meter instances for testing activities, limiting test flexibility.",
+  "rootCause": "MetricMeter abstract methods have internal constructors that prevent user construction.",
+  "proposedFix": "Make protected constructors on MetricMeter that accept (string name, string? unit, string? description) and delegate to internal ones using MetricDetails.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Protected constructors were added to allow user construction of metric meters for testing.",
+  "related": [],
+  "keyQuote": "make `protected` constructors on each that accept `string name, string? unit, string? description`",
+  "number": 430,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:23:50.865Z"
+}

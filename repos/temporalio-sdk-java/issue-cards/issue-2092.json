@@ -1,0 +1,31 @@
+{
+  "summary": "The activity_succeed_endtoend_latency metric is not reported when completing activities using ActivityCompletionClient.complete() for manual async completion. This metric should be captured when in-process async activities are completed manually.",
+  "category": "bug",
+  "subcategory": "activity-metrics",
+  "apis": [
+    "ActivityCompletionClient"
+  ],
+  "components": [
+    "ManualActivityCompletionClientImpl",
+    "metrics",
+    "activity-executor"
+  ],
+  "concepts": [
+    "latency-metrics",
+    "async-activity",
+    "manual-completion",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on async activity completion cannot observe end-to-end latency metrics for their activities, limiting visibility into performance.",
+  "rootCause": "The ActivityCompletionClient.complete() method bypasses Temporal's normal completion mechanisms where the metric is recorded, similar to how other SDKs handle async completion.",
+  "proposedFix": "Add activity_succeed_endtoend_latency metric reporting to the ManualActivityCompletionClientImpl.complete() method when completing in-process async activities.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Metric is not reported, you can find a reproduction here https://github.com/antmendoza/my-temporal-pocs/tree/main/java/pocs/src/main/java/io/antmendoza/samples/_6442",
+  "number": 2092,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:21.262Z"
+}

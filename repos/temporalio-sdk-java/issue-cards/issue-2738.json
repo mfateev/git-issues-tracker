@@ -1,0 +1,33 @@
+{
+  "summary": "Request for Temporal SDK support for Spring Boot 4, which was released in November 2025. Spring Boot 4's modularization may require SDK changes, and Jackson 3 support will also be needed since Jackson 2 is deprecated in Spring Boot 4.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-integration",
+    "payload-converter",
+    "jackson-converter"
+  ],
+  "concepts": [
+    "spring-boot",
+    "framework-compatibility",
+    "jackson",
+    "modularization",
+    "json-serialization",
+    "version-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Spring Boot 4 applications cannot use the Temporal SDK without a custom integration layer, limiting adoption among Spring Boot 4 users.",
+  "rootCause": "Spring Boot 4's modularization introduces breaking changes that require SDK updates, and deprecated Jackson 2 support necessitates Jackson 3 compatibility.",
+  "proposedFix": "Investigate Spring Boot 4 compatibility requirements and implement necessary changes. Consider creating a separate Jackson3JsonPayloadConverter for Jackson 3 support.",
+  "workaround": "Users can create a custom Spring Boot integration layer based on the core Temporal SDK to support Spring Boot 4.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2746
+  ],
+  "keyQuote": "Spring Boot 4 has already come out, so it would be great if Temporal SDK adds support for it as well.",
+  "number": 2738,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:35.359Z"
+}

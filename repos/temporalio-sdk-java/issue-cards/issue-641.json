@@ -1,0 +1,32 @@
+{
+  "summary": "NullPointerException occurring during performance tests in WorkflowThreadContext.runUntilBlocked(), indicating a potential multithreading issue or race condition in workflow execution.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "WorkflowThreadContext",
+    "DeterministicRunnerImpl",
+    "SyncWorkflow",
+    "ReplayWorkflowExecutor"
+  ],
+  "concepts": [
+    "multithreading",
+    "race-condition",
+    "null-pointer",
+    "workflow-replay",
+    "performance-testing",
+    "event-loop"
+  ],
+  "severity": "high",
+  "userImpact": "Users running performance tests experience crashes due to NPE in workflow execution, preventing load testing and performance validation.",
+  "rootCause": "Potential race condition or partial publishing in multithreaded workflow execution context, causing null reference in runUntilBlocked method.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through fixing the race condition in the workflow threading implementation.",
+  "related": [],
+  "keyQuote": "NPE during performance tests that points to some multithreading issue / race / partial publishing",
+  "number": 641,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:30:56.525Z"
+}

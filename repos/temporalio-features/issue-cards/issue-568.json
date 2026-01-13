@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for a native query builder in Temporal SDKs to safely construct visibility API queries instead of string concatenation. The user has already open-sourced a working Go implementation and advocates for including it in official repositories for better discoverability and support.",
+  "category": "feature",
+  "subcategory": "visibility-api",
+  "apis": [
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "visibility-api",
+    "query-builder",
+    "search-attributes"
+  ],
+  "concepts": [
+    "query-construction",
+    "string-safety",
+    "visibility-filtering",
+    "search-attributes",
+    "api-usability",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently must manually build visibility query strings which is error-prone; a native builder would provide type-safe query construction.",
+  "rootCause": null,
+  "proposedFix": "Implement a query builder across all SDKs supporting logical operators and list filters, similar to SQL builders. Example: QueryBuilder().StartQuery(attr, operator, value).And(...).Encode() returns query string.",
+  "workaround": "Use external community package like https://github.com/OpeOnikute/temporal-go-querybuilder or manual string formatting with fmt.Sprintf",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A simple to use query builder that supports all the defined logical operators and list filters",
+  "number": 568,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:27.499Z"
+}

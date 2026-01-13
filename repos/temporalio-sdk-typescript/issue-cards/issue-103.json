@@ -1,0 +1,30 @@
+{
+  "summary": "The `npm init @temporalio` command may fail when users run it a second time after a new version of `@temporalio/create` is released, because npm doesn't update the cached package which may contain an incompatible project template.",
+  "category": "bug",
+  "subcategory": "project-initialization",
+  "apis": [],
+  "components": [
+    "create-package",
+    "npm-initialization",
+    "project-template"
+  ],
+  "concepts": [
+    "package-versioning",
+    "dependency-management",
+    "initialization",
+    "npm-caching",
+    "template-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to initialize new projects using the recommended command may encounter failures if they've previously used it with an older version of the create package.",
+  "rootCause": "npm init does not update cached packages, so @temporalio/create remains at the old version which may have incompatible project templates for newer temporalio versions.",
+  "proposedFix": "Hardcode the temporalio version in the published @temporalio/create package, or recommend using `npx @temporalio/create@latest` which forces package updates.",
+  "workaround": "Use `npx @temporalio/create@latest` instead of `npm init @temporalio` to ensure the latest version is used.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The team stopped recommending `npm init @temporalio` in favor of the `npx @temporalio/create@latest` approach due to this npm limitation.",
+  "related": [],
+  "keyQuote": "We stopped recommending `npm init @temporalio` for the package initializer due to this limitation.",
+  "number": 103,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:55.837Z"
+}

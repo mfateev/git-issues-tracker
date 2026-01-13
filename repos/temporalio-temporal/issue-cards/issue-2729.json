@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal server fails to connect to Cassandra cluster when a single node is down, despite having multiple nodes configured. The gocql driver appears unable to fall back to remaining healthy nodes even when multiple hosts are specified in the configuration.",
+  "category": "bug",
+  "subcategory": "cassandra-connectivity",
+  "apis": [],
+  "components": [
+    "cassandra-client",
+    "gocql-driver",
+    "persistence-layer",
+    "session-management"
+  ],
+  "concepts": [
+    "cluster-failover",
+    "connection-resilience",
+    "multi-node-connectivity",
+    "timeout-handling",
+    "host-discovery",
+    "circuit-breaker"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal server becomes unavailable when any Cassandra cluster node goes down, preventing normal operation and requiring manual intervention to recover.",
+  "rootCause": "The gocql driver fails to properly implement connection fallback to remaining healthy nodes in a multi-node Cassandra cluster, possibly due to configuration parsing or reconnection logic issues.",
+  "proposedFix": "Upgrade to gocql 1.4.0 or later (included in Temporal v1.21.5), which may address the reconnection handling between cluster nodes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal is not able to connect to Cassandra even when ONE node is down. The temporal pods are not able to connect to remaining other two nodes.",
+  "number": 2729,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:22.890Z"
+}

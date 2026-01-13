@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to improve activity registration and import patterns in TypeScript SDK. Currently uses scoped imports (@activities/something) for implicit type safety, but community members suggest alternative approaches: Context.activities<ActivityInterface>() for flexible registration or enforcing a single entry point (@activities/index.ts) to prevent duplicates.",
+  "category": "feature",
+  "subcategory": "activity-registration",
+  "apis": [
+    "Context.activities",
+    "Worker.create"
+  ],
+  "components": [
+    "activity-registration",
+    "import-system",
+    "workflow-context",
+    "type-safety"
+  ],
+  "concepts": [
+    "import-patterns",
+    "type-safety",
+    "dependency-injection",
+    "registration",
+    "flexibility",
+    "explicitness"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clearer, more flexible patterns for activity registration that balance convenience with explicitness and type safety.",
+  "rootCause": null,
+  "proposedFix": "Three options discussed: 1) Support imports from parent directories (../activities), 2) Use Context.activities<T>() with Worker registration for flexible DI, 3) Enforce single @activities/index.ts entry point to prevent duplicates and confusion.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved as activity registration patterns were improved in subsequent SDK updates.",
+  "related": [],
+  "keyQuote": "The @activities idiom still strikes me as odd. I'd prefer if this were changed to something unambiguous and preferably explicit.",
+  "number": 168,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:56.521Z"
+}

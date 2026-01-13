@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add the ability to force immediate execution of a waiting cron workflow without terminating it or creating a new workflow with a different ID. The feature has been implemented using TerminateIfRunning policy and SignalWithStartWorkflowExecution.",
+  "category": "feature",
+  "subcategory": "cron-workflows",
+  "apis": [
+    "SignalWithStartWorkflowExecution",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "cron-scheduler",
+    "workflow-reuse-policy"
+  ],
+  "concepts": [
+    "cron-execution",
+    "workflow-restart",
+    "immediate-execution",
+    "terminate-if-running",
+    "workflow-idempotency",
+    "signal-with-start"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now trigger immediate execution of waiting cron workflows without terminating or restarting with a different ID.",
+  "rootCause": null,
+  "proposedFix": "Use TerminateIfRunning id reuse policy with StartWorkflow or SignalWithStartWorkflowExecution to restart workflow atomically and force immediate cron execution.",
+  "workaround": "SignalWithStartWorkflowExecution can be used to execute the waiting cron next run immediately.",
+  "resolution": "fixed",
+  "resolutionDetails": "TerminateIfRunning support was added to Temporal API and SignalWithStartWorkflowExecution can be used to execute waiting cron immediately.",
+  "related": [],
+  "keyQuote": "SignalWithStartWorkflowExecution can be used to execute waiting cron (next run) immediately.",
+  "number": 404,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:54:38.988Z"
+}

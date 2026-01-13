@@ -1,0 +1,31 @@
+{
+  "summary": "Failure to start an ephemeral server (e.g., due to unsupported architecture) leaves the server in a failed state, preventing proper test cleanup and causing the process to hang during shutdown.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "ephemeral-server",
+    "test-helpers",
+    "shutdown"
+  ],
+  "concepts": [
+    "error-handling",
+    "cleanup",
+    "resource-management",
+    "process-exit",
+    "server-startup",
+    "graceful-shutdown"
+  ],
+  "severity": "high",
+  "userImpact": "Tests fail with unhandled promise rejections and the process never completes shutdown, requiring manual intervention.",
+  "rootCause": "When ephemeral server startup fails, the teardown function is not properly initialized, causing a TypeError when cleanup is attempted and blocking process exit.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Failure to start ephemeral server prevents shutdown of the process",
+  "number": 1443,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:17:56.599Z"
+}

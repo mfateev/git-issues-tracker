@@ -1,0 +1,32 @@
+{
+  "summary": "Helper function for execute_activity fails with invalid TaskQueue error when using certain retry policy configurations. The issue appears to be triggered by specific retry policy settings (initial_interval >= 30 seconds) rather than the helper function itself.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "workflow-context"
+  ],
+  "concepts": [
+    "retry-policy",
+    "task-queue",
+    "helper-functions",
+    "timeout-configuration",
+    "configuration-inheritance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to create helper functions for executing activities with certain retry policy configurations encounter task queue errors that don't occur without the helper wrapper.",
+  "rootCause": "Unclear - appears to be related to retry policy configuration (initial_interval timing) affecting task queue resolution, but maintainer unable to reproduce consistently",
+  "proposedFix": null,
+  "workaround": "Use initial_interval=timedelta(seconds=1) instead of larger values like 30 seconds in the retry policy",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was determined to be caused by user-side bugs in the reproduction case (wrong activity reference, invalid retry policy with maximum_interval < initial_interval). When corrected, the helper pattern works as expected.",
+  "related": [],
+  "keyQuote": "when I set initial_interval=timedelta(seconds=1), it works perfectly. But if I change it to initial_interval=timedelta(seconds=30), it throws an \"invalid TaskQueue\" error",
+  "number": 855,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:48.653Z"
+}

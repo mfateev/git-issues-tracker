@@ -1,0 +1,32 @@
+{
+  "summary": "The sql-tool fails when database or schema already exists, preventing idempotent runs. Users need the ability to ignore these 'already exists' errors to safely re-run the schema creation tool multiple times.",
+  "category": "feature",
+  "subcategory": "sql-tool",
+  "apis": [],
+  "components": [
+    "sql-tool",
+    "schema-setup",
+    "database-initialization"
+  ],
+  "concepts": [
+    "idempotency",
+    "error-handling",
+    "database-setup",
+    "schema-creation",
+    "operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely re-run sql-tool for schema creation without manual intervention, breaking infrastructure-as-code patterns.",
+  "rootCause": "The sql-tool does not gracefully handle 'already exists' errors during database and schema creation.",
+  "proposedFix": "Add support for ignoring 'already exists' errors, similar to the implementation in docker/start.sh#L77.",
+  "workaround": "Users can manually handle these errors outside of sql-tool or modify their database setup scripts.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was likely implemented.",
+  "related": [
+    1087
+  ],
+  "keyQuote": "It would be nice to be able to ignore those errors.",
+  "number": 1523,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:38:40.145Z"
+}

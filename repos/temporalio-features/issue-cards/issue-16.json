@@ -1,0 +1,46 @@
+{
+  "summary": "Cross-SDK feature request to expose workflow history length and size information via the Workflow Info API, along with a 'continue as new suggested' indicator. This helps workflows make informed decisions about when to continue as new based on history metrics.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "sdk-api",
+    "history-tracking"
+  ],
+  "concepts": [
+    "history-size",
+    "history-length",
+    "continue-as-new",
+    "workflow-metadata",
+    "server-capability"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows can now access historical metrics to make informed decisions about continuing as new, improving long-running workflow management across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Expose history length, history size, and 'continue as new suggested' flag in WorkflowInfo API across all SDKs (Go, TypeScript, Java, Python, PHP, .NET).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented across SDKs with additional consideration for server capability detection and query response delays.",
+  "related": [
+    851,
+    357,
+    1300,
+    73,
+    222,
+    122,
+    2726,
+    3055,
+    628,
+    564,
+    695,
+    1853,
+    361
+  ],
+  "keyQuote": "These values may be delayed if accessed in a query. SDKs need to document that these values may be delayed if accessed in a query.",
+  "number": 16,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:40.317Z"
+}

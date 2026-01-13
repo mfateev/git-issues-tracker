@@ -1,0 +1,36 @@
+{
+  "summary": "Test suite contains multiple flaky tests that fail intermittently across different environments and test runs, including timeouts, pickling errors, and process failures.",
+  "category": "bug",
+  "subcategory": "test-reliability",
+  "apis": [],
+  "components": [
+    "test-worker",
+    "test-activity",
+    "test-workflow",
+    "process-management"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "timeout",
+    "serialization",
+    "pickling",
+    "environment-specific-failures"
+  ],
+  "severity": "high",
+  "userImpact": "Unreliable test suite undermines confidence in SDK stability and makes development harder for contributors.",
+  "rootCause": "Multiple underlying issues identified: pickling errors with lambda functions in heartbeat details, timeout issues in workflow handler tests, and process completion failures in CI.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after collecting examples of flaky tests and implementing fixes.",
+  "related": [
+    609,
+    739,
+    566,
+    567
+  ],
+  "keyQuote": "The test suite currently has multiple tests that sometimes fail. Let's collect examples in this ticket, and fix them.",
+  "number": 568,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:05.640Z"
+}

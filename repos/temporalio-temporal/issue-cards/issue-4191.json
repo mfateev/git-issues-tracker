@@ -1,0 +1,33 @@
+{
+  "summary": "Signal dedup map in mutable state grows unbounded because request_id entries from external SignalWorkflow API calls are never cleaned up. A memory leak occurs where this map accumulates entries indefinitely without any removal mechanism.",
+  "category": "bug",
+  "subcategory": "signal-dedup",
+  "apis": [
+    "SignalWorkflow"
+  ],
+  "components": [
+    "mutable-state",
+    "signal-handling",
+    "dedup-mechanism"
+  ],
+  "concepts": [
+    "memory-leak",
+    "cleanup",
+    "deduplication",
+    "request-tracking",
+    "unbounded-growth",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Long-running workflows accumulate signal request IDs indefinitely, causing memory pressure and potential out-of-memory errors.",
+  "rootCause": "Signal dedup map lacks a removal mechanism for external signal request IDs, causing unbounded accumulation.",
+  "proposedFix": "Implement a limit on the map size (count-based) or use TTL-based expiration for signal dedup entries.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When the signal is coming from external (like received from SignalWorkflow API), those request_id stay in the map forever and never get cleaned up.",
+  "number": 4191,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:46.916Z"
+}

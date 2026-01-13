@@ -1,0 +1,32 @@
+{
+  "summary": "The `MockActivityEnvironment.run` method infers return type as `unknown` instead of the actual function's return type, breaking type safety in strict TypeScript mode. A proposed solution uses better generic type constraints to properly infer the return type.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "MockActivityEnvironment"
+  ],
+  "components": [
+    "mock-activity-environment",
+    "type-inference",
+    "test-utilities"
+  ],
+  "concepts": [
+    "type-safety",
+    "generics",
+    "type-inference",
+    "testing",
+    "mock-environments"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use strict TypeScript mode effectively when testing activities with MockActivityEnvironment due to type inference limitations.",
+  "rootCause": "The current generic signature uses overly broad type constraints that prevent TypeScript from properly inferring the return type through the function parameter.",
+  "proposedFix": "Change the signature from `run<P extends any[], R, F extends ActivityFunction<P, R>>(fn: F, ...args: P): Promise<R>` to `run<F extends ActivityFunction>(fn: F, ...args: Parameters<F>): ReturnType<F>`",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Change the signature of `MockActivityEnvironment.run` from: run<P extends any[], R, F extends ActivityFunction<P, R>>(fn: F, ...args: P): Promise<R>; to: run<F extends ActivityFunction>(fn: F, ...args: Parameters<F>): ReturnType<F>",
+  "number": 1710,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:14.048Z"
+}

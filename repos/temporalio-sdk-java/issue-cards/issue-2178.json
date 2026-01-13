@@ -1,0 +1,31 @@
+{
+  "summary": "Search attributes should be automatically carried over when using continue-as-new in Java SDK if none are explicitly specified, matching the behavior of other Temporal SDKs.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-executor",
+    "search-attributes",
+    "state-management"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "search-attributes",
+    "state-preservation",
+    "cross-sdk-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose search attributes when using continue-as-new, creating inconsistent behavior compared to other SDKs and potential data loss.",
+  "rootCause": "Continue-as-new implementation does not preserve search attributes by default in Java SDK.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation updated to carry over search attributes on continue-as-new when none are explicitly specified.",
+  "related": [],
+  "keyQuote": "This will match the behavior in other SDKs. Currently it looks like nothing is carried over.",
+  "number": 2178,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:07.439Z"
+}

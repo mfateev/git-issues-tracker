@@ -1,0 +1,32 @@
+{
+  "summary": "User requested a workflow.disabledeadlockdetection context manager for data converters in Python SDK, similar to Go and Java. The request was closed after learning that deadlock detection is intentionally only applied to payload converters (not codecs), and the recommended approach is to move heavy I/O work to payload codecs instead.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "payload-converter",
+    "payload-codec",
+    "sandbox"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "performance",
+    "serialization",
+    "workflow-task-processing",
+    "timeout",
+    "codec-converter-separation"
+  ],
+  "severity": "low",
+  "userImpact": "Users encountering deadlock detection errors in custom data converters need to understand the architecture and move heavy work to payload codecs instead.",
+  "rootCause": "Workflow tasks with heavy serialization/deserialization work in payload converters can exceed the 2-second deadlock detection threshold; the Python SDK deliberately applies deadlock detection only to payload converters (which run in the sandbox) and not codecs (which run on boundaries).",
+  "proposedFix": "Move heavy I/O and async work from payload converters to custom payload codecs, which run outside the sandbox and are not subject to deadlock detection (only to the 10-second task timeout).",
+  "workaround": "Implement custom payload codecs to handle serialization of generics and Pydantic objects, as these run on task boundaries before/after sandbox processing.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The feature was intentionally not implemented because the Python SDK already has proper separation of payload codecs and converters, unlike Go/Java. Users should move heavy work to codecs.",
+  "related": [],
+  "keyQuote": "Move my data converter code into the codec to ensure I have enough time to serialize.",
+  "number": 823,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:05.643Z"
+}

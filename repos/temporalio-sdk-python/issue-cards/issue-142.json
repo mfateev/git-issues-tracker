@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to implement FailureConverter concept in Python SDK, aligning with TypeScript SDK implementation (PR #887). This depends on completing work in issue #164.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "failure-converter",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-conversion",
+    "exception-handling",
+    "sdk-alignment",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need consistent error handling patterns across Temporal SDKs for converting failures between different representations.",
+  "rootCause": null,
+  "proposedFix": "Implement FailureConverter concept following TypeScript SDK PR #887 design patterns.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of the error handling standardization work, dependent on completion of issue #164.",
+  "related": [
+    131,
+    164
+  ],
+  "keyQuote": "See https://github.com/temporalio/sdk-typescript/pull/887. Also relates to #131.",
+  "number": 142,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:45.069Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a custom Cassandra seed node provider hook to support dynamic discovery of seed node hostnames/IPs without requiring configuration updates when cluster membership changes.",
+  "category": "feature",
+  "subcategory": "cassandra-persistence",
+  "apis": [],
+  "components": [
+    "cassandra",
+    "persistence",
+    "server-config"
+  ],
+  "concepts": [
+    "dynamic-discovery",
+    "seed-provider",
+    "cluster-configuration",
+    "service-discovery",
+    "plugin-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Organizations with dynamic Cassandra clusters can implement custom seed discovery logic without modifying Temporal configuration.",
+  "rootCause": null,
+  "proposedFix": "Add a new ServerOption (WithCassandraSeedProvider) that accepts a custom seed provider implementation via a well-defined interface.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented as a new ServerOption for custom Cassandra seed provider",
+  "related": [],
+  "keyQuote": "It should be possible to supply a custom seed provider via a well defined interface.",
+  "number": 1156,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:10.458Z"
+}

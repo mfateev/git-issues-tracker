@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for streaming support in OpenAI Agents integration. Users need run_streamed() to update chat progress during long-running reasoning agent operations.",
+  "category": "feature",
+  "subcategory": "openai-agents-streaming",
+  "apis": [
+    "run_streamed"
+  ],
+  "components": [
+    "openai-agents-plugin",
+    "activity-executor",
+    "streaming-support"
+  ],
+  "concepts": [
+    "streaming",
+    "real-time-updates",
+    "agent-execution",
+    "long-running-tasks",
+    "progress-tracking",
+    "async-communication"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot implement streaming agents that provide real-time progress updates to clients, blocking use cases that require incremental response feedback.",
+  "rootCause": "Streaming updates from activities back to workflows require non-trivial implementation to propagate model outputs asynchronously during agent execution.",
+  "proposedFix": "Implement streaming support in the OpenAI Agents plugin to handle run_streamed() calls and propagate updates back through the workflow.",
+  "workaround": "Use two separate workers - one with the plugin for agent workflows and one without for regular workflows; or implement manual polling/callback mechanisms.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Streaming is not currently supported, as it is non-trivial to bring those updates back to the workflow from the activity in which the models are running.",
+  "number": 1009,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:13.888Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Search attributes fail to be added when the `temporal operator search-attribute create` command is executed back-to-back. Only the last attribute is actually created, though they can all be created in a single command with multiple --name and --type flags.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "temporal-cli",
+    "operator-command",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "cli-command",
+    "batch-operations",
+    "idempotency",
+    "command-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently create multiple search attributes sequentially and must use a workaround of combining all attributes into a single command.",
+  "rootCause": "The search-attribute create command has a race condition or state management issue when executed back-to-back, causing only the final attribute to persist.",
+  "proposedFix": null,
+  "workaround": "Execute all search-attribute create commands with multiple --name and --type flag pairs in a single command instead of running separate commands.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #4080",
+  "related": [
+    4080
+  ],
+  "keyQuote": "When executing the following command back-to-back only one search attribute was added.",
+  "number": 4073,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:37.078Z"
+}

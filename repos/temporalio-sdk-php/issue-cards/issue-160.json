@@ -1,0 +1,38 @@
+{
+  "summary": "Workflow hangs indefinitely when using Workflow::await() with Promise::all() and a callback condition. The issue stems from missing yield keywords and misunderstanding of when Workflow::async() requires yield in the PHP SDK.",
+  "category": "question",
+  "subcategory": "workflow-control-flow",
+  "apis": [
+    "Workflow::await",
+    "Workflow::async",
+    "Workflow::timer",
+    "Promise::all",
+    "Promise::any"
+  ],
+  "components": [
+    "workflow-executor",
+    "promise-handling",
+    "async-operations",
+    "control-flow"
+  ],
+  "concepts": [
+    "yield-semantics",
+    "promise-resolution",
+    "workflow-interruption",
+    "async-execution",
+    "control-flow",
+    "generator-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement interruptible batch operations in workflows without understanding implicit yield behavior, leading to workflows that hang or complete unexpectedly.",
+  "rootCause": "Missing yield keywords before Workflow::async() calls in certain contexts. The PHP SDK's implicit yield behavior for Workflow::async() in Promise::all() contexts differs from explicit yield requirements elsewhere, causing confusion about when yields are required.",
+  "proposedFix": "Add explicit yield keywords before all Workflow::async() calls and clarify documentation about when yield is required versus implicit.",
+  "workaround": "Wrap Promise::all() with Promise::any() and add explicit yield keywords before all Workflow::async() and Workflow::await() calls.",
+  "resolution": "invalid",
+  "resolutionDetails": "Resolved as invalid/question - the issue was user misunderstanding of yield requirements in the PHP SDK. The workflow hangs due to missing yield keywords, not a bug in the SDK itself.",
+  "related": [],
+  "keyQuote": "With `Workflow::await()` and `Workflow::await()` you just create promises. To actually execute the code inside you need to call `yield`.",
+  "number": 160,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:09.207Z"
+}

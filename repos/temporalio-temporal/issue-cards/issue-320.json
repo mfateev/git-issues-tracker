@@ -1,0 +1,32 @@
+{
+  "summary": "Listing task list partitions crashes the server with a nil pointer dereference during protobuf marshaling. The crash occurs in TaskListPartitionMetadata.MarshalToSizedBuffer when a null partition metadata object is encountered.",
+  "category": "bug",
+  "subcategory": "tasklist-partition",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "tasklist-manager",
+    "protobuf-serialization"
+  ],
+  "concepts": [
+    "nil-pointer",
+    "marshaling",
+    "memory-safety",
+    "tasklist-partitions",
+    "grpc-serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot list task list partitions using tctl without the server crashing.",
+  "rootCause": "TaskListPartitionMetadata object is nil when being marshaled to protobuf in the ListTaskListPartitionsResponse.",
+  "proposedFix": "Fix in PR #639 which handles nil partition metadata objects properly during serialization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #639 which adds proper nil checks before marshaling TaskListPartitionMetadata.",
+  "related": [
+    639
+  ],
+  "keyQuote": "panic: runtime error: invalid memory address or nil pointer dereference in TaskListPartitionMetadata.MarshalToSizedBuffer",
+  "number": 320,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:12.720Z"
+}

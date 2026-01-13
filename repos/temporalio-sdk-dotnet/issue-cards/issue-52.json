@@ -1,0 +1,30 @@
+{
+  "summary": "Replace the Go kitchen sink workflow used in .NET SDK tests with a native .NET implementation, as the .NET SDK is now feature-complete and no longer needs to rely on Go code.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "kitchen-sink",
+    "workflows"
+  ],
+  "concepts": [
+    "test-coverage",
+    "feature-parity",
+    "native-implementation",
+    "sdk-maturity",
+    "test-maintenance"
+  ],
+  "severity": "low",
+  "userImpact": "Removes unnecessary Go dependency from .NET SDK tests, simplifying the test suite and improving maintainability.",
+  "rootCause": null,
+  "proposedFix": "Implement a .NET version of the kitchen sink workflow for testing purposes",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The kitchen sink workflow in tests was replaced with a .NET implementation as the SDK achieved feature parity with other Temporal SDKs",
+  "related": [],
+  "keyQuote": "No need for Go code anymore now that .NET is full featured",
+  "number": 52,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:08:49.823Z"
+}

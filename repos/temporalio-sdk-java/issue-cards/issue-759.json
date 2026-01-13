@@ -1,0 +1,31 @@
+{
+  "summary": "Querying a completed workflow incorrectly increments the 'temporal_workflow_completed_total' metrics counter, treating query operations as new workflow completions. This causes inaccurate metrics reporting where the counter increases with each query request rather than reflecting actual workflow completions.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics-reporter",
+    "micrometer",
+    "workflow-service"
+  ],
+  "concepts": [
+    "metrics",
+    "monitoring",
+    "prometheus",
+    "workflow-completion",
+    "query-operations",
+    "counter-accuracy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive incorrect metrics for workflow completion rates, making it difficult to accurately monitor workflow execution and performance.",
+  "rootCause": "The SDK appears to be incrementing the workflow completion counter when querying completed workflows, rather than only when workflows actually complete.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Querying a completed workflow increments the 'temporal_workflow_completed_total' for the relevant 'workflow_type' by 1 per Query request.",
+  "number": 759,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:40:11.035Z"
+}

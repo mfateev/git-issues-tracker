@@ -1,0 +1,28 @@
+{
+  "summary": "The README logo image URL needs to be fully qualified so it will display correctly on PyPI package pages instead of only working on GitHub.",
+  "category": "feature",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "documentation",
+    "package-metadata"
+  ],
+  "concepts": [
+    "image-url",
+    "pypi-display",
+    "package-publishing",
+    "readme-rendering"
+  ],
+  "severity": "low",
+  "userImpact": "Users viewing the Python SDK on PyPI cannot see the project logo due to relative URL references.",
+  "rootCause": "README uses relative image URL that works on GitHub but not when rendered on PyPI.",
+  "proposedFix": "Use fully qualified URL for the logo image in README.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Logo was uploaded to a CDN to provide a fully qualified URL.",
+  "related": [],
+  "keyQuote": "@lorensr is working on uploading the logo to a CDN.",
+  "number": 302,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:38.788Z"
+}

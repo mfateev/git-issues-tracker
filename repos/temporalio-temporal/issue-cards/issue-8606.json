@@ -1,0 +1,32 @@
+{
+  "summary": "Request to allow TriggerImmediatelyRequest to specify custom arguments when triggering a schedule, enabling one-off runs with different payloads than the start action defines.",
+  "category": "feature",
+  "subcategory": "schedule-execution",
+  "apis": [
+    "TriggerImmediatelyRequest"
+  ],
+  "components": [
+    "schedule-service",
+    "schedule-trigger",
+    "api-protos"
+  ],
+  "concepts": [
+    "schedule-triggers",
+    "custom-arguments",
+    "payload-override",
+    "one-off-execution",
+    "schedule-flexibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot trigger scheduled workflows with different arguments than those defined in the schedule's start action, limiting flexibility in one-off executions.",
+  "rootCause": null,
+  "proposedFix": "Extend TriggerImmediatelyRequest to include an optional arguments field that allows specifying custom payload for the triggered execution.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently not possible to trigger schedule with a different payload than what is specified within the start action.",
+  "number": 8606,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:11.733Z"
+}

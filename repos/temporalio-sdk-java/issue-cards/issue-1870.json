@@ -1,0 +1,32 @@
+{
+  "summary": "When a workflow task times out with `UnableToAcquireLockException`, the worker slot is not released, causing resource leaks and preventing future tasks from executing on that slot.",
+  "category": "bug",
+  "subcategory": "worker-slots",
+  "apis": [],
+  "components": [
+    "worker",
+    "slot-manager",
+    "task-execution",
+    "lock-management"
+  ],
+  "concepts": [
+    "timeout",
+    "resource-leak",
+    "slot-release",
+    "exception-handling",
+    "concurrency",
+    "lock-acquisition"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow tasks timeout with lock exceptions, causing permanent slot loss that degrades worker capacity and throughput.",
+  "rootCause": "Exception handler for `UnableToAcquireLockException` during workflow task timeout does not properly release the acquired slot.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Slot release logic was corrected to ensure slots are freed even when `UnableToAcquireLockException` occurs during task timeout handling.",
+  "related": [],
+  "keyQuote": "If a workflow task times out with `UnableToAcquireLockException` the slot is not released",
+  "number": 1870,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:04.612Z"
+}

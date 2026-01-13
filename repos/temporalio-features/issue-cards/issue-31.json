@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to update workflow time when processing queries to allow handlers to get current system time instead of last workflow task time. The solution proposes exposing system time through WorkflowInfo.unsafe.now for TypeScript SDK where wall clock access is sandboxed.",
+  "category": "feature",
+  "subcategory": "query-handlers",
+  "apis": [
+    "Workflow.await"
+  ],
+  "components": [
+    "query-handler",
+    "workflow-info",
+    "typescript-sdk"
+  ],
+  "concepts": [
+    "time",
+    "queries",
+    "sandboxing",
+    "system-time",
+    "workflow-time"
+  ],
+  "severity": "medium",
+  "userImpact": "Allows developers to get real system time in query handlers instead of being limited to workflow time, important for TypeScript where wall clock access is sandboxed.",
+  "rootCause": "Query handlers use workflow time which may be stale if no recent workflow tasks have been processed, but sandboxing in TypeScript prevents direct access to system time.",
+  "proposedFix": "Expose system time in WorkflowInfo.unsafe.now to allow queries to access current system time when needed.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed in favor of linked TypeScript-specific issue, deemed not needed for non-sandboxed runtimes.",
+  "related": [],
+  "keyQuote": "Update workflow time before processing queries (and possibly immediately reset back to workflow time)",
+  "number": 31,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:24.755Z"
+}

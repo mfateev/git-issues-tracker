@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to throw an error when heartbeat() is called from Local Activities, aligning with Python SDK behavior. This would signal to users that heartbeats are unnecessary and ignored in local activities.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "heartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "local-activity",
+    "error-handling"
+  ],
+  "concepts": [
+    "heartbeat",
+    "local-activities",
+    "developer-experience",
+    "api-validation",
+    "error-signaling"
+  ],
+  "severity": "low",
+  "userImpact": "Users will receive a clear error message instead of silently ignored heartbeat calls, preventing confusion about whether their code is working correctly.",
+  "rootCause": null,
+  "proposedFix": "Throw an error when heartbeat() is invoked from within a local activity execution context.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This is what Python does. It's a way to indicate to users that they don't need that line of code (which currently is ignored / has no effect).",
+  "number": 828,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:18:38.367Z"
+}

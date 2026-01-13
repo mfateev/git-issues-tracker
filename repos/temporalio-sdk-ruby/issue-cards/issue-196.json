@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to expose the ability to configure OTel metrics to use HTTP instead of the default gRPC protocol in the Ruby SDK. This aligns with a similar enhancement being considered for the Core library.",
+  "category": "feature",
+  "subcategory": "observability-otel",
+  "apis": [],
+  "components": [
+    "otel-metrics",
+    "core-integration"
+  ],
+  "concepts": [
+    "observability",
+    "metrics",
+    "http-protocol",
+    "otel-configuration",
+    "sdk-core"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have the option to export OTel metrics over HTTP instead of being limited to gRPC, providing more flexibility in observability setup.",
+  "rootCause": null,
+  "proposedFix": "Add a simple boolean configuration option (default false) to enable HTTP protocol for OTel metrics.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    820
+  ],
+  "keyQuote": "Expose ability to have Core OTel metrics use HTTP instead of default gRPC protocol.",
+  "number": 196,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:45:34.006Z"
+}

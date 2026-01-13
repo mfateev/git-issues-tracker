@@ -1,0 +1,34 @@
+{
+  "summary": "Spring Boot's auto-configured TestWorkflowEnvironment doesn't register custom DataConverter beans, preventing test configurations with custom data converters from being applied.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "WorkflowClientOptions",
+    "DataConverter"
+  ],
+  "components": [
+    "spring-boot-autoconfigure",
+    "test-framework",
+    "workflow-client"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "auto-configuration",
+    "test-setup",
+    "data-serialization",
+    "bean-registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using Spring Boot with custom DataConverters cannot properly test their workflows because the TestWorkflowEnvironment ignores DataConverter beans.",
+  "rootCause": "The Spring Boot auto-configuration for TestWorkflowEnvironment does not detect and register DataConverter beans during test setup.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The TestWorkflowEnvironment auto-configuration was updated to properly discover and register DataConverter beans from the Spring context.",
+  "related": [],
+  "keyQuote": "testWorkflowEnvironment does not take in account any test configuration beans of type DataConverter and does not register them in its WorkflowClientOptions",
+  "number": 1463,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:36:11.250Z"
+}

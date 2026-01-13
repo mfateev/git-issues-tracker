@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Server logs every error response from the history client as an error-level message, causing excessive noise in logs with irrelevant stacktraces. These are typically client-side validation errors, not server problems, and should be logged at a lower level.",
+  "category": "other",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "history-client",
+    "metric-client",
+    "logging"
+  ],
+  "concepts": [
+    "log-level",
+    "noise-reduction",
+    "error-handling",
+    "client-errors",
+    "logging-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators see excessive error-level log messages from valid client-side errors, making it difficult to identify real server problems and reducing log clarity.",
+  "rootCause": "History client metrics recording wrapper logs all errors at error level regardless of whether they are server-side or client-side validation errors.",
+  "proposedFix": "Change the log level from 'error' to 'info' or 'warn' for history client errors in server logs, particularly for validation errors like BadSearchAttributes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This should be a warn on error in the client/sdk logs, but I propose that the level of these messages in the server log should be decreased. It probably should be an info, not an error in server logs.",
+  "number": 2700,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:44.267Z"
+}

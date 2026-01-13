@@ -1,0 +1,35 @@
+{
+  "summary": "Worker fails to process decision tasks with \"requested workflow history does not exist\" error when running the branch sample. The issue occurs during workflow execution with multiple parallel activities, causing decision task completion failure.",
+  "category": "bug",
+  "subcategory": "workflow-history",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflowTaskPoller",
+    "taskHandler",
+    "historyCache"
+  ],
+  "concepts": [
+    "workflow-history",
+    "decision-task",
+    "task-processing",
+    "event-replay",
+    "cache-invalidation",
+    "concurrency"
+  ],
+  "severity": "high",
+  "userImpact": "Users running workflows with parallel activities experience consistent decision task failures, preventing workflow execution.",
+  "rootCause": "Cached workflow history state becomes stale when task has unexpected events, causing mismatch between cached previous started event ID and actual task state.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed through pull request #262",
+  "related": [
+    262
+  ],
+  "keyQuote": "Cached state staled, new task has unexpected events",
+  "number": 256,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:24:14.738Z"
+}

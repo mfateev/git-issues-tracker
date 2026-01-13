@@ -1,0 +1,31 @@
+{
+  "summary": "Activity failure logs in POJOActivityTaskHandler lack workflow ID and run ID context, making it difficult to trace activities back to their workflows. The request is to include these identifiers in log messages since they're already available in ActivityInfo.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "POJOActivityTaskHandler",
+    "ActivityWorker",
+    "logging"
+  ],
+  "concepts": [
+    "logging",
+    "activity-tracking",
+    "workflow-context",
+    "observability",
+    "MDC",
+    "diagnostics"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily search for or trace specific workflows when debugging activity failures due to missing workflow and run ID context in log messages.",
+  "rootCause": "Log messages in POJOActivityTaskHandler were not including workflow ID and run ID fields that are available via ActivityInfo and MDC.",
+  "proposedFix": "Configure MDC (Mapped Diagnostic Context) in logger configuration to include workflowID and runID fields in log output format.",
+  "workaround": "Configure your log format to include MDC fields as shown in Logback/Log4j documentation examples.",
+  "resolution": "invalid",
+  "resolutionDetails": "Marked invalid because the feature already exists - workflowID and runID are available through MDC (Mapped Diagnostic Context) that can be configured in logger format.",
+  "related": [],
+  "keyQuote": "The workflowID and runID are already part of MDC. Change your log format to include MDC fields.",
+  "number": 353,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:09:55.697Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Kotlin Standard Library 1.5.32 has a transitive dependency vulnerability (CVE-2022-24329) with CVSS score 5.3 affecting Multiplatform Gradle Projects. The issue allows dependency lock functionality to be bypassed in Kotlin projects. Automatic remediation is available by upgrading to version 1.6.0.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "build-system",
+    "gradle",
+    "kotlin-stdlib",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-locking",
+    "transitive-dependency",
+    "gradle-build",
+    "kotlin-multiplatform",
+    "integrity-impact"
+  ],
+  "severity": "medium",
+  "userImpact": "Projects using kotlin-klib-commonizer-embeddable-1.5.32 are exposed to a security vulnerability that allows dependency lock circumvention in Multiplatform Gradle builds.",
+  "rootCause": "Kotlin Standard Library before 1.6.0 does not properly implement dependency locking for Multiplatform Gradle Projects, allowing integrity bypass with network attack vector.",
+  "proposedFix": "Upgrade kotlin-klib-commonizer-embeddable to version 1.6.0 or upgrade org.jetbrains.kotlin:kotlin-stdlib to 1.6.0-M1 or later.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In JetBrains Kotlin before 1.6.0, it was not possible to lock dependencies for Multiplatform Gradle Projects.",
+  "number": 1888,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:34.235Z"
+}

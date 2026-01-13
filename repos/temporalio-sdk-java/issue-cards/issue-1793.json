@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for a generic workflow failure handler via interceptor to detect when a workflow is about to fail and invoke an activity (e.g., send email, post to Kafka, alert). The request asks for a utility method to determine if an exception will fail the workflow based on WorkflowImplementationOptions.failWorkflowExceptionTypes.",
+  "category": "feature",
+  "subcategory": "interceptor-workflow-failure",
+  "apis": [
+    "WorkflowInboundCallsInterceptor",
+    "WorkflowImplementationOptions"
+  ],
+  "components": [
+    "interceptor",
+    "workflow-execution",
+    "exception-handling"
+  ],
+  "concepts": [
+    "failure-detection",
+    "error-handling",
+    "determinism",
+    "workflow-lifecycle",
+    "exception-types"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably implement generic failure handlers in workflows without duplicating logic or risking non-deterministic behavior.",
+  "rootCause": "Calling an activity conditional on exception matching failWorkflowExceptionTypes would be non-deterministic if failWorkflowExceptionTypes changes during workflow replay.",
+  "proposedFix": "Implement WorkflowInboundCallsInterceptor.execute with try/catch and a static utility method to check if an exception will fail the workflow.",
+  "workaround": "Users can write their own interceptor or base worker class and inject failWorkflowExceptionTypes, but must carefully manage changes to it during workflow execution.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not planned due to determinism concerns. A utility encouraging this pattern would risk non-deterministic behavior if failWorkflowExceptionTypes changes during workflow replay.",
+  "related": [],
+  "keyQuote": "Since calling an activity conditional on an exception matching failWorkflowExceptionTypes is not deterministic I don't think we would want to add any feature that encourages this in the SDK.",
+  "number": 1793,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:02.566Z"
+}

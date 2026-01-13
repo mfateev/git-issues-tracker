@@ -1,0 +1,31 @@
+{
+  "summary": "Validation error messages lack context about which specific command caused the failure, making it difficult to troubleshoot issues when multiple similar commands are scheduled. Request to include eventId and other contextual information in validation messages.",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "decision-processor",
+    "command-validator",
+    "error-reporting"
+  ],
+  "concepts": [
+    "error-context",
+    "debugging",
+    "command-validation",
+    "event-tracking",
+    "troubleshooting",
+    "decision-identification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently identify which of many scheduled activities failed due to missing validation error context.",
+  "rootCause": null,
+  "proposedFix": "Include eventId of the decision and full information about the scheduleActivityTask decision in validation error messages.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Include full information about the specific scheduleActivityTask decision that caused the problem. The minimal information included is eventId of the decision.",
+  "number": 479,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:01:09.462Z"
+}

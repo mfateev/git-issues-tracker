@@ -1,0 +1,31 @@
+{
+  "summary": "Nightly stress CI tests are failing consistently due to a server-side issue with the in-memory SQLite database, preventing reliable detection of performance regressions in the TypeScript SDK.",
+  "category": "bug",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "ci",
+    "stress-testing",
+    "server"
+  ],
+  "concepts": [
+    "testing",
+    "reliability",
+    "performance-regression",
+    "sqlite",
+    "in-memory-database",
+    "ci-pipeline"
+  ],
+  "severity": "high",
+  "userImpact": "CI pipeline cannot reliably detect performance regressions, reducing confidence in SDK release quality.",
+  "rootCause": "Server-side issue specific to in-memory SQLite database",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Nightly Stress CI have been failing consistently for the last two months. This appears to be due to a server-side issue (specific to in-memory sqlite database).",
+  "number": 1479,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:44.468Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add trimming annotations to the .NET SDK to support publishing trimmed and AOT-compatible applications. Currently, attempting to publish with `<PublishTrimmed>true</PublishTrimmed>` produces errors due to missing metadata.",
+  "category": "feature",
+  "subcategory": "aot-trimming",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "pinvoke-bindings",
+    "reflection-usage"
+  ],
+  "concepts": [
+    "trimming",
+    "aot-compatibility",
+    "dead-code-elimination",
+    "runtime-metadata",
+    "deployment",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot publish trimmed or AOT-compiled .NET applications using the Temporal SDK without errors.",
+  "rootCause": "The SDK lacks trimming annotations required by the .NET runtime to preserve types and members needed for PInvoke and reflection during trimming.",
+  "proposedFix": "Add trimming annotations to the SDK and run tests with trimming enabled to ensure ongoing compatibility.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporalio (and other packages) don't have trimming annotations included which produces errors when publishing with trimming enabled.",
+  "number": 286,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T12:48:05.068Z"
+}

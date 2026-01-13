@@ -1,0 +1,30 @@
+{
+  "summary": "Shaded JAR library lacks source code attachment, preventing IDE access to JavaDoc and source code during development. Users must resort to online documentation as a workaround.",
+  "category": "other",
+  "subcategory": "build-artifacts",
+  "apis": [],
+  "components": [
+    "build-system",
+    "maven-plugin",
+    "shaded-jar"
+  ],
+  "concepts": [
+    "source-availability",
+    "ide-integration",
+    "javadoc",
+    "developer-experience",
+    "artifact-packaging"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers lose local IDE source code and JavaDoc access when using the shaded JAR, requiring them to browse online documentation instead of leveraging IDE features.",
+  "rootCause": null,
+  "proposedFix": "Publish the shaded JAR with source code attached (source JAR alongside main JAR)",
+  "workaround": "Use browser/online Java documentation",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "No source code available to read in IDE for java docs",
+  "number": 1981,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:06.854Z"
+}

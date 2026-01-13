@@ -1,0 +1,36 @@
+{
+  "summary": "Request to provide access to workflow and activity instances from their respective contexts through methods like ActivityExecutionContext.getInstance() and Workflow.getInstance(), enabling better context inspection and debugging capabilities.",
+  "category": "feature",
+  "subcategory": "context-api",
+  "apis": [
+    "ActivityExecutionContext",
+    "Workflow"
+  ],
+  "components": [
+    "activity-context",
+    "workflow-context",
+    "execution-context"
+  ],
+  "concepts": [
+    "instance-access",
+    "context-inspection",
+    "workflow-metadata",
+    "activity-metadata",
+    "debugging",
+    "api-enhancement"
+  ],
+  "severity": "low",
+  "userImpact": "Users would be able to access workflow and activity instances directly from their execution contexts for inspection and debugging purposes.",
+  "rootCause": null,
+  "proposedFix": "Add getInstance() instance method to ActivityExecutionContext and getInstance() static method to Workflow class",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide the requested context access methods",
+  "related": [
+    572
+  ],
+  "keyQuote": "Provide access to the Temporal created/owned workflow and activity instance from their respective contexts",
+  "number": 2361,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:20.913Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Need detailed server-internal resource exhaustion metrics to improve detection of approaching resource limits. These metrics could be exposed to workers as simplified errors or accessed through a resource monitor object.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "server",
+    "resource-monitor"
+  ],
+  "concepts": [
+    "resource-exhaustion",
+    "headroom",
+    "monitoring",
+    "capacity-detection",
+    "performance-degradation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack detailed visibility into server resource exhaustion, making it difficult to detect and prevent service degradation.",
+  "rootCause": null,
+  "proposedFix": "Provide detailed resource headroom metrics that collapse into simpler errors exposed to workers, or implement a resource monitor object for on-demand access.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2412
+  ],
+  "keyQuote": "we need more detailed resource headroom metrics to improve our ability to detect approaching exhaustion",
+  "number": 2435,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:32.449Z"
+}

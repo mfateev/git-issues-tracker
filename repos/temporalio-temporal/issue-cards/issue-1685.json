@@ -1,0 +1,31 @@
+{
+  "summary": "Request to enhance RespondWorkflowTaskFailedResponse to include an indication that non-determinism caused the failure, enabling server-side tracking and metrics for workflow non-determinism incidents.",
+  "category": "feature",
+  "subcategory": "workflow-non-determinism",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "resend-response",
+    "metrics"
+  ],
+  "concepts": [
+    "non-determinism",
+    "workflow-replay",
+    "error-tracking",
+    "observability",
+    "metrics",
+    "failure-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators can proactively track and notify customers of workflow non-determinism issues before they reach production.",
+  "rootCause": "Lack of explicit non-determinism indication in RespondWorkflowTaskFailedResponse prevents server-side tracking of these failures.",
+  "proposedFix": "Add a field to RespondWorkflowTaskFailedResponse indicating failure was caused by non-determinism; emit metrics based on this server-side.",
+  "workaround": "Monitor service_errors_nondeterministic metrics, though these may not be comprehensive for all scenarios.",
+  "resolution": "fixed",
+  "resolutionDetails": "Added non-determinism indication to RespondWorkflowTaskFailedResponse, implemented in workflowHandler.go to enable server-side tracking.",
+  "related": [],
+  "keyQuote": "It would be extremely useful to be able to do server side tracking of instances of workflow non-determinism.",
+  "number": 1685,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:02.133Z"
+}

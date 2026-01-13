@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add a Docker Compose example using CockroachDB as the database for Temporal. User wanted to demonstrate running Temporal with CockroachDB, a PostgreSQL-compatible cloud-native database.",
+  "category": "feature",
+  "subcategory": "docker-compose-examples",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "database-configuration",
+    "postgres-driver",
+    "cockroachdb-integration"
+  ],
+  "concepts": [
+    "database-compatibility",
+    "docker-deployment",
+    "high-availability",
+    "postgres-compliance",
+    "container-orchestration",
+    "cloud-native"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now easily run Temporal with CockroachDB using a provided Docker Compose example for cloud-native deployments.",
+  "rootCause": null,
+  "proposedFix": "Provide a docker-compose-cockroach.yml example file showing how to configure Temporal with CockroachDB as the database backend.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Docker Compose CockroachDB example was created and moved to the docker-compose repository at docker-compose-cockroach.yml",
+  "related": [],
+  "keyQuote": "I would love to see a docker-compose.yml example using cockroach and/or postgres.",
+  "number": 287,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:25:32.753Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to implement child workflows in the TypeScript SDK once they are supported by sdk-core.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "child-workflow-handler"
+  ],
+  "concepts": [
+    "child-workflows",
+    "workflow-composition",
+    "nested-workflows",
+    "workflow-orchestration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot compose workflows by executing child workflows from parent workflows, limiting workflow design flexibility.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Child workflows were implemented in the TypeScript SDK after sdk-core added support.",
+  "related": [],
+  "keyQuote": "Once they are supported by sdk-core",
+  "number": 142,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:11.991Z"
+}

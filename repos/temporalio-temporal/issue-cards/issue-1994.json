@@ -1,0 +1,32 @@
+{
+  "summary": "Request for a workflow scheduling feature that allows cron workflows to sleep for a fixed interval after completion before the next run, rather than immediately triggering at the cron schedule. This enables patterns like polling data at consistent intervals regardless of execution time.",
+  "category": "feature",
+  "subcategory": "cron-scheduling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "cron-scheduler",
+    "worker"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "workflow-intervals",
+    "polling",
+    "scheduling-patterns",
+    "sleep-between-runs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot schedule cron workflows to run at fixed intervals from completion time rather than from a fixed schedule, limiting use cases like periodic data polling.",
+  "rootCause": "The cron feature currently adheres strictly to the cron schedule rather than supporting delay-after-completion patterns, which can cause back-to-back executions if the workflow completes before the next scheduled time.",
+  "proposedFix": "Implement a new cron feature variant that sleeps for a fixed period after each run completes before triggering the next execution, possibly as part of the new experience.",
+  "workaround": "Define an outer workflow that wraps a child workflow with a sleep/loop pattern to achieve the desired interval-based scheduling while maintaining visibility into individual run statuses.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Cron has been changed since 1.14 and the workflow is now complete with it actual state and not as continue-as-new.",
+  "number": 1994,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:10.383Z"
+}

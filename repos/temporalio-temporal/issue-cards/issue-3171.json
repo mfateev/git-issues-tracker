@@ -1,0 +1,32 @@
+{
+  "summary": "Add a --no-auth flag to explicitly indicate when no authorizer is configured, improving security by requiring explicit opt-in for running without authentication. This will be optional in 1.18 but required in future releases.",
+  "category": "feature",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "server",
+    "authorizer",
+    "configuration",
+    "security"
+  ],
+  "concepts": [
+    "authentication",
+    "authorization",
+    "security",
+    "configuration",
+    "default-behavior",
+    "opt-in"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal server must explicitly acknowledge when no authorizer is configured, preventing accidental deployments without authentication.",
+  "rootCause": null,
+  "proposedFix": "Add a --no-auth flag to the server that must be present if no authorizer is specified. Make it optional in 1.18, required in following releases.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented as proposed with phased rollout approach",
+  "related": [],
+  "keyQuote": "If no authorizer is provided, temporal server will still start with a noop authorizer. For security reason, we should make it more explicitly that there is no authorizer configured.",
+  "number": 3171,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:28.276Z"
+}

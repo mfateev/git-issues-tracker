@@ -1,0 +1,33 @@
+{
+  "summary": "Node process hangs for 10 seconds on exit when using @grpc/grpc-js 1.8.0+, likely due to uncleared deadline timers in the grpc retry mechanism. The team decided to pin to @grpc/grpc-js ~1.7.3 until they can properly upgrade.",
+  "category": "bug",
+  "subcategory": "grpc-client-lifecycle",
+  "apis": [
+    "Connection"
+  ],
+  "components": [
+    "grpc-client",
+    "connection-lifecycle",
+    "retry-mechanism"
+  ],
+  "concepts": [
+    "process-exit",
+    "deadline-timer",
+    "graceful-shutdown",
+    "grpc-upgrade",
+    "dependency-management",
+    "retry"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpected 10-second delays when their applications exit, requiring explicit process.exit(0) calls to work around the issue.",
+  "rootCause": "The deadline timer in grpc-js 1.8.0's new retry mechanism is not properly cleared on successful calls, preventing graceful shutdown.",
+  "proposedFix": "Pin @grpc/grpc-js to ~1.7.3 until the team is ready to invest in properly upgrading to 1.8+ and addressing the retry mechanism integration.",
+  "workaround": "Add explicit process.exit(0) at the end of the application to force exit without waiting for timers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Decided to pin grpc-js to 1.7.3 rather than upgrade to 1.8.0+, which introduced breaking changes to the retry mechanism incompatible with existing retry logic.",
+  "related": [],
+  "keyQuote": "I personally think that 1.8.0 should have been a major. They introduced a new retry mechanism, which make it breaking for any software that already implemented retries at another level.",
+  "number": 1023,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:55.679Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Rename WorkerOptions poller-related options in Java SDK to match Go SDK naming conventions for better cross-SDK consistency. Java uses `workflowPollThreadCount` and `activityPollThreadCount` while Go uses the more generic `MaxConcurrentWorkflowTaskPollers` and `MaxConcurrentActivityTaskPollers`.",
+  "category": "feature",
+  "subcategory": "api-naming",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "options",
+    "polling"
+  ],
+  "concepts": [
+    "naming-consistency",
+    "sdk-unification",
+    "workflow-polling",
+    "activity-polling",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users would need to update code using these options to the new naming convention.",
+  "rootCause": null,
+  "proposedFix": "Rename `workflowPollThreadCount` to `maxConcurrentWorkflowTaskPollers` and `activityPollThreadCount` to `maxConcurrentActivityTaskPollers`",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in PR #1031",
+  "related": [
+    1031
+  ],
+  "keyQuote": "GoSDK naming is more generic and should be preferred for unification between SDKs.",
+  "number": 1030,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:01:01.279Z"
+}

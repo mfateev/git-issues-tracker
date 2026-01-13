@@ -1,0 +1,32 @@
+{
+  "summary": "Starting a workflow with TERMINATE_EXISTING policy fails with a duplicate key constraint error on the current_executions table, suggesting a DB inconsistency where a previous workflow wasn't properly cleaned up. The issue occurs intermittently under heavy load and can only be resolved by manually deleting the conflicting row.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "start_workflow_execution"
+  ],
+  "components": [
+    "history-shard",
+    "current-executions-table",
+    "transaction-rollback"
+  ],
+  "concepts": [
+    "duplicate-key-error",
+    "database-inconsistency",
+    "conflict-policy",
+    "transaction-rollback",
+    "data-cleanup"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail to start despite correct conflict policies, requiring manual database intervention to recover.",
+  "rootCause": "Likely a failed rollback in a previous start_workflow request that left an orphaned record in current_executions table, or an issue in the retention timer logic that fails to properly delete the record.",
+  "proposedFix": null,
+  "workaround": "Manually delete the conflicting row from the current_executions table using SQL DELETE statement.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A previous start workflow request failed and also failed to rollback the inserted current record.",
+  "number": 7600,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:42.748Z"
+}

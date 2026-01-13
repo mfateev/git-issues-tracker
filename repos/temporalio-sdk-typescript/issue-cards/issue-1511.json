@@ -1,0 +1,33 @@
+{
+  "summary": "Core SDK renamed the `startWorkflow` activation job to `initializeWorkflow` with different ordering and expectations. The TypeScript SDK needs to update its activation handling logic to match this change.",
+  "category": "feature",
+  "subcategory": "workflow-initialization",
+  "apis": [
+    "startWorkflow",
+    "initializeWorkflow"
+  ],
+  "components": [
+    "activation-handler",
+    "workflow-executor",
+    "core-integration"
+  ],
+  "concepts": [
+    "activation-jobs",
+    "workflow-initialization",
+    "core-sync",
+    "job-ordering",
+    "compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Without this update, the TypeScript SDK will be incompatible with the latest Core SDK versions that use the renamed activation job.",
+  "rootCause": "Core SDK renamed and restructured the startWorkflow activation job to initializeWorkflow with different ordering expectations",
+  "proposedFix": "Update activation handling logic to expect and process initializeWorkflow jobs instead of startWorkflow",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activation handling logic was updated to support the initializeWorkflow job type with new ordering and expectations",
+  "related": [],
+  "keyQuote": "Core recently renamed the `startWorkflow` activation job to `initializeWorkflow`, with a different ordering and expectations",
+  "number": 1511,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:28.013Z"
+}

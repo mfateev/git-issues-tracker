@@ -1,0 +1,30 @@
+{
+  "summary": "The generated temporal-serviceclient JAR includes duplicate Google Protocol Buffer classes that are already available as dependencies (protobuf-java and proto-google-common-protos), causing classpath duplication warnings.",
+  "category": "bug",
+  "subcategory": "build-dependencies",
+  "apis": [],
+  "components": [
+    "temporal-serviceclient",
+    "maven-build",
+    "proto-generation"
+  ],
+  "concepts": [
+    "duplicate-classes",
+    "classpath-pollution",
+    "dependency-management",
+    "proto-compilation",
+    "shading"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter duplicate class warnings during builds and risk classpath conflicts when proto-google-common-protos or protobuf-java versions differ from those bundled in temporal-serviceclient.",
+  "rootCause": "The proto code generation process includes Google's protobuf and common-protos classes in the final JAR instead of excluding them as provided dependencies.",
+  "proposedFix": "Exclude or shade generated Google proto classes in the temporal-serviceclient build configuration to prevent inclusion in the final artifact.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Removed generated Google proto classes from temporal-serviceclient to prevent duplication with independently managed dependencies.",
+  "related": [],
+  "keyQuote": "Found duplicate and different classes in [com.google.protobuf:protobuf-java:3.21.7, io.temporal:temporal-serviceclient:1.24.0]",
+  "number": 2150,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:28.124Z"
+}

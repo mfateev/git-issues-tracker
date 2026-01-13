@@ -1,0 +1,32 @@
+{
+  "summary": "Request to provide additional context information when signals are reapplied after a workflow reset, including whether a signal is from reapply and its sending time, to enable selective signal reapplication based on signal origin.",
+  "category": "feature",
+  "subcategory": "signal-reapply",
+  "apis": [
+    "ReceiveAsyncWithInfo"
+  ],
+  "components": [
+    "signal-handler",
+    "workflow-replay",
+    "history-processing"
+  ],
+  "concepts": [
+    "signal-reapply",
+    "workflow-reset",
+    "history-events",
+    "selective-reapplication",
+    "signal-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow authors cannot currently distinguish between signals from before/after reset point during reapplication, preventing selective signal filtering based on origin.",
+  "rootCause": "Server-side signals during reapplication are not marked to distinguish them from newly received signals, and signal metadata like sending time is not exposed in the SDK despite being available in history events.",
+  "proposedFix": "Add a SignalInfo struct with FromReapply flag and SendingTime field, and provide API like channel.ReceiveAsyncWithInfo() to expose this information. Requires server-side change to mark reapplied signals.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be nice if SDK can provide a flag to tell whether or not the signal is from reapply. The new api may be something like: type SignalInfo struct{FromReapply bool, SendingTime time.Time}",
+  "number": 5874,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:59.000Z"
+}

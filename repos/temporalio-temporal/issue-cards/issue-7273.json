@@ -1,0 +1,31 @@
+{
+  "summary": "S3 archiver performs unnecessary HEAD requests before every PUT operation to check if objects exist, causing millions of 404 errors in monitoring. User requests an opt-out mechanism for single-cluster deployments where this check is unnecessary.",
+  "category": "bug",
+  "subcategory": "archiver-s3",
+  "apis": [],
+  "components": [
+    "archiver",
+    "s3-provider",
+    "history-pod"
+  ],
+  "concepts": [
+    "object-storage",
+    "s3-optimization",
+    "kubernetes-deployment",
+    "monitoring-spam",
+    "head-requests",
+    "existence-check"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal on Kubernetes with S3 archiver experience millions of spurious 404 errors in S3 access logs, polluting monitoring and alerting systems.",
+  "rootCause": "The archiver logic performs a HEAD request before every PUT request to prevent double-uploading from multiple clusters, but this is unnecessary overhead for single-cluster deployments.",
+  "proposedFix": "Add configuration option to disable the existence check for single-cluster setups where duplicate uploads are not a concern.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The HEAD request behavior is intentional design to prevent multi-cluster double-uploads. No workaround provided; users must accept this behavior.",
+  "related": [],
+  "keyQuote": "Unfortunately this is how the aws/gcp archiver logic works today to prevent two clusters from double uploading the same workflow",
+  "number": 7273,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:07.259Z"
+}

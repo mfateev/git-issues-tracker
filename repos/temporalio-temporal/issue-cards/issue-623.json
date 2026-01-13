@@ -1,0 +1,32 @@
+{
+  "summary": "Admin users cannot control the initial state of the archival feature through docker-compose parameters. The request is to add this configuration option with archival disabled by default.",
+  "category": "feature",
+  "subcategory": "docker-compose-configuration",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "archival-feature",
+    "configuration"
+  ],
+  "concepts": [
+    "feature-enablement",
+    "initial-state",
+    "docker-configuration",
+    "admin-control",
+    "default-behavior"
+  ],
+  "severity": "low",
+  "userImpact": "Administrators cannot configure the archival feature state when deploying Temporal via docker-compose, limiting deployment flexibility.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #595",
+  "related": [
+    595
+  ],
+  "keyQuote": "As an admin i want to be able to control the initial state of archival feature through a docker-compose variable.",
+  "number": 623,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:21:17.633Z"
+}

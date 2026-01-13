@@ -1,0 +1,32 @@
+{
+  "summary": "HandleErr logic needs to be implemented for HistoryMetadataReplicationTask in the NDC (non-2dc) code path. This functionality was only available in the 2dc path before PR #692 removed all 2dc-specific logic.",
+  "category": "feature",
+  "subcategory": "history-replication",
+  "apis": [],
+  "components": [
+    "history-replication-task",
+    "ndc-replication",
+    "error-handling"
+  ],
+  "concepts": [
+    "replication",
+    "error-handling",
+    "history-metadata",
+    "ndc-path",
+    "task-processing"
+  ],
+  "severity": "medium",
+  "userImpact": "Without this implementation, NDC replication workflows cannot properly handle errors in history metadata replication tasks.",
+  "rootCause": "PR #692 removed 2dc-specific logic including HandleErr for HistoryMetadataReplicationTask, leaving no error handling implementation for the NDC code path.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through implementation of HandleErr logic for the NDC code path, and later became obsolete once RPC replication stack was adopted.",
+  "related": [
+    692
+  ],
+  "keyQuote": "HandleErr for HistoryMetadataReplicationTask was only implemented with 2dc code path. We need to have ndc equivalent implemented",
+  "number": 700,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:54.346Z"
+}

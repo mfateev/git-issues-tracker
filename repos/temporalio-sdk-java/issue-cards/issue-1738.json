@@ -1,0 +1,30 @@
+{
+  "summary": "Spring Expression Language (SpEL) vulnerability in transitive dependency spring-expression-5.3.25.jar affecting the temporal-spring-boot-starter-alpha module. Two CVEs (CVE-2023-20861 and CVE-2023-20863) with CVSS 6.5 severity allow denial-of-service attacks through specially crafted SpEL expressions.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "dependency-management",
+    "spring-expression"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "spring-expression-language",
+    "dependency-security",
+    "transitive-dependency"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications using the temporal-spring-boot-starter are vulnerable to DoS attacks through malicious SpEL expressions if exposed to untrusted input.",
+  "rootCause": "Transitive dependency on spring-expression-5.3.25.jar which contains unpatched SpEL expression parsing vulnerabilities allowing DoS conditions.",
+  "proposedFix": "Upgrade spring-expression to version 5.2.23.RELEASE, 5.3.26, or 6.0.7 (or later) to resolve CVE-2023-20861, and to 5.2.24.RELEASE, 5.3.27, or 6.0.8 (or later) to resolve CVE-2023-20863.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Autoclosed by Mend as the vulnerable library was either marked as ignored or is no longer part of the Mend inventory on the specific branch.",
+  "related": [],
+  "keyQuote": "In Spring Framework versions...it is possible for a user to provide a specially crafted SpEL expression that may cause a denial-of-service (DoS) condition.",
+  "number": 1738,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:08.811Z"
+}

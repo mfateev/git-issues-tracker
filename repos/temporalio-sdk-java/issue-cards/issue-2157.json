@@ -1,0 +1,32 @@
+{
+  "summary": "GitHub's Runner Agent now has dependencies incompatible with Ubuntu 18.04, forcing an urgent migration away from buildjet-2vcpu-ubuntu-1804 runners used for Test Server builds. This blocks Java SDK releases until resolved.",
+  "category": "bug",
+  "subcategory": "ci-infrastructure",
+  "apis": [],
+  "components": [
+    "ci-workflows",
+    "test-server-build",
+    "github-actions"
+  ],
+  "concepts": [
+    "build-infrastructure",
+    "runner-compatibility",
+    "glibc-compatibility",
+    "ubuntu-version",
+    "ci-pipeline",
+    "dependency-management",
+    "release-blocking"
+  ],
+  "severity": "critical",
+  "userImpact": "Java SDK releases cannot be made until CI workflows are updated to use compatible runners, directly blocking users from accessing new SDK releases.",
+  "rootCause": "GitHub's latest Runner Agent version introduced dependencies incompatible with Ubuntu 18.04, which the buildjet runners were still using for glibc compatibility with older Linux distributions.",
+  "proposedFix": "Update CI workflows to use a more recent runner that is compatible with the latest GitHub Runner Agent version.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "CI workflows were updated to use newer runners that are compatible with the latest GitHub Runner Agent dependencies.",
+  "related": [],
+  "keyQuote": "It is therefore urgent that we update our CI workflows to use a more recent runner, as we might be incapable of making a new Java SDK release until this is fixed.",
+  "number": 2157,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:40.706Z"
+}

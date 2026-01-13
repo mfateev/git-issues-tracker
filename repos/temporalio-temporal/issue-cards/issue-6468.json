@@ -1,0 +1,32 @@
+{
+  "summary": "GenerateReplicationTasks activity in ForceReplicationWorkflow incorrectly returns 'not found' errors instead of only logging them. This causes activities to retry indefinitely when workflows are archived between being listed and processed, preventing the replication workflow from making progress.",
+  "category": "bug",
+  "subcategory": "replication-workflow",
+  "apis": [],
+  "components": [
+    "migration-worker",
+    "replication-activities",
+    "history-client",
+    "force-replication-workflow"
+  ],
+  "concepts": [
+    "error-handling",
+    "activity-retry",
+    "replication",
+    "workflow-archival",
+    "not-found-errors",
+    "progress-blocking"
+  ],
+  "severity": "high",
+  "userImpact": "ForceReplicationWorkflow gets stuck in infinite retries when workflows are archived between listing and processing, blocking the entire replication process.",
+  "rootCause": "GenerateReplicationTasks returns not found errors from historyClient.GenerateLastHistoryReplicationTasks instead of only logging them, triggering activity retries that cannot succeed because the workflow is archived.",
+  "proposedFix": "Modify GenerateReplicationTasks to only log not found errors using a.logger.Error() instead of returning them, similar to the pattern shown in the code snippet where isNotFoundServiceError(err) should only log without returning.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A not found history should just be logged. Returning the error keep retrying the activity",
+  "number": 6468,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:23.533Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to implement SAGA pattern helpers as a first-class SDK feature across all language SDKs. While SAGAs are implementable from scratch, adding native support would signal platform capability and provide standardized, safer abstractions for distributed transactions.",
+  "category": "feature",
+  "subcategory": "workflow-patterns",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "activity-executor",
+    "child-workflows"
+  ],
+  "concepts": [
+    "saga-pattern",
+    "distributed-transactions",
+    "compensating-actions",
+    "workflow-orchestration",
+    "error-handling",
+    "async-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing distributed transactions would benefit from a standardized SAGA abstraction rather than implementing custom solutions for each use case.",
+  "rootCause": "Lack of native SAGA support despite it being a core use case; existing implementations are minimal and incomplete without proper design and abstraction.",
+  "proposedFix": "Design and implement a more full-featured SAGA abstraction that covers synchronous and asynchronous scenarios with proper server-side optimizations and best practices guidance.",
+  "workaround": "Users can implement SAGAs from scratch using child workflows, signals, and compensating actions as shown in existing samples.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided against implementing SAGAs as top-level SDK APIs after discussion. Good documentation and blog posts on compensating actions and SAGA patterns were created instead.",
+  "related": [
+    456
+  ],
+  "keyQuote": "We pretty much decided we don't want this in the sdks",
+  "number": 50,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:44:32.505Z"
+}

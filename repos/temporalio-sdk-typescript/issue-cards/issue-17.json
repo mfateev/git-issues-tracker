@@ -1,0 +1,30 @@
+{
+  "summary": "README instructions fail because @temporalio/create package hasn't been published to npm yet. User encounters 404 error when trying to initialize a new project and requests documentation on how the package aliases are configured.",
+  "category": "docs",
+  "subcategory": "setup-documentation",
+  "apis": [],
+  "components": [
+    "create-package",
+    "npm-registry",
+    "readme"
+  ],
+  "concepts": [
+    "package-initialization",
+    "npm-publishing",
+    "project-setup",
+    "package-aliases",
+    "documentation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot follow the README instructions to get started with the SDK, creating a barrier to entry for new developers.",
+  "rootCause": "@temporalio/create package not yet published to npm registry",
+  "proposedFix": "Publish @temporalio/create to npm and document the package structure and aliases in the README",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Package was subsequently published to npm and documentation was updated",
+  "related": [],
+  "keyQuote": "This is because we haven't published anything to `npm` yet. I'll do that soon. I agree we should document the different packages in this repo.",
+  "number": 17,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:53:54.878Z"
+}

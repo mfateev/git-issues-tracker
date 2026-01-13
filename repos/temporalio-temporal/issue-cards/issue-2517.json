@@ -1,0 +1,33 @@
+{
+  "summary": "Task queue dispatch prioritizes sync matches over backlog tasks, causing fairness issues where backlogged tasks can be starved. The issue requests improved FIFO ordering to ensure backlog tasks are processed fairly alongside incoming tasks.",
+  "category": "other",
+  "subcategory": "task-queue-dispatch",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "matching",
+    "dispatcher",
+    "backlog-processing"
+  ],
+  "concepts": [
+    "fairness",
+    "FIFO-ordering",
+    "task-queue-partitioning",
+    "sync-match",
+    "backlog",
+    "starvation",
+    "load-balancing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unfair task delivery where backlogged tasks wait indefinitely while new tasks are processed, reducing system efficiency during high load.",
+  "rootCause": "Task queue partitioning causes asymmetric backlog distribution between root and leaf partitions, with root partitions processing backlog faster and leaf partitions accumulating heavier/older backlogs. Sync match requests bypass the backlog queue.",
+  "proposedFix": "Deliver tasks from backlog first with optional configuration to control the behavior. For users with low/medium traffic, reducing partitions to 1 enables approximate FIFO ordering.",
+  "workaround": "Reduce task queue partitions to 1 using dynamic config matching.numTaskqueueWritePartitions and matching.numTaskqueueReadPartitions set to value 1, which provides approximate FIFO ordering for low/medium load task queues.",
+  "resolution": "completed",
+  "resolutionDetails": "Issue closed as completed. Solution determined: exact FIFO guaranteed for single-partition task queues; larger task queues achieve FIFOish behavior through balanced partition backlogs by design.",
+  "related": [],
+  "keyQuote": "For task queues with low/medium load you can get approximate FIFO ordering by reducing the number of partitions to 1",
+  "number": 2517,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:34.447Z"
+}

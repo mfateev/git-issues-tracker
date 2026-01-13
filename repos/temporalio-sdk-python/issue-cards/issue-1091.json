@@ -1,0 +1,32 @@
+{
+  "summary": "_TemporalModelStub.get_response() is incompatible with the latest openai-agents-python library, which added a new `conversation_id` keyword argument. The method signature needs to be updated to accept this parameter or use kwargs passthrough to handle future upstream changes.",
+  "category": "bug",
+  "subcategory": "openai-agents-integration",
+  "apis": [],
+  "components": [
+    "_TemporalModelStub",
+    "openai-agents-integration",
+    "contrib"
+  ],
+  "concepts": [
+    "API-compatibility",
+    "upstream-drift",
+    "parameter-mismatch",
+    "keyword-arguments",
+    "serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflows with the latest openai-agents-python library versions due to TypeError when calling get_response().",
+  "rootCause": "The _TemporalModelStub.get_response() method signature does not accept the `conversation_id` parameter that openai-agents-python 0.2.10+ now passes when calling model.get_response().",
+  "proposedFix": "Update _TemporalModelStub.get_response to accept `conversation_id: Optional[str] = None` parameter. Consider adding **kwargs passthrough, but only for serializable arguments since parameters must pass through serialization.",
+  "workaround": "Pin openai-agents-python to versions before 0.2.10 until the SDK is updated.",
+  "resolution": "fixed",
+  "resolutionDetails": "Updated _TemporalModelStub.get_response to accept the conversation_id parameter to maintain compatibility with openai-agents-python 0.2.10+.",
+  "related": [
+    1640
+  ],
+  "keyQuote": "TypeError: _TemporalModelStub.get_response() got an unexpected keyword argument 'conversation_id'",
+  "number": 1091,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:32:14.218Z"
+}

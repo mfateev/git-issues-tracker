@@ -1,0 +1,34 @@
+{
+  "summary": "Visibility data becomes inconsistent when visibility tasks execute out of order, causing closed workflows to appear as running in ListWorkflowExecutions until they're deleted by retention policy. The issue occurs because visibility tasks lack concurrency control and can be executed in arbitrary order by the queue processor.",
+  "category": "bug",
+  "subcategory": "visibility-consistency",
+  "apis": [
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "visibility-queue-processor",
+    "visibility-storage",
+    "mutable-state",
+    "transfer-tasks"
+  ],
+  "concepts": [
+    "eventual-consistency",
+    "race-condition",
+    "task-ordering",
+    "concurrency-control",
+    "database-synchronization",
+    "workflow-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users see incorrect workflow statuses in the UI (completed workflows showing as running) and cluttered dashboards with stale data until retention policy deletes them.",
+  "rootCause": "The immediate queue implementation and FIFO scheduler dispatch visibility tasks among multiple workers without guaranteeing execution order. If a visibility task gets delayed (database/context busy), earlier tasks execute first, causing UpsertExecutionVisibilityTask to complete after CloseExecutionVisibilityTask, leaving visibility storage inconsistent.",
+  "proposedFix": null,
+  "workaround": "For MySQL: manually synchronize visibility table with current_executions table using a join query to correct status mismatches.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "visibility tasks seem to allow arbitrary order of execution, and the visibility storage doesn't implement any concurrency control",
+  "number": 5643,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:18.482Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Add a separate Cloud Operations API client for the TypeScript SDK using cloud protos, marked as experimental. This aligns with similar implementations in other SDKs like Go.",
+  "category": "feature",
+  "subcategory": "cloud-operations",
+  "apis": [],
+  "components": [
+    "cloud-client",
+    "proto-bindings",
+    "api-client"
+  ],
+  "concepts": [
+    "cloud-operations",
+    "api-client",
+    "proto-definitions",
+    "experimental-api",
+    "sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have a dedicated cloud operations client available in TypeScript SDK for managing Temporal Cloud workflows and operations.",
+  "rootCause": null,
+  "proposedFix": "Create a separate cloud client using cloud protos, following the pattern established in the Go SDK (PR #1426).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Cloud operations API client was implemented in the TypeScript SDK following the Go SDK pattern.",
+  "related": [
+    440,
+    1426
+  ],
+  "keyQuote": "We need a separate cloud client using the cloud protos (they are separate today). The client should be marked experimental.",
+  "number": 1416,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:50.088Z"
+}

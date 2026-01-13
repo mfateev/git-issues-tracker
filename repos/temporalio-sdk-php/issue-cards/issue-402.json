@@ -1,0 +1,30 @@
+{
+  "summary": "ArrayRepository's add() method fails to check for duplicate entries correctly due to checking a non-existent array key with isset(), causing the overwrite parameter to be ignored and allowing duplicate activity/workflow names to be registered.",
+  "category": "bug",
+  "subcategory": "repository",
+  "apis": [],
+  "components": [
+    "ArrayRepository",
+    "repository",
+    "activity-registration"
+  ],
+  "concepts": [
+    "duplicate-detection",
+    "naming-collision",
+    "registration",
+    "validation",
+    "error-handling"
+  ],
+  "severity": "critical",
+  "userImpact": "Users can register multiple activities, workflows, and task queues with the same name without errors, breaking the expected ERROR_ALREADY_EXISTS behavior and causing runtime failures.",
+  "rootCause": "The isset($this->prototypes[$name]) check is performed on a non-existent array, always returning false and causing entries to always be overwritten regardless of the $overwrite parameter value.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was identified as critical issue affecting naming collision validation across activities, workflows, and task queues. The isset() check needed to properly validate existing entries before allowing overwrites.",
+  "related": [],
+  "keyQuote": "This is quite sever bug, since right now it tolerates naming collisions basically everywhere (including workflow names, activity names, worker task queues, etc.)",
+  "number": 402,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:41.576Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Activities advised with AspectJ are not recognized as implementing @ActivityInterface when Spring CGLIB proxies create wrapper classes. The SDK's metadata validation fails because it receives the proxy class instead of the actual implementation class.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "registerActivitiesImplementations"
+  ],
+  "components": [
+    "worker",
+    "activity-registration",
+    "metadata-validation",
+    "spring-integration"
+  ],
+  "concepts": [
+    "aop-proxying",
+    "cglib-enhancement",
+    "interface-detection",
+    "spring-beans",
+    "reflection"
+  ],
+  "severity": "high",
+  "userImpact": "Spring Boot applications using @Aspect advisors on Activity implementations fail to start with IllegalArgumentException.",
+  "rootCause": "POJOActivityImplMetadata validation uses Class.getInterfaces() which returns empty for CGLIB proxies because the proxy class doesn't directly implement @ActivityInterface - the target does.",
+  "proposedFix": "Enhance interface detection to unwrap CGLIB proxies and check the target class's interfaces, or support interface specification via ProxyFactory customization.",
+  "workaround": "Create a custom AnnotationAwareAspectJAutoProxyCreator that adds the @ActivityInterface to the ProxyFactory before creating the proxy.",
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was updated to detect and handle proxied activity implementations by checking the target class when a proxy is encountered.",
+  "related": [],
+  "keyQuote": "Class doesn't implement any non empty interface annotated with @ActivityInterface: com.example.test.InitialActivityImpl$$EnhancerBySpringCGLIB$$10ca071e",
+  "number": 586,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:25:39.702Z"
+}

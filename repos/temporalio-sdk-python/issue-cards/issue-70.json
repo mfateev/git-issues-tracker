@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow cancellation is not properly reported when activity or child workflow cancellation errors bubble up. The Python SDK should convert these errors to workflow cancellation, similar to how TypeScript SDK handles it.",
+  "category": "bug",
+  "subcategory": "cancellation-handling",
+  "apis": [
+    "ExecuteActivity",
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "error-handling",
+    "cancellation-manager"
+  ],
+  "concepts": [
+    "cancellation",
+    "error-bubbling",
+    "workflow-state",
+    "activity-cancellation",
+    "child-workflow-cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see workflows marked as failed instead of cancelled when activity or child workflow cancellations bubble up, leading to incorrect workflow status reporting.",
+  "rootCause": "Python SDK does not properly convert activity and child workflow cancellation errors into workflow cancellation events when a cancellation is requested.",
+  "proposedFix": "Implement error conversion logic similar to TypeScript SDK to treat activity/child cancellation errors as workflow cancellation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing proper cancellation error handling to report workflow cancellation correctly.",
+  "related": [],
+  "keyQuote": "TypeScript properly converts activity error and child workflow error that are caused by cancellation into workflow cancellation when a cancellation is requested. We need to do the same.",
+  "number": 70,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:57.109Z"
+}

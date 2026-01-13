@@ -1,0 +1,34 @@
+{
+  "summary": "MarshallingRule class is marked as internal, preventing users from implementing custom marshalling types using RuleFactoryInterface. Static analyzers flag this as an internal API access violation.",
+  "category": "bug",
+  "subcategory": "marshalling",
+  "apis": [
+    "RuleFactoryInterface"
+  ],
+  "components": [
+    "marshaller",
+    "type-system",
+    "internal-apis"
+  ],
+  "concepts": [
+    "marshalling",
+    "custom-types",
+    "api-visibility",
+    "internal-marking",
+    "static-analysis"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot create custom marshalling types without triggering static analyzer warnings about accessing internal APIs.",
+  "rootCause": "MarshallingRule is marked as internal but is necessary for implementing RuleFactoryInterface, creating an API design conflict.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #653, which presumably exposed MarshallingRule as a public API.",
+  "related": [
+    653
+  ],
+  "keyQuote": "MarshallingRule is marked as internal, which does not allow using the RuleFactoryInterface when the corresponding rules of static analyzers are working",
+  "number": 596,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:33.998Z"
+}

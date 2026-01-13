@@ -1,0 +1,33 @@
+{
+  "summary": "Request for official documentation and support for OpenSearch as a visibility datastore alongside Elasticsearch. Users are successfully running Temporal with OpenSearch but lack official guidance, and compatibility issues exist with newer OpenSearch versions.",
+  "category": "feature",
+  "subcategory": "visibility-opensearch",
+  "apis": [],
+  "components": [
+    "visibility",
+    "elasticsearch-client",
+    "opensearch-integration"
+  ],
+  "concepts": [
+    "opensearch",
+    "elasticsearch",
+    "compatibility",
+    "visibility-datastore",
+    "self-hosted",
+    "api-divergence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running OpenSearch need official support documentation and compatibility assurance when choosing a visibility datastore for Temporal deployments.",
+  "rootCause": "OpenSearch and Elasticsearch APIs have diverged with newer versions, causing compatibility issues (e.g., pagination bug in OpenSearch 2.8.0+) not documented in Temporal's official guidance.",
+  "proposedFix": "Add official OpenSearch support with compatibility matrix documentation and implement workarounds for known OpenSearch version-specific issues.",
+  "workaround": "Temporal 1.29.0+ works with OpenSearch up to v2.7.0; PR #8964 provides workaround for OpenSearch 2.8.0+ pagination bug.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR #8964 added workaround for OpenSearch 2.8.0+ pagination bug, making Temporal compatible with latest OpenSearch versions and providing de-facto support.",
+  "related": [
+    8964
+  ],
+  "keyQuote": "Temporal 1.29.0+ should work with OpenSearch up to v2.7.0. OpenSearch 2.8.0+ has a bug pagination... We are working on a work around.",
+  "number": 5680,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:43.711Z"
+}

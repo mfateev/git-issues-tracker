@@ -1,0 +1,34 @@
+{
+  "summary": "TestWorkflowEnvironment does not respect workflow start delays, causing workflows to start immediately instead of at the scheduled time when using TestWorkflowEnvironment.sleep().",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-execution",
+    "test-utilities"
+  ],
+  "concepts": [
+    "start-delay",
+    "workflow-scheduling",
+    "time-control",
+    "testing",
+    "test-environment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test workflows with start delays in unit tests, making it difficult to verify delay-dependent behavior.",
+  "rootCause": "TestWorkflowEnvironment does not implement start delay handling for workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1692",
+  "related": [
+    1692
+  ],
+  "keyQuote": "The workflow starts immediately.",
+  "number": 2263,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:00.563Z"
+}

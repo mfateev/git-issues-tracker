@@ -1,0 +1,30 @@
+{
+  "summary": "AsyncLocalStorage-based CancellationScopes may leak scope state in Node.js 18, potentially affecting code that uses condition() with timeouts which internally create and cancel scopes.",
+  "category": "bug",
+  "subcategory": "cancellation-scopes",
+  "apis": [],
+  "components": [
+    "cancellation-scopes",
+    "async-local-storage",
+    "condition"
+  ],
+  "concepts": [
+    "scope-leak",
+    "context-isolation",
+    "async-context",
+    "timeout",
+    "cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unexpected scope state persistence or context leakage when using condition() or CancellationScopes in Node.js 18.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Could not be reproduced; issue closed due to inability to confirm problem.",
+  "related": [],
+  "keyQuote": "Cannot reproduce this, closing.",
+  "number": 841,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:19:31.494Z"
+}

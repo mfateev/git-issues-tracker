@@ -1,0 +1,34 @@
+{
+  "summary": "AWS Elasticsearch instances on ports 80/443 fail to connect due to sniffing being enabled in the Elasticsearch client. The error 'context deadline exceeded' occurs because sniffing is not supported on HTTP-only ports. Disabling sniffing via a config flag would allow connections to AWS Elasticsearch instances.",
+  "category": "bug",
+  "subcategory": "elasticsearch-connectivity",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "visibility-service",
+    "configuration"
+  ],
+  "concepts": [
+    "elasticsearch",
+    "sniffing",
+    "aws",
+    "connectivity",
+    "http",
+    "port",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal on AWS Elasticsearch cannot use advanced visibility features due to connection failures with HTTP-only endpoints.",
+  "rootCause": "Elasticsearch client has sniffing enabled by default, which is incompatible with AWS Elasticsearch's HTTP-only access on ports 80/443. Sniffing requires TCP on port 9200.",
+  "proposedFix": "Add a configuration flag to disable Elasticsearch sniffing for environments like AWS where only HTTP on ports 80/443 is supported.",
+  "workaround": "Disable sniffing by adding `elastic.SetSniff(false)` when creating the Elasticsearch client.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer indicated sniffing is already disabled by default in Temporal, suggesting the issue may have been resolved in a later version or the user's configuration was incorrect.",
+  "related": [
+    880
+  ],
+  "keyQuote": "AWS only supports HTTP for their Elasticsearch instances on port 80 or port 443. Elasticsearch doesn't support sniffing on those particular ports, you need to be using TCP on port 9200.",
+  "number": 621,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:20:39.736Z"
+}

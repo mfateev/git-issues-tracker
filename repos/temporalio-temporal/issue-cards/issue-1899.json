@@ -1,0 +1,34 @@
+{
+  "summary": "User encountered an error when starting a workflow with a custom search attribute in Temporal 1.12.0, though the same code worked in 1.11.2. The issue was resolved after discovering that custom search attributes now require explicit registration, a change introduced in the 1.12 release.",
+  "category": "docs",
+  "subcategory": "custom-search-attributes",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "search-attributes",
+    "workflow-start",
+    "elasticsearch-integration"
+  ],
+  "concepts": [
+    "custom-search-attributes",
+    "registration",
+    "breaking-change",
+    "error-handling",
+    "version-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading from 1.11.2 to 1.12.0 may experience workflow startup failures with custom search attributes until they register the attributes, with an unclear error message.",
+  "rootCause": "Custom search attributes registration requirement was introduced in version 1.12.0 as a breaking change from 1.11.2, but the change was not clearly communicated in release notes.",
+  "proposedFix": null,
+  "workaround": "Register custom search attributes before starting workflows with them.",
+  "resolution": "invalid",
+  "resolutionDetails": "User discovered that custom search attributes require explicit registration as of version 1.12.0. This was not a bug but a behavioral change that needed better documentation.",
+  "related": [
+    1764
+  ],
+  "keyQuote": "I missed this in the 1.12 release. So our upgrade to 1.11.2 was working fine and our issues started once we went to 1.12.",
+  "number": 1899,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:46.250Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add an optional 'summary' field to activities as part of the user metadata MVP. This enhancement involves marking the feature as experimental and populating the user metadata on the activity command.",
+  "category": "feature",
+  "subcategory": "user-metadata",
+  "apis": [
+    "Activity"
+  ],
+  "components": [
+    "activity-command",
+    "metadata",
+    "user-metadata"
+  ],
+  "concepts": [
+    "metadata",
+    "activity-properties",
+    "experimental-feature",
+    "user-context",
+    "activity-info"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now attach optional summary metadata to activities for better documentation and tracking.",
+  "rootCause": null,
+  "proposedFix": "Add optional 'summary' field to activities, mark as experimental, and ensure it's populated in user metadata when activity commands are executed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement implemented as part of user metadata MVP in Java SDK.",
+  "related": [],
+  "keyQuote": "Add, mark experimental, and populate user metadata on command with it.",
+  "number": 2268,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:02.720Z"
+}

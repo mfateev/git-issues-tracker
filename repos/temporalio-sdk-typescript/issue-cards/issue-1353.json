@@ -1,0 +1,33 @@
+{
+  "summary": "Some metrics emitted by the TypeScript SDK are not prefixed with 'temporal_' (specifically 'request' and 'long_request'), a regression introduced in v1.9.0. The issue appears to stem from unprefixed metrics coming from the Rust client.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "rust-client",
+    "bridge"
+  ],
+  "concepts": [
+    "metrics-naming",
+    "prometheus",
+    "observability",
+    "prefix",
+    "instrumentation",
+    "regression"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see inconsistently prefixed metrics in Prometheus output, breaking naming conventions and making metric collection and monitoring inconsistent.",
+  "rootCause": "Metrics that don't have the temporal_ prefix come from the Rust client, likely due to a metrics refactor around 6 months prior to the issue.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by #1441",
+  "related": [
+    1441
+  ],
+  "keyQuote": "Some metrics emited by the sdk are not prefixed with \"temporal_\", concretely `request` and `long_request`",
+  "number": 1353,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:30.267Z"
+}

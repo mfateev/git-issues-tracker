@@ -1,0 +1,34 @@
+{
+  "summary": "OpenTelemetry TracingInterceptor doesn't create spans for workflow run methods, preventing trace ID correlation for workflow-level logs. While activities receive trace IDs, the workflow execution itself lacks tracing context.",
+  "category": "bug",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [
+    "ExecuteActivityAsync",
+    "WorkflowRun"
+  ],
+  "components": [
+    "TracingInterceptor",
+    "OpenTelemetry",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "trace-correlation",
+    "activity-context",
+    "span-creation",
+    "workflow-replay",
+    "deterministic-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot correlate logs from workflow execution with activities using trace IDs, hindering observability and debugging of distributed workflows.",
+  "rootCause": "The TracingInterceptor creates spans for activities but not for the workflow run method itself, leaving Activity.Current null in workflow execution context.",
+  "proposedFix": null,
+  "workaround": "Users can manually create ActivitySource spans and set parent ID using diaAct.Context.TraceId and diaAct.Context.SpanId within the workflow method.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by implementing span creation in the TracingInterceptor for workflow run methods to maintain consistent tracing context.",
+  "related": [],
+  "keyQuote": "OpenTelemetry span is not created by TracingInterceptor in workflow run methods.",
+  "number": 480,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:29:11.429Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal and Visibility schemas cannot coexist in the same database because both use the same `schema_version` table name, causing versioning conflicts. The proposal is to rename the Visibility schema's versioning table to avoid this naming conflict.",
+  "category": "feature",
+  "subcategory": "schema-versioning",
+  "apis": [],
+  "components": [
+    "visibility-schema",
+    "schema-versioning",
+    "database-schema"
+  ],
+  "concepts": [
+    "schema-conflict",
+    "table-naming",
+    "database-coexistence",
+    "versioning",
+    "schema-upgrade",
+    "migration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot run Temporal and Visibility schemas in the same database, limiting deployment flexibility and requiring separate database instances.",
+  "rootCause": "Both Temporal and Visibility schemas use identical table name `schema_version` for tracking schema versions, preventing them from coexisting.",
+  "proposedFix": "Rename the Visibility schema's versioning table from `schema_version` to `visibility_version` or another distinct name.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    7658
+  ],
+  "keyQuote": "Temporal and Temporal Visibility schemas currently can't coexist in the same database because both utilize the same table name `schema_version`.",
+  "number": 7657,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:31.502Z"
+}

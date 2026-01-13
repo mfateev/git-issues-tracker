@@ -1,0 +1,32 @@
+{
+  "summary": "The matchingEngine.getTask() function returned nil for both internalTask pointer and error in CI, causing a nil pointer dereference panic in the TestAddTaskAfterStartFailure test. The issue was a flaky test condition that didn't reproduce locally.",
+  "category": "bug",
+  "subcategory": "matching-engine",
+  "apis": [],
+  "components": [
+    "matching-engine",
+    "task-management",
+    "test-framework"
+  ],
+  "concepts": [
+    "nil-pointer-dereference",
+    "error-handling",
+    "flaky-test",
+    "concurrent-execution",
+    "task-retrieval"
+  ],
+  "severity": "high",
+  "userImpact": "Intermittent test failures cause unreliable CI builds and reduce confidence in the matching engine's correctness.",
+  "rootCause": "matchingEngine.getTask() violated its contract by returning both nil error and nil internalTask pointer, indicating a race condition or logic error that only manifested under specific CI timing conditions.",
+  "proposedFix": "Fixed by #4989",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via PR #4989 which addressed the underlying condition causing the flaky test",
+  "related": [
+    4989
+  ],
+  "keyQuote": "matchingEngine.getTask returned both a nil error and a nil internalTask",
+  "number": 4892,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:21.581Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose WHATWG TextEncoder and TextDecoder classes in the workflow sandbox to allow users to encode/decode text without delegating to activities or using polyfills.",
+  "category": "feature",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "isolate",
+    "global-scope"
+  ],
+  "concepts": [
+    "determinism",
+    "text-encoding",
+    "sandbox-globals",
+    "polyfill",
+    "workflow-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now use TextEncoder/TextDecoder directly in workflows without requiring activities or external polyfills.",
+  "rootCause": null,
+  "proposedFix": "Expose TextEncoder and TextDecoder classes in the workflow sandbox global scope, similar to how Math.random stub is provided.",
+  "workaround": "Delegate text encoding/decoding to local or regular activities, or load an appropriate polyfill.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented and merged PR to expose TextEncoder and TextDecoder in the workflow sandbox.",
+  "related": [],
+  "keyQuote": "This API includes no feature that could break workflow determinism (e.g. no file IO).",
+  "number": 1550,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:18.741Z"
+}

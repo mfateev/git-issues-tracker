@@ -1,0 +1,32 @@
+{
+  "summary": "Request to expose a defaultConnection() method in the .NET SDK that switches between localhost and cloud environments based on configuration, enabling samples to run flexibly in both environments.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [],
+  "components": [
+    "connection",
+    "client",
+    "samples"
+  ],
+  "concepts": [
+    "environment-configuration",
+    "cloud-connectivity",
+    "localhost-development",
+    "connection-switching",
+    "sample-infrastructure"
+  ],
+  "severity": "low",
+  "userImpact": "Users and sample maintainers can more easily switch between local and cloud-based Temporal deployments without code changes.",
+  "rootCause": null,
+  "proposedFix": "Expose a defaultConnection() method that reads an environment variable to determine whether to connect to localhost or cloud",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to expose defaultConnection() method for environment-based connection switching",
+  "related": [
+    454
+  ],
+  "keyQuote": "Expose a defaultConnection() method or similar that switches between localhost (default) and cloud based on some environment variable",
+  "number": 219,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:58:09.261Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a new PanicPolicy option to automatically restart workflows from the beginning when non-deterministic errors occur, particularly useful for finite-state machine workflows with frequent small changes.",
+  "category": "feature",
+  "subcategory": "workflow-restart-policy",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "panic-policy",
+    "error-handling"
+  ],
+  "concepts": [
+    "non-determinism",
+    "workflow-restart",
+    "panic-policy",
+    "signal-replay",
+    "deterministic-execution",
+    "error-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with frequently-changing finite-state-machine workflows could avoid complex versioning by automatically restarting workflows on non-deterministic errors.",
+  "rootCause": "Non-deterministic panics occurring in workflows due to code changes, which would normally require complex versioning or manual intervention to resolve.",
+  "proposedFix": "Add a new PanicPolicy option called RestartWorkflow that restarts the workflow from the beginning (ideally with signal replay) when non-deterministic errors occur.",
+  "workaround": "Use versioning to handle non-deterministic errors, though this becomes unmaintainable with frequent small changes.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Want to have a new PanicPolicy option called RestartWorkflow, if this option is selected, the workflow will be restarted from the beginning when a non-deterministic error happens",
+  "number": 417,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:02.555Z"
+}

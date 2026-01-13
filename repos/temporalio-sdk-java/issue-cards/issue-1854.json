@@ -1,0 +1,29 @@
+{
+  "summary": "WorkerOptions.equals() throws NullPointerException when buildid is not explicitly set because the equals method lacks null checks for the buildid field.",
+  "category": "bug",
+  "subcategory": "worker-options",
+  "apis": [],
+  "components": [
+    "WorkerOptions",
+    "equals-method",
+    "builder-pattern"
+  ],
+  "concepts": [
+    "null-safety",
+    "equals-contract",
+    "object-comparison",
+    "builder"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably compare WorkerOptions objects when using default values, causing test assertions and equality checks to fail unexpectedly.",
+  "rootCause": "The equals method compares the buildid field without checking for null, violating Java's equals contract that requires handling null values gracefully.",
+  "proposedFix": "Add null checks in the equals method for the buildid field before performing the comparison.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by adding proper null checks to the equals method implementation in WorkerOptions.",
+  "related": [],
+  "keyQuote": "WorkerOptions equals is failing with NullPointer if buildid is not explicitly set.",
+  "number": 1854,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:19.302Z"
+}

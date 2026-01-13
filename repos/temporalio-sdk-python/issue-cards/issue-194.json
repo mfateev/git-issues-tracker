@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to support patch search attributes in Python SDK, similar to Go's implementation using TemporalChangeVersion keys. Needs design decision on user-facing API for updating and retrieving individual search attributes.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "workflow-task",
+    "command-handling"
+  ],
+  "concepts": [
+    "search-attributes",
+    "versioning",
+    "patch-updates",
+    "command-buffering",
+    "atomicity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily update and retrieve individual search attributes in Python SDK, limiting their ability to track workflow changes and version information.",
+  "rootCause": "Python SDK lacks support for patch-based search attribute updates that Go SDK implements with TemporalChangeVersion keys.",
+  "proposedFix": "Buffer search attribute updates and emit a single upsert command at the end of activation, with proper ordering before workflow completion/failure commands.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in core rather than language-specific layer, following the design decision documented in comments.",
+  "related": [
+    153,
+    248
+  ],
+  "keyQuote": "This is being done in core not lang.",
+  "number": 194,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:16.944Z"
+}

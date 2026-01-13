@@ -1,0 +1,32 @@
+{
+  "summary": "Per-task-queue rate limiter has a 1-minute initialization delay, causing a throughput spike immediately after service restart before settling to the configured limit. The rate limiter should apply the configured rate immediately without waiting for its first update cycle.",
+  "category": "bug",
+  "subcategory": "rate-limiting",
+  "apis": [],
+  "components": [
+    "matching",
+    "rate-limiter",
+    "task-queue"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "throughput",
+    "initialization",
+    "service-restart",
+    "backpressure"
+  ],
+  "severity": "medium",
+  "userImpact": "After restarting the matching service, users experience a brief period of uncontrolled throughput spike (up to 1 minute) before rate limits take effect.",
+  "rootCause": "The rate limiter is initialized with a large limit value and only updates its rate every 1 minute, causing a delay before the configured per-task-queue rate limit takes effect.",
+  "proposedFix": "Allow the rate limiter to update its rate for the first time immediately without the 1-minute delay.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by allowing initial rate update without 1-minute delay (PR #3335)",
+  "related": [
+    3335
+  ],
+  "keyQuote": "We should allow the rate limiter to update its rate for the first time without that 1m delay.",
+  "number": 3149,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:51.991Z"
+}

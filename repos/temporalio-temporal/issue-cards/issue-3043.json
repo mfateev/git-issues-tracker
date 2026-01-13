@@ -1,0 +1,29 @@
+{
+  "summary": "User interface confusion in the advanced search feature where date range controls display icons that operate on workflow type instead of dates, and there's no way to copy the start/end date values for use in search queries.",
+  "category": "bug",
+  "subcategory": "ui-search",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "search-interface"
+  ],
+  "concepts": [
+    "user-interface",
+    "usability",
+    "search-filters",
+    "date-range",
+    "copy-functionality"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily copy date values for search queries and are confused by misleading UI controls that don't match their visual proximity.",
+  "rootCause": "UI design issue where date control icons are grouped with or misaligned relative to the workflow type controls, causing confusion about which element they operate on.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Author noted issue was posted to wrong repository and is not applicable to temporalio-temporal.",
+  "related": [],
+  "keyQuote": "all of these operate on the workflow type, not the start date. I got confused thinking the second set of icons would copy my start date but they copied the workflow type only.",
+  "number": 3043,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:51.626Z"
+}

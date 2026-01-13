@@ -1,0 +1,32 @@
+{
+  "summary": "Client-set RPC timeouts/deadlines are ignored by the server for long poll GetWorkflowExecutionHistory calls starting in v1.29.0. The server waits the full long poll interval (~20s) instead of respecting the client's deadline, though it does respond approximately 1s before the deadline is reached.",
+  "category": "bug",
+  "subcategory": "rpc-deadline",
+  "apis": [
+    "GetWorkflowExecutionHistory"
+  ],
+  "components": [
+    "server",
+    "long-poll",
+    "rpc-handler"
+  ],
+  "concepts": [
+    "rpc-deadline",
+    "timeout",
+    "client-server-communication",
+    "long-polling",
+    "deadline-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot enforce client-side RPC timeouts on GetWorkflowExecutionHistory calls, causing requests to hang longer than intended and breaking timeout-based control flow.",
+  "rootCause": "Server-side change introduced in v1.29.0 that ignores client-set deadlines for long poll GetWorkflowExecutionHistory operations",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed indicating resolution, likely through server-side deadline handling fix",
+  "related": [],
+  "keyQuote": "Client-set RPC timeouts/deadlines are ignored by the server for long poll `GetWorkflowExecutionHistory` calls starting in v1.29.0.",
+  "number": 8970,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:30:18.708Z"
+}

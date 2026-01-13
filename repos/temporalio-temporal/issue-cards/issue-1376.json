@@ -1,0 +1,30 @@
+{
+  "summary": "User requests exposing the dyamicconfig.Client as a ServerOption extension point to allow direct integration with custom dynamic config services instead of using a filesystem-based sidecar approach.",
+  "category": "feature",
+  "subcategory": "dynamic-config",
+  "apis": [],
+  "components": [
+    "dynamic-config",
+    "server-options",
+    "configuration"
+  ],
+  "concepts": [
+    "extension-point",
+    "integration",
+    "configuration-service",
+    "sidecar",
+    "customization"
+  ],
+  "severity": "low",
+  "userImpact": "Users can integrate their own dynamic config services directly with Temporal Server instead of building a sidecar.",
+  "rootCause": null,
+  "proposedFix": "Expose Client from dyamicconfig package as a ServerOption extension point",
+  "workaround": "Write a sidecar that integrates with dynamic config service and writes to filesystem",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It looks like everything is in place for the Client to be provided by end-users, but just has not been exposed as a ServerOption.",
+  "number": 1376,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:29.501Z"
+}

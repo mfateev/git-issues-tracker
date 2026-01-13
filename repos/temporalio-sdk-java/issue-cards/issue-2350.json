@@ -1,0 +1,35 @@
+{
+  "summary": "WorkflowLock.tryLock creates unnecessary timers even when the lock is immediately available, potentially impacting performance and Temporal Cloud costs. The issue requests short-circuiting execution to avoid calling Workflow.await if the lock is already acquired.",
+  "category": "other",
+  "subcategory": "workflow-synchronization",
+  "apis": [
+    "WorkflowLock.tryLock",
+    "Workflow.await"
+  ],
+  "components": [
+    "workflow-lock",
+    "timer-management",
+    "history"
+  ],
+  "concepts": [
+    "timer-optimization",
+    "performance",
+    "locking",
+    "condition-evaluation",
+    "cloud-costs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unnecessary performance overhead and increased costs on Temporal Cloud due to redundant timer creation in WorkflowLock.tryLock calls.",
+  "rootCause": "WorkflowLock.tryLock unconditionally calls Workflow.await even when the lock is immediately available, creating timers that get saved to workflow history unnecessarily.",
+  "proposedFix": "Short-circuit execution by checking if the lock is available before calling Workflow.await; only create timers when actually waiting for the lock.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #2312, which tracks the broader change to Workflow.await to not create timers when conditions are immediately satisfied.",
+  "related": [
+    2312
+  ],
+  "keyQuote": "a new timer is created and saved to WF history (which can potentially affect performance and probably costs in temporal cloud)",
+  "number": 2350,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:07.367Z"
+}

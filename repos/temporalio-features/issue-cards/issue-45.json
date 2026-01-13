@@ -1,0 +1,46 @@
+{
+  "summary": "Users need the ability to create a Temporal Client for temporarily unavailable servers without eager health checks and system info calls. The feature requires lazy capability negotiation on first use and explicit health check methods.",
+  "category": "feature",
+  "subcategory": "client-connectivity",
+  "apis": [
+    "Client",
+    "healthCheck",
+    "getSystemInfo",
+    "getSystemCapabilities",
+    "connect",
+    "dial"
+  ],
+  "components": [
+    "client",
+    "connection-management",
+    "initialization",
+    "health-check"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "connection-pooling",
+    "health-check",
+    "system-capabilities",
+    "initialization",
+    "availability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now create clients for temporarily unavailable servers and explicitly control when health checks and capability negotiation occur instead of blocking on client creation.",
+  "rootCause": null,
+  "proposedFix": "Implement lazy initialization with optional explicit connect/dial methods and expose healthCheck endpoints across SDKs (Java, Go, TypeScript, PHP, Python).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    828,
+    793,
+    312,
+    224,
+    92,
+    367
+  ],
+  "keyQuote": "Users should be able to create a Temporal Client for a temporarily unavailable Temporal server.",
+  "number": 45,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:44:17.026Z"
+}

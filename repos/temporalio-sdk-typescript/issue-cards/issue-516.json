@@ -1,0 +1,35 @@
+{
+  "summary": "Webpack bundling of workflow code fails when transitive dependencies pull in Node.js built-in modules or native code. The bundler incorrectly tries to resolve these modules, causing build failures even when they're not actually used at runtime.",
+  "category": "bug",
+  "subcategory": "bundler",
+  "apis": [
+    "bundleWorkflowCode",
+    "Worker.create"
+  ],
+  "components": [
+    "bundler",
+    "webpack-config",
+    "module-resolution"
+  ],
+  "concepts": [
+    "bundling",
+    "webpack",
+    "transitive-dependencies",
+    "node-built-ins",
+    "determinism",
+    "module-resolution",
+    "external-packages"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot bundle workflow code that transitively depends on packages that use Node.js built-ins or native code, blocking legitimate use cases with monorepos and certain dependencies.",
+  "rootCause": "Webpack defaults to browser target and tries to resolve all imported modules, including Node.js built-ins and native packages that aren't actually needed in the workflow sandbox context.",
+  "proposedFix": "Add `target: 'node'` to webpack config, allow users to specify ignored modules via `BundleOptions.ignoreModules`, or provide webpack config override hooks. Stub modules approach used successfully for `assert` could be extended.",
+  "workaround": "Import specific utilities directly rather than through barrel exports (e.g., import from `../api/models` instead of `../api/index`), though this is impractical at scale.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented ignoreModules configuration option in BundleOptions to allow users to exclude problematic transitive dependencies from bundling.",
+  "related": [],
+  "keyQuote": "Webpack is sometime unable to determine that the external package is not actually required at runtime, and will therefore try to load it, causing a build failure.",
+  "number": 516,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:44.058Z"
+}

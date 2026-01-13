@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for headers in signals and queries, mirroring functionality already implemented in the Temporal server and other SDKs (Go, TypeScript).",
+  "category": "feature",
+  "subcategory": "signal-query-headers",
+  "apis": [
+    "Signal",
+    "Query"
+  ],
+  "components": [
+    "signal-dispatcher",
+    "query-handler",
+    "interceptor-framework"
+  ],
+  "concepts": [
+    "headers",
+    "metadata-propagation",
+    "interceptor-extension",
+    "cross-sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot pass custom headers with signals and queries, limiting context propagation and tracing capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement header parameter support in signal and query APIs, following the pattern established in Go and TypeScript SDKs.",
+  "workaround": "Use WorkflowClientCallsInterceptorBase and custom interceptors to manually handle context propagation.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #1819 which added header support to signals and queries.",
+  "related": [
+    438,
+    631
+  ],
+  "keyQuote": "Headers were added to signals and queries in https://github.com/temporalio/temporal/pull/2149.",
+  "number": 940,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:54:16.276Z"
+}

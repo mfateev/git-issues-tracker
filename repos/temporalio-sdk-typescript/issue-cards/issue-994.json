@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency security vulnerability in nyc-test-coverage package due to transitive dependency on loader-utils 1.4.0. Two high-severity vulnerabilities (prototype pollution with CVSS 9.8 and ReDoS with CVSS 7.5) were identified in the loader-utils library used by istanbul-instrumenter-loader.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "nyc-test-coverage",
+    "istanbul-instrumenter-loader",
+    "loader-utils"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "prototype-pollution",
+    "regex-denial-of-service",
+    "dependency-management",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users running tests with the nyc-test-coverage package are exposed to critical security vulnerabilities that could allow remote code execution or denial of service attacks.",
+  "rootCause": "nyc-test-coverage 1.5.2 depends on istanbul-instrumenter-loader 3.0.1, which depends on vulnerable loader-utils 1.4.0 containing prototype pollution and ReDoS flaws.",
+  "proposedFix": "Upgrade loader-utils to version 2.0.4, 1.4.2, or 3.2.1 depending on compatibility constraints.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory, not because the vulnerability was actually fixed.",
+  "related": [],
+  "keyQuote": "Prototype pollution vulnerability in function parseQuery in parseQuery.js in webpack loader-utils 2.0.0 via the name variable",
+  "number": 994,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:30.627Z"
+}

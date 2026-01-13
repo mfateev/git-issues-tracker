@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowServiceStubs instantiation fails in Spring service due to gRPC version mismatch. The application requires grpc-netty-shaded 1.33.1+ (method maxInboundMessageSize added in later versions), but the user's dependency tree shows 1.30.2.",
+  "category": "bug",
+  "subcategory": "dependency-compatibility",
+  "apis": [
+    "WorkflowServiceStubs"
+  ],
+  "components": [
+    "service-client",
+    "grpc-netty",
+    "dependency-management"
+  ],
+  "concepts": [
+    "dependency-conflict",
+    "version-mismatch",
+    "classpath-resolution",
+    "Spring-integration",
+    "gRPC-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot instantiate WorkflowServiceStubs in Spring applications if their dependency tree includes incompatible gRPC versions.",
+  "rootCause": "SDK upgraded grpc-netty-shaded from 1.30.2 to 1.33.1 between v1.0.2 and v1.0.3, but users with transitive dependencies pulling older versions experience method-not-found errors.",
+  "proposedFix": "Update grpc-netty-shaded version to 1.33.1 or higher in project configuration, or use dependency exclusions/management to override transitive dependencies.",
+  "workaround": "Explicitly set grpc-netty-shaded version to 1.33.1+ in dependency management.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed by maintainer as user configuration problem, not an SDK bug. User must manage their own dependency versions. Team continues upgrading gRPC versions proactively.",
+  "related": [],
+  "keyQuote": "You must be overriding netty-shadded version in your configuration somewhere. We are trying to keep all grpc packages up to date.",
+  "number": 309,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:06:38.439Z"
+}

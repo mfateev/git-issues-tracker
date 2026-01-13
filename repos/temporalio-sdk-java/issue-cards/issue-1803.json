@@ -1,0 +1,30 @@
+{
+  "summary": "Guava dependency 31.1-jre contains a security vulnerability (CVE-2023-2976) with CVSS score 7.1 that allows unauthorized file access via the default Java temporary directory. The fix involves upgrading to version 32.0.1 or later.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-configuration",
+    "gradle"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "file-access",
+    "temporary-files",
+    "dependency-upgrade",
+    "guava-library"
+  ],
+  "severity": "high",
+  "userImpact": "Users may be exposed to unauthorized file access if they use the Temporal Java SDK with the vulnerable Guava version.",
+  "rootCause": "FileBackedOutputStream in Google Guava versions 1.0-31.1 uses Java's default temporary directory which is world-readable on Unix systems, allowing other users/apps to access created files.",
+  "proposedFix": "Upgrade Guava from 31.1-jre to 32.0.1-android (32.0.0 breaks Windows functionality).",
+  "workaround": "Users can manually upgrade their own Guava dependency to a newer version independently of the SDK update.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by upgrading Guava dependency to a patched version that fixes the insecure temporary file handling.",
+  "related": [],
+  "keyQuote": "Generally we don't update dependencies if the issue doesn't affect the SDK to avoid forcing users to upgrade...given the small diff between 31.1 and 32.0.1 it is probably fine to upgrade to silence vulnerability tools.",
+  "number": 1803,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:31.630Z"
+}

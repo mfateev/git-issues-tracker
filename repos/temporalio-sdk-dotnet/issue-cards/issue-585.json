@@ -1,0 +1,33 @@
+{
+  "summary": "Nexus operation was retrying every 10 seconds instead of respecting the configured 2-hour ScheduleToCloseTimeout. The issue occurred because the Nexus operation implementation was synchronous and didn't complete quickly enough, causing the start to retry after 10 seconds.",
+  "category": "bug",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "NexusClient",
+    "ExecuteWorkflowAsync"
+  ],
+  "components": [
+    "nexus-handler",
+    "worker",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "asynchronous-operations",
+    "nexus-architecture",
+    "long-running-processes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users configuring long-running Nexus operations with multi-hour timeouts experience unexpected retries every 10 seconds due to misunderstanding Nexus synchronous vs asynchronous operation requirements.",
+  "rootCause": "Nexus operations have a built-in 10-second timeout for starting. Synchronous operations must complete within this window. For long-running operations, an asynchronous Nexus operation backed by a workflow is required, but the user implemented it as synchronous.",
+  "proposedFix": "Migrate the Nexus operation handler to use an asynchronous pattern that starts a backing workflow immediately (completing the handler in <10 seconds) and returns an operation handle, allowing the actual work to run for hours with ScheduleToCloseTimeout.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "User acknowledged the need to migrate to an asynchronous Nexus operation handler pattern with workflow backing after community explanation of sync vs async requirements.",
+  "related": [],
+  "keyQuote": "Starting a Nexus operation has a built-in timeout of 10 seconds before the start is retried. This is mostly unrelated to operation timeout (i.e. schedule to close).",
+  "number": 585,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:38:22.077Z"
+}

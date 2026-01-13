@@ -1,0 +1,30 @@
+{
+  "summary": "Remove the `CancelledError` class from the workflow library and replace it with `CancelledFailure` to maintain consistency with the Java SDK after porting the failure classes.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "cancellation-scope",
+    "failure-classes",
+    "workflow-library"
+  ],
+  "concepts": [
+    "error-handling",
+    "cancellation",
+    "failure-classes",
+    "api-consistency",
+    "sdk-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to update code that catches or handles CancelledError to use CancelledFailure instead, ensuring consistency across SDKs.",
+  "rootCause": "CancelledError existed before failure classes were ported from Java SDK; now redundant with CancelledFailure.",
+  "proposedFix": "Remove CancelledError and use CancelledFailure for all cancellation scope cancellations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "CancelledError was removed and replaced with CancelledFailure to align with Java SDK implementation.",
+  "related": [],
+  "keyQuote": "Now that we've ported the failure classes from the Java SDK we should use them.",
+  "number": 178,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:21.464Z"
+}

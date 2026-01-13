@@ -1,0 +1,31 @@
+{
+  "summary": "Activity logger context is not populated when `activity_info_on_message` is False, even when `activity_info_on_extra` is True. The bug occurs because the code accesses `_logger_details` instead of `logger_details`, preventing lazy population of logger context.",
+  "category": "bug",
+  "subcategory": "activity-logging",
+  "apis": [],
+  "components": [
+    "activity",
+    "logger",
+    "context"
+  ],
+  "concepts": [
+    "logging",
+    "context-propagation",
+    "configuration",
+    "lazy-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot include activity context information in log extra fields without also including it in the message string.",
+  "rootCause": "Code accesses `_logger_details` private attribute directly instead of using `logger_details` property which performs lazy population",
+  "proposedFix": "Change line 462 in temporalio/activity.py to access `logger_details` instead of `_logger_details`",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by accessing the logger_details property instead of the private _logger_details attribute, allowing lazy population regardless of activity_info_on_message setting",
+  "related": [
+    593
+  ],
+  "keyQuote": "We need to change to access `logger_details` instead of `_logger_details` since the former will lazily populate it",
+  "number": 592,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:16.925Z"
+}

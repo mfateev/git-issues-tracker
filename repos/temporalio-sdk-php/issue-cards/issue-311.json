@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add SetBinaryChecksum method to the PHP worker, allowing developers to register the binary checksum (e.g., git commit hash) with the worker for deployment rollback strategies.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Workflow.getInfo",
+    "worker.SetBinaryChecksum"
+  ],
+  "components": [
+    "worker",
+    "workflow-versioning"
+  ],
+  "concepts": [
+    "binary-checksum",
+    "deployment-rollback",
+    "workflow-versioning",
+    "git-commit",
+    "version-control"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot easily register binary checksums with workers, limiting their ability to implement deployment rollback strategies based on code versions.",
+  "rootCause": null,
+  "proposedFix": "Add a SetBinaryChecksum method to the worker configuration API that allows setting the binary checksum during worker initialization.",
+  "workaround": "Use Workflow Versioning as an alternative approach to handle versioning and rollback scenarios.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed as the recommended solution is to use Workflow Versioning, which is the preferred approach for handling versioning and rollback scenarios in Temporal.",
+  "related": [],
+  "keyQuote": "I would like this checksum to be associated with the worker. So whenever a worker is deployed, I would like to set its checksum to with the current git ref/commit.",
+  "number": 311,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:38.627Z"
+}

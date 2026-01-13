@@ -1,0 +1,31 @@
+{
+  "summary": "Request to remove the Long type from the TypeScript client SDK. The feature was originally implemented in PR #818 but was subsequently reverted in PR #827, indicating it should be removed from the codebase.",
+  "category": "feature",
+  "subcategory": "client-api",
+  "apis": [],
+  "components": [
+    "client",
+    "type-system"
+  ],
+  "concepts": [
+    "long-integers",
+    "type-definitions",
+    "client-api",
+    "type-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies the TypeScript client API by removing an unnecessary type, reducing API surface and potential confusion.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Long type was removed from the client following the reversion in PR #827.",
+  "related": [
+    818,
+    827
+  ],
+  "keyQuote": "Originally implemented here: https://github.com/temporalio/sdk-typescript/pull/818 Reverted here: https://github.com/temporalio/sdk-typescript/pull/827",
+  "number": 829,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:18:38.358Z"
+}

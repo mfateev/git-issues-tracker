@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose the root workflow execution in the PHP SDK, dependent on a prior Go SDK release and a features repository proposal.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "php-sdk"
+  ],
+  "concepts": [
+    "root-workflow",
+    "execution-context",
+    "workflow-hierarchy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need access to root workflow execution information for better workflow introspection and control.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented after waiting for the Go SDK release as indicated by the maintainer comment.",
+  "related": [
+    605,
+    1848
+  ],
+  "keyQuote": "Yeah, we need to wait for the sdk-go release first.",
+  "number": 576,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:41:37.620Z"
+}

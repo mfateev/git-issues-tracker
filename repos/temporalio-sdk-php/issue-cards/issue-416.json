@@ -1,0 +1,32 @@
+{
+  "summary": "Request to implement WorkflowIdConflictPolicy support in the PHP SDK, tracking feature parity with other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-management",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-options"
+  ],
+  "concepts": [
+    "conflict-resolution",
+    "workflow-identity",
+    "policy-handling",
+    "feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "PHP SDK users cannot control workflow behavior when a workflow with the same ID already exists.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WorkflowIdConflictPolicy support was implemented in the PHP SDK",
+  "related": [
+    437
+  ],
+  "keyQuote": "Support for WorkflowIdConflictPolicy",
+  "number": 416,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:53.304Z"
+}

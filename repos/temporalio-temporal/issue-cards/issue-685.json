@@ -1,0 +1,36 @@
+{
+  "summary": "Parent workflows currently exit immediately even if child workflows with abandon parent policy haven't started yet, preventing those children from ever starting. The proposal is to automatically delay workflow completion until abandoned children have reported successful startup.",
+  "category": "feature",
+  "subcategory": "child-workflow-management",
+  "apis": [
+    "ChildWorkflowStub.getExecution()"
+  ],
+  "components": [
+    "workflow-task-handler",
+    "child-workflow-logic",
+    "decision-task",
+    "workflow-completion"
+  ],
+  "concepts": [
+    "child-workflow-start",
+    "abandon-parent-policy",
+    "workflow-lifecycle",
+    "timing",
+    "completion-delay",
+    "parent-child-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must use obscure workarounds (waiting for Promise from getExecution()) to ensure child workflows start before parent completion, which is error-prone.",
+  "rootCause": "Workflow completion happens before child workflow start requests are processed when parent exits early, combined with abandon parent policy semantics.",
+  "proposedFix": "Automatically delay workflow completion by failing and rescheduling the decision task until child workflows with abandon parent policy have successfully started.",
+  "workaround": "Wait for Promise returned from ChildWorkflowStub.getExecution() before allowing parent workflow to complete.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    74
+  ],
+  "keyQuote": "Currently, if a parent workflow exits before a child workflow has started the child is not going to start at all.",
+  "number": 685,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:27.860Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to mask or sanitize sensitive data in SDK objects to prevent accidental exposure of API keys and authentication credentials when objects are serialized or logged. Proposes implementing custom serialization behaviors and data structure redesigns to mitigate critical security vulnerabilities.",
+  "category": "feature",
+  "subcategory": "security-serialization",
+  "apis": [
+    "WorkflowHandle"
+  ],
+  "components": [
+    "client",
+    "serialization",
+    "handle-objects"
+  ],
+  "concepts": [
+    "data-masking",
+    "sensitive-data",
+    "serialization-guards",
+    "API-key-exposure",
+    "security-vulnerability",
+    "logging-safety"
+  ],
+  "severity": "critical",
+  "userImpact": "Without this feature, developers risk accidentally exposing API keys and authentication credentials through logs, HTTP responses, and error messages when SDK handle objects are inadvertently serialized.",
+  "rootCause": "SDK objects containing sensitive client references lack protection against accidental serialization, allowing internal fields like API keys to be exposed when objects are passed to JSON.stringify or serialization libraries.",
+  "proposedFix": "Override toJSON() methods to exclude or mask sensitive fields, redesign data models to prevent serialization of sensitive content, and implement protection mechanisms that work with advanced serialization libraries like superjson.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When a handle object is accidentally passed to serialization layers it exposes the internal client reference which contains unmasked API keys and authentication credentials",
+  "number": 1736,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:27.971Z"
+}

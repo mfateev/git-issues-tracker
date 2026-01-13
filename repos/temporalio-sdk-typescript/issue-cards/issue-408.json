@@ -1,0 +1,30 @@
+{
+  "summary": "The `npx @temporalio/create` command fails to execute for some users on Node 14.15.0. The issue appears to be environment-specific with limited details provided in the bug report.",
+  "category": "bug",
+  "subcategory": "create-cli",
+  "apis": [],
+  "components": [
+    "create-cli",
+    "npm-package",
+    "node-runtime"
+  ],
+  "concepts": [
+    "installation",
+    "initialization",
+    "cli-tool",
+    "environment-compatibility",
+    "bootstrap"
+  ],
+  "severity": "high",
+  "userImpact": "Users are unable to bootstrap new TypeScript Temporal projects using the official create command, blocking project setup.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": null,
+  "number": 408,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:23.732Z"
+}

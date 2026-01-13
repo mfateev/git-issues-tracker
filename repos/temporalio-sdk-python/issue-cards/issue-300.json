@@ -1,0 +1,35 @@
+{
+  "summary": "PyGILState_Release error occurs in short-lived client-only processes after execute_workflow completes, possibly related to PyO3's GIL handling during process shutdown or when the Tokio runtime attempts to call Python callbacks after the Python runtime is finalizing.",
+  "category": "bug",
+  "subcategory": "client-lifecycle",
+  "apis": [
+    "Client.connect",
+    "start_workflow_execution"
+  ],
+  "components": [
+    "client",
+    "pyo3-bridge",
+    "tokio-runtime"
+  ],
+  "concepts": [
+    "GIL",
+    "process-shutdown",
+    "async-callbacks",
+    "thread-safety",
+    "runtime-finalization"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience fatal crashes with PyGILState_Release errors when client processes exit, particularly with short-lived workflows or background tasks.",
+  "rootCause": "PyO3-asyncio calls Python::with_gil in callbacks during runtime finalization, but PyGILState_Ensure terminates threads when the Python runtime is finalizing, causing a fatal error.",
+  "proposedFix": "Rewrite or vendor pyo3-asyncio to avoid calling Python::with_gil during callbacks, or check for runtime finalization before attempting GIL acquisition.",
+  "workaround": "Avoid gracefully exiting the program while the client is in use; ensure all client operations complete before shutdown.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1274
+  ],
+  "keyQuote": "Calling this function from a thread when the runtime is finalizing will terminate the thread, even if the thread was not created by Python.",
+  "number": 300,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:24.417Z"
+}

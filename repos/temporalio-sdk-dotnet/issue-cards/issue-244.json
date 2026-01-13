@@ -1,0 +1,33 @@
+{
+  "summary": "Add a separate Cloud Operations API client for the .NET SDK using cloud protos, marked as experimental. This feature is dependent on sdk-core issue #737.",
+  "category": "feature",
+  "subcategory": "cloud-operations-client",
+  "apis": [],
+  "components": [
+    "cloud-client",
+    "protos",
+    "client-library"
+  ],
+  "concepts": [
+    "cloud-operations",
+    "experimental-api",
+    "separate-client",
+    "proto-definitions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to interact with Temporal Cloud Operations through a dedicated .NET client library.",
+  "rootCause": null,
+  "proposedFix": "Create a separate cloud client using cloud protos, marked experimental, following patterns established in Go SDK PR #1426.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Cloud Operations API client was implemented for .NET SDK.",
+  "related": [
+    440,
+    1426,
+    737
+  ],
+  "keyQuote": "We need a separate cloud client using the cloud protos (they are separate today). The client should be marked experimental.",
+  "number": 244,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:02:44.270Z"
+}

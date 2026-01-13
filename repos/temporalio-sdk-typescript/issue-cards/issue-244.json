@@ -1,0 +1,36 @@
+{
+  "summary": "Lerna was not properly versioning the meta package according to its dependencies, resulting in breaking changes not being reflected in version bumps. The changelog generation was also broken, with commits being misclassified and duplicated across packages. The issue was resolved by adopting a single version for all packages in the monorepo.",
+  "category": "bug",
+  "subcategory": "build-release",
+  "apis": [],
+  "components": [
+    "lerna",
+    "versioning",
+    "changelog-generation",
+    "package-management",
+    "monorepo-structure"
+  ],
+  "concepts": [
+    "semantic-versioning",
+    "breaking-changes",
+    "automation",
+    "dependency-management",
+    "changelog",
+    "conventional-commits",
+    "monorepo"
+  ],
+  "severity": "high",
+  "userImpact": "Users were receiving misleading version numbers that didn't reflect the severity of breaking changes, making it difficult to understand compatibility between releases.",
+  "rootCause": "Lerna's automatic versioning algorithm did not understand that the meta package version should be incremented based on its dependencies, and the changelog generation was misinterpreting commit conventions.",
+  "proposedFix": "Implement a single version for all packages in the monorepo, replace automatic changelog generation with manual editing of a single CHANGELOG, and validate PR titles for conventional commit format instead of checking commits.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Adopted a single version for all packages with a unified changelog. Removed automatic conventional commit checking in favor of PR title validation. Changelog is now manually edited before release.",
+  "related": [
+    172
+  ],
+  "keyQuote": "lerna does not understand that the meta package (`temporalio`) version should be incremented according to its dependencies.",
+  "number": 244,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:54.175Z"
+}

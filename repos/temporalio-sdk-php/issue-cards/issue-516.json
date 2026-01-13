@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to implement typed search attributes in the PHP SDK, referencing a cross-SDK features discussion for consistency across all Temporal SDK implementations.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "type-system",
+    "query-api"
+  ],
+  "concepts": [
+    "type-safety",
+    "search",
+    "attributes",
+    "typed-api",
+    "query-interface",
+    "sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use type-safe search attributes in the PHP SDK, making it harder to query workflows with compile-time safety guarantees.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation aligned with cross-SDK features specification",
+  "related": [
+    336
+  ],
+  "keyQuote": "see https://github.com/temporalio/features/issues/336",
+  "number": 516,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:00.537Z"
+}

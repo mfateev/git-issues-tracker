@@ -1,0 +1,39 @@
+{
+  "summary": "Request to add SignalWithStart and UpdateWithStart commands that can be called from within workflow code, currently only available through external gRPC API. This would enable atomic signal-on-start operations directly from workflows instead of requiring workarounds through activities.",
+  "category": "feature",
+  "subcategory": "workflow-commands",
+  "apis": [
+    "SignalWithStart",
+    "ExecuteChildWorkflow",
+    "ExecuteWorkflow",
+    "SignalWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "decision-commands",
+    "grpc-api",
+    "sdk-core"
+  ],
+  "concepts": [
+    "child-workflows",
+    "signaling",
+    "atomic-operations",
+    "workflow-execution",
+    "external-api",
+    "history-service"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently work around the lack of direct SignalWithStart support in workflows by calling it from activities, requiring extra complexity and losing atomicity.",
+  "rootCause": "SignalWithStart is implemented at the gRPC/history service level but not exposed as a decision command in the workflow SDK.",
+  "proposedFix": "Add SignalWithStartChildWorkflow decision command with an option to specify whether the started workflow becomes a child workflow.",
+  "workaround": "Call SignalWithStart from an activity instead of directly from workflow code.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3819
+  ],
+  "keyQuote": "Currently, SignalWithStart is available only through external gRPC API. There are multiple use cases when it is needed from a workflow.",
+  "number": 537,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:13:34.829Z"
+}

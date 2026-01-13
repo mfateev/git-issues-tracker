@@ -1,0 +1,29 @@
+{
+  "summary": "CI test flake where ephemeral server fails to start with 'failed to fill whole buffer' error. Appears to be an intermittent issue in Core rather than SDK code.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "ephemeral-server",
+    "test-environment",
+    "core"
+  ],
+  "concepts": [
+    "buffer",
+    "server-initialization",
+    "ci-flake",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Intermittent CI test failures prevent reliable validation of SDK changes.",
+  "rootCause": "Issue in Core when filling buffer during ephemeral server startup",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Closed after not occurring for extended period, suggesting upstream fix or environmental resolution",
+  "related": [],
+  "keyQuote": "Failed to start ephemeral server: failed to fill whole buffer",
+  "number": 916,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:23:17.778Z"
+}

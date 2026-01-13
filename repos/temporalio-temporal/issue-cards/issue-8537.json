@@ -1,0 +1,36 @@
+{
+  "summary": "SDK needs first_execution_run_id field in StartWorkflowExecutionResponse and WorkflowExecutionAlreadyStartedFailure to properly handle workflow conflicts. Currently when a workflow start conflicts with an existing workflow using use-existing policy, the SDK lacks the first execution run ID needed for subsequent operations like cancel and signal.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflowExecution",
+    "StartWorkflowExecutionResponse",
+    "WorkflowExecutionAlreadyStartedFailure"
+  ],
+  "components": [
+    "api",
+    "workflow-execution",
+    "conflict-handling",
+    "persistence"
+  ],
+  "concepts": [
+    "conflict-resolution",
+    "workflow-identity",
+    "first-execution",
+    "run-id",
+    "use-existing-policy",
+    "workflow-binding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably track and manage workflows that encounter start conflicts with use-existing policy, limiting their ability to cancel or signal such workflows.",
+  "rootCause": "The API responses for conflict scenarios (started=false or WorkflowExecutionAlreadyStartedFailure) do not include the first_execution_run_id, requiring persistence layer changes to track this information.",
+  "proposedFix": "Add first_execution_run_id field to StartWorkflowExecutionResponse and WorkflowExecutionAlreadyStartedFailure responses; store first execution run ID in persistence record at request handling time.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDK needs `StartWorkflowExecutionResponse.first_execution_run_id` for on-conflict-use-existing situations, and `WorkflowExecutionAlreadyStartedFailure.first_execution_run_id` for other already-started situations.",
+  "number": 8537,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:49.072Z"
+}

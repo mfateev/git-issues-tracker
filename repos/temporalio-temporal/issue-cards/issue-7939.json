@@ -1,0 +1,34 @@
+{
+  "summary": "Error message when PostgreSQL misconfiguration occurs is too generic ('no usable database connection found') and doesn't help users debug the actual underlying issue. The error message regression was introduced in PR #5926 where connection errors are logged but not returned in the reconnect method.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "postgres",
+    "database-connection",
+    "schema-initialization",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-message",
+    "database-connection",
+    "postgres-misconfiguration",
+    "debugging",
+    "logging",
+    "schema-version-check"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot effectively debug PostgreSQL configuration issues because generic error messages hide the actual connection or configuration problems.",
+  "rootCause": "In PR #5926, connection errors are only logged but not returned from the reconnect method, causing the schema version compatibility check to report a generic 'no usable database connection found' error instead of the underlying cause.",
+  "proposedFix": "Return the connection error from the reconnect method instead of just logging it, so the actual error is propagated to the user.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The connection error is now returned from the reconnect method to provide the actual underlying error instead of a generic message.",
+  "related": [
+    5926
+  ],
+  "keyQuote": "the connection error only got logged but not returned...Shouldn't be hard to just return the connection error from the `reconnect` method.",
+  "number": 7939,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:24.730Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Docker images for Temporal server and admin tools need to address CVE-2025-22871 vulnerability in golang:net/http/internal dependency. User requests updated images with the security vulnerability fixed.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "server",
+    "admin-tools"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "cve",
+    "dependency-management",
+    "golang",
+    "docker"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal server and admin tools in Docker are exposed to security vulnerabilities that could be exploited until patched images are released.",
+  "rootCause": "golang:net/http/internal dependency contains CVE-2025-22871 vulnerability",
+  "proposedFix": "Release updated Docker images with patched golang:net/http/internal dependency",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "golang:net/http/internal has vulnerability CVE-2025-22871. Please help us with a docker image for both server and admin tools by fixing these vulnerabilities.",
+  "number": 8153,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:32.879Z"
+}

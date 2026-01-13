@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for fallback listeners for signals, queries, and updates with dynamically unknown names. Currently handlers must be declared with known names in advance.",
+  "category": "feature",
+  "subcategory": "message-passing",
+  "apis": [
+    "registerListener"
+  ],
+  "components": [
+    "workflow-handler",
+    "signal-listener",
+    "query-listener",
+    "update-listener"
+  ],
+  "concepts": [
+    "dynamic-handlers",
+    "message-passing",
+    "fallback-handlers",
+    "workflow-signals",
+    "workflow-queries",
+    "workflow-updates"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot handle signals, queries, or updates with names unknown at workflow definition time, limiting dynamic workflow behavior.",
+  "rootCause": null,
+  "proposedFix": "Add a `Workflow::registerListener()` function to define fallback update/signal/query listeners, similar to Java's dynamic signal handlers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fallback listeners for signals, queries, and updates were implemented in the PHP SDK.",
+  "related": [],
+  "keyQuote": "Add something like `Workflow::registerListener()` function to define fallback update/signal/query listeners",
+  "number": 508,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:45.195Z"
+}

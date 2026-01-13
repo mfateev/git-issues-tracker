@@ -1,0 +1,31 @@
+{
+  "summary": "Add clarification to SDK documentation that options on application failures are not mutated by the server. Specifically, non-retryable errors are client-side error options, not server-provided failures.",
+  "category": "docs",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "options",
+    "documentation"
+  ],
+  "concepts": [
+    "error-options",
+    "immutability",
+    "server-client-contract",
+    "non-retryable",
+    "failure-handling",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have clearer understanding of how error options work and won't be confused about whether the server mutates client-provided options.",
+  "rootCause": null,
+  "proposedFix": "Update documentation to clarify that options on application failures are not mutated by the server",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation clarification was provided to explain immutability of error options",
+  "related": [],
+  "keyQuote": "Clarify that options on application failures are not mutated by the server (e.g. non-retryable is an error option, not a server-provided failure)",
+  "number": 470,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:42.823Z"
+}

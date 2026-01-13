@@ -1,0 +1,30 @@
+{
+  "summary": "The tagsToMap function is called on every counter/timer emission, creating objects repeatedly. Request to move tag exclusion logic to the metrics export phase (e.g., Prometheus) instead of during generation to reduce object allocation overhead.",
+  "category": "other",
+  "subcategory": "metrics-optimization",
+  "apis": [],
+  "components": [
+    "tally-metric-provider",
+    "metrics-exporter",
+    "prometheus-integration"
+  ],
+  "concepts": [
+    "metrics-tags",
+    "object-allocation",
+    "performance-optimization",
+    "tag-filtering",
+    "export-pipeline"
+  ],
+  "severity": "medium",
+  "userImpact": "High-frequency metrics emission creates unnecessary memory overhead due to repeated tag mapping operations.",
+  "rootCause": "Tag filtering (tagsToMap) executed during metric generation instead of during export phase, causing redundant object allocations.",
+  "proposedFix": "Move tag exclusion logic to the metrics export phase (e.g., when exporting to Prometheus) rather than executing it on every counter/timer increment.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Can we execute the exclusion logic when exporting the metrics to e.g. prometheus? instead of doing this logic every time when increasing a counter.",
+  "number": 3015,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:25.725Z"
+}

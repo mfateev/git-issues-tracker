@@ -1,0 +1,35 @@
+{
+  "summary": "Default authorizer blocks OperatorService calls that should be allowed for namespace-reader and namespace-admin users. ListSearchAttributes should be accessible to namespace-reader, while Add/RemoveSearchAttributes and DeleteNamespace should be accessible to namespace-admin.",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [
+    "ListSearchAttributes",
+    "AddSearchAttributes",
+    "RemoveSearchAttributes",
+    "DeleteNamespace"
+  ],
+  "components": [
+    "authorizer",
+    "operator-service",
+    "namespace-management"
+  ],
+  "concepts": [
+    "authorization",
+    "permissions",
+    "namespace-claims",
+    "access-control",
+    "search-attributes"
+  ],
+  "severity": "high",
+  "userImpact": "UI and SDK operations fail because the default authorizer incorrectly blocks OperatorService calls that legitimate namespace-reader and namespace-admin users need to perform.",
+  "rootCause": "Default authorizer applies overly restrictive permission requirements to OperatorService calls, requiring system permissions for operations that should be allowed with namespace-level claims.",
+  "proposedFix": "Update default authorizer to allow ListSearchAttributes for namespace-reader, and Add/RemoveSearchAttributes & DeleteNamespace for namespace-admin, while requiring system permissions for remote cluster calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Default authorizer was updated to allow specified OperatorService calls for appropriate namespace-level permission claims.",
+  "related": [],
+  "keyQuote": "Default authorizer should allow ListSearchAttributes to namespace-reader and Add/RemoveSearchAttributes & DeleteNamespace to namespace-admin.",
+  "number": 4654,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:39.862Z"
+}

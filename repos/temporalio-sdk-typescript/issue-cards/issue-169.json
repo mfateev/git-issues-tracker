@@ -1,0 +1,32 @@
+{
+  "summary": "Simplify TypeScript project structure by consolidating multiple tsconfig files into a single configuration now that workflow code is bundled with Webpack, trading some type safety for better developer experience and reduced complexity.",
+  "category": "feature",
+  "subcategory": "project-structure",
+  "apis": [],
+  "components": [
+    "typescript-compiler",
+    "webpack-bundler",
+    "tsconfig",
+    "workflow-bundling"
+  ],
+  "concepts": [
+    "type-safety",
+    "project-structure",
+    "developer-experience",
+    "typescript-configuration",
+    "determinism",
+    "workflow-compilation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers benefit from a simpler single tsconfig setup while needing to be more careful about accidentally using non-deterministic APIs in workflows.",
+  "rootCause": "The composite project structure with multiple tsconfigs is unnecessarily complex now that Webpack handles workflow bundling and can output CommonJS.",
+  "proposedFix": "Consolidate the 4 tsconfig files into a single configuration, update samples and documentation to reflect the new structure.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The project structure was simplified by consolidating multiple TypeScript configuration files into a single configuration as agreed upon in the discussion.",
+  "related": [],
+  "keyQuote": "instead of 4 tsconfig files we can now have a single config file. Doing this means sacrificing some type safety",
+  "number": 169,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:08.567Z"
+}

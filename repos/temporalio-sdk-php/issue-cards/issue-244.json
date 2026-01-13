@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to allow custom exception classes to carry failure context information when converted to Temporal failures. Currently, ApplicationFailure must be extended directly, but the user wants to implement an interface instead to preserve custom exception context like UserExceptions and ApplicationExceptions.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "FailureConverter",
+    "ApplicationFailure",
+    "exception-mapping"
+  ],
+  "concepts": [
+    "context-preservation",
+    "exception-interface",
+    "failure-details",
+    "backward-compatibility",
+    "custom-exceptions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with existing custom exception hierarchies cannot preserve context metadata when Temporal activities fail, limiting error reporting capabilities.",
+  "rootCause": null,
+  "proposedFix": "Make ApplicationFailure an interface or create a FailureWithDetails/HasFailureInfo interface that custom exceptions can implement to provide details and context.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Would be great if ApplicationFailure was an interface this way we can just force our exceptions to implement this and create details and don't have to extend ApplicationFailure all the way.",
+  "number": 244,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:24:55.285Z"
+}

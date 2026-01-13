@@ -1,0 +1,35 @@
+{
+  "summary": "Custom logger configured via Runtime.install() was not receiving logs emitted from Rust core during worker startup and shutdown. User needed to configure log forwarding via telemetryOptions to receive all logs.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [
+    "Runtime.install",
+    "Worker.create",
+    "Worker.run"
+  ],
+  "components": [
+    "logger",
+    "runtime",
+    "telemetry",
+    "worker-startup"
+  ],
+  "concepts": [
+    "logging",
+    "custom-logger",
+    "log-forwarding",
+    "telemetry-configuration",
+    "rust-core-logs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom loggers miss important logs from Rust core during worker lifecycle events, making debugging and monitoring incomplete.",
+  "rootCause": "Logs emitted from Rust core require explicit log forwarding configuration via telemetryOptions that was not documented clearly.",
+  "proposedFix": "Configure telemetryOptions with logging filter and forward options: Runtime.install({ logger, telemetryOptions: { logging: { filter: makeTelemetryFilterString(...), forward: {} } } })",
+  "workaround": "Set up log forwarding in the runtime options using telemetryOptions.logging.forward configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved issue by configuring log forwarding via telemetryOptions as suggested in the comment.",
+  "related": [],
+  "keyQuote": "Those logs are emitted from Rust core. You'll need to set up log forwarding in the runtime options",
+  "number": 1006,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:14.914Z"
+}

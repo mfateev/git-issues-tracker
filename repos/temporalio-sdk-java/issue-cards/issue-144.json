@@ -1,0 +1,32 @@
+{
+  "summary": "The newUntypedWorkflowStub method should check if runId is present before calling get() to avoid potential NullPointerException. This is a defensive programming issue in the WorkflowClientInternal class.",
+  "category": "bug",
+  "subcategory": "workflow-stub",
+  "apis": [
+    "newUntypedWorkflowStub"
+  ],
+  "components": [
+    "WorkflowClientInternal",
+    "workflow-stub-creation"
+  ],
+  "concepts": [
+    "null-safety",
+    "optional-handling",
+    "defensive-programming",
+    "runtime-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter NullPointerException when creating untyped workflow stubs without proper runId validation.",
+  "rootCause": "The code calls get() on an Optional runId without first checking if it is present, violating safe Optional usage patterns.",
+  "proposedFix": "Add a check for runId.isPresent() before calling get() to safely handle the optional value.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via pull request #148 which added proper Optional checking before get() call.",
+  "related": [
+    148
+  ],
+  "keyQuote": "newUntypedWorkflowStub should check if runId.isPresent() before calling get",
+  "number": 144,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:57:24.457Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to run update validators in a limited workflow context where they have access to workflow info but cannot execute APIs that produce commands.",
+  "category": "feature",
+  "subcategory": "update-validator",
+  "apis": [],
+  "components": [
+    "update-validator",
+    "workflow-context",
+    "command-execution"
+  ],
+  "concepts": [
+    "workflow-context",
+    "validator-execution",
+    "api-restrictions",
+    "command-production",
+    "workflow-info"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to validate updates with workflow context access while preventing unintended command production.",
+  "rootCause": null,
+  "proposedFix": "Run update validators with limited workflow context that provides access to workflow info but restricts APIs that produce commands",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update validators now execute in a restricted workflow context with access to workflow information but limited API capabilities",
+  "related": [],
+  "keyQuote": "When running an update validator it should be run in a workflow context (ie have access to workflow info) but be limited in the actions it can take",
+  "number": 1748,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:57.137Z"
+}

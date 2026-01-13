@@ -1,0 +1,50 @@
+{
+  "summary": "Add comprehensive type safety tests for user-defined function APIs across signals, updates, queries, workflows, activities, and schedules to catch type coherency deficiencies that could allow incorrect user code to compile.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "defineSignal",
+    "defineUpdate",
+    "defineQuery",
+    "setHandler",
+    "signal",
+    "signalWithStart",
+    "update",
+    "query",
+    "start",
+    "execute",
+    "startChild",
+    "proxyActivities",
+    "proxyLocalActivities",
+    "createSchedule"
+  ],
+  "components": [
+    "type-system",
+    "test-suite",
+    "api-definitions",
+    "signal-handler",
+    "activity-proxy"
+  ],
+  "concepts": [
+    "type-safety",
+    "type-assertions",
+    "compile-time-errors",
+    "function-arguments",
+    "promise-handling",
+    "type-coherency",
+    "test-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could write type-unsafe code that compiles but fails at runtime because type assertions don't catch all invalid argument patterns and function signatures.",
+  "rootCause": "Inconsistent and incomplete type-safety test coverage across APIs that accept user-defined functions, allowing type coherency deficiencies to be introduced and persist undetected.",
+  "proposedFix": "Assess current typing test coverage and add missing tests for all user-defined function APIs, following patterns already established in test-interface-type-safety.ts.",
+  "workaround": null,
+  "related": [
+    1307,
+    1051
+  ],
+  "keyQuote": "deficiencies that affect incorrect user code (i.e. some code that should not compile does due to improper typing rules)",
+  "number": 1308,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:02.922Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Request for Sessions support in TypeScript SDK, similar to the Go SDK implementation. Sessions provide concurrency control and worker-specific task queue patterns for managing activity execution affinity.",
+  "category": "feature",
+  "subcategory": "sessions",
+  "apis": [
+    "ExecuteActivity",
+    "StartWorkflow"
+  ],
+  "components": [
+    "worker",
+    "task-queue",
+    "activity-executor"
+  ],
+  "concepts": [
+    "session",
+    "worker-affinity",
+    "concurrency-control",
+    "sticky-activities",
+    "task-queue",
+    "load-balancing"
+  ],
+  "severity": "medium",
+  "userImpact": "TypeScript SDK users cannot implement session-based patterns for activity execution affinity and worker-specific concurrency control that Go SDK users have access to.",
+  "rootCause": "TypeScript SDK lacks the Sessions API that exists in Go SDK, though worker-specific task queues provide alternative pattern.",
+  "proposedFix": "Implement Sessions API in TypeScript SDK with concurrency control similar to Go SDK, or provide clearer documentation on using worker-specific task queue pattern as alternative.",
+  "workaround": "Use worker-specific task queues with maxConcurrentWorkflowTaskExecutions and maxConcurrentActivityTaskExecutions configuration for session-like behavior.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This appears to have been transferred from the TypeScript SDK issue tracker, but for those wondering, all SDKs support a concept of \"worker-specific task queues\" which basically provides session behavior.",
+  "number": 562,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:13.464Z"
+}

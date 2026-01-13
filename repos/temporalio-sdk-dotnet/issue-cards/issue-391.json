@@ -1,0 +1,31 @@
+{
+  "summary": "Request for special handling of Temporal built-in prefixes in the .NET SDK, as defined in a cross-SDK features issue.",
+  "category": "feature",
+  "subcategory": "naming-conventions",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "workflow-runtime",
+    "naming"
+  ],
+  "concepts": [
+    "prefix-handling",
+    "naming-convention",
+    "built-in-types",
+    "sdk-standardization"
+  ],
+  "severity": "low",
+  "userImpact": "Users may encounter inconsistent behavior when using Temporal built-in prefixes across SDK implementations.",
+  "rootCause": null,
+  "proposedFix": "Implement special behavior for Temporal built-in prefixes as specified in temporalio/features#576",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented following standardization defined in cross-SDK features issue",
+  "related": [
+    576
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/576",
+  "number": 391,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:18:37.356Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Worker crashes with RangeError when using Node.js v22.7.0 due to a protobufjs buffer issue during workflow update message serialization. The error occurs in protobufjs's utf8Write and is fixed by upgrading to Node.js v22.8.0 or ensuring matching versions of all @temporalio packages.",
+  "category": "bug",
+  "subcategory": "worker-serialization",
+  "apis": [
+    "setHandler",
+    "executeUpdate"
+  ],
+  "components": [
+    "worker",
+    "protobufjs",
+    "serialization",
+    "buffer-handling"
+  ],
+  "concepts": [
+    "buffer-bounds",
+    "version-compatibility",
+    "serialization",
+    "node-compatibility",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Node.js v22.7.0 or with mismatched @temporalio package versions experience worker crashes when executing workflow updates.",
+  "rootCause": "Protobufjs buffer handling issue in Node.js v22.7.0 (fixed in v22.8.0). Also occurs when @temporalio packages have mismatched versions.",
+  "proposedFix": "Upgrade Node.js to v22.8.0 or later. Ensure all @temporalio packages use matching versions.",
+  "workaround": "Use a different Node.js version (v20 LTS or v22.8.0+). Ensure all @temporalio packages are on the same version.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by Node.js v22.8.0 release and by ensuring package version consistency. Issue kept open for SDK discoverability.",
+  "related": [
+    2025
+  ],
+  "keyQuote": "We're keeping this issue in the sdk-typescript repo so that anyone who hits the problem...will find it, and learn that it's a node issue",
+  "number": 1510,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:26.123Z"
+}

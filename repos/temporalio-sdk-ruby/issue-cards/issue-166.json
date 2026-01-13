@@ -1,0 +1,29 @@
+{
+  "summary": "Request to support dynamic activities in the Ruby SDK, allowing activities to be defined and executed dynamically at runtime rather than requiring static registration.",
+  "category": "feature",
+  "subcategory": "dynamic-activities",
+  "apis": [],
+  "components": [
+    "activity-registry",
+    "activity-executor",
+    "worker"
+  ],
+  "concepts": [
+    "dynamic-execution",
+    "runtime-definition",
+    "activity-registration",
+    "reflection"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot dynamically define and execute activities at runtime, limiting flexibility in activity composition.",
+  "rootCause": null,
+  "proposedFix": "Implement support for dynamic activities in the Ruby SDK, with potential extension to dynamic workflows if needed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support dynamic activity definition and execution in the Ruby SDK.",
+  "related": [],
+  "keyQuote": "Support dynamic activities. Only activities are supported as of this issue creation, but if workflows come about in the interim, support their dynamic items too.",
+  "number": 166,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:43:55.696Z"
+}

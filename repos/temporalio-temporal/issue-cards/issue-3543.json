@@ -1,0 +1,30 @@
+{
+  "summary": "The zap logging framework can consume unbounded memory due to naive sync.Pool usage with variable-sized buffers. In Temporal, this causes excessive memory consumption (up to 2.5GB) when logging patterns alternate between small and large lines, following a known anti-pattern in Go's sync.Pool design.",
+  "category": "bug",
+  "subcategory": "logging-memory-management",
+  "apis": [],
+  "components": [
+    "zap-logger",
+    "memory-pool",
+    "logging-framework"
+  ],
+  "concepts": [
+    "memory-management",
+    "sync.Pool",
+    "buffer-pooling",
+    "logging-overhead",
+    "resource-efficiency"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpectedly high memory consumption in Temporal deployments due to zap logger buffer pools not being released properly.",
+  "rootCause": "Zap follows anti-pattern of storing variable-sized buffers in sync.Pool without size bounds, causing large buffers allocated for occasional large logs to persist in the pool indefinitely.",
+  "proposedFix": "Implement one of several solutions: deduplicate logs with long lines like stack traces, commit suggestions from Go issue #23199 to zap (don't return large buffers to pool, use tiered pools for small vs large, implement upper bound on pool size), or implement pool size limits.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This pattern leads to an unnecessarily large zap buffer pool (in practice, I've seen up to 2.5gb).",
+  "number": 3543,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:50.716Z"
+}

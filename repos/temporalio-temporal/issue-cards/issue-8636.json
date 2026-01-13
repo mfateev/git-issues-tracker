@@ -1,0 +1,32 @@
+{
+  "summary": "Request for a plugin architecture to support custom authentication in Temporal Server without requiring recompilation. User wants to deploy a pre-built server image from registry with pluggable auth instead of compiling the server with custom authentication code.",
+  "category": "feature",
+  "subcategory": "auth-plugin-architecture",
+  "apis": [],
+  "components": [
+    "authentication",
+    "server-configuration",
+    "plugin-system",
+    "deployment"
+  ],
+  "concepts": [
+    "plugin-architecture",
+    "authentication-customization",
+    "runtime-extensibility",
+    "deployment-convenience",
+    "performance-trade-offs",
+    "code-compilation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must recompile Temporal Server to use custom authentication, making it difficult to deploy pre-built server images from registries.",
+  "rootCause": "Current authentication plugin interface requires compile-time implementation, preventing runtime customization without recompilation.",
+  "proposedFix": "Implement a plugin architecture using one of three approaches: Go's plugin package, HashiCorp's go-plugin framework, or WebAssembly (wazero). User suggests wasm might be feasible with upcoming CGO performance improvements in Go 1.26.",
+  "workaround": "Compile temporal-server with custom auth code included, though this is operationally inconvenient for container deployments.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Curious to hear what the community thinks. Either way, would like to get away from compiling temporal and simply pull an image from the registry.",
+  "number": 8636,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:37.328Z"
+}

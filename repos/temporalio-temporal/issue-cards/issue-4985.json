@@ -1,0 +1,35 @@
+{
+  "summary": "Request to create an UpdateWithStart API similar to SignalWithStart, allowing callers to update a workflow without needing to check if it exists first. The feature request was resolved by the availability of the MultiOperation API which supports Update-with-Start functionality.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflowExecution",
+    "SignalWithStart",
+    "MultiOperation"
+  ],
+  "components": [
+    "workflow-execution",
+    "update-handler",
+    "api-gateway"
+  ],
+  "concepts": [
+    "workflow-creation",
+    "update-operation",
+    "conditional-execution",
+    "workflow-lifecycle",
+    "api-convenience",
+    "client-simplification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now update workflows without manually checking for existence first, simplifying the developer experience for Update operations.",
+  "rootCause": null,
+  "proposedFix": "Implement UpdateWithStart API as an experimental feature through the MultiOperation API",
+  "workaround": "Check if workflow exists before calling UpdateWorkflowExecution, or use SignalWithStart for similar functionality",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by making MultiOperation API available (as experimental) which supports Update-with-Start",
+  "related": [],
+  "keyQuote": "It would be very useful to have UpdateWithStart API available.",
+  "number": 4985,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:21.606Z"
+}

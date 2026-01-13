@@ -1,0 +1,33 @@
+{
+  "summary": "Deprecate queue-type-specific ack level fields (timer, transfer, visibility) in shard info in favor of a generalized QueueAckLevel field. The migration will occur over two releases with deprecation in 1.16 and removal in 1.17.",
+  "category": "feature",
+  "subcategory": "shard-management",
+  "apis": [],
+  "components": [
+    "shard-info",
+    "task-queues",
+    "ack-level-management"
+  ],
+  "concepts": [
+    "deprecation",
+    "api-modernization",
+    "backwards-compatibility",
+    "schema-evolution",
+    "queue-abstraction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to migrate code using old ack level fields to use the new generalized QueueAckLevel field across two release cycles.",
+  "rootCause": "Multiple queue-type-specific ack level fields (timer, transfer, visibility) are redundant and can be replaced with a single generalized QueueAckLevel field.",
+  "proposedFix": "Deprecate old ack level fields in 1.16 release and remove them in 1.17 release, with migration guidance provided.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #2884 with deprecation and migration path across versions 1.16 and 1.17.",
+  "related": [
+    2511,
+    2884
+  ],
+  "keyQuote": "we should deprecate/stop using other ack level fields that are specific to one queue type (e.g. timer, transfer, visibility, etc.)",
+  "number": 2535,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:46.667Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflow signal and cancellation operations incorrectly include RunId and set ChildWorkflowOnly to false, which can cause signals to be delivered to unrelated workflows if the child workflow completes and a new workflow reuses the same workflow ID.",
+  "category": "bug",
+  "subcategory": "child-workflow-signals",
+  "apis": [
+    "SignalChildWorkflow",
+    "CancelChildWorkflow"
+  ],
+  "components": [
+    "child-workflow-handler",
+    "signal-dispatcher",
+    "cancellation-manager"
+  ],
+  "concepts": [
+    "child-workflow",
+    "signal-delivery",
+    "workflow-id-reuse",
+    "race-condition",
+    "continue-as-new"
+  ],
+  "severity": "high",
+  "userImpact": "Users' signals and cancellations intended for child workflows may be incorrectly routed to unrelated workflows if timing conditions cause workflow ID reuse.",
+  "rootCause": "Child workflow signal/cancellation commands set RunId and ChildWorkflowOnly=false, instead of leaving RunId unset with ChildWorkflowOnly=true, allowing signals to target any workflow with matching workflow ID.",
+  "proposedFix": "Set RunId unset and ChildWorkflowOnly to true when signaling or canceling child workflows.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fix was implemented without adding new tests due to difficulty reproducing the race condition, relying on existing test suite to verify no regressions.",
+  "related": [],
+  "keyQuote": "What if child workflow does continue as new, or child workflow is reseted.",
+  "number": 501,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:22:20.960Z"
+}

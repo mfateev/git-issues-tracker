@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to enhance OpenTelemetry span instrumentation to include workflow and activity inputs/outputs as span attributes for better observability and analysis in tools like Datadog.",
+  "category": "feature",
+  "subcategory": "observability-telemetry",
+  "apis": [
+    "WorkflowInboundCallsInterceptor"
+  ],
+  "components": [
+    "interceptors",
+    "opentelemetry-integration",
+    "tracing"
+  ],
+  "concepts": [
+    "span-attributes",
+    "instrumentation",
+    "telemetry",
+    "observability",
+    "activity-input",
+    "workflow-output",
+    "metadata-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently include activity/workflow input and output data in OpenTelemetry spans, limiting observability and analysis capabilities in monitoring platforms.",
+  "rootCause": null,
+  "proposedFix": "Add optional `attributes` field to `InstrumentOptions` to allow passing `SpanAttributes` to span creation, with optional global `includeAttributes` configuration flag in interceptor initialization.",
+  "workaround": "Manually set span attributes in custom interceptor implementations using `span?.setAttributes()` method as shown in community responses.",
+  "resolution": "fixed",
+  "resolutionDetails": "Community provided workaround through interceptor implementation pattern; issue appears resolved through documentation/sample updates.",
+  "related": [],
+  "keyQuote": "Looking at the opentelemetry sdk, `tracer.startActiveSpan` has another available signature where you can pass in a `SpanOptions` object and this has a field called `attributes`",
+  "number": 732,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:09:24.649Z"
+}

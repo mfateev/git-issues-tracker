@@ -1,0 +1,33 @@
+{
+  "summary": "Worker client cannot establish TLS connections when TLS is terminated by an upstream load balancer rather than being directly configured in the frontend server. The worker fails to start with 'error starting scanner' and 'context deadline exceeded' errors.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "client",
+    "tls",
+    "frontend"
+  ],
+  "concepts": [
+    "tls-termination",
+    "load-balancer",
+    "connection-security",
+    "configuration",
+    "grpc"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal with upstream TLS termination (e.g., AWS ALB) cannot start workers without manual workarounds.",
+  "rootCause": "The SdkClient only attempts TLS connection if TLS is configured in tls.frontend.server block, not when TLS is provided by upstream load balancer.",
+  "proposedFix": "Update client TLS connection logic to respect TLS attributes specified in tls.frontend.client even when tls.frontend.server is not configured.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #2036 which was merged after discussion with the team.",
+  "related": [
+    2036
+  ],
+  "keyQuote": "The SdkClient will only attempt to connect via TLS if TLS is configured in the tls.frontend.server block. This is not always true, for example, if TLS is being terminated by an upstream load balancer.",
+  "number": 2035,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:25.074Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal services experience extremely long startup times (up to an hour) when the Cassandra cluster is degraded due to gocql's token-aware host selection policy waiting for unavailable nodes during connection initialization.",
+  "category": "bug",
+  "subcategory": "persistence-cassandra",
+  "apis": [],
+  "components": [
+    "persistence",
+    "cassandra-client",
+    "gocql",
+    "host-selection-policy"
+  ],
+  "concepts": [
+    "connection-timeout",
+    "cluster-degradation",
+    "startup-performance",
+    "fault-tolerance",
+    "host-discovery",
+    "connection-pooling"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal pods fail to start and service requests for extended periods when any Cassandra node in the cluster becomes unavailable, impacting availability in containerized deployments.",
+  "rootCause": "Gocql's token-aware host selection policy doesn't gracefully handle degraded clusters by falling back to available nodes quickly during startup, causing long connection timeouts.",
+  "proposedFix": "Wrap the token-aware host selection policy with a single host ready policy to allow faster fallback to available nodes during startup.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Upgraded to Gocql 1.4.0 which improved connection handling for degraded clusters, included in Temporal Server v1.21.5.",
+  "related": [
+    1365
+  ],
+  "keyQuote": "When one of the hosts of our Cassandra cluster is down, newly booted temporal pods take nearly an hour to begin to service user requests successfully.",
+  "number": 3638,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:49.156Z"
+}

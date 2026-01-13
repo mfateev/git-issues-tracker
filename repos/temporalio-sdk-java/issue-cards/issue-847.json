@@ -1,0 +1,29 @@
+{
+  "summary": "A cron workflow test fails with an assertion error where the expected count is 4 but the actual count is 3, indicating an issue with cron scheduling or execution counting.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "cron-scheduling",
+    "test-framework"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "workflow-execution",
+    "test-assertion",
+    "timing"
+  ],
+  "severity": "medium",
+  "userImpact": "Cron workflow tests fail unpredictably, making it difficult to verify cron scheduling behavior is working correctly.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "java.lang.AssertionError: expected:<4> but was:<3>",
+  "number": 847,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:46:49.301Z"
+}

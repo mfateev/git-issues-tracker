@@ -1,0 +1,33 @@
+{
+  "summary": "Runtime fails to start with OtelCollectorExporter configured in SDK 1.9.0 due to missing required 'headers' field that should be optional. The telemetry options crash during Runtime.install() unless an empty headers map is explicitly provided.",
+  "category": "bug",
+  "subcategory": "telemetry-otel",
+  "apis": [
+    "Runtime.install"
+  ],
+  "components": [
+    "runtime",
+    "telemetry",
+    "otel-exporter"
+  ],
+  "concepts": [
+    "telemetry",
+    "observability",
+    "metrics",
+    "configuration",
+    "initialization",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to SDK 1.9.0 with OtelCollectorExporter enabled cannot start their workers without manually adding an empty headers object.",
+  "rootCause": "The headers field in OTLP exporter options was made required when it should remain optional, breaking backwards compatibility with configurations that don't specify headers.",
+  "proposedFix": null,
+  "workaround": "Add an empty headers map to the OtelCollectorExporter configuration: headers: {}",
+  "resolution": "fixed",
+  "resolutionDetails": "Acknowledged as an easy fix by maintainers; the required headers field was corrected to be optional.",
+  "related": [],
+  "keyQuote": "Failed to build otlp exporter options: UninitializedField(\"headers\") - the parameter is labeled optional and was not required in the previous SDK version",
+  "number": 1342,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:05.293Z"
+}

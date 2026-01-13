@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to expose workflow and activity instances through class methods for easier access from context. Workflows should be accessible via `Temporalio::Workflow.instance` and activities via `Temporalio::Activity::Context#instance`.",
+  "category": "feature",
+  "subcategory": "context-access",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "activity-runtime",
+    "context"
+  ],
+  "concepts": [
+    "instance-access",
+    "context-binding",
+    "workflow-instance",
+    "activity-instance",
+    "reflection"
+  ],
+  "severity": "low",
+  "userImpact": "Allows users to more easily access the current workflow or activity instance from within execution context without storing it manually.",
+  "rootCause": null,
+  "proposedFix": "Make workflow instance available as `Temporalio::Workflow.instance` class method and activity instance available as `Temporalio::Activity::Context#instance` instance method.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide instance access through the specified methods.",
+  "related": [
+    572
+  ],
+  "keyQuote": "The created instance of the workflow class should be made available as `Temporalio::Workflow.instance` class method.",
+  "number": 180,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:38.687Z"
+}

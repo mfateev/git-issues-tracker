@@ -1,0 +1,32 @@
+{
+  "summary": "When a workflow is cancelled, the status returned by `wf_handle.describe().status` incorrectly shows `WorkflowExecutionStatus.FAILED` instead of `WorkflowExecutionStatus.CANCELED`. The SDK is using `fail_workflow_execution` instead of `cancel_workflow_execution`.",
+  "category": "bug",
+  "subcategory": "workflow-status",
+  "apis": [
+    "describe",
+    "cancel"
+  ],
+  "components": [
+    "workflow-instance",
+    "workflow-executor",
+    "status-handling"
+  ],
+  "concepts": [
+    "workflow-cancellation",
+    "execution-status",
+    "error-handling",
+    "status-reporting"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot correctly determine if a workflow was cancelled vs failed, requiring workarounds to check for CancelledError.",
+  "rootCause": "The SDK calls `fail_workflow_execution` instead of `cancel_workflow_execution` when handling workflow cancellation.",
+  "proposedFix": "Change to `cancel_workflow_execution` instead of `fail_workflow_execution` and confirm in tests.",
+  "workaround": "Check if status is FAILED and the error cause is CancelledError to determine if workflow was actually cancelled.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation fix confirmed in workflow_instance.py to use correct cancellation execution method.",
+  "related": [],
+  "keyQuote": "Change to `cancel_workflow_execution` instead of `fail_workflow_execution` and confirm in tests",
+  "number": 145,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:02.957Z"
+}

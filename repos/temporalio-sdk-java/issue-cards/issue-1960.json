@@ -1,0 +1,30 @@
+{
+  "summary": "json-path-2.8.0.jar contains a stack overflow vulnerability (CVE-2023-51074) via the Criteria.parse() method with CVSS score 5.3. The issue affects the temporal-spring-boot-starter-alpha module and was resolved by upgrading to json-path-2.9.0.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "temporal-spring-boot-starter-alpha",
+    "dependency-management",
+    "gradle-build"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "stack-overflow",
+    "dependency-upgrade",
+    "cvss-score",
+    "json-parsing"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications using the Spring Boot starter with json-path-2.8.0 are vulnerable to denial-of-service attacks through stack overflow.",
+  "rootCause": "Stack overflow vulnerability in json-path v2.8.0's Criteria.parse() method",
+  "proposedFix": "Upgrade json-path from 2.8.0 to 2.9.0",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in master branch by upgrading json-path dependency to version 2.9.0",
+  "related": [],
+  "keyQuote": "json-path v2.8.0 was discovered to contain a stack overflow via the Criteria.parse() method.",
+  "number": 1960,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:06.898Z"
+}

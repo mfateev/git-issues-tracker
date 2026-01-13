@@ -1,0 +1,36 @@
+{
+  "summary": "Add configurable workflow failure exception types to the Worker constructor and workflow decorators, allowing users to specify which exception types should be treated as workflow failures. Currently needed to support feature parity across SDKs.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker",
+    "workflow.defn"
+  ],
+  "components": [
+    "worker",
+    "workflow-definition",
+    "failure-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "workflow-failure",
+    "configuration",
+    "error-types",
+    "worker-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need control over which exception types trigger workflow failures, enabling more flexible error handling strategies.",
+  "rootCause": null,
+  "proposedFix": "Add `workflow_failure_exception_types: Set[Type[Exception]]` parameter to Worker constructor and `failure_exception_types: Set[Type[Exception]]` parameter to `@workflow.defn` decorator",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with configurable exception types for both Worker and workflow definition levels",
+  "related": [
+    322,
+    656
+  ],
+  "keyQuote": "need: workflow_failure_exception_types: Set[Type[Exception]] on Worker constructor, failure_exception_types on @workflow.defn",
+  "number": 446,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:38.468Z"
+}

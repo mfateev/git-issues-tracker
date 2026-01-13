@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support scheduling tasks on the last day of each month, which varies by month (28-31 days). Currently requires manually specifying all 12 months or using calendar specs with explicit dates for each month.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [
+    "ScheduleCalendarSpec"
+  ],
+  "components": [
+    "schedules",
+    "calendar-spec",
+    "temporal-python-sdk"
+  ],
+  "concepts": [
+    "recurring-schedule",
+    "month-end",
+    "calendar-logic",
+    "schedule-configuration",
+    "temporal-patterns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users needing month-end recurring tasks must manually specify 12 different calendar specs or use workarounds instead of a single flexible schedule configuration.",
+  "rootCause": "The ScheduleCalendarSpec day_of_month parameter only accepts fixed values 1-31 and cannot represent variable month-end dates.",
+  "proposedFix": "Allow a special value like 31 or -1 in day_of_month to match the last day of any month regardless of how many days that month contains.",
+  "workaround": "Assemble a list of calendar specs, one per month, with explicitly provided last days for each month (but does not work for indefinite schedules).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Because the last day of the month changes month to month, there isn't currently a temporal schedule configuration which supports this.",
+  "number": 5811,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:45.861Z"
+}

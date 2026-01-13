@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add activity_fail_endtoend_latency metric to complement the existing activity_succeed_endtoend_latency metric, allowing users to monitor activity failures after all retries without needing custom metrics.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "sdk-core"
+  ],
+  "concepts": [
+    "activity-failure",
+    "monitoring",
+    "retry",
+    "latency-tracking",
+    "observability",
+    "endtoend-latency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to monitor activity failures after all retries but currently must implement custom metrics or use workarounds to track this important operational metric.",
+  "rootCause": null,
+  "proposedFix": "Add activity_fail_endtoend_latency metric that tracks the time from activity execution start to final failure after all retries are exhausted.",
+  "workaround": "Users can push custom metrics from workflow code or workflow interceptors, or subtract activity_succeed_endtoend_latency from activity_execution_latency to estimate failures.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "add corresponding metric users can monitor for activity failures after all retries",
+  "number": 702,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:48.717Z"
+}

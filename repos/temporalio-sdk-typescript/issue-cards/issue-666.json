@@ -1,0 +1,30 @@
+{
+  "summary": "Neon 0.8.3 dependency has a use-after-free vulnerability (CVE WS-2022-0133) with CVSS score 7.8. The issue was automatically closed as the vulnerability was either ignored or removed from the Mend inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "neon-binding",
+    "native-module",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "memory-safety",
+    "use-after-free",
+    "native-binding",
+    "dependency-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the TypeScript SDK with neon 0.8.3 are exposed to a potential memory safety vulnerability that could be exploited locally to read/write memory.",
+  "rootCause": "Neon 0.8.3's JsArrayBuffer::external and JsBuffer::external did not require T: 'static, allowing creation of externally backed buffers from types that may be freed while referenced by JavaScript.",
+  "proposedFix": "Upgrade neon to version 0.10.1 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was either marked as ignored or removed from inventory, indicating the dependency was addressed or is no longer used.",
+  "related": [],
+  "keyQuote": "Use after free in Neon external buffers between 0.8.0 and before 0.10.1",
+  "number": 666,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:35.680Z"
+}

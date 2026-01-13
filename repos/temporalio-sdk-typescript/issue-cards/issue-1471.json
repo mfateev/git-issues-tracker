@@ -1,0 +1,34 @@
+{
+  "summary": "Update the default schedule catchup window value from 30 days to 1 year in the TypeScript SDK documentation and type definitions, aligning with changes made in the Temporal API.",
+  "category": "docs",
+  "subcategory": "schedule-configuration",
+  "apis": [
+    "Schedule"
+  ],
+  "components": [
+    "client",
+    "schedule-types",
+    "documentation"
+  ],
+  "concepts": [
+    "schedule",
+    "catchup",
+    "window",
+    "default-values",
+    "api-alignment"
+  ],
+  "severity": "low",
+  "userImpact": "Users reference incorrect default catchup window value when configuring schedules, potentially leading to unexpected behavior.",
+  "rootCause": null,
+  "proposedFix": "Update the default catchup window value in schedule-types.ts line 44 from 30 days to 1 year to match API changes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation and type definitions updated to reflect the 1 year default catchup window per API PR #308.",
+  "related": [
+    308
+  ],
+  "keyQuote": "should now be 1 year",
+  "number": 1471,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:18.450Z"
+}

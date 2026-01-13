@@ -1,6 +1,6 @@
 # PHP SDK - Issue Statistics
 
-**Generated:** 2026-01-10
+**Generated:** 2026-01-13
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 49 |
+| Total Open Issues | 50 |
 | Total Closed Issues | 211 |
-| Total All Issues | 260 |
+| Total All Issues | 261 |
 | Bugs (open) | 9 |
 | Enhancements/Features (open) | 31 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 12 |
 | Total Comments on open | 69 |
 | Issues with Upvotes | 7 (14%) |
-| Issues with Comments | 23 (47%) |
-| Average Age (days) | 458 |
-| Stale Issues (>12 months) | 18 (37%) |
+| Issues with Comments | 23 (46%) |
+| Average Age (days) | 452 |
+| Stale Issues (>12 months) | 18 (36%) |
 
 ---
 ## Resolution Metrics
@@ -36,7 +36,7 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 81% (211/260) |
+| Resolution Rate | 81% (211/261) |
 | Avg Time to Close (calendar) | 133 days |
 | Avg Time to Close (business) | 95 days |
 | Median Time to Close (calendar) | 27 days |
@@ -75,10 +75,10 @@
 | 2025-10 | 2 | 5 | -3 |
 | 2025-11 | 0 | 1 | -1 |
 | 2025-12 | 2 | 5 | -3 |
-| 2026-01 | 2 | 0 | +2 |
-| **Total** | **53** | **46** | **+7** |
+| 2026-01 | 3 | 0 | +3 |
+| **Total** | **54** | **46** | **+8** |
 
-📈 **Backlog Growing:** 7 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 8 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,9 +87,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 15 |
+| Issues Opened | 16 |
 | Issues Closed | 23 |
-| Net Change | -8 |
+| Net Change | -7 |
 | Bugs Closed | 8 |
 | Enhancements Closed | 9 |
 
@@ -114,11 +114,11 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 3 | 6% |
+| Last 30 days | 4 | 8% |
 | 1-3 months | 1 | 2% |
 | 3-6 months | 6 | 12% |
-| 6-12 months | 17 | 35% |
-| 1-2 years | 14 | 29% |
+| 6-12 months | 17 | 34% |
+| 1-2 years | 14 | 28% |
 | 2-3 years | 4 | 8% |
 | 3+ years | 4 | 8% |
 
@@ -183,6 +183,7 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-12 | [#698](https://github.com/temporalio/sdk-php/issues/698) | 0 | [Chore] Drop old packages support |
 | 2026-01-08 | [#692](https://github.com/temporalio/sdk-php/issues/692) | 0 | [Bug] Minimal Composer requirements conflicts with react/pro... |
 | 2026-01-07 | [#689](https://github.com/temporalio/sdk-php/issues/689) | 0 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
 | 2025-12-18 | [#670](https://github.com/temporalio/sdk-php/issues/670) | 0 | [Feature Request] Symfony 8.0 support |

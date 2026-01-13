@@ -1,0 +1,33 @@
+{
+  "summary": "User requested an option to allow activities to fail gracefully without failing the entire workflow. After exhausting retries or timing out, activities should be skipped rather than propagating the failure to the workflow.",
+  "category": "question",
+  "subcategory": "activity-error-handling",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-engine",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "timeout",
+    "error-handling",
+    "best-effort",
+    "activity-failure",
+    "graceful-degradation"
+  ],
+  "severity": "low",
+  "userImpact": "Users wanted a built-in way to mark activities as optional without manually ignoring errors in workflow code.",
+  "rootCause": null,
+  "proposedFix": "Implement an ActivityOptions flag to skip activity failure after retries exhausted, similar to optional activity behavior.",
+  "workaround": "Manually ignore activity errors in workflow code and handle them with conditional logic or return nil on failure.",
+  "resolution": "invalid",
+  "resolutionDetails": "The requested functionality already exists - workflows can catch activity errors and continue execution. The user realized this capability was already available through existing patterns.",
+  "related": [],
+  "keyQuote": "You are able to do so already. Here is a sample code: f1 := workflow.ExecuteActivity(...); err1 := f1.Get(ctx, nil); // ignore err1 and keep going",
+  "number": 3272,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:58.165Z"
+}

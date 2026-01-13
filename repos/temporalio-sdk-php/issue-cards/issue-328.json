@@ -1,0 +1,29 @@
+{
+  "summary": "DataConverter throws an exception when handling null return types in activity methods. The JsonConverter rejects 'null' as an invalid type name, causing failures when activities are declared to return null.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "JsonConverter",
+    "DataConverter",
+    "EncodedValues"
+  ],
+  "concepts": [
+    "null-handling",
+    "type-validation",
+    "serialization",
+    "activity-return-types"
+  ],
+  "severity": "high",
+  "userImpact": "Activities returning null values fail with DataConverterException, preventing the use of null return types in Temporal workflows.",
+  "rootCause": "JsonConverter.errorInvalidTypeName() rejects 'null' as a type name during deserialization, even though null is a valid PHP return type.",
+  "proposedFix": null,
+  "workaround": "Restart the RR server after SDK update; issue may be resolved by ensuring latest SDK version is properly loaded.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by restarting the RR server after SDK update. The root cause was likely a stale server process not using the updated SDK code.",
+  "related": [],
+  "keyQuote": "problem still exists... Hhm. Yep. right now it's working 😂",
+  "number": 328,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:24.475Z"
+}

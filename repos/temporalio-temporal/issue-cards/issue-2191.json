@@ -1,0 +1,32 @@
+{
+  "summary": "Users need the ability to mutate workflow metadata attributes like cron schedule, workflow task timeout, and retry policy after workflow creation. The most critical issue is workflow task timeout, which can cause workflows to be permanently stuck when processing long histories.",
+  "category": "feature",
+  "subcategory": "workflow-metadata",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "task-processor",
+    "metadata-management"
+  ],
+  "concepts": [
+    "workflow-timeout",
+    "cron-schedule",
+    "retry-policy",
+    "mutability",
+    "workflow-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot update critical workflow parameters like task timeout after creation, causing workflows to become stuck in certain scenarios involving long histories.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1499",
+  "related": [
+    1499
+  ],
+  "keyQuote": "The most critical one is workflow task timeout at the moment because it is impossible to recover from in some cases.",
+  "number": 2191,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:44.130Z"
+}

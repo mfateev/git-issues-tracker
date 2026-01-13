@@ -1,0 +1,36 @@
+{
+  "summary": "Request to expose FirstRunID in WorkflowExecutionInfo via the DescribeWorkflowExecutionResponse API. This is needed to reliably identify workflows across continueAsNew and reset operations, which currently change the runId but not the firstRunId.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "DescribeWorkflowExecution",
+    "WorkflowExecutionInfo"
+  ],
+  "components": [
+    "api",
+    "server",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-identity",
+    "continueAsNew",
+    "reset",
+    "idReusePolicy",
+    "child-workflows",
+    "run-stability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably track workflows across continueAsNew or reset operations when using IdReusePolicy, hindering production workflows that depend on stable workflow identification.",
+  "rootCause": "FirstRunID is available in SDK internals but not exposed through the public DescribeWorkflowExecution API, forcing workarounds for production systems.",
+  "proposedFix": "Expose FirstRunID in WorkflowExecutionInfo within DescribeWorkflowExecutionResponse, requiring changes in both the API definition and server implementation.",
+  "workaround": "CurrentRunID can be used but fails for workflows using continueAsNew or reset; alternative is to redesign the workflow system.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    404
+  ],
+  "keyQuote": "When workflowA is running, it may kickoff a workflowA1 as a child workflow and then waiting for external to signal A1...this is not sufficient when workflowA is using IdReusePolicy to reuse the workflowID.",
+  "number": 6348,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:35.057Z"
+}

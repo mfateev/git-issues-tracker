@@ -1,0 +1,35 @@
+{
+  "summary": "SDK metrics don't include tags added with telemetry.global_tags in version 1.4+, a regression from 1.3. The global_tags setting was supposed to apply custom tags to all emitted metrics but now only affects OTEL resource attributes.",
+  "category": "bug",
+  "subcategory": "metrics-telemetry",
+  "apis": [
+    "TelemetryConfig"
+  ],
+  "components": [
+    "telemetry",
+    "metrics-exporter",
+    "otel-integration"
+  ],
+  "concepts": [
+    "metrics",
+    "tags",
+    "telemetry",
+    "global-configuration",
+    "otel-resource",
+    "regression"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot add custom tags to SDK metrics for observability purposes, breaking existing monitoring configurations that relied on this functionality.",
+  "rootCause": "global_tags changed from applying to individual metrics to only updating OTEL resource/Prometheus target_info, causing regression from version 1.3 behavior.",
+  "proposedFix": "Restore global_tags to apply tags to all emitted metrics as originally intended. Consider adding separate configuration options for OTEL resource attributes and metric-level labels to accommodate both use cases.",
+  "workaround": "Use downstream Alloy/Prometheus collectors to add labels from OTEL resource attributes to metrics after emission, though this is not ideal.",
+  "resolution": "fixed",
+  "resolutionDetails": "The regression was fixed to restore global_tags applying to all metrics as originally intended.",
+  "related": [
+    882
+  ],
+  "keyQuote": "The original intended behavior is that the tags would apply to all emitted metrics.",
+  "number": 775,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:43.805Z"
+}

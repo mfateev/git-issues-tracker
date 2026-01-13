@@ -1,0 +1,32 @@
+{
+  "summary": "The TypeScript SDK's `reuseV8Context` feature freezes the global Reflect object, preventing reflect-metadata from patching it with its helpers. This breaks class-based workflows using Inversify decorators, which worked in SDK 1.11.8 but fails in later versions.",
+  "category": "bug",
+  "subcategory": "workflow-isolation",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "v8-isolate",
+    "reflect-metadata-support"
+  ],
+  "concepts": [
+    "object-freezing",
+    "decorators",
+    "dependency-injection",
+    "isolate-context-reuse",
+    "reflect-api"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use class-based workflows with decorator libraries like Inversify unless they disable reuseV8Context, incurring significant performance penalties.",
+  "rootCause": "The SDK freezes the global Reflect object inside reusable workflow isolates, preventing reflect-metadata from adding its patches via Object.defineProperty.",
+  "proposedFix": null,
+  "workaround": "Disable reuseV8Context by setting it to false, though this increases memory and CPU footprint.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal freezes the global Reflect object inside the reusable workflow isolate, so reflect-metadata cannot add its helpers.",
+  "number": 1858,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:55:43.062Z"
+}

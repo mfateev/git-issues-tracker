@@ -1,0 +1,37 @@
+{
+  "summary": "Worker processes experience severe GC overhead and memory growth due to inefficient metric tag allocations in the tagsToAttributes function. Metrics scraping takes 7+ seconds even under light load, eventually causing CPU to spike and the process to become unresponsive.",
+  "category": "bug",
+  "subcategory": "metrics-performance",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus",
+    "opentelemetry",
+    "garbage-collector"
+  ],
+  "concepts": [
+    "memory-leak",
+    "garbage-collection",
+    "cpu-overhead",
+    "metric-tags",
+    "allocation-efficiency",
+    "performance-degradation",
+    "resource-exhaustion"
+  ],
+  "severity": "high",
+  "userImpact": "Workers gradually consume more CPU and memory over time, eventually becoming unresponsive and requiring manual restarts.",
+  "rootCause": "The tagsToAttributes function recalculates metric tags on every call despite tags being static (from config or compilation), causing excessive allocations and triggering frequent GC cycles.",
+  "proposedFix": "Cache metric tag attributes instead of recalculating them each time, as tags don't change after initialization.",
+  "workaround": "Increase metrics scrape interval from 15 seconds to 60 seconds to delay the degradation.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #4722 which was merged and released in server version 1.22. User confirmed the fix resolved the issue.",
+  "related": [
+    3578,
+    3015,
+    4722
+  ],
+  "keyQuote": "the majority of the allocations were in metrics.tagsToAttributes... recalculating this every time does seem inefficient",
+  "number": 4716,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:19.223Z"
+}

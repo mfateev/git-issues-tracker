@@ -1,0 +1,30 @@
+{
+  "summary": "CLI namespace register and update commands need to support sub-day retention period granularity (at least to the minute level) instead of only accepting day-level values.",
+  "category": "feature",
+  "subcategory": "cli-namespace-operations",
+  "apis": [],
+  "components": [
+    "cli",
+    "namespace-management",
+    "retention-policy"
+  ],
+  "concepts": [
+    "retention-period",
+    "granularity",
+    "namespace-configuration",
+    "cli-flags",
+    "time-units"
+  ],
+  "severity": "low",
+  "userImpact": "Testing and operational scenarios require fine-grained retention period control which is currently unavailable through the CLI.",
+  "rootCause": null,
+  "proposedFix": "Support time duration formats like '30h' or other sub-day granular values in the --retention flag for namespace register and update commands.",
+  "workaround": "Retention can be specified using time duration format (e.g., '--retention 30h') instead of just days.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented - the --retention flag supports duration formats allowing sub-day granularity.",
+  "related": [],
+  "keyQuote": "Retention could be specified as `--retention 30h` for example",
+  "number": 943,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:15:03.952Z"
+}

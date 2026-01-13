@@ -1,0 +1,30 @@
+{
+  "summary": "Jest doesn't work well with the existing @temporalio/nyc-test-coverage package for capturing workflow test coverage data due to Jest's deep integration with Node internals and custom code transformers. A new approach is needed to support Jest alongside the existing Mocha and AVA support.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "nyc-test-coverage",
+    "workflow-bundler",
+    "jest-integration"
+  ],
+  "concepts": [
+    "code-coverage",
+    "test-instrumentation",
+    "source-maps",
+    "code-transformation",
+    "typescript-compilation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably capture workflow test coverage data when using Jest, forcing them to switch testing frameworks or use unreliable workarounds.",
+  "rootCause": "Jest heavily hooks into Node internals and adds its own source code transformers that cannot be injected into the webpack-based workflow bundler, making it impossible for the nyc-test-coverage module to detect and match Jest's transformation pipeline.",
+  "proposedFix": "Design a new approach to support test coverage capture in workflow context with Jest, potentially by customizing the workflow bundler's Webpack configuration to match Jest's transformation pipeline or using pre-transformation CLI commands.",
+  "workaround": "Run Jest on pre-compiled JS files (transpile with tsc first), apply transformations via CLI before tests, avoid importing workflow files in tests, or customize the workflow bundler's Webpack configuration to match Jest's pipeline.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Jest heavily hooks into Node's internals, making it very difficult to detect these code transformers at runtime; more over, Jest itself sometime add source code transformers, which can't be injected into our webpack-based Workflow bundler.",
+  "number": 1144,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:09.152Z"
+}

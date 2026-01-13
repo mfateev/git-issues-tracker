@@ -1,0 +1,33 @@
+{
+  "summary": "Users encounter a 403 Forbidden error when attempting to create custom search attributes in Elasticsearch/OpenSearch due to permission issues with the Temporal system workflow. The error occurs with both CLI commands and affects visibility configuration with advanced visibility store enabled.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "visibility-store",
+    "search-attributes",
+    "system-workflow"
+  ],
+  "concepts": [
+    "permissions",
+    "elasticsearch-mapping",
+    "advanced-visibility",
+    "configuration",
+    "custom-attributes"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create custom search attributes when using Elasticsearch/OpenSearch with Temporal self-hosted deployments, blocking visibility feature usage.",
+  "rootCause": "Elasticsearch/OpenSearch user (temporal) lacks permissions to create or update mappings for custom search attributes, likely a configuration or security setup issue.",
+  "proposedFix": "Adjust Elasticsearch/OpenSearch security policies and permissions to allow the temporal user to create/update field mappings, or properly configure visibility store settings to use only advanced visibility without dual storage.",
+  "workaround": "Configure only advancedVisibilityStore and remove visibilityStore and secondaryVisibilityStore to avoid dual-store conflicts and permission issues.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by adjusting configuration to use only advancedVisibilityStore and implementing proper Elasticsearch permission settings (related to v1.21.0 visibility config changes).",
+  "related": [
+    3889
+  ],
+  "keyQuote": "unable to update Elasticsearch mapping: elastic: Error 403 (Forbidden): no permissions for [] and User [name=temporal",
+  "number": 4773,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:06.610Z"
+}

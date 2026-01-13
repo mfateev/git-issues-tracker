@@ -1,0 +1,36 @@
+{
+  "summary": "Python SDK fails intermittently when downloading the Temporal test server from https://temporal.download, resulting in RuntimeError. The issue appears to be network-related and non-deterministic, sometimes working fine and other times failing.",
+  "category": "bug",
+  "subcategory": "test-server-download",
+  "apis": [
+    "WorkflowEnvironment.start_time_skipping",
+    "Worker",
+    "execute_workflow"
+  ],
+  "components": [
+    "test-server",
+    "download-manager",
+    "workflow-environment",
+    "worker"
+  ],
+  "concepts": [
+    "network-request",
+    "intermittent-failure",
+    "server-download",
+    "http-error",
+    "test-infrastructure",
+    "initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably run tests with the Temporal test server, blocking test execution workflows.",
+  "rootCause": "Network request to temporal.download endpoint fails intermittently, potentially due to server-side issues (500 errors reported) or network connectivity problems.",
+  "proposedFix": null,
+  "workaround": "Manually download the test server and configure WorkflowEnvironment to use the local binary.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "RuntimeError: Failed starting test server: error sending request for url (https://temporal.download/temporal-test-server/default?arch=amd64&platform=linux&sdk-name=sdk-python&sdk-version=1.17.0)",
+  "number": 1250,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:59.969Z"
+}

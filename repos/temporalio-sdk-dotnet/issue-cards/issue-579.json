@@ -1,0 +1,34 @@
+{
+  "summary": "SIGSEGV crash occurs intermittently in temporal_core_worker_poll_workflow_activation on Linux during workflow polling, preceded by activity heartbeat failures. The crash is environment-specific, occurring only in Linux CI but not on local Windows development.",
+  "category": "bug",
+  "subcategory": "native-bridge-crash",
+  "apis": [],
+  "components": [
+    "temporal_core_worker",
+    "native-bridge",
+    "worker-polling",
+    "activity-heartbeat"
+  ],
+  "concepts": [
+    "segmentation-fault",
+    "platform-specific",
+    "intermittent-crash",
+    "heartbeat-failure",
+    "interop",
+    "memory-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Integration tests crash randomly on Linux CI environments, making the SDK unusable for Linux-based continuous integration pipelines.",
+  "rootCause": "Likely memory safety issue in the native Rust bridge's poll_workflow_activation function, potentially related to activity heartbeat handling or platform-specific memory management differences between Windows and Linux.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    577
+  ],
+  "keyQuote": "The crash occurs in the native Rust bridge during poll_workflow_activation, not during execution of any user workflow/activity code.",
+  "number": 579,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:37:42.570Z"
+}

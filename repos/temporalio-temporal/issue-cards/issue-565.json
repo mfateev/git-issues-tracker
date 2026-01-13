@@ -1,0 +1,33 @@
+{
+  "summary": "ChildWorkflow inherits WorkflowRunTimeout from parent workflow execution instead of using the default or specified value. This causes child workflows to have unexpectedly short run timeouts when the parent has a shorter execution timeout.",
+  "category": "bug",
+  "subcategory": "child-workflow-timeout",
+  "apis": [
+    "StartWorkflow",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "workflow-execution",
+    "child-workflow",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "inheritance",
+    "workflow-execution-timeout",
+    "workflow-run-timeout",
+    "parent-child-relationship"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpectedly short run timeouts on child workflows when parent workflows have shorter execution timeouts, potentially causing premature workflow termination.",
+  "rootCause": "Child workflow timeout initialization incorrectly inherits WorkflowRunTimeout from parent execution instead of applying independent timeout defaults.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by correcting child workflow timeout inheritance behavior to not inherit WorkflowRunTimeout from parent.",
+  "related": [],
+  "keyQuote": "In the case of ChildWorkflow, looks like we inherit WorkflowRunTimeout from parent execution. This seems counter intuitive",
+  "number": 565,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:15:31.308Z"
+}

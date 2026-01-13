@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add the ability to set workflow run/execution timeout values when resetting a running or completed execution. This would allow overriding existing timeouts or setting them if none were previously defined.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "ResetWorkflowExecution"
+  ],
+  "components": [
+    "workflow-reset",
+    "execution-management",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "workflow-reset",
+    "execution-lifecycle",
+    "configuration",
+    "override"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently configure workflow timeouts during reset operations, limiting flexibility in managing long-running or re-executed workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add ability to set workflow run/execution timeout when resetting a running / completed execution.",
+  "number": 7933,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:21.622Z"
+}

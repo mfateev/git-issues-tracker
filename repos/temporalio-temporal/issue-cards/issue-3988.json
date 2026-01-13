@@ -1,0 +1,30 @@
+{
+  "summary": "Request to implement caching of query results in the Temporal Server to reduce redundant calculations when multiple users frequently query the same workflow state. The cache should only be invalidated when the actual query result changes.",
+  "category": "feature",
+  "subcategory": "query-caching",
+  "apis": [],
+  "components": [
+    "query-engine",
+    "workflow-state",
+    "cache-layer"
+  ],
+  "concepts": [
+    "caching",
+    "query-optimization",
+    "state-polling",
+    "performance",
+    "resource-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can reduce server load and improve query response times when multiple clients frequently poll the same workflow state.",
+  "rootCause": null,
+  "proposedFix": "Add caching of query results with cache invalidation only when the query result is updated as part of the last workflow task.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Most of the query results are the same, so there is no need to recalculate them unless workflow returns a different value.",
+  "number": 3988,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:47.011Z"
+}

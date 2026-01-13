@@ -1,0 +1,30 @@
+{
+  "summary": "The with_child_unrestricted method in workflow sandbox restrictions has a bug where it fails to properly remove restrictions due to an incorrect condition check on child_path[0].",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow_sandbox",
+    "restrictions"
+  ],
+  "concepts": [
+    "sandbox",
+    "restrictions",
+    "child_restriction",
+    "path_matching",
+    "condition_logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly unrestrict child workflows in sandbox environments, leading to workflows being incorrectly restricted.",
+  "rootCause": "Incorrect conditional logic in with_child_unrestricted - checking membership against self.children instead of child_path[0]",
+  "proposedFix": "Change the condition to check if child_path[0] is in self.children",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The condition was corrected to properly check child_path[0] membership in self.children",
+  "related": [],
+  "keyQuote": "Should be: if child_path[0] in self.children:",
+  "number": 254,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:37.889Z"
+}

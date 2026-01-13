@@ -1,0 +1,30 @@
+{
+  "summary": "WorkflowExecutionUtils fails to deserialize history JSONs produced by newer protocol versions with added fields. Proto allows adding fields for backwards compatibility, but the current implementation throws errors on unknown fields.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "WorkflowExecutionUtils",
+    "history-deserialization",
+    "proto-compatibility"
+  ],
+  "concepts": [
+    "backwards-compatibility",
+    "proto-versioning",
+    "json-deserialization",
+    "schema-evolution",
+    "field-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot read history JSONs from workflows created with newer SDK versions, breaking workflow replay and analysis capabilities.",
+  "rootCause": "JSON deserializer configuration rejects unknown fields instead of ignoring them as per proto spec for backwards compatibility.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Proto allows adding new fields preserving backwards compatibility. So, the history jsons that are produced from new history proto objects with added fields should be deserializable into old history proto objects.",
+  "number": 836,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:46:08.094Z"
+}

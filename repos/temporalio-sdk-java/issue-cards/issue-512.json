@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowInfo interface is missing a getMemo() method to retrieve memos set via WorkflowOptions.Builder.setMemo(), making the memo feature impractical in the Java SDK.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "workflow-info",
+    "workflow-options",
+    "workflow-context"
+  ],
+  "concepts": [
+    "metadata",
+    "workflow-configuration",
+    "information-retrieval",
+    "builder-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve memo information from running workflows despite being able to set it, severely limiting the utility of the memo feature.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "getMemo() method was added to WorkflowInfo interface to retrieve workflow memos.",
+  "related": [],
+  "keyQuote": "WorkflowOptions.Builder has method `.setMemo` that allows setting memos. There is no corresponding WorkflowInfo method to retrieve this information",
+  "number": 512,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:22:58.309Z"
+}

@@ -1,0 +1,44 @@
+{
+  "summary": "Add support for workflow updates to the Java SDK, allowing users to issue update requests to workflows, have them process the update while accessing and mutating internal state, and return responses to callers. This functionality will be available from external workflows and external code.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "update-handler",
+    "external-api",
+    "state-mutation"
+  ],
+  "concepts": [
+    "workflow-state",
+    "update-request",
+    "response-handling",
+    "external-access",
+    "mutation"
+  ],
+  "severity": "high",
+  "userImpact": "Users can now dynamically update running workflows and mutate their internal state without restarting them.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Core objectives completed through subtasks #1745, #1742, #1743, #1744, #1748, #1769. Work consolidated under features#296.",
+  "related": [
+    1745,
+    1742,
+    1743,
+    1744,
+    1748,
+    1769,
+    1781,
+    1708,
+    266,
+    296
+  ],
+  "keyQuote": "This feature will allow users to issue update requests to a workflow, have that workflow process the update (accessing and mutating internal workflow state as necessary) and return a response to the caller.",
+  "number": 1741,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:22.775Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Proposal to support pluggable workflow caches in the Java SDK to allow customizable eviction strategies beyond the current synchronous LRU algorithm. This addresses scenarios where high-volume workloads with abandoned workflows could benefit from alternatives like TTL-based or asynchronous eviction mechanisms.",
+  "category": "feature",
+  "subcategory": "workflow-cache",
+  "apis": [],
+  "components": [
+    "workflow-cache",
+    "thread-pool",
+    "eviction-policy"
+  ],
+  "concepts": [
+    "caching-strategy",
+    "LRU-eviction",
+    "memory-management",
+    "abandoned-workflows",
+    "performance-optimization",
+    "pluggable-architecture"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with high-volume workloads can implement custom cache eviction strategies optimized for their specific workload patterns instead of being limited to the default LRU algorithm.",
+  "rootCause": "Current integrated LRU cache may not be optimal for all workloads, particularly when workflows are abandoned by remote workers without invalidation signals, creating unnecessary eviction overhead.",
+  "proposedFix": "Add a pluggable cache mechanism that defaults to the current LRU design while allowing SDK users to supply custom implementations, potentially including TTL-based or asynchronous eviction strategies.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    573
+  ],
+  "keyQuote": "The proposal is to add a mechanism allowing a pluggable cache that defaults to the current LRU design, allowing SDK end-users to supply their own implementations when desired.",
+  "number": 2499,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:28.254Z"
+}

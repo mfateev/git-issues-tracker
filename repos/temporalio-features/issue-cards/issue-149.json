@@ -1,0 +1,34 @@
+{
+  "summary": "Expose the reason field from workflow cancel requests in high-level SDK clients so users can specify cancellation reasons. This reason should be accessible in whatever mechanism each SDK uses to notify workflow code of cancel requests.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "CancelWorkflow"
+  ],
+  "components": [
+    "workflow-cancellation",
+    "client-api",
+    "exception-handling"
+  ],
+  "concepts": [
+    "cancellation",
+    "reason",
+    "workflow-lifecycle",
+    "user-notification",
+    "api-exposure"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now provide and access cancellation reasons when requesting workflow cancellations across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add optional reason field to workflow cancel request APIs in all high-level clients, making it available through the SDK's cancel notification mechanism.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #596, which is the current version handling this feature request.",
+  "related": [
+    596
+  ],
+  "keyQuote": "Add optional reason field to workflow cancel request APIs.",
+  "number": 149,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:50:05.529Z"
+}

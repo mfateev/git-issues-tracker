@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add support for NATS Streaming, Lifebridge, and JetStream as lighter-weight alternatives to Kafka for Temporal's internal messaging needs in cloud deployments.",
+  "category": "feature",
+  "subcategory": "messaging-infrastructure",
+  "apis": [],
+  "components": [
+    "messaging-layer",
+    "kafka-replacement",
+    "cloud-deployment"
+  ],
+  "concepts": [
+    "streaming",
+    "message-broker",
+    "lightweight-alternative",
+    "cloud-native",
+    "golang-native",
+    "infrastructure"
+  ],
+  "severity": "low",
+  "userImpact": "Users deploying Temporal in cloud environments could benefit from lighter-weight messaging alternatives to reduce deployment overhead.",
+  "rootCause": null,
+  "proposedFix": "Integrate NATS Streaming, Lifebridge, or JetStream as alternatives to Kafka for internal Temporal messaging",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed due to inactivity. Additionally, Kafka is no longer required for Temporal Cloud deployments, reducing the relevance of this feature request.",
+  "related": [],
+  "keyQuote": "Kafka cluster is too heavy when deploying in cloud. Using NATS Streaming, Lifebridge or Jetstream is more lightweight and golang native",
+  "number": 1698,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:31.420Z"
+}

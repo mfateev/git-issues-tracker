@@ -1,0 +1,35 @@
+{
+  "summary": "The `this` context becomes undefined when destructuring methods from Context.current() and calling them from a new async context, because arrow functions weren't used. This breaks the pattern of importing sleep/other context methods before use.",
+  "category": "bug",
+  "subcategory": "context-binding",
+  "apis": [
+    "Context.current",
+    "sleep"
+  ],
+  "components": [
+    "activity-context",
+    "context-methods",
+    "async-binding"
+  ],
+  "concepts": [
+    "this-binding",
+    "async-context",
+    "arrow-functions",
+    "destructuring",
+    "method-invocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot destructure context methods like sleep from Context.current() and call them later from different async contexts, limiting code organization patterns.",
+  "rootCause": "Methods in Context were not defined as arrow functions, so `this` binding was lost when methods were destructured and called from a new async context.",
+  "proposedFix": "Convert context methods to arrow functions to preserve `this` binding regardless of call site.",
+  "workaround": "Users must keep the reference to Context.current() and call methods through it: `const context = Context.current(); await context.sleep(3000);` instead of destructuring.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in PR #1249 by making context methods arrow functions to fix `this` binding in async contexts.",
+  "related": [
+    1249
+  ],
+  "keyQuote": "you can't import it before const { sleep } = Context.current(); ... await sleep(3000); and then call it from a new async context.",
+  "number": 1297,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:40:47.971Z"
+}

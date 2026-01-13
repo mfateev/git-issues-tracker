@@ -1,0 +1,31 @@
+{
+  "summary": "Improve deadlock detection by interrupting deadlocked workflows post-eviction and providing the deadlocked thread's stack trace instead of the raise point stack trace.",
+  "category": "feature",
+  "subcategory": "deadlock-detection",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "deadlock-detection",
+    "error-handling"
+  ],
+  "concepts": [
+    "deadlock",
+    "interruption",
+    "stack-trace",
+    "thread-management",
+    "workflow-eviction",
+    "error-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will get better diagnostics when workflows deadlock, making it easier to debug and resolve deadlock issues.",
+  "rootCause": null,
+  "proposedFix": "Interrupt the workflow if evicted post-deadlock and include the deadlocked thread's stack trace in the deadlock error.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Try to interrupt the workflow if it is evicted post-deadlock and try to put the stack trace of the deadlocked thread as the deadlock error's stack trace.",
+  "number": 191,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:45:23.307Z"
+}

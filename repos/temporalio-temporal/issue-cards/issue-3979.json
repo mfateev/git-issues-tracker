@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency security vulnerability in uber-go/tally v4.1.6 which includes Apache Thrift with two high-severity CVEs (CVE-2019-0205 and CVE-2019-0210) affecting availability. Issue was automatically closed when the vulnerable library was removed from Mend inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "tally",
+    "thrift",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "availability",
+    "denial-of-service",
+    "dependency-update",
+    "thrift-protocol"
+  ],
+  "severity": "high",
+  "userImpact": "Servers could experience denial of service attacks through endless loops or panics when processing malformed input from untrusted sources.",
+  "rootCause": "Apache Thrift versions up to 0.12.0 have infinite loop and panic vulnerabilities in JSON protocol handlers when processing specific or invalid input data.",
+  "proposedFix": "Upgrade Apache Thrift dependency to version 0.13.0 or later.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend bot when the vulnerable library was either marked as ignored or removed from the Mend inventory, indicating the dependency was likely already updated or replaced.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 3979,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:18.856Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "GrpcRetryer#retryWithResultAsync fails to perform retries when exceptions are thrown from the supplied function because CompletionException is not properly unwrapped and processed.",
+  "category": "bug",
+  "subcategory": "retry-logic",
+  "apis": [],
+  "components": [
+    "GrpcRetryer",
+    "exception-handling",
+    "async-processing"
+  ],
+  "concepts": [
+    "retry",
+    "exception-handling",
+    "CompletionException",
+    "async-operations",
+    "error-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "gRPC operations fail to retry properly when exceptions occur, causing operations to fail prematurely instead of respecting the retry timeout.",
+  "rootCause": "CompletionException is not processed and unwrapped correctly in the retryWithResultAsync method",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #477 with proper CompletionException unwrapping",
+  "related": [
+    477
+  ],
+  "keyQuote": "GrpcRetryer#retryWithResultAsync returns after the first retry if an exception is thrown from the supplied function instead of being provided in the returned CompletableFuture.",
+  "number": 476,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:21:00.749Z"
+}

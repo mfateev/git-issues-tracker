@@ -1,0 +1,35 @@
+{
+  "summary": "Add header propagation support for signals and queries, similar to existing support for workflow and activity calls. This feature was already added to the API protos and now needs implementation in the SDKs.",
+  "category": "feature",
+  "subcategory": "signal-query-headers",
+  "apis": [
+    "Signal",
+    "Query"
+  ],
+  "components": [
+    "signal-handler",
+    "query-handler",
+    "header-propagation"
+  ],
+  "concepts": [
+    "header-propagation",
+    "signals",
+    "queries",
+    "metadata-propagation",
+    "distributed-tracing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot propagate headers (metadata like trace context) through signal and query calls, limiting observability and context passing in these communication patterns.",
+  "rootCause": "Header propagation logic was implemented for workflows and activities but not extended to signals and queries despite API proto support.",
+  "proposedFix": "Implement header propagation between signal/query calls and their corresponding events, following the same pattern used for workflows and activities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed as indicated by the 'Done' comment from the issue author.",
+  "related": [
+    124
+  ],
+  "keyQuote": "Need to implement the propagation of the header values between the signal/query calls and the events.",
+  "number": 2125,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:51.827Z"
+}

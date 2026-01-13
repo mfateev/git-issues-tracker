@@ -1,0 +1,35 @@
+{
+  "summary": "Add client interceptor support for the `list` operation and ensure `fetch_history` is interceptable when implemented. The `list` method was added in PR #942 but lacks interceptor capability.",
+  "category": "feature",
+  "subcategory": "client-interceptors",
+  "apis": [
+    "list",
+    "fetch_history"
+  ],
+  "components": [
+    "client",
+    "interceptor",
+    "list-operation"
+  ],
+  "concepts": [
+    "interceptor",
+    "client-side-hooks",
+    "API-extensibility",
+    "workflow-history",
+    "method-interception"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot intercept or customize behavior for list and fetch_history operations, limiting extensibility for logging, metrics, or request modification.",
+  "rootCause": null,
+  "proposedFix": "Add interceptor support to list operation and ensure fetch_history implementation includes interceptor capability.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    942
+  ],
+  "keyQuote": "`list` was implemented in #942 and is missing an interceptor. `fetch_history` is not yet implemented, make sure it is interceptable when done.",
+  "number": 945,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:21.010Z"
+}

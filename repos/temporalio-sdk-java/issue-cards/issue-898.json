@@ -1,0 +1,33 @@
+{
+  "summary": "RetryOptions builder allows invalid configurations where maximumInterval is less than minimumInterval, which passes client-side validation but fails on the server with a BadScheduleActivityAttributes error.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "RetryOptions"
+  ],
+  "components": [
+    "retry-options",
+    "validation",
+    "activity-scheduling"
+  ],
+  "concepts": [
+    "validation",
+    "retry-policy",
+    "configuration",
+    "interval",
+    "error-handling",
+    "server-side-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users can create invalid RetryOptions that appear valid on the client but fail during workflow execution on the server.",
+  "rootCause": "RetryOptions#validateAndBuildWithDefaults does not validate that maximumInterval >= minimumInterval before allowing the configuration to be built.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "BadScheduleActivityAttributes: MaximumInterval cannot be less than InitialInterval on retry policy.",
+  "number": 898,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:51:35.389Z"
+}

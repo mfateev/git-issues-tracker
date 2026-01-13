@@ -1,0 +1,31 @@
+{
+  "summary": "Add a workflow-local variable mechanism that is scoped only to the current workflow instance, with type safety and API similar to contextvars.ContextVar. Users currently work around this by using setattr/getattr on workflow.instance().",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [],
+  "components": [
+    "workflow",
+    "context-management"
+  ],
+  "concepts": [
+    "workflow-local-storage",
+    "context-variables",
+    "scoping",
+    "type-safety",
+    "workflow-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain a standardized, type-safe way to store and access workflow-scoped variables instead of relying on undocumented setattr/getattr workarounds.",
+  "rootCause": null,
+  "proposedFix": "Implement a workflow.LocalVar() mechanism similar to contextvars.ContextVar that provides workflow-scoped variable storage with proper type safety and method chaining.",
+  "workaround": "Users can currently use setattr/getattr on workflow.instance() to store and retrieve workflow-local values.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    571
+  ],
+  "keyQuote": "a user can have `myValue = workflow.LocalVar(\"myValue\")`, and all methods and typesafety and such work like `contextvars.ContextVar`",
+  "number": 719,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:56.724Z"
+}

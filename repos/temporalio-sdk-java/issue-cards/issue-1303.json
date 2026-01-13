@@ -1,0 +1,33 @@
+{
+  "summary": "Local activities do not respect cancellation scope cancellations and instead proceed to retry, preventing code after scope.run() from executing. This is a missing feature for local activities in the Java SDK.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "Workflow.newCancellationScope",
+    "Workflow.newTimer"
+  ],
+  "components": [
+    "local-activities",
+    "cancellation-scope",
+    "retry-policy"
+  ],
+  "concepts": [
+    "cancellation",
+    "local-activities",
+    "retry",
+    "scope",
+    "heartbeat"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot cancel local activities with retry options using cancellation scopes, causing expected behavior to fail and blocking code execution.",
+  "rootCause": "Heartbeats and cancellations are not supported for local activities in the Java SDK.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Heartbeats and cancelations are not supported for Local Activities in JavaSDK. It's a missing feature of Local Activities.",
+  "number": 1303,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:23:43.477Z"
+}

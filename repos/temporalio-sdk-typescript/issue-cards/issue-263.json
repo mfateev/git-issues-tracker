@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to add dynamic signal and query handler registration in TypeScript SDK workflows, enabling DSL creation and high-level abstractions like awaitable Signal objects during workflow execution.",
+  "category": "feature",
+  "subcategory": "workflow-signals",
+  "apis": [
+    "registerSignalHandler",
+    "registerQueryHandler"
+  ],
+  "components": [
+    "workflow",
+    "signal-handling",
+    "query-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "dynamic-registration",
+    "signal-handler",
+    "query-handler",
+    "DSL",
+    "abstraction",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to build DSLs and high-level abstractions on top of Temporal by dynamically registering signal and query handlers during workflow execution.",
+  "rootCause": null,
+  "proposedFix": "Expose registerSignalHandler and registerQueryHandler functions in the @temporalio/workflow module to allow dynamic handler registration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented - dynamic handler registration is now supported in the SDK.",
+  "related": [],
+  "keyQuote": "This is useful for building DSLs on top of Temporal and can enable high level abstractions such as an awaitable Signal object",
+  "number": 263,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:37.681Z"
+}

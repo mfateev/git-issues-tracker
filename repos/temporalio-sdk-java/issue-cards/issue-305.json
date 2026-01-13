@@ -1,0 +1,32 @@
+{
+  "summary": "Saga compensations are currently executed in the current cancellation scope, which prevents them from running when the workflow is cancelled. The feature request is to execute compensations in a disconnected cancellation scope by default, with an option to disable this behavior.",
+  "category": "feature",
+  "subcategory": "saga-compensation",
+  "apis": [
+    "Saga.compensate"
+  ],
+  "components": [
+    "saga",
+    "cancellation-scope",
+    "compensation"
+  ],
+  "concepts": [
+    "cancellation",
+    "compensation",
+    "disconnected-scope",
+    "error-handling",
+    "workflow-cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually wrap Saga.compensate in a detached scope to ensure compensations run during workflow cancellation, which is error-prone and not obvious from samples.",
+  "rootCause": "Saga.compensate executes in the current cancellation scope, inheriting cancellation semantics that prevent execution during workflow cancellation",
+  "proposedFix": "Execute compensation actions in a disconnected cancellation scope by default, and add Saga.Option to disable this behavior if needed",
+  "workaround": "Manually wrap Saga.compensate calls in a detached cancellation scope",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "By default execute compensation actions in a disconnected cancellation scope. Add Saga.Option to disable this behavior.",
+  "number": 305,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:05:57.483Z"
+}

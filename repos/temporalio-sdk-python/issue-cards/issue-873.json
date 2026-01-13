@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow tasks are timing out after 2 minutes despite the start-to-close timeout being set to 1800 seconds. The user suspects their business logic is blocking the asyncio event loop, causing workflow task processing to be slow.",
+  "category": "bug",
+  "subcategory": "workflow-timeout",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "workflow-engine",
+    "event-loop",
+    "activity-executor"
+  ],
+  "concepts": [
+    "timeout",
+    "event-loop",
+    "blocking-operation",
+    "workflow-task",
+    "asyncio",
+    "performance"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail unexpectedly when business logic inadvertently blocks the asyncio event loop, preventing timely workflow task processing.",
+  "rootCause": "Blocking the asyncio event loop or workflow thread with synchronous/blocking code, preventing event loop from processing workflow tasks within the timeout window.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be a support/usage question rather than a bug. The timeout occurs because user code is blocking the event loop; the issue was redirected to community support channels (Slack/forums) for assistance.",
+  "related": [],
+  "keyQuote": "This usually means your code is taking 10s to handle the workflow task which only takes milliseconds usually. This is usually caused by blocking the asyncio event loop with accidental thread-blocking logic.",
+  "number": 873,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:22.414Z"
+}

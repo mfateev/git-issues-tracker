@@ -1,0 +1,31 @@
+{
+  "summary": "Transaction.CreateWorkflowExecution() API is defined but not actually used in the codebase. Shard context directly calls createWorkflowExecutionWithRetry() instead of going through the transaction abstraction, indicating incomplete API implementation.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "CreateWorkflowExecution"
+  ],
+  "components": [
+    "transaction",
+    "shard-context",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "transaction-abstraction",
+    "api-usage",
+    "code-consistency",
+    "refactoring"
+  ],
+  "severity": "medium",
+  "userImpact": "The transaction abstraction layer is incomplete, potentially limiting transaction functionality and creating maintenance burden through inconsistent API usage patterns.",
+  "rootCause": "Transaction.CreateWorkflowExecution() method exists but is bypassed by direct calls to createWorkflowExecutionWithRetry() in shard context code.",
+  "proposedFix": "Update shard context to use Transaction.CreateWorkflowExecution() instead of directly calling createWorkflowExecutionWithRetry().",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The Transaction.CreateWorkflowExecution() is not used anywhere. Shard context directly calls into createWorkflowExecutionWithRetry().",
+  "number": 2406,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:07.014Z"
+}

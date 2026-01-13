@@ -1,0 +1,34 @@
+{
+  "summary": "Elasticsearch auto-setup scripts in Docker do not support username and password authentication, making them unsuitable for production use and requiring workarounds in Kubernetes deployments.",
+  "category": "bug",
+  "subcategory": "elasticsearch-setup",
+  "apis": [],
+  "components": [
+    "docker-scripts",
+    "elasticsearch-setup",
+    "auto-setup",
+    "frontend-container"
+  ],
+  "concepts": [
+    "authentication",
+    "elasticsearch",
+    "docker-setup",
+    "kubernetes-deployment",
+    "auto-configuration",
+    "production-readiness"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Elasticsearch with username/password authentication in Docker auto-setup, forcing them to implement custom workarounds for Kubernetes deployments.",
+  "rootCause": "The curl commands in docker/start.sh scripts do not include username and password parameters when connecting to Elasticsearch, and the frontend container polling logic also lacks authentication support.",
+  "proposedFix": "Update the curl commands in docker/start.sh to support username and password parameters for Elasticsearch authentication.",
+  "workaround": "Mount a modified Elasticsearch setup script in a Kubernetes init container and change the frontend container command to use ./start-temporal.sh instead of the default startup command.",
+  "resolution": "fixed",
+  "resolutionDetails": "Elasticsearch setup was refactored to run only in the auto-setup image, and a Kubernetes server job was created for index creation that supports authentication in production environments.",
+  "related": [
+    1501
+  ],
+  "keyQuote": "the docker start.sh scripts, do not use username or password with curl. This means that you cannot use a username/password for elasticsearch",
+  "number": 1544,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:54:31.746Z"
+}

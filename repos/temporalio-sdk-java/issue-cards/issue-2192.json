@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow and activity execution logs are missing the Attempt number in MDC (Mapped Diagnostic Context). The request is to add a new LoggerTag ATTEMPT and populate it in MDC alongside existing fields like WorkflowId and ActivityId.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "mdc",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "concepts": [
+    "attempt-tracking",
+    "diagnostic-context",
+    "structured-logging",
+    "observability",
+    "mdc-fields"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily track retry attempts in logs without manually parsing execution metadata, making debugging multi-attempt workflows and activities more difficult.",
+  "rootCause": null,
+  "proposedFix": "Add a new LoggerTag ATTEMPT and introduce its value on MDC like the existing LoggerTags (WorkflowId, ActivityId, etc.)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The enhancement was implemented by adding ATTEMPT to the LoggerTag enum and populating it in MDC during workflow and activity execution.",
+  "related": [],
+  "keyQuote": "Add a new LoggerTag ATTEMPT and introduce its value on MDC like the others.",
+  "number": 2192,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:37.293Z"
+}

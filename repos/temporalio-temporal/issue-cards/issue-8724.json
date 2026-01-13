@@ -1,0 +1,32 @@
+{
+  "summary": "Request for plugin-based authentication support for PostgreSQL backend to enable Azure Entra ID, AWS IAM, and Google Cloud IAM token-based authentication without embedding cloud-specific SDKs into Temporal core.",
+  "category": "feature",
+  "subcategory": "database-authentication",
+  "apis": [],
+  "components": [
+    "postgresql-plugin",
+    "sql-tool",
+    "server-config"
+  ],
+  "concepts": [
+    "authentication",
+    "cloud-identity",
+    "token-based-auth",
+    "plugin-architecture",
+    "secret-management",
+    "entra-id",
+    "managed-identity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users self-hosting Temporal on Azure, AWS, or Google Cloud can use cloud-native identity and access management for database authentication instead of managing static credentials.",
+  "rootCause": "Temporal currently lacks a plugin-based mechanism for dynamic token-based database authentication, forcing organizations to maintain custom forks for cloud-provider-specific auth schemes.",
+  "proposedFix": "Implement a plugin-based approach where cloud-specific token providers (CLI binary or Go plugin) can be invoked to fetch and manage JWT tokens for database connections, with support for token expiry handling through existing connection lifecycle management.",
+  "workaround": "Organizations can maintain custom patches and forks that embed cloud SDKs directly into Temporal binaries, though this is not ideal for maintenance and distribution.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would propose a more generic plugin-based approach can be taken here to make it possible to use any cloud provider that follows a similar JWT auth pattern.",
+  "number": 8724,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:04.197Z"
+}

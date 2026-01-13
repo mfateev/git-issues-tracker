@@ -1,0 +1,33 @@
+{
+  "summary": "The server currently rejects UpdateWorkflowExecution requests with the ADMITTED lifecycle stage, returning an error. This feature request seeks to implement support for this stage, allowing callers to wait until an update is admitted (persisted and guaranteed not to be lost) without waiting for worker execution.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflowExecution"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-execution",
+    "lifecycle-stage-support"
+  ],
+  "concepts": [
+    "workflow-update",
+    "admission",
+    "persistence",
+    "lifecycle-stage",
+    "update-policy",
+    "distributed-systems"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use the ADMITTED lifecycle stage for workflow updates, limiting their ability to wait for safe persistence without full execution completion.",
+  "rootCause": "The ADMITTED lifecycle stage is not implemented in the server's UpdateWorkflowExecution handler.",
+  "proposedFix": "Implement the ADMITTED stage in UpdateWorkflowExecution to return once the update is admitted (persisted and guaranteed to reach the worker).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should support returning once the update is \"admitted\" (i.e. will not be lost but may not have reached worker yet)",
+  "number": 4979,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:22.513Z"
+}

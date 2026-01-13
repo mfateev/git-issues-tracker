@@ -1,0 +1,30 @@
+{
+  "summary": "PrometheusRegistry rejects metrics from MicrometerClientStatsReporter because different SDK components report the same metric with inconsistent tag sets. Prometheus requires all meters with the same name to have identical tag keys, but the SDK attempts to maximize useful data by dynamically including/excluding tags based on operation context.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "MicrometerClientStatsReporter",
+    "GrpcMetricsInterceptor",
+    "metrics-registry"
+  ],
+  "concepts": [
+    "metrics-consistency",
+    "prometheus-compatibility",
+    "tag-cardinality",
+    "metric-registration",
+    "observability"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot export metrics to Prometheus using PrometheusRegistry because the SDK fails at runtime with IllegalArgumentException when attempting to register metrics with inconsistent tag schemas.",
+  "rootCause": "The SDK does not enforce consistent tag key sets across all metric registration paths. Different operations report the same metric (e.g., 'temporal_request_latency_seconds') with different tag sets—some with only [Operation], others with [Namespace, Operation, TaskQueue, WorkflowType]—violating Prometheus's constraint that identical metric names must always have identical tag keys.",
+  "proposedFix": null,
+  "workaround": "Pre-populate the root metric scope with default dummy values for all common metric tags (Namespace, ActivityType, OperationName, SignalName, QueryType, TaskQueue, StatusCode, Exception, WorkflowType) so all metrics are registered with the complete tag set from the first registration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the SDK to ensure consistent tag key sets across all metric registrations, ensuring Prometheus compatibility.",
+  "related": [],
+  "keyQuote": "Prometheus requires each unique metric key to be always reported with the same set of tags. Unfortunately our SDK does not respect this constraint and tries to maximize amount of useful data that it publishes.",
+  "number": 200,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:00:46.663Z"
+}

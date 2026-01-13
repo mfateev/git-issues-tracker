@@ -1,0 +1,33 @@
+{
+  "summary": "Spring Boot integration feature request to auto-configure ScheduleClient instances per namespace, similar to how WorkflowClient is injected, eliminating the need for manual namespace configuration.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "ScheduleClient",
+    "WorkflowClient",
+    "ScheduleClientOptions"
+  ],
+  "components": [
+    "spring-boot-starter",
+    "schedule-client",
+    "client-options"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "namespace-configuration",
+    "client-factory",
+    "spring-resource"
+  ],
+  "severity": "low",
+  "userImpact": "Spring Boot users must manually create and inject separate ScheduleClient instances for each namespace instead of using autowired beans like with WorkflowClient.",
+  "rootCause": null,
+  "proposedFix": "Add Spring Boot auto-configuration to create ScheduleClient beans pre-configured with namespace from application properties, allowing direct injection like WorkflowClient.",
+  "workaround": "Manually create ScheduleClient instances using newInstance() with ScheduleClientOptions and explicitly set namespace from WorkflowClient options.",
+  "resolution": "fixed",
+  "resolutionDetails": "Spring Boot starter was updated to support automatic ScheduleClient bean creation with namespace pre-configuration.",
+  "related": [],
+  "keyQuote": "Ask is to configure this based on configured namespace so can just do similar to WorkflowClient",
+  "number": 2449,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:46.128Z"
+}

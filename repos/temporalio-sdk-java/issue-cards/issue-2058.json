@@ -1,0 +1,32 @@
+{
+  "summary": "Add automatic Temporal-Namespace header to all namespace-specific gRPC requests in the Java SDK via an interceptor, eliminating the need for manual namespace configuration.",
+  "category": "feature",
+  "subcategory": "grpc-interceptor",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "interceptor",
+    "namespace-handler"
+  ],
+  "concepts": [
+    "namespace",
+    "grpc-header",
+    "interceptor",
+    "request-metadata",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Simplifies namespace configuration by automatically setting the header on all namespace-specific requests, reducing boilerplate code.",
+  "rootCause": null,
+  "proposedFix": "Implement an interceptor that automatically sets the Temporal-Namespace header, potentially using reflection to call getNamespace() on requests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via gRPC interceptor to automatically set namespace headers on all namespace-specific requests.",
+  "related": [
+    475
+  ],
+  "keyQuote": "It needs to be an interceptor surely, but unsure how the implementation will do this generically.",
+  "number": 2058,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:06.465Z"
+}

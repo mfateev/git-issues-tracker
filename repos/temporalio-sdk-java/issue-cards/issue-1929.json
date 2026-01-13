@@ -1,0 +1,32 @@
+{
+  "summary": "Request to tag workflow_task_execution_failed metrics with error type information for better observability. This follows feature request #231 in the features repository.",
+  "category": "feature",
+  "subcategory": "metrics-tagging",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "observability",
+    "metrics",
+    "error-classification",
+    "monitoring",
+    "tagging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily filter and analyze workflow task execution failures by error type in their monitoring systems.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Likely addressed as part of feature implementation #231 or related metrics enhancement",
+  "related": [
+    231
+  ],
+  "keyQuote": "Tag workflow_task_execution_failed with error type",
+  "number": 1929,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:45.696Z"
+}

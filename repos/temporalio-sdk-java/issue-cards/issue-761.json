@@ -1,0 +1,33 @@
+{
+  "summary": "Add a convenience method to create untyped WorkflowStub directly from a workflow interface and workflowId, without needing to first create a typed stub and then convert it. This addresses a common use case of needing an untyped stub for sending signals or queries.",
+  "category": "feature",
+  "subcategory": "workflow-stubs",
+  "apis": [
+    "WorkflowClient.newUntypedWorkflowStub",
+    "WorkflowStub.fromTyped"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-stubs",
+    "api"
+  ],
+  "concepts": [
+    "stub-creation",
+    "typed-to-untyped-conversion",
+    "workflow-interface",
+    "signal-query",
+    "api-convenience"
+  ],
+  "severity": "low",
+  "userImpact": "Users can create untyped stubs more conveniently without the extra step of creating a typed stub first when they have a workflow interface and workflowId.",
+  "rootCause": null,
+  "proposedFix": "Add a simple newUntypedWorkflowStub(String workflowId) method that internally calls newUntypedWorkflowStub(workflowId, Optional.empty(), Optional.empty())",
+  "workaround": "Create typed stub first with WorkflowClient.newWorkflowStub(), then convert to untyped using WorkflowStub.fromTyped()",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as a simplified convenience method wrapping existing functionality with empty optionals",
+  "related": [],
+  "keyQuote": "We have an interface and a workflowId, we want to get an untyped stub to send a signal or query.",
+  "number": 761,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:40:51.030Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Setting a memo parameter on `execute_child_workflow` throws a ValueError due to improper protobuf message assignment. The Python proto SDK requires lazy field access for submessages rather than direct assignment to map fields.",
+  "category": "bug",
+  "subcategory": "child-workflow",
+  "apis": [
+    "execute_child_workflow"
+  ],
+  "components": [
+    "workflow_instance",
+    "proto-handling",
+    "child-workflow"
+  ],
+  "concepts": [
+    "memo",
+    "protobuf",
+    "submessage",
+    "map-field",
+    "lazy-field-access"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot set memo values when executing child workflows, blocking a core workflow feature.",
+  "rootCause": "Improper proto library usage - direct assignment to map fields is not allowed in Python protobuf SDK; lazy field access is required for submessages.",
+  "proposedFix": "Use lazy field access pattern for setting memo values on protobuf map fields instead of direct assignment.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed by properly implementing proto library patterns for map field assignment.",
+  "related": [],
+  "keyQuote": "With the Python proto SDK, you can't set messages directly on maps/lists. You have to lazily set scalar fields only via lazy message field access.",
+  "number": 115,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:57.467Z"
+}

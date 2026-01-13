@@ -1,0 +1,36 @@
+{
+  "summary": "continueAsNew doesn't automatically carry over parent workflow attributes that aren't explicitly set in ContinueAsNewOptions. The implementation incorrectly assumes the server carries over parameters, but the server actually requires them to be explicitly set.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow.continueAsNew",
+    "ContinueAsNewOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "continue-as-new",
+    "workflow-options"
+  ],
+  "concepts": [
+    "workflow-properties",
+    "parameter-inheritance",
+    "server-behavior",
+    "attribute-carry-over",
+    "workflow-continuation"
+  ],
+  "severity": "high",
+  "userImpact": "Users lose workflow configuration when using continueAsNew without explicitly setting all options, leading to unexpected behavior changes in continued workflow runs.",
+  "rootCause": "Implementation assumes server carries over parameters automatically, but server doesn't carry over most parameters if not specified in continueAsNew request.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1200,
+    1424
+  ],
+  "keyQuote": "Server doesn't carry over most parameters are not carried over by the server.",
+  "number": 1201,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:13:04.449Z"
+}

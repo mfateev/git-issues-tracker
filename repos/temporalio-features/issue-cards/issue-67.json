@@ -1,0 +1,36 @@
+{
+  "summary": "Standardize activity heartbeat throttling behavior across all SDKs by introducing configurable WorkerOptions for maximum and default throttle intervals, with the throttle interval calculated as the minimum of heartbeat timeout (0.8x), default interval, and maximum interval.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "WorkerOption"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "heartbeat-throttling"
+  ],
+  "concepts": [
+    "heartbeat",
+    "throttling",
+    "timeout",
+    "configuration",
+    "backwards-compatibility",
+    "sdk-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have explicit control over heartbeat throttling behavior with consistent defaults across all SDKs, reducing confusion from current implicit and inconsistent behavior.",
+  "rootCause": "Different SDKs have different implicit defaults and maximums for heartbeat throttling (Java: 30s max/0s default, Go: 10m default/no max), causing inconsistent behavior.",
+  "proposedFix": "Add maxHeartbeatThrottleInterval (default 60s) and defaultHeartbeatThrottleInterval (default 30s) WorkerOptions with formula: throttleInterval = min(heartbeat_timeout * 0.8 if provided else defaultHeartbeatThrottleInterval, maxHeartbeatThrottleInterval)",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    656,
+    906
+  ],
+  "keyQuote": "This was already implemented in all SDKs. Leaving it open to add a feature in this repo.",
+  "number": 67,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:31.077Z"
+}

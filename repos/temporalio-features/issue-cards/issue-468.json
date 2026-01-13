@@ -1,0 +1,32 @@
+{
+  "summary": "Users need a standardized utility across all Temporal SDKs to decode all payloads in a history object. Currently only Go and Ruby have this functionality exposed through payload visitors, and other SDKs lack this capability.",
+  "category": "feature",
+  "subcategory": "payload-decoding",
+  "apis": [
+    "VisitPayloads"
+  ],
+  "components": [
+    "payload-codec",
+    "history-decoder",
+    "sdk-utilities"
+  ],
+  "concepts": [
+    "payload-decoding",
+    "history-traversal",
+    "encryption",
+    "cross-sdk-consistency",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users across different SDKs lack a consistent and accessible way to decode all payloads in a history object, limiting their ability to inspect and work with encrypted data.",
+  "rootCause": null,
+  "proposedFix": "Expose a payload visitor or create a more specific decode-history method as a utility across all SDKs (Go, Java, TypeScript, Python, .NET, Ruby, PHP, and Temporal CLI).",
+  "workaround": "Go and Ruby users can access existing VisitPayloads/PayloadVisitor APIs, though they are not prominently exposed in the SDK documentation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users need to decode all payloads in a history object. This could be exposed as a payload visitor or as a more specific decode-history method.",
+  "number": 468,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:41.610Z"
+}

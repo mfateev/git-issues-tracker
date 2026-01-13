@@ -1,0 +1,30 @@
+{
+  "summary": "Request to upgrade gRPC dependency from 1.41.0 to 1.42.1. User encountered a strict version constraint conflict when trying to use gRPC 1.42.1 in their own code while the SDK required 1.41.0.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "grpc-stub",
+    "dependency-management",
+    "gradle-build"
+  ],
+  "concepts": [
+    "dependency-versioning",
+    "version-constraints",
+    "gradle-platforms",
+    "transitive-dependencies",
+    "compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot upgrade to gRPC 1.42.1 in their applications due to the SDK's strict version constraint on 1.41.0.",
+  "rootCause": "Strict version constraint on gRPC 1.41.0 in SDK prevents users from upgrading to newer versions of gRPC in their own dependencies.",
+  "proposedFix": null,
+  "workaround": "User indicated they would try upgrading when SDK version 1.6 is released.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by upgrading to SDK 1.6 which updated gRPC dependencies.",
+  "related": [],
+  "keyQuote": "We're trying to upgrade our gRPC usages to 1.42.1 (for our own clients/servers), but are running into a Temporal dep constraint conflict",
+  "number": 918,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:53:37.311Z"
+}

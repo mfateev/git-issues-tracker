@@ -1,0 +1,34 @@
+{
+  "summary": "Signal received during workflow task execution that completes with continue-as-new causes task failure, forcing replay and potentially creating infinite loops. The request is to pass signals to the next workflow run instead, making this behavior configurable.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-task-processor",
+    "signal-handler",
+    "workflow-state-machine",
+    "replay-engine"
+  ],
+  "concepts": [
+    "signal-handling",
+    "continue-as-new",
+    "workflow-replay",
+    "state-management",
+    "race-condition",
+    "signal-transfer"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows receiving frequent signals cannot safely use continue-as-new without hitting history size limits or signal limits, forcing users to implement complex signal carryover logic.",
+  "rootCause": "Task failure on signal receipt during continue-as-new command creation forces workflow replay, and repeated signals prevent completion of continue-as-new execution.",
+  "proposedFix": "By default, pass received signals to the next workflow run instead of failing the task. Make this behavior configurable through options.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "By default pass signal to the next run of the workflow. This way the continue-as-new is never blocked and the signal is not lost.",
+  "number": 1289,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:14.215Z"
+}

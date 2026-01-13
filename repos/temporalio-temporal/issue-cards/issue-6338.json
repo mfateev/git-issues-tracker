@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal server logs duplicate prometheus metric registration warnings for metrics like AccessHistoryNew and task_schedule_to_start_latency, indicating conflicting label definitions for the same metric being registered multiple times.",
+  "category": "bug",
+  "subcategory": "prometheus-metrics",
+  "apis": [],
+  "components": [
+    "prometheus-reporter",
+    "metrics",
+    "telemetry"
+  ],
+  "concepts": [
+    "prometheus",
+    "metrics-registration",
+    "label-conflict",
+    "metric-deduplication",
+    "telemetry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see warning logs during server operation that indicate potential metric collection issues, causing log noise and confusion about metric validity.",
+  "rootCause": "Metrics are being registered multiple times with different label sets or help strings, likely due to metrics being registered from multiple sources (sdk-core and server) with incompatible configurations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "a previously registered descriptor with the same fully-qualified name as Desc{fqName: \"AccessHistoryNew\"... has different label names or a different help string",
+  "number": 6338,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:21.192Z"
+}

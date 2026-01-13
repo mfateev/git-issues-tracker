@@ -1,0 +1,36 @@
+{
+  "summary": "The BatchRequest API for Signal w/ Start is difficult to use due to inflexible ordering constraints and lacks support for other operations like Update. This feature request proposes deprecating BatchRequest in favor of a more intuitive, consistent API similar to updateWithStart.",
+  "category": "feature",
+  "subcategory": "signal-with-start",
+  "apis": [
+    "BatchRequest",
+    "updateWithStart",
+    "SignalWithStartWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "signal-api",
+    "batch-request"
+  ],
+  "concepts": [
+    "api-design",
+    "deprecation",
+    "workflow-operations",
+    "signal-handling",
+    "consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers struggle with confusing BatchRequest constraints and may be misled about supported operations, hindering adoption of signal-with-start workflows.",
+  "rootCause": "BatchRequest has rigid ordering requirements and limited operation support, creating an unintuitive and inconsistent API surface.",
+  "proposedFix": "Deprecate BatchRequest and replace it with a new API that is easier to use and more consistent with updateWithStart, supporting additional operations like Update.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    915
+  ],
+  "keyQuote": "BatchRequest is hard to use, i.e. it has some affordances that would be illegal.",
+  "number": 2213,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:02:39.349Z"
+}

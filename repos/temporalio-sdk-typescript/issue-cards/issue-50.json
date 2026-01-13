@@ -1,0 +1,31 @@
+{
+  "summary": "No method currently exists to cleanup a completed workflow. The issue discusses the need to define how workflow cleanup should be handled in terms of core and language-specific responsibilities.",
+  "category": "feature",
+  "subcategory": "workflow-cleanup",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "client",
+    "core-lang-interface"
+  ],
+  "concepts": [
+    "lifecycle-management",
+    "resource-cleanup",
+    "workflow-completion",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly cleanup completed workflows, potentially leaving dangling resources or state.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by #74 which implemented the workflow cleanup functionality.",
+  "related": [
+    74
+  ],
+  "keyQuote": "Currently there's no method to cleanup a completed workflow, decide how that works in terms of core<->lang responsibilities.",
+  "number": 50,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:55:12.906Z"
+}

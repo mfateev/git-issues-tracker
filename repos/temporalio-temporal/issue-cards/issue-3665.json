@@ -1,0 +1,30 @@
+{
+  "summary": "User requests the ability to update workflow search attributes after a workflow has started, from outside the workflow context. This would enable external systems to tag workflows with metadata and update multiple workflows based on queries (e.g., all failed workflows).",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "workflow-execution",
+    "visibility"
+  ],
+  "concepts": [
+    "metadata-tagging",
+    "external-updates",
+    "batch-operations",
+    "query-filtering",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently add or update search attributes for workflows from outside the workflow context, limiting their ability to enrich workflow metadata with external system data.",
+  "rootCause": null,
+  "proposedFix": "Add API capability to update search attributes on workflows outside of workflow context, with support for bulk updates based on query filters (e.g., ExecutionStatus='Failed').",
+  "workaround": "Store workflow IDs and search attributes in a separate datastore, or manually update the Elasticsearch index using the Elasticsearch API directly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would like the ability to update a workflows search attributes outside of the workflow context. Preferably with the ability to be able to update a set of workflows based on a query.",
+  "number": 3665,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:51.375Z"
+}

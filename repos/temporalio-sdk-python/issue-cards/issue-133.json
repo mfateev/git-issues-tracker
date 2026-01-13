@@ -1,0 +1,32 @@
+{
+  "summary": "Transitive dependency vulnerability (CVE-2022-3212) in axum-core 0.2.7 allows denial of service through unbounded request body handling. Detected in temporal-sdk-core-protos dependency chain.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "temporal-sdk-core-protos",
+    "tonic",
+    "axum",
+    "dependency-management"
+  ],
+  "concepts": [
+    "denial-of-service",
+    "memory-exhaustion",
+    "vulnerability",
+    "transitive-dependency",
+    "request-handling",
+    "security"
+  ],
+  "severity": "high",
+  "userImpact": "Malicious peers could send large request bodies causing the SDK server to run out of memory and crash.",
+  "rootCause": "axum-core FromRequest extractor did not enforce limits on request body size, allowing memory exhaustion attacks.",
+  "proposedFix": "Upgrade axum-core from 0.2.7 to 0.2.8",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Vulnerability was resolved by upgrading the dependency; issue auto-closed when vulnerable library was removed from inventory or marked as ignored.",
+  "related": [],
+  "keyQuote": "axum_core::extract::FromRequest would not, by default, set a limit for the size of the request body. That meant if a malicious peer would send a very large (or infinite) body your server might run out of memory and crash.",
+  "number": 133,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:14.225Z"
+}

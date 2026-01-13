@@ -1,0 +1,32 @@
+{
+  "summary": "Request to disable eager activities when task queue rate limits are configured, to prevent potential performance issues with rate-limited task queues.",
+  "category": "feature",
+  "subcategory": "activities",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "task-queue",
+    "worker"
+  ],
+  "concepts": [
+    "eager-activities",
+    "rate-limiting",
+    "performance",
+    "task-queue",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with rate-limited task queues may experience unexpected behavior or performance degradation when eager activities are enabled.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing the feature to disable eager activities when task queue rate limits are set.",
+  "related": [
+    405
+  ],
+  "keyQuote": "Disable eager activities if task queue rate limits is set",
+  "number": 1978,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:48.227Z"
+}

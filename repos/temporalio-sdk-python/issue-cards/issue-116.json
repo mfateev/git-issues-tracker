@@ -1,0 +1,32 @@
+{
+  "summary": "User encountered an error when setting search attributes with non-title-case keys in child workflows. After investigation, it was determined that search attributes must match the names registered on the server, not a format requirement.",
+  "category": "question",
+  "subcategory": "search-attributes",
+  "apis": [
+    "execute_child_workflow"
+  ],
+  "components": [
+    "workflow",
+    "search-attributes",
+    "child-workflow"
+  ],
+  "concepts": [
+    "search-attributes",
+    "configuration",
+    "validation",
+    "server-registration",
+    "naming-conventions"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about search attribute key requirements and receive unclear error messages when keys don't match server-registered names.",
+  "rootCause": "Search attribute keys must match names registered on the Temporal server; the error message was unclear about this requirement.",
+  "proposedFix": null,
+  "workaround": "Register search attributes on the server using tctl CLI tool with the exact key names you intend to use.",
+  "resolution": "invalid",
+  "resolutionDetails": "User misunderstood the feature; search attributes must be registered on the server first. Clarification was provided by maintainer.",
+  "related": [],
+  "keyQuote": "You can only set search attributes which have been registered/created on the server. See https://docs.temporal.io/tctl/admin/cluster/add-search-attributes for how to do this with the `tctl` CLI tool.",
+  "number": 116,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:00.946Z"
+}

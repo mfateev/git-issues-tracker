@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to expose workflow and activity instances through static properties (`Workflow.Instance` and `ActivityExecutionContext.Instance`) to enable access to the current execution context from within user code.",
+  "category": "feature",
+  "subcategory": "context-access",
+  "apis": [
+    "Workflow",
+    "ActivityExecutionContext"
+  ],
+  "components": [
+    "workflow-runtime",
+    "activity-executor",
+    "hosting-extensions"
+  ],
+  "concepts": [
+    "instance-access",
+    "context-binding",
+    "async-local",
+    "dependency-injection",
+    "execution-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily access the current workflow or activity instance from within their code, limiting ability to introspect or interact with the execution context.",
+  "rootCause": null,
+  "proposedFix": "Add `Workflow.Instance` static property and `ActivityExecutionContext.Instance` instance property (possibly as extension method) to expose current instances during execution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented - workflow and activity instances are now accessible via context properties.",
+  "related": [
+    572
+  ],
+  "keyQuote": "The created instance of the workflow class should be made available as `Workflow.Instance` static property.",
+  "number": 388,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:17:59.511Z"
+}

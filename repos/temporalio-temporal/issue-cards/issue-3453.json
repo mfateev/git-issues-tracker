@@ -1,0 +1,31 @@
+{
+  "summary": "Docker images use numeric UIDs/GIDs that vary between containers, making Kubernetes security policies harder to configure. Users must explicitly specify runAsUser/runAsGroup instead of relying on image metadata.",
+  "category": "bug",
+  "subcategory": "docker-security",
+  "apis": [],
+  "components": [
+    "docker-images",
+    "kubernetes-deployment",
+    "security-context"
+  ],
+  "concepts": [
+    "container-security",
+    "uid-gid",
+    "kubernetes-integration",
+    "privilege-escalation",
+    "security-policies",
+    "non-root-user"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying in restricted Kubernetes environments must manually configure additional security context settings instead of relying on consistent numeric UIDs/GIDs in images.",
+  "rootCause": "Docker images use inconsistent numeric UIDs/GIDs (web container uses 5000, others use different values) or username-based UIDs that Kubernetes cannot automatically detect.",
+  "proposedFix": "Use the same integer UID/GID across all Temporal docker images for consistent Kubernetes security policy detection.",
+  "workaround": "Manually define securityContext in Kubernetes manifests with explicit runAsUser and runAsGroup values (e.g., 1000).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the UIDs were not 0, I could leave off at least the last two items. Also, the web container uses 5000 for the temporal user... which is likely an unneeded difference.",
+  "number": 3453,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:23.859Z"
+}

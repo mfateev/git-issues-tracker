@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for Nexus CONFLICT and REQUEST_TIMEOUT handler error types across all Temporal SDKs as specified in the Nexus RPC specification.",
+  "category": "feature",
+  "subcategory": "nexus",
+  "apis": [],
+  "components": [
+    "nexus-handler",
+    "error-types",
+    "sdk-implementations"
+  ],
+  "concepts": [
+    "nexus-rpc",
+    "error-handling",
+    "handler-errors",
+    "conflict-resolution",
+    "timeout-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "SDK users need these error types to properly handle Nexus operation failures according to the specification.",
+  "rootCause": null,
+  "proposedFix": "Implement CONFLICT and REQUEST_TIMEOUT handler error types in each SDK following the Nexus RPC API specification.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Completed implementations across all SDKs: Go (PR#56), Java (issue#37), TypeScript (issue#23), Python (issue#22), .NET (issue#9)",
+  "related": [],
+  "keyQuote": "As specified in the SPEC: https://github.com/nexus-rpc/api/blob/dc2055899501f338f5483c776020fdbd3eae762b/SPEC.md#predefined-handler-errors",
+  "number": 683,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:04.063Z"
+}

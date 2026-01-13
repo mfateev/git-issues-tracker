@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add TLS configuration support for Elasticsearch visibility in Temporal. Currently only username/password authentication is supported, but TLS is required for production deployments with self-signed certificates.",
+  "category": "feature",
+  "subcategory": "elasticsearch-visibility",
+  "apis": [],
+  "components": [
+    "elasticsearch-visibility",
+    "tls-configuration",
+    "authentication"
+  ],
+  "concepts": [
+    "tls",
+    "ssl",
+    "elasticsearch",
+    "visibility",
+    "infrastructure",
+    "production",
+    "security"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot connect Temporal to Elasticsearch in production environments that require TLS/SSL authentication, blocking enterprise deployments.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TLS support has been added to Elasticsearch visibility configuration as confirmed in comments.",
+  "related": [],
+  "keyQuote": "TLS is a basic requirement in production and currently we cannot connect to Elasticsearch if it has TLS with self signed certs.",
+  "number": 3292,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:24.327Z"
+}

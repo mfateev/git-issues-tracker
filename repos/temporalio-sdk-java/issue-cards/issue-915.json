@@ -1,0 +1,36 @@
+{
+  "summary": "The `Workflow#signalWithStart` method interface is overcomplicated and difficult to use. The issue requests improvements to the class structure and addition of more conventional builders and factory methods to simplify the API and improve usability.",
+  "category": "feature",
+  "subcategory": "signalWithStart-API",
+  "apis": [
+    "signalWithStart",
+    "WorkflowStub",
+    "WorkflowClient"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-stub",
+    "signal-handling"
+  ],
+  "concepts": [
+    "API usability",
+    "builder pattern",
+    "factory methods",
+    "strongly-typed API",
+    "workflow signals"
+  ],
+  "severity": "medium",
+  "userImpact": "Users find the signalWithStart method difficult to use and require checking samples to understand how to properly call it.",
+  "rootCause": "The current interface design lacks conventional builders and factory methods, making it unintuitive compared to similar APIs like updateWithStart.",
+  "proposedFix": "Adopt a pattern similar to the recently shipped updateWithStart API for better usability and consistency. Add untyped option for WorkflowClient.signalWithStart that takes signalName, signalData, and inputData.",
+  "workaround": "Users can convert typed stubs to untyped stubs using `WorkflowStub.fromTyped()` to access the untyped signalWithStart method.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as a duplicate of issue #2213, which likely addresses the same signalWithStart usability improvements.",
+  "related": [
+    2213
+  ],
+  "keyQuote": "Workflow#signalWithStart method interface is overcomplicated and hard to use without checking with samples first.",
+  "number": 915,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:52:58.040Z"
+}

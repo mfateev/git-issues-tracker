@@ -1,0 +1,32 @@
+{
+  "summary": "The temporal-cassandra-tool schema update command fails with an error when re-executed after a previous execution was aborted, because it attempts to CREATE TYPE without checking if the type already exists. The tool needs idempotent schema update queries.",
+  "category": "bug",
+  "subcategory": "cassandra-schema-management",
+  "apis": [],
+  "components": [
+    "temporal-cassandra-tool",
+    "schema-updater",
+    "cassandra-driver"
+  ],
+  "concepts": [
+    "idempotency",
+    "schema-versioning",
+    "database-migration",
+    "error-recovery",
+    "cassandra-types"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely retry schema updates if a previous attempt was interrupted, forcing them to manually clean up the database before retrying.",
+  "rootCause": "CREATE TYPE statements in the schema update process are not idempotent; they fail if the type already exists from a partial previous execution.",
+  "proposedFix": "Change CREATE TYPE to CREATE TYPE IF NOT EXISTS in the schema update statements.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed as part of pull request #4761",
+  "related": [
+    4761
+  ],
+  "keyQuote": "Change `CREATE TYPE` to `CREATE TYPE IF NOT EXISTS`",
+  "number": 1981,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:55.679Z"
+}

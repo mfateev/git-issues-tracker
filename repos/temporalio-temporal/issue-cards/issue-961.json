@@ -1,0 +1,30 @@
+{
+  "summary": "User encountered ResourceExhausted error when sending large payloads (~13MB) through Temporal, exceeding the default max message size of 4MB. Request for ability to configure max payload size limit.",
+  "category": "feature",
+  "subcategory": "payload-limits",
+  "apis": [],
+  "components": [
+    "grpc",
+    "message-handling",
+    "payload-serialization"
+  ],
+  "concepts": [
+    "message-size",
+    "resource-limits",
+    "payload-capacity",
+    "configuration",
+    "grpc-limits"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to send large payloads through Temporal workflows encounter ResourceExhausted errors and cannot process responses.",
+  "rootCause": "Default gRPC message size limit (4MB) is exceeded by large payloads (13MB+), causing message reception to fail.",
+  "proposedFix": null,
+  "workaround": "Avoid sending large objects through Temporal (anti-pattern per maintainer comment).",
+  "resolution": "fixed",
+  "resolutionDetails": "Response payload message size limit was increased by maintainers to accommodate larger payloads.",
+  "related": [],
+  "keyQuote": "serviceerror.ResourceExhausted: grpc: received message larger than max (13335484 vs. 4194304)",
+  "number": 961,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:30:25.630Z"
+}

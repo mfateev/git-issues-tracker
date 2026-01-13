@@ -1,0 +1,29 @@
+{
+  "summary": "CI documentation job fails when run from repository forks because it requires a secret token that isn't available in fork environments. The job should be skipped when the token secret is not found.",
+  "category": "bug",
+  "subcategory": "ci-workflow",
+  "apis": [],
+  "components": [
+    "ci",
+    "github-actions",
+    "documentation"
+  ],
+  "concepts": [
+    "ci-failure",
+    "fork-testing",
+    "secret-management",
+    "workflow-skipping"
+  ],
+  "severity": "medium",
+  "userImpact": "Contributors and maintainers cannot run CI successfully from forked repositories, blocking pull request validation.",
+  "rootCause": "The docs job in CI workflow requires a secret token that is not available in fork environments, causing the job to fail instead of being skipped.",
+  "proposedFix": "Modify the CI workflow to skip the docs job when the required token secret is not found.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The CI workflow was updated to skip the docs job when the token secret is unavailable.",
+  "related": [],
+  "keyQuote": "Docs job should be skipped if no token secret is found.",
+  "number": 923,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:23:33.206Z"
+}

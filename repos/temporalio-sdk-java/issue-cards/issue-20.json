@@ -1,0 +1,32 @@
+{
+  "summary": "Worker registration methods (registerActivitiesImpl and registerWorkflowImplementationTypes) use confusing naming conventions. These methods fully override the list rather than accumulating, which contradicts their names - they should be renamed to 'set' methods to accurately reflect their behavior.",
+  "category": "bug",
+  "subcategory": "worker-registration",
+  "apis": [
+    "Worker.registerActivitiesImpl",
+    "Worker.registerWorkflowImplementationTypes"
+  ],
+  "components": [
+    "worker",
+    "registration",
+    "api-design"
+  ],
+  "concepts": [
+    "method-naming",
+    "api-clarity",
+    "registration-override",
+    "accumulation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers are confused by method names that suggest accumulation but actually override existing registrations, leading to unexpected behavior.",
+  "rootCause": "Method naming conventions inconsistent with actual behavior - methods use 'register' prefix but perform 'set' (override) operations.",
+  "proposedFix": "Rename registerActivitiesImpl and registerWorkflowImplementationTypes to setActivitiesImpl and setWorkflowImplementationTypes to match their actual behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Methods were renamed to use 'set' prefix to accurately reflect override behavior; separate accumulating 'register' methods were added.",
+  "related": [],
+  "keyQuote": "The current `Worker.registerActivitiesImpl` and `registerWorkflowImplementationTypes` are confusing as it takes a list and fully overrides it which is expected from `set<foo>` methods.",
+  "number": 20,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:31:28.057Z"
+}

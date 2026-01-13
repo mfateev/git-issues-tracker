@@ -1,0 +1,30 @@
+{
+  "summary": "TaskQueue Kind field is not being set when a WorkflowTask is scheduled, showing 'Unspecified' instead of the expected 'Normal' or 'Sticky' value. This affects visibility of task queue metadata in tctl output.",
+  "category": "bug",
+  "subcategory": "task-queue",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "workflow-task",
+    "tctl"
+  ],
+  "concepts": [
+    "task-queue",
+    "metadata",
+    "workflow-execution",
+    "scheduling",
+    "visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see the correct Kind value for scheduled workflow tasks in tctl output, making it difficult to diagnose task queue routing issues.",
+  "rootCause": "TaskQueue Kind field is not being populated during WorkflowTask scheduling",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TaskQueue Kind field is now properly set to Normal or Sticky when WorkflowTask is scheduled",
+  "related": [],
+  "keyQuote": "Kind:Unspecified when it should be set to either Normal or Sticky",
+  "number": 543,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:14:12.740Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request for a Roslyn analyzer tool for .NET to detect workflow constraint violations at compile-time, similar to existing analyzers in Go and Java SDKs. The analyzer should transitively check for invalid actions within workflows, display call graph stacks for violations, and integrate with the Temporalio NuGet package.",
+  "category": "feature",
+  "subcategory": "workflow-analysis",
+  "apis": [],
+  "components": [
+    "roslyn-analyzer",
+    "workflow-validation",
+    "diagnostic-tools"
+  ],
+  "concepts": [
+    "static-analysis",
+    "workflow-constraints",
+    "call-graph",
+    "determinism",
+    "code-generation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack compile-time validation of workflow constraint violations, requiring runtime discovery of issues that other SDKs can detect statically.",
+  "rootCause": null,
+  "proposedFix": "Build a Roslyn analyzer that transitively checks workflow methods for invalid actions, displays call stacks, disables inapplicable warnings, and optionally ships with the Temporalio NuGet package.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2356
+  ],
+  "keyQuote": "Should transitively check known-yet-configurable invalid actions occurring in a workflow... The error needs to show the call graph stack since many times the issue is several calls deep from the workflow itself.",
+  "number": 576,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:37:01.557Z"
+}

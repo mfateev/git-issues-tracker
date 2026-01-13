@@ -1,0 +1,31 @@
+{
+  "summary": "Namespace replication task cleanup incorrectly calculates minimum ack level by considering disconnected clusters. Should only consider connected clusters to determine which replication tasks can be safely deleted.",
+  "category": "bug",
+  "subcategory": "namespace-replication",
+  "apis": [],
+  "components": [
+    "namespace-replication",
+    "cluster-management",
+    "task-cleanup"
+  ],
+  "concepts": [
+    "replication",
+    "ack-level",
+    "cluster-connection",
+    "task-deletion",
+    "namespace-metadata",
+    "connected-clusters"
+  ],
+  "severity": "high",
+  "userImpact": "Users with multi-cluster setups experience unnecessary retention of replication tasks, wasting storage and potentially causing operational issues.",
+  "rootCause": "Replication ack level calculation includes disconnected clusters instead of only considering active/connected cluster connections.",
+  "proposedFix": "Update namespace replication task cleanup logic to calculate minimum ack level based only on connected clusters, filtering out disconnected ones.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In 1.16, we allow remove clusters from namespace cluster list. We should update this logic accordingly.",
+  "number": 2929,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:36.383Z"
+}

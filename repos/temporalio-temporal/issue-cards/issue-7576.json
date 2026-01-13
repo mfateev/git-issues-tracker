@@ -1,0 +1,33 @@
+{
+  "summary": "Multiple critical and high-severity security vulnerabilities in Temporal 1.27.2 are blocking production deployment. Issues include CVE-2024-6197, CVE-2025-30204, CVE-2024-24790, CVE-2024-45338 affecting container images (UI, server, admin-tools) with CVSS scores up to 9.8.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "container-images",
+    "ui",
+    "server",
+    "admin-tools",
+    "dependencies"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "cve",
+    "cvss",
+    "dependency-management",
+    "container-security"
+  ],
+  "severity": "critical",
+  "userImpact": "Production deployment is blocked due to critical security vulnerabilities in Temporal container images that require immediate patching.",
+  "rootCause": "Outdated dependencies in container images including curl 8.5.0-r0, golang-jwt v3.2.2, net/netip 1.22.1, and golang.org/x/net/html v0.31.0.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "there are few security vulnarablites which are critical/severe in nature and this is stopping us from rolling temporal to prod",
+  "number": 7576,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:19.260Z"
+}

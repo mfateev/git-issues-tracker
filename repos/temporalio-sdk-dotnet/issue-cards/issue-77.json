@@ -1,0 +1,35 @@
+{
+  "summary": "Time-skipping test server is not properly advancing simulated time when using long timers and DelayAsync calls in workflows, causing tests to sleep real time instead of skipping to the next event.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "DelayAsync",
+    "StartWorkflow"
+  ],
+  "components": [
+    "test-server",
+    "time-skipping",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "time-skipping",
+    "testing",
+    "async-delay",
+    "timer",
+    "workflow-delays"
+  ],
+  "severity": "high",
+  "userImpact": "Developers using the time-skipping test server cannot efficiently test workflows with long timers, as tests hang on real delays instead of advancing simulated time.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "related": [
+    63
+  ],
+  "resolution": null,
+  "resolutionDetails": null,
+  "keyQuote": "Using time-skipping test server, starting a workflow with a long timer (i.e. no activity) and then running env.DelayAsync is sleeping real time, not skipping time as expected.",
+  "number": 77,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:42:10.752Z"
+}

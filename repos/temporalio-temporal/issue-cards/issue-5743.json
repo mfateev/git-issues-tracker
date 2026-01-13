@@ -1,0 +1,30 @@
+{
+  "summary": "DLQ operator tooling currently displays internal queue names that are implementation details rather than the actionable information operators need. The request is to improve the output to show DLQ type, source cluster, and target cluster instead of the complex internal queue name format.",
+  "category": "feature",
+  "subcategory": "dlq-tooling",
+  "apis": [],
+  "components": [
+    "dlq-operator-tooling",
+    "queue-management"
+  ],
+  "concepts": [
+    "dlq",
+    "cluster-replication",
+    "operator-experience",
+    "debugging",
+    "queue-naming",
+    "internal-implementation"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators must understand internal queue naming conventions to use DLQ tools, reducing usability and introducing unnecessary friction.",
+  "rootCause": null,
+  "proposedFix": "Change DLQ list output to display structured columns showing DLQ type, source cluster, and target cluster instead of the internal queue name.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Those are the values that should be dumped, so I'd expect something like DLQ TYPE | SOURCE CLUSTER | TARGET CLUSTER | MESSAGECOUNT",
+  "number": 5743,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:21.562Z"
+}

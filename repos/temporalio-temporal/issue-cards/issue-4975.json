@@ -1,0 +1,32 @@
+{
+  "summary": "PostgreSQL connection pooling was not working due to very low default idle connection settings (2 idle conns, unbounded pool size) in sqlx, causing 50% CPU load from constantly opening new connections instead of reusing existing ones.",
+  "category": "bug",
+  "subcategory": "postgres-persistence",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgres-plugin",
+    "connection-pool",
+    "sqlx"
+  ],
+  "concepts": [
+    "connection-pooling",
+    "idle-connections",
+    "cpu-load",
+    "database-configuration",
+    "performance",
+    "resource-management"
+  ],
+  "severity": "high",
+  "userImpact": "High CPU usage and memory allocation overhead when using Postgres with large shard counts due to connections not being reused.",
+  "rootCause": "Default sqlx connection pool settings were too conservative (max 2 idle connections, unbounded pool size), causing new connections to be opened constantly instead of reused.",
+  "proposedFix": "Configure persistence.datastores.*.sql.maxConns and persistence.datastores.*.sql.maxIdleConns settings to appropriate values for the deployment.",
+  "workaround": "Set higher maxIdleConns configuration value to force connection reuse instead of creating new connections.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved the issue by configuring proper connection pool settings (maxConns and maxIdleConns), which eliminated connection handling from CPU and memory profiles.",
+  "related": [],
+  "keyQuote": "we didn't have that one configured and adding it seems to have basically removed connection handling from CPU and memory profiles",
+  "number": 4975,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:11.429Z"
+}

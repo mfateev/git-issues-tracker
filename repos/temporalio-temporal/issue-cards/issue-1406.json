@@ -1,0 +1,30 @@
+{
+  "summary": "User reports excessive database queries (3000/minute) causing high load and requests configuration options to reduce query intervals. The issue appears to be related to Temporal's task scanning behavior.",
+  "category": "question",
+  "subcategory": "database-performance",
+  "apis": [],
+  "components": [
+    "database",
+    "task-scanner",
+    "persistence"
+  ],
+  "concepts": [
+    "query-frequency",
+    "database-load",
+    "performance-tuning",
+    "configuration",
+    "task-polling"
+  ],
+  "severity": "medium",
+  "userImpact": "Excessive database queries create performance bottlenecks and high load on user databases.",
+  "rootCause": "Temporal's task scanning mechanism queries the database at a fixed interval, causing high query volume under certain workloads.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed with close-after-30-days label, suggesting it was closed due to inactivity rather than resolution.",
+  "related": [],
+  "keyQuote": "Temporal fires 3000 queries in a single minute? Is there a way to reduce db queries? It causes too much load on my db.",
+  "number": 1406,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:15:01.868Z"
+}

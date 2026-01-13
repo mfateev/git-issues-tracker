@@ -1,0 +1,32 @@
+{
+  "summary": "Implement proper Worker shutdown mechanism for the Ruby SDK to gracefully terminate worker processes and clean up resources.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "lifecycle-management",
+    "shutdown-handler"
+  ],
+  "concepts": [
+    "shutdown",
+    "graceful-termination",
+    "resource-cleanup",
+    "lifecycle",
+    "worker-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users lack a standardized way to cleanly shut down workers, potentially leading to incomplete work processing and resource leaks.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker shutdown implementation was completed and released in the Ruby SDK",
+  "related": [],
+  "keyQuote": null,
+  "number": 87,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:29.586Z"
+}

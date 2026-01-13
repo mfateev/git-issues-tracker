@@ -1,0 +1,35 @@
+{
+  "summary": "Request to add task queue query capability to enable workers to respond to queries about their configuration, registered activities/workflows, and support synchronous activity execution without being tied to a specific workflow execution.",
+  "category": "feature",
+  "subcategory": "task-queue-query",
+  "apis": [
+    "RespondTaskQueueQueryCompleted"
+  ],
+  "components": [
+    "worker",
+    "task-queue",
+    "query-handler"
+  ],
+  "concepts": [
+    "task-queue",
+    "worker-configuration",
+    "activity-types",
+    "workflow-types",
+    "service-endpoint",
+    "query"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers cannot currently expose information about their capabilities or configuration, limiting introspection and operational insights.",
+  "rootCause": "Queries are currently workflow-execution-scoped only, with no mechanism for task-queue-level queries that workers can respond to.",
+  "proposedFix": "Implement task queue query concept with new RespondTaskQueueQueryCompleted API and worker mechanism to handle such queries.",
+  "workaround": "Run a per-process Nexus service endpoint as an alternative solution.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1927
+  ],
+  "keyQuote": "Such a query specifies a task queue name to send the query to. Then a worker picks it up and replies using a new API like RespondTaskQueueQueryCompleted.",
+  "number": 1460,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:17:00.106Z"
+}

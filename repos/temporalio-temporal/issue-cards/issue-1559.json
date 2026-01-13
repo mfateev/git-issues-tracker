@@ -1,0 +1,31 @@
+{
+  "summary": "User inquires about polyglot programming support in Temporal, specifically whether activities written in different languages (Go, Java, PHP) can be used together in a single workflow, and requests documentation on how to handle language-specific differences like error handling.",
+  "category": "docs",
+  "subcategory": "polyglot-programming",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "sdk-interoperability"
+  ],
+  "concepts": [
+    "polyglot-programming",
+    "cross-language-communication",
+    "activity-composition",
+    "error-handling",
+    "language-differences"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clear documentation on how to build workflows with activities implemented in different programming languages.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Community sample repository (temporal-polyglot) and documentation pull request (#443) were provided as solutions showing communication between all 4 SDKs.",
+  "related": [
+    443
+  ],
+  "keyQuote": "An Example would be Activity A Written using Golang Activity B Written In Java Activity C Written in PHP Workflow 1 - Written in Java/Golang, but has to use all the Above activities.",
+  "number": 1559,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:28.682Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "The protobuf package has introduced a new RepeatedField class and deprecated the old one. The PHP SDK needs to resolve all protobuf deprecations to maintain compatibility with newer versions.",
+  "category": "bug",
+  "subcategory": "dependency-upgrade",
+  "apis": [],
+  "components": [
+    "protobuf-integration",
+    "message-serialization"
+  ],
+  "concepts": [
+    "deprecation",
+    "protobuf-compatibility",
+    "version-upgrade",
+    "dependency-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may face deprecation warnings and potential compatibility issues when using newer versions of the protobuf package.",
+  "rootCause": "The protobuf package deprecated the old RepeatedField class in favor of a new implementation, requiring SDK updates to resolve the deprecations.",
+  "proposedFix": "Update all usages of the deprecated RepeatedField class to the new RepeatedField class from the protobuf package.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "All protobuf deprecations were resolved by updating to the new RepeatedField class.",
+  "related": [],
+  "keyQuote": "A new RepeatedField class has been added in the protobuf package. The old RepeatedField is deprecated now. Need to resolve all the deprecations.",
+  "number": 618,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:20.092Z"
+}

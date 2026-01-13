@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add WorkflowExecutionAlreadyTerminated error for handling attempts to terminate an already-terminated workflow with the same ID, similar to the existing WorkflowExecutionAlreadyStartedError.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "TerminateWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "error-handling",
+    "grpc-status"
+  ],
+  "concepts": [
+    "workflow-termination",
+    "idempotency",
+    "error-handling",
+    "workflow-lifecycle",
+    "state-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users need a specific exception to distinguish workflow already terminated scenarios from other errors when calling terminate on completed workflows.",
+  "rootCause": "Lack of specific exception type to differentiate WorkflowExecutionAlreadyTerminated from generic not found errors.",
+  "proposedFix": "Implement WorkflowExecutionAlreadyTerminated exception similar to WorkflowExecutionAlreadyStartedError pattern in the codebase.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Comment indicates existing not-found exception already handles this case, making a new exception unnecessary.",
+  "related": [],
+  "keyQuote": "It'd just be not found and we already have that exception",
+  "number": 499,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:08.994Z"
+}

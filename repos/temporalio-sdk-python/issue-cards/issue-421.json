@@ -1,0 +1,30 @@
+{
+  "summary": "Migrate Python SDK from black/isort to Ruff for code formatting and import sorting. This tool consolidation was successfully tested in the samples-python repository and should be applied to the main SDK.",
+  "category": "feature",
+  "subcategory": "developer-tooling",
+  "apis": [],
+  "components": [
+    "build-system",
+    "linting",
+    "code-formatting"
+  ],
+  "concepts": [
+    "code-quality",
+    "developer-experience",
+    "tooling-consolidation",
+    "import-management",
+    "formatting"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies the SDK development workflow by consolidating code formatting tools, making it easier for contributors to maintain code quality.",
+  "rootCause": null,
+  "proposedFix": "Replace black and isort dependencies with Ruff as the single tool for formatting and import sorting, similar to the successful migration in samples-python.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We did this at https://github.com/temporalio/samples-python/pull/91 with success, we should do it here too",
+  "number": 421,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:02.421Z"
+}

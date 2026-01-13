@@ -1,0 +1,32 @@
+{
+  "summary": "FreeBSD build fails due to undefined getSendQueueLen function in tchannel-go dependency. User attempted to build Temporal Server on FreeBSD 14.0-ALPHA4 but encountered a compilation error in the tchannel-go package's Unix socket implementation.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "tchannel-go",
+    "build-system",
+    "unix-socket"
+  ],
+  "concepts": [
+    "cross-platform-support",
+    "build-failure",
+    "dependency-issue",
+    "platform-compatibility",
+    "freebsd"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to build Temporal Server on FreeBSD encounter a compilation failure preventing the binary from being built.",
+  "rootCause": "The tchannel-go dependency has an undefined function getSendQueueLen in sockio_unix.go that is not compatible with FreeBSD's socket implementation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #2703, which addresses the same tchannel-go FreeBSD compatibility problem.",
+  "related": [
+    2703
+  ],
+  "keyQuote": "undefined: getSendQueueLen in ../go/pkg/mod/github.com/temporalio/tchannel-go@v1.22.1-0.20220818200552-1be8d8cffa5b/sockio_unix.go",
+  "number": 4842,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:33.762Z"
+}

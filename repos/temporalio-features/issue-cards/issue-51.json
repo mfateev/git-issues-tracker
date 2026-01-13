@@ -1,0 +1,46 @@
+{
+  "summary": "Feature request to standardize built-in methods for listing workflow queries, signals, and other metadata across SDKs. Currently uses a workaround of sending queries that respond with \"not found\" to list available queries; the proposal is to provide standard built-in queries like \"listQueries\" through the Workflow runtime.",
+  "category": "feature",
+  "subcategory": "workflow-queries-signals-metadata",
+  "apis": [
+    "GetUnhandledSignalNames",
+    "SetUpdateHandlerWithOptions",
+    "SetQueryHandlerWithOptions",
+    "DefineSignalChannel"
+  ],
+  "components": [
+    "workflow-runtime",
+    "query-handler",
+    "signal-handler",
+    "metadata-provider",
+    "sdk-api"
+  ],
+  "concepts": [
+    "workflow-introspection",
+    "dynamic-handlers",
+    "metadata-discovery",
+    "query-execution",
+    "signal-registration",
+    "api-standardization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need standardized ways to discover and list available queries and signals for workflow executions, improving developer experience and UI capabilities across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement built-in queries like \"listQueries\" provided by the Workflow runtime, with support for describing dynamic query/signal/update handlers through language-specific mechanisms (annotations, decorators, attributes, options).",
+  "workaround": "Send queries to workflow that respond with 'query not found' messages containing the list of registered queries, then parse the response to display in UI.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    201,
+    336,
+    601,
+    335,
+    1319,
+    467,
+    185
+  ],
+  "keyQuote": "A standard way to support listing workflow queries would be to have a \"listQueries\" built-in query provided by the Workflow runtime.",
+  "number": 51,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:44:46.407Z"
+}

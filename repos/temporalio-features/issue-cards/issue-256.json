@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to include workflow input in the describe() response. Currently users must separately fetch history and decode payloads to get input parameters; the request proposes adding input as a decoded array to the describe() call response.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "describe",
+    "DescribeWorkflow",
+    "DescribeWorkflowExecutionResponse"
+  ],
+  "components": [
+    "workflow-client",
+    "api-response",
+    "history-fetch"
+  ],
+  "concepts": [
+    "workflow-input",
+    "payload-decoding",
+    "api-convenience",
+    "workflow-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently need to make multiple API calls and manual decoding to retrieve workflow input, making it harder to look up input based on workflow ID.",
+  "rootCause": "The describe() API only returns execution metadata but not the input payloads, which are considered part of workflow history rather than basic execution information.",
+  "proposedFix": "Either: (1) Have describe() call both DescribeWorkflow and fetch history to return input, or (2) Have the server add input field to DescribeWorkflowExecutionResponse",
+  "workaround": "Call describe() and then separately fetch history and decode payloads manually",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We offer users the ability to do describe and history fetch, we don't need to combine the calls for them.",
+  "number": 256,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:01.992Z"
+}

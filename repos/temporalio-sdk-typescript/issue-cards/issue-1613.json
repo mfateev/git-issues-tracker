@@ -1,0 +1,32 @@
+{
+  "summary": "User requests splitting Temporal worker build tool dependencies into a separate package because the worker package is extremely heavy (169MB for a simple Hello World app), pulling in developer tooling like webpack, swc, and webassemblyjs that should only be needed at build time, not in production.",
+  "category": "feature",
+  "subcategory": "package-structure",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "package-management"
+  ],
+  "concepts": [
+    "dependency-weight",
+    "build-time-tools",
+    "package-splitting",
+    "optional-dependencies",
+    "production-runtime"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying to size-constrained environments or wanting lightweight runtime installations are forced to download and bundle unnecessary developer tooling.",
+  "rootCause": "Build dependencies (webpack, swc, webassemblyjs) are included in the main worker package and are difficult to make optional due to NPM limitations and existing user workflows that bundle workflows at runtime.",
+  "proposedFix": "Split worker package into two packages: `worker-core` (runtime only) and `bundler` (build tools), with the legacy `worker` package re-exporting both for backward compatibility.",
+  "workaround": "Use yarn `resolutions` property to replace offending dependencies with simple stub packages defined locally.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #933",
+  "related": [
+    933
+  ],
+  "keyQuote": "A simple \"Hello world\" worker is over 100 MiB. Excluding the Node.js runtime.",
+  "number": 1613,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:19.531Z"
+}

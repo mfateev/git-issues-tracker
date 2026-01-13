@@ -1,0 +1,30 @@
+{
+  "summary": "Local activity failures are incorrectly incremented under the temporal_activity_execution_failed counter instead of the temporal_local_activity_failed counter, causing metric tracking to be inaccurate for systems using only local activities.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "local-activity",
+    "metrics",
+    "activity-executor"
+  ],
+  "concepts": [
+    "metrics",
+    "counter",
+    "local-activity",
+    "monitoring",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately track local activity failures through metrics, making it difficult to monitor and debug issues in systems using only local activities.",
+  "rootCause": "The local activity failure metric is routed to the wrong counter (temporal_activity_execution_failed instead of temporal_local_activity_failed).",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The metric counter routing for local activity failures was corrected to use the appropriate temporal_local_activity_failed counter.",
+  "related": [],
+  "keyQuote": "The temporal_activity_execution_failed counter is incremented instead.",
+  "number": 555,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:24:56.678Z"
+}

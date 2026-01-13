@@ -1,0 +1,29 @@
+{
+  "summary": "Upgrade the Temporal server codebase to use Go 1.19. This involves updating the base Docker images used for building and running the server.",
+  "category": "feature",
+  "subcategory": "build-infrastructure",
+  "apis": [],
+  "components": [
+    "build-system",
+    "docker-images",
+    "ci-builder"
+  ],
+  "concepts": [
+    "golang-version",
+    "build-tools",
+    "container-images",
+    "dependency-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users will benefit from performance improvements and language features in Go 1.19, with updated base images for deployments.",
+  "rootCause": null,
+  "proposedFix": "Update Go version to 1.19 and release new base images (base-builder, base-server, base-admin-tools, base-ci-builder)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "New base images were released (base-builder:1.10.0, base-server:1.11.0, base-admin-tools:1.7.0, base-ci-builder:1.7.0) with Go 1.19 support",
+  "related": [],
+  "keyQuote": "Released new base images: temporalio/base-builder:1.10.0, temporalio/base-server:1.11.0",
+  "number": 3498,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:01.199Z"
+}

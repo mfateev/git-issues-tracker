@@ -1,0 +1,32 @@
+{
+  "summary": "Client TLS connection fails after a new release due to a change in native roots handling. The issue was resolved by removing the server_root_ca_cert parameter to allow native roots to be used.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [
+    "Client.connect"
+  ],
+  "components": [
+    "client",
+    "tls-transport",
+    "native-roots"
+  ],
+  "concepts": [
+    "tls",
+    "certificate",
+    "connection",
+    "native-roots",
+    "authentication"
+  ],
+  "severity": "high",
+  "userImpact": "Users with custom TLS certificates cannot connect to Temporal Server after upgrading to the latest SDK release.",
+  "rootCause": "A change in sdk-core (PR #1007) modified the behavior to only enable native roots if the root CA certificate is not provided, causing custom root CA certificates to fail with UnknownIssuer errors.",
+  "proposedFix": null,
+  "workaround": "Remove the server_root_ca_cert parameter from TLSConfig to allow native roots to be used instead.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by adjusting TLS configuration behavior in a previous release. Users should remove server_root_ca_cert if they want to use native roots.",
+  "related": [],
+  "keyQuote": "There was a change in the release to only enable native roots if the root ca cert is not provided.",
+  "number": 1113,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:05.222Z"
+}

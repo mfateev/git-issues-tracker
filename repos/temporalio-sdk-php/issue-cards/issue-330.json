@@ -1,0 +1,29 @@
+{
+  "summary": "User requests separating the Temporal PHP SDK client into a standalone package that doesn't require RoadRunner as a dependency, as they only need the client functionality without worker capabilities.",
+  "category": "feature",
+  "subcategory": "package-structure",
+  "apis": [],
+  "components": [
+    "client",
+    "package-management",
+    "dependencies"
+  ],
+  "concepts": [
+    "package-separation",
+    "optional-dependencies",
+    "modular-architecture",
+    "client-server-split"
+  ],
+  "severity": "low",
+  "userImpact": "Users who only need the Temporal client are forced to install RoadRunner even though they don't use worker functionality.",
+  "rootCause": null,
+  "proposedFix": "Separate the client code into a standalone package with optional RoadRunner dependency.",
+  "workaround": "The maintainer noted that RoadRunner doesn't need to be installed if only using the Client part.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that RoadRunner is not required if only using the Client - users can simply not install it.",
+  "related": [],
+  "keyQuote": "Just don't install RoadRunner. You don't have to install RoadRunner if you just use Client part.",
+  "number": 330,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:24.831Z"
+}

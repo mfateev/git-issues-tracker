@@ -1,0 +1,30 @@
+{
+  "summary": "Service errors are currently reported as separate metrics for each error type, making it difficult to query all service errors together for dashboards. The proposal is to create a single metric with error type as a tag instead.",
+  "category": "other",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "service-error-handling"
+  ],
+  "concepts": [
+    "monitoring",
+    "observability",
+    "metrics-aggregation",
+    "error-tracking",
+    "dashboard-queries",
+    "metric-tagging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily create dashboards that aggregate all service errors across different error types without writing complex queries for each metric individually.",
+  "rootCause": "Metrics are structured as separate metrics per error type rather than using tags for error type differentiation.",
+  "proposedFix": "Create a new metric (service_errors_with_type) that reports all service errors with error_type as a tag, deprecate old error-specific metrics in v1.17, and remove them in v1.18.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "New metric created with error_type tag and deprecation plan established for v1.17 with removal in v1.18.",
+  "related": [],
+  "keyQuote": "Should consider having one metric for all service_errors with error type tag for each error type.",
+  "number": 2628,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:11.955Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "PR #556 was incomplete - it failed to address dynamic handlers and didn't include tests verifying that warnings are emitted when continue-as-new is used. This issue tracks the need to complete this work.",
+  "category": "bug",
+  "subcategory": "handlers",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "handlers",
+    "dynamic-handlers",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "warning-emission",
+    "handler-lifecycle",
+    "testing",
+    "incomplete-implementation"
+  ],
+  "severity": "medium",
+  "userImpact": "Dynamic handlers may not work correctly with continue-as-new, and warnings about this behavior may not be properly emitted to users.",
+  "rootCause": "PR #556 was incomplete and left dynamic handlers and warning tests unimplemented.",
+  "proposedFix": "Complete PR #556 by adding support for dynamic handlers with continue-as-new and adding tests to verify warning emission.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The referenced PR #556 was completed to add dynamic handler support and continue-as-new warning tests.",
+  "related": [
+    556
+  ],
+  "keyQuote": "PR #556 omitted to address dynamic handlers and test that warnings are emitted on continue-as-new",
+  "number": 584,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:43.569Z"
+}

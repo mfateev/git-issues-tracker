@@ -1,0 +1,30 @@
+{
+  "summary": "The worker can lose a processing slot when an error occurs during cache eviction in the workflow manager. This needs to be improved to prevent slot loss and maintain worker efficiency.",
+  "category": "bug",
+  "subcategory": "worker-cache",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-manager",
+    "cache-eviction"
+  ],
+  "concepts": [
+    "slot-management",
+    "error-handling",
+    "resource-cleanup",
+    "worker-efficiency",
+    "cache-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers may lose processing slots when cache eviction errors occur, reducing workflow processing capacity.",
+  "rootCause": "Error handling during cache eviction does not properly return the worker slot, causing it to be lost.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by improving error handling in the cache eviction process to preserve worker slots.",
+  "related": [],
+  "keyQuote": "Avoid losing worker slot on error while processing cache eviction",
+  "number": 784,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:22:27.898Z"
+}

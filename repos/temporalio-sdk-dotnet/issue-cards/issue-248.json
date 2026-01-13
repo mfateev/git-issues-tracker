@@ -1,0 +1,35 @@
+{
+  "summary": "Client hangs when Task.WaitAll() is used on the main thread to wait for schedule creation tasks. The issue occurs because TaskCompletionSource can deadlock on the same thread without proper async continuation scheduling.",
+  "category": "bug",
+  "subcategory": "client-deadlock",
+  "apis": [
+    "CreateScheduleAsync",
+    "DescribeAsync"
+  ],
+  "components": [
+    "client",
+    "schedule-handle",
+    "task-completion"
+  ],
+  "concepts": [
+    "deadlock",
+    "threading",
+    "async-continuation",
+    "main-thread",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience application hangs when using synchronous Task.WaitAll() on the main thread to wait for client operations, blocking all further execution.",
+  "rootCause": "TaskCompletionSource was not configured with TaskCreationOptions.RunContinuationsAsynchronously, causing deadlock when continuations are scheduled on the same thread.",
+  "proposedFix": "Supply TaskCreationOptions.RunContinuationsAsynchronously to the TaskCompletionSource constructor to ensure continuations are scheduled asynchronously rather than executing on the current thread.",
+  "workaround": "Use Task.WhenAll() instead of Task.WaitAll(), or wrap Task.WaitAll() in Task.Run() to execute it off the main thread.",
+  "resolution": "fixed",
+  "resolutionDetails": "TaskCompletionSource constructor updated to use TaskCreationOptions.RunContinuationsAsynchronously to prevent same-thread deadlock.",
+  "related": [
+    44
+  ],
+  "keyQuote": "TaskCompletionSource can deadlock on same thread, need to supply TaskCreationOptions.RunContinuationsAsynchronously to the constructor",
+  "number": 248,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:20:26.320Z"
+}

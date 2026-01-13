@@ -1,0 +1,31 @@
+{
+  "summary": "WeakMap and WeakSet were deleted from the SDK but need to be restored to support private variables in TypeScript. The issue also flags FinalizationRegistry for deletion.",
+  "category": "bug",
+  "subcategory": "language-bindings",
+  "apis": [],
+  "components": [
+    "polyfills",
+    "javascript-runtime",
+    "type-definitions"
+  ],
+  "concepts": [
+    "WeakMap",
+    "WeakSet",
+    "private-variables",
+    "polyfill-management",
+    "garbage-collection",
+    "FinalizationRegistry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use private variables in TypeScript workflows because required WeakMap and WeakSet functionality is missing from the SDK.",
+  "rootCause": "WeakMap and WeakSet were removed from the SDK polyfills, preventing TypeScript's private field implementation from working correctly.",
+  "proposedFix": "Restore WeakMap and WeakSet implementations; also remove FinalizationRegistry as suggested.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WeakMap and WeakSet were restored to support private variables in TypeScript; FinalizationRegistry was deleted.",
+  "related": [],
+  "keyQuote": "need this to use private variables in typescript",
+  "number": 316,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:06.510Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Integration tests are currently disabled via environment variable in CI. This issue requests enabling them by running a server with Docker Compose as part of the continuous integration pipeline.",
+  "category": "feature",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "ci",
+    "integration-tests",
+    "docker-compose",
+    "test-infrastructure"
+  ],
+  "concepts": [
+    "continuous-integration",
+    "test-automation",
+    "server-setup",
+    "environment-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Integration tests remain disabled in CI, reducing confidence in SDK functionality against real server deployments.",
+  "rootCause": null,
+  "proposedFix": "Run server with Docker Compose as part of CI pipeline to enable integration tests",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Integration tests were enabled and now run as part of the CI pipeline",
+  "related": [],
+  "keyQuote": "Run server with compose as part of CI.",
+  "number": 14,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:53:52.624Z"
+}

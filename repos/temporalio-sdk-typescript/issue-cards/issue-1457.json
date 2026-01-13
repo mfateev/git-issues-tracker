@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to add query support when listing schedules in the TypeScript SDK, similar to the existing ListOptions functionality for workflows.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ListSchedules",
+    "ListOptions"
+  ],
+  "components": [
+    "schedule-client",
+    "list-operations",
+    "query-engine"
+  ],
+  "concepts": [
+    "query",
+    "filtering",
+    "pagination",
+    "listing",
+    "schedule-discovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot filter schedules by query parameters when listing, requiring them to retrieve all schedules and filter client-side.",
+  "rootCause": null,
+  "proposedFix": "Implement query parameter support in ListSchedules similar to ListWorkflows, with pageSize for pagination and query matching for filtering.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #1535, adding query support to schedule listing operations.",
+  "related": [
+    1535
+  ],
+  "keyQuote": "Need to support the query option when listing schedules same as we do when listing workflows.",
+  "number": 1457,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:33:49.663Z"
+}

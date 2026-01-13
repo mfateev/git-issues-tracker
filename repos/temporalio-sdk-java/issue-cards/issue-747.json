@@ -1,0 +1,33 @@
+{
+  "summary": "Request for JUnit test rules to enable unit testing of Workflow code with full Temporal API support. Includes ability to mock non-deterministic methods like Workflow.randomUUID for predictable tests, designed to be reusable across other testing frameworks.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow.randomUUID"
+  ],
+  "components": [
+    "workflow-testing",
+    "junit-rules",
+    "test-utilities"
+  ],
+  "concepts": [
+    "unit-testing",
+    "test-rules",
+    "mocking",
+    "determinism",
+    "workflow-execution",
+    "testing-framework"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot easily unit test workflow code without complex setup, limiting their ability to verify workflow logic independently.",
+  "rootCause": null,
+  "proposedFix": "Provide JUnit test rules that execute workflow methods in proper workflow context and allow mocking of non-deterministic methods.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented with test-related features and enhancements to the SDK testing utilities.",
+  "related": [],
+  "keyQuote": "We should provide JUnit Test Rules that allow writing unit tests for Workflow code. These test rules should execute the code in a workflow method context to provide a full usage of Temporal APIs.",
+  "number": 747,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:38:50.258Z"
+}

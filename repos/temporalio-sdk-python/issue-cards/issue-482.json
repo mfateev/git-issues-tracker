@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add API key client option to the Python SDK, referencing the features issue #426 for implementation details.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "authentication",
+    "connection-options"
+  ],
+  "concepts": [
+    "api-key",
+    "authentication",
+    "client-configuration",
+    "security",
+    "credentials"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a standardized way to configure API key authentication when connecting to Temporal clusters.",
+  "rootCause": null,
+  "proposedFix": "Implement API key client option as defined in features issue #426",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "API key authentication was implemented in the Python SDK client options",
+  "related": [
+    426
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/426",
+  "number": 482,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:14.617Z"
+}

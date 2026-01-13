@@ -1,0 +1,31 @@
+{
+  "summary": "Request for additional batch reset types beyond resetting to first workflow task. Users need ability to reset to last workflow task, last task minus an offset, or by time to properly recover from failures.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "batch-operations",
+    "workflow-execution",
+    "reset-handler"
+  ],
+  "concepts": [
+    "reset",
+    "recovery",
+    "failure-handling",
+    "workflow-task",
+    "offset",
+    "time-based"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently recover workflows from certain failure states without workarounds, limiting operational flexibility for batch reset operations.",
+  "rootCause": null,
+  "proposedFix": "Provide more reset types with offset-based options relative to workflow first/last task, or implement time-based reset criteria.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "reset to last workflow task will just complete or fail the workflow. If the activity task fail and we wanted to reset, we should reset to last workflow task -1",
+  "number": 6724,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:59.353Z"
+}

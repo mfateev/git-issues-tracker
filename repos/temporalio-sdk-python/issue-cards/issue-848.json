@@ -1,0 +1,38 @@
+{
+  "summary": "Updates are lost when a workflow execution is not cached on the worker after restart, requiring the update to be reissued. The issue occurs because updates are not properly replayed when the worker reconnects to an existing workflow.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "execute_activity",
+    "wait_condition",
+    "update"
+  ],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "update-handler",
+    "replay-engine"
+  ],
+  "concepts": [
+    "replay",
+    "caching",
+    "state-reconstruction",
+    "update-handling",
+    "worker-restart",
+    "workflow-continuation"
+  ],
+  "severity": "high",
+  "userImpact": "Users must manually reissue updates when workers restart, preventing reliable workflow state transitions and requiring workarounds in production systems.",
+  "rootCause": "Updates are not properly applied during workflow replay when the execution is not in the worker's cache after restart.",
+  "proposedFix": "Fix Core to properly handle updates during replay - resolved in sdk-core PR #910",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in Core in sdk-core PR #910; Python SDK requires Core update and release",
+  "related": [
+    910
+  ],
+  "keyQuote": "If an update occurs when the workflow execution is not cached on the worker, the update is effectively \"lost\", and I need to issue another update for it to be applied.",
+  "number": 848,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:09.472Z"
+}

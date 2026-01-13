@@ -1,0 +1,32 @@
+{
+  "summary": "Test and validate the Linux aarch64 wheel build, which is disabled in CI due to long build times. Resolve the issue that protoc-wheel-0 doesn't have a Linux aarch64 wheel, preventing protoc installation in this environment.",
+  "category": "feature",
+  "subcategory": "build-infrastructure",
+  "apis": [],
+  "components": [
+    "build-system",
+    "ci-pipeline",
+    "wheel-builder",
+    "protoc-installation"
+  ],
+  "concepts": [
+    "aarch64-support",
+    "arm-architecture",
+    "cross-platform-builds",
+    "ci-optimization",
+    "protobuf-compilation",
+    "dependency-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on Linux aarch64 systems need a working wheel distribution, and CI/build infrastructure must support ARM-based runners efficiently.",
+  "rootCause": "protoc-wheel-0 lacks Linux aarch64 wheel, and aarch64 builds were disabled in CI due to excessive build time.",
+  "proposedFix": "Use buildjet-4vcpu-ubuntu-2204-arm runner to enable aarch64 builds with adequate resources; conditionally skip protoc installation when not needed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by using a dedicated ARM runner (buildjet-4vcpu-ubuntu-2204-arm) to enable aarch64 wheel builds in CI.",
+  "related": [],
+  "keyQuote": "Can now set `runs-on: buildjet-4vcpu-ubuntu-2204-arm` since we now have a runner",
+  "number": 100,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:10.905Z"
+}

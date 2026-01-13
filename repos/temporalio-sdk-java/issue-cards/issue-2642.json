@@ -1,0 +1,37 @@
+{
+  "summary": "TestWorkflowEnvironment.sleep() incorrectly uses real time instead of virtual time when executed after a test that uses child workflows, causing tests to hang unexpectedly. Virtual time works correctly when the test runs in isolation.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "Workflow.newChildWorkflowStub",
+    "Workflow.getWorkflowExecution",
+    "setStartDelay"
+  ],
+  "components": [
+    "test-environment",
+    "virtual-time",
+    "child-workflow",
+    "test-isolation"
+  ],
+  "concepts": [
+    "virtual-time",
+    "test-execution",
+    "child-workflow",
+    "time-advancement",
+    "test-isolation",
+    "state-persistence"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using TestWorkflowEnvironment.sleep() hang with real-time delays instead of completing instantly, breaking test suite execution order dependency.",
+  "rootCause": "Child workflow execution appears to switch TestWorkflowEnvironment from virtual time mode to real time mode, affecting subsequent tests in the same suite.",
+  "proposedFix": null,
+  "workaround": "Execute tests in isolation or reorder tests so child workflow tests run after sleep tests.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Looks like something in the child workflow test \"switches\" the TestWorkflowEnvironment from virtual time to real time.",
+  "number": 2642,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:20.517Z"
+}

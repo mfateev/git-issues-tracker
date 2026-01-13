@@ -1,0 +1,31 @@
+{
+  "summary": "Request for priority task queues to allow prioritizing high-priority tasks while maintaining fair scheduling across workers. Current implementation in v1.28.0 only supports priority within a single queue but doesn't address prioritizing in-progress workflows over new ones when worker capacity is limited.",
+  "category": "feature",
+  "subcategory": "task-queue-priority",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "worker",
+    "scheduler"
+  ],
+  "concepts": [
+    "fairness",
+    "scheduling",
+    "priority",
+    "resource-allocation",
+    "backlog-management",
+    "worker-capacity"
+  ],
+  "severity": "high",
+  "userImpact": "Users running high-volume workflows with limited worker capacity struggle to ensure fair scheduling and prevent resource monopolization by large workflow batches, resulting in cascading workflow stagnation.",
+  "rootCause": "Task queues lack sophisticated priority scheduling that balances task prioritization with fairness guarantees across different workflow sources or execution states.",
+  "proposedFix": "Implement priority task queues that order tasks by priority while ensuring fair worker allocation; consider mechanisms to prioritize in-progress workflows over new ones.",
+  "workaround": "Manually throttling workflow starts using external queues and monitoring capacity, though this is difficult to implement correctly due to variable data size and load.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Once a workflow has started (executed some activities), it should be prioritized to finish before beginning new workflows from the backlog.",
+  "number": 1507,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:34:15.451Z"
+}

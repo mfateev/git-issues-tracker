@@ -1,0 +1,30 @@
+{
+  "summary": "OpenTracing interceptor logs internal DestroyWorkflowThreadError as workflow failures, causing excessive error spans in DataDog. This is an SDK-internal error for thread cleanup and should not be treated as a workflow failure.",
+  "category": "bug",
+  "subcategory": "opentracing-interceptor",
+  "apis": [],
+  "components": [
+    "opentracing-interceptor",
+    "workflow-inbound-calls",
+    "error-handling"
+  ],
+  "concepts": [
+    "tracing",
+    "error-logging",
+    "thread-cleanup",
+    "error-categorization",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see false error signals in their observability systems when using OpenTracing integration, making it difficult to identify real workflow failures.",
+  "rootCause": "OpenTracingWorkflowInboundCallsInterceptor catches Throwable without distinguishing between internal SDK errors (like DestroyWorkflowThreadError) and actual workflow failures, causing all errors to be logged as failures.",
+  "proposedFix": "Catch Exception instead of Throwable for logFail, or implement special handling to exclude internal Error classes from failure logging.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by filtering out internal errors from error logging in the OpenTracing interceptor.",
+  "related": [],
+  "keyQuote": "This is an internal error that the SDK uses for thread cleanup, and does NOT indicate a failure in the workflow.",
+  "number": 1162,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:10:23.460Z"
+}

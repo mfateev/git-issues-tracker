@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose the workflow start time through workflowInfo().startTime in the TypeScript SDK. This follows the API exposed in sdk-core PR #416.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "workflowInfo"
+  ],
+  "components": [
+    "workflow",
+    "workflow-context",
+    "interfaces"
+  ],
+  "concepts": [
+    "workflow-metadata",
+    "timing",
+    "execution-context",
+    "start-time"
+  ],
+  "severity": "low",
+  "userImpact": "Enables users to access workflow start time during execution for timing-related logic and analytics.",
+  "rootCause": null,
+  "proposedFix": "Expose startTime field in workflowInfo() API, consistent with sdk-core implementation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and exposed in the SDK, following the sdk-core PR #416 specification",
+  "related": [],
+  "keyQuote": "Exposed in https://github.com/temporalio/sdk-core/pull/416",
+  "number": 1005,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:58.281Z"
+}

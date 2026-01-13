@@ -1,0 +1,33 @@
+{
+  "summary": "User encountered `crypto.getRandomValues() not supported` error when using the uuid npm package in workflow code. The issue was resolved by explaining that workflow code must be deterministic and recommending the use of `uuid4` from `@temporalio/workflow` package or moving UUID generation to activities.",
+  "category": "bug",
+  "subcategory": "workflow-constraints",
+  "apis": [
+    "uuid4"
+  ],
+  "components": [
+    "workflow-bundler",
+    "workflow-sandbox",
+    "crypto-module"
+  ],
+  "concepts": [
+    "determinism",
+    "randomness",
+    "uuid-generation",
+    "workflow-constraints",
+    "activity-separation",
+    "non-deterministic-code"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to generate UUIDs in workflow code using standard npm packages encounter runtime failures and need to refactor their code.",
+  "rootCause": "The `uuid` npm package uses the built-in `crypto.getRandomValues()` which cannot be imported in workflow code due to non-determinism requirements. Workflow code bundler did not catch this dependency early enough.",
+  "proposedFix": "Use the `uuid4` function from `@temporalio/workflow` package which implements a replay-safe random number generator, or move UUID generation logic to activities.",
+  "workaround": "Use the `uuid4` function exported by the `@temporalio/workflow` package instead of the npm uuid package.",
+  "resolution": "fixed",
+  "resolutionDetails": "User acknowledged the solution and understood that non-deterministic logic should be moved to activities or use the provided uuid4 function.",
+  "related": [],
+  "keyQuote": "Workflow code must be deterministic. Use the uuid4 function exported by the @temporalio/workflow package which internally uses a replay-safe random number generator.",
+  "number": 1390,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:50.533Z"
+}

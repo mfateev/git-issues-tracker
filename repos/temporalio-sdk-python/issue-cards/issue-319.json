@@ -1,0 +1,33 @@
+{
+  "summary": "The `workflow.continue_as_new()` method fails when `task_queue` and `workflow` arguments are omitted, causing a 'Missing TaskQueue' error and workflow to hang. The docstring suggests these should default to the current workflow's values.",
+  "category": "bug",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "workflow.continue_as_new"
+  ],
+  "components": [
+    "workflow-executor",
+    "core-sdk",
+    "test-framework"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "task-queue",
+    "workflow-defaults",
+    "parameter-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use continue_as_new without explicitly passing task_queue and workflow parameters, limiting the convenience of the API.",
+  "rootCause": "Known issue with the time-skipping test server (related to temporalio/sdk-java#1424)",
+  "proposedFix": null,
+  "workaround": "Explicitly pass task_queue and workflow parameters: `task_queue=workflow.info().task_queue, workflow=Workflow.run`",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of a known issue with the time-skipping test server reported in sdk-java#1424",
+  "related": [
+    1424
+  ],
+  "keyQuote": "When these arguments are not passed, I get a log error like: Missing TaskQueue and my workflow hangs",
+  "number": 319,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:32.037Z"
+}

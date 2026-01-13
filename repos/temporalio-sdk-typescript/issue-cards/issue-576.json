@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to return workflow status as a human-readable string instead of a gRPC enum number in WorkflowExecutionDescription. Currently users must build wrappers to translate numeric status codes to meaningful strings.",
+  "category": "feature",
+  "subcategory": "workflow-status-description",
+  "apis": [
+    "handle.describe()",
+    "WorkflowExecutionDescription"
+  ],
+  "components": [
+    "workflow-handle",
+    "workflow-description",
+    "api-types"
+  ],
+  "concepts": [
+    "status-representation",
+    "enum-translation",
+    "developer-experience",
+    "gRPC-interop",
+    "type-safety"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently need to write wrapper code to convert numeric workflow status codes to human-readable strings when calling handle.describe().",
+  "rootCause": null,
+  "proposedFix": "Change WorkflowExecutionDescription.status from a numeric enum to a string union type like 'Canceled' | 'Completed' | 'Continued_As_New' | 'Failed' | etc.",
+  "workaround": "Build a wrapper around handle.describe() response to manually translate gRPC codes to meaningful status strings.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was accepted and implemented to return workflow status as a string type instead of numeric gRPC enum.",
+  "related": [],
+  "keyQuote": "Return a string type to represent status in the WorkflowExecutionDescription.",
+  "number": 576,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:02:44.679Z"
+}

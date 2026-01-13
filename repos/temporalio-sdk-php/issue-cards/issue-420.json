@@ -1,0 +1,32 @@
+{
+  "summary": "Request to expose a defaultConnection() method that switches between localhost and cloud environments based on an environment variable, enabling easier cloud-based sample execution.",
+  "category": "feature",
+  "subcategory": "connection-configuration",
+  "apis": [],
+  "components": [
+    "connection",
+    "client-config",
+    "samples"
+  ],
+  "concepts": [
+    "environment-configuration",
+    "localhost",
+    "cloud-connection",
+    "connection-switching",
+    "environment-variable"
+  ],
+  "severity": "low",
+  "userImpact": "Users can more easily run samples in cloud environments without manually switching connection configurations.",
+  "rootCause": null,
+  "proposedFix": "Implement a defaultConnection() method that reads TEMPORAL_ADDRESS environment variable to switch between localhost and cloud connections",
+  "workaround": "Use TEMPORAL_ADDRESS environment variable as implemented in temporal-bridge",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support environment-based connection switching",
+  "related": [
+    454
+  ],
+  "keyQuote": "Expose a defaultConnection() method or similar that switches between localhost (default) and cloud based on some environment variable",
+  "number": 420,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:07.307Z"
+}

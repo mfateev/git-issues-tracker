@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in json5 package exposes minimist-1.2.5 with CVE-2021-44906, a prototype pollution vulnerability with CVSS score of 9.8. The vulnerability was automatically closed after the library was removed from the dependency inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "package-manager",
+    "build-pipeline"
+  ],
+  "concepts": [
+    "prototype-pollution",
+    "security-vulnerability",
+    "transitive-dependency",
+    "code-execution",
+    "dependency-upgrade"
+  ],
+  "severity": "critical",
+  "userImpact": "Users are exposed to a critical prototype pollution vulnerability in a transitive dependency that could allow arbitrary code execution.",
+  "rootCause": "Minimist <=1.2.5 contains a prototype pollution vulnerability in the setKey() function (lines 69-95 in index.js) that allows network-based attacks without authentication.",
+  "proposedFix": "Upgrade minimist from 1.2.5 to 1.2.6 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by WhiteSource after the vulnerable library was either marked as ignored or removed from the dependency inventory in the main branch.",
+  "related": [],
+  "keyQuote": "Minimist <=1.2.5 is vulnerable to Prototype Pollution via file index.js, function setKey() (lines 69-95).",
+  "number": 572,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:02:11.015Z"
+}

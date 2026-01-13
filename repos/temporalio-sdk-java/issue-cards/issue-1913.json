@@ -1,0 +1,33 @@
+{
+  "summary": "Remove the WorkflowClientCallsInterceptor.pollWorkflowUpdate method as it is unnecessarily interceptable, inconsistent with how workflow result retrieval works in the Java SDK.",
+  "category": "feature",
+  "subcategory": "interceptor-design",
+  "apis": [
+    "pollWorkflowUpdate",
+    "getWorkflowResult"
+  ],
+  "components": [
+    "interceptor",
+    "workflow-client",
+    "async-operations"
+  ],
+  "concepts": [
+    "consistency",
+    "api-design",
+    "interceptability",
+    "workflow-updates",
+    "result-retrieval"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies the interceptor API by removing unnecessary interceptability that contradicts existing SDK patterns.",
+  "rootCause": "The pollWorkflowUpdate method is interceptable unlike the async workflow result retrieval, creating an inconsistency in the SDK design.",
+  "proposedFix": "Remove the WorkflowClientCallsInterceptor.pollWorkflowUpdate method entirely.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Getting the workflow result in an async manner is intercept-able in Java so this is inconsistent with the rest of the Java SDK",
+  "number": 1913,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:16.458Z"
+}

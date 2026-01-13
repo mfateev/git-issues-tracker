@@ -1,0 +1,34 @@
+{
+  "summary": "User requested the ability to manually start activities instead of automatically, to support use cases like staged production deployments where user intervention is required before an activity begins execution.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "workflow-engine",
+    "activity-executor",
+    "signal-handler"
+  ],
+  "concepts": [
+    "manual-control",
+    "workflow-coordination",
+    "signals",
+    "user-intervention",
+    "deployment"
+  ],
+  "severity": "low",
+  "userImpact": "Users requiring manual control over activity execution (e.g., production deployment gates) would need to use signals as a workaround.",
+  "rootCause": null,
+  "proposedFix": "Signals can be used as a workaround: workflow waits on a signal channel, and users trigger activity execution by sending a signal via API.",
+  "workaround": "Use signal channels to implement manual control: workflows wait on signals, and users send signals via the Temporal API or tctl when ready to proceed.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was addressed through guidance that the existing signals mechanism already provides the requested functionality, making a dedicated feature unnecessary.",
+  "related": [
+    1882
+  ],
+  "keyQuote": "You shall be able to do this via signals. In your workflow, you can wait on a signal channel. When your user is ready to start the next activity, you can send signal to the target workflow",
+  "number": 1883,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:18.383Z"
+}

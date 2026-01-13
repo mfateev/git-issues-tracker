@@ -1,0 +1,34 @@
+{
+  "summary": "TestActivityEnvironment throws NullPointerException when testing asynchronous activities with doNotCompleteOnReturn(). The test framework expects activities to complete, fail, or be cancelled, but async activities that don't complete on return leave result fields null.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "doNotCompleteOnReturn"
+  ],
+  "components": [
+    "TestActivityEnvironment",
+    "TestActivityEnvironmentInternal",
+    "ActivityTaskHandler"
+  ],
+  "concepts": [
+    "asynchronous-completion",
+    "activity-testing",
+    "null-pointer-exception",
+    "test-environment",
+    "activity-result"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot test asynchronous activities with doNotCompleteOnReturn() using the provided test framework, blocking testing of important async patterns.",
+  "rootCause": "TestActivityEnvironmentInternal.completeActivity() method assumes ActivityTaskHandler.Result will have either cancelled, failed, or completed fields set, but async activities without completion leave all fields null, causing NullPointerException at response.getTaskFailed().",
+  "proposedFix": "Handle the case where all result fields are null by checking for null before accessing getTaskFailed(), or skip completion handling for async activities that don't complete on return.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed with a small patch that handles null result fields in async activity completion.",
+  "related": [
+    460
+  ],
+  "keyQuote": "NullPointerException at response.getTaskFailed() is null - TestActivityEnvironmentInternal expects either cancelled, failed or completed activity",
+  "number": 2097,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:35.075Z"
+}

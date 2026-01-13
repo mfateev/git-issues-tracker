@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal Spring Boot Integration is incompatible with Spring Boot 3.0 due to removal of spring.factories for auto-configuration. Support needs to be added with necessary changes while considering backwards compatibility with earlier versions.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-integration",
+    "auto-configuration",
+    "spring-factories"
+  ],
+  "concepts": [
+    "spring-boot-compatibility",
+    "auto-configuration",
+    "migration",
+    "backwards-compatibility",
+    "framework-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Temporal Spring Boot Integration with Spring Boot 3.0, blocking adoption of the latest Spring Boot version.",
+  "rootCause": "spring.factories auto-configuration mechanism was deprecated in Spring Boot 2.7 and removed in Spring Boot 3.0.",
+  "proposedFix": "Update integration to support Spring Boot 3.0 auto-configuration while maintaining backwards compatibility with earlier versions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal Spring Boot Integration is not compatible with Spring Boot 3.0. One specific issue is that `spring.factories` is no longer supported for enabling autoconfiguration, it was deprecated in 2.7 and removed in 3.0",
+  "number": 1619,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:32.380Z"
+}

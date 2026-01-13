@@ -1,0 +1,30 @@
+{
+  "summary": "Prometheus reporter warnings appear when starting Temporal development server via CLI, showing \"error in prometheus reporter\" messages about previously registered descriptors with conflicting label names or help strings.",
+  "category": "bug",
+  "subcategory": "metrics-prometheus",
+  "apis": [],
+  "components": [
+    "prometheus-reporter",
+    "metrics",
+    "server-startup"
+  ],
+  "concepts": [
+    "prometheus",
+    "metrics",
+    "descriptor-registration",
+    "label-naming",
+    "metric-conflict"
+  ],
+  "severity": "low",
+  "userImpact": "Users see warning messages in their terminal when starting the development server, which may cause confusion despite not affecting core functionality.",
+  "rootCause": "A metric descriptor with the same fully-qualified name (AccessHistoryOld) is being registered multiple times with different label names or help strings, violating Prometheus descriptor uniqueness constraints.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through correcting the duplicate metric registration or standardizing label definitions.",
+  "related": [],
+  "keyQuote": "a previously registered descriptor with the same fully-qualified name as Desc{fqName: \"AccessHistoryOld\"...} has different label names or a different help string",
+  "number": 5897,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:09.910Z"
+}

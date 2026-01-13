@@ -1,0 +1,35 @@
+{
+  "summary": "A segmentation fault or access violation occurs when using tasks without proper await patterns in workflows. The issue stems from the worker being disposed before asynchronous operations complete, causing the bridge to poll workflow activations on an already-disposed worker.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "ExecuteAsync",
+    "StartWorkflowAsync",
+    "GetResultAsync"
+  ],
+  "components": [
+    "worker",
+    "bridge-interop",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "task-awaiting",
+    "resource-disposal",
+    "lifetime-management",
+    "async-synchronization",
+    "memory-safety",
+    "dispose-timing"
+  ],
+  "severity": "critical",
+  "userImpact": "Users writing certain workflow patterns without proper async/await can experience segmentation faults, crashes, and corrupted memory that may be difficult to diagnose.",
+  "rootCause": "When ExecuteAsync is not awaited properly (function not marked as async), the using statement disposes the worker before the returned Task completes, causing subsequent bridge calls to attempt operations on disposed resources.",
+  "proposedFix": "Either add disposal guards at the bridge worker level to disregard operations after dispose with a warning, or restructure ExecuteAsync to not be async so it captures the worker and doesn't release resources until proper shutdown.",
+  "workaround": "Mark the containing function as async and use await on the ExecuteAsync call to extend the using scope until the operation completes.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was identified as a resource lifecycle problem where the worker was disposed prematurely. The solution involved proper handling of worker disposal and ensuring it doesn't occur before async operations complete.",
+  "related": [],
+  "keyQuote": "The using here causes Dispose() to be called at the end of function. If the function is NOT marked async, this will happen before the completion of the future.",
+  "number": 500,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:30:31.373Z"
+}

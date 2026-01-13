@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow task completions that exceed gRPC's 4MB message size limit cause server failures. A solution is needed to handle large tasks, potentially through splitting responses into multiple calls or using alternative approaches.",
+  "category": "feature",
+  "subcategory": "grpc-limits",
+  "apis": [],
+  "components": [
+    "server",
+    "grpc",
+    "task-handler"
+  ],
+  "concepts": [
+    "message-size-limits",
+    "grpc-protocol",
+    "task-response",
+    "scaling",
+    "protocol-design"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot complete workflows with large task responses, causing failures in production systems handling substantial data.",
+  "rootCause": "gRPC enforces a maximum message size of 4MB, and current implementation does not handle task responses exceeding this limit.",
+  "proposedFix": "Implement a solution to split large task responses into multiple calls or tasks, with the exact approach to be determined.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    624
+  ],
+  "keyQuote": "Today when a > 4MB gRPC request is sent, server fails.",
+  "number": 7777,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:09.546Z"
+}

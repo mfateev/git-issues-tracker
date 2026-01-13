@@ -1,0 +1,32 @@
+{
+  "summary": "Memory leak in CancellationToken callbacks where CancellationTokenRegistration objects are not being disposed, causing accumulation of CallbackNode objects in memory. The ReleaseHandle method is never invoked because CancellationToken instances are not properly identified in the Scope disposal logic.",
+  "category": "bug",
+  "subcategory": "memory-management",
+  "apis": [
+    "GetSystemInfoAsync"
+  ],
+  "components": [
+    "CancellationToken",
+    "Scope",
+    "Bridge"
+  ],
+  "concepts": [
+    "memory-leak",
+    "resource-disposal",
+    "cancellation",
+    "callbacks",
+    "GC-handles"
+  ],
+  "severity": "high",
+  "userImpact": "Long-running applications using Temporal client workflows experience unbounded memory growth due to accumulated CancellationToken objects that are never garbage collected.",
+  "rootCause": "CancellationTokenRegistration objects created by CancellationToken.Register() are not disposed, and the type check in Scope.Dispose() does not recognize CancellationToken instances (checking only for GCHandle), preventing ReleaseHandle() from being called.",
+  "proposedFix": "Store CancellationTokenRegistration in CancellationToken class and dispose it in ReleaseHandle(). Add explicit type check for CancellationToken in Scope.Dispose() to call Dispose() on CancellationToken instances.",
+  "workaround": "Locally modified CancellationToken class to store and dispose cancellationCallback, and updated Scope.Dispose() to handle CancellationToken type explicitly.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the proposed fix was implemented in the SDK.",
+  "related": [],
+  "keyQuote": "CancellationToken.Register registers a callback on the token and returns a CancellationTokenRegistration that should be disposed of once the callback is no longer needed.",
+  "number": 540,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:34:27.253Z"
+}

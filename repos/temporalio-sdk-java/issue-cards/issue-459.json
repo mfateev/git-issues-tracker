@@ -1,0 +1,33 @@
+{
+  "summary": "TestWorkflowEnvironment.sleep() hangs instead of skipping workflow timers as expected. When using testEnv.sleep() to advance past Workflow.await() calls with long durations, tests hang indefinitely rather than progressing through the workflow execution.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow.await",
+    "TestWorkflowEnvironment.sleep"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-timer",
+    "test-utilities"
+  ],
+  "concepts": [
+    "test-execution",
+    "time-advancement",
+    "timer-mocking",
+    "test-hanging",
+    "workflow-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using testEnv.sleep() to advance past long-duration Workflow.await() calls hang indefinitely, blocking test execution and requiring timeouts to fail tests.",
+  "rootCause": "TestWorkflowEnvironment.sleep() does not properly skip internal workflow timers, causing actual sleep instead of advancing the workflow clock.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was identified and fixed in a pull request by the maintainer.",
+  "related": [],
+  "keyQuote": "testEnv.sleep() should skip workflow's internal timer without actually sleeping.",
+  "number": 459,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:19:03.071Z"
+}

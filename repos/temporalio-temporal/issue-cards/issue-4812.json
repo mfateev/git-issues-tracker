@@ -1,0 +1,34 @@
+{
+  "summary": "Child workflows started immediately before parent closure fail to receive their first workflow task, remaining open indefinitely. These orphaned executions block their workflow IDs and require manual termination.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "history-processing",
+    "task-scheduler"
+  ],
+  "concepts": [
+    "abandonment",
+    "closure-timing",
+    "workflow-task-delivery",
+    "state-synchronization",
+    "resource-cleanup"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably start child workflows near parent closure boundaries, leading to resource leaks and blocking of workflow IDs.",
+  "rootCause": "Child workflow execution is created but never receives its first workflow task when parent closes simultaneously, leaving it in a limbo state.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #2829",
+  "related": [
+    2829
+  ],
+  "keyQuote": "Attempting to start a child workflow right before parent closes creates the child workflow execution but this execution never receives the first workflow task",
+  "number": 4812,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:54.531Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add debugger support for Workflow code running in v8 isolates. Currently debugging workflows is not possible, which is a critical usability gap that needs comprehensive implementation and documentation.",
+  "category": "feature",
+  "subcategory": "debugging",
+  "apis": [],
+  "components": [
+    "workflow-isolate",
+    "v8-context",
+    "debugger"
+  ],
+  "concepts": [
+    "debugging",
+    "isolates",
+    "v8-inspector",
+    "developer-experience",
+    "usability"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot debug workflow code, severely limiting their ability to troubleshoot and develop complex workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement v8 inspector integration for isolated workflow contexts, using isolated-vm inspector example as reference.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Debugger support was implemented for workflows running in isolates.",
+  "related": [],
+  "keyQuote": "Debugging Workflows should be as seamless as possible (considering the limitations when working with multiple v8 contexts).",
+  "number": 102,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:43.543Z"
+}

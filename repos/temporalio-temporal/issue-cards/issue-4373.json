@@ -1,0 +1,35 @@
+{
+  "summary": "Sending signals via batch operation causes a payload encoding error in TypeScript SDK workflows. The server re-encodes signal input payloads, resulting in 'Unknown encoding: binary/protobuf' when the workflow tries to deserialize the signal arguments.",
+  "category": "bug",
+  "subcategory": "signal-delivery",
+  "apis": [
+    "StartBatchOperation",
+    "signalWorkflow"
+  ],
+  "components": [
+    "payload-converter",
+    "batch-operation",
+    "signal-processing",
+    "data-converter"
+  ],
+  "concepts": [
+    "encoding",
+    "serialization",
+    "batch-operations",
+    "signal-handling",
+    "protobuf",
+    "payload-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably send signals with arguments to multiple workflows using batch operations without encountering deserialization errors.",
+  "rootCause": "The server re-encodes the signal input's payloads, causing a mismatch where the payload encoder is set to 'binary/protobuf' but the DefaultPayloadConverter on the client side does not recognize this encoding.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as a server-side re-encoding problem that occurs when using raw gRPC calls for batch signal operations.",
+  "related": [],
+  "keyQuote": "the server seems to reencode the signal input's payloads",
+  "number": 4373,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:27.662Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Request to support custom data converters in Workflow isolates. Currently, custom data converters work in worker and client contexts but cannot be passed to Workflows that run in isolation without access to node libraries. The interface should be made asynchronous to support network requests and non-blocking compression.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "workflow-isolate",
+    "worker",
+    "client"
+  ],
+  "concepts": [
+    "customization",
+    "data-serialization",
+    "asynchronous-interface",
+    "network-requests",
+    "compression",
+    "workflow-isolation",
+    "isolation-boundary"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement custom serialization logic for their domain objects in Workflows, limiting flexibility for specialized data handling requirements.",
+  "rootCause": "Workflows run in isolation without access to node libraries, making it complex to pass and execute custom data converters in that context.",
+  "proposedFix": "Make the data converter interface asynchronous and implement a mechanism to pass custom data converters to the Workflow isolate, following a proper proposal process.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Custom data converters interface was made async (#158), and the mechanism to pass custom converters to Workflow isolates was implemented.",
+  "related": [
+    158
+  ],
+  "keyQuote": "While we're tacking this problem we might want to make the data converter interface asynchronous to facilitate network requests and non-blocking compression.",
+  "number": 130,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:54.379Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "WorkflowHandle is not mockable in unit tests because it's a record without virtual methods or interface implementation, preventing dynamic interceptors like FakeItEasy from mocking calls to SignalAsync and other methods.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowHandle",
+    "SignalAsync",
+    "GetResultAsync"
+  ],
+  "components": [
+    "WorkflowHandle",
+    "client-interceptor",
+    "test-support"
+  ],
+  "concepts": [
+    "mocking",
+    "testability",
+    "unit-testing",
+    "dynamic-interception",
+    "interface-design",
+    "virtual-methods"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot write unit tests with mocked WorkflowHandle dependencies, forcing them to use integration tests instead of isolated unit tests.",
+  "rootCause": "WorkflowHandle is a sealed record without virtual methods or interface abstraction, preventing dynamic proxy-based mocking frameworks from intercepting method calls.",
+  "proposedFix": "Mark WorkflowHandle methods as virtual or have WorkflowHandle implement an interface to enable dynamic interception.",
+  "workaround": "Use client interceptors for SignalAsync interception; GetResultAsync non-typesafe overload is already virtual.",
+  "resolution": "fixed",
+  "resolutionDetails": "Maintainers indicated they would make the non-typesafe overload of SignalAsync virtual, and mentioned client interceptors as an existing solution for SignalAsync.",
+  "related": [],
+  "keyQuote": "the final non-typesafe overload of GetResultAsync is virtual, but SignalAsync can be intercepted using a client interceptor",
+  "number": 419,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:22:30.712Z"
+}

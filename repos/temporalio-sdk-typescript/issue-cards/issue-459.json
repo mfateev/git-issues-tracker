@@ -1,0 +1,28 @@
+{
+  "summary": "Documentation clarification about which error types cause WorkflowExecutionFailed vs WorkflowTaskFailed events. User was confused about when TemporalFailure and ApplicationFailure with different nonRetryable settings trigger which event types.",
+  "category": "docs",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "failure-handling"
+  ],
+  "concepts": [
+    "error-classification",
+    "failure-events",
+    "retry-policy",
+    "exception-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may misunderstand which error types result in which workflow failure events and how retry policies apply.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue author clarified their misunderstanding through discussion with maintainer - behavior is working as designed.",
+  "related": [],
+  "keyQuote": "Oh, retry policy is for `WorkflowExecutionFailed`s, not for `WorkflowTaskFailed`, got it. I misread TS docs.",
+  "number": 459,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:48.836Z"
+}

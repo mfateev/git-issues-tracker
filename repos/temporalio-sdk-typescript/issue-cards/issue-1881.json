@@ -1,0 +1,30 @@
+{
+  "summary": "MCP Client connection closes before tool execution completes in callToolActivity. The function needs to await the tool.execute() call instead of returning the promise directly, causing the connection to close prematurely.",
+  "category": "bug",
+  "subcategory": "ai-sdk-mcp-integration",
+  "apis": [],
+  "components": [
+    "ai-sdk",
+    "activities",
+    "mcp-client"
+  ],
+  "concepts": [
+    "async-await",
+    "connection-lifecycle",
+    "mcp-server",
+    "http-transport",
+    "tool-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot successfully call MCP server tools through Temporal workflows because connections close before tool execution completes.",
+  "rootCause": "Missing await keyword on tool.execute() call causes the promise to return without waiting for completion, allowing the MCP connection to close prematurely.",
+  "proposedFix": "Add await keyword before tool.execute(args.input, args.options) on line 66 of @temporalio/ai-sdk/lib/activities.js",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It must be return await tool.execute(args.input, args.options);",
+  "number": 1881,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T10:06:33.664Z"
+}

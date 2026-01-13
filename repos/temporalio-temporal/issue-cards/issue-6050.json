@@ -1,0 +1,33 @@
+{
+  "summary": "Upgrading Temporal from 1.23.1 to 1.24.0 causes ListWorkflowExecutions to fail with SQL scan errors when encountering NULL values in the new root_workflow_id column. The schema migration introduced this column but the application code wasn't prepared to handle NULL values, causing crashes until enough non-NULL entries populate the database.",
+  "category": "bug",
+  "subcategory": "schema-migration",
+  "apis": [
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "visibility-manager",
+    "persistence-layer",
+    "mysql-driver",
+    "frontend-service"
+  ],
+  "concepts": [
+    "schema-upgrade",
+    "null-handling",
+    "database-migration",
+    "backwards-compatibility",
+    "version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to version 1.24.0 experience application crashes when querying workflows, requiring manual workarounds or rollbacks until patch is released.",
+  "rootCause": "Schema migration added root_workflow_id column with NULL defaults, but visibility query code attempts to scan into string field without handling NULL values.",
+  "proposedFix": "Update the SQL scanning logic to properly handle NULL values in the root_workflow_id column, or ensure schema migration sets appropriate default values.",
+  "workaround": "Clean up old entries in namespaces, wait for them to expire, or avoid filtering that brings NULL entries to first page of results.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in v1.24.1 release with schema upgrade.",
+  "related": [],
+  "keyQuote": "Latest schema change introduced a new column `root_workflow_id` and defaulted it to null. However, the code is not ready to handle the null values.",
+  "number": 6050,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:46.949Z"
+}

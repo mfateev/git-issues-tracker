@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for worker versioning through the UpdateWorkerBuildIdCompatibility gRPC call. This allows workers to manage build ID compatibility sets for seamless deployments and versioning strategies.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "UpdateWorkerBuildIdCompatibility"
+  ],
+  "components": [
+    "worker",
+    "versioning",
+    "task-queue",
+    "grpc-client",
+    "build-id-management"
+  ],
+  "concepts": [
+    "build-id",
+    "worker-versioning",
+    "compatibility",
+    "deployment",
+    "task-queue",
+    "version-sets"
+  ],
+  "severity": "high",
+  "userImpact": "Users can now manage worker versioning and build ID compatibility for controlled deployments without downtime.",
+  "rootCause": null,
+  "proposedFix": "Implement UpdateWorkerBuildIdCompatibility gRPC call with support for operations: AddNewBuildIdInNewDefaultSet, AddNewCompatibleBuildId, PromoteSetByBuildId, PromoteBuildIdWithinSet, and MergeSets.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented - UpdateWorkerBuildIdCompatibility gRPC call added to PHP SDK with full operation support.",
+  "related": [],
+  "keyQuote": "Add `UpdateWorkerBuildIdCompatibility` gRPC call to update worker buildID compatibility",
+  "number": 322,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:10.254Z"
+}

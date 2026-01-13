@@ -1,0 +1,34 @@
+{
+  "summary": "Request to expose an async API for starting workflows that integrates with Kotlin coroutines and dispatchers, allowing non-blocking workflow invocation from suspend functions.",
+  "category": "feature",
+  "subcategory": "kotlin-coroutines",
+  "apis": [
+    "WorkflowClient.newWorkflowStub",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "kotlin-integration"
+  ],
+  "concepts": [
+    "async-api",
+    "coroutines",
+    "dispatchers",
+    "non-blocking",
+    "kotlin-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Kotlin developers cannot currently start workflows from coroutines without blocking, limiting async adoption in Kotlin projects.",
+  "rootCause": null,
+  "proposedFix": "Expose async-friendly workflow start API that integrates with Kotlin coroutine dispatchers and suspend functions.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #1845, which addresses the same async workflow start capability.",
+  "related": [
+    1845
+  ],
+  "keyQuote": "To be able to start workflows from a Kotlin coroutine(using a dispatcher with a thread pool)",
+  "number": 1849,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:03.447Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "JUnit's @Test(timeout) annotation should override the default 10-second timeout set on SDKTestWorkflowRule, but currently it doesn't. Users must work around this by setting a different timeout on the rule itself, which affects all tests in the class.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "SDKTestWorkflowRule",
+    "test-timeout",
+    "junit-integration"
+  ],
+  "concepts": [
+    "timeout",
+    "test-configuration",
+    "annotation-override",
+    "junit-integration",
+    "testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Test developers cannot use standard JUnit timeout annotations to override per-test timeouts, forcing them to modify rule-level settings that affect all tests.",
+  "rootCause": "SDKTestWorkflowRule does not respect or check for @Test(timeout) annotations on individual test methods.",
+  "proposedFix": "JUnit @Test(timeout) annotation should be detected and used to override the rule's default timeout setting.",
+  "workaround": "Set a different timeout in SDKTestWorkflowRule.newBuilder().setTestTimeoutSeconds(15).build(), but this affects all tests in the class.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "JUnit @Test(timeout) should override timeouts set on the SDKTestWorkflowRule, which is 10s by default.",
+  "number": 612,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:28:17.104Z"
+}

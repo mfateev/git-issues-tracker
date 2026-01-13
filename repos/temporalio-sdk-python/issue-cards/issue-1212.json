@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowExecutionStatus enum needs a method to convert to PascalCase format required by search attributes. Currently, the enum values cannot be directly used for filtering search attributes that expect PascalCase.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "WorkflowExecutionStatus"
+  ],
+  "components": [
+    "search-attributes",
+    "workflow-execution",
+    "enum-conversion"
+  ],
+  "concepts": [
+    "case-conversion",
+    "search-filtering",
+    "enum-formatting",
+    "search-attributes",
+    "type-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually convert WorkflowExecutionStatus values to PascalCase when filtering search attributes, creating a friction point in the API.",
+  "rootCause": "WorkflowExecutionStatus enum values are in a different format than the PascalCase strings expected by search attribute filtering APIs.",
+  "proposedFix": "Add a method to convert WorkflowExecutionStatus to PascalCase format compatible with search attributes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "A conversion method was added to handle WorkflowExecutionStatus to PascalCase conversion for search attributes.",
+  "related": [],
+  "keyQuote": "When filtering for search attributes ExecutionStatus excepts PascalCase but the WorkflowExecutionStatus cannot be converted as is right now.",
+  "number": 1212,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:58.854Z"
+}

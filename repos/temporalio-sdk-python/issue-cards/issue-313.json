@@ -1,0 +1,31 @@
+{
+  "summary": "User reported that retry policy's max_interval parameter is not being respected when passed to start_workflow, with intervals doubling unexpectedly. The maintainer was unable to replicate the issue and closed it after the reporter didn't respond with additional details.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "start_workflow",
+    "RetryPolicy"
+  ],
+  "components": [
+    "workflow-client",
+    "retry-handler"
+  ],
+  "concepts": [
+    "retry-policy",
+    "backoff-coefficient",
+    "maximum-interval",
+    "exponential-backoff"
+  ],
+  "severity": "medium",
+  "userImpact": "Users configuring retry policies with strict max_interval limits may experience unexpected retry behavior with doubling intervals.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Unable to replicate - maintainer tested the reported behavior and it worked as expected. Issue closed without fix as unreproducible and unresponded.",
+  "related": [],
+  "keyQuote": "This retries every second as expected, it does not double it. Make sure you are not observing an older workflow still running",
+  "number": 313,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:01.640Z"
+}

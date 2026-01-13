@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for Nexus worker interceptor to WorkerInterceptor, enabling hook points similar to those available for ActivityInboundCallsInterceptor.",
+  "category": "feature",
+  "subcategory": "nexus-interceptor",
+  "apis": [
+    "WorkerInterceptor"
+  ],
+  "components": [
+    "worker",
+    "nexus",
+    "interceptor"
+  ],
+  "concepts": [
+    "interceptor",
+    "extension-point",
+    "nexus-operations",
+    "middleware",
+    "request-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can extend Nexus worker behavior with custom interceptors for cross-cutting concerns like logging, metrics, and request modification.",
+  "rootCause": null,
+  "proposedFix": "Implement Nexus worker interceptor similar to the existing ActivityInboundCallsInterceptor pattern in WorkerInterceptor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Nexus worker interceptor support was implemented in the WorkerInterceptor interface.",
+  "related": [],
+  "keyQuote": "Add support for Nexus worker interceptor to `WorkerInterceptor` similar to `ActivityInboundCallsInterceptor`",
+  "number": 2220,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:03:05.998Z"
+}

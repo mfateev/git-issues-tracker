@@ -1,0 +1,31 @@
+{
+  "summary": "A transitive dependency vulnerability (CVE-2022-41721) in golang.org/x/net v0.1.0 affecting the Go SDK v1.19.0 through grpc-middleware. The vulnerability allows HTTP/2 request smuggling attacks via MaxBytesHandler that doesn't fully consume request bodies.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "grpc-middleware",
+    "golang.org/x/net",
+    "dependency-management"
+  ],
+  "concepts": [
+    "vulnerability",
+    "security",
+    "http2",
+    "request-smuggling",
+    "dependency-chain",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users of Go SDK v1.19.0 are exposed to potential HTTP/2 request smuggling attacks through a vulnerable transitive dependency.",
+  "rootCause": "golang.org/x/net v0.1.0 MaxBytesHandler does not fully consume HTTP request bodies, allowing attackers to manipulate remaining data to represent arbitrary HTTP/2 frames.",
+  "proposedFix": "Upgrade golang.org/x/net to a patched version that properly consumes request bodies in MaxBytesHandler.",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Automatically closed by Mend bot because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory, indicating the vulnerability was likely addressed through dependency updates.",
+  "related": [],
+  "keyQuote": "A request smuggling attack is possible when using MaxBytesHandler. When the server attempts to read HTTP2 frames from the connection, it will instead be reading the body of the HTTP request",
+  "number": 215,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:59.774Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Custom dataclass return types from activities fail to deserialize in Python 3.9 with a KeyError during sandbox import resolution, while the same code works in Python 3.11. The issue appears to be related to how the workflow sandbox importer handles automatic type resolution for older Python versions.",
+  "category": "bug",
+  "subcategory": "sandbox-imports",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "workflow-sandbox",
+    "payload-converter",
+    "importer"
+  ],
+  "concepts": [
+    "dataclass",
+    "deserialization",
+    "type-hints",
+    "sandbox-isolation",
+    "python-compatibility",
+    "auto-import"
+  ],
+  "severity": "high",
+  "userImpact": "Users with Python 3.9 cannot use custom dataclasses as activity return types without manual imports in the workflow, limiting code portability and requiring version-specific workarounds.",
+  "rootCause": "Python 3.9's type hint resolution in get_type_hints() attempts to access sys.modules through the sandbox importer's __getitem__, which raises KeyError for dataclasses defined in user modules that the sandbox hasn't explicitly imported.",
+  "proposedFix": null,
+  "workaround": "Import the custom dataclass explicitly in the workflow using `with workflow.unsafe.imports_passed_through(): from file import customDataClass` (not needed in Python 3.11)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "So it appears in newer Python versions the sandbox importer can import your dataclass but in older Python versions you have to import it yourself",
+  "number": 399,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:17.912Z"
+}

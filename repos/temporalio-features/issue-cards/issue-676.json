@@ -1,0 +1,31 @@
+{
+  "summary": "Standardize error messages across SDKs by appending non-'details' properties to failure messages for activity, child workflow, Nexus, timeout, and application failures. Some SDKs (Java, Go) already implement this partially, while others lack it entirely.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "workflow-executor",
+    "nexus-handler",
+    "error-messages"
+  ],
+  "concepts": [
+    "error-messaging",
+    "failure-details",
+    "exception-handling",
+    "consistency",
+    "user-debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get more detailed error information across all SDKs, improving debugging and troubleshooting of workflow failures.",
+  "rootCause": null,
+  "proposedFix": "Append all non-'details' properties to error messages for activity failure, application failure, child workflow failure, Nexus handler failure, Nexus operation failure, and timeout failure across all SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we should append all non-\"details\" properties to the message",
+  "number": 676,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:53:14.387Z"
+}

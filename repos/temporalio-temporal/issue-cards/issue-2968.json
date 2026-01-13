@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to support updating system workflow cron schedules dynamically. Currently cron schedules are hardcoded and don't update when code is redeployed if a workflow is already running.",
+  "category": "feature",
+  "subcategory": "system-workflows",
+  "apis": [],
+  "components": [
+    "system-workflows",
+    "cron-scheduler",
+    "workflow-deployment"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "dynamic-configuration",
+    "workflow-lifecycle",
+    "deployment",
+    "system-workflows",
+    "schedule-update"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot update cron schedules for system workflows without manual intervention or workflow restart during deployments.",
+  "rootCause": "Cron schedules are hardcoded with no mechanism to detect and apply schedule changes to already-running system workflows.",
+  "proposedFix": "Detect when an existing system workflow is running with a different cron schedule and terminateAndStart a new workflow with the updated schedule.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support changing system workflow cron schedule. Currently the cron schedule is hardcoded and even if the value in code is updated, when deploying the change, the cron schedule for the workflow won't be updated if there's already a workflow running.",
+  "number": 2968,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:47.484Z"
+}

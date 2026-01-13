@@ -1,0 +1,30 @@
+{
+  "summary": "SearchAttribute validation should call toJSON() on serializable objects before rejecting them. This enables passing objects like MongoDB ObjectIds that have a toJSON method as search attributes.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "serialization",
+    "validation"
+  ],
+  "concepts": [
+    "serialization",
+    "object-to-json",
+    "search-attributes",
+    "custom-types",
+    "mongodb-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use serializable custom objects (like MongoDB ObjectIds) as SearchAttribute values, limiting interoperability with common database libraries.",
+  "rootCause": null,
+  "proposedFix": "Call toJSON() method on objects before validation, allowing serializable objects to be converted to their JSON representation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If an object is passed as a SearchAttribute, and it is not a Date, and it has a `toJSON` method, the `toJSON` method should be called",
+  "number": 1715,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:28.432Z"
+}

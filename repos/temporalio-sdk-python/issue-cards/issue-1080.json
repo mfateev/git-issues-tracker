@@ -1,0 +1,29 @@
+{
+  "summary": "Python SDK fails to import generated protocol buffer code due to mismatched Protobuf versions between gencode (6.31.1) and runtime (5.29.5). User needs SDK to support newer protobuf versions that their other dependencies require.",
+  "category": "bug",
+  "subcategory": "protobuf-versioning",
+  "apis": [],
+  "components": [
+    "protobuf",
+    "grpc",
+    "dependencies"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "protobuf-gencode",
+    "dependency-resolution",
+    "import-error"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot import the SDK when they have other dependencies requiring newer protobuf versions, blocking SDK adoption.",
+  "rootCause": "SDK dependencies specify an older protobuf version (5.29.5) that conflicts with generated code compiled with newer protobuf (6.31.1).",
+  "proposedFix": "Update underlying protobuf/grpc versions to support newer gencode versions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "SDK dependencies were updated to support newer protobuf versions.",
+  "related": [],
+  "keyQuote": "Detected mismatched Protobuf Gencode/Runtime major versions when loading chat/v1/types.proto: gencode 6.31.1 runtime 5.29.5",
+  "number": 1080,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:40.841Z"
+}

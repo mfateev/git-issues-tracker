@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal Server/Cassandra tools discover and connect to all Cassandra nodes returned by seed nodes, but some discovered nodes may be unreachable due to network policies in multi-datacenter setups. Users need the ability to restrict connections to only specified seed nodes or nodes in a specific datacenter to comply with regulatory requirements.",
+  "category": "bug",
+  "subcategory": "cassandra-configuration",
+  "apis": [],
+  "components": [
+    "cassandra-client",
+    "gocql-integration",
+    "cqlclient"
+  ],
+  "concepts": [
+    "multi-datacenter",
+    "network-connectivity",
+    "service-discovery",
+    "configuration",
+    "cassandra-seeds",
+    "host-filtering"
+  ],
+  "severity": "high",
+  "userImpact": "Users in regulated multi-datacenter environments cannot use Temporal with managed Cassandra services due to unwanted cross-datacenter connection attempts.",
+  "rootCause": "The cqlclient does not expose the Datacenter filtering knob available in the cassandraCluster configuration, causing the gocql library to attempt connections to all discovered nodes regardless of datacenter restrictions.",
+  "proposedFix": "Expose the Datacenter configuration parameter in cqlclient to allow filtering of Cassandra hosts by datacenter, combining both cassandra-side topology awareness and gocql-side host filtering.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #1315 fixed the issue by exposing datacenter filtering configuration in cqlclient",
+  "related": [
+    1315,
+    1278
+  ],
+  "keyQuote": "can we tell Temporal-server/Cassandra to only connect to the nodes specified in CASSANDRA_SEEDS as we can populate this variable with Cassandra nodes only in the current DC?",
+  "number": 1309,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:42.992Z"
+}

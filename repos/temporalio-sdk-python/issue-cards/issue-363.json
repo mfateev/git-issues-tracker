@@ -1,0 +1,29 @@
+{
+  "summary": "Testing environment incorrectly overrides interceptors configuration due to a variable assignment error. The code should assign config_interceptors to config[\"interceptors\"] instead of the current incorrect assignment.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "workflow",
+    "interceptors"
+  ],
+  "concepts": [
+    "interceptors",
+    "testing-environment",
+    "configuration",
+    "override"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with custom interceptors find their interceptor configuration being incorrectly overridden by the testing environment.",
+  "rootCause": "Incorrect variable assignment in temporalio/testing/_workflow.py line 565 where config[\"interceptors\"] is not properly set to config_interceptors.",
+  "proposedFix": "Change line 565 to assign config[\"interceptors\"] = config_interceptors",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug fix applied to correct the interceptor configuration assignment in the testing framework.",
+  "related": [],
+  "keyQuote": "should be `config[\"interceptors\"] = config_interceptors`",
+  "number": 363,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:45.372Z"
+}

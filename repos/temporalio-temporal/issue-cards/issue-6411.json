@@ -1,0 +1,32 @@
+{
+  "summary": "QueryWorkflow RPC fails with 'Workflow Task in failed state' error when handling 1000 parallel requests under load. User is unable to query workflows when temporal server experiences high concurrency, suggesting a potential issue with workflow task state management under load.",
+  "category": "bug",
+  "subcategory": "query-workflow",
+  "apis": [
+    "QueryWorkflow"
+  ],
+  "components": [
+    "history-service",
+    "workflow-task-processor",
+    "query-handler"
+  ],
+  "concepts": [
+    "concurrency",
+    "load-testing",
+    "workflow-state",
+    "failed-task",
+    "rpc-error"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot query workflows under high load, blocking critical operations that depend on workflow state inspection.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Error: Cannot query workflow due to Workflow Task in failed state",
+  "number": 6411,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:00.266Z"
+}

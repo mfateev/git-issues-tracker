@@ -1,0 +1,30 @@
+{
+  "summary": "Upgrade to go-mock 1.6.0, which introduces a breaking change that impacts the blocking matching service tests.",
+  "category": "other",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "mock-service",
+    "blocking-matching-service"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "breaking-change",
+    "test-compatibility",
+    "mocking",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests fail due to breaking changes in the go-mock library, requiring code updates to maintain test compatibility.",
+  "rootCause": "go-mock 1.6.0 introduces breaking changes that affect blocking matching service tests",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It seems that go mock 1.6.0 comes with breaking change blocking matching service tests",
+  "number": 1638,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:15:35.473Z"
+}

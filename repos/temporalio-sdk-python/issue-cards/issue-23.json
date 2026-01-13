@@ -1,0 +1,33 @@
+{
+  "summary": "Need repeatable, parameterized stress tests to understand default maximums and resource utilization under heavy workflow load. Tests should run in CI with lower parameters but be configurable for actual system stress testing.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "worker",
+    "test-framework"
+  ],
+  "concepts": [
+    "stress-testing",
+    "performance",
+    "resource-utilization",
+    "load-testing",
+    "benchmarking",
+    "defaults",
+    "ci-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack guidance on reasonable resource limits and performance characteristics under heavy workflow load, making it difficult to properly configure and scale production systems.",
+  "rootCause": null,
+  "proposedFix": "Create repeatable, parameterized stress tests using xk6-temporal that can run in CI with conservative parameters and be configured for real system stress testing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing stress tests using xk6-temporal framework as suggested in final comment.",
+  "related": [
+    336
+  ],
+  "keyQuote": "We need to know reasonable default maximums and resource utilization of heavy workflow use",
+  "number": 23,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:46:00.690Z"
+}

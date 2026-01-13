@@ -1,0 +1,34 @@
+{
+  "summary": "User struggling with asynchronous child workflow execution in PHP SDK where child workflows don't start executing before parent completes. Seeking equivalent of Java's pattern for waiting on child workflow promises.",
+  "category": "question",
+  "subcategory": "child-workflows",
+  "apis": [
+    "Workflow.asyncDetached",
+    "Workflow.newChildWorkflowStub",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "child-workflow-stub",
+    "async-execution",
+    "workflow-options"
+  ],
+  "concepts": [
+    "asynchronous-execution",
+    "child-workflows",
+    "workflow-promises",
+    "parent-close-policy",
+    "task-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably execute child workflows asynchronously in PHP without them being cancelled when the parent completes.",
+  "rootCause": "Parent workflow completes before child workflow execution has started, causing child to be cancelled due to parent close policy.",
+  "proposedFix": "Use yield with Workflow.asyncDetached, or use UntypedChildWorkflowStub with start() method to explicitly wait for child workflow to begin execution.",
+  "workaround": "Call yield on the asyncDetached task or use UntypedChildWorkflowStub.start() and yield the result to ensure child workflow starts before parent completes.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Point 4 says \"Wait for the Promise returned by getWorkflowExecution to complete.\" - can this be implemented using php-sdk?",
+  "number": 532,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:31.303Z"
+}

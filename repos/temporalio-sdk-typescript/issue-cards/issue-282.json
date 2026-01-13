@@ -1,0 +1,34 @@
+{
+  "summary": "Querying a complete workflow twice fails on the second query with an internal error about a nonexistent run ID. The first query succeeds but subsequent queries to the same completed workflow throw errors.",
+  "category": "bug",
+  "subcategory": "workflow-query",
+  "apis": [
+    "WorkflowClient",
+    "createWorkflowHandle",
+    "query"
+  ],
+  "components": [
+    "client",
+    "query-handler",
+    "workflow-state-management"
+  ],
+  "concepts": [
+    "completed-workflow",
+    "query",
+    "state-caching",
+    "run-id",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably query completed workflows multiple times, limiting the ability to retrieve workflow results after completion.",
+  "rootCause": "The SDK core was not properly handling queries on completed workflows, causing cache invalidation issues with run IDs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in sdk-core via PR #199; issue was resolved in the main branch and addressed in the next Node SDK release.",
+  "related": [],
+  "keyQuote": "The second query should be successful otherwise better error message is expected.",
+  "number": 282,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:35.813Z"
+}

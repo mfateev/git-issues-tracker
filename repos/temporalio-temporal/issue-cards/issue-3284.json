@@ -1,0 +1,32 @@
+{
+  "summary": "Server returns overly large error messages that exceed gRPC metadata limits, causing connection drops with cryptic errors instead of readable error messages when workers send invalid command sequences.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "server",
+    "error-messaging",
+    "grpc-communication",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "metadata-limits",
+    "error-messages",
+    "grpc-headers",
+    "http2-settings",
+    "connection-management",
+    "command-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Developers receive cryptic connection errors instead of clear validation messages when sending invalid command sequences, making debugging extremely difficult.",
+  "rootCause": "Server includes raw command sequences in error messages without preprocessing to ensure they fit within gRPC metadata limits (8KB default) or announced client limits.",
+  "proposedFix": "Preprocess variable-sized portions of error messages to respect the counterpart's announced metadata limit or enforce a reasonable default max length lower than 8KB.",
+  "workaround": "Client-side can increase maxInboundMetadataSize to handle larger error messages.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The Server should preprocess all the variable-sized portions of error messages to make sure that it fits into a header limit announced by the counterpart",
+  "number": 3284,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:11.775Z"
+}

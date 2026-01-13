@@ -1,0 +1,31 @@
+{
+  "summary": "Service crashes with a nil pointer dereference during startup when invalid TLS configuration is provided. The crash occurs because TLS initialization and validation check different configuration sources, causing a mismatch that leads to a panic instead of a proper error.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "rpc-factory",
+    "encryption-provider",
+    "tls-config"
+  ],
+  "concepts": [
+    "tls",
+    "configuration-validation",
+    "error-handling",
+    "service-startup",
+    "nil-pointer",
+    "panic"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start the Temporal server with invalid TLS configurations; the service crashes with a segmentation fault instead of providing a helpful error message.",
+  "rootCause": "Mismatch between TLS enablement check in Frontend TLS provider (uses config.Frontend) and TLS initialization logic (uses different config path), causing nil pointer dereference when accessing certificate fields.",
+  "proposedFix": "Align TLS configuration validation between localStoreTlsProvider.GetFrontendServerConfig and the TLS initialization logic to use the same configuration source and validate before attempting to access certificate fields.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by ensuring consistent TLS configuration validation and proper error handling before accessing certificate fields.",
+  "related": [],
+  "keyQuote": "The Frontend TLS uses config.Frontend to determine if TLS is enable but the TLS initialization uses a different config path, causing a panic when accessing nil certificate fields.",
+  "number": 2448,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:44.002Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Request to document the two categories of dynamic configuration: truly dynamic configs (checked at runtime) and static configs (loaded at startup). This documentation would help developers understand which dynamic config values are actually dynamic and which are only evaluated once.",
+  "category": "docs",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "configuration",
+    "server"
+  ],
+  "concepts": [
+    "dynamic-config",
+    "configuration-loading",
+    "runtime-behavior",
+    "server-startup",
+    "business-logic"
+  ],
+  "severity": "low",
+  "userImpact": "Developers are unclear about which dynamic configuration values are truly dynamic versus which are only evaluated at server startup, leading to potential misunderstandings in their implementations.",
+  "rootCause": null,
+  "proposedFix": "Add documentation that clearly categorizes dynamic configs into two groups: truly dynamic (business logic checks newest value each time) and static (only checked at server startup).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Document above 2 categories for easy reference.",
+  "number": 1757,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:27.910Z"
+}

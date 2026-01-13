@@ -1,0 +1,31 @@
+{
+  "summary": "The Temporal server's gRPC MaxRecvMsgSize is set to the default 4MB, while the SDK client sets MaxSendMsgSize to 128MB, creating an inconsistency that causes RESOURCE_EXHAUSTED errors when clients send larger messages.",
+  "category": "bug",
+  "subcategory": "grpc-configuration",
+  "apis": [],
+  "components": [
+    "grpc-server",
+    "grpc-client",
+    "message-size-limits"
+  ],
+  "concepts": [
+    "grpc",
+    "message-size",
+    "configuration",
+    "compatibility",
+    "resource-limits",
+    "client-server-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "Clients encounter RESOURCE_EXHAUSTED errors in production when sending messages larger than 4MB despite configuring 128MB limits on the client side.",
+  "rootCause": "Server's gRPC MaxRecvMsgSize uses default 4MB value while client SDK sets MaxSendMsgSize to 128MB, creating a mismatch in message size handling.",
+  "proposedFix": "Update server gRPC configuration to use 128MB for MaxRecvMsgSize to match the client SDK's MaxSendMsgSize setting.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "this caused an critical error \"io.grpc.StatusRuntimeException: RESOURCE_EXHAUSTED: grpc: received message larger than max (5214441 vs. 4194304)\" in our prod envs",
+  "number": 6819,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:47.298Z"
+}

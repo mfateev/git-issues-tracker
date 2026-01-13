@@ -1,0 +1,31 @@
+{
+  "summary": "The getConfigFiles function in the config loader doesn't handle permission errors properly, silently skipping files that can't be read instead of notifying users about the issue.",
+  "category": "bug",
+  "subcategory": "config-loading",
+  "apis": [],
+  "components": [
+    "config-loader",
+    "file-reader",
+    "error-handling"
+  ],
+  "concepts": [
+    "permission-errors",
+    "error-handling",
+    "file-access",
+    "logging",
+    "configuration",
+    "silent-failures"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may not be aware when configuration files cannot be read due to permission issues, potentially leading to misconfiguration or unexpected behavior.",
+  "rootCause": "The getConfigFiles function silently skips files with permission errors without logging or reporting the issue to the caller.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if it can't read a file because of permission issues, it just skips it without letting us know",
+  "number": 7048,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:17.938Z"
+}

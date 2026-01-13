@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add schedule testing support to the temporal-test-server for Java SDK. The test server's time-skipping architecture doesn't support concurrent, independent workflow runs needed for proper schedule testing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "temporal-test-server",
+    "schedule-executor",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "schedule",
+    "time-skipping",
+    "concurrent-workflows",
+    "test-isolation",
+    "multi-workflow"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot test schedules using the lightweight test server and must use a real server instead.",
+  "rootCause": "The test server uses server-wide time skipping rather than per-workflow time control, preventing concurrent independent workflow runs required for schedule testing.",
+  "proposedFix": null,
+  "workaround": "Run schedule tests using a real or local server instead of the test server.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided the architectural changes required to support schedules in the test server would be too complex relative to the benefit, and users can use a real server instead.",
+  "related": [],
+  "keyQuote": "The test server isn't really built well to be a multi-workflow server...time skipping is server-wide not per workflow.",
+  "number": 1954,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:51.611Z"
+}

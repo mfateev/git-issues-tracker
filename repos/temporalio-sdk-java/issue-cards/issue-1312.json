@@ -1,0 +1,32 @@
+{
+  "summary": "The Temporal Server provides a getSystemInfo call that returns server capabilities. The Java SDK should call this method before any other client call to obtain server capabilities.",
+  "category": "feature",
+  "subcategory": "client-initialization",
+  "apis": [
+    "getSystemInfo"
+  ],
+  "components": [
+    "client",
+    "stubs",
+    "server-communication"
+  ],
+  "concepts": [
+    "server-capabilities",
+    "client-setup",
+    "feature-detection",
+    "initialization",
+    "api-versioning"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot discover what features are supported by their Temporal Server without explicit documentation or trial-and-error.",
+  "rootCause": null,
+  "proposedFix": "Call getSystemInfo from stubs or client before any other client call to obtain server capabilities",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was closed, indicating the feature was implemented",
+  "related": [],
+  "keyQuote": "This call needs to be performed by the stubs or client before any other client call.",
+  "number": 1312,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:24:44.771Z"
+}

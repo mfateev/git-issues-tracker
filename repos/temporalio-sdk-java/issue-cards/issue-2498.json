@@ -1,0 +1,34 @@
+{
+  "summary": "User requests making Jackson serialization optional and separate from the core Java SDK to avoid transitive dependencies and version conflicts, especially when using alternative serialization libraries. The feature request proposes moving Jackson to a separate module using Java Service Provider Interface for runtime discovery.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [
+    "DataConverter"
+  ],
+  "components": [
+    "data-converter",
+    "serialization",
+    "dependency-management"
+  ],
+  "concepts": [
+    "optional-dependency",
+    "pluggability",
+    "transitive-dependencies",
+    "version-conflict",
+    "service-provider-interface",
+    "Jackson",
+    "kotlinx-serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users with alternative serialization needs are forced to include unused Jackson dependencies, causing version conflicts and unintended behavior in frameworks like Spring Boot.",
+  "rootCause": "Jackson is a hard runtime dependency for SDK internal use (non-user-facing serialization), not just user-facing DataConverter pluggability, and DefaultDataConverter loads JacksonJsonPayloadConverter statically.",
+  "proposedFix": "Create a separate temporal-sdk-jackson artifact with Jackson-based converters, using Java Service Provider Interface for runtime discovery similar to SLF4J implementation discovery.",
+  "workaround": "Excluding Jackson from classpath via Gradle is not feasible due to static loading in DefaultDataConverter and package-private PayloadAndFailureDataConverter.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined that Jackson is required for SDK internal use (not just user-facing), making removal a significant effort. Removing the dependency would be a breaking change, acceptable only in a major version bump. For now, maintainers prefer to keep Jackson as a core dependency.",
+  "related": [],
+  "keyQuote": "The Java SDK requires jackson (and protobuf) for basic functionality, it is not an optional dependency that could be removed from the SDK.",
+  "number": 2498,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:16.183Z"
+}

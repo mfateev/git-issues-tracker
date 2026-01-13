@@ -1,0 +1,32 @@
+{
+  "summary": "Automate the SDK release process, including automated releases to the 'next' tag on merge to 'main' branch. Implementation was tracked in a separate issue.",
+  "category": "feature",
+  "subcategory": "release-automation",
+  "apis": [],
+  "components": [
+    "release-process",
+    "ci-cd",
+    "deployment"
+  ],
+  "concepts": [
+    "automation",
+    "continuous-delivery",
+    "versioning",
+    "release-management",
+    "tagging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would receive releases automatically without manual intervention, improving release velocity and consistency.",
+  "rootCause": null,
+  "proposedFix": "Implement automated release pipeline triggered on merge to main branch",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation was completed as part of issue #1003 which handled the automated release process",
+  "related": [
+    1003
+  ],
+  "keyQuote": "Automated release to `next` tag on merge to `main`",
+  "number": 170,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:09.630Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The test server is not populating the task_queue field in DescribeWorkflowExecutionResponse.workflow_execution_info, even though it correctly populates the same field in execution_config.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "test-server",
+    "describe-workflow-execution"
+  ],
+  "concepts": [
+    "task-queue",
+    "workflow-execution-info",
+    "response-population",
+    "test-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with the test server cannot verify task queue information through the standard workflow execution response, complicating test validation.",
+  "rootCause": "The test server implementation does not populate the workflow_execution_info.task_queue field when building DescribeWorkflowExecutionResponse.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The test server was updated to populate the task_queue field in workflow_execution_info.",
+  "related": [],
+  "keyQuote": "Populate DescribeWorkflowExecutionResponse.workflow_execution_info.task_queue",
+  "number": 1425,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:02.364Z"
+}

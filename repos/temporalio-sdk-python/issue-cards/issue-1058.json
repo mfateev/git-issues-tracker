@@ -1,0 +1,32 @@
+{
+  "summary": "The OpenAI Agent SDK wraps ApplicationErrors raised by activities as UserErrors, preventing workflows from catching and handling non-retryable errors appropriately. This causes workflow tasks to fail and get stuck indefinitely.",
+  "category": "bug",
+  "subcategory": "agent-sdk-integration",
+  "apis": [
+    "ApplicationError"
+  ],
+  "components": [
+    "agent-sdk",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-wrapping",
+    "non-retryable-error",
+    "agent-integration",
+    "error-propagation",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly handle non-retryable errors from activities invoked through the OpenAI Agent SDK, causing workflows to fail and become unrecoverable.",
+  "rootCause": "The Agent SDK catches ApplicationError exceptions and re-raises them as UserError, breaking the error handling contract expected by workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The Agent SDK wraps/catches the ApplicationError and raises it as a UserError. This causes the workflow task after the failed activity to also fail and gets stuck",
+  "number": 1058,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:08.173Z"
+}

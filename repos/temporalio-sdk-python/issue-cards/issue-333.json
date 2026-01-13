@@ -1,0 +1,33 @@
+{
+  "summary": "BaseException subclasses raised in activities are silently swallowed instead of being properly caught and handled, causing a TypeError that masks the actual error. The SDK only catches Exception subclasses by design, but should handle BaseException more explicitly rather than silently ignoring it.",
+  "category": "bug",
+  "subcategory": "activity-exception-handling",
+  "apis": [
+    "activity.defn",
+    "workflow.start_activity"
+  ],
+  "components": [
+    "activity-executor",
+    "exception-handling",
+    "worker"
+  ],
+  "concepts": [
+    "exception-catching",
+    "BaseException",
+    "error-handling",
+    "exception-propagation",
+    "activity-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users raising non-Exception-derived exceptions in activities experience silent failures with confusing error messages instead of proper error handling.",
+  "rootCause": "The SDK intentionally only catches Exception subclasses, not BaseException, which causes BaseException-derived exceptions to be silently swallowed rather than explicitly handled.",
+  "proposedFix": null,
+  "workaround": "Derive custom exceptions from Exception instead of BaseException, or wrap third-party BaseException-derived exceptions in a try-except block within the activity.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was left open but not fixed due to Python best practices discouraging BaseException subclassing. The workaround is to use Exception subclasses instead.",
+  "related": [],
+  "keyQuote": "we don't want to silently swallow it either (which in effect is what is happening today), so should we crash the entire worker for a base exception?",
+  "number": 333,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:20.377Z"
+}

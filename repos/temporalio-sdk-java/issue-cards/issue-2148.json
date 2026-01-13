@@ -1,0 +1,36 @@
+{
+  "summary": "Add missing toString() implementations for OperatorServiceStubsOptions and CloudServiceStubsOptions, and fix WorkflowServiceStubsOptions.toString() to include inherited fields.",
+  "category": "feature",
+  "subcategory": "service-stubs",
+  "apis": [
+    "WorkflowServiceStubsOptions",
+    "OperatorServiceStubsOptions",
+    "CloudServiceStubsOptions"
+  ],
+  "components": [
+    "service-stubs",
+    "options",
+    "serialization"
+  ],
+  "concepts": [
+    "toString",
+    "debugging",
+    "configuration",
+    "representation",
+    "inheritance"
+  ],
+  "severity": "low",
+  "userImpact": "Users lack proper string representations for service stub options objects, making debugging and logging less informative.",
+  "rootCause": null,
+  "proposedFix": "Implement toString() methods for OperatorServiceStubsOptions and CloudServiceStubsOptions, and update WorkflowServiceStubsOptions.toString() to include inherited fields.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2146
+  ],
+  "keyQuote": "WorkflowServiceStubsOptions.toString only includes direct fields not inherited ones",
+  "number": 2148,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:12.243Z"
+}

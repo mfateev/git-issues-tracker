@@ -1,0 +1,35 @@
+{
+  "summary": "ActivityInterface adds a string index signature to any interface that extends it, allowing TypeScript to accept any method call on proxy objects without type checking. This creates a mismatch between compile-time and runtime behavior where invalid method calls compile but fail at runtime.",
+  "category": "bug",
+  "subcategory": "type-system",
+  "apis": [
+    "proxyActivities",
+    "ActivityInterface",
+    "ActivityFunction",
+    "ActivityOptions"
+  ],
+  "components": [
+    "type-definitions",
+    "activity-proxy",
+    "type-checking"
+  ],
+  "concepts": [
+    "type-safety",
+    "string-index-signature",
+    "generic-constraints",
+    "type-narrowing",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers lose type safety when using proxyActivities with custom activity interfaces, allowing invalid method calls to compile and only fail at runtime.",
+  "rootCause": "ActivityInterface includes a string index signature that gets inherited by any interface extending it, allowing TypeScript to accept arbitrary property access on proxy objects.",
+  "proposedFix": "Change proxyActivities to return a mapped type that only includes valid ActivityFunction methods, such as using Pick<T, KeysWhere<T, ActivityFunction>> to filter to conforming methods only.",
+  "workaround": "Use a utility type like ActivityInterfaceFor<T> = Pick<T, keyof {[K in keyof T as T[K] extends ActivityFunction<any[], any> ? K : never]: T[K]}> to wrap the proxy result and provide proper type filtering.",
+  "resolution": "fixed",
+  "resolutionDetails": "Changed the type signature to use a mapped type that filters activities to only those conforming to ActivityFunction, improving type safety and preventing invalid method calls from compiling.",
+  "related": [],
+  "keyQuote": "You won't get any completions from the TS language server for undeclared properties but compilation still passes so that's not great",
+  "number": 655,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:05:53.347Z"
+}

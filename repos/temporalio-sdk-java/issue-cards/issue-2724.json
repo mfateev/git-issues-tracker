@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a Spring Boot configuration option allowing applications to start even when Temporal server is unavailable. Currently the application fails to start if it cannot connect to Temporal, but for some applications Temporal is not a hard dependency.",
+  "category": "feature",
+  "subcategory": "spring-boot-starter",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "worker-initialization",
+    "connection-management"
+  ],
+  "concepts": [
+    "startup-behavior",
+    "optional-dependency",
+    "connection-failure",
+    "graceful-degradation",
+    "application-availability"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications that use Temporal as an optional component cannot start when the Temporal server is unavailable, preventing them from operating in degraded mode.",
+  "rootCause": "Spring Boot starter currently treats Temporal connectivity as a mandatory initialization requirement during application startup.",
+  "proposedFix": "Add a configuration option to allow Spring application startup to proceed even when Temporal is unavailable, possibly with conditional bean scanning based on Temporal availability.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal is _Not_ a hard dependency for some applications to remain available, this is preventing my application from starting if temporal is unavailable.",
+  "number": 2724,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:46.808Z"
+}

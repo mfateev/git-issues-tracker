@@ -1,0 +1,30 @@
+{
+  "summary": "The describeTaskQueue API was returning an empty pollers array because the taskQueueType parameter was not being specified in the request. Users needed to explicitly provide the task queue type to get the poller information.",
+  "category": "bug",
+  "subcategory": "task-queue-management",
+  "apis": [
+    "describeTaskQueue"
+  ],
+  "components": [
+    "client",
+    "task-queue-service"
+  ],
+  "concepts": [
+    "task-queue",
+    "pollers",
+    "task-queue-type",
+    "api-parameters"
+  ],
+  "severity": "medium",
+  "userImpact": "Users were unable to retrieve poller information from describeTaskQueue until they discovered the undocumented requirement to specify taskQueueType.",
+  "rootCause": "The describeTaskQueue API requires the taskQueueType parameter to be explicitly set to return poller information, but this requirement was not clearly documented or enforced.",
+  "proposedFix": "Specify the taskQueueType parameter when calling describeTaskQueue with the appropriate TaskQueueType enum value.",
+  "workaround": "Pass taskQueueType parameter explicitly in the describeTaskQueue call, e.g., taskQueueType: temporal.api.enums.v1.TaskQueueType.TASK_QUEUE_TYPE_WORKFLOW",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by documenting the required taskQueueType parameter and providing example code showing proper usage.",
+  "related": [],
+  "keyQuote": "You need to specify the task queue type to get the poller array back",
+  "number": 465,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:10:19.294Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "Proposal to issue warnings when server-provided task start times differ significantly from when the SDK begins processing the task, which could indicate clock skew between server and worker or worker processing delays.",
+  "category": "feature",
+  "subcategory": "monitoring-diagnostics",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-processor",
+    "polling"
+  ],
+  "concepts": [
+    "clock-skew",
+    "time-synchronization",
+    "diagnostics",
+    "worker-health",
+    "task-processing-delay"
+  ],
+  "severity": "low",
+  "userImpact": "Users would receive warnings to diagnose timing issues like clock misalignment or worker delays that could affect task execution reliability.",
+  "rootCause": null,
+  "proposedFix": "Issue a warning when task start time differs by ±1 minute from current worker system time when task processing begins, implementation required per SDK.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Rejected as too niche - the maintainers decided not to implement this feature.",
+  "related": [
+    1926,
+    2484,
+    1688,
+    839,
+    459,
+    250,
+    603
+  ],
+  "keyQuote": "We're not gonna do this. Too niche.",
+  "number": 616,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:43:51.536Z"
+}

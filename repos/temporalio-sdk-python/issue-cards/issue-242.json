@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for dynamic workflows, activities, signals, and queries that can catch all invocations with a given name as a parameter. This requires opt-in registration and access to the payload converter for raw payload handling.",
+  "category": "feature",
+  "subcategory": "dynamic-handlers",
+  "apis": [],
+  "components": [
+    "workflow-registry",
+    "activity-registry",
+    "signal-handler",
+    "query-handler",
+    "payload-converter"
+  ],
+  "concepts": [
+    "dynamic-dispatch",
+    "catch-all-handler",
+    "payload-conversion",
+    "opt-in",
+    "registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to implement flexible workflow/activity/signal/query handlers that accept any name dynamically instead of pre-registering each one.",
+  "rootCause": null,
+  "proposedFix": "Register a single workflow/activity as 'dynamic' with name passed as first arg and *args:Payload as second arg. Provide payload converter access. For signals/queries, modify existing dynamic=True to require payloads instead of decoded args.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support dynamic workflows, activities, signals, and queries with proper payload handling.",
+  "related": [],
+  "keyQuote": "Should be able to register only one workflow as \"dynamic\" and it is given the name as a string as the first arg, then *args: Payload as second arg.",
+  "number": 242,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:08.271Z"
+}

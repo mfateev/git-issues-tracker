@@ -1,0 +1,30 @@
+{
+  "summary": "Webpack compilation fails when importing built-in Node.js libraries like `fs` and `os` in the TypeScript SDK. The issue stems from webpack defaulting to 'web' target instead of 'node', causing it to require polyfills for core Node modules.",
+  "category": "bug",
+  "subcategory": "webpack-configuration",
+  "apis": [],
+  "components": [
+    "webpack-bundler",
+    "workflow-isolate",
+    "module-resolution"
+  ],
+  "concepts": [
+    "determinism",
+    "native-modules",
+    "workflow-constraints",
+    "bundler-configuration",
+    "polyfills"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use code that imports built-in Node.js libraries in workflows, blocking compilation and forcing workarounds through activities.",
+  "rootCause": "Webpack's default target is 'web' which doesn't support Node.js core modules; workflow isolation also prevents native node API usage.",
+  "proposedFix": "Set webpack target to 'node' in configuration to properly resolve built-in libraries.",
+  "workaround": "Use activities to access filesystem and other Node.js APIs instead of importing them directly in workflow code.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Deterministic requirement: built-in Node APIs like `fs` cannot be used in workflows due to non-deterministic behavior. Users must use activities for filesystem access.",
+  "related": [],
+  "keyQuote": "`fs` is a native node API and cannot be imported in the Workflow isolate, you should use an activity to access the filesystem.",
+  "number": 220,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:36.688Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Test server fails with ExceptionInInitializerError during startup when reflection code for ActivityTaskHandlers is out of sync with actual method signatures, causing the test server to crash when attempting to start workflow execution.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "activity-task-handler",
+    "test-visibility-store",
+    "reflection-utils"
+  ],
+  "concepts": [
+    "initialization",
+    "reflection",
+    "method-signature-mismatch",
+    "test-framework",
+    "grpc",
+    "thread-pool"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start the test server, making it impossible to run local tests during development.",
+  "rootCause": "Reflection code that publishes method signatures in ActivityTaskHandlerImpl is out of sync with the actual POJOActivityImplementation.execute method signature.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Method signatures were updated to align between reflection code and actual implementation.",
+  "related": [],
+  "keyQuote": "Reflection code that publishes the methods signatures is out of sync with actual method signatures. Class 'io.temporal.internal.activity.ActivityTaskExecutors.POJOActivityImplementation' is expected to have method 'execute'",
+  "number": 1712,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:21.997Z"
+}

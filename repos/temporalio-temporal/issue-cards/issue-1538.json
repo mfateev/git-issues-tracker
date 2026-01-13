@@ -1,0 +1,30 @@
+{
+  "summary": "Dynamic config setting for frontend.keepAliveMaxConnectionAge was not working because the YAML value needed to be specified with a time duration suffix (e.g., '600s' instead of '600'). This was a configuration syntax issue rather than a code bug.",
+  "category": "bug",
+  "subcategory": "dynamic-config",
+  "apis": [],
+  "components": [
+    "frontend",
+    "dynamic-config",
+    "config-parser"
+  ],
+  "concepts": [
+    "keepalive",
+    "connection-management",
+    "configuration",
+    "duration-parsing",
+    "gRPC"
+  ],
+  "severity": "medium",
+  "userImpact": "Users unable to configure frontend keepalive settings dynamically, unable to tune connection timeout behavior without restarting.",
+  "rootCause": "Dynamic config YAML parser requires Go duration format (e.g., '600s') but documentation or examples showed plain numeric values (e.g., '600').",
+  "proposedFix": "Use '600s' instead of '600' when setting frontend.keepAliveMaxConnectionAge in dynamic config YAML.",
+  "workaround": "Append 's' suffix to the duration value to specify seconds explicitly.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by identifying that the duration value requires Go time.Duration format with unit suffix.",
+  "related": [],
+  "keyQuote": "600 -> 600s notice the s ref: https://golang.org/pkg/time/#ParseDuration",
+  "number": 1538,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:38:54.563Z"
+}

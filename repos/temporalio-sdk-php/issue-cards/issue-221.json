@@ -1,0 +1,30 @@
+{
+  "summary": "Ensure the PHP SDK does not retry 'internal' errors that should not be retried according to gRPC error classification. Review and update the retryable client error codes list.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "BaseClient",
+    "gRPC-client",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry-logic",
+    "error-classification",
+    "internal-errors",
+    "gRPC-status-codes",
+    "client-resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience unnecessary retries of operations that should fail immediately, leading to increased latency and resource consumption.",
+  "rootCause": "The retryable client error codes list may include 'internal' errors that should not be retried according to gRPC specifications.",
+  "proposedFix": "Review and correct the list of retryable client codes in BaseClient.php to exclude internal errors that should not be retried.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The retryable error codes list was reviewed and updated to properly exclude internal errors.",
+  "related": [],
+  "keyQuote": "See the list of retryable client codes: https://github.com/temporalio/sdk-php/blob/master/src/Client/GRPC/BaseClient.php#L22",
+  "number": 221,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:51.558Z"
+}

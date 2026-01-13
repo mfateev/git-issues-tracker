@@ -1,0 +1,32 @@
+{
+  "summary": "Request to build and distribute musl-compatible gem for Ruby SDK to support Alpine Linux and other musl-based distributions.",
+  "category": "feature",
+  "subcategory": "packaging-distribution",
+  "apis": [],
+  "components": [
+    "gem-packaging",
+    "build-system",
+    "platform-support"
+  ],
+  "concepts": [
+    "musl-libc",
+    "alpine-linux",
+    "gem-distribution",
+    "cross-platform-support",
+    "binary-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running on musl-based systems (Alpine Linux, etc.) cannot easily use pre-built gems and must compile from source.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed, likely implemented as part of gem packaging improvements",
+  "related": [
+    594
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/594",
+  "number": 215,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:15.945Z"
+}

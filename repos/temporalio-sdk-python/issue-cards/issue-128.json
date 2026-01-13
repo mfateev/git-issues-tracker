@@ -1,0 +1,34 @@
+{
+  "summary": "User requests support for Pydantic's SecretStr and SecretField types to protect sensitive data from appearing in Temporal logs and UI. The issue was resolved by directing users to use custom data converters for encryption rather than implementing Pydantic-specific support in the SDK.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "payload-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "security",
+    "sensitive-data",
+    "encryption",
+    "pydantic",
+    "logging",
+    "custom-converter"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily protect sensitive Pydantic fields from appearing in Temporal UI and logs without implementing custom converters.",
+  "rootCause": "The SDK does not have Pydantic-specific serialization support for secret types; Temporal Server itself is language-agnostic and serializes to JSON without language-specific construct awareness.",
+  "proposedFix": "Implement custom payload converters to handle encryption of sensitive data, as shown in samples-python issues #5 and #15.",
+  "workaround": "Create a custom data converter using the data_converter parameter in the Client.connect() method to manually encrypt/decrypt sensitive fields.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed by reporter after understanding that Temporal's solution for sensitive data is end-to-end encryption via custom converters, not Python/Pydantic-specific field hiding.",
+  "related": [
+    5,
+    15
+  ],
+  "keyQuote": "The Temporal server is not written in Python and does not know anything about Pydantic...you'll have to manually do so.",
+  "number": 128,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:00.288Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Activity failure handling doesn't properly include application failure information when the failure can't be converted. The SDK builds a generic failure instead of a properly formatted one with application failure context.",
+  "category": "bug",
+  "subcategory": "activity-failure-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "failure-conversion"
+  ],
+  "concepts": [
+    "error-handling",
+    "failure-conversion",
+    "application-failure",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose important failure context and debugging information when activities fail due to conversion issues, making it harder to diagnose root causes.",
+  "rootCause": "The SDK builds a general failure without properly populating application failure info when failure conversion fails, leaving out critical context.",
+  "proposedFix": "Apply the same fix that was recently implemented in the .NET SDK (PR #353) to properly build activity failures with application failure information.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by implementing proper application failure information in the generic failure builder, aligned with the .NET SDK approach.",
+  "related": [],
+  "keyQuote": "When activity fails, but the failure can't be converted for whatever reason, we build a general failure... But we aren't properly building this by putting application failure info in it.",
+  "number": 685,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:59.106Z"
+}

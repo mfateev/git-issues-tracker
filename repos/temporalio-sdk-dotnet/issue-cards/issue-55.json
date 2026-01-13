@@ -1,0 +1,31 @@
+{
+  "summary": "Implement a cloud smoke test in CI that uses organization secrets to verify the .NET SDK works against Temporal Cloud.",
+  "category": "feature",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "ci-pipeline",
+    "cloud-integration",
+    "test-framework"
+  ],
+  "concepts": [
+    "cloud-testing",
+    "smoke-test",
+    "ci-automation",
+    "org-secrets",
+    "integration-testing",
+    "sdk-verification"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables automated verification that the .NET SDK functions correctly against Temporal Cloud in CI/CD pipelines.",
+  "rootCause": null,
+  "proposedFix": "Use organization secrets to authenticate and run a simple smoke test against Temporal Cloud during CI.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Cloud smoke test was implemented using org secrets in CI pipeline.",
+  "related": [],
+  "keyQuote": "Use org secrets and a simple smoke test against cloud in CI",
+  "number": 55,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:24:37.958Z"
+}

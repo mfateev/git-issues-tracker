@@ -1,0 +1,33 @@
+{
+  "summary": "User reported an internal panic error (\"Panic! This is a bug!\") when starting a workflow in Java SDK v1.23.0. The issue was closed as stale when the user did not respond to a request to reproduce on the latest version.",
+  "category": "question",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "startWorkflow",
+    "WorkflowClient"
+  ],
+  "components": [
+    "WorkflowStubImpl",
+    "WorkflowClient",
+    "WorkflowInvocationHandler"
+  ],
+  "concepts": [
+    "workflow-start",
+    "error-handling",
+    "version-compatibility",
+    "exception-wrapping",
+    "gRPC-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Users starting workflows encounter an internal panic error that prevents workflow execution.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Closed due to no response when asked to reproduce on latest version (v1.32.0). Issue involved very old SDK version (v1.23.0).",
+  "related": [],
+  "keyQuote": "Java SDK v1.23.0 is very old, can you produce this bug on the latest release v1.32.0?",
+  "number": 2730,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:03.555Z"
+}

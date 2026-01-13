@@ -1,0 +1,29 @@
+{
+  "summary": "Request to include cassandra-schema-tool binary in release artifacts. User questions whether the tool needs to be rebuilt when updating versions or only when .proto files are modified.",
+  "category": "feature",
+  "subcategory": "packaging",
+  "apis": [],
+  "components": [
+    "cassandra-schema-tool",
+    "release-artifacts"
+  ],
+  "concepts": [
+    "packaging",
+    "tooling",
+    "distribution",
+    "cassandra",
+    "schema-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users must manually build cassandra-schema-tool instead of getting pre-built binaries from releases, increasing setup complexity.",
+  "rootCause": null,
+  "proposedFix": "Include pre-built cassandra-schema-tool binaries in release artifacts",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I expect the cassandra-schema-tool to be available in the release artifacts.",
+  "number": 1075,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:57:00.892Z"
+}

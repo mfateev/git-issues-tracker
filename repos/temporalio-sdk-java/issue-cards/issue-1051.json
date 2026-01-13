@@ -1,0 +1,36 @@
+{
+  "summary": "Request to make PollWorkflowTaskQueueResponse available through interceptors for logging and monitoring purposes. Specifically, the attempt counter in the response is needed to track workflows that fail to progress due to repeated failures.",
+  "category": "feature",
+  "subcategory": "interceptor-extensibility",
+  "apis": [
+    "PollWorkflowTaskQueueResponse",
+    "WorkflowInboundInterceptor"
+  ],
+  "components": [
+    "workflow-interceptor",
+    "polling-mechanism",
+    "worker"
+  ],
+  "concepts": [
+    "interception",
+    "logging",
+    "monitoring",
+    "workflow-task",
+    "failure-tracking",
+    "extensibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently access polling response metadata through interceptors, limiting their ability to implement custom logging and monitoring for workflow execution progress.",
+  "rootCause": null,
+  "proposedFix": "Make PollWorkflowTaskQueueResponse or its components available through a new method on WorkflowInboundInterceptor, or expose the most recent task via a getter method.",
+  "workaround": "Use gRPC interceptors directly to access the response, or hardcode logging logic similar to the server implementation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2526
+  ],
+  "keyQuote": "PollWorkflowTaskQueueResponse has the information about the WorkflowTask and contains some pieces of information that may be needed for reporting/logging.",
+  "number": 1051,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:03:03.592Z"
+}

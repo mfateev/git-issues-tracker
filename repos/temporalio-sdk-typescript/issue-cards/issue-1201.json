@@ -1,0 +1,33 @@
+{
+  "summary": "Cron job workflow gets terminated automatically shortly after deployment, either immediately after scheduling or mid-execution. User experiencing issues with cron job reliability on AWS ECS despite setting workflowRunTimeout and workflowTaskTimeout.",
+  "category": "question",
+  "subcategory": "cron-workflows",
+  "apis": [
+    "start"
+  ],
+  "components": [
+    "workflow-execution",
+    "cron-scheduler",
+    "history-service"
+  ],
+  "concepts": [
+    "timeout",
+    "deployment",
+    "scheduling",
+    "termination",
+    "cron-job",
+    "buffer-overflow"
+  ],
+  "severity": "high",
+  "userImpact": "Production cron jobs fail to execute reliably after deployment, causing scheduled work to be lost or interrupted.",
+  "rootCause": "Possible causes identified in discussion: (1) workflow terminated by client before task scheduling, (2) workflow exceeding operational limits (too many buffered events or large gRPC message size), or (3) deployment/worker configuration issue",
+  "proposedFix": "Migrate to Schedules API which is more powerful and reliable than legacy cron workflows",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer closed ticket indicating no action needed on SDK side; recommended using Schedules API instead and suggested community channels for support",
+  "related": [],
+  "keyQuote": "This happens when a workflow somehow exceeds some operational limit, for example if there are too many buffered events for that workflow, or if buffered events exceeds the maximum gRPC message size.",
+  "number": 1201,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:03.471Z"
+}

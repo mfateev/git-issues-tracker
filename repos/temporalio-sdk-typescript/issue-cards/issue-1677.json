@@ -1,0 +1,39 @@
+{
+  "summary": "Upgrading to OTel Interceptor 1.11.5+ changes execution order of workflow code, causing signal handlers to execute out of order compared to earlier versions and potentially causing non-determinism errors during replay of older workflows.",
+  "category": "bug",
+  "subcategory": "workflow-interceptor-tracing",
+  "apis": [
+    "setHandler",
+    "defineSignal",
+    "signalWithStart"
+  ],
+  "components": [
+    "workflow-interceptor",
+    "otel-interceptor",
+    "signal-handler",
+    "tracing-propagation"
+  ],
+  "concepts": [
+    "non-determinism",
+    "execution-order",
+    "microtask",
+    "promise-completion",
+    "workflow-replay",
+    "tracing-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using OTel interceptor 1.11.5+ experience incorrect signal handler execution order and risk non-determinism errors when replaying older workflows.",
+  "rootCause": "Addition of await statements in signal tracing propagation (#1449) and scheduleLocalActivity promise completion (#1577) convert synchronous execution to microtask execution, changing observable order of operations.",
+  "proposedFix": "SDK interceptors should avoid adding yield points. Document this risk on Workflow Interceptor types to warn user-implemented interceptors of similar issues.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    1449,
+    1577
+  ],
+  "keyQuote": "interceptors provided by the SDK itself should as much as possible avoid adding yield points",
+  "number": 1677,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:02.756Z"
+}

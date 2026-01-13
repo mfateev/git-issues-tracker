@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to allow activities to omit StartToClose or ScheduleToClose timeouts when a Heartbeat timeout is configured, enabling indefinite/long-running activities without requiring arbitrary large timeout values.",
+  "category": "feature",
+  "subcategory": "activity-timeouts",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-lifecycle",
+    "heartbeat",
+    "long-running-activities",
+    "resource-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now define long-running activities with heartbeat monitoring without being forced to set arbitrary large timeout values for other timeout types.",
+  "rootCause": "Current implementation requires explicit StartToClose or ScheduleToClose timeouts even for indefinite activities, forcing users to work around the limitation.",
+  "proposedFix": "Relax the requirement for other timeouts whenever a Heartbeat timeout is set, as heartbeat provides a mechanism to kill and reschedule non-progressing activities.",
+  "workaround": "Users currently set large timeout values as a workaround for indefinite activities.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #377 to consolidate discussion.",
+  "related": [
+    377
+  ],
+  "keyQuote": "Relax the requirement for other timeouts whenever a Heartbeat timeout is set, as that indicates that the activity is long running",
+  "number": 397,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:31.940Z"
+}

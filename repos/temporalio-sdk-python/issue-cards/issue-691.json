@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add a 'passthrough_all_modules' option to SandboxRestrictions that disables import isolation for the sandbox, allowing all modules to pass through without requiring users to explicitly allow-list individual modules.",
+  "category": "feature",
+  "subcategory": "sandbox-configuration",
+  "apis": [],
+  "components": [
+    "sandbox-runner",
+    "sandbox-restrictions",
+    "import-isolation"
+  ],
+  "concepts": [
+    "module-isolation",
+    "determinism",
+    "state-isolation",
+    "sandbox-configuration",
+    "allow-listing"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now disable import isolation for the sandbox without needing to manually allow-list each deterministic module.",
+  "rootCause": null,
+  "proposedFix": "Add a `passthrough_all_modules: bool` field to `SandboxRestrictions` configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow disabling import isolation while maintaining state isolation per workflow.",
+  "related": [],
+  "keyQuote": "This is helpful because it still allows the sandbox to provide state isolation for each workflow, but without requiring users to worry about allow-listing individual modules",
+  "number": 691,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:11.349Z"
+}

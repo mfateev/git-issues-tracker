@@ -1,0 +1,30 @@
+{
+  "summary": "Users struggle with context propagation in SDKs that lack native support for the concept (TypeScript, Python). This feature request asks for context propagators to be added across all SDKs, leveraging interceptor infrastructure to maintain simplicity.",
+  "category": "feature",
+  "subcategory": "context-propagation",
+  "apis": [],
+  "components": [
+    "interceptors",
+    "client-options",
+    "worker-options"
+  ],
+  "concepts": [
+    "context-propagation",
+    "interceptors",
+    "cross-language-parity",
+    "sdk-configuration",
+    "user-extensibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users in TypeScript and Python need explicit context propagators to handle cross-cutting concerns that other languages support natively.",
+  "rootCause": null,
+  "proposedFix": "Implement context propagators using the existing interceptor infrastructure, potentially with configurable hooks in client and worker options classes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Context propagators can be implemented using interceptors and we will likely want to leverage that for the implementation to avoid adding complexity",
+  "number": 206,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:41.278Z"
+}

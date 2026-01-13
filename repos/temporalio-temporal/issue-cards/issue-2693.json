@@ -1,0 +1,30 @@
+{
+  "summary": "Search attribute validation incorrectly uses Payload metadata type instead of the actual Elasticsearch index type, causing validation to pass when it should fail and leading to internal server errors during indexing.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attribute-validator",
+    "payload-decoder",
+    "elasticsearch-indexer"
+  ],
+  "concepts": [
+    "type-validation",
+    "metadata-handling",
+    "search-attributes",
+    "payload-encoding",
+    "type-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "Users receive false success responses when upserting search attributes with incorrect types, only to encounter internal Elasticsearch failures later.",
+  "rootCause": "The DecodeValue function prioritizes the type metadata field in the Payload over the externally supplied type parameter, causing validation to use the wrong type target.",
+  "proposedFix": "Either strip type metadata from Payload before validation or add a decoder mode that prefers the externally supplied type for validation purposes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "MetadataType field has priority over passed type. Validator should cleanup type metadata from the Payload or use another mode for decoder.",
+  "number": 2693,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:29.050Z"
+}

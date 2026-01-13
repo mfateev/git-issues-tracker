@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to evaluate explicit Rails integration/gem for the Ruby SDK, including Rails config/DI, code generation, ActiveJob integration, and ActiveModel/ActiveRecord support. After research and sample development, the team concluded there isn't enough substantial Rails-specific integration needed to justify an explicit gem beyond documentation and samples.",
+  "category": "feature",
+  "subcategory": "rails-integration",
+  "apis": [],
+  "components": [
+    "rails-integration",
+    "code-generation",
+    "active-model-support",
+    "active-record-support",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "framework-integration",
+    "dependency-injection",
+    "orm-support",
+    "code-generation",
+    "active-job",
+    "rails-context",
+    "data-conversion"
+  ],
+  "severity": "low",
+  "userImpact": "Ruby developers using Rails can follow the sample implementation and documentation for Temporal integration without requiring an explicit SDK gem.",
+  "rootCause": null,
+  "proposedFix": "Provide sample Rails application and documentation on using Temporal with Rails, focusing on ActiveModel/ActiveRecord conversion support.",
+  "workaround": "Use plain Ruby SDK without Rails-specific integration; manual client initialization and setup.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team determined that insufficient Rails-specific integration points exist to justify an explicit gem. A sample implementation at https://github.com/temporalio/samples-ruby/tree/main/rails_app was created to demonstrate integration without requiring SDK-level support.",
+  "related": [
+    4
+  ],
+  "keyQuote": "Rails integration has been demonstrated in a sample at https://github.com/temporalio/samples-ruby/tree/main/rails_app, but there is nothing substantial enough over plain Ruby use to justify an explicit integration",
+  "number": 246,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:47.179Z"
+}

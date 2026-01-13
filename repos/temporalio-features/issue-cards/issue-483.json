@@ -1,0 +1,41 @@
+{
+  "summary": "Create a common SDK exception for workflow updates that wraps gRPC CANCELED and DEADLINE_EXCEEDED status codes, representing RPC timeout or cancellation rather than update-specific timeout.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "StartUpdate",
+    "PollUpdateAsync"
+  ],
+  "components": [
+    "update-client",
+    "grpc-error-handling",
+    "exception-mapping"
+  ],
+  "concepts": [
+    "timeout",
+    "cancellation",
+    "rpc-errors",
+    "exception-wrapping",
+    "error-handling",
+    "cross-language-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will have a consistent, language-specific exception to catch when workflow updates fail due to RPC timeout or cancellation, improving error handling across all SDKs.",
+  "rootCause": "gRPC status codes (CANCELED, DEADLINE_EXCEEDED) from update operations need to be wrapped in SDK-level exceptions for better developer ergonomics and consistency.",
+  "proposedFix": "Add WorkflowUpdateRPCTimeoutOrCanceled exception in each SDK that inherits from a base RPCTimeoutOrCanceled exception when possible, thrown when start/poll update returns Canceled or DeadlineExceeded status.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented WorkflowUpdateRPCTimeoutOrCanceled exception across SDKs to wrap gRPC timeout/cancel errors, with base class inheritance where supported by the language.",
+  "related": [
+    1479,
+    2069,
+    1422,
+    529,
+    250,
+    436
+  ],
+  "keyQuote": "Have a new `WorkflowUpdateRPCTimeoutOrCanceled` exception/error in every language... thrown when start update or poll for update returns either `Canceled` or `DeadlineExceeded` status codes",
+  "number": 483,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:04:38.811Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "The logger mutates the `extra` dictionary passed to it without creating a copy first, which modifies the caller's original dictionary. This is a side effect that should be avoided.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logger",
+    "activity",
+    "workflow"
+  ],
+  "concepts": [
+    "mutation",
+    "side-effects",
+    "dictionary-handling",
+    "data-integrity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users passing an `extra` dictionary to activity/workflow loggers will have their original dictionary unexpectedly modified, causing subtle bugs in their code.",
+  "rootCause": "The logger implementation directly mutates the `extra` dictionary parameter instead of copying it first",
+  "proposedFix": "Copy the `extra` dictionary before mutating it in the logger",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If there is an existing `extra` dictionary passed to the logger, copy it before mutating it",
+  "number": 503,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:15.455Z"
+}

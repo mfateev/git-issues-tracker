@@ -1,0 +1,34 @@
+{
+  "summary": "Add a features test for cloud API key authentication over the data plane. The test should run a workflow using Temporal Cloud with an API key for authentication without manually setting namespace headers.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "test-framework",
+    "cloud-client",
+    "authentication",
+    "data-plane"
+  ],
+  "concepts": [
+    "api-key-authentication",
+    "cloud-api",
+    "namespace-configuration",
+    "test-coverage",
+    "data-plane",
+    "client-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures SDK implementations can authenticate with Temporal Cloud using API keys over the data plane without manual namespace configuration.",
+  "rootCause": null,
+  "proposedFix": "Create a test that uses TEMPORAL_CLIENT_CLOUD_API_KEY and TEMPORAL_CLIENT_NAMESPACE environment variables to connect to us-west-2.aws.api.temporal.io:7233 and execute a workflow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "use it and `TEMPORAL_CLIENT_NAMESPACE` env var to test against `us-west-2.aws.api.temporal.io:7233`... with just the API key from a user POV",
+  "number": 595,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:55.716Z"
+}

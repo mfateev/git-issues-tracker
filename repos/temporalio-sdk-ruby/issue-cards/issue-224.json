@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to ensure built-in query responses in the Ruby SDK use \"RawValue\" format, aligning with the cross-SDK features specification.",
+  "category": "feature",
+  "subcategory": "queries",
+  "apis": [
+    "QueryHandler"
+  ],
+  "components": [
+    "query-handler",
+    "response-serialization"
+  ],
+  "concepts": [
+    "queries",
+    "raw-value",
+    "response-format",
+    "built-in-queries",
+    "sdk-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users relying on built-in query responses will get consistent RawValue formatting across all Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement RawValue format for built-in query responses as specified in temporalio/features#604",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed after implementation of RawValue format for built-in queries",
+  "related": [
+    604
+  ],
+  "keyQuote": "Make sure built-in queries return a raw value",
+  "number": 224,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:33.177Z"
+}

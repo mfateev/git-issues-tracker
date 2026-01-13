@@ -1,0 +1,45 @@
+{
+  "summary": "Epic to improve the Java SDK's threading model by reducing thread churn through pooling, event loops, or work-stealing mechanisms to minimize resource overhead and enable better resource management for individual workflows.",
+  "category": "feature",
+  "subcategory": "threading-performance",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "thread-pool",
+    "worker",
+    "task-processor"
+  ],
+  "concepts": [
+    "threading-model",
+    "resource-management",
+    "thread-pooling",
+    "event-loop",
+    "work-stealing",
+    "performance",
+    "scalability"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unnecessary resource overhead and poor scalability due to excessive thread creation for workflow execution.",
+  "rootCause": "Absence of coroutines in Java leads to creation of many short-lived threads for various SDK operations, resulting in thread churn and inefficient resource utilization.",
+  "proposedFix": "Implement pooling, event loops, work-stealing, or similar solutions to minimize thread creation and enable resource constraining per workflow.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Epic closed as GitHub issues are no longer used for epic tracking; progress tracked through individual issue completion.",
+  "related": [
+    294,
+    214,
+    1120,
+    760,
+    998,
+    1456,
+    343,
+    1413,
+    878,
+    1707,
+    1211
+  ],
+  "keyQuote": "Closing since we no longer want to use GH issues as epics",
+  "number": 778,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:41:31.645Z"
+}

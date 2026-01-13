@@ -1,0 +1,33 @@
+{
+  "summary": "Add RpcRetryOption DTO for PHP SDK client calls with support for RESOURCE_EXHAUSTED error handling and congestion-aware retry intervals, following the Java SDK pattern. RpcRetryOption should inherit from RetryOptions for backward compatibility.",
+  "category": "feature",
+  "subcategory": "rpc-retry-policy",
+  "apis": [],
+  "components": [
+    "client",
+    "rpc-layer",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "congestion",
+    "resource-exhausted",
+    "rpc-options",
+    "backward-compatibility",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can configure separate RPC-level retry policies with better handling of RESOURCE_EXHAUSTED errors, improving reliability under congestion.",
+  "rootCause": null,
+  "proposedFix": "Create RpcRetryOption DTO with CongestionInitialInterval setting and optional Jitter support, inheriting from RetryOptions initially for backward compatibility",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "RpcRetryOption DTO was implemented with congestion-aware retry handling for RESOURCE_EXHAUSTED errors",
+  "related": [
+    1465
+  ],
+  "keyQuote": "add an RpcRetryOption DTO, which will include a new option CongestionInitialInterval, affecting how RESOURCE_EXHAUSTED errors are handled",
+  "number": 421,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:10.444Z"
+}

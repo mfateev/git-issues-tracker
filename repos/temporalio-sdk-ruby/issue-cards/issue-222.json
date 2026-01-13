@@ -1,0 +1,31 @@
+{
+  "summary": "Add a test to verify that workflows using randomness produce different values after reset-point resets. The test should run a workflow with random inputs to activities, reset at a midpoint, and confirm that pre-reset values remain the same while post-reset values differ.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-replay",
+    "test-utilities",
+    "randomness-seed"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "randomness",
+    "determinism",
+    "history-replay",
+    "testing",
+    "seed-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users need test coverage to ensure workflow resets properly update randomness seeds and produce different results after reset points.",
+  "rootCause": null,
+  "proposedFix": "Create a test workflow that executes activities with random-generated inputs, record the history, reset the workflow between two activities, re-execute, and assert that pre-reset values match but post-reset values differ.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add a test that will confirm post-reset-point workflows have a different update seed.",
+  "number": 222,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:46:31.403Z"
+}

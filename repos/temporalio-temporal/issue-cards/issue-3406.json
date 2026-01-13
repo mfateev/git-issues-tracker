@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow signals currently trigger immediate workflow task scheduling even when not needed. Users request an optional flag to skip workflow task creation when receiving signals, allowing batching of multiple signals before processing to improve resource efficiency.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "SignalWorkflow"
+  ],
+  "components": [
+    "workflow-task-scheduler",
+    "signal-processor",
+    "server"
+  ],
+  "concepts": [
+    "signal-batching",
+    "resource-efficiency",
+    "workflow-scheduling",
+    "delayed-processing",
+    "task-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications that receive multiple signals in quick succession waste server resources by creating unnecessary workflow tasks instead of batching signals together.",
+  "rootCause": null,
+  "proposedFix": "Add an optional SkipNewWorkflowTask flag to signal requests to prevent automatic workflow task scheduling",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "trigger a new workflow task on each received signal is a significant waste of resource",
+  "number": 3406,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:47.838Z"
+}

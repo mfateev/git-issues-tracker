@@ -1,0 +1,34 @@
+{
+  "summary": "Standardize gRPC retry periods across all Temporal SDKs to handle namespace migrations and ensure consistent behavior. Currently, retry durations vary significantly between SDKs (TypeScript Client: ~2s, Java Client: 60s), and some SDKs don't retry initial connections.",
+  "category": "feature",
+  "subcategory": "grpc-retry",
+  "apis": [],
+  "components": [
+    "client",
+    "grpc-retry",
+    "connection-management"
+  ],
+  "concepts": [
+    "retry",
+    "connection",
+    "timeout",
+    "namespace-migration",
+    "unavailability",
+    "latency",
+    "error-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Inconsistent retry behavior across SDKs can lead to unexpected failures during namespace migrations or transient outages, affecting application reliability and cloud deployment experience.",
+  "rootCause": "Each SDK has independently implemented retry logic with different strategies, thresholds, and coverage (some don't retry initial connections).",
+  "proposedFix": "Establish unified default retry period of at least 10s + buffer across all SDKs, coordinate with Server and Cloud teams on expected behavior, and ensure all SDKs retry initial connections.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    27
+  ],
+  "keyQuote": "Figure out what default retry period we want Clients to have & apply it across the board. IMO it should be at least 10s + some buffer.",
+  "number": 326,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:49.716Z"
+}

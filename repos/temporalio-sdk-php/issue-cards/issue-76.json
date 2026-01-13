@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add upsert Search Attribute functionality to the PHP SDK. The team confirmed this would be implemented after the release as a quick addition.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "UpsertSearchAttributes"
+  ],
+  "components": [
+    "search-attributes",
+    "workflow-client"
+  ],
+  "concepts": [
+    "search-attributes",
+    "upsert",
+    "workflow-metadata",
+    "dynamic-attributes"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot update search attributes for running workflows in the PHP SDK, limiting workflow discoverability and metadata management capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement upsert Search Attribute API in PHP SDK following patterns from other SDKs",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented in the PHP SDK after the release as planned by the maintainers",
+  "related": [],
+  "keyQuote": "We will add upsert attribute after the release, it's quick to do.",
+  "number": 76,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:03.292Z"
+}

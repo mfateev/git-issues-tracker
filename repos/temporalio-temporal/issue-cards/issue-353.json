@@ -1,0 +1,31 @@
+{
+  "summary": "UI displays incorrect timestamps for workflows, always showing the most recent event timestamp instead of the correct timestamp for each individual workflow. This is a duplicate issue reported in the temporal-web repository.",
+  "category": "bug",
+  "subcategory": "ui-timestamp",
+  "apis": [],
+  "components": [
+    "ui",
+    "temporal-web",
+    "workflow-display"
+  ],
+  "concepts": [
+    "timestamp",
+    "event-ordering",
+    "ui-display",
+    "data-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately track when individual workflows were triggered because the UI displays the wrong timestamp for all workflows.",
+  "rootCause": "temporal-web repository issue causing incorrect timestamp assignment to workflow events",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of temporalio/temporal-web#33 which contains the fix and more details about the issue",
+  "related": [
+    33
+  ],
+  "keyQuote": "Multiple workflows get triggered within different times of the day, but it looks like it just sets everything to the newest date.",
+  "number": 353,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:52:03.242Z"
+}

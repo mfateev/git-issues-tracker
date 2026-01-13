@@ -1,0 +1,31 @@
+{
+  "summary": "gson-2.8.8 dependency contains two high-severity vulnerabilities (WS-2021-0419 and CVE-2022-25647) that enable Denial of Service attacks via the writeReplace() method. Both vulnerabilities are fixed in gson-2.8.9.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "gradle-build",
+    "dependency-management",
+    "gson-library"
+  ],
+  "concepts": [
+    "deserialization",
+    "denial-of-service",
+    "vulnerability",
+    "security",
+    "dependency-upgrade",
+    "cvss-score"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using gson-2.8.8 are vulnerable to DoS attacks through deserialization of untrusted data via the writeReplace() method.",
+  "rootCause": "Insecure deserialization handling in gson-2.8.8's writeReplace() method allows attackers to trigger DoS conditions.",
+  "proposedFix": "Upgrade gson from 2.8.8 to 2.8.9 to patch both vulnerabilities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend when the vulnerable library was removed from inventory or marked as ignored in the build configuration.",
+  "related": [],
+  "keyQuote": "Upgrade version to 2.8.9 (Release Date: 2021-10-11 and 2022-05-01)",
+  "number": 109,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:52.261Z"
+}

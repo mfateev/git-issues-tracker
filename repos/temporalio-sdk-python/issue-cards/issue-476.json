@@ -1,0 +1,35 @@
+{
+  "summary": "In heavily-loaded multiprocess workers, heartbeat queue polling times out when activities send heartbeats too frequently or with complex serialized details, causing the parent process to hang and stop processing further heartbeats, which fills the queue and blocks activity liveness.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "heartbeat"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "multiprocessing-manager",
+    "heartbeat-processor"
+  ],
+  "concepts": [
+    "timeout",
+    "queue",
+    "multiprocessing",
+    "heartbeat",
+    "serialization",
+    "concurrency",
+    "data-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Users running heavily-loaded multiprocess workers experience worker hangs and inability to process tasks when activities send frequent heartbeats.",
+  "rootCause": "The primary process cannot process the heartbeat queue fast enough when activities send heartbeats too frequently or with complex serialized details (especially Pydantic 2.x objects), causing Future.result(10) to timeout and the heartbeat processor to stop, leaving the queue blocked.",
+  "proposedFix": "Throw an exception to shut down the entire worker when heartbeat processing fails, rather than silently returning and leaving the queue in a dysfunctional state.",
+  "workaround": "Omit heartbeat details when sending heartbeats to reduce data conversion overhead; use standard threaded or async activities with multiprocessing invoked inside, rather than multiprocess activities.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I believe the worker is not processing heartbeats faster than you are sending them and at some point it's a timeout. We can't queue heartbeats indefinitely.",
+  "number": 476,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:02.595Z"
+}

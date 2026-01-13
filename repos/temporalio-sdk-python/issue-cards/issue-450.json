@@ -1,0 +1,35 @@
+{
+  "summary": "User encounters RestrictedWorkflowAccessError when using pathlib.Path.resolve() inside a workflow. The sandbox prevents access to pathlib methods, and the user seeks ways to disable restrictions while maintaining deterministic behavior.",
+  "category": "question",
+  "subcategory": "sandbox-restrictions",
+  "apis": [
+    "workflow.defn",
+    "workflow.unsafe.imports_passed_through",
+    "workflow.unsafe.sandbox_unrestricted"
+  ],
+  "components": [
+    "sandbox",
+    "workflow-execution",
+    "import-restrictions"
+  ],
+  "concepts": [
+    "determinism",
+    "sandboxing",
+    "pathlib",
+    "workflow-safety",
+    "import-passthrough",
+    "disk-access"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to use pathlib or other restricted modules in workflows receive errors and need to understand workarounds or disable sandboxing.",
+  "rootCause": "The workflow sandbox restricts access to pathlib.Path methods to enforce deterministic workflow execution, as disk-based operations are non-deterministic.",
+  "proposedFix": null,
+  "workaround": "Use `@workflow.defn(sandboxed=False)` to disable sandboxing entirely, or use `temporalio.workflow.unsafe.sandbox_unrestricted()` context manager for specific operations.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as a question rather than a bug. The behavior is intentional - sandboxing prevents non-deterministic disk access. Workarounds and documentation references were provided.",
+  "related": [],
+  "keyQuote": "You can use temporalio.workflow.unsafe.sandbox_unrestricted() for specific operations, but disk-based calls from inside workflows are strongly discouraged.",
+  "number": 450,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:56.546Z"
+}

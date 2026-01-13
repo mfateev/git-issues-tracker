@@ -1,0 +1,32 @@
+{
+  "summary": "User unable to run Temporal TypeScript SDK in Meteor 2.7.3 environment due to AsyncLocalStorage conflicts with Meteor's fiber-based architecture, causing crashes when calling Connection.connect().",
+  "category": "question",
+  "subcategory": "environment-compatibility",
+  "apis": [
+    "Connection.connect"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "async-hooks"
+  ],
+  "concepts": [
+    "AsyncLocalStorage",
+    "fibers",
+    "meteor-integration",
+    "promise-handling",
+    "async-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Temporal TypeScript SDK within Meteor 2.7.3 applications due to environment incompatibility.",
+  "rootCause": "Meteor uses fibers which conflict with AsyncLocalStorage's internal async_hooks implementation, causing a Symbol(kResourceStore) property access error during promise initialization.",
+  "proposedFix": "Degrade client capabilities when AsyncLocalStorage cannot be accessed, or allow SDK to run without AsyncLocalStorage dependency.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed by user agreement after exploration; appears to be an environment-specific limitation rather than SDK bug.",
+  "related": [],
+  "keyQuote": "We could look into degrading the client capabilities when AsyncLocalStorage cannot be accessed.",
+  "number": 921,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:23:36.400Z"
+}

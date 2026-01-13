@@ -1,0 +1,30 @@
+{
+  "summary": "Decision needed on the default value for EmitMetric attribute in Domain Config. Currently defaults to false, requiring users to explicitly enable metrics for each domain. The issue proposes three options: default to true (not recommended for protobuf), keep false and require explicit opt-in, or rename to DisableMetric to enable by default.",
+  "category": "feature",
+  "subcategory": "domain-configuration",
+  "apis": [],
+  "components": [
+    "domain-config",
+    "metrics",
+    "proto-definitions"
+  ],
+  "concepts": [
+    "metrics",
+    "domain-registration",
+    "default-behavior",
+    "configuration",
+    "proto-defaults"
+  ],
+  "severity": "low",
+  "userImpact": "Users must explicitly enable metrics for each domain during registration, which could be inconvenient if metrics are desired for most domains by default.",
+  "rootCause": null,
+  "proposedFix": "Rename EmitMetric attribute to DisableMetric so that metrics are enabled by default with a default value of false, eliminating the need for explicit opt-in.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing option 3 - renaming the attribute to DisableMetric to enable metrics by default.",
+  "related": [],
+  "keyQuote": "Rename attribute to \"DisableMetric\": Default value of false will cause it to enable metric by default for domains.",
+  "number": 162,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:20:55.945Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "User asks whether PHP SDK supports timeout settings when waiting for signals in workflows. The question is resolved by pointing to the awaitWithTimeout function.",
+  "category": "question",
+  "subcategory": "signal-handling",
+  "apis": [
+    "awaitWithTimeout",
+    "await"
+  ],
+  "components": [
+    "workflow-execution",
+    "signal-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "signal",
+    "awaiting",
+    "workflow-pause"
+  ],
+  "severity": "low",
+  "userImpact": "Users need to know the correct API to use when they want to wait for signals with a timeout.",
+  "rootCause": null,
+  "proposedFix": "Use awaitWithTimeout function or await with signal and custom timer.",
+  "workaround": "Use custom timer alongside await with signal.",
+  "resolution": "fixed",
+  "resolutionDetails": "User was directed to use awaitWithTimeout function which provides the requested timeout functionality.",
+  "related": [],
+  "keyQuote": "try to use awaitWithTimeout or use await with signal and custom timer",
+  "number": 109,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:04.419Z"
+}

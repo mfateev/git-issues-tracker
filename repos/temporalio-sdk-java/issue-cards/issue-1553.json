@@ -1,0 +1,30 @@
+{
+  "summary": "Add public FailureConverter API to allow customizing error-to-failure conversion with support for encrypting failure attributes like message and stack trace. This API was already implemented in the other 3 major SDKs.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "FailureConverter",
+    "DefaultFailureConverter",
+    "error-conversion"
+  ],
+  "concepts": [
+    "error-handling",
+    "failure-conversion",
+    "encryption",
+    "customization",
+    "cross-sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently customize how errors are converted to failures or encrypt sensitive failure attributes, limiting security and flexibility in error handling.",
+  "rootCause": null,
+  "proposedFix": "Implement public FailureConverter API with DefaultFailureConverter supporting encryption of common failure attributes (message, stack_trace).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "FailureConverter API was implemented to match the other major SDKs, allowing customization of error-to-failure conversion and encryption of failure attributes.",
+  "related": [],
+  "keyQuote": "Add public `FailureConverter` API to allow customizing error <-> failure conversion and `DefaultFailureConverter` implementation that supports encrypting common failure attributes",
+  "number": 1553,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:29.474Z"
+}

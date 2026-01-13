@@ -1,0 +1,33 @@
+{
+  "summary": "Documentation samples for mTLS and authorization configurations in samples-server are outdated and incompatible with the current version of Temporal, causing build failures when following the documented steps.",
+  "category": "docs",
+  "subcategory": "samples-documentation",
+  "apis": [],
+  "components": [
+    "samples-server",
+    "mTLS-configuration",
+    "authorization"
+  ],
+  "concepts": [
+    "configuration",
+    "compatibility",
+    "documentation-accuracy",
+    "samples",
+    "setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot successfully build and run the sample code referenced in official documentation, blocking their ability to learn and implement mTLS and authorization patterns.",
+  "rootCause": "Sample code in samples-server repository is not compatible with the current version of Temporal, with outdated mTLS and authorization configurations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by samples-server PR #109",
+  "related": [
+    100,
+    109
+  ],
+  "keyQuote": "Temporal documentation ask us to refer to https://github.com/temporalio/samples-server/tree/main. But its mTLS and authorization configurations doesnt work.",
+  "number": 7220,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:54.701Z"
+}

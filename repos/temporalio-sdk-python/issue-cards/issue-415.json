@@ -1,0 +1,29 @@
+{
+  "summary": "Request to add an `in_workflow()` function to the Python SDK that allows code to detect if it's running within a workflow context, similar to Java's `isWorkflowThread()` and TypeScript's `inWorkflowContext()`. The implementer acknowledges this is not technically unsafe despite potentially being placed in an unsafe module.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [],
+  "components": [
+    "workflow",
+    "context-detection"
+  ],
+  "concepts": [
+    "workflow-context",
+    "thread-detection",
+    "runtime-detection",
+    "unsafe-operations",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users need a way to conditionally execute code based on whether they're running inside a workflow or in regular code.",
+  "rootCause": null,
+  "proposedFix": "Add `temporalio.workflow.in_workflow()` function to detect workflow context, potentially not requiring an unsafe module despite convention.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and issue closed",
+  "related": [],
+  "keyQuote": "Similar to Java's isWorkflowThread() or TypeScript's inWorkflowContext, but discourage its use of course.",
+  "number": 415,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:49.077Z"
+}

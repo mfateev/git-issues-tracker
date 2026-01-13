@@ -1,0 +1,32 @@
+{
+  "summary": "Frontend handler retry count is set too high (5) compared to other system components (2), causing excessive retries of up to 18 times for failed workflow history requests. Proposal is to reduce frontendHandlerRetryMaxAttempts to 3 after fixing a related retry amplification issue.",
+  "category": "bug",
+  "subcategory": "frontend-handler",
+  "apis": [],
+  "components": [
+    "frontend-handler",
+    "history-client",
+    "workflow-history"
+  ],
+  "concepts": [
+    "retry",
+    "performance",
+    "max-attempts",
+    "exponential-backoff",
+    "system-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Excessive retries increase latency and reduce system efficiency for workflow history operations.",
+  "rootCause": "Frontend handler retry configuration is inconsistent with rest of the system; combined with retry amplification in issue #4732, causes up to 18 retry attempts",
+  "proposedFix": "Reduce frontendHandlerRetryMaxAttempts from 5 to 3, ensuring maximum 6 retries when combined with client layer retries",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue has been closed, indicating the retry count reduction and associated fix have been implemented",
+  "related": [
+    4732
+  ],
+  "keyQuote": "a bad read workflow history request can be retried up to (5+1) * (2+1) = 18 times!",
+  "number": 4733,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:31.103Z"
+}

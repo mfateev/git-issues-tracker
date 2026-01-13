@@ -1,0 +1,33 @@
+{
+  "summary": "APIs return unhelpful error messages like 'sql: no rows in result set' when targeting nonexistent workflows. Users should receive meaningful, user-facing error messages instead of database layer errors.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "WorkflowService.RequestCancelWorkflow",
+    "UpdateSchedule"
+  ],
+  "components": [
+    "frontend",
+    "error-handling",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "error-messages",
+    "user-experience",
+    "workflow-not-found",
+    "schedule-management",
+    "api-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive confusing database error messages instead of clear, actionable error descriptions when attempting operations on nonexistent workflows or schedules.",
+  "rootCause": "Error messages from the persistence layer (SQL/Cassandra) are being propagated directly to API responses instead of being wrapped with context-specific, user-friendly messages.",
+  "proposedFix": "Wrap database errors with meaningful error messages that describe the operation and missing resource, e.g., 'Workflow foo-bar was not found when attempting workflow cancellation'.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by improving error message handling to prevent raw database errors from leaking into API responses.",
+  "related": [],
+  "keyQuote": "The message in the response should be something meaningful like 'Workflow foo-bar was not found when attempting workflow cancellation', rather than some message straight out of the database.",
+  "number": 4118,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:03.743Z"
+}

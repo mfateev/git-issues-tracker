@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request for worker auto-tuning to maximize resource utilization by automatically configuring worker slots and polling parameters. Design still needs to be finalized with implementations planned across all SDKs (Go, Java, Core, TypeScript, Python, .NET).",
+  "category": "feature",
+  "subcategory": "worker-performance",
+  "apis": [],
+  "components": [
+    "worker",
+    "poller",
+    "slot-management",
+    "resource-utilization"
+  ],
+  "concepts": [
+    "auto-tuning",
+    "resource-optimization",
+    "worker-configuration",
+    "polling",
+    "performance-tuning",
+    "load-balancing"
+  ],
+  "severity": "high",
+  "userImpact": "Users currently require manual worker tuning with inconsistent behavior across SDKs, creating significant operational burden for dev teams.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1322,
+    1956,
+    662
+  ],
+  "keyQuote": "this is quite a pain point for customers—dev-success folks are having to help out a lot with tuning, and having differences in behavior/semantics across different SDKs is only making things harder",
+  "number": 334,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:07.904Z"
+}

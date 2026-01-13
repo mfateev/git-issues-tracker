@@ -1,0 +1,32 @@
+{
+  "summary": "Request to allow overriding activity options (timeout, retry, etc.) on a per-call basis rather than being locked to the stub configuration. Currently requires creating a new stub for each different option set.",
+  "category": "feature",
+  "subcategory": "activity-options",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-stub",
+    "options-configuration",
+    "activity-executor"
+  ],
+  "concepts": [
+    "option-override",
+    "per-call-configuration",
+    "activity-timeout",
+    "activity-retry",
+    "stub-reuse"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are forced to create multiple stubs to call the same activity with different options, reducing code reusability and adding complexity.",
+  "rootCause": null,
+  "proposedFix": "Add an API to support calling an activity method with an option override, allowing options to be specified at call time rather than stub creation time.",
+  "workaround": "Create a new stub for each unique set of options needed.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would like to call an activity method with specific options that are different from the options I used to create the stub.",
+  "number": 2598,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:59.794Z"
+}

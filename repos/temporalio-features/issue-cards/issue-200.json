@@ -1,0 +1,34 @@
+{
+  "summary": "Request for a versioning mechanism that allows SDKs to fix issues affecting workflow execution without adding marker events for every change. Proposes adding an incremental integer to WorkflowTaskCompletedRequest or VersionId, with server capability signaling to support conditional SDK fixes on replay.",
+  "category": "feature",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "RespondWorkflowTaskCompletedRequest",
+    "WorkflowTaskCompletedEventAttributes",
+    "VersionId"
+  ],
+  "components": [
+    "workflow-execution",
+    "history-events",
+    "capability-negotiation"
+  ],
+  "concepts": [
+    "versioning",
+    "backward-compatibility",
+    "replay",
+    "server-capabilities",
+    "event-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "SDKs can implement targeted fixes for workflow execution bugs without the cost of adding marker events for every SDK version change.",
+  "rootCause": null,
+  "proposedFix": "Add an incremental integer field to either RespondWorkflowTaskCompletedRequest/WorkflowTaskCompletedEventAttributes or VersionId to track SDK versions, with server capability signaling to enable conditional fix application during replay.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with versioning support added to the Temporal API for internal SDK version tracking.",
+  "related": [],
+  "keyQuote": "We should get to leverage the same type of versioning/patching our users do. However, it may be a bit unreasonable to add a new marker event for every single workflow henceforth",
+  "number": 200,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:15.950Z"
+}

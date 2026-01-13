@@ -1,0 +1,31 @@
+{
+  "summary": "Search results on javadoc.io for Temporal Java SDK documentation produce AccessDenied errors due to an `/undefined/` path segment being added to URLs when following search links, while direct navigation works correctly.",
+  "category": "bug",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "javadoc-hosting",
+    "documentation-site"
+  ],
+  "concepts": [
+    "search",
+    "url-routing",
+    "documentation-access",
+    "javadoc.io",
+    "api-docs"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access API documentation through javadoc.io search functionality, forcing them to manually navigate or use alternative documentation sources.",
+  "rootCause": "The `/undefined/` path segment is being incorrectly appended to URLs when following search results on javadoc.io, causing permission/access denied errors.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Already addressed in issue #1078",
+  "related": [
+    1078
+  ],
+  "keyQuote": "navigating to any page in the search results seems to produce an AccessDenied error... /undefined/ path segment added to the URL when following search results",
+  "number": 1104,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:06:22.074Z"
+}

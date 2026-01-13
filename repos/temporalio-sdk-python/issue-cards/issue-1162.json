@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow activities defined as tools to be executed as local activities by adding an optional parameter to the `activity_as_tool` function that would use `execute_local_activity` instead of `execute_activity`.",
+  "category": "feature",
+  "subcategory": "activity-tools",
+  "apis": [
+    "execute_activity",
+    "execute_local_activity",
+    "activity_as_tool"
+  ],
+  "components": [
+    "activity-executor",
+    "tool-integration",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "local-activity",
+    "tool-definition",
+    "activity-execution",
+    "openai-integration",
+    "activity-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently execute activities defined as OpenAI tools as local activities, limiting performance optimization options.",
+  "rootCause": null,
+  "proposedFix": "Add a boolean parameter (e.g., `as_local_activity`) to the `activity_as_tool` function that uses `execute_local_activity` when set to true.",
+  "workaround": "Define a custom function tool that directly calls `workflow.execute_local_activity` with the specific local activity instead of using `activity_as_tool`.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainer indicated they would consider the functionality but suggested using a custom function tool as a simpler alternative, implying the feature was deprioritized.",
+  "related": [],
+  "keyQuote": "In the meantime, you are welcome to define a function tool which runs your specific local activity.",
+  "number": 1162,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:20.869Z"
+}

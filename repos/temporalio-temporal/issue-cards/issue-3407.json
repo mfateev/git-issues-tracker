@@ -1,0 +1,29 @@
+{
+  "summary": "Docker is not running error message is confusing. When docker-compose script fails due to Docker not being started, the error message should clearly indicate 'Docker is not running' instead of a low-level FileNotFoundError about missing socket files.",
+  "category": "bug",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "error-handling"
+  ],
+  "concepts": [
+    "docker",
+    "setup",
+    "error-messaging",
+    "developer-experience",
+    "dependency-check"
+  ],
+  "severity": "low",
+  "userImpact": "Developers debugging docker-compose failures get a cryptic error message that doesn't clearly indicate Docker needs to be started.",
+  "rootCause": "Error message from Docker client is not user-friendly; missing high-level check for Docker daemon availability.",
+  "proposedFix": "Catch the Docker connection error and display a clear message: 'Docker is not running'",
+  "workaround": "Start docker before running docker-compose script",
+  "resolution": "wontfix",
+  "resolutionDetails": "Marked as external tool issue - Docker error messaging is outside Temporal's control",
+  "related": [],
+  "keyQuote": "Error message should be docker is not running",
+  "number": 3407,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:46.922Z"
+}

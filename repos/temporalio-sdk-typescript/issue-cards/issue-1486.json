@@ -1,0 +1,30 @@
+{
+  "summary": "Review whether `untrackPromise` is being used correctly in the update implementation. Discussion in PR #1459 raised concerns about its usage patterns.",
+  "category": "bug",
+  "subcategory": "update-implementation",
+  "apis": [],
+  "components": [
+    "update-implementation",
+    "promise-tracking"
+  ],
+  "concepts": [
+    "promise-handling",
+    "untracking",
+    "async-operations",
+    "implementation-review"
+  ],
+  "severity": "medium",
+  "userImpact": "Improper use of `untrackPromise` could lead to promise tracking issues or memory leaks in update operations.",
+  "rootCause": "Potential misuse of `untrackPromise` in the update implementation as flagged in PR #1459 discussions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1459
+  ],
+  "keyQuote": "Review use of `untrackPromise` in update implementation",
+  "number": 1486,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:59.043Z"
+}

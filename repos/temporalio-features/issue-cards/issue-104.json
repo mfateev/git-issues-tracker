@@ -1,0 +1,32 @@
+{
+  "summary": "Add CLI support for preparing SDK directories with pre-downloaded dependencies and a flag to use prepared directories in the run command instead of temporary directories.",
+  "category": "feature",
+  "subcategory": "cli-packaging",
+  "apis": [],
+  "components": [
+    "cli",
+    "package-manager",
+    "container-preparation"
+  ],
+  "concepts": [
+    "build-preparation",
+    "dependency-caching",
+    "container-image",
+    "offline-installation",
+    "directory-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables containerized SDK execution by allowing pre-downloaded dependencies and reusable prepared directories instead of temporary ones.",
+  "rootCause": null,
+  "proposedFix": "Implement a 'prepare' command that bakes pre-run steps into a container and add --prepared-dir flag to run command.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support preparing SDKs for container deployment with pre-downloaded dependencies.",
+  "related": [
+    71
+  ],
+  "keyQuote": "Need a command to \"prepare\" a dir for run the same way we prepare a temp dir during run today",
+  "number": 104,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:38.611Z"
+}

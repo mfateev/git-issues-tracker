@@ -1,0 +1,33 @@
+{
+  "summary": "Request for pluggable authorization system that allows loading authorization implementations without recompiling Temporal Server. Users want to either load plugins via Go plugin interface or call external services like OPA (Open Policy Agent).",
+  "category": "feature",
+  "subcategory": "authorization-plugins",
+  "apis": [],
+  "components": [
+    "authorization",
+    "authorizer-interface",
+    "config-management",
+    "plugin-system"
+  ],
+  "concepts": [
+    "pluggable-architecture",
+    "authorization-policies",
+    "external-services",
+    "open-policy-agent",
+    "runtime-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently recompile Temporal Server to add custom authorization logic; external authorization would allow dynamic policy updates without recompilation.",
+  "rootCause": "Authorization interface is tightly coupled to the server binary, requiring recompilation for custom implementations.",
+  "proposedFix": "Support pluggable authorizers through Go plugin interface or OPA integration; add OPA authorizer implementation with configurable endpoint.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "OPA authorizer implementation was contributed and merged via PR #3702.",
+  "related": [
+    3702
+  ],
+  "keyQuote": "I would like to implement a generic authorizer that loads a plugin using the golang plugin interface. Or a generic authorizer that calls an external Open Policy Agent server.",
+  "number": 844,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:11.112Z"
+}

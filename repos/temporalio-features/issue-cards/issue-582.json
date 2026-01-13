@@ -1,0 +1,33 @@
+{
+  "summary": "The continue_as_new/continue_as_same feature fails in cloud environments with deadline exceeded and workflow execution already started exceptions. The workflow exits prematurely and assertions fail before completion, indicating timing issues with the feature's cloud integration.",
+  "category": "bug",
+  "subcategory": "continue-as-new",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "cloud-integration",
+    "test-harness"
+  ],
+  "concepts": [
+    "deadline",
+    "workflow-continuation",
+    "cloud-testing",
+    "state-management",
+    "task-queue",
+    "workflow-id-reuse"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably test or use continue_as_new/continue_as_same workflows in cloud environments due to timeout and execution conflicts.",
+  "rootCause": "Workflow type 'Workflow' is used globally across all task queues in test harness, causing conflicts and race conditions when multiple workflows with the same name try to execute. Additionally, cloud implementation has timing issues causing premature workflow exit.",
+  "proposedFix": "Use unique workflow names per task queue to avoid naming conflicts in the test harness.",
+  "workaround": "Set a unique name for the Workflow to avoid conflicts with Workflows of the same name from other TaskQueues.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by updating test harness to use unique workflow identifiers per task queue.",
+  "related": [
+    481
+  ],
+  "keyQuote": "With this bug, all Harness tests might be flaky because the Workflow type 'Workflow' is used everywhere (but with different TaskQueues)",
+  "number": 582,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:10.137Z"
+}

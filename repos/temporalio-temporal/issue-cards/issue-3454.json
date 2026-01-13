@@ -1,0 +1,31 @@
+{
+  "summary": "Range queries (using >= and < operators) fail with SQLite driver in Temporalite, returning an error that these operators are not allowed in comparison expressions. The issue is resolved once advanced visibility API support is added to SQL databases.",
+  "category": "bug",
+  "subcategory": "visibility-queries",
+  "apis": [],
+  "components": [
+    "temporalite",
+    "sqlite-driver",
+    "visibility-api",
+    "query-engine"
+  ],
+  "concepts": [
+    "range-queries",
+    "filtering",
+    "visibility",
+    "sql-support",
+    "operator-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot perform range-based workflow queries with Temporalite using SQLite backend, limiting ability to filter workflows by ID ranges.",
+  "rootCause": "Advanced visibility API support was not implemented for SQL databases at the time of the issue; the SQLite driver did not support >= and < operators in comparison expressions.",
+  "proposedFix": "Implement advanced visibility API support on SQL databases to enable range query operators.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by implementing advanced visibility API support on SQL databases, which added support for range query operators like >= and <.",
+  "related": [],
+  "keyQuote": "This will be fixed when the advanced visibility API is supported on SQL. We are actively working on that.",
+  "number": 3454,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:35.872Z"
+}

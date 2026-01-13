@@ -1,0 +1,32 @@
+{
+  "summary": "CVE-2022-32149 in golang.org/x/text v0.3.7 allows denial of service through crafted Accept-Language headers. This is a transitive dependency of ringpop-go with CVSS score 7.5 (High severity).",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "ringpop-go",
+    "golang.org/x/text",
+    "golang.org/x/net"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "dependency-management",
+    "security",
+    "cvss-score",
+    "transitive-dependency",
+    "header-parsing"
+  ],
+  "severity": "high",
+  "userImpact": "Users of Temporal are potentially vulnerable to denial of service attacks through malicious Accept-Language headers.",
+  "rootCause": "Inefficient parsing logic in golang.org/x/text ParseAcceptLanguage function allows attackers to craft headers that consume significant parsing time.",
+  "proposedFix": "Upgrade golang.org/x/text from v0.3.7 to v0.3.8 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was either marked as ignored or is no longer part of the Mend inventory.",
+  "related": [],
+  "keyQuote": "An attacker may cause a denial of service by crafting an Accept-Language header which ParseAcceptLanguage will take significant time to parse.",
+  "number": 3514,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:11.204Z"
+}

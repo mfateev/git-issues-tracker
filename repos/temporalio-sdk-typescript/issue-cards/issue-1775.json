@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add support for generating UUIDv7 in workflow tasks, similar to the existing uuid4() function. Users need this for better indexing and sorting semantics, but cannot use the npm uuid package due to its crypto module dependency.",
+  "category": "feature",
+  "subcategory": "workflow-utilities",
+  "apis": [
+    "uuid4"
+  ],
+  "components": [
+    "workflow",
+    "uuid-generation",
+    "utilities"
+  ],
+  "concepts": [
+    "UUID",
+    "v7-uuid",
+    "deterministic-id-generation",
+    "indexing",
+    "sorting",
+    "timestamp-based-id",
+    "workflow-isolation"
+  ],
+  "severity": "low",
+  "userImpact": "Users need UUID v7 generation capability within workflows for better temporal ordering and indexing of generated identifiers.",
+  "rootCause": null,
+  "proposedFix": "Add a uuid7() function with an identical signature to uuid4(), using DataView and ArrayBuffer to generate RFC-compliant UUIDv7 values with timestamp-based components.",
+  "workaround": "Users have implemented their own uuid7() function in their codebase as a workaround.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We currently use the `uuid4()` function pretty heavily to generate unique ids within Workflow Tasks. For some use cases we want to generate UUIDv7 IDs for better indexing and sorting semantics.",
+  "number": 1775,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:49.944Z"
+}

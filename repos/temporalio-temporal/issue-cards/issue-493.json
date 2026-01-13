@@ -1,0 +1,31 @@
+{
+  "summary": "Support for dynamic cluster IP addresses when all nodes fail simultaneously and restart with new IPs. Currently, nodes attempt to join previous cluster members instead of initializing a new cluster, causing cascading failures.",
+  "category": "feature",
+  "subcategory": "cluster-membership",
+  "apis": [],
+  "components": [
+    "ringpop",
+    "cluster-coordinator",
+    "membership-database"
+  ],
+  "concepts": [
+    "cluster-failure",
+    "ip-address-change",
+    "node-restart",
+    "cluster-initialization",
+    "container-deployment",
+    "membership-coordination"
+  ],
+  "severity": "high",
+  "userImpact": "Users running containerized Temporal clusters face cascading failures when all nodes fail and restart with new IP addresses.",
+  "rootCause": "Membership coordination in the database cannot distinguish new replacement nodes from previously down nodes when IP addresses change, causing new nodes to attempt joining non-existent cluster members instead of forming a new cluster.",
+  "proposedFix": "Retry initialization logic after the healthyHostLastHeartbeatCutoff timeout (20 seconds) to allow new nodes to detect stale cluster state and bootstrap independently.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was implemented or the underlying problem was resolved through cluster initialization logic improvements.",
+  "related": [],
+  "keyQuote": "there is no way to identify that these new nodes are replacement nodes for previously heartbeating members",
+  "number": 493,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:01:48.606Z"
+}

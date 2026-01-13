@@ -1,0 +1,31 @@
+{
+  "summary": "CancelWorkflow API does not properly cancel activities in version 1.6.0. The workflow transitions to PENDING_ACTIVITY_STATE_CANCEL_REQUESTED but the worker continues running, indicating the cancellation signal is not being propagated to the activity execution.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "CancelWorkflow"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "workflow-cancellation"
+  ],
+  "concepts": [
+    "cancellation",
+    "activity-lifecycle",
+    "context-propagation",
+    "signal-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot cancel long-running activities, forcing them to wait for timeouts or restart workers to stop workflows.",
+  "rootCause": "The cancellation signal is not being propagated from the workflow engine to the activity executor in version 1.6.0.",
+  "proposedFix": null,
+  "workaround": "Upgrade to server version 1.6.1 or later and use the latest Go samples.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by upgrading to server version 1.6.1 or later, which included fixes for the heartbeat and cancellation propagation issues.",
+  "related": [],
+  "keyQuote": "The Workflow State change to PENDING_ACTIVITY_STATE_CANCEL_REQUESTED, but the worker/main.go is still running.",
+  "number": 1218,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:08:03.291Z"
+}

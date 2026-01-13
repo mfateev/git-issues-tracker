@@ -1,0 +1,32 @@
+{
+  "summary": "MockActivityEnvironment generates non-UUID run IDs for activityInfo().workflowExecution.runId, breaking UUID-based operations that work correctly in real Temporal instances.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "activityInfo"
+  ],
+  "components": [
+    "MockActivityEnvironment",
+    "activity-testing",
+    "workflow-execution-info"
+  ],
+  "concepts": [
+    "UUID",
+    "deterministic-generation",
+    "test-mocking",
+    "environment-parity",
+    "activity-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably generate UUIDs in activities using the runId during testing, causing tests to fail when activities work correctly in production.",
+  "rootCause": "MockActivityEnvironment does not generate RFC 4122 compliant UUIDs for the runId field like the real Temporal service does.",
+  "proposedFix": "Update MockActivityEnvironment to generate valid UUIDs for workflowExecution.runId to match production behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "MockActivityEnvironment was updated to generate proper UUIDs for the runId field.",
+  "related": [],
+  "keyQuote": "I need to know whether the Workflow run ID is always a UUID, and I can depend on that. If so, the MockActivityEnvironment should be updated to match that behaviour.",
+  "number": 1706,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:11.304Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to publish musl wheel for the Python SDK, enabling support for Alpine Linux and other musl-based distributions.",
+  "category": "feature",
+  "subcategory": "distribution-packaging",
+  "apis": [],
+  "components": [
+    "build-system",
+    "wheel-distribution",
+    "packaging"
+  ],
+  "concepts": [
+    "musl-libc",
+    "alpine-linux",
+    "platform-support",
+    "wheel-publishing",
+    "cross-platform",
+    "distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running on musl-based Linux distributions (like Alpine) currently cannot use pre-built wheels and must compile from source.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    594
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/594",
+  "number": 761,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:11.234Z"
+}

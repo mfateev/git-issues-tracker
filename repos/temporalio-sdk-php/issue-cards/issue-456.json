@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to synchronize WorkerOptions in the PHP SDK with the current implementation in the Go SDK to ensure API parity and include new options.",
+  "category": "feature",
+  "subcategory": "worker-options",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "options"
+  ],
+  "concepts": [
+    "api-parity",
+    "sdk-synchronization",
+    "worker-configuration",
+    "options-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the PHP SDK will have access to the same worker configuration options available in the Go SDK, improving feature parity.",
+  "rootCause": null,
+  "proposedFix": "Sync WorkerOptions implementation with Go SDK reference implementation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed, likely resolved by syncing WorkerOptions with Go SDK",
+  "related": [],
+  "keyQuote": "Sync WorkerOptions with https://github.com/temporalio/sdk-go/blob/30a29ce206a644072ccb687d28c2b0aca38281db/internal/worker.go#L36",
+  "number": 456,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:34.775Z"
+}

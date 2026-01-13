@@ -1,0 +1,30 @@
+{
+  "summary": "Cron workflows that have child workflow failures currently show as ContinuedAsNew status instead of surfacing the failure, making it difficult for users to see errors on the WebUI. The request is to allow parent workflows to end with a Failure event instead of continuing as new.",
+  "category": "feature",
+  "subcategory": "cron-workflows",
+  "apis": [],
+  "components": [
+    "cron-workflow",
+    "workflow-status",
+    "webui"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "failure-handling",
+    "workflow-visibility",
+    "child-workflow",
+    "status-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily see when cron workflows with child workflow failures have occurred, requiring manual navigation to find failure details.",
+  "rootCause": null,
+  "proposedFix": "End parent workflows with a Failure event rather than ContinuedAsNew when child workflows fail",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If parent cron workflow starts child workflow and child workflow fails, then the status of parent workflow will remain as ContinuedAsNew",
+  "number": 1545,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:39:08.527Z"
+}

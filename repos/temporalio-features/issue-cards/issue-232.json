@@ -1,0 +1,32 @@
+{
+  "summary": "Request to include SDK name and version in the WorkflowTaskCompleted event for debugging purposes. This would be stored in the sdk_metadata field and sent only when the SDK version changes between workflow tasks to minimize storage overhead.",
+  "category": "feature",
+  "subcategory": "sdk-metadata",
+  "apis": [],
+  "components": [
+    "workflow-task-completed",
+    "history-event",
+    "sdk-metadata"
+  ],
+  "concepts": [
+    "debugging",
+    "sdk-version",
+    "event-metadata",
+    "storage-optimization",
+    "troubleshooting"
+  ],
+  "severity": "low",
+  "userImpact": "Enables developers and Temporal support to identify which SDK version was used during workflow execution for better troubleshooting of version-specific issues.",
+  "rootCause": null,
+  "proposedFix": "Add SDK name and version to the sdk_metadata field of WorkflowTaskCompleted events, sending them only when changed since the previous workflow task.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #321",
+  "related": [
+    321
+  ],
+  "keyQuote": "knowing the exact SDK version might help in troubleshooting certain failure scenarios",
+  "number": 232,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:52.650Z"
+}

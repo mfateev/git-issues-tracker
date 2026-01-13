@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request for a non-blocking method to check workflow result status. Users currently must wait for `workflowHandle.result()` to complete; they need a way to make a single request that returns immediately with an error if the workflow hasn't completed yet.",
+  "category": "feature",
+  "subcategory": "workflow-result-handling",
+  "apis": [
+    "workflowHandle.result()"
+  ],
+  "components": [
+    "client",
+    "workflow-handle",
+    "result-retrieval"
+  ],
+  "concepts": [
+    "non-blocking",
+    "polling",
+    "workflow-completion",
+    "result-status",
+    "error-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users need an alternative to blocking result retrieval for use cases where they want to check workflow status without waiting for completion.",
+  "rootCause": null,
+  "proposedFix": "Add a `tryGettingResult()` method that makes a single request and throws a `WorkflowIncomplete` error if no result is available, or returns the result if the workflow is complete.",
+  "workaround": "Call raw `GetWorkflowHistory` with filter type set to close event and long poll set to false, then manually translate the completed event.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A method that makes a single request and throws/returns an error if no result.",
+  "number": 314,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:20.943Z"
+}

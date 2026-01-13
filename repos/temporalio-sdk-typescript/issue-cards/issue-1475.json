@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for updating search attributes on schedules in the TypeScript SDK, following the implementation in the Go SDK.",
+  "category": "feature",
+  "subcategory": "schedule-search-attributes",
+  "apis": [
+    "SearchAttribute"
+  ],
+  "components": [
+    "schedule",
+    "search-attributes",
+    "workflow-api"
+  ],
+  "concepts": [
+    "schedule-management",
+    "search-attributes",
+    "workflow-execution",
+    "temporal-api",
+    "sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot update search attributes on schedules in TypeScript, limiting their ability to manage schedule metadata compared to other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement schedule search attribute update feature following the Go SDK implementation pattern.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented in the TypeScript SDK following the pattern established in Go SDK and temporalio/features#512.",
+  "related": [
+    512,
+    1561
+  ],
+  "keyQuote": "Support schedule search attribute update",
+  "number": 1475,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:30.264Z"
+}

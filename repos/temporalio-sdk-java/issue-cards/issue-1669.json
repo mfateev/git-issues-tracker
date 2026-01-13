@@ -1,0 +1,35 @@
+{
+  "summary": "User requests that the @WorkflowMethod annotation be discoverable through inheritance from parent classes/interfaces to enable code reuse in workflow patterns without redundant re-declaration.",
+  "category": "feature",
+  "subcategory": "workflow-definition",
+  "apis": [
+    "WorkflowMethod",
+    "WorkflowInterface",
+    "SignalMethod"
+  ],
+  "components": [
+    "workflow-interface",
+    "annotation-processor",
+    "workflow-definition"
+  ],
+  "concepts": [
+    "inheritance",
+    "code-reuse",
+    "annotation-discovery",
+    "interface-hierarchy",
+    "design-pattern",
+    "composition"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must redundantly redeclare and re-annotate workflow methods in child classes, leading to boilerplate code and potential maintenance issues.",
+  "rootCause": "Temporal's design intentionally couples @WorkflowMethod with @WorkflowInterface to prevent orphaned workflow method annotations and maintain a single workflow method per interface.",
+  "proposedFix": "Allow @WorkflowMethod annotation inheritance while treating multi-inheritance of workflow methods as a runtime violation or unspecified behavior.",
+  "workaround": "Create custom documenting annotations like @WorkflowMethodCandidate or redeclare the method in child classes with the annotation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided against the feature to enforce the design principle that @WorkflowMethod and @WorkflowInterface must work together, and @WorkflowMethod outside a @WorkflowInterface is conceptually invalid.",
+  "related": [],
+  "keyQuote": "You parent class is not implementing a @WorkflowInterface, it shouldn't have WorkflowMethods. It's not workflow methods. It's just methods.",
+  "number": 1669,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:36.263Z"
+}

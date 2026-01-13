@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for updating the worker client when using generic host in .NET SDK. Users need a ClientUpdater pattern that allows them to push client updates to all workers via DI or manual instantiation.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "generic-host",
+    "dependency-injection",
+    "client-management"
+  ],
+  "concepts": [
+    "client-update",
+    "dependency-injection",
+    "worker-service",
+    "options-monitoring",
+    "event-subscription"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now dynamically update the worker client when using generic host integration, improving flexibility in worker configuration management.",
+  "rootCause": null,
+  "proposedFix": "Implement a ClientUpdater class that users can instantiate or use from DI, set on worker service options, and use to push client updates to all workers through internal subscription to update events.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in version 1.1.2 via PR #258",
+  "related": [
+    258
+  ],
+  "keyQuote": "A better pattern would be a ClientUpdater which the user can instantiate (or use from DI) and set on the worker service options.",
+  "number": 257,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:54:01.177Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Activity cancellation is delayed because the first heartbeat is throttled. The issue reporter believed cancellation wouldn't be delivered until after the first heartbeat timeout, but investigation revealed the first heartbeat is sent immediately—the activity sample code just sleeps before calling heartbeat.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "heartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "cancellation",
+    "heartbeat-mechanism"
+  ],
+  "concepts": [
+    "heartbeat",
+    "cancellation",
+    "timing",
+    "throttling",
+    "activity-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Users may experience confusion about when activity cancellation occurs relative to heartbeat timing, but the actual behavior is correct.",
+  "rootCause": "Misunderstanding of heartbeat timing—the first heartbeat is sent immediately, but the sample activity sleeps before heartbeating, causing the appearance of delayed cancellation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The issue was identified as a misunderstanding of the SDK behavior. The first heartbeat is sent right away; the apparent delay was due to the sample activity sleeping before heartbeating.",
+  "related": [],
+  "keyQuote": "The first heartbeat _is_ sent right away, the activity in the sample sleeps and then heartbeats though.",
+  "number": 1053,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:04.365Z"
+}

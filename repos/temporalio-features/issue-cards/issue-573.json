@@ -1,0 +1,33 @@
+{
+  "summary": "Request for fine-grained control over workflow cache eviction policies. Users want to optimize memory usage by evicting long-running workflows and keeping recently-queried workflows cached to avoid expensive history replay on post-close queries.",
+  "category": "feature",
+  "subcategory": "workflow-cache",
+  "apis": [],
+  "components": [
+    "workflow-cache",
+    "cache-eviction",
+    "query-executor"
+  ],
+  "concepts": [
+    "cache-eviction",
+    "memory-optimization",
+    "workflow-lifecycle",
+    "post-close-queries",
+    "LRU-strategy",
+    "sticky-queue"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain control over cache eviction strategy to optimize memory usage and reduce latency for post-close workflow queries.",
+  "rootCause": "Current LRU cache eviction strategy doesn't account for workflow characteristics (sleep duration, query patterns) or post-close query needs.",
+  "proposedFix": "Implement pluggable cache eviction policies and server-side changes to support keeping closed workflows in cache for post-close queries via sticky queue.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4463
+  ],
+  "keyQuote": "They may want to control how long the workflow will be stored in the cache after the workflow is closed to prevent the extra latency that comes with fetch + replay",
+  "number": 573,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:42.103Z"
+}

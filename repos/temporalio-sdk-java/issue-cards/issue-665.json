@@ -1,0 +1,31 @@
+{
+  "summary": "Users need a way to configure or influence RpcRetryOptions for gRPC retries to tune Temporal for their specific use cases (e.g., microservice orchestration vs. batch processing). The SDK currently provides safe defaults that don't work for all scenarios, particularly regarding initial retry periods.",
+  "category": "feature",
+  "subcategory": "rpc-retry-configuration",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "retry-handler",
+    "rpc-configuration"
+  ],
+  "concepts": [
+    "retry-policy",
+    "configuration",
+    "rpc-tuning",
+    "microservices",
+    "batch-processing",
+    "backoff-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot optimize Temporal client retry behavior for their specific use cases and are forced to use default retry periods that may not fit their infrastructure requirements.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we should come up with some ability to influence/specify RpcRetryOptions for our users to allow them to tune Temporal for their specific use case",
+  "number": 665,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:33:33.494Z"
+}

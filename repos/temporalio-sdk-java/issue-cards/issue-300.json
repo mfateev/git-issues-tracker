@@ -1,0 +1,35 @@
+{
+  "summary": "WorkflowExecutionHistory.fromJson() cannot deserialize workflow history exported from Temporal Web console or CLI, due to differences in JSON schema (date/time format and enum representation) compared to what the Java SDK expects.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "WorkflowReplayer",
+    "WorkflowExecutionHistory"
+  ],
+  "components": [
+    "workflow-replayer",
+    "history-deserialization",
+    "json-marshaling"
+  ],
+  "concepts": [
+    "serialization",
+    "json-schema",
+    "replay-testing",
+    "format-compatibility",
+    "enum-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use workflow history exported from Web console or CLI for replay testing without manually converting the JSON format, blocking a key testing pattern.",
+  "rootCause": "WorkflowExecutionHistory.fromJson() expects a specific internal JSON schema, but Web console and CLI export formats use different representations for timestamps (RFC3339 strings vs protobuf Duration objects) and enums (string values vs UPPER_CASE names).",
+  "proposedFix": "Update WorkflowExecutionHistory.fromJson() to support multiple JSON formats (Web console, CLI, and internal SDK format) with appropriate deserializers.",
+  "workaround": "Manually convert tctl JSON output by replacing enum values with matching SDK enum format and converting timestamp fields from RFC3339 strings to the expected protobuf format.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    268
+  ],
+  "keyQuote": "Both formats do not work with Java SDK's WorkflowReplayer and fail when it tries to run WorkflowExecutionHistory.fromJson() due to various JSON deserialization issues.",
+  "number": 300,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:05:19.835Z"
+}

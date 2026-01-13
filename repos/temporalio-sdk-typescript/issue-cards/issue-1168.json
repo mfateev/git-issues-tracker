@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in semver (CVE-2022-25883) affecting the test coverage library. A Regular Expression Denial of Service (ReDoS) vulnerability was identified in semver-7.5.0 with a CVSS score of 7.5.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "package-dependencies",
+    "test-framework",
+    "nyc-coverage"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "regular-expression",
+    "transitive-dependency",
+    "semver"
+  ],
+  "severity": "high",
+  "userImpact": "Users' applications are potentially vulnerable to ReDoS attacks through untrusted semver range input in test dependencies.",
+  "rootCause": "semver versions before 7.5.2 contain a ReDoS vulnerability in the Range function when processing untrusted user data.",
+  "proposedFix": "Upgrade semver to version 7.5.2 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was either marked as ignored or no longer part of inventory.",
+  "related": [],
+  "keyQuote": "Versions of the package semver before 7.5.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the function new Range",
+  "number": 1168,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:44.846Z"
+}

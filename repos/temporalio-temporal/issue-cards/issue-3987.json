@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support named timers in workflow testing to make unit tests more robust. Currently timers are identified by creation order (1, 2, 3...), making tests brittle when timer ordering changes. The proposal is to allow named timers similar to named goroutines.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "SetOnTimerScheduledListener"
+  ],
+  "components": [
+    "workflow-testing",
+    "timer-management",
+    "test-framework"
+  ],
+  "concepts": [
+    "named-identifiers",
+    "unit-testing",
+    "timer-identification",
+    "test-brittleness",
+    "test-robustness"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must maintain brittle unit tests where timer placement order determines test expectations, making it difficult to refactor workflow timer code.",
+  "rootCause": "Timers are identified by creation order rather than meaningful names, causing test dependencies on code structure.",
+  "proposedFix": "Add SetOnNamedTimerScheduledListener callback that passes both timer ID and name, allowing named timer identification similar to goroutines.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This means unit tests are brittle because the placement of a timer in the code will mean the position expectations will break.",
+  "number": 3987,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:46.340Z"
+}

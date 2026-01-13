@@ -1,0 +1,30 @@
+{
+  "summary": "RPCStatusCode.ALREADY_EXISTS can be swallowed due to an unhandled execution branch in the client code, causing errors to be lost silently.",
+  "category": "bug",
+  "subcategory": "rpc-error-handling",
+  "apis": [],
+  "components": [
+    "client",
+    "rpc-status-handling",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-swallowing",
+    "rpc-status-codes",
+    "unhandled-branches",
+    "exception-handling",
+    "client-communication"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience silent failures when ALREADY_EXISTS errors occur, making it difficult to debug workflows that attempt duplicate operations.",
+  "rootCause": "An unhandled branch of execution in temporalio/client.py at lines 5086-5093 can cause RPCStatusCode.ALREADY_EXISTS errors to be suppressed.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The unhandled execution branch was addressed to properly handle RPCStatusCode.ALREADY_EXISTS errors.",
+  "related": [],
+  "keyQuote": "RPCStatusCode.ALREADY_EXISTS can be swallowed due to an unhandled branch of execution",
+  "number": 624,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:47.902Z"
+}

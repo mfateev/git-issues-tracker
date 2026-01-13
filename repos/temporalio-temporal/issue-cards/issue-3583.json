@@ -1,0 +1,32 @@
+{
+  "summary": "Admin DeleteWorkflowExecution fails to remove visibility store entries when mutable state is missing, even though visibility data still exists. The feature request asks for visibility deletion to be attempted regardless of mutable state availability.",
+  "category": "bug",
+  "subcategory": "admin-operations",
+  "apis": [
+    "DeleteWorkflowExecution"
+  ],
+  "components": [
+    "admin-handler",
+    "visibility-store",
+    "mutable-state"
+  ],
+  "concepts": [
+    "data-consistency",
+    "error-recovery",
+    "cleanup",
+    "visibility-persistence",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot fully clean up workflow execution data via Admin API when internal state becomes corrupted, leaving orphaned visibility entries.",
+  "rootCause": "Admin delete logic skips visibility deletion when mutable state cannot be loaded, treating it as a failure condition rather than attempting partial cleanup.",
+  "proposedFix": "Allow visibility deletion to proceed independently of mutable state availability, with fallback behavior for visibility stores that require mutable state data.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation improved to attempt visibility deletion even when mutable state is missing, with appropriate handling for visibility stores like Cassandra that require StartTime or CloseTime.",
+  "related": [],
+  "keyQuote": "If visibility store is Cassandra, it is not possible to delete visibility without mutable state due to it rely on StartTime or Close time",
+  "number": 3583,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:00.817Z"
+}

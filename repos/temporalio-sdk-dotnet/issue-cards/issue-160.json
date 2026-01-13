@@ -1,0 +1,30 @@
+{
+  "summary": "User requested support for Temporal Schedule feature in the .NET SDK. The feature was already fully implemented but not mentioned in the blog post, so this was essentially a documentation/awareness issue that has been resolved.",
+  "category": "docs",
+  "subcategory": "schedules",
+  "apis": [
+    "Schedule"
+  ],
+  "components": [
+    "schedules-client",
+    "documentation"
+  ],
+  "concepts": [
+    "scheduling",
+    "cron",
+    "temporal-schedules",
+    "reliable-scheduling"
+  ],
+  "severity": "low",
+  "userImpact": "Users were unaware that the .NET SDK already had full schedules support, potentially leading them to implement workarounds or seek the feature elsewhere.",
+  "rootCause": "Blog post did not mention that .NET SDK had schedules support, creating a documentation gap.",
+  "proposedFix": "Update the blog post to mention .NET SDK schedules support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The .NET SDK already had full schedules support. The blog post was updated to reflect this.",
+  "related": [],
+  "keyQuote": "The DotNet SDK has full schedules support https://dotnet.temporal.io/api/Temporalio.Client.Schedules.html",
+  "number": 160,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:49:58.511Z"
+}

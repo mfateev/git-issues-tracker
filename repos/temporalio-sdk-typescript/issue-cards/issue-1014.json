@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add a boolean worker option `stackTraceQueryUsesConverter` that controls whether the `__stack_trace` query response should use the custom data converter. This allows opt-in conversion behavior for stack trace queries.",
+  "category": "feature",
+  "subcategory": "query-handler",
+  "apis": [
+    "__stack_trace"
+  ],
+  "components": [
+    "worker",
+    "query-handler",
+    "data-converter"
+  ],
+  "concepts": [
+    "stack-trace",
+    "query-response",
+    "data-conversion",
+    "worker-options",
+    "custom-converter"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now control whether stack trace queries are converted with their custom data converter, providing more flexibility in query response handling.",
+  "rootCause": null,
+  "proposedFix": "Add a new boolean worker option `stackTraceQueryUsesConverter` to control whether the `__stack_trace` query response uses the custom data converter.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed on the parent feature ticket - implementation completed as part of a larger feature effort.",
+  "related": [],
+  "keyQuote": "Make a new boolean worker option like `stackTraceQueryUsesConverter`. If false, the `__stack_trace` query response should not be converted/encoded/etc w/ custom converter, but if true it should be.",
+  "number": 1014,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:28.286Z"
+}

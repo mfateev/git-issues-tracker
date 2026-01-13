@@ -1,0 +1,32 @@
+{
+  "summary": "Reset workflow execution is currently blocked if there are any pending child workflow executions. This feature request asks for support to allow reset operations even when child workflows are still running.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "Reset"
+  ],
+  "components": [
+    "workflow-execution",
+    "child-workflows",
+    "reset-handler"
+  ],
+  "concepts": [
+    "reset",
+    "workflow-state",
+    "child-workflows",
+    "execution-control",
+    "pending-operations"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reset workflow executions if they have pending child workflows, limiting their ability to recover from certain failure scenarios.",
+  "rootCause": null,
+  "proposedFix": "Implement support for reset operations that can handle pending child workflow executions by properly managing their state during reset.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support reset with pending children",
+  "number": 705,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:23.098Z"
+}

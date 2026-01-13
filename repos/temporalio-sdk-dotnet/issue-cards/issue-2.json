@@ -1,0 +1,31 @@
+{
+  "summary": "Security vulnerability in transitive dependency system.net.http.4.3.0 (CVE-2018-8292) exposed through xunit test framework, allowing information disclosure in HTTP redirects. Issue was automatically closed after the vulnerable library was removed from inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "dependency-management",
+    "nuget-packages"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-chain",
+    "information-disclosure",
+    "http-redirect",
+    "authentication",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users' authentication information could be inadvertently exposed in HTTP redirects due to a vulnerable transitive dependency in the test framework.",
+  "rootCause": "System.Net.Http 4.3.0 has an information disclosure vulnerability (CVE-2018-8292) that is a transitive dependency of xunit.2.4.1 through netstandard.library.1.6.1.",
+  "proposedFix": "Upgrade System.Net.Http to version 4.3.4 or higher.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend as the vulnerable library was either marked as ignored or is no longer part of the Mend inventory in the specific branch.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 2,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:06:24.946Z"
+}

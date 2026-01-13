@@ -1,0 +1,37 @@
+{
+  "summary": "Core-based SDKs currently set workflow completion immediately upon return and discard post-completion commands, unlike Go/Java SDKs which allow coroutines to settle first. This issue proposes adopting the Go/Java behavior to handle post-completion commands correctly using SDK flags for backwards compatibility.",
+  "category": "feature",
+  "subcategory": "workflow-completion",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "command-buffer",
+    "coroutine-manager"
+  ],
+  "concepts": [
+    "workflow-completion",
+    "post-completion-commands",
+    "backwards-compatibility",
+    "SDK-flags",
+    "coroutine-settlement",
+    "command-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may lose post-completion commands in core-based SDKs, whereas Go/Java SDKs properly handle them, creating inconsistent behavior across SDKs.",
+  "rootCause": "Core-based SDKs discard post-completion commands instead of allowing all coroutines to settle before marking workflow as complete.",
+  "proposedFix": "Implement Option 1: Store workflow result and buffer commands on return, then on completion with settled coroutines, conditionally set SDK flag and reorder completion command to end.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    778,
+    1421,
+    528,
+    249,
+    305
+  ],
+  "keyQuote": "In Go/Java, we let the coroutines all complete even if they make commands and then set workflow completion _after_ that. We should do the same in core-based SDKs.",
+  "number": 481,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:04:23.466Z"
+}

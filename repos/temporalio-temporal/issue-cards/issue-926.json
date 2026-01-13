@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add configurable initialDelay for CRON job setup to control when the first run executes. Currently, the initial delay is automatically calculated and unpredictable; users need explicit configuration options.",
+  "category": "feature",
+  "subcategory": "cron-scheduling",
+  "apis": [
+    "setInitialDelay"
+  ],
+  "components": [
+    "cron-scheduler",
+    "workflow-options",
+    "client-sdk"
+  ],
+  "concepts": [
+    "cron-job",
+    "scheduling",
+    "initial-delay",
+    "timing-control",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot predictably control when the first run of a CRON job executes, making it difficult to schedule jobs with specific timing requirements.",
+  "rootCause": null,
+  "proposedFix": "Add a configurable initialDelay option to workflow options (e.g., workflowOptions.setInitialDelay(Long seconds))",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Client sdk should have one option to configure initialDelay for cron schedule. Like this: workflowOptions.setInitialDelay(Long seconds)",
+  "number": 926,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:34.947Z"
+}

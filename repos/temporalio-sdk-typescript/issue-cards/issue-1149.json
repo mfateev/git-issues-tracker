@@ -1,0 +1,31 @@
+{
+  "summary": "User asks how to cache data (like authentication headers) between multiple interceptors in the workflow context, similar to thread-local storage in Java. The issue involves using local activities in interceptors to authenticate values and pass them to other interceptors.",
+  "category": "question",
+  "subcategory": "interceptors",
+  "apis": [],
+  "components": [
+    "interceptors",
+    "workflow-context",
+    "AsyncLocalStorage"
+  ],
+  "concepts": [
+    "caching",
+    "interceptor-chain",
+    "context-management",
+    "authentication",
+    "header-propagation",
+    "async-local-storage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily share cached data like authentication headers across multiple interceptors in workflow context, requiring workarounds or complex context management.",
+  "rootCause": "AsyncLocalStorage from @temporalio/workflow may not work properly when instantiated outside the standard SDK patterns, causing errors when used across multiple interceptors.",
+  "proposedFix": "SDK could provide built-in support for context-local caching in interceptors, or clarify the proper pattern for sharing state across interceptors similar to Java's thread-local storage.",
+  "workaround": "Copy and export a custom ContextManager instance based on SDK's internal context-manager.ts, using AsyncLocalStorage from @temporalio/workflow to manage context.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Discussion indicates continuation-local-storage is outdated and AsyncLocalStorage has limitations in workflow context. Users are directed to implement custom solutions based on SDK patterns.",
+  "related": [],
+  "keyQuote": "continuation-local-storage is outdated so I would not use it at all and in any case it will not work from the workflow context.",
+  "number": 1149,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:23.027Z"
+}

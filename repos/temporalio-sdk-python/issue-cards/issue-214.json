@@ -1,0 +1,30 @@
+{
+  "summary": "Improve RPC error handling in the Python SDK by making RPC-based errors extend a common base class and properly exposing error details from the gRPC protocol. The solution involves making gRPC status information available with Any-typed details for developers to use when needed.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "service",
+    "rpc",
+    "grpc"
+  ],
+  "concepts": [
+    "error-handling",
+    "rpc-errors",
+    "error-details",
+    "grpc-status",
+    "type-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will have better access to detailed RPC error information and more consistent error handling through a common base class.",
+  "rootCause": null,
+  "proposedFix": "Make gRPC status available with Any-typed details that developers can access when needed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented by exposing gRPC status and Any-typed details for RPC errors.",
+  "related": [],
+  "keyQuote": "For now we'll just make the gRPC status available with the Any details they can use if they must",
+  "number": 214,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:18.230Z"
+}

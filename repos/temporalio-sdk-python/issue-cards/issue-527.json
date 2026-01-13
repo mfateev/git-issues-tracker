@@ -1,0 +1,32 @@
+{
+  "summary": "A non-halting workflow with concurrent wait_condition tasks causes a RuntimeError when the SDK tries to generate a stack trace, due to iterating over a set that changes size during iteration.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "wait_condition"
+  ],
+  "components": [
+    "workflow-instance",
+    "workflow-sandbox",
+    "stack-trace-generation"
+  ],
+  "concepts": [
+    "concurrency",
+    "set-modification",
+    "workflow-state",
+    "error-handling",
+    "task-management"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using concurrent wait_condition tasks can crash the SDK worker, preventing workflow execution.",
+  "rootCause": "The _stack_trace() method iterates over self._tasks set without taking a snapshot, and the set can be modified by concurrent workflow execution during iteration, raising RuntimeError: Set changed size during iteration.",
+  "proposedFix": "Take a copy of the set with list(self._tasks) before iterating in the _stack_trace() method at line 1774.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Set iteration issue fixed by creating snapshot of tasks before iteration.",
+  "related": [],
+  "keyQuote": "The fix may be to take a copy of this set with `list(self._tasks)`, but I haven't investigated yet",
+  "number": 527,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:19.413Z"
+}

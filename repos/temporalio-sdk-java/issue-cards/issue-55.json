@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support @SignalMethod and @QueryMethod in independent interfaces separate from the main workflow interface, enabling registration and invocation of signal/query handlers as standalone components that can be reused across multiple workflows.",
+  "category": "feature",
+  "subcategory": "signal-query-handlers",
+  "apis": [
+    "registerHandler"
+  ],
+  "components": [
+    "workflow-interface",
+    "signal-handler",
+    "query-handler",
+    "client-stub"
+  ],
+  "concepts": [
+    "handler-registration",
+    "interface-composition",
+    "reusable-components",
+    "independent-handlers",
+    "workflow-modularity",
+    "code-sharing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently create reusable signal/query handler libraries that can be shared across multiple workflows, limiting code modularity and reusability.",
+  "rootCause": null,
+  "proposedFix": "Support registering signal and query handlers via independent interfaces annotated with @SignalMethod and @QueryMethod, allowing client stub creation from these interfaces (e.g., client.newStub(MySignal.class, workflowId))",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support independent signal and query method interfaces",
+  "related": [],
+  "keyQuote": "This would allow implementing independent reusable libraries which could be shared by multiple workflows.",
+  "number": 55,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:47:03.511Z"
+}

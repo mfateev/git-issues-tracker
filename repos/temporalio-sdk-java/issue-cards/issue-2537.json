@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to support custom client identity on schedule trigger to differentiate between automatic schedule-triggered workflows and manual triggers, enabling identification of who or what service initiated a manual workflow run.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [
+    "ScheduleHandle.trigger()",
+    "ScheduleClientCallsInterceptor.CreateScheduleInput",
+    "ScheduleClientOptions.Builder"
+  ],
+  "components": [
+    "schedules",
+    "client",
+    "schedule-client"
+  ],
+  "concepts": [
+    "client-identity",
+    "trigger-source",
+    "schedule-trigger",
+    "manual-trigger",
+    "workflow-differentiation",
+    "metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot identify who or what service manually triggered a workflow via schedule, limiting audit trails and workflow differentiation capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add a metadata field like trigger_source or client_identity to distinguish between automatic schedule triggers and manual triggers initiated by specific clients.",
+  "workaround": "Compare nextActionTime with actual workflow start time and manually set a trigger_type search attribute.",
+  "resolution": "fixed",
+  "resolutionDetails": "The ScheduleClientOptions.Builder already supports setting identity for the schedule client, which is passed for every client call including Trigger operations.",
+  "related": [],
+  "keyQuote": "To can set the identity for the schedule client in the ScheduleClientOptions.Builder. This identity will be passed for every client call made including Trigger",
+  "number": 2537,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:02.054Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for Jackson 3, the next major version of the JSON serialization library used by the Java SDK. This requires creating a new Jackson 3 JSON data converter while maintaining backward compatibility with Jackson 2, given that Jackson 3 requires Java 17 minimum.",
+  "category": "feature",
+  "subcategory": "json-serialization",
+  "apis": [],
+  "components": [
+    "json-data-converter",
+    "serialization",
+    "jackson-dependency"
+  ],
+  "concepts": [
+    "version-upgrade",
+    "compatibility",
+    "json-serialization",
+    "dependency-management",
+    "java-version"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can leverage Jackson 3 with the Temporal Java SDK, enabling compatibility with Spring Boot 4 and other frameworks standardizing on Jackson 3.",
+  "rootCause": null,
+  "proposedFix": "Create a new Jackson 3 JSON data converter and update all SDK code that calls Jackson APIs to support both Jackson 2 and Jackson 3.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add support for Jackson 3 to the Java SDK. This would mainly involve creating a new Jackson 3 JSON data converter, and any other place the SDK calls into Jackson.",
+  "number": 2746,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:17:49.224Z"
+}

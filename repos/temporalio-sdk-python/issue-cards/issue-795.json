@@ -1,0 +1,32 @@
+{
+  "summary": "Pyright strict type checking returns partiallyUnknown error when using execute_activity due to an implicit Any type in the optional Type parameter at workflow.py line 2185. Adding an explicit Any annotation resolves the type checking issue.",
+  "category": "bug",
+  "subcategory": "type-checking",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "workflow",
+    "type-stubs",
+    "pyright-integration"
+  ],
+  "concepts": [
+    "type-inference",
+    "typing",
+    "strict-mode",
+    "generic-types",
+    "optional-types"
+  ],
+  "severity": "low",
+  "userImpact": "Users get type checking errors in their IDEs when using execute_activity with Pyright strict mode, requiring workarounds or disabling strict checking.",
+  "rootCause": "Implicit Any on the optional Type parameter in workflow.py line 2185 prevents Pyright from properly inferring types in strict mode.",
+  "proposedFix": "Add explicit Any annotation to the optional Type parameter at the problematic line.",
+  "workaround": "Add explicit Any type annotation locally or disable Pyright strict mode.",
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was acknowledged and PR was welcomed by maintainers, indicating it was fixed via contributed PR.",
+  "related": [],
+  "keyQuote": "Type checking with Pyright strict returns partiallyUnknown error when using Temporal execute_activity",
+  "number": 795,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:14.412Z"
+}

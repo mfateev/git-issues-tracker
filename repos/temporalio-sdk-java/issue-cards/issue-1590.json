@@ -1,0 +1,30 @@
+{
+  "summary": "The workflow_completed metric counter incorrectly counts successful completions of workflow methods (including replays) instead of actual workflow executions. The same issue affects workflow_continue_as_new and workflow_failed counters.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "metrics",
+    "workflow-completion",
+    "replay",
+    "task-reporting",
+    "server-confirmation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive inaccurate workflow completion metrics, making it difficult to monitor actual workflow executions in production.",
+  "rootCause": "Metrics are logged when workflow methods complete successfully rather than when the server confirms acceptance of the workflow completion task.",
+  "proposedFix": "Worker should log completion metrics only after reporting the workflow task completion to the server and receiving confirmation that the completion was not rejected.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "workflow_completed counter counts successful completion of workflow methods, including replays for example",
+  "number": 1590,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:45.822Z"
+}

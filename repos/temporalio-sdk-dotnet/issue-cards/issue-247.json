@@ -1,0 +1,30 @@
+{
+  "summary": "Request for .NET SDK support for Windows 32-bit (win-x86) architecture to enable direct integration with legacy 32-bit SDKs in activities without requiring wrapper APIs.",
+  "category": "feature",
+  "subcategory": "platform-support",
+  "apis": [],
+  "components": [
+    "nuget-package",
+    "runtime",
+    "native-bindings"
+  ],
+  "concepts": [
+    "32-bit architecture",
+    "platform support",
+    "legacy integration",
+    "package size",
+    "cross-platform"
+  ],
+  "severity": "low",
+  "userImpact": "Users with legacy 32-bit systems cannot directly use Temporal activities with their existing 32-bit SDKs and must use wrapper APIs instead.",
+  "rootCause": "NuGet package size constraints (50MB compressed) and lack of 32-bit testing infrastructure make adding win-x86 support impractical currently.",
+  "proposedFix": "Possible future separate NuGet package dedicated to 32-bit support, or user can build and package SDK independently for 32-bit targets.",
+  "workaround": "Wrap the 32-bit library in an API that the activity calls out to, or build the SDK on 32-bit and create a custom package.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The NuGet package is already 50MB compressed and each shared library we add is ~30MB (~10MB compressed).",
+  "number": 247,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:20:26.607Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Query return type validation was not being enforced during decode operations. Issue was investigated and appears to be working correctly.",
+  "category": "bug",
+  "subcategory": "query-return-types",
+  "apis": [
+    "query"
+  ],
+  "components": [
+    "query-handler",
+    "type-validation",
+    "deserialization"
+  ],
+  "concepts": [
+    "type-validation",
+    "return-type",
+    "decode",
+    "type-mismatch"
+  ],
+  "severity": "low",
+  "userImpact": "Queries with mismatched return types may not fail as expected during deserialization.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Author determined the issue was not reproducible after investigation.",
+  "related": [],
+  "keyQuote": "Nevermind, looks ok",
+  "number": 163,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:14.117Z"
+}

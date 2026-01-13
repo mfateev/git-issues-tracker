@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add support for Windows ARM64 (win-arm64) architecture in the .NET SDK. Users are increasingly using Windows on ARM devices, and the library should provide native support similar to Linux and macOS distributions.",
+  "category": "feature",
+  "subcategory": "platform-support",
+  "apis": [],
+  "components": [
+    "native-bridge",
+    "runtime-binaries",
+    "nuget-package"
+  ],
+  "concepts": [
+    "architecture-support",
+    "platform-compatibility",
+    "native-libraries",
+    "arm64",
+    "windows-runtime",
+    "package-distribution"
+  ],
+  "severity": "high",
+  "userImpact": "Windows ARM64 users currently cannot use the SDK natively and must manually install prebuilt DLLs from external sources or compile the bridge themselves.",
+  "rootCause": "The win-arm64 native bridge DLL is not included in the NuGet package distribution, requiring manual workarounds for ARM64 users.",
+  "proposedFix": "Include the win-arm64 native bridge DLL in the NuGet package by default. Alternatively, offer it as a separate NuGet package. Utilize GitHub Windows ARM runners for CI/CD integration.",
+  "workaround": "Users can manually download the prebuilt win-arm64 bridge DLL from OneDrive and place it in the NuGet package cache at runtimes/win-arm64/native/ directory.",
+  "resolution": "fixed",
+  "resolutionDetails": "Support was added in version 1.7.0 and later releases (1.8.0, 1.9.0) with the win-arm64 native bridge DLL included in the package. GitHub Windows ARM runners became available for CI integration.",
+  "related": [],
+  "keyQuote": "Almost every other development tool works natively on ARM out of the box. Why the hesitation to include it by default when Linux and OSX both get it?",
+  "number": 385,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:17:21.233Z"
+}

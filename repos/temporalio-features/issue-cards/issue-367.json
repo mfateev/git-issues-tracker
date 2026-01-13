@@ -1,0 +1,32 @@
+{
+  "summary": "Security vulnerability CVE-2023-39325 (CVSS 7.5) in golang.org/x/net v0.14.0 transitive dependency causes excessive server resource consumption through malicious HTTP/2 client requests. The vulnerability affects go.temporal.io/api-v1.24.0 with no direct remediation available in the direct dependency.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "go-mod",
+    "http2-server",
+    "grpc",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "http2",
+    "denial-of-service",
+    "resource-exhaustion",
+    "transitive-dependency",
+    "cvss-score"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using go.temporal.io/api-v1.24.0 are vulnerable to denial-of-service attacks through malicious HTTP/2 client connections that can cause excessive server resource consumption.",
+  "rootCause": "HTTP/2 servers using golang.org/x/net v0.14.0 do not properly bound the number of simultaneously executing handler goroutines, allowing attackers to reset in-progress requests and create new ones to exhaust server resources.",
+  "proposedFix": "Upgrade golang.org/x/net to v0.17.0 or later, or upgrade Go to version 1.20.10 or 1.21.3+",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory.",
+  "related": [],
+  "keyQuote": "A malicious HTTP/2 client which rapidly creates requests and immediately resets them can cause excessive server resource consumption.",
+  "number": 367,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:12.026Z"
+}

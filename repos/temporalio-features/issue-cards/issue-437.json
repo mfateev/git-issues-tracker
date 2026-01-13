@@ -1,0 +1,43 @@
+{
+  "summary": "Add support for the new WorkflowIdConflictPolicy field in Start Workflow and Signal-with-Start APIs across all SDKs. This policy controls behavior when a workflow ID conflicts with running workflows, complementing the existing WorkflowIdReusePolicy which applies to closed workflows.",
+  "category": "feature",
+  "subcategory": "workflow-api",
+  "apis": [
+    "StartWorkflow",
+    "SignalWithStart"
+  ],
+  "components": [
+    "api",
+    "workflow-client",
+    "sdk-core"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "policy",
+    "workflow-execution",
+    "api-design",
+    "cross-sdk-feature"
+  ],
+  "severity": "high",
+  "userImpact": "Users need standardized support across all SDKs to handle workflow ID conflicts with running workflows, ensuring consistent behavior across the Temporal ecosystem.",
+  "rootCause": null,
+  "proposedFix": "Add a new field/parameter in each SDK's Start Workflow and Signal-With-Start API struct/function to support WorkflowIdConflictPolicy, with documentation clarifying the distinction from WorkflowIdReusePolicy.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented across all SDKs (Go, Java, TypeScript, Python, .NET, PHP) and CLI with tracking issues created in each repository.",
+  "related": [
+    1447,
+    2033,
+    715,
+    1392,
+    504,
+    217,
+    316,
+    528,
+    416
+  ],
+  "keyQuote": "Support for the new policy in both APIs is needed. Furthermore, the comments should emphasize that WorkflowIdReusePolicy is for _closed_ Workflows, and WorkflowIdConflictPolicy is for _running_ Workflows.",
+  "number": 437,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:03.693Z"
+}

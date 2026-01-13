@@ -1,0 +1,30 @@
+{
+  "summary": "PHP SDK's minimal Composer requirements conflict with react/promise v2, causing CI pipeline failures when installing lowest dependency versions. The issue stems from Composer ^2.9 being unable to install the composer/composer ^2.8 API package needed for internal/promise 2.* versions.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "composer-dependencies",
+    "promise-library",
+    "ci-pipeline"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "version-constraints",
+    "composer-compatibility",
+    "ci-failure",
+    "package-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users and CI pipelines fail to install the SDK with minimum supported dependency versions, blocking installation and testing workflows.",
+  "rootCause": "Composer ^2.9 requires composer/composer ^2.9, which conflicts with the need to install composer/composer ^2.8 for internal/promise v2 compatibility, creating an unsolvable version constraint.",
+  "proposedFix": "Three options proposed: (1) bind Composer as maximum of 2.8.* packages, (2) drop internal/promise 2.* versions, or (3) ignore composer/composer requirements and allow internal/promise v2 installation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "composer:^2.9 cannot install 2.8.* api package, so they cannot install internal/promise 2.* versions, and finally pipeline fails.",
+  "number": 692,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:45:17.799Z"
+}

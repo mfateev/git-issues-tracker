@@ -1,0 +1,32 @@
+{
+  "summary": "SQLite persistence in Temporalite is not populating the task_queue field in WorkflowExecutionInfo when calling ListClosedWorkflowExecutions, while Postgres and Elastic implementations correctly return this field.",
+  "category": "bug",
+  "subcategory": "persistence-sqlite",
+  "apis": [
+    "ListClosedWorkflowExecutions"
+  ],
+  "components": [
+    "persistence-layer",
+    "sql-plugin",
+    "visibility-storage"
+  ],
+  "concepts": [
+    "persistence",
+    "data-model",
+    "field-mapping",
+    "sqlite",
+    "workflow-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with Temporalite (SQLite backend) cannot access task queue information through ListClosedWorkflowExecutions, making it incompatible with production persistence layers.",
+  "rootCause": "TaskQueue field was not wired into the SQL persistence data model (VisibilityRow) for both read and write paths, despite being defined in the database schema.",
+  "proposedFix": "Add TaskQueue to the VisibilityRow data model in sqlplugin/visibility.go and update SQL statements for both write and read operations to include this field, following the pattern used for other fields like workflow_type_name.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Field was added to data model and SQL statements for both read and write paths.",
+  "related": [],
+  "keyQuote": "TaskQueue was not defined in our SQL persistence data model, but fortunately it is defined in db schema.",
+  "number": 2207,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:45.589Z"
+}

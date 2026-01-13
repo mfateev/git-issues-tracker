@@ -1,0 +1,30 @@
+{
+  "summary": "Activity methods are incorrectly registered without requiring the ActivityMethod attribute, causing even constructors and magic methods to be included in the activity list. The issue proposes immediate removal of constructors and magic methods, with a planned feature flag to enforce attribute requirements.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [],
+  "components": [
+    "activity-scanner",
+    "activity-interface",
+    "attribute-validation"
+  ],
+  "concepts": [
+    "attribute-validation",
+    "method-registration",
+    "magic-methods",
+    "constructor-handling",
+    "deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can accidentally expose constructors and magic methods as activities if they don't use ActivityMethod attributes, leading to unexpected behavior and potential security or stability issues.",
+  "rootCause": "Activity scanning logic includes all methods from ActivityInterface classes instead of filtering for only those marked with the ActivityMethod attribute.",
+  "proposedFix": "Implement two-stage solution: (1) immediately exclude constructors and magic methods, (2) add feature flag to enforce ActivityMethod attribute requirement and trigger DeprecationError for unmarked methods.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "all methods of ActivityInterface classes are scanned and added as activity methods, instead of only registering methods with the ActivityMethod attribute only",
+  "number": 382,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:38.553Z"
+}

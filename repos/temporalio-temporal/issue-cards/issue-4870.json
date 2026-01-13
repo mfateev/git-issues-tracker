@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add support for static JWKS configuration in JWT key provider to enable JWT authentication in isolated environments where the external IDP is unreachable. Should support dynamic config loading for key rotation.",
+  "category": "feature",
+  "subcategory": "authentication",
+  "apis": [],
+  "components": [
+    "auth",
+    "jwt",
+    "config"
+  ],
+  "concepts": [
+    "authentication",
+    "authorization",
+    "jwks",
+    "key-management",
+    "isolation",
+    "dynamic-config"
+  ],
+  "severity": "medium",
+  "userImpact": "Users in isolated environments cannot use JWT authentication without the ability to configure static JWKS keys.",
+  "rootCause": null,
+  "proposedFix": "Add a `jwkStaticKeySource` string parameter that contains JWKS keys equivalent to the JWKS endpoint response, with support for loading via dynamic config for key rotation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "temporal is isolated and cannot reach out to our externally hosted IDP and get the keys necessary for authz",
+  "number": 4870,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:46.212Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to document the default RPC timeout values in RPC options documentation. The .NET SDK applies internally-set default timeouts per RPC call, but these defaults are not documented, making it unclear what timeout is used when RPC options are left null/unset.",
+  "category": "docs",
+  "subcategory": "rpc-configuration",
+  "apis": [],
+  "components": [
+    "rpc-options",
+    "documentation"
+  ],
+  "concepts": [
+    "rpc-timeout",
+    "default-values",
+    "configuration",
+    "long-poll",
+    "documentation",
+    "api-clarity"
+  ],
+  "severity": "low",
+  "userImpact": "Users are unaware of the actual RPC timeout values applied when they don't explicitly set RPC options, leading to confusion about request timing behavior.",
+  "rootCause": null,
+  "proposedFix": "Document the default RPC timeout values in the RPC options documentation, noting that different values apply for long poll calls versus other calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There is a max RPC timeout that is on each call (different value for long poll calls). Try to document it generally in the RPC options",
+  "number": 321,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:54:57.699Z"
+}

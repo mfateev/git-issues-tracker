@@ -1,0 +1,33 @@
+{
+  "summary": "SDK worker should automatically supply binary checksum (hash of worker image) to workflow task completion calls instead of requiring users to provide it or leaving it empty.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "RespondWorkflowTaskCompleted",
+    "RespondWorkflowTaskFailed"
+  ],
+  "components": [
+    "worker",
+    "workflow-task-handler",
+    "protocol"
+  ],
+  "concepts": [
+    "binary-checksum",
+    "worker-image",
+    "automation",
+    "configuration",
+    "task-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually manage and supply binary checksums for workflow task completions, adding unnecessary operational burden.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDK worker should automatically supply binary checksum (which is a hash on the worker image) to all calls of RespondWorkflowTaskCompeleted/Failed/etc.",
+  "number": 818,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:44:47.927Z"
+}

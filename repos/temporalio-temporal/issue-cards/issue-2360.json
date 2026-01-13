@@ -1,0 +1,31 @@
+{
+  "summary": "User requests the ability to register custom dynamicconfig keys beyond those defined in the upstream enum, enabling extensions to Temporal to gate features with their own dynamic configuration flags.",
+  "category": "feature",
+  "subcategory": "dynamicconfig",
+  "apis": [],
+  "components": [
+    "dynamicconfig",
+    "configuration"
+  ],
+  "concepts": [
+    "extensibility",
+    "dynamic-configuration",
+    "feature-flags",
+    "initialization",
+    "custom-keys"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building Temporal extensions cannot gate custom features with dynamic configuration without forking the dynamicconfig client.",
+  "rootCause": "The dynamicconfig client expects all keys to be predefined in the upstream enum, preventing custom key registration.",
+  "proposedFix": "Register new dynamicconfig keys during initialization or via a post-initialization function call.",
+  "workaround": "Fork the dynamicconfig client or replace it with a custom implementation that doesn't depend on upstream Keys.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via PR #2462",
+  "related": [
+    2462
+  ],
+  "keyQuote": "I'd like to be able to register new dynamicconfig keys as part of initialization of the dynamicconfig client, or after the fact via a function call.",
+  "number": 2360,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:28.542Z"
+}

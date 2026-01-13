@@ -1,0 +1,36 @@
+{
+  "summary": "Request to expose history event count and aggregated payload size through WorkflowInfo to help workflow authors make informed decisions about when to continue as new. Currently, developers must estimate history length using interceptors or arbitrary thresholds.",
+  "category": "feature",
+  "subcategory": "workflow-lifecycle",
+  "apis": [
+    "WorkflowInfo",
+    "continueAsNew"
+  ],
+  "components": [
+    "workflow-runtime",
+    "history-management",
+    "workflow-interceptors"
+  ],
+  "concepts": [
+    "history-size",
+    "workflow-continuation",
+    "payload-limits",
+    "event-tracking",
+    "resource-optimization",
+    "long-running-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users developing long-running workflows lack visibility into history size, forcing them to use unreliable estimation techniques or arbitrary thresholds for continue-as-new decisions.",
+  "rootCause": "WorkflowInfo does not expose history event count or payload size metrics that would enable informed continuation decisions.",
+  "proposedFix": "Expose history event length and aggregated payload size through WorkflowInfo; server-side provision of size metrics needed for complete solution.",
+  "workaround": "Use workflow interceptors to estimate history length by tracking activation jobs and workflow task events, though this may be inaccurate for uncommon event types.",
+  "resolution": "fixed",
+  "resolutionDetails": "History length was exposed in the SDK; payload size awaited server-side implementation.",
+  "related": [
+    16
+  ],
+  "keyQuote": "we'd like to expose the number of history events and the aggregated payloads size to via WorkflowInfo so Workflow authors can make smarter decisions for when to continue as new",
+  "number": 357,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:14.133Z"
+}

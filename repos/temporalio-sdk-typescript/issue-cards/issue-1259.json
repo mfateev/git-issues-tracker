@@ -1,0 +1,35 @@
+{
+  "summary": "MockActivityEnvironment instantiation holds open a neon threadsafe function handle that prevents Jest from exiting cleanly. The issue occurs even if the environment is never used to run activities.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "MockActivityEnvironment"
+  ],
+  "components": [
+    "testing",
+    "core-bridge",
+    "runtime"
+  ],
+  "concepts": [
+    "resource-cleanup",
+    "handle-management",
+    "test-execution",
+    "jest-integration",
+    "native-binding",
+    "thread-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Testing with MockActivityEnvironment fails because Jest cannot exit due to an open native handle, blocking test suite completion.",
+  "rootCause": "The core-bridge native binding creates a neon threadsafe function handle during runtime initialization that is not properly cleaned up when MockActivityEnvironment is instantiated.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #928 which addresses the same MockActivityEnvironment handle cleanup problem.",
+  "related": [
+    928
+  ],
+  "keyQuote": "Jest can't exit after instantiating MockActivityEnvironment, even if I don't actually use the MockActivityEnvironment to run an activity.",
+  "number": 1259,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:41.820Z"
+}

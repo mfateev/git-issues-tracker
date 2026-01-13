@@ -1,0 +1,29 @@
+{
+  "summary": "TypeScript SDK needs to implement execution-chain following behavior that was fixed in the Go SDK (PR #527). This ensures proper handling of workflow execution chains in later server versions.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "execution-chain"
+  ],
+  "concepts": [
+    "execution-chain",
+    "server-compatibility",
+    "workflow-state",
+    "state-machine",
+    "event-ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows may not execute correctly with later server versions due to missing execution-chain following behavior.",
+  "rootCause": "TypeScript SDK lacks execution-chain following implementation that Go SDK implemented in PR #527.",
+  "proposedFix": "Implement the same execution-chain following behavior as the Go SDK fix (reference: https://github.com/temporalio/sdk-go/pull/527)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation aligned with Go SDK's execution-chain following behavior for later server version compatibility.",
+  "related": [],
+  "keyQuote": "See details from the Go fix here: https://github.com/temporalio/sdk-go/pull/527",
+  "number": 222,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:53.511Z"
+}

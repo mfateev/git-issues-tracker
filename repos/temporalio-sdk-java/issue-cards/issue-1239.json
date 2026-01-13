@@ -1,0 +1,33 @@
+{
+  "summary": "When a workflow is replayed with code that calls `getVersion()` with a range that doesn't include `DEFAULT_VERSION`, the replay should fail with `UnsupportedVersion`. Currently, it incorrectly tolerates unversioned code by returning `DEFAULT_VERSION` even though it's outside the specified range.",
+  "category": "bug",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "getVersion"
+  ],
+  "components": [
+    "workflow-versioning",
+    "replay-engine",
+    "version-resolver"
+  ],
+  "concepts": [
+    "versioning",
+    "workflow-replay",
+    "version-compatibility",
+    "code-evolution",
+    "backward-compatibility",
+    "state-machine"
+  ],
+  "severity": "high",
+  "userImpact": "Users can inadvertently run incompatible workflow code during replay, leading to incorrect workflow execution and potential data corruption.",
+  "rootCause": "The getVersion implementation returns DEFAULT_VERSION for unversioned code even when the caller specified a version range that excludes DEFAULT_VERSION, violating the versioning contract.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "getVersion now properly validates that the requested version is within the specified range and throws UnsupportedVersion if DEFAULT_VERSION is not in the valid range.",
+  "related": [],
+  "keyQuote": "Workflow.getVersion(\"changeId\", 1, 2) returns DEFAULT_VERSION",
+  "number": 1239,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:17:45.176Z"
+}

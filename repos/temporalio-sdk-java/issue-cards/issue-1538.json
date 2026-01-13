@@ -1,0 +1,35 @@
+{
+  "summary": "The test server's continue-as-new implementation is not atomic, causing signals sent to a workflow executing continue-as-new to be rejected with NOT_FOUND errors instead of being reliably delivered.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "test-server",
+    "signal-handler",
+    "workflow-state"
+  ],
+  "concepts": [
+    "atomicity",
+    "signal-delivery",
+    "race-condition",
+    "continue-as-new",
+    "workflow-lifecycle",
+    "state-transition"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using continue-as-new with signal sending may experience flaky failures due to signals being incorrectly rejected.",
+  "rootCause": "The test server's continue-as-new implementation does not atomically handle the workflow state transition, creating a race condition where signals sent during the transition are not found.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1537
+  ],
+  "keyQuote": "Signal sender can receive NOT_FOUND if it is sent while target workflow is executing continue-as-new.",
+  "number": 1538,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:57.376Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "When a scheduled action fails and sets ContinuedFailure payload, a subsequent scheduled action that succeeds with a null payload fails to clear the ContinuedFailure state, causing it to continue propagating to future scheduled actions.",
+  "category": "bug",
+  "subcategory": "schedules",
+  "apis": [],
+  "components": [
+    "scheduler",
+    "workflow",
+    "activities",
+    "scheduled-actions"
+  ],
+  "concepts": [
+    "failure-handling",
+    "state-propagation",
+    "scheduled-execution",
+    "null-payload",
+    "error-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unexpected ContinuedFailure errors in subsequent scheduled actions after a successful execution without a payload, breaking error recovery expectations.",
+  "rootCause": "Scheduled action workflow doesn't properly clear ContinuedFailure payload when a subsequent action completes successfully with a null payload; should check completed workflow's execution status to determine which fields to propagate.",
+  "proposedFix": "Check the completed workflow's execution status to determine which fields to propagate, rather than relying on payload presence.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a scheduled action fails, setting ContinuedFailure's payload, and then a subsequent scheduled action succeeds without returning a payload (a null payload), ContinuedFailure will continue to propagate",
+  "number": 8490,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:36.202Z"
+}

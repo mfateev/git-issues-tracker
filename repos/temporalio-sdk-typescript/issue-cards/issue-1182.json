@@ -1,0 +1,31 @@
+{
+  "summary": "The `Context.current().info.heartbeatTimeoutMs` property is undefined in the TypeScript SDK, while it should contain the heartbeat timeout value for activities.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "Context.current"
+  ],
+  "components": [
+    "context",
+    "activity-executor",
+    "info-object"
+  ],
+  "concepts": [
+    "heartbeat",
+    "timeout",
+    "activity-execution",
+    "context-info"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the heartbeat timeout value during activity execution, limiting visibility into timeout configurations.",
+  "rootCause": "The heartbeatTimeoutMs property is not being populated in the Context info object.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The property was added to the Context info object in the SDK.",
+  "related": [],
+  "keyQuote": "Context.current().info.heartbeatTimeoutMs is undefined",
+  "number": 1182,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:10.979Z"
+}

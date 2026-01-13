@@ -1,0 +1,33 @@
+{
+  "summary": "Deadlock Detector fires unexpectedly on cold JVM startup during class loading and instrumentation, blocking workflow execution on the workflow-root thread. The detector should use relaxed thresholds during initial worker startup rather than standard production thresholds.",
+  "category": "bug",
+  "subcategory": "deadlock-detection",
+  "apis": [],
+  "components": [
+    "deadlock-detector",
+    "workflow-thread",
+    "class-loader",
+    "instrumentation"
+  ],
+  "concepts": [
+    "classloading",
+    "instrumentation",
+    "JVM-startup",
+    "thread-blocking",
+    "timeout-detection",
+    "cold-start",
+    "thread-yield"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Java SDK with code instrumentation tools (like JaCoCo) experience immediate workflow failures on JVM startup due to false positive deadlock detection during class loading.",
+  "rootCause": "Deadlock detector uses fixed thresholds (>1 second without yielding) during class loading and instrumentation phases, which are inherently slow on cold JVM startup, causing false positives.",
+  "proposedFix": "Implement relaxed Deadlock Detector thresholds during worker startup, such as multiplying the detection threshold by N for the first execution of each workflow type.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Deadlock Detector should implement a relaxed Deadlock Detector during the start of workers",
+  "number": 1141,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:09:43.589Z"
+}

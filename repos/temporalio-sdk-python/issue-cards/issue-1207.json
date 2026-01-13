@@ -1,0 +1,35 @@
+{
+  "summary": "User requests a convenient way to extract workflow failure reasons and current state information on the client side without needing to dig through history or handle exceptions. Currently requires either inspecting history or parsing exceptions.",
+  "category": "feature",
+  "subcategory": "workflow-handle-api",
+  "apis": [
+    "WorkflowHandle.result",
+    "WorkflowHandle.describe"
+  ],
+  "components": [
+    "workflow-handle",
+    "client-api",
+    "workflow-state"
+  ],
+  "concepts": [
+    "failure-handling",
+    "state-information",
+    "client-query",
+    "workflow-metadata",
+    "current-status"
+  ],
+  "severity": "low",
+  "userImpact": "Users must implement complex workarounds to expose workflow failure reasons and current state to client applications for UI display or decision-making.",
+  "rootCause": "No direct API method exists to query current workflow state and failure details from the client; users must use queries or inspect history.",
+  "proposedFix": null,
+  "workaround": "Use `upsert_memo` inside the workflow and `handle.describe().memo()` on the client side to share state information.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The SDK team clarified that failure/success is only available via result or history, and recommended using custom queries. A related server-side feature (temporal/temporal#8608) was opened to provide this info on describe.",
+  "related": [
+    8608
+  ],
+  "keyQuote": "You can write your own query that can return anything you want too and it can be called even after a workflow is closed.",
+  "number": 1207,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:41.927Z"
+}

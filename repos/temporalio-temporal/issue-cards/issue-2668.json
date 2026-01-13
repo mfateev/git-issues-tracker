@@ -1,0 +1,33 @@
+{
+  "summary": "Environment variable POSTGRES_SEEDS is poorly named and undocumented, causing confusion about PostgreSQL database connection configuration. The issue requests either better naming or comprehensive documentation of Docker Compose configuration.",
+  "category": "docs",
+  "subcategory": "configuration-documentation",
+  "apis": [],
+  "components": [
+    "postgres-connector",
+    "docker-compose",
+    "environment-configuration",
+    "server-setup"
+  ],
+  "concepts": [
+    "environment-variables",
+    "database-connection",
+    "naming-clarity",
+    "documentation",
+    "docker-setup",
+    "configuration-management",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to understand and configure PostgreSQL database connections due to unclear environment variable names and missing documentation, leading to significant setup frustration.",
+  "rootCause": "Environment variable POSTGRES_SEEDS has a misleading name that doesn't clearly indicate it's for PostgreSQL connection host configuration, combined with lack of centralized documentation.",
+  "proposedFix": "Either rename the environment variable to something more descriptive (e.g., POSTGRES_HOST or POSTGRES_CONNECTION_HOST) or comprehensively document all Docker environment variables in a single location.",
+  "workaround": "Search the codebase for POSTGRES_SEEDS usage to understand the configuration options, or refer to Docker Hub server image documentation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I have finally realized after searching this codebase for `POSTGRES_SEEDS` that it is actually being used as \"postgres connection host\".",
+  "number": 2668,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:35.726Z"
+}

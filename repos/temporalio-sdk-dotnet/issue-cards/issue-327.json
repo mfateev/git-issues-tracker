@@ -1,0 +1,29 @@
+{
+  "summary": "Request to clarify in README that CancellationTokenSource.CancelAsync (added in .NET 8) uses the default scheduler and is unsafe for Temporal workflows. Users should use Cancel instead.",
+  "category": "docs",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "cancellation-handling",
+    "readme"
+  ],
+  "concepts": [
+    "cancellation-token",
+    "scheduler",
+    "thread-safety",
+    ".net8",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users may incorrectly use CancellationTokenSource.CancelAsync in their Temporal workflows, leading to potentially unsafe behavior due to the default scheduler.",
+  "rootCause": "CancellationTokenSource.CancelAsync uses the default scheduler, which is incompatible with Temporal's threading model.",
+  "proposedFix": "Add clarification to README documenting that CancellationTokenSource.CancelAsync is unsafe and users should use Cancel instead.",
+  "workaround": "Users should use CancellationTokenSource.Cancel instead of CancelAsync.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was clarified in README to warn against using CancellationTokenSource.CancelAsync.",
+  "related": [],
+  "keyQuote": "CancellationTokenSource.CancelAsync was added in .NET 8 and it uses the default scheduler. Users should use Cancel instead.",
+  "number": 327,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:54:58.870Z"
+}

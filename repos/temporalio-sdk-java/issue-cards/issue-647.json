@@ -1,0 +1,30 @@
+{
+  "summary": "Request to make the `ApplicationFailure#newFromValues` method public so developers can set the `cause` field on ApplicationFailure instances. Currently, the method is not accessible for public use.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "exception-handling",
+    "api-surface"
+  ],
+  "concepts": [
+    "error-construction",
+    "failure-cause",
+    "exception-customization",
+    "api-visibility"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot programmatically construct ApplicationFailure instances with specific cause information, limiting error handling flexibility.",
+  "rootCause": null,
+  "proposedFix": "Make `ApplicationFailure#newFromValues` method public",
+  "workaround": "Error log prior to throwing ApplicationFailure",
+  "resolution": "fixed",
+  "resolutionDetails": "The method was made public to allow developers to construct ApplicationFailure instances with custom cause values.",
+  "related": [],
+  "keyQuote": "Would be nice to have access to `ApplicationFailure#newFromValues` so that we can set the `cause` on the ApplicationFailure.",
+  "number": 647,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:31:34.227Z"
+}

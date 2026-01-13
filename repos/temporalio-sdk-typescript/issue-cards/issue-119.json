@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to review and expose timeout, retries, and reconnection configuration for the TypeScript SDK client connection, similar to the Java SDK's gRPC-level and SDK-level retry mechanisms.",
+  "category": "feature",
+  "subcategory": "client-connection",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "grpc",
+    "retry"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "reconnection",
+    "configuration",
+    "grpc",
+    "deadline",
+    "backoff"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better control over connection retry behavior and timeouts to handle network issues and service unavailability more robustly.",
+  "rootCause": "The TypeScript SDK lacked configurable retry and timeout settings at both gRPC and SDK levels, unlike the Java SDK implementation.",
+  "proposedFix": "Expose retry configuration with sensible defaults, and handle automatic deadline propagation (though grpc-js may not support this).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented a configurable retryer that does not retry deadline exceeded errors by default, addressing the core requirement.",
+  "related": [
+    709,
+    653,
+    666
+  ],
+  "keyQuote": "Closing this since the retryer exists, is configurable, and does not retry deadline exceeded errors by default which is the right thing to do.",
+  "number": 119,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:27.344Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "getVersion() returns different values for the same changeID when unversioned workflows resume with versioned code. Java client records a MarkerRecorded event while the Go client does not.",
+  "category": "bug",
+  "subcategory": "versioning",
+  "apis": [
+    "getVersion"
+  ],
+  "components": [
+    "versioning-system",
+    "workflow-replay",
+    "marker-recording"
+  ],
+  "concepts": [
+    "version-consistency",
+    "workflow-resume",
+    "changeID",
+    "marker-tracking",
+    "code-versioning"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow resumption with versioned code produces inconsistent behavior and markers across Java and Go clients, potentially breaking version management logic.",
+  "rootCause": "getVersion() implementation does not consistently return the same value for identical changeID when workflows transition from unversioned to versioned.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through implementation fix to ensure version consistency across client transitions.",
+  "related": [],
+  "keyQuote": "When an unversioned workflow \"resumes\" with versioned code, that doesn't cause a MarkerRecorded in Golang. But it does cause a MarkerRecorded in the Java client.",
+  "number": 24,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:35:50.148Z"
+}

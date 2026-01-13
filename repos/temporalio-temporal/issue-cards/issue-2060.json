@@ -1,0 +1,32 @@
+{
+  "summary": "Race condition in namespace registry where newly created namespaces can be directly loaded without waiting for all failover notifications to be processed, causing the history shard to skip failover notifications from other namespaces.",
+  "category": "bug",
+  "subcategory": "namespace-failover",
+  "apis": [],
+  "components": [
+    "namespace-registry",
+    "history-engine",
+    "replication-task-executor",
+    "namespace-cache"
+  ],
+  "concepts": [
+    "race-condition",
+    "failover",
+    "notification-ordering",
+    "namespace-loading",
+    "state-synchronization",
+    "cache-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Failover notifications for existing namespaces may be skipped when new namespaces are created concurrently, leading to incorrect state in the history shard.",
+  "rootCause": "The current implementation allows direct loading of newly created namespaces without ensuring all previous failover notifications have been processed, breaking the ordering guarantee needed for correct failover handling.",
+  "proposedFix": "Revert to the v1.12.x behavior of checking if namespace exists and forcing a reload of all namespaces to ensure notification ordering is maintained.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing proper namespace loading behavior to prevent race conditions during failover notification processing.",
+  "related": [],
+  "keyQuote": "history shard will record all notifications <= 101 are seen, and skip the failover notification of namespace A later",
+  "number": 2060,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:48.403Z"
+}

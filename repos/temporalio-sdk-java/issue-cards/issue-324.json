@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowFailedException wrapping makes it difficult for callers to handle errors consistently, as the same ApplicationFailure thrown from different execution contexts (Activity vs Workflow) gets wrapped differently (ActivityFailure vs ApplicationFailure), requiring callers to know internal implementation details.",
+  "category": "feature",
+  "subcategory": "exception-handling",
+  "apis": [
+    "ApplicationFailure",
+    "ActivityFailure",
+    "WorkflowFailedException"
+  ],
+  "components": [
+    "exception-handling",
+    "activity-executor",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "exception-wrapping",
+    "error-handling",
+    "abstraction",
+    "consistency",
+    "caller-awareness"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must add complex boilerplate code to handle the same business error differently depending on whether it originated from an Activity or Workflow, making code fragile to refactoring.",
+  "rootCause": "ActivityFailure wraps ApplicationFailure exceptions from Activities, forcing callers to unwrap multiple layers to access error type information, while direct Workflow-thrown ApplicationFailure requires different handling logic.",
+  "proposedFix": "Three proposed solutions: (1) Add common fields like getType() to WorkflowFailedException, (2) Make ApplicationFailure and ActivityFailure derive from common TemporalFailure base, or (3) Preserve ApplicationFailure type when thrown from Activity instead of wrapping it.",
+  "workaround": "Unwrap exceptions in the workflow to standardize the exception a client would see, or manually check exception types and unwrap nested causes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer indicated that changing exception structure would be a breaking change not considered at this time, and recommended using exception unwrapping as a workaround instead.",
+  "related": [],
+  "keyQuote": "caller does not really need to know if error happened in Activity or Application, it just needs to know error type, because this logic can change",
+  "number": 324,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:07:58.118Z"
+}

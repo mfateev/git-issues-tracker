@@ -1,0 +1,32 @@
+{
+  "summary": "Child Workflow Executions in PHP SDK don't inherit the parent's Task Queue when one isn't explicitly provided, violating Temporal's documented inheritance behavior. The PHP SDK must explicitly send the parent's Task Queue to RoadRunner when a Child Workflow doesn't specify one.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflowExecutionCommandAttributes"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "roadrunner-bridge",
+    "workflow-options"
+  ],
+  "concepts": [
+    "task-queue",
+    "inheritance",
+    "child-workflow",
+    "configuration",
+    "task-routing"
+  ],
+  "severity": "high",
+  "userImpact": "Child Workflow Executions fail to route correctly when developers don't explicitly set Task Queue, breaking the documented inheritance model.",
+  "rootCause": "PHP SDK doesn't pass parent Task Queue to RoadRunner when Child Workflow Task Queue is not explicitly provided.",
+  "proposedFix": "Modify PHP SDK to always send the Child Workflow Task Queue value (either the explicit one or inherited from parent) to RoadRunner.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PHP SDK was updated to inherit parent's Task Queue for Child Workflows when not explicitly provided.",
+  "related": [],
+  "keyQuote": "A Child Workflow Execution inherits the Task Queue name from its Parent Workflow Execution if one is not provided.",
+  "number": 451,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:24.293Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "RuleFactoryInterface incorrectly declares a generic type parameter that it doesn't actually define, causing PHPStan errors when implementing classes try to specify their own generic types. The interface extends TypeInterface<mixed> but RuleFactoryInterface itself is not generic, creating a template type conflict.",
+  "category": "bug",
+  "subcategory": "type-system",
+  "apis": [],
+  "components": [
+    "marshaller",
+    "type-interface",
+    "rule-factory"
+  ],
+  "concepts": [
+    "generics",
+    "type-safety",
+    "phpstan",
+    "template-types",
+    "interface-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers implementing custom types with RuleFactoryInterface get PHPStan errors preventing proper type specification.",
+  "rootCause": "RuleFactoryInterface is declared with @extends TypeInterface<mixed> but the interface itself is not generic, preventing subclasses from properly specializing the template type parameter.",
+  "proposedFix": "Make RuleFactoryInterface a generic interface with its own template parameter, or remove the @extends annotation if the interface doesn't need generic support.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "RuleFactoryInterface is not a generic interface and does not give you the ability to specify your own type",
+  "number": 595,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:20.570Z"
+}

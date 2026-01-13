@@ -1,0 +1,34 @@
+{
+  "summary": "The Workflow#newActivityStub(activityInterface) method without ActivityOptions produces invalid activity stubs because ActivityOptions lacks default values for required timeouts (startToClose or scheduleToClose). The method needs either proper defaults or to enforce validation that throws an exception when timeouts are missing.",
+  "category": "bug",
+  "subcategory": "activity-options",
+  "apis": [
+    "newActivityStub",
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity-stub",
+    "workflow-client",
+    "activity-options-builder"
+  ],
+  "concepts": [
+    "timeout",
+    "default-values",
+    "validation",
+    "activity-configuration",
+    "startToClose",
+    "scheduleToClose"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably create activity stubs without ActivityOptions due to invalid defaults, making the no-argument method essentially unusable.",
+  "rootCause": "ActivityOptions requires either startToClose or scheduleToClose but provides no default values for these required fields, creating invalid default options.",
+  "proposedFix": "Either set a default value for scheduleToClose (e.g., 10 seconds) or enforce validation in ActivityOptions#Builder#validateAndBuildWithDefaults to throw an exception when both timeouts are uninitialized.",
+  "workaround": "Use WorkflowImplementationOptions to set default activity options instead of relying on Workflow#newActivityStub(activityInterface).",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by allowing default activity options to be set through WorkflowImplementationOptions, and improving validation to enforce required timeout parameters.",
+  "related": [],
+  "keyQuote": "default ActivityOptions is actually invalid... this method never really can be used right now",
+  "number": 413,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:17:45.142Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Unregistered local activities should cause workflow task failures instead of being silently ignored. This issue tracks a bug where the .NET SDK doesn't properly validate that local activities are registered before execution.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "workflow-executor",
+    "activity-registry",
+    "local-activity-handler"
+  ],
+  "concepts": [
+    "activity-registration",
+    "validation",
+    "error-handling",
+    "workflow-task-failure",
+    "local-activities"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience silent failures or unexpected behavior when workflows attempt to execute unregistered local activities, making debugging difficult.",
+  "rootCause": "The SDK does not properly validate local activity registration before execution in workflow tasks.",
+  "proposedFix": "Add validation to fail the workflow task when an unregistered local activity is encountered.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #472",
+  "related": [
+    221
+  ],
+  "keyQuote": "Unregistered Local Activity should fail Workflow Task",
+  "number": 463,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:27:48.860Z"
+}

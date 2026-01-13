@@ -1,0 +1,32 @@
+{
+  "summary": "Add three new fields to PendingActivityInfo to help track activity status: last_failure_time (populated after any attempt failure), next_attempt_schedule_time (shown during backoff), and next_retry_interval.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "PendingActivityInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "pending-activity-tracking"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "failure-tracking",
+    "attempt-management",
+    "activity-status"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can better monitor and understand the status and retry scheduling of pending activities.",
+  "rootCause": null,
+  "proposedFix": "Add last_failure_time, next_attempt_schedule_time, and next_retry_interval fields to PendingActivityInfo proto message.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement implemented to add the requested fields to PendingActivityInfo for better activity status visibility.",
+  "related": [],
+  "keyQuote": "Add last_failure_time to PendingActivityInfo. Populated once an attempt failure is recorded for any reason that an attempt might fail, including any form of timeout.",
+  "number": 6605,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:58.080Z"
+}

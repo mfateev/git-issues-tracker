@@ -1,0 +1,32 @@
+{
+  "summary": "User requests that Temporal provide guaranteed ordering for asynchronously invoked activities within a workflow. Currently, async started activities have no relative ordering guarantee, which is needed for certain use cases.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "StartActivity"
+  ],
+  "components": [
+    "workflow-executor",
+    "activity-scheduler",
+    "async-invocation"
+  ],
+  "concepts": [
+    "ordering",
+    "async-execution",
+    "activity-sequencing",
+    "execution-guarantee",
+    "workflow-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users requiring deterministic ordering of concurrently executed activities cannot rely on Temporal's current async execution model.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal does not guarantee relative ordering of async started activities",
+  "number": 3025,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:52.202Z"
+}

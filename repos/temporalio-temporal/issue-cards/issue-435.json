@@ -1,0 +1,32 @@
+{
+  "summary": "Race conditions exist in mutable state updates because they rely only on lastEventId for conditional protection, while operations like retries and heartbeats don't increase history size, potentially causing concurrent update conflicts.",
+  "category": "bug",
+  "subcategory": "state-management",
+  "apis": [],
+  "components": [
+    "mutable-state",
+    "history",
+    "retry-logic",
+    "heartbeat-handler"
+  ],
+  "concepts": [
+    "race-condition",
+    "concurrency",
+    "state-synchronization",
+    "history-ordering",
+    "event-id",
+    "idempotency"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience inconsistent or corrupted mutable state when retries and heartbeats occur concurrently.",
+  "rootCause": "lastEventId alone is insufficient to guard against race conditions for operations that don't increment history size, such as retries and heartbeats.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "updates to the mutable state are conditional on lastEventId. But various operations like retries and heartbeats do not grow history size.",
+  "number": 435,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:57:54.416Z"
+}

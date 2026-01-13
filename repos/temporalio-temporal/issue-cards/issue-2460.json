@@ -1,0 +1,31 @@
+{
+  "summary": "Improve the error message for invalid command sequences in workflow task handlers. Currently, the message is unclear; it should explicitly state which commands are invalid and explain that terminal commands must be the last command.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "commandChecker",
+    "workflow-task-handler"
+  ],
+  "concepts": [
+    "command-sequence",
+    "validation",
+    "error-messaging",
+    "terminal-commands",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Third-party SDK developers receive clearer error messages when they submit invalid command sequences, making it easier to debug workflow execution issues.",
+  "rootCause": "The current error message lacks clarity about which commands are invalid and why the command sequence is problematic.",
+  "proposedFix": "Reword the error message to explicitly list the commands that appeared after a terminal command and explain that the terminal command must be last.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Pull request #2468 was created to implement the improved error message.",
+  "related": [
+    2468
+  ],
+  "keyQuote": "Invalid command sequence. Encountered commands ScheduleActivityTask, RecordMarker after command ContinueAsNewWorkflowExecution, which must be the last command in a workflow execution.",
+  "number": 2460,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:56.776Z"
+}

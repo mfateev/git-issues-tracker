@@ -1,0 +1,30 @@
+{
+  "summary": "Convert Policy classes from PHP constants to enum cases for consistency with PHP 8.1+ and modern SDK code practices.",
+  "category": "feature",
+  "subcategory": "code-modernization",
+  "apis": [],
+  "components": [
+    "Policy",
+    "enums",
+    "SDK-core"
+  ],
+  "concepts": [
+    "PHP 8.1",
+    "enumerations",
+    "API consistency",
+    "code standards",
+    "type safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Modernizes the SDK API to use PHP 8.1 enums for Policy classes, providing better type safety and consistency with newer SDK code.",
+  "rootCause": "PHP lacked enumeration support when the SDK was initially released; PHP 8.1+ now provides this feature.",
+  "proposedFix": "Convert all Policy classes from constants to enum cases for consistency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Policy classes were converted from constants to enums in PHP 8.1+ compatible implementation.",
+  "related": [],
+  "keyQuote": "For consistency, all Policy classes should be converted from constants to enums.",
+  "number": 437,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:37.330Z"
+}

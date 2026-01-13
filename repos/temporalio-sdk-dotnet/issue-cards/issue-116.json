@@ -1,0 +1,29 @@
+{
+  "summary": "The DI worker service contains a logic error where it checks if an existing client's logger factory is null, which is impossible. The check should either be fixed to allow null values or removed entirely.",
+  "category": "bug",
+  "subcategory": "dependency-injection",
+  "apis": [],
+  "components": [
+    "DI worker service",
+    "logger factory",
+    "client configuration"
+  ],
+  "concepts": [
+    "dependency injection",
+    "logger factory",
+    "null checking",
+    "configuration validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience incorrect logger factory behavior in dependency-injected worker services due to faulty null validation logic.",
+  "rootCause": "A null check on the existing client's logger factory is logically impossible, indicating either incorrect logic or misunderstood requirements.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The impossible null check was identified and corrected in the DI worker service implementation.",
+  "related": [],
+  "keyQuote": "We are checking whether existing client's logger factory is null which is impossible. Either make that possible or remove the check.",
+  "number": 116,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:06:15.628Z"
+}

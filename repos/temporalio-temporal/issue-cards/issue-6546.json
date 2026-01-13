@@ -1,0 +1,32 @@
+{
+  "summary": "User needs to run a blocking function (up to 10s) during workflow execution that cannot receive workflow context and must run on replays, but the workflow deadlock detector panics. Request to allow disabling deadlock detection for specific scopes.",
+  "category": "feature",
+  "subcategory": "deadlock-detection",
+  "apis": [],
+  "components": [
+    "deadlock-detector",
+    "workflow-execution",
+    "data-converter"
+  ],
+  "concepts": [
+    "blocking-operations",
+    "workflow-replay",
+    "determinism",
+    "deadlock-detection",
+    "synchronous-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot run necessary blocking operations during workflows without triggering panic, forcing them to use workarounds that compromise determinism.",
+  "rootCause": "Workflow deadlock detector prevents blocking operations by design to ensure determinism, but legitimate use cases require blocking external functions that cannot be adapted to async patterns.",
+  "proposedFix": "Make the deadlock detection disable mechanism public (e.g., making internal functions in workflow_deadlock.go public), or provide an official API to disable deadlock detection for specific scopes.",
+  "workaround": "Abuse the DataConverterWithoutDeadlockDetection by implementing a custom data converter that executes the blocking function in its ToStrings method, though this is non-deterministic.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1647
+  ],
+  "keyQuote": "Allow to disable the deadlock detection for a specific scope. Possible just making workflow_deadlock.go public.",
+  "number": 6546,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:23.557Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Sandboxed classes cannot extend restricted classes in the Python SDK, a known limitation that prevents certain inheritance patterns from working correctly.",
+  "category": "bug",
+  "subcategory": "sandboxing",
+  "apis": [],
+  "components": [
+    "sandboxing",
+    "class-extension",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "inheritance",
+    "class-extension",
+    "sandboxing",
+    "restriction",
+    "workaround"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use inheritance to extend restricted classes within sandboxed workflow code, limiting design patterns available for workflow implementation.",
+  "rootCause": "The sandboxing mechanism does not properly support class extension when the parent class is restricted.",
+  "proposedFix": null,
+  "workaround": "Use class extension where it works, but avoid using it in the restricted context for now.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Documented as a known limitation with a workaround; not scheduled for fix.",
+  "related": [],
+  "keyQuote": "We'll workaround where the class extension works, but using does not for now",
+  "number": 210,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:04.030Z"
+}

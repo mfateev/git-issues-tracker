@@ -1,0 +1,33 @@
+{
+  "summary": "When a workflow completes before pending update requests are processed, clients hang instead of receiving failure notifications. The server should fail incomplete updates and notify callers, and the same logic should apply to terminated workflows.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "update-handler",
+    "client-notification"
+  ],
+  "concepts": [
+    "workflow-completion",
+    "pending-updates",
+    "client-notification",
+    "error-handling",
+    "workflow-termination"
+  ],
+  "severity": "high",
+  "userImpact": "Clients sending update requests to workflows that complete or terminate before the update is processed experience hangs instead of receiving timely error notifications.",
+  "rootCause": "The server does not properly fail pending update requests and notify clients when a workflow completes or is terminated with incomplete updates.",
+  "proposedFix": "Implement logic to fail incomplete updates and notify the caller when a workflow completes or terminates with pending update requests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #5848 with tests added in PR #5854",
+  "related": [
+    5848,
+    5854
+  ],
+  "keyQuote": "If a client sends an update request to a workflow, but the workflow completes before the update is complete the client hangs.",
+  "number": 5174,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:28.572Z"
+}

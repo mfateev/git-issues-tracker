@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal servers retain stale internode gRPC connections to terminated Kubernetes pods, resulting in repeated dial timeout errors to non-existent pod IPs. This occurs when using Deployments and happens during pod churn events like rolling updates or scale-downs.",
+  "category": "bug",
+  "subcategory": "internode-communication",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "membership-ring",
+    "connection-pool",
+    "kubernetes-integration"
+  ],
+  "concepts": [
+    "connection-cleanup",
+    "pod-termination",
+    "stale-connections",
+    "kubernetes-deployments",
+    "dial-timeout",
+    "membership-management"
+  ],
+  "severity": "high",
+  "userImpact": "Kubernetes deployments experience continuous gRPC timeout errors and resource waste from repeated connection attempts to terminated pods, impacting cluster stability and observability.",
+  "rootCause": "Temporal does not properly drop internode gRPC connections when pods are removed from the membership ring during Kubernetes pod lifecycle events.",
+  "proposedFix": null,
+  "workaround": "Consider switching from Deployment to StatefulSet for more stable pod identities, though this requires diverging from the official Helm chart.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8586
+  ],
+  "keyQuote": "Temporal servers keep stale internode gRPC connections after Kubernetes pods are terminated (during scale-down, rolling updates, or node drains).",
+  "number": 8719,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:02.568Z"
+}

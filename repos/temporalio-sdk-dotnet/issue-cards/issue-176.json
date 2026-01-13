@@ -1,0 +1,32 @@
+{
+  "summary": "Handle updates that arrive before workflow start by implementing a buffer-for-life-of-task approach for update handlers. This allows dynamically registered handlers to receive updates even when the update activation event precedes the start event.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "activation-processing",
+    "update-handler",
+    "event-ordering"
+  ],
+  "concepts": [
+    "update-before-start",
+    "dynamic-handler-registration",
+    "event-buffering",
+    "activation-job-events",
+    "task-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably register update handlers dynamically on start when updates arrive in the same activation task before the start event.",
+  "rootCause": "Activation job events are ordered with updates before starts, but dynamically registered handlers on start miss these buffered updates.",
+  "proposedFix": "Implement a buffer-for-life-of-task approach to store updates so dynamically registered handlers can receive them on workflow start.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    462
+  ],
+  "keyQuote": "We likely need some buffer-for-life-of-task approach to updates so dynamic handlers work on start.",
+  "number": 176,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:17.343Z"
+}

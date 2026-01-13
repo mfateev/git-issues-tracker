@@ -1,0 +1,28 @@
+{
+  "summary": "Feature request to enable worker heartbeating in the TypeScript SDK by allowing users to specify the worker heartbeat interval when initializing Core Runtime. This capability is already implemented in Core but needs to be exposed to users.",
+  "category": "feature",
+  "subcategory": "worker-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "core-runtime"
+  ],
+  "concepts": [
+    "heartbeating",
+    "worker-initialization",
+    "connection-health",
+    "core-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure worker heartbeat intervals, limiting their ability to manage worker connection health and responsiveness.",
+  "rootCause": null,
+  "proposedFix": "Enable worker heartbeating by allowing users to specify the worker heartbeat interval when initializing Core Runtime",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker heartbeating was enabled in the TypeScript SDK by exposing the heartbeat interval configuration option during Core Runtime initialization",
+  "related": [],
+  "keyQuote": "Worker heartbeating is implemented in Core, need to enable worker heartbeating by allowing users to specify the worker heartbeat interval when initializing Core Runtime",
+  "number": 1810,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:18:42.698Z"
+}

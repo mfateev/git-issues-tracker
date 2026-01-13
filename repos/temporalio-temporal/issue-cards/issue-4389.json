@@ -1,0 +1,33 @@
+{
+  "summary": "Activity inputs are stored in workflow history but consume significant space and are not needed for workflow replay since inputs can be reconstructed deterministically. The proposal is to stop persisting activity inputs and instead reconstruct them through deterministic replay or query mechanisms.",
+  "category": "feature",
+  "subcategory": "history-optimization",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "history",
+    "activity-executor",
+    "workflow-engine",
+    "persistence"
+  ],
+  "concepts": [
+    "history-space",
+    "deterministic-replay",
+    "state-recovery",
+    "performance-optimization",
+    "storage-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with workflows containing many activities experience increased database size and higher history cache overhead due to redundant activity input storage.",
+  "rootCause": "Activity inputs are persisted in the workflow history even though they can be deterministically reconstructed from workflow code during replay, leading to unnecessary storage consumption.",
+  "proposedFix": "Remove activity inputs from history persistence and reconstruct them during workflow replay or through a query mechanism when needed for UI display.",
+  "workaround": "Implement a custom query in the workflow to retrieve activity inputs instead of relying on history storage.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Activity inputs consume history space and are not used when recovering workflow state through the replay.",
+  "number": 4389,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:51.323Z"
+}

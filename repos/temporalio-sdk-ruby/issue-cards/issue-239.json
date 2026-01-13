@@ -1,0 +1,30 @@
+{
+  "summary": "Allow io_wait-based fiber calls within a special unsafe context in the Ruby SDK. Currently blocked by a TODO, this feature would enable controlled I/O operations in workflows similar to the existing illegal_call_tracing_disabled helper.",
+  "category": "feature",
+  "subcategory": "fiber-scheduler",
+  "apis": [],
+  "components": [
+    "scheduler",
+    "fiber",
+    "workflow-instance"
+  ],
+  "concepts": [
+    "io-operations",
+    "fiber-scheduling",
+    "unsafe-context",
+    "workflow-constraints",
+    "async-io"
+  ],
+  "severity": "low",
+  "userImpact": "Users who need to perform I/O operations within workflows would have a documented, controlled way to do so through an explicit unsafe context.",
+  "rootCause": null,
+  "proposedFix": "Implement Temporalio::Workflow::Unsafe.io_enabled helper that allows io_wait fiber scheduler calls to pass through when enabled, with clear errors when used outside the context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow io_wait fiber calls within an unsafe context similar to illegal_call_tracing_disabled.",
+  "related": [],
+  "keyQuote": "Make a new `Temporalio::Workflow::Unsafe.io_enabled` helper (akin to `illegal_call_tracing_disabled`) and if in that context, allow `io_wait` fiber scheduler calls to go through",
+  "number": 239,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:33.083Z"
+}

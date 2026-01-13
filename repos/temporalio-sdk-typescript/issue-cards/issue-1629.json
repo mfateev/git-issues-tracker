@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to implement a 'RawValue' payload wrapper that allows developers to bypass payload converters and send unconverted values directly through the Temporal SDK.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "payload-handling",
+    "conversion-control",
+    "raw-values",
+    "marshalling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a way to prevent automatic payload conversion for specific values when using the Temporal SDK.",
+  "rootCause": null,
+  "proposedFix": "Implement a simple payload wrapper that signals converters to skip conversion for wrapped values",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support raw value wrapping for non-converted payloads",
+  "related": [
+    603
+  ],
+  "keyQuote": "need a simple payload wrapper that tells converters not to apply conversion",
+  "number": 1629,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:56:00.468Z"
+}

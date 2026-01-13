@@ -1,0 +1,29 @@
+{
+  "summary": "The create-project CLI tool fails to update tsconfig.json and package.json files correctly when creating projects with subdirectories (like monorepo examples) on Node 18. The tool doesn't properly replace Node version references in nested directory structures.",
+  "category": "bug",
+  "subcategory": "cli-tooling",
+  "apis": [],
+  "components": [
+    "create-project-cli",
+    "configuration-files",
+    "file-traversal"
+  ],
+  "concepts": [
+    "subdirectories",
+    "configuration-replacement",
+    "node-version-detection",
+    "monorepo-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users creating monorepo projects with the CLI tool get misconfigured tsconfig and package.json files, requiring manual fixes.",
+  "rootCause": "The CLI tool's file replacement logic does not account for or traverse subdirectories when searching for and updating configuration files.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If you create a sample project with node 18 that has subdirectory packages, like the monorepo example, it doesn't update tsconfig or package.json files properly.",
+  "number": 1088,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:35.634Z"
+}

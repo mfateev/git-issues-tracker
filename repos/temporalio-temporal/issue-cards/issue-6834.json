@@ -1,0 +1,35 @@
+{
+  "summary": "Request to support start delay in continue-as-new options to allow workflows with loop-with-sleep patterns to be implemented as short-lived workflows instead of long-lived ones, avoiding the need to maintain long-term history compatibility.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-engine",
+    "continue-as-new",
+    "workflow-history"
+  ],
+  "concepts": [
+    "start-delay",
+    "continue-as-new",
+    "workflow-sleep",
+    "history-compatibility",
+    "long-lived-workflows",
+    "worker-versioning"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers implementing loop-with-sleep workflows could use short-lived workflows instead of long-lived ones, reducing history compatibility maintenance burden and improving worker versioning capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add start delay parameter to continue-as-new options to schedule workflow restart after a specified delay.",
+  "workaround": "Either sleep within the workflow (requiring long-term history compatibility) or start a new workflow within an activity (losing parent-child relationship and history).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    515
+  ],
+  "keyQuote": "adding a start delay to continue-as-new options would allow them to be represented as a series of short-lived workflows",
+  "number": 6834,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:01.571Z"
+}

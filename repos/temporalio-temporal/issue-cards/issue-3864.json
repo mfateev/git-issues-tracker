@@ -1,0 +1,32 @@
+{
+  "summary": "SQLite search attribute persistence fails when a Datetime value has a +00:00 timezone offset, though the same format passes Go's RFC3339Nano parser. The issue could not be reproduced by other contributors.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "UpsertSearchAttributes"
+  ],
+  "components": [
+    "search-attributes",
+    "sqlite",
+    "datetime-parsing"
+  ],
+  "concepts": [
+    "timezone-handling",
+    "datetime-persistence",
+    "rfc3339-parsing",
+    "search-attributes",
+    "validation"
+  ],
+  "severity": "low",
+  "userImpact": "Users setting Datetime search attributes in SQLite with +00:00 timezone receive validation errors despite using the documented RFC3339Nano format.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Could not be reproduced by contributors; likely user error or environment-specific issue",
+  "related": [],
+  "keyQuote": "Could not reproduce. Tried executing this code snippet in a workflow",
+  "number": 3864,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:41.506Z"
+}

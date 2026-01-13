@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add Pydantic V2 support in the data converter by preferring the `model_validate` method over the deprecated `parse_obj` method. The issue was marked as duplicate of #621 and subsequently resolved with official Pydantic v2 support in SDK version 1.10.0.",
+  "category": "feature",
+  "subcategory": "pydantic-converter",
+  "apis": [],
+  "components": [
+    "converter",
+    "data-conversion"
+  ],
+  "concepts": [
+    "pydantic",
+    "backward-compatibility",
+    "deprecation",
+    "serialization",
+    "model-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users using Pydantic V2 can now use the converter without deprecation warnings and with full V2 support.",
+  "rootCause": "Pydantic V2 deprecated `parse_obj` in favor of `model_validate`, but the SDK converter only recognized the old V1 method.",
+  "proposedFix": "Modify converter.py lines 1526-1536 to check for `model_validate` first, then fall back to `parse_obj` for V1 compatibility.",
+  "workaround": "Use the custom converter approach as documented in the samples.",
+  "resolution": "fixed",
+  "resolutionDetails": "Official Pydantic v2 support was implemented and released in SDK version 1.10.0",
+  "related": [
+    621
+  ],
+  "keyQuote": "The latest version of the SDK now has official Pydantic (v2) support",
+  "number": 726,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:12.648Z"
+}

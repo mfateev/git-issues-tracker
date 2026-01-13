@@ -1,0 +1,30 @@
+{
+  "summary": "CI installation from verdaccio private registry fails silently with no error logs, making it difficult to diagnose the root cause. Logging was added to provide better diagnostic information.",
+  "category": "bug",
+  "subcategory": "ci-installation",
+  "apis": [],
+  "components": [
+    "ci",
+    "npm-registry",
+    "build-process"
+  ],
+  "concepts": [
+    "logging",
+    "diagnostics",
+    "package-installation",
+    "private-registry",
+    "error-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience CI failures with no diagnostic information when installing from private registries.",
+  "rootCause": "Insufficient logging in the installation process from verdaccio private registry.",
+  "proposedFix": "Add logging for more information about the installation process.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by adding improved logging to provide diagnostic information during installation failures.",
+  "related": [],
+  "keyQuote": "Add logging for more information the next time this happens.",
+  "number": 150,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:36.636Z"
+}

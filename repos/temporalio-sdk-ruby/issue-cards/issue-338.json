@@ -1,0 +1,37 @@
+{
+  "summary": "Retry policy's non_retryable_error_types parameter doesn't match exceptions with module/namespace qualifiers (e.g., ActiveRecord::RecordNotFound). The SDK strips namespaces when converting errors to ApplicationError, causing activities to retry when they should fail instantly.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "retry-policy",
+    "failure-converter",
+    "activity-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry",
+    "error-matching",
+    "namespace",
+    "error-conversion",
+    "non-retryable-errors",
+    "activity-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use fully-qualified error type names in non_retryable_error_types, forcing them to use unqualified names or implement custom workarounds, which causes unexpected retries during migration from other SDKs.",
+  "rootCause": "By design, the SDK converts exceptions to ApplicationError with only the unqualified error type name (without namespace), so retry policy matching against qualified names fails.",
+  "proposedFix": null,
+  "workaround": "Implement a custom failure converter or activity interceptor to preserve the full error class name when creating ApplicationError, as demonstrated in the issue comments.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be intentional design by SDK maintainer. The unqualified error type name is by-design and consistent across SDKs. Users should use custom failure converters or interceptors to preserve qualified names if needed.",
+  "related": [
+    293,
+    294
+  ],
+  "keyQuote": "By default, exceptions raised from activity are converted to ApplicationError with the type as the unqualified error type name. This is the same in all SDKs.",
+  "number": 338,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:34.517Z"
+}

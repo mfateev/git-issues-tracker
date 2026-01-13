@@ -1,0 +1,33 @@
+{
+  "summary": "The Python SDK's logging adapter doesn't properly merge extra attributes passed to log calls. When using `extra` parameters in workflow and activity logging, a KeyError is raised because the adapter doesn't preserve these attributes through the logging context.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging-adapter",
+    "activity-logging",
+    "workflow-logging"
+  ],
+  "concepts": [
+    "structured-logging",
+    "context-propagation",
+    "log-formatting",
+    "extra-attributes",
+    "logger-adapter"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Python's standard logging `extra` parameter with workflow and activity loggers without encountering KeyError exceptions.",
+  "rootCause": "The LoggerAdapter's process() method was not properly merging extra attributes from both the adapter instance and the log call, causing extra data to be lost in the logging context.",
+  "proposedFix": "Support a merge_extra parameter in the LoggerAdapter initializer to control whether to merge adapter-level extra attributes with call-level extra attributes, similar to Python 3.13's implementation. For older Python versions, document subclassing as the recommended approach.",
+  "workaround": "Subclass the LoggerAdapter and override the process() method to manually merge extra attributes as needed.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by removing the super call in process() method (PR #280), then later addressed the merge_extra concern by documenting subclassing approach (issue #892).",
+  "related": [
+    280,
+    892
+  ],
+  "keyQuote": "Logging a record with extra attribute \"foo\" here causes a \"KeyError\" exception because it can't find the attribute.",
+  "number": 276,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:44.981Z"
+}

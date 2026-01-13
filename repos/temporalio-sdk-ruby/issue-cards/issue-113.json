@@ -1,0 +1,32 @@
+{
+  "summary": "Implement a basic Workflow Worker for the Ruby SDK with timer-only support as an initial foundation.",
+  "category": "feature",
+  "subcategory": "workflow-worker",
+  "apis": [
+    "WorkflowWorker"
+  ],
+  "components": [
+    "workflow-worker",
+    "timer",
+    "ruby-sdk"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "timer",
+    "worker",
+    "concurrency",
+    "event-loop"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot execute workflows in the Ruby SDK without a basic worker implementation.",
+  "rootCause": null,
+  "proposedFix": "Implement a basic Workflow Worker that supports timer execution as the first step.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Basic workflow worker with timer support was implemented",
+  "related": [],
+  "keyQuote": null,
+  "number": 113,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:42:37.446Z"
+}

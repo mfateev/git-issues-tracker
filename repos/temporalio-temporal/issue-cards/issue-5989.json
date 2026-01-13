@@ -1,0 +1,33 @@
+{
+  "summary": "Cassandra clusters using LDAP authentication fail to connect because gocql doesn't recognize the LDAPAuthenticator type. Users requested support for configuring custom authenticators via Helm to allow LDAP and other non-standard Cassandra authentication types.",
+  "category": "feature",
+  "subcategory": "cassandra-authentication",
+  "apis": [],
+  "components": [
+    "cassandra-client",
+    "gocql-integration",
+    "helm-configuration",
+    "authentication"
+  ],
+  "concepts": [
+    "cassandra",
+    "ldap-authentication",
+    "authenticator-configuration",
+    "connection-setup",
+    "environment-variables"
+  ],
+  "severity": "high",
+  "userImpact": "Users with LDAP-authenticated Cassandra clusters cannot connect Temporal to their database without this feature.",
+  "rootCause": "gocql library has a hardcoded list of supported authenticators and rejects unknown types like LDAPAuthenticator; AllowedAuthenticators configuration was not exposed in Temporal's Cassandra setup.",
+  "proposedFix": "Add CASSANDRA_ALLOWED_AUTHENTICATORS environment variable and configuration option to pass custom authenticator types to gocql's PasswordAuthenticator.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #6194 by adding CASSANDRA_ALLOWED_AUTHENTICATORS environment variable that accepts a list of custom authenticators.",
+  "related": [
+    6194
+  ],
+  "keyQuote": "export CASSANDRA_ALLOWED_AUTHENTICATORS=\"org.apache.cassandra.auth.LDAPAuthenticator\"",
+  "number": 5989,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:08:34.056Z"
+}

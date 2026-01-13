@@ -1,0 +1,35 @@
+{
+  "summary": "Stack trace information is lost when errors propagate through the Temporal distributed system, particularly in activity and child workflow errors. The Failure protobuf includes a stack_trace field that could be used to populate error tracking systems like Sentry with complete exception chains.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "execute_activity",
+    "execute_child_workflow"
+  ],
+  "components": [
+    "converter",
+    "failure-handling",
+    "exception-chain"
+  ],
+  "concepts": [
+    "stack-trace",
+    "error-propagation",
+    "distributed-exceptions",
+    "sentry-integration",
+    "failure-protobuf",
+    "traceback",
+    "error-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access complete stack traces for errors in activity and child workflow failures, hindering debugging and error tracking in monitoring systems like Sentry.",
+  "rootCause": "Python exceptions don't support deserializing remote tracebacks from arbitrary strings (which can come from different languages/versions), and the Failure object's stack_trace field is not exposed through the exception chain.",
+  "proposedFix": "Expose stack_trace from the failure object through the exception chain, or provide a utility function to collect stack traces from the failure object similar to the example code provided in comments.",
+  "workaround": "Access raw failure object via FailureError.failure.stack_trace and manually construct stack trace information using utility functions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The SDK already includes stack trace on the errors, it's just via `failure.stack_trace` instead of `__traceback__`",
+  "number": 807,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:30.523Z"
+}

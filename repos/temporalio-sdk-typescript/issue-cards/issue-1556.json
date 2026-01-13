@@ -1,0 +1,33 @@
+{
+  "summary": "All logs from activities are associated with the same trace_id from application startup instead of being correctly traced to individual workflow executions when using OpenTelemetry integration with Temporal.",
+  "category": "bug",
+  "subcategory": "opentelemetry-integration",
+  "apis": [],
+  "components": [
+    "opentelemetry-integration",
+    "activity-logging",
+    "tracing"
+  ],
+  "concepts": [
+    "trace-id",
+    "opentelemetry",
+    "logging",
+    "distributed-tracing",
+    "span-propagation",
+    "context-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly trace activities through OpenTelemetry as all logs show the same trace_id from application startup rather than the actual workflow execution trace.",
+  "rootCause": "Likely missing root span creation for workflows or incorrect trace context propagation to activity logs",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #1425; see comment for reference implementation",
+  "related": [
+    1425
+  ],
+  "keyQuote": "all logs in activities are related to the same trace_id which is the one of the startup of my app",
+  "number": 1556,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:32.718Z"
+}

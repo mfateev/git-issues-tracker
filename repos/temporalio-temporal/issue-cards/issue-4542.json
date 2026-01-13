@@ -1,0 +1,33 @@
+{
+  "summary": "Request to implement activity result caching through sticky routing using user-provided keys. Users want a built-in mechanism to route activities to the same host based on a routing key for performance improvement, similar to Kafka consumer guarantees.",
+  "category": "feature",
+  "subcategory": "activity-routing",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-routing",
+    "activity-executor"
+  ],
+  "concepts": [
+    "caching",
+    "routing",
+    "sticky-routing",
+    "performance",
+    "activity-affinity",
+    "load-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can improve activity performance by caching results and routing related activities to the same host using custom keys.",
+  "rootCause": null,
+  "proposedFix": "Add worker options to enable activity caching and activity invocation options to specify routing keys",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users want to cache activity results to improve performance. Currently there is no built-in way to provide activity routing to the same host by user provided id.",
+  "number": 4542,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:52.228Z"
+}

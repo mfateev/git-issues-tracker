@@ -1,0 +1,32 @@
+{
+  "summary": "Type checker Pyright incorrectly reports that activities imported via `workflow.unsafe.imports_passed_through()` should be strings rather than callable functions, breaking type checking for cross-file activity imports.",
+  "category": "bug",
+  "subcategory": "type-checking",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "workflow",
+    "type-stubs",
+    "imports"
+  ],
+  "concepts": [
+    "type-inference",
+    "imports",
+    "sandbox",
+    "type-checking",
+    "cross-module"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using Pyright get false type errors when importing activities through the sandbox import mechanism, reducing IDE support and type safety.",
+  "rootCause": "Pyright's type inference fails to properly resolve the type of functions imported within a `workflow.unsafe.imports_passed_through()` context block, treating them as module types or unions instead of the actual function type.",
+  "proposedFix": null,
+  "workaround": "Move activity imports to the same file as the workflow to bypass the sandbox import mechanism.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined to be a Pyright type checker limitation rather than an SDK bug. The SDK itself works correctly; the issue is in how Pyright handles type inference for imports within context managers.",
+  "related": [],
+  "keyQuote": "I think this may be a Pyright bug, because surrounding an import with something should not change its types from a static analysis perspective.",
+  "number": 338,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:33.839Z"
+}

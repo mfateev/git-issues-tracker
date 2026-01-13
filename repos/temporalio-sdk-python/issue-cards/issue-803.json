@@ -1,0 +1,32 @@
+{
+  "summary": "Proposal to run workflow and activity workers in separate threads instead of sharing the same event loop. This would prevent blocking I/O in async activities from blocking workflow progress and make failure modes easier to understand.",
+  "category": "feature",
+  "subcategory": "worker-threading",
+  "apis": [],
+  "components": [
+    "worker",
+    "event-loop",
+    "activity-executor",
+    "workflow-worker"
+  ],
+  "concepts": [
+    "threading",
+    "concurrency",
+    "event-loop",
+    "blocking-io",
+    "async",
+    "resource-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could prevent misbehaving async activities from blocking workflow execution, reducing blast radius of failures.",
+  "rootCause": "Workflow and activity workers currently share the same event loop, allowing blocking I/O in activities to affect workflow progress.",
+  "proposedFix": "Run workflow workers in separate threads with their own event loop, potentially as a workflow-only feature to avoid complexity.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Running these (and Nexus workers when they arrive) in different threads would prevent an async activity that incorrectly does blocking I/O from blocking workflow progress.",
+  "number": 803,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:31.488Z"
+}

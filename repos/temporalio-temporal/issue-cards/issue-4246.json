@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add heartbeat details to ActivityFailure for other failure modes like Canceled and ApplicationFailure, not just TimeoutFailure. This would help users resume activities from where a previous attempt got stuck.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "ActivityFailure"
+  ],
+  "components": [
+    "activity-executor",
+    "failure-handling",
+    "api-proto"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-resume",
+    "failure-details",
+    "timeout",
+    "retry-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily resume activities after non-timeout failures because heartbeat details are only available in TimeoutFailure.",
+  "rootCause": "Heartbeat details are currently only included in TimeoutFailure, not in the generic ActivityFailure type used for other failure modes.",
+  "proposedFix": "Add heartbeat details field to ActivityFailure to make it available for all failure modes (Canceled, ApplicationFailure, etc.)",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Would be great, if this can be surfaced on other items (such as Canceled and ApplicationFailure) as that can make it easier to start a new activity and resume from when a potentially previous attempt got stuck",
+  "number": 4246,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:36.198Z"
+}

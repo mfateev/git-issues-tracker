@@ -1,0 +1,32 @@
+{
+  "summary": "Multiple OpenTelemetry instrumentation bugs affecting span timing accuracy, service name propagation, trace hierarchy, and internal SDK traces visibility in the TypeScript SDK.",
+  "category": "bug",
+  "subcategory": "opentelemetry-instrumentation",
+  "apis": [],
+  "components": [
+    "opentelemetry-exporter",
+    "span-timing",
+    "trace-hierarchy",
+    "resource-configuration"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "span-hierarchy",
+    "observability",
+    "service-name",
+    "otel-resource",
+    "child-workflows"
+  ],
+  "severity": "high",
+  "userImpact": "Users setting up OpenTelemetry tracing encounter incorrect span timings, missing service names in traces, unfiltered SDK-internal spans, and broken parent-child relationships in child workflows.",
+  "rootCause": "OTEL resource not being passed to makeWorkflowExporter; span hierarchy not properly maintained for child workflows; internal traces not filtered by default",
+  "proposedFix": "Make OTEL resource required in makeWorkflowExporter; implement proper span parent-child linking for child workflows; add filtering for SDK-internal traces; ensure ContinueAsNew is traced",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issues were resolved locally by the maintainer and included in a PR addressing service name propagation, span hierarchy, and trace filtering",
+  "related": [],
+  "keyQuote": "Child workflows are not connected to root workflows (i.e. the child workflow span `workflow.execute` should be a child span of the root `workflow.schedule`)",
+  "number": 330,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:42.668Z"
+}

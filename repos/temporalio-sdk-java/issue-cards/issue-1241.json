@@ -1,0 +1,35 @@
+{
+  "summary": "DynamicWorkflow implementations do not respect WorkflowImplementationOptions settings like setFailWorkflowExceptionTypes. When a NullPointerException is thrown in a dynamic workflow, it is not failed even when NPE is configured to fail the workflow, whereas regular workflow implementations handle this correctly.",
+  "category": "bug",
+  "subcategory": "dynamic-workflow",
+  "apis": [
+    "registerWorkflowImplementationTypes",
+    "DynamicWorkflow",
+    "WorkflowImplementationOptions"
+  ],
+  "components": [
+    "worker",
+    "workflow-implementation",
+    "dynamic-workflow",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "workflow-configuration",
+    "dynamic-workflows",
+    "option-inheritance",
+    "configuration-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users registering dynamic workflows cannot configure exception handling behavior, leading to inconsistent failure handling between dynamic and regular workflows.",
+  "rootCause": "WorkflowImplementationOptions are not being applied when executing dynamic workflows, likely due to separate code path that bypasses option processing.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "throwing NullPointerException inside Dynamic workflow does not take in account WorkflowImplementationOptions and will not fail when NPE is thrown. This works fine for normal workflow impls",
+  "number": 1241,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:17:46.326Z"
+}

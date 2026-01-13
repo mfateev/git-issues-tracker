@@ -1,0 +1,32 @@
+{
+  "summary": "Child workflows are not created with search attributes and memo, unlike regular workflows. The issue is traced to missing code in SyncWorkflowContext::executeChildWorkflow that should set these properties.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "executeChildWorkflow"
+  ],
+  "components": [
+    "SyncWorkflowContext",
+    "workflow-execution",
+    "child-workflow-handler"
+  ],
+  "concepts": [
+    "search-attributes",
+    "memo",
+    "workflow-metadata",
+    "child-workflows",
+    "execution-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot track or search child workflows using search attributes and memo like they can with parent workflows.",
+  "rootCause": "SyncWorkflowContext::executeChildWorkflow is missing code to propagate search attributes and memo to child workflow execution.",
+  "proposedFix": "Add code to SyncWorkflowContext::executeChildWorkflow to set search attributes and memo on child workflow creation, matching the behavior of regular workflow creation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Code was added to propagate search attributes and memo to child workflows in SyncWorkflowContext.",
+  "related": [],
+  "keyQuote": "Child workflows are not being created with search attributes and memo. This can be seen when you look at the child workflow's `WorkflowExecutionStarted` event in the history.",
+  "number": 474,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:21:01.505Z"
+}

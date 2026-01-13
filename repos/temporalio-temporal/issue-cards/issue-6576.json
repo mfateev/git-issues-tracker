@@ -1,0 +1,31 @@
+{
+  "summary": "Querying for `CloseTime is null` does not return running workflows, even though they have no close time in the JSON output. The opposite query (`CloseTime is not null`) incorrectly returns both closed and running workflows.",
+  "category": "bug",
+  "subcategory": "visibility-query",
+  "apis": [],
+  "components": [
+    "visibility-store",
+    "query-engine",
+    "workflow-list"
+  ],
+  "concepts": [
+    "null-handling",
+    "query-semantics",
+    "workflow-status",
+    "filter-logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query for running workflows using `CloseTime is null`, forcing them to use alternative queries based on status field instead.",
+  "rootCause": "Issue with null value handling in the visibility query engine when filtering on close_time field",
+  "proposedFix": null,
+  "workaround": "Query based on execution status field instead of close_time (e.g., `status = Running` instead of `CloseTime is null`)",
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by issue #6965",
+  "related": [
+    6965
+  ],
+  "keyQuote": "Query returns no results. Oddly, if I do the same query but query where close time is not null, I get results for all past workflows AND the currently running workflow.",
+  "number": 6576,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:46.644Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add an option to drain sticky task queue during graceful worker shutdown. This allows the worker to stop polling the normal task queue and only poll the sticky task queue to complete workflows while shutting down, improving shutdown behavior.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-queue",
+    "graceful-shutdown"
+  ],
+  "concepts": [
+    "sticky-task-queue",
+    "graceful-shutdown",
+    "polling",
+    "workflow-completion",
+    "drain"
+  ],
+  "severity": "medium",
+  "userImpact": "Allows workers to complete in-progress workflows from sticky task queues before fully shutting down, improving reliability during deployments.",
+  "rootCause": null,
+  "proposedFix": "Implement a StickyTaskQueueDrainTimeout option that stops normal task queue polling while continuing sticky task queue polling during shutdown.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Worker will stop polling on the normal task queue and only poll on the stick task queue to complete workflows while the worker is shutting down.",
+  "number": 460,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:00.754Z"
+}

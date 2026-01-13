@@ -1,19 +1,19 @@
 # Temporal PHP SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-10
-**Total Open Issues:** 49
+**Generated:** 2026-01-13
+**Total Open Issues:** 50
 **Total Closed Issues:** 211
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
-<- [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md)
+[Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md) | [Themes](themes/index.md)
 
-**Other SDKs:** [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md) | [Ruby](ruby.md)
+**Other SDKs:** [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md) | [Ruby](ruby.md) | [Server](server.md) | [Features](features.md)
 
 ---
 
 ## Executive Summary
 
-The PHP SDK maintains a healthy 81% resolution rate (211/260 total issues) with 49 open issues. The backlog shows mixed trends: a slight increase (+7 net) over the last 12 months, but encouraging improvement in the last 6 months (-8 net, with 23 closed vs 15 opened). The primary concerns are testing infrastructure gaps, documentation deficiencies (particularly around serialization/marshalling), and ongoing framework compatibility needs for Symfony and Laravel.
+The PHP SDK maintains a healthy 81% resolution rate (211/261 total issues) with 50 open issues. The backlog shows mixed trends: a slight increase (+8 net) over the last 12 months, but encouraging improvement in the last 6 months (-7 net, with 23 closed vs 16 opened). The primary concerns are testing infrastructure gaps, documentation deficiencies (particularly around serialization/marshalling), and ongoing framework compatibility needs for Symfony and Laravel.
 
 ### Key Findings
 
@@ -23,7 +23,7 @@ The PHP SDK maintains a healthy 81% resolution rate (211/260 total issues) with 
 | Enhancements | 31 | Medium - Testing infrastructure, framework support, SDK API improvements |
 | Testing Infrastructure | 8 | High - Multiple issues blocking effective unit testing of workflows |
 | Documentation | 1 | High - Most upvoted issue (#592) requests marshaller documentation |
-| Stale Issues | 18 | Medium - 37% of open issues have no activity >12 months |
+| Stale Issues | 18 | Medium - 36% of open issues have no activity >12 months |
 
 ### User Engagement Summary
 
@@ -32,7 +32,7 @@ The PHP SDK maintains a healthy 81% resolution rate (211/260 total issues) with 
 | Total Upvotes | 12 |
 | Total Comments | 69 |
 | Issues with Upvotes | 7 (14%) |
-| Issues with Comments | 23 (47%) |
+| Issues with Comments | 23 (46%) |
 
 ### Resolution Metrics
 
@@ -40,7 +40,7 @@ The PHP SDK maintains a healthy 81% resolution rate (211/260 total issues) with 
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 81% (211/260) |
+| Resolution Rate | 81% (211/261) |
 | Median Time to Close | 27 days (calendar) / 19 days (business) |
 | Resolved within 30 days | 51% |
 | Resolved within 90 days | 63% |
@@ -51,7 +51,7 @@ The PHP SDK maintains a healthy 81% resolution rate (211/260 total issues) with 
 2. **Short-term:** Address Update method testing bug ([#577](https://github.com/temporalio/sdk-php/issues/577)) and investigate memory leak ([#635](https://github.com/temporalio/sdk-php/issues/635))
 3. **Medium-term:** Create comprehensive marshaller documentation ([#592](https://github.com/temporalio/sdk-php/issues/592)) - most upvoted issue
 4. **Long-term:** Implement Nexus support ([#580](https://github.com/temporalio/sdk-php/issues/580)) and testing infrastructure improvements
-5. **Housekeeping:** Triage 18 stale issues (37% of backlog); close or update issues with no activity >1 year
+5. **Housekeeping:** Triage 18 stale issues (36% of backlog); close or update issues with no activity >1 year
 
 ---
 
@@ -63,21 +63,27 @@ The SDK shows a slightly growing backlog over the year, but with clear improveme
 
 | Trend | Issues Opened | Issues Closed | Net Change |
 |-------|---------------|---------------|------------|
-| Last 12 months | 53 | 46 | +7 |
+| Last 12 months | 54 | 46 | +8 |
 
-📈 **Backlog Growing:** 7 more issues opened than closed in the last 12 months. However, recent months show strong improvement: September (-4), October (-3), November (-1), December (-3).
+Backlog Growing: 8 more issues opened than closed in the last 12 months. However, recent months show strong improvement: September (-4), October (-3), November (-1), December (-3).
 
 ### Last 6 Months: Detailed Analysis
 
-The last 6 months demonstrate healthy resolution activity with 8 more issues closed than opened, indicating the team is making progress on the backlog.
+The last 6 months demonstrate healthy resolution activity with 7 more issues closed than opened, indicating the team is making progress on the backlog.
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 15 |
+| Issues Opened | 16 |
 | Issues Closed | 23 |
-| Net Change | -8 |
+| Net Change | -7 |
 | Bugs Closed | 8 |
 | Enhancements Completed | 9 |
+
+| Metric | Calendar Days | Business Days |
+|--------|---------------|---------------|
+| Average Time to Close | 287 | 205 |
+| Median Time to Close | 185 | 133 |
+| 90th Percentile | 710 | 508 |
 
 ### Popular Requests Resolved (Last 6 Months)
 
@@ -85,6 +91,9 @@ The last 6 months demonstrate healthy resolution activity with 8 more issues clo
 |-------|-----|-------|
 | [#625](https://github.com/temporalio/sdk-php/issues/625) | 1 | Incorrect timer cancellation when workflow worker is down |
 | [#579](https://github.com/temporalio/sdk-php/issues/579) | 1 | Unexpected behaviour with lax DateInterval string parsing |
+| [#586](https://github.com/temporalio/sdk-php/issues/586) | 0 | Support New Worker Versioning API |
+| [#576](https://github.com/temporalio/sdk-php/issues/576) | 0 | Expose root workflow execution |
+| [#628](https://github.com/temporalio/sdk-php/issues/628) | 0 | Environment Configuration |
 
 No issues with 3+ upvotes were closed in the last 6 months. The SDK's relatively small user community compared to more established SDKs results in generally lower upvote counts.
 
@@ -156,6 +165,22 @@ The PHP SDK has 9 open bugs, ranging from recent Composer compatibility issues t
 
 ---
 
+## API & Component Hotspots
+
+Based on issue analysis, the following areas have the most issues:
+
+| Area | Issue Count | Key Issues |
+|------|-------------|------------|
+| test-framework | 14 | Testing infrastructure and mocking capabilities |
+| workflow-execution | 7 | Workflow lifecycle and execution |
+| child-workflows | 6 | Parent-child workflow interactions |
+| serialization | 6 | Data marshalling and encoding |
+| dependency-management | 5 | Composer and version conflicts |
+| error-handling | 5 | Exception handling and failure propagation |
+| schedule-api | 4 | Schedule creation and management |
+
+---
+
 ## Enhancement Requests (31 issues)
 
 ### Testing Infrastructure (8 issues)
@@ -172,7 +197,6 @@ Testing is a significant pain point for PHP SDK users, with 8 issues related to 
 | [#501](https://github.com/temporalio/sdk-php/issues/501) | 0 | **Repair or disable Windows CI tests** - Windows test infrastructure issues |
 | [#399](https://github.com/temporalio/sdk-php/issues/399) | 0 | **await doesn't interrupt on activity error** - Test behavior inconsistency |
 | [#302](https://github.com/temporalio/sdk-php/issues/302) | 1 | **Set expectCompletion per Activity call in loop** - Better control over mocked activity results in loops |
-| [#285](https://github.com/temporalio/sdk-php/issues/285) | 0 | **Use temporal.download for test server** - Download temporalite/test-server from official sources |
 
 ### SDK Core Features
 
@@ -181,6 +205,8 @@ Testing is a significant pain point for PHP SDK users, with 8 issues related to 
 | [#580](https://github.com/temporalio/sdk-php/issues/580) | 1 | **Initial Nexus implementation** - Cross-namespace/cluster communication support |
 | [#644](https://github.com/temporalio/sdk-php/issues/644) | 0 | **Plugin support** - Extensibility mechanism for SDK |
 | [#642](https://github.com/temporalio/sdk-php/issues/642) | 0 | **Add first execution run ID to workflow info** |
+| [#638](https://github.com/temporalio/sdk-php/issues/638) | 0 | **Add Summary to LocalActivityOptions** |
+| [#605](https://github.com/temporalio/sdk-php/issues/605) | 0 | **SDK support for activity reset** |
 | [#567](https://github.com/temporalio/sdk-php/issues/567) | 0 | **Expose workflow cancel cause/reason** |
 | [#558](https://github.com/temporalio/sdk-php/issues/558) | 0 | **Add Patched() and DeprecatePatch() APIs** - Workflow versioning helpers |
 | [#545](https://github.com/temporalio/sdk-php/issues/545) | 0 | **Provide "workflow local"** - Workflow-scoped variable storage |
@@ -199,6 +225,7 @@ Testing is a significant pain point for PHP SDK users, with 8 issues related to 
 | Issue | Upvotes | Request |
 |-------|-----|---------|
 | [#670](https://github.com/temporalio/sdk-php/issues/670) | 0 | **Symfony 8.0 support** - Ensure compatibility with upcoming Symfony version |
+| [#698](https://github.com/temporalio/sdk-php/issues/698) | 0 | **Drop old packages support** - Modernize dependency requirements |
 
 ### API & Service Clients
 
@@ -224,6 +251,8 @@ Testing is a significant pain point for PHP SDK users, with 8 issues related to 
 | [#507](https://github.com/temporalio/sdk-php/issues/507) | 0 | **Eliminate DestructMemorizedInstanceException** - Remove confusing exception |
 | [#601](https://github.com/temporalio/sdk-php/issues/601) | 0 | **Expose WorkflowInboundCallInterceptor::init()** |
 | [#318](https://github.com/temporalio/sdk-php/issues/318) | 0 | **Improve proto-generated PHP files** |
+| [#382](https://github.com/temporalio/sdk-php/issues/382) | 0 | **Methods without ActivityMethod attribute are registered** |
+| [#285](https://github.com/temporalio/sdk-php/issues/285) | 0 | **Use temporal.download for test server** |
 
 ### SDK Governance
 
@@ -261,7 +290,7 @@ The most upvoted issue ([#592](https://github.com/temporalio/sdk-php/issues/592)
 
 ### Stale Issues (>1 year, no activity)
 
-18 issues (37% of open issues) have not been updated in over 12 months:
+18 issues (36% of open issues) have not been updated in over 12 months:
 
 | Issue | Last Updated | Title |
 |-------|--------------|-------|
@@ -302,6 +331,18 @@ The most upvoted issue ([#592](https://github.com/temporalio/sdk-php/issues/592)
   - [#545](https://github.com/temporalio/sdk-php/issues/545) - Cross-SDK feature (workflow local)
   - [#580](https://github.com/temporalio/sdk-php/issues/580) - Nexus implementation tracking
 
+### Age Distribution
+
+| Age | Count | % |
+|-----|-------|---|
+| Last 30 days | 4 | 8% |
+| 1-3 months | 1 | 2% |
+| 3-6 months | 6 | 12% |
+| 6-12 months | 17 | 34% |
+| 1-2 years | 14 | 28% |
+| 2-3 years | 4 | 8% |
+| 3+ years | 4 | 8% |
+
 ### Duplicate Candidates
 
 No obvious duplicates identified. Issues are generally well-scoped and distinct.
@@ -335,11 +376,12 @@ Based on user demand and issue analysis:
 
 - **[#580](https://github.com/temporalio/sdk-php/issues/580):** Complete Nexus implementation
 - **[#644](https://github.com/temporalio/sdk-php/issues/644):** Implement plugin support
+- **[#670](https://github.com/temporalio/sdk-php/issues/670):** Symfony 8.0 support
 - **[#103](https://github.com/temporalio/sdk-php/issues/103):** Provide official Sentry/APM integration pattern
 
 ### Phase 5: Maintenance (Ongoing)
 
-- Triage and close stale issues (18 issues, 37% of backlog)
+- Triage and close stale issues (18 issues, 36% of backlog)
 - Maintain framework compatibility (Symfony 8.0, Laravel updates)
 - Close long-standing bugs if no longer reproducible ([#123](https://github.com/temporalio/sdk-php/issues/123))
 - Enable GitHub Discussions ([#640](https://github.com/temporalio/sdk-php/issues/640)) to separate Q&A from issues
@@ -360,7 +402,7 @@ The PHP SDK is reasonably mature but has room for improvement in documentation a
 | Installation | Minor Issues | Recent Composer compatibility problems |
 | Feature Parity | In Progress | Nexus, Worker Versioning, workflow-local pending |
 
-The SDK's 81% resolution rate and improving velocity (net -8 issues in last 6 months) demonstrate responsive maintenance. Primary focus areas should be:
+The SDK's 81% resolution rate and improving velocity (net -7 issues in last 6 months) demonstrate responsive maintenance. Primary focus areas should be:
 
 1. **Documentation** - Address the critical marshaller gap (most upvoted issue)
 2. **Testing infrastructure** - 8 related issues indicate this is a major pain point

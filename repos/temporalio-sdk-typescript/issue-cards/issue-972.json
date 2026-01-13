@@ -1,0 +1,30 @@
+{
+  "summary": "The activity schedule-to-start latency metric incorrectly reports high values during retries because it uses the original activity scheduled time instead of the current attempt's scheduled time.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "telemetry"
+  ],
+  "concepts": [
+    "metric",
+    "latency",
+    "retry",
+    "scheduling",
+    "measurement"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately measure worker queue depth using the schedule-to-start latency metric when activities are retried, as the metric reports inflated values.",
+  "rootCause": "The SDK calculates schedule-to-start latency using the activity's initial scheduled time rather than the current attempt's scheduled time, causing retried attempts to report the full time since the original scheduling.",
+  "proposedFix": "Use current_attempt_scheduled_time from the activity task instead of the initial scheduled time for calculating the metric.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Corrected to use current_attempt_scheduled_time instead of initial scheduled time for retried activity attempts, aligning with other SDK implementations.",
+  "related": [],
+  "keyQuote": "after checking other SDKs, looks like they're using the `current_attempt_scheduled_time`.",
+  "number": 972,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:25:52.535Z"
+}

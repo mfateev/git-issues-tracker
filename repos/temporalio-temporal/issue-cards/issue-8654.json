@@ -1,0 +1,31 @@
+{
+  "summary": "Workflows are not visible in the Temporal UI or through `tctl workflow list`, despite being present in the MySQL database and indexed in Elasticsearch. Individual workflows can be described via `tctl workflow show` but cannot be listed.",
+  "category": "bug",
+  "subcategory": "visibility-ui",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "tctl",
+    "visibility-engine",
+    "elasticsearch"
+  ],
+  "concepts": [
+    "workflow-listing",
+    "visibility",
+    "ui-rendering",
+    "elasticsearch-indexing",
+    "workflow-discovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot view their workflows in the UI or list them via CLI, preventing workflow management and monitoring despite data being present in the database.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflows are not visible on temporal UI. Through tctl I'm able to describe the workflow using tctl workflow show --workflow_id <workflow-id> but get an empty output through tctl workflow list",
+  "number": 8654,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:48.789Z"
+}

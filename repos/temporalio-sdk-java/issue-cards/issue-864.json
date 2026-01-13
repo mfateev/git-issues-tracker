@@ -1,0 +1,32 @@
+{
+  "summary": "Documentation needs clarification that signal methods can be called before the workflow method when a workflow is reset to the first workflow task. Signal methods, query code, and workflow code should not assume ordering of execution.",
+  "category": "docs",
+  "subcategory": "signal-methods",
+  "apis": [
+    "SignalMethod"
+  ],
+  "components": [
+    "signal-handler",
+    "workflow-reset",
+    "documentation"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "signal-processing",
+    "execution-ordering",
+    "query-processing",
+    "workflow-task"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers may write signal handling code that assumes signals are processed only after the workflow method is initially triggered, leading to unexpected behavior during workflow resets.",
+  "rootCause": "When a workflow is reset to the first workflow task, signals from the original run are prepended before the first WFT of the new run, causing signal methods to execute before workflow method execution.",
+  "proposedFix": "Add clarifications to @SignalMethod javadoc and Signal documentation explaining that signal methods, query code, and workflow code should not assume ordering. Also apply similar clarifications to query documentation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to clarify signal method execution ordering and that developers should not assume signals are processed only after initial workflow method trigger.",
+  "related": [],
+  "keyQuote": "signal methods to be called before the workflow method...Application developers should not assume that signals will be processed only after an initial trigger",
+  "number": 864,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:48:53.500Z"
+}

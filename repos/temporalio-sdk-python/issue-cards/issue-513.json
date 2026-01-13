@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to enable replacing the worker's client with a new one that may have different connection options, such as a new TLS certificate.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "client",
+    "connection"
+  ],
+  "concepts": [
+    "client-replacement",
+    "tls-certificate",
+    "connection-options",
+    "worker-lifecycle",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot update worker client credentials or connection settings without restarting the worker process.",
+  "rootCause": null,
+  "proposedFix": "Add capability to replace the worker client with a new client instance that may be configured with different options.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need to be able to replace the worker client with a new client that may be connected with different options (e.g. a new TLS cert)",
+  "number": 513,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:33.532Z"
+}

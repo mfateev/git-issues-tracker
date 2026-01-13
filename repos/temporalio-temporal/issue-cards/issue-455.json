@@ -1,0 +1,30 @@
+{
+  "summary": "When Temporal service startup fails due to missing configuration keys, the error log doesn't include the name of the missing key, making debugging difficult. Request to improve error messaging by logging the specific key name that caused the validation failure.",
+  "category": "feature",
+  "subcategory": "configuration-validation",
+  "apis": [],
+  "components": [
+    "config-loader",
+    "service-startup",
+    "error-logging"
+  ],
+  "concepts": [
+    "configuration-validation",
+    "error-messaging",
+    "debugging",
+    "kubernetes-deployment",
+    "yaml-parsing"
+  ],
+  "severity": "low",
+  "userImpact": "Users deploying Temporal in Kubernetes face prolonged troubleshooting when config validation fails because the error message doesn't identify which configuration key is missing.",
+  "rootCause": "Config validation error handling doesn't extract and log the specific missing key name from the YAML parsing error.",
+  "proposedFix": "Include the name of the missing configuration key in the error log message when config validation fails.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When validating configs and encountering a missing key, please include the name of the key in the log.",
+  "number": 455,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:59:13.851Z"
+}

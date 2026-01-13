@@ -1,0 +1,31 @@
+{
+  "summary": "User requests ability to customize gRPC retry options in ServiceStubsOptions. Currently, gRPC retries for up to 1 minute on deadline exceeded, which is too long for their use case. They want finer control over retry behavior similar to existing timeout configuration options.",
+  "category": "feature",
+  "subcategory": "rpc-configuration",
+  "apis": [],
+  "components": [
+    "ServiceStubsOptions",
+    "gRPC",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "deadline",
+    "timeout",
+    "configuration",
+    "gRPC",
+    "network-resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize gRPC retry behavior, forcing them to accept long retry periods (1 minute) that may not match their application requirements.",
+  "rootCause": null,
+  "proposedFix": "Add customizable RPC retry parameters to ServiceStubsOptions and propagate them similarly to existing deadline settings (rpcTimeout, rpcLongPollTimeout, rpcQueryTimeout).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "RPC retry options were added to ServiceStubsOptions configuration.",
+  "related": [],
+  "keyQuote": "We would like to control how many times grpc retries. Currently, it will retry for a total of 1 mins when deadline exceeded, and it is too long for us.",
+  "number": 330,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:08:36.590Z"
+}

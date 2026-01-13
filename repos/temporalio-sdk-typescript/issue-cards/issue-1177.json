@@ -1,0 +1,32 @@
+{
+  "summary": "Forward metrics from Core SDK to TypeScript SDK to enable custom metrics handling, filtering, and export to external collectors. This requires implementing support for accepting and handling metrics from Core.",
+  "category": "feature",
+  "subcategory": "metrics-export",
+  "apis": [],
+  "components": [
+    "metrics-handler",
+    "core-bridge",
+    "metrics-exporter"
+  ],
+  "concepts": [
+    "metrics-export",
+    "custom-collectors",
+    "metric-filtering",
+    "telemetry",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to customize metrics handling, filter metrics for cost reduction, and export to unsupported external collectors.",
+  "rootCause": null,
+  "proposedFix": "Implement TypeScript SDK support for Core's metrics export API, with separate interfaces for custom collector implementation and metric emission on existing collectors.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    126
+  ],
+  "keyQuote": "expose both the ability to impl a custom collector _and_ to emit metrics on the existing one as separate unrelated things",
+  "number": 1177,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:10.570Z"
+}

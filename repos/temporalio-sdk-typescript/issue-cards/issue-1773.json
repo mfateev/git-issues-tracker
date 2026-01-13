@@ -1,0 +1,29 @@
+{
+  "summary": "TypeError: (0 , ms_1.default) is not a function error when starting a worker due to incompatible ms package version 3.0.0-canary.1. The issue was resolved by using a proper canary release or clearing npm cache.",
+  "category": "bug",
+  "subcategory": "dependency-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "time-utilities",
+    "worker-options"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "npm-versioning",
+    "package-manager-cache",
+    "canary-release"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start workers due to runtime TypeError caused by an incompatible transitive dependency version.",
+  "rootCause": "The ms package version 3.0.0-canary.1 has an incompatible export structure where the default export is not a function, breaking the msWithValidation utility.",
+  "proposedFix": "Use ms version 2.1.3 or update to a proper canary release (3.0.0-canary.202508261828+). Force package manager to query NPM registry with --prefer-online flag.",
+  "workaround": "Run npm i --prefer-online (NPM), pnpm install --prefer-online (PNPM), yarn install --update-checksums (Yarn Classic), or yarn install --check-cache (Yarn Berry/3+) to clear cache and install correct version.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by upstream ms package releasing proper canary versions and users clearing npm cache to fetch correct dependency versions.",
+  "related": [],
+  "keyQuote": "we're shaking the dust off after many years without a release. if you still want to depend on the canary you can use the release linked here",
+  "number": 1773,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:51.037Z"
+}

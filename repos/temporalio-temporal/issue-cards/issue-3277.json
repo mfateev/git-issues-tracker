@@ -1,0 +1,29 @@
+{
+  "summary": "Flaky test in the archival worker integration test suite that intermittently fails. The test was disabled because archival functionality is being rewritten.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "archival",
+    "test-suite",
+    "worker"
+  ],
+  "concepts": [
+    "flaky-test",
+    "archival",
+    "integration-testing",
+    "test-stability"
+  ],
+  "severity": "medium",
+  "userImpact": "Test instability affects development workflow and CI/CD reliability, though archival is being rewritten.",
+  "rootCause": "Underlying archival implementation issues causing intermittent test failures",
+  "proposedFix": null,
+  "workaround": "Test was disabled pending archival rewrite",
+  "resolution": "wontfix",
+  "resolutionDetails": "Archival functionality is being rewritten, so the flaky test was disabled rather than fixed",
+  "related": [],
+  "keyQuote": "Won't fix because archival is being rewritten, and we have simply disabled this test for now.",
+  "number": 3277,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:55.347Z"
+}

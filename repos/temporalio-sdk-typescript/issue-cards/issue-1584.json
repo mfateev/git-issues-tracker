@@ -1,0 +1,34 @@
+{
+  "summary": "mTLS connection with NativeConnectionOptions throws 'NativeCertsNotFound' error after upgrading from SDK 1.11.3 to 1.11.5. The issue stems from SDK v1.11.5 switching from rustls built-in CAs to system-native certificate verification, requiring explicit CA certificates in slim Docker images.",
+  "category": "bug",
+  "subcategory": "mtls-connection",
+  "apis": [
+    "NativeConnectionOptions"
+  ],
+  "components": [
+    "connection",
+    "transport",
+    "tls"
+  ],
+  "concepts": [
+    "mtls",
+    "certificate-validation",
+    "docker-deployment",
+    "root-ca",
+    "transport-error"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to SDK 1.11.5 experience broken mTLS connections in containerized environments, particularly with slim Docker images lacking system CA certificates.",
+  "rootCause": "SDK 1.11.5 changed from using rustls built-in CAs to relying on system-native certificate verification via the OS, which requires root CA certificates to be present in the environment.",
+  "proposedFix": null,
+  "workaround": "Install CA certificates in the Docker image (via `apt-get update && apt-get install -y ca-certificates`) or copy custom CA to /etc/ssl/certs/ca-certificates.crt",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue is by design - SDK 1.11.5 correctly delegates CA management to the OS. Users must ensure CA certificates are available in their deployment environment.",
+  "related": [
+    824
+  ],
+  "keyQuote": "The reason that was working until TS SDK 1.11.3 is that we were previously relying on rustls's built-in CAs rather than the system-native ones, but that was incorrect.",
+  "number": 1584,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:21.257Z"
+}

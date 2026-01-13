@@ -1,0 +1,30 @@
+{
+  "summary": "Health proto package in the Python SDK conflicts with the gRPC health library's health.proto, causing a TypeError when both are imported. The SDK's health proto package needs to be renamed to avoid this namespace collision.",
+  "category": "bug",
+  "subcategory": "proto-package-conflict",
+  "apis": [],
+  "components": [
+    "proto-definitions",
+    "grpc-interop",
+    "health-check"
+  ],
+  "concepts": [
+    "package-namespace",
+    "proto-conflict",
+    "grpc-compatibility",
+    "import-resolution",
+    "library-clash"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use both the Temporal Python SDK and the grpc_health library together due to a protobuf package name conflict.",
+  "rootCause": "The Python SDK's health proto uses package 'grpc.health.v1' which is identical to the official gRPC health library's package name, causing a protobuf registration conflict.",
+  "proposedFix": "Rename the SDK's health proto package to avoid collision with gRPC's official health proto package.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Health proto package was renamed in the SDK to resolve the namespace conflict with grpc_health library.",
+  "related": [],
+  "keyQuote": "TypeError: Conflict register for file \"health/v1/health.proto\": grpc.health.v1.HealthCheckRequest is already defined",
+  "number": 267,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:30.558Z"
+}

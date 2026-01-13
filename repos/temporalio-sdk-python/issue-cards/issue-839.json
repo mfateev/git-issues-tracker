@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to warn developers when the server-provided task start time differs significantly from when the SDK begins processing the task, helping identify timing issues.",
+  "category": "feature",
+  "subcategory": "task-processing",
+  "apis": [],
+  "components": [
+    "task-processor",
+    "time-handling"
+  ],
+  "concepts": [
+    "timing",
+    "clock-skew",
+    "task-start-time",
+    "diagnostics",
+    "warning"
+  ],
+  "severity": "low",
+  "userImpact": "Users would receive warnings about timing discrepancies that could help debug synchronization issues between server and SDK.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined the feature request was too niche to implement.",
+  "related": [
+    616
+  ],
+  "keyQuote": "We're not gonna do this. Too niche.",
+  "number": 839,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:51.532Z"
+}

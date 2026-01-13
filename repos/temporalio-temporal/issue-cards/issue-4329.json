@@ -1,0 +1,30 @@
+{
+  "summary": "Request to allow zero port in config to let the OS automatically assign a free port for testing scenarios. This simplifies testing with multiple local servers and avoids port conflicts.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "config",
+    "rpc",
+    "server-startup"
+  ],
+  "concepts": [
+    "port-binding",
+    "testing",
+    "os-ephemeral-ports",
+    "server-initialization",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies testing workflows by allowing automatic port assignment instead of manual configuration for each test run.",
+  "rootCause": null,
+  "proposedFix": "Allow specifying port 0 in config.Config to let OS choose a port, then update the config with the actual bound port after binding.",
+  "workaround": "Use temporalite's freeport.go approach, though it has race conditions with port rebinding.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Decision made not to implement due to OS-level port reservation behavior - all major operating systems reserve ports for 60 seconds after closing before making them available again.",
+  "related": [],
+  "keyQuote": "We decided to not do this as all major operating systems will reserve ports for 60 seconds before making them available again.",
+  "number": 4329,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:02.223Z"
+}

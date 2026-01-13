@@ -1,0 +1,31 @@
+{
+  "summary": "Local activity execution metrics (temporal_activity_succeed_endtoend_latency and temporal_local_activity_execution_failed) are not being reported in production, despite being implemented identically to normal activity metrics. End-to-end latency metrics are missing while execution metrics are reported, and execution failures appear not to be captured.",
+  "category": "bug",
+  "subcategory": "metrics-reporting",
+  "apis": [],
+  "components": [
+    "local-activity-executor",
+    "metrics-reporter",
+    "worker"
+  ],
+  "concepts": [
+    "metrics",
+    "local-activity",
+    "latency",
+    "failure-reporting",
+    "end-to-end",
+    "production-monitoring"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot monitor local activity performance and failures in production, limiting visibility into workflow execution health.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We also pretty sure there are many cases of LA execution failure but not reported based on our workflow history.",
+  "number": 2119,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:26.265Z"
+}

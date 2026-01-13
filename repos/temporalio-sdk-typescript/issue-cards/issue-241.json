@@ -1,0 +1,33 @@
+{
+  "summary": "Worker crashes intermittently during load tests with a V8 promise hook assertion failure. The crash occurs in native code during promise processing and is difficult to reproduce locally.",
+  "category": "bug",
+  "subcategory": "worker-stability",
+  "apis": [],
+  "components": [
+    "worker",
+    "promise-hook",
+    "v8-native"
+  ],
+  "concepts": [
+    "crash",
+    "load-test",
+    "promise-handling",
+    "stability",
+    "native-binding"
+  ],
+  "severity": "high",
+  "userImpact": "Workers crash unpredictably under load, causing workflow execution interruptions and requiring manual restarts.",
+  "rootCause": "V8 promise hook assertion failure in native code (workflow-isolate-extension.cc:47), indicating improper handling of promise state during high-concurrency scenarios.",
+  "proposedFix": "Merge PR #264 to address underlying promise handling; add detailed assertion messages per PR #268 for better diagnostics.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved through related PR #268 which added more informative assertion error messages. Root cause addressed by architectural changes in PR #264.",
+  "related": [
+    264,
+    268
+  ],
+  "keyQuote": "node: ../workflow-isolate-extension.cc:47: void custom_promise_hook(v8::PromiseHookType, v8::Local<v8::Promise>, v8::Local<v8::Value>): Assertion `!result.IsEmpty()' failed.",
+  "number": 241,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:38.172Z"
+}

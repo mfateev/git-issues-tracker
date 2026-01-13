@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for setting a 'summary' metadata field on scheduled Nexus operations in workflows, similar to existing support for timers, child workflows, and activities.",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [],
+  "components": [
+    "nexus-operations",
+    "workflow-execution",
+    "metadata"
+  ],
+  "concepts": [
+    "metadata",
+    "nexus",
+    "scheduled-operations",
+    "workflow-context",
+    "operation-tracking"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot add summary metadata to Nexus operations, limiting observability and operational context compared to other scheduled operations.",
+  "rootCause": null,
+  "proposedFix": "Add an additional option to Nexus operations in workflows to set a summary field, consistent with timers, child workflows, and activities.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #610 by maintainer Sushisource",
+  "related": [
+    486,
+    610
+  ],
+  "keyQuote": "Add a fixed \"summary\" metadata to scheduled Nexus operations like we have for timers, child workflows and activities.",
+  "number": 557,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:41.463Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflows cancelled before being scheduled return ChildWorkflowFailureException instead of CanceledFailureException, inconsistent with other cancellation scenarios.",
+  "category": "bug",
+  "subcategory": "child-workflow-cancellation",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "CanceledFailureException",
+    "ChildWorkflowFailureException"
+  ],
+  "components": [
+    "workflow-instance",
+    "child-workflow-handler",
+    "core-interop"
+  ],
+  "concepts": [
+    "cancellation",
+    "error-handling",
+    "workflow-scheduling",
+    "exception-mapping"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive inconsistent exception types when cancelling child workflows depending on timing, making error handling and cancellation detection unreliable.",
+  "rootCause": "Code that attempts to handle pre-scheduled cancellations may not execute before the call is handed off to Core, resulting in improper exception type being returned.",
+  "proposedFix": "Document that calling with an already-cancelled token may have different exceptions than if cancelled before/after start, and recommend using TemporalException.IsCanceledException helper for cancellation detection.",
+  "workaround": "Use TemporalException.IsCanceledException helper method to reliably detect cancelled exceptions regardless of type.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Resolved as documentation issue. The behavior is consistent with .NET patterns (eager cancellation exceptions), so users should use the IsCanceledException helper for reliable cancellation detection.",
+  "related": [],
+  "keyQuote": "After discussion, throwing cancellation exceptions eagerly if a call is made with an already-cancelled token is the .NET way",
+  "number": 178,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:31.337Z"
+}

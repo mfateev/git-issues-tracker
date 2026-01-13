@@ -1,0 +1,32 @@
+{
+  "summary": "The publish-to-verdaccio script fails with ECONNREFUSED when the local registry storage directory exists from a previous run, and also modifies package.json files on the first attempt, causing uncommitted changes on retry.",
+  "category": "bug",
+  "subcategory": "build-publish",
+  "apis": [],
+  "components": [
+    "publish-script",
+    "verdaccio-registry",
+    "lerna",
+    "package-management"
+  ],
+  "concepts": [
+    "local-registry",
+    "package-publishing",
+    "build-automation",
+    "registry-storage",
+    "connection-error",
+    "uncommitted-changes"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use the publish-to-verdaccio script without manually cleaning up registry state and handling lerna modifications to package.json files.",
+  "rootCause": "The registry storage directory persists between runs, causing connection failures. Lerna modifies package.json files during the publish attempt, leaving uncommitted changes.",
+  "proposedFix": null,
+  "workaround": "Remove the entire /tmp/registry directory instead of just /tmp/registry/storage before running the script.",
+  "resolution": "fixed",
+  "resolutionDetails": "Changed cleanup command from 'rm /tmp/registry/storage' to 'rm /tmp/registry' to ensure registry state is completely reset.",
+  "related": [],
+  "keyQuote": "Fixed by changing `rm /tmp/registry/storage` to `rm /tmp/registry`",
+  "number": 265,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:39.296Z"
+}

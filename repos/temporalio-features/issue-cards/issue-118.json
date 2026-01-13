@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for declarative schedule management in Temporal. Users want to define schedules declaratively (e.g., via annotations, configuration files, or Terraform) rather than imperatively through tctl or SDK scripts, enabling better infrastructure-as-code practices and easier maintenance.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "schedule-service",
+    "worker",
+    "api-design"
+  ],
+  "concepts": [
+    "declarative-infrastructure",
+    "schedule-deployment",
+    "configuration-management",
+    "terraform-integration",
+    "workflow-annotations",
+    "upsert-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot manage Temporal schedules declaratively, forcing them to use imperative APIs or scripts, which is suboptimal for infrastructure-as-code practices and maintainability.",
+  "rootCause": null,
+  "proposedFix": "Implement declarative schedule specification through annotations, separate configuration objects, or files (e.g., myWorkflow.schedule.ts). Support upserting schedules on worker startup or via external scripts/Terraform provider. Preserve schedule state (paused/unpaused) during updates.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I shouldn't have to use an imperative api to work with something that should just 'be there'. I want to annotate a workflow with a schedule and have it 'take effect' when I deploy the worker.",
+  "number": 118,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:48:36.081Z"
+}

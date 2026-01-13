@@ -1,0 +1,31 @@
+{
+  "summary": "Unify the common.Daemon interface and abstract the repeated start/stop logic with atomic compare-and-swap pattern that is scattered throughout the server codebase into a reusable common library.",
+  "category": "feature",
+  "subcategory": "refactoring-daemon-pattern",
+  "apis": [],
+  "components": [
+    "daemon",
+    "common-library",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "atomic-operations",
+    "thread-safety",
+    "idempotence",
+    "lifecycle-management",
+    "code-reuse",
+    "initialization-pattern"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces code duplication and improves maintainability for internal server components implementing background threads.",
+  "rootCause": "Daemon start/stop logic with atomic compare-and-swap patterns is duplicated across multiple structs in the codebase.",
+  "proposedFix": "Abstract the common daemon initialization and cleanup logic into a reusable common library module.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The daemon pattern logic was unified and abstracted into a common library.",
+  "related": [],
+  "keyQuote": "To guarantee the at most once execution, following logic is added... The above logic is scattered within the entire server repo, we should abstract a common lib and reuse",
+  "number": 1043,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:51:59.155Z"
+}

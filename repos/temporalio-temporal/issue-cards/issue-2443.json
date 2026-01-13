@@ -1,0 +1,33 @@
+{
+  "summary": "Support including heartbeat details in activity task failure completions to avoid race conditions and unnecessary heartbeat RPCs. Currently, developers must delay completion until pending heartbeat info is flushed; allowing details in the failure response would eliminate this timing issue.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RespondActivityTaskFailedRequest"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-buffer",
+    "rpc-handler"
+  ],
+  "concepts": [
+    "heartbeat",
+    "activity-failure",
+    "race-condition",
+    "buffering",
+    "completion-details",
+    "rpc-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will be able to record progress and fail activities atomically without managing complex heartbeat flush timing.",
+  "rootCause": "RespondActivityTaskFailedRequest lacks a details field for heartbeat information, forcing completion to wait for pending heartbeat buffer flush.",
+  "proposedFix": "Upgrade RespondActivityTaskFailedRequest to include a details field that acts like heartbeat details.",
+  "workaround": "Delay activity completion until pending heartbeat info is flushed from the buffer.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if I could send the details with the completion I can just avoid sending another heartbeat RPC alltogether",
+  "number": 2443,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:43.798Z"
+}

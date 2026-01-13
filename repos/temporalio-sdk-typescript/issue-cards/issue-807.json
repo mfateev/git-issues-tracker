@@ -1,0 +1,32 @@
+{
+  "summary": "Stress tests intermittently fail when a dynamically created namespace becomes unavailable before tests complete, causing TonicError with 'Namespace not found' message. The issue appears to be a race condition during namespace initialization or availability.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "stress-tests",
+    "namespace-handling",
+    "load-test-runner",
+    "all-in-one"
+  ],
+  "concepts": [
+    "namespace-availability",
+    "race-condition",
+    "test-stability",
+    "initialization",
+    "stress-testing",
+    "timeout"
+  ],
+  "severity": "medium",
+  "userImpact": "Stress tests fail sporadically, reducing test reliability and making it difficult to detect real performance issues or regressions.",
+  "rootCause": "Namespace may not be fully ready when stress test attempts to use it, or namespace becomes unavailable during test execution",
+  "proposedFix": "Add 'wait for namespace ready' function before running tests; consider using Temporalite as an alternative",
+  "workaround": "Add sleep delay before running stress tests to allow namespace initialization; use Temporalite for more stable test environment",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by adding 'wait for namespace ready' function before running tests, eliminating the race condition",
+  "related": [],
+  "keyQuote": "No recent occurrence of this one, and I believe this has been resolved a long time ago by adding a \"wait for namespace ready\" function",
+  "number": 807,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:13:13.441Z"
+}

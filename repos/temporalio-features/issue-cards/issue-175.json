@@ -1,0 +1,31 @@
+{
+  "summary": "Cron workflow executions report inaccurate end-to-end latency metrics because they include the firstWorkflowTaskBackoff delay. Request to either adjust the metric calculation or create new metrics that distinguish between start-to-close latency and schedule-to-close latency.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-executor",
+    "cron-workflows"
+  ],
+  "concepts": [
+    "latency",
+    "metrics",
+    "cron",
+    "timing",
+    "workflow-execution",
+    "task-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users monitoring cron workflow performance see artificially inflated end-to-end latency metrics that don't reflect actual worker processing time.",
+  "rootCause": "workflow_endtoend_latency is calculated from WorkflowExecutionStarted event, which precedes the firstWorkflowTaskBackoff delay in cron workflows, inflating the reported latency.",
+  "proposedFix": "Either subtract firstWorkflowTaskBackoff duration from workflow_endtoend_latency for cron workflows, or introduce new metrics: workflow_scheduletoclose_latency (current behavior), workflow_starttoclose_latency (adjusted), or workflow_cron_execution_latency.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For cron workflows this can lead to very large endtoend latencies as the first workflow task is not added to tq until firstWorkflowTaskBackoff timer fires.",
+  "number": 175,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:13.450Z"
+}

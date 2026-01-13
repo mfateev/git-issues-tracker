@@ -1,0 +1,32 @@
+{
+  "summary": "Remove the Callable shortcut from client interceptor type union. The interceptor type currently accepts both Interceptor objects and Callables that transform OutboundInterceptors, but this shortcut is unnecessary and should be removed.",
+  "category": "feature",
+  "subcategory": "interceptor-api",
+  "apis": [
+    "Interceptor",
+    "OutboundInterceptor"
+  ],
+  "components": [
+    "client",
+    "interceptor",
+    "type-system"
+  ],
+  "concepts": [
+    "api-simplification",
+    "type-union",
+    "callable-removal",
+    "client-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users will need to use Interceptor objects directly instead of Callable shortcuts, simplifying the API contract.",
+  "rootCause": "The Callable shortcut in the type union is redundant and adds unnecessary complexity to the client interceptor interface.",
+  "proposedFix": "Change the interceptor type from Union[temporalio.client.Interceptor, Callable[[temporalio.client.OutboundInterceptor], temporalio.client.OutboundInterceptor]] to just temporalio.client.Interceptor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Callable shortcut was removed from the accepted client interceptor types, simplifying the API to accept only Interceptor objects.",
+  "related": [],
+  "keyQuote": "Currently a client interceptor is Union[temporalio.client.Interceptor, Callable[[temporalio.client.OutboundInterceptor], temporalio.client.OutboundInterceptor]] but there's no need for the shortcut",
+  "number": 119,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:16.298Z"
+}

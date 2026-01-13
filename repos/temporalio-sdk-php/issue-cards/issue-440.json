@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose the shouldContinueAsNew flag in the WorkflowInfo class for PHP SDK, allowing workflows to check if they should continue as new execution.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "workflow-info",
+    "sdk-api"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "continue-as-new",
+    "workflow-state",
+    "execution-control"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot programmatically determine within a workflow whether they should continue as new, requiring workarounds or manual tracking.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The shouldContinueAsNew flag was exposed in WorkflowInfo for the PHP SDK to match functionality in other SDKs.",
+  "related": [
+    16
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/16",
+  "number": 440,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:50.619Z"
+}

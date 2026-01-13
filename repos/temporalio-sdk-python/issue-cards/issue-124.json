@@ -1,0 +1,31 @@
+{
+  "summary": "Child workflow invocation currently requires explicit workflow IDs. This feature request proposes making workflow IDs optional for in-workflow child workflow invocation, with automatic UUID generation as the default.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "child-workflow-executor"
+  ],
+  "concepts": [
+    "workflow-id",
+    "uuid-generation",
+    "optional-parameters",
+    "child-workflows",
+    "default-values"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have simpler API for child workflow invocation without needing to manually generate and manage workflow IDs.",
+  "rootCause": null,
+  "proposedFix": "Make workflow ID optional in child workflow invocation API and default to auto-generated UUID.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For in-workflow child workflow invocation, we should not require a workflow ID but instead make it optional and default to a UUID.",
+  "number": 124,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:40.034Z"
+}

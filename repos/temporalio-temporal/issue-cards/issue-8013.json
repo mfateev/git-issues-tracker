@@ -1,0 +1,33 @@
+{
+  "summary": "ListWorkflows with custom search attributes sometimes returns incorrect workflow results when multiple workflows are created simultaneously with different attribute values. The wrong workflow is returned instead of the correct one or no results, though the index eventually becomes consistent.",
+  "category": "bug",
+  "subcategory": "visibility-search",
+  "apis": [
+    "ListWorkflowsAsync",
+    "StartWorkflowAsync"
+  ],
+  "components": [
+    "visibility-store",
+    "search-attributes",
+    "indexing"
+  ],
+  "concepts": [
+    "eventual-consistency",
+    "search-accuracy",
+    "concurrent-creation",
+    "custom-attributes",
+    "visibility-index"
+  ],
+  "severity": "high",
+  "userImpact": "Users may receive incorrect workflow results when querying by custom search attributes on workflows created in rapid succession, causing data inconsistency until the visibility index eventually reconciles.",
+  "rootCause": "Race condition in visibility store indexing when multiple workflows with different custom search attributes are created within the same second, causing the wrong workflow to be returned before index consistency is achieved.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In some cases, the method returns a workflow that does not contain the requested search attribute. This workflow was created at the same time (within the same second) as the expected one.",
+  "number": 8013,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:02.530Z"
+}

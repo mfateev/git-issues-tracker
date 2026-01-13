@@ -1,0 +1,30 @@
+{
+  "summary": "Remove unnecessary files from the PHP SDK composer package before release to reduce package size and distribution footprint. Files like tests, build configuration, and development tools should be excluded.",
+  "category": "other",
+  "subcategory": "package-distribution",
+  "apis": [],
+  "components": [
+    "composer-package",
+    "package-configuration"
+  ],
+  "concepts": [
+    "package-distribution",
+    "release-preparation",
+    "build-artifacts",
+    "development-tools"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces the PHP SDK package size and removes unnecessary development files from end-user installations.",
+  "rootCause": null,
+  "proposedFix": "Exclude development and test directories from the composer package configuration (likely via .gitattributes or composer.json export-ignore)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via pull request #91 which implemented the exclusion of specified files from the composer package",
+  "related": [
+    91
+  ],
+  "keyQuote": "Before release, we need to exclude a set of files from the composer package",
+  "number": 89,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:02.345Z"
+}

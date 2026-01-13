@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for SDK and capability metadata fields in the test server to align with API pull requests #259 and #263. Requires determining how TestServer should return sensible values coherent with the current SDK version.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "capability-metadata",
+    "sdk-metadata"
+  ],
+  "concepts": [
+    "metadata",
+    "test-server",
+    "capabilities",
+    "schema",
+    "version-coherence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need test server to properly report SDK and capability metadata for testing purposes.",
+  "rootCause": null,
+  "proposedFix": "Implement support for API changes in PR #259 and #263, ensuring TestServer returns values coherent with current SDK version",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating implementation of SDK and capability metadata support was completed",
+  "related": [
+    259,
+    263
+  ],
+  "keyQuote": "Should it return values that are coherent with the current version of sdk-java?",
+  "number": 1746,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:36.390Z"
+}

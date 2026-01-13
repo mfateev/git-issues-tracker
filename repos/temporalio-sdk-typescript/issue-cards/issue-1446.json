@@ -1,0 +1,33 @@
+{
+  "summary": "Need a workflow-friendly concurrency control mechanism (mutex/semaphore) that is reentrant and deterministic for use within signal handlers, update handlers, and workflow coroutines.",
+  "category": "feature",
+  "subcategory": "concurrency-control",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "signal-handler",
+    "update-handler",
+    "coroutine-executor"
+  ],
+  "concepts": [
+    "concurrency",
+    "mutex",
+    "semaphore",
+    "reentrancy",
+    "determinism",
+    "synchronization",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack a safe, deterministic way to control concurrency within workflow logic, limiting ability to manage resource access in signal and update handlers.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need a mechanism for concurrency control (mutex/semaphore) that fits with the language but is reentrant and deterministic within workflow coroutines.",
+  "number": 1446,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:18:07.808Z"
+}

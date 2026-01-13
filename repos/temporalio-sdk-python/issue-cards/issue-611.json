@@ -1,0 +1,35 @@
+{
+  "summary": "The SDK should provide a helpful error message when users try to upsert a datetime search attribute with a timezone-naive datetime object, instead of letting the server fail the Workflow Task Completion.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "upsert_search_attributes"
+  ],
+  "components": [
+    "search-attributes",
+    "validation",
+    "error-handling"
+  ],
+  "concepts": [
+    "datetime",
+    "timezone",
+    "validation",
+    "error-message",
+    "search-attributes",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get delayed, unclear errors from the server instead of immediate, helpful feedback when using invalid datetime objects in search attributes.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    572
+  ],
+  "keyQuote": "The SDK should raise an exception with a helpful error message if the datetime object is invalid for use as a datetime search attribute",
+  "number": 611,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:14.088Z"
+}

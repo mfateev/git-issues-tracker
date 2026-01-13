@@ -1,0 +1,33 @@
+{
+  "summary": "Proposal to improve the Worker API by allowing Worker#run to accept a block and deprecating the separate Worker#start method, streamlining the Worker lifecycle management in the Ruby SDK.",
+  "category": "feature",
+  "subcategory": "worker-api",
+  "apis": [
+    "Worker#run",
+    "Worker#start"
+  ],
+  "components": [
+    "worker",
+    "api-design",
+    "runtime"
+  ],
+  "concepts": [
+    "api-improvement",
+    "lifecycle-management",
+    "block-syntax",
+    "deprecation",
+    "ruby-idioms"
+  ],
+  "severity": "low",
+  "userImpact": "Users would benefit from a more Ruby-idiomatic API with simplified Worker lifecycle management.",
+  "rootCause": null,
+  "proposedFix": "Modify Worker#run to accept an optional block parameter and deprecate Worker#start method.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker#run was enhanced to accept a block, providing more idiomatic Ruby API patterns while the separate start method was deprecated.",
+  "related": [],
+  "keyQuote": null,
+  "number": 86,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:28.241Z"
+}

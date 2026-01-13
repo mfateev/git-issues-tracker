@@ -1,0 +1,30 @@
+{
+  "summary": "The temporal-sql-tool cannot connect to PostgreSQL databases unless the database name is one of the default names (postgres or defaultdb) because cfg.DatabaseName is unconditionally blanked out before connection, preventing use with custom database names.",
+  "category": "bug",
+  "subcategory": "sql-tool",
+  "apis": [],
+  "components": [
+    "sql-tool",
+    "database-handler",
+    "postgres-driver"
+  ],
+  "concepts": [
+    "database-connection",
+    "configuration",
+    "postgres",
+    "sql-setup",
+    "connection-pooling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use temporal-sql-tool to set up schemas on PostgreSQL instances with custom database names, forcing manual database creation or schema setup.",
+  "rootCause": "The cfg.DatabaseName value is unconditionally blanked out in tools/sql/handler.go line 107 before creating a database connection, regardless of database type.",
+  "proposedFix": "Add an if-clause to only blank out cfg.DatabaseName for MySQL use cases instead of unconditionally for all databases.",
+  "workaround": "Manually create a defaultdb or postgres database instance first, or manually create the temporal database and use the tool only for schema setup.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved; the reporter closed it after discovering the root cause and finding that creation of default database instances allowed the tool to work.",
+  "related": [],
+  "keyQuote": "a connection to a postgres db instance is not possible unless the database name is one of the default names (postgres or defaultdb)",
+  "number": 2890,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:42.038Z"
+}

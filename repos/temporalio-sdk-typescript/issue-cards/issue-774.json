@@ -1,0 +1,34 @@
+{
+  "summary": "Enable the ESLint `import/no-deprecated` rule to catch usage of deprecated APIs. The rule was added but commented out due to many RxJS deprecation warnings. After dependency pruning, determine if it's now feasible to enable.",
+  "category": "other",
+  "subcategory": "linting",
+  "apis": [],
+  "components": [
+    "eslint",
+    "rxjs",
+    "worker",
+    "test"
+  ],
+  "concepts": [
+    "deprecated-apis",
+    "linting",
+    "code-quality",
+    "rxjs-upgrade",
+    "dependency-management"
+  ],
+  "severity": "low",
+  "userImpact": "Enabling this rule would help developers catch usage of deprecated APIs earlier and encourage proactive upgrades to avoid future breaking changes.",
+  "rootCause": "RxJS deprecations (scheduler parameter, resultSelector, thisArg, subscribe-arguments) were causing numerous import/no-deprecated lint errors when the rule was enabled.",
+  "proposedFix": "After pruning dependencies in #1330, re-evaluate whether enabling import/no-deprecated is feasible. Determine if false-positives remain beyond what the deprecation/deprecation rule already provides.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Attempted enabling import/no-deprecated but found it caused too many false-positives with no additional benefit over the existing deprecation/deprecation rule.",
+  "related": [
+    771,
+    1330
+  ],
+  "keyQuote": "Also tried enabling import/no-deprecated, but it caused a lot of false-positives, with nothing pertinent over what deprecation/deprecation already provides.",
+  "number": 774,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:11:12.599Z"
+}

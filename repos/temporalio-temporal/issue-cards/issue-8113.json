@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add Activity versioning support via `versioningOverride` in `ActivityOptions`, allowing Workflows to specify which version of an Activity Worker to use, similar to existing Workflow versioning capabilities.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "ActivityOptions",
+    "WorkerDeploymentOptions"
+  ],
+  "components": [
+    "activity-worker",
+    "worker-versioning",
+    "task-queue",
+    "deployment"
+  ],
+  "concepts": [
+    "versioning",
+    "deployment-lifecycle",
+    "backwards-compatibility",
+    "task-routing",
+    "worker-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Teams with independent Activity and Workflow release cycles cannot specify Activity versions from Workflows, forcing workarounds like encoding versions in task queue names.",
+  "rootCause": "Worker Versioning feature was designed for Workflows but not extended to Activities, leaving Activities without versioning support despite their independent deployment cycles.",
+  "proposedFix": "Add `versioningOverride` to `ActivityOptions` and leverage existing Workflow Versioning infrastructure and `WorkerDeploymentOptions` to resolve Activities to specific Worker Deployments.",
+  "workaround": "Bake the Activity version into the task queue name to pin Activity calls to specific versions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Generally, during the design of this feature we've been trying to not involve the caller in worker versioning... But I don't think there is any big reason preventing us to add this feature if there are compelling use cases for it.",
+  "number": 8113,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:07.090Z"
+}

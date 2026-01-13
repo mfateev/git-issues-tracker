@@ -1,0 +1,30 @@
+{
+  "summary": "A bug in the unionfs dependency caused a company-wide outage for users of @temporalio/worker due to an unpinned transitive dependency. The discussion explores whether pinning dependencies is the right approach to prevent similar issues.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "dependency-management",
+    "bundler"
+  ],
+  "concepts": [
+    "dependency-pinning",
+    "transitive-dependencies",
+    "package-stability",
+    "vendor-lockfile",
+    "version-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users experienced production outages when indirect dependencies introduced breaking changes, making the SDK unusable.",
+  "rootCause": "Unpinned transitive dependency (unionfs ^4.4.0) allowed broken releases to be installed, causing module resolution failures.",
+  "proposedFix": "Consider pinning all direct dependencies to exact versions, though this may not prevent transitive dependency issues; alternatively, users can vendor the SDK using package-lock.json.",
+  "workaround": "Users can vendor the Temporal SDK and its dependencies locally by pointing to packages in a local directory, or use package-lock.json to lock transitive dependencies.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Determined that pinning dependencies would cause more harm than benefit to the community. Recommended solution is for users to vendor the SDK if they need strict dependency control.",
+  "related": [],
+  "keyQuote": "This sdk is a core piece of infrastructure and should not suddenly break when indirect dependencies are updated.",
+  "number": 1131,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:52.294Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal server logs a TransactionRetryWithProtoRefreshError when processing RespondActivityTaskCompleted operations in history service. The error occurs during workflow execution updates and appears to be a CockroachDB transaction retry issue that was resolved in later versions.",
+  "category": "bug",
+  "subcategory": "database-transaction",
+  "apis": [
+    "RespondActivityTaskCompleted",
+    "UpdateWorkflowExecution"
+  ],
+  "components": [
+    "history-service",
+    "persistence-layer",
+    "transaction-management",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "transaction-retry",
+    "database-error",
+    "workflow-update",
+    "activity-completion",
+    "serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow execution failures and server errors when activities complete, preventing normal workflow processing.",
+  "rootCause": "CockroachDB transaction serialization error (TransactionRetryWithProtoRefreshError) occurring during concurrent workflow execution updates, likely due to lock contention or transaction conflict.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in a later version (v1.6.3 or later). User confirmed the error no longer occurs with the latest release.",
+  "related": [],
+  "keyQuote": "TransactionRetryWithProtoRefreshError: TransactionRetryError: retry txn (RETRY_SERIALIZABLE)",
+  "number": 1132,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:06:41.482Z"
+}

@@ -1,0 +1,39 @@
+{
+  "summary": "Schedule workflow execution cycles are randomly skipped. User set a 30-second catchup window but experiences periodic missed runs. After investigation, the root cause was identified as cluster overload causing execution delays exceeding the catchup window.",
+  "category": "question",
+  "subcategory": "schedule-catchup",
+  "apis": [
+    "ScheduleClient",
+    "Schedule",
+    "ScheduleActionStartWorkflow",
+    "ScheduleSpec",
+    "SchedulePolicy",
+    "ScheduleState"
+  ],
+  "components": [
+    "scheduler",
+    "schedule-worker",
+    "catchup-window",
+    "cluster-performance"
+  ],
+  "concepts": [
+    "schedule-execution",
+    "catchup-window",
+    "cluster-overload",
+    "workflow-delay",
+    "performance-tuning",
+    "jitter"
+  ],
+  "severity": "medium",
+  "userImpact": "Scheduled workflows randomly fail to execute on time when cluster is under heavy load and execution delay exceeds the catchup window.",
+  "rootCause": "Cluster performance issues causing scheduled workflow execution to delay beyond the configured 30-second catchup window, triggering the scheduler to skip execution.",
+  "proposedFix": null,
+  "workaround": "Increase catchup window duration (set to default 1 year) to tolerate longer delays, or use setCatchupWindow with longer duration like setJitter(Duration.ofSeconds(30)). Tune internal worker performance using dynamic config setting `worker.perNamespaceWorkerOptions`.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue is due to user's cluster configuration and performance limitations, not a bug in Temporal. User was advised to use support forums and scale their cluster or tune worker settings.",
+  "related": [],
+  "keyQuote": "setCatchupWindow(Duration.ofSeconds(30)) means \"don't start a workflow if it would be more than 30 seconds late\".",
+  "number": 6820,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:50.915Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "User reports that Temporal TypeScript SDK worker cannot connect when running on Bun runtime - the connection hangs and doesn't respond. SDK maintainers clarified that Bun is not officially supported due to differences in N-API error handling between Bun and Node.js.",
+  "category": "bug",
+  "subcategory": "runtime-compatibility",
+  "apis": [
+    "NativeConnection",
+    "Worker"
+  ],
+  "components": [
+    "napi-bindings",
+    "worker",
+    "connection"
+  ],
+  "concepts": [
+    "runtime-compatibility",
+    "bun",
+    "napi-error-handling",
+    "connection-blocking",
+    "javascript-runtime"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to run Temporal workers on Bun runtime will experience application hangs and cannot connect to Temporal servers.",
+  "rootCause": "Bun's N-API implementation differs from Node.js in how it handles the `error` argument in `napi_throw`, breaking Neon Binding's safety checks for JS environment callbacks.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Bun is not officially supported. The issue stems from upstream Bun's N-API implementation differences. Maintainers are waiting for Bun's N-API stabilization before considering support.",
+  "related": [],
+  "keyQuote": "We don't support Bun at this time. It is simply too early for that.",
+  "number": 1618,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:32.753Z"
+}

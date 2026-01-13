@@ -1,0 +1,33 @@
+{
+  "summary": "The Cassandra Visibility Store orders closed workflow queries by start_time instead of close_time, which is confusing and prevents filtering workflows by close time. The default ordering should be changed to close_time for closed workflows.",
+  "category": "bug",
+  "subcategory": "visibility-store",
+  "apis": [
+    "ListClosedWorkflowExecutions"
+  ],
+  "components": [
+    "visibility-store",
+    "cassandra",
+    "query-engine"
+  ],
+  "concepts": [
+    "ordering",
+    "filtering",
+    "closed-workflows",
+    "close-time",
+    "visibility",
+    "query-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively query or filter closed workflows by close time, and results are ordered by start time which doesn't match user expectations.",
+  "rootCause": "The visibility store implementation uses start_time as the default ordering for all queries, including those on closed workflows, rather than using close_time which is more semantically appropriate.",
+  "proposedFix": "Change the default ordering for closed workflow queries to use close_time instead of start_time, and add close_time filtering capability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The ordering logic was updated to use close_time for closed workflow queries in the Cassandra visibility store.",
+  "related": [],
+  "keyQuote": "Currently all queries in non ES visibility are ordered by start_time which is very confusing for closed workflows where by close time ordering is expected.",
+  "number": 312,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:28:08.758Z"
+}

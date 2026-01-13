@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for Eager Workflow Start (EWS) in the TypeScript SDK, a feature that reduces workflow start latency by allowing clients to schedule the first workflow task directly to a local worker. This feature is already supported in Java, Python, Core, and Go SDKs and depends on another TypeScript SDK issue.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "latency-reduction",
+    "eager-execution",
+    "task-scheduling",
+    "local-worker",
+    "workflow-start"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can achieve lower latency when starting workflows by leveraging eager workflow start capability available in other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement Eager Workflow Start support in the TypeScript SDK, dependent on issue #3776",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged into the TypeScript SDK",
+  "related": [
+    242,
+    3776
+  ],
+  "keyQuote": "Support for Eager Workflow Start (EWS) was added in the server in 1.20, and is currently supported in Java, Python, Core, and Go SDKs.",
+  "number": 1348,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:17.936Z"
+}

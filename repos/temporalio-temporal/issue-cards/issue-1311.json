@@ -1,0 +1,32 @@
+{
+  "summary": "The workflow state (created, executing, completed, etc.) is not exposed via the Temporal API, making it impossible for the web UI or tctl to distinguish between workflows that are running versus those created but not yet started (e.g., cron workflows waiting for their scheduled time). This feature request asks to expose the internal state field through the APIs.",
+  "category": "feature",
+  "subcategory": "api-exposure",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "tctl",
+    "api-server",
+    "persistence"
+  ],
+  "concepts": [
+    "workflow-state",
+    "visibility",
+    "scheduling",
+    "cron-workflows",
+    "api-design",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot determine the true state of workflows without clicking through the UI, making it difficult to distinguish between running and scheduled (created but not yet due) workflows.",
+  "rootCause": "The workflow state field exists in the persistence layer but is not exposed through the Temporal APIs (gRPC or HTTP).",
+  "proposedFix": "Expose the workflow state field through the Temporal APIs so it is accessible to both web UI and tctl clients.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal knows that the workflow is created but not yet started, the persistence record has \"created\" as the state. The state field isn't currently exposed via the Temporal APIs at all.",
+  "number": 1311,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:59.724Z"
+}

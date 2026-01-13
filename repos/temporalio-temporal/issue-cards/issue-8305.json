@@ -1,0 +1,30 @@
+{
+  "summary": "Container built from Temporal 1.28.1 fails to start when running on a host system with a proxy due to internal frontend connection failures. The issue is caused by gRPC library version changes that broke NO_PROXY environment variable handling.",
+  "category": "bug",
+  "subcategory": "grpc-proxy-handling",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "internal-frontend",
+    "container-deployment"
+  ],
+  "concepts": [
+    "proxy-configuration",
+    "environment-variables",
+    "grpc-connection",
+    "version-upgrade",
+    "container-networking"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to 1.28.1 in containerized environments with proxy configurations experience service startup failures due to broken internal service connections.",
+  "rootCause": "gRPC library upgrade from v1.70.0 (1.27.1) to v1.71.0 (1.27.2/1.28.1) introduced bugs where NO_PROXY environment variable is no longer respected on custom resolver results (grpc-go#8327) and grpc.Dial fails with https_proxy set (grpc-go#8207).",
+  "proposedFix": "Upgrade gRPC library to v1.72.2 or later which contains fixes for both grpc-go#8327 and grpc-go#8207.",
+  "workaround": "Apply a git patch to the gRPC library prior to build to restore NO_PROXY environment variable handling.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in Temporal 1.29 release which includes gRPC v1.72.2 with the necessary patches.",
+  "related": [],
+  "keyQuote": "Temporal 1.27.1 uses google.golang.org/grpc v1.70.0, which works Temporal 1.27.2/v1.27.3 uses google.golang.org/grpc v1.71.0, which doesn't work",
+  "number": 8305,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:04.421Z"
+}

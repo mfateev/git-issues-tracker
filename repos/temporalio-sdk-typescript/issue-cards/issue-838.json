@@ -1,0 +1,33 @@
+{
+  "summary": "The default `WorkerOptions.maxCachedWorkflows` value was significantly reduced in a recent change, causing a substantial decrease in workflow cache capacity (e.g., from 12600 to 761 on 64GB machines). The default needs to be increased to be more reasonable for typical deployments.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "workflow-cache"
+  ],
+  "concepts": [
+    "caching",
+    "memory-management",
+    "configuration",
+    "performance",
+    "scaling"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience significantly reduced workflow cache capacity by default, potentially impacting performance and causing unnecessary cache misses on adequately-sized machines.",
+  "rootCause": "PR #802 reduced the default maxCachedWorkflows value without accounting for the impact on different machine sizes.",
+  "proposedFix": "Increase the default maxCachedWorkflows value; potentially implement dynamic calculation based on available memory in the future.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Default maxCachedWorkflows value was increased to be more reasonable for typical deployments.",
+  "related": [
+    802
+  ],
+  "keyQuote": "For example on a 64GB machine it went down from 12600 to 761 and on a 16GB machine (nightly CI) from 2853 to 261.",
+  "number": 838,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:19:03.784Z"
+}

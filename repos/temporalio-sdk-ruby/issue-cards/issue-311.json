@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add the first execution run ID to workflow info in the Ruby SDK, as part of a cross-SDK feature initiative.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-runtime",
+    "sdk-api"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "run-id",
+    "workflow-metadata",
+    "execution-tracking"
+  ],
+  "severity": "low",
+  "userImpact": "Users will be able to access the original run ID from workflow execution information for tracking and debugging purposes.",
+  "rootCause": null,
+  "proposedFix": "Add first execution run ID field to workflow info structure, following the feature specification referenced in temporalio/features#29",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented as part of cross-SDK enhancement effort",
+  "related": [
+    29
+  ],
+  "keyQuote": "Add first execution run ID to workflow info",
+  "number": 311,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:51:33.113Z"
+}

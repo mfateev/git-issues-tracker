@@ -1,0 +1,32 @@
+{
+  "summary": "temporal-sql-tool hardcodes 'postgres' as the admin database name, preventing use with PostgreSQL providers like Aiven that use a different default database. Users cannot override this via command-line flags.",
+  "category": "bug",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "postgresql-plugin",
+    "database-initialization"
+  ],
+  "concepts": [
+    "database-connection",
+    "admin-database",
+    "postgresql-configuration",
+    "deployment-setup",
+    "cloud-provider-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with PostgreSQL instances that don't have a 'postgres' default database (e.g., Aiven) cannot initialize Temporal databases using temporal-sql-tool.",
+  "rootCause": "The PostgreSQL plugin hardcodes 'postgres' as the admin database name in the connection logic, and the --database flag does not override this value.",
+  "proposedFix": "Add a configuration option to temporal-sql-tool to allow users to specify the admin database name when connecting to PostgreSQL, or try a set of default database names as suggested in issue #1413.",
+  "workaround": "Modify and rebuild temporal-sql-tool from source, changing the hardcoded 'postgres' database name to the desired default.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided not to add special behavior for PostgreSQL in temporal-sql-tool. Issue #1413 was opened instead to try multiple default database names.",
+  "related": [
+    1413
+  ],
+  "keyQuote": "Aiven clusters have an admin db named `defaultdb`. We tried setting the database name but it seems to be ignored",
+  "number": 1389,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:45.896Z"
+}

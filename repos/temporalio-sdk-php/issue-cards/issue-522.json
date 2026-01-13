@@ -1,0 +1,37 @@
+{
+  "summary": "Deprecated `exclude_calendar` field in ScheduleSpec causes ErrorException when creating a schedule with StartWorkflowAction. The issue was resolved by ensuring the PHP protobuf extension is installed.",
+  "category": "bug",
+  "subcategory": "schedule-creation",
+  "apis": [
+    "ScheduleClient",
+    "Schedule",
+    "StartWorkflowAction",
+    "ScheduleSpec"
+  ],
+  "components": [
+    "schedule-client",
+    "protobuf-dto",
+    "schedule-spec"
+  ],
+  "concepts": [
+    "deprecation",
+    "protobuf",
+    "error-handling",
+    "schedule-workflow",
+    "extension-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create schedules with workflows due to a deprecated field error, blocking core workflow scheduling functionality.",
+  "rootCause": "Missing PHP protobuf extension causes deprecation warnings to be treated as errors in the generated ScheduleSpec DTO.",
+  "proposedFix": "Install the PHP protobuf extension to properly handle the deprecated field and suppress the warning.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by installing PHP protobuf extension. Related deprecations were fixed in PR #523.",
+  "related": [
+    523
+  ],
+  "keyQuote": "Resolved by adding PHP `protobuf` extension. Other deprecations were fixed in #523",
+  "number": 522,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:15.930Z"
+}

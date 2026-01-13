@@ -1,0 +1,34 @@
+{
+  "summary": "Query operations on terminated workflows that lack a WorkflowTaskStarted event currently timeout with a generic DEADLINE_EXCEEDED error. The request is to return a specific, descriptive error message that immediately explains why the query failed.",
+  "category": "feature",
+  "subcategory": "query-workflow",
+  "apis": [
+    "QueryWorkflow"
+  ],
+  "components": [
+    "query-handler",
+    "workflow-execution",
+    "event-history"
+  ],
+  "concepts": [
+    "terminated-workflow",
+    "event-history",
+    "error-messaging",
+    "developer-experience",
+    "deadline"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers spend time debugging confusing timeout errors when querying terminated workflows, slowing down troubleshooting and understanding of system behavior.",
+  "rootCause": "Queries on terminated workflows without WorkflowTaskStarted event lack immediate validation, causing the query to timeout rather than fail fast with an explanatory error.",
+  "proposedFix": "Return a specific error message when attempting to query a workflow execution that was terminated before the WorkflowTaskStarted event, explaining that queries cannot be performed in this state.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in PR #4867 which implements descriptive error handling for queries on terminated workflows.",
+  "related": [
+    4867
+  ],
+  "keyQuote": "This Workflow Execution was terminated before the WorkflowTaskStarted event, which means it can't be Queried.",
+  "number": 3821,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:27.351Z"
+}

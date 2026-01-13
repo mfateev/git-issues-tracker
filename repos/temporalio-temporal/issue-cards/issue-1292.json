@@ -1,0 +1,31 @@
+{
+  "summary": "The VerifyCompatibleVersion function uses type-switch anti-pattern to check SQL plugin versions, creating hard dependencies on mysql and postgresql plugins even when using custom SQL plugins, and panics on unknown plugin types.",
+  "category": "bug",
+  "subcategory": "sql-plugin-architecture",
+  "apis": [],
+  "components": [
+    "sql-plugin",
+    "persistence-layer",
+    "schema-versioning",
+    "handler"
+  ],
+  "concepts": [
+    "plugin-architecture",
+    "dependency-management",
+    "version-checking",
+    "database-abstraction",
+    "type-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build custom SQL plugins without including mysql and postgresql driver dependencies, and the server panics if an unknown SQL plugin type is used.",
+  "rootCause": "Type-switch pattern in VerifyCompatibleVersion that hardcodes mysql and postgresql plugin types instead of using interface-based version checking abstraction.",
+  "proposedFix": "Implement version checking via a plugin interface method that each SQL plugin implements, checking against the plugin's static version number rather than switching on concrete types.",
+  "workaround": "Use the master branch version after commit c71d197c394aa440338ffd6f36f23a87ef9bad84 or go.temporal.io/server@v1.8.x where version checking is handled by the driver.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in v1.8.x by moving version checking responsibility to the SQL driver implementation, eliminating the need for type-switches in the server code.",
+  "related": [],
+  "keyQuote": "Version checking is done via a type-switch anti-pattern... Moreover there is a panic if an unknown sql plugin type is recognized, effectively rendering the plug-in concept useless",
+  "number": 1292,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:26.347Z"
+}

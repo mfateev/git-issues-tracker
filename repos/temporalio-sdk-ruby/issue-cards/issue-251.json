@@ -1,0 +1,32 @@
+{
+  "summary": "Add a way to disable implicit durable timers in Ruby SDK workflows, particularly for use with OpenTelemetry simple span processors that need non-durable timeouts. Implementation requires `Temporalio::Workflow::Unsafe.implicit_durable_timers_disabled` helper and integration with OTel span creation.",
+  "category": "feature",
+  "subcategory": "durable-timers",
+  "apis": [],
+  "components": [
+    "workflow",
+    "timeout",
+    "opentelemetry",
+    "span-processor"
+  ],
+  "concepts": [
+    "durable-timers",
+    "opentelemetry",
+    "span-processing",
+    "timeout-behavior",
+    "workflow-execution",
+    "telemetry-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently use OpenTelemetry simple span processors in workflows because the implicit durable timeouts conflict with non-durable timeout requirements.",
+  "rootCause": "Implicit durable timers are always enabled by default, but some telemetry use cases (simple span processors) require non-durable timeouts which are incompatible.",
+  "proposedFix": "Create `Temporalio::Workflow::Unsafe.implicit_durable_timers_disabled` helper to allow disabling implicit durable timers, and integrate with OTel span creation/recording.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to allow disabling implicit durable timers for compatibility with OpenTelemetry simple span processors.",
+  "related": [],
+  "keyQuote": "we need `Temporalio::Workflow::Unsafe.implicit_durable_timers_disabled` helper",
+  "number": 251,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:01.004Z"
+}

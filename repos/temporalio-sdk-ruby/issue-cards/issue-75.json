@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to accept Temporal::DataConverter in Client and Worker constructors, allowing users to pass custom data converters during client and worker initialization.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [
+    "Client",
+    "Worker"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "data-converter"
+  ],
+  "concepts": [
+    "serialization",
+    "data-conversion",
+    "customization",
+    "interoperability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to configure custom data converters when creating Client and Worker instances for specialized serialization requirements.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to accept Temporal::DataConverter in Client and Worker constructors.",
+  "related": [],
+  "keyQuote": null,
+  "number": 75,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:40:48.171Z"
+}

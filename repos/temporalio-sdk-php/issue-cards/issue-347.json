@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to define workflow return types via attributes in PHP SDK. Currently, workflow methods are limited by Generator type requirements and there's no way to unpack protobuf objects based on metadata.messageType headers.",
+  "category": "feature",
+  "subcategory": "workflow-return-types",
+  "apis": [],
+  "components": [
+    "workflow",
+    "attribute-system",
+    "protobuf-serialization"
+  ],
+  "concepts": [
+    "return-type",
+    "generator",
+    "protobuf",
+    "metadata",
+    "attribute",
+    "serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot define custom return types for workflows or properly handle protobuf deserialization based on message type metadata.",
+  "rootCause": null,
+  "proposedFix": "Add return type definition capability either to existing Workflow attribute or as a separate ReturnType attribute",
+  "workaround": "Use existing \\Temporal\\Workflow\\ReturnType attribute (discovered during discussion)",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by discovering that ReturnType attribute already exists in the PHP SDK documentation",
+  "related": [],
+  "keyQuote": "There already is the `\\Temporal\\Workflow\\ReturnType` attribute.",
+  "number": 347,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:53.837Z"
+}

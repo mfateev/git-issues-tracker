@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for MySQL database persistence in tctl admin commands that require direct database access. Currently, only Cassandra is supported for these operational commands.",
+  "category": "feature",
+  "subcategory": "database-persistence",
+  "apis": [],
+  "components": [
+    "tctl",
+    "persistenceUtil",
+    "admin-commands"
+  ],
+  "concepts": [
+    "database-persistence",
+    "mysql-support",
+    "direct-database-access",
+    "operational-tooling",
+    "admin-commands"
+  ],
+  "severity": "medium",
+  "userImpact": "Users unable to run admin commands that require direct database access when using MySQL as their persistence backend.",
+  "rootCause": "Implementation only supports Cassandra for direct database access in admin commands, MySQL support is missing.",
+  "proposedFix": "Add MySQL database connection support similar to the existing Cassandra implementation in persistenceUtil.go.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "MySQL and PostgreSQL direct database access support was added via PR #1002.",
+  "related": [
+    1002
+  ],
+  "keyQuote": "tctl to support admin commands which directly connects to the database.",
+  "number": 598,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:19:21.086Z"
+}

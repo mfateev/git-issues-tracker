@@ -1,0 +1,33 @@
+{
+  "summary": "Request for an API to complete or fail a workflow from any location, not just the @WorkflowMethod. Currently workflows can only be completed/failed from the main workflow method or by throwing exceptions.",
+  "category": "feature",
+  "subcategory": "workflow-lifecycle",
+  "apis": [
+    "Workflow.complete",
+    "Workflow.fail"
+  ],
+  "components": [
+    "workflow-engine",
+    "workflow-execution",
+    "api"
+  ],
+  "concepts": [
+    "workflow-completion",
+    "error-handling",
+    "control-flow",
+    "async-operations",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot complete or fail workflows from helper functions or other threads, limiting workflow control flow patterns.",
+  "rootCause": null,
+  "proposedFix": "Introduce Workflow.complete(result) and Workflow.fail(Exception) APIs callable from any context within the workflow",
+  "workaround": "Complete/fail workflow only from the @WorkflowMethod or throw exceptions for failure",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Sometimes it is convenient to complete or fail workflow from some other function or even thread.",
+  "number": 650,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:18:07.911Z"
+}

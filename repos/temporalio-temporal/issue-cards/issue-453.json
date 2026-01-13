@@ -1,0 +1,31 @@
+{
+  "summary": "Docker container is considered ready by the orchestration system before Temporal services have finished warming up, causing connection failures. The request is to implement a HEALTHCHECK directive in the Dockerfile to signal readiness only after services are fully initialized.",
+  "category": "feature",
+  "subcategory": "docker-deployment",
+  "apis": [],
+  "components": [
+    "docker",
+    "container-healthcheck",
+    "frontend-service"
+  ],
+  "concepts": [
+    "container-readiness",
+    "orchestration",
+    "service-initialization",
+    "startup-detection",
+    "dependency-management",
+    "docker-compose"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal in Docker-based environments experience race conditions where clients connect before the server is ready, leading to cascading failures.",
+  "rootCause": "Docker assumes container is ready when it starts running, but Temporal engine requires additional warmup time before accepting connections.",
+  "proposedFix": "Implement the HEALTHCHECK directive in Dockerfile(s) to verify backend readiness before marking container as healthy.",
+  "workaround": "Add HEALTHCHECK to docker-compose files using tctl commands (cluster h, workflow list) to verify service readiness, or use depends_on with service_healthy condition.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently docker will assume the container is ready once it is running, while the temporal engine is still warming up, leading to all sorts of problems.",
+  "number": 453,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:58:34.775Z"
+}

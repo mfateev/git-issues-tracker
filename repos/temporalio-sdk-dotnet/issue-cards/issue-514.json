@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for Nexus cancellation type in the .NET SDK, mirroring the implementation from the Python SDK. This feature request is dependent on a Core SDK fix that was being tracked separately.",
+  "category": "feature",
+  "subcategory": "nexus-cancellation",
+  "apis": [],
+  "components": [
+    "nexus",
+    "cancellation"
+  ],
+  "concepts": [
+    "cancellation-type",
+    "nexus-operations",
+    "sdk-alignment",
+    "cross-language-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the .NET SDK will be unable to properly handle Nexus operation cancellations until this feature is implemented.",
+  "rootCause": "Missing implementation of Nexus cancellation type support in the .NET SDK; also blocked by a Core SDK issue #1026.",
+  "proposedFix": "Implement Nexus cancellation type support following the approach taken in the Python SDK PR #981.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented by referencing the Python SDK implementation pattern.",
+  "related": [
+    981,
+    1026
+  ],
+  "keyQuote": "Need to do https://github.com/temporalio/sdk-python/pull/981, but for .NET",
+  "number": 514,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:32:29.780Z"
+}

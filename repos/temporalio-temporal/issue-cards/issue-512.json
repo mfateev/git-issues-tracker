@@ -1,0 +1,30 @@
+{
+  "summary": "Cassandra consistency levels (Consistency and SerialConsistency) are hardcoded throughout the codebase and should be made configurable via the Config.Cassandra struct and YAML configuration files.",
+  "category": "feature",
+  "subcategory": "persistence-configuration",
+  "apis": [],
+  "components": [
+    "cassandra-persistence",
+    "config-management",
+    "cluster-config"
+  ],
+  "concepts": [
+    "consistency",
+    "configuration",
+    "cassandra",
+    "persistence",
+    "yaml-config"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize Cassandra consistency levels and must rely on hardcoded defaults, limiting flexibility for different deployment requirements.",
+  "rootCause": "Consistency and SerialConsistency levels are hardcoded in multiple locations when creating gocql.ClusterConfig structs instead of being part of the configurable Cassandra settings.",
+  "proposedFix": "Add consistency and serialConsistency fields to the Config.Cassandra struct and expose them in YAML configuration under persistence.datastores[name].cassandra.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Change was merged to master in common/service/config/config.go and helm chart was updated to document how to specify these settings.",
+  "related": [],
+  "keyQuote": "These consistency levels should both be configurable. They should be made part of the Config.Cassandra struct which holds existing configurable Cassandra settings",
+  "number": 512,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:03:46.017Z"
+}

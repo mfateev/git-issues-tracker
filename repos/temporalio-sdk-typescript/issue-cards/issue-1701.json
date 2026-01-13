@@ -1,0 +1,36 @@
+{
+  "summary": "NativeConnection fails to establish TLS connections to Temporal Cloud due to missing root CA certificates, while the client Connection works properly with the same configuration. The error occurs during the TLS handshake phase before API key authentication.",
+  "category": "bug",
+  "subcategory": "tls-certificates",
+  "apis": [
+    "NativeConnection",
+    "Connection"
+  ],
+  "components": [
+    "worker",
+    "native-connection",
+    "tls-transport"
+  ],
+  "concepts": [
+    "tls",
+    "certificates",
+    "authentication",
+    "cloud-connection",
+    "certificate-validation",
+    "api-key"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot connect Temporal Workers to Temporal Cloud using NativeConnection with API key authentication in environments where root certificates are not readily accessible.",
+  "rootCause": "NativeConnection does not properly utilize the system certificate store for TLS certificate validation, unlike Connection which successfully handles the same scenario.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    1584
+  ],
+  "keyQuote": "The problem is likely specific to how `NativeConnection` interacts with the TLS certificate store in the environment where it's running.",
+  "number": 1701,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:57.182Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Two critical issues with workflow execution: GeneratorExit exceptions are caught and not properly propagated when workflows are evicted with caching disabled, and timer IDs become mismatched during workflow re-execution after eviction.",
+  "category": "bug",
+  "subcategory": "workflow-eviction",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "coroutine-management",
+    "timer-management",
+    "event-loop"
+  ],
+  "concepts": [
+    "coroutine-cleanup",
+    "generator-exit",
+    "workflow-eviction",
+    "cache-management",
+    "timer-synchronization",
+    "resource-cleanup"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience runtime errors and workflow task failures when using workflows with caching disabled or heavy timer/signal activity.",
+  "rootCause": "When a coroutine is garbage collected after workflow eviction, Python's coroutine.close() raises GeneratorExit. If a finally block attempts to run async operations (like asyncio.sleep) during this cleanup without a running event loop, it fails silently and swallows the GeneratorExit, causing Python to raise a RuntimeError. This also causes timer IDs to become out of sync in the core.",
+  "proposedFix": null,
+  "workaround": "Ensure finally blocks in workflows don't attempt async operations without proper event loop handling, or avoid disabling workflow cache.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "RuntimeError: coroutine ignored GeneratorExit - the finally block tries to run on GeneratorExit but fails with 'no running event loop'",
+  "number": 325,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:49.937Z"
+}

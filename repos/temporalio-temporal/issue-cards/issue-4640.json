@@ -1,0 +1,29 @@
+{
+  "summary": "Flaky test TestDisableUserData_QueryTimesOut fails intermittently (1-2 out of 10 runs) with a DeadlineExceeded error not appearing in the expected error chain.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "versioning-test",
+    "query-timeout",
+    "error-handling"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "deadline-exceeded",
+    "error-chain",
+    "timing-sensitivity"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the codebase and make CI/CD pipelines unreliable.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Should be in error chain: expected: %!q(**serviceerror.DeadlineExceeded=0x14000c9e780) in chain:",
+  "number": 4640,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:27.529Z"
+}

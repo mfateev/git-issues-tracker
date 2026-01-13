@@ -1,0 +1,32 @@
+{
+  "summary": "Request to allow customization of activity retry behavior for timeout errors. Currently the server has hardcoded retry logic where heartbeat and start-to-close timeouts are retryable, but other timeout types are not. The proposed solution is to use the non-retryable errors field in activity retry policy to customize this behavior.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "server"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "activity",
+    "error-handling",
+    "customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need more granular control over which timeout errors trigger activity retries, enabling use cases like session creation that require selective error handling.",
+  "rootCause": null,
+  "proposedFix": "Allow customizing activity retry behavior via the non-retryable errors field in activity retry policy",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    722
+  ],
+  "keyQuote": "Allow customizing this behavior via the non-retryable errors field in activity retry policy",
+  "number": 2496,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:22.213Z"
+}

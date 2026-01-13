@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to allow importing Node's built-in `buffer` module in workflows. Currently all builtin modules are blocked; user needs buffer for domain type conversion logic and believes it's deterministic and safe.",
+  "category": "feature",
+  "subcategory": "workflow-imports",
+  "apis": [],
+  "components": [
+    "bundler",
+    "workflow-isolation",
+    "module-restrictions"
+  ],
+  "concepts": [
+    "buffer",
+    "builtin-modules",
+    "workflow-constraints",
+    "determinism",
+    "module-imports",
+    "polyfills"
+  ],
+  "severity": "low",
+  "userImpact": "Users who need Node's buffer module for domain type conversion in workflows are blocked and must find workarounds.",
+  "rootCause": "All builtin modules are disallowed to maintain determinism and support multi-runtime compatibility (Deno, browser, etc).",
+  "proposedFix": "Provide an exemption for buffer module similar to the existing exemption for assert, or allow users to load polyfills from Webpack bundler.",
+  "workaround": "Load appropriate polyfills from Webpack bundler instead of using Node's native buffer.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided not to support Node's Buffer API out-of-the-box to maintain compatibility with other JavaScript runtimes (Deno, browser). Users should use polyfills instead.",
+  "related": [
+    280
+  ],
+  "keyQuote": "It's preferable not to provide out-of-the-box support for Node's Buffer API...we encourage users to load appropriate polyfills from their Webpack bundler.",
+  "number": 1108,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:02.535Z"
+}

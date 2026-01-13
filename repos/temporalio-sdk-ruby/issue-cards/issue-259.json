@@ -1,0 +1,34 @@
+{
+  "summary": "The `auto_time_skipping_disabled` method in the Ruby SDK test framework incorrectly disables auto time skipping after exiting the block, causing tests to timeout when attempting to resume normal time progression after the block completes.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "start_workflow",
+    "query",
+    "update"
+  ],
+  "components": [
+    "testing",
+    "workflow-environment",
+    "time-skipping"
+  ],
+  "concepts": [
+    "time-skipping",
+    "testing",
+    "block-management",
+    "state-restoration",
+    "test-isolation"
+  ],
+  "severity": "high",
+  "userImpact": "Tests that need to temporarily disable auto time skipping timeout and fail, blocking users from writing comprehensive workflow tests.",
+  "rootCause": "The `already_disabled` variable initialization in `auto_time_skipping_disabled` is not properly negated, causing the time skipping state to not be correctly restored after the block exits.",
+  "proposedFix": "Negate the `already_disabled` variable initialization in the `auto_time_skipping_disabled` method.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR was accepted and merged with the fix to properly handle the already_disabled flag negation.",
+  "related": [],
+  "keyQuote": "I believe the initialization of `already_disabled` in `auto_time_skipping_disabled` is the problem. Just need to negate it.",
+  "number": 259,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:20.255Z"
+}

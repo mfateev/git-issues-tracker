@@ -1,0 +1,32 @@
+{
+  "summary": "Unregistered local activities should fail the workflow task instead of failing at activity execution time. This ensures that missing local activity registrations are caught early during workflow execution rather than at the activity execution stage.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "worker",
+    "local-activity-executor",
+    "workflow-task-processor"
+  ],
+  "concepts": [
+    "registration",
+    "local-activities",
+    "error-handling",
+    "workflow-task",
+    "validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive clearer error feedback when they forget to register a local activity, helping them catch configuration mistakes during workflow execution.",
+  "rootCause": "Local activities are not validated for registration at workflow task execution time, only at activity execution time.",
+  "proposedFix": "Fail the workflow task when attempting to execute an unregistered local activity instead of deferring the error to activity execution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow task now fails if a local activity is not registered with the worker, providing early validation.",
+  "related": [],
+  "keyQuote": "We should fail workflow task if workflow code requests the execution of a local activity that is not registered with the worker.",
+  "number": 1561,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:49.255Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Timers create non-deterministic execution history when duration is <=0 or >0, causing workflow replay issues. Users need validation checks to prevent this non-deterministic behavior.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "timer",
+    "workflow-replay",
+    "history"
+  ],
+  "concepts": [
+    "determinism",
+    "timer-duration",
+    "replay",
+    "validation",
+    "non-deterministic-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience non-deterministic errors during internal workflow replay when timer durations are improperly set.",
+  "rootCause": "Timer implementation creates different execution history based on duration value boundaries (<=0 vs >0)",
+  "proposedFix": "Add validation checks to reduce non-deterministic errors caused by timer duration values",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "timers create a different execution history if timer / sleep duration is <=0 or > 0",
+  "number": 1579,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:15.412Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "User asks for guidance on implementing human approval workflows in Temporal, specifically how to handle approval requests and conditional progression based on approval status. Community points to the expense example and discusses using signals instead of external pub/sub for handling human-driven workflows.",
+  "category": "question",
+  "subcategory": "human-approval-workflows",
+  "apis": [
+    "GetSignalChannel",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "signaling",
+    "approval-handling"
+  ],
+  "concepts": [
+    "human-approval",
+    "workflow-signals",
+    "conditional-progression",
+    "event-driven-workflows",
+    "approval-status"
+  ],
+  "severity": "low",
+  "userImpact": "Developers seeking to implement human approval workflows get clear guidance on using signals instead of external systems like Redis.",
+  "rootCause": null,
+  "proposedFix": "Use Temporal's signal mechanism (GetSignalChannel) instead of external pub/sub systems for handling human approvals",
+  "workaround": "External pub/sub systems like Redis can be used but are not recommended",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as discussion was resolved through community guidance and example references",
+  "related": [],
+  "keyQuote": "Ideally, you should not need Redis or any external pub sub to trigger the workflow.",
+  "number": 906,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:33.789Z"
+}

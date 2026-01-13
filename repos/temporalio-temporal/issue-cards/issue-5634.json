@@ -1,0 +1,32 @@
+{
+  "summary": "Update official Docker images to use the new pre-release CLI rewrite branch instead of CLI v0.11.0 once it has a release available.",
+  "category": "feature",
+  "subcategory": "docker-builds",
+  "apis": [],
+  "components": [
+    "docker-builds",
+    "cli",
+    "admin-tools"
+  ],
+  "concepts": [
+    "versioning",
+    "cli-rewrite",
+    "docker-images",
+    "releases",
+    "official-images"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have access to updated CLI features and improvements when official Temporal Docker images are built with the new CLI rewrite.",
+  "rootCause": null,
+  "proposedFix": "Update admin-tools and other official images to use the new pre-release CLI branch once it has a release",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    190
+  ],
+  "keyQuote": "Our admin-tools and other official images should use the new pre-release CLI branch once it has a release",
+  "number": 5634,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:03.605Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to help users debug the common issue of workflows not executing because no worker is polling the correct task queue. Proposes logging a helpful warning message when start/execute/signalWithStart is called and no workers are available on the specified queue.",
+  "category": "feature",
+  "subcategory": "developer-experience",
+  "apis": [
+    "start",
+    "execute",
+    "signalWithStart"
+  ],
+  "components": [
+    "workflow-client",
+    "worker-polling",
+    "logging"
+  ],
+  "concepts": [
+    "task-queue",
+    "worker-availability",
+    "debugging",
+    "error-messaging",
+    "development-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users frequently encounter silent failures when workflows don't execute due to missing or misconfigured workers, leading to confusion and debugging difficulty.",
+  "rootCause": "Lack of feedback when a workflow is started but no worker is available to process it on the specified task queue.",
+  "proposedFix": "Add a warning log message when start/execute/signalWithStart is called in development mode and no workers are polling the target task queue.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by the Temporal UI providing a banner to help users identify missing workers on task queues.",
+  "related": [
+    305
+  ],
+  "keyQuote": "There are no Workers polling on task queue 'my-queue'. In order to start running this workflow, run a Worker with `taskQueue: 'my-queue'`.",
+  "number": 403,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:08.382Z"
+}

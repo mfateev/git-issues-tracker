@@ -1,0 +1,31 @@
+{
+  "summary": "Remove the admin kafka resend command which is no longer needed after the removal of 2dc in PR #692.",
+  "category": "feature",
+  "subcategory": "admin-commands",
+  "apis": [],
+  "components": [
+    "admin",
+    "kafka",
+    "messaging"
+  ],
+  "concepts": [
+    "cleanup",
+    "command-removal",
+    "legacy-code",
+    "simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Removes an obsolete admin command that is no longer functional after other changes.",
+  "rootCause": "The 2dc removal made this kafka resend command unnecessary.",
+  "proposedFix": "Remove the admin kafka resend command entirely.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The command was already removed prior to this issue being created.",
+  "related": [
+    692
+  ],
+  "keyQuote": "After removal of 2dc in PR #692 this is no longer needed.",
+  "number": 701,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:10.605Z"
+}

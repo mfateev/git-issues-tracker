@@ -1,0 +1,30 @@
+{
+  "summary": "User reported that namespace retention settings were being ignored, with workflows still being deleted after 3 days despite updating retention to 31 days. The issue was resolved when the maintainer explained that retention timers are applied at workflow close time, so only workflows completing after the setting change receive the new retention period.",
+  "category": "question",
+  "subcategory": "namespace-configuration",
+  "apis": [],
+  "components": [
+    "namespace-manager",
+    "persistence",
+    "cassandra"
+  ],
+  "concepts": [
+    "retention",
+    "workflow-lifecycle",
+    "namespace-settings",
+    "data-expiration",
+    "configuration-propagation"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about when retention setting changes take effect on running workflows.",
+  "rootCause": "User misunderstanding: retention timer is applied at workflow completion time, not at configuration change time.",
+  "proposedFix": null,
+  "workaround": "To inspect old workflows with retention changes, adjust machine clock back before attaching temporal server/UI.",
+  "resolution": "invalid",
+  "resolutionDetails": "Determined to be user misunderstanding rather than a bug. The retention system is working as designed - retention timers are applied when workflows complete, not when settings change.",
+  "related": [],
+  "keyQuote": "The retention timer is applied at workflow close time, so only workflows that complete (or fail) after the setting was changed will get the new retention.",
+  "number": 5370,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:02.811Z"
+}

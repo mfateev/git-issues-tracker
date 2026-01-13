@@ -1,0 +1,30 @@
+{
+  "summary": "Remove the old workflow archival code path now that durable archival is enabled by default in version 1.20. This is a refactoring task to clean up deprecated logic.",
+  "category": "other",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "archival-system",
+    "workflow-archival",
+    "durable-archival"
+  ],
+  "concepts": [
+    "deprecation",
+    "code-cleanup",
+    "archival",
+    "backwards-compatibility",
+    "default-behavior"
+  ],
+  "severity": "low",
+  "userImpact": "Users will experience cleaner codebase maintenance and reduced technical debt, with no direct functional changes.",
+  "rootCause": "Old workflow archival code path became redundant after durable archival was made the default in version 1.20.",
+  "proposedFix": "Deprecate and remove the old workflow archival code path.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Durable archival is enabled by default in 1.20, we should be able to deprecate the old code path (workflow archival).",
+  "number": 4435,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:14.872Z"
+}

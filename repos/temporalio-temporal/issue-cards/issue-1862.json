@@ -1,0 +1,32 @@
+{
+  "summary": "RoleWorker lost write permissions after PR #1711 introduced fine-grained authorization in defaultAuthorizer. The worker role, which was previously treated as a writer by default, now has no permissions, creating a breaking change during upgrade from 1.9.2.",
+  "category": "bug",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "defaultAuthorizer",
+    "authorization",
+    "role-based-access-control"
+  ],
+  "concepts": [
+    "permissions",
+    "role-worker",
+    "access-control",
+    "backward-compatibility",
+    "fine-grained-authorization"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to versions after PR #1711 experience broken worker permissions, requiring manual configuration changes.",
+  "rootCause": "PR #1711 added read-only API support to defaultAuthorizer but did not implement corresponding worker-only API list, causing RoleWorker to lose all permissions when previously it was treated as a writer.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was clarified as expected behavior - defaultAuthorizer is incomplete and meant as a sample. No side effect fix was implemented.",
+  "related": [
+    1711
+  ],
+  "keyQuote": "defaultAuthorizer is currently incomplete in its support for fine-grain authorization, and is meant more as a sample for custom authorizers.",
+  "number": 1862,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:50.958Z"
+}

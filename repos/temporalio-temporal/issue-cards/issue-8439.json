@@ -1,0 +1,37 @@
+{
+  "summary": "User attempted to create a one-time schedule using only `start_at` without an interval or calendar spec, expecting it to trigger once. The schedule was created successfully but the workflow never executed. The root cause was a misunderstanding of the API—`start_at` and `end_at` only set bounds, not the actual trigger times.",
+  "category": "question",
+  "subcategory": "schedule-execution",
+  "apis": [
+    "create_schedule",
+    "Schedule",
+    "ScheduleSpec",
+    "ScheduleActionStartWorkflow",
+    "ScheduleState"
+  ],
+  "components": [
+    "schedule-executor",
+    "temporal-client",
+    "workflow-scheduling"
+  ],
+  "concepts": [
+    "scheduling",
+    "one-time execution",
+    "calendar spec",
+    "interval spec",
+    "start time bounds",
+    "schedule matching"
+  ],
+  "severity": "low",
+  "userImpact": "Users may create schedules that appear valid but never execute, leading to confusion about API behavior.",
+  "rootCause": "User misunderstood that `start_at`/`end_at` only set temporal bounds; an actual interval or calendar spec is required to define matching times.",
+  "proposedFix": "Use a calendar spec that matches a single timestamp for one-time schedules, or use the delayed start feature on workflows directly.",
+  "workaround": "For one-time schedules, use the delayed start feature on workflows instead of the scheduler, which is more efficient.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Not a bug—user misunderstood the API. The schedule requires either an interval or calendar spec to define trigger times; start_at/end_at only bound when matching can occur.",
+  "related": [],
+  "keyQuote": "Start time and end time only set bounds on allowed matching times. You still need either an interval or calendar spec to actually set the time(s) to match.",
+  "number": 8439,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:07.113Z"
+}

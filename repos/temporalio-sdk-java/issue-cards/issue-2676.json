@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal Java SDK is using an older version of gRPC (grpc-netty-shaded 1.58.x) that contains known vulnerabilities. While the vulnerability (CVE-2025-55163) doesn't directly impact the SDK's client-only usage, users want guidance on upgrading to the latest gRPC version (1.75.0+) and understanding compatibility.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "grpc-netty-shaded",
+    "dependency-management",
+    "testing-framework",
+    "build-system"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-upgrade",
+    "version-compatibility",
+    "gRPC",
+    "dependency-conflict",
+    "transitive-dependencies",
+    "vulnerability-scanning"
+  ],
+  "severity": "medium",
+  "userImpact": "Users face security scanning failures and vulnerability reports due to outdated gRPC dependencies, even though the specific vulnerability doesn't affect the Java SDK's client-only usage.",
+  "rootCause": "Temporal Java SDK pins an older version of gRPC (1.58.x) through grpc-netty-shaded, and when users upgrade to newer gRPC versions, they encounter classpath conflicts in the testing framework (temporal-testing) which has internal dependencies on older gRPC classes.",
+  "proposedFix": "Update gRPC dependency management to the latest version (1.75.0+) and ensure temporal-testing module is compatible with newer gRPC APIs, particularly AbstractServerImplBuilder and related internal classes.",
+  "workaround": "Users can use dependencyManagement with scope=import to override the gRPC version: add grpc-bom v1.76.0+ in dependencyManagement with scope=import to ensure consistent gRPC versions across transitive dependencies.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The Java SDK is only a client... and the Java SDK is fully compatible with the latest gRPC.",
+  "number": 2676,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:15:47.704Z"
+}

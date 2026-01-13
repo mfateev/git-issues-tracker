@@ -1,0 +1,32 @@
+{
+  "summary": "Worker error message \"Workflow executionsRow not found\" is unclear and doesn't help users understand what went wrong. The message should provide higher-level context about the failure and suggest possible causes.",
+  "category": "other",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "worker",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-messaging",
+    "debugging",
+    "user-experience",
+    "workflow-execution",
+    "database",
+    "troubleshooting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter cryptic database error messages that don't help them diagnose workflow execution problems.",
+  "rootCause": "Server returns low-level database error message (\"Workflow executionsRow not found\") that doesn't clearly indicate the underlying issue; message differs between Cassandra and PostgreSQL backends.",
+  "proposedFix": "Improve error message to explain the problem at a higher level and suggest possible reasons for the failure.",
+  "workaround": null,
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [
+    359
+  ],
+  "keyQuote": "Say what's going wrong in the Worker at a higher level and suggest possible reasons.",
+  "number": 377,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:27.874Z"
+}

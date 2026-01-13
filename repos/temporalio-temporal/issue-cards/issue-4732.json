@@ -1,0 +1,33 @@
+{
+  "summary": "RetryPolicy.WithMaximumAttempts(X) allows operations to run X+1 times instead of X times, causing one more retry attempt than expected.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "ThrottleRetry",
+    "NewExponentialRetryPolicy",
+    "WithMaximumAttempts"
+  ],
+  "components": [
+    "backoff",
+    "retry-policy",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "exponential-backoff",
+    "maximum-attempts",
+    "attempt-counting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users expecting a specific maximum number of retry attempts will experience one additional attempt than configured, potentially causing unexpected behavior in retry logic.",
+  "rootCause": "Off-by-one error in the retry attempt counting logic within ThrottleRetry implementation",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When a retry policy is created with backoff.NewExponentialRetryPolicy(initialInterval).WithMaximumAttempts(X), backoff.ThrottleRetry(op, policy, nil) will run op at most X+1 times",
+  "number": 4732,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:31.315Z"
+}

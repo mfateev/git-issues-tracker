@@ -1,0 +1,28 @@
+{
+  "summary": "OpenTelemetry spans are being ended twice in the TypeScript SDK worker, causing error messages about attempting to end an already-ended span. The issue occurs because the `instrument` function already ends the span, but an additional `.end()` call is made in the worker code.",
+  "category": "bug",
+  "subcategory": "tracing",
+  "apis": [],
+  "components": [
+    "worker",
+    "tracing"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "span-lifecycle",
+    "double-ended-span",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see repeated error messages in logs about span operations on ended spans, creating noise and confusion in observability data.",
+  "rootCause": "The worker code calls `.end()` on a span that has already been ended by the `instrument` wrapper function.",
+  "proposedFix": "Remove the `.end()` call from the worker code since `instrument` already handles span termination.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The duplicate .end() call was removed from the worker code to let the instrument function handle span lifecycle management.",
+  "related": [],
+  "keyQuote": "Easy fix, should just require dropping the `.end()` on ☝️ since `instrument` takes care of it",
+  "number": 781,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:11:50.218Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The okhttp library (4.10.0) has a transitive dependency on okio-jvm-3.0.0 which contains CVE-2023-3635, a vulnerability in GzipSource that can cause denial of service when handling malformed gzip buffers. The issue requires upgrading okio-jvm to 3.4.0 or okhttp to 4.11.0.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "okhttp",
+    "okio",
+    "remote-data-encoder"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "gzip",
+    "malformed-input",
+    "transitive-dependency",
+    "security"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the Java SDK could experience denial of service if they process crafted malformed GZIP archives through okhttp.",
+  "rootCause": "GzipSource does not handle exceptions that might be raised when parsing a malformed gzip buffer, leading to potential DoS.",
+  "proposedFix": "Upgrade okio-jvm to version 3.4.0 or okhttp to version 4.11.0 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependency upgraded to address the vulnerability; confirmed fixed in master branch.",
+  "related": [],
+  "keyQuote": "GzipSource does not handle an exception that might be raised when parsing a malformed gzip buffer. This may lead to denial of service",
+  "number": 1842,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:49.252Z"
+}

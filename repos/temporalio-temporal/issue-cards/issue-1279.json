@@ -1,0 +1,29 @@
+{
+  "summary": "The cassandra-tool fails to connect to a Cassandra cluster with a timeout error, even though cqlsh can connect successfully using the same credentials and host information.",
+  "category": "bug",
+  "subcategory": "cassandra-tool",
+  "apis": [],
+  "components": [
+    "cassandra-tool",
+    "gocql",
+    "connection-management"
+  ],
+  "concepts": [
+    "connection-timeout",
+    "cassandra-client",
+    "authentication",
+    "network-connectivity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are unable to use the temporal-cassandra-tool to interact with their Cassandra cluster, blocking database administration and verification tasks.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue could not be reproduced by maintainers on their local machines. Reporter indicated the problem may have been environment-specific (macOS vs Linux container) or related to their specific Cassandra setup.",
+  "related": [],
+  "keyQuote": "gocql: unable to dial control conn 127.0.0.1:9042: gocql: no response to connection startup within timeout",
+  "number": 1279,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:12.805Z"
+}

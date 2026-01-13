@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add a PID file configuration option to the Temporal server, allowing it to write its process ID to a file on startup and clean it up on shutdown for easier daemon management in local development.",
+  "category": "feature",
+  "subcategory": "server-configuration",
+  "apis": [],
+  "components": [
+    "server",
+    "configuration",
+    "process-management"
+  ],
+  "concepts": [
+    "daemon",
+    "process-id",
+    "local-development",
+    "configuration",
+    "shutdown"
+  ],
+  "severity": "low",
+  "userImpact": "Users running Temporal server as a local daemon without Docker would have built-in PID file support for process management instead of implementing custom solutions.",
+  "rootCause": null,
+  "proposedFix": "Add a PID file path configuration option that the server writes to on start and deletes on shutdown.",
+  "workaround": "Use an external tool or custom daemonization process; alternatively use systemd or another process manager.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'd like to run the Temporal server process as a daemon locally and it would be useful if the server could write its PID to a file.",
+  "number": 1898,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:46.785Z"
+}

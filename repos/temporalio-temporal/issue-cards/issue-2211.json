@@ -1,0 +1,33 @@
+{
+  "summary": "Task queue root partition in standby cluster may persist forwarded tasks without TTL (time-to-live), potentially causing indefinite retention of orphaned tasks.",
+  "category": "bug",
+  "subcategory": "task-queue-management",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "task-queue-manager",
+    "standby-cluster"
+  ],
+  "concepts": [
+    "ttl",
+    "task-persistence",
+    "task-forwarding",
+    "standby-cluster",
+    "partition",
+    "task-cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Tasks in standby cluster task queues may persist indefinitely without TTL, potentially consuming storage and causing unexpected behavior.",
+  "rootCause": "Task queue root partition forwarding logic in taskQueueManager.go was not setting TTL when persisting forwarded tasks in standby clusters.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #2327",
+  "related": [
+    2327
+  ],
+  "keyQuote": "standby cluster's task queue root partition may persist forwarded task without ttl",
+  "number": 2211,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:56.696Z"
+}

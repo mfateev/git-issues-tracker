@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to add support for dynamic activities and workflows in the Python SDK that can handle multiple different activities/workflows through a single handler function with variable arguments.",
+  "category": "feature",
+  "subcategory": "dynamic-activities-workflows",
+  "apis": [
+    "activity.defn",
+    "workflow.defn",
+    "workflow.run"
+  ],
+  "components": [
+    "activity-registry",
+    "workflow-registry",
+    "worker",
+    "decorator-system"
+  ],
+  "concepts": [
+    "dynamic-dispatch",
+    "activity-routing",
+    "workflow-routing",
+    "payload-handling",
+    "function-signature"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can dynamically handle multiple activities or workflows through a single decorated function, reducing boilerplate and improving flexibility.",
+  "rootCause": null,
+  "proposedFix": "Add dynamic=True parameter to @activity.defn and @workflow.defn decorators, with single handler receiving name and *args, ensuring only one dynamic activity and one dynamic workflow per worker.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of duplicate issue #242",
+  "related": [
+    242
+  ],
+  "keyQuote": "Make sure worker can only have one dynamic activity and/or only one dynamic workflow",
+  "number": 227,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:07.381Z"
+}

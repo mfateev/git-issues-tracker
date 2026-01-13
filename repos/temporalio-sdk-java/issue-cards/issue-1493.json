@@ -1,0 +1,31 @@
+{
+  "summary": "Spring Boot Starter dependency contains 7 vulnerabilities in SnakeYAML 1.30, including critical remote code execution via deserialization (CVE-2022-1471) and denial of service issues. All vulnerabilities are fixable by upgrading to Spring Boot 3.0.0.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "snakeyaml",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "deserialization",
+    "remote-code-execution",
+    "denial-of-service",
+    "dependency-upgrade"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using the Spring Boot Starter are exposed to remote code execution and denial of service attacks through unsafe YAML deserialization.",
+  "rootCause": "SnakeYAML 1.30 Constructor class does not restrict types during deserialization, allowing arbitrary object instantiation from untrusted YAML content.",
+  "proposedFix": "Upgrade Spring Boot Starter to version 3.0.0 or use SnakeYAML's SafeConstructor when parsing untrusted content.",
+  "workaround": "Use SnakeYAML SafeConstructor instead of default Constructor for parsing untrusted YAML.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend when the vulnerable library was removed from inventory or marked as ignored.",
+  "related": [],
+  "keyQuote": "SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization. Deserializing yaml content provided by an attacker can lead to remote code execution.",
+  "number": 1493,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:37:13.728Z"
+}

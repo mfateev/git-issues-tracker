@@ -1,0 +1,31 @@
+{
+  "summary": "The tctl admin workflow delete command only removes workflow records from the execution database but not from the visibility storage. This inconsistency means deleted workflows may still appear in visibility queries and leave orphaned records.",
+  "category": "bug",
+  "subcategory": "visibility-storage",
+  "apis": [],
+  "components": [
+    "tctl",
+    "visibility-store",
+    "execution-db"
+  ],
+  "concepts": [
+    "data-consistency",
+    "cleanup",
+    "orphaned-records",
+    "visibility-queries",
+    "admin-operations",
+    "database-synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users performing administrative workflow deletions experience inconsistent state where deleted workflows remain visible in queries and searches.",
+  "rootCause": "The tctl admin workflow delete implementation does not issue corresponding delete operations to the visibility storage system.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the tctl admin workflow delete should also delete corresponding record from visibility",
+  "number": 1378,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:27.014Z"
+}

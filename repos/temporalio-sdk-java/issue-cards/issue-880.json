@@ -1,0 +1,32 @@
+{
+  "summary": "Thread pool exhaustion in the legacy query path causes thread leaks when worker or state machine exceptions occur, particularly with RejectedExecutionException when the thread pool reaches capacity.",
+  "category": "bug",
+  "subcategory": "workflow-query-execution",
+  "apis": [],
+  "components": [
+    "workflow-worker",
+    "state-machine",
+    "thread-pool-executor",
+    "query-handler"
+  ],
+  "concepts": [
+    "thread-leak",
+    "resource-cleanup",
+    "exception-handling",
+    "thread-pool-exhaustion",
+    "query-execution",
+    "state-machine-exception"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience thread pool exhaustion and resource leaks when query operations fail, potentially causing worker instability and cascading failures.",
+  "rootCause": "The legacy query path does not properly release threads when exceptions occur during state machine processing, particularly when RejectedExecutionException is thrown due to thread pool saturation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Task rejected from java.util.concurrent.ThreadPoolExecutor@1faac87d[Running, pool size = 600, active threads = 600, queued tasks = 0, completed tasks = 14007]",
+  "number": 880,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:50:16.854Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Spring Boot initialization should fail when duplicate activity names are registered on a worker, matching the behavior of normal workers. Currently, it only logs a warning instead of throwing an error.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot",
+    "worker",
+    "activity-registration"
+  ],
+  "concepts": [
+    "activity-registration",
+    "duplicate-detection",
+    "error-handling",
+    "initialization",
+    "spring-boot-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users can accidentally register duplicate activities in Spring Boot without detection, leading to unpredictable behavior and potential runtime errors.",
+  "rootCause": "Spring Boot auto-discovery logs a warning instead of failing initialization when duplicate activity names are detected, unlike normal workers which throw an error.",
+  "proposedFix": "Make Spring Boot worker initialization fail with an error message matching normal worker behavior when duplicate activity names are detected.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This bit us as well and can lead to dangerous behavior.",
+  "number": 2434,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:30.324Z"
+}

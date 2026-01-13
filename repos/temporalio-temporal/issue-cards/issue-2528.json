@@ -1,0 +1,32 @@
+{
+  "summary": "SQL delete workflow execution does not delete all expired data. The deletion only targets the execution table, leaving other related data orphaned in the database.",
+  "category": "bug",
+  "subcategory": "sql-persistence",
+  "apis": [],
+  "components": [
+    "sql-plugin",
+    "persistence",
+    "data-retention"
+  ],
+  "concepts": [
+    "data-cleanup",
+    "expired-workflows",
+    "database-consistency",
+    "orphaned-data",
+    "sql-deletion"
+  ],
+  "severity": "high",
+  "userImpact": "Expired workflow execution data accumulates in the database, causing storage bloat and potential performance degradation in SQL-backed Temporal deployments.",
+  "rootCause": "The SQL plugin's deletion logic only targets the execution table and does not cascade or delete related data from other tables.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2525
+  ],
+  "keyQuote": "Only delete the data in execution table.",
+  "number": 2528,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:47.666Z"
+}

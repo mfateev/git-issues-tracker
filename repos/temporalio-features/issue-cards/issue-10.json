@@ -1,0 +1,31 @@
+{
+  "summary": "Clarify and standardize how all SDKs handle manually returned cancellation errors in workflows and activities when no cancellation is in progress. The behavior is currently inconsistent and needs confirmation that SDKs don't send RespondActivityTaskCanceledRequest inappropriately.",
+  "category": "feature",
+  "subcategory": "cancellation-handling",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "workflow-executor",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "error-handling",
+    "async-completion",
+    "cross-sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers may experience inconsistent or unexpected behavior when manually returning cancellation errors in activities across different SDK implementations.",
+  "rootCause": null,
+  "proposedFix": "Ensure all SDKs: (1) do not send RespondActivityTaskCanceledRequest when no cancellation is requested from the server, (2) confirm async complete activity can still receive cancellation errors",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    686
+  ],
+  "keyQuote": "Make sure all SDKs do not try to send RespondActivityTaskCanceledRequest to the server regardless of error type when there's not a cancellation requested",
+  "number": 10,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:22.022Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to support custom, human-readable names for timers in Temporal workflows instead of system-generated UUIDs. This would improve debugging, monitoring, and observability by making timers easily identifiable in the Web UI and logs.",
+  "category": "feature",
+  "subcategory": "timer-management",
+  "apis": [
+    "newTimer"
+  ],
+  "components": [
+    "timer-executor",
+    "workflow-engine",
+    "web-ui"
+  ],
+  "concepts": [
+    "observability",
+    "debugging",
+    "monitoring",
+    "human-readable-identifiers",
+    "workflow-visibility",
+    "naming"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers struggle to identify and debug multiple timers in workflows due to generic UUID identifiers in the Web UI and logs.",
+  "rootCause": null,
+  "proposedFix": "Add an option to assign custom, descriptive names to timers when creating them (e.g., Workflow.newTimer(Duration, String timerName)) that are displayed in the Web UI and logs.",
+  "workaround": "Using custom search attributes, workflow metadata tagging, or logging messages with timer names; naming workflows or task queues meaningfully as partial compensation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be very helpful to have an option to assign custom, descriptive names or labels to timers when creating them via the SDK",
+  "number": 8109,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:05.341Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Set up CI/CD pipeline to automatically publish TypeScript SDK packages to npm. Needs decisions on publish trigger, version bumping strategy, and changelog generation.",
+  "category": "feature",
+  "subcategory": "ci-cd",
+  "apis": [],
+  "components": [
+    "ci",
+    "npm-publish",
+    "versioning"
+  ],
+  "concepts": [
+    "continuous-integration",
+    "automation",
+    "version-management",
+    "changelog",
+    "release-pipeline"
+  ],
+  "severity": "medium",
+  "userImpact": "Without automated publishing, SDK releases require manual steps, slowing down release cycles and increasing error risk.",
+  "rootCause": null,
+  "proposedFix": "Implement CI/CD workflow with decisions on: publish on main branch merge, version bump strategy (patch/minor/major), and auto-generated changelogs using lerna-changelog.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #170",
+  "related": [
+    170
+  ],
+  "keyQuote": "Need to first consider: When to publish packages (on merge to main?), Which version to bump: patch, minor, major?",
+  "number": 24,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:25.732Z"
+}

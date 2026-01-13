@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add custom labels (dimensions) to Temporal's out-of-the-box metrics. Users want to tag metrics with custom Search Attributes (e.g., workflow subtype) to enable more granular monitoring and troubleshooting of workflow instances.",
+  "category": "feature",
+  "subcategory": "metrics-custom-labels",
+  "apis": [],
+  "components": [
+    "metrics",
+    "search-attributes"
+  ],
+  "concepts": [
+    "custom-labels",
+    "dimensions",
+    "monitoring",
+    "observability",
+    "metric-enrichment",
+    "troubleshooting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot correlate custom Search Attributes with metrics, limiting the ability to slice metric data by business-relevant dimensions for analysis and troubleshooting.",
+  "rootCause": null,
+  "proposedFix": "Provide an option when adding a custom Search Attribute to include it as a metric label in the out-of-the-box metrics.",
+  "workaround": "If possible to reference and copy default metrics within workflow/activity code to modify them with additional labels.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "adding custom labels (dimensions) to these metrics would offer more precise insights for troubleshooting",
+  "number": 6754,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:10.824Z"
+}

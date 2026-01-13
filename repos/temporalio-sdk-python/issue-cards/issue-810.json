@@ -1,0 +1,33 @@
+{
+  "summary": "Implement proper cancellation handling for activities and child workflows in the Python SDK, including support for `cancelled`, `uncancel`, and `cancelling` methods with appropriate behavior for each operation.",
+  "category": "feature",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "cancelled",
+    "uncancel",
+    "cancelling"
+  ],
+  "components": [
+    "activity-executor",
+    "child-workflow-executor",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "activity-lifecycle",
+    "exception-handling",
+    "workflow-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly handle cancellation states for activities and child workflows, limiting control over workflow execution.",
+  "rootCause": null,
+  "proposedFix": "Implement `cancelled` to return true when activity is canceled, `uncancel` to raise a non-Temporal exception for unsupported operation, and ensure `cancelling` continues to work as expected.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Implement proper behavior for `cancelled`, `uncancel`, and `cancelling` of activities and child workflows.",
+  "number": 810,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:29.050Z"
+}

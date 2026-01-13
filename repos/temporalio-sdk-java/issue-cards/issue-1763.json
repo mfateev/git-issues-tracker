@@ -1,0 +1,33 @@
+{
+  "summary": "User wants to register the same workflow interface multiple times with different names in the Java SDK, similar to Go SDK's pattern. They're using a shared base class for trace creation and error handling across multiple test workflows but can't register it multiple times.",
+  "category": "feature",
+  "subcategory": "worker-registration",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "workflow-registration",
+    "interface-binding"
+  ],
+  "concepts": [
+    "workflow-type",
+    "registration",
+    "interface-abstraction",
+    "testing-framework",
+    "polymorphism",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot reuse workflow interface implementations across multiple workflow types without creating separate workers or interfaces.",
+  "rootCause": "Java SDK requires a unique interface per workflow type and doesn't support registering the same interface with different workflow names.",
+  "proposedFix": "Add support for registering workflows by function/factory with configurable names via workflow options, similar to the Go SDK API.",
+  "workaround": "Use dynamic workflows to switch implementations, or create separate workers for each workflow type.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Design limitation: a workflow interface represents a unique workflow type. Each distinct workflow should have its own interface. Dynamic workflows offer an alternative solution.",
+  "related": [],
+  "keyQuote": "A workflow interface represents a workflow type, a worker can only have one implementation for each workflow type.",
+  "number": 1763,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:17.110Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The server's continue-as-new suggestion mechanism currently only considers history event length and byte size. This enhancement requests expansion to account for additional limits such as signal count and scheduled activity count to better help users manage workflow state.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "server",
+    "workflow-engine",
+    "history-management"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "workflow-limits",
+    "history-size",
+    "signals",
+    "scheduled-activities",
+    "resource-limits"
+  ],
+  "severity": "medium",
+  "userImpact": "Users hitting signal or activity limits will not receive server suggestions to continue-as-new, leaving them to discover and manage these limits manually.",
+  "rootCause": "The continue-as-new suggestion logic is incomplete, only evaluating history length and byte size rather than all relevant limits.",
+  "proposedFix": "Expand the server suggestion mechanism to consider additional factors including number of signals received and scheduled activities.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users can hit other limits such as number of signals received and scheduled activities, the server suggestion should take those factors into account",
+  "number": 4117,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:02.801Z"
+}

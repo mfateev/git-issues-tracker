@@ -1,0 +1,30 @@
+{
+  "summary": "The temporal-sql-tool create-database command fails to use the configured database name (citus) from environment variables, instead trying hardcoded default database names (postgres, defaultdb). This causes connection failures when using custom database names in Helm chart deployments.",
+  "category": "bug",
+  "subcategory": "database-initialization",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "helm-charts",
+    "database-schema-setup"
+  ],
+  "concepts": [
+    "database-initialization",
+    "configuration",
+    "helm-deployment",
+    "environment-variables",
+    "PostgreSQL"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal with Helm charts and custom database names encounter initialization failures that block cluster startup.",
+  "rootCause": "The create-database command ignores the SQL_DATABASE environment variable and only attempts to connect using hardcoded default database names (postgres, defaultdb).",
+  "proposedFix": null,
+  "workaround": "Enable TLS and disable host verification in the PostgreSQL configuration.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was identified as related to Helm chart configuration and duplicated in the helm-charts repository (temporalio/helm-charts#549).",
+  "related": [],
+  "keyQuote": "unable to connect to DB, tried default DB names: postgres,defaultdb",
+  "number": 6435,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:11.568Z"
+}

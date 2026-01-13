@@ -1,0 +1,30 @@
+{
+  "summary": "Expired tasks sitting in the matching task queue manager's in-memory queue can still be matched to pollers even after expiration, causing recordActivityTaskStarted to fail since the history layer has already timed out the task.",
+  "category": "bug",
+  "subcategory": "task-matching",
+  "apis": [],
+  "components": [
+    "matching-task-queue-manager",
+    "task-dispatcher",
+    "history-service"
+  ],
+  "concepts": [
+    "task-expiration",
+    "task-ttl",
+    "task-queue",
+    "rate-limiting",
+    "task-dispatch"
+  ],
+  "severity": "high",
+  "userImpact": "Tasks can be dispatched to pollers after expiration, causing failures when attempting to record task start in history, leading to corrupted activity tracking.",
+  "rootCause": "Tasks are not validated for expiration before being matched to a poller; once loaded into the in-memory queue, they bypass the TTL checks that occur at the persistence layer.",
+  "proposedFix": "Check if a task is already expired before matching it to a poller to prevent dispatch of expired tasks.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented expiration validation before task dispatch to pollers to prevent matching of expired tasks.",
+  "related": [],
+  "keyQuote": "We need to check if task is already expired before match it to a poller.",
+  "number": 3150,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:53.548Z"
+}

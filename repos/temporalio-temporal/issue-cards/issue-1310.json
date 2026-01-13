@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal incorrectly responds to queries for cron-scheduled workflows that have been created but not yet started, sending query requests to workers when the workflow hasn't begun execution. This causes issues in SDKs like Ruby that expect a workflow task in the history.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "cron-scheduler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "query-dispatch",
+    "workflow-lifecycle",
+    "history",
+    "timing"
+  ],
+  "severity": "high",
+  "userImpact": "Developers using cron-scheduled workflows cannot query workflows before they start, and workers may crash when handling premature query requests.",
+  "rootCause": "Temporal sends queries to workflows created by cron schedules even when the workflow hasn't reached its scheduled start time, resulting in incomplete history with only WorkflowExecutionStarted event.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #2826",
+  "related": [
+    2826
+  ],
+  "keyQuote": "Temporal responds to poll requests with the query set and a history with only one event, WorkflowExecutionStarted.",
+  "number": 1310,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:55.401Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Test `testUntypedChildStubWorkflowAsync` flaked in CI due to a test service internal state machine exception. This appears related to issue #830 and was resolved through PR #1289.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-service",
+    "state-machine",
+    "child-workflow"
+  ],
+  "concepts": [
+    "flakiness",
+    "state-machine",
+    "test-reliability",
+    "async-child-workflow",
+    "ci-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Test flakiness in CI reduces confidence in the SDK build and may block releases or contributions.",
+  "rootCause": "Test service internal state machine exception causing non-deterministic test failures",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #1289",
+  "related": [
+    830,
+    1289
+  ],
+  "keyQuote": "This failure looks very similar to #830. They are most likely related and should be evaluated together.",
+  "number": 814,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:44:08.281Z"
+}

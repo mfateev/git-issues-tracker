@@ -1,0 +1,29 @@
+{
+  "summary": "Docker configuration template should support different database addresses for the main database and visibility database, as well as separate credentials for each.",
+  "category": "feature",
+  "subcategory": "docker-config",
+  "apis": [],
+  "components": [
+    "docker",
+    "config-template",
+    "database-configuration"
+  ],
+  "concepts": [
+    "database-separation",
+    "configuration-flexibility",
+    "visibility-store",
+    "multi-database-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users running Temporal in Docker cannot configure separate database instances for main and visibility databases, limiting deployment flexibility.",
+  "rootCause": null,
+  "proposedFix": "Modify docker/config_template.yaml to allow independent database address, username, and password configuration for main and visibility databases.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration template was updated to support different database addresses and credentials for main and visibility stores.",
+  "related": [],
+  "keyQuote": "Docker config template should allow different DB address for main and visibility database",
+  "number": 1388,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:29.215Z"
+}

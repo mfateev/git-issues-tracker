@@ -1,0 +1,32 @@
+{
+  "summary": "SideEffect callable's return type is not being respected; values are cast to string instead of the declared return type. The user expects a UuidInterface to be returned but receives a string.",
+  "category": "bug",
+  "subcategory": "side-effects",
+  "apis": [
+    "Workflow::sideEffect"
+  ],
+  "components": [
+    "side-effects",
+    "type-system",
+    "return-type-handling"
+  ],
+  "concepts": [
+    "type-casting",
+    "return-type",
+    "callable-signature",
+    "type-safety",
+    "generic-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers lose type safety when using SideEffect with callables, requiring manual type casting instead of automatic type preservation based on callable return type.",
+  "rootCause": "SideEffect implementation does not inspect the callable's return type annotation to properly cast the returned value.",
+  "proposedFix": "Implement return type inspection on the callable to automatically cast the side effect result to the declared return type.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SideEffect implementation was updated to respect callable return type declarations and cast returned values accordingly.",
+  "related": [],
+  "keyQuote": "In this code `$newUuid` should contain `UuidInterface` value, not string",
+  "number": 346,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:27:39.941Z"
+}

@@ -1,0 +1,43 @@
+{
+  "summary": "Feature request to implement task queue priority options/annotations across SDKs. The API changes were introduced in api#513 and Go SDK has a reference implementation in sdk-go#1792. This requires passing through new priority-related options to the task queue in all SDK implementations.",
+  "category": "feature",
+  "subcategory": "task-queue-priority",
+  "apis": [
+    "StartWorkflowOptions",
+    "TaskQueueOptions"
+  ],
+  "components": [
+    "task-queue",
+    "worker",
+    "client"
+  ],
+  "concepts": [
+    "priority",
+    "task-scheduling",
+    "queue-management",
+    "options",
+    "SDK-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to control task queue priority settings across all SDKs, enabling better control over workflow task execution order.",
+  "rootCause": null,
+  "proposedFix": "Pass through priority options from API layer to task queue implementation, following the Go SDK reference implementation (sdk-go#1792).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented across SDKs with per-SDK tracking issues completed (Go, Java, TypeScript, Python, .NET, Ruby, PHP).",
+  "related": [
+    513,
+    1792,
+    2399,
+    871,
+    1620,
+    760,
+    403,
+    210,
+    559
+  ],
+  "keyQuote": "Support setting those options in SDKs. This is all fairly straightforward pass-through of some new options.",
+  "number": 593,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:40.848Z"
+}

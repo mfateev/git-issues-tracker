@@ -1,0 +1,31 @@
+{
+  "summary": "CVE-2018-16875 vulnerability detected in webpki-0.22.0 transitive dependency through reqwest, causing potential CPU denial of service in X.509 certificate verification. Issue was automatically closed and reopened multiple times as the dependency was toggled in inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "reqwest",
+    "webpki"
+  ],
+  "concepts": [
+    "security vulnerability",
+    "denial of service",
+    "certificate verification",
+    "dependency management",
+    "transitive dependency",
+    "CVE"
+  ],
+  "severity": "high",
+  "userImpact": "Users running temporal-sdk-core could be vulnerable to CPU denial of service attacks through crafted X.509 certificate chains.",
+  "rootCause": "webpki-0.22.0 (transitive dependency via reqwest) contains CVE-2018-16875, which allows CPU exhaustion during X.509 chain verification with pathological inputs.",
+  "proposedFix": "Upgrade webpki to version 0.22.2 or higher, or use rustls-webpki versions 0.100.2 or 0.101.4.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was marked as ignored or removed from inventory, despite the CVSS 7.5 vulnerability persisting.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 869,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:20:44.111Z"
+}

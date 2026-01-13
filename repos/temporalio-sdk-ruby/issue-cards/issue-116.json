@@ -1,0 +1,31 @@
+{
+  "summary": "Tokio dependency version 1.23.1 contains a critical soundness vulnerability (CVE WS-2023-0027, CVSS 9.8) in the ReadHalf::unsplit function that can violate Pin contract guarantees under specific conditions. Upgrade to tokio 1.18.5, 1.20.4, or 1.24.2 is required.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "tokio",
+    "io-util",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "soundness",
+    "memory-safety",
+    "pin-contract",
+    "use-after-free",
+    "async-io"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using tokio 1.23.1 with the io-util feature and !Unpin types in ReadHalf are vulnerable to potential use-after-free exploits.",
+  "rootCause": "The tokio::io::ReadHalf<T>::unsplit function can violate the Pin contract when used with !Unpin types, allowing unsafe memory operations.",
+  "proposedFix": "Upgrade tokio to version 1.18.5, 1.20.4, or 1.24.2 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend after the vulnerable library was either marked as ignored or removed from the project dependency inventory.",
+  "related": [],
+  "keyQuote": "A soundness issue was discovered in tokio. tokio::io::ReadHalf<T>::unsplit can violate the Pin contract.",
+  "number": 116,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:42:43.104Z"
+}

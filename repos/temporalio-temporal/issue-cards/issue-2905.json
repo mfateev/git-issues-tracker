@@ -1,0 +1,31 @@
+{
+  "summary": "Core Temporal components need access to configure their underlying gRPC connections to enable custom tracing, credentials, and service identification. Currently, server components cannot intercept or configure gRPC connection details during initialization.",
+  "category": "feature",
+  "subcategory": "grpc-configuration",
+  "apis": [],
+  "components": [
+    "grpc-connection",
+    "server-components",
+    "frontend"
+  ],
+  "concepts": [
+    "grpc-configuration",
+    "connection-management",
+    "interceptors",
+    "credentials",
+    "tracing",
+    "service-identification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot add custom tracing or gRPC credentials to inter-service Temporal server connections, limiting service identification and observability.",
+  "rootCause": "Server components lack exposed access to their underlying gRPC connection configuration, preventing user customization of dial options and interceptors.",
+  "proposedFix": "Expose gRPC connection access during component initialization to allow users to set custom dial options and/or interceptors on the underlying connection.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal server components would expose access to their underlying gRPC connection during initialization. A user can set custom dial options and/or interceptors on the underlying connection.",
+  "number": 2905,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:05.722Z"
+}

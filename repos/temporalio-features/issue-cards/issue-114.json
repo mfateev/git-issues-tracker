@@ -1,0 +1,30 @@
+{
+  "summary": "SDKs populate namespace and task queue with garbage/test data during replay, affecting workflow code. Feature request to accept optional namespace in replay options and derive task queue from history events.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replay-engine",
+    "replay-options",
+    "history-events"
+  ],
+  "concepts": [
+    "replay",
+    "namespace",
+    "task-queue",
+    "history",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience incorrect namespace and task queue values in workflow code during replay testing, potentially causing logic errors in test scenarios.",
+  "rootCause": "SDKs currently populate namespace and task queue with placeholder or test values instead of deriving them from actual history data during replay.",
+  "proposedFix": "Accept optional namespace parameter in replay options and extract task queue from the start event in history.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some SDKs populate these values with garbage or test data during replay which affects people's workflow code",
+  "number": 114,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:48:06.435Z"
+}

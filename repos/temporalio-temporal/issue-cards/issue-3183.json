@@ -1,0 +1,34 @@
+{
+  "summary": "Replace code-generated metrics and retryable client wrappers with gRPC client interceptors to reduce complexity and maintenance cost, aligning client-side implementation with existing server-side approach.",
+  "category": "feature",
+  "subcategory": "client-interceptors",
+  "apis": [],
+  "components": [
+    "client",
+    "metrics",
+    "interceptors",
+    "grpc"
+  ],
+  "concepts": [
+    "code-generation",
+    "metrics",
+    "retry",
+    "interceptors",
+    "client-side",
+    "maintenance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will benefit from simpler client implementation with reduced maintenance burden and consistent interceptor-based approach across client and server.",
+  "rootCause": "Current metrics and retryable client implementation uses code generation; server-side uses gRPC interceptors, creating inconsistent architectural approaches.",
+  "proposedFix": "Replace code-generated metrics/retryable client with gRPC client interceptors, mirroring the server-side implementation approach.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3172
+  ],
+  "keyQuote": "same approach can be applied to client side as well, and avoid the complexity of code generation and the cost for maintaining it",
+  "number": 3183,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:41.452Z"
+}

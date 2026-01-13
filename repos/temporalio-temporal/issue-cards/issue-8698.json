@@ -1,0 +1,33 @@
+{
+  "summary": "Review and patch multiple CVEs affecting Go standard libraries (versions up to 1.25.0) that impact URL parsing, certificate validation, cookie handling, and TLS handshakes. Upgrade to Go 1.25.3 is recommended to address security vulnerabilities.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "tls",
+    "networking",
+    "url-parsing"
+  ],
+  "concepts": [
+    "security",
+    "cve",
+    "memory-exhaustion",
+    "performance",
+    "certificate-validation",
+    "url-parsing",
+    "tls-handshake"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal deployments using Go 1.25.0 or earlier may be vulnerable to multiple security CVEs affecting URL parsing, certificate validation, and TLS, requiring immediate patching to Go 1.25.3.",
+  "rootCause": "Go standard library vulnerabilities in URL parsing (RFC 3986 violation), certificate validation (name constraints, DSA casting), cookie parsing (unlimited memory), and TLS handshakes (ALPN leakage) and HTTP response parsing (string concatenation).",
+  "proposedFix": "Upgrade Go runtime from version 1.25.0 to version 1.25.3 to address all identified CVEs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The installed version is 1.25.0, and as per the patch advisory, it should be upgraded to 1.25.3 to address the issue.",
+  "number": 8698,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:01.670Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Archived workflows that have passed the retention period cannot be displayed in the web UI or accessed via tctl describe command, though they can be retrieved using tctl show with the runID. The issue affects the ability to view archived workflow details after retention expiration.",
+  "category": "bug",
+  "subcategory": "archival-visibility",
+  "apis": [
+    "DescribeWorkflowExecution",
+    "GetWorkflowExecutionHistory",
+    "ListArchivedWorkflowExecutions"
+  ],
+  "components": [
+    "web-ui",
+    "tctl",
+    "archival-storage",
+    "visibility-archiver"
+  ],
+  "concepts": [
+    "archival",
+    "retention",
+    "workflow-visibility",
+    "archived-workflows",
+    "s3-storage",
+    "workflow-retrieval"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot view or describe archived workflows through standard tools after retention period expires, limiting visibility and debugging capabilities for older workflow executions.",
+  "rootCause": "DescribeWorkflowExecution API does not support retrieving from archival storage for workflows past retention period, and UI fails to handle archived workflows appropriately.",
+  "proposedFix": null,
+  "workaround": "Use `tctl wf show` command with runID instead of `tctl wf desc` to retrieve history from archival storage.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "History for archived workflows can be retrieved from archival storage and returned via the GetWorkflowExecutionHistory API or `tctl wf show` when runID is specified.",
+  "number": 5022,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:02.296Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Activities scheduled within signal handlers sometimes fail to execute, causing the activity to not be scheduled after the signal is delivered. This results in event history mismatches and nondeterministic errors on replay.",
+  "category": "bug",
+  "subcategory": "signal-handler",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "activity-scheduler",
+    "workflow-execution",
+    "event-history"
+  ],
+  "concepts": [
+    "activity-scheduling",
+    "signal-processing",
+    "event-history",
+    "replay",
+    "nondeterministic-error",
+    "race-condition"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using activities in signal handlers experience intermittent failures where activities are not scheduled, causing NDEs and event history corruption.",
+  "rootCause": "Race condition or timing issue in the signal handler that prevents activities from being properly scheduled in the workflow execution context.",
+  "proposedFix": "Fixes were proposed in v2.5.3 and v2.5.4 to address signal handling in activity scheduling.",
+  "workaround": "Avoid using activities in signal handlers until the fix is verified.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixes were released in v2.5.3 and v2.5.4, though customer verification was pending due to difficulty reproducing the issue.",
+  "related": [],
+  "keyQuote": "sometimes the activity is not scheduled after the signal is delivered to the workflow execution... which later causes an NDE on replay",
+  "number": 314,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:52.750Z"
+}

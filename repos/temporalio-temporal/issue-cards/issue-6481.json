@@ -1,0 +1,32 @@
+{
+  "summary": "Request to extend the execution history API to support waiting for signals and display this capability in the Temporal UI. This feature would allow better visibility into signal-based workflow pauses.",
+  "category": "feature",
+  "subcategory": "execution-history-api",
+  "apis": [
+    "ExecutionHistory"
+  ],
+  "components": [
+    "execution-history-api",
+    "temporal-ui",
+    "workflow-history"
+  ],
+  "concepts": [
+    "signals",
+    "execution-history",
+    "workflow-visibility",
+    "api-design",
+    "user-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently see signal wait states in the execution history API, limiting visibility into workflow execution with signal-based control flow.",
+  "rootCause": null,
+  "proposedFix": "Extend execution history API to include signal wait events and update Temporal UI to display these events.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support wait for signal in execution history API",
+  "number": 6481,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:32.870Z"
+}

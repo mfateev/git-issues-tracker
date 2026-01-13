@@ -1,0 +1,32 @@
+{
+  "summary": "Request for a new metric to track when scheduled runs are skipped due to overlap policy, missed catchup windows, or buffer overruns. Customers need to alarm on and identify schedules with missing or skipped runs.",
+  "category": "feature",
+  "subcategory": "schedules-metrics",
+  "apis": [],
+  "components": [
+    "schedules",
+    "metrics",
+    "monitoring"
+  ],
+  "concepts": [
+    "scheduled-actions",
+    "skipped-runs",
+    "overlap-policy",
+    "catchup-window",
+    "buffer-overrun",
+    "alerting",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Customers cannot currently monitor or alarm when scheduled runs are skipped, making it difficult to detect missed executions.",
+  "rootCause": null,
+  "proposedFix": "Introduce a new metric to track skipped scheduled runs with visibility into the reason (overlap policy, missed catchup window, or buffer overrun).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Customers would like to alarm on when a scheduled run was missed or skipped.",
+  "number": 8087,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:25.303Z"
+}

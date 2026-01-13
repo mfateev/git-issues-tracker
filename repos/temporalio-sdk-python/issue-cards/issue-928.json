@@ -1,0 +1,33 @@
+{
+  "summary": "Research and implement free-threading support for the Python SDK to make it compatible with Python's free-threading runtime. This requires validating Python Protobuf compatibility and establishing CI-based confirmation of compatibility.",
+  "category": "feature",
+  "subcategory": "runtime-compatibility",
+  "apis": [],
+  "components": [
+    "runtime",
+    "protobuf-bindings",
+    "ci"
+  ],
+  "concepts": [
+    "free-threading",
+    "python-runtime",
+    "concurrency",
+    "compatibility",
+    "protobuf",
+    "research"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to run the SDK with Python's free-threading runtime for better concurrency performance once implemented.",
+  "rootCause": null,
+  "proposedFix": "Research free-threading opt-in via PyO3, validate Python Protobuf compatibility, and establish CI-based confirmation tests.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    863
+  ],
+  "keyQuote": "Per https://pyo3.rs/v0.25.1/free-threading.html this should be a simple opt-in, but we may have struggles with Python Protobuf",
+  "number": 928,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:03.132Z"
+}

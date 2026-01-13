@@ -1,0 +1,30 @@
+{
+  "summary": "WorkflowNotFoundError is incorrectly thrown when a namespace is not found. The error should either include namespace-not-found as a reason, create a new NamespaceNotFoundError, or be replaced with a ServiceError to accurately reflect the actual error condition.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "grpc-client",
+    "namespace-resolution"
+  ],
+  "concepts": [
+    "error-mapping",
+    "grpc-status-codes",
+    "error-semantics",
+    "namespace-resolution",
+    "NOT_FOUND"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive misleading error messages when namespace is not found, making it difficult to diagnose namespace configuration or availability issues.",
+  "rootCause": "WorkflowNotFoundError is thrown for all gRPC NOT_FOUND status codes without distinguishing between missing workflows and missing namespaces.",
+  "proposedFix": "Extract error details from headers (like Go SDK does) using a library like node-grpc-error-details to properly distinguish between different NOT_FOUND scenarios.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing proper gRPC error detail extraction from headers to distinguish between workflow-not-found and namespace-not-found errors.",
+  "related": [],
+  "keyQuote": "We need to extract the error details from headers like go does, possibly using this library",
+  "number": 976,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:26:10.854Z"
+}

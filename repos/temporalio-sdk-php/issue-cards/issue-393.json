@@ -1,0 +1,30 @@
+{
+  "summary": "User reported that when deserializing DTO objects containing arrays of other DTO objects from activities, the nested objects were being converted to arrays instead of remaining as typed objects. The issue was resolved by using the MarshalArray attribute for proper type annotation support.",
+  "category": "question",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "marshaller",
+    "serialization",
+    "activity-result"
+  ],
+  "concepts": [
+    "deserialization",
+    "type-conversion",
+    "data-structure",
+    "type-annotations",
+    "dto-objects"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to return nested DTO objects from activities may encounter unexpected array conversion if they don't use proper type annotations.",
+  "rootCause": "The SDK's Marshaller does not support type annotations via PHPDoc comments and requires explicit MarshalArray attributes for proper type preservation.",
+  "proposedFix": "Use the MarshalArray attribute on array properties to specify the contained type: #[MarshalArray(of: ProductInfo::class)]",
+  "workaround": "Apply the MarshalArray attribute to array fields that contain typed objects.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by providing the MarshalArray attribute as the solution for proper type annotation support during deserialization.",
+  "related": [],
+  "keyQuote": "The SDK uses its own Marshaller which does not yet support type annotations. Try to use `MarshalArray` attribute",
+  "number": 393,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:10.038Z"
+}

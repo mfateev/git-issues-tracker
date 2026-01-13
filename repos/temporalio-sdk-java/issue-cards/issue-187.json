@@ -1,0 +1,32 @@
+{
+  "summary": "A ClassCastException occurs when an Activity throws an Error instead of an Exception, preventing proper error propagation and masking the actual failure. This happens because the activity handler tries to cast a Throwable to Exception without handling Error subclasses.",
+  "category": "bug",
+  "subcategory": "activity-error-handling",
+  "apis": [
+    "Activity"
+  ],
+  "components": [
+    "POJOActivityTaskHandler",
+    "ActivityWorker",
+    "error-propagation"
+  ],
+  "concepts": [
+    "exception-handling",
+    "type-casting",
+    "error-propagation",
+    "activity-execution",
+    "throwable-hierarchy"
+  ],
+  "severity": "high",
+  "userImpact": "When Activities throw Errors, the actual failure is masked by a ClassCastException, making debugging difficult and preventing proper error handling.",
+  "rootCause": "POJOActivityTaskHandler attempts to cast Throwable to Exception without handling the Error subclass, which is also a Throwable but not an Exception.",
+  "proposedFix": "Handle both Exception and Error cases in the activity error handling logic, or broaden the catch clause to accept any Throwable.",
+  "workaround": "Ensure Activities only throw Exception subclasses rather than Error subclasses, and avoid calling Workflow.getInfo() from Activities.",
+  "resolution": "fixed",
+  "resolutionDetails": "The casting logic was corrected to properly handle Error instances alongside Exceptions.",
+  "related": [],
+  "keyQuote": "java.lang.Error cannot be cast to java.lang.Exception",
+  "number": 187,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:00:04.792Z"
+}

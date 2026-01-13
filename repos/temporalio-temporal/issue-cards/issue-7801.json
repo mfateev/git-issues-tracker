@@ -1,0 +1,30 @@
+{
+  "summary": "User unable to create namespace using CLI when TLS is configured on Kubernetes deployment. Connection fails with \"error reading server preface: EOF\" when attempting to reach the server.",
+  "category": "bug",
+  "subcategory": "namespace-management",
+  "apis": [],
+  "components": [
+    "namespace-operator",
+    "cli",
+    "tls-configuration"
+  ],
+  "concepts": [
+    "namespace-creation",
+    "tls",
+    "kubernetes",
+    "connection-error",
+    "operator-cli"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create namespaces on Kubernetes deployments with TLS enabled, blocking namespace setup operations.",
+  "rootCause": "Server connection failure when TLS is configured; possible TLS handshake or certificate validation issue with the operator CLI connecting to the temporal server.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed by reporter without explanation; likely invalid or already resolved on their end.",
+  "related": [],
+  "keyQuote": "failed reaching server: last connection error: connection error: desc = \"error reading server preface: EOF\"",
+  "number": 7801,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:21.593Z"
+}

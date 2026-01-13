@@ -1,0 +1,32 @@
+{
+  "summary": "MutableState cache is currently created per shard, making it difficult to configure cache size based on cluster topology. The request is to refactor it to use a common cache per host shared by all shards, similar to the EventsCache pattern.",
+  "category": "feature",
+  "subcategory": "caching",
+  "apis": [],
+  "components": [
+    "history-cache",
+    "mutable-state",
+    "shard-management"
+  ],
+  "concepts": [
+    "caching",
+    "cache-configuration",
+    "cluster-topology",
+    "per-host-cache",
+    "memory-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators have difficulty configuring MutableState cache size appropriately for their cluster topology and shard distribution.",
+  "rootCause": "MutableState cache is instantiated per shard rather than per host, creating a coupling between cache size and cluster sharding strategy.",
+  "proposedFix": "Create a common cache per host that is shared by all shards in the cluster, following the EventsCache pattern.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by pull request #4833 which refactored the caching strategy.",
+  "related": [
+    4833
+  ],
+  "keyQuote": "We should have a common cache per host which is shared by all shards in the cluster. Same as EventsCache.",
+  "number": 1530,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:38:40.931Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Build fails on Ubuntu Linux for aarch64 ARM architecture because the protoc executable being pulled is for macOS instead of Linux. The gradle build configuration needs to check both OS and architecture to select the correct protoc binary.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "build.gradle",
+    "protoc-compiler",
+    "protobuf-dependencies"
+  ],
+  "concepts": [
+    "cross-platform-build",
+    "architecture-detection",
+    "dependency-resolution",
+    "compilation",
+    "gradle-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot build the Java SDK from source on Ubuntu Linux running on aarch64 ARM hardware.",
+  "rootCause": "The build.gradle in temporal-serviceclient only checks os.arch but ignores the OS type (Linux vs macOS), causing incorrect protoc binary selection for Linux aarch64 systems.",
+  "proposedFix": "Update gradle.build to check both OS and architecture, pulling protoc-3.10.1-linux-aarch_64.exe for Linux aarch64 systems instead of the macOS binary.",
+  "workaround": "Building from source on OSX",
+  "resolution": "fixed",
+  "resolutionDetails": "Build configuration was updated to properly handle Linux aarch64 architecture detection.",
+  "related": [],
+  "keyQuote": "The gradle.build file needs to also consider the OS and pull in the correct protoc executable.",
+  "number": 1883,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:31.928Z"
+}

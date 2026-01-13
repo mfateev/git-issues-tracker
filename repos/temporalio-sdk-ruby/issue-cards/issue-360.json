@@ -1,0 +1,39 @@
+{
+  "summary": "User cannot test Temporal Ruby workflows that use `wait_condition` with signals in the time-skipping test environment. The signal is received correctly (verified via query), but the workflow doesn't resume execution after the signal, causing timeouts when trying to get the result.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "wait_condition",
+    "signal",
+    "query",
+    "start_workflow",
+    "execute_workflow",
+    "WorkflowEnvironment.start_time_skipping"
+  ],
+  "components": [
+    "testing",
+    "time-skipping",
+    "signals",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "signal-handling",
+    "wait-condition",
+    "time-skipping-test",
+    "workflow-continuation",
+    "async-testing",
+    "workflow-state"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot effectively test signal-driven workflows in the Ruby SDK's time-skipping environment, forcing them to use real Temporal servers or alternative testing approaches.",
+  "rootCause": "Time-skipping doesn't automatically progress workflows until `workflow_handle.result` is called; manual `sleep` on the environment is required to advance time after signals, but this behavior may not be clearly documented or intuitive.",
+  "proposedFix": "Clarify documentation on time-skipping behavior with signals, or improve automatic time progression when signals are processed in test environments.",
+  "workaround": "Call `sleep` on the environment to manually advance time after sending a signal; run `execute_workflow` in a background thread for automatic progression.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the automatic time-skipping doesn't kick in until you wait for the workflow result. So the workflow does not progress automatically until you wait for the result",
+  "number": 360,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:53:07.617Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The testService's ensureDefaultFieldsForActivityRetryPolicy method does not rewrite nonRetryableErrorTypes field, causing retry policies to be incomplete. This blocks users from properly testing setDoNotRetry retry policies in unit tests.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "testservice",
+    "state-machines",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "error-handling",
+    "test-framework",
+    "policy-defaults"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test or verify that setDoNotRetry retry policies are respected in unit tests, blocking upgrades to affected versions.",
+  "rootCause": "The ensureDefaultFieldsForActivityRetryPolicy method is missing logic to rewrite the nonRetryableErrorTypes field when setting default retry policy values.",
+  "proposedFix": "Add one-liner instruction to rewrite nonRetryableErrorTypes in the ensureDefaultFieldsForActivityRetryPolicy method, with corresponding tests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #223 which implements the missing nonRetryableErrorTypes rewriting logic.",
+  "related": [
+    223
+  ],
+  "keyQuote": "ensureDefaultFieldsForActivityRetryPolicy don't rewrite nonRetryableErrorTypes. There are no corresponding instructions in the method.",
+  "number": 203,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:01:25.435Z"
+}

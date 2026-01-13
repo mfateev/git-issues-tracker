@@ -1,0 +1,34 @@
+{
+  "summary": "Local activity machine throws a nondeterminism error when a TimerStarted event occurs, preventing workflows from properly handling timer operations with local activities and condition checks.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "proxyLocalActivities",
+    "condition"
+  ],
+  "components": [
+    "local-activity-machine",
+    "timer-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "nondeterminism",
+    "event-history",
+    "timer-started",
+    "local-activities",
+    "determinism-checking",
+    "workflow-state-machine"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using local activities with condition checks fail with nondeterminism errors, preventing them from completing successfully.",
+  "rootCause": "The local activity machine does not properly handle TimerStarted events in the event history, causing a RunUpdateErr when the workflow state machine encounters a timer event it cannot process.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved through fixes to the local activity machine and workflow state machine to properly handle TimerStarted events during workflow execution.",
+  "related": [],
+  "keyQuote": "Local activity machine cannot handle this event: HistoryEvent(id: 5, Some(TimerStarted))",
+  "number": 731,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:09:26.714Z"
+}

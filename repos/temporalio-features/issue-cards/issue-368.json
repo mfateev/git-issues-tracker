@@ -1,0 +1,36 @@
+{
+  "summary": "Add an end-to-end test for Eager Workflow Start (EWS) in Cloud that verifies the first workflow task is eagerly dispatched to a local worker without matching delays or database round trips.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "worker",
+    "cloud-deployment",
+    "test-framework",
+    "task-dispatch"
+  ],
+  "concepts": [
+    "eager-dispatch",
+    "latency-optimization",
+    "workflow-start",
+    "e2e-testing",
+    "task-matching",
+    "local-worker"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal Cloud workflows need verification that eager workflow start optimization works correctly to reduce first-task latency.",
+  "rootCause": null,
+  "proposedFix": "Reuse client connection for starter and worker, initiate workflow with eager flag set to true, verify first task is immediately returned without retries.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test was implemented to validate eager workflow start functionality in Cloud environment.",
+  "related": [
+    242
+  ],
+  "keyQuote": "EWS in Cloud is currently blocked on the need of an end-to-end test that demonstrates that the first workflow task is eagerly dispatched to a local worker.",
+  "number": 368,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:14.427Z"
+}

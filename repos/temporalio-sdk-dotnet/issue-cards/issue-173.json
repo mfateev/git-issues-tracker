@@ -1,0 +1,30 @@
+{
+  "summary": ".NET SDK does not ignore unknown fields when parsing history JSON for replay, unlike Python and Go SDKs. The issue notes that a JsonParser ignore-unknown-fields setting exists but is not being used.",
+  "category": "bug",
+  "subcategory": "history-parsing",
+  "apis": [],
+  "components": [
+    "json-parser",
+    "history-parsing",
+    "replay"
+  ],
+  "concepts": [
+    "serialization",
+    "json-parsing",
+    "unknown-fields",
+    "cross-sdk-compatibility",
+    "history-replay"
+  ],
+  "severity": "medium",
+  "userImpact": "Replay fails when history contains unknown fields that other SDKs handle gracefully, causing inconsistent behavior across SDK implementations.",
+  "rootCause": ".NET JsonParser settings not configured to ignore unknown fields during history JSON deserialization, unlike other SDK implementations.",
+  "proposedFix": "Enable the ignore-unknown-fields setting on JsonParser when parsing history proto from JSON.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "JsonParser ignore-unknown-fields setting was enabled for history parsing to match behavior of other SDKs.",
+  "related": [],
+  "keyQuote": "Python and Go and others ignore unknown fields when parsing JSON for history proto, but .NET doesn't.",
+  "number": 173,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:14.764Z"
+}

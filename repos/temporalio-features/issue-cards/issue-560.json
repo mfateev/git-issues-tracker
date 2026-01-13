@@ -1,0 +1,32 @@
+{
+  "summary": "Add a `pendingActivities` field to `WorkflowExecutionInfo` that provides all activity payload fields fully decoded and timestamps converted to appropriate formats.",
+  "category": "feature",
+  "subcategory": "workflow-execution-info",
+  "apis": [
+    "WorkflowExecutionInfo"
+  ],
+  "components": [
+    "client",
+    "workflow-execution-api",
+    "data-structures"
+  ],
+  "concepts": [
+    "pending-activities",
+    "activity-payloads",
+    "data-decoding",
+    "timestamp-conversion",
+    "workflow-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can more easily inspect pending activities in a workflow with properly decoded data and formatted timestamps, improving debugging and monitoring capabilities.",
+  "rootCause": null,
+  "proposedFix": "Add `pendingActivities` field to `WorkflowExecutionInfo` interface with decoded payloads and converted timestamps",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add WorkflowExecutionInfo .pendingActivities that has all the fields payloads decoded and timestamps converted",
+  "number": 560,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:56.224Z"
+}

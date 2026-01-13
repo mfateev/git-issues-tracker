@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to implement ContinueAsNew functionality in the TypeScript SDK, pending support in sdk-core.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-executor",
+    "sdk-core"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "state-management",
+    "execution-flow",
+    "long-running-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot continue workflows as new, limiting their ability to manage long-running workflow chains and restart state.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ContinueAsNew functionality was implemented once sdk-core support became available.",
+  "related": [],
+  "keyQuote": "Once it is supported by sdk-core",
+  "number": 141,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:58:08.607Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support connecting to multiple server addresses from the Core API and optionally the Node gRPC client, similar to the Go SDK implementation.",
+  "category": "feature",
+  "subcategory": "client-connection",
+  "apis": [],
+  "components": [
+    "core-api",
+    "grpc-client",
+    "client-connection"
+  ],
+  "concepts": [
+    "multiple-servers",
+    "failover",
+    "load-balancing",
+    "grpc-resolver",
+    "connection-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot connect to multiple server addresses for failover or load-balancing scenarios.",
+  "rootCause": null,
+  "proposedFix": "Implement support for multiple server addresses in Core API and Node gRPC client, potentially using custom gRPC resolvers.",
+  "workaround": "Custom gRPC resolvers can be used to achieve this, though they are marked as experimental in grpc-js.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed due to lack of demand.",
+  "related": [
+    577
+  ],
+  "keyQuote": "Custom gRPC resolvers can be used to achieve this. Those are marked as experimental in grpc-js and not exposed in the Core API.",
+  "number": 294,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:05.973Z"
+}

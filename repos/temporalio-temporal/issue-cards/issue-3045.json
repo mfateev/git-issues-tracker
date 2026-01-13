@@ -1,0 +1,30 @@
+{
+  "summary": "Advanced search with StartTime filter in the future returns incorrect results - UI shows workflows from the previous search instead of clearing them when the query returns no results. tctl correctly returns 0 results for the same query.",
+  "category": "bug",
+  "subcategory": "advanced-search",
+  "apis": [],
+  "components": [
+    "search",
+    "ui",
+    "workflow-list"
+  ],
+  "concepts": [
+    "search-filtering",
+    "start-time",
+    "query-results",
+    "ui-state",
+    "result-clearing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users get incorrect search results displayed when their advanced search query returns empty results, causing confusion about actual workflow state.",
+  "rootCause": "After clicking search, if query results are empty, the currently displayed workflows in the list are not cleared/updated to reflect the empty result set.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It seems after clicking search, if the results of query are empty, the currnetly shown workflows in list are not updated (not removed)",
+  "number": 3045,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:50.465Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Static and synthetic methods in activity interfaces are incorrectly treated as activity methods, causing registration errors when using tools like Jacoco that generate synthetic methods.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "registerActivitiesImplementations"
+  ],
+  "components": [
+    "activity-registration",
+    "POJOActivityTaskHandler",
+    "activity-interface-reflection"
+  ],
+  "concepts": [
+    "synthetic-methods",
+    "static-methods",
+    "method-reflection",
+    "activity-discovery",
+    "code-generation",
+    "jacoco-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Jacoco coverage or other tools that generate synthetic methods experience crashes when registering activity implementations.",
+  "rootCause": "Activity registration logic scans all methods in activity interfaces without filtering out synthetic or static methods, treating them as activity methods.",
+  "proposedFix": "Filter out static and synthetic methods during activity method discovery by checking Method.isSynthetic() and Modifier.isStatic().",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activity registration now ignores static and synthetic methods during reflection-based method discovery.",
+  "related": [],
+  "keyQuote": "A construct emitted by a Java compiler must be marked as synthetic if it does not correspond to a construct declared explicitly or implicitly in source code",
+  "number": 977,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:57:00.444Z"
+}

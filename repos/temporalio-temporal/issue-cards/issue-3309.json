@@ -1,0 +1,33 @@
+{
+  "summary": "Request for ability to broadcast commands or metadata updates to all workers listening on the same task queue, enabling coordinated setup/cleanup and data synchronization across multiple workers without requiring per-workflow API calls.",
+  "category": "feature",
+  "subcategory": "worker-coordination",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-queue",
+    "workflow-execution",
+    "metadata-management"
+  ],
+  "concepts": [
+    "worker-broadcast",
+    "task-queue",
+    "high-throughput",
+    "data-synchronization",
+    "worker-notification",
+    "metadata-updates",
+    "coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running multiple workers on the same task queue cannot efficiently broadcast setup/cleanup commands or data updates to all workers, requiring inefficient per-workflow API calls.",
+  "rootCause": null,
+  "proposedFix": "Add a metadata map returned as part of every workflow or activity task, with an admin API to update this map. SDKs should watch for map changes and notify workers appropriately.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the business client can send a workflow or a command, which can be picked up and executed by all workers, instead of only one of them.",
+  "number": 3309,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:49.278Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to allow Continue-as-New from update handlers, similar to how it works in signal handlers. The feature was requested across multiple SDKs but was ultimately decided against due to design concerns around precedence and exception handling.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-execution",
+    "signal-handler"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "update-handler",
+    "signal-handler",
+    "workflow-completion",
+    "exception-handling",
+    "control-flow"
+  ],
+  "severity": "low",
+  "userImpact": "Users who want to use Continue-as-New patterns in update handlers are unable to do so, limiting workflow control flow options.",
+  "rootCause": "Design decision: continue-as-new from update handlers creates ambiguity when both the workflow method and update handler complete in the same workflow task.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Decided against implementation. For languages where continue-as-new is an exception, it will be treated like any other exception or may eagerly fail.",
+  "related": [
+    439,
+    161
+  ],
+  "keyQuote": "We have since decided against doing this. In languages where continue as new is an exception, may just want to treat it like any other exception the user may raise",
+  "number": 379,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:42.496Z"
+}

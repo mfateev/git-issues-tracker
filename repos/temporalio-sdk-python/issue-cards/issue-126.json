@@ -1,0 +1,35 @@
+{
+  "summary": "Pydantic BaseModel objects fail to serialize to JSON in the Python SDK, causing workflows to crash with 'not JSON serializable' errors. The issue was resolved by implementing a Pydantic encoder in the SDK's converter.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "execute_workflow",
+    "execute_activity"
+  ],
+  "components": [
+    "converter",
+    "json-encoder",
+    "payload-serialization"
+  ],
+  "concepts": [
+    "serialization",
+    "pydantic",
+    "json-encoding",
+    "type-compatibility",
+    "data-passing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot pass Pydantic model instances to workflows or activities, preventing adoption of Pydantic for data validation.",
+  "rootCause": "The JSON encoder in temporalio/converter.py does not recognize Pydantic BaseModel objects as JSON serializable types.",
+  "proposedFix": "Implement a Pydantic-aware encoder in the converter that handles BaseModel serialization, completed in PR #102.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in PR #102 which was released after the issue was filed.",
+  "related": [
+    102
+  ],
+  "keyQuote": "Object of type SignupCreate is not JSON serializable",
+  "number": 126,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:42.573Z"
+}

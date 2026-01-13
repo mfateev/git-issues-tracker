@@ -1,0 +1,30 @@
+{
+  "summary": "Local activities that throw Java Errors fail with RETRY_STATE_INTERNAL_SERVER_ERROR instead of immediately failing the WorkflowTask. Errors should signal worker problems and cause workflow task failure rather than activity execution failure.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [],
+  "components": [
+    "local-activity-executor",
+    "workflow-task-handler",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "local-activities",
+    "workflow-task",
+    "worker-failure",
+    "retry-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Errors in local activities are incorrectly handled as activity failures instead of worker failures, leading to incorrect workflow behavior and retry logic.",
+  "rootCause": "Local activity execution does not distinguish between activity errors and JVM errors, treating Error exceptions the same as Activity exceptions.",
+  "proposedFix": "Local activity executor should catch Java Errors and immediately fail the WorkflowTask instead of failing the activity execution with RETRY_STATE_INTERNAL_SERVER_ERROR.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error handling in local activities was corrected to fail the WorkflowTask when Java Errors occur.",
+  "related": [],
+  "keyQuote": "If Local Activity throws an Error, it should immediately fail Workflow Task. Java Error signals a problem with the Worker and shouldn't lead to a failure of a Local Activity execution or a Workflow.",
+  "number": 1533,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:39.874Z"
+}

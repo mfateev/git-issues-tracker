@@ -1,0 +1,30 @@
+{
+  "summary": "User requests ability to use a single MySQL database for both default and visibility schemas instead of requiring two separate databases. Response clarifies that two configurations are needed but can point to the same database instance.",
+  "category": "question",
+  "subcategory": "database-configuration",
+  "apis": [],
+  "components": [
+    "database",
+    "visibility-store",
+    "schema-management"
+  ],
+  "concepts": [
+    "database-consolidation",
+    "configuration",
+    "schema-separation",
+    "visibility",
+    "elasticsearch"
+  ],
+  "severity": "low",
+  "userImpact": "Users seeking simplified database setup may be confused about whether multiple database instances are required.",
+  "rootCause": null,
+  "proposedFix": "Configuration documentation clarifying that the same database instance can be used for both default and visibility schemas",
+  "workaround": "Point both default and visibility configurations to the same database instance",
+  "resolution": "invalid",
+  "resolutionDetails": "The issue was based on a misunderstanding. Temporal requires two separate schema configurations but they can reference the same database instance, not two separate instances.",
+  "related": [],
+  "keyQuote": "You still need 2 configuration for default and visibility, but they can point to the same database instance.",
+  "number": 3522,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:23.669Z"
+}

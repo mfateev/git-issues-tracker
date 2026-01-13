@@ -1,0 +1,32 @@
+{
+  "summary": "Payload converter errors when serializing incompatible objects (non-JSONifiable values, cyclic references) can crash the worker when they occur during error detail encoding in ApplicationError, unlike when they occur during activity response serialization.",
+  "category": "bug",
+  "subcategory": "payload-converter",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "payload-converter",
+    "worker",
+    "error-handling"
+  ],
+  "concepts": [
+    "serialization",
+    "error-encoding",
+    "crash-safety",
+    "exception-marshalling",
+    "cyclic-references"
+  ],
+  "severity": "high",
+  "userImpact": "Workers can crash when activities throw ApplicationErrors with non-serializable details, making the system unreliable when buggy code passes invalid objects through error details.",
+  "rootCause": "Payload converter throws UnsupportedEjsonTypeError during error detail encoding without being caught by the activity error handler, allowing the exception to escape Worker.run and crash the process.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If this happens when encoding e.g. the `details` of an `ApplicationError`, this error will escape the `Worker.run` and effectively crash the worker.",
+  "number": 1512,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:26.683Z"
+}

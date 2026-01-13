@@ -1,0 +1,31 @@
+{
+  "summary": "User requests testing support for Schedules in Java SDK without requiring a server instance, similar to TestWorkflowEnvironment.createLocal() available in TypeScript SDK.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "schedules"
+  ],
+  "concepts": [
+    "testing",
+    "local-environment",
+    "schedules",
+    "development",
+    "test-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must run a full server instance to test Schedules, increasing development friction and test complexity.",
+  "rootCause": null,
+  "proposedFix": "Implement TestScheduleEnvironment or createLocal method for local Schedule testing without server dependency",
+  "workaround": "Run temporal CLI with `temporal server start-dev` as a subprocess",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of #1804 which requests local testing environment support across SDKs",
+  "related": [
+    1804
+  ],
+  "keyQuote": "It may not be reasonable to put an entire reimplementation of schedules in each SDK",
+  "number": 2388,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:58.146Z"
+}

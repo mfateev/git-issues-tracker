@@ -1,0 +1,29 @@
+{
+  "summary": "User requests a point release of the Ruby SDK with relaxed protobuf version constraints that were merged weeks ago but not yet published to RubyGems. The published version is missing this fix, forcing users to build from source.",
+  "category": "feature",
+  "subcategory": "release-management",
+  "apis": [],
+  "components": [
+    "rubygems-publishing",
+    "dependency-management",
+    "protobuf"
+  ],
+  "concepts": [
+    "version-constraint",
+    "dependency-resolution",
+    "release-cycle",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot adopt the latest Ruby SDK on RubyGems due to strict protobuf version constraints, requiring workarounds like source builds.",
+  "rootCause": "Merged protobuf version relaxation has not been released to RubyGems; pending features (OTel, metric buffer) delayed the point release.",
+  "proposedFix": "Cut a new point release with the protobuf version relaxation and any pending features (OTel support, metric buffer).",
+  "workaround": "Build Ruby SDK from source to get the relaxed protobuf constraints.",
+  "resolution": "fixed",
+  "resolutionDetails": "Point release was eventually published with the protobuf version relaxation and additional features (OTel, metric buffer).",
+  "related": [],
+  "keyQuote": "I can't switch to this because the version you've published to RubyGems doesn't have the relaxing on the protobuf version that you merged a few weeks ago.",
+  "number": 229,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:03.395Z"
+}

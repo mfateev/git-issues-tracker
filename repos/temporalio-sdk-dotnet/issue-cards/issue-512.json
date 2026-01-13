@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for gRPC binary metadata headers in the .NET SDK. This feature requires base64 encoding of binary values and coordination with sdk-core to handle dictionary values as bytes without breaking existing users.",
+  "category": "feature",
+  "subcategory": "grpc-metadata",
+  "apis": [],
+  "components": [
+    "grpc",
+    "metadata",
+    "headers"
+  ],
+  "concepts": [
+    "binary-metadata",
+    "encoding",
+    "grpc-headers",
+    "data-serialization",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to pass binary data in gRPC metadata headers, which currently requires workarounds or is not supported.",
+  "rootCause": null,
+  "proposedFix": "Support dictionary values as bytes with base64 encoding for -bin suffix headers, pending sdk-core changes",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support gRPC binary metadata headers with proper encoding",
+  "related": [
+    671,
+    991
+  ],
+  "keyQuote": "Probably needs https://github.com/temporalio/sdk-core/issues/991 first, and then probably needs to support dictionary values as bytes",
+  "number": 512,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:31:50.673Z"
+}

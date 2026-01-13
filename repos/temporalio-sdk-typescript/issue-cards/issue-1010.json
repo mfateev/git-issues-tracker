@@ -1,0 +1,29 @@
+{
+  "summary": "Users accidentally install multiple versions of Temporal packages, causing runtime errors. Need validation to detect and prevent multiple versions of @temporalio packages from being used simultaneously in worker and workflow contexts.",
+  "category": "feature",
+  "subcategory": "package-validation",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-context",
+    "worker-interface"
+  ],
+  "concepts": [
+    "version-validation",
+    "package-management",
+    "dependency-resolution",
+    "runtime-error-prevention"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience errors and confusion when they accidentally install multiple versions of Temporal packages.",
+  "rootCause": "No validation mechanism exists to detect when multiple versions of @temporalio packages are loaded in the same process.",
+  "proposedFix": "Export version information from worker-interface.ts and add validation checks on the worker side; verify in workflow context that only one version of @temporalio/workflow is imported.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we should add some validation for this, e.g. export the version from worker-interface.ts and check on the worker side",
+  "number": 1010,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:26.957Z"
+}

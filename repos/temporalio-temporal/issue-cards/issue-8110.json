@@ -1,0 +1,33 @@
+{
+  "summary": "Docker image for server v1.28.0 contains multiple security vulnerabilities across alpine base image, Go dependencies, and third-party libraries. User requests remediation and timeline for a patched image.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "alpine-base",
+    "go-runtime",
+    "grpc",
+    "opentelemetry"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "cve",
+    "dependency",
+    "docker",
+    "image",
+    "remediation"
+  ],
+  "severity": "high",
+  "userImpact": "Users running server v1.28.0 in production are exposed to multiple known security vulnerabilities that could be exploited by attackers.",
+  "rootCause": "Outdated versions of alpine base image, Go runtime, and multiple Go dependencies (gRPC, OpenTelemetry, crypto, oauth2, JWT) contain known CVEs.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "keyQuote": "We see the below components of the server:v1.28.0 image have some vulnerabilities.",
+  "resolution": null,
+  "number": 8110,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:04.413Z"
+}

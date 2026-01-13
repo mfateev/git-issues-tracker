@@ -1,0 +1,31 @@
+{
+  "summary": "Type definitions for proxyActivities incorrectly return type `symbol` when wrapping synchronous (non-Promise-returning) activity functions, causing TypeScript errors and requiring manual type casting.",
+  "category": "bug",
+  "subcategory": "type-definitions",
+  "apis": [
+    "proxyActivities"
+  ],
+  "components": [
+    "type-system",
+    "activity-proxy",
+    "typescript-definitions"
+  ],
+  "concepts": [
+    "type-inference",
+    "async-functions",
+    "generic-types",
+    "type-safety"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using synchronous activity functions cannot use proxyActivities without manual type casting, reducing type safety.",
+  "rootCause": "ActivityFunction interface type definition missing union type for non-Promise return values, filtering out synchronous functions",
+  "proposedFix": "Add `| R` to line 69 of packages/common/src/interfaces.ts to include non-Promise return types in the ActivityFunction interface",
+  "workaround": "Manually type cast the result of proxyActivities to the correct function signature",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not planned - the design intentionally requires async activities. Authors confirmed no legitimate use case.",
+  "related": [],
+  "keyQuote": "This is actually by design, thought that's something that we could reconsider if there's a strong use case for explicitly non-async activities.",
+  "number": 1202,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:02.428Z"
+}

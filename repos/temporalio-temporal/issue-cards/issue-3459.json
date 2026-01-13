@@ -1,0 +1,32 @@
+{
+  "summary": "CVE-2022-40674 (critical vulnerability in expat library) detected in admin-tools container images v1.18.0 and v1.18.1. The vulnerability requires upgrading the expat package from version 2.4.8 to 2.4.9, which necessitates a new server release.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "docker-image",
+    "dependencies"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "cve",
+    "container",
+    "package-management",
+    "dependencies",
+    "supply-chain"
+  ],
+  "severity": "critical",
+  "userImpact": "Users running admin-tools containers in CVE-scanning environments face critical security alerts and potential deployment blocks due to unpatched vulnerabilities.",
+  "rootCause": "expat library version 2.4.8 contains CVE-2022-40674; fixed in 2.4.9",
+  "proposedFix": "Upgrade expat package to version 2.4.9 and release new admin-tools versions",
+  "workaround": "Run `apk upgrade` to pull in the fixed package",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by releasing new admin-tools versions with updated expat dependency",
+  "related": [],
+  "keyQuote": "admin-tools image requires a new server release",
+  "number": 3459,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:35.974Z"
+}

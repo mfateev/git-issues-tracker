@@ -1,0 +1,36 @@
+{
+  "summary": "UpdateMethod tests fail with null result assertion in PHP SDK's test service, while signals work correctly. The issue appears to be that the Test Server may not properly support workflow updates, with results not being returned to callers.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "update",
+    "startUpdate"
+  ],
+  "components": [
+    "UpdateHandle",
+    "WorkflowProxy",
+    "TestService"
+  ],
+  "concepts": [
+    "workflow-updates",
+    "test-server",
+    "time-skipping",
+    "testing",
+    "signal-handling",
+    "result-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot write and run tests for workflow update methods in PHP SDK, blocking update feature adoption.",
+  "rootCause": "Temporal Test Server may not have complete support for workflow updates with proper result handling, unlike signals which work correctly.",
+  "proposedFix": "Use dev-server instead of test-server for update testing, or add proper update support to test-server.",
+  "workaround": "Switch from test-server to dev-server (though this disables time-skipping feature).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1742
+  ],
+  "keyQuote": "The temporal-test-server is taken from the release artifacts of the JAVA SDK. Try the dev-server. There is no timeskipping but it works with the most Temporal features",
+  "number": 577,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:41:35.683Z"
+}

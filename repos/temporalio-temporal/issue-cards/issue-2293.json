@@ -1,0 +1,32 @@
+{
+  "summary": "The auto-setup Docker container fails to connect to PostgreSQL when TLS is required, with SSL connections being rejected despite SQL_TLS_ENABLED environment variable being set. The container reverts to non-TLS connections causing database creation and migration failures.",
+  "category": "bug",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "docker-entrypoint",
+    "sql-tool",
+    "config-template"
+  ],
+  "concepts": [
+    "TLS",
+    "SSL",
+    "PostgreSQL",
+    "database-connection",
+    "environment-variables",
+    "container-startup"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal with PostgreSQL instances requiring TLS/SSL connections, blocking setup on secured database platforms like Zalando Postgres Operator and Azure PostgreSQL.",
+  "rootCause": "Environment variables for TLS configuration (SQL_TLS, SQL_TLS_ENABLED, SQL_HOST_VERIFICATION) are not being properly applied during the config template rendering in the auto-setup entrypoint.",
+  "proposedFix": "Update docker config_template.yaml to properly default TLS settings to true and ensure all TLS-related environment variables (SQL_TLS, SQL_TLS_ENABLED, SQL_HOST_VERIFICATION, SQL_HOST_NAME) are correctly mapped in the configuration template.",
+  "workaround": "Manually set multiple environment variables: SQL_TLS=true, SQL_TLS_ENABLED=true, SQL_TLS_DISABLE_HOST_VERIFICATION=true, and SQL_HOST_VERIFICATION=true in the container or Kubernetes deployment.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved through configuration template updates and documentation of proper environment variable settings for TLS-enabled PostgreSQL connections.",
+  "related": [],
+  "keyQuote": "pq: pg_hba.conf rejects connection for host \"10.0.1.59\", user \"airbyte\", database \"postgres\", SSL off",
+  "number": 2293,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:26.428Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add a \"server-name\" property to Spring Boot connection options, allowing users to override the server authority via ManagedChannelBuilder for scenarios like PrivateLink connectivity. Currently possible through TemporalOptionsCustomizer but adding a dedicated option would improve convenience.",
+  "category": "feature",
+  "subcategory": "connection-options",
+  "apis": [],
+  "components": [
+    "spring-boot",
+    "connection-options",
+    "managed-channel",
+    "tls"
+  ],
+  "concepts": [
+    "server-name",
+    "tls",
+    "privatelink",
+    "authority-override",
+    "connection-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users can more conveniently configure server-name for private network connectivity scenarios without needing to use TemporalOptionsCustomizer.",
+  "rootCause": null,
+  "proposedFix": "Add \"server-name\" property to connection options that uses ManagedChannelBuilder#overrideAuthority to set the server name directly.",
+  "workaround": "Use TemporalOptionsCustomizer to configure this manually.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged into the Spring Boot SDK.",
+  "related": [],
+  "keyQuote": "This can be useful for users going through PrivateLink or similar. This would use ManagedChannelBuilder#overrideAuthority to set the server name directly rather than getting it from target.",
+  "number": 1996,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:50.508Z"
+}

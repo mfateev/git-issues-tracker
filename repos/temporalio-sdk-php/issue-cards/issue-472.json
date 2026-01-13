@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add query support when listing schedules in the PHP SDK, matching the functionality already available for listing workflows.",
+  "category": "feature",
+  "subcategory": "schedules-listing",
+  "apis": [
+    "ListSchedules"
+  ],
+  "components": [
+    "schedules",
+    "list-api",
+    "query-support"
+  ],
+  "concepts": [
+    "query-filtering",
+    "schedules",
+    "list-operations",
+    "api-parity",
+    "sdk-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot filter schedules when listing them, requiring them to retrieve all schedules and filter client-side, reducing efficiency.",
+  "rootCause": null,
+  "proposedFix": "Add query parameter support to the schedule listing operation, mirroring the existing workflow listing query functionality.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Query support was implemented for schedule listing operations",
+  "related": [],
+  "keyQuote": "Need to support the query option when listing schedules same as we do when listing workflows.",
+  "number": 472,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:32:34.498Z"
+}

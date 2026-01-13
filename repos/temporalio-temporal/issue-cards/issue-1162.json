@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal Server loads TLS certificates only at startup and never updates them, requiring server restarts to rotate certificates. The feature request asks for hot reload support, ideally with blue/green certificate pairs to enable rotation without restarts.",
+  "category": "feature",
+  "subcategory": "tls-certificates",
+  "apis": [],
+  "components": [
+    "tls-configuration",
+    "certificate-manager",
+    "server-startup"
+  ],
+  "concepts": [
+    "certificate-rotation",
+    "tls-certificates",
+    "hot-reload",
+    "zero-downtime",
+    "blue-green-deployment",
+    "server-restart"
+  ],
+  "severity": "high",
+  "userImpact": "Users must perform rolling restarts to rotate TLS certificates before expiry, causing shard reallocation and increased latency.",
+  "rootCause": "Server loads certificates once at startup and never reloads them from disk or configuration.",
+  "proposedFix": "Implement certificate rotation without restart, with optional blue/green pair support to rotate one certificate at a time.",
+  "workaround": "Perform rolling restart of servers in the cluster to pick up updated certificates.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via #1415",
+  "related": [
+    1415
+  ],
+  "keyQuote": "To rotate a certificate before it expires, one has to update the configuration or the certificate file and then restart the server.",
+  "number": 1162,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:24.812Z"
+}

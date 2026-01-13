@@ -1,0 +1,33 @@
+{
+  "summary": "Request to extend namespace delete functionality to work across multiple clusters in a multi-cluster environment, similar to how RegisterNamespaceRequest handles ClusterReplicationConfig. Currently, deletion only affects the current cluster and requires separate deletion calls to each cluster.",
+  "category": "feature",
+  "subcategory": "namespace-management",
+  "apis": [
+    "DeleteNamespace",
+    "RegisterNamespace"
+  ],
+  "components": [
+    "namespace-service",
+    "multi-cluster-replication",
+    "cluster-management"
+  ],
+  "concepts": [
+    "multi-cluster",
+    "namespace-deletion",
+    "cluster-replication",
+    "cross-cluster-operations",
+    "namespace-lifecycle"
+  ],
+  "severity": "low",
+  "userImpact": "Multi-cluster environment operators must manually delete namespaces in each cluster separately rather than having a single delete operation propagate across the replication topology.",
+  "rootCause": "Namespace deletion does not leverage the same cluster replication configuration mechanism available for namespace registration, limiting cross-cluster consistency.",
+  "proposedFix": "Add capability to pass ClusterReplicationConfig (or similar) with DeleteNamespaceRequest to enable cross-cluster namespace deletion, analogous to RegisterNamespaceRequest behavior.",
+  "workaround": "Connect to each cluster individually and issue separate delete namespace requests to each cluster.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided against automatic cross-cluster namespace deletion due to namespace migration concerns. Deletion is a rare operation and users can safely issue separate requests to each cluster. Current behavior is safer as it prevents accidental cascade deletion during cluster migration scenarios.",
+  "related": [],
+  "keyQuote": "Delete namespace is a rare operation so is is reasonable to issue delete requests separately to all clusters.",
+  "number": 3888,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:55.000Z"
+}

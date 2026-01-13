@@ -1,0 +1,35 @@
+{
+  "summary": "ArithmeticException occurs in ReplayWorkflowExecutor after ~30 requests when executing multiple workflows without a workflow execution timeout. The exception is caused by time skipping logic jumping years ahead for completed workflow timers, leading to durations that M3 metrics cannot handle.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Workflow.newLocalActivityStub",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "ReplayWorkflowExecutor",
+    "ProtobufTimeUtils",
+    "time-skipping-logic",
+    "timer-queue"
+  ],
+  "concepts": [
+    "timeout",
+    "time-skipping",
+    "duration-overflow",
+    "workflow-completion",
+    "local-activity",
+    "metrics"
+  ],
+  "severity": "high",
+  "userImpact": "Users running multiple workflows in tests or with test-server experience crashes after ~30 executions due to arithmetic overflow when calculating durations.",
+  "rootCause": "Time skipping logic advances time to the next timer queue task, including timers for completed workflows. Running 1000 workflows causes time to jump ~10 years per execution, eventually creating durations too large for M3 metrics to handle.",
+  "proposedFix": "Ignore time skipping for tasks that belong to completed workflows to prevent excessive time jumps.",
+  "workaround": "Set setWorkflowExecutionTimeout() on WorkflowOptions to prevent the arithmetic exception.",
+  "resolution": "stale",
+  "resolutionDetails": "No known reproduction reported for over a year; closed as stale with instruction to reopen if new reports emerge.",
+  "related": [],
+  "keyQuote": "The time skipping automatically moves time to the next task in a timer queue... When running 1k workflows it jumps 10 years ahead after every execution.",
+  "number": 173,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:59:25.311Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Search attributes set on workflows within schedules lack eager validation and metadata, unlike all other search attribute contexts. This needs to be brought into compliance with validation and metadata requirements while considering backwards-compatibility implications for existing automated processes.",
+  "category": "other",
+  "subcategory": "schedules",
+  "apis": [],
+  "components": [
+    "schedules",
+    "search-attributes",
+    "workflow-execution",
+    "metadata-validation"
+  ],
+  "concepts": [
+    "search-attributes",
+    "validation",
+    "metadata",
+    "schedules",
+    "backwards-compatibility",
+    "type-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with automated processes that create schedules with workflow search attributes may experience unexpected failures if validation is enforced retroactively.",
+  "rootCause": "Search attributes on scheduled workflows are not eagerly validated and lack type metadata, unlike search attributes in other contexts.",
+  "proposedFix": "Implement eager validation and metadata application for search attributes on scheduled workflows, with careful consideration of backwards-compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Search attribute validation and metadata handling for scheduled workflows was brought into compliance with other contexts.",
+  "related": [],
+  "keyQuote": "We need to bring search attributes on workflows of schedules in line w/ all others with regards to validation and metadata.",
+  "number": 4787,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:18.611Z"
+}

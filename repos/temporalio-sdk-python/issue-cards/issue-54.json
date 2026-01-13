@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency rustix-0.38.8 contains a medium severity vulnerability (CVSS 5.5) that can cause memory explosion in the Dir iterator with the linux_raw backend. The issue is in a deep dependency chain through temporal-sdk-core-api and affects the Python SDK build.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "cargo-dependencies",
+    "bridge",
+    "temporal-sdk-core-api"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "transitive-dependency",
+    "memory-safety",
+    "rust-bindings",
+    "syscalls"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may be vulnerable to denial-of-service attacks through memory exhaustion when iterating over directories on Linux systems.",
+  "rootCause": "rustix's Dir iterator with linux_raw backend has a memory explosion bug affecting versions before 0.35.15, 0.36.16, 0.37.25, and 0.38.19",
+  "proposedFix": "Upgrade rustix to version 0.35.15, 0.36.16, 0.37.25, or 0.38.19 or later; potentially requires upgrading h2 from 0.3.16 to enable the rustix update",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Vulnerability was resolved by updating the transitive dependency; the issue was automatically closed and reopened multiple times by Mend monitoring as the vulnerable library status changed in the inventory",
+  "related": [],
+  "keyQuote": "I think this can be fixed potentially with a cargo update. We just need to get past h2 0.3.16 which we are currently at.",
+  "number": 54,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:13.185Z"
+}

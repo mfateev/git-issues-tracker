@@ -1,0 +1,31 @@
+{
+  "summary": "Proposal to use broadcast shutdown channel for shard lifecycle management. This is a refactoring to improve the shutdown mechanism for shard lifecycle management using a broadcast pattern instead of the current approach.",
+  "category": "feature",
+  "subcategory": "shard-lifecycle",
+  "apis": [],
+  "components": [
+    "shard-lifecycle",
+    "shutdown-channel",
+    "broadcast-mechanism"
+  ],
+  "concepts": [
+    "shutdown",
+    "broadcast",
+    "lifecycle-management",
+    "shard",
+    "channel",
+    "graceful-shutdown"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves the reliability and efficiency of shard shutdown operations, potentially reducing resource contention and improving system stability during shutdown.",
+  "rootCause": null,
+  "proposedFix": "Use broadcast shutdown channel for shard lifecycle management as referenced in common/channel/shutdown_once.go",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Use broadcast shutdown channel for shard lifecycle management",
+  "number": 2730,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:20.411Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Current shard-level replication processes each shard independently, which can result in causal inconsistency issues after failover. The enhancement proposes making replication aware of cross-shard events and guaranteeing their ordering before applying events.",
+  "category": "feature",
+  "subcategory": "replication",
+  "apis": [],
+  "components": [
+    "replication",
+    "shard",
+    "failover"
+  ],
+  "concepts": [
+    "causal consistency",
+    "cross-shard ordering",
+    "event ordering",
+    "failover",
+    "replication",
+    "data consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Without causal consistency guarantees in replication, users may experience data inconsistencies after failover events in distributed Temporal deployments.",
+  "rootCause": "Shard-level replication operates independently without awareness of cross-shard event dependencies, leading to potential ordering violations during failover.",
+  "proposedFix": "Make replication aware of all cross-shard events and guarantee their order before applying events to ensure causal consistency.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "replication need to be aware of all cross shard events, and guarantee their order before apply events",
+  "number": 3381,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:36.375Z"
+}

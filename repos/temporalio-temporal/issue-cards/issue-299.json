@@ -1,0 +1,29 @@
+{
+  "summary": "Evaluation of whether QueryConsistencyLevel.Eventual should exist as an option. The enum was ultimately removed with default behavior changed to Strong consistency.",
+  "category": "other",
+  "subcategory": "query-consistency",
+  "apis": [
+    "QueryConsistencyLevel"
+  ],
+  "components": [
+    "query-engine",
+    "consistency-control"
+  ],
+  "concepts": [
+    "consistency-level",
+    "query-semantics",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users no longer have the option to query with eventual consistency; all queries default to strong consistency.",
+  "rootCause": "Design decision to simplify the API by removing the eventual consistency option for queries.",
+  "proposedFix": "Remove QueryConsistencyLevel enum and default to Strong consistency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "QueryConsistencyLevel enum was removed with default changed to Strong consistency.",
+  "related": [],
+  "keyQuote": "QueryConsistencyLevel enum was removed with default to Strong.",
+  "number": 299,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:26:52.724Z"
+}

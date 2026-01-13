@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a clean API to intentionally fail activities in long-polling patterns without generating excessive WARN-level logs. The activity should support retryable failures when no new data is available.",
+  "category": "feature",
+  "subcategory": "activity-patterns",
+  "apis": [
+    "Activity",
+    "ActivityContext"
+  ],
+  "components": [
+    "activity-worker",
+    "activity-executor",
+    "logging"
+  ],
+  "concepts": [
+    "long-polling",
+    "retryable-failure",
+    "external-service",
+    "activity-completion",
+    "logging-noise"
+  ],
+  "severity": "low",
+  "userImpact": "Users polling external services experience noisy WARN-level logs for intentional activity failures, making error monitoring less effective.",
+  "rootCause": null,
+  "proposedFix": "Add a specific API for activities to intentionally fail: could be a special exception type (similar to CompleteAsyncError), special return value, or context function (similar to continueAsNew())",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be nice to have a specific API for activities to \"intentionally fail so that the activity task is retried\", which would not cause extra logging.",
+  "number": 1420,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:50.856Z"
+}

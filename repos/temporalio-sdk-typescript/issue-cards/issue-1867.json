@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to allow Logger configuration at the Worker level instead of globally via Runtime.install, enabling different logger instances for each Worker in multi-Worker test scenarios for isolation and per-test behavior control.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "Runtime.install"
+  ],
+  "components": [
+    "worker",
+    "logger",
+    "runtime"
+  ],
+  "concepts": [
+    "logging",
+    "test-isolation",
+    "parallel-testing",
+    "configuration",
+    "namespace-isolation",
+    "logger-instance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running parallel tests with isolated Workers cannot configure different loggers per Worker, preventing per-test logging behavior and assertions on log output.",
+  "rootCause": null,
+  "proposedFix": "Allow the Logger to be configured at the Worker level instead of globally through Runtime.install",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow the Logger to be configured at the Worker level. This would allow us to create a \"test logger\" instance for each test to enable what we want.",
+  "number": 1867,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T09:31:06.010Z"
+}

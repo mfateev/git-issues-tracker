@@ -1,0 +1,35 @@
+{
+  "summary": "Signal requestIDs are stored indefinitely in workflow mutable state, causing unbounded growth and potential performance issues when workflows receive many signals. The issue requests an expiration policy for these requestIDs while balancing deduplication guarantees and enforcing max signal count limits.",
+  "category": "other",
+  "subcategory": "signal-deduplication",
+  "apis": [
+    "Signal"
+  ],
+  "components": [
+    "mutable-state",
+    "signal-handler",
+    "deduplication"
+  ],
+  "concepts": [
+    "signal-requestID",
+    "mutable-state-size",
+    "memory-management",
+    "expiration-policy",
+    "deduplication",
+    "performance"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows with high signal volume accumulate unbounded requestIDs in mutable state, causing performance degradation and potential out-of-memory issues.",
+  "rootCause": "Signal requestIDs are retained indefinitely for deduplication purposes, with no expiration mechanism despite max signal count limits.",
+  "proposedFix": "Implement expiration policy for requestIDs: rely on max signal count limit, expire by time, or expire by count while preserving deduplication within a reasonable window.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4191
+  ],
+  "keyQuote": "signal requestID will be store in workflow mutable state forever, which will result in an increase in mutable state size, which could lead to performance issue",
+  "number": 4021,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:36.176Z"
+}

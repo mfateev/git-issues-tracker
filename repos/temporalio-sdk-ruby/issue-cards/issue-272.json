@@ -1,0 +1,30 @@
+{
+  "summary": "Time#iso8601 method is incorrectly flagged as an illegal call in workflows due to internal calls that access current time. The SDK needs a more sophisticated illegal call detection system that can skip checking based on call stack context, and also support Time#initialize with deterministic parameters.",
+  "category": "bug",
+  "subcategory": "workflow-determinism",
+  "apis": [],
+  "components": [
+    "illegal_call_tracer",
+    "workflow_instance",
+    "time_handling"
+  ],
+  "concepts": [
+    "determinism",
+    "illegal_calls",
+    "stack_trace_filtering",
+    "time_methods",
+    "workflow_constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Time#iso8601 or Time#initialize with parameters in workflows, breaking datetime serialization and deserialization workflows.",
+  "rootCause": "The illegal call tracer cannot distinguish between user-initiated Time method calls and internal time access within those methods, causing false positives when Ruby's stdlib accesses current time internally.",
+  "proposedFix": "Implement an abstract 'check illegal' class that allows workflow-stateful stack-aware checking to skip validation further down the call stack. Support Time#initialize detection with parameter inspection via TracePoint binding.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhanced illegal call detection with stack-aware skipping and parameter inspection for deterministic Time method calls.",
+  "related": [],
+  "keyQuote": "We need to find some way to exclude this... Put it behind a very generic 'check illegal' abstract class so others can have implementations.",
+  "number": 272,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:04.438Z"
+}

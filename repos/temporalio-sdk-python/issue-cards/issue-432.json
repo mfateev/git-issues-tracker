@@ -1,0 +1,30 @@
+{
+  "summary": "Raising a non-Temporal exception in a workflow causes indefinite workflow task retries instead of failing the workflow execution. The Python SDK treats all non-Temporal exceptions as retriable workflow task failures, contradicting the documented default behavior that workflows should not retry by default.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-instance",
+    "worker",
+    "failure-handling"
+  ],
+  "concepts": [
+    "retry-policy",
+    "workflow-failure",
+    "exception-handling",
+    "task-activation",
+    "error-classification"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot fail workflows by raising exceptions in workflow code, and tests hang indefinitely when workflows fail since automatic retries never stop.",
+  "rootCause": "The Python SDK's workflow execution logic treats non-Temporal exceptions as retriable workflow task failures rather than workflow execution failures. Only Temporal errors (ApplicationError) are treated as non-retriable.",
+  "proposedFix": "Clarify documentation or change behavior to allow non-Temporal exceptions to fail workflows, or provide configuration to control exception handling behavior.",
+  "workaround": "Use ApplicationError instead of standard exceptions to fail workflows. For testing, set `workflow_failure_exception_types=[Exception]` on the Worker to treat exceptions as non-retriable.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as expected behavior. The Python SDK only treats Temporal errors as workflow-failing exceptions by design; other exceptions retry the workflow task. Users should use ApplicationError to fail workflows intentionally.",
+  "related": [],
+  "keyQuote": "This is expected, in all exception based SDKs (like python) only Temporal Errors fail a Workflow Execution by default, other exceptions will retry the Workflow Task.",
+  "number": 432,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:06:38.085Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "WorkflowRunTimeout does not trigger defer functions or throw errors when reached - the workflow is silently terminated. User expects to catch timeout errors and run cleanup code in defer blocks.",
+  "category": "bug",
+  "subcategory": "workflow-timeout",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "workflow-runtime",
+    "timeout-handling",
+    "context-cancellation"
+  ],
+  "concepts": [
+    "timeout",
+    "error-handling",
+    "defer",
+    "workflow-termination",
+    "context-cancellation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot detect workflow timeouts or execute cleanup code when WorkflowRunTimeout is reached, causing silent workflow termination without proper error handling.",
+  "rootCause": "WorkflowRunTimeout termination does not properly propagate as a context cancellation error or trigger defer functions in the workflow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was closed and reposted to temporalio/sdk-go#984 for proper tracking in the Go SDK repository.",
+  "related": [
+    984
+  ],
+  "keyQuote": "The fact is the temporal will terminate the workflow without entering the the defer function.",
+  "number": 3746,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:49.585Z"
+}

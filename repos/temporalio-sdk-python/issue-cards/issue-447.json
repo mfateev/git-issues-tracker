@@ -1,0 +1,30 @@
+{
+  "summary": "The workflow.logger incorrectly reports line numbers pointing to the LoggingAdapter.log method instead of the actual calling code. This makes it difficult to trace where log messages originate in workflow code.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "workflow.logger",
+    "LoggingAdapter",
+    "logging"
+  ],
+  "concepts": [
+    "logging",
+    "line-number-tracking",
+    "stack-frames",
+    "replay-prevention",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot accurately identify which lines in their workflow code are generating log messages, making debugging and log analysis difficult.",
+  "rootCause": "LogAdapter.log is overridden to prevent logging during replay, which breaks the standard Python logging mechanism's ability to correctly determine caller information.",
+  "proposedFix": "Remove the log method override and replace it with an isEnabledFor method that checks both the log level and replay state.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by removing the LogAdapter.log override and implementing isEnabledFor to check replay state instead, preserving correct line number reporting.",
+  "related": [],
+  "keyQuote": "All the log records emitted by workflow.logger has the same file, path and lineno pointing to workflow.LoggingAdapter.log",
+  "number": 447,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:37.373Z"
+}

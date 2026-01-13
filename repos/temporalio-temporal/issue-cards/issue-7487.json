@@ -1,0 +1,32 @@
+{
+  "summary": "The gRPC Status response for query errors contains malformed details field that doesn't follow Google's AIP-193 guidance for status details encoding. The binary-packed failure response isn't properly structured as an ErrorInfo followed by a QueryFailedFailure Any, making it difficult for non-Go SDKs to parse.",
+  "category": "bug",
+  "subcategory": "query-error-handling",
+  "apis": [],
+  "components": [
+    "query-service",
+    "error-details",
+    "grpc-status"
+  ],
+  "concepts": [
+    "grpc-status-details",
+    "protobuf-encoding",
+    "error-response",
+    "api-compatibility",
+    "cross-sdk-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Non-Go SDKs cannot properly parse query error details from gRPC Status responses, limiting debugging and error handling capabilities.",
+  "rootCause": "The Status details field is directly serializing QueryFailedFailure instead of following AIP-193 guidance with ErrorInfo followed by Any-wrapped QueryFailedFailure.",
+  "proposedFix": "Restructure the encoded failure in Status details to adhere to Google AIP-193 guidance, wrapping ErrorInfo and QueryFailedFailure in the proper Any format.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    867
+  ],
+  "keyQuote": "it's just directly serializing a QueryFailedFailure somehow, which maybe is OK for api-go users, but isn't for anyone else.",
+  "number": 7487,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:54.546Z"
+}

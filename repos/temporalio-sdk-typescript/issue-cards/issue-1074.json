@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal SDK Core has a transitive dependency vulnerability (CVE-2023-22895) in bzip2 0.4.3 that allows denial of service via integer overflow. The vulnerability has been fixed in bzip2 0.4.4, and the dependency was updated long ago.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "sdk-core",
+    "bzip2"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "integer-overflow",
+    "transitive-dependency",
+    "security",
+    "cve"
+  ],
+  "severity": "high",
+  "userImpact": "Users of temporal-sdk-core 0.1.0 are exposed to a denial of service vulnerability that could crash the application when processing large files.",
+  "rootCause": "Integer overflow in mem.rs of bzip2 0.4.3 when handling large files",
+  "proposedFix": "Upgrade bzip2 from 0.4.3 to 0.4.4 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependency was updated to resolve the vulnerability",
+  "related": [],
+  "keyQuote": "Dependency has updated a very long time ago.",
+  "number": 1074,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:09.164Z"
+}

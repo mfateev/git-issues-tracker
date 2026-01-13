@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a metric to track workflows and activities that permanently fail after exhausting all retries. Users need visibility into actual final failures during service outages, not just intermediate retry attempts.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-execution",
+    "activity-executor",
+    "retry-mechanism"
+  ],
+  "concepts": [
+    "failure-tracking",
+    "retry-exhaustion",
+    "service-outage",
+    "monitoring",
+    "observability",
+    "permanent-failure",
+    "impact-assessment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot distinguish between transient failures that will be retried and final failures after all retries exhausted, making it difficult to assess service outage impact.",
+  "rootCause": null,
+  "proposedFix": "Add a new metric (e.g., `temporal_workflow_permanently_failed` or `temporal_activity_permanently_failed`) that only increments when all retries have been exhausted and the workflow/activity will not be re-attempted.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Quite reasonably, we want to \"assess impact\" of the service outage by knowing how many activities or workflows \"actually, permanently failed\"",
+  "number": 6227,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:21.745Z"
+}

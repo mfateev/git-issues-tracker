@@ -1,0 +1,30 @@
+{
+  "summary": "The Temporal server fails to bind to IPv6 addresses when using the BIND_ON_IP environment variable. The auto-setup Docker image does not properly format IPv6 addresses with brackets, causing connection errors with 'too many colons in address'.",
+  "category": "bug",
+  "subcategory": "ipv6-support",
+  "apis": [],
+  "components": [
+    "server",
+    "auto-setup",
+    "network-binding"
+  ],
+  "concepts": [
+    "ipv6",
+    "address-formatting",
+    "socket-binding",
+    "docker-configuration",
+    "environment-variable"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal server on IPv6-only Kubernetes clusters (AWS EKS IPv6) because the auto-setup Docker image fails to properly format and bind to IPv6 addresses.",
+  "rootCause": "The auto-setup Docker entrypoint does not wrap IPv6 addresses in brackets when setting the BIND_ON_IP environment variable. Go's net.SplitHostPort requires IPv6 addresses to be formatted as '[address]:port' to parse correctly.",
+  "proposedFix": "Modify the auto-setup Docker entrypoint to detect IPv6 addresses and automatically wrap them in brackets before passing to the server configuration.",
+  "workaround": "Users must manually wrap the IPv6 address in brackets and ensure the auto-setup script doesn't strip them during configuration processing.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by updating the server configuration and auto-setup Docker image to properly handle IPv6 address formatting with bracket notation as required by Go's standard library.",
+  "related": [],
+  "keyQuote": "You need to surround host with brackets: '[2a05:d014:6e0:c883:1d45::11]:7233' works just fine.",
+  "number": 3612,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:14.223Z"
+}

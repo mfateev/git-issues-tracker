@@ -1,0 +1,30 @@
+{
+  "summary": "PHPDoc type hints are incorrectly specified for typed arguments in ServiceContainer, causing Psalm static analysis to fail with type mismatch errors.",
+  "category": "bug",
+  "subcategory": "type-hinting",
+  "apis": [],
+  "components": [
+    "ServiceContainer",
+    "type-hinting",
+    "documentation"
+  ],
+  "concepts": [
+    "static-analysis",
+    "psalm",
+    "phpdoc",
+    "type-safety",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using Psalm for static analysis encounter false type errors, hindering code quality checks and IDE support.",
+  "rootCause": "PHPDoc blocks for typed arguments conflict with actual type declarations, causing Psalm to report incorrect type mismatches.",
+  "proposedFix": "Remove PHPDoc type hints for arguments that have native PHP type declarations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by removing redundant PHPDoc type hints for typed parameters.",
+  "related": [],
+  "keyQuote": "It would be great don't use phpdoc blocks for typed arguments.",
+  "number": 143,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:33.407Z"
+}

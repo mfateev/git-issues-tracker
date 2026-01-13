@@ -1,0 +1,30 @@
+{
+  "summary": "Request to make DefaultPayloadConverter protected constructors public to allow users to instantiate converter classes directly, now that the SDK no longer requires converter classes to be inherited.",
+  "category": "feature",
+  "subcategory": "payload-converter",
+  "apis": [
+    "DefaultPayloadConverter"
+  ],
+  "components": [
+    "payload-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "extensibility",
+    "constructor-visibility",
+    "payload-handling",
+    "converter-instantiation"
+  ],
+  "severity": "low",
+  "userImpact": "Users who want to customize payload conversion cannot instantiate DefaultPayloadConverter directly due to protected constructors.",
+  "rootCause": null,
+  "proposedFix": "Expose the protected DefaultPayloadConverter constructors as public.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Constructors were made public to allow direct instantiation of converter classes.",
+  "related": [],
+  "keyQuote": "now since we let people instantiate the converter, we might as well expose these",
+  "number": 225,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:14:15.945Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "User reported that `workflow.start_child_workflow()` throws `InvalidStateError` or blocks indefinitely in tests, while `workflow.execute_child_workflow()` works fine. The issue was resolved by clarifying that `ChildWorkflowHandle` is an `asyncio.Task` and should be awaited directly rather than calling `.result()`.",
+  "category": "docs",
+  "subcategory": "child-workflows",
+  "apis": [
+    "start_child_workflow",
+    "execute_child_workflow",
+    "ChildWorkflowHandle"
+  ],
+  "components": [
+    "child-workflow-execution",
+    "testing-framework",
+    "workflow-handle"
+  ],
+  "concepts": [
+    "async-task",
+    "workflow-testing",
+    "api-documentation",
+    "child-workflows",
+    "asyncio-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused about the correct API usage for `ChildWorkflowHandle` in tests, leading to runtime errors and incorrect code patterns.",
+  "rootCause": "Insufficient documentation about the difference between `ChildWorkflowHandle` (which is an `asyncio.Task` to be awaited directly) and client workflow handles (which have a separate `.result()` method).",
+  "proposedFix": "Update API documentation (docstrings) and other documentation sources to clarify that `ChildWorkflowHandle` extends `asyncio.Task` and should be awaited directly, not calling `.result()`.",
+  "workaround": "Await the `ChildWorkflowHandle` directly (e.g., `await child`) instead of calling `await child.result()`.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Starting a child workflow returns a `ChildWorkflowHandle` which is an `asyncio.Task` that is already waiting on result and should be awaited itself to get the result",
+  "number": 586,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:59.438Z"
+}

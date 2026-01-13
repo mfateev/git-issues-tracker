@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a counter metric in the history service when activity task failed events are written due to retries being exhausted. This would help users monitor how often the service fails activities for this specific reason.",
+  "category": "feature",
+  "subcategory": "metrics-monitoring",
+  "apis": [],
+  "components": [
+    "history-service",
+    "activity-task-failed",
+    "event-writing"
+  ],
+  "concepts": [
+    "metrics",
+    "monitoring",
+    "activity-failures",
+    "retry-exhaustion",
+    "observability",
+    "counters"
+  ],
+  "severity": "low",
+  "userImpact": "Users would gain visibility into activity task failure rates due to exhausted retries, enabling better monitoring and debugging of workflow execution issues.",
+  "rootCause": null,
+  "proposedFix": "Add counter metric in the respondActivityTaskFailed API endpoint to track activity task failed events written to history",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be imo useful to add counter metric here so that user can track how often service has failed activity for retries exhausted",
+  "number": 4171,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:06.773Z"
+}

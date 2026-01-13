@@ -1,0 +1,31 @@
+{
+  "summary": "CronSchedule workflows stopped receiving tasks after running for a period of time. The issue was caused by read-write separation in the MySQL database configuration where writes weren't immediately readable, resulting in task scheduling failures for cron workflows.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [],
+  "components": [
+    "workflow-scheduler",
+    "task-queue",
+    "database",
+    "cron-engine"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "task-scheduling",
+    "database-consistency",
+    "read-write-separation",
+    "workflow-continuation"
+  ],
+  "severity": "high",
+  "userImpact": "Cron workflows stop executing after running for a period of time, causing scheduled jobs to fail silently.",
+  "rootCause": "Database read-write separation configuration caused writes to the tasks table to succeed but not be immediately readable on subsequent queries, preventing task retrieval.",
+  "proposedFix": null,
+  "workaround": "Change the database configuration to remove read-write separation to ensure immediate consistency between writes and reads.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as a database configuration problem (read-write separation), not a Temporal server bug. Resolved by adjusting the database setup.",
+  "related": [],
+  "keyQuote": "When the task was inserted into the tasks table, the return was successful, but the data was not written successfully, which resulted in the subsequent read failure.",
+  "number": 1829,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:24.302Z"
+}

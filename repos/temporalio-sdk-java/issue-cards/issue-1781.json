@@ -1,0 +1,31 @@
+{
+  "summary": "Enhancement request to validate protocol message types during workflow replay for more accurate determinism coverage. Currently only ProtocolMessageCommand and Event are checked, but the generated protocol message should also be validated.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replay-engine",
+    "protocol-handler",
+    "determinism-checker"
+  ],
+  "concepts": [
+    "replay",
+    "determinism",
+    "protocol-messages",
+    "validation",
+    "coverage",
+    "event-sourcing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with workflow replay and protocol messages will have improved determinism validation coverage.",
+  "rootCause": null,
+  "proposedFix": "Add validation of the protocol message generated during replay in addition to existing ProtocolMessageCommand and Event checks.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For the most accurate coverage the protocol message generated should also be checked.",
+  "number": 1781,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:47.173Z"
+}

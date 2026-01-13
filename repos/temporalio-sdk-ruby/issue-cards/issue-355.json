@@ -1,0 +1,32 @@
+{
+  "summary": "ActiveModel classes fail in workflows because they use ConcurrentMap internally, which relies on Thread::Mutex that is forbidden in workflows. The issue occurs when accessing attributes or using models with ActiveModel::Attributes, causing NondeterminismError.",
+  "category": "bug",
+  "subcategory": "workflow-constraints",
+  "apis": [],
+  "components": [
+    "workflow-instance",
+    "illegal-call-tracer",
+    "activemodel-integration"
+  ],
+  "concepts": [
+    "thread-safety",
+    "workflow-execution",
+    "synchronization-constructs",
+    "determinism",
+    "attribute-access",
+    "concurrent-ruby",
+    "durable-scheduler"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use ActiveModel classes (a common Rails library) in Temporal workflows, limiting framework compatibility and forcing workarounds or alternative data structures.",
+  "rootCause": "ActiveModel uses concurrent-ruby's ConcurrentMap which employs Thread::Mutex for thread-safe operations. Workflows cannot use synchronization primitives because they need to be deterministic and replayed safely.",
+  "proposedFix": "Implement a WorkflowSafeObject mixin that wraps calls with Workflow::Unsafe::durable_scheduler_disabled to allow safe execution of normally-forbidden constructs in workflows.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "ConcurrentMap use is so pervasive in ActiveModel, it is unreasonable for us to ask users not to use anything relying on it.",
+  "number": 355,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:49.432Z"
+}

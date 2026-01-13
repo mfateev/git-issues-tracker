@@ -1,0 +1,31 @@
+{
+  "summary": "PostgreSQL docker-compose fails to start because the temporal database is auto-created by PostgreSQL initialization before the schema setup script runs, causing the schema version check to fail when the server starts.",
+  "category": "bug",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "postgres-sql-tool",
+    "auto-setup",
+    "schema-initialization"
+  ],
+  "concepts": [
+    "database-initialization",
+    "schema-version",
+    "docker-entrypoint",
+    "postgres-superuser",
+    "startup-order"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start a local Temporal development environment with the PostgreSQL docker-compose file without manual workarounds.",
+  "rootCause": "The POSTGRES_USER environment variable creates a superuser and database with the same name before the auto-setup.sh initialization script runs, causing the temporal database to exist when schema setup is attempted. The set -e flag in auto-setup.sh causes the script to exit on the create database error, leaving the schema uninitialized.",
+  "proposedFix": "Modify auto-setup.sh to handle the case where the database already exists or use a different initialization approach that accounts for pre-created databases.",
+  "workaround": "Specify a different name for the Temporal database through the DBNAME variable, or use docker-compose-postgres12.yml instead of the default compose file.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by adjusting the PostgreSQL initialization process in the docker-compose setup to properly handle database creation sequencing.",
+  "related": [],
+  "keyQuote": "This variable will create the specified user with superuser power and a database with the same name... This means that temporal database is created before initialization script is run.",
+  "number": 1613,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:15:10.401Z"
+}

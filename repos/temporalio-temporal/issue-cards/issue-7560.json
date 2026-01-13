@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add a configurable regular expression pattern to parse JWT claim permissions in the default JWT claim mapper, allowing flexible extraction of namespace and role without requiring a custom authorization plugin.",
+  "category": "feature",
+  "subcategory": "jwt-authorization",
+  "apis": [],
+  "components": [
+    "jwt-claim-mapper",
+    "authorization-config",
+    "auth-plugin"
+  ],
+  "concepts": [
+    "jwt-claims",
+    "permissions-parsing",
+    "regular-expressions",
+    "authorization",
+    "configuration",
+    "namespaces",
+    "roles"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can configure JWT permission parsing with regex patterns instead of maintaining custom authorization plugins, simplifying self-hosted Temporal deployments.",
+  "rootCause": "Default JWT claim mapper only supports hardcoded namespace:role format, requiring custom plugins when issuers use different claim structures.",
+  "proposedFix": "Add PermissionsPattern configuration to Authorization Config that uses regex with named groups (namespace, role) to extract permissions, with fallback to original behavior when not configured.",
+  "workaround": "Maintain a custom authorization plugin, though this requires custom build, additional CI/CD steps, and Docker image management.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    7574
+  ],
+  "keyQuote": "Add `PermissionsPattern` into `Authorization` Config...with named groups would cover our use case and avoid overhead related to maintaining custom auth plugin",
+  "number": 7560,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:18.442Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add support for WorkflowIdConflictPolicy in the Python SDK, specifically for child workflows. This feature allows customization of how the system handles workflow ID conflicts when starting new workflows.",
+  "category": "feature",
+  "subcategory": "workflow-management",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "child-workflows"
+  ],
+  "concepts": [
+    "workflow-id",
+    "conflict-policy",
+    "workflow-creation",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot control how the SDK handles workflow ID conflicts, limiting control over workflow creation behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support WorkflowIdConflictPolicy for child workflows in the Python SDK.",
+  "related": [
+    437
+  ],
+  "keyQuote": "Are there plans to support `WorkflowIdConflictPolicy` for child workflows?",
+  "number": 504,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:13.586Z"
+}

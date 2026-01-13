@@ -1,0 +1,33 @@
+{
+  "summary": "System worker fails to authenticate with \"Request unauthorized\" error when SSO with JWT authorization is enabled. The scanner workflow cannot access the frontend, preventing the temporal-sys-history-scanner-workflow from starting.",
+  "category": "bug",
+  "subcategory": "authentication-sso",
+  "apis": [],
+  "components": [
+    "worker",
+    "scanner",
+    "authentication",
+    "frontend"
+  ],
+  "concepts": [
+    "SSO",
+    "JWT",
+    "authorization",
+    "authentication",
+    "system-worker",
+    "security",
+    "access-control"
+  ],
+  "severity": "high",
+  "userImpact": "Users enabling SSO with JWT authorization in self-hosted Kubernetes deployments cannot run Temporal server because the system worker fails to authenticate with the frontend.",
+  "rootCause": "System worker does not use the internal-frontend or does not have proper credentials configured to authenticate against JWT-protected frontend when SSO is enabled.",
+  "proposedFix": "Use internal-frontend configuration as suggested in release notes (v1.20.0), which provides internal access without JWT authentication requirements.",
+  "workaround": "Configure internal-frontend to bypass JWT authentication for internal system worker communication.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if i enable SSO with JWT authorization the system worker cannot access the frontend",
+  "number": 7800,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:20.682Z"
+}

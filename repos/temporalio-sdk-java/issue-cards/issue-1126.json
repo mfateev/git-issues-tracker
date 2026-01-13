@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow passing Payloads directly through the default DataConverter for DSLs and generic starters, enabling typed workflow/activity calls with JSON input without deserialization errors.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [
+    "DataConverter"
+  ],
+  "components": [
+    "data-converter",
+    "serialization",
+    "workflow-invocation"
+  ],
+  "concepts": [
+    "payload-passthrough",
+    "json-handling",
+    "deserialization",
+    "generic-starter",
+    "dsl"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing DSLs or generic starters can now pass Payloads directly to workflows/activities without custom DataConverter implementation.",
+  "rootCause": "Default DataConverter always attempts to deserialize content, making it impossible to pass pre-serialized JSON as raw input to typed workflows/activities.",
+  "proposedFix": "Allow application code to pass Payloads as activity or workflow arguments, with DataConverter returning them as-is without inspection.",
+  "workaround": "Implement a custom DataConverter to handle raw payload passthrough.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented RawValues support to allow passing Payloads directly through without deserialization.",
+  "related": [],
+  "keyQuote": "Allow application code to pass Payloads as an activity or workflow argument. In this case, the default DataConverter would not look into its content and return it as it is.",
+  "number": 1126,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:08:22.580Z"
+}

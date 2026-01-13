@@ -1,0 +1,30 @@
+{
+  "summary": "Local namespaces do not have VersionHistory set for workflow executions, preventing migration to global namespaces. This feature request asks for auto-populating VersionHistory for workflows created in local namespaces.",
+  "category": "feature",
+  "subcategory": "namespace-management",
+  "apis": [],
+  "components": [
+    "namespace",
+    "workflow-execution",
+    "version-history"
+  ],
+  "concepts": [
+    "namespace-migration",
+    "versioning",
+    "local-namespace",
+    "global-namespace",
+    "workflow-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot migrate workflows from local namespaces to global namespaces due to missing VersionHistory metadata.",
+  "rootCause": "VersionHistory is not automatically backfilled when workflows are created in local namespaces.",
+  "proposedFix": "Implement auto backfill of VersionHistory for workflow executions created in local namespaces.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "VersionHistory backfill was implemented for local namespace workflows.",
+  "related": [],
+  "keyQuote": "Local namespaces does not have VersionHistory set for workflow executions created using local namespaces.",
+  "number": 703,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:06.717Z"
+}

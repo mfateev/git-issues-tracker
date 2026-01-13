@@ -1,0 +1,35 @@
+{
+  "summary": "Implement signal request deduplication by utilizing the SignalWorkflowExecutionRequest#request_id field in the Java SDK. This allows the SDK to deduplicate signal retry attempts that experience gRPC errors but still arrive at the Server.",
+  "category": "feature",
+  "subcategory": "signal-deduplication",
+  "apis": [
+    "SignalWorkflowExecution",
+    "SignalWorkflowExecutionRequest"
+  ],
+  "components": [
+    "signal-client",
+    "grpc-retry-handler",
+    "request-deduplication"
+  ],
+  "concepts": [
+    "retry",
+    "deduplication",
+    "request-id",
+    "grpc-error",
+    "idempotency",
+    "signal-handling",
+    "fault-tolerance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users benefit from improved reliability of signal operations with automatic deduplication of retried signal requests, preventing duplicate signal processing.",
+  "rootCause": null,
+  "proposedFix": "Generate a unique UUID for each user-facing signal API and utilize SignalWorkflowExecutionRequest#request_id for deduplication.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Signal request deduplication using request_id was implemented in the Java SDK.",
+  "related": [],
+  "keyQuote": "Generate a unique UUID for each user-facing signal API and utilize `SignalWorkflowExecutionRequest#request_id`",
+  "number": 1655,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:21.279Z"
+}

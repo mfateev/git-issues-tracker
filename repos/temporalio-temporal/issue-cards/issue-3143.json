@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add new per-taskqueue metrics with improved naming and labeling. Current metrics use deprecated 'per_tl' naming and inconsistent taskqueue labels, making it difficult to aggregate metrics across partitions. Proposal is to add '_per_taskqueue' metrics with root taskqueue labels and partition indicators.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "task-queue",
+    "partitions"
+  ],
+  "concepts": [
+    "metrics-naming",
+    "task-queue-partitions",
+    "aggregation",
+    "monitoring",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily aggregate per-partition metrics to monitor task queue health, and the deprecated naming convention makes metric discovery difficult.",
+  "rootCause": null,
+  "proposedFix": "Add new metrics with '_per_taskqueue' suffix, use root taskqueue name for taskqueue labels, add partition label to indicate partition number (0 for root), deprecate old '_per_tl' metrics after several releases.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The metrics should have their root taskqueue for the taskqueue labels and a partition label which records their task queue partition",
+  "number": 3143,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:41.226Z"
+}

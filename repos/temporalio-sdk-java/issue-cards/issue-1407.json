@@ -1,0 +1,30 @@
+{
+  "summary": "Test Server binary fails to run on ARM64 (Apple Silicon M1) with qemu-x86_64 architecture error. Users need native ARM64 build support instead of x86_64 emulation.",
+  "category": "feature",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "build-system",
+    "platform-support"
+  ],
+  "concepts": [
+    "ARM64",
+    "Apple Silicon",
+    "cross-platform",
+    "architecture compatibility",
+    "binary distribution"
+  ],
+  "severity": "high",
+  "userImpact": "Users on Apple Silicon Macs cannot run the Test Server without significant workarounds or performance degradation.",
+  "rootCause": "Test Server binary is only distributed for x86_64 architecture, causing qemu emulation errors on ARM64 platforms.",
+  "proposedFix": "Build and distribute native ARM64 Test Server binary alongside x86_64 version.",
+  "workaround": "Monkey-patch SDK to force x86_64 architecture resolution or run in Docker with performance degradation.",
+  "resolution": "fixed",
+  "resolutionDetails": "Native ARM64 build was included in the next release after this issue was filed.",
+  "related": [],
+  "keyQuote": "Test server running... Exception: qemu-x86_64: Could not open '/lib64/ld-linux-x86-64.so.2': No such file or directory",
+  "number": 1407,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:34:22.534Z"
+}

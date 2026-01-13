@@ -1,0 +1,31 @@
+{
+  "summary": "User requests a feature to group workers and tag workflow executions so that workflows with specific tags run on specific worker groups, enabling geographic distribution, latency optimization, and access control.",
+  "category": "feature",
+  "subcategory": "worker-routing",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-queue",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "worker-grouping",
+    "task-routing",
+    "geographic-distribution",
+    "latency-optimization",
+    "access-control",
+    "worker-tagging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently route specific workflow executions to specific worker groups based on geographic location, hardware requirements, or access control needs.",
+  "rootCause": null,
+  "proposedFix": "Add feature to group workers and tag workflow executions that can be matched with worker groups for intelligent routing.",
+  "workaround": "Use different task queues for each group of workers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer suggested using existing task queue feature as a workaround to meet the user's needs.",
+  "related": [],
+  "keyQuote": "A feature to group or tag workers, so that they're distinguishable from other workers, and a way to set a tag or class id on a specific workflow execution",
+  "number": 3506,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:12.045Z"
+}

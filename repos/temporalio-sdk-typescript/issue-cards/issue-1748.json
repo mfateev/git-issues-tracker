@@ -1,0 +1,34 @@
+{
+  "summary": "Worker state logs in the TypeScript SDK cannot be suppressed in test environments, cluttering test output with verbose INFO-level messages. The issue was resolved by using Runtime.install() with DefaultLogger configured to a higher log level.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [
+    "Runtime",
+    "DefaultLogger"
+  ],
+  "components": [
+    "worker",
+    "logging",
+    "core"
+  ],
+  "concepts": [
+    "log-level",
+    "test-environment",
+    "configuration",
+    "verbosity",
+    "suppression",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Users running tests with Temporal workers see cluttered test output from worker state logs that cannot be easily suppressed.",
+  "rootCause": "TypeScript SDK defaults to INFO log level despite documentation claiming WARN is the default, and the Runtime.install() configuration was not prominently documented as the solution.",
+  "proposedFix": "Runtime.install({ logger: new DefaultLogger('WARN') }) suppresses INFO-level logs including worker state changes.",
+  "workaround": "Configure the Runtime's logger to a higher log level (WARN or FATAL) using DefaultLogger.",
+  "resolution": "fixed",
+  "resolutionDetails": "User found the solution by using Runtime.install() with DefaultLogger. Documentation and default log level need updating, and documentation should be more prominent about this simple configuration method.",
+  "related": [],
+  "keyQuote": "The TS SDK prints out at `INFO` by default... the default in the early days was set to ensure logs would contain key information needed to diagnose basic issues.",
+  "number": 1748,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:02.276Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Reduce the log level of failed Nexus requests originating from workers to avoid polluting server logs. Currently every failed request is logged as an error, inconsistent with how activity and workflow task failures are handled, but we need to maintain visibility into internal errors for debugging.",
+  "category": "other",
+  "subcategory": "nexus-logging",
+  "apis": [],
+  "components": [
+    "nexus-operations",
+    "executors",
+    "logging"
+  ],
+  "concepts": [
+    "log-level",
+    "error-handling",
+    "visibility",
+    "debugging",
+    "worker-requests"
+  ],
+  "severity": "low",
+  "userImpact": "Server logs are polluted with error messages for failed Nexus requests, making it harder to identify critical issues.",
+  "rootCause": "Failed Nexus requests from workers are logged at error level for every request, inconsistent with activity and workflow task failure handling.",
+  "proposedFix": "Adjust log level for failed Nexus requests originating from workers while maintaining internal error visibility for debugging.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the log level adjustment for failed Nexus requests was implemented.",
+  "related": [],
+  "keyQuote": "We don't want to completely lose visibility into these errors since some of the errors can originate internally and may be tricky to debug.",
+  "number": 8269,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:26.299Z"
+}

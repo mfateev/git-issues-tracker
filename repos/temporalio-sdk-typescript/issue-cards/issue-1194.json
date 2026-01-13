@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow bundle size increased by approximately 1.5MB in version 1.8.1 due to an unintended dependency on the protobuf package being imported in workflow.ts, causing bundle bloat.",
+  "category": "bug",
+  "subcategory": "bundle-size",
+  "apis": [],
+  "components": [
+    "workflow.ts",
+    "bundler",
+    "dependencies"
+  ],
+  "concepts": [
+    "bundle-size",
+    "performance",
+    "dependency-bloat",
+    "production-deployment",
+    "protobuf"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience significantly larger workflow bundles in production, increasing deployment size and latency by over 200%.",
+  "rootCause": "Unintended dependency on the protobuf package was added to workflow.ts in version 1.8.1",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1203",
+  "related": [
+    1203
+  ],
+  "keyQuote": "The workflow bundle size increased by ~1.5 MB between TS SDK 1.8.0 and 1.8.1.",
+  "number": 1194,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:37:35.157Z"
+}

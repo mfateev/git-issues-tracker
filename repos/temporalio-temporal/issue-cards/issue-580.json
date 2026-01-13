@@ -1,0 +1,31 @@
+{
+  "summary": "Remove unused ports (7933, 7934, 7935, 7939) that are exposed in the Dockerfile and are leftover from Cadence's tchannel RPC stack, which has been completely removed from the codebase.",
+  "category": "bug",
+  "subcategory": "docker-configuration",
+  "apis": [],
+  "components": [
+    "dockerfile",
+    "docker-image"
+  ],
+  "concepts": [
+    "port-exposure",
+    "container-configuration",
+    "legacy-code-cleanup",
+    "tchannel",
+    "cadence-migration"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces unnecessary port exposure in Docker images, improving security posture by removing unused network interfaces.",
+  "rootCause": "Leftover ports from Cadence's tchannel RPC stack that was removed but the port exposures were not cleaned up.",
+  "proposedFix": "Remove the four unused port declarations (7933, 7934, 7935, 7939) from the Dockerfile.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by #650, which implemented the port removal from the Dockerfile.",
+  "related": [
+    650
+  ],
+  "keyQuote": "These seems to be leftover from Cadence as they were used by tchannel rpc stack which we have completely removed.",
+  "number": 580,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:16:47.226Z"
+}

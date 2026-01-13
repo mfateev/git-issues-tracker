@@ -1,0 +1,31 @@
+{
+  "summary": "Reduce persistence layer boilerplate by implementing a SQL query builder for SQL-based databases (MySQL, PostgreSQL) instead of maintaining separate implementations for each database type. This would enable faster feature development and reduce database-specific bugs while maintaining support for Cassandra.",
+  "category": "feature",
+  "subcategory": "persistence-layer",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "sql-databases",
+    "mysql",
+    "postgresql"
+  ],
+  "concepts": [
+    "database-abstraction",
+    "code-generation",
+    "sql-builder",
+    "boilerplate-reduction",
+    "feature-velocity"
+  ],
+  "severity": "high",
+  "userImpact": "Users benefit from faster feature development and reduced risk of database-specific bugs as the codebase scales to support more databases.",
+  "rootCause": "Multiple custom SQL implementations required for each database type (Cassandra, PostgreSQL, MySQL) create maintenance burden and slow down feature development.",
+  "proposedFix": "Adopt a SQL query builder library (such as Masterminds/squirrel, elgris/sqrl, or go-jet/jet) to provide object interfaces similar to C# LINQ/Java streams for SQL operations, potentially with compile-time type safety.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely indicating the SQL query builder approach was adopted or decision was made regarding persistence layer architecture.",
+  "related": [],
+  "keyQuote": "These would give us object interfaces similar to C# linq/Java streams for SQL operations, with some of the libraries providing full compile-time type safety.",
+  "number": 72,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T12:20:52.342Z"
+}

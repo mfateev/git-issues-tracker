@@ -1,0 +1,34 @@
+{
+  "summary": "TerminatedFailureInfo is missing a `details` field that exists in the corresponding WorkflowExecutionTerminatedEventAttributes proto message. Request to add this field for consistency.",
+  "category": "feature",
+  "subcategory": "api-consistency",
+  "apis": [
+    "TerminatedFailureInfo",
+    "WorkflowExecutionTerminatedEventAttributes"
+  ],
+  "components": [
+    "api",
+    "proto-definitions",
+    "failure-handling"
+  ],
+  "concepts": [
+    "proto-consistency",
+    "terminated-workflows",
+    "failure-details",
+    "event-attributes"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot access termination details through TerminatedFailureInfo, limiting visibility into workflow termination reasons.",
+  "rootCause": null,
+  "proposedFix": "Add `details` field to TerminatedFailureInfo proto message to match WorkflowExecutionTerminatedEventAttributes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Field was added to TerminatedFailureInfo to match the proto structure.",
+  "related": [
+    150
+  ],
+  "keyQuote": "TerminatedFailureInfo.details doesn't. Is that intentional?",
+  "number": 2566,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:22.145Z"
+}

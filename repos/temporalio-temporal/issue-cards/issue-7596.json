@@ -1,0 +1,37 @@
+{
+  "summary": "Nexus service APIs (DispatchByEndpoint and others) are not listed in the metadata.go file, causing custom authorizers to fail when enforcing authorization rules. This breaks workflows targeting Nexus endpoints in self-hosted clusters.",
+  "category": "bug",
+  "subcategory": "nexus-api-metadata",
+  "apis": [
+    "DispatchByEndpoint",
+    "DispatchNexusTask",
+    "PollNexusTaskQueue"
+  ],
+  "components": [
+    "nexus-service",
+    "api-metadata",
+    "authorizer",
+    "endpoint-dispatcher"
+  ],
+  "concepts": [
+    "API discovery",
+    "authorization",
+    "metadata registration",
+    "nexus-endpoints",
+    "method-routing"
+  ],
+  "severity": "high",
+  "userImpact": "Users with custom authorizers cannot properly enforce authorization rules for Nexus APIs, preventing workflows from starting in target namespaces.",
+  "rootCause": "Nexus service APIs are missing from the metadata.go file that defines method metadata used by custom authorizers.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fix was being worked on in PR #7630 to add the missing Nexus APIs to the metadata file.",
+  "related": [
+    7630
+  ],
+  "keyQuote": "DispatchByEndpoint seems crucial as it dispatches the request to the Endpoint I believe... shouldn't they be part of the metadata file",
+  "number": 7596,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:43.015Z"
+}

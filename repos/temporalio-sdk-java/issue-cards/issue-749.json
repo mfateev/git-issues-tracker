@@ -1,0 +1,37 @@
+{
+  "summary": "TestEnvironmentOptions.Builder.validateAndBuildWithDefaults() fails in SDK v1.3.1 with 'Only one of the target and channel options can be set at a time' error when creating a TestWorkflowEnvironment, whereas the same code works fine with just build().",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "TestEnvironmentOptions",
+    "WorkflowClientOptions",
+    "WorkerFactoryOptions",
+    "WorkflowServiceStubs"
+  ],
+  "components": [
+    "test-environment",
+    "service-client",
+    "workflow-service-stubs",
+    "builder-validation"
+  ],
+  "concepts": [
+    "in-memory-service",
+    "channel-configuration",
+    "service-target",
+    "option-building",
+    "validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading from v1.1 to v1.3.1+ cannot initialize test environments using validateAndBuildWithDefaults(), blocking test setup.",
+  "rootCause": "validateAndBuildWithDefaults() creates default service options with a default target address, which conflicts with the in-memory channel automatically added by WorkflowServiceStubsImpl, causing mutual exclusivity validation to fail.",
+  "proposedFix": "Remove the target when populating the channel in the service options initialization.",
+  "workaround": "Use build() instead of validateAndBuildWithDefaults() when creating TestEnvironmentOptions.",
+  "resolution": "fixed",
+  "resolutionDetails": "PR was created to remove target when populating the channel, resolving the conflict between default target and in-memory channel.",
+  "related": [],
+  "keyQuote": "Only one of the target and channel options can be set at a time",
+  "number": 749,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:39:32.344Z"
+}

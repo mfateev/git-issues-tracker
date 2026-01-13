@@ -1,0 +1,32 @@
+{
+  "summary": "Add a dedicated WORKFLOW_TASK_FAILED_CAUSE for non-deterministic errors to provide clear distinction for SDKs and enable server-side metrics logging.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "workflow-task-executor",
+    "error-handling",
+    "metrics"
+  ],
+  "concepts": [
+    "non-deterministic-errors",
+    "error-classification",
+    "observability",
+    "server-metrics",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "SDKs can now properly report and classify non-deterministic errors, and servers can track these errors with dedicated metrics.",
+  "rootCause": null,
+  "proposedFix": "Introduce a distinct WORKFLOW_TASK_FAILED_CAUSE enum value for non-deterministic errors in the API.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Change was implemented in the API repository (PR #118) to add the dedicated cause enum value.",
+  "related": [
+    118
+  ],
+  "keyQuote": "We need a clear indication for non-deterministic error for SDK to report this specific error.",
+  "number": 1756,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:15.723Z"
+}

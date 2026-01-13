@@ -1,0 +1,34 @@
+{
+  "summary": "Spring Boot 3.3.11 upgrade caused Temporal Java SDK to fail during bean initialization due to gRPC deadline exceeded timeout when fetching system info from Temporal cluster. The issue appeared after upgrading from Spring Boot 3.3.4 to address CVE-2025-22235.",
+  "category": "bug",
+  "subcategory": "spring-boot-compatibility",
+  "apis": [
+    "WorkflowServiceBlockingStub.getSystemInfo"
+  ],
+  "components": [
+    "service-client",
+    "channel-manager",
+    "spring-boot-integration"
+  ],
+  "concepts": [
+    "timeout",
+    "gRPC",
+    "deadline",
+    "bean-initialization",
+    "system-info",
+    "connection",
+    "spring-boot"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to Spring Boot 3.3.11 for security patches cannot initialize Temporal workers and their Spring applications fail to start.",
+  "rootCause": "GetSystemInfo timeout was too short (default ~3.4 seconds) for the gRPC call to complete, causing DEADLINE_EXCEEDED error during WorkflowServiceBlockingStub initialization.",
+  "proposedFix": "Set GetSystemInfo timeout to 5 or 10 seconds using WorkflowServiceStubsOptions.newBuilder().setSystemInfoTimeout(Duration.ofSeconds(10))",
+  "workaround": "Configure WorkflowServiceStubsOptions with an increased SystemInfoTimeout value before creating the service client.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by increasing the GetSystemInfo timeout duration in WorkflowServiceStubsOptions, as documented in SDK release notes v1.25.2.",
+  "related": [],
+  "keyQuote": "On your WorkflowServiceStubsOptions, can you please set the GetSystemInfo timeout to 5 or 10 seconds",
+  "number": 2504,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:31.805Z"
+}

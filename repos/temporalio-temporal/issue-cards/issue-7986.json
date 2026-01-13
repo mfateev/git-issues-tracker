@@ -1,0 +1,33 @@
+{
+  "summary": "CVEs reported in admin-tools Docker image (version 1.28.0-tctl-1.18.2-cli-1.3.0) affecting multiple binaries. Issue was closed in favor of a newer related issue.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "docker-image",
+    "container"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "cve",
+    "container-image",
+    "dependency",
+    "image-deprecation"
+  ],
+  "severity": "critical",
+  "userImpact": "Users running the admin-tools image are exposed to critical CVEs that could compromise security.",
+  "rootCause": "Dependencies in admin-tools image contain known vulnerabilities (CVE-2025-22868, CVE-2025-22869, CVE-2025-22870, CVE-2025-22871, CVE-2025-22872).",
+  "proposedFix": "Deprecate the admin-tools image and only package the minimal set of tools needed in images.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #8220 which is the newer, related issue.",
+  "related": [
+    8220
+  ],
+  "keyQuote": "Closing, since #8220 is newer.",
+  "number": 7986,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:47.785Z"
+}

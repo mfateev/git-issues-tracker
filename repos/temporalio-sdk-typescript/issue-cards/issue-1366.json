@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to support weighted random polling of multiple task queues in the TypeScript SDK to implement priority-like functionality and prevent starvation, similar to Faktory workers. The maintainer indicated this requires platform-level support from the Temporal server.",
+  "category": "feature",
+  "subcategory": "task-queue-polling",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "task-queue",
+    "polling"
+  ],
+  "concepts": [
+    "priority-queues",
+    "weighted-polling",
+    "starvation-prevention",
+    "task-distribution",
+    "load-balancing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement priority-based task processing without complex workarounds, limiting ability to handle critical tasks before bulk processing.",
+  "rootCause": "Temporal server does not support priority queues at the platform level, preventing SDK-level implementation.",
+  "proposedFix": "Add support for taskQueue as either an array of queue names, an object with weighted queues (e.g., {critical: 10, default: 1}), or a function to select the next queue dynamically.",
+  "workaround": "Create multiple workers with different configurations and use maxConcurrentActivityTaskPolls to manage concurrency per worker.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Platform-level feature that requires Temporal server support. Implementation deferred pending server-side priority queue support (temporal/temporal#1507).",
+  "related": [
+    1507
+  ],
+  "keyQuote": "Priority queues is a platform level feature that is not currently supported. Once Temporal server adds support for this, we can add it to the SDK.",
+  "number": 1366,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:02.777Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "PHP SDK worker initialization fails with unmarshaling error when using RoadRunner with Symfony Serializer data converter. The issue occurs in GetWorkerInfo.php due to missing preserve_empty_objects option in the serializer configuration.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [],
+  "components": [
+    "worker-info",
+    "transport-router",
+    "data-converter"
+  ],
+  "concepts": [
+    "serialization",
+    "deserialization",
+    "configuration",
+    "marshaling",
+    "roadrunner-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot start PHP workers with RoadRunner and Symfony Serializer when using the default configuration.",
+  "rootCause": "SymfonySerializerDataConverter missing 'preserve_empty_objects' => true option during serialization, causing array/object type mismatch when unmarshaling WorkerInfo.Flags",
+  "proposedFix": "Add 'preserve_empty_objects' => true option to the SymfonySerializerDataConverter configuration in the temporal-bundle",
+  "workaround": "Explicitly configure SymfonySerializerDataConverter with the preserve_empty_objects option set to true",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as configuration problem in the bundle rather than SDK bug; user resolved by applying proper serializer options",
+  "related": [],
+  "keyQuote": "it's issue in bundle which you are using - should have option ['preserve_empty_objects' => true]",
+  "number": 531,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:32.350Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Java SDK reads incorrect configuration file path on macOS, using Linux path (~/.config/temporalio/temporal.toml) instead of the documented macOS path ($HOME/Library/Application Support/temporal/temporal.toml). This prevents users from loading profiles created with the CLI.",
+  "category": "bug",
+  "subcategory": "environment-configuration",
+  "apis": [],
+  "components": [
+    "configuration-loader",
+    "environment-config",
+    "profile-manager"
+  ],
+  "concepts": [
+    "file-path",
+    "platform-specific",
+    "configuration-resolution",
+    "macos",
+    "environment-setup",
+    "profile-loading"
+  ],
+  "severity": "high",
+  "userImpact": "macOS users cannot load Temporal configuration profiles created by the CLI, forcing them to manually copy files to non-standard locations as a workaround.",
+  "rootCause": "The Java SDK's environment configuration loader uses the Linux file path on macOS instead of checking the platform-specific macOS path first.",
+  "proposedFix": null,
+  "workaround": "Copy the profile file from $HOME/Library/Application Support/temporal/temporal.toml to ~/.config/temporalio/temporal.toml",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Per the documentation, the SDKs should read the toml config file on a mac from $HOME/Library/Application Support/temporal/temporal.toml. However this path is not being read (the Linux path is being read instead)",
+  "number": 2754,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:18:04.007Z"
+}

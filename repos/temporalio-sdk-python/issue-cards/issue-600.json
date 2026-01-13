@@ -1,0 +1,31 @@
+{
+  "summary": "Add a workflow initialization method that runs before signals and updates are processed, allowing handlers to use guaranteed initialized values.",
+  "category": "feature",
+  "subcategory": "workflow-initialization",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "signal-handler",
+    "update-handler"
+  ],
+  "concepts": [
+    "initialization",
+    "signal-handling",
+    "update-handling",
+    "lifecycle",
+    "handler-ordering",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably initialize workflow state before receiving signals and updates, requiring defensive initialization patterns in handlers.",
+  "rootCause": null,
+  "proposedFix": "Implement a workflow init method that executes before any signals or updates are processed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow init support was implemented to allow guaranteed initialization before signal/update handlers execute.",
+  "related": [],
+  "keyQuote": "We should have a method that's guaranteed to initialize before signals and updates come in so handlers can use initialized values.",
+  "number": 600,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:31.576Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Temporal fails to create workflows with the same ID when using ScyllaDB as persistence. The server enters a high CPU loop (>200%) and becomes unresponsive. Root cause: ScyllaDB returns null-filled rows in batch results (unlike Cassandra), which are incorrectly interpreted as shard ownership errors.",
+  "category": "bug",
+  "subcategory": "persistence-scylla",
+  "apis": [],
+  "components": [
+    "persistence",
+    "cassandra-driver",
+    "history-engine",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "persistence",
+    "scylla",
+    "batch-operations",
+    "error-handling",
+    "shard-ownership",
+    "row-scanning"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal with ScyllaDB cannot execute workflows with repeated IDs, causing server hangs and making the system unusable.",
+  "rootCause": "ScyllaDB batch result iterator returns rows for all queries in batch (including null-filled rows), whereas Cassandra only returns rows with values. Error detection helpers scan the 'type' column as non-nullable int, defaulting nulls to 0 (rowTypeShard) and falsely detecting shard ownership loss.",
+  "proposedFix": "Scan 'type' column as nullable (*int) and check if it is actually set before processing the row as an error result.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by handling nullable columns in batch result scanning. PR #3027 was submitted to address the issue.",
+  "related": [
+    3027
+  ],
+  "keyQuote": "Scylla returns 5 rows (as we have 5 queries in batch) with only 2 containing values and others with all columns nulls",
+  "number": 2683,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:49.938Z"
+}

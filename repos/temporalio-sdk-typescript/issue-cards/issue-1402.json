@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to support updating search attributes on schedules in the TypeScript SDK. The SDK was not exposing this capability in the schedule update operation, limiting users' ability to manage schedule-level search attributes.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ScheduleUpdate",
+    "SearchAttributes"
+  ],
+  "components": [
+    "schedule-client",
+    "schedule-types",
+    "update-operation"
+  ],
+  "concepts": [
+    "search-attributes",
+    "schedule-operations",
+    "metadata-management",
+    "workflow-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot update search attributes on existing schedules, preventing them from managing schedule-level metadata and searchability after creation.",
+  "rootCause": "SearchAttributes was not included in the ScheduleUpdate type definition in the TypeScript SDK's schedule-types.ts file.",
+  "proposedFix": "Add searchAttributes field to the schedule update operation, with optional naming consideration of scheduleSearchAttributes to distinguish from workflow-level searchAttributes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented in PR #1625 and released as part of v1.12.0",
+  "related": [
+    4858
+  ],
+  "keyQuote": "The typescript SDK seems to ignore search attributes in the update operation. I'd like to update some existing schedules to set search attributes on the schedule itself and on the workflow.",
+  "number": 1402,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:16.196Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "The test service's PollActivityTaskQueue doesn't return empty polls after a timeout like the real service does, causing gRPC-level request timeouts. The feature request is to make the test service return an empty poll after one minute of no available tasks.",
+  "category": "feature",
+  "subcategory": "test-service",
+  "apis": [
+    "PollActivityTaskQueue"
+  ],
+  "components": [
+    "test-service",
+    "activity-poller",
+    "grpc-transport"
+  ],
+  "concepts": [
+    "polling",
+    "timeout",
+    "empty-response",
+    "task-queue",
+    "request-timeout"
+  ],
+  "severity": "low",
+  "userImpact": "Users see scary gRPC timeout warnings in logs when running tests with the test service, even though they're benign.",
+  "rootCause": "TestWorkflowStoreImpl.PollActivityTaskQueue blocks indefinitely instead of returning an empty poll after the standard one-minute timeout.",
+  "proposedFix": "Modify test service to return an empty poll after one minute, matching the behavior of the real service.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by #713, which implements the empty poll timeout behavior.",
+  "related": [
+    713
+  ],
+  "keyQuote": "Service returns an empty poll after a minute if no tasks are available. The test service never returns an empty poll, blocking until a task is available.",
+  "number": 248,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:03:22.148Z"
+}

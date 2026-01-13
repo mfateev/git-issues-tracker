@@ -1,0 +1,33 @@
+{
+  "summary": "Investigate non-deterministic behavior in asyncio.as_completed and asyncio.wait due to their use of set, either provide deterministic alternatives or document the risk and add warnings.",
+  "category": "feature",
+  "subcategory": "asyncio-determinism",
+  "apis": [],
+  "components": [
+    "asyncio-integration",
+    "task-coordination",
+    "runtime"
+  ],
+  "concepts": [
+    "determinism",
+    "non-deterministic-behavior",
+    "asyncio",
+    "set-ordering",
+    "task-scheduling",
+    "concurrency"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on asyncio.as_completed and asyncio.wait may experience non-deterministic workflow behavior that is difficult to debug and replay.",
+  "rootCause": "asyncio.as_completed and asyncio.wait use Python's set data structure which has non-deterministic iteration order, potentially causing different task ordering across runs.",
+  "proposedFix": "Provide deterministic alternatives to asyncio.as_completed and asyncio.wait, or at minimum warn users about the non-deterministic behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by implementing deterministic alternatives or adding warnings to the SDK documentation.",
+  "related": [
+    429
+  ],
+  "keyQuote": "asyncio.as_completed and asyncio.wait may be non-deterministic in their use of `set`. See if anything can be done and if not, document that they are dangerous and warn on their use.",
+  "number": 518,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:47.849Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Users need a way to replay and reset workflows from saved historical data after workflow history has been purged from Temporal, enabling recovery from issues that take longer to fix than the retention period.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Replayer"
+  ],
+  "components": [
+    "workflow-engine",
+    "history-management",
+    "replay-mechanism"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "history-import",
+    "replay",
+    "retention",
+    "workflow-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot recover failed workflows after history retention expires, even with saved history snapshots.",
+  "rootCause": "Current Replayer only supports in-memory replay and cannot spawn new workflow runs from historical JSON data.",
+  "proposedFix": "Implement workflow import functionality to allow resetting and continuing workflows from serialized history JSON, with support for resuming from specific event IDs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Related PR #4853 addresses workflow import functionality.",
+  "related": [
+    4853
+  ],
+  "keyQuote": "Workflow authors or support teams should be able to save the temporal workflow & replay the stateful history even if the history has been purged from temporal.",
+  "number": 3703,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:26.469Z"
+}

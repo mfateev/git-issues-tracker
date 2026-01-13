@@ -1,0 +1,32 @@
+{
+  "summary": "The `npx @temporalio/create@latest` command fails with a 'DownloadError: Premature close' error when using Node 18. The issue is related to a known problem with the npm node-tar package and is resolved by clearing the npx cache.",
+  "category": "bug",
+  "subcategory": "project-scaffolding",
+  "apis": [],
+  "components": [
+    "create-project",
+    "npm-package",
+    "tar-extraction"
+  ],
+  "concepts": [
+    "npm-cache",
+    "node-tar",
+    "download-error",
+    "package-creation",
+    "initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create new Temporal TypeScript projects using the standard initialization command on Node 18.",
+  "rootCause": "npm node-tar package issue causing premature close during file downloads; npx maintains a separate cache that can become corrupted.",
+  "proposedFix": null,
+  "workaround": "Clear the npx cache using `npx clear-npx-cache` before running the create command.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by clearing the npx cache, which resolves the corrupted tar extraction state.",
+  "related": [
+    321
+  ],
+  "keyQuote": "Fixed by `npx clear-npx-cache` (npx has a separate cache).",
+  "number": 905,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:26.741Z"
+}

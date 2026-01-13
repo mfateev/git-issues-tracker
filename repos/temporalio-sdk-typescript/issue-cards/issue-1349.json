@@ -1,0 +1,32 @@
+{
+  "summary": "Expose the next retry delay field (recently added to the API) on ApplicationFailure across all SDKs. This field allows activities to specify custom retry delays on failure and needs to be surfaced in the SDK.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "activity-executor",
+    "failure-handling",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "activity-failure",
+    "delay",
+    "api-exposure",
+    "failure-response"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities cannot currently leverage the next retry delay capability that was added to the API, limiting retry behavior customization.",
+  "rootCause": null,
+  "proposedFix": "Expose the next retry delay field from the API failure message in the SDK's ApplicationFailure class.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to expose the next retry delay field on ApplicationFailure in the SDK.",
+  "related": [],
+  "keyQuote": "We recently added the ability for an activity to specify the next retry delay on failure via a field on ApplicationFailure. Expose this in the SDK.",
+  "number": 1349,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:18.854Z"
+}

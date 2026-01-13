@@ -1,0 +1,32 @@
+{
+  "summary": "Add a dependency injection extension for the .NET SDK to make it easy to create and inject lazy clients, similar to npgsql and grpc-dotnet implementations.",
+  "category": "feature",
+  "subcategory": "dependency-injection",
+  "apis": [],
+  "components": [
+    "client",
+    "dependency-injection",
+    "background-service"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "dependency-injection",
+    "client-factory",
+    "extension-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers need a convenient way to register and inject Temporal clients in .NET applications without manual lazy initialization.",
+  "rootCause": null,
+  "proposedFix": "Create Temporalio.Extensions.DependencyInjection package modeling approaches from npgsql and grpc-dotnet, including support for BackgroundService.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "A dependency injection extension was implemented following the proposed pattern.",
+  "related": [
+    44,
+    45
+  ],
+  "keyQuote": "We need to make it easy to create a lazy client and inject it.",
+  "number": 46,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:08:37.171Z"
+}

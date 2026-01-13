@@ -1,0 +1,30 @@
+{
+  "summary": "Java SDK payload headers protocol is out of sync with Go SDK and the server. A protocol change was made in the Go SDK that needs to be implemented in the Java SDK to maintain compatibility.",
+  "category": "bug",
+  "subcategory": "payload-serialization",
+  "apis": [],
+  "components": [
+    "payload-handler",
+    "protocol-serialization",
+    "wire-format"
+  ],
+  "concepts": [
+    "protocol-alignment",
+    "interoperability",
+    "payload-headers",
+    "wire-protocol",
+    "compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Java SDK users may experience incompatibility issues with the Go SDK and Temporal server due to misaligned payload header protocols.",
+  "rootCause": "Go SDK protocol changed for payload description on the wire, but Java SDK was not updated to match.",
+  "proposedFix": "Update Java SDK payload header protocol to align with the Go SDK and server implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the Java SDK was brought into alignment with the Go SDK and server payload protocol.",
+  "related": [],
+  "keyQuote": "This PR changed the protocol for how payloads are described on the wire. The change has been landed in the Go SDK and is used by the server/the CLI, but the Java SDK is out of date.",
+  "number": 155,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:58:03.184Z"
+}

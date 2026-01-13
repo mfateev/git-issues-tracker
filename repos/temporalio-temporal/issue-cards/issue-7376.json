@@ -1,0 +1,33 @@
+{
+  "summary": "After upgrading to v1.27.0, the Temporal server encounters SQL errors when scanning NULL values from the new nullable `data_encoding` column in `current_executions` table, because the Go model expects a non-nullable string type. The issue was fixed in v1.27.1.",
+  "category": "bug",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "database",
+    "schema-migration",
+    "execution-persistence"
+  ],
+  "concepts": [
+    "schema-mismatch",
+    "null-handling",
+    "database-compatibility",
+    "type-casting",
+    "migration"
+  ],
+  "severity": "critical",
+  "userImpact": "Users upgrading to v1.27.0 experience workflow execution failures due to database scan errors when loading execution records with NULL data_encoding values.",
+  "rootCause": "Schema migration in PR #7080 added a nullable data_encoding column to current_executions table, but the Go model definition uses a non-nullable string type, causing SQL scan errors when encountering NULL values. Additionally, schema definitions have inconsistencies across databases (sqlite NOT NULL vs mysql/postgresql nullable).",
+  "proposedFix": "Use a nullable string type (pointer to string) in the Go model to handle NULL values from the database, and ensure consistency in schema definitions across all database backends.",
+  "workaround": "Skip v1.27.0 and upgrade directly to v1.27.1 where the issue is fixed.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in v1.27.1 release by updating the model to properly handle nullable data_encoding column.",
+  "related": [
+    7080,
+    7383
+  ],
+  "keyQuote": "converting NULL to string is unsupported",
+  "number": 7376,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:19.127Z"
+}

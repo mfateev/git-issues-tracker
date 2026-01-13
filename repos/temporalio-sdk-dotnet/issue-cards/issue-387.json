@@ -1,0 +1,31 @@
+{
+  "summary": "Add WorkflowLocal<T> feature to provide workflow-scoped variables similar to AsyncLocal, allowing users to store workflow-specific state that is isolated to each workflow execution.",
+  "category": "feature",
+  "subcategory": "workflow-state",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "context-management"
+  ],
+  "concepts": [
+    "workflow-scoping",
+    "thread-local-storage",
+    "state-isolation",
+    "workflow-context",
+    "variable-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to efficiently manage workflow-local state without polluting the workflow context or managing manual state containers.",
+  "rootCause": null,
+  "proposedFix": "Implement WorkflowLocal<T> class that works similar to AsyncLocal, allowing public static readonly declarations that automatically scope to the current workflow",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    571
+  ],
+  "keyQuote": "a user can have `public static readonly WorkflowLocal<string> MyValue = new()`, and it works like `AsyncLocal`",
+  "number": 387,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:17:19.290Z"
+}

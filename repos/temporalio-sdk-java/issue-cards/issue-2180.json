@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow.newExternalWorkflowStub() rejects interfaces that don't have @WorkflowInterface annotation, even though WorkflowClient.newWorkflowStub() accepts such interfaces. This inconsistency prevents using base interfaces containing only signal/query/update methods for external workflow communication.",
+  "category": "bug",
+  "subcategory": "external-workflows",
+  "apis": [
+    "Workflow.newExternalWorkflowStub",
+    "WorkflowClient.newWorkflowStub"
+  ],
+  "components": [
+    "ExternalWorkflowInvocationHandler",
+    "POJOWorkflowInterfaceMetadata",
+    "WorkflowInternal"
+  ],
+  "concepts": [
+    "workflow-interface",
+    "signal-methods",
+    "external-workflows",
+    "interface-inheritance",
+    "type-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use base interfaces containing only signal/query/update methods for external workflow communication, forcing less elegant API design patterns.",
+  "rootCause": "ExternalWorkflowInvocationHandler enforces @WorkflowInterface annotation requirement, while WorkflowClient does not, creating an API inconsistency.",
+  "proposedFix": "Allow Workflow.newExternalWorkflowStub() to accept any interface without @WorkflowInterface annotation, validating method annotations at invocation time instead, matching WorkflowClient behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by allowing external workflow stubs to accept interfaces without @WorkflowInterface annotation, with validation occurring at method invocation time.",
+  "related": [],
+  "keyQuote": "The same should work when signaling workflow from an external workflow as it does with WorkflowClient.newWorkflowStub()",
+  "number": 2180,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:07.734Z"
+}

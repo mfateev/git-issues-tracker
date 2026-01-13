@@ -1,0 +1,31 @@
+{
+  "summary": "Request to partition activity task queues based on workflowId to improve caching performance in activity workers. Currently, activity tasks are randomly distributed across workers, preventing effective per-pod caching unlike workflow workers which use sticky execution.",
+  "category": "feature",
+  "subcategory": "activity-task-queue",
+  "apis": [],
+  "components": [
+    "activity-worker",
+    "task-queue",
+    "worker-dispatcher"
+  ],
+  "concepts": [
+    "caching",
+    "partitioning",
+    "task-distribution",
+    "sticky-execution",
+    "load-balancing",
+    "entity-locality"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with entity-specific caches in activity workers must implement custom task queue routing logic, increasing complexity and preventing automatic cache locality optimization.",
+  "rootCause": "Activity task queues lack partition-based distribution mechanism that ensures related tasks (same workflowId) route to the same worker instance, unlike workflow workers with sticky execution.",
+  "proposedFix": "Implement optional partition-based task queue assignment where activity tasks are routed based on workflowId to specific worker partitions, similar to Kafka consumer group partition assignment.",
+  "workaround": "Use custom task queue names in activity options (set dynamically in workflow code based on entity identifier), requiring custom logic in worker setup, workflow code, and activity code as shown in fileprocessing sample.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Partition activity task queues based on workflowId, and assign partitions to specific worker instances (similar to partition assignment within a kafka consumer group).",
+  "number": 4038,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:48.016Z"
+}

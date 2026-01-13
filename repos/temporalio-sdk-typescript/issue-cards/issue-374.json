@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for aarch64-unknown-linux-gnu build target for Rust Core to enable building containers on M1 Macs. The aarch64-apple-darwin target is already supported, but users need the Linux ARM64 GNU target for cross-compilation to Linux containers.",
+  "category": "feature",
+  "subcategory": "build-targets",
+  "apis": [],
+  "components": [
+    "rust-core",
+    "build-system",
+    "compiler-targets"
+  ],
+  "concepts": [
+    "cross-compilation",
+    "ARM64",
+    "container-build",
+    "M1-support",
+    "Linux-target",
+    "architecture-support"
+  ],
+  "severity": "low",
+  "userImpact": "Users building Docker containers on M1 Macs cannot target Linux ARM64 without this build target support.",
+  "rootCause": null,
+  "proposedFix": "Add aarch64-unknown-linux-gnu to the list of supported Rust Core build targets",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The aarch64-unknown-linux-gnu target was added to the Rust Core build targets",
+  "related": [],
+  "keyQuote": "Mostly to support building containers on M1 macs",
+  "number": 374,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:13.886Z"
+}

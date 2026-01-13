@@ -1,0 +1,32 @@
+{
+  "summary": "Core bridge crashes with a panic when given invalid TLS certificate options instead of throwing an informative error. This affects JavaScript users who bypass TypeScript's type protection.",
+  "category": "bug",
+  "subcategory": "core-bridge",
+  "apis": [
+    "Core.install"
+  ],
+  "components": [
+    "core-bridge",
+    "tls-config",
+    "options-validation"
+  ],
+  "concepts": [
+    "error-handling",
+    "input-validation",
+    "tls-configuration",
+    "panic-recovery",
+    "language-interop"
+  ],
+  "severity": "high",
+  "userImpact": "Users passing invalid TLS certificate options experience a cryptic internal crash instead of a clear error message, especially JavaScript users without TypeScript protection.",
+  "rootCause": "Core bridge calls `Option::unwrap()` on a `None` value in conversions.rs:108 when receiving invalid certificate pair data.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by improving input validation and error handling in the core bridge to provide informative errors instead of panics.",
+  "related": [],
+  "keyQuote": "called `Option::unwrap()` on a `None` value - should provide good JS support with informative error messages",
+  "number": 311,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:52.198Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for build ID versioning APIs (UpdateWorkerBuildIdCompatibility, GetWorkerBuildIdCompatibility, GetWorkerTaskReachability) to the test server to match the new worker versioning feature added to the SDK.",
+  "category": "feature",
+  "subcategory": "test-server",
+  "apis": [
+    "UpdateWorkerBuildIdCompatibility",
+    "GetWorkerBuildIdCompatibility",
+    "GetWorkerTaskReachability"
+  ],
+  "components": [
+    "test-server",
+    "workflow-service",
+    "worker-versioning"
+  ],
+  "concepts": [
+    "build-id-versioning",
+    "worker-compatibility",
+    "api-implementation",
+    "test-infrastructure"
+  ],
+  "severity": "low",
+  "userImpact": "Test server lacks build ID versioning support, limiting ability to test worker versioning scenarios locally.",
+  "rootCause": null,
+  "proposedFix": "Implement the three workflow service RPCs for build ID compatibility and worker task reachability on the test server.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The build ID versioning APIs were discontinued and are no longer being maintained, so implementation was deemed unnecessary.",
+  "related": [],
+  "keyQuote": "Closing since we are no longer keeping these APIs",
+  "number": 1788,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:47:02.308Z"
+}

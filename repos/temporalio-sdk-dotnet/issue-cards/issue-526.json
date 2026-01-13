@@ -1,0 +1,36 @@
+{
+  "summary": "KeywordList search attributes cannot be resolved from WorkflowExecutionDescription.TypedSearchAttributes despite being present in the workflow. The TryGetValue method returns false even when the value exists as a List<object> type.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "DescribeAsync",
+    "TryGetValue",
+    "TypedSearchAttributes"
+  ],
+  "components": [
+    "search-attributes",
+    "workflow-description",
+    "type-resolution"
+  ],
+  "concepts": [
+    "search-attributes",
+    "type-resolution",
+    "KeywordList",
+    "workflow-metadata",
+    "data-types"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve custom KeywordList search attributes from completed workflows, breaking the ability to access this metadata.",
+  "rootCause": "Type resolution issue where KeywordList values are stored as List<object> internally but the TryGetValue lookup fails to match the expected type.",
+  "proposedFix": "Fix the type resolution logic in TypedSearchAttributes to properly handle KeywordList types (PR #529).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #529 which improved type resolution for KeywordList search attributes.",
+  "related": [
+    529
+  ],
+  "keyQuote": "When executing a code as following, the `TryGetValue` returns `false` even the value is there, but of a `List<object>` type.",
+  "number": 526,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:33:08.172Z"
+}

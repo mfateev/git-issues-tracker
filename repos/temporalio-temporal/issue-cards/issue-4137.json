@@ -1,0 +1,36 @@
+{
+  "summary": "Workflow tasks fail repeatedly when signals arrive during continueAsNew operations, causing the workflow to either exceed history limits or fail to process signals. The server should either reject fast signals during continueAsNew failures or apply buffered signals to the next run.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "DescribeWorkflow",
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-task-handler",
+    "signal-processor",
+    "history-manager"
+  ],
+  "concepts": [
+    "signal-rejection",
+    "continueAsNew",
+    "history-limits",
+    "signal-buffering",
+    "workflow-restart"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using continueAsNew under high signal load encounter failing workflow tasks in loops, risking history size limits or signal loss.",
+  "rootCause": "Server fails workflow tasks when signals are received but not processed during continueAsNew, causing retry loops when signals arrive faster than they can be processed.",
+  "proposedFix": "Three options: (1) Return failure reason in DescribeWF response so apps can reject signals; (2) Server automatically rejects signals when continueAsNew fails; (3) Apply buffered signals to next run instead of failing.",
+  "workaround": "Application can describe workflow to check pending workflow task attempt and reject signals when attempt > 1.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in pull request #4395",
+  "related": [
+    1289,
+    236
+  ],
+  "keyQuote": "workflow task won't be able to process, and failing in a loop... workflow will either get terminated because of history length/size limit or can't process the signals",
+  "number": 4137,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:14.975Z"
+}

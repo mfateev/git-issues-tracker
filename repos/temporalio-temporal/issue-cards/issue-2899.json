@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal server panics if shutdown is signaled during startup, specifically when the stop signal arrives while services are still initializing. The issue occurs because the worker service only checks if start() was invoked, not if it completed.",
+  "category": "bug",
+  "subcategory": "server-lifecycle",
+  "apis": [],
+  "components": [
+    "worker",
+    "history",
+    "frontend",
+    "matching",
+    "service-lifecycle"
+  ],
+  "concepts": [
+    "shutdown",
+    "signal-handling",
+    "race-condition",
+    "concurrent-startup",
+    "panic-recovery",
+    "graceful-shutdown"
+  ],
+  "severity": "medium",
+  "userImpact": "Users triggering rapid start-stop cycles may encounter server panics, though this is unlikely in normal operation.",
+  "rootCause": "Worker service checks if start() was invoked but does not verify if start() completed before accepting shutdown signals, creating a race condition during service initialization.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Could not be reproduced in latest version; reporter may have been using incorrect version (v0.11.0). Issue closed pending panic log reproduction.",
+  "related": [],
+  "keyQuote": "it seems that you just checked whether start() is invoked but did check whether it is complete",
+  "number": 2899,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:52.930Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Codec implementations that return the original unaltered payload cause a KeyNotFoundException in the SDK. The issue occurs because the SDK assumes payloads are always mutated and doesn't check if the returned payload is the same object as the input.",
+  "category": "bug",
+  "subcategory": "codec-payload-handling",
+  "apis": [],
+  "components": [
+    "codec",
+    "payload-converter",
+    "workflow-instance"
+  ],
+  "concepts": [
+    "payload-mutation",
+    "object-identity",
+    "codec-design",
+    "serialization",
+    "reference-equality"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot write codecs that return unaltered payloads without cloning, forcing unnecessary payload copying and causing runtime errors.",
+  "rootCause": "WorkflowCodecHelper.cs lines 280-282 assume the encoded payload is always mutated and track it without checking if the returned payload is the same object reference as the input payload.",
+  "proposedFix": "Add an `if (!Object.ReferenceEquals(encoded, payload))` check before the lines that assume the payload was mutated, allowing identity equality to bypass the mutation tracking.",
+  "workaround": "Clone the payload before returning it from the codec, even if it wasn't actually modified.",
+  "resolution": "fixed",
+  "resolutionDetails": "Contributor provided a PR implementing reference equality check as suggested by maintainer to allow unaltered payloads to be returned without errors.",
+  "related": [
+    234
+  ],
+  "keyQuote": "I agree there is mixed messaging in that sample allows ignoring payloads but the SDK does not. So this is for sure a bug IMO.",
+  "number": 417,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:22:31.197Z"
+}

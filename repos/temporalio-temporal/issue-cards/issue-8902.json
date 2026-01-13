@@ -1,0 +1,33 @@
+{
+  "summary": "History service memory usage grows unbounded in Kubernetes deployments under cyclical workloads, causing OOM kills even during idle periods. Cache configuration issues prevent stable memory management despite various tuning attempts.",
+  "category": "bug",
+  "subcategory": "history-service-memory",
+  "apis": [],
+  "components": [
+    "history-service",
+    "cache-manager",
+    "event-cache",
+    "persistence"
+  ],
+  "concepts": [
+    "memory-leak",
+    "cache-eviction",
+    "garbage-collection",
+    "kubernetes",
+    "oom",
+    "load-pattern",
+    "persistence-layer"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably run Temporal Server on Kubernetes without experiencing OOM crashes on the history service, blocking production deployments.",
+  "rootCause": "Mutable cache capacity-based configuration causes memory usage to significantly exceed configured limits and GOMEMLIMIT, suggesting improper cache accounting or eviction logic.",
+  "proposedFix": null,
+  "workaround": "Configure mutable cache in count units instead of capacity units; apply GOMEMLIMIT setting. However, this is only a partial workaround as switching back to capacity units still causes OOM.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "as soon as I set the mutable cache in capacity units, the history pod significantly exceeds the configured cache capacity, even surpasses the GOMEMLIMIT",
+  "number": 8902,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:53.588Z"
+}

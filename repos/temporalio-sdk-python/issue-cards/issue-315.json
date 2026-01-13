@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to support custom options (especially ignoring unknown fields) when constructing JSONProtoPayloadConverter, matching the Go SDK's ProtoJSONPayloadConverterOptions API.",
+  "category": "feature",
+  "subcategory": "payload-converter",
+  "apis": [],
+  "components": [
+    "JSONProtoPayloadConverter",
+    "payload-converter"
+  ],
+  "concepts": [
+    "protobuf",
+    "json-serialization",
+    "payload-conversion",
+    "unknown-fields",
+    "converter-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently cannot configure JSONProtoPayloadConverter options like ignoring unknown fields without creating a custom converter.",
+  "rootCause": null,
+  "proposedFix": "Add support for passing google.protobuf.json_format.Parse options to JSONProtoPayloadConverter constructor, mirroring the Go SDK's ProtoJSONPayloadConverterOptions.",
+  "workaround": "Users can create a custom payload converter instead of using the built-in JSONProtoPayloadConverter.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow passing custom parse options to JSONProtoPayloadConverter.",
+  "related": [],
+  "keyQuote": "Really, what we want is compatibility with the go.temporal.io/sdk/converter#ProtoJSONPayloadConverterOptions options.",
+  "number": 315,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:16.181Z"
+}

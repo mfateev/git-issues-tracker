@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal auto setup fails to connect to PostgreSQL 15 due to pg_hba.conf authentication issues. User upgraded AWS RDS from PostgreSQL 14 to 15 and Temporal ceased working, though the issue was ultimately attributed to misconfiguration rather than Postgres 15 incompatibility.",
+  "category": "bug",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "schema-setup",
+    "postgres-driver"
+  ],
+  "concepts": [
+    "database-connection",
+    "authentication",
+    "schema-migration",
+    "configuration",
+    "kubernetes-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to PostgreSQL 15 on AWS RDS may encounter connection failures during Temporal auto setup if pg_hba.conf is not properly configured.",
+  "rootCause": "Missing or incorrect pg_hba.conf entry for the dbuser connecting from the Temporal pod's IP (10.12.87.28) to the default PostgreSQL databases without encryption",
+  "proposedFix": null,
+  "workaround": "Downgrade to PostgreSQL 14 or ensure pg_hba.conf is configured to allow connections from the Temporal pod IP",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was determined to be a misconfiguration in the Airbyte Helm chart's pg_hba.conf settings rather than a Temporal Server incompatibility with PostgreSQL 15. Testing by maintainer confirmed Temporal works with Postgres 15.",
+  "related": [],
+  "keyQuote": "pq: no pg_hba.conf entry for host \"10.12.87.28\", user \"dbuser\", database \"postgres\", no encryption",
+  "number": 4016,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:12.208Z"
+}

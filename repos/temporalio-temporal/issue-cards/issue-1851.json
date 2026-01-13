@@ -1,0 +1,29 @@
+{
+  "summary": "User unable to add custom search attributes via tctl command - interactive prompt fails on first attempt and doesn't work on retry. Community provided workarounds including using shell access directly or the --auto_confirm flag.",
+  "category": "bug",
+  "subcategory": "tctl-admin",
+  "apis": [],
+  "components": [
+    "tctl",
+    "admin-tools",
+    "search-attributes"
+  ],
+  "concepts": [
+    "custom-search-attributes",
+    "interactive-prompt",
+    "docker-exec",
+    "tctl-command"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following documentation are unable to add custom search attributes through tctl, requiring workarounds or alternative methods.",
+  "rootCause": "Interactive prompt handling issue when running tctl command via docker exec without -it flags",
+  "proposedFix": "Use --auto_confirm flag or run tctl from within docker shell using 'docker exec -it temporal-admin-tools sh'",
+  "workaround": "Either use --auto_confirm flag or access docker shell first with 'docker exec -it temporal-admin-tools sh' then run tctl command",
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed with close-after-30-days label, suggesting it was closed due to inactivity rather than being fixed",
+  "related": [],
+  "keyQuote": "Also you can use `--auto_confirm` flag to bypass this question.",
+  "number": 1851,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:51.561Z"
+}

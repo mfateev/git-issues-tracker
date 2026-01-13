@@ -1,0 +1,32 @@
+{
+  "summary": "The PHP SDK does not consider the TaskQueue when searching for workflows to start, potentially launching the wrong workflow class when multiple workflows with the same name are registered on different task queues.",
+  "category": "bug",
+  "subcategory": "workflow-registration",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-registry",
+    "task-queue-routing",
+    "workflow-dispatcher"
+  ],
+  "concepts": [
+    "task-queue",
+    "workflow-routing",
+    "workflow-registration",
+    "multi-queue-support",
+    "workflow-lookup"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely register workflows with identical names on different task queues, risking incorrect workflow execution.",
+  "rootCause": "The workflow lookup mechanism does not filter by task queue when searching for registered workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK now includes TaskQueue in the workflow lookup process to correctly identify and start the intended workflow.",
+  "related": [],
+  "keyQuote": "The SDK does not use TaskQueue when searching for the Workflow to be started. As a result, it might start another Workflow class (from a different TaskQueue).",
+  "number": 481,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:04.422Z"
+}

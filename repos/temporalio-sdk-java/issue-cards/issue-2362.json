@@ -1,0 +1,35 @@
+{
+  "summary": "Users should be able to access a Temporal client from within activity code via the ActivityExecutionContext. This would provide a way to interact with the Temporal API directly from activities, similar to workflow context capabilities.",
+  "category": "feature",
+  "subcategory": "activity-context",
+  "apis": [
+    "ActivityExecutionContext",
+    "WorkflowClient"
+  ],
+  "components": [
+    "activity-executor",
+    "context",
+    "client-api"
+  ],
+  "concepts": [
+    "client-access",
+    "activity-context",
+    "api-availability",
+    "temporal-operations",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities currently cannot directly access a Temporal client, limiting their ability to perform temporal operations without external configuration.",
+  "rootCause": null,
+  "proposedFix": "Add a `getWorkflowClient() WorkflowClient` instance method to ActivityExecutionContext",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide client access from activity context",
+  "related": [
+    203
+  ],
+  "keyQuote": "Allow users to access Temporal client from within an activity. This is likely a `getWorkflowClient() WorkflowClient` instance method on `ActivityExecutionContext`.",
+  "number": 2362,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:36.416Z"
+}

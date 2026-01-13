@@ -1,0 +1,33 @@
+{
+  "summary": "Support relative time syntax in visibility store queries to allow searching workflows by relative time periods (e.g., '< 5m', '>= 1 day') instead of requiring absolute timestamps.",
+  "category": "feature",
+  "subcategory": "visibility-store",
+  "apis": [],
+  "components": [
+    "visibility-store",
+    "query-engine",
+    "timestamp-processing"
+  ],
+  "concepts": [
+    "relative-time",
+    "timestamp",
+    "query-syntax",
+    "search",
+    "workflow-filtering",
+    "duration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently calculate and provide absolute timestamps for visibility queries instead of using intuitive relative time expressions.",
+  "rootCause": "Visibility store currently only supports absolute timestamp values in search queries, lacking Duration-based comparison support.",
+  "proposedFix": "Implement signed Duration value support to compare with current timestamp at query execution time for DateTime search attributes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8498
+  ],
+  "keyQuote": "I want to be able to query with < '5m' or >= '1 day' where it's a relative time and the absolute timestamp is calculated at the time of query execution.",
+  "number": 8349,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:29.472Z"
+}

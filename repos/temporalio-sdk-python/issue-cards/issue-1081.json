@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose the `strict_json_schema` argument in `activity_as_tool` and `nexus_as_tool` functions for the OpenAI SDK integration, allowing users to override the hardwired `strict_json_schema=True` setting instead of requiring a workaround with `dataclasses.replace`.",
+  "category": "feature",
+  "subcategory": "openai-integration",
+  "apis": [
+    "activity_as_tool",
+    "nexus_as_tool"
+  ],
+  "components": [
+    "openai_agents",
+    "workflow",
+    "tool-integration"
+  ],
+  "concepts": [
+    "json-schema",
+    "strict-validation",
+    "openai-integration",
+    "configuration",
+    "api-flexibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now cleanly configure JSON schema strictness for OpenAI tool functions without needing workarounds like dataclasses.replace.",
+  "rootCause": null,
+  "proposedFix": "Expose `strict_json_schema` as an argument parameter in `activity_as_tool` and `nexus_as_tool` functions.",
+  "workaround": "Use `dataclasses.replace` on the result to override the hardwired `strict_json_schema=True` setting.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was accepted and planned for implementation.",
+  "related": [],
+  "keyQuote": "Seems reasonable and easy. We'll put it in the pipeline.",
+  "number": 1081,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:44.830Z"
+}

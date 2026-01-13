@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal server fails to start when ElasticSearch cluster is unavailable, even though ES is non-essential for data durability since writes are queued to Kafka. This blocks critical operations like node replacement during infrastructure outages.",
+  "category": "feature",
+  "subcategory": "elasticsearch-integration",
+  "apis": [],
+  "components": [
+    "server-startup",
+    "elasticsearch-client",
+    "kafka-queue"
+  ],
+  "concepts": [
+    "dependency-failure",
+    "graceful-degradation",
+    "service-availability",
+    "fault-tolerance",
+    "startup-resilience",
+    "infrastructure-outage"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot restart Temporal nodes when ElasticSearch is temporarily unavailable, blocking disaster recovery and maintenance operations.",
+  "rootCause": "Temporal startup process treats ElasticSearch connectivity as a hard requirement rather than a soft dependency, failing the entire startup if ES is unreachable.",
+  "proposedFix": "Allow Temporal to start successfully even when ES is unavailable, queuing writes to Kafka for later processing when ES comes back online.",
+  "workaround": "Docker startup script variable can be configured to work around the blocking behavior (per linked PR).",
+  "resolution": "fixed",
+  "resolutionDetails": "PR was created to address the issue, allowing servers to start even when ES cluster is unavailable.",
+  "related": [],
+  "keyQuote": "since Temporal queues ES writes to Kafka, it doesn't strictly _need_ ES in order to avoid data loss",
+  "number": 863,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:37.960Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Pure JS client needs a gRPC interceptor that adds a `temporal-namespace` header to all requests when a namespace field is present in the request object. This feature also requires adding a CI test for cloud integration.",
+  "category": "feature",
+  "subcategory": "grpc-interceptor",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "interceptor",
+    "pure-js-client"
+  ],
+  "concepts": [
+    "namespace",
+    "header",
+    "grpc",
+    "interceptor",
+    "cloud-integration",
+    "ci-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the pure JS client will have proper namespace header propagation on all requests, enabling correct namespace handling in cloud environments.",
+  "rootCause": null,
+  "proposedFix": "Implement a gRPC interceptor that extracts the namespace field from request objects and sets the temporal-namespace header accordingly. Add CI test for cloud workflows.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with gRPC interceptor and cloud CI test added",
+  "related": [
+    475
+  ],
+  "keyQuote": "Pure JS client needs to have a gRPC interceptor that takes the `namespace` field out of the request object if present and set the `temporal-namespace` header",
+  "number": 1697,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:43.627Z"
+}

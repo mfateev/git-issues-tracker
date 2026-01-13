@@ -1,0 +1,32 @@
+{
+  "summary": "Remove the timeout parameter from WorkflowUpdateHandle.GetResultAsync as it's redundant when users can achieve the same behavior using cancellation tokens, and the timeout is not present on WorkflowHandle.GetResultAsync for consistency.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "WorkflowUpdateHandle.GetResultAsync",
+    "WorkflowHandle.GetResultAsync"
+  ],
+  "components": [
+    "workflow-client",
+    "update-handle",
+    "async-api"
+  ],
+  "concepts": [
+    "timeout",
+    "cancellation-token",
+    "api-consistency",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users will need to migrate from using timeout parameters to cancellation tokens for controlling GetResultAsync timeouts, reducing API surface inconsistency.",
+  "rootCause": "Timeout parameter exists on WorkflowUpdateHandle.GetResultAsync but not on WorkflowHandle.GetResultAsync, creating inconsistency and redundancy since cancellation tokens provide equivalent functionality.",
+  "proposedFix": "Remove the timeout parameter from WorkflowUpdateHandle.GetResultAsync and rely on cancellation tokens for timeout control.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Timeout parameter was removed from WorkflowUpdateHandle.GetResultAsync to align with WorkflowHandle.GetResultAsync and leverage cancellation token functionality.",
+  "related": [],
+  "keyQuote": "Users can do this with the cancellation token if they want, no reason to have this if we're not also gonna have it on WorkflowHandle.GetResultAsync",
+  "number": 147,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:33:49.667Z"
+}

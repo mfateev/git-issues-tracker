@@ -1,0 +1,30 @@
+{
+  "summary": "Request for built-in Slack notification integration in Temporal Web UI to send custom messages on workflow events (failures, completion, etc.) without requiring custom SDK metrics implementation.",
+  "category": "feature",
+  "subcategory": "notifications",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "metrics",
+    "workflow-events"
+  ],
+  "concepts": [
+    "notifications",
+    "messaging-platform",
+    "observability",
+    "alerting",
+    "slack-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must implement custom SDK metrics for workflow notifications; built-in Slack integration would reduce development overhead.",
+  "rootCause": null,
+  "proposedFix": "Add Slack menu to Temporal Web UI with configurable custom message templates for workflow events, or export flexible Prometheus metrics with WorkflowID and WorkflowType.",
+  "workaround": "Implement custom SDK metrics to create notifications externally.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be great if there is a Slack menu in temporal web ui, allowing us to integrate with Slack and make custom messages",
+  "number": 5286,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:14.112Z"
+}

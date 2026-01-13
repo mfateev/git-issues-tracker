@@ -1,0 +1,33 @@
+{
+  "summary": "User needs to use Elasticsearch over HTTPS with self-signed certificates in auto-setup, but curl validation fails. Requests ability to pass custom curl parameters like --insecure or --cacert to make auto-setup work with private certificate infrastructure.",
+  "category": "feature",
+  "subcategory": "elasticsearch-setup",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "elasticsearch",
+    "docker-setup"
+  ],
+  "concepts": [
+    "https",
+    "self-signed-certificate",
+    "curl-parameters",
+    "ssl-validation",
+    "docker-setup",
+    "elasticsearch-connection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with HTTPS-only Elasticsearch clusters using self-signed certificates cannot use the provided auto-setup Docker image without creating custom scripts.",
+  "rootCause": "auto-setup.sh uses curl without options to accept self-signed certificates, and the auto-setup Docker container doesn't run as root so it cannot install custom CA certificates.",
+  "proposedFix": "Add ES_CURL_PARAMS environment variable option to allow users to pass custom curl parameters like -k or --cacert to the auto-setup script.",
+  "workaround": "Create a custom Docker image based on temporal/auto-setup or temporal-admin-tools that includes the custom certificate and a modified auto-setup script, or run temporal as a binary with pre-installed certificates instead of using Docker.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed after 30 days without implementation. Workaround via custom Docker images or temporal-admin-tools was suggested as alternative.",
+  "related": [
+    82
+  ],
+  "keyQuote": "Perhaps a more universal approach would be just to add the ES_CURL_PARAMS option.",
+  "number": 2502,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:36.179Z"
+}

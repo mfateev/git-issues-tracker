@@ -1,0 +1,38 @@
+{
+  "summary": "Workflow.getVersion() causes NonDeterministicError when used with multithreading and timers because it yields the thread, changing execution order and misaligning with recorded history. The issue affects workflow replay tests when getVersion() is added to existing code.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Workflow.getVersion",
+    "Workflow.sleep",
+    "ExecuteActivity",
+    "Async.procedure"
+  ],
+  "components": [
+    "workflow-context",
+    "state-machine",
+    "replay-engine",
+    "thread-scheduler"
+  ],
+  "concepts": [
+    "determinism",
+    "thread-ordering",
+    "history-replay",
+    "versioning",
+    "multithreading",
+    "event-sequencing",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely add Workflow.getVersion() to existing workflows without breaking replay tests, making it difficult to version workflow logic.",
+  "rootCause": "Workflow.getVersion() yields the current thread in SyncWorkflowContext.java:678, causing thread execution order to change and event IDs to mismatch the recorded history during replay.",
+  "proposedFix": "Make getVersion() not yield during replay when the version from history is default (indicating the original execution didn't have this call). Alternatively, add SDK metadata to workflow task started/completed to enable version-aware behavior decisions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It needs a very careful and probably very ugly fix to keep it backwards compatible. Only replay shouldn't yield and ONLY if the actual version from history is default",
+  "number": 1430,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:39.162Z"
+}

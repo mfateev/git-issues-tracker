@@ -1,0 +1,32 @@
+{
+  "summary": "SDKs should standardize gRPC max receive message size to 128MB across all language implementations. This ensures consistent behavior for handling large server responses like workflow history pages, though the actual limit may be constrained by server-side restrictions.",
+  "category": "feature",
+  "subcategory": "grpc-configuration",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "worker",
+    "configuration"
+  ],
+  "concepts": [
+    "message-size",
+    "grpc-limits",
+    "server-response",
+    "fairness",
+    "configuration-default"
+  ],
+  "severity": "low",
+  "userImpact": "Users get consistent, predictable gRPC message size behavior across different SDK language implementations.",
+  "rootCause": "Inconsistent default gRPC max receive message size across SDK implementations; Java and Go already set it to 128MB, but other SDKs don't.",
+  "proposedFix": "Set gRPC max receive message size default to 128MB in all SDKs (Java, Go, TS, Core) and add corresponding tests in sdk-features repo.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    794
+  ],
+  "keyQuote": "It will get rejected by server-side limits anyways usually, but that is exposed as a config and this is not so it's set high enough not to be hit hopefully",
+  "number": 46,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:44:33.037Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add support for delayed scheduling of activity tasks to avoid the overhead of using workflow.Sleep. Currently, delaying activity execution requires extra workflow actions.",
+  "category": "feature",
+  "subcategory": "activity-scheduling",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "scheduler",
+    "retry-handler"
+  ],
+  "concepts": [
+    "delay",
+    "scheduling",
+    "activity-execution",
+    "retry-timer",
+    "timing"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently must use workflow.Sleep as a workaround to delay activity execution, adding unnecessary workflow actions and complexity.",
+  "rootCause": null,
+  "proposedFix": "Reuse the existing activity retry timer mechanism for the first attempt if a delay is specified.",
+  "workaround": "Use workflow.Sleep to add delay before executing activity task.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ability to define a delay in scheduling activity task. Currently alternatives like using workflow.Sleep add extra actions",
+  "number": 7623,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:06.100Z"
+}

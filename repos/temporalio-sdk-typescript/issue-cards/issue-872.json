@@ -1,0 +1,31 @@
+{
+  "summary": "Dependency vulnerability in ajv-5.5.2 (CVE-2020-15366) transitively included via istanbul-instrumenter-loader and schema-utils. The vulnerability allows prototype pollution through carefully crafted JSON schemas, though the direct dependency has no available fix.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "build-tools",
+    "test-coverage",
+    "dependencies"
+  ],
+  "concepts": [
+    "vulnerability",
+    "prototype-pollution",
+    "json-schema-validation",
+    "transitive-dependency",
+    "security-patch",
+    "package-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are exposed to a prototype pollution vulnerability through a transitive dependency that could potentially lead to code execution if untrusted schemas are processed.",
+  "rootCause": "ajv-5.5.2 contains CVE-2020-15366 which allows prototype pollution via specially crafted JSON schemas; included transitively through istanbul-instrumenter-loader -> schema-utils -> ajv",
+  "proposedFix": "Upgrade ajv to version 6.12.3 or later, though this requires upgrading the direct dependencies that use it",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed/reopened by Mend automation; marked as resolved when vulnerable library was removed from inventory or marked as ignored",
+  "related": [],
+  "keyQuote": "CVE-2020-15366: A carefully crafted JSON schema could be provided that allows execution of other code by prototype pollution",
+  "number": 872,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:11.531Z"
+}

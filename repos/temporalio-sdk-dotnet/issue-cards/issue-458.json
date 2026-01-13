@@ -1,0 +1,31 @@
+{
+  "summary": "Memory corruption and segmentation faults occurring in ReserveCtxFromBridge when the server sends error responses (e.g., namespace not found), causing AccessViolationException and ArgumentNullException in .NET code that handles C bridge interop.",
+  "category": "bug",
+  "subcategory": "bridge-interop",
+  "apis": [],
+  "components": [
+    "CustomSlotSupplier",
+    "ByteArrayRef",
+    "C-bridge-client"
+  ],
+  "concepts": [
+    "memory-corruption",
+    "segfault",
+    "error-handling",
+    "interop",
+    "null-pointer",
+    "array-bounds"
+  ],
+  "severity": "critical",
+  "userImpact": "Workers crash with AccessViolationException or ArgumentNullException when the server returns error responses like namespace not found, making the SDK unstable in production.",
+  "rootCause": "ReserveCtxFromBridge is not properly handling null or invalid pointers from the C bridge when error responses are received from the server, causing attempts to dereference protected memory or convert null byte arrays to strings.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the null pointer handling and validation in ReserveCtxFromBridge to properly handle error responses from the server.",
+  "related": [],
+  "keyQuote": "Fatal error. System.AccessViolationException: Attempted to read or write protected memory. This is often an indication that other memory is corrupt.",
+  "number": 458,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:26:31.579Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Request to support OTEL_SERVICE_NAME environment variable to allow custom service name prefixes in OpenTelemetry traces. Currently all clusters in an organization appear under the same service name, making it difficult to distinguish between multiple instances managed by different teams.",
+  "category": "feature",
+  "subcategory": "observability-otel",
+  "apis": [],
+  "components": [
+    "metrics",
+    "otel-exporter",
+    "tracing"
+  ],
+  "concepts": [
+    "observability",
+    "service-name",
+    "environment-variables",
+    "otel-configuration",
+    "multi-tenant",
+    "trace-identification"
+  ],
+  "severity": "medium",
+  "userImpact": "Organizations with multiple teams running separate clusters cannot distinguish between instances in their traces without custom service name configuration.",
+  "rootCause": null,
+  "proposedFix": "Use OTEL_SERVICE_NAME environment variable to customize service.name: if set, use ${OTEL_SERVICE_NAME}.{history,frontend,matching}, else default to io.temporal.{history,frontend,matching}",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, suggesting the feature request was implemented or addressed",
+  "related": [],
+  "keyQuote": "Use OTEL_SERVICE_NAME env var to customize the service.name in the trace",
+  "number": 4042,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:48:58.459Z"
+}

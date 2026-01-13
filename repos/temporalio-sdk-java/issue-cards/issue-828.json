@@ -1,0 +1,37 @@
+{
+  "summary": "Request to expose a health check method on WorkflowServiceStubs or WorkflowClient to allow users to verify the underlying channel/connection to the Temporal server is healthy. This is a cross-SDK feature request with similar issues filed for Go and Node.js SDKs.",
+  "category": "feature",
+  "subcategory": "client-health-check",
+  "apis": [
+    "WorkflowServiceStubs",
+    "WorkflowClient"
+  ],
+  "components": [
+    "workflow-service-stubs",
+    "grpc-channel",
+    "client-connection"
+  ],
+  "concepts": [
+    "health-check",
+    "connection-status",
+    "grpc-health-service",
+    "client-reliability",
+    "server-connectivity",
+    "channel-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can programmatically verify their WorkflowClient connection to the Temporal server is healthy without attempting actual workflow operations.",
+  "rootCause": null,
+  "proposedFix": "Implement healthCheck method that invokes gRPC Health Checking Protocol on the workflow service and returns a boolean indicating health status.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Health check method was exposed on WorkflowServiceStubs following the gRPC health check protocol pattern.",
+  "related": [
+    595,
+    312
+  ],
+  "keyQuote": "Temporal SDK should expose a method like `WorkflowServiceStubs#healthCheck` or `WorkflowServiceStubs#isHealthy` that allows users to check if the WorkflowClient/WorkflowServiceStubs underlying channel / connection to Temporal server is healthy.",
+  "number": 828,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:44:50.263Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "User requests an option to opt-out of workflow isolation in the TypeScript SDK. Workflow isolation has caused significant memory and performance issues in production, and the user argues that the Go SDK's approach of trusting developers to write deterministic code would be preferable to managing the complexity and subtle bugs introduced by isolation.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "vm-context",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "workflow-isolation",
+    "determinism",
+    "memory-management",
+    "performance",
+    "event-loop",
+    "reusable-vm"
+  ],
+  "severity": "high",
+  "userImpact": "Users struggle with obscure memory leaks and performance degradation caused by workflow isolation complexities, making production debugging extremely difficult.",
+  "rootCause": "Workflow isolation with reusable V8 contexts creates subtle performance implications that are unintuitive and difficult to debug in production environments.",
+  "proposedFix": "Add an option to opt-out of workflow isolation entirely, creating new VM contexts only at worker startup and reusing them without isolation for the lifetime of the worker, leveraging only the microtask handling benefits.",
+  "workaround": "Set `reuseV8Context: false` in Worker options to create a new VM context for each workflow execution, though this trades off the performance benefits of context reuse.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1432,
+    1605,
+    1743
+  ],
+  "keyQuote": "I would rather teach my team to handle a transparent nondeterminism-error due to bad workflow code than to have issues like the one above.",
+  "number": 1557,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:37.260Z"
+}

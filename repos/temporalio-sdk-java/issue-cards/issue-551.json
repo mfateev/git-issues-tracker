@@ -1,0 +1,30 @@
+{
+  "summary": "ProtobufJsonPayloadConverter is using a default JsonFormat.Printer instead of the custom printer passed through the constructor, due to a variable shadowing issue on line 60.",
+  "category": "bug",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "ProtobufJsonPayloadConverter",
+    "JsonFormat.Printer",
+    "payload-converter"
+  ],
+  "concepts": [
+    "serialization",
+    "protobuf",
+    "json-conversion",
+    "configuration",
+    "variable-shadowing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize the JSON serialization behavior of Protocol Buffer payloads when using ProtobufJsonPayloadConverter.",
+  "rootCause": "Variable shadowing: a local JsonFormat.Printer is created on line 60, shadowing the instance field printer that holds the custom configuration.",
+  "proposedFix": "Use the instance field printer instead of creating a new default printer on line 60.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The variable shadowing issue was fixed to use the custom printer passed through the constructor.",
+  "related": [],
+  "keyQuote": "ProtobufJsonPayloadConverter using predefined (passed through constructor) JsonFormat.Printer",
+  "number": 551,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:24:17.018Z"
+}

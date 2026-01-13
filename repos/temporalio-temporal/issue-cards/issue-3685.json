@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in modernc.org/libc-v1.21.5 (CVE-2020-28928) affecting modernc.org/sqlite-v1.20.0. This is a buffer overflow in the wcsnrtombs function with CVSS score 5.5 (Medium severity), automatically resolved when the vulnerable library was removed from the dependency tree.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "modernc.org/sqlite",
+    "modernc.org/libc"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "buffer-overflow",
+    "transitive-dependency",
+    "cve",
+    "cvss"
+  ],
+  "severity": "medium",
+  "userImpact": "Potential availability impact through buffer overflow in character encoding functions, though practical exploitation requires local access and low privileges.",
+  "rootCause": "Buffer overflow in musl libc wcsnrtombs function when handling particular combinations of destination buffer size and source character limit.",
+  "proposedFix": "Upgrade musl to version 1.2.2-1 or 1.1.16-3+deb9u1, or update the modernc.org/sqlite and modernc.org/libc dependencies to versions with the fix applied.",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Automatically closed when the vulnerable library was no longer part of the Mend inventory or was marked as ignored.",
+  "related": [],
+  "keyQuote": "wcsnrtombs mishandles particular combinations of destination buffer size and source character limit, as demonstrated by an invalid write access (buffer overflow)",
+  "number": 3685,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:15.271Z"
+}

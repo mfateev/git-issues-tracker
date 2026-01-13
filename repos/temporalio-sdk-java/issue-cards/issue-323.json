@@ -1,0 +1,33 @@
+{
+  "summary": "Local activities incorrectly retry when throwing ApplicationFailure.newNonRetryableFailure, while regular activities handle this correctly. The non-retryable failure exception is being ignored by the local activity execution framework.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "Workflow.newLocalActivityStub",
+    "ApplicationFailure.newNonRetryableFailure"
+  ],
+  "components": [
+    "local-activity-executor",
+    "activity-retry-handler",
+    "failure-processing"
+  ],
+  "concepts": [
+    "retry-policy",
+    "non-retryable-failure",
+    "exception-handling",
+    "local-activities",
+    "activity-options"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot prevent local activities from retrying using non-retryable failures, forcing them to use workarounds like extensive doNotRetry exception lists.",
+  "rootCause": "Local activity execution framework does not properly recognize and respect ApplicationFailure.newNonRetryableFailure, treating it as a retriable failure instead.",
+  "proposedFix": null,
+  "workaround": "Use setDoNotRetry() with an extensive list of exceptions in LocalActivityOptions.RetryOptions.",
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "throwing with ApplicationFailure.newNonRetryableFailure in Activity (launched via Workflow.newLocalActivityStub) results for workflow to keep retrying, which is incorrect behavior.",
+  "number": 323,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:07:16.953Z"
+}

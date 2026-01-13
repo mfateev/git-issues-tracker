@@ -1,0 +1,33 @@
+{
+  "summary": "Users need the ability to specify a timeout for workflow start calls in Java SDK. Currently, there's no way to set a deterministic deadline (like Go's context deadline), causing issues when fallback workflows need guaranteed success/failure timing.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "grpc-transport",
+    "workflow-starter"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "retry-policy",
+    "gRPC-configuration",
+    "client-options",
+    "concurrent-fallback"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot guarantee workflow start succeeds or fails within a specific time window, preventing reliable fallback mechanisms and causing potential concurrent execution issues.",
+  "rootCause": "Java SDK lacks context/deadline support for gRPC calls, unlike Go SDK which uses context.Context with deadlines.",
+  "proposedFix": "Add ability to override gRPC timeout for StartWorkflow calls in the Java SDK client options.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If we can't start workflow for an operation in X secs, we have a fallback option. Now, the fallback option AND workflow can't run concurrently. Hence, it's important that the start workflow deterministically succeeds or fails within X secs.",
+  "number": 88,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:53:25.183Z"
+}

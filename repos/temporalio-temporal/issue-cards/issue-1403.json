@@ -1,0 +1,29 @@
+{
+  "summary": "tctl admin workflow show command currently filters history events using transaction ID logic, hiding uncommitted events. The request is to dump all history events without any filtering.",
+  "category": "feature",
+  "subcategory": "cli-tools",
+  "apis": [],
+  "components": [
+    "tctl",
+    "admin-command",
+    "workflow-history"
+  ],
+  "concepts": [
+    "history-events",
+    "transaction-filtering",
+    "uncommitted-events",
+    "diagnostic-tools"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot inspect uncommitted workflow history events when debugging workflows using tctl, limiting diagnostic capabilities.",
+  "rootCause": "tctl admin workflow show applies transaction ID filtering logic that was designed for other use cases, preventing visibility into all history events.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "tctl admin workflow show should dump all history events without filtering",
+  "number": 1403,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:43.209Z"
+}

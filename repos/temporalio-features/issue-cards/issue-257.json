@@ -1,0 +1,37 @@
+{
+  "summary": "The Update API currently writes failure events to history even when external calls fail without workflow mutations, causing rapid history bloat. The request is to support a pattern where failed external calls don't generate history events, enabling scalable \"short update\" operations that act like RPCs.",
+  "category": "feature",
+  "subcategory": "update-api",
+  "apis": [
+    "UpdateHandler",
+    "UpdateHandlerOptions",
+    "LocalActivity"
+  ],
+  "components": [
+    "update-handler",
+    "history-management",
+    "local-activity",
+    "state-machine"
+  ],
+  "concepts": [
+    "history-bloat",
+    "external-calls",
+    "local-activity",
+    "update-validation",
+    "workflow-state-mutation",
+    "scalability",
+    "idempotency"
+  ],
+  "severity": "high",
+  "userImpact": "Without this feature, frequent update failures with external calls cause uncontrolled history growth that limits workflow scalability in production systems.",
+  "rootCause": "Update API writes all failure events to history regardless of workflow state impact, and replaying to recover from cache invalidation causes significant service load.",
+  "proposedFix": "Allow validators or pre-update local activities that execute without persisting history events; if they fail, no state changes occur; if they succeed, results pass to the update handler.",
+  "workaround": "Users can call external systems before invoking the Update API and pass results directly, but this requires handling additional edge cases and race conditions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "this failure event will blow up the history very quickly. Hence this will become a scalability issue to use with Temporal.",
+  "number": 257,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:05.692Z"
+}

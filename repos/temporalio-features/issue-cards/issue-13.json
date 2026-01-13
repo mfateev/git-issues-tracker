@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to make long-poll timeout configurable across SDKs. Currently defaults to 70 seconds, but should allow users with special network setups to adjust this value for their needs.",
+  "category": "feature",
+  "subcategory": "long-poll-timeout",
+  "apis": [],
+  "components": [
+    "client",
+    "network",
+    "long-poll"
+  ],
+  "concepts": [
+    "timeout",
+    "long-poll",
+    "network-configuration",
+    "client-server-communication",
+    "advanced-settings"
+  ],
+  "severity": "low",
+  "userImpact": "Users with unique network setups cannot optimize long-poll timeouts for their environment, limiting SDK flexibility.",
+  "rootCause": null,
+  "proposedFix": "Make long-poll timeout value configurable in SDK client configuration, allowing users to override the default 70-second timeout.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    988
+  ],
+  "keyQuote": "Allow the value to be configurable",
+  "number": 13,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:35.711Z"
+}

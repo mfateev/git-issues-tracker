@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to create compatible encryption libraries across Temporal SDKs. Go and TypeScript encryption samples were incompatible, and the request proposed using NaCl-based encryption instead of AES for better cross-language compatibility.",
+  "category": "feature",
+  "subcategory": "encryption-compatibility",
+  "apis": [],
+  "components": [
+    "encryption",
+    "samples",
+    "typescript-sdk",
+    "go-sdk"
+  ],
+  "concepts": [
+    "encryption",
+    "cross-sdk-compatibility",
+    "cryptography",
+    "interoperability",
+    "authentication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need compatible encryption implementations across SDKs to securely pass data between workflows in different languages.",
+  "rootCause": "Different encryption implementations in TS and Go samples used different algorithms and approaches, making them incompatible with each other.",
+  "proposedFix": "Adjust both Go and TS encryption samples to use NaCl-based encryption (specifically secretbox for authenticated encryption) instead of AES-based encryption for cross-language compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The incompatibility was fixed by adjusting the TS crypto usage in a PR to make it compatible with the Go implementation, without needing to port all samples to nacl.",
+  "related": [],
+  "keyQuote": "I'd recommend nacl-based encryption instead of AES-based encryption for cross-language compatibility for many reasons.",
+  "number": 68,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:33.636Z"
+}

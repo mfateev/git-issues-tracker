@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add SDK support for activity reset functionality in the Python SDK, tracking feature parity with other SDKs.",
+  "category": "feature",
+  "subcategory": "activity-reset",
+  "apis": [
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "activity-context"
+  ],
+  "concepts": [
+    "activity-reset",
+    "state-management",
+    "workflow-replay",
+    "failure-recovery"
+  ],
+  "severity": "medium",
+  "userImpact": "Python SDK users cannot reset activities to retry from a specific point, limiting failure recovery capabilities.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activity reset support was implemented in the Python SDK to match feature parity across other SDKs.",
+  "related": [
+    620
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/620",
+  "number": 847,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:11.428Z"
+}

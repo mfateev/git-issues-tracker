@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to add task_queue name to long_request_latency metrics to help identify which task_queue is experiencing latency issues.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "long_request_latency"
+  ],
+  "concepts": [
+    "observability",
+    "task_queue",
+    "latency",
+    "monitoring",
+    "debugging"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily identify which task_queue is reporting low latency without additional task_queue context in the metrics.",
+  "rootCause": null,
+  "proposedFix": "Include task_queue name as a dimension in the long_request_latency metric.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be great to have the task_queue name in the metrics, as it helps identify which task_queue is reporting low latency.",
+  "number": 636,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:17:34.978Z"
+}

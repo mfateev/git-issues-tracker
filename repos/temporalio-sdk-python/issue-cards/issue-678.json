@@ -1,0 +1,32 @@
+{
+  "summary": "The create_schedule function incorrectly sets trigger_immediately to true even when explicitly set to false by the user, but backfills are provided. This logic bug causes schedules to trigger immediately regardless of user intent.",
+  "category": "bug",
+  "subcategory": "schedule-backfill",
+  "apis": [
+    "create_schedule"
+  ],
+  "components": [
+    "client",
+    "schedule-creation",
+    "backfill-handling"
+  ],
+  "concepts": [
+    "schedule",
+    "backfill",
+    "trigger-immediately",
+    "logic-bug",
+    "schedule-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who create schedules with backfills and explicitly set trigger_immediately=false will have their schedules trigger immediately, causing unexpected behavior.",
+  "rootCause": "The code unconditionally sets trigger_immediately to true when backfills are provided, ignoring the user's explicit configuration.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Logic was corrected to respect user's trigger_immediately setting when backfills are provided, aligning with .NET SDK behavior.",
+  "related": [],
+  "keyQuote": "we are always setting trigger immediately even if user set it to false but provided backfills. .NET properly does not set this.",
+  "number": 678,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:41.035Z"
+}

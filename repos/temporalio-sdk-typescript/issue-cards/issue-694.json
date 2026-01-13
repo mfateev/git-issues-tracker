@@ -1,0 +1,31 @@
+{
+  "summary": "Add WorkflowInfo.runStartTime property to TypeScript SDK to match functionality available in Go and Java SDKs. This provides access to the workflow run start timestamp.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "workflow-info"
+  ],
+  "concepts": [
+    "workflow-metadata",
+    "timestamps",
+    "run-lifecycle",
+    "api-parity",
+    "sdk-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "TypeScript SDK users cannot access the workflow run start time, limiting visibility into workflow execution timing information available in other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add runStartTime property to WorkflowInfo class, matching the existing getRunStartedTimestampMillis() method in Java SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged into the TypeScript SDK.",
+  "related": [],
+  "keyQuote": "Add `WorkflowInfo.runStartTime` to match Go and Java SDK functionality",
+  "number": 694,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:25.668Z"
+}

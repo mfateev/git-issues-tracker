@@ -1,0 +1,36 @@
+{
+  "summary": "Worker application hangs when ITemporalClient is injected via dependency injection instead of being instantiated directly. Creating the client outside the DI container appears to cause blocking behavior.",
+  "category": "bug",
+  "subcategory": "dependency-injection",
+  "apis": [
+    "TemporalClient.ConnectAsync",
+    "TemporalWorker"
+  ],
+  "components": [
+    "client",
+    "dependency-injection",
+    "worker",
+    "hosted-service"
+  ],
+  "concepts": [
+    "initialization",
+    "blocking",
+    "async",
+    "service-container",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Developers using .NET dependency injection patterns with ITemporalClient cannot use standard DI practices without their worker applications hanging on startup.",
+  "rootCause": "External creation of TemporalClient (outside DI container) does not properly integrate with the dependency injection lifecycle, causing synchronous blocking behavior.",
+  "proposedFix": null,
+  "workaround": "Create the TemporalClient directly within the Worker class instead of injecting it via the DI container.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was closed as a duplicate of #44, which addresses the broader problem of external client creation not working properly with .NET DI patterns.",
+  "related": [
+    44
+  ],
+  "keyQuote": "Creating a client on the outside of a DI container is not working (and it's not best practice).",
+  "number": 45,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:08:21.395Z"
+}

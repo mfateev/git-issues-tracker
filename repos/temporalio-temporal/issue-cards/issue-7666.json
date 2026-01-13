@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for a built-in concurrency limit (semaphore) per Workflow type to prevent too many instances of the same workflow from running simultaneously in a namespace or cluster. Users currently lack a native way to enforce this limit without custom dispatcher workflows or external distributed locks.",
+  "category": "feature",
+  "subcategory": "workflow-concurrency-control",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-dispatcher",
+    "concurrency-control",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "concurrency-limit",
+    "semaphore",
+    "throttling",
+    "workflow-type",
+    "resource-protection",
+    "batching"
+  ],
+  "severity": "high",
+  "userImpact": "Users must implement complex workarounds with custom dispatchers or external distributed locks to enforce per-workflow-type concurrency limits, increasing operational complexity and maintenance burden.",
+  "rootCause": null,
+  "proposedFix": "Add built-in semaphore/concurrency limit per Workflow type, configurable via API or workflow start options, so Temporal natively restricts simultaneously running workflows of a given type.",
+  "workaround": "Custom dispatcher workflows or external distributed locks can be used, though these solutions are complex, fragile, and operationally heavy.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A built-in semaphore would be a general and powerful solution for throttling, batching, and resource protection for a wide range of use cases.",
+  "number": 7666,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:45.713Z"
+}

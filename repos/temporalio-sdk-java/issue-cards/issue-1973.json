@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowUpdateException is incorrectly wrapped in ExecutionException during sync update calls when the update request exceeds the server's long poll deadline and the SDK switches to long polling. This unexpected wrapping is confusing to users who didn't await any future.",
+  "category": "bug",
+  "subcategory": "workflow-update",
+  "apis": [
+    "WorkflowUpdateException",
+    "ExecutionException"
+  ],
+  "components": [
+    "workflow-client",
+    "update-handler",
+    "long-polling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "long-polling",
+    "timeout",
+    "sync-calls",
+    "update-requests"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive unexpected ExecutionException wrapping when workflow updates timeout and trigger long polling, making error handling inconsistent.",
+  "rootCause": "When an update request exceeds the server's long poll deadline during a sync call, the SDK switches to long polling and incorrectly wraps WorkflowUpdateException in ExecutionException.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the incorrect exception wrapping was addressed.",
+  "related": [],
+  "keyQuote": "WorkflowUpdateException may be wrapped in a ExecutionException on a sync update call if the update request could not finish in the servers long poll deadline",
+  "number": 1973,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:51.199Z"
+}

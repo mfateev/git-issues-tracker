@@ -1,0 +1,30 @@
+{
+  "summary": "When the `self` parameter is type-hinted (e.g., `self: Self`), it is not properly ignored during parameter deserialization, causing it to be incorrectly included in the deserialized arguments.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "common",
+    "deserialization",
+    "type-hints"
+  ],
+  "concepts": [
+    "parameter-deserialization",
+    "self-parameter",
+    "type-hints",
+    "type-annotation",
+    "method-signature"
+  ],
+  "severity": "high",
+  "userImpact": "Users with type-hinted self parameters in their workflow/activity methods will experience deserialization failures or incorrect parameter binding.",
+  "rootCause": "The deserialization logic in temporalio/common.py#L235 does not account for type-hinted self parameters and only ignores untyped self.",
+  "proposedFix": "Improve the logic to detect and ignore self parameters regardless of whether they have type hints.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to see if we can be smarter about ignoring `self`.",
+  "number": 318,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:32.470Z"
+}

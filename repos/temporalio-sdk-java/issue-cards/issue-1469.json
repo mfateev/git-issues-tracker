@@ -1,0 +1,29 @@
+{
+  "summary": "CVE-2022-42003 vulnerability detected in jackson-databind 2.13.4 dependency used in temporal-spring-boot-starter-alpha. The vulnerability allows resource exhaustion through deep wrapper array nesting when UNWRAP_SINGLE_VALUE_ARRAYS feature is enabled, with CVSS score of 7.5.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "jackson-databind",
+    "spring-boot-starter",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "resource-exhaustion",
+    "deserialization",
+    "dependency-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the Spring Boot starter are vulnerable to denial-of-service attacks through crafted JSON payloads exploiting the jackson-databind vulnerability.",
+  "rootCause": "Lack of check in primitive value deserializers to avoid deep wrapper array nesting when UNWRAP_SINGLE_VALUE_ARRAYS feature is enabled in jackson-databind 2.13.4.",
+  "proposedFix": "Upgrade jackson-databind to version 2.14.0-rc1 or later to fix the resource exhaustion vulnerability.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend when the vulnerable library was marked as ignored or removed from the Mend inventory.",
+  "related": [],
+  "keyQuote": "resource exhaustion can occur because of a lack of a check in primitive value deserializers to avoid deep wrapper array nesting",
+  "number": 1469,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:36:15.334Z"
+}

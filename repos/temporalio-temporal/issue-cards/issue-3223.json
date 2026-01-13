@@ -1,0 +1,30 @@
+{
+  "summary": "A panic occurs in loadClusterInformationFromStore due to assignment to a nil map when starting the Temporal server with a MySQL configuration. This should return a well-formatted error instead of panicking.",
+  "category": "bug",
+  "subcategory": "cluster-metadata",
+  "apis": [],
+  "components": [
+    "fx",
+    "cluster-metadata",
+    "configuration"
+  ],
+  "concepts": [
+    "nil-map",
+    "panic",
+    "initialization",
+    "error-handling",
+    "startup"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start the Temporal server with certain configurations as the application crashes with a panic instead of providing a helpful error message.",
+  "rootCause": "The loadClusterInformationFromStore function attempts to assign values to a map that was never initialized (nil map), causing a panic at line 733 in temporal/fx.go.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "resolution": null,
+  "resolutionDetails": null,
+  "keyQuote": "panic: assignment to entry in nil map in `loadClusterInformationFromStore`",
+  "number": 3223,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:19.986Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Implement a Schedules API for the .NET SDK to match functionality available in other Temporal SDKs. This feature request tracks the need to add support for scheduling workflows.",
+  "category": "feature",
+  "subcategory": "schedules-api",
+  "apis": [
+    "Schedule"
+  ],
+  "components": [
+    "schedule-manager",
+    "client-api",
+    "sdk-core"
+  ],
+  "concepts": [
+    "scheduling",
+    "recurring-workflows",
+    "delayed-execution",
+    "workflow-automation",
+    "cron-triggers"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot schedule workflows with the .NET SDK, limiting their ability to implement time-based workflow automation that other SDK users can access.",
+  "rootCause": null,
+  "proposedFix": "Implement schedules API following the patterns established in other SDKs",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Schedules API has been implemented in the .NET SDK",
+  "related": [],
+  "keyQuote": "Implement schedules API as has been implemented in other SDKs",
+  "number": 23,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:07:15.268Z"
+}

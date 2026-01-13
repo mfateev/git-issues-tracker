@@ -1,0 +1,30 @@
+{
+  "summary": "The CLI 'namespace update' command incorrectly reports success when users specify a retention period in a non-day format (e.g., '0h10m0s'). The command fails to parse non-integer retention values but does not indicate the failure, leaving users unaware that the update did not occur.",
+  "category": "bug",
+  "subcategory": "cli-namespace-management",
+  "apis": [],
+  "components": [
+    "cli",
+    "namespace-update",
+    "flag-parsing"
+  ],
+  "concepts": [
+    "retention-period",
+    "flag-validation",
+    "error-handling",
+    "user-feedback",
+    "input-parsing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive misleading success messages when attempting to update namespace retention with non-day durations, leading to confusion and undetected configuration failures.",
+  "rootCause": "The CLI flag parser only accepts integer values for the '--retention' flag and fails silently when given duration strings, without reporting an error to the user.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.16.1 where the namespace update command now properly handles duration formats like '0h10m0s' and reports the correct retention period.",
+  "related": [],
+  "keyQuote": "Notice that the CLI reported success when in fact the retention period had not been updated (presumably because it failed to parse the supplied retention value as an integer).",
+  "number": 944,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:15:01.929Z"
+}

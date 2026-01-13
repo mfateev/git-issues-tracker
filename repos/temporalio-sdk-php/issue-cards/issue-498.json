@@ -1,0 +1,32 @@
+{
+  "summary": "DataConverter error when receiving empty values with regular Workflow Stubs in PHP SDK. Previously reported issue #442 was not fully resolved for this use case.",
+  "category": "bug",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "workflow-stub",
+    "payload-handling"
+  ],
+  "concepts": [
+    "serialization",
+    "empty-values",
+    "type-conversion",
+    "interoperability",
+    "encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience crashes when receiving empty array payloads from Go SDK due to missing DataConverter configuration.",
+  "rootCause": "DataConverter validation occurs even for empty payloads that don't require decoding, causing errors with Typed Workflow Stubs.",
+  "proposedFix": null,
+  "workaround": "Use Untyped Workflow Stub instead of regular Stub to avoid the error.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in a subsequent update to properly handle empty payloads without requiring DataConverter.",
+  "related": [
+    442
+  ],
+  "keyQuote": "After some recent updates PHP SDK begin to fail on empty array payloads from Golang SDK, while we get EncodedValues their payloads are empty",
+  "number": 498,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:18.107Z"
+}

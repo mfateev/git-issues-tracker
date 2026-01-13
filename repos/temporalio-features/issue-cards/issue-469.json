@@ -1,0 +1,42 @@
+{
+  "summary": "The start_update API is synchronous and blocks waiting for the remote worker to accept the update, which misleads users into thinking it's fully asynchronous like start_activity and start_workflow. Users should be forced to explicitly specify what stage they're waiting for (ACCEPTED or COMPLETED) to make the blocking behavior clear.",
+  "category": "feature",
+  "subcategory": "updates-api",
+  "apis": [
+    "StartUpdate"
+  ],
+  "components": [
+    "update-handler",
+    "worker",
+    "client"
+  ],
+  "concepts": [
+    "synchronous-blocking",
+    "worker-availability",
+    "async-semantics",
+    "explicit-configuration",
+    "durable-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may unknowingly create dependencies on remote worker availability, potentially causing outages in critical services.",
+  "rootCause": "The API defaults to synchronous behavior (waiting for worker acceptance) without requiring explicit configuration, making the blocking nature non-obvious.",
+  "proposedFix": "Force customers to explicitly pass a wait_for_stage flag (ACCEPTED/COMPLETED) when calling start_update, and clarify in comments that the remote worker must be present.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented required wait_for_stage flag across SDKs to make synchronous behavior explicit.",
+  "related": [
+    431,
+    432,
+    1449,
+    2045,
+    1403,
+    514,
+    231,
+    426,
+    597
+  ],
+  "keyQuote": "force customers to explicitly pass in a flag saying what's being awaited",
+  "number": 469,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:43.539Z"
+}

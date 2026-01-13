@@ -1,0 +1,32 @@
+{
+  "summary": "Update the TypeScript SDK and samples to support Node.js versions 18.x through 22.x and TypeScript 5.x to align with current platform and language standards.",
+  "category": "feature",
+  "subcategory": "version-compatibility",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "samples",
+    "build-system"
+  ],
+  "concepts": [
+    "node-version",
+    "typescript-version",
+    "compatibility",
+    "platform-support",
+    "dependency-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on newer Node.js versions (18.x-22.x) need explicit SDK support to ensure compatibility and access to latest language features.",
+  "rootCause": null,
+  "proposedFix": "Update SDK dependencies and samples to support Node 18.x through 22.x with TypeScript 5.x",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #1586 which implemented the Node version range updates",
+  "related": [
+    1586
+  ],
+  "keyQuote": "Update both SDK and samples repos to Node v18..v22, and TypeScript 5.x.",
+  "number": 1568,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:50.360Z"
+}

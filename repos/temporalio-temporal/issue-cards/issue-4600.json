@@ -1,0 +1,32 @@
+{
+  "summary": "Request to use separate task queues for activity and workflow task retries to enable different retry behaviors based on error codes and prevent cascading failures across healthy tasks.",
+  "category": "feature",
+  "subcategory": "retry-policy",
+  "apis": [],
+  "components": [
+    "retry-policy",
+    "task-queue",
+    "activity-executor",
+    "workflow-task-processor"
+  ],
+  "concepts": [
+    "retry",
+    "task-queue",
+    "error-handling",
+    "rate-limiting",
+    "backoff",
+    "error-code-based-routing"
+  ],
+  "severity": "medium",
+  "userImpact": "Applications need fine-grained control over retry behavior based on error types, and improved isolation between failing and healthy task processing.",
+  "rootCause": "Current retry mechanism uses a single task queue for all retries, preventing error-specific retry strategies and causing failures to cascade across all tasks in the queue.",
+  "proposedFix": "Implement separate task queues (possibly dynamic and rate-limited) for retrying activities/workflows that fail with specific error codes, allowing differentiated retry behavior and preventing cascading failures.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Use a different rate limited task queue to retry activities in certain scenarios. This way retries of activities that failed with a specific error code would be scheduled in a separate task queue.",
+  "number": 4600,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:14.338Z"
+}

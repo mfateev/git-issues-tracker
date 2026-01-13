@@ -1,0 +1,32 @@
+{
+  "summary": "instanceof checks fail on WorkflowInfo fields because the info object is created outside the VM context, causing type checks like `searchAttributes.CustomIntField instanceof Array` to return false.",
+  "category": "bug",
+  "subcategory": "workflow-context",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-context",
+    "type-checking",
+    "vm-isolation"
+  ],
+  "concepts": [
+    "instanceof",
+    "type-checking",
+    "object-serialization",
+    "vm-boundary",
+    "search-attributes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably determine types of WorkflowInfo fields using instanceof checks, making type-safe code patterns impossible.",
+  "rootCause": "WorkflowInfo object is created outside the VM context, so instanceof checks against built-in types fail due to different prototype chains.",
+  "proposedFix": "Serialize WorkflowInfo to JSON and deserialize it within the VM context to ensure proper prototype chains, or provide type-safe accessors.",
+  "workaround": "Dump to JSON and reconstruct the object within the workflow VM context.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by ensuring WorkflowInfo objects are properly contextualized within the VM so instanceof checks work correctly.",
+  "related": [],
+  "keyQuote": "workflowInfo().searchAttributes.CustomIntField instanceof Array returns false since the info object is created outside the vm",
+  "number": 659,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:21.319Z"
+}

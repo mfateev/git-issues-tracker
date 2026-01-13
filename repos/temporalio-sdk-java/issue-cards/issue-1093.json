@@ -1,0 +1,32 @@
+{
+  "summary": "ResetWorkflowExecution API is not implemented in the in-memory Test Server, causing UNIMPLEMENTED gRPC errors when tests attempt to use this method without an external Temporal service.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ResetWorkflowExecution"
+  ],
+  "components": [
+    "test-server",
+    "workflow-service",
+    "grpc"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "test-execution",
+    "in-memory-testing",
+    "api-compatibility",
+    "test-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot test workflow reset functionality using the in-memory test server and must resort to using external Temporal services or dockerized instances for reset-related tests.",
+  "rootCause": "ResetWorkflowExecution method is not implemented in the test server's WorkflowService implementation.",
+  "proposedFix": "Implement ResetWorkflowExecution support in the test server, possibly as a simplified version.",
+  "workaround": "Use dockerized Temporal or set useExternalService to true for tests that need to cover workflow reset.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Method temporal.api.workflowservice.v1.WorkflowService/ResetWorkflowExecution is unimplemented",
+  "number": 1093,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:05:01.262Z"
+}

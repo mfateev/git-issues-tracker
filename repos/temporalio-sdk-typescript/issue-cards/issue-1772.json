@@ -1,0 +1,31 @@
+{
+  "summary": "Source map parsing during worker initialization consumes excessive RAM (2GB+), particularly when running multiple workers on a single machine. The issue is caused by the extractSourceMap function loading entire source maps into memory without optimization.",
+  "category": "bug",
+  "subcategory": "worker-initialization",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundle-loader",
+    "source-map-consumer"
+  ],
+  "concepts": [
+    "memory-usage",
+    "source-maps",
+    "worker-startup",
+    "performance",
+    "bundle-parsing",
+    "resource-optimization"
+  ],
+  "severity": "high",
+  "userImpact": "Workers consume excessive memory during boot (2GB+) when running multiple workers on a single machine, making large-scale deployments impractical.",
+  "rootCause": "The extractSourceMap function and SourceMapConsumer load entire source maps into memory without lazy-loading or memory-efficient parsing strategies.",
+  "proposedFix": "Add an option to disable source map extraction during bundling via webpackConfigHook, with proper error handling in downstream consumers like addWorkflowBundle.",
+  "workaround": "Load workers synchronously with global.gc() calls between them to manage memory pressure, or pre-build bundles in CI/CD without source maps.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "They sometimes take up over 2GB of RAM simply from parsing the source maps. I am curious if there is a way to optionally allow turning off source maps?",
+  "number": 1772,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:52.641Z"
+}

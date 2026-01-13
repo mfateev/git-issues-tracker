@@ -1,0 +1,35 @@
+{
+  "summary": "Task failures during child workflow startup, particularly those occurring in failure conversion logic within QueueNewTaskAsync, may not be properly caught and logged, resulting in lost error information. The issue affects StartChildWorkflowAsync and potentially other callsites.",
+  "category": "bug",
+  "subcategory": "child-workflows",
+  "apis": [
+    "StartChildWorkflowAsync",
+    "QueueNewTaskAsync"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "task-queuing",
+    "error-handling"
+  ],
+  "concepts": [
+    "task-failure",
+    "error-conversion",
+    "exception-handling",
+    "failure-logging",
+    "activation-exception"
+  ],
+  "severity": "high",
+  "userImpact": "Users may lose visibility into workflow task failures, making it difficult to diagnose and troubleshoot issues in child workflows.",
+  "rootCause": "QueueNewTaskAsync callers are not catching all errors that occur in lambda/task execution, particularly failure conversion errors, and not setting currentActivationException or logging them appropriately.",
+  "proposedFix": "Implement comprehensive error catching for all QueueNewTaskAsync callsites to set currentActivationException and ensure adequate logging of task failures, either at individual callsites or at a general level.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    492
+  ],
+  "keyQuote": "if an error on failure conversion occurs in there, we are not logging it because we are not logging/catching all errors for QueueNewTaskAsync",
+  "number": 588,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:38:58.371Z"
+}

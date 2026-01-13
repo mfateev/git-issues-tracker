@@ -1,0 +1,36 @@
+{
+  "summary": "Workflow info start time is using activation/task start time instead of the actual workflow start time from the initialize job. The team decided to document the current behavior and add a new field for workflow start time rather than changing the existing behavior for backwards compatibility.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow.Info",
+    "StartTime",
+    "WorkflowStartTime"
+  ],
+  "components": [
+    "workflow-info",
+    "task-execution",
+    "initialization"
+  ],
+  "concepts": [
+    "start-time",
+    "workflow-lifecycle",
+    "task-processing",
+    "backwards-compatibility",
+    "api-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers relying on Workflow.Info.StartTime get the task activation time instead of the actual workflow start time, which may cause timing-related bugs in their applications.",
+  "rootCause": "The initialization process uses activation/task start time to populate workflow info start time instead of the start time from the initialize job.",
+  "proposedFix": "Add a new Workflow.Info.WorkflowStartTime field representing the actual workflow start time while documenting that the existing StartTime field represents task start time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Team decided to document that Workflow.Info.StartTime is the task start time and add a new Workflow.Info.WorkflowStartTime field for the actual workflow start time, avoiding a breaking change.",
+  "related": [
+    849
+  ],
+  "keyQuote": "we will document that `Workflow.Info.StartTime` is the task start time and add a new `Workflow.Info.WorkflowStartTime` representing workflow start time",
+  "number": 462,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:27:51.155Z"
+}

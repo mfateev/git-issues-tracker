@@ -1,0 +1,36 @@
+{
+  "summary": "Worker.runReplayHistory() doesn't automatically handle serialized History objects from fetchHistory(). Users must manually convert with History.fromObject(), creating confusion since the method already handles Web UI/CLI JSON formats differently.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Worker.runReplayHistory",
+    "fetchHistory",
+    "History.fromObject"
+  ],
+  "components": [
+    "worker",
+    "replay-engine",
+    "serialization",
+    "history-management"
+  ],
+  "concepts": [
+    "serialization",
+    "testing",
+    "workflow-replay",
+    "JSON-format",
+    "proto-serialization",
+    "history-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to serialize and replay workflow histories from fetchHistory() encounter confusing proto serialization errors and must manually convert using History.fromObject().",
+  "rootCause": "runReplayHistory() detects and auto-converts Web UI/CLI JSON format but doesn't recognize History objects serialized via JSON.stringify(), requiring manual History.fromObject() conversion.",
+  "proposedFix": "Enhance runReplayHistory() to automatically detect and convert History objects serialized as JSON using History.fromObject(), similar to existing Web UI/CLI format handling.",
+  "workaround": "Use History.fromObject(JSON.parse(serializedHistory)) to manually convert serialized History objects before passing to runReplayHistory().",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "What would be nice is if it could also detect where it's being passed a History object serialized into a JSON object",
+  "number": 1362,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:01.825Z"
+}

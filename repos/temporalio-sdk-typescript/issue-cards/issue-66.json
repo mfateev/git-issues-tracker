@@ -1,0 +1,30 @@
+{
+  "summary": "Add API documentation generation to the TypeScript SDK release flow. Publish generated docs to a docs branch organized by package version.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [],
+  "components": [
+    "build-system",
+    "release-flow",
+    "documentation-generator"
+  ],
+  "concepts": [
+    "documentation",
+    "api-docs",
+    "versioning",
+    "release-process",
+    "build-automation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily access offline API documentation for the TypeScript SDK without building it locally.",
+  "rootCause": null,
+  "proposedFix": "Integrate documentation generation into the release flow and publish to docs branch under package version folders. Integrate with main documentation site.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Docs integrated into the documentation site via temporalio/documentation#354. Versioned docs support planned for future.",
+  "related": [],
+  "keyQuote": "Docs will be integrated into the docs site. We'll add versioned docs once the documentation repo supports it.",
+  "number": 66,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:55:53.911Z"
+}

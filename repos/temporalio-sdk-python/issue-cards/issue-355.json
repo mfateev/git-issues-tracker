@@ -1,0 +1,32 @@
+{
+  "summary": "Handle signals with incorrect argument counts gracefully by logging and dropping them instead of failing the workflow task. Should validate argument count matches the signal definition's parameter requirements.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-dispatcher",
+    "signal-definition",
+    "workflow-task"
+  ],
+  "concepts": [
+    "signal-validation",
+    "argument-matching",
+    "error-handling",
+    "arity-checking",
+    "workflow-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Prevents workflows from failing due to signal arity mismatches, improving robustness when signals are sent with incorrect argument counts.",
+  "rootCause": null,
+  "proposedFix": "Add min/max parameter count validation to _SignalDefinition and check signal arguments against these bounds before invoking the handler.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    349
+  ],
+  "keyQuote": "Try to make sure there is one argument for every required parameter and no more than accepted (varargs notwithstanding).",
+  "number": 355,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:04.785Z"
+}

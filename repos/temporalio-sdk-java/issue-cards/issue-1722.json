@@ -1,0 +1,32 @@
+{
+  "summary": "When a workflow receives a signal in the final workflow task that starts a local activity, the workflow hangs with an INVALID_ARGUMENT error due to improper command sequencing. The CompleteWorkflowExecution command is issued before RecordMarker commands from the signal's local activity, violating the requirement that CompleteWorkflowExecution must be the last command.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "signal-handler",
+    "local-activity",
+    "command-sequencing"
+  ],
+  "concepts": [
+    "workflow-completion",
+    "signal-processing",
+    "command-ordering",
+    "local-activity",
+    "workflow-task",
+    "async-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows that receive signals in the final task containing local activities will hang and fail with a command sequence error, preventing workflow completion.",
+  "rootCause": "CompleteWorkflowExecution command is issued immediately upon workflow method completion before all pending signal-related commands (like RecordMarker from local activities) are issued, violating command ordering constraints.",
+  "proposedFix": "Three options proposed: (1) defer CompleteWorkflowExecution to end of workflow task, (2) defer until all workflow threads complete, or (3) discard commands after CompleteWorkflowExecution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If workflow receives a signal with the last workflow task and this signal starts a local activity... it leads to INVALID_ARGUMENT: invalid command sequence: [CompleteWorkflowExecution, RecordMarker]",
+  "number": 1722,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:37.825Z"
+}

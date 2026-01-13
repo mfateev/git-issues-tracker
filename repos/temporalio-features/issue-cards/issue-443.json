@@ -1,0 +1,31 @@
+{
+  "summary": "User requests the ability to limit the number of activity tasks that a worker polls, enabling graceful shutdown and non-multi-tenant configurations. The feature would prevent workers from accepting new tasks while long-running activities complete without losing progress.",
+  "category": "feature",
+  "subcategory": "activity-polling",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-poller",
+    "slot-supplier"
+  ],
+  "concepts": [
+    "polling",
+    "graceful-shutdown",
+    "concurrency-limits",
+    "task-queueing",
+    "long-running-activities",
+    "non-blocking-pause"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot gracefully shutdown workers with long-running activities without losing progress or implement single-slot polling for non-multi-tenant services.",
+  "rootCause": "The activity poller lacks a configurable limit on concurrent polling tasks and doesn't support pausing after slot acquisition to enable graceful shutdown.",
+  "proposedFix": "Implement MaximumPollTaskPerPoller configuration or add a PauseableSlotSupplier interface that pauses polling after acquiring a slot, with discussion of more sophisticated semantics like invalidating unused slots.",
+  "workaround": "Shutdown the worker as the last action in an activity's finally block to stop polling before the slot is released.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be nice number of times an activity worker can poll tasks, as our service is currently not multi-tenant, and we would like to set it to 1.",
+  "number": 443,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:30.956Z"
+}

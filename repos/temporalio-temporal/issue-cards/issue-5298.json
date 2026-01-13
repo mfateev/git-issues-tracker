@@ -1,0 +1,33 @@
+{
+  "summary": "User asks whether child workflows can inherit search attributes from their parent workflow. When starting a child workflow with search attributes using Go SDK, the child workflow does not appear to inherit those search attributes from the parent context.",
+  "category": "question",
+  "subcategory": "child-workflows",
+  "apis": [
+    "GetChildWorkflowOptions",
+    "WithChildOptions"
+  ],
+  "components": [
+    "workflow-context",
+    "child-workflow-executor",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "context-inheritance",
+    "workflow-hierarchy",
+    "child-workflows",
+    "metadata-propagation"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to propagate search attributes to child workflows are unable to do so, requiring manual reimplementation of search attributes for nested workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "when that workflow then spawns another workflow, I was hoping the SearchAttributes would be inherited",
+  "number": 5298,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:14.917Z"
+}

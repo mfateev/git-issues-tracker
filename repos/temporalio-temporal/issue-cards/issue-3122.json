@@ -1,0 +1,29 @@
+{
+  "summary": "User asked about cleaning up history_node and history_tree database tables that grow indefinitely in MySQL. Issue resolved by explaining that data is automatically removed after the workflow retention period.",
+  "category": "question",
+  "subcategory": "database-cleanup",
+  "apis": [],
+  "components": [
+    "history-tables",
+    "persistence",
+    "database"
+  ],
+  "concepts": [
+    "data-retention",
+    "storage-management",
+    "database-cleanup",
+    "mysql"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be concerned about unbounded database growth and need to understand the retention mechanism for automatic cleanup.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Reduce the workflow retention time to a shorter duration if storage becomes a concern.",
+  "resolution": "invalid",
+  "resolutionDetails": "Resolved by clarifying that data in history tables is automatically removed after workflow retention time expires.",
+  "related": [],
+  "keyQuote": "Data in history tables will be removed after workflow retention time. You may want to reduce your retention time to a shorter duration if the storage become a concern.",
+  "number": 3122,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:02.995Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Open tracing span context is not propagated when activities or child workflows are invoked asynchronously, resulting in isolated traces instead of a continuous trace chain. The issue was fixed for both Kotlin method references and async lambdas.",
+  "category": "bug",
+  "subcategory": "distributed-tracing",
+  "apis": [
+    "Async.procedure",
+    "Async.function",
+    "StartChildWorkflowExecution"
+  ],
+  "components": [
+    "opentracing",
+    "async-invocation",
+    "context-propagation",
+    "child-workflow"
+  ],
+  "concepts": [
+    "span-context",
+    "trace-propagation",
+    "async-execution",
+    "observability",
+    "distributed-tracing",
+    "kotlin-interop"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot correlate async activity and child workflow execution with parent workflow traces, making debugging and monitoring distributed workflows difficult.",
+  "rootCause": "Span context was not being propagated through the async invocation mechanism for both lambda-based and method reference-based async calls.",
+  "proposedFix": null,
+  "workaround": "Use synchronous activity/workflow invocation instead of async patterns for tracing to work correctly.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed span context propagation for both Kotlin method references and async lambdas. Tests were added in da1a432 to verify OT context propagation to child workflows.",
+  "related": [],
+  "keyQuote": "Result trace for the main WF doesn't contain spans for async activities / child WF - their execution is represented in isolated traces instead.",
+  "number": 537,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:24:18.813Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Test 'Can update schedule action' fails with 'context deadline exceeded' error during ScheduleClient.describe() call. The gRPC deadline is being exceeded when updating schedule actions in the TypeScript SDK test suite.",
+  "category": "bug",
+  "subcategory": "schedules",
+  "apis": [
+    "ScheduleClient.describe",
+    "ScheduleClient.update"
+  ],
+  "components": [
+    "schedule-client",
+    "test-framework",
+    "grpc-client"
+  ],
+  "concepts": [
+    "deadline",
+    "timeout",
+    "gRPC",
+    "context",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests fail intermittently during schedule operations, blocking CI/CD pipelines and potentially masking real issues.",
+  "rootCause": "gRPC context deadline exceeded during ScheduleClient._describeSchedule operation, suggesting either insufficient timeout configuration or server-side performance degradation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through timeout configuration or server-side performance improvements.",
+  "related": [],
+  "keyQuote": "context deadline exceeded",
+  "number": 967,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:25:08.192Z"
+}

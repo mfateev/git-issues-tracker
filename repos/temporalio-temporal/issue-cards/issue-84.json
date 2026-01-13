@@ -1,0 +1,32 @@
+{
+  "summary": "Reorganize tests into clear categories (pure unit, integration with database/mocks, integration without mocks using onebox, and end-to-end) with dedicated Makefile targets and local run instructions.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "makefile",
+    "testing-infrastructure"
+  ],
+  "concepts": [
+    "test-categorization",
+    "unit-testing",
+    "integration-testing",
+    "end-to-end-testing",
+    "test-isolation",
+    "dependency-management",
+    "test-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to run targeted test suites with clear understanding of what each category tests and what dependencies are required.",
+  "rootCause": null,
+  "proposedFix": "Create four test categories with separate Makefile targets: pure unit tests, integration suite 0 (with database/mocks), integration suite 1 (with onebox server), and end-to-end tests (with real temporal-server).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to categorize all tests: Pure unit tests, Integration tests Suite 0/1, End to end tests",
+  "number": 84,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:16:58.636Z"
+}

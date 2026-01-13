@@ -1,0 +1,30 @@
+{
+  "summary": "Memory usage in the canary process continuously increases over time, eventually exhausting 1GB of memory after about three days and causing an out-of-memory (OOM) kill in the Kubernetes cluster.",
+  "category": "bug",
+  "subcategory": "canary-memory-leak",
+  "apis": [],
+  "components": [
+    "canary",
+    "memory-management",
+    "process-lifecycle"
+  ],
+  "concepts": [
+    "memory-leak",
+    "resource-exhaustion",
+    "long-running-process",
+    "container-orchestration",
+    "oom-killer"
+  ],
+  "severity": "high",
+  "userImpact": "Users running canary monitoring cannot maintain continuous operation as the process will be killed by OOM after several days of execution.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through memory leak identification and fix in the canary implementation.",
+  "related": [],
+  "keyQuote": "The memory usage of the canary process is always increasing, and after about three days it eventually used up 1GB of memory",
+  "number": 411,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:55:58.185Z"
+}

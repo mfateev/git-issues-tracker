@@ -1,0 +1,33 @@
+{
+  "summary": "Signal methods in Java SDK currently execute in separate threads per signal, allowing concurrent handling. Request is to add threading configuration option to @SignalMethod to support single-threaded sequential signal processing with built-in queueing.",
+  "category": "feature",
+  "subcategory": "signal-threading",
+  "apis": [
+    "SignalMethod"
+  ],
+  "components": [
+    "signal-dispatcher",
+    "workflow-threading",
+    "signal-handler"
+  ],
+  "concepts": [
+    "threading",
+    "concurrency",
+    "signal-delivery",
+    "flow-control",
+    "queueing",
+    "thread-pool"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily enforce sequential signal processing, limiting their ability to control signal handling flow and implement backpressure mechanisms.",
+  "rootCause": "Signal dispatch architecture uses thread-per-signal model without configuration options for alternative threading strategies.",
+  "proposedFix": "Add @SignalMethod parameter to configure threading mode (e.g., single-threaded vs multi-threaded), defaulting to single-thread with option for concurrent dispatch.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Default signal handling to a single thread and provide an option through @SignalMethod parameter to multithreaded dispatch.",
+  "number": 214,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:02:04.897Z"
+}

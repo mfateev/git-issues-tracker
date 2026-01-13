@@ -1,0 +1,30 @@
+{
+  "summary": "Operators need namespace-level rate limiting controls that align with SDK-centric metrics (workflows/s, activities/s, signals/s, timers/s) rather than low-level system metrics like persistence QPS or frontend RPS. Current rate limiting options lack the granularity needed for per-namespace enforcement based on projected user loads.",
+  "category": "feature",
+  "subcategory": "rate-limiting",
+  "apis": [],
+  "components": [
+    "frontend",
+    "namespace-manager",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "namespace-isolation",
+    "load-projection",
+    "quota-management",
+    "operational-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators cannot effectively enforce user-defined load limits at the namespace level, forcing them to translate SDK-centric load projections into low-level system metrics that don't directly correspond to user requirements.",
+  "rootCause": "Rate limiting controls are implemented at low system levels (persistence, frontend RPS) rather than at the namespace level with SDK-centric metrics abstraction.",
+  "proposedFix": "Implement namespace-level rate limiting controls that directly support SDK-centric metrics: workflows/s, activities/s, signals/s, and timers/s per namespace.",
+  "workaround": "Use existing controls like frontend.namespaceRPS or frontend.globalNamespaceRPS, though these lack the granularity needed for SDK-centric load projections.",
+  "resolution": "fixed",
+  "resolutionDetails": "Comments indicate frontend.globalNamespaceRPS was identified as a per-namespace rate limit option that addresses the core need, though with acknowledged limitations on granularity.",
+  "related": [],
+  "keyQuote": "It would be ideal if the system offered direct control on the rates of these SDK-centric events, at the namespace level.",
+  "number": 1690,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:15.017Z"
+}

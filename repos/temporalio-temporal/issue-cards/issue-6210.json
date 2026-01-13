@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal server start-dev generates excessive log noise when restarting with SQLite persistence. Restarting the server after a graceful shutdown produces logging beyond the normal startup/shutdown messages.",
+  "category": "bug",
+  "subcategory": "persistence-sqlite",
+  "apis": [],
+  "components": [
+    "cli",
+    "server",
+    "sqlite-persistence",
+    "logging"
+  ],
+  "concepts": [
+    "log-noise",
+    "graceful-shutdown",
+    "persistence",
+    "restart",
+    "sqlite"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience cluttered logs when restarting the development server with SQLite, making debugging and development harder.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Doing a simple `temporal server start-dev --db-filename my-db.db`, interrupting it (does graceful shutdown), then running that command again gives lots of logs.",
+  "number": 6210,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:56.602Z"
+}

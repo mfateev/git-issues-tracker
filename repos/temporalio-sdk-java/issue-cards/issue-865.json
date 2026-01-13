@@ -1,0 +1,38 @@
+{
+  "summary": "Add an init method to workflows that executes before any signal, query, or workflow method is processed, with access to workflow input parameters. This is essential for Dynamic Workflows where signals can arrive before workflow code execution, and for handling initialization that depends on workflow parameters.",
+  "category": "feature",
+  "subcategory": "workflow-initialization",
+  "apis": [
+    "WorkflowInit"
+  ],
+  "components": [
+    "workflow-runtime",
+    "dynamic-workflows",
+    "signal-handler",
+    "listener-registration"
+  ],
+  "concepts": [
+    "initialization",
+    "signal-handling",
+    "workflow-lifecycle",
+    "dynamic-workflows",
+    "listener-registration",
+    "state-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users can now initialize state and register listeners before signals arrive, eliminating the need for workarounds with deferred signal processing.",
+  "rootCause": "Signals can arrive before workflow code execution (especially with signalToStart), but initialization code and listener registration currently only run during workflow method execution.",
+  "proposedFix": "Add @WorkflowInit annotation that marks a method (or constructor) to execute before signal/query/workflow methods, accepting the same parameters as the primary workflow method.",
+  "workaround": "Users currently save signals in fields and process them later in delayed manner within workflow code, or perform initialization in constructors (but this lacks access to workflow parameters).",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented @WorkflowInit annotation for workflow initialization before signal/query/workflow method processing, with constructor support.",
+  "related": [
+    864,
+    2166,
+    400
+  ],
+  "keyQuote": "With signalToStart, signal is getting delivered before the execution of the workflow method...this makes init() method a necessity for Dynamic Workflows, not a convenience.",
+  "number": 865,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:49:36.181Z"
+}

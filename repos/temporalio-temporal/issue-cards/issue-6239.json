@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add WorkerOptions configuration for workflow task max retry interval. Currently users can only change the workflow task timeout, but need ability to customize the retry interval (currently fixed at 10 minutes) via WorkerOptions in SDKs.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "workflow-task-handler",
+    "configuration"
+  ],
+  "concepts": [
+    "retry",
+    "timeout",
+    "max-retry-interval",
+    "worker-options",
+    "configuration",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure the workflow task max retry interval for their specific use cases, limiting their ability to tune worker behavior.",
+  "rootCause": null,
+  "proposedFix": "Add a new WorkerOptions configuration parameter to allow users to customize the workflow task max retry interval.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In some use cases users want to also change the max retry interval for workflow tasks which is 10min.",
+  "number": 6239,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:23.043Z"
+}

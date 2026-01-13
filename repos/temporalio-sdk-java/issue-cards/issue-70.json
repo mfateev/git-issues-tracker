@@ -1,0 +1,35 @@
+{
+  "summary": "MaxConcurrentActivityExecutionSize limit is not respected when using asynchronous activity completion. A new API for same-process async completion is needed to properly enforce the concurrency limits.",
+  "category": "bug",
+  "subcategory": "activity-execution",
+  "apis": [
+    "setMaxConcurrentActivityExecutionSize",
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "async-completion"
+  ],
+  "concepts": [
+    "concurrency-limit",
+    "activity-completion",
+    "async-processing",
+    "backpressure",
+    "throughput-control"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on async activity completion with Kotlin coroutines cannot limit concurrent activity execution, risking resource exhaustion.",
+  "rootCause": "The async activity completion API was designed for cross-process completion and does not properly account for concurrency limits when used within the same process.",
+  "proposedFix": "Implement a special API for async activity completion from the same process that correctly performs concurrency counting.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via PR #291, which implements proper concurrency counting for same-process async activity completion.",
+  "related": [
+    14
+  ],
+  "keyQuote": "setMaxConcurrentActivityExecutionSize(2) don't seem to work if we do asynchronous activity completion",
+  "number": 70,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:19:00.239Z"
+}

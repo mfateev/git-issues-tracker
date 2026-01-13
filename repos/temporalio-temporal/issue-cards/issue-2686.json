@@ -1,0 +1,32 @@
+{
+  "summary": "User unable to enable S3 archival for history and visibility through tctl commands and namespace updates. Configuration appears correct but results in DeadlineExceeded and BadRequest errors when attempting to activate archival with S3 URIs.",
+  "category": "bug",
+  "subcategory": "archival-s3",
+  "apis": [],
+  "components": [
+    "archival",
+    "s3-store",
+    "namespace-manager",
+    "tctl"
+  ],
+  "concepts": [
+    "archival",
+    "s3-configuration",
+    "namespace-activation",
+    "timeout",
+    "uri-parsing",
+    "credentials"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot enable S3-based archival for history and visibility, blocking the ability to archive workflow data to cloud storage.",
+  "rootCause": "Likely S3 configuration parsing issue or timeout during archival setup; user identified bad S3 config and timeouts as contributing factors",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "User identified the issue as bad S3 configuration and timeouts on their end rather than a product bug",
+  "related": [],
+  "keyQuote": "bad s3 config + some timeouts.",
+  "number": 2686,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:03.077Z"
+}

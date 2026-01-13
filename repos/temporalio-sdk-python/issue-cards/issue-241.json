@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add an opt-in worker option `stack_trace_query_uses_converter` that allows the stack trace query response to be processed through custom data converters. The feature was later abandoned.",
+  "category": "feature",
+  "subcategory": "stack-trace-query",
+  "apis": [],
+  "components": [
+    "worker",
+    "data-converter",
+    "query"
+  ],
+  "concepts": [
+    "stack-trace",
+    "query",
+    "custom-converter",
+    "data-serialization",
+    "worker-configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users who need custom serialization of stack trace query responses would have been able to opt-in to this behavior.",
+  "rootCause": null,
+  "proposedFix": "Add a new boolean worker option `stack_trace_query_uses_converter` to control whether stack trace query responses are converted/encoded with custom converters.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature was abandoned by maintainers",
+  "related": [],
+  "keyQuote": "Closing since the feature was abandoned",
+  "number": 241,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:50.247Z"
+}

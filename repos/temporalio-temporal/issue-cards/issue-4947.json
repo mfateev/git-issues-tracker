@@ -1,0 +1,33 @@
+{
+  "summary": "The ListBatchOperations and DescribeBatchOperation APIs return limited fields, making it difficult for users to differentiate batch operations and associate them with affected workflows. This feature request asks for operation type in ListBatchOperations response and visibility query/workflow execution list in DescribeBatchOperation response.",
+  "category": "feature",
+  "subcategory": "batch-operations-api",
+  "apis": [
+    "ListBatchOperations",
+    "DescribeBatchOperation"
+  ],
+  "components": [
+    "batch-operations",
+    "web-ui",
+    "api-response"
+  ],
+  "concepts": [
+    "api-design",
+    "data-visibility",
+    "workflow-querying",
+    "batch-processing",
+    "user-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily differentiate or track batch operations in UI tables and cannot associate batch operations back to affected workflows, limiting operational visibility.",
+  "rootCause": null,
+  "proposedFix": "Add operation type field to ListBatchOperations response and include visibility query or workflow execution list in DescribeBatchOperation response.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the only uniquely identifiable field that is returned is the Job ID. Additionally, there is no way for a user to associate the Batch Operation back to a list of Workflows",
+  "number": 4947,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:57.967Z"
+}

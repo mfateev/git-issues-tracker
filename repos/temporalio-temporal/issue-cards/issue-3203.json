@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add Sentry integration for error and panic reporting in the Temporal Go SDK. This would provide centralized error tracking to prevent errors from being lost in logs.",
+  "category": "feature",
+  "subcategory": "observability-error-tracking",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "logging",
+    "sdk-core"
+  ],
+  "concepts": [
+    "error-tracking",
+    "observability",
+    "panic-reporting",
+    "centralized-logging",
+    "sentry-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently lose error context when errors occur, making debugging production issues difficult without centralized error tracking.",
+  "rootCause": null,
+  "proposedFix": "Integrate Sentry using the Go SDK (https://docs.sentry.io/platforms/go/) for error and panic reporting.",
+  "workaround": "Community sentry interceptor available at https://github.com/sdcxtech/sentrytemporal",
+  "resolution": "wontfix",
+  "resolutionDetails": "No plan to implement Sentry support in the near future.",
+  "related": [],
+  "keyQuote": "No plan to do so in near future.",
+  "number": 3203,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:38:53.420Z"
+}

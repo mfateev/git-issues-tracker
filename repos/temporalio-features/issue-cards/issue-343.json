@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add worker pause/unpause functionality that allows workers to stop polling for new work without shutting down, useful for scenarios like managing resource constraints dynamically.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Worker.pause",
+    "Worker.unpause"
+  ],
+  "components": [
+    "worker",
+    "task-poller",
+    "worker-lifecycle"
+  ],
+  "concepts": [
+    "polling",
+    "resource-management",
+    "graceful-pause",
+    "concurrent-work-limits"
+  ],
+  "severity": "low",
+  "userImpact": "Users need ability to temporarily stop workers from accepting new work without full shutdown for dynamic resource management.",
+  "rootCause": null,
+  "proposedFix": "Add pause() and unpause() methods on the worker, possibly with a method to check pause state",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "People want to finish work but stop their workers from accepting more work for whatever reason.",
+  "number": 343,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:40.321Z"
+}

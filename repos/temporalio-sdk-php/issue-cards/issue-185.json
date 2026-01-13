@@ -1,0 +1,30 @@
+{
+  "summary": "PHP SDK does not send client info (SDK version) to Temporal via gRPC calls, preventing SDK usage metrics collection. Other SDKs already implement this feature, and the PHP SDK should support customizable client info similar to other SDKs.",
+  "category": "feature",
+  "subcategory": "client-info",
+  "apis": [],
+  "components": [
+    "client",
+    "grpc",
+    "metrics"
+  ],
+  "concepts": [
+    "sdk-metrics",
+    "usage-tracking",
+    "client-info",
+    "grpc-headers",
+    "telemetry"
+  ],
+  "severity": "medium",
+  "userImpact": "Temporal cannot collect PHP SDK usage metrics, limiting observability and understanding of SDK adoption and usage patterns.",
+  "rootCause": null,
+  "proposedFix": "Implement client info sending in gRPC calls following the pattern used in Go and Rust SDKs, with support for customization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to send client info to Temporal via gRPC calls",
+  "related": [],
+  "keyQuote": "Temporal has a method of collecting SDK usage metrics which relies on client sending the right SDK version and currently we're not seeing any hits from the PHP SDK.",
+  "number": 185,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:53.706Z"
+}

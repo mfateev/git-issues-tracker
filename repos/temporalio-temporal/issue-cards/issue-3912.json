@@ -1,0 +1,32 @@
+{
+  "summary": "Cassandra-backed Temporal Server experiences timeout errors during workflow execution due to excessive tombstone scanning when querying expired tasks. Users encounter 'Operation timed out' errors on StartWorkflowExecution with only partial responses from the database.",
+  "category": "bug",
+  "subcategory": "cassandra-persistence",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "frontend",
+    "cassandra-persistence",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "tombstone-scanning",
+    "query-timeout",
+    "expired-tasks",
+    "cassandra-performance",
+    "database-queries"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience timeout failures when starting workflows on Cassandra-backed servers due to inefficient expired task cleanup scanning.",
+  "rootCause": "Cassandra encounters excessive tombstones when querying for expired tasks, causing query timeouts and incomplete responses.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "operation CreateWorkflowExecution encounter Operation timed out - received only 1 responses",
+  "number": 3912,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:51.981Z"
+}

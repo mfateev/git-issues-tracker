@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add a global.json file to centralize .NET SDK version specification across the repository. Currently, the SDK version is scattered across multiple build pipelines and GitHub workflows with no single source of truth.",
+  "category": "feature",
+  "subcategory": "build-infrastructure",
+  "apis": [],
+  "components": [
+    "build-pipeline",
+    "github-workflows",
+    "dotnet-tooling"
+  ],
+  "concepts": [
+    "version-management",
+    "build-consistency",
+    "dependency-management",
+    "developer-experience",
+    "automation",
+    "centralization"
+  ],
+  "severity": "low",
+  "userImpact": "Developers and CI/CD systems would have a clear, centralized specification of the required .NET SDK version, reducing confusion and maintenance overhead when upgrading SDK versions.",
+  "rootCause": null,
+  "proposedFix": "Add a global.json file at the repository root that specifies the .NET SDK version, allowing .NET tooling and GitHub actions to automatically discover and enforce the correct version.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Using a global.json file makes it clear as to what version is necessary and provides a user experience when that requirement is not met",
+  "number": 563,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:36:23.089Z"
+}

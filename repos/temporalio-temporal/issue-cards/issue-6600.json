@@ -1,0 +1,31 @@
+{
+  "summary": "Request for standardized documentation format (like Swagger/OpenAPI) for exposing Temporal Workflows as black-box services. Users want clear documentation templates and tooling to generate human-friendly API documentation that specifies workflow inputs/outputs without exposing internal implementation details.",
+  "category": "feature",
+  "subcategory": "api-documentation",
+  "apis": [],
+  "components": [
+    "workflow",
+    "documentation",
+    "api-specification"
+  ],
+  "concepts": [
+    "api-specification",
+    "documentation-format",
+    "workflow-abstraction",
+    "service-interface",
+    "standardization",
+    "tooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables organizations to expose Temporal Workflows as documented services with standardized API contracts, improving developer experience and cross-project reusability.",
+  "rootCause": null,
+  "proposedFix": "Implement Swagger/OpenAPI-style documentation structure and create tooling to generate human-friendly documentation from workflow specifications.",
+  "workaround": "Custom YAML files with team-specific standards (noted as alternative but suboptimal due to lack of standardization and reusability).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "define a consistent structure to use across projects and Creating tooling that can read in the consistent structure to generate a human-friendly documentation page",
+  "number": 6600,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:47.364Z"
+}

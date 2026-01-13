@@ -1,0 +1,32 @@
+{
+  "summary": "CI test step timeout-minutes needs coordination with the `go test -timeout` flag to ensure consistent timeout behavior across CI and local testing.",
+  "category": "feature",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "ci",
+    "testing",
+    "go-build"
+  ],
+  "concepts": [
+    "timeout",
+    "coordination",
+    "testing",
+    "ci-configuration",
+    "go-test"
+  ],
+  "severity": "medium",
+  "userImpact": "Misaligned timeouts between CI step configuration and go test flags can cause confusing test failures or hangs that behave differently in CI versus local development.",
+  "rootCause": "CI step timeout-minutes and go test -timeout flag are configured independently without coordination, leading to potential timeout mismatches.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    6668
+  ],
+  "keyQuote": "Coordinate CI step timeout-minutes with `go test -timeout` flag",
+  "number": 6680,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:35.472Z"
+}

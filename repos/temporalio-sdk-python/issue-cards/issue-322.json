@@ -1,0 +1,36 @@
+{
+  "summary": "Python SDK fails to deserialize generic dataclasses used as type hints in activity and workflow functions. When using Generic[T] containers, the type resolver cannot properly handle parameterized types like MyContainer[int], causing TypeError during payload conversion.",
+  "category": "bug",
+  "subcategory": "type-hints-generics",
+  "apis": [
+    "activity.defn",
+    "workflow.defn",
+    "execute_activity"
+  ],
+  "components": [
+    "converter",
+    "payload-converter",
+    "type-resolver",
+    "data-converter"
+  ],
+  "concepts": [
+    "generics",
+    "type-hints",
+    "dataclass",
+    "serialization",
+    "type-resolution",
+    "JSON-serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use generic dataclasses as type hints for activity inputs and workflow parameters, limiting code reusability and forcing creation of specialized non-generic dataclasses.",
+  "rootCause": "The SDK's type resolver does not support generic type resolution at runtime. Python's Generic[T] syntax creates parameterized types (e.g., MyContainer[int]) that the converter cannot deserialize because the actual type parameter is lost at runtime.",
+  "proposedFix": "Add support for resolving simple generic types restricted to JSON-serializable primitives (int, float, str, bool), or implement generic type resolution similar to other SDK languages.",
+  "workaround": "Create concrete non-generic dataclasses for each specific use case instead of reusing generic containers (e.g., IntegerGreeting(ComposeGreetingInput) with bonus: int).",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided generic support is not worth the implementation complexity and confusion cost. Users should create specialized dataclasses for specific use cases instead of attempting to reuse generic ones.",
+  "related": [],
+  "keyQuote": "It's not that we _couldn't_ do it, it's that there is limited benefit...more confusion (the next issue will be opened asking why we don't support other generic ways and so on ad infinitum).",
+  "number": 322,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:49.050Z"
+}

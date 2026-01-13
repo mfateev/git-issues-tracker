@@ -1,0 +1,31 @@
+{
+  "summary": "User requested a public API to check if the current thread is running under Workflow context, as Workflow.getInfo() throws an error when called from non-workflow threads. The capability already exists in the internal WorkflowUnsafe.isWorkflowThread() API.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [
+    "Workflow.getInfo",
+    "WorkflowUnsafe.isWorkflowThread"
+  ],
+  "components": [
+    "workflow-context",
+    "thread-management"
+  ],
+  "concepts": [
+    "thread-safety",
+    "context-detection",
+    "workflow-isolation",
+    "api-accessibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily determine if they are executing within a workflow context without risking exceptions, limiting safe conditional logic in shared code.",
+  "rootCause": "Workflow.getInfo() throws an exception rather than providing a safe way to detect workflow context, forcing users to either rely on unsafe APIs or catch exceptions.",
+  "proposedFix": "Expose io.temporal.workflow.unsafe.WorkflowUnsafe.isWorkflowThread() as a public API or create a new Workflow.isWorkflowThread() method.",
+  "workaround": "Use the existing internal io.temporal.workflow.unsafe.WorkflowUnsafe.isWorkflowThread() API despite it being marked unsafe.",
+  "resolution": "duplicate",
+  "resolutionDetails": "The requested functionality already exists as WorkflowUnsafe.isWorkflowThread(); issue was closed as the API is available, though marked as internal/unsafe.",
+  "related": [],
+  "keyQuote": "Already exists as `io.temporal.workflow.unsafe.WorkflowUnsafe.isWorkflowThread`",
+  "number": 1321,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:25:41.066Z"
+}

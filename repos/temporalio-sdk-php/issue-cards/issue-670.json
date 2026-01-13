@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add support for Symfony 8.0 packages in the PHP SDK. Currently, the SDK's composer.json specifies compatibility with Symfony 5.4, 6.4, and 7.0, but excludes 8.0 versions.",
+  "category": "feature",
+  "subcategory": "dependency-compatibility",
+  "apis": [],
+  "components": [
+    "composer",
+    "dependencies",
+    "symfony-integration"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "dependency-management",
+    "package-support",
+    "framework-integration",
+    "composer-constraints"
+  ],
+  "severity": "low",
+  "userImpact": "Users who want to use Symfony 8.0 in their projects cannot use the PHP SDK due to incompatible dependency constraints.",
+  "rootCause": null,
+  "proposedFix": "Update the version constraints for symfony/filesystem, symfony/http-client, symfony/process, and potentially other Symfony packages to include ^8.0 support.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be great to support symfony 8.0 packages, there are some in the sdk's \"require\" section",
+  "number": 670,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:45:05.414Z"
+}

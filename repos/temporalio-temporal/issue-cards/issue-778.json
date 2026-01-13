@@ -1,0 +1,30 @@
+{
+  "summary": "The WorkflowTaskScheduledEvent does not expose the ScheduleToStart timeout value, making it unclear to users why tasks timeout at 5 seconds for sticky workers despite the UI showing 10 seconds. Adding this field to the event would improve clarity.",
+  "category": "feature",
+  "subcategory": "workflow-task-event",
+  "apis": [],
+  "components": [
+    "workflow-task",
+    "event-api",
+    "sticky-workers"
+  ],
+  "concepts": [
+    "timeout",
+    "schedule-to-start",
+    "workflow-task",
+    "event-visibility",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused about why workflow tasks timeout at 5 seconds when the UI displays different timeout values.",
+  "rootCause": "The ScheduleToStart timeout (5 seconds for sticky workers) is not exposed in the WorkflowTaskScheduledEvent, leaving users unable to see this important timeout constraint.",
+  "proposedFix": "Add ScheduleToStart timeout field to the WorkflowTaskScheduledEvent to make the timeout value explicit and visible to users.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I think UI should show only what's present on the event. I don't see a problem in adding ScheduleToStart timeout to the WorkflowTaskScheduledEvent.",
+  "number": 778,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:18.525Z"
+}

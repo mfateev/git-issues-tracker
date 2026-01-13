@@ -1,0 +1,31 @@
+{
+  "summary": "The payloadToJSON function from @temporalio/common/lib/proto-utils does not properly encode metadata fields as base64 strings, failing to generate valid proto JSON. The issue stems from proto3-json-serializer's inability to properly handle maps of bytes.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "proto-utils",
+    "proto3-json-serializer"
+  ],
+  "concepts": [
+    "serialization",
+    "base64-encoding",
+    "metadata",
+    "proto-json",
+    "bytes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly serialize Temporal payloads with metadata to valid proto JSON format.",
+  "rootCause": "proto3-json-serializer does not properly handle maps of bytes, causing metadata fields to not be base64 encoded",
+  "proposedFix": "Manually encode metadata fields as base64 strings: Object.entries(metadata).map(([k, v]): [string, string] => [k, Buffer.from(v).toString('base64')])",
+  "workaround": "Manually implement the base64 encoding for metadata fields as shown in the issue comment",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    108
+  ],
+  "keyQuote": "Metadata fields are not turned into base64 encoded strings",
+  "number": 773,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:11:08.041Z"
+}

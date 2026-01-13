@@ -1,0 +1,32 @@
+{
+  "summary": "Child worker process throws panic error \"Got the response to undefined request\" due to memory leak in the PHP SDK's WF worker. The issue occurs when workflows exceed cache limits and are not properly offloaded from memory, causing request tracking to become corrupted.",
+  "category": "bug",
+  "subcategory": "memory-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "transport-client",
+    "request-cache",
+    "memory-management"
+  ],
+  "concepts": [
+    "memory-leak",
+    "cache-overflow",
+    "request-tracking",
+    "workflow-isolation",
+    "process-scaling",
+    "garbage-collection"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience application crashes when scaling workflows across multiple Kubernetes pods, with panic errors disrupting workflow execution and data integrity.",
+  "rootCause": "When workflow cache size limit was reached, past workflows were not being completely offloaded from memory, causing request IDs to become orphaned and leading to panic errors when responses arrived for undefined requests.",
+  "proposedFix": "Fix in cache offloading mechanism to ensure workflows are properly removed from memory when cache limit is exceeded, particularly in awaitWithTimeout edge cases.",
+  "workaround": "Disable cache_size option or increase cache limits to prevent hitting the threshold, though this trades performance for stability.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in v2.3.2 by properly collapsing awaitWithTimeout in cases when workflows are interrupted and ensuring complete memory offloading when cache limits are exceeded.",
+  "related": [],
+  "keyQuote": "hitting cache_limit was the reason of the leak. We were not offloading past workflow from memory completelly.",
+  "number": 177,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:39.648Z"
+}

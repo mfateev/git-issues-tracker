@@ -1,0 +1,30 @@
+{
+  "summary": "Users need methods to wait for all remaining handlers to complete when continuing as new or exiting a workflow. The SDK should provide explicit control over handler completion behavior.",
+  "category": "feature",
+  "subcategory": "workflow-handlers",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-runtime",
+    "handler-management"
+  ],
+  "concepts": [
+    "handler-lifecycle",
+    "workflow-exit",
+    "async-completion",
+    "continue-as-new"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack a standard mechanism to ensure all handlers complete before workflow continuation or exit, requiring workarounds.",
+  "rootCause": null,
+  "proposedFix": "Provide explicit methods for users to await or ignore all remaining handlers during workflow continuation or exit.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Handlers are now automatically awaited during workflow continuation.",
+  "related": [],
+  "keyQuote": "Users want to easily await (or ignore) all their remaining handlers when they continue as new or exit the workflow.",
+  "number": 539,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:11:48.943Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Shard ownership assertion is blocked if the acquireShards operation is blocked, preventing periodic shard ownership checks from running. The issue proposes decoupling these operations using separate goroutines and channels so that periodic assertions aren't delayed by long-running acquireShards calls.",
+  "category": "bug",
+  "subcategory": "shard-controller",
+  "apis": [],
+  "components": [
+    "shard-controller",
+    "shard-acquisition",
+    "event-loop"
+  ],
+  "concepts": [
+    "concurrency",
+    "non-blocking",
+    "event-loop",
+    "goroutine",
+    "shard-ownership",
+    "periodic-tasks"
+  ],
+  "severity": "medium",
+  "userImpact": "Delayed or missed shard ownership assertions can lead to inconsistent shard allocation and potential data loss if ownership is not properly maintained.",
+  "rootCause": "The event loop's select statement blocks on acquireShards completion before checking the acquire ticker again, preventing timely execution of periodic shard ownership assertions.",
+  "proposedFix": "Decouple shard acquisition from the event loop using a separate goroutine and channel-based communication with a map to track in-progress assertions, allowing periodic tickers to trigger new assertions without waiting for previous ones to complete.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3108
+  ],
+  "keyQuote": "Do not block shard ownership assertion if `acquireShards` is blocked",
+  "number": 3134,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:28.799Z"
+}

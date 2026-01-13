@@ -1,0 +1,32 @@
+{
+  "summary": "The child_workflow_command counter in the history service handler increments for each StartChildWorkflow command but cannot be filtered by namespace. A feature request to add namespace filtering capability to this metric, potentially by consolidating metrics and adding command_type and namespace tags.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "history-service",
+    "metrics",
+    "command-handler"
+  ],
+  "concepts": [
+    "filtering",
+    "metrics-tagging",
+    "namespace-isolation",
+    "observability",
+    "command-tracking"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot filter child_workflow_command metrics by namespace, limiting observability and troubleshooting capabilities in multi-tenant or multi-namespace deployments.",
+  "rootCause": "The child_workflow_command metric lacks namespace tagging in its current implementation.",
+  "proposedFix": "Consolidate individual command metrics into a single metric with command_type and namespace tags for better filtering capabilities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented namespace tagging and command-type tagging for metrics as suggested in the discussion.",
+  "related": [],
+  "keyQuote": "We probably should change to emit one metric for all command and tag a command_type to that metric. Should also tag namespace to it.",
+  "number": 4628,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:27.459Z"
+}

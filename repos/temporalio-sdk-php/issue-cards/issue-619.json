@@ -1,0 +1,30 @@
+{
+  "summary": "Activity methods with boolean return types were failing with a type conversion error during serialization. The issue was caused by incorrect activity method configuration in the workflow code, not a SDK bug.",
+  "category": "question",
+  "subcategory": "data-serialization",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "json-converter",
+    "activity-executor"
+  ],
+  "concepts": [
+    "serialization",
+    "type-conversion",
+    "boolean",
+    "return-value",
+    "data-encoding"
+  ],
+  "severity": "low",
+  "userImpact": "Users experienced workflow failures when activities returned boolean values, with confusing error messages about type mismatches.",
+  "rootCause": "User error - activity method prefix was not set correctly in the workflow configuration, causing the wrong activity method to be invoked.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Closed by the reporter after discovering they had misconfigured the activity method prefix, which caused the wrong method to be called.",
+  "related": [],
+  "keyQuote": "Sorry guys, this is my fail, did not press the prefix in activities that had methods with the same name.",
+  "number": 619,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:19.103Z"
+}

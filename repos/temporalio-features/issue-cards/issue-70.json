@@ -1,0 +1,31 @@
+{
+  "summary": "CVE-2022-25858: A Regular Expression Denial of Service (ReDoS) vulnerability in the terser JavaScript parser (version 5.14.1) used as a transitive dependency through webpack. The vulnerability has a CVSS score of 7.5 with high availability impact.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "build-system",
+    "dependency-management",
+    "webpack"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "regular-expression",
+    "transitive-dependency",
+    "security",
+    "remediation"
+  ],
+  "severity": "high",
+  "userImpact": "The build process could be vulnerable to ReDoS attacks through the terser minification tool, potentially causing denial of service during builds.",
+  "rootCause": "Insecure usage of regular expressions in terser library versions before 4.8.1 and before 5.14.2",
+  "proposedFix": "Upgrade terser to version 4.8.1 or 5.14.2 or later",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the inventory",
+  "related": [],
+  "keyQuote": "The package terser before 4.8.1, from 5.0.0 and before 5.14.2 are vulnerable to Regular Expression Denial of Service (ReDoS)",
+  "number": 70,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:49.168Z"
+}

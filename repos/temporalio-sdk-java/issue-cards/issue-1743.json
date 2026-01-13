@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add support for asynchronous update polling in the Java SDK, aligning with similar functionality implemented in the Go SDK.",
+  "category": "feature",
+  "subcategory": "async-updates",
+  "apis": [
+    "Update"
+  ],
+  "components": [
+    "update-handler",
+    "polling-mechanism",
+    "async-executor"
+  ],
+  "concepts": [
+    "asynchronous-operations",
+    "polling",
+    "updates",
+    "non-blocking",
+    "workflow-updates"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now poll for workflow updates asynchronously without blocking worker threads.",
+  "rootCause": null,
+  "proposedFix": "Implement async update polling mechanism similar to the Go SDK implementation (referenced PR #1088).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to bring Java SDK to parity with Go SDK async update polling capabilities.",
+  "related": [
+    1088
+  ],
+  "keyQuote": "Adds support for async updates",
+  "number": 1743,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:22.692Z"
+}

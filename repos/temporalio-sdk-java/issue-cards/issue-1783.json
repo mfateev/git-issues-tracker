@@ -1,0 +1,35 @@
+{
+  "summary": "User unable to run Temporal tests in Docker containers on M1/M2 Macs because the test server only provides amd64 binaries for Linux. Requests linux_arm64 builds to enable ARM64 container testing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowEnvironment.start_time_skipping",
+    "WorkflowEnvironment.start_local"
+  ],
+  "components": [
+    "test-server",
+    "docker",
+    "arm64-support"
+  ],
+  "concepts": [
+    "cross-platform",
+    "container-testing",
+    "architecture-compatibility",
+    "binary-distribution",
+    "test-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using M1/M2 Macs cannot run Temporal tests in ARM64 Docker containers, limiting their ability to test in production-like environments.",
+  "rootCause": "Test server distribution only provides amd64 binaries for Linux, causing incompatibility when running in ARM64 containers.",
+  "proposedFix": "Provide linux_arm64 builds of the test server to enable native execution in ARM64 containers.",
+  "workaround": "Use WorkflowEnvironment.start_local() instead of start_time_skipping(), or skip tests in Docker.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of issue #1407. User found workaround using start_local() and noted the original problem was addressed elsewhere.",
+  "related": [
+    1407
+  ],
+  "keyQuote": "amd64 test server is not going to run within arm64... I am unable to run temporal tests in docker on M1/M2 Macs",
+  "number": 1783,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:46:47.864Z"
+}

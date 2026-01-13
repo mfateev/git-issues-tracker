@@ -1,0 +1,32 @@
+{
+  "summary": "Remove InterruptedException from WorkflowQueue to ensure workflow code uses CancellationScope for cancellation instead of throwing InterruptedException, which should never occur in workflow code.",
+  "category": "feature",
+  "subcategory": "cancellation-handling",
+  "apis": [
+    "CancellationScope"
+  ],
+  "components": [
+    "workflow-queue",
+    "cancellation-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "cancellation",
+    "exception-handling",
+    "thread-interruption",
+    "workflow-isolation",
+    "error-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Prevents users from accidentally using InterruptedException patterns in workflow code, ensuring consistent cancellation semantics through CancellationScope.",
+  "rootCause": "WorkflowQueue currently allows InterruptedException to propagate, which conflicts with Temporal's cancellation model.",
+  "proposedFix": "Remove InterruptedException from WorkflowQueue implementation and enforce CancellationScope usage for all cancellation scenarios.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WorkflowQueue was updated to remove InterruptedException, enforcing CancellationScope as the sole cancellation mechanism.",
+  "related": [],
+  "keyQuote": "Workflow code should never throw InterruptedException as CancellationScope should be used for cancellation.",
+  "number": 12,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T15:56:40.134Z"
+}

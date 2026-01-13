@@ -1,0 +1,30 @@
+{
+  "summary": "Users need a way to inject custom Authorizer implementations into Temporal Server without building their own Docker image from source. Currently, namespace-level authorization requires modifying the Temporal repository and building a custom image.",
+  "category": "feature",
+  "subcategory": "authorization",
+  "apis": [],
+  "components": [
+    "authorizer",
+    "docker-image",
+    "server-startup"
+  ],
+  "concepts": [
+    "authorization",
+    "customization",
+    "extensibility",
+    "plugin",
+    "namespace-level-security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now create custom Authorizer implementations and inject them into Temporal Server without needing to fork the repository or build custom Docker images.",
+  "rootCause": "The Authorizer is hardcoded in the Temporal Server main.go, requiring users to modify the source code and rebuild the image.",
+  "proposedFix": "Provide a way to plug in custom Authorizer implementations, such as through Docker layers that replace the server binary with a custom-built version that includes the custom Authorizer.",
+  "workaround": "Build a Docker layer on top of the official image, compile a custom Temporal server binary with the custom Authorizer, and replace the binary in the container. Use base-builder and auto-setup images to accomplish this.",
+  "resolution": "fixed",
+  "resolutionDetails": "Users can now create custom Authorizers and inject them by building a custom server binary with their Authorizer implementation and replacing the temporal-server binary in the Docker image using a multi-stage build.",
+  "related": [],
+  "keyQuote": "Ideally, as a customer, we don't have to build our own image. We can just use images like temporalio/auto-setup:1.8.2 and inject or plug in our own implementation of the authorizer somehow.",
+  "number": 1496,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:34:04.124Z"
+}

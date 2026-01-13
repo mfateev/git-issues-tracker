@@ -1,0 +1,30 @@
+{
+  "summary": "Stale workflows are accumulating in the sdk-ci.a2dd6 namespace and need cleanup. Additionally, a reasonable schedule-to-close timeout (e.g., 1 day) should be set on all workflows to prevent future accumulation.",
+  "category": "bug",
+  "subcategory": "test-infrastructure",
+  "apis": [],
+  "components": [
+    "test-workflow-execution",
+    "workflow-timeout",
+    "namespace-management"
+  ],
+  "concepts": [
+    "workflow-cleanup",
+    "stale-workflows",
+    "schedule-to-close-timeout",
+    "test-stability",
+    "resource-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Accumulating stale workflows in the test namespace can degrade test infrastructure performance and consume resources.",
+  "rootCause": "Missing schedule-to-close timeout on workflows allows them to accumulate indefinitely in the sdk-ci.a2dd6 namespace.",
+  "proposedFix": "Set a reasonable schedule-to-close timeout (1 day) on all workflows and clean up existing stale workflows.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "set a reasonable schedule-to-close timeout on all workflows (say, 1 day)",
+  "number": 315,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:23.269Z"
+}

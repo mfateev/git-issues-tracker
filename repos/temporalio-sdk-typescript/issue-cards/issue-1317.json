@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to expose `updateId` to Update handlers in the TypeScript SDK for deduplication across continue-as-new boundaries. Currently, updateId is only available to workflow interceptors, not to the update handler itself.",
+  "category": "feature",
+  "subcategory": "update-handler",
+  "apis": [
+    "updateInfo"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-interceptor",
+    "async-local-storage",
+    "execution-context"
+  ],
+  "concepts": [
+    "deduplication",
+    "update-id",
+    "continue-as-new",
+    "execution-context",
+    "workflow-update",
+    "async-local-storage",
+    "interceptor"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow implementers need access to updateId to implement deduplication guarantees across continue-as-new boundaries, which is currently not possible without using workarounds.",
+  "rootCause": "The updateId field is passed to interceptors but not exposed through a dedicated API to update handlers.",
+  "proposedFix": "Expose an `updateInfo()` function that provides access to updateId and other update execution context, potentially leveraging asyncLocalStorage to make it generally available for queries and signals as well.",
+  "workaround": "Capture the updateId from a workflow interceptor and make it accessible to the update handler code using async local storage.",
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented to expose updateId through an updateInfo() function to update handlers.",
+  "related": [],
+  "keyQuote": "Workflow implementers may have legitimate reasons to extend that guarantee across continue-as-new boundary. Doing that effectively require access to the `updateId`",
+  "number": 1317,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:14.760Z"
+}

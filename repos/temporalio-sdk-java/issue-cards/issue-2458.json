@@ -1,0 +1,32 @@
+{
+  "summary": "Add annotations to Java workflows to support the new versioning APIs introduced in the Temporal SDK. This aligns Java with the Go SDK implementation and enables developers to use the new worker versioning features.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "workflow-annotations",
+    "versioning-api",
+    "worker"
+  ],
+  "concepts": [
+    "versioning",
+    "api-design",
+    "workflow-definition",
+    "backwards-compatibility",
+    "sdk-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Java developers will be able to leverage the new worker versioning APIs to manage workflow updates and deprecations more effectively.",
+  "rootCause": null,
+  "proposedFix": "Add annotations to workflows following the design documented in the shared Google document and align with Go SDK equivalents.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with new worker versioning annotations for Java workflows",
+  "related": [
+    548
+  ],
+  "keyQuote": "We need to add annotations to workflows to support the new versioning APIs. Refer to temporalio/features#548 for the Go equivalents.",
+  "number": 2458,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:00.722Z"
+}

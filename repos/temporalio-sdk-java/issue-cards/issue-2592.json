@@ -1,0 +1,35 @@
+{
+  "summary": "Python Nexus tests are failing when run against the Java test server, with gRPC errors indicating missing methods in generated message classes. The issue reproduces with time-skipping enabled and eventually times out.",
+  "category": "bug",
+  "subcategory": "testing",
+  "apis": [
+    "StartWorkflowExecution",
+    "RespondWorkflowTaskCompleted"
+  ],
+  "components": [
+    "nexus-tests",
+    "java-test-server",
+    "grpc-api",
+    "protobuf-generated-classes"
+  ],
+  "concepts": [
+    "interoperability",
+    "test-server",
+    "gRPC",
+    "protobuf",
+    "nexus",
+    "message-generation"
+  ],
+  "severity": "high",
+  "userImpact": "Python SDK tests cannot run against the Java test server, blocking Nexus testing and cross-SDK compatibility validation.",
+  "rootCause": "Generated message class StartWorkflowExecutionRequest is missing the getNamespace() method when used with the Java test server, unlike behavior with the real server.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Generated message class \"io.temporal.api.workflowservice.v1.StartWorkflowExecutionRequest\" missing method \"getNamespace\".",
+  "number": 2592,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:44.408Z"
+}

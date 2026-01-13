@@ -1,0 +1,32 @@
+{
+  "summary": "Add a static `create` method to `ApplicationFailure` for convenient instantiation with message, type, nonRetryable flag, and cause parameters.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "common",
+    "error-types"
+  ],
+  "concepts": [
+    "exception-creation",
+    "error-factory",
+    "api-convenience",
+    "failure-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users can more conveniently construct ApplicationFailure instances with a fluent static method instead of direct constructor calls.",
+  "rootCause": null,
+  "proposedFix": "Add a static `create` method to ApplicationFailure class that accepts an object with message, type, nonRetryable, and cause properties.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was implemented, as indicated by the closed status and positive review from maintainer.",
+  "related": [
+    562
+  ],
+  "keyQuote": "Add `create` static method to ApplicationFailure",
+  "number": 752,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:10:14.285Z"
+}

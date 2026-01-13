@@ -1,0 +1,31 @@
+{
+  "summary": "Bug in WorkerOptions.Builder where maxConcurrentLocalActivityExecutionSize is incorrectly set to maxConcurrentActivityExecutionSize during build(), causing both configuration values to be identical regardless of intended values.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "builder",
+    "configuration"
+  ],
+  "concepts": [
+    "activity-execution",
+    "local-activity",
+    "concurrent-limits",
+    "builder-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure different concurrency limits for regular activities and local activities, as the local activity limit is overwritten with the activity limit.",
+  "rootCause": "Copy-paste error in WorkerOptions.Builder.build() method where maxConcurrentActivityExecutionSize is passed twice instead of passing maxConcurrentLocalActivityExecutionSize as the 4th argument.",
+  "proposedFix": "Change the 4th argument in the WorkerOptions constructor call from maxConcurrentActivityExecutionSize to maxConcurrentLocalActivityExecutionSize.",
+  "workaround": "Use validateAndBuildWithDefaults() method as a temporary workaround instead of build().",
+  "resolution": "fixed",
+  "resolutionDetails": "The bug was confirmed and corrected by passing the proper maxConcurrentLocalActivityExecutionSize parameter.",
+  "related": [],
+  "keyQuote": "maxConcurrentLocalActivityExecutionSize is configured using maxConcurrentActivityExecutionSize when building the object",
+  "number": 1080,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:04:22.392Z"
+}

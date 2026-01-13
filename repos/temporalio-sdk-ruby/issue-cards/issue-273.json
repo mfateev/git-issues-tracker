@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to investigate and validate fork behavior in Ruby SDK. Core-based SDK objects cannot be used across forks, requiring documentation and validation that Temporal objects and clients are not reused post-fork, with consideration for eager runtime/client PID validation.",
+  "category": "feature",
+  "subcategory": "fork-behavior",
+  "apis": [],
+  "components": [
+    "runtime",
+    "client",
+    "worker",
+    "core-bindings"
+  ],
+  "concepts": [
+    "fork",
+    "process-isolation",
+    "runtime-lifecycle",
+    "client-creation",
+    "post-fork-validation",
+    "process-id"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with fork-based servers (Rails, Puma) need clear guidance on whether Temporal objects are safe to use across forks and what patterns are supported.",
+  "rootCause": "Core-based SDKs maintain internal state tied to specific processes, making them unsafe for cross-fork reuse without explicit process ID tracking and validation.",
+  "proposedFix": "Store process ID on runtime and validate on every client and worker call that they execute on the same PID as the runtime that created them, raising clear exceptions if violated.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Runtime PID validation implemented to detect and prevent cross-fork usage with clear error messages.",
+  "related": [],
+  "keyQuote": "it is best that we store the process ID on the runtime and make sure every client call and every worker call are on the same PID as the runtime.",
+  "number": 273,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:01.641Z"
+}

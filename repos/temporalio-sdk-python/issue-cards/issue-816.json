@@ -1,0 +1,32 @@
+{
+  "summary": "Upgrade PyO3 to the latest version and migrate from pyo3-asyncio to pyo3-async-runtimes, the official successor. This addresses limitations in spawning tasks from the current Tokio runtime instead of a global one, with potential benefits for GraalPy support.",
+  "category": "feature",
+  "subcategory": "async-runtime",
+  "apis": [],
+  "components": [
+    "bridge",
+    "runtime",
+    "tokio-integration"
+  ],
+  "concepts": [
+    "async-runtime",
+    "pyo3-binding",
+    "asyncio-interop",
+    "tokio-spawning",
+    "dependency-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will benefit from an official, well-maintained async runtime integration that better supports custom Tokio runtime contexts and potential GraalPy compatibility.",
+  "rootCause": "pyo3-asyncio is community-maintained and only supports spawning from global Tokio runtime; pyo3-async-runtimes is the official PyO3 successor with better flexibility",
+  "proposedFix": "Upgrade to pyo3-async-runtimes and verify it properly handles spawning from the current Tokio runtime context instead of requiring a global one",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by upgrading PyO3 and migrating to pyo3-async-runtimes",
+  "related": [
+    300
+  ],
+  "keyQuote": "pyo3-async-runtimes is now available as a successor to pyo3-asyncio, we should try to use it",
+  "number": 816,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:00.111Z"
+}

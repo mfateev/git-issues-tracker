@@ -1,0 +1,30 @@
+{
+  "summary": "Request to integrate Needle's RAG API as a native Temporal workflow component, allowing users to create collections and perform semantic searches within workflows without leaving the Temporal environment.",
+  "category": "feature",
+  "subcategory": "workflow-components",
+  "apis": [],
+  "components": [
+    "workflow",
+    "activity",
+    "integration"
+  ],
+  "concepts": [
+    "RAG",
+    "semantic-search",
+    "collections",
+    "external-integration",
+    "native-component"
+  ],
+  "severity": "low",
+  "userImpact": "Users could perform AI-powered semantic searches and work with retrieval-augmented generation directly within Temporal workflows without custom HTTP activity boilerplate.",
+  "rootCause": null,
+  "proposedFix": "Integrate Needle RAG API as a native Temporal workflow component with built-in collection management and semantic search capabilities.",
+  "workaround": "Custom HTTP activities or third-party middleware (both with trade-offs)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Enable users to create collections, perform semantic searches, and pass results to downstream workflow steps without leaving the Temporal environment.",
+  "number": 7390,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:29.255Z"
+}

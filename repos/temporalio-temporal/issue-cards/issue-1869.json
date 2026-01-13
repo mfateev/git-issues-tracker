@@ -1,0 +1,33 @@
+{
+  "summary": "User unable to query a completed workflow after restarting the worker and creating a new workflow stub with the same workflow ID. The issue was resolved when the user discovered they should use newWorkflowStub(Class, workflowId) instead of newWorkflowStub(Class, WorkflowOptions) for querying existing workflows.",
+  "category": "question",
+  "subcategory": "workflow-query",
+  "apis": [
+    "newWorkflowStub",
+    "query"
+  ],
+  "components": [
+    "workflow-stub",
+    "client",
+    "worker"
+  ],
+  "concepts": [
+    "workflow-query",
+    "completed-workflow",
+    "workflow-stub-instantiation",
+    "state-recovery",
+    "client-initialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users may fail to query completed workflows if they use incorrect WorkflowStub instantiation patterns, resulting in IllegalStateException.",
+  "rootCause": "User instantiated WorkflowStub with WorkflowOptions.newBuilder() for querying existing workflows, which is intended only for starting new workflows. The correct method is newWorkflowStub(Class, workflowId).",
+  "proposedFix": "Use client.newWorkflowStub(WorkflowClass.class, workflowId) for querying existing workflows instead of client.newWorkflowStub(WorkflowClass.class, WorkflowOptions.newBuilder().setWorkflowId(workflowId)...build())",
+  "workaround": "Use the same workflowStub instance that started the workflow without restarting the worker or client",
+  "resolution": "invalid",
+  "resolutionDetails": "User error - incorrect API usage. User should instantiate WorkflowStub with workflowId directly for existing workflows, not with WorkflowOptions.",
+  "related": [],
+  "keyQuote": "For an existing workflow, I should instantiate the workflowStub with: client.newWorkflowStub(DSLWorkflow.class, workflowId);",
+  "number": 1869,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:06.064Z"
+}

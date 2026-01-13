@@ -1,0 +1,34 @@
+{
+  "summary": "Add firstExecutionRunId as a system search attribute to help users query workflow results across multiple executions when using IdReusePolicy. Currently, runId changes on ContinueAsNew, Reset, Cron, and WorkflowRetry operations, making it difficult to track the final result of a workflow that has been reset or retried.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "workflow-execution",
+    "visibility"
+  ],
+  "concepts": [
+    "IdReusePolicy",
+    "ContinueAsNew",
+    "reset",
+    "workflow-retry",
+    "cron",
+    "run-tracking",
+    "query"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can more easily track and query workflow results across multiple executions without manually managing search attributes themselves.",
+  "rootCause": null,
+  "proposedFix": "Add firstExecutionRunId as a system search attribute that users can filter on to find the first execution's run ID, then use it to locate the final runId by filtering on completion or running status.",
+  "workaround": "Users can implement their own search attributes to track the first execution run ID manually.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    351
+  ],
+  "keyQuote": "User can provide the firstExecutionRunId to find out the last runId (filter by completed or running status) to find out the last runId.",
+  "number": 4247,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:35.913Z"
+}

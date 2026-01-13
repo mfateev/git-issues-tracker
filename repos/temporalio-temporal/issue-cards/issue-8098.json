@@ -1,0 +1,33 @@
+{
+  "summary": "Remove unnecessary waits before fetching pages in batch activities to allow free executors to pick up work immediately rather than waiting for page fetches to complete.",
+  "category": "feature",
+  "subcategory": "batch-activities",
+  "apis": [],
+  "components": [
+    "batcher",
+    "activities",
+    "worker",
+    "executor"
+  ],
+  "concepts": [
+    "concurrency",
+    "executor-utilization",
+    "pagination",
+    "performance",
+    "work-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves throughput and latency of batch activity operations by allowing executors to process work in parallel rather than sequentially waiting for page fetches.",
+  "rootCause": "Batch activity code waits before fetching next page even when executors are available to pick up work.",
+  "proposedFix": "Remove the wait before fetching the next page in the batch activities implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely addressed in PR #8081 or related changes.",
+  "related": [
+    8081
+  ],
+  "keyQuote": "there's no reason to wait before fetching the next page if we have executors that are free to pick up work",
+  "number": 8098,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:51.973Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "A concurrent map read/write panic occurs in tchannel-go's Register function when handlers are registered while the channel is simultaneously processing requests. The bug stems from the handlers map being read by active request handlers while still being written to during the registration loop.",
+  "category": "bug",
+  "subcategory": "concurrency",
+  "apis": [],
+  "components": [
+    "tchannel-go",
+    "membership-monitor",
+    "ringpop",
+    "handler-registration"
+  ],
+  "concepts": [
+    "concurrent-access",
+    "race-condition",
+    "map-safety",
+    "goroutine-synchronization",
+    "initialization-order",
+    "channel-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Server fails with a fatal concurrent map read/write panic during initialization or under concurrent load when handlers are registered, causing service startup failures.",
+  "rootCause": "The tchannel-go Register function writes to the handlers map inside a loop while calling registrar.Register(handler, m) for each handler, which exposes the incomplete map to concurrent reads from active request handlers before all writes complete.",
+  "proposedFix": "Complete all map assignments before calling registrar.Register() to ensure the handlers map is fully populated and stable before any handler can be invoked.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was diagnosed as a bug in the tchannel-go library where handler registration writes to a map that concurrent request handlers read from. The fix involves deferring registrar.Register calls until after all map assignments are complete.",
+  "related": [
+    5055
+  ],
+  "keyQuote": "The first goroutine is someone calling one of the registered handlers, which looks into the handlers map, and the other goroutine is concurrently writing to the map still registering handlers.",
+  "number": 5123,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:04.326Z"
+}

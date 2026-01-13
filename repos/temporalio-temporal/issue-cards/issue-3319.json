@@ -1,0 +1,32 @@
+{
+  "summary": "The batcher workflow should use UpsertMemo to record the final state instead of relying on heartbeat for progress tracking, enabling more efficient state monitoring without needing to wait for completion events.",
+  "category": "feature",
+  "subcategory": "workflow-state-management",
+  "apis": [
+    "UpsertMemo"
+  ],
+  "components": [
+    "batcher-workflow",
+    "workflow-engine",
+    "state-recording"
+  ],
+  "concepts": [
+    "progress-tracking",
+    "workflow-state",
+    "memo",
+    "heartbeat",
+    "async-state-update"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can better track batcher workflow progress and final state without waiting for completion events or implementing workarounds.",
+  "rootCause": "Current heartbeat-based progress tracking requires completion events to determine final state, which is inefficient.",
+  "proposedFix": "Replace heartbeat-based progress recording with UpsertMemo to record the final state of the batcher workflow.",
+  "workaround": "Use workflow query as an alternative approach.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented UpsertMemo feature to record job progress in batcher workflow instead of heartbeat.",
+  "related": [],
+  "keyQuote": "We can use upsert memo feature to record the final state.",
+  "number": 3319,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:47.704Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Schedule API fails when creating a schedule with a cron expression due to a Protobuf Timestamp type mismatch. The error occurs in the ScheduleSpec when adding a cron string.",
+  "category": "bug",
+  "subcategory": "schedule-api",
+  "apis": [
+    "createSchedule",
+    "StartWorkflowAction",
+    "ScheduleSpec"
+  ],
+  "components": [
+    "schedule-api",
+    "protobuf-marshalling",
+    "cron-handling"
+  ],
+  "concepts": [
+    "protobuf",
+    "type-conversion",
+    "timestamp",
+    "cron-schedule",
+    "workflow-creation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create scheduled workflows using the Schedule API, blocking a core feature.",
+  "rootCause": "Type mismatch in Protobuf Timestamp handling when processing cron schedule specifications.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Given value is not an instance of Google\\Protobuf\\Timestamp",
+  "number": 380,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:36.225Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Enable TCP Keep Alive by default in the Java SDK to improve connection stability and detect network failures more reliably.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [],
+  "components": [
+    "gRPC-client",
+    "connection-pool",
+    "network-transport"
+  ],
+  "concepts": [
+    "TCP keep-alive",
+    "connection-stability",
+    "network-reliability",
+    "heartbeat",
+    "failure-detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users benefit from more reliable connection handling and faster detection of network failures without manual configuration.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TCP Keep Alive was enabled by default in the Java SDK to improve connection stability.",
+  "related": [
+    123
+  ],
+  "keyQuote": "Enable TCP Keep alive by default",
+  "number": 1872,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:00.359Z"
+}

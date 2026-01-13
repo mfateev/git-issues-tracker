@@ -1,0 +1,34 @@
+{
+  "summary": "PHP documentation for WorkerInterface::registerActivity() incorrectly references ReflectionClass::getClass() method, which doesn't exist in the native PHP ReflectionClass. The correct method should be getName().",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "registerActivity"
+  ],
+  "components": [
+    "WorkerInterface",
+    "documentation",
+    "activity-registration"
+  ],
+  "concepts": [
+    "reflection",
+    "type-hinting",
+    "documentation-accuracy",
+    "php-stdlib"
+  ],
+  "severity": "low",
+  "userImpact": "Developers following the documentation example encounter IDE errors and runtime failures when attempting to use the non-existent getClass() method.",
+  "rootCause": "Documentation example references ReflectionClass::getClass() which is not a method in PHP's native ReflectionClass; the intended method is getName().",
+  "proposedFix": "Replace getClass() with getName() in the documentation example and clarify the expected parameter format.",
+  "workaround": "Use $class->getName() instead of $class->getClass() to get the fully qualified class name.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #159 for the SDK and PR #1055 for official documentation.",
+  "related": [
+    159,
+    1055
+  ],
+  "keyQuote": "The primitive PHP ReflectionClass doesn't have this method. Was $class->getName() the intended method?",
+  "number": 158,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:50.550Z"
+}

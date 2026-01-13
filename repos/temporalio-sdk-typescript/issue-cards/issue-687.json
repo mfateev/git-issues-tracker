@@ -1,0 +1,32 @@
+{
+  "summary": "Module import error in v0.23 where @temporalio/workflow imports from @temporalio/common but @temporalio/common is not declared as a dependency in workflow/package.json, causing 'Cannot find module' errors during builds.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "workflow",
+    "common",
+    "package-management"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "module-loading",
+    "package-structure",
+    "build-error",
+    "version-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading from v0.21 to v0.23 encounter build failures when the workflow package cannot locate the required common module.",
+  "rootCause": "@temporalio/workflow depends on @temporalio/common in its source code but @temporalio/common is not listed as a dependency in workflow/package.json",
+  "proposedFix": "Add @temporalio/common as a dependency to @temporalio/workflow/package.json",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue #688 was opened to fix the dependency declarations between workflow and common packages",
+  "related": [
+    688
+  ],
+  "keyQuote": "@temporalio/workflow/lib/internals depends on @temporalio/common, but @temporalio/common is not defined as a dependency in workflow/package.json",
+  "number": 687,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:13.778Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal Cassandra Tools CLI is missing a ConnectTimeout configuration option. While a generic Timeout flag exists, it doesn't expose gocql's ConnectTimeout field, which is needed when latency between client and Cassandra seed is high.",
+  "category": "bug",
+  "subcategory": "cassandra-tools",
+  "apis": [],
+  "components": [
+    "cassandra-tools",
+    "cli",
+    "gocql-integration"
+  ],
+  "concepts": [
+    "timeout",
+    "connection",
+    "cassandra",
+    "networking",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with high-latency connections to Cassandra cannot configure ConnectTimeout, causing connection failures.",
+  "rootCause": "The Cassandra Tools CLI exposes a generic Timeout flag but not the specific ConnectTimeout field from gocql.ClusterConfig.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1277",
+  "related": [
+    1277
+  ],
+  "keyQuote": "Gocql will fail to connect if the latency between the client and the CASSANDRA_SEED is high.",
+  "number": 1270,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:12:01.601Z"
+}

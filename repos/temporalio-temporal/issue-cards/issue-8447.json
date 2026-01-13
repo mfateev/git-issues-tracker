@@ -1,0 +1,32 @@
+{
+  "summary": "Poller autoscaling scale-down behavior is too rigid, requiring sustained low throughput (below 1 task/second per poller) to trigger scaling down. Users want more aggressive scale-down behavior to reduce unnecessary pollers and avoid operational complexity.",
+  "category": "feature",
+  "subcategory": "poller-autoscaling",
+  "apis": [],
+  "components": [
+    "poller",
+    "matching",
+    "autoscaling",
+    "task-queue"
+  ],
+  "concepts": [
+    "scaling",
+    "backlog",
+    "throughput",
+    "resource-optimization",
+    "configuration-tuning",
+    "latency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are unable to efficiently reduce poller counts even when a single poller can handle multiple tasks per second, forcing manual tuning or acceptance of resource waste.",
+  "rootCause": "Scale-down only triggers when a poller is idle for PollerScalingWaitTime (1s default) without matching tasks, which means N pollers won't scale down if there are N+ events per second, regardless of individual poller capacity.",
+  "proposedFix": "Two approaches suggested: (1) Use LIFO queue instead of FIFO for pollers so newest pollers get tasks first, letting old pollers timeout naturally, or (2) Scale down when backlog is less than PollerScalingBacklogAgeScaleUp threshold.",
+  "workaround": "Reduce PollerScalingWaitTime dynamic config from 1s to 200-500ms to allow faster scale-down with higher throughput, or use ResourceBasedTuner for additional slot tuning.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers closed the issue noting pollers are cheap and the main concern is usually having enough pollers, not minimizing them. Users can adjust configuration values or resource-based tuning if needed.",
+  "related": [],
+  "keyQuote": "This seems to mean that N pollers would never scale down if there were at least N events per second. This feels like a bottleneck because presumably a single poller can handle more than 1 request per second.",
+  "number": 8447,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:23.547Z"
+}

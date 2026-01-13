@@ -1,0 +1,30 @@
+{
+  "summary": "CLI displays ambiguous 'context deadline exceeded' error during server failures instead of showing actual error details, and times out instead of returning immediately when errors occur.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "cli",
+    "error-handler",
+    "context-management"
+  ],
+  "concepts": [
+    "error-handling",
+    "timeout",
+    "context-deadline",
+    "user-feedback",
+    "logging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot diagnose CLI failures without manually checking server logs, and experience unnecessary delays waiting for context deadlines.",
+  "rootCause": "CLI does not properly propagate server errors and instead waits for context deadline to be exceeded before returning, masking the actual error cause.",
+  "proposedFix": null,
+  "workaround": "Check server logs to find the actual error cause.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue deemed non-specific and potentially already fixed by error handling improvements. Requester asked to reactivate with specific details if still occurring.",
+  "related": [],
+  "keyQuote": "CLI times out and displays ambiguous error saying \"Error Details: context deadline exceeded\". Actual error cause can only be found in the server log.",
+  "number": 663,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:21:57.501Z"
+}

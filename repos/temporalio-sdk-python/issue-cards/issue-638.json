@@ -1,0 +1,31 @@
+{
+  "summary": "Importing third-party packages like ruamel.yaml that patch stdlib modules (e.g., datetime) causes workflow validation to fail in the sandbox. The issue occurs because the SDK proxies datetime to enforce determinism, but library patches interact unexpectedly with these proxies, resulting in 'unhashable type' errors.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "datetime-proxy",
+    "validator"
+  ],
+  "concepts": [
+    "sandbox",
+    "determinism",
+    "stdlib-patching",
+    "third-party-compatibility",
+    "import-side-effects",
+    "proxying"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use common third-party packages that patch stdlib modules without either explicitly passing them through imports or disabling sandbox restrictions.",
+  "rootCause": "ruamel.yaml patches datetime module at import time. The SDK proxies datetime for determinism checking, but when third-party code patches datetime, the proxy becomes unhashable, causing validation to fail when yaml's representer tries to register itself.",
+  "proposedFix": "Disable datetime proxying for specific sandbox runners, or provide better error messages suggesting to use imports_passed_through or unsafe.sandbox_unrestricted().",
+  "workaround": "Use imports_passed_through to pass ruamel.yaml through, or create a custom sandbox runner without datetime proxying, or wrap ruamel-using code with unsafe.sandbox_unrestricted().",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The main issue is that an innocuous change in another part of the codebase that doesn't touch anything temporal related can cause temporal sandbox failures.",
+  "number": 638,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:35.968Z"
+}

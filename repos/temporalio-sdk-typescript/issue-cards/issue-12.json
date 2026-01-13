@@ -1,0 +1,31 @@
+{
+  "summary": "CI build on Windows fails during compilation of the workflow-isolate-extension due to errors in the isolated-vm library dependency.",
+  "category": "bug",
+  "subcategory": "ci-windows",
+  "apis": [],
+  "components": [
+    "workflow-isolate-extension",
+    "isolated-vm",
+    "ci"
+  ],
+  "concepts": [
+    "build",
+    "windows",
+    "platform-specific",
+    "dependency",
+    "github-actions",
+    "compilation"
+  ],
+  "severity": "high",
+  "userImpact": "Windows users cannot build the SDK due to CI failures preventing the workflow-isolate-extension from compiling.",
+  "rootCause": "Errors in isolated-vm/lib dependency causing build failures on Windows platform during GitHub Actions workflow.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed and resolved (closed status), though specific fix details are not documented in the issue.",
+  "related": [],
+  "keyQuote": "windows-latest failed during building of the workflow-isolate-extension due to errors that seem to originate in isolated-vm/lib",
+  "number": 12,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:53:39.240Z"
+}

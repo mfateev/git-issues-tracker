@@ -1,0 +1,33 @@
+{
+  "summary": "KotlinObjectMapperFactory crashes with MethodNotFoundError when upgrading jackson kotlin library due to reliance on deprecated KotlinModule constructor. The fix requires using the builder pattern as a fallback or exclusively to ensure forward compatibility.",
+  "category": "bug",
+  "subcategory": "kotlin-serialization",
+  "apis": [],
+  "components": [
+    "KotlinObjectMapperFactory",
+    "JacksonJsonPayloadConverter",
+    "DataConverter"
+  ],
+  "concepts": [
+    "forward-compatibility",
+    "deprecated-methods",
+    "jackson-integration",
+    "kotlin-module",
+    "serialization",
+    "version-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Kotlin users cannot upgrade their jackson kotlin library without breaking temporal integration.",
+  "rootCause": "KotlinObjectMapperFactory uses a deprecated KotlinModule constructor that was removed in newer jackson-kotlin versions.",
+  "proposedFix": "Use KotlinModule.Builder().build() pattern with fallback to deprecated constructor, or use builder exclusively.",
+  "workaround": "Register KotlinModule manually using mapper.registerModule(KotlinModule.Builder().build()) and create custom DataConverter.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1387
+  ],
+  "keyQuote": "Instead of using a deprecated method, it would have been best to try using the builder first, then fall back to the deprecated KotlinModule constructor.",
+  "number": 2071,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:39.247Z"
+}

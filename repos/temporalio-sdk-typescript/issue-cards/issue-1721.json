@@ -1,0 +1,33 @@
+{
+  "summary": "When Update-with-Start API errors occur, the error message shown to users displays a generic 'MultiOperation could not be executed' text instead of the actual detailed error message that is available in the error object. This makes debugging difficult for users who rely on standard error printing.",
+  "category": "bug",
+  "subcategory": "client-error-handling",
+  "apis": [
+    "UpdateWithStart",
+    "WorkflowClient"
+  ],
+  "components": [
+    "workflow-client",
+    "error-handling",
+    "grpc-error-decoding"
+  ],
+  "concepts": [
+    "error-message",
+    "MultiOperationExecutionFailure",
+    "error-transparency",
+    "debugging",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see generic error messages instead of detailed error reasons when Update-with-Start operations fail, making it difficult to diagnose and fix issues without explicitly accessing the error.message property.",
+  "rootCause": "The gRPC error's toString() method prints the original generic message rather than the processed detailed message that was extracted from MultiOperationExecutionFailure protobuf and stored in error.message.",
+  "proposedFix": "Compose a more detailed error message that includes both the operation type and the underlying error details, such as: 'Update-with-Start could not be executed: [actual error]'",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "a user is left without a clue of what actually went wrong. A better behavior would be for the error to print out with a composed message",
+  "number": 1721,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:30:40.805Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Remove the deprecated 'sampled retention days' configuration option from namespace config, which was a workaround created before long-term archival was available.",
+  "category": "feature",
+  "subcategory": "namespace-configuration",
+  "apis": [],
+  "components": [
+    "namespace-config",
+    "archival-system"
+  ],
+  "concepts": [
+    "retention",
+    "archival",
+    "configuration",
+    "cleanup",
+    "deprecated-feature"
+  ],
+  "severity": "low",
+  "userImpact": "Users will no longer be able to configure sampled retention, but can use long-term archival as the modern alternative.",
+  "rootCause": "Sampled retention was a temporary workaround created before long-term archival feature was available.",
+  "proposedFix": "Remove the sampled retention days configuration option from namespace config.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The deprecated sampled retention configuration has been removed from the namespace configuration.",
+  "related": [],
+  "keyQuote": "We should get rid of the sampled retention.",
+  "number": 1622,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:15:22.253Z"
+}

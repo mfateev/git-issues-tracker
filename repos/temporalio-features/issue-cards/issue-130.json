@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add workflow result interception capability, similar to existing signal, query, and describe interception features available in Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "interception",
+  "apis": [
+    "StartWorkflow",
+    "GetWorkflowResultHandle"
+  ],
+  "components": [
+    "client",
+    "workflow-handle",
+    "interception-framework"
+  ],
+  "concepts": [
+    "interception",
+    "result-fetching",
+    "client-side-hooks",
+    "extensibility",
+    "handle-creation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot intercept or customize workflow result fetching behavior, limiting extensibility for logging, monitoring, or modifying client-side result handling.",
+  "rootCause": null,
+  "proposedFix": "Allow interception of workflow results through a standardized interception mechanism, potentially including interception at handle creation time for Python and TypeScript SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We allow signal, query, and (in some SDKs) even describe interception, but we don't allow workflow result interception.",
+  "number": 130,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:04.297Z"
+}

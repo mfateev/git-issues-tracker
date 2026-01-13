@@ -1,0 +1,32 @@
+{
+  "summary": "User's self-hosted Temporal cluster experiences database performance degradation every 12 hours due to scavenger cleanup jobs. They request per-job RPS configuration (specifically historyScannerRPS) and potentially configurable cron schedules to allow fine-grained tuning of cleanup operations without impacting overall cluster throughput.",
+  "category": "feature",
+  "subcategory": "scavenger-tuning",
+  "apis": [],
+  "components": [
+    "scavenger",
+    "persistence",
+    "database",
+    "worker-scanner"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "database-performance",
+    "cleanup-jobs",
+    "dynamic-configuration",
+    "resource-management",
+    "scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators cannot fine-tune database cleanup operations, causing periodic performance degradation and forcing them to globally reduce persistence throughput.",
+  "rootCause": "Scavenger jobs lack granular per-job RPS configuration; history scanner relies only on persistenceMaxQPS which affects all persistence operations, and cron schedule is hardcoded.",
+  "proposedFix": "Add dynamic configuration field for historyScannerRPS to allow per-job RPS tuning; optionally make the cron schedule configurable with current value as default.",
+  "workaround": "Lower the global persistenceMaxQPS setting, though this reduces cluster throughput outside cleanup windows.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'd like to add a new dynamic configuration field for historyScannerRPS to tune this job without overwhelm the underlying persistence DB",
+  "number": 7625,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:07.765Z"
+}

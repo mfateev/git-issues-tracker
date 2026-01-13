@@ -1,0 +1,32 @@
+{
+  "summary": "TypeScript SDK v1.10.0 build fails with GLIBC_2.29 version error on Linux systems with older glibc versions (e.g., glibc 2.28). The core-bridge native module compiled for a newer glibc is incompatible with deployment environments using older glibc versions.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "native-bindings",
+    "build-toolchain"
+  ],
+  "concepts": [
+    "glibc-compatibility",
+    "system-dependencies",
+    "native-modules",
+    "binary-compatibility",
+    "deployment-environment"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to v1.10.0 experience build failures in deployment environments with glibc 2.28, preventing successful deployments on platforms like Render.",
+  "rootCause": "The v1.10.0 core-bridge native module was compiled against glibc 2.29, but many deployment environments use glibc 2.28, causing dynamic loader failures when requiring the native .node module.",
+  "proposedFix": "Rebuild the core-bridge native module to be compatible with glibc 2.28 instead of requiring glibc 2.29, as implemented in PR #1428.",
+  "workaround": "Downgrade to v1.9.0 or earlier until the fix is released.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in v1.10.1 by rebuilding core-bridge to support glibc 2.28 via PR #1428.",
+  "related": [
+    1428
+  ],
+  "keyQuote": "version `GLIBC_2.29' not found (required by /opt/render/project/src/node_modules/.pnpm/@temporalio+core-bridge@1.10.0",
+  "number": 1427,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:45:14.745Z"
+}

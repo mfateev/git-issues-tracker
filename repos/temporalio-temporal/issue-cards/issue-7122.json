@@ -1,0 +1,32 @@
+{
+  "summary": "Security vulnerabilities in Temporal Server v1.26.2 detected through container image scanning, including CVEs in curl, logrus, and the server itself. Most were resolved in v1.27.1, with only 2 remaining CVEs related to a deprecated tctl tool dependency.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "server",
+    "container-image",
+    "dependencies",
+    "tctl"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "CVE",
+    "dependency-management",
+    "container-security",
+    "deprecation"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal Server v1.26.2 container images are exposed to multiple security vulnerabilities that can impact system stability and security posture.",
+  "rootCause": "Outdated dependencies in server container image (curl 8.9.1, logrus v1.4.2) and legacy tctl tool bundled with the server.",
+  "proposedFix": "Upgrade to Temporal v1.27.1 which addresses most CVEs. The remaining 2 CVEs (CVE-2024-2689, CVE-2023-3485) are in the deprecated tctl tool which should not be used.",
+  "workaround": "Users should upgrade to Temporal v1.27.1 and avoid using the deprecated tctl tool, switching to the temporal CLI instead.",
+  "resolution": "fixed",
+  "resolutionDetails": "Most vulnerabilities resolved in v1.27.1 release. Remaining 2 CVEs deemed acceptable as they only affect deprecated tctl tool which is being phased out in favor of temporal CLI.",
+  "related": [],
+  "keyQuote": "Only 2 of these are still there: CVE-2024-2689 and CVE-2023-3485. But they are in server 1.18.0 which is referenced as a library to deprecated tctl tool.",
+  "number": 7122,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:41.843Z"
+}

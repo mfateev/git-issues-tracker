@@ -1,0 +1,31 @@
+{
+  "summary": "TestFixedAddressTranslator test panics with index out of range error on Go 1.24.6+ and 1.25.0. The test assumes DNS resolution of temporal.io domain will succeed, but when DNS resolution fails or returns an empty result, accessing the first element of an empty array causes a panic.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "cassandra-translator",
+    "nosql-plugin",
+    "persistence",
+    "test-suite"
+  ],
+  "concepts": [
+    "DNS-resolution",
+    "unit-test",
+    "index-bounds",
+    "panic",
+    "test-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Build and test suite fails for users building Temporal 1.28.1+ with Go 1.24.6+, preventing compilation and deployment.",
+  "rootCause": "Test assumes DNS resolution of temporal.io will always return at least one address, but when DNS resolution fails or returns empty results (network issues, DNS configuration, or environment constraints), the code attempts to access index [0] of an empty slice, causing a runtime panic.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer acknowledged the issue is caused by DNS resolution dependency in unit test and noted this shouldn't be done in a unit test, but stated there's no motivation to change it. Invited community contribution for alternative implementation.",
+  "related": [],
+  "keyQuote": "Looks like you have an issue with DNS resolution on your machine where you cannot resolve the temporal.io domain. Arguably this isn't something that should be done in a unit test but there's not much motivation to change that.",
+  "number": 8294,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:39.465Z"
+}

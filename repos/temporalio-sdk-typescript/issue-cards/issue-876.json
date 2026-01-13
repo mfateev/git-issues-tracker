@@ -1,0 +1,33 @@
+{
+  "summary": "WebAssembly memory errors and threading issues when running Temporal SDK TypeScript tests with vitest instead of jest, causing crashes and unhandled rejections. Resolved in version 1.5.0.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "worker",
+    "test-runner"
+  ],
+  "concepts": [
+    "multi-threading",
+    "WebAssembly",
+    "memory-management",
+    "vitest",
+    "test-isolation",
+    "worker-threads"
+  ],
+  "severity": "high",
+  "userImpact": "Users migrating from jest to vitest for testing cannot run tests with multi-threading enabled, requiring them to disable parallelization or stay on jest.",
+  "rootCause": "Incompatibility between Temporal SDK's native core-bridge module and vitest's threading model for WebAssembly memory isolation across worker threads.",
+  "proposedFix": null,
+  "workaround": "Disable multi-threading in vitest configuration or continue using jest for testing.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.5.0, presumably by PR #983. Users confirmed the issue is resolved and can now use vitest.",
+  "related": [
+    983
+  ],
+  "keyQuote": "Apparently resolved as of 1.5.0 (presumably by #983). I can no longer reproduce any of the reported errors.",
+  "number": 876,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:21:13.643Z"
+}

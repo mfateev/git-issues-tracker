@@ -1,0 +1,31 @@
+{
+  "summary": "When using LiteLLM with AWS Bedrock in the OpenAI agent SDK, rate limiting errors (503 Service Unavailable) are incorrectly classified as non-retryable instead of being retried. The issue is that the retry logic only checks for status code == 500, but should check for >= 500 like OpenAI's implementation does.",
+  "category": "bug",
+  "subcategory": "openai-agent-sdk",
+  "apis": [],
+  "components": [
+    "openai-agent-sdk",
+    "litellm-integration",
+    "error-handling",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "rate-limiting",
+    "error-classification",
+    "http-status-codes",
+    "service-availability"
+  ],
+  "severity": "high",
+  "userImpact": "Users leveraging LiteLLM with AWS Bedrock experience activity failures during rate limiting instead of automatic retries, breaking the reliability of AI agent workflows.",
+  "rootCause": "Retry logic incorrectly uses == 500 comparison instead of >= 500 for HTTP status codes, causing 503 Service Unavailable errors to not trigger retries despite being defined as retryable by OpenAI.",
+  "proposedFix": "Change the status code comparison from == 500 to >= 500 to match OpenAI's retry behavior and properly handle 503 and other 5xx errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Contributor acknowledged the bug was a straightforward fix - the inequality comparison was missed when mimicking OpenAI's retry policies.",
+  "related": [],
+  "keyQuote": "your implementation does not correctly mimic the openAI retry policies. You only retry on 500 errors while the openAI code retries on >= 500",
+  "number": 1177,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:41.848Z"
+}

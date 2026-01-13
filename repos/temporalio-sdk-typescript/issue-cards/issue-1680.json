@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to display retry policy information on the ActivityInfo object, enabling activities to access their configured retry settings at runtime.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity",
+    "info",
+    "retry"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-configuration",
+    "runtime-metadata",
+    "activity-execution",
+    "policy-access"
+  ],
+  "severity": "low",
+  "userImpact": "Activities would be able to inspect their retry policy configuration at runtime for logging, debugging, or conditional logic.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation added retry policy information to ActivityInfo",
+  "related": [
+    615
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/615",
+  "number": 1680,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:02.081Z"
+}

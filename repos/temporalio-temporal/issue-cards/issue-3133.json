@@ -1,0 +1,30 @@
+{
+  "summary": "Request to publish the size and number of history events for closed workflows, along with mutable state size metrics. Currently these metrics are available during workflow updates but are needed at workflow closure for investigation and analysis purposes.",
+  "category": "feature",
+  "subcategory": "history-events",
+  "apis": [],
+  "components": [
+    "history",
+    "workflow-execution",
+    "metrics"
+  ],
+  "concepts": [
+    "history-events",
+    "mutable-state",
+    "metrics",
+    "workflow-closure",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot measure history event count and mutable state size at workflow closure, limiting visibility into workflow performance and resource consumption.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We have size/number of history events whenever workflow update happens. For my current and future investigations we need those number at the time of closing workflow.",
+  "number": 3133,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:15.468Z"
+}

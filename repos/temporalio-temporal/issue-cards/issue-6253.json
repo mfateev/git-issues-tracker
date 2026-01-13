@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add support for Elastic serverless by allowing custom HTTP headers (specifically Authorization) in the Elasticsearch client configuration. Currently, the ES client config does not support custom headers needed to connect to Elastic's serverless offering.",
+  "category": "feature",
+  "subcategory": "elasticsearch-configuration",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "visibility-store",
+    "persistence-config"
+  ],
+  "concepts": [
+    "serverless",
+    "elasticsearch",
+    "authentication",
+    "http-headers",
+    "api-key",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently use Elastic's serverless option for visibility storage because the client lacks support for custom Authorization headers required by the serverless API.",
+  "rootCause": null,
+  "proposedFix": "Add a headers configuration field to the Elasticsearch client config to allow custom HTTP headers, or implement dedicated auth methods (basic auth or API key).",
+  "workaround": "Set up a proxy that adds the required Authorization header before forwarding requests to Elasticsearch.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'd like to be able to add a configuration like the following: headers: Authorization: \"ApiKey {{ .Env.TEMPORAL_ES_VISIBIILITY_STORE_PASSWORD }}\"",
+  "number": 6253,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:33.461Z"
+}

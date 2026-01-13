@@ -1,0 +1,31 @@
+{
+  "summary": "Python 3.14 introduces InterpreterPoolExecutor for isolated subinterpreters, but the SDK's activity executor assumes ThreadPoolExecutor behavior, causing NotShareableError when attempting to use InterpreterPoolExecutor for activity execution due to cross-interpreter data incompatibility.",
+  "category": "feature",
+  "subcategory": "activity-executor",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "concurrent-executor"
+  ],
+  "concepts": [
+    "subinterpreters",
+    "thread-pool",
+    "executor",
+    "concurrency",
+    "data-sharing",
+    "python-3.14"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Python 3.14's InterpreterPoolExecutor as an activity executor due to incompatible assumptions about data shareability across interpreter boundaries.",
+  "rootCause": "The activity executor implementation assumes ThreadPoolExecutor semantics but InterpreterPoolExecutor enforces stricter isolation rules that prevent sharing certain objects (Queue, Context, etc.) across interpreter boundaries.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Python 3.14 adds InterpreterPoolExecutor, a subclass of ThreadPoolExecutor that runs tasks in isolated subinterpreters... does not support cross-interpreter data",
+  "number": 1154,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:04.416Z"
+}

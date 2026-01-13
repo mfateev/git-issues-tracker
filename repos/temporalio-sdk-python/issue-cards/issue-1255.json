@@ -1,0 +1,30 @@
+{
+  "summary": "The openai-agents dependency in the Python SDK is pinned to version <0.5, limiting it to 0.4.2, which prevents access to newer versions with bug fixes and support for GPT 5.1 and 5.2 models.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "pyproject.toml",
+    "openai-agents-plugin",
+    "dependency-resolver"
+  ],
+  "concepts": [
+    "dependency-versioning",
+    "gpt-models",
+    "compatibility",
+    "bug-fixes",
+    "openai-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the latest openai-agents features, bug fixes, and support for newer GPT models due to version constraints.",
+  "rootCause": "The version constraint in pyproject.toml (openai-agents>=0.3,<0.5) is too restrictive, capping at 0.4.2 instead of allowing newer 0.5+ versions.",
+  "proposedFix": "Update the openai-agents version constraint in pyproject.toml to allow newer versions that include bug fixes and GPT 5.1/5.2 model support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The dependency constraint was updated to allow newer versions of openai-agents.",
+  "related": [],
+  "keyQuote": "the temporal openai agents plugin dependency is about 2 minor versions behind",
+  "number": 1255,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:37:16.556Z"
+}

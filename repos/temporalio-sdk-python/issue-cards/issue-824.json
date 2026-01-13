@@ -1,0 +1,32 @@
+{
+  "summary": "Python SDK release needed to address CVE-2025-29787 affecting the zip crate in the bundled Rust SDK. The vulnerability fix was already merged to master but no new release has been published to PyPI yet.",
+  "category": "bug",
+  "subcategory": "release-management",
+  "apis": [],
+  "components": [
+    "rust-sdk",
+    "zip-crate",
+    "release-process"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency",
+    "CVE",
+    "release",
+    "security"
+  ],
+  "severity": "high",
+  "userImpact": "Users with automated vulnerability scanning tools are flagged for vulnerable dependencies despite the fix being available in the codebase.",
+  "rootCause": "The zip crate vulnerability (CVE-2025-29787) was included in the Rust SDK bundled with the Python SDK's last release.",
+  "proposedFix": "Release a new version of the Python SDK to PyPI that includes the patched Rust SDK version already in the master branch.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Released in version 1.11.0 which includes the patched Rust SDK with the CVE-2025-29787 fix.",
+  "related": [
+    802
+  ],
+  "keyQuote": "Current `master` of this repository already has the core sdk bumped to a version that is not vulnerable, there just hasn't been a release uploaded to pypi since it was patched.",
+  "number": 824,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:22.058Z"
+}

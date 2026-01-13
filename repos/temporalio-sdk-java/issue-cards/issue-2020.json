@@ -1,0 +1,29 @@
+{
+  "summary": "ReplayWorkflowTaskHandler.failureToWFTResult does not use SerializationContext when serializing exceptions for direct queries, potentially causing serialization issues with custom exception handling.",
+  "category": "bug",
+  "subcategory": "query-handling",
+  "apis": [],
+  "components": [
+    "ReplayWorkflowTaskHandler",
+    "serialization",
+    "direct-query"
+  ],
+  "concepts": [
+    "serialization",
+    "exception-handling",
+    "context",
+    "query-processing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with custom exception serialization configurations may experience incorrect exception serialization in direct query responses.",
+  "rootCause": "The failureToWFTResult method is missing SerializationContext when serializing exceptions for direct queries, inconsistent with other serialization operations.",
+  "proposedFix": "Add SerializationContext parameter to the exception serialization call in ReplayWorkflowTaskHandler.failureToWFTResult.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the missing SerializationContext was added to the failureToWFTResult method.",
+  "related": [],
+  "keyQuote": "ReplayWorkflowTaskHandler.failureToWFTResult does not use a SeralizationContext when serializing an exception for a direct query",
+  "number": 2020,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:24.079Z"
+}

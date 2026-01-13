@@ -1,0 +1,32 @@
+{
+  "summary": "ApplicationFailure.Builder requires the Category field to be explicitly set, but this requirement is unexpected and creates friction for users creating application failures.",
+  "category": "bug",
+  "subcategory": "exception-handling",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "ApplicationFailure",
+    "Builder",
+    "exception-construction"
+  ],
+  "concepts": [
+    "builder-pattern",
+    "required-field",
+    "API-design",
+    "usability",
+    "exception-creation"
+  ],
+  "severity": "low",
+  "userImpact": "Users must always specify a Category when building ApplicationFailure objects, which adds unnecessary complexity to exception creation.",
+  "rootCause": "ApplicationFailure.Builder enforces Category as a required field despite it potentially having sensible defaults.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Category field requirement was likely made optional or given a default value in the Builder.",
+  "related": [],
+  "keyQuote": "ApplicationFailure.Builder requires Category be set",
+  "number": 2601,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:13:10.977Z"
+}

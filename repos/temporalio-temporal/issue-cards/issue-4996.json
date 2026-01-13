@@ -1,0 +1,30 @@
+{
+  "summary": "Update OpenTelemetry library from v1.16.0 to v1.19.0 to support backwards incompatible changes and resolve dependency conflicts for users wanting to upgrade otel and packages that depend on it.",
+  "category": "other",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "otel",
+    "tracing",
+    "dependency-management"
+  ],
+  "concepts": [
+    "backwards-compatibility",
+    "dependency-versioning",
+    "observability",
+    "library-upgrade",
+    "conflict-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users wanting to upgrade OpenTelemetry or use packages with newer otel versions experience dependency conflicts when using Temporal server as a library.",
+  "rootCause": "go.opentelemetry.io/otel library made backwards incompatible changes to dependent libraries between v1.16.0 and v1.19.0, causing version conflicts for downstream consumers.",
+  "proposedFix": "Upgrade go.opentelemetry.io/otel to v1.19.0 or latest version.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was merged approximately 3 weeks before comment 1, indicating the upgrade was completed and included in a release.",
+  "related": [],
+  "keyQuote": "Upgrade needed for others that want to upgrade otel and depend on server as a library.",
+  "number": 4996,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:34.131Z"
+}

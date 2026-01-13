@@ -1,0 +1,33 @@
+{
+  "summary": "History service panics when visibility archival is enabled but history archival is disabled for a namespace, causing the service to continuously crash during workflow archival attempts.",
+  "category": "bug",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "history-service",
+    "archival-system",
+    "archival-queue-task-executor"
+  ],
+  "concepts": [
+    "archival",
+    "visibility",
+    "history",
+    "namespace-configuration",
+    "nil-dereference",
+    "panic"
+  ],
+  "severity": "critical",
+  "userImpact": "Users cannot disable history archival for a namespace without causing the history service to enter an unrecoverable panic state.",
+  "rootCause": "Nil dereference in archiver.go when HistoryURI is not initialized, which occurs when history archival is disabled but visibility archival is enabled.",
+  "proposedFix": "Make archiver.uri.String() method return an empty string instead of panicking when HistoryURI is not set, or handle the nil case in the archival queue task executor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via targeted fix in PR #4880 to handle the case where HistoryURI is not set.",
+  "related": [
+    4880
+  ],
+  "keyQuote": "Visibility Archival On, History Archival Off for a namespace causes panic in history service",
+  "number": 4879,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:57.679Z"
+}

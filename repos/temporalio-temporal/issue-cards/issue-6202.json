@@ -1,0 +1,31 @@
+{
+  "summary": "Request for schema validation checks at server startup to detect database schema mismatches and exit early with errors, plus telemetry logging for Visibility Store schema mismatches.",
+  "category": "feature",
+  "subcategory": "schema-validation",
+  "apis": [],
+  "components": [
+    "persistence-store",
+    "visibility-store",
+    "database-connection",
+    "server-startup"
+  ],
+  "concepts": [
+    "schema-validation",
+    "database-compatibility",
+    "error-handling",
+    "telemetry",
+    "startup-checks"
+  ],
+  "severity": "medium",
+  "userImpact": "Prevents server from running with incompatible database schemas, reducing silent failures and data corruption risks.",
+  "rootCause": null,
+  "proposedFix": "Add schema version check on initial database connection at server startup; implement error exit if schema mismatch detected.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Already implemented - server checks schema version at startup against minimal version requirement and exits with error if mismatch is detected.",
+  "related": [],
+  "keyQuote": "Upon server startup, it checks the schema version from database and match with what the minimal version requirement from the code. If the don't match, server exist with error message.",
+  "number": 6202,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:45.691Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Calling Workflow::getInfo() from within an ActivityInboundInterceptor causes a type mismatch error. The method is decorated with a return type hint expecting WorkflowInfo, but returns ActivityInfo in activity context, causing a PHP TypeError.",
+  "category": "bug",
+  "subcategory": "interceptor-context",
+  "apis": [
+    "Workflow::getInfo()"
+  ],
+  "components": [
+    "interceptor",
+    "type-system",
+    "activity-execution"
+  ],
+  "concepts": [
+    "type-mismatch",
+    "context-awareness",
+    "return-type-declaration",
+    "interceptor-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot safely call Workflow::getInfo() from ActivityInboundInterceptor, preventing access to workflow information during activity interception despite the API being callable.",
+  "rootCause": "Workflow::getInfo() has a strict return type hint of WorkflowInfo, but when called from an activity context it returns ActivityInfo instead, violating the type declaration.",
+  "proposedFix": null,
+  "workaround": "Avoid calling Workflow::getInfo() from ActivityInboundInterceptor; use Activity::getInfo() instead for activity context.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the bug was addressed in a subsequent SDK version.",
+  "related": [],
+  "keyQuote": "it seems to me that there should be a \"friendly error\" here as an exception, and not a typing error",
+  "number": 621,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:36.216Z"
+}

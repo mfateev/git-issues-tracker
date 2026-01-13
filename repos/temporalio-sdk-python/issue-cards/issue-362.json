@@ -1,0 +1,34 @@
+{
+  "summary": "OpenTelemetry baggage is not propagating properly throughout activities in the Python SDK. A test and fix are needed to ensure baggage is properly serialized/rehydrated to and within activities.",
+  "category": "bug",
+  "subcategory": "tracing-otel",
+  "apis": [],
+  "components": [
+    "_TracingActivityInboundInterceptor",
+    "context-propagation",
+    "otel-integration"
+  ],
+  "concepts": [
+    "baggage",
+    "context-propagation",
+    "opentelemetry",
+    "tracing",
+    "activity-execution",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on OpenTelemetry baggage for distributed tracing lose context information when executing activities.",
+  "rootCause": "Known OpenTelemetry Python bug where start_as_current_span does not automatically attach the context, causing baggage to be lost during activity execution.",
+  "proposedFix": "Use opentelemetry.context.attach/detach calls in _TracingActivityInboundInterceptor to manually attach the context before executing the activity.",
+  "workaround": "Manually call opentelemetry.context.attach(ctx) and opentelemetry.context.detach(token) around the activity execution to re-attach the context.",
+  "resolution": "fixed",
+  "resolutionDetails": "Added context attach/detach calls to _TracingActivityInboundInterceptor and wrote tests to confirm baggage propagates correctly.",
+  "related": [
+    3350,
+    2432
+  ],
+  "keyQuote": "I did a quick change to _TracingActivityInboundInterceptor to add attach/detach calls, and then it works",
+  "number": 362,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:23.321Z"
+}

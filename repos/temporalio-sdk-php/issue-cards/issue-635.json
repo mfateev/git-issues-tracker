@@ -1,0 +1,30 @@
+{
+  "summary": "PHP SDK workflow worker experiences significant memory leaks when workflows are repeatedly restarted via UI, potentially consuming multiple gigabytes of memory and creating zombie processes.",
+  "category": "bug",
+  "subcategory": "worker-memory-management",
+  "apis": [],
+  "components": [
+    "workflow-worker",
+    "memory-management",
+    "process-lifecycle"
+  ],
+  "concepts": [
+    "memory-leak",
+    "garbage-collection",
+    "resource-cleanup",
+    "zombie-process",
+    "worker-reuse"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience severe memory exhaustion and zombie processes when restarting workflows multiple times, potentially crashing their applications.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Test with sticky cache size set to less than 10 items to verify if caching is related to the leak.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if you re-run the workflow via the UI too many times, the workflow worker starts leaking memory. You can end up with a zombie process",
+  "number": 635,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:04.296Z"
+}

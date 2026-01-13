@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to provide SDK-level auto-heartbeating helpers that automatically send periodic heartbeats without requiring manual heartbeat code in activities. Users commonly wrap activities with async timers for this purpose, and SDKs should provide a standardized solution.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "StartAutoHeartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-manager",
+    "context"
+  ],
+  "concepts": [
+    "heartbeat",
+    "keep-alive",
+    "timeout",
+    "activity-lifecycle",
+    "async-helper"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides a built-in mechanism for activities to maintain heartbeats without manual implementation, reducing boilerplate and preventing activity timeout during long-running operations.",
+  "rootCause": null,
+  "proposedFix": "Each SDK should implement a StartAutoHeartbeat helper that sends periodic heartbeats at intervals based on heartbeat timeout, with exceptions thrown if manual heartbeats are attempted concurrently.",
+  "workaround": "Users can manually wrap activities with async timers that start and stop heartbeating around activity execution.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Each SDK should provide an auto-heartbeating helper... The auto heartbeater should automatically send a heartbeat sans details every X of the heartbeat timeout",
+  "number": 229,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:39.331Z"
+}

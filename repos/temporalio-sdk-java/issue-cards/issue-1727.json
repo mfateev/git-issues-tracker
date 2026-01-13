@@ -1,0 +1,32 @@
+{
+  "summary": "Local activities do not retry when MaximumAttempts is set to 0, while regular activities retry forever with the same setting. This creates inconsistent behavior between local and normal activities.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "retry-policy",
+    "activity-options"
+  ],
+  "concepts": [
+    "retry",
+    "maximum-attempts",
+    "local-activities",
+    "consistency",
+    "retry-forever"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure local activities to retry indefinitely using the same MaximumAttempts=0 pattern that works for regular activities, creating a confusing API inconsistency.",
+  "rootCause": "Local activity retry logic does not handle MaximumAttempts=0 the same way as the standard activity retry mechanism.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "setting setMaximumAttempts=0 (or not setting any value, default = 0) for local activities should make the activity retry forever. I expect the same behavior as \"normal\" activities",
+  "number": 1727,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:50.194Z"
+}

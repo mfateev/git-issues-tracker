@@ -1,0 +1,33 @@
+{
+  "summary": "The Go SDK does not emit `temporal_workflow_start` metrics for child workflows, creating an asymmetry where child workflow completions are tracked but their starts are not. The issue was resolved by migrating from `temporal_workflow_start` to granular `temporal_request` metrics tagged with API names.",
+  "category": "bug",
+  "subcategory": "metrics-observability",
+  "apis": [
+    "StartWorkflowExecution",
+    "SignalWithStartWorkflowExecution"
+  ],
+  "components": [
+    "metrics",
+    "workflow-start",
+    "observability"
+  ],
+  "concepts": [
+    "child-workflows",
+    "metrics-tracking",
+    "observability",
+    "monitoring",
+    "canary"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot track child workflow starts in metrics, making it difficult to monitor and debug workflow execution patterns in production systems.",
+  "rootCause": "The `temporal_workflow_start` metric was only emitted for non-child workflows, not for child workflows, creating inconsistent telemetry.",
+  "proposedFix": "Emit `temporal_workflow_start` for all workflow starts including child workflows, or provide equivalent visibility through alternative metrics.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The `temporal_workflow_start` metric was deprecated in favor of granular `temporal_request` metrics tagged with API names (e.g., StartWorkflowExecution, SignalWithStartWorkflowExecution).",
+  "related": [],
+  "keyQuote": "We don't emit `temporal_workflow_start` anymore. Every API request emits `temporal_request` metrics tagged with API name.",
+  "number": 415,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:56:36.050Z"
+}

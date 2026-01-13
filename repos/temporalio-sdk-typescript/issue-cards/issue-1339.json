@@ -1,0 +1,32 @@
+{
+  "summary": "The API reference page for `workflow.Trigger` displays malformed content with raw markdown syntax visible to users instead of being properly rendered. The example code section shows an HTML comment and markdown fence markers as literal text rather than being interpreted correctly.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [
+    "workflow.Trigger"
+  ],
+  "components": [
+    "api-reference",
+    "documentation-rendering",
+    "typedoc"
+  ],
+  "concepts": [
+    "documentation",
+    "rendering",
+    "markdown",
+    "html-comment",
+    "code-example"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly learn how to use the workflow.Trigger API because the documentation page displays raw markdown and HTML instead of rendered content.",
+  "rootCause": "Markdown source code is not being properly processed or rendered in the TypeScript SDK API reference documentation generation pipeline, likely a typedoc configuration or template issue.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the documentation rendering problem was resolved in a subsequent update.",
+  "related": [],
+  "keyQuote": "The code shown below the **Example** heading contains invalid content (an HTML comment, followed by three backticks and `ts` which is markdown being displayed as a literal string instead of being interpreted as a rendering instruction).",
+  "number": 1339,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:54.578Z"
+}

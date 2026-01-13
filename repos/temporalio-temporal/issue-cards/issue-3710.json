@@ -1,0 +1,32 @@
+{
+  "summary": "ES connection errors lack debugging information about the configured connection settings. Users need to see the scheme and host from their configuration to quickly identify typos or misconfigurations versus actual Elasticsearch issues.",
+  "category": "other",
+  "subcategory": "elasticsearch-logging",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "error-logging",
+    "config-validation"
+  ],
+  "concepts": [
+    "debugging",
+    "connection-errors",
+    "configuration",
+    "error-messages",
+    "logging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging Elasticsearch connection failures cannot easily trace errors back to their configuration, making it difficult to identify typos or misconfigurations.",
+  "rootCause": "Error messages from ES connection failures do not include the configured connection parameters (scheme, host), making it hard to distinguish config issues from actual Elasticsearch problems.",
+  "proposedFix": "Add ES config values (scheme, host at minimum) to the error message to help users debug connection issues.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #4811 added more useful debugging information for ES connection issues while being mindful of not exposing sensitive configuration data.",
+  "related": [
+    4811
+  ],
+  "keyQuote": "Currently small typos in config can cause this error and its hard to debug / trace it back to values user configured vs some ES specific problem.",
+  "number": 3710,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:38.075Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "TestWorkflowEnvironment#sleep hangs indefinitely during test execution due to a deadlock between the main thread and workflow threads when calling unlockTimeSkippingWithSleep on the test server.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-service",
+    "workflow-thread-scheduler",
+    "grpc-stub"
+  ],
+  "concepts": [
+    "deadlock",
+    "time-skipping",
+    "test-environment",
+    "thread-synchronization",
+    "blocking-call"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using TestWorkflowEnvironment#sleep hang indefinitely, preventing test execution and blocking developers from running their test suites.",
+  "rootCause": "A deadlock occurs between the main thread blocked in ClientCalls.blockingUnaryCall for unlockTimeSkippingWithSleep and workflow threads waiting in WorkflowThreadScheduler.yieldLocked, causing the grpc executor thread to block waiting on a CompletableFuture that never completes.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [
+    2642
+  ],
+  "keyQuote": "Under certain execution path io.temporal.testing.TestWorkflowEnvironment#sleep hangs indefinitely.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 2670,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:15:27.609Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Users passing nameless/anonymous functions to infer workflow names receive unhelpful error messages. The SDK should validate function names at runtime and provide better error messages when functions aren't exported or named properly.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "workflow-registration",
+    "error-messages",
+    "client"
+  ],
+  "concepts": [
+    "validation",
+    "error-messages",
+    "function-naming",
+    "user-input",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive cryptic error messages when passing nameless functions or unexported workflows, making debugging difficult.",
+  "rootCause": "SDK lacks runtime validation for function names and doesn't wrap underlying ReferenceError with contextual information.",
+  "proposedFix": "Add validation to check that user-provided functions have names at registration time and wrap ReferenceError with more informative messaging.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed - appears to have been addressed in subsequent SDK updates",
+  "related": [],
+  "keyQuote": "As for nameless function, I think the client should easily be able to check that at runtime. We could also wrap the ReferenceError in a more informative error.",
+  "number": 367,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:59.791Z"
+}

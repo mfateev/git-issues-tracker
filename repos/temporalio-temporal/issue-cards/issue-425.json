@@ -1,0 +1,32 @@
+{
+  "summary": "After adding a second node to a single-node Temporal cluster, the original node repeatedly logs 'New timer generated is less than read level' warnings at ~1 second intervals. The issue appears to be related to shard timer management during cluster scaling.",
+  "category": "bug",
+  "subcategory": "cluster-membership",
+  "apis": [],
+  "components": [
+    "history-service",
+    "shard-context",
+    "timer-management"
+  ],
+  "concepts": [
+    "cluster-scaling",
+    "node-addition",
+    "shard-allocation",
+    "log-spam",
+    "timer-synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "After scaling a single-node cluster to multi-node, users experience excessive warning logs that obscure other important information and suggest underlying cluster coordination issues.",
+  "rootCause": "Likely related to how shard timers are managed when a new node joins the cluster; the new node may trigger timer reallocations that are out of sync with the original node's read level.",
+  "proposedFix": "Ensure services are deployed as one service per host rather than all services in one container; issue may also be related to PR #915 regarding metrics client instantiation per deployment.",
+  "workaround": "Deploy services to dedicated Docker containers or pods (one service per host) instead of running all services together.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved when services were deployed to dedicated docker containers/pods rather than all services on the same host. Related to PR #915 which ensures one metrics client per deployment.",
+  "related": [
+    915
+  ],
+  "keyQuote": "Issue got resolved once services are deployed into dedicated docker / pods.",
+  "number": 425,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:57:16.323Z"
+}

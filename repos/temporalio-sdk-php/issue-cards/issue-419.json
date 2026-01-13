@@ -1,0 +1,36 @@
+{
+  "summary": "Request to clarify the WorkflowClient API by distinguishing between Workflow Stub objects (typed interfaces) and Proxy objects (that implement user-defined Workflow interfaces). Currently, methods with 'Stub' postfix are inconsistent—some return WorkflowStubInterface while others return proxies, creating confusion and limiting access to stub functionality.",
+  "category": "feature",
+  "subcategory": "workflow-client-api",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowStubInterface",
+    "newWorkflowStub",
+    "newRunningWorkflowStub",
+    "newUntypedWorkflowStub"
+  ],
+  "components": [
+    "WorkflowClient",
+    "WorkflowStubInterface",
+    "workflow-proxy"
+  ],
+  "concepts": [
+    "API consistency",
+    "type-safety",
+    "interface design",
+    "backward compatibility",
+    "deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users face inconsistent behavior when creating workflow stubs and cannot reliably obtain WorkflowStubInterface for operations like Describe or Update with custom WaitPolicy.",
+  "rootCause": "API design inconsistency where methods with 'Stub' suffix have different return types (some return WorkflowStubInterface, others return proxy objects), causing confusion about which method to use.",
+  "proposedFix": "Introduce new methods: newWorkflow/newRunningWorkflow for typed stubs, newWorkflowProxy/newRunningWorkflowProxy for proxies, newUntypedWorkflow/newUntypedRunningWorkflow for untyped stubs; deprecate existing methods with backward compatibility parameter.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "there is no proper way to get WorkflowStubInterface from a Workflow class. Both methods that accept a class return us a proxy.",
+  "number": 419,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:53.878Z"
+}

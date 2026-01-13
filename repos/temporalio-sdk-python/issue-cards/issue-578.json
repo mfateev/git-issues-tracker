@@ -1,0 +1,32 @@
+{
+  "summary": "Activity returning dict instead of dataclass when called via string name. User was forced to manually convert the returned dict to the expected dataclass type. Issue was resolved by specifying the result_type parameter or using execute_activity_method.",
+  "category": "bug",
+  "subcategory": "activity-deserialization",
+  "apis": [
+    "execute_activity",
+    "execute_activity_method"
+  ],
+  "components": [
+    "activity-executor",
+    "serialization",
+    "type-hints"
+  ],
+  "concepts": [
+    "type-deserialization",
+    "return-type-inference",
+    "dataclass-conversion",
+    "json-defaults"
+  ],
+  "severity": "medium",
+  "userImpact": "Users calling activities by string name receive dict objects instead of properly typed dataclass instances, requiring manual type conversion.",
+  "rootCause": "When activities are called via string name instead of direct method reference, the SDK cannot extract the return type from the function signature and defaults to JSON deserialization (dict) instead of the intended dataclass type.",
+  "proposedFix": "Specify result_type parameter when calling execute_activity with string name, or use execute_activity_method with direct method reference to allow type extraction from signature.",
+  "workaround": "Manually check if returned object is a dataclass instance, and if not, create a new instance initialized with the dict contents.",
+  "resolution": "fixed",
+  "resolutionDetails": "User resolved by adding result_type parameter to execute_activity call, allowing proper deserialization to PostAbstractionDTO.",
+  "related": [],
+  "keyQuote": "If you call the activity via a string name, the code does not know the type to deserialize to, so it defaults to whatever JSON does (which is dict in this case).",
+  "number": 578,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:41.374Z"
+}

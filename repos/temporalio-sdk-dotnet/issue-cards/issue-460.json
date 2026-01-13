@@ -1,0 +1,30 @@
+{
+  "summary": "Change workflow summary and details retrieval in the .NET client from eager decoding to lazy loading upon request for better performance.",
+  "category": "feature",
+  "subcategory": "client-api",
+  "apis": [],
+  "components": [
+    "client",
+    "workflow-execution",
+    "data-deserialization"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "performance-optimization",
+    "memory-efficiency",
+    "decoding",
+    "client-api"
+  ],
+  "severity": "low",
+  "userImpact": "Users will experience improved performance and reduced memory usage when retrieving workflow information in the .NET client.",
+  "rootCause": null,
+  "proposedFix": "Implement lazy decoding of workflow summary and details instead of eagerly decoding them.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Changed to lazy decoding of workflow summary/details on request.",
+  "related": [],
+  "keyQuote": "Today we eagerly decode these, change to be lazy upon request",
+  "number": 460,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:27:09.642Z"
+}

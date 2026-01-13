@@ -1,0 +1,33 @@
+{
+  "summary": "Include the worker's build ID in PollerInfo so that it appears in describe task queue responses, enabling better visibility into worker build information.",
+  "category": "feature",
+  "subcategory": "task-queue-metadata",
+  "apis": [
+    "PollerInfo"
+  ],
+  "components": [
+    "worker",
+    "task-queue",
+    "poller"
+  ],
+  "concepts": [
+    "build-id",
+    "worker-metadata",
+    "task-queue-description",
+    "observability"
+  ],
+  "severity": "low",
+  "userImpact": "Enables users to view worker build IDs in task queue descriptions for better debugging and monitoring.",
+  "rootCause": null,
+  "proposedFix": "Add worker build ID field to PollerInfo structure and propagate it from worker configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker build ID was added to PollerInfo to be included in task queue descriptions.",
+  "related": [
+    217
+  ],
+  "keyQuote": "We should include the worker's build id in `PollerInfo` so it shows up in describe tq responses",
+  "number": 3214,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:04.836Z"
+}

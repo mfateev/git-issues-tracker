@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to migrate from lib/pq to jackc/pgx as the PostgreSQL driver to enable client-side failover support for HA PostgreSQL clusters. lib/pq is in maintenance mode and lacks necessary features, while pgx is actively maintained and compatible with sqlx.",
+  "category": "feature",
+  "subcategory": "database-driver",
+  "apis": [],
+  "components": [
+    "postgresql-driver",
+    "database-connection",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "high-availability",
+    "failover",
+    "database-driver",
+    "client-side-routing",
+    "cluster-management",
+    "connection-pooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot implement client-side HA PostgreSQL failover with Temporal's current lib/pq driver, limiting deployment options for highly available setups.",
+  "rootCause": "lib/pq is in maintenance mode and lacks support for client-side failover and multiple-host connection strategies required for HA PostgreSQL clusters.",
+  "proposedFix": "Migrate from lib/pq to jackc/pgx as the PostgreSQL driver, which is actively maintained, supports necessary HA features, and is compatible with sqlx.",
+  "workaround": "Deploy and use a proxy to handle failover and load balancing, though this adds complexity to the deployment scheme.",
+  "resolution": "wontfix",
+  "resolutionDetails": "No resources available at the time. Contributors were welcome to submit patches.",
+  "related": [
+    4184
+  ],
+  "keyQuote": "We don't have resource to work on this at the moment. Contribution on this would be awesome.",
+  "number": 1775,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:42.392Z"
+}

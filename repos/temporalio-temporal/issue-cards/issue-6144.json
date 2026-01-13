@@ -1,0 +1,30 @@
+{
+  "summary": "ActivityStateReplicator drops sync activity replication tasks when the target cluster's workflow mutable state is not found. The component should trigger a history resend via RetryReplication error instead of returning nil, allowing the history resender to handle workflows that no longer exist in the source cluster.",
+  "category": "bug",
+  "subcategory": "replication",
+  "apis": [],
+  "components": [
+    "ActivityStateReplicator",
+    "history-replicator",
+    "ndc"
+  ],
+  "concepts": [
+    "replication",
+    "mutable-state",
+    "history-resend",
+    "cross-cluster",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Activity replication tasks are silently dropped during cross-cluster replication when the target workflow is missing, potentially causing data loss and inconsistency between clusters.",
+  "rootCause": "ActivityStateReplicator returns nil instead of a RetryReplication error when mutable state is not found, causing replication tasks to be dropped rather than triggering history resend.",
+  "proposedFix": "Return a RetryReplication error instead of nil to trigger history resend when workflow is not found in target cluster.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Return a RetryReplication error instead off nil to trigger history resend. History resender can handler the case where the workflow no longer existing in the source cluster.",
+  "number": 6144,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:08.540Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to implement synchronous workflow updates in the Java SDK, based on the corresponding feature added to the Temporal server (PR #3822). This enables workflows to be updated synchronously during execution.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "update-handler",
+    "client"
+  ],
+  "concepts": [
+    "workflow-update",
+    "synchronous-execution",
+    "workflow-lifecycle",
+    "versioning",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now synchronously update workflows in Java SDK, matching the capability available in the server and other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement the synchronous workflow update feature as specified in Temporal server PR #3822.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented and closed as duplicate/superseded by issue #1745, scheduled for release in v1.20.",
+  "related": [
+    1745
+  ],
+  "keyQuote": "Closing as implemented here https://github.com/temporalio/sdk-java/issues/1745 will be release in v1.20",
+  "number": 1708,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:44:05.055Z"
+}

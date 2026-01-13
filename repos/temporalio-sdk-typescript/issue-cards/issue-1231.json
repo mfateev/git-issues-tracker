@@ -1,0 +1,28 @@
+{
+  "summary": "TypeScript compiler error in deprecated-time.ts due to unfamiliar syntax that requires TypeScript 5.1 or later to properly recognize.",
+  "category": "bug",
+  "subcategory": "typescript-compatibility",
+  "apis": [],
+  "components": [
+    "deprecated-time",
+    "typescript-compilation"
+  ],
+  "concepts": [
+    "typescript-version",
+    "syntax-recognition",
+    "compiler-compatibility",
+    "type-definitions"
+  ],
+  "severity": "low",
+  "userImpact": "Users with TypeScript versions below 5.1 may encounter compiler errors when building the SDK.",
+  "rootCause": "The syntax in deprecated-time.ts is not recognized by TypeScript versions below 5.1.",
+  "proposedFix": "Upgrade to TypeScript 5.1 or later to recognize the syntax.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by supporting TypeScript 5.1 which properly recognizes the syntax.",
+  "related": [],
+  "keyQuote": "Using typescript > 5.1 helps to recognise this syntax.",
+  "number": 1231,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:52.382Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add a configurable graceful shutdown wait time property for the Spring Boot worker factory, preventing application closure before inflight tasks complete.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "WorkerFactory"
+  ],
+  "components": [
+    "spring-boot",
+    "worker-factory",
+    "lifecycle-management",
+    "shutdown-handler"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "inflight-tasks",
+    "shutdown-timeout",
+    "spring-boot-integration",
+    "resource-cleanup",
+    "lifecycle-hooks"
+  ],
+  "severity": "medium",
+  "userImpact": "Users' Spring Boot applications may close before completing in-flight worker tasks, potentially losing work or causing data inconsistency.",
+  "rootCause": "Worker factory shutdown triggered by Spring Boot close event lacks a configurable wait period for task completion.",
+  "proposedFix": "Add a configurable property to control how long the worker factory waits during shutdown before continuing.",
+  "workaround": "Users can manually add a hook to the context close event and manually shutdown the factory with explicit wait.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This can cause the application to close before all inflight tasks are finished.",
+  "number": 2026,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:36.754Z"
+}

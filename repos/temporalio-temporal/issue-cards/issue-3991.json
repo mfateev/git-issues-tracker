@@ -1,0 +1,31 @@
+{
+  "summary": "S3 archival fails in global namespaces after failover to a different region because the S3 client is initialized with the original region's configuration and attempts to access buckets in the wrong region.",
+  "category": "bug",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "archival",
+    "s3-archiver",
+    "history-service"
+  ],
+  "concepts": [
+    "global-namespace",
+    "failover",
+    "multi-region",
+    "s3",
+    "configuration",
+    "cluster-deployment"
+  ],
+  "severity": "high",
+  "userImpact": "Users with global namespaces spanning multiple regions cannot successfully archive workflows after failover, causing archive operations to fail with 400 Bad Request errors.",
+  "rootCause": "The S3 archiver client is configured at cluster startup with the cluster's default region and does not dynamically adjust the region when accessing S3 buckets after failover to a different region.",
+  "proposedFix": null,
+  "workaround": "Configure both clusters to use the same S3 bucket instead of region-specific buckets. Alternatively, use AWS S3 Multi-Region Access Points (MRAP) if compatible with the archival implementation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was clarified as expected behavior. Users must configure both clusters to use the same S3 bucket configuration, or use S3 MRAP. The workaround is documented in comments.",
+  "related": [],
+  "keyQuote": "You have to config your clusters to use same S3 bucket. Basically the same config for both cluster A and B.",
+  "number": 3991,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:59.762Z"
+}

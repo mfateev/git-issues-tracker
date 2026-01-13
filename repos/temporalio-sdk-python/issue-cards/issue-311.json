@@ -1,0 +1,34 @@
+{
+  "summary": "Python SDK lacks log forwarding support for Rust core logs, making it difficult to monitor and aggregate logs in unified logging systems. The Rust core logs use different formatting (with ANSI colors) compared to Python worker logs, and there's a need to forward these logs back to Python for consistent handling.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "runtime",
+    "logging",
+    "sdk-core-bridge"
+  ],
+  "concepts": [
+    "log-forwarding",
+    "structured-logging",
+    "rust-core-integration",
+    "log-formatting",
+    "monitoring",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily integrate Rust core logs into their unified logging infrastructure or JSON-structured logging systems, making monitoring and debugging harder in containerized environments.",
+  "rootCause": "Python SDK does not implement log forwarding from the Rust core (tokio-rs/tracing based) back to Python logging, unlike TypeScript SDK which has this capability.",
+  "proposedFix": "Forward buffered logs from the Rust core to Python logging, similar to how the TypeScript SDK handles core logs, potentially leveraging log buffering and pushing mechanism from sdk-core.",
+  "workaround": "Set environment variables like RUST_LOG_COLORS=never or TERM=dumb to disable ANSI colors in Rust logs, though this requires sdk-core runtime configuration changes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The resolution was deferred pending completion of sdk-core issue #618 to enable buffered log forwarding. The team decided to wait for the core infrastructure to support buffered, pushed logs sent to Python logging.",
+  "related": [
+    529,
+    618
+  ],
+  "keyQuote": "The sdk could support passing back core logs to python like it does for typescript...but maybe worth clarifying why?",
+  "number": 311,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:02.251Z"
+}

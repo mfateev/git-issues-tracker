@@ -1,0 +1,30 @@
+{
+  "summary": "Consistent query feature is disabled by default in clusters, but should be enabled by default or the toggle should be removed entirely to ensure consistent behavior.",
+  "category": "feature",
+  "subcategory": "query-consistency",
+  "apis": [],
+  "components": [
+    "cluster-config",
+    "query-engine"
+  ],
+  "concepts": [
+    "consistency",
+    "default-behavior",
+    "query-configuration",
+    "cluster-settings"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually enable consistent query, which may lead to unexpected inconsistent query results if not configured.",
+  "rootCause": "Consistent query is disabled by default rather than being the default behavior.",
+  "proposedFix": "Enable consistent query by default for all clusters or remove the ability to disable it.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Removed the toggle as noted in PR #468, making consistent query always enabled.",
+  "related": [
+    468
+  ],
+  "keyQuote": "Consistent query should be on by default for a cluster. Or may be completely remove the ability to turn it off.",
+  "number": 439,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:57:53.830Z"
+}

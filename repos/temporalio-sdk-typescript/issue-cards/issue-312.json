@@ -1,0 +1,37 @@
+{
+  "summary": "Users need a health check method on WorkflowClient or WorkflowServiceStubs to verify the underlying connection to the Temporal server is healthy. This was a common request across multiple SDKs.",
+  "category": "feature",
+  "subcategory": "connection-health",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowServiceStubs",
+    "Connection"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "grpc-channel"
+  ],
+  "concepts": [
+    "health-check",
+    "connection-status",
+    "server-connectivity",
+    "diagnostics",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now verify their connection to the Temporal server is healthy before executing workflows.",
+  "rootCause": null,
+  "proposedFix": "Expose health check method via WorkflowServiceStubs or WorkflowClient that wraps the gRPC health service.",
+  "workaround": "Use raw gRPC client health service via connection.healthService.check()",
+  "resolution": "fixed",
+  "resolutionDetails": "Exposed via raw gRPC client through connection.healthService with HealthCheckResponse status",
+  "related": [
+    828,
+    595
+  ],
+  "keyQuote": "import { Connection } from '@temporalio/client'; const health = await connection.healthService.check({});",
+  "number": 312,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:53.083Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "TestWorkflowEnvironment does not apply filtering options like StartTimeFilter and WorkflowTypeFilter when handling ListOpenWorkflowExecutions requests, limiting the ability to test workflow implementations with realistic query parameters.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ListOpenWorkflowExecutions",
+    "StartTimeFilter",
+    "WorkflowTypeFilter"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "test-server",
+    "workflow-execution-service"
+  ],
+  "concepts": [
+    "filtering",
+    "list-operations",
+    "test-utilities",
+    "query-parameters",
+    "workflow-discovery"
+  ],
+  "severity": "low",
+  "userImpact": "Developers testing workflow implementations cannot validate filtering behavior in ListOpenWorkflowExecutions queries.",
+  "rootCause": "TestWorkflowEnvironment service implementation does not process filter parameters from ListOpenWorkflowExecutionsRequest.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Test Server is intended for testing Workflow implementations, full on-par support of all administrative endpoints is not really a goal.",
+  "number": 1139,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:09:02.287Z"
+}

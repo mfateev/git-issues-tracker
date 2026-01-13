@@ -1,0 +1,31 @@
+{
+  "summary": "Transitive dependency minimist-1.2.5 has critical prototype pollution vulnerability (CVE-2021-44906) with CVSS 9.8 score. The vulnerability exists in swc-loader via loader-utils and json5 dependencies.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-tools",
+    "package-manager"
+  ],
+  "concepts": [
+    "security",
+    "prototype-pollution",
+    "transitive-dependency",
+    "vulnerability",
+    "package-upgrade",
+    "node-modules"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using the TypeScript SDK are vulnerable to remote prototype pollution attacks through the minimist dependency chain.",
+  "rootCause": "minimist library version 1.2.5 vulnerable to prototype pollution via setKey() function in index.js (lines 69-95)",
+  "proposedFix": "Upgrade minimist to version 1.2.6 or higher",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by WhiteSource as the vulnerable library was removed from the dependency tree or marked as ignored in inventory",
+  "related": [],
+  "keyQuote": "Minimist <=1.2.5 is vulnerable to Prototype Pollution via file index.js, function setKey() (lines 69-95).",
+  "number": 593,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:03:08.231Z"
+}

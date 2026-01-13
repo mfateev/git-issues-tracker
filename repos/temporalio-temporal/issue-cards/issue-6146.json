@@ -1,0 +1,33 @@
+{
+  "summary": "ARM64 Linux builds of Temporal server components are packaged with amd64 binaries instead of arm64, causing \"Exec format error\" failures when deployed on ARM64 infrastructure like M1 Macs running K3s. Multiple server and admin-tool binaries are affected.",
+  "category": "bug",
+  "subcategory": "build-architecture",
+  "apis": [],
+  "components": [
+    "docker-builds",
+    "temporal-server",
+    "admin-tools",
+    "temporal-cli"
+  ],
+  "concepts": [
+    "architecture-mismatch",
+    "binary-compatibility",
+    "docker-images",
+    "arm64-support",
+    "multi-architecture-builds"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal on ARM64 Linux systems as server components fail to execute with binary format errors.",
+  "rootCause": "Docker images for ARM64 contain amd64 binaries instead of properly compiled arm64 binaries, detected via file command showing 'x86-64' architecture.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    213
+  ],
+  "keyQuote": "temporal-sql-tool: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked... It is an amd64 binary?",
+  "number": 6146,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:23.356Z"
+}

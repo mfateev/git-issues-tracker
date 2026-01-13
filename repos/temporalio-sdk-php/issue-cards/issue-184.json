@@ -1,0 +1,32 @@
+{
+  "summary": "Parent workflow waits for child workflow completion even when no result is yielded, preventing the parent from returning immediately after the child starts. This blocks scenarios where child workflows should execute independently without blocking the parent.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "ExecuteChildWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "parent-child-workflow",
+    "execution-policy"
+  ],
+  "concepts": [
+    "parent-close-policy",
+    "child-workflow",
+    "non-blocking",
+    "async-execution",
+    "result-awaiting"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot fire-and-forget child workflows or return parent results immediately while child workflows continue running independently in the background.",
+  "rootCause": "PHP SDK implementation incorrectly blocks parent workflow until child workflow completion, contrary to Temporal's documented behavior that parent can return after child starts without awaiting results.",
+  "proposedFix": "Implement proper parent-child workflow decoupling so parent workflows can complete immediately after spawning children without waiting for child results when using non-blocking patterns.",
+  "workaround": "Separate child workflow logic into independent workflows and call them outside the parent workflow context.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was acknowledged and fixed in PHP SDK to allow parent workflows to return immediately without waiting for child workflow completion when results are not yielded.",
+  "related": [],
+  "keyQuote": "The parent workflow waits till the child starts. Once it is started the parent can be completed.",
+  "number": 184,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:22:54.109Z"
+}

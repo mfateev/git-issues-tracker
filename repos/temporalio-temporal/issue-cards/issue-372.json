@@ -1,0 +1,30 @@
+{
+  "summary": "Docker Compose with Elasticsearch fails on macOS Catalina due to insufficient memory allocation (2GB default). Elastic Search crashes with error 137, indicating out-of-memory issues when running temporal with Elasticsearch.",
+  "category": "docs",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "elasticsearch",
+    "configuration"
+  ],
+  "concepts": [
+    "memory-allocation",
+    "docker-configuration",
+    "docker-compose",
+    "system-requirements",
+    "resource-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on macOS cannot run docker-compose with Elasticsearch due to insufficient default memory allocation causing the container to crash.",
+  "rootCause": "Default memory allocated to Docker is set to 2GB, which is insufficient for running Temporal with Elasticsearch together.",
+  "proposedFix": "Documentation should be enhanced to mention that users need to increase the memory setting for Docker before running the temporal ES docker container.",
+  "workaround": "Manually increase Docker memory allocation before running docker-compose.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated via PR #240 to address the memory requirement issue.",
+  "related": [],
+  "keyQuote": "Documentation should be enhanced to mention that users change the memory setting for docker before running temporal es docker container.",
+  "number": 372,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:53:20.882Z"
+}

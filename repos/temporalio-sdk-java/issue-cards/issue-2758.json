@@ -1,0 +1,30 @@
+{
+  "summary": "Spring Boot 4 metrics configuration fails because the MetricsScopeAutoConfiguration waits for CompositeMeterRegistryAutoConfiguration, but the class package location changed in Spring Boot 4, causing metrics to be emitted to a no-op scope instead of the actual Micrometer MeterRegistry.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "temporal-spring-boot-autoconfigure",
+    "MetricsScopeAutoConfiguration",
+    "Micrometer integration"
+  ],
+  "concepts": [
+    "metrics",
+    "Spring Boot 4",
+    "package location",
+    "auto-configuration",
+    "dependency ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to Spring Boot 4 lose metrics observability, with metrics being silently emitted to a no-op scope instead of being properly collected by Micrometer.",
+  "rootCause": "CompositeMeterRegistryAutoConfiguration package moved from one location to another in Spring Boot 4, breaking the class reference in the @AutoConfigureAfter annotation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the package for this class changed to org.springframework.boot.micrometer.metrics.autoconfigure.CompositeMeterRegistryAutoConfiguration in Spring Boot 4",
+  "number": 2758,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:18:16.220Z"
+}

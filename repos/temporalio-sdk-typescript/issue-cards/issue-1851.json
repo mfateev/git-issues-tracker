@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to enable executing activities outside of workflow context. The SDK must support new server APIs for starting, managing, and retrieving results of standalone activities, and workers must be able to run activities without being part of a workflow.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "client"
+  ],
+  "concepts": [
+    "activity-execution",
+    "standalone-activities",
+    "server-apis",
+    "worker-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to execute activities independently without requiring a workflow context, enabling new use cases for distributed task execution.",
+  "rootCause": null,
+  "proposedFix": "Implement support for new server APIs (referenced in temporalio/api#640) for starting, managing, and getting results of activities. Update workers to support running activities outside workflow context.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    640
+  ],
+  "keyQuote": "Allow executing activities without a workflow. The clients must support the new (upcoming) server APIs for starting, managing and getting results of activities.",
+  "number": 1851,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:55:03.667Z"
+}

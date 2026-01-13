@@ -1,0 +1,32 @@
+{
+  "summary": "Worker's `_started` flag is not reset after shutdown, causing \"Already started\" error when attempting to run the worker again. However, workers are designed as single-use by intention, and users should create new worker instances instead of reusing them.",
+  "category": "question",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "worker.shutdown()",
+    "worker.run()"
+  ],
+  "components": [
+    "worker",
+    "worker-lifecycle"
+  ],
+  "concepts": [
+    "worker-reuse",
+    "state-reset",
+    "lifecycle-management",
+    "shutdown",
+    "initialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to reuse workers after shutdown encounter errors; however, this is not supported by design and users should create new worker instances instead.",
+  "rootCause": "The `_started` flag is set to True during worker startup but not reset during shutdown, preventing reuse of the same worker instance.",
+  "proposedFix": null,
+  "workaround": "Create a new worker instance with the same configuration instead of reusing the existing worker after shutdown.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not a bug - workers are intentionally single-use to prevent confusion and misuse. Users should create new worker instances rather than attempting to restart existing ones.",
+  "related": [],
+  "keyQuote": "Workers are single use by intention to prevent confusion and misuse. You can create another worker with the same config and call `run` on it.",
+  "number": 286,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:18.581Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to ensure built-in query responses use RawValue for consistency with the features specification. This is a follow-up to issue #574 implementation.",
+  "category": "feature",
+  "subcategory": "query-responses",
+  "apis": [],
+  "components": [
+    "query-handler",
+    "response-serialization"
+  ],
+  "concepts": [
+    "query-responses",
+    "raw-value",
+    "serialization",
+    "built-in-queries"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures consistency in query response handling across the PHP SDK, aligning with established patterns.",
+  "rootCause": null,
+  "proposedFix": "Make built-in queries return raw value as specified in features issue #604",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of another issue",
+  "related": [
+    574,
+    604
+  ],
+  "keyQuote": "[Feature Request] Built-in query responses should use \"RawValue\"",
+  "number": 575,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:41:36.260Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "During rolling restarts, ringpop ownership changes for task queue partitions may not propagate synchronously to history, frontend, and matching services, causing tasks to sit unprocessed in the database. The matching service needs to subscribe to ringpop events and proactively unload task queues when ownership is lost.",
+  "category": "bug",
+  "subcategory": "task-queue-ownership",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "ringpop",
+    "history-service",
+    "frontend-service",
+    "task-queue-manager"
+  ],
+  "concepts": [
+    "task-queue-membership",
+    "ownership-transfer",
+    "rolling-restart",
+    "event-propagation",
+    "long-poll",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Tasks become stuck and are not processed during rolling restarts when task queue ownership changes, causing increased schedule_to_start latency and delayed task execution.",
+  "rootCause": "Ringpop ownership changes propagate asynchronously to matching, history, and frontend services, causing a state mismatch where history pushes tasks to the new owner but the old matching pod still holds long-poll connections and the new pod doesn't know about pending tasks.",
+  "proposedFix": "Matching service should subscribe to ringpop events and proactively unload task queue managers when it detects loss of ownership for a partition.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Matching service was updated to subscribe to ringpop events and proactively unload task queue managers on ownership loss.",
+  "related": [],
+  "keyQuote": "Matching service need to subscribe to ringpop events, and proactively unload task queue manager if it detect lost of ownership.",
+  "number": 5198,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:39.918Z"
+}

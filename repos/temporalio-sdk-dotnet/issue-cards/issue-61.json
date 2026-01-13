@@ -1,0 +1,34 @@
+{
+  "summary": "Activity delegates created via expression trees may have a System.Runtime.CompilerServices.Closure as the first parameter, which should be excluded from parameter detection. The issue proposes using GetType().GetMethod(\"Invoke\") or adding explicit invoke metadata to ActivityDefinition.",
+  "category": "feature",
+  "subcategory": "activity-invocation",
+  "apis": [
+    "ActivityDefinition"
+  ],
+  "components": [
+    "activity-executor",
+    "delegate-invocation",
+    "reflection"
+  ],
+  "concepts": [
+    "closure",
+    "expression-trees",
+    "parameter-detection",
+    "delegate-methods",
+    "reflection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users creating activities with expression tree lambdas may experience incorrect parameter handling in the activity framework.",
+  "rootCause": "Expression tree lambdas capture a System.Runtime.CompilerServices.Closure object that appears as the first parameter when using GetParameters().",
+  "proposedFix": "Either use Delegate.GetType().GetMethod(\"Invoke\") for parameter detection, or add Invoke, ReturnType, and ParameterTypes properties to ActivityDefinition with a CreateWithoutAttribute constructor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by issue #67, making this feature request no longer necessary.",
+  "related": [
+    67
+  ],
+  "keyQuote": "If you use expression trees to create a lambda, the first param of defn.Delegate.Method.GetParameters() is a System.Runtime.CompilerServices.Closure.",
+  "number": 61,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:24:52.133Z"
+}

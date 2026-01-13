@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for upsert memo operations during workflow execution. Currently, users can only set memo at workflow start time, but they should be able to modify/upsert memo during execution using the existing ModifyWorkflowPropertiesCommandAttributes command.",
+  "category": "feature",
+  "subcategory": "workflow-properties",
+  "apis": [
+    "ModifyWorkflowPropertiesCommandAttributes"
+  ],
+  "components": [
+    "workflow-execution",
+    "memo-management",
+    "command-handler"
+  ],
+  "concepts": [
+    "memo",
+    "workflow-properties",
+    "upsert",
+    "visibility",
+    "execution-modification"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can optimize API requests by updating memo during workflow execution instead of only at start time, enabling better advanced visibility patterns.",
+  "rootCause": null,
+  "proposedFix": "Implement upsert memo support using the existing ModifyWorkflowPropertiesCommandAttributes command during workflow execution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented in the Java SDK to allow memo modification during workflow execution.",
+  "related": [],
+  "keyQuote": "Workflow Executions should have an ability to modify/upsert the memo during the execution, not just at the start time.",
+  "number": 623,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:29:35.689Z"
+}

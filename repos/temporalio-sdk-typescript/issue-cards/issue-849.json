@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to access workflow/activity execution metadata (workflowId, activityId, runId, etc.) within PayloadCodec for logging purposes. Currently, this context is only partially accessible during activity decoding via Context.current(), limiting the ability to correlate codec failures with specific workflow/activity executions.",
+  "category": "feature",
+  "subcategory": "data-codec",
+  "apis": [
+    "PayloadCodec",
+    "Context.current()"
+  ],
+  "components": [
+    "payload-codec",
+    "data-converter",
+    "activity-context"
+  ],
+  "concepts": [
+    "context-awareness",
+    "execution-metadata",
+    "logging",
+    "correlation",
+    "codec-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably log codec failures with workflow/activity identifiers, making it difficult to correlate encoding/decoding issues with specific executions in production logs.",
+  "rootCause": "PayloadCodec lacks access to workflow/activity execution context that contains necessary metadata for correlation and logging.",
+  "proposedFix": "Provide a trimmed-down context object accessible to PayloadCodec containing execution metadata (workflowId, activityId, etc.) and potentially request headers and a logger.",
+  "workaround": "Pass context through payload metadata from a PayloadConverter and read it in PayloadCodec, though this approach has limitations.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of cross-SDK ticket #1661 addressing the same feature across multiple SDKs.",
+  "related": [
+    1661
+  ],
+  "keyQuote": "A way to access the activity/workflow execution metadata, so it can be added to logs. Information like: workflowType, workflowId, runId, activityType, activityId, attempt",
+  "number": 849,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:19:59.935Z"
+}

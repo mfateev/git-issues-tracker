@@ -1,0 +1,33 @@
+{
+  "summary": "Optimize activity dispatching by attempting synchronous matching with the matching service before persisting transfer tasks to the database, allowing successful sync matches to omit the corresponding transfer task write.",
+  "category": "feature",
+  "subcategory": "activity-dispatching",
+  "apis": [],
+  "components": [
+    "activity-dispatcher",
+    "matching-service",
+    "transfer-task",
+    "activity-executor"
+  ],
+  "concepts": [
+    "sync-matching",
+    "optimization",
+    "task-persistence",
+    "retry-policy",
+    "at-least-once-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces database writes and improves activity dispatching performance by eliminating unnecessary transfer task persistence when activities are immediately matched.",
+  "rootCause": null,
+  "proposedFix": "Before writing un-started activity tasks with retry policy to the database, attempt pushing to matching service for sync match with a 1-2 second timeout window; omit the transfer task if sync matching succeeds.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2965
+  ],
+  "keyQuote": "try pushing these task to matching service for sync match (e.g. wait for 1 to 2 second), if sync matching is a success, the corresponding transfer task can be omitted",
+  "number": 1714,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:50.616Z"
+}

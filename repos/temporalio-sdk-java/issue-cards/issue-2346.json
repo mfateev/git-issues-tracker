@@ -1,0 +1,35 @@
+{
+  "summary": "ManualActivityCompletionClient performs unlimited retries on non-retryable errors like gRPC message size exceeding limits. When completing an async activity with a payload larger than 4MB, the client retries instead of failing fast.",
+  "category": "bug",
+  "subcategory": "manual-activity-completion",
+  "apis": [
+    "ManualActivityCompletionClient"
+  ],
+  "components": [
+    "manual-activity-completion",
+    "retry-logic",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry",
+    "non-retryable-error",
+    "payload-size",
+    "grpc",
+    "async-activity",
+    "error-classification"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to complete async activities with large payloads experience unnecessary retries instead of immediate failure, delaying error visibility and wasting resources.",
+  "rootCause": "ManualActivityCompletionClient lacks proper error classification to distinguish retryable from non-retryable errors, specifically for gRPC message size constraint violations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of temporalio/temporal#6806, indicating the issue should be tracked in the main Temporal repository.",
+  "related": [
+    6806
+  ],
+  "keyQuote": "ManualActivityCompletionClient shouldn't retry the non-retryable errors: GRPC: received message larger than max (5243998 vs. 4194304)",
+  "number": 2346,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:10.180Z"
+}

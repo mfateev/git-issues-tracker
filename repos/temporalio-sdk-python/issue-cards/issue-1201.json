@@ -1,0 +1,35 @@
+{
+  "summary": "Add safeguards to prevent accidental Runtime misuse across forks by preventing creation with runtimes from different processes and allowing users to opt-out of default runtime creation.",
+  "category": "feature",
+  "subcategory": "runtime-lifecycle",
+  "apis": [
+    "Runtime.default",
+    "Runtime.prevent_default"
+  ],
+  "components": [
+    "runtime",
+    "client",
+    "worker",
+    "test-framework"
+  ],
+  "concepts": [
+    "process-fork",
+    "runtime-isolation",
+    "default-initialization",
+    "multi-process",
+    "safety",
+    "opt-out"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with forked processes or advanced configurations could accidentally misuse Runtimes, leading to hard-to-debug failures.",
+  "rootCause": null,
+  "proposedFix": "Implement process fork detection similar to Ruby SDK PR #301, and add Runtime.prevent_default() method to block lazy default runtime creation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after implementation of fork detection and prevent_default() mechanism.",
+  "related": [],
+  "keyQuote": "Prevent creating things with a runtime created in a different process... Allow users to opt-out of default runtime use",
+  "number": 1201,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:26.852Z"
+}

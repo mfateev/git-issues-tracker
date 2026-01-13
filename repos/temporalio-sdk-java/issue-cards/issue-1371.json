@@ -1,0 +1,33 @@
+{
+  "summary": "During direct queries on evicted workflows, the SDK fails when the query arrives with outdated event IDs, causing the state machine to enter an invalid state. The SDK should handle these scenarios by performing a full replay instead of failing the workflow task.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "state-machines",
+    "query-processing",
+    "workflow-task-handler"
+  ],
+  "concepts": [
+    "replay",
+    "state-machine",
+    "query",
+    "event-id",
+    "workflow-eviction",
+    "state-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow query failures and internal state machine exceptions when queries arrive during workflow task processing with outdated state information.",
+  "rootCause": "The isReplaying state detection in state machines relies on previousStartedWorkflowTaskId matching server history. When queries arrive with outdated IDs during eviction, the SDK incorrectly routes through EXECUTE instead of REPLAY path, causing state machine exceptions.",
+  "proposedFix": "Handle queries with full replay when the state machine check detects too advanced workflow state, and fix isReplaying detection to account for outdated previousStartedWorkflowTaskId in query scenarios.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by improving state machine handling and replay logic for queries with outdated event IDs.",
+  "related": [
+    1267
+  ],
+  "keyQuote": "JavaSDK probably should handle the query with a full replay when this happens instead of failing a workflow task.",
+  "number": 1371,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:30:46.297Z"
+}

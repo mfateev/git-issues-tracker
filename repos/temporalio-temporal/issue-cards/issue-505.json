@@ -1,0 +1,33 @@
+{
+  "summary": "Adding a search attribute via tctl with type Keyword (type 1) fails with a dynamic config update error, but the attribute is still added with the wrong type (String instead of Keyword). The root cause is that the Elasticsearch index template must be manually updated in addition to the dynamic config file.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "tctl",
+    "dynamic-config",
+    "elasticsearch",
+    "visibility"
+  ],
+  "concepts": [
+    "search-attributes",
+    "elasticsearch-schema",
+    "dynamic-configuration",
+    "type-mapping",
+    "index-template"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly add custom search attributes of non-string types without manually rebuilding the server image to update the Elasticsearch index template.",
+  "rootCause": "The tctl addSearchAttribute command only updates the dynamic config file but does not update the Elasticsearch index template schema, causing the attribute to be created with the default type (String) rather than the specified type.",
+  "proposedFix": "Update documentation to clarify that both development_es.yaml and schema/elasticsearch/visibility/index_template.json must be modified. Later, implement a more seamless way to add search attributes without recompiling the image, such as through tctl commands or Kubernetes ConfigMaps.",
+  "workaround": "Manually edit both config/dynamicconfig/development_es.yaml and schema/elasticsearch/visibility/index_template.json, rebuild the Docker image, and redeploy.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by clarifying the two-step process required to add search attributes. Later improvements made tctl the primary method for adding search attributes without requiring image rebuilds.",
+  "related": [
+    1442
+  ],
+  "keyQuote": "In addition to updating the development_es.yaml file, you also have to update the schema/elasticsearch/visibility/index_template.json file",
+  "number": 505,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:03:07.694Z"
+}

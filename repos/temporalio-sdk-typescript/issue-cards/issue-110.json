@@ -1,0 +1,31 @@
+{
+  "summary": "Worker crashes with \"ValueError: Unknown Encoding\" error when processing payloads from old task queue entries. The issue occurs when stale workflows from previous runs use incompatible encoding, causing the data converter to fail.",
+  "category": "bug",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "worker",
+    "data-converter",
+    "payload-processing"
+  ],
+  "concepts": [
+    "encoding",
+    "deserialization",
+    "task-queue",
+    "payload-metadata",
+    "error-handling",
+    "stale-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter worker crashes when running hello world samples if old task queue entries exist, requiring task queue name changes to work around the issue.",
+  "rootCause": "Payload metadata contains non-unicode characters from old workflow executions that the data converter cannot deserialize, causing the worker to fail.",
+  "proposedFix": "Improve error message handling and prevent malformed payloads from killing the entire worker process.",
+  "workaround": "Change task queue names to use a fresh queue without old entries.",
+  "resolution": "fixed",
+  "resolutionDetails": "User identified the root cause as stale task queue entries; issue resolved by changing task queue names. Worker error handling was improved to be more resilient.",
+  "related": [],
+  "keyQuote": "This problem goes away when I change task queue names, so I think it may be due to an old entry in the task queue causing issues.",
+  "number": 110,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:11.048Z"
+}

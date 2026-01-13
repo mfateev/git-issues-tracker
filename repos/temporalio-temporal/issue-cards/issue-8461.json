@@ -1,0 +1,35 @@
+{
+  "summary": "Request to add documentation for deploying self-hosted Temporal on cloud environments (AWS EKS and Azure AKS) with specific guidance on known configuration issues and gotchas.",
+  "category": "docs",
+  "subcategory": "cloud-deployment",
+  "apis": [],
+  "components": [
+    "deployment",
+    "archival",
+    "visibility-store",
+    "database",
+    "postgres"
+  ],
+  "concepts": [
+    "self-hosting",
+    "cloud-deployment",
+    "EKS",
+    "AKS",
+    "TLS",
+    "archival-storage",
+    "database-configuration",
+    "postgres-extensions"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying self-hosted Temporal on AWS EKS and Azure AKS encounter undocumented configuration gotchas that require workarounds, increasing deployment complexity and time-to-value.",
+  "rootCause": "Lack of documented guidance for cloud-specific deployment requirements and constraints (Azure TLS enforcement, missing database extensions, archival support limitations).",
+  "proposedFix": "Add comprehensive documentation covering AWS EKS and Azure AKS deployment with specific sections on TLS configuration, database extension requirements (BTREE_GIN for PostgreSQL), and archival support limitations.",
+  "workaround": "For Azure TLS requirement: either enable TLS with Azure-managed certificates or disable TLS via Postgres server parameters (require_secure_transport). For visibility store: manually enable BTREE_GIN extension in PostgreSQL.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Lack of archival support for Azure with storage containers. AKS + Azure flexible postgres server fails with lots of tiny errors",
+  "number": 8461,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:19.772Z"
+}

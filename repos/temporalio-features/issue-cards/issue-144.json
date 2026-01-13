@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add gRPC error status code tags to request metrics to help SDKs expose error information without relying solely on server-side metrics. The team also addressed resource exhausted errors as a related metric.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "gRPC",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-codes",
+    "status-codes",
+    "request-metrics",
+    "resource-exhausted",
+    "monitoring",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "SDKs can now expose gRPC error status codes in request metrics, allowing users without server-side metric access to monitor and troubleshoot error patterns.",
+  "rootCause": null,
+  "proposedFix": "Add status_code tag to request_failure metrics using SCREAMING_SNAKE names from gRPC spec; create temporal_request_resource_exhausted counter with cause tag for resource exhaustion tracking.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented status_code tag on request_failure metrics and separate temporal_request_resource_exhausted counter with cause field containing enum string values.",
+  "related": [],
+  "keyQuote": "Not all user has access to all server side metrics. So this is critical.",
+  "number": 144,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:49.385Z"
+}

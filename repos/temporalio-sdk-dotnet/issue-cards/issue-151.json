@@ -1,0 +1,31 @@
+{
+  "summary": "StartUpdateAsync throws AggregateException instead of unwrapping the actual exception when called on a non-existent workflow handle, due to improper exception handling in the ContinueWith implementation.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "StartUpdateAsync"
+  ],
+  "components": [
+    "workflow-handle",
+    "update-client",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-unwrapping",
+    "async-operations",
+    "aggregateexception",
+    "task-continuations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive wrapped AggregateException instead of the original exception when updating non-existent workflows, making error handling and debugging more difficult.",
+  "rootCause": "ContinueWith usage in update internals was not properly unwrapping exceptions from the task.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The internals of update have been rewritten since this issue was filed, resolving the exception handling problem.",
+  "related": [],
+  "keyQuote": "The internals of update have been rewritten since this so this no longer applies",
+  "number": 151,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:49:43.549Z"
+}

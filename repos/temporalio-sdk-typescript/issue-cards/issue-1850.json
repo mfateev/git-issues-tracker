@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to simplify OpenTelemetry interceptor setup in TypeScript SDK by implementing it as a Plugin, allowing users to initialize OTEL with a single plugin object instead of manual configuration.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [
+    "Worker.create",
+    "Client"
+  ],
+  "components": [
+    "worker",
+    "client",
+    "plugin-system",
+    "observability"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "instrumentation",
+    "tracing",
+    "plugin-architecture",
+    "resource-configuration",
+    "trace-export"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must currently use awkward OTEL interceptor setup when they should be able to use a simple plugin pattern.",
+  "rootCause": null,
+  "proposedFix": "Implement OpenTelemetryPlugin class that accepts configuration (resource, traceExporter) and can be passed to both Worker.create() and Client constructor via plugins array.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Setting up OTEL should be as easy as [plugin instantiation] const worker = await Worker.create({...plugins: [plugin]})",
+  "number": 1850,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:55:04.606Z"
+}

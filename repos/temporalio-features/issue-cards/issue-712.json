@@ -1,0 +1,32 @@
+{
+  "summary": "The TypeScript SDK has migrated from npm to pnpm for builds, but the features repo still uses npm when building TS workers from source. This causes `npm ci` to fail because it expects package-lock.json but pnpm uses pnpm-lock.yaml instead.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "typescript-worker",
+    "build-script",
+    "dependency-management"
+  ],
+  "concepts": [
+    "package-manager",
+    "build-automation",
+    "source-build",
+    "lock-file",
+    "npm-migration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot build TypeScript workers from source after the SDK's migration to pnpm, causing build failures.",
+  "rootCause": "The build script in the features repo hardcodes npm commands but the TypeScript SDK now uses pnpm with pnpm-lock.yaml, creating a mismatch.",
+  "proposedFix": "Replace npm commands with pnpm equivalents in the build script (pnpm ci instead of npm ci, pnpm run build instead of npm run build).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1793
+  ],
+  "keyQuote": "npm ci fails because it expects `package-lock.json` but now that we use `pnpm`, we have `pnpm-lock.yaml`",
+  "number": 712,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:06:00.188Z"
+}

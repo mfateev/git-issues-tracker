@@ -1,0 +1,32 @@
+{
+  "summary": "The temporal operator cluster describe command is missing failoverVersionIncrement and initialFailoverVersion fields that are available in tctl adm cl describe. Users need these fields exposed in the CLI or an alternative way to access them.",
+  "category": "feature",
+  "subcategory": "operator-cli",
+  "apis": [
+    "GetClusterInfo"
+  ],
+  "components": [
+    "operator-service",
+    "tdbg",
+    "cli"
+  ],
+  "concepts": [
+    "cluster-metadata",
+    "failover-version",
+    "cluster-configuration",
+    "api-completeness",
+    "operator-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access failoverVersionIncrement and initialFailoverVersion fields through the modern temporal CLI, limiting their ability to inspect cluster configuration.",
+  "rootCause": "The operator API GetClusterInfo method does not expose failoverVersionIncrement and initialFailoverVersion fields that are available in the older tctl implementation.",
+  "proposedFix": "Add failoverVersionIncrement and initialFailoverVersion fields to the operator service API (either extend GetClusterInfo or create a new operator service API), and port tctl admin cluster describe to tdbg.",
+  "workaround": "Use tctl adm cl describe to access these fields, though this is the legacy tool.",
+  "resolution": "fixed",
+  "resolutionDetails": "Team decided to add a corresponding command in tdbg for tctl admin cl describe as the first step to provide access to these fields.",
+  "related": [],
+  "keyQuote": "Synced with the team, as a first step we will add a corresponding command in tdbg for tctl admin cl describe",
+  "number": 7294,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:05.326Z"
+}

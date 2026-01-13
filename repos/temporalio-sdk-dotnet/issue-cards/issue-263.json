@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow.WaitConditionAsync hangs indefinitely in Temporal 1.1.1 even when the condition becomes true, affecting unit tests. The issue was introduced in PR #242 and is resolved in version 1.1.2.",
+  "category": "bug",
+  "subcategory": "workflow-synchronization",
+  "apis": [
+    "WaitConditionAsync"
+  ],
+  "components": [
+    "workflow-runtime",
+    "condition-handling",
+    "threading"
+  ],
+  "concepts": [
+    "deadlock",
+    "thread-blocking",
+    "workflow-signals",
+    "async-coordination",
+    "regression"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to Temporal 1.1.1 experience hanging workflows when using WaitConditionAsync, blocking test execution and potentially production workloads.",
+  "rootCause": "Changes introduced in PR #242 caused a threading issue that blocks WaitConditionAsync indefinitely even when conditions are satisfied.",
+  "proposedFix": null,
+  "workaround": "Downgrade to Temporal 1.1.0 or earlier until patch release 1.1.2 is available.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.1.2 when PR #259 was merged.",
+  "related": [
+    242,
+    259
+  ],
+  "keyQuote": "Workflow.WaitConditionAsync sometimes hangs probably by a blocked thread caused by this pull request",
+  "number": 263,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T12:00:13.413Z"
+}

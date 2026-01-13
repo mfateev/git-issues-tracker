@@ -1,0 +1,30 @@
+{
+  "summary": "Vulnerability in modernc.org/libc-v1.24.1 (transitive dependency of modernc.org/SQLite) reported as CVE-2020-28928, a buffer overflow in musl libc wcsnrtombs function with CVSS score 5.5.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "go-modules",
+    "security"
+  ],
+  "concepts": [
+    "vulnerability",
+    "buffer-overflow",
+    "dependency-chain",
+    "security-patch",
+    "cvss-score"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are exposed to a medium severity buffer overflow vulnerability in a transitive dependency that could affect availability.",
+  "rootCause": "musl libc wcsnrtombs function mishandles particular combinations of destination buffer size and source character limit, causing invalid write access",
+  "proposedFix": "Upgrade modernc.org/libc to version 1.2.2-1 or later where the vulnerability is fixed in musl",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by upgrading the vulnerable transitive dependency modernc.org/libc to a patched version",
+  "related": [],
+  "keyQuote": "In musl libc through 1.2.1, wcsnrtombs mishandles particular combinations of destination buffer size and source character limit",
+  "number": 5257,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:04.714Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The Python SDK lacks built-in Session implementations for use with OpenAI Agents in workflows. Currently no functional Session options are available since the built-in SQLite implementation isn't supported, requiring users to provide their own.",
+  "category": "feature",
+  "subcategory": "openai-agents",
+  "apis": [
+    "Session"
+  ],
+  "components": [
+    "session-management",
+    "agents",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "session-persistence",
+    "openai-integration",
+    "agent-framework",
+    "workflow-context",
+    "in-box-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use OpenAI Agents in Temporal workflows without implementing their own Session solution.",
+  "rootCause": null,
+  "proposedFix": "Provide at least one built-in Session implementation that works within a workflow context.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Provide at least one in the box `Session` which works in a workflow context.",
+  "number": 1089,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:57.279Z"
+}

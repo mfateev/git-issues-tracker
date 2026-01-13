@@ -1,0 +1,38 @@
+{
+  "summary": "Worker pollers randomly drop to 0 despite available task slots and explicit poller configuration, causing workflow and activity task timeouts with no logged errors. This occurs across all poller behavior configurations and randomly affects workers 10-20 minutes after startup.",
+  "category": "bug",
+  "subcategory": "poller-behavior",
+  "apis": [
+    "Worker",
+    "PollerBehaviorSimpleMaximum",
+    "PollerBehaviorAutoscaling"
+  ],
+  "components": [
+    "worker",
+    "poller-management",
+    "task-scheduling",
+    "metrics"
+  ],
+  "concepts": [
+    "poller-behavior",
+    "task-slots",
+    "autoscaling",
+    "worker-reliability",
+    "silent-failure",
+    "configuration-ignored"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows and activities fail with timeouts due to workers stopping polling, while appearing healthy with no error logs.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use PollerBehaviorSimpleMaximum instead of autoscaling, run multiple workers to reduce simultaneous failure impact, or periodically restart workers to reset pollers.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    877
+  ],
+  "keyQuote": "With 14 available slots, there should be active pollers. Workers start healthy with expected poller counts, then after 10-20 minutes, pollers drop to 0.",
+  "number": 1268,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:37:28.033Z"
+}

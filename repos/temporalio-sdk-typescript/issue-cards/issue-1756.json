@@ -1,0 +1,30 @@
+{
+  "summary": "TypeScript SDK hostname validation is overly restrictive and prevents connecting to Temporal instances hosted behind reverse proxies at subpaths. The validation only allows hostname or hostname:port format, rejecting paths like /temporal.",
+  "category": "bug",
+  "subcategory": "connection",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "hostname-validation"
+  ],
+  "concepts": [
+    "reverse-proxy",
+    "hostname-validation",
+    "connection-string",
+    "url-parsing",
+    "network-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot connect to Temporal instances hosted behind reverse proxies at subpaths, blocking legitimate deployment scenarios that work with the Go SDK and Temporal UI.",
+  "rootCause": "SDK hostname normalization logic restricts input to hostname or hostname:port format and rejects URLs with path components.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal and Temporal UI allows this just fine and it works as expected, but the typescript SDK attempts to normalize it and only allows hostname or hostname:port",
+  "number": 1756,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:33.169Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to support configurable bind address for test server, allowing binding to specific addresses like 127.0.0.1 instead of defaulting to all addresses.",
+  "category": "feature",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "server-configuration",
+    "network-binding"
+  ],
+  "concepts": [
+    "bind-address",
+    "localhost",
+    "network-configuration",
+    "test-infrastructure",
+    "server-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot restrict test server to specific network interfaces, limiting flexibility in test environments and network configurations.",
+  "rootCause": null,
+  "proposedFix": "Add a configuration option to set the bind address for the test server instead of always binding to all addresses.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need to be able to set bind address (e.g. for 127.0.0.1) instead of assuming all addresses",
+  "number": 1920,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:31.028Z"
+}

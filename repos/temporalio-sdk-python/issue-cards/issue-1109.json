@@ -1,0 +1,36 @@
+{
+  "summary": "Adding workflow.random() calls before workflow.uuid4() in a modified workflow causes nondeterminism errors on replay. The issue occurs when deploying workflow changes that add random function calls, breaking previously running instances that expected uuid4 to be called first.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "workflow.uuid4",
+    "workflow.random",
+    "execute_child_workflow"
+  ],
+  "components": [
+    "workflow-replay",
+    "determinism",
+    "random-generation",
+    "child-workflow"
+  ],
+  "concepts": [
+    "nondeterminism",
+    "replay",
+    "deterministic-ordering",
+    "random-seed",
+    "workflow-versioning",
+    "state-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail with nondeterminism errors when re-deployed with new random() calls, causing running instances to crash and preventing workflow continuation.",
+  "rootCause": "All random objects in workflows share a common seed based on workflow run ID. Adding new random() calls changes the sequence of random values, causing previously stored deterministic values (like child workflow IDs) to mismatch on replay.",
+  "proposedFix": null,
+  "workaround": "Call workflow.uuid4() before any workflow.random() calls to ensure consistent ordering, or avoid adding new random() calls in deployed workflows.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Resolved as expected behavior by maintainer - this is a fundamental constraint of deterministic workflow execution where all random values depend on shared seed state.",
+  "related": [],
+  "keyQuote": "All the randomly generated objects on the workflow are based on workflow.random(). Hence, when you add a new call to it, it will change the result of the second call.",
+  "number": 1109,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:32:48.777Z"
+}

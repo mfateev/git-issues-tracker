@@ -1,0 +1,30 @@
+{
+  "summary": "A prototype pollution vulnerability (CVE-2021-44906) was discovered in minimist 1.2.5, a transitive dependency of tsconfig-paths. The vulnerability has a CVSS score of 5.0 (medium severity) and allows potential exploitation through argument parsing.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "tsconfig-paths",
+    "minimist",
+    "dependency-management"
+  ],
+  "concepts": [
+    "prototype-pollution",
+    "security-vulnerability",
+    "transitive-dependency",
+    "argument-parsing",
+    "version-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the sdk-features repository may be exposed to prototype pollution attacks through the vulnerable minimist dependency.",
+  "rootCause": "Minimist <=1.2.5 is vulnerable to Prototype Pollution via the setKey() function in index.js (lines 69-95).",
+  "proposedFix": "Upgrade minimist to version 1.2.6 or upgrade tsconfig-paths to version 4.0.0.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory.",
+  "related": [],
+  "keyQuote": "Minimist <=1.2.5 is vulnerable to Prototype Pollution via file index.js, function setKey() (lines 69-95).",
+  "number": 36,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:56.306Z"
+}

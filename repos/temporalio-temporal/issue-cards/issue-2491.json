@@ -1,0 +1,29 @@
+{
+  "summary": "The current throttled logger rate-limits all log lines equally, which can cause important error messages that occur infrequently to be missed while the logger is handling high-frequency repeated log lines. The proposal is to implement smarter throttling that only limits frequently repeated log lines while allowing rare errors through.",
+  "category": "other",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "throttle_logger",
+    "log_system"
+  ],
+  "concepts": [
+    "rate_limiting",
+    "error_handling",
+    "log_filtering",
+    "throttling",
+    "frequency_detection"
+  ],
+  "severity": "medium",
+  "userImpact": "Important rare errors may be dropped from logs due to rate limiting, making it harder to diagnose and troubleshoot critical issues.",
+  "rootCause": "The throttled logger applies uniform rate limiting to all log lines regardless of frequency, causing rare errors to be lost when the rate limit is reached by high-frequency messages.",
+  "proposedFix": "Implement frequency-aware throttling that tracks how often each unique log line appears and only applies rate limiting to frequently repeated messages while allowing rare messages through.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We can do much better job to throttle only frequently repeat log lines. Current throttled logger likely will miss important error log lines if they happen rarely while hit by rps limit.",
+  "number": 2491,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:20.696Z"
+}

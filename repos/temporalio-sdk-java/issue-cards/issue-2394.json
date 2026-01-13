@@ -1,0 +1,32 @@
+{
+  "summary": "Request to provide native OpenTelemetry-based tracing support instead of relying on the OpenTracing shim. Currently the Java SDK uses OpenTracing with an OpenTelemetry adapter, but a direct OpenTelemetry integration module would be more straightforward.",
+  "category": "feature",
+  "subcategory": "tracing-observability",
+  "apis": [],
+  "components": [
+    "tracing",
+    "observability",
+    "opentelemetry"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "instrumentation",
+    "observability",
+    "opentelemetry",
+    "shim",
+    "adapter",
+    "direct-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would have cleaner, more direct OpenTelemetry integration without relying on the OpenTracing shim layer.",
+  "rootCause": null,
+  "proposedFix": "Create a dedicated module providing native OpenTelemetry-based tracing support",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Could we simply have a module using opentelemetry directly?",
+  "number": 2394,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:07:15.720Z"
+}

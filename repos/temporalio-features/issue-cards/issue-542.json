@@ -1,0 +1,38 @@
+{
+  "summary": "Implement calls to the new server-side ShutdownWorker API when workers shut down, with proper error handling to ignore unimplemented errors while logging other failures.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "ShutdownWorker"
+  ],
+  "components": [
+    "worker",
+    "shutdown-handler",
+    "api-client"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "server-api",
+    "error-handling",
+    "lifecycle-management",
+    "multi-sdk-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures proper worker cleanup and communication with the server during shutdown across all Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Call new ShutdownWorker API on worker shutdown, ignoring unimplemented errors and logging other errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across multiple SDKs (Go, Java, Core) with API and Server support; TypeScript, Python, .NET, Ruby, and PHP marked as N/A.",
+  "related": [
+    443,
+    6511,
+    1645,
+    2236,
+    822
+  ],
+  "keyQuote": "New server-side shutdown worker API is being made. Make sure to ignore unimplemented errors (and only log on any other errors).",
+  "number": 542,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:14.186Z"
+}

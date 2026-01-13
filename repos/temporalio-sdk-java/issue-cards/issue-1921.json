@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow executions became frozen in Running state after a NullPointerException in FailureConverter.failureToException during stack trace processing. The issue caused WorkflowTask state machine failures that prevented progress, requiring worker restarts to recover.",
+  "category": "bug",
+  "subcategory": "workflow-task-processing",
+  "apis": [],
+  "components": [
+    "workflow-worker",
+    "state-machine",
+    "failure-converter",
+    "replay-handler"
+  ],
+  "concepts": [
+    "state-machine-transition",
+    "stack-trace-processing",
+    "null-pointer-exception",
+    "workflow-task-failure",
+    "execution-freeze"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow executions can become completely frozen and require worker restart to resume, causing production outages.",
+  "rootCause": "NullPointerException in FailureConverter.failureToException at stackTrace[15] when processing stack traces with null elements, causing state machine transition failures.",
+  "proposedFix": "Fix stack trace handling in FailureConverter to properly handle null stack trace elements during failure conversion.",
+  "workaround": "Restart all workers to recover stuck executions.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #1795, available in v1.22.0 SDK release.",
+  "related": [
+    1795
+  ],
+  "keyQuote": "java.lang.NullPointerException: stackTrace[15] at java.base/java.lang.Throwable.setStackTrace(Throwable.java:879)",
+  "number": 1921,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:51:34.061Z"
+}

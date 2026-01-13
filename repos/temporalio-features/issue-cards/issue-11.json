@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to enable SDKs to dynamically inject new TLS certificates into connection instances after initialization. Different SDKs have varying support levels, from built-in callbacks (Go, Java) to requiring client replacement (TypeScript, Rust Core).",
+  "category": "feature",
+  "subcategory": "tls-certificates",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "tls",
+    "credentials"
+  ],
+  "concepts": [
+    "certificate-rotation",
+    "tls-configuration",
+    "dynamic-injection",
+    "connection-management",
+    "certificate-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a consistent way to refresh or rotate TLS certificates in long-running applications without reconnecting or replacing the entire client instance.",
+  "rootCause": null,
+  "proposedFix": "Implement per-SDK mechanisms: Go via GetClientCertificate callback, TypeScript/Rust Core via client replacement, Java via existing support, Python and .NET via issue tickets, PHP via TODO.",
+  "workaround": "Client replacement (already supported in TypeScript and Rust Core)",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1412,
+    513,
+    235
+  ],
+  "keyQuote": "SDKs users should have a way to inject new certificates to a connection instance",
+  "number": 11,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:23.967Z"
+}

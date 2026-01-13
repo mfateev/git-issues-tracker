@@ -1,0 +1,30 @@
+{
+  "summary": "GitHub Actions dropped support for Node16-based actions and now enforces Node20, breaking CI builds that relied on GLIBC 2.24 Docker images for compatibility with older Linux distributions.",
+  "category": "bug",
+  "subcategory": "ci-build",
+  "apis": [],
+  "components": [
+    "ci-workflows",
+    "docker-images",
+    "github-actions"
+  ],
+  "concepts": [
+    "node-version",
+    "glibc-compatibility",
+    "linux-distributions",
+    "ci-enforcement",
+    "dependency-compatibility"
+  ],
+  "severity": "critical",
+  "userImpact": "CI builds are failing and official SDK releases cannot run on older Linux distributions that customers still use.",
+  "rootCause": "GitHub Actions Runner agent now enforces Node20 execution regardless of actions requesting Node16, and Node20 requires GLIBC 2.27 which is incompatible with older Linux distros.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "GitHub Action's just started enforcing the long-announced EOL on Node16-based actions. Basically, the latest release of GHA's Runner agent ignores the fact that an action is requesting node16, and instead just calls node20 anyway.",
+  "number": 1575,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:06.265Z"
+}

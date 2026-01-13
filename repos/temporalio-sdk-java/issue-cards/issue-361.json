@@ -1,0 +1,34 @@
+{
+  "summary": "The default WorkflowIdReusePolicy in the Java SDK is set to AllowDuplicate instead of AllowDuplicateFailedOnly as documented. This allows duplicate workflow IDs to execute concurrently when they should only be allowed for failed workflows.",
+  "category": "bug",
+  "subcategory": "workflow-id-reuse-policy",
+  "apis": [
+    "StartWorkflow",
+    "WorkflowIdReusePolicy"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-options",
+    "id-reuse-policy"
+  ],
+  "concepts": [
+    "workflow-id",
+    "reuse-policy",
+    "duplicate-handling",
+    "workflow-execution",
+    "idempotency",
+    "default-behavior"
+  ],
+  "severity": "high",
+  "userImpact": "Users may unintentionally allow duplicate workflow IDs to run concurrently, bypassing the intended protection against duplicate workflow executions.",
+  "rootCause": "The default WorkflowIdReusePolicy constant is set to AllowDuplicate instead of AllowDuplicateFailedOnly, misaligning with documented behavior and best practices.",
+  "proposedFix": "Change the default WorkflowIdReusePolicy from AllowDuplicate to AllowDuplicateFailedOnly to match documentation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The default policy was corrected to AllowDuplicateFailedOnly to match the official documentation.",
+  "related": [],
+  "keyQuote": "Default WorkflowIdReusePolicy should be AllowDuplicateFailedOnly as per documentation",
+  "number": 361,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:10:34.605Z"
+}

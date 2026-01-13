@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowClient throws a type error when calling the update method on an untyped workflow stub because the workflowType parameter is null for untyped workflows, but the mapUpdateWorkflowResponse method requires a non-nullable string.",
+  "category": "bug",
+  "subcategory": "workflow-stubs",
+  "apis": [
+    "newUntypedRunningWorkflowStub",
+    "UpdateMethod"
+  ],
+  "components": [
+    "WorkflowClient",
+    "WorkflowStub",
+    "ResponseToResultMapper"
+  ],
+  "concepts": [
+    "type-safety",
+    "untyped-workflows",
+    "workflow-updates",
+    "null-handling",
+    "type-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot call update methods on untyped workflow stubs without encountering a type error, even though the update is successfully processed by the workflow.",
+  "rootCause": "The mapUpdateWorkflowResponse method in ResponseToResultMapper has a non-nullable string type hint for the workflowType parameter, but it receives null for untyped workflows.",
+  "proposedFix": "Change the workflowType parameter in mapUpdateWorkflowResponse from 'string' to '?string' to accept null values for untyped workflows.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The workflowType parameter type hint was updated to accept nullable string (?string) to handle untyped workflows.",
+  "related": [],
+  "keyQuote": "mapUpdateWorkflowResponse(): Argument #3 ($workflowType) must be of type string, null given",
+  "number": 544,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:34:45.391Z"
+}

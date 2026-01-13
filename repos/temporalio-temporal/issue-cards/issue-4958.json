@@ -1,0 +1,33 @@
+{
+  "summary": "GetMutableStateRequest is currently used in poll mutable state but shouldn't require branch token or version-related data. The request should be simplified to only return the current version of mutable state, with version history and branch token data being handled separately by PollMutableState.",
+  "category": "feature",
+  "subcategory": "mutable-state",
+  "apis": [
+    "GetMutableState",
+    "PollMutableState"
+  ],
+  "components": [
+    "history-service",
+    "mutable-state",
+    "workflow-state-management"
+  ],
+  "concepts": [
+    "state-management",
+    "versioning",
+    "branch-token",
+    "api-simplification",
+    "protocol-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Simplifying GetMutableStateRequest reduces unnecessary data transmission and simplifies the API for internal state management operations.",
+  "rootCause": "GetMutableStateRequest includes unnecessary branch token and version-related data that should be handled by PollMutableState instead.",
+  "proposedFix": "Refactor GetMutableState to return only the current version of mutable state without branch token or version-related data; move version history handling to PollMutableState.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "GetMutableState should just return the current version of mutable state, no branch token nor version related data is required in the request.",
+  "number": 4958,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:00:11.260Z"
+}

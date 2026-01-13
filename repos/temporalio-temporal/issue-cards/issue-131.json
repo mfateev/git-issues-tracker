@@ -1,0 +1,32 @@
+{
+  "summary": "Request to support different retry policies based on failure type, allowing intermittent errors to retry immediately while non-transient errors retry with longer intervals or not at all.",
+  "category": "feature",
+  "subcategory": "retry-policy",
+  "apis": [],
+  "components": [
+    "retry-policy",
+    "workflow-retry",
+    "activity-retry",
+    "error-handling"
+  ],
+  "concepts": [
+    "retry",
+    "failure-type",
+    "error-classification",
+    "backoff",
+    "transient-errors",
+    "non-retryable-failures"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently configure different retry behaviors for different failure types, limiting their ability to handle transient vs non-transient errors appropriately.",
+  "rootCause": null,
+  "proposedFix": "Allow specifying different retry options for different failure types, enabling users to map error types to appropriate retry policies.",
+  "workaround": "Users can throw non-retryable application failures or mark failure type strings as not retryable to work around this limitation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow specifying different retry options for different failure types. For example intermittent errors can be retried immediately, but some errors that are not intermittent (like NPE) and require human intervention can be retried with much higher intervals.",
+  "number": 131,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:19:37.988Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Review and standardize JSON serialization across the codebase by replacing native json.Marshal/Unmarshal with proto serialization and JSONPBEncoder. Several components still need updates including archiver, elasticsearch, persistence, mysql, and history modules.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "archiver",
+    "elasticsearch",
+    "persistence",
+    "mysql",
+    "history"
+  ],
+  "concepts": [
+    "json-serialization",
+    "protobuf",
+    "encoding",
+    "deserialization",
+    "marshaling"
+  ],
+  "severity": "medium",
+  "userImpact": "Inconsistent JSON serialization patterns can lead to maintenance issues and potential compatibility problems across different SDK components.",
+  "rootCause": "Native json.Marshal/Unmarshal used inconsistently throughout codebase instead of standardized proto serialization and JSONPBEncoder for proto objects.",
+  "proposedFix": "Replace json.Marshal/Unmarshal with proto serialization or JSONPBEncoder depending on whether JSON output is required, with specific guidance for archiver, elasticsearch, persistence, mysql, and history modules.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through systematic replacement of native JSON serialization with proto-based serialization and JSONPBEncoder as recommended in the issue description.",
+  "related": [
+    198,
+    193
+  ],
+  "keyQuote": "Native `json.Marshal/Unmarshal` should be used only for pure go objects and only when it is necessary.",
+  "number": 216,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:22:15.815Z"
+}

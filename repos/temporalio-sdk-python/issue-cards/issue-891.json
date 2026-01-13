@@ -1,0 +1,33 @@
+{
+  "summary": "User requests the ability to execute Workflow code directly outside of a Temporal Worker to avoid duplicating orchestration logic. Currently, calling workflow methods directly throws a NotInWorkflowEventLoopError because workflow primitives like execute_activity only work in a worker-based durable environment.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "execute_activity",
+    "in_workflow"
+  ],
+  "components": [
+    "workflow-runtime",
+    "event-loop",
+    "activity-executor"
+  ],
+  "concepts": [
+    "code-reuse",
+    "durability",
+    "non-durable-execution",
+    "testing",
+    "activity-orchestration"
+  ],
+  "severity": "low",
+  "userImpact": "Users who want to reuse workflow orchestration logic outside a Temporal Worker must duplicate code or create custom abstractions.",
+  "rootCause": "Workflow primitives are designed exclusively for durable execution within a Temporal server context and require a specially-crafted deterministic event loop.",
+  "proposedFix": "Create a user-level abstraction that checks workflow.in_workflow() to fall back to non-durable execution when outside a worker context, or implement manual retry logic.",
+  "workaround": "Use workflow.in_workflow() checks to branch code paths between durable (workflow) and non-durable (standard async) execution; keep a registry of available activities for programmatic access.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I just would like to avoid duplicating the \"activity\" orchestration logic in the workflow layer.",
+  "number": 891,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:59.891Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to change eager decoding of static workflow summary/details to lazy loading in the TypeScript client. Currently these are decoded immediately; the request is to defer decoding until the data is actually requested.",
+  "category": "feature",
+  "subcategory": "client-performance",
+  "apis": [
+    "getWorkflowSummary",
+    "getWorkflowDetails"
+  ],
+  "components": [
+    "client",
+    "workflow-metadata",
+    "decoding"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "performance-optimization",
+    "memory-efficiency",
+    "eager-evaluation",
+    "decoding"
+  ],
+  "severity": "low",
+  "userImpact": "Users may experience better client performance and reduced memory usage by deferring unnecessary decoding operations until workflow summary/details are actually accessed.",
+  "rootCause": null,
+  "proposedFix": "Change the client implementation to defer decoding of static workflow summary and details until they are explicitly requested rather than decoding them eagerly.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was closed, indicating the lazy loading feature was implemented.",
+  "related": [],
+  "keyQuote": "Today we eagerly decode these, change to be lazy upon request.",
+  "number": 1689,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:29.876Z"
+}

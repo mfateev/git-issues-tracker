@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to allow SDKs to create Schedule specs from JSON structures (like tctl uses) instead of requiring cumbersome object construction. This would enable consistent schedule definitions across languages, easier configuration management, and reduced risk of misconfiguration.",
+  "category": "feature",
+  "subcategory": "schedule-creation",
+  "apis": [
+    "ScheduleSpec"
+  ],
+  "components": [
+    "schedule-sdk",
+    "schedule-parser",
+    "schedule-api"
+  ],
+  "concepts": [
+    "schedule-configuration",
+    "json-deserialization",
+    "cross-sdk-consistency",
+    "configuration-management",
+    "declarative-definition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must write verbose, language-specific code to define schedules instead of using simple JSON, making it harder to maintain consistency across SDKs and languages.",
+  "rootCause": "SDKs lack a method to deserialize schedule specifications from JSON format, forcing users to construct objects programmatically with verbose builder patterns.",
+  "proposedFix": "Add methods like ScheduleSpec.fromJson(json) to all SDKs that parse JSON schedule specifications (matching tctl's format) and construct the appropriate ScheduleSpec objects.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Merged with issue #118 which is tracking the ability to create schedules from declarative languages (YAML/JSON) with a unified format across all SDKs.",
+  "related": [
+    118
+  ],
+  "keyQuote": "This would allow for potential extraction of schedule definition to a config file, meaning source code doesn't need to be changed whilst making changes to a schedule.",
+  "number": 341,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:58:26.056Z"
+}

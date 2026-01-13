@@ -1,0 +1,29 @@
+{
+  "summary": "Add support for serializing and deserializing `datetime` values in the default JSON converter using ISO 8601 format.",
+  "category": "feature",
+  "subcategory": "serialization",
+  "apis": [],
+  "components": [
+    "json-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "datetime",
+    "iso8601",
+    "json-serialization",
+    "type-conversion",
+    "data-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot directly serialize Python datetime objects in workflows, requiring manual conversion workarounds.",
+  "rootCause": null,
+  "proposedFix": "Implement datetime to/from ISO 8601 string conversion in the default JSON converter",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support datetime serialization in the JSON converter",
+  "related": [],
+  "keyQuote": "datetime needs to be supported to/from string in default JSON converter (use iso8601)",
+  "number": 627,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:48.723Z"
+}

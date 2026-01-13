@@ -1,0 +1,29 @@
+{
+  "summary": "Update Carbon dependency from 2.x to 3.x to support Symfony 7 compatibility. Carbon 2.x requires Symfony 6 or lower, causing dependency conflicts for projects upgrading to Symfony 7.",
+  "category": "feature",
+  "subcategory": "dependency-upgrade",
+  "apis": [],
+  "components": [
+    "composer.json",
+    "dependencies",
+    "illuminate/support"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "dependency-management",
+    "symfony-integration",
+    "composer-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to Symfony 7 cannot use the Temporal PHP SDK due to incompatible Carbon 2.x dependency constraints.",
+  "rootCause": "nesbot/carbon 2.x requires Symfony 6.0 or lower, which conflicts with Symfony 7.0. illuminate/support package creates additional conflicts when upgrading.",
+  "proposedFix": "Update composer.json to require nesbot/carbon ^3.0 and remove conflicting illuminate/support dependency from tests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Carbon dependency was updated to 3.x and illuminate/support dependency was removed from the codebase to resolve Symfony 7 compatibility.",
+  "related": [],
+  "keyQuote": "Carbon 3.0 supports Symfony 7. However, to upgrade the carbon version, it's necessary to remove the conflicting package 'illuminate/support'.",
+  "number": 401,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:40.950Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Users cannot specify S3 storage class (e.g., STANDARD_IA) in S3 archival configurations, preventing adoption of S3 archival for organizations with storage class policies. Request to add storage_class option or support S3 connection kwargs.",
+  "category": "feature",
+  "subcategory": "archival-s3",
+  "apis": [],
+  "components": [
+    "archival",
+    "s3-archival",
+    "archival-configuration"
+  ],
+  "concepts": [
+    "storage-class",
+    "s3-configuration",
+    "archival-policy",
+    "connection-options",
+    "cost-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Organizations with storage class policies cannot use S3 archival and must choose alternative archival strategies or implement custom solutions.",
+  "rootCause": "S3 archival configuration lacks support for specifying storage class parameters or accepting arbitrary S3 connection kwargs.",
+  "proposedFix": "Add storage_class as an S3 archival option, or support additional S3 connection kwargs that can be passed through to the S3 connection.",
+  "workaround": "Use filestore archival instead, or implement a custom archiver.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We have a policy of using only STANDARD_IA storage class. Currently, there is no ability to specify the storage class to use in S3 Archival configurations.",
+  "number": 5306,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:38.687Z"
+}

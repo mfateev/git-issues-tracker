@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to support Pino as a logging framework alongside Winston in the TypeScript SDK. The issue was ultimately closed as the team decided the SDK should remain logger-framework agnostic, but maintainers provided guidance on implementing custom logging adapters.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "Runtime.install",
+    "Worker.create"
+  ],
+  "components": [
+    "runtime",
+    "logger",
+    "worker"
+  ],
+  "concepts": [
+    "logging",
+    "pino",
+    "winston",
+    "adapter",
+    "framework-agnostic",
+    "activity-logging",
+    "workflow-logging"
+  ],
+  "severity": "low",
+  "userImpact": "Users who prefer Pino logging must create custom adapters instead of having native SDK support for both Winston and Pino logging frameworks.",
+  "rootCause": "SDK Logger interface was designed to be framework-agnostic but appears Winston-like, making it inconvenient for Pino users who need to implement workarounds.",
+  "proposedFix": "The team suggested creating an adaptor class that exposes Pino-style log methods internally using the SDK's Logger signature, leveraging Runtime.logger for all log message funneling.",
+  "workaround": "Create a custom logger adaptor class that wraps Pino with the SDK's Logger interface; use ActivityInboundLogInterceptor for activity logging (though deprecated); register custom logger sink for workflow logging.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided SDK must remain logger-framework agnostic. Provided architectural guidance on implementing custom Pino adapters instead of adding native Pino support.",
+  "related": [],
+  "keyQuote": "the SDK itself must remain logger-framework agnostic...there's not that much we can do within the SDK itself to simplify usage of alternate logging APIs",
+  "number": 1352,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:33.177Z"
+}

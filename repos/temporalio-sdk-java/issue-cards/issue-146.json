@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow methods throwing unexpected exceptions should block the workflow for fixing rather than fail it outright. Currently only Errors block workflows; the proposal is to extend this behavior to exceptions not in a failure list, allowing workflows to resume automatically after code fixes without manual intervention.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "decision-task",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "workflow-blocking",
+    "error-recovery",
+    "decision-task",
+    "code-deployment",
+    "workflow-resumption"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience simpler recovery from code bugs in workflows - automatic resumption after fixes instead of requiring manual reset operations.",
+  "rootCause": null,
+  "proposedFix": "Change default behavior to block workflow execution on any exception not specified in a FailList, similar to current Error handling behavior.",
+  "workaround": "Keep current behavior and use reset to restart failed workflows.",
+  "resolution": "fixed",
+  "resolutionDetails": "The behavior was implemented to block workflows on exceptions and allow resumption after code fixes without manual intervention.",
+  "related": [],
+  "keyQuote": "An Error thrown from a workflow method already doesn't fail workflow, but fails a decision task, essentially blocking the workflow execution until the error is fixed.",
+  "number": 146,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:57:24.928Z"
+}

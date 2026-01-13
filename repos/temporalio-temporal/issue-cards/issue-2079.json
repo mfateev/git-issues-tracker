@@ -1,0 +1,30 @@
+{
+  "summary": "Request for batch operation to restart or reset failed workflows in tctl. Users want to fail workflows under certain conditions and later rerun them in bulk, rather than manually rerunning each one individually.",
+  "category": "feature",
+  "subcategory": "workflow-management",
+  "apis": [],
+  "components": [
+    "tctl",
+    "workflow-execution",
+    "batch-operations"
+  ],
+  "concepts": [
+    "batch-processing",
+    "workflow-failure",
+    "workflow-reset",
+    "workflow-restart",
+    "automation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must manually query and rerun failed workflows one-by-one, which is inefficient for bulk operations.",
+  "rootCause": null,
+  "proposedFix": "Add batch reset/rerun action to tctl batch command to restart failed workflows to their first task",
+  "workaround": "Users can build their own solution to query failed workflows and rerun them individually",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing batch reset functionality in tctl to reset failed workflows to first task",
+  "related": [],
+  "keyQuote": "Batch reset failed workflow to its first task will do the same.",
+  "number": 2079,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:59.929Z"
+}

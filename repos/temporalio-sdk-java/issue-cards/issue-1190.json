@@ -1,0 +1,35 @@
+{
+  "summary": "Test Server query for non-cached execution causes SDK state machine failure when replaying workflow tasks. The PollWorkflowTaskResponse incorrectly sets previousStartedEventId equal to startedEventId, causing the SDK to treat a replayed task as a first execution, resulting in invalid state transitions in the LocalActivity state machine.",
+  "category": "bug",
+  "subcategory": "test-framework, workflow-replay, state-machines",
+  "apis": [
+    "queryWorkflow"
+  ],
+  "components": [
+    "test-server",
+    "state-machines",
+    "replay-engine",
+    "local-activity",
+    "workflow-task-handler"
+  ],
+  "concepts": [
+    "state-machine",
+    "event-replay",
+    "test-execution",
+    "workflow-task",
+    "event-history",
+    "cached-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot query workflows during test server execution when local activities are involved, causing test failures with cryptic state machine errors.",
+  "rootCause": "Test Server forms PollWorkflowTaskResponse for legacy queries with previousStartedEventId equal to startedEventId, causing SDK to treat replayed workflow task as first execution instead of replay, leading to mismatched event-command pairing in LocalActivity state machine",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "LocalActivity: invalid REQUEST_PREPARED->MARKER_RECORDED, transition history is [CREATED->CHECK_EXECUTION_STATE, EXECUTING->SCHEDULE]",
+  "number": 1190,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:11:45.375Z"
+}

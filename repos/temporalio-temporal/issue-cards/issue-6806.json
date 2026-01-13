@@ -1,0 +1,35 @@
+{
+  "summary": "WorkflowTaskTimedOut error occurs when submitting 1,000 activities in a single workflow due to a hard-coded 4 MB gRPC response size limit for RespondWorkflowTaskCompleted requests. The issue manifests as a timeout even though activity timeouts are configured for longer periods.",
+  "category": "bug",
+  "subcategory": "activity-scheduling",
+  "apis": [
+    "ExecuteActivity",
+    "WorkflowTaskCompleted"
+  ],
+  "components": [
+    "workflow-task-processor",
+    "gRPC-client",
+    "activity-scheduler"
+  ],
+  "concepts": [
+    "gRPC-message-size-limit",
+    "activity-batching",
+    "workflow-task-timeout",
+    "concurrent-activities",
+    "message-serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot efficiently submit large numbers of activities (>1000) in a single workflow without encountering timeout errors that block execution.",
+  "rootCause": "Hard-coded 4 MB limit for gRPC response in RespondWorkflowTaskCompleted request causes request rejection when accumulated schedule activity commands exceed this limit.",
+  "proposedFix": "Feature request open for a fix: https://github.com/temporalio/features/issues/363",
+  "workaround": "Add a sleep after every 100 activities scheduled to allow gRPC messages to be sent incrementally.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    363
+  ],
+  "keyQuote": "There's a hard coded 4 MB limit for a gRPC response. If the accumulated size of the schedule activity commands goes above that limit the RespondWorkflowTaskCompleted request will be rejected.",
+  "number": 6806,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:48.509Z"
+}

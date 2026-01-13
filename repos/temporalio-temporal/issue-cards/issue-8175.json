@@ -1,0 +1,30 @@
+{
+  "summary": "NexusOperationCancelRequestCompleted event fails to trigger a workflow task when not buffered, inconsistently handling cancellation requests in Nexus operations depending on event buffering state.",
+  "category": "bug",
+  "subcategory": "nexus-operations",
+  "apis": [],
+  "components": [
+    "nexus-operation",
+    "workflow-task",
+    "event-buffering"
+  ],
+  "concepts": [
+    "cancellation",
+    "event-buffering",
+    "workflow-task-trigger",
+    "nexus-operations",
+    "event-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience inconsistent behavior when canceling Nexus operations, where cancellation completion events may fail to trigger workflow task execution unless buffered.",
+  "rootCause": "The event handling logic does not properly trigger a workflow task (WFT) when NexusOperationCancelRequestCompleted is not buffered, suggesting conditional WFT triggering based on buffer state.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through code changes addressing the event buffering behavior for NexusOperationCancelRequestCompleted.",
+  "related": [],
+  "keyQuote": "NexusOperationCancelRequestCompleted was buffered and triggered a WFT, whereas in the run on the right it was not and did not.",
+  "number": 8175,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:45.898Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "CI test suite experiences intermittent timeouts during script execution with ERR_SCRIPT_EXECUTION_TIMEOUT errors. The issue was partially mitigated by increasing isolateExecutionTimeout from 100ms to 400ms, but rare flakes still occur under resource constraints.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "test-runner",
+    "script-execution"
+  ],
+  "concepts": [
+    "timeout",
+    "flakiness",
+    "test-concurrency",
+    "resource-constraints",
+    "test-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience intermittent CI failures that are not related to actual code quality, causing unreliable test results and build delays.",
+  "rootCause": "Script execution timeout due to test concurrency and machine resource constraints. 5-second limit with individual script timeout threshold too aggressive.",
+  "proposedFix": "Increase isolateExecutionTimeout threshold and potentially reduce test concurrency or allocate stronger CI machines.",
+  "workaround": "Increased isolateExecutionTimeout from 100ms to 400ms to reduce frequency of timeouts.",
+  "resolution": "fixed",
+  "resolutionDetails": "Partially resolved by increasing isolateExecutionTimeout to 400ms. Rare flakes may still occur but deemed acceptable with current infrastructure limitations.",
+  "related": [],
+  "keyQuote": "Script execution timed out after 100ms",
+  "number": 824,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:17:42.320Z"
+}

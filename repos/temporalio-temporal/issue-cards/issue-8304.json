@@ -1,0 +1,34 @@
+{
+  "summary": "User reports that setting InitialInterval to 10 minutes in the retry policy does not trigger retries as expected. The retry strategy appears ineffective when the initial interval is set to a longer duration.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "ExecuteActivity",
+    "WithActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-mechanism",
+    "workflow-context"
+  ],
+  "concepts": [
+    "retry",
+    "timeout",
+    "InitialInterval",
+    "backoff",
+    "activity-execution",
+    "scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot configure longer retry intervals for activities, breaking retry logic for workflows that require delayed retry attempts.",
+  "rootCause": "The retry policy's InitialInterval parameter is not being respected by the activity execution engine when set to values longer than the StartToCloseTimeout.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through validation of retry policy parameters or engine fix to respect InitialInterval configuration.",
+  "related": [],
+  "keyQuote": "InitialInterval is set to 10 minutes, Such setting will not trigger a retry",
+  "number": 8304,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:02.636Z"
+}

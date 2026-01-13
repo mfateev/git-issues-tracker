@@ -1,0 +1,32 @@
+{
+  "summary": "tctl admin database commands fail on Aurora MySQL due to an unknown 'transaction_isolation' system variable. The service config supports connection attributes to work around this, but tctl lacks a mechanism to pass these attributes.",
+  "category": "bug",
+  "subcategory": "cli-database",
+  "apis": [],
+  "components": [
+    "tctl",
+    "metadata-manager",
+    "database-connector",
+    "mysql-driver"
+  ],
+  "concepts": [
+    "database-connection",
+    "mysql-compatibility",
+    "aurora-mysql",
+    "transaction-isolation",
+    "connection-attributes",
+    "cli-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use tctl admin commands with Aurora MySQL databases without encountering connection errors.",
+  "rootCause": "Aurora MySQL doesn't support the 'transaction_isolation' system variable that the standard MySQL driver attempts to set, and tctl provides no way to configure connection attributes like the service config does.",
+  "proposedFix": "Add support for connection attributes in tctl (similar to --ca flag suggested in comments) or automatically handle Aurora MySQL compatibility.",
+  "workaround": "Service config supports connectAttributes: {tx_isolation: \"READ-COMMITTED\"} but no equivalent exists for tctl.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue labeled with 'close-after-30-days' suggesting closure due to age/inactivity rather than resolution of the underlying problem.",
+  "related": [],
+  "keyQuote": "The `transaction_isolation` variable issue remains to be an issue with Aurora MySQL. We are able to overcome this in the regular service config by specifying connection attributes",
+  "number": 1004,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:46:44.923Z"
+}

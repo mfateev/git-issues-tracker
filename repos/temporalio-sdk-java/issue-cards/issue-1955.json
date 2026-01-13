@@ -1,0 +1,31 @@
+{
+  "summary": "Request for dynamic configuration of worker behavior at runtime. The issue was closed due to uncertainty about implementation approach and architectural changes (particularly Nexus introduction as a potential transport for config changes).",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "configuration"
+  ],
+  "concepts": [
+    "dynamic-configuration",
+    "runtime-configuration",
+    "worker-behavior",
+    "transport",
+    "nexus"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot dynamically adjust worker configuration at runtime, potentially requiring restarts to apply configuration changes.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed due to unclear requirements and significant architectural changes (Nexus development) that could provide a better transport mechanism for config changes.",
+  "related": [
+    388
+  ],
+  "keyQuote": "Unclear what/how we want to do this, and a lot has changed since this was opened (e.g. we are building Nexus now, which could be a transport for config changes).",
+  "number": 1955,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:53.359Z"
+}

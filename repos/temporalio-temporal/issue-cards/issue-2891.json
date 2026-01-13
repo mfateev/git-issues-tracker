@@ -1,0 +1,32 @@
+{
+  "summary": "Documentation on development.yaml and dynamicconfig is severely lacking, particularly guidance on configuration for Docker deployments and clarity on how to configure Temporal using pre-built Docker images versus building from source.",
+  "category": "docs",
+  "subcategory": "configuration-documentation",
+  "apis": [],
+  "components": [
+    "docker",
+    "configuration",
+    "development-yaml",
+    "dynamicconfig"
+  ],
+  "concepts": [
+    "configuration",
+    "deployment",
+    "docker-setup",
+    "environment-variables",
+    "out-of-the-box-setup",
+    "production-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "New Temporal users struggle to understand configuration options and how to properly set up Temporal using Docker images, requiring them to dig through repositories to find answers.",
+  "rootCause": "Documentation lacks practical examples for Docker-based deployments and doesn't explain the relationship between development.yaml, dynamicconfig, environment variables, and command-line arguments.",
+  "proposedFix": "Create documentation covering: (1) how to configure Temporal using pre-built Docker images, (2) high-level explanation of development.yaml and dynamicconfig relationship, (3) blog post contrasting binary setup with Docker image setup, (4) clarification on production-readiness of Docker images.",
+  "workaround": "Users can examine docker/config_template.yaml and docker-builds repository to understand Docker configuration patterns.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Most out-of-the-box docker images can be configured via command arguments or environment variables...but I didn't find this documented anywhere",
+  "number": 2891,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:39.515Z"
+}

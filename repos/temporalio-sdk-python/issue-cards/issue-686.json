@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to support setting workflow execution timeouts at the workflow definition level or worker configuration, rather than only when directly executing workflows. Currently, timeouts can only be specified in client.execute_workflow() calls, making them inaccessible when workflows are triggered by schedules.",
+  "category": "feature",
+  "subcategory": "workflow-timeouts",
+  "apis": [
+    "execute_workflow",
+    "create_schedule",
+    "ScheduleActionStartWorkflow"
+  ],
+  "components": [
+    "workflow-definition",
+    "worker",
+    "scheduler",
+    "client-api"
+  ],
+  "concepts": [
+    "timeout",
+    "workflow-execution",
+    "schedule",
+    "configuration",
+    "worker-definition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot define workflow execution timeouts when workflows are triggered by schedules, requiring workarounds or manual configuration at the schedule level.",
+  "rootCause": null,
+  "proposedFix": "Add support for timeout parameters in workflow definition or worker configuration so timeouts are applied regardless of how workflows are triggered.",
+  "workaround": "Define timeouts at the schedule level when creating schedules with ScheduleActionStartWorkflow, or use asyncio.timeout() inside workflow code for client-side timeout handling.",
+  "resolution": "resolved",
+  "resolutionDetails": "Issue was resolved through clarification that timeouts can be set at the schedule level using ScheduleActionStartWorkflow with execution_timeout parameter, and client-side timeouts can be implemented using asyncio.timeout() within workflow code.",
+  "related": [
+    2460
+  ],
+  "keyQuote": "Can you clarify the question a bit? The `execution_timeout` option is available both for create schedule in Python and for just starting a workflow directly in Python.",
+  "number": 686,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:57.303Z"
+}

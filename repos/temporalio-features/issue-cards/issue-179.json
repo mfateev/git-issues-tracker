@@ -1,0 +1,34 @@
+{
+  "summary": "The getVersion API is memoized by default to coordinate patches across code, but there's a request to add an opt-in non-memoized version option. TypeScript accidentally implemented non-memoized by default, which has benefits like being embeddable in loops, and this feature explores making that an official option across SDKs.",
+  "category": "feature",
+  "subcategory": "versioning-api",
+  "apis": [
+    "getVersion"
+  ],
+  "components": [
+    "workflow-versioning",
+    "sdk-core",
+    "typescript-sdk"
+  ],
+  "concepts": [
+    "memoization",
+    "versioning",
+    "patches",
+    "coordination",
+    "workflow-api"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would have more flexibility in how they use versioning APIs, enabling use cases like embedding version checks in loops or workflow conditions without memoization constraints.",
+  "rootCause": null,
+  "proposedFix": "Add an opt-in option to disable memoization for the getVersion API call across SDKs, making it non-memoized when explicitly requested.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to add non-memoized versioning API option across SDK implementations.",
+  "related": [
+    1016
+  ],
+  "keyQuote": "In TS we accidentally implemented a non-memoized version by default which has some nice benefits like being embeddable in a loop or condition",
+  "number": 179,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:29.777Z"
+}

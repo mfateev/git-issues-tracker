@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add a customization API that allows operators to register custom system-level workflows with the Temporal server's worker role, eliminating the need to spin up separate worker applications for operator-specific integrations.",
+  "category": "feature",
+  "subcategory": "worker-customization",
+  "apis": [],
+  "components": [
+    "worker",
+    "server",
+    "system-workflows",
+    "worker-role"
+  ],
+  "concepts": [
+    "customization",
+    "system-workflows",
+    "operator-integration",
+    "infrastructure-integration",
+    "worker-configuration",
+    "dependency-injection"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators can more easily integrate custom system workflows with Temporal without requiring separate worker applications.",
+  "rootCause": null,
+  "proposedFix": "Add a new customization API to ServerOptions that allows specifying custom system workflows, their workflow IDs, and worker configuration options (similar to the Config struct in the worker package).",
+  "workaround": "Operators can currently run separate worker applications for custom system workflows.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "allow for a new customization API that would allow the operator to specify system level workflows and corresponding workers that should be run within the worker role",
+  "number": 2342,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:17.057Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Data race detected in cluster metadata refresh loop during testing in v1.23.0-rc9. The race occurs between concurrent goroutines writing to and reading from cluster metadata without proper synchronization.",
+  "category": "bug",
+  "subcategory": "cluster-metadata",
+  "apis": [],
+  "components": [
+    "cluster-metadata",
+    "replication-stream-receiver",
+    "synchronization"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrency",
+    "goroutine",
+    "mutual-exclusion",
+    "cluster-metadata",
+    "refresh-loop"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience unpredictable behavior or crashes in production environments due to concurrent access to cluster metadata without proper locking.",
+  "rootCause": "Missing synchronization in metadataImpl.refreshClusterMetadata() when updating cluster info map, causing concurrent writes and reads from different goroutines.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Already fixed in main branch via PR #5317",
+  "related": [
+    5317
+  ],
+  "keyQuote": "Write at 0x00c0041c4b10 by goroutine 15520: runtime.mapassign_faststr() in metadataImpl.updateClusterInfoLocked() Previous read at 0x00c0041c4b10 by goroutine 16167",
+  "number": 5432,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:28.514Z"
+}

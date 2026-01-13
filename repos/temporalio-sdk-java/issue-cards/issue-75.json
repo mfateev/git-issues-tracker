@@ -1,0 +1,32 @@
+{
+  "summary": "User requests a shaded release JAR with all dependencies bundled under an internal namespace to prevent version conflicts with other libraries (particularly netty and guava) when Temporal activities make external calls.",
+  "category": "feature",
+  "subcategory": "packaging",
+  "apis": [],
+  "components": [
+    "packaging",
+    "dependency-management",
+    "gradle"
+  ],
+  "concepts": [
+    "dependency-shading",
+    "uber-jar",
+    "namespace-conflict",
+    "version-conflict",
+    "library-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users integrating Temporal with applications using different versions of common dependencies like netty may experience classpath conflicts without a shaded JAR option.",
+  "rootCause": "Temporal SDK exports dependencies like netty and guava at their original namespaces, causing conflicts when activities call external libraries with different dependency versions.",
+  "proposedFix": "Add a shaded JAR to release artifacts with all dependencies relocated to an internal namespace.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved via issue #1656, which implemented the shaded JAR release artifact.",
+  "related": [
+    1656
+  ],
+  "keyQuote": "if I make a REST call in an activity using a library dependent on a different version of netty, the classes could conflict, right?",
+  "number": 75,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:35:51.046Z"
+}

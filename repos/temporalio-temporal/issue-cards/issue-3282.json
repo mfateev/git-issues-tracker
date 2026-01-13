@@ -1,0 +1,33 @@
+{
+  "summary": "Frontend handler retries during workflow start requests can cause InvalidArgument errors due to missing search attributes, preventing new workflows from starting successfully.",
+  "category": "bug",
+  "subcategory": "workflow-start",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "frontend-handler",
+    "workflow-start",
+    "search-attributes",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "idempotency",
+    "search-attributes",
+    "error-handling",
+    "workflow-initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start new workflows due to InvalidArgument errors caused by frontend handler retry logic.",
+  "rootCause": "Frontend handler retries may lead to InvalidArgument errors when search attributes are missing during workflow start requests.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the retry logic for frontend handlers was corrected to prevent InvalidArgument errors.",
+  "related": [],
+  "keyQuote": "New workflow fails to start, and `InvalidArgument` error with message indicating that search attribute is not found returned.",
+  "number": 3282,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:09.980Z"
+}

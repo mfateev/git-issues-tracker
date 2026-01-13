@@ -1,0 +1,30 @@
+{
+  "summary": "GetReplicationTasks QPS is unexpectedly high (5000 QPS for 16k shards) on newly provisioned XDC clusters with no connected workers, suggesting unnecessary database calls in the replication mechanism.",
+  "category": "bug",
+  "subcategory": "xdc-replication",
+  "apis": [],
+  "components": [
+    "history-service",
+    "replication",
+    "persistence"
+  ],
+  "concepts": [
+    "cross-datacenter-replication",
+    "qps",
+    "database-optimization",
+    "baseline-performance",
+    "sharding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with XDC deployments experience higher than expected database load and operational costs even when no workflows are running.",
+  "rootCause": "Unnecessary GetReplicationTasks database calls in the replication mechanism, even when there are no connected clients or activities.",
+  "proposedFix": "Optimize the replication mechanism to eliminate unnecessary DB calls when there are no connected workers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was acknowledged as a performance optimization opportunity for the replication mechanism.",
+  "related": [],
+  "keyQuote": "there should be some optimization which eliminates some unnecessary DB calls",
+  "number": 1354,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:44.757Z"
+}

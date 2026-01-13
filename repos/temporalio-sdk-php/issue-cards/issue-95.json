@@ -1,0 +1,34 @@
+{
+  "summary": "RetryOptions' non-retryable exceptions list doesn't work due to incorrect type checking logic. The code uses `instanceof` on class name strings instead of `is_subclass_of()`, causing assertion errors when retrying non-retryable exceptions.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [
+    "RetryOptions"
+  ],
+  "components": [
+    "retry-handler",
+    "assert-utility",
+    "type-checking"
+  ],
+  "concepts": [
+    "retry",
+    "exception-handling",
+    "type-validation",
+    "class-hierarchy",
+    "non-retryable"
+  ],
+  "severity": "high",
+  "userImpact": "Activities fail with AssertionError instead of being retried or failing properly when non-retryable exceptions are configured.",
+  "rootCause": "The `Temporal\\Internal\\Assert::valuesSubclassOf` method uses `instanceof` operator on class name strings instead of using `is_subclass_of()` function to check exception hierarchy.",
+  "proposedFix": "Replace `instanceof` checks with `is_subclass_of()` function calls to properly validate class name string hierarchy.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #96",
+  "related": [
+    96
+  ],
+  "keyQuote": "The problem is with the `Temporal\\Internal\\Assert::valuesSubclassOf` method. PHP's `instanceof` won't work here: $v instanceof $of returns false because $v is just a string",
+  "number": 95,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:17.639Z"
+}

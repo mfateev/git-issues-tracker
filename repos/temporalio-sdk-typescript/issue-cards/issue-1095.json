@@ -1,0 +1,32 @@
+{
+  "summary": "Webpack stats are being automatically logged with color codes and multiline formatting, making logs difficult to read in third-party logging systems and wasting money on per-line charges. User requests the ability to configure or disable these stats via Webpack's existing stats configuration.",
+  "category": "feature",
+  "subcategory": "bundler-configuration",
+  "apis": [
+    "Worker.create",
+    "bundleWorkflowCode"
+  ],
+  "components": [
+    "bundler",
+    "worker",
+    "logging"
+  ],
+  "concepts": [
+    "webpack-stats",
+    "logging-configuration",
+    "cli-output",
+    "bundle-building"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot control Webpack stats logging, leading to cluttered logs with color codes and multiline output that increases costs in pay-per-line logging systems.",
+  "rootCause": "The SDK hardcodes Webpack stats configuration in bundler.ts without providing user control over the stats output.",
+  "proposedFix": "Allow stats to be controlled via Webpack's existing stats configuration options, similar to how webpackConfigHook works.",
+  "workaround": "Pass a custom logger to bundleWorkflowCode to replace the default logging behavior.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by allowing users to control logging through a custom logger parameter in bundleWorkflowCode.",
+  "related": [],
+  "keyQuote": "Allow stats to be controlled via Webpack's existing stats configuration. At a minimum, document the fact that these log lines cannot be toggled.",
+  "number": 1095,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:49.666Z"
+}

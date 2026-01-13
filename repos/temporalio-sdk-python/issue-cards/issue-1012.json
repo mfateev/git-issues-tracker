@@ -1,0 +1,35 @@
+{
+  "summary": "Activity does not retry immediately after worker process exits for the second time; instead waits for the full start_to_close_timeout (30 minutes). User expects faster retry behavior when a worker restarts.",
+  "category": "bug",
+  "subcategory": "activity-retry",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "timeout",
+    "worker-failure",
+    "process-exit",
+    "heartbeat",
+    "activity-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities take significantly longer to retry (30 minutes) after worker process exits on second attempt instead of retrying immediately.",
+  "rootCause": "Worker process exit is not automatically detected; the system waits for the full start_to_close_timeout before retrying rather than detecting the failure through heartbeat mechanism.",
+  "proposedFix": "Add heartbeating to activities to enable automatic detection of worker failures, or implement automatic heartbeating feature.",
+  "workaround": "Manually add heartbeating to your activity as documented in the Temporal encyclopedia on detecting activity failures.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was not marked as a bug but rather identified as missing heartbeating in user's implementation. Recommended using the heartbeat mechanism for failure detection. Auto-heartbeating request tracked separately in features repo.",
+  "related": [
+    229
+  ],
+  "keyQuote": "We don't currently support automatic detection of the worker's process exit. The recommended solution is to add heartbeating to your activity.",
+  "number": 1012,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:29:34.944Z"
+}

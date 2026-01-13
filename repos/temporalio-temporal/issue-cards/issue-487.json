@@ -1,0 +1,32 @@
+{
+  "summary": "Users are forced to choose between database size and uniqueness guarantees because the workflow uniqueness period is directly tied to the retention period. The request is to allow these periods to be configured independently, keeping small uniqueness records after workflow data is deleted.",
+  "category": "feature",
+  "subcategory": "workflow-uniqueness",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-storage",
+    "duplicate-detection",
+    "retention-policy"
+  ],
+  "concepts": [
+    "uniqueness-guarantee",
+    "retention-period",
+    "database-size",
+    "idempotency",
+    "deduplication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must trade off between keeping workflows in the database longer (for uniqueness checks) and minimizing database storage costs.",
+  "rootCause": "Uniqueness guarantees are implemented using the same retention mechanism that stores workflow data, preventing independent configuration of these concerns.",
+  "proposedFix": "Decouple the uniqueness guarantee period from the data retention period by maintaining minimal uniqueness records (just enough to detect duplicates) separately from full workflow data.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow uniqueness guarantee to be larger than the retention period. It would mean removing all the workflow data from DB, but keeping a small record that would preclude duplicated workflow starts.",
+  "number": 487,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:01:10.584Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowExecutionSignaledEvent lacks information about which workflow sent the signal when using SignalExternalWorkflowExecution. The event only contains generic identity field (\"history-service\") instead of the sender's workflowID and runID.",
+  "category": "feature",
+  "subcategory": "signals",
+  "apis": [
+    "SignalExternalWorkflowExecution",
+    "WorkflowExecutionSignaledEvent"
+  ],
+  "components": [
+    "history-service",
+    "event-attributes",
+    "signal-handling"
+  ],
+  "concepts": [
+    "signal-sender",
+    "workflow-identification",
+    "event-context",
+    "external-signals",
+    "traceability",
+    "event-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot identify which workflow initiated an external signal, making it difficult to track signal origins in complex multi-workflow systems.",
+  "rootCause": "WorkflowExecutionSignaledEvent only contains a generic identity field instead of structured sender information (workflowID and runID).",
+  "proposedFix": "Add a field to WorkflowExecutionSignaledEvent containing the workflowID and runID of the workflow that sent the signal.",
+  "workaround": "Populate the identity field with sender workflow information (not ideal as it's unstructured text).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "WorkflowExecutionSignaled has a field that contains `workflowID` and `runID` of the workflow that sent the signal.",
+  "number": 4155,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:55.623Z"
+}

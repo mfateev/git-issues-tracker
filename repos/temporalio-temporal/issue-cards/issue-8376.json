@@ -1,0 +1,35 @@
+{
+  "summary": "Activity heartbeats sent very close to activity failure can be lost, with the final heartbeat details not being recorded in the workflow description. The issue involves a race condition where heartbeat details may be cleared or not properly flushed when an activity completes or fails near the time a heartbeat is sent.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordActivityTaskHeartbeat",
+    "RespondActivityTaskFailedResponse"
+  ],
+  "components": [
+    "activity-heartbeat-manager",
+    "worker",
+    "activity-executor"
+  ],
+  "concepts": [
+    "heartbeat",
+    "race-condition",
+    "activity-lifecycle",
+    "state-management",
+    "timing"
+  ],
+  "severity": "high",
+  "userImpact": "Users may lose critical heartbeat progress information when activities complete or fail at the same time heartbeats are being sent.",
+  "rootCause": "A race condition where heartbeat details are not properly maintained in mutable state when checked immediately before activity failure, causing the final heartbeat to not be flushed or recorded.",
+  "proposedFix": "Use the `last_heartbeat_details` field in `RespondActivityTaskFailedResponse` to deliver the last heartbeat details, and add a capability check for this RPC method.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1019
+  ],
+  "keyQuote": "the describe workflow call never reflects that final detail... the final heartbeat you are completing the RPC because I get the response back",
+  "number": 8376,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:54.760Z"
+}

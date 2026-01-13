@@ -1,0 +1,30 @@
+{
+  "summary": "Workflow history disappears when restarting Temporal dev server with SQLite persistence. Starting the server with an existing SQLite database using --db-filename results in event history being cleared from the history_tree table.",
+  "category": "bug",
+  "subcategory": "persistence-sqlite",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "sqlite-persistence",
+    "workflow-history"
+  ],
+  "concepts": [
+    "database-persistence",
+    "server-restart",
+    "state-retention",
+    "data-loss",
+    "sqlite"
+  ],
+  "severity": "high",
+  "userImpact": "Users lose all workflow history and data when restarting the dev server with an existing SQLite database, making local testing with persistent data impossible.",
+  "rootCause": "Potential retention timers triggering on workflows stored in the database upon server startup, causing automatic cleanup of old events.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Could not be reproduced by maintainers. Theory suggests retention timers were triggered on stored workflows. Issue closed due to inability to provide reliable reproduction, though user recommends using workflow list command or UI instead of inspecting internal DB state.",
+  "related": [],
+  "keyQuote": "The current theory is that retention timers were triggered on the workflows stored in the DB.",
+  "number": 7919,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:12.016Z"
+}

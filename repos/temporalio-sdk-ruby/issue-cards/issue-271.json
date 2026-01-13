@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for payload conversion hints in the Ruby SDK, allowing developers to specify type information for deserialization of activity/workflow inputs and outputs, signals, queries, and updates.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [
+    "from_payload",
+    "from_payloads"
+  ],
+  "components": [
+    "payload-converter",
+    "data-converter",
+    "activity-definition",
+    "workflow-definition"
+  ],
+  "concepts": [
+    "type-hints",
+    "deserialization",
+    "payload-conversion",
+    "type-information",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can provide type hints to improve payload deserialization accuracy for activities, workflows, signals, queries, and updates.",
+  "rootCause": null,
+  "proposedFix": "Add hint methods to activities/workflows, add input_hints/output_hint to signals/queries/updates, add hint/hints parameters to PayloadConverter and DataConverter methods, and explore other deserialization contexts like memo and heartbeat details.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with support for payload conversion hints via hint parameters and definition methods, with decision to defer native Struct/Data type support to future work.",
+  "related": [],
+  "keyQuote": "Add `activity_input_hint`, `activity_output_hint`, `workflow_input_hint`, and `workflow_output_hint` definition methods to activities/workflows",
+  "number": 271,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:49.507Z"
+}

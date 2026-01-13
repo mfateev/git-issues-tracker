@@ -1,0 +1,33 @@
+{
+  "summary": "GitHub Actions tests occasionally fail with DEADLINE EXCEEDED errors due to reuse of the same client connection for concurrent tests. The issue only occurs on the weak GitHub Actions executors, not in local development environments.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "client",
+    "connection-pool",
+    "test-runner"
+  ],
+  "concepts": [
+    "deadline",
+    "concurrency",
+    "connection-reuse",
+    "client-pooling",
+    "infrastructure",
+    "test-flakiness"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience flaky test failures in CI/CD pipelines that don't reproduce locally, making it difficult to validate code quality.",
+  "rootCause": "Reuse of the same client connection for all concurrent tests causes deadline exceeded errors under resource constraints",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by updating GitHub Actions workflows to use the latest docker-compose tag from temporalio/temporal#2033",
+  "related": [
+    2033
+  ],
+  "keyQuote": "Probably due to reuse of the same client connection for all concurrent tests. Does not happen in local dev environment, only on the weak GH actions executors",
+  "number": 210,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:24.293Z"
+}

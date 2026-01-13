@@ -1,0 +1,32 @@
+{
+  "summary": "DeleteWorkflowExecution API error messages leak internal implementation details by referencing GetWorkflowExecution, confusing users about which operation actually failed. This occurs when attempting to delete an already-deleted workflow execution.",
+  "category": "bug",
+  "subcategory": "api-error-handling",
+  "apis": [
+    "DeleteWorkflowExecution"
+  ],
+  "components": [
+    "delete-workflow",
+    "error-response",
+    "grpc-service"
+  ],
+  "concepts": [
+    "error-messages",
+    "api-contract",
+    "information-leakage",
+    "implementation-details",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive confusing error messages that reference internal operations they didn't call, making it harder to understand and debug workflow deletion issues.",
+  "rootCause": "DeleteWorkflowExecution internally calls GetWorkflowExecution, and when that call fails, the error message exposes the internal operation name instead of the user-facing operation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "operation GetWorkflowExecution encountered not found while we didn't call GetWorkflowExecution, we called DeleteWorkflowExecution",
+  "number": 3417,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:00.243Z"
+}

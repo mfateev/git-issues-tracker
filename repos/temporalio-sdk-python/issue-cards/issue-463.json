@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to support disabling TLS host verification in the Python SDK to enable testing with self-signed certificates. Users need this capability to connect to Temporal clusters with generic self-generated TLS certificates, similar to functionality available in other SDKs and the CLI.",
+  "category": "feature",
+  "subcategory": "tls-configuration",
+  "apis": [
+    "TlsConfig"
+  ],
+  "components": [
+    "tls-client",
+    "service-client",
+    "bridge-client"
+  ],
+  "concepts": [
+    "tls-verification",
+    "self-signed-certificates",
+    "host-validation",
+    "certificate-validation",
+    "security-configuration",
+    "testing-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use self-signed certificates for testing against Temporal clusters without TLS host verification support, forcing workarounds or alternative deployment strategies.",
+  "rootCause": "Python SDK's TlsConfig lacks a flag to disable hostname verification during certificate validation, unlike other Temporal SDKs which support this through environment variables or builder methods.",
+  "proposedFix": "Add a hostname verification disable flag to the TlsConfig class that controls behavior in the rust SDK's client TLS configuration layer.",
+  "workaround": "Set TlsConfig.domain to match the expected domain from the server's certificate instead of relying on the connection hostname.",
+  "resolution": "fixed",
+  "resolutionDetails": "Host verification disable option was implemented in TlsConfig",
+  "related": [
+    932
+  ],
+  "keyQuote": "You should be able to set `TlsConfig.domain` as an expected domain from the cert the server uses instead of it default to the given host",
+  "number": 463,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:29.070Z"
+}

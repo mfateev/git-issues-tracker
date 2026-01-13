@@ -1,0 +1,30 @@
+{
+  "summary": "Remove gRPC as a regular dependency since the Python SDK uses a Core client instead. Keep gRPC as a dev dependency for testing purposes only.",
+  "category": "feature",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "grpc",
+    "core-client",
+    "test-framework"
+  ],
+  "concepts": [
+    "dependency-management",
+    "build-optimization",
+    "core-integration",
+    "test-isolation",
+    "pure-python"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces SDK package size and eliminates unnecessary gRPC dependency from production installations.",
+  "rootCause": "Pure Python gRPC is generated unnecessarily when the SDK already uses Core client for communication.",
+  "proposedFix": "Remove gRPC from regular dependencies and keep it only as a dev dependency for testing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "gRPC dependency was removed from production dependencies and retained only for development/testing.",
+  "related": [],
+  "keyQuote": "We generate pure Python gRPC unnecessarily since we have Core client.",
+  "number": 56,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:47:12.295Z"
+}

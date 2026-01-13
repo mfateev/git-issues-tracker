@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to help catch use-before-define bugs when imperative APIs for signals and queries are defined after workflow start time. Proposes warning logs in development and/or buffering signals until handlers are registered.",
+  "category": "feature",
+  "subcategory": "signal-query-handling",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "query-handler",
+    "workflow-definition"
+  ],
+  "concepts": [
+    "definition-order",
+    "race-condition",
+    "signal-buffering",
+    "error-handling",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may accidentally define signal or query handlers after workflow start, causing signals to be lost or queries to fail, but lack visibility into this bug.",
+  "rootCause": "Imperative dynamic API allows signals and queries to be defined after workflow start time, creating a window where messages arrive before handlers exist.",
+  "proposedFix": "Buffer signals until a listener is registered; queue them for delivery when the handler is defined. For queries, ensure they're registered before invocation or return an error.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation decided to buffer signals until listener is registered and require queries to be registered before invocation.",
+  "related": [],
+  "keyQuote": "We're buffering signals until a listener is registered. Queries must be registered before invoked or the caller will get an error.",
+  "number": 272,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:08.964Z"
+}

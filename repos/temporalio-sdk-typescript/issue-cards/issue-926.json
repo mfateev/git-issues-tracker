@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in loader-utils (CVE-2022-37601) with CVSS 9.8 severity due to prototype pollution in parseQuery function. Issue was automatically closed after vulnerability was removed from the dependency tree.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "build-tools",
+    "loader-utils"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "prototype-pollution",
+    "dependency-management",
+    "supply-chain"
+  ],
+  "severity": "critical",
+  "userImpact": "Users are exposed to a critical prototype pollution vulnerability in a transitive dependency that could lead to remote code execution.",
+  "rootCause": "Prototype pollution vulnerability in loader-utils parseQuery function allowing arbitrary property injection through the name variable.",
+  "proposedFix": "Upgrade loader-utils to version 2.0.0 or remove istanbul-instrumenter-loader dependency that transitively depends on vulnerable loader-utils 1.4.0.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Vulnerable library was removed from the dependency tree or marked as ignored in Mend inventory, automatically resolving the issue.",
+  "related": [],
+  "keyQuote": "Prototype pollution vulnerability in function parseQuery in parseQuery.js in webpack loader-utils 2.0.0 via the name variable",
+  "number": 926,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:23:48.489Z"
+}

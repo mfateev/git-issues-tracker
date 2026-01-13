@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add support for failing tests when workflow task failures occur in TestWorkflowEnvironment. Needs clarification on scope (SDK coverage) and whether this should be a worker option rather than environment configuration.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-environment",
+    "worker",
+    "workflow-task-handler"
+  ],
+  "concepts": [
+    "testing",
+    "failure-handling",
+    "task-execution",
+    "test-configuration",
+    "worker-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Test authors cannot currently fail tests when workflow tasks fail, making it difficult to validate error handling in tests.",
+  "rootCause": null,
+  "proposedFix": "Implement a worker option (potentially also available through TestWorkflowEnvironment) to fail tests on workflow task failures, with clarification on SDK scope.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    322
+  ],
+  "keyQuote": "Feature request to fail tests on workflow task failures.",
+  "number": 472,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:03:55.754Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Request to replace `kwargs` with named parameters in OpenAI APIs that configure activity executions. This improves API usability and IDE support through explicit parameter declaration.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "api-interface"
+  ],
+  "concepts": [
+    "named-parameters",
+    "api-usability",
+    "developer-experience",
+    "configuration",
+    "activity-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have better IDE autocompletion and clearer API documentation when configuring activity executions with named parameters instead of kwargs.",
+  "rootCause": null,
+  "proposedFix": "Replace kwargs with explicit named parameters in OpenAI API methods that configure activity executions",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Named parameters were added to OpenAI APIs for activity execution configuration",
+  "related": [],
+  "keyQuote": "APIs which subsequently configure activity executions should have named parameters instead of `kwargs`",
+  "number": 911,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:27:12.397Z"
+}

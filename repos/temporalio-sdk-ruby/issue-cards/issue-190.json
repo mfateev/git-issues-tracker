@@ -1,0 +1,32 @@
+{
+  "summary": "Ensure the signal buffer is properly drained when a dynamic signal is added to a workflow. This addresses a TODO item from issue #183 related to signal handling.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-buffer",
+    "dynamic-signals",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "buffer-management",
+    "signal-handling",
+    "workflow-lifecycle",
+    "concurrency",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience signal processing issues when dynamically adding signals to workflows if the buffer is not properly managed.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved as part of workflow improvements in issue #183",
+  "related": [
+    183
+  ],
+  "keyQuote": "Ensure signal buffer properly drained when dynamic signal added. There is a TODO in #183 for this.",
+  "number": 190,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:45:21.469Z"
+}

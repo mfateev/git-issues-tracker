@@ -1,0 +1,32 @@
+{
+  "summary": "Sticky queue assignment should be reset to 'Normal' kind after a configurable timeout period without workflow task activity. Currently, workflow tasks scheduled after extended inactivity still use sticky queue designation intended for recent worker assignments.",
+  "category": "feature",
+  "subcategory": "workflow-task-scheduling",
+  "apis": [],
+  "components": [
+    "sticky-queue",
+    "workflow-task-scheduler",
+    "worker-assignment"
+  ],
+  "concepts": [
+    "sticky-queue",
+    "worker-affinity",
+    "timeout",
+    "inactivity",
+    "task-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow tasks may be routed to stale or outdated workers during periods of inactivity, potentially causing task failures or delays.",
+  "rootCause": "Sticky queue designation persists indefinitely without considering inactivity periods, leading to task routing to potentially unavailable workers.",
+  "proposedFix": "Implement a configurable timeout mechanism to automatically reset sticky queue to 'Normal' kind when the time since the last workflow task completion exceeds a threshold.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #2363, which addresses the same sticky queue timeout problem.",
+  "related": [
+    2363
+  ],
+  "keyQuote": "If a workflow task is scheduled after a specified (configurable?) time after a previous workflow task then sticky queue shouldn't be used (it should reset to \"Normal\" kind).",
+  "number": 2600,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:46.839Z"
+}

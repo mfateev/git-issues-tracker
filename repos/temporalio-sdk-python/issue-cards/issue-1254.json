@@ -1,0 +1,34 @@
+{
+  "summary": "The `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` policy incorrectly warns when workflow modules are imported into the sandbox during execution, even though these imports are necessary and intentional for the sandboxed workflow runner to function.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [
+    "SandboxedWorkflowRunner",
+    "SandboxRestrictions",
+    "SandboxImportNotificationPolicy"
+  ],
+  "components": [
+    "workflow-sandbox",
+    "importer",
+    "sandbox-restrictions"
+  ],
+  "concepts": [
+    "sandbox-isolation",
+    "import-policy",
+    "module-loading",
+    "false-positives",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use `WARN_ON_UNINTENTIONAL_PASSTHROUGH` policy effectively because it generates false warnings for legitimate workflow module imports.",
+  "rootCause": "The sandbox import notification policy doesn't distinguish between intentional workflow module loads (required for sandbox execution) and unintentional passthrough imports.",
+  "proposedFix": "Exempt workflow modules from the unintentional passthrough warning since they must be loaded into the sandbox for execution to occur.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The workflow must be loaded into the sandbox each time and therefore should be exempt from this warning.",
+  "number": 1254,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:58.510Z"
+}

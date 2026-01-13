@@ -1,0 +1,32 @@
+{
+  "summary": "Users need the ability to configure specific times when history and visibility data archival should occur, rather than happening unpredictably at workflow retention time. This would allow scheduling archival during low-production periods to minimize resource impact.",
+  "category": "feature",
+  "subcategory": "archival-configuration",
+  "apis": [],
+  "components": [
+    "archival",
+    "visibility",
+    "history",
+    "retention"
+  ],
+  "concepts": [
+    "archival-scheduling",
+    "resource-management",
+    "production-load",
+    "configuration",
+    "data-retention",
+    "performance-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot control when resource-intensive archival operations occur, limiting their ability to optimize performance during production hours.",
+  "rootCause": null,
+  "proposedFix": "Add configuration options to specify specific times or time durations when archival should be performed.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be helpful if users had the ability to configure a specific time or a time duration when archival should be performed",
+  "number": 2598,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:44.524Z"
+}

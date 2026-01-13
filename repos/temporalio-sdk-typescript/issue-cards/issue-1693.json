@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add SDK support for activity reset functionality in TypeScript SDK, following the implementation in other SDKs as defined in the features repository.",
+  "category": "feature",
+  "subcategory": "activity-reset",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "worker",
+    "sdk-core"
+  ],
+  "concepts": [
+    "activity-reset",
+    "activity-lifecycle",
+    "workflow-execution",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reset activities in TypeScript SDK workflows, limiting their ability to handle activity state recovery scenarios.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR was created and merged following server release, implementing activity reset support in TypeScript SDK.",
+  "related": [
+    620
+  ],
+  "keyQuote": "we have this problem at Finch - Let me know how we can be helpful in setting requirements or testing pilot support",
+  "number": 1693,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:29:30.536Z"
+}

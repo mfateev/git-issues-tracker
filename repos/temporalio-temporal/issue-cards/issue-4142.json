@@ -1,0 +1,32 @@
+{
+  "summary": "Updates completed in the last workflow task are not written to history. When a workflow sends an update in the final task before completion, the update accepted and update completed events are missing from the workflow history.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "SetUpdateHandler"
+  ],
+  "components": [
+    "workflow-engine",
+    "history-writer",
+    "update-handler"
+  ],
+  "concepts": [
+    "update-handling",
+    "history-recording",
+    "workflow-completion",
+    "event-persistence",
+    "final-task"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot rely on complete update history when updates are processed in the final workflow task, breaking audit trails and update tracking.",
+  "rootCause": "The workflow engine does not write update events to history when the update is completed in the last workflow task before execution completion.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Updates completed in the last WF task of a workflow are not written in history.",
+  "number": 4142,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:50:29.346Z"
+}

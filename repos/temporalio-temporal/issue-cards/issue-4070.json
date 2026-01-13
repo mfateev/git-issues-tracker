@@ -1,0 +1,32 @@
+{
+  "summary": "User reports WorkflowTaskScheduled event not retrying after WorkflowTaskTimeout expires when worker is killed. Expected timeout-based retry after 10 seconds, but task hangs in queue until WorkflowRunTimeout is reached.",
+  "category": "question",
+  "subcategory": "workflow-task-timeout",
+  "apis": [
+    "StartWorkflowOptions"
+  ],
+  "components": [
+    "task-queue",
+    "workflow-task-scheduler",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "retry",
+    "task-queue",
+    "worker-availability",
+    "event-scheduling"
+  ],
+  "severity": "low",
+  "userImpact": "Users may misunderstand WorkflowTaskTimeout behavior, expecting it to trigger retries when tasks are not picked up by workers, potentially causing confusion during worker failures.",
+  "rootCause": "WorkflowTaskTimeout only applies to tasks already picked up by a worker and in execution, not tasks waiting in the queue. The task remains in queue without timing out until WorkflowRunTimeout is reached.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was clarified as a misunderstanding of WorkflowTaskTimeout behavior. The timeout applies to executing tasks, not tasks waiting in queue.",
+  "related": [],
+  "keyQuote": "The task is stilling in the task queue waiting for worker to pick it up. The task did not started, so it won't timeout.",
+  "number": 4070,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:36.379Z"
+}

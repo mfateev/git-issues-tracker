@@ -1,0 +1,33 @@
+{
+  "summary": "User requests ability to specify a different task queue when using continueAsNew to transition a workflow to a new execution. The feature is already supported by ContinueAsNewOptions but is not properly exposed in the public API documentation.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "continueAsNew",
+    "ContinueAsNewOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "api-documentation",
+    "type-exports"
+  ],
+  "concepts": [
+    "task-queue",
+    "workflow-routing",
+    "continue-as-new",
+    "api-visibility",
+    "documentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily discover or use the existing task queue parameter when continuing workflows as new, requiring workarounds or external guidance.",
+  "rootCause": "ContinueAsNewOptions type was not exported from the public API, making it inaccessible to users despite the functionality being implemented.",
+  "proposedFix": "Export ContinueAsNewOptions from the public API and update documentation to show task queue parameter usage.",
+  "workaround": "Users can reference the internal definition and manually construct options, but this is not discoverable.",
+  "resolution": "fixed",
+  "resolutionDetails": "ContinueAsNewOptions was exported and documentation was updated to properly expose the task queue parameter.",
+  "related": [],
+  "keyQuote": "ContinueAsNewOptions already does in fact allow setting a task queue, so this should work already.",
+  "number": 266,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:52.385Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "The WorkflowServiceStubsOptions#rpcLongPollTimeout is currently hardcoded to require a minimum of 70 seconds due to the server's 60-second timeout. This prevents users with strict network configurations (like reverse proxies) from using shorter polling timeouts. The request is to make this timeout configurable to support shorter values.",
+  "category": "feature",
+  "subcategory": "configuration",
+  "apis": [
+    "WorkflowServiceStubsOptions"
+  ],
+  "components": [
+    "workflow-service-stubs",
+    "client-configuration",
+    "connection-options"
+  ],
+  "concepts": [
+    "timeout",
+    "long-polling",
+    "configuration",
+    "network-constraints",
+    "server-communication",
+    "client-deadline"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with strict network layer configurations (reverse proxies, middleware) cannot configure shorter long poll timeouts, forcing them to use the 70-second minimum.",
+  "rootCause": "The server's 60-second timeout cap and safety margin implementation require the client to always use 70+ seconds, but this doesn't account for users with stricter network constraints.",
+  "proposedFix": "Allow the SDK to accept rpcLongPollTimeout values less than 70 seconds, and let the server handle returning responses based on the request's context timeout/deadline.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    705
+  ],
+  "keyQuote": "Not allowing users to configure the long polls to be shorter than 70s, Temporal makes configuration tricky for some of the users who may be using middle layers with a strict configuration",
+  "number": 988,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:57:41.338Z"
+}

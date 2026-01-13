@@ -1,0 +1,32 @@
+{
+  "summary": "Request to optimize workflow history storage for successful workflows by retaining only the workflow ID and final state while removing full history. This would reduce storage requirements in Cassandra while preserving de-duplication and final-state retrieval capabilities.",
+  "category": "feature",
+  "subcategory": "history-storage",
+  "apis": [],
+  "components": [
+    "cassandra-storage",
+    "history-service",
+    "workflow-archival"
+  ],
+  "concepts": [
+    "history-retention",
+    "storage-optimization",
+    "de-duplication",
+    "final-state",
+    "workflow-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with high-volume workflows would reduce storage costs by eliminating unnecessary history for successfully completed workflows.",
+  "rootCause": null,
+  "proposedFix": "Configure per-workflow definition or invocation to indicate full history is unnecessary for successful workflows. The workflow ID and final state remain available while larger parts like data payloads are optimized out of storage.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    487
+  ],
+  "keyQuote": "When enabled, the workflow ID and final state would remain available for de-duplication and final-state retrieval, but the rest of the history could be optimized out of storage.",
+  "number": 6255,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:34.797Z"
+}

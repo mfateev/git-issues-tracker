@@ -1,0 +1,32 @@
+{
+  "summary": "The awaitWithTimeout workflow utility does not immediately resume when the condition becomes true; instead, it waits for the full timeout duration to elapse before checking again. This causes workflows to hang until the timeout expires rather than responding promptly to signal-triggered state changes.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow::awaitWithTimeout"
+  ],
+  "components": [
+    "workflow-executor",
+    "async-handler",
+    "signal-processor"
+  ],
+  "concepts": [
+    "timeout",
+    "signal-handling",
+    "workflow-blocking",
+    "condition-waiting",
+    "immediate-resumption"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows receiving signals do not resume execution immediately, causing unexpected delays in workflow completion and making signal-based control flow unreliable.",
+  "rootCause": "The awaitWithTimeout implementation does not interrupt the timeout when the awaited condition becomes true; it only checks the condition after the timeout expires.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed by modifying awaitWithTimeout to interrupt the timeout when the condition evaluates to true rather than waiting for the full duration.",
+  "related": [],
+  "keyQuote": "Run the workflow, send `cancel` signal, workflow stays running. Only after timeout (600 seconds) it completes with result `CANCEL`.",
+  "number": 136,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:20.950Z"
+}

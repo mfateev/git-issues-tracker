@@ -1,0 +1,32 @@
+{
+  "summary": "Activity outbound heartbeat implementation incorrectly accesses the current activity context to get task token and activity info. This is problematic because heartbeat may be happening in a different thread/fiber, leading to potential race conditions or incorrect context access.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat",
+    "context-management"
+  ],
+  "concepts": [
+    "threading",
+    "concurrency",
+    "context-isolation",
+    "async-execution",
+    "task-token"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly implement heartbeating in activities that run on different threads/fibers, blocking production deployments.",
+  "rootCause": "The heartbeat implementation uses `current` to access activity context, but this is unsafe when heartbeat executes on a different thread/fiber than the activity itself.",
+  "proposedFix": "Task token should be provided through a different mechanism rather than accessing the current context during heartbeat.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed and gem artifacts were prepared for release; users could build from source or wait for official release.",
+  "related": [
+    271
+  ],
+  "keyQuote": "heartbeat may be happening in a different thread/fiber",
+  "number": 279,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:19.508Z"
+}

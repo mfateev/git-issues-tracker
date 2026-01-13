@@ -1,0 +1,32 @@
+{
+  "summary": "Request to implement dynamic task queue routing that allows forwarding tasks to different queues after scheduling. This feature would support use cases like development/troubleshooting, local dev environments, and traffic routing without requiring SDK-level workarounds.",
+  "category": "feature",
+  "subcategory": "task-queue-routing",
+  "apis": [],
+  "components": [
+    "task-queue-manager",
+    "worker",
+    "scheduler",
+    "routing-engine"
+  ],
+  "concepts": [
+    "task-routing",
+    "dynamic-configuration",
+    "traffic-routing",
+    "local-development",
+    "worker-topology",
+    "request-scoped-rules"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers struggle with local development and traffic routing in shared Temporal clusters; dynamic routing would eliminate the need for workarounds and custom SDK libraries.",
+  "rootCause": null,
+  "proposedFix": "Add API to manage routing rules that forward tasks to other queues, with potential support for request-scoped routing rules inspired by Envoy's HTTP routing architecture.",
+  "workaround": "Use SDK library implementations or custom client-side routing logic to intercept and redirect tasks.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add API to manage routing rules that forward tasks to other queues. This feature could solve that to some degree, at least for the things running inside Temporal.",
+  "number": 1988,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:57.655Z"
+}

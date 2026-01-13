@@ -1,0 +1,30 @@
+{
+  "summary": "The WorkflowCodecHelper assumes a timer summary is non-null, but this assumption is incorrect. The code needs to be fixed and test coverage added.",
+  "category": "bug",
+  "subcategory": "codec",
+  "apis": [],
+  "components": [
+    "WorkflowCodecHelper",
+    "worker",
+    "codec"
+  ],
+  "concepts": [
+    "timer",
+    "summary",
+    "null-safety",
+    "codec-handling",
+    "test-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows using codecs with timers may fail due to unhandled null summary values.",
+  "rootCause": "WorkflowCodecHelper.cs line 196 assumes timer summary is non-null without validation.",
+  "proposedFix": "Add null-check for summary before use and ensure proper handling of null case.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "At line 196, we assume the summary is non-null which is not correct. We need to fix this and we need to ensure coverage.",
+  "number": 400,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:19:53.981Z"
+}

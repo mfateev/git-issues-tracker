@@ -1,0 +1,36 @@
+{
+  "summary": "Query page shows blank 'no queries registered' message after upgrading to server 1.6.3, even though workflows have query methods defined. The issue is caused by a change in error message format where the SDK no longer returns registered query names in the exception message.",
+  "category": "bug",
+  "subcategory": "query-handling",
+  "apis": [
+    "Query"
+  ],
+  "components": [
+    "QueryDispatcher",
+    "SyncWorkflowContext",
+    "query-engine"
+  ],
+  "concepts": [
+    "query-discovery",
+    "error-messaging",
+    "web-ui-integration",
+    "backward-compatibility",
+    "exception-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot see registered queries in the Temporal Web UI after upgrading to server 1.6.3, breaking the query listing functionality.",
+  "rootCause": "Between SDK versions 1.6.1 and 1.6.3, the error message format changed from including registered query names in the exception to an IllegalStateException without query type information, preventing the web UI from discovering available queries.",
+  "proposedFix": "Restore the error message to include known query types similar to SDK-Go implementation: 'unknown queryType __cadence_web_list. KnownQueryTypes=[...]'",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as an SDK-Java regression and reassigned to SDK team for resolution.",
+  "related": [
+    335,
+    258,
+    54
+  ],
+  "keyQuote": "sdk-java used to return an error message that would contain registered queries... Please find what caused the change and make it return the old error message again",
+  "number": 357,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:09:56.284Z"
+}

@@ -1,0 +1,45 @@
+{
+  "summary": "SDKs need to expose root workflow execution information (workflow ID and run ID) from both workflow info and workflow execution objects, similar to how parent execution is currently exposed. The API now provides this data but SDKs have not yet implemented the exposure across all supported languages.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowInfo",
+    "WorkflowExecution",
+    "DescribeWorkflow"
+  ],
+  "components": [
+    "workflow-info",
+    "workflow-execution",
+    "sdk-api"
+  ],
+  "concepts": [
+    "root-workflow",
+    "workflow-execution",
+    "execution-chain",
+    "parent-child-workflows",
+    "workflow-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently access root workflow execution identifiers from workflow info or execution objects, limiting their ability to track execution hierarchies in complex workflow scenarios.",
+  "rootCause": null,
+  "proposedFix": "Expose root workflow execution workflow ID and run ID from workflow info and workflow execution objects following the same pattern used for parent execution exposure.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1848,
+    2430,
+    881,
+    1633,
+    774,
+    415,
+    227,
+    576,
+    763,
+    366
+  ],
+  "keyQuote": "SDKs should do the following: Expose root workflow execution workflow ID and run ID from workflow info in a similar fashion to how is done with parent execution",
+  "number": 605,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:25:58.224Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Implement Nexus handler support for well-known Temporal error translation in the Java SDK, replicating functionality from the Go SDK PR #1626.",
+  "category": "feature",
+  "subcategory": "nexus",
+  "apis": [],
+  "components": [
+    "nexus-handler",
+    "error-translation"
+  ],
+  "concepts": [
+    "nexus",
+    "error-handling",
+    "handler",
+    "sdk-parity",
+    "temporal-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can properly translate and handle well-known Temporal errors in Nexus handlers without manual conversion logic.",
+  "rootCause": null,
+  "proposedFix": "Replicate the error translation behavior implemented in Go SDK PR #1626",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented following Go SDK pattern for Nexus error translation",
+  "related": [
+    1626
+  ],
+  "keyQuote": "Replicate the behavior implemented in this Go SDK PR: https://github.com/temporalio/sdk-go/pull/1626",
+  "number": 2209,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:01:50.997Z"
+}

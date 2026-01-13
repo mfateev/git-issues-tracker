@@ -1,0 +1,28 @@
+{
+  "summary": "Feature request to drop Ruby 3.1 support and add Ruby 3.4 support, enabling the use of Ruby's `Data` class instead of `Struct` in the SDK.",
+  "category": "feature",
+  "subcategory": "version-support",
+  "apis": [],
+  "components": [
+    "ruby-sdk",
+    "data-structures"
+  ],
+  "concepts": [
+    "version-support",
+    "backwards-compatibility",
+    "language-features",
+    "ruby-modernization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on Ruby 3.1 will need to upgrade to a newer version, while users on Ruby 3.4+ will benefit from improved SDK implementation using modern Ruby features.",
+  "rootCause": null,
+  "proposedFix": "Drop Ruby 3.1 support, add Ruby 3.4 support, and leverage `Data` instead of `Struct` for SDK implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to update version support and modernize the SDK codebase.",
+  "related": [],
+  "keyQuote": "Confirm with users that 3.1 is not a requirement. In addition to dropping 3.1 support, we can now leverage `Data` instead of `Struct` if we want.",
+  "number": 182,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:37.127Z"
+}

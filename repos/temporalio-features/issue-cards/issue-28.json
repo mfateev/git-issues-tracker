@@ -1,0 +1,37 @@
+{
+  "summary": "Compile and package gRPC client for the operator service across all SDKs (TypeScript, Java, Go, Python, PHP, .NET, Ruby). The operator service was added to the Temporal API but needs to be exposed in each SDK for users to access it.",
+  "category": "feature",
+  "subcategory": "operator-service",
+  "apis": [
+    "OperatorService",
+    "Client.WorkflowService()"
+  ],
+  "components": [
+    "operator-client",
+    "grpc-client",
+    "sdk-api"
+  ],
+  "concepts": [
+    "gRPC",
+    "service-client",
+    "operator-api",
+    "code-generation",
+    "multi-sdk-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the operator service from SDKs until the gRPC client is compiled, packaged, and exposed in each SDK.",
+  "rootCause": "OperatorService was added to the Temporal API but not yet exposed as a client method in all SDKs.",
+  "proposedFix": "Expose OperatorService client in each SDK similar to how WorkflowService is exposed (e.g., Client.OperatorService()).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "OperatorService gRPC client was compiled and packaged for all SDKs (TS, Java, Go, Python, PHP, .NET, Ruby), with exposure implemented in SDKs like Go.",
+  "related": [
+    896,
+    93,
+    229
+  ],
+  "keyQuote": "We still need to expose this in Go same as we do for `Client.WorkflowService()`",
+  "number": 28,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:08.230Z"
+}

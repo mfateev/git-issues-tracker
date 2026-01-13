@@ -1,0 +1,33 @@
+{
+  "summary": "protobufjs's `.toJSON` method doesn't implement proto3-spec-compliant JSON encoding, causing incompatibility with other SDKs. The issue tracks whether to fix protobufjs or add alternative methods to make protobuf support easier for TypeScript SDK users.",
+  "category": "feature",
+  "subcategory": "protobuf-serialization",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "protobuf-support",
+    "serialization"
+  ],
+  "concepts": [
+    "JSON-encoding",
+    "proto3-compliance",
+    "protobuf.js",
+    "interoperability",
+    "spec-compliance",
+    "data-serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually handle proto3-compliant JSON serialization, requiring extra setup code and workarounds like proto3-json-serializer instead of using protobufjs's native methods.",
+  "rootCause": "protobufjs library's `.toJSON` implementation does not follow Google's proto3 JSON specification, unlike Google's own protobuf libraries used by other SDKs.",
+  "proposedFix": "Either fix protobufjs's `toJSON` implementation or add a `toProto3JSON` method; alternatively support static generated messages for binary/protobuf encoding.",
+  "workaround": "Use proto3-json-serializer library as an external serialization workaround in the data converter.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not an actionable issue for the SDK repo - it's an external protobufjs limitation. The current workaround using proto3-json-serializer is acceptable and handles serialization transparently for users.",
+  "related": [
+    1304
+  ],
+  "keyQuote": "protobufjs's `.toJSON` doesn't do proto3-spec-compliant JSON encoding, which means that if we used it, it would either error or be incompatible with the other SDKs",
+  "number": 481,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:57:47.325Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Deprecate ListOpen/CloseWorkflowExecutions APIs in favor of the new ListWorkflowExecutions which handles basic visibility functionality. These deprecated methods remain available in the frontend for backwards compatibility but should be phased out.",
+  "category": "feature",
+  "subcategory": "visibility",
+  "apis": [
+    "ListWorkflowExecutions",
+    "ListOpenWorkflowExecutions",
+    "ListCloseWorkflowExecutions"
+  ],
+  "components": [
+    "visibility",
+    "frontend",
+    "api"
+  ],
+  "concepts": [
+    "deprecation",
+    "backwards-compatibility",
+    "api-evolution",
+    "visibility-query"
+  ],
+  "severity": "low",
+  "userImpact": "Users are encouraged to migrate from ListOpen/CloseWorkflowExecutions to the unified ListWorkflowExecutions API for visibility queries.",
+  "rootCause": "ListWorkflowExecutions now provides the visibility functionality that previously required separate List Open/Close APIs.",
+  "proposedFix": "Deprecate ListOpen/CloseWorkflowExecutions and guide users to ListWorkflowExecutions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Visibility no longer exposes ListOpen/CloseWorkflowExecutions; they remain available in frontend for backwards compatibility, calling ListWorkflowExecutions internally.",
+  "related": [],
+  "keyQuote": "Visibility no longer has `ListOpen/CloseWorkflowExecutions`. However, they are still available in the frontend for backwards compatibility",
+  "number": 2389,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:53.493Z"
+}

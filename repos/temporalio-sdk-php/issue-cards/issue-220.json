@@ -1,0 +1,33 @@
+{
+  "summary": "The PHP SDK worker needs to send sdk-name and sdk-version headers in gRPC requests, similar to what the PHP client already does. This requires implementing gRPC interceptors to override headers sent by the underlying SDK.",
+  "category": "feature",
+  "subcategory": "grpc-headers",
+  "apis": [],
+  "components": [
+    "worker",
+    "grpc-client",
+    "interceptors"
+  ],
+  "concepts": [
+    "headers",
+    "metadata",
+    "grpc-interceptors",
+    "sdk-identification",
+    "version-tracking",
+    "client-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Without these headers, server-side telemetry and logging cannot properly identify which SDK version made requests from workers.",
+  "rootCause": null,
+  "proposedFix": "Use gRPC interceptors to override the headers sent by the Go SDK",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was duplicated in roadrunner-server/roadrunner#1249",
+  "related": [
+    1249
+  ],
+  "keyQuote": "The client already does this, needs to be implemented in the worker too.",
+  "number": 220,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:52.554Z"
+}

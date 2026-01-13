@@ -1,0 +1,35 @@
+{
+  "summary": "Benign application errors raised in activities with category=BENIGN are properly handled by Temporal's logging but incorrectly reported as errors in OpenTelemetry spans, causing false alerts in monitoring systems like Logfire. The request seeks configuration or SDK updates to prevent benign errors from being treated as real errors in OpenTelemetry instrumentation.",
+  "category": "feature",
+  "subcategory": "observability-opentelemetry",
+  "apis": [
+    "ApplicationError"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "opentelemetry-integration",
+    "activity-executor"
+  ],
+  "concepts": [
+    "observability",
+    "error-handling",
+    "benign-errors",
+    "span-status",
+    "activity-retries",
+    "monitoring-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users leveraging benign application errors in activity polling patterns receive false error alerts in observability tools, reducing signal quality and requiring workaround interceptors.",
+  "rootCause": "TracingInterceptor treats all exceptions equally in OpenTelemetry spans regardless of ApplicationError category, conflicting with Temporal's debug-level logging for benign errors.",
+  "proposedFix": "Update TracingInterceptor to check ApplicationError category and handle benign errors appropriately; suppress exception events and set span status to OK for benign errors, or add configuration option set_status_on_exception=False with explicit exception handling.",
+  "workaround": "Implement a custom ActivityInboundInterceptor that catches benign ApplicationErrors, sets span attributes, adds events, and resets span status to OK before re-raising.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1047
+  ],
+  "keyQuote": "OpenTelemetry still reports the exception as an error just as dire as any other one... triggering alerts for 'expected behavior'",
+  "number": 1041,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:35.301Z"
+}

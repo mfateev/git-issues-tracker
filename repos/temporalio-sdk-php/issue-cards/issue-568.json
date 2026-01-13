@@ -1,0 +1,31 @@
+{
+  "summary": "PHP SDK activity task hangs after completion and doesn't return until startToClose timeout (3 minutes) expires, triggering retry policy. The activity executes successfully but then hangs, causing all retry attempts to also timeout.",
+  "category": "bug",
+  "subcategory": "activity-timeout",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "retry-policy"
+  ],
+  "concepts": [
+    "timeout",
+    "hang",
+    "activity-execution",
+    "retry",
+    "deadline",
+    "worker-blocking"
+  ],
+  "severity": "high",
+  "userImpact": "Activities that complete successfully still timeout and exhaust all retry attempts, permanently failing the workflow and blocking the user's application.",
+  "rootCause": "Worker appears to hang after executing activity code, preventing proper activity completion signal from being sent back to Temporal server before timeout occurs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The task, which timeouts, does nothing but going to database for selecting some data by indexed field and it actually does it, but after executing the activity code it hangs for no reason until 3 minutes timeout appears.",
+  "number": 568,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:49.702Z"
+}

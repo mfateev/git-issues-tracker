@@ -1,0 +1,30 @@
+{
+  "summary": "NuGet package is built with glibc 2.32 from ubuntu-latest, which is incompatible with older Linux distributions like Debian 11 that only have glibc 2.31. The build process needs to use an older glibc version to ensure broader compatibility.",
+  "category": "bug",
+  "subcategory": "build-compatibility",
+  "apis": [],
+  "components": [
+    "nuget-package",
+    "build-pipeline",
+    "docker-image"
+  ],
+  "concepts": [
+    "compatibility",
+    "dependency-versioning",
+    "linux-distribution",
+    "glibc",
+    "build-environment"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to run the .NET SDK on older Linux distributions (Debian 11, CentOS) encounter runtime failures due to glibc version incompatibility.",
+  "rootCause": "GitHub Actions ubuntu-latest uses glibc 2.32, which is newer than the glibc 2.31 available in Debian 11 and other older distributions.",
+  "proposedFix": "Downgrade glibc to the oldest compatible version, either by manually specifying glibc during build or using an older Ubuntu version in the build pipeline.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Build pipeline was updated to use a compatible glibc version or older Ubuntu base image to ensure compatibility with Debian 11 and other legacy distributions.",
+  "related": [],
+  "keyQuote": "We use glibc 2.32 in the GH ubuntu-latest which is too new for older distros (like mcr.microsoft.com/dotnet/aspnet:7.0 which defaults to Debian 11 which is 2.31)",
+  "number": 36,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:08:02.987Z"
+}

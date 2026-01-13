@@ -1,0 +1,32 @@
+{
+  "summary": "When a workflow uses NewContinueAsNewError with a CronSchedule, the cron configuration is lost after the first continue-as-new, preventing future cron executions.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [
+    "NewContinueAsNewError",
+    "CronSchedule"
+  ],
+  "components": [
+    "workflow-engine",
+    "cron-scheduler",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "workflow-continuation",
+    "state-persistence",
+    "scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using both cron scheduling and continue-as-new lose their cron schedule after the first continuation, breaking recurring workflow executions.",
+  "rootCause": "The cron schedule configuration is not preserved when NewContinueAsNewError is processed, causing it to be erased from workflow settings.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "After returning NewContinueAsNewError, the CronSchedule is erased from the workflow settings and thus the workflow will stop",
+  "number": 746,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:04.933Z"
+}

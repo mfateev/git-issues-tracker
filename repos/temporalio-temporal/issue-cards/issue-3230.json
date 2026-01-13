@@ -1,0 +1,31 @@
+{
+  "summary": "Add a server capability flag to indicate worker versioning support. This is needed as part of the worker versioning feature implementation, with API changes tracked separately.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "frontend",
+    "server-capabilities",
+    "workflowHandler"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "server-capability",
+    "feature-detection",
+    "api-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables servers to advertise worker versioning support, allowing SDKs to conditionally enable the feature based on server capability.",
+  "rootCause": null,
+  "proposedFix": "Add a server-side capability flag for worker versioning in the workflowHandler, referencing the capabilities structure in the Temporal codebase.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of worker versioning feature with corresponding API changes in temporalio/api#219.",
+  "related": [
+    3127
+  ],
+  "keyQuote": "We need to add a server-side capability flag for worker versioning",
+  "number": 3230,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:32.187Z"
+}

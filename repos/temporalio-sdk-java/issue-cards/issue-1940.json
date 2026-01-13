@@ -1,0 +1,32 @@
+{
+  "summary": "Java SDK cannot be used as a named Java module due to split packages across multiple JAR files (temporal.sdk and temporal.serviceclient both contain io.temporal.internal packages), preventing proper module-info.java or Automatic-Module-Name support.",
+  "category": "feature",
+  "subcategory": "module-system",
+  "apis": [],
+  "components": [
+    "gradle-build",
+    "packaging",
+    "dependencies",
+    "manifest"
+  ],
+  "concepts": [
+    "java-modules",
+    "split-packages",
+    "module-info",
+    "automatic-module-name",
+    "jar-packaging",
+    "gradle-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use the Java SDK as a named module in modular Java applications due to package conflicts across JAR files.",
+  "rootCause": "Classes from io.temporal.internal and io.temporal.internal.common packages are distributed across multiple JAR files (temporal.sdk and temporal.serviceclient), creating split packages which violate Java module system constraints.",
+  "proposedFix": "Rename io.temporal.internal.common to io.temporal.internal.utils in temporal-sdk module, move WorkflowThreadMarker and BackoffThrottler classes to the new utils package to eliminate split packages, then add module-info.java or Automatic-Module-Name manifest entries.",
+  "workaround": "Use shadow JAR plugin to repack packages and avoid module conflicts; continue using unnamed module classpath.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The first step should be to stop sharing/splitting packages in different modules/jars. This is an easy fix, takes no more than 10 minutes for an experienced coder.",
+  "number": 1940,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:21.544Z"
+}

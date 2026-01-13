@@ -1,0 +1,32 @@
+{
+  "summary": "gRPC connection to Temporal Cloud drops during RPC calls with '14 UNAVAILABLE: Connection dropped' error. The error persists even after reconnection attempts and keep-alive configuration. Resolved by switching from grpc.Credentials to TLSConfig for TLS certificate management.",
+  "category": "bug",
+  "subcategory": "grpc-connection",
+  "apis": [
+    "respondActivityTaskCompleted"
+  ],
+  "components": [
+    "grpc-client",
+    "connection-management",
+    "tls-credentials"
+  ],
+  "concepts": [
+    "connection-stability",
+    "cloud-deployment",
+    "mtls",
+    "keep-alive",
+    "grpc-error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users connecting to Temporal Cloud experience intermittent connection drops that require manual reconnection and retry logic.",
+  "rootCause": "Improper TLS credential configuration using grpc.credentials.createSsl() instead of the SDK's TLSConfig API, which caused connection instability against Cloud deployments.",
+  "proposedFix": "Use TLSConfig object with serverRootCACertificate and clientCertPair instead of grpc.credentials.createSsl() for mTLS connections.",
+  "workaround": "Implement automatic reconnection and retry logic on connection drop errors, then switch to proper TLSConfig API.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by the reporter by switching from grpc.Credentials.createSsl() to TLSConfig API for TLS certificate configuration.",
+  "related": [],
+  "keyQuote": "I was eventually able to solve this by switching from using grpc.Credentials to use TLSConfig for specifying the TLS certs",
+  "number": 117,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:24.229Z"
+}

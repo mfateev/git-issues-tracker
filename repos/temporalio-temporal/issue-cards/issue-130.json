@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add cron scheduling support for activities, similar to existing workflow cron functionality. Users want the ability to automatically re-execute activities on a schedule or manually schedule the next invocation from within the activity.",
+  "category": "feature",
+  "subcategory": "cron-scheduling",
+  "apis": [
+    "StartWorkflow",
+    "SignalWorkflow",
+    "SignalWithStartWorkflow"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-scheduler",
+    "cron-engine"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "periodic-jobs",
+    "activity-retry",
+    "workflow-continuation",
+    "polling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily implement periodic activity execution patterns, requiring workarounds for common use cases like polling or scheduled re-execution.",
+  "rootCause": null,
+  "proposedFix": "Extend cron scheduling to activities, either by: 1) Supporting cron option on activities to re-execute on completion, or 2) Adding a method like Activity.executeAgainIn(Duration) to allow activities to schedule their own re-execution.",
+  "workaround": "Use cron workflows to wrap periodic activity needs, though this adds complexity for activity-specific scheduling.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This would re execute the activity upon its completion. Another option is to support an ability to schedule the next invocation from the activity itself.",
+  "number": 130,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:19:39.135Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to enable worker heartbeating in the Ruby SDK by allowing users to specify the worker heartbeat interval when initializing Core Runtime. Worker heartbeating is already implemented in Core and needs to be exposed through the Ruby SDK.",
+  "category": "feature",
+  "subcategory": "worker-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "core-runtime",
+    "worker-initialization"
+  ],
+  "concepts": [
+    "heartbeating",
+    "worker-lifecycle",
+    "core-runtime-configuration",
+    "connection-health",
+    "resource-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently configure worker heartbeat intervals in the Ruby SDK, limiting their ability to tune worker connection stability.",
+  "rootCause": null,
+  "proposedFix": "Expose worker heartbeat interval configuration parameter when initializing Core Runtime",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to enable worker heartbeating configuration in the Ruby SDK",
+  "related": [],
+  "keyQuote": "Worker heartbeating is implemented in Core, need to enable worker heartbeating by allowing users to specify the worker heartbeat interval when initializing Core Runtime",
+  "number": 354,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:49.322Z"
+}

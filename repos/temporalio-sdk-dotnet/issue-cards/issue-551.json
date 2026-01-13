@@ -1,0 +1,29 @@
+{
+  "summary": "Worker heartbeating needs to be enabled in the .NET SDK by allowing users to specify the worker heartbeat interval when initializing Core Runtime. This feature is already implemented in Core but not exposed to .NET users.",
+  "category": "feature",
+  "subcategory": "worker-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "core-runtime"
+  ],
+  "concepts": [
+    "heartbeating",
+    "worker-initialization",
+    "core-runtime",
+    "connection-management",
+    "health-monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure worker heartbeat intervals, limiting their ability to manage worker health and connection stability in long-running scenarios.",
+  "rootCause": null,
+  "proposedFix": "Allow users to specify the worker heartbeat interval as a parameter when initializing Core Runtime.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker heartbeating was implemented in Core and the feature was enabled in the .NET SDK to allow users to specify the heartbeat interval during Core Runtime initialization.",
+  "related": [],
+  "keyQuote": "Worker heartbeating is implemented in Core, need to enable worker heartbeating by allowing users to specify the worker heartbeat interval when initializing Core Runtime",
+  "number": 551,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:35:05.320Z"
+}

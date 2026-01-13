@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add query support when listing schedules in the .NET SDK, matching the existing functionality available for listing workflows.",
+  "category": "feature",
+  "subcategory": "schedule-listing",
+  "apis": [
+    "ListSchedules"
+  ],
+  "components": [
+    "schedule-client",
+    "list-schedules",
+    "query-support"
+  ],
+  "concepts": [
+    "query",
+    "filtering",
+    "schedule-listing",
+    "api-parity",
+    "workflow-equivalence"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot filter schedules using query parameters when listing, reducing discoverability and management capabilities compared to workflow listing.",
+  "rootCause": null,
+  "proposedFix": "Add query option parameter to the ListSchedules API call, matching the implementation pattern used for ListWorkflows.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Query support was implemented for schedule listing to achieve API parity with workflow listing functionality.",
+  "related": [],
+  "keyQuote": "Need to support the query option when listing schedules same as we do when listing workflows.",
+  "number": 300,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:04:36.630Z"
+}

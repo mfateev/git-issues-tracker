@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to allow creating patches before the workflow has started. Currently the sandbox approach applies patch notifications before user code is evaluated, but this restriction could be removed with the current architecture.",
+  "category": "feature",
+  "subcategory": "patching",
+  "apis": [],
+  "components": [
+    "sandbox",
+    "patch-system",
+    "workflow-initialization"
+  ],
+  "concepts": [
+    "patching",
+    "interception",
+    "workflow-lifecycle",
+    "initialization",
+    "static-patches",
+    "sandbox-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users would gain the ability to create patches at an earlier stage in the workflow lifecycle, potentially enabling more flexible patch management before workflow code begins executing.",
+  "rootCause": null,
+  "proposedFix": "Remove the current restriction that requires patches to be created after the workflow has started, leveraging the existing sandbox approach that already processes patches before user code evaluation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "With the current sandbox approach we apply patch notifications before user code is evaluated which means we could technically remove this restriction.",
+  "number": 962,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:25:03.500Z"
+}

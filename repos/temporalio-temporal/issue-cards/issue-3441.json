@@ -1,0 +1,33 @@
+{
+  "summary": "User requests ability to reclaim and reuse workflow IDs after explicitly marking them as no longer needed, to support workflows that create and destroy related resources while maintaining idempotence guarantees.",
+  "category": "feature",
+  "subcategory": "workflow-id-reuse-policy",
+  "apis": [
+    "StartWorkflowOptions",
+    "WorkflowIDReusePolicy"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-id-manager",
+    "reuse-policy-engine"
+  ],
+  "concepts": [
+    "idempotence",
+    "workflow-id-reuse",
+    "resource-lifecycle",
+    "duplicate-detection",
+    "state-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot safely reuse workflow IDs for new operations after completing resource deletion without risking conflicts or losing idempotence protection.",
+  "rootCause": null,
+  "proposedFix": "Add a mechanism to explicitly mark/taint workflow IDs as available for reuse after their associated resources are deleted.",
+  "workaround": "Implement idempotence protection in application layers outside of Temporal.",
+  "resolution": "invalid",
+  "resolutionDetails": "Maintainer suggested using WORKFLOW_ID_REUSE_POLICY_ALLOW_DUPLICATE combined with idempotent RequestID as the proper solution.",
+  "related": [],
+  "keyQuote": "You should be able to achieve what you want with WORKFLOW_ID_REUSE_POLICY_ALLOW_DUPLICATE and an idempotent RequestID.",
+  "number": 3441,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:22.159Z"
+}

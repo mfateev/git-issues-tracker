@@ -1,0 +1,34 @@
+{
+  "summary": "The `createWorkflowHandle` function has confusing overloaded behavior for both creating new workflows and retrieving existing ones. When users accidentally pass a workflow ID string instead of an object, they get an unclear error message. Request to split this into separate `createWorkflowHandle` and `getExistingWorkflowHandle` functions for better API clarity.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "createWorkflowHandle"
+  ],
+  "components": [
+    "client",
+    "workflow-handle",
+    "api-design"
+  ],
+  "concepts": [
+    "function-overloading",
+    "api-clarity",
+    "error-messaging",
+    "developer-experience",
+    "workflow-retrieval"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers encounter confusing error messages when accidentally misusing the overloaded `createWorkflowHandle` function, reducing API usability and causing confusion.",
+  "rootCause": "The function attempts to serve two distinct purposes (creating new workflows and retrieving existing ones) with overloaded signatures, making it prone to user error without clear guidance.",
+  "proposedFix": "Split `createWorkflowHandle` into two separate functions: `createWorkflowHandle` for creating new workflows and `getExistingWorkflowHandle` for retrieving existing workflows. Additionally, add validation in dev mode to detect when a workflowId string is passed instead of an object.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by splitting the functionality into separate functions as requested, implemented in PR #324.",
+  "related": [
+    324
+  ],
+  "keyQuote": "split the second behavior to another function, `getExistingWorkflowHandle`",
+  "number": 309,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:04:40.508Z"
+}

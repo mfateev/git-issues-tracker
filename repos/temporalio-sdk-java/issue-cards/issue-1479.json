@@ -1,0 +1,30 @@
+{
+  "summary": "Spring Boot Starter dependency fails with Maven validation error due to missing version on transitive spring-boot-starter dependency. The autoconfigure module works fine, but the starter module doesn't properly export its dependencies in the Maven POM.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "maven-pom",
+    "dependency-management"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "transitive-dependencies",
+    "maven-pom",
+    "bom-import",
+    "spring-boot"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use the temporal-spring-boot-starter-alpha dependency in Maven projects without manual workarounds.",
+  "rootCause": "The Gradle-to-Maven exporter plugin is not properly handling the BOM import from spring-boot-dependencies, causing the version information to be lost in the generated POM.",
+  "proposedFix": "Add the spring-boot-dependencies BOM explicitly to the temporal-spring-boot-starter-alpha POM with type=pom and scope=import.",
+  "workaround": "Users can explicitly add the spring-boot-dependencies BOM import to their project POM, or use the autoconfigure-alpha dependency directly instead of starter-alpha.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was likely resolved by explicitly adding the BOM import to the starter module POM during a subsequent release.",
+  "related": [],
+  "keyQuote": "Probably some problem in Gradle->Maven exporter plugin. I will try to add the BOM explicitly to temporal-spring-boot-starter-alpha.",
+  "number": 1479,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:36:33.823Z"
+}

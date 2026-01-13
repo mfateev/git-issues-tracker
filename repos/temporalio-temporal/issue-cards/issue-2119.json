@@ -1,0 +1,33 @@
+{
+  "summary": "User cannot access the CronSchedule of a running workflow through DescribeWorkflowExecution, but needs this information to compare workflow options and determine if a workflow needs to be rescheduled.",
+  "category": "feature",
+  "subcategory": "workflow-description",
+  "apis": [
+    "DescribeWorkflowExecution",
+    "GetWorkflowHistory"
+  ],
+  "components": [
+    "workflow-execution",
+    "api-server",
+    "history-service"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "workflow-options",
+    "workflow-comparison",
+    "execution-metadata",
+    "configuration-retrieval"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve cron schedule information from existing workflows, preventing them from making informed decisions about workflow updates without accessing raw history events.",
+  "rootCause": "CronSchedule is not exposed in the DescribeWorkflowExecution response, though it is available in the WorkflowExecutionStartedEventAttributes in the execution history.",
+  "proposedFix": "Add support for returning cron schedule information in the DescribeWorkflowExecution API response.",
+  "workaround": "Use client.GetWorkflowHistory to access the execution-started history event and extract CronSchedule from WorkflowExecutionStartedEventAttributes.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature request was acknowledged and transferred to the server project for implementation.",
+  "related": [],
+  "keyQuote": "I cannot access CronSchedule, which is a value I expect to change. It's the one affecting me but I would like a general way to accessing the options of a previous workflow",
+  "number": 2119,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:37.316Z"
+}

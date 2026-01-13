@@ -1,0 +1,32 @@
+{
+  "summary": "Lazy-load static workflow summary and details in the Python client instead of eagerly decoding them upon request.",
+  "category": "feature",
+  "subcategory": "client-workflow-api",
+  "apis": [
+    "GetWorkflowExecutionHistory"
+  ],
+  "components": [
+    "client",
+    "workflow-executor",
+    "result-decoder"
+  ],
+  "concepts": [
+    "lazy-loading",
+    "performance",
+    "memory-efficiency",
+    "decoding",
+    "client-side-optimization"
+  ],
+  "severity": "low",
+  "userImpact": "Users will benefit from faster client initialization and reduced memory usage when accessing workflow summaries and details.",
+  "rootCause": null,
+  "proposedFix": "Implement lazy decoding of static summary and details fields to defer processing until explicitly requested.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was implemented or decided upon.",
+  "related": [],
+  "keyQuote": "Today we eagerly decode these, change to be lazy upon request",
+  "number": 840,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:49.963Z"
+}

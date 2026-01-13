@@ -1,0 +1,37 @@
+{
+  "summary": "Cron expressions provided to ScheduleSpec are not returned when describing the schedule. Instead, the cron expression is translated to calendar specs during creation, making it input-only.",
+  "category": "question",
+  "subcategory": "schedule-spec",
+  "apis": [
+    "ScheduleSpec",
+    "Schedule",
+    "ScheduleActionStartWorkflow",
+    "get_schedule_handle",
+    "describe"
+  ],
+  "components": [
+    "schedule-api",
+    "schedule-storage",
+    "schedule-parser"
+  ],
+  "concepts": [
+    "cron-expression",
+    "calendar-spec",
+    "schedule-creation",
+    "schedule-retrieval",
+    "data-translation",
+    "api-contract"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot retrieve the original cron expression they used to create a schedule, which may complicate updates or debugging.",
+  "rootCause": "Cron expressions are intentionally translated to calendar specs during schedule creation and not stored in their original form.",
+  "proposedFix": null,
+  "workaround": "Add a comment to the cron expression (e.g., '0 0 * * * # comment here') which will be preserved in the calendar spec notes field.",
+  "resolution": "wontfix",
+  "resolutionDetails": "This is expected behavior by design. Cron expressions are translated to calendar specs on creation. A better solution for diffing and updating schedules is planned for future releases.",
+  "related": [],
+  "keyQuote": "Cron expressions are translated to calendar specs, so that is expected. Basically, they're input-only.",
+  "number": 5673,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:30.809Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Workers with java-sdk 1.18.0+ fail with 'required property congestionInitialInterval not set' when processing workflows requiring pagination to fetch history, causing stuck workflows unable to complete replay.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "GrpcRetryer",
+    "RpcRetryOptions",
+    "ServiceWorkflowHistoryIterator",
+    "ReplayWorkflowRunTaskHandler"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "pagination",
+    "history-fetching",
+    "retry-configuration",
+    "worker-processing"
+  ],
+  "severity": "critical",
+  "userImpact": "Workers become stuck and unable to finish workflow replay when processing workflows with large histories, preventing workflow task execution.",
+  "rootCause": "RpcRetryOptions validation requiring congestionInitialInterval property that is not being set during GrpcRetryer initialization.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was introduced in v1.18.1 and resolved by fixing the RpcRetryOptions configuration to properly initialize congestionInitialInterval.",
+  "related": [],
+  "keyQuote": "required property congestionInitialInterval not set",
+  "number": 1639,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:41:49.429Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add default WorkflowOptions to WorkflowClient constructor, allowing users to specify task queue and other options once instead of repeatedly when creating workflow handles.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "WorkflowClient",
+    "WorkflowHandle",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "workflow-client",
+    "client-options"
+  ],
+  "concepts": [
+    "defaults",
+    "configuration",
+    "task-queue",
+    "workflow-options",
+    "initialization"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces boilerplate code by allowing users to set common workflow options once at client creation instead of repeating them for each handle creation.",
+  "rootCause": null,
+  "proposedFix": "Add a `defaults` or `workflowDefaults` attribute to `WorkflowClientOptions` interface containing default `WorkflowOptions` for new handles, making `createWorkflowHandle`'s options parameter optional.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WorkflowClient now has a `workflowDefaults` option that allows users to set default workflow options at client creation time.",
+  "related": [],
+  "keyQuote": "It would be nice to provide the task queue once on `WorkflowClient` creation instead of every time when a WorkflowHandle is created.",
+  "number": 240,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:34.501Z"
+}

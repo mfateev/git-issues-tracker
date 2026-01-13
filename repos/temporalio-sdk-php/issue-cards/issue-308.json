@@ -1,0 +1,30 @@
+{
+  "summary": "PHP 8.2 deprecated the ${var} string interpolation syntax in favor of {$var}. The Temporal PHP SDK uses the deprecated syntax, causing deprecation errors when running workflows on PHP 8.2.",
+  "category": "bug",
+  "subcategory": "php-compatibility",
+  "apis": [],
+  "components": [
+    "ActivityCancellationType",
+    "string-interpolation",
+    "error-handling"
+  ],
+  "concepts": [
+    "deprecation",
+    "php-8.2",
+    "string-interpolation",
+    "backwards-compatibility",
+    "syntax-migration"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail with deprecation errors on PHP 8.2 due to incompatible string interpolation syntax in the SDK.",
+  "rootCause": "Temporal PHP SDK uses deprecated ${var} string interpolation syntax which was removed in PHP 8.2; replacement syntax {$var} should be used instead.",
+  "proposedFix": "Replace all instances of ${var} string interpolation with {$var} syntax throughout the codebase.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was updated to use the modern {$var} string interpolation syntax compatible with PHP 8.2.",
+  "related": [],
+  "keyQuote": "Using ${var} in strings is deprecated, use {$var} instead in /project/vendor/temporal/sdk/src/Activity/ActivityCancellationType.php:66",
+  "number": 308,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:36.533Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "User attempted to use DataStax Astra (managed Cassandra) as Temporal's backend but encountered x509 certificate validation errors due to IP SAN mismatches. The issue was resolved with proper configuration settings for TLS hostname verification and initial host lookup bypass.",
+  "category": "bug",
+  "subcategory": "cassandra-astra-integration",
+  "apis": [],
+  "components": [
+    "temporal-cassandra-tool",
+    "auto-setup",
+    "cassandra-client",
+    "tls-configuration"
+  ],
+  "concepts": [
+    "tls-certificate-validation",
+    "cassandra-backend",
+    "astra-database",
+    "hostname-verification",
+    "ip-sans",
+    "docker-compose"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily set up Temporal with DataStax Astra as a backend without encountering TLS certificate validation failures.",
+  "rootCause": "Astra's certificates are generated without IP SANs (Subject Alternative Names), but the gocql Cassandra driver's host lookup process stores only IP addresses, causing certificate validation to fail when connecting by IP address.",
+  "proposedFix": "Use CASSANDRA_TLS_SERVER_NAME environment variable set to the hostname and CASSANDRA_DISABLE_INITIAL_HOST_LOOKUP=true to prevent IP-based lookups that trigger certificate validation failures.",
+  "workaround": "A TLS proxy (e.g., ghostunnel) can be used as an intermediary to handle the TLS connection before forwarding to the application.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by confirming that the proper environment variables (CASSANDRA_TLS_SERVER_NAME, CASSANDRA_DISABLE_INITIAL_HOST_LOOKUP, SKIP_DB_CREATE) enable successful Astra connections. The temporal-cassandra-tool and auto-setup image work as expected with correct configuration.",
+  "related": [
+    1611
+  ],
+  "keyQuote": "The initial lookup must be skipped and the server name must be set (to the same value as seeds). This is due to the way Astra's certificates are generated without IP SANS versus Cassandra's host lookup process which stores only IP addresses.",
+  "number": 2419,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:21.977Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Remove terser dependency from worker package.json once webpack is updated to a version that no longer requires it as a separate dependency.",
+  "category": "feature",
+  "subcategory": "build-tooling",
+  "apis": [],
+  "components": [
+    "worker",
+    "build-system",
+    "webpack-config"
+  ],
+  "concepts": [
+    "dependency-management",
+    "build-optimization",
+    "toolchain-maintenance"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces build dependencies and maintenance overhead for the TypeScript SDK worker package.",
+  "rootCause": "Terser was added as a workaround dependency in #760 pending webpack version updates.",
+  "proposedFix": "Remove terser from packages/worker/package.json once webpack is updated.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Terser dependency was removed after webpack was updated to a version that handles it automatically.",
+  "related": [
+    760
+  ],
+  "keyQuote": "Once webpack updates and we update our webpack version, we can remove terser from packages/worker/package.json",
+  "number": 766,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:10:44.955Z"
+}

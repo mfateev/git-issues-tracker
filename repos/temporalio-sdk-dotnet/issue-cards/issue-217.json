@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support WorkflowIdConflictPolicy in the .NET SDK. This is a cross-SDK feature that needs to be implemented for parity with other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowIdConflictPolicy"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-options",
+    "sdk-api"
+  ],
+  "concepts": [
+    "workflow-id",
+    "conflict-handling",
+    "duplicate-prevention",
+    "execution-policy",
+    "sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure how the SDK handles workflow ID conflicts, limiting their ability to manage workflow execution behavior in specific scenarios.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support WorkflowIdConflictPolicy in the .NET SDK",
+  "related": [
+    437
+  ],
+  "keyQuote": "Support for WorkflowIdConflictPolicy",
+  "number": 217,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:58:07.522Z"
+}

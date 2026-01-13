@@ -1,0 +1,30 @@
+{
+  "summary": "Simplify data encoding architecture by removing per-attribute encoding flexibility and standardizing on proto3. Replace DataBlob with []byte in three core workflow state structs to reduce unnecessary complexity and duplication.",
+  "category": "feature",
+  "subcategory": "persistence-encoding",
+  "apis": [],
+  "components": [
+    "persistence",
+    "workflow-state",
+    "data-encoding"
+  ],
+  "concepts": [
+    "encoding",
+    "data-serialization",
+    "proto3",
+    "simplification",
+    "persistence-layer"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces complexity in the persistence layer and improves performance by eliminating unnecessary per-attribute encoding operations.",
+  "rootCause": "Current implementation allows per-attribute encoding (activity, child workflow) but only proto3 is used in practice, creating unnecessary abstraction and duplication.",
+  "proposedFix": "Replace DataBlob with []byte in InternalWorkflowMutableState, InternalWorkflowMutation, and InternalWorkflowSnapshot structs to standardize on proto3 encoding.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "per attribute encoding can in theory allow more flexibility, but in reality, only proto3 is used",
+  "number": 2375,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:42.495Z"
+}

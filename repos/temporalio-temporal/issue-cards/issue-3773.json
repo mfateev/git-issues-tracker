@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add SignalWithStartExternalWorkflow capability to workflow code, mirroring the existing SignalWithStartWorkflow client API functionality.",
+  "category": "feature",
+  "subcategory": "external-workflows",
+  "apis": [
+    "SignalWithStartWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "external-workflow",
+    "signal-api"
+  ],
+  "concepts": [
+    "signaling",
+    "workflow-lifecycle",
+    "external-workflows",
+    "workflow-control",
+    "async-operations"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently cannot signal and start external workflows from within workflow code, requiring workarounds or client-side implementation.",
+  "rootCause": null,
+  "proposedFix": "Implement SignalWithStartExternalWorkflow method in workflow code API with equivalent behavior to the client-side SignalWithStartWorkflow.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "This issue was marked as a duplicate of issue #537 and transferred to the server repository as it requires server-side implementation.",
+  "related": [
+    537
+  ],
+  "keyQuote": "Feature request is to add 'SignalWithStartExternalWorkflow' (name tbd) which can be called in workflow code.",
+  "number": 3773,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:01.088Z"
+}

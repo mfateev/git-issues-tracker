@@ -1,0 +1,29 @@
+{
+  "summary": "The worker binary ID should be determined by the workflow bundle checksum rather than just the SDK version, to ensure consistent identification across deployments with the same code.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "binary-id"
+  ],
+  "concepts": [
+    "worker-identification",
+    "code-versioning",
+    "deployment-consistency",
+    "bundle-checksum",
+    "binary-id"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers may be incorrectly identified across deployments, making it difficult to track and manage workflow execution in production environments.",
+  "rootCause": "SDK version alone is insufficient as a binary ID; it doesn't reflect actual code changes and won't be consistent across deployments with identical code.",
+  "proposedFix": "Use SHA sum of the workflow bundle combined with SDK version as the binary ID, ensuring consistency across deployments while accounting for code changes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented using SHA sum of the workflow bundle and SDK version as the binary ID, as documented in the worker.ts source code.",
+  "related": [],
+  "keyQuote": "I think what we do now is good enough (using sha sum of the workflow bundle and SDK version).",
+  "number": 204,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:00:23.381Z"
+}

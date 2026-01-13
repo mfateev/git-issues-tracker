@@ -1,0 +1,33 @@
+{
+  "summary": "Currently, Temporal doesn't validate or prevent scheduling workflow timers that would fire after the workflow execution timeout expires. The issue requests validation to either fail timer creation or auto-cap the timer duration to respect workflow execution limits.",
+  "category": "bug",
+  "subcategory": "workflow-timers",
+  "apis": [
+    "ScheduleWorkflowTimer"
+  ],
+  "components": [
+    "workflow-engine",
+    "timer-scheduler",
+    "timeout-validation"
+  ],
+  "concepts": [
+    "timeout",
+    "timer",
+    "workflow-execution",
+    "validation",
+    "scheduling",
+    "business-logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can accidentally schedule timers that will never fire due to workflow timeout, leading to unexpected workflow behavior and potential logic errors.",
+  "rootCause": "Missing validation logic to check if scheduled timer duration exceeds remaining workflow execution time.",
+  "proposedFix": "Add validation to fail timer creation when duration exceeds remaining execution time, or provide a boolean option to enable auto-capping of timer duration to the minimum of remaining execution time vs. specified duration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The current behavior is to not schedule the timer if it would fire after the workflow timeout, which prevents the invalid scenario.",
+  "related": [],
+  "keyQuote": "current behavior is NOT to schedule the timer is timer will fire after workflow timeout",
+  "number": 690,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:42.928Z"
+}

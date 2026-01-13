@@ -1,0 +1,33 @@
+{
+  "summary": "PostgreSQL database connections fail when the password contains special characters because the password isn't URL-encoded. The fix requires escaping the password using url.QueryEscape before constructing the connection URL.",
+  "category": "bug",
+  "subcategory": "database-connection",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgresql-plugin",
+    "sql-driver",
+    "url-parsing"
+  ],
+  "concepts": [
+    "password-encoding",
+    "special-characters",
+    "url-escaping",
+    "connection-string",
+    "database-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with PostgreSQL passwords containing special characters cannot establish database connections, preventing the system from starting.",
+  "rootCause": "PostgreSQL connection URL password is not URL-encoded, causing invalid userinfo values when the password contains special characters like &, =, %, etc.",
+  "proposedFix": "Use url.QueryEscape(cfg.Password) to escape the password before constructing the PostgreSQL connection URL in the plugin.go file.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Pull request #2014 implemented the fix by adding url.QueryEscape() to properly escape special characters in the PostgreSQL password.",
+  "related": [
+    2014
+  ],
+  "keyQuote": "Password should be escaped: url.QueryEscape(cfg.Password)",
+  "number": 903,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:14:20.963Z"
+}

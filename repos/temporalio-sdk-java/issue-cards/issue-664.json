@@ -1,0 +1,32 @@
+{
+  "summary": "GrpcRetryer should treat ResourceExhausted exceptions as retryable by default and implement special handling such as more aggressive backoff strategies.",
+  "category": "other",
+  "subcategory": "grpc-retry-handling",
+  "apis": [],
+  "components": [
+    "GrpcRetryer",
+    "exception-handling",
+    "backoff-strategy"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "resource-exhaustion",
+    "exception-handling",
+    "resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience better resilience when the gRPC layer encounters resource exhaustion errors, with appropriate retry logic.",
+  "rootCause": "ResourceExhausted exceptions were not being retried by default in GrpcRetryer despite their transient nature.",
+  "proposedFix": "Add special handling for ResourceExhausted exceptions with more aggressive backoff strategy in GrpcRetryer.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #1465 which implemented special handling for ResourceExhausted exceptions in GrpcRetryer.",
+  "related": [
+    1465
+  ],
+  "keyQuote": "ResourceExhausted should be a retryable exception for GrpcRetryer by default, at the same time it probably needs a special handling",
+  "number": 664,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:33:32.419Z"
+}

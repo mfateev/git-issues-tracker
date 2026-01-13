@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add a SignalExternalWorkflowExecutionWithStart command that combines signaling an external workflow with starting it if it doesn't exist, eliminating the need for separate start and signal operations.",
+  "category": "feature",
+  "subcategory": "workflow-signaling",
+  "apis": [
+    "SignalExternalWorkflowExecution"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-dispatcher",
+    "workflow-command-handler"
+  ],
+  "concepts": [
+    "external-workflow-signaling",
+    "workflow-lifecycle",
+    "command-composition",
+    "workflow-coordination",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers must write additional logic to ensure external workflows exist before signaling them, increasing complexity in cross-workflow communication patterns.",
+  "rootCause": null,
+  "proposedFix": "Add a new SignalExternalWorkflowExecutionWithStart command that atomically signals an external workflow and starts it if not already running.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SignalExternalExecutionWithStart would make this experience a lot easier",
+  "number": 2688,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:15.306Z"
+}

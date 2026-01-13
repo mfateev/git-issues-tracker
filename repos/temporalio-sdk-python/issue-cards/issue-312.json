@@ -1,0 +1,32 @@
+{
+  "summary": "User requested runtime type validation in RetryPolicy and similar validate methods to catch cases where timedelta parameters are passed as integers, providing helpful error messages to guide developers.",
+  "category": "feature",
+  "subcategory": "validation",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "common",
+    "client",
+    "validation"
+  ],
+  "concepts": [
+    "type-checking",
+    "error-messages",
+    "developer-experience",
+    "parameter-validation",
+    "timedelta"
+  ],
+  "severity": "low",
+  "userImpact": "Without runtime type validation, developers can pass incorrect types (e.g., integers instead of timedeltas) and receive cryptic errors instead of helpful guidance.",
+  "rootCause": "RetryPolicy validation methods do not check parameter types at runtime, leading to unclear error messages when wrong types are passed.",
+  "proposedFix": "Add type checks in validate methods to verify that timedelta parameters are actually timedelta objects, with clear error messages directing users to documentation.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined that runtime type checking for hundreds of parameters is unreasonable; Python type hints and static type checkers like MyPy are the intended solution.",
+  "related": [],
+  "keyQuote": "I think it's a bit unreasonable to check the types of the hundreds of parameters/fields we have at runtime. We offer type hints and strongly encourage the use of MyPy or similar.",
+  "number": 312,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:59.924Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to reorganize samples in the SDK repository for better browsability and maintainability. Discussion centered on managing shared configuration files and reducing duplication while keeping samples easy for developers to copy and use independently.",
+  "category": "feature",
+  "subcategory": "samples-organization",
+  "apis": [],
+  "components": [
+    "samples",
+    "create-project",
+    "tsconfig"
+  ],
+  "concepts": [
+    "code-organization",
+    "developer-experience",
+    "shared-configuration",
+    "duplication-reduction",
+    "repository-structure"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can more easily find, understand, and copy sample code from the repository, improving onboarding experience.",
+  "rootCause": null,
+  "proposedFix": "Move samples to a top-level directory with shared configuration managed via precommit hook that copies root tsconfig to each sample, balancing code reuse with developer convenience.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Samples were moved out of the main repo into a separate `samples-node` repository with improved organization.",
+  "related": [
+    135
+  ],
+  "keyQuote": "precommit hook that copies root tsconfig to each sample - best of both worlds",
+  "number": 136,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:55.594Z"
+}

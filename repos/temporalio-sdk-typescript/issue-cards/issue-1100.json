@@ -1,0 +1,30 @@
+{
+  "summary": "Duplicate name error occurs when @temporalio/worker and @temporalio/testing are both installed, causing a protobufjs namespace conflict with the ActivityHeartbeat type in the coresdk namespace.",
+  "category": "bug",
+  "subcategory": "dependency-conflict",
+  "apis": [],
+  "components": [
+    "worker",
+    "testing",
+    "proto",
+    "protobufjs"
+  ],
+  "concepts": [
+    "dependency-management",
+    "namespace-conflict",
+    "package-version",
+    "protobuf-schema"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use @temporalio/testing with @temporalio/worker due to protobuf namespace conflicts preventing tests from running.",
+  "rootCause": "Different versions of @temporalio/proto in worker and testing packages contain duplicate protobuf definitions that conflict when loaded simultaneously.",
+  "proposedFix": "Ensure all @temporalio/* packages use the same version",
+  "workaround": "Use matching versions across all @temporalio packages",
+  "resolution": "fixed",
+  "resolutionDetails": "User confirmed that using the same version of all @temporalio packages resolved the duplicate name error.",
+  "related": [],
+  "keyQuote": "Please use the same version of of the `@temporalio/*` packages, it should prevent this from happening.",
+  "number": 1100,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:49.893Z"
+}

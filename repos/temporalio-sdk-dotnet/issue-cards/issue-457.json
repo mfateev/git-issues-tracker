@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to expose retry policy information on the ActivityInfo object, allowing users to inspect what retry policy is configured for an activity.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "activity-context"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-configuration",
+    "failure-handling",
+    "observability",
+    "activity-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently inspect the retry policy for an activity at runtime, limiting visibility into how failures will be handled.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, likely implemented based on the referenced feature issue #615 in temporalio/features repository.",
+  "related": [
+    615
+  ],
+  "keyQuote": "Show retry policy on activity info",
+  "number": 457,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:26:30.348Z"
+}

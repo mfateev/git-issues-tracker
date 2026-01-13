@@ -1,0 +1,38 @@
+{
+  "summary": "Worker shutdown immediately terminates activity heartbeats, preventing activities from completing during the graceful shutdown period. Users request the ability to maintain heartbeating during shutdown so activities can finish work within the awaitTermination timeout.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "WorkerFactory.shutdown",
+    "WorkerFactory.awaitTermination",
+    "ActivityWorkerShutdownException",
+    "ActivityExecutionContext.useLocalManualCompletion",
+    "ManualActivityCompletionClient"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "heartbeat-manager",
+    "shutdown-handler"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "heartbeat",
+    "activity-completion",
+    "worker-termination",
+    "timeout",
+    "lifecycle-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably complete long-running activities during worker shutdown, even when providing a timeout period via awaitTermination.",
+  "rootCause": "WorkerFactory.shutdown immediately stops sending heartbeats and raises ActivityWorkerShutdownException, not respecting the awaitTermination timeout window.",
+  "proposedFix": "Allow heartbeats to continue during the shutdown grace period specified by awaitTermination, only reporting ActivityWorkerShutdownException after the timeout expires.",
+  "workaround": "Use ActivityExecutionContext.useLocalManualCompletion() and ManualActivityCompletionClient for manual heartbeating during shutdown.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I want the ability to keep heartbeating while the worker is shutting down so my activities can actually finish my activities work",
+  "number": 2075,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:53.721Z"
+}

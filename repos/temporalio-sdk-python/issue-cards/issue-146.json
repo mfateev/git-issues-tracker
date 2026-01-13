@@ -1,0 +1,32 @@
+{
+  "summary": "Improve the API and mechanism for sync activity cancellation in Python SDK. Currently requires throwing CancelledError, but the team decided to implement PyThreadState_SetAsyncExc by default with options to disable or shield from thread exceptions.",
+  "category": "feature",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "@activity.defn"
+  ],
+  "components": [
+    "activity-executor",
+    "sync-activity-wrapper",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "thread-safety",
+    "exception-handling",
+    "sync-async-bridge",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides a cleaner, more intuitive API for handling activity cancellation without requiring users to manually throw exceptions.",
+  "rootCause": "Sync activities lack a friendly mechanism to bubble out cancellation signals; requiring manual CancelledError throws is not user-friendly.",
+  "proposedFix": "Use PyThreadState_SetAsyncExc via Rust FFI (pyo3) by default, with optional `no_thread_exception=True` in @activity.defn decorator and `activity.no_thread_exception()` context manager for shielding.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented PyThreadState_SetAsyncExc-based cancellation with configurable behavior through decorator parameters and context managers.",
+  "related": [],
+  "keyQuote": "Use https://docs.python.org/3/c-api/init.html#c.PyThreadState_SetAsyncExc by default with optional disable decorator and shielding context manager",
+  "number": 146,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:04.748Z"
+}

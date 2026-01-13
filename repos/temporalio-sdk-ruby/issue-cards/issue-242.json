@@ -1,0 +1,33 @@
+{
+  "summary": "Ruby SDK needs to implement application failure logging and metrics behavior according to ApplicationErrorCategory. This requires waiting for core SDK implementation to provide the necessary foundation.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handler",
+    "logging",
+    "metrics"
+  ],
+  "concepts": [
+    "application-errors",
+    "error-category",
+    "logging",
+    "metrics",
+    "failure-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have standardized logging and metrics behavior for application failures consistent with the ApplicationErrorCategory specification.",
+  "rootCause": null,
+  "proposedFix": "Apply corresponding logging behavior for ApplicationErrorCategory once core SDK provides the foundation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed following core SDK foundation work.",
+  "related": [
+    614,
+    897
+  ],
+  "keyQuote": "Core-based SDKs only need to apply corresponding logging behaviour, core handles metrics.",
+  "number": 242,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:47:29.828Z"
+}

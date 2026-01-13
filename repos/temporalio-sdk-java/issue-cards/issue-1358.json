@@ -1,0 +1,32 @@
+{
+  "summary": "The Java SDK lacks CI testing for the native test server, which resulted in a broken native test server build being released to users. Integration tests are needed to ensure the native test server image builds and functions correctly.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "native-build",
+    "ci-pipeline"
+  ],
+  "concepts": [
+    "testing",
+    "integration-tests",
+    "native-image",
+    "build-verification",
+    "release-quality"
+  ],
+  "severity": "high",
+  "userImpact": "Users can receive SDK releases with broken native test server builds, breaking their testing infrastructure.",
+  "rootCause": "Missing CI integration tests for the native test server build process",
+  "proposedFix": "Add integration tests for the native test server image to the CI pipeline",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1357
+  ],
+  "keyQuote": "We don't have CI testing for the native test server. As a result of that, we can release a version of SDK with a broken native test server build",
+  "number": 1358,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:29:56.510Z"
+}

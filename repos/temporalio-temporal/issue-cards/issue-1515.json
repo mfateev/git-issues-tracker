@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add a configurable 'RetryIn' field to retryable errors that allows specifying when an error should be retried, enabling better control over retry timing with optional jitter support for rate-limiting scenarios.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "retry-policy",
+    "task-queue"
+  ],
+  "concepts": [
+    "retry",
+    "rate-limiting",
+    "timeout",
+    "jitter",
+    "backoff",
+    "semaphore",
+    "concurrency-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom rate-limiting based on metadata (like request semaphores) would be able to specify exactly when retries should occur, rather than relying on fixed retry policies.",
+  "rootCause": null,
+  "proposedFix": "Add a 'RetryIn' field to retryable errors that specifies when the error should be retried, with SDK-side changes to honor this timing. Optionally support jitter to prevent thundering herd.",
+  "workaround": "Configure retry policy with a fixed timeframe (without jitter) based on the semaphore timeout period, though this lacks flexibility and doesn't prevent stampeding herd issues.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via pull request #5182 as indicated by the follow-up comment linking the solution.",
+  "related": [
+    1507
+  ],
+  "keyQuote": "Add a 'RetryIn' field to the retryable errors. Just like whether a retryable or nonretryable error can be returned, this can be used to set when this would be retried.",
+  "number": 1515,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:34:30.088Z"
+}

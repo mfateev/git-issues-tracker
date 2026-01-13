@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add metrics for active executor threads in the Java SDK. Currently, the SDK lacks direct metrics to gauge the utilization of WTF, Activity, or Local Activity executor thread pools, making it difficult to determine if executor pool sizes need to be increased.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "executor",
+    "thread-pool",
+    "worker"
+  ],
+  "concepts": [
+    "thread-pool-utilization",
+    "executor-capacity",
+    "resource-monitoring",
+    "performance-metrics",
+    "thread-availability",
+    "capacity-planning"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily determine if their executor thread pools are fully utilized or if they need to increase pool sizes for better performance.",
+  "rootCause": null,
+  "proposedFix": "Report a gauge metric with the number of available threads in Executor ThreadPools.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Report a gauge metric with a number of available threads in Executor ThreadPools.",
+  "number": 986,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:56:59.158Z"
+}

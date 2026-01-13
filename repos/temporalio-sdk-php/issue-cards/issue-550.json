@@ -1,0 +1,35 @@
+{
+  "summary": "The PHP SDK's Harness test for child workflow exception handling is failing with a timeout error when calling getResult(). The test expects an exception but instead encounters a 'Deadline Exceeded' timeout in the gRPC client.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "getResult",
+    "WorkflowStub"
+  ],
+  "components": [
+    "grpc-client",
+    "workflow-stub",
+    "test-harness",
+    "exception-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "exception-handling",
+    "child-workflow",
+    "test-execution",
+    "grpc-communication"
+  ],
+  "severity": "high",
+  "userImpact": "Test suite fails during acceptance testing, blocking validation of child workflow exception behavior in the PHP SDK.",
+  "rootCause": "The gRPC call to getResult() is exceeding its deadline (code: 4 - Deadline Exceeded), preventing the expected exception from being thrown and causing the test to fail.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Check why Harness test is failing: Test case throws TimeoutException with 'Deadline Exceeded (code: 4)' instead of expected exception",
+  "number": 550,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:00.149Z"
+}

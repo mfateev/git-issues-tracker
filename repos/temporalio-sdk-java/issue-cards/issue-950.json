@@ -1,0 +1,32 @@
+{
+  "summary": "User requested OpenTelemetry tracing support for Java SDK similar to Go SDK's otel interceptor. Issue was closed as invalid/wontfix with guidance that existing OpenTracing support already provides OpenTelemetry compatibility.",
+  "category": "question",
+  "subcategory": "tracing",
+  "apis": [],
+  "components": [
+    "tracing",
+    "opentelemetry",
+    "interceptor"
+  ],
+  "concepts": [
+    "observability",
+    "distributed-tracing",
+    "instrumentation",
+    "opentelemetry",
+    "opentracing"
+  ],
+  "severity": "low",
+  "userImpact": "Users looking for OpenTelemetry tracing integration were confused about available options and directed to existing OpenTracing support.",
+  "rootCause": null,
+  "proposedFix": "Use existing temporal-opentracing module with OpenTelemetry bridge as documented.",
+  "workaround": "Configure OpenTracing with OpenTelemetry as shown in temporal-opentracing documentation.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer provided documentation link showing OpenTracing already supports OpenTelemetry bridging, making separate OTEL interceptor unnecessary. Directed user to community forums for further questions.",
+  "related": [
+    207
+  ],
+  "keyQuote": "Here is a configuration for opentracing... here is how is can be used with opentelemetry",
+  "number": 950,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:54:56.197Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal Server fails to connect to CockroachDB on port 26257 with 'connection refused' error during Docker startup, even though the database schema setup succeeds and the port appears accessible via netcat.",
+  "category": "bug",
+  "subcategory": "database-connectivity",
+  "apis": [],
+  "components": [
+    "server",
+    "sql-adapter",
+    "database-connection",
+    "docker-setup"
+  ],
+  "concepts": [
+    "connection-refused",
+    "database-connectivity",
+    "docker-networking",
+    "port-binding",
+    "postgresql-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start Temporal Server with CockroachDB as the persistence backend in Docker environments due to connection failures.",
+  "rootCause": "Server is attempting to connect to 127.0.0.1:26257 (localhost) instead of the Docker service hostname 'postgres', causing connection refused despite the database being reachable during schema setup.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the database connection configuration to use the correct hostname instead of localhost in Docker environments.",
+  "related": [],
+  "keyQuote": "sql schema version compatibility check failed: unable to create SQL connection: dial tcp 127.0.0.1:26257: connect: connection refused",
+  "number": 454,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:59:14.941Z"
+}

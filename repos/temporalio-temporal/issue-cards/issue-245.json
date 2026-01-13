@@ -1,0 +1,34 @@
+{
+  "summary": "Cassandra timestamp type used in the schema can lose precision, potentially causing timers to fire earlier than expected due to rounding errors. The issue raises concerns about data integrity when the database modifies stored values without explicit consent.",
+  "category": "bug",
+  "subcategory": "persistence-cassandra",
+  "apis": [],
+  "components": [
+    "schema",
+    "cassandra",
+    "timer",
+    "persistence"
+  ],
+  "concepts": [
+    "precision loss",
+    "data integrity",
+    "timestamp",
+    "timer granularity",
+    "rounding error",
+    "database contract"
+  ],
+  "severity": "medium",
+  "userImpact": "Timers may fire earlier than expected due to Cassandra timestamp precision loss, causing workflows to behave unpredictably.",
+  "rootCause": "Cassandra timestamp type has insufficient precision and modifies stored values during persistence, violating the principle that stored data should match retrieved data.",
+  "proposedFix": "Change the timestamp column in the execution table to bigint or another data type that preserves precision without loss.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    574
+  ],
+  "keyQuote": "I get the same data that I stored. the precision issue will open a can of worms",
+  "number": 245,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:23:35.992Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to officially support PostgreSQL v10+ as v9.6 reaches end-of-life. Users report that newer versions work but lack official support, and documentation needs updating.",
+  "category": "feature",
+  "subcategory": "database-support",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgresql-connector",
+    "database-layer"
+  ],
+  "concepts": [
+    "database-version-support",
+    "postgresql",
+    "dependency-management",
+    "eol",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running PostgreSQL v10+ cannot use officially supported database versions, forcing them to use unsupported versions or rely on undocumented compatibility.",
+  "rootCause": "Temporal's official documentation and support matrix had not been updated to reflect PostgreSQL v10+ compatibility despite evidence of real-world usage.",
+  "proposedFix": "Update official support to PostgreSQL v10+, document supported versions in official documentation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Temporal now officially supports PostgreSQL v10-13 (and v9.6 until EOL), with documentation updated to reflect v10.18 and v13.4 as supported versions.",
+  "related": [],
+  "keyQuote": "We now officially support PostgreSQL versions 10–13 (and 9.6 until EOL).",
+  "number": 2080,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:59.197Z"
+}

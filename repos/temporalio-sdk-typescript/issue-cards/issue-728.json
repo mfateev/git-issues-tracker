@@ -1,0 +1,35 @@
+{
+  "summary": "Jest times out on the first run of TestWorkflowEnvironment in the TypeScript SDK, but subsequent runs pass. The issue appears to be a race condition or initialization delay in the test framework rather than a fundamental bug.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-framework",
+    "worker",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timeout",
+    "race-condition",
+    "initialization",
+    "test-environment",
+    "startup-delay",
+    "flaky-tests"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing unit tests with TestWorkflowEnvironment experience intermittent timeout failures on first test run, forcing them to rerun tests.",
+  "rootCause": null,
+  "proposedFix": "Increase jest timeout using jest.setTimeout(15000) in jest.config.js",
+  "workaround": "Rerun the tests; they typically pass on subsequent runs. Increase jest timeout configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed in SDK version 1.3.0 with a redesigned test framework. Could not be reproduced after the redesign.",
+  "related": [
+    1252
+  ],
+  "keyQuote": "We've redone the test framework in 1.3.0. And haven't been able to reproduce this, closing until this is reproducible.",
+  "number": 728,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:08:50.667Z"
+}

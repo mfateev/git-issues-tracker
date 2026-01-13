@@ -1,0 +1,32 @@
+{
+  "summary": "String-based enums in Python SDK are not properly serialized when passed to activities, resulting in incorrect type information (list instead of str). The feature request is to add native support for string-based enums to properly handle their serialization.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "activity-executor",
+    "serialization",
+    "type-handling"
+  ],
+  "concepts": [
+    "enum",
+    "string-based-enum",
+    "type-preservation",
+    "serialization",
+    "activity-parameters"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use Python's string-based enums as activity parameters because the SDK incorrectly deserializes them, breaking type expectations and activity logic.",
+  "rootCause": "The SDK's serialization logic does not properly handle string-based enums (class Status(str, Enum)), causing them to be deserialized as lists instead of strings or enum instances.",
+  "proposedFix": "Add native support in the SDK to recognize and properly serialize/deserialize string-based enums, ensuring they maintain their type information during workflow execution.",
+  "workaround": "Change activity signature to accept union types (Status | str) instead of just Status to work around the type mismatch.",
+  "resolution": "fixed",
+  "resolutionDetails": "The SDK was updated to properly handle string-based enum serialization and deserialization.",
+  "related": [],
+  "keyQuote": "This code prints `<class 'list'>` which can break your underlying activities.",
+  "number": 176,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:45.791Z"
+}

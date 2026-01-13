@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to enable executing activities outside of workflow context. This requires both client and worker support for new server APIs that manage activity lifecycle independently of workflows.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "client",
+    "server-api"
+  ],
+  "concepts": [
+    "activity-lifecycle",
+    "out-of-workflow-execution",
+    "activity-management",
+    "async-execution",
+    "server-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to execute activities without requiring a parent workflow, enabling new architectural patterns and use cases.",
+  "rootCause": null,
+  "proposedFix": "Implement support for starting, managing, and retrieving results of activities through new server APIs, with corresponding client and worker changes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    640
+  ],
+  "keyQuote": "Allow executing activities without a workflow. The clients must support the new (upcoming) server APIs for starting, managing and getting results of activities.",
+  "number": 568,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:36:22.990Z"
+}

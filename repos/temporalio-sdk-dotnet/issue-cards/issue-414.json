@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to ensure built-in query responses use 'RawValue' in the .NET SDK, as outlined in the cross-repository features issue #604.",
+  "category": "feature",
+  "subcategory": "queries",
+  "apis": [
+    "ExecuteQuery"
+  ],
+  "components": [
+    "query-handler",
+    "response-serialization"
+  ],
+  "concepts": [
+    "queries",
+    "raw-value",
+    "response-format",
+    "built-in-queries",
+    "serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users need built-in query responses to consistently use RawValue format for proper interoperability.",
+  "rootCause": null,
+  "proposedFix": "Implement RawValue usage in built-in query responses to match cross-repository specifications.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Built-in query responses were updated to use RawValue format.",
+  "related": [
+    604
+  ],
+  "keyQuote": "Make sure built-in queries return a raw value",
+  "number": 414,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:21:51.248Z"
+}

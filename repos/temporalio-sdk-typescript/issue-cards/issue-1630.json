@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to ensure built-in query responses use RawValue when feature #1629 is completed. This is part of implementing consistent query response handling across the TypeScript SDK.",
+  "category": "feature",
+  "subcategory": "query-responses",
+  "apis": [
+    "Query"
+  ],
+  "components": [
+    "query-handler",
+    "response-serialization"
+  ],
+  "concepts": [
+    "raw-value",
+    "query-responses",
+    "built-in-queries",
+    "serialization",
+    "consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures built-in query responses are properly formatted and consistent with the RawValue pattern.",
+  "rootCause": null,
+  "proposedFix": "Make built-in queries return raw values once #1629 is completed",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of completing feature #1629 for RawValue support in query responses",
+  "related": [
+    1629,
+    604
+  ],
+  "keyQuote": "When #1629 is done, make sure built-in queries return a raw value",
+  "number": 1630,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:56:00.206Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for workflow updates in the Python SDK, allowing workflows to be updated with new code while preserving their execution state. This feature is blocked on sdk-core implementation.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "python-sdk"
+  ],
+  "concepts": [
+    "workflow-update",
+    "code-versioning",
+    "state-preservation",
+    "feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Python SDK users cannot update workflow definitions during execution, limiting operational flexibility compared to other SDKs.",
+  "rootCause": "Waiting on core SDK implementation of workflow update support (sdk-core #582)",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved when sdk-core #582 was completed, enabling Python SDK to implement workflow update support",
+  "related": [
+    582
+  ],
+  "keyQuote": "This is waiting on https://github.com/temporalio/sdk-core/issues/582",
+  "number": 336,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:33.526Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow execution complexity metrics: request to report the number of state transitions used by a workflow to the Temporal server, which helps evaluate the load burden on the server and is included in visibility records on close.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "history-service",
+    "workflow-mutable-state",
+    "advanced-visibility"
+  ],
+  "concepts": [
+    "state-transitions",
+    "complexity-metrics",
+    "server-load",
+    "visibility-records",
+    "workflow-execution",
+    "performance-monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Allows users to track workflow complexity metrics and understand the load burden their workflows place on the Temporal server.",
+  "rootCause": null,
+  "proposedFix": "Add state transition counting feature to the history service that reports the number of state transitions used by each workflow and includes it in the visibility record on close.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The field was added to workflow mutable state and also to advanced visibility records.",
+  "related": [],
+  "keyQuote": "Temporal server should add this counting feature to the history service. So every workflow should return the number of state transitions it used and include it into the visibility record on close.",
+  "number": 1352,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:46.878Z"
+}

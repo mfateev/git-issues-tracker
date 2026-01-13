@@ -1,0 +1,32 @@
+{
+  "summary": "Request to implement nightly CI testing that runs the latest versions of SDK main branches against server main to catch breaking changes and SDK-server incompatibilities before release.",
+  "category": "feature",
+  "subcategory": "ci-testing",
+  "apis": [],
+  "components": [
+    "ci-pipeline",
+    "sdk-testing",
+    "server-integration",
+    "docker"
+  ],
+  "concepts": [
+    "integration-testing",
+    "breaking-changes",
+    "version-compatibility",
+    "continuous-integration",
+    "nightly-builds",
+    "regression-detection"
+  ],
+  "severity": "low",
+  "userImpact": "Enables earlier detection of incompatibilities between SDK and server changes, reducing the risk of releasing broken versions to users.",
+  "rootCause": null,
+  "proposedFix": "Set up nightly CI matrix testing SDK main branches against server main using latest docker images or master releases of temporalite.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The request is to test SDK main branches against server main to catch breaking changes well before they're released.",
+  "number": 150,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:50:18.127Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request for documentation on the specific Elasticsearch permissions required by Temporal. Users encountered 403 errors when ES had restrictive permissions and need clear guidance on required access levels.",
+  "category": "docs",
+  "subcategory": "elasticsearch-permissions",
+  "apis": [
+    "ListWorkflowExecutionsRequest"
+  ],
+  "components": [
+    "visibility-store",
+    "elasticsearch",
+    "persistence"
+  ],
+  "concepts": [
+    "permissions",
+    "access-control",
+    "elasticsearch",
+    "visibility",
+    "documentation",
+    "security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying Temporal with Elasticsearch must guess at required permissions, leading to debugging efforts and security risks when they over-provision access.",
+  "rootCause": "Lack of documentation specifying which Elasticsearch permissions Temporal requires for operations like ListWorkflowExecutionsRequest.",
+  "proposedFix": "Create documentation detailing the specific Elasticsearch permissions and roles required by Temporal for all operations.",
+  "workaround": "Temporarily open all permissions between Temporal and Elasticsearch cluster (not recommended for production).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "a documentation update as to which permissions are required by Temporal would be amazing",
+  "number": 1821,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:19:06.841Z"
+}

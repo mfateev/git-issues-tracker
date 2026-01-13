@@ -1,0 +1,35 @@
+{
+  "summary": "Queries that use Date.now() are calculated once and cached rather than recalculated on each query invocation, causing issues like returning stale time values for timers. The request is to add WorkflowInfo.unsafe.now() to access the current workflow time for query handlers.",
+  "category": "feature",
+  "subcategory": "query-handlers",
+  "apis": [
+    "setHandler",
+    "defineQuery"
+  ],
+  "components": [
+    "query-handler",
+    "workflow-context",
+    "timer"
+  ],
+  "concepts": [
+    "time",
+    "query-caching",
+    "deadline",
+    "state-consistency",
+    "determinism"
+  ],
+  "severity": "medium",
+  "userImpact": "Query handlers cannot reliably return time-dependent values like elapsed time or time-to-deadline without receiving stale cached results.",
+  "rootCause": "Query handlers cache the result of Date.now() on first evaluation rather than recalculating it on each query invocation.",
+  "proposedFix": "Add WorkflowInfo.unsafe.now() API to allow query handlers to access the current workflow time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Trivialized and marked for inclusion in next release per maintainer comment.",
+  "related": [
+    31
+  ],
+  "keyQuote": "If I query this, I keep getting the same number back even though I would expect to keep getting smaller numbers.",
+  "number": 796,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:12:35.070Z"
+}

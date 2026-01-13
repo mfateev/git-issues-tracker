@@ -1,0 +1,32 @@
+{
+  "summary": "The `get_workflow_handle_for` method does not properly extract and set the result type on the returned workflow handle. Additionally, the `result_type` parameter should be allowed on `get_workflow_handle` for users who know the type.",
+  "category": "bug",
+  "subcategory": "workflow-handle",
+  "apis": [
+    "get_workflow_handle_for",
+    "get_workflow_handle"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-handle",
+    "type-system"
+  ],
+  "concepts": [
+    "type-inference",
+    "result-type",
+    "type-safety",
+    "handle-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly type workflow results when using get_workflow_handle_for, requiring manual type specification workarounds.",
+  "rootCause": "The get_workflow_handle_for method does not extract the result type from the workflow definition when creating the handle.",
+  "proposedFix": "Allow result_type to be explicitly set on get_workflow_handle and automatically extract it in get_workflow_handle_for.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Result type is now properly extracted and set on workflow handles created via get_workflow_handle_for.",
+  "related": [],
+  "keyQuote": "When using `get_workflow_handle_for` with a workflow, the return type is not extracted and set on the handle.",
+  "number": 117,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:13.923Z"
+}

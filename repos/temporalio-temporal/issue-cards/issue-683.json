@@ -1,0 +1,31 @@
+{
+  "summary": "User inquires about backpressure support in Temporal to prevent overwhelming the database with excessive requests. The issue discusses existing service protection mechanisms and configuration options available for rate limiting.",
+  "category": "question",
+  "subcategory": "backpressure-rate-limiting",
+  "apis": [],
+  "components": [
+    "frontend-service",
+    "persistence-layer",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "backpressure",
+    "rate-limiting",
+    "database-protection",
+    "QPS",
+    "service-protection",
+    "load-handling"
+  ],
+  "severity": "low",
+  "userImpact": "Users need guidance on how to configure backpressure mechanisms to prevent database overload from high-volume requests.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Configure service RPS limits and PersistenceMaxQPS dynamic config knobs to protect the database from being overwhelmed by the service.",
+  "resolution": "stale",
+  "resolutionDetails": "Closed due to inactivity. The issue was answered with existing configuration options (RPS and PersistenceMaxQPS) that already provide backpressure protection.",
+  "related": [],
+  "keyQuote": "Temporal already has lots of service protection baked in the system to protect DB from getting overloaded.",
+  "number": 683,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:30.456Z"
+}

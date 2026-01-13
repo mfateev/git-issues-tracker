@@ -1,0 +1,35 @@
+{
+  "summary": "Add a test for the TypeScript SDK that verifies heartbeat details are preserved across activity retries, similar to the existing Python test that checks heartbeat details are correctly carried forward through multiple retry attempts.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "heartbeat",
+    "activity.info"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-logic",
+    "test-framework"
+  ],
+  "concepts": [
+    "retry",
+    "heartbeat",
+    "state-preservation",
+    "activity-execution",
+    "details-passing"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures developers can rely on heartbeat details being preserved during activity retries, enabling proper state recovery and progress tracking.",
+  "rootCause": null,
+  "proposedFix": "Implement a test similar to the Python version that sets heartbeat details, increments them on each retry, and verifies exact retry count and final value.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed in issue #523",
+  "related": [
+    523
+  ],
+  "keyQuote": "I just set the details and add 9 each time and have an expected count. It specifically tests multiple retries and makes sure that it does the _exact_ number of retries so a heartbeat isn't missed.",
+  "number": 538,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:00:14.898Z"
+}

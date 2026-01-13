@@ -1,0 +1,30 @@
+{
+  "summary": "GrpcRetryer is logging errors at inappropriate log levels, including final exceptions. The component should only log at Trace level for debugging, allowing calling code to handle exception logging appropriately.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "GrpcRetryer",
+    "error-handling",
+    "logging"
+  ],
+  "concepts": [
+    "logging-levels",
+    "exception-handling",
+    "error-propagation",
+    "debugging",
+    "separation-of-concerns"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see verbose error logs from GrpcRetryer that obscure application-level error handling and logging strategies.",
+  "rootCause": "GrpcRetryer logs exceptions at inappropriate levels without context about whether errors are actionable at that layer.",
+  "proposedFix": "Reduce GrpcRetryer logging to Trace level only, allowing calling code to handle exception logging and propagation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Logging was reduced to Trace level in GrpcRetryer, delegating exception handling responsibility to calling code.",
+  "related": [],
+  "keyQuote": "GrpcRetryer doesn't have a context to understand which exception is a problem and which is not, only the calling code does.",
+  "number": 1208,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:14:26.941Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Three security vulnerabilities (CVE-2019-0205, CVE-2019-0210, CVE-2018-11798) detected in transitive dependency Apache Thrift 0.10.0 through the tchannel-go library. The highest severity is 7.5 (high), involving potential denial of service and file access vulnerabilities.",
+  "category": "bug",
+  "subcategory": "security-dependency-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "tchannel-go",
+    "apache-thrift"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-update",
+    "cve",
+    "denial-of-service",
+    "file-access",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal Server are exposed to denial of service attacks and potential unauthorized file access through vulnerable transitive dependencies.",
+  "rootCause": "Outdated Apache Thrift library (0.10.0) with known vulnerabilities included transitively through tchannel-go v1.22.3 dependency.",
+  "proposedFix": "Upgrade Apache Thrift to version 0.13.0 or later and update tchannel-go to a version that uses a patched Thrift dependency.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was removed or ignored in the Mend inventory, automatically closing the issue as the dependency is no longer part of the codebase.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 3019,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:39.929Z"
+}

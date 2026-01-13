@@ -1,0 +1,33 @@
+{
+  "summary": "Worker and client need automatic reconnection when service IP address changes, particularly in Kubernetes deployment scenarios. Currently requires a full restart to handle IP changes behind DNS records.",
+  "category": "feature",
+  "subcategory": "connection-resilience",
+  "apis": [],
+  "components": [
+    "worker",
+    "client",
+    "connection-manager",
+    "dns-resolver"
+  ],
+  "concepts": [
+    "reconnection",
+    "service-discovery",
+    "ip-address-change",
+    "kubernetes",
+    "deployment",
+    "dns",
+    "fault-tolerance"
+  ],
+  "severity": "high",
+  "userImpact": "Users running in Kubernetes environments must manually restart workers and clients when service IP addresses change, causing downtime and operational overhead.",
+  "rootCause": "Client and worker do not automatically reconnect or refresh DNS resolution when the underlying service IP address changes",
+  "proposedFix": null,
+  "workaround": "Restart worker and client manually when service IP changes",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "During various failure/deployment scenarios especially in K8s the service IP might change. Currently a worker and client restart is needed to deal with it.",
+  "number": 57,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:47:02.172Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Temporal Java SDK currently uses hardcoded magic numbers (5 activity pollers, 2 workflow pollers) that users must manually adjust. This feature request proposes implementing automatic autoscaling of pollers based on the actual load profile of executors and pollers.",
+  "category": "feature",
+  "subcategory": "poller-autoscaling",
+  "apis": [],
+  "components": [
+    "poller",
+    "worker",
+    "executor"
+  ],
+  "concepts": [
+    "autoscaling",
+    "load-balancing",
+    "concurrency",
+    "configuration",
+    "performance-tuning",
+    "resource-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently guess and manually configure poller counts, leading to suboptimal performance; autoscaling would eliminate this configuration burden.",
+  "rootCause": null,
+  "proposedFix": "Implement dynamic autoscaling mechanism that adapts poller count based on executor and poller load profiles.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented with autoscaling logic for pollers to adapt based on load.",
+  "related": [],
+  "keyQuote": "SDK can adapt them accordingly to the load profile of executors and pollers.",
+  "number": 878,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:49:34.029Z"
+}

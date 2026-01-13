@@ -1,0 +1,40 @@
+{
+  "summary": "Feature request to add an API method across all SDKs to count workflow executions, similar to the existing list API but returning a count instead of an iterator. Go SDK already supports this with CountWorkflow, and implementation should follow the .NET SDK PR #206 as a reference.",
+  "category": "feature",
+  "subcategory": "workflow-api",
+  "apis": [
+    "CountWorkflow",
+    "CountWorkflowExecutions"
+  ],
+  "components": [
+    "workflow-service",
+    "client-api",
+    "sdk-core"
+  ],
+  "concepts": [
+    "workflow-querying",
+    "count-operation",
+    "api-parity",
+    "cross-sdk-feature"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can efficiently count workflow executions across all SDKs without needing to iterate through all results.",
+  "rootCause": null,
+  "proposedFix": "Implement CountWorkflow method across all SDKs (Java, TypeScript, Python, .NET, PHP, Ruby) following the approach used in .NET SDK PR #206, supporting responses with many values as per API PR #303.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented across all tracked SDKs as indicated by the completed checklist items.",
+  "related": [
+    1685,
+    1069,
+    294,
+    30,
+    291,
+    303,
+    206
+  ],
+  "keyQuote": "The .NET PR at https://github.com/temporalio/sdk-dotnet/pull/206 provides a good approach to follow here",
+  "number": 234,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:53:54.850Z"
+}

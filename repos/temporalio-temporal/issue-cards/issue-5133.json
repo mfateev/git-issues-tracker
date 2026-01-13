@@ -1,0 +1,30 @@
+{
+  "summary": "Operators need visibility into workflows that fail during batch operations (especially batch reset). Currently there's no way to retrieve a list of failed workflows, making it difficult to track job status and failures.",
+  "category": "feature",
+  "subcategory": "batch-operations",
+  "apis": [],
+  "components": [
+    "batch-operations",
+    "workflow-reset",
+    "visibility"
+  ],
+  "concepts": [
+    "batch-processing",
+    "failure-tracking",
+    "operator-visibility",
+    "job-status",
+    "search-attributes"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators cannot easily identify and track which workflows have failed during batch operations, hindering operational visibility and troubleshooting.",
+  "rootCause": null,
+  "proposedFix": "Either tag workflows with search attributes for post-operation filtering via visibility API, or return a list of failed workflows as part of the batch operation result.",
+  "workaround": "Failed workflowIDs are currently logged, which may provide a temporary solution.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Operator will like to know the status of the job and if the operation fails for any workflow. And if the operation does fail, a list of those failed workflows.",
+  "number": 5133,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:03.232Z"
+}

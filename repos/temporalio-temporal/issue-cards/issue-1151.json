@@ -1,0 +1,38 @@
+{
+  "summary": "Refactor NoSQL persistence layer to separate business logic from query interfaces, consolidating logic across cluster metadata, history events, namespace, queue, shard, matching tasks, visibility, execution, and related components into a single location.",
+  "category": "feature",
+  "subcategory": "persistence-refactoring",
+  "apis": [],
+  "components": [
+    "persistence",
+    "nosql",
+    "cluster-metadata",
+    "history",
+    "namespace",
+    "queue",
+    "shard",
+    "matching",
+    "visibility",
+    "execution"
+  ],
+  "concepts": [
+    "business-logic-separation",
+    "query-interface",
+    "code-organization",
+    "abstraction",
+    "persistence-layer",
+    "refactoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Better organized and maintainable persistence layer will improve code quality and make future enhancements easier for developers.",
+  "rootCause": "NoSQL persistence business logic is scattered across multiple locations rather than centralized like the SQL persistence module.",
+  "proposedFix": "Consolidate business logic into a single location similar to the existing SQL persistence structure at common/persistence/sql.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating refactoring work was completed or resolved.",
+  "related": [],
+  "keyQuote": "Separate NoSQL side business logic into one place, similar to common/persistence/sql",
+  "number": 1151,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:06:55.909Z"
+}

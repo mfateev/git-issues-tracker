@@ -1,0 +1,30 @@
+{
+  "summary": "Establish consistent metrics for unregistered activities across all Temporal SDKs. Currently only Go implements temporal_unregistered_activity_invocation; this issue tracks standardizing this metric and potentially adding metrics for other unregistered operations across all SDK implementations.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-executor",
+    "worker"
+  ],
+  "concepts": [
+    "observability",
+    "monitoring",
+    "unregistered-activities",
+    "cross-sdk-consistency",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot consistently monitor unregistered activity invocations across different SDKs, making it difficult to detect configuration or registration issues in heterogeneous deployments.",
+  "rootCause": null,
+  "proposedFix": "Implement temporal_unregistered_activity_invocation metric across all SDKs (Go, Java, Core, TypeScript, Python, .NET, Ruby, PHP) and consider adding metrics for other unregistered operations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Make metrics concerning unregistered activities (and maybe other things) consistent across SDKs.",
+  "number": 656,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:18:19.778Z"
+}

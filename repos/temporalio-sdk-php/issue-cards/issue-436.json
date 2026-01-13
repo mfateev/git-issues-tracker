@@ -1,0 +1,35 @@
+{
+  "summary": "Wrap GRPC::CANCELED and DEADLINE_EXCEEDED errors in an SDK Timeout exception for Update operations so users only need to catch one predictable exception type.",
+  "category": "other",
+  "subcategory": "error-handling",
+  "apis": [
+    "Update"
+  ],
+  "components": [
+    "grpc-client",
+    "error-handling",
+    "update-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "exception-handling",
+    "cancellation",
+    "error-wrapping",
+    "grpc-status"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must handle multiple GRPC exception types instead of a single SDK timeout exception, making error handling more complex and error-prone.",
+  "rootCause": "GRPC errors (CANCELED, DEADLINE_EXCEEDED) are not wrapped in SDK-level exceptions for Update operations.",
+  "proposedFix": "Wrap GRPC::CANCELED and DEADLINE_EXCEEDED in an SDK Timeout exception for Update operations, similar to implementation in other SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented wrapping of GRPC errors in SDK Timeout exception based on cross-SDK implementation details.",
+  "related": [
+    483
+  ],
+  "keyQuote": "So that users only have to catch one predictable exception",
+  "number": 436,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:30:36.364Z"
+}

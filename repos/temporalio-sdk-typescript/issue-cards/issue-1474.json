@@ -1,0 +1,36 @@
+{
+  "summary": "Update handlers fail to execute when signals and updates are sent together in the same workflow task, causing the workflow to exit prematurely without running the update handler logic. The issue stems from update activation jobs not being grouped with signal jobs in the activation queue.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "setHandler",
+    "condition"
+  ],
+  "components": [
+    "workflow-vm",
+    "activation-jobs",
+    "update-handler",
+    "signal-handler"
+  ],
+  "concepts": [
+    "update-execution",
+    "signal-handling",
+    "workflow-condition",
+    "activation-batching",
+    "job-ordering"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows that use both signal and update handlers in the same task can silently fail to execute update handlers, leading to incorrect workflow behavior.",
+  "rootCause": "Update activation jobs are not grouped together with signal activation jobs in the job queue, preventing them from being executed in the same batch before awaitable conditions are unblocked.",
+  "proposedFix": "Group update activation jobs together with signals in the vm-shared.ts file (lines 314-317) and use an SDK flag to handle backwards incompatibility with existing workflow replays.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update activation jobs were grouped with signal jobs to ensure they execute together in the same batch before awaitables are unblocked.",
+  "related": [
+    1459
+  ],
+  "keyQuote": "update and signal activation jobs need to be placed into the same batch in order for them all to be executed before giving the chance for an awaitable",
+  "number": 1474,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:32.824Z"
+}

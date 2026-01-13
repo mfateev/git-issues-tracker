@@ -1,0 +1,36 @@
+{
+  "summary": "Async batch execution in PHP SDK v2 terminates prematurely when an exception is thrown within the batch scope, causing remaining activities to complete after the workflow finishes and resulting in UnhandledCommand errors. This differs from v1 behavior where the workflow waits for batch completion.",
+  "category": "bug",
+  "subcategory": "async-execution",
+  "apis": [
+    "Workflow::async",
+    "Workflow::executeActivity",
+    "Promise::all",
+    "ActivityOptions"
+  ],
+  "components": [
+    "async-batch-executor",
+    "promise-handling",
+    "workflow-scope"
+  ],
+  "concepts": [
+    "async-batch",
+    "exception-handling",
+    "promise-management",
+    "workflow-scope",
+    "execution-order",
+    "error-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience workflow failures with UnhandledCommand errors when exceptions occur within async batch scopes, breaking expected batch completion semantics from v1.",
+  "rootCause": "PHP SDK v2 exits the async batch scope immediately upon exception instead of waiting for all activities to complete, unlike v1 behavior.",
+  "proposedFix": null,
+  "workaround": "Handle exceptions inside the scope to allow the batch to complete before exiting.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Author determined this is not a bug but rather expected behavior; exceptions should be handled within the scope if batch completion is required.",
+  "related": [],
+  "keyQuote": "Should handle the exception inside the scope if you want the batch to be completed.",
+  "number": 260,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:09.217Z"
+}

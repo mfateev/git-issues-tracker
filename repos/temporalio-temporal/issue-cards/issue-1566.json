@@ -1,0 +1,33 @@
+{
+  "summary": "User requested Java ScheduledExecutor-like functionality for scheduling Temporal workflows, including support for initial delay, fixed delay/rate scheduling, and one-time executions. This was resolved by the introduction of the Temporal Schedules feature.",
+  "category": "feature",
+  "subcategory": "workflow-scheduling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-scheduler",
+    "cron-engine",
+    "schedule-service"
+  ],
+  "concepts": [
+    "scheduling",
+    "periodic-execution",
+    "initial-delay",
+    "fixed-rate",
+    "fixed-delay",
+    "cron-expression"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now schedule workflows with more flexibility including initial delays and fixed-rate/fixed-delay options without relying solely on cron expressions.",
+  "rootCause": null,
+  "proposedFix": "Implement Java ScheduledExecutor-like API for workflow scheduling with support for initial delay, period-based scheduling, and one-time scheduling.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Temporal Schedules feature was implemented to provide the requested scheduling capabilities including start time configuration.",
+  "related": [],
+  "keyQuote": "It would be nice to have a Java Scheduled Executor like functionality for Temporal workflows with all of same options.",
+  "number": 1566,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:10:27.561Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Improve support and safety of Dependency Injection with the Java SDK by discouraging injection into workflow instances (deemed unsafe and non-deterministic) while providing alternative solutions for common DI use cases.",
+  "category": "feature",
+  "subcategory": "dependency-injection",
+  "apis": [],
+  "components": [
+    "workflow",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "non-determinism",
+    "safety",
+    "workflow-design",
+    "best-practices"
+  ],
+  "severity": "medium",
+  "userImpact": "Guides users away from unsafe dependency injection practices in workflows and provides recommended alternatives for common scenarios.",
+  "rootCause": null,
+  "proposedFix": "Provide documentation and alternative solutions for problems users typically solve with DI, discourage DI into workflow instances.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as epic pattern no longer used for GitHub issue tracking.",
+  "related": [
+    746,
+    747,
+    748,
+    718,
+    466,
+    827
+  ],
+  "keyQuote": "Dependency Injection into Workflow instances should be strongly discouraged. It's deemed unsafe and leads to practices that create non-deterministic workflows.",
+  "number": 745,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:38:50.730Z"
+}

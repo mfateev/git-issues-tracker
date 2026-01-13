@@ -1,0 +1,34 @@
+{
+  "summary": "Request to split PayloadCodec into separate Encoder and Decoder interfaces with independent configuration, allowing microservices to encode payloads with one scheme (e.g., gzip) while decoding multiple schemes (e.g., gzip or encrypt) from other services.",
+  "category": "feature",
+  "subcategory": "payload-codec",
+  "apis": [
+    "PayloadCodec"
+  ],
+  "components": [
+    "payload-codec",
+    "data-converter",
+    "encoding"
+  ],
+  "concepts": [
+    "encoding",
+    "payload-transformation",
+    "multi-encoding-support",
+    "configuration",
+    "microservices-interop",
+    "compression",
+    "encryption"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running microservices with different payload encoding schemes cannot easily configure the SDK to encode with one scheme while decoding multiple schemes without workarounds.",
+  "rootCause": "PayloadCodec interface combines encoding and decoding into a single unified interface, preventing independent configuration of multiple encoders and decoders.",
+  "proposedFix": "Split PayloadCodec into separate PayloadEncoder and PayloadDecoder interfaces with independent lists, allowing flexible configuration of encoding and decoding strategies through configuration like `temporal.payload-encoding=binary/encrypt,binary/gzip`.",
+  "workaround": "Use a custom CodecDataConverter or external library to implement complex conditional logic outside of the Temporal Java SDK.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers declined to make breaking changes to PayloadCodec interface, suggesting complex logic can be implemented in custom PayloadCodec or CodecDataConverter instead.",
+  "related": [],
+  "keyQuote": "We have no plan to make breaking changes to the `PayloadCodec` interface. In general if you want complex conditional logic that can be done in the `PayloadCodec` or a custom `CodecDataConverter`",
+  "number": 1402,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:34:00.678Z"
+}

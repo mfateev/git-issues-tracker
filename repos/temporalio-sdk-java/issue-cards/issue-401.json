@@ -1,0 +1,33 @@
+{
+  "summary": "Activity retries are not being executed in cron workflows. When a cron workflow is triggered multiple times and activities fail, the retries don't occur as expected - activities are only called once per workflow run instead of with configured retry attempts.",
+  "category": "bug",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "cron-workflow",
+    "retry-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "retry",
+    "cron-workflow",
+    "activity-failure",
+    "attempt-tracking",
+    "temporal-testing"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on activity retries within cron workflows will experience silent failures as activities are not retried after transient errors.",
+  "rootCause": "The cron workflow execution logic does not properly propagate or reset retry counters across multiple workflow runs, causing activities to bypass retry logic.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Resolved as invalid - the issue reporter did not respond to clarification attempts. The maintainer demonstrated that the expected behavior (3 retries per workflow run) was working correctly in a reproduction test.",
+  "related": [],
+  "keyQuote": "As expected I've seen 3 attempts for each workflow run",
+  "number": 401,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:17:04.398Z"
+}

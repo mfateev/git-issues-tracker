@@ -1,0 +1,29 @@
+{
+  "summary": "Ruby SDK drops namespace from activity and workflow class names by default, causing potential naming collisions when the same class name is used in different namespaces. The issue was resolved by design decision to maintain compatibility with other SDKs and CLI/UI clarity.",
+  "category": "bug",
+  "subcategory": "naming-convention",
+  "apis": [],
+  "components": [
+    "workflow-definition",
+    "activity-definition"
+  ],
+  "concepts": [
+    "namespace",
+    "naming-collision",
+    "class-naming",
+    "disambiguation",
+    "SDK-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with identically-named workflow or activity classes in different namespaces may experience unexpected name collisions unless they explicitly specify custom names.",
+  "rootCause": "By design, the SDK strips namespace from class names when generating workflow and activity names for SDK/CLI/UI compatibility with other language SDKs, which typically use unqualified names.",
+  "proposedFix": null,
+  "workaround": "Explicitly set workflow_name or activity_name using `workflow_name` or `activity_name` methods, or create base classes that automatically set the name to the fully qualified class name using the `inherited` hook.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers clarified this is by design for SDK/CLI/UI compatibility. Users should use explicit workflow_name/activity_name if they need the fully qualified name.",
+  "related": [],
+  "keyQuote": "Using the unqualified class name by default is by design here and in other SDKs... this default is chosen for SDK/CLI/UI compatibility/clarity.",
+  "number": 293,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:47.932Z"
+}

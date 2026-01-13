@@ -1,0 +1,29 @@
+{
+  "summary": "User unable to run .NET samples as jobs remain in running status indefinitely, unlike the Go helloworld example which completes successfully.",
+  "category": "question",
+  "subcategory": "samples-setup",
+  "apis": [],
+  "components": [
+    "samples",
+    "worker",
+    "dotnet-sdk"
+  ],
+  "concepts": [
+    "job-execution",
+    "worker-setup",
+    "language-interoperability",
+    "sample-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the .NET samples documentation encounter hanging jobs that never complete, preventing them from learning the SDK.",
+  "rootCause": "User did not follow the README instructions requiring the Go worker to be run alongside the .NET workflow, as .NET workflows were not yet developed.",
+  "proposedFix": "Follow the README at samples-dotnet repository which explains the Go worker requirement.",
+  "workaround": "Run the Go worker as documented in the samples-dotnet README.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue closed as question - user had not followed the setup instructions in the README which explains that .NET samples require running a separate Go worker since .NET workflows were not yet implemented.",
+  "related": [],
+  "keyQuote": "You have to run the Go worker. The sample is showing how Go and .NET work together since .NET workflows aren't developed yet.",
+  "number": 35,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:07:45.462Z"
+}

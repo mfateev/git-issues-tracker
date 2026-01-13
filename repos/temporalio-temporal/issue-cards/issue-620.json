@@ -1,0 +1,30 @@
+{
+  "summary": "TestActivityHeartbeatTimeouts test has a data race condition between goroutines reading and writing to the same memory location, causing the test to be flaky. The issue involves concurrent access to shared state in activity heartbeat timeout handling.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "task-poller",
+    "test-harness"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrency",
+    "heartbeat",
+    "activity-retry",
+    "goroutine-synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Flaky tests reduce confidence in the codebase and complicate CI/CD pipelines, making it harder to distinguish real failures from race conditions.",
+  "rootCause": "Unsynchronized concurrent access to memory location 0x00c0020682f8 between the main test goroutine and activity task polling goroutine in TestActivityHeartbeatTimeouts.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The comment indicates this data race detection is already enabled and running as part of the buildkite builds, suggesting the issue was resolved through the race detector integration.",
+  "related": [],
+  "keyQuote": "It is data race actually: Read at 0x00c0020682f8 by goroutine 2198... Previous write at 0x00c0020682f8 by goroutine 2439",
+  "number": 620,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:20:39.593Z"
+}

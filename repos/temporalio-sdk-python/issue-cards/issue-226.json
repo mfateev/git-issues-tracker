@@ -1,0 +1,29 @@
+{
+  "summary": "HistoryEventFilterType.ValueType fails on protobuf 3.19 because the enum wrapper was not introduced until protobuf 3.20. The minimum protobuf dependency version needs to be updated.",
+  "category": "bug",
+  "subcategory": "protobuf-compatibility",
+  "apis": [],
+  "components": [
+    "protobuf",
+    "history-event-filter",
+    "type-system"
+  ],
+  "concepts": [
+    "protobuf-version",
+    "dependency-management",
+    "enum-wrapper",
+    "compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users on protobuf 3.19 encounter runtime failures when accessing HistoryEventFilterType.ValueType.",
+  "rootCause": "protobuf 3.20 introduced enum wrapper functionality that HistoryEventFilterType.ValueType depends on, but this feature is not available in protobuf 3.19.",
+  "proposedFix": "Update the minimum required protobuf dependency version to 3.20 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Minimum protobuf dependency was updated to require version 3.20 or later.",
+  "related": [],
+  "keyQuote": "HistoryEventFilterType.ValueType fails on protobuf 3.19 because the enum wrapper didn't come until 3.20",
+  "number": 226,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:50.859Z"
+}

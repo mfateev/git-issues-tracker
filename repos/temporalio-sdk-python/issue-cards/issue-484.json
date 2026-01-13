@@ -1,0 +1,32 @@
+{
+  "summary": "SDK clients should automatically set an UpdateID on update requests even when users don't explicitly specify one, ensuring consistent update handling across the SDK.",
+  "category": "feature",
+  "subcategory": "update-handling",
+  "apis": [
+    "UpdateID"
+  ],
+  "components": [
+    "sdk-client",
+    "update-request-handler"
+  ],
+  "concepts": [
+    "update-id",
+    "request-identification",
+    "automatic-assignment",
+    "api-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive more robust update request handling without requiring explicit UpdateID specification in every update call.",
+  "rootCause": null,
+  "proposedFix": "Implement automatic UpdateID generation or assignment in SDK clients for any update request lacking an explicit UpdateID.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement implemented to automatically set UpdateID on update requests when not specified by users.",
+  "related": [
+    431
+  ],
+  "keyQuote": "SDK clients should set a UpdateID on any update request even if the user did not specify one",
+  "number": 484,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:09:14.267Z"
+}

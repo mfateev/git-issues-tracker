@@ -1,0 +1,39 @@
+{
+  "summary": "Retry policy is not propagated when using continue-as-new in Java SDK, and there's no way to explicitly set retry options in ContinueAsNewOptions. Other SDKs (Go, Python, TypeScript) propagate these attributes by default.",
+  "category": "bug",
+  "subcategory": "continue-as-new",
+  "apis": [
+    "ContinueAsNew",
+    "ContinueAsNewOptions",
+    "RetryPolicy"
+  ],
+  "components": [
+    "workflow-execution",
+    "continue-as-new",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "continue-as-new",
+    "policy-propagation",
+    "workflow-execution",
+    "options",
+    "cross-sdk-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflows that rely on retry policies lose this configuration when continued as new, requiring manual workarounds and inconsistent behavior across SDKs.",
+  "rootCause": "ContinueAsNewOptions does not include or propagate RetryPolicy from the parent workflow execution.",
+  "proposedFix": "Add RetryPolicy propagation or include retry options parameter in ContinueAsNewOptions, aligning Java SDK with Go and Python/TypeScript SDK behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #1961 which implemented retry policy propagation for continue-as-new.",
+  "related": [
+    695,
+    372,
+    1961
+  ],
+  "keyQuote": "Retry Options and other attributes are propagated by default in Go SDK and Python/TS SDK. This should help Java SDK to align the behaviour on continue-as-new.",
+  "number": 1959,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:08.858Z"
+}

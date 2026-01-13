@@ -1,0 +1,31 @@
+{
+  "summary": "Change the GetTasks range matching from [Inclusive, Inclusive] to [Inclusive, Exclusive) to align with common programming conventions and improve API consistency.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "GetTasks"
+  ],
+  "components": [
+    "task-matching",
+    "api-design",
+    "range-semantics"
+  ],
+  "concepts": [
+    "range-bounds",
+    "inclusive-exclusive",
+    "api-consistency",
+    "semantic-clarity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would experience more intuitive and consistent range behavior when querying tasks, aligning with standard programming conventions.",
+  "rootCause": null,
+  "proposedFix": "Modify GetTasks range matching to use [Inclusive, Exclusive) bounds instead of [Inclusive, Inclusive]",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The GetTasks API range matching was updated to use [Inclusive, Exclusive) semantics",
+  "related": [],
+  "keyQuote": "Change matching GetTasks range to be [Inclusive, Exclusive)",
+  "number": 2587,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:33.097Z"
+}

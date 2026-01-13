@@ -1,0 +1,32 @@
+{
+  "summary": "RequestCancelWorkflowExecution returns success when called on a completed workflow instead of returning NotFound error as documented. The API documentation promised NotFound would be raised, but the actual behavior is to silently succeed.",
+  "category": "docs",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "RequestCancelWorkflowExecution"
+  ],
+  "components": [
+    "workflow-execution",
+    "cancellation-handler",
+    "api-documentation"
+  ],
+  "concepts": [
+    "workflow-state",
+    "error-handling",
+    "api-contract",
+    "request-semantics",
+    "state-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on the documented behavior of getting NotFound error for completed workflows receive no error instead, potentially hiding logic errors in their code.",
+  "rootCause": "The implementation treats cancellation as a 'best-effort request' that always succeeds, while documentation claimed it would fail with NotFound for completed workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "API documentation was updated to reflect the actual behavior: cancellation requests are best-effort and return success even for completed workflows, consistent with the request-based semantics of cancel vs terminate.",
+  "related": [],
+  "keyQuote": "This is expected behavior. There is major difference between terminate and cancel. For terminate, it is a forceful operation, but for cancel it is a request thus the name RequestCancelWorkflowExecution.",
+  "number": 2860,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:28.593Z"
+}

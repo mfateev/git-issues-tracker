@@ -1,0 +1,31 @@
+{
+  "summary": "GrpcRetryer's sync methods hide InterruptedException and instead set an Interrupted flag, making exception handling non-idiomatic. The proposal is to make GrpcRetryer methods explicitly throw InterruptedException to enforce proper handling and make the code more idiomatic.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "GrpcRetryer",
+    "retry-logic",
+    "exception-handling"
+  ],
+  "concepts": [
+    "InterruptedException",
+    "retry",
+    "GRPC",
+    "StatusRuntimeException",
+    "interrupted-flag",
+    "idiomatic-java"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must be aware of hidden Interrupted flags and process them correctly, leading to brittle error handling code; explicit InterruptedException would enforce proper handling patterns.",
+  "rootCause": "GrpcRetryer catches InterruptedException from timers and GRPC CANCELLED status, converting them to Interrupted flags instead of throwing the exception, which is non-idiomatic Java and error-prone.",
+  "proposedFix": "Change GrpcRetryer methods to throw explicit InterruptedException instead of hiding it and setting an Interrupted flag, making the API idiomatic and enforcing correct exception handling.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "To make code more idiomatic and enforce the correct handling of InterruptedException and awareness of its possibility inside GrpcRetryer, we should change GrpcRetryer methods to throw explicit InterruptedExceptions.",
+  "number": 661,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:32:54.730Z"
+}

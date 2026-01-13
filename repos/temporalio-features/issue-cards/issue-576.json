@@ -1,0 +1,44 @@
+{
+  "summary": "All SDKs need to prevent registration of workflows, activities, Nexus operations, task queues, signals, queries, and updates with the reserved `__temporal_` prefix, and handle reserved queries like `__stack_trace` without interceptors.",
+  "category": "feature",
+  "subcategory": "reserved-names",
+  "apis": [],
+  "components": [
+    "workflow-registration",
+    "activity-registration",
+    "signal-registration",
+    "query-registration",
+    "update-registration",
+    "task-queue",
+    "interceptors",
+    "nexus"
+  ],
+  "concepts": [
+    "reserved-names",
+    "namespace-collision",
+    "built-in-features",
+    "registration-validation",
+    "query-handling",
+    "interceptor-bypass"
+  ],
+  "severity": "medium",
+  "userImpact": "SDKs must consistently prevent users from registering handlers with reserved prefixes and handle built-in queries specially to avoid conflicts and unexpected behavior.",
+  "rootCause": null,
+  "proposedFix": "Implement validation at registration time to reject names starting with `__temporal_`, special handling for `__stack_trace` and `__enhanced_stack_trace` queries, and bypass interceptors for reserved query names.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1779,
+    2368,
+    1599,
+    731,
+    391,
+    195,
+    552
+  ],
+  "keyQuote": "Disallow workflows, activities, Nexus operations/services, task queues, signals, queries, and updates to be registered that start with `__temporal_`",
+  "number": 576,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:54.588Z"
+}

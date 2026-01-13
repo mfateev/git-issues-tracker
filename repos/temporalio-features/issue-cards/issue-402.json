@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a WorkflowService API to allow dynamic updates to activity rate limits on a task queue. Currently, rate limits are set by activity pollers via TaskQueueMetadata, causing inconsistency when different workers have different configurations.",
+  "category": "feature",
+  "subcategory": "task-queue-configuration",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "activity-poller",
+    "workflow-service"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "task-queue-configuration",
+    "worker-configuration",
+    "activity-polling",
+    "versioning"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with heterogeneous worker configurations experience unpredictable rate limit behavior on task queues due to conflicting settings.",
+  "rootCause": "Rate limits are set by individual activity pollers rather than being configured server-side, leading to flapping values when workers have different configurations.",
+  "proposedFix": "Implement a general UpdateTaskQueue API for task queue configuration management, integrating versioning and build IDs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If different workers have different limits configured, this value will flap server-side.",
+  "number": 402,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:44.682Z"
+}

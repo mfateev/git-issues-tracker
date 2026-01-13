@@ -1,0 +1,31 @@
+{
+  "summary": "User cannot filter by both ExecutionStatus and WorkflowType simultaneously and is asking why this limitation exists. The response explains that standard visibility (Cassandra/SQL) has limited filtering and advanced visibility (Elasticsearch/SQL) is needed for complex filter combinations.",
+  "category": "question",
+  "subcategory": "visibility-filtering",
+  "apis": [],
+  "components": [
+    "visibility",
+    "cassandra",
+    "elasticsearch",
+    "sql"
+  ],
+  "concepts": [
+    "filtering",
+    "query-limitations",
+    "visibility-backend",
+    "advanced-visibility",
+    "execution-status"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot perform combined filtering on ExecutionStatus and WorkflowType with standard visibility, requiring them to switch to advanced visibility to use more complex filter combinations.",
+  "rootCause": "Standard visibility backend (Cassandra/SQL) has limited filtering functionality and does not support this combination of filters.",
+  "proposedFix": "Enable advanced visibility backed by Elasticsearch or SQL to support different filter combinations.",
+  "workaround": "Switch from standard visibility to advanced visibility (Elasticsearch or SQL backend) to enable combined filtering capabilities.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The limitation is by design in standard visibility; users should use advanced visibility (Elasticsearch or SQL) for complex filtering needs.",
+  "related": [],
+  "keyQuote": "It supports only limited filtering functionality... To use different filter combinations you need to enable advanced visibility.",
+  "number": 4693,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:50.691Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "User requests support for custom tracing providers in the OpenAI Agents Plugin, allowing integration with custom trace providers beyond the default implementation. The proposal suggests creating a factory pattern to wrap any OpenAI-supported tracing provider with Temporal compatibility.",
+  "category": "feature",
+  "subcategory": "tracing-providers",
+  "apis": [
+    "Client.connect",
+    "OpenAIAgentsPlugin"
+  ],
+  "components": [
+    "openai-agents-plugin",
+    "tracing-provider",
+    "trace-processor"
+  ],
+  "concepts": [
+    "custom-tracing",
+    "provider-integration",
+    "openai-compatibility",
+    "deterministic-time",
+    "trace-id-generation",
+    "workflow-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot integrate custom tracing providers with the OpenAI Agents Plugin, limiting observability options for applications using custom tracing implementations.",
+  "rootCause": null,
+  "proposedFix": "Create a factory pattern that accepts any OpenAI-supported tracing provider and wraps it to be Temporal-compatible, similar to the existing TemporalTraceProvider implementation.",
+  "workaround": "Users can implement their own trace provider by extending DefaultTraceProvider and overriding tracing methods (as shown in the TemporalTraceProvider example).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Perhaps it wouldn't be too hard to just create a factory that takes any supported tracing provider and returns a Temporal supported one.",
+  "number": 1130,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:21.555Z"
+}

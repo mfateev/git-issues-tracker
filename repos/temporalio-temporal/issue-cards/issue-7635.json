@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to build Temporal Server binaries with FIPS 140-3 mode enabled to meet compliance requirements. Users need FIPS-compliant builds for environments with strict security standards.",
+  "category": "feature",
+  "subcategory": "build-configuration",
+  "apis": [],
+  "components": [
+    "build-system",
+    "binaries",
+    "server"
+  ],
+  "concepts": [
+    "FIPS-compliance",
+    "security-standards",
+    "cryptography",
+    "certification",
+    "build-configuration",
+    "deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users in regulated environments cannot use standard Temporal Server binaries due to FIPS compliance requirements and must build from source instead.",
+  "rootCause": null,
+  "proposedFix": "Build server binaries with FIPS mode enabled using Go 1.24+ FIPS flag or GOEXPERIMENT boringcrypto for older versions.",
+  "workaround": "Users can build the server from source with FIPS flags enabled manually.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided not to release additional FIPS-specific binaries, recommending users build from source with these flags instead.",
+  "related": [],
+  "keyQuote": "We currently do not have plans on releasing more binaries. I would encourage building the server from source with these flags for now.",
+  "number": 7635,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:18.936Z"
+}

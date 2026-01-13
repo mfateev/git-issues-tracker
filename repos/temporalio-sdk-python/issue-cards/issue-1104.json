@@ -1,0 +1,35 @@
+{
+  "summary": "User cannot use Python's breakpoint() function in workflows even with debug_mode=True, as the sandboxing restrictions prevent access to __builtins__.breakpoint. Additionally, the user is confused about workflow-level retry policy configuration for unit tests versus activity-level retries.",
+  "category": "bug",
+  "subcategory": "debugging-sandbox",
+  "apis": [
+    "execute_workflow",
+    "execute_activity"
+  ],
+  "components": [
+    "workflow_sandbox",
+    "workflow_instance",
+    "importer",
+    "worker"
+  ],
+  "concepts": [
+    "debugging",
+    "breakpoint",
+    "sandboxing",
+    "restrictions",
+    "test-driven-development",
+    "retry-policy"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot debug workflows using Python's debugger in unit tests even with debug_mode enabled, making TDD difficult for workflows with complex logic.",
+  "rootCause": "The workflow sandbox restricts access to __builtins__.breakpoint even when debug_mode=True, and unsandboxed mode with UnsandboxedWorkflowRunner hangs instead of allowing interactive debugging.",
+  "proposedFix": "Allow __builtins__.breakpoint to bypass sandbox restrictions when debug_mode=True, or ensure UnsandboxedWorkflowRunner allows proper pdb REPL interaction.",
+  "workaround": "Use the Replayer class to debug workflow history replays instead of live debugging, though this requires pre-existing workflow history.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "However, notice in that screenshot that while it *does* break, it is not in the pdb repl and I cannot interact with the debugger in any way.",
+  "number": 1104,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:32:33.901Z"
+}

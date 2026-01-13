@@ -1,0 +1,30 @@
+{
+  "summary": "The .NET SDK needs to ensure that when metrics config is not present, a no-op metric meter is used instead of failing to create one, matching the behavior implemented in the Python SDK.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "configuration",
+    "meter"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "no-op pattern",
+    "configuration",
+    "SDK consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users who don't configure metrics may experience inconsistent behavior across SDKs, potentially leading to missing observability features.",
+  "rootCause": "The metric meter creation logic may fail or not be initialized when metrics configuration is absent, unlike the Python SDK implementation.",
+  "proposedFix": "Implement a no-op metric meter that is returned when metrics config is not present, consistent with the Python SDK approach.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to ensure no-op metric meter is used when metrics config is absent.",
+  "related": [],
+  "keyQuote": "When developing this feature in Python, it appeared that the metric meter was not created when metrics config is not present. So we need to use a no-op one",
+  "number": 135,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:19:28.667Z"
+}

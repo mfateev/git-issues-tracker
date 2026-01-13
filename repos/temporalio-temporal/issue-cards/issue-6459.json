@@ -1,0 +1,31 @@
+{
+  "summary": "Excessive new connections being made to Postgres during load testing (200+ per second) instead of reaching a steady state. Suspected cause is the connection pool's get() method not properly incrementing reference count, causing connections to be discarded and recreated rather than reused.",
+  "category": "bug",
+  "subcategory": "database-connection-pool",
+  "apis": [],
+  "components": [
+    "persistence-sql-factory",
+    "connection-pool",
+    "postgres-driver"
+  ],
+  "concepts": [
+    "connection-pooling",
+    "resource-management",
+    "reference-counting",
+    "steady-state",
+    "load-testing",
+    "database-connection"
+  ],
+  "severity": "high",
+  "userImpact": "Self-hosted deployments using Postgres experience connection thrashing under load, causing performance degradation and increased database overhead.",
+  "rootCause": "The connection pool's get() method may not be properly incrementing the reference count, keeping it at 0, which causes connections to be discarded and new ones created instead of being reused.",
+  "proposedFix": null,
+  "workaround": "Set sufficiently high values for maxIdleConns, maxConns, and maxConnLifetime in the Helm chart values.yaml persistence configuration.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "200+ new connections per second during load test... the number of connections may rise to handle the load but it should achieve a steady state and relatively few connections killed and re-established.",
+  "number": 6459,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:11.289Z"
+}

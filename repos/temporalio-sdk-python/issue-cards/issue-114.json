@@ -1,0 +1,30 @@
+{
+  "summary": "Add support for max task queue activities per second rate limiting in Python SDK, matching functionality already available in TypeScript SDK.",
+  "category": "feature",
+  "subcategory": "activity-throttling",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-queue"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "throughput",
+    "task-queue",
+    "throttling",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Python SDK users cannot limit activity execution rate per task queue, causing potential resource exhaustion compared to TypeScript users.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to match TypeScript SDK capabilities for rate limiting activities per task queue.",
+  "related": [],
+  "keyQuote": "Max activities per second is also missing in Python.",
+  "number": 114,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:58.244Z"
+}

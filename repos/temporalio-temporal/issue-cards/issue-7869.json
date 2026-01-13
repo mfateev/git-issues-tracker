@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal frontend deployment with Elasticsearch visibility store fails with a Cassandra port requirement error even though Cassandra is disabled and not being used.",
+  "category": "bug",
+  "subcategory": "elasticsearch-visibility",
+  "apis": [],
+  "components": [
+    "helm-chart",
+    "server-deployment",
+    "visibility-store",
+    "elasticsearch"
+  ],
+  "concepts": [
+    "visibility-store",
+    "elasticsearch",
+    "cassandra",
+    "configuration",
+    "helm-deployment",
+    "persistence"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal with Elasticsearch as the visibility store due to an incorrect validation requirement for Cassandra configuration.",
+  "rootCause": "Helm chart template has a validation check that requires Cassandra port to be specified for visibility store, even when Cassandra is not enabled and Elasticsearch is configured as the visibility store.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Please specify cassandra port for visibility store.",
+  "number": 7869,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:44.326Z"
+}

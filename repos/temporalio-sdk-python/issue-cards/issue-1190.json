@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTelemetry spans exported by TracingInterceptor lack workflow input/output attributes, only showing workflow/run IDs. Users want serialized input and output values visible in downstream OTEL backends like Langfuse.",
+  "category": "feature",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [
+    "TracingInterceptor"
+  ],
+  "components": [
+    "opentelemetry-contrib",
+    "tracing-interceptor",
+    "span-export"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "span-attributes",
+    "telemetry",
+    "workflow-metadata",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users integrating with OpenTelemetry backends cannot see what workflows were invoked or what results they produced, limiting observability and debugging capabilities.",
+  "rootCause": "TracingInterceptor does not extract and attach workflow input/output payloads to the exported spans despite having access to them from the Temporal history.",
+  "proposedFix": null,
+  "workaround": "Users can create their own interceptor to add this information to spans, or emit custom spans with the desired attributes.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers declined to add this as built-in behavior due to security concerns about exposing sensitive data to downstream systems and compatibility guarantees. Recommended users implement custom interceptors instead.",
+  "related": [],
+  "keyQuote": "It will often be surprisingly dangerous to output that much information to the tracing system. If you want to do this, we would currently recommend your own interceptor to add this information",
+  "number": 1190,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:10.940Z"
+}

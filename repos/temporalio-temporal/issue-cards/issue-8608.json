@@ -1,0 +1,32 @@
+{
+  "summary": "Add opt-in ability to retrieve workflow input and output (if closed) directly from describe workflow API without requiring history crawl. This feature is being added for Nexus operations and standalone activities and should be extended to workflows.",
+  "category": "feature",
+  "subcategory": "workflow-describe-api",
+  "apis": [
+    "DescribeWorkflow"
+  ],
+  "components": [
+    "workflow-service",
+    "api-server",
+    "describe-workflow"
+  ],
+  "concepts": [
+    "input-output-retrieval",
+    "api-optimization",
+    "workflow-metadata",
+    "describe-operation",
+    "nexus-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now retrieve workflow input and output directly from describe workflow without needing to crawl through workflow history, improving performance and API usability.",
+  "rootCause": null,
+  "proposedFix": "Add opt-in fields to describe workflow response to include workflow input and output when requested.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some users need workflow input/output without crawling history. This is something that is being added for Nexus operations and standalone activities.",
+  "number": 8608,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:25.475Z"
+}

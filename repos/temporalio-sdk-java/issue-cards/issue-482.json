@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow replay fails with an IllegalStateException when local activity versioning is added using Workflow.getVersion(). The error occurs when replaying event history that contains local activity markers that were executed before the versioning logic was introduced.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Workflow.getVersion",
+    "Workflow.DEFAULT_VERSION"
+  ],
+  "components": [
+    "WorkflowStateMachines",
+    "local-activity",
+    "event-replay"
+  ],
+  "concepts": [
+    "workflow-versioning",
+    "event-history",
+    "backward-compatibility",
+    "replay",
+    "conditional-logic",
+    "state-machine"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely add workflow versioning logic to existing workflows because replaying historical events fails with an IllegalStateException.",
+  "rootCause": "The WorkflowStateMachines.handleLocalActivityMarker() method encounters a local activity ID in the event history that doesn't match the current workflow logic path, causing an IllegalStateException when the version branch doesn't execute the local activity.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed after the reporter could not provide a reproduction case that matched the expected behavior. The maintainer's test case did not reproduce the issue.",
+  "related": [],
+  "keyQuote": "workflow replay should be able to process event history after adding conditional logic based on the version",
+  "number": 482,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:21:41.858Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Improve Ruby scheduler memory efficiency by replacing array-based ready fiber list with a proper queue data structure to avoid repeated shift/append operations.",
+  "category": "feature",
+  "subcategory": "scheduler-performance",
+  "apis": [],
+  "components": [
+    "fiber-scheduler",
+    "ready-queue",
+    "memory-management"
+  ],
+  "concepts": [
+    "memory-efficiency",
+    "data-structure",
+    "performance-optimization",
+    "queue",
+    "garbage-collection"
+  ],
+  "severity": "low",
+  "userImpact": "Users may experience unnecessary memory pressure and garbage collection overhead due to inefficient array operations in the fiber scheduler.",
+  "rootCause": "Using array with repeated shift and append operations creates unnecessary memory churn instead of using a proper queue data structure.",
+  "proposedFix": "Replace array-based ready fiber list with a queue data structure using non-blocking pop operations.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Author noted that while queue would be cleaner, the current implementation completely drains the array anyway, making the optimization not beneficial in practice.",
+  "related": [],
+  "keyQuote": "Note, queue is a bit blocked on how it is used with our fiber scheduler. The way we completely drain this array means it's actually not a big deal here.",
+  "number": 320,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:51:57.271Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "User requests bulk termination of workflows by submitted time range to replace slow one-by-one termination. Discussion explores performance considerations and alternative approaches like namespace deletion.",
+  "category": "feature",
+  "subcategory": "workflow-termination",
+  "apis": [
+    "TerminateWorkflow"
+  ],
+  "components": [
+    "workflow-termination",
+    "batch-operations",
+    "temporal-worker"
+  ],
+  "concepts": [
+    "bulk-operations",
+    "time-range-filtering",
+    "performance",
+    "scalability",
+    "namespace-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually terminate workflows one-by-one instead of performing bulk operations, resulting in significant time overhead for large-scale termination tasks.",
+  "rootCause": null,
+  "proposedFix": "Implement bulk workflow termination feature that filters by submitted time range, executed as a batch operation via Temporal worker to minimize resource consumption.",
+  "workaround": "Use tctl batch command or write custom scripts to query workflows by time range and terminate via API, though this requires more work and consumes more resources.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Discussion concluded without feature implementation; labeled for closure after 30 days. User acknowledged the limitations and workarounds available.",
+  "related": [],
+  "keyQuote": "We need to bulk terminated workflow based on its submitted time range. Currently, we have to terminate workflow one by one, which is too slow.",
+  "number": 1522,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:38:40.758Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Test DefaultActivityOptionsSetOnWorkflowTest#testSetWorkflowImplementationOptions fails inconsistently when run with Dockerized Temporal, with activity timeout being PT2S instead of expected PT3S.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "activity-options",
+    "test-framework",
+    "docker-testing"
+  ],
+  "concepts": [
+    "timeout",
+    "activity-options",
+    "flaky-test",
+    "timing",
+    "docker-environment"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests fail inconsistently in CI/CD environments with Docker, blocking reliable test execution and development workflows.",
+  "rootCause": "Timing sensitivity in test when run with Dockerized Temporal - activity timeout duration differs from expected value, likely due to Docker performance variability or timing precision issues.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "expected:<PT3S> but was:<PT2S>",
+  "number": 663,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:32:54.795Z"
+}

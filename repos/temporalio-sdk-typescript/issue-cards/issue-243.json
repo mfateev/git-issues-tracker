@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support asynchronous activity completion in TypeScript SDK, similar to Go SDK. Currently activities must return immediately even if work continues asynchronously, requiring workarounds with signals for long-running operations.",
+  "category": "feature",
+  "subcategory": "activity-completion",
+  "apis": [
+    "respondActivityTaskCompleted"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "activity-service-client"
+  ],
+  "concepts": [
+    "asynchronous-completion",
+    "activity-lifecycle",
+    "long-running-operations",
+    "resource-management",
+    "signal-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot elegantly handle long-running asynchronous activities without creating extra signals or resource leaks in the worker.",
+  "rootCause": "The TypeScript SDK lacks a mechanism to allow the worker to 'forget' about an activity so it can be completed asynchronously without worker tracking.",
+  "proposedFix": "Implement asynchronous activity completion support similar to the Go SDK, allowing the worker to release ownership of an activity so it can be completed independently via the service client.",
+  "workaround": "Use WorkflowService.respondActivityTaskCompleted directly, but this causes resource leaks as the worker continues tracking the activity.",
+  "resolution": "fixed",
+  "resolutionDetails": "Core support was added and implementation was planned by bergundy to be done after beta release.",
+  "related": [],
+  "keyQuote": "In the Go SDK you can 'asynchronously complete an activity': we would like the same in node.",
+  "number": 243,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:55.628Z"
+}

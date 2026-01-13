@@ -1,0 +1,37 @@
+{
+  "summary": "RetryOption.setMaximumAttempts(0) is not working correctly for local activities. When set to 0 (which should mean unlimited retries), local activities fail after 0 retry attempts instead of retrying indefinitely, inconsistent with both documentation and regular activity behavior.",
+  "category": "bug",
+  "subcategory": "local-activity-retry",
+  "apis": [
+    "LocalActivityOptions",
+    "RetryOptions",
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "retry-handler",
+    "activity-options"
+  ],
+  "concepts": [
+    "retry-policy",
+    "local-activity",
+    "unlimited-retries",
+    "timeout",
+    "attempt-limit",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure unlimited retries for local activities using the standard RetryOption.setMaximumAttempts(0) pattern, causing unexpected failures.",
+  "rootCause": "Local activity retry logic incorrectly interprets setMaximumAttempts(0) as zero allowed attempts instead of unlimited attempts.",
+  "proposedFix": null,
+  "workaround": "Use a positive integer for setMaximumAttempts instead of 0, though this does not provide true unlimited retries.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1727",
+  "related": [
+    1727
+  ],
+  "keyQuote": "Local activities will not retry with default RetryOptions or explicitly setting RetryOptions.setMaxiumAttempts(0). Instead, they will error out after 0 retry attempts.",
+  "number": 2254,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:03:48.147Z"
+}

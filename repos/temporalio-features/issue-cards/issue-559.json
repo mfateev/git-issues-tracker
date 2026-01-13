@@ -1,0 +1,32 @@
+{
+  "summary": "Implement structured command/event diff representation in non-determinism errors across SDKs. Currently, error messages are obscure and don't clearly explain what command was expected versus what actually occurred during workflow replay.",
+  "category": "feature",
+  "subcategory": "error-messages",
+  "apis": [],
+  "components": [
+    "non-determinism detection",
+    "error details",
+    "workflow replay",
+    "command/event tracking"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow replay",
+    "error reporting",
+    "serialization",
+    "command/event diffs",
+    "history reconciliation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive unclear error messages when workflow code is non-deterministic, making it difficult to diagnose and fix the underlying issues.",
+  "rootCause": "Error detail payloads don't include structured information about expected vs actual commands/events during replay.",
+  "proposedFix": "Define an explicit structure for command/event types in the SDK package of the API repo, then have Go, Java, and Core emit lists of expected and actual command/events as serialized non-determinism error details.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "During replay, workflow history (event ID 8) implies that a StartTimer command should have been emitted by the replayed code, but no such command was emitted.",
+  "number": 559,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:57.920Z"
+}

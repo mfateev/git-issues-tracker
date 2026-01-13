@@ -1,0 +1,31 @@
+{
+  "summary": "The test-worker-no-workflows test intermittently fails with a GracefulShutdownPeriodExpiredError timeout while waiting for the worker to shut down gracefully, occurring some of the time during integration test runs.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "shutdown",
+    "test-framework",
+    "rxjs"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "timeout",
+    "intermittent-failure",
+    "worker-lifecycle",
+    "async-cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience flaky test runs due to intermittent worker shutdown timeouts, making test suite reliability uncertain.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The worker shutdown process has changed significantly since initial report, and the error has not been observed recently, indicating the issue was resolved through architectural improvements.",
+  "related": [],
+  "keyQuote": "Haven't seen this error recently. Also, the Worker shutdown process has changed a lot since this was initially reported, so it seems very reasonable to think that this has already been fixed.",
+  "number": 529,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:56.868Z"
+}

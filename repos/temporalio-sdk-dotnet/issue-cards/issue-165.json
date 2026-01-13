@@ -1,0 +1,31 @@
+{
+  "summary": "User encountered a JSON deserialization error when passing a JSON string as an activity parameter. The issue was resolved when user corrected their parameter type to match the expected format.",
+  "category": "question",
+  "subcategory": "data-conversion",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-worker",
+    "data-converter",
+    "json-serialization"
+  ],
+  "concepts": [
+    "parameter-passing",
+    "deserialization",
+    "type-mismatch",
+    "json-conversion"
+  ],
+  "severity": "low",
+  "userImpact": "Users may experience parameter deserialization failures if they pass data in the wrong format to activities.",
+  "rootCause": "User was sending a JSON string as a parameter when the activity expected the actual object type, causing the JSON deserializer to fail when it received a string token instead of an object.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "User confirmed they were using incorrect parameter types; resolved by sending the proper object type instead of a pre-serialized JSON string.",
+  "related": [],
+  "keyQuote": "If you're sending a string as a parameter, the parameter type needs to be string. If you're sending an object, you send the object and the data converter converts it to JSON for you.",
+  "number": 165,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:50:13.174Z"
+}

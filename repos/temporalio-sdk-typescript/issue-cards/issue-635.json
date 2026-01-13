@@ -1,0 +1,32 @@
+{
+  "summary": "When non-Error objects are thrown in workflows (e.g., `throw {a: 'test'}`), the error message shows `[object Object]` instead of the serialized object value. The issue involves proper serialization and safe handling of non-Error values thrown from user code.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "failure",
+    "error-serialization",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "error-handling",
+    "serialization",
+    "non-error-objects",
+    "json-stringify",
+    "stack-trace"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who throw non-Error objects receive unclear error messages that don't help them debug issues.",
+  "rootCause": "JSON.stringify() was being used for serialization, but can fail with certain object types (e.g., BigInt) and doesn't provide clear output for plain objects.",
+  "proposedFix": "Wrap JSON.stringify with error handling or use a safer serialization method that handles edge cases like BigInt without throwing.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed with PR #467, which properly serializes non-Error objects and includes a helpful message recommending throwing Error objects.",
+  "related": [
+    467
+  ],
+  "keyQuote": "It should be `{a: \"test\"} [A non-Error value was thrown from your code. We recommend throwing Error objects so that we can provide a stack trace.]`",
+  "number": 635,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:05:06.774Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "History task executor uses retryable history/matching client which causes unnecessary task retries while holding goroutines, particularly problematic when requests are rate limited and retried with backoff.",
+  "category": "bug",
+  "subcategory": "history-task-executor",
+  "apis": [],
+  "components": [
+    "history-task-executor",
+    "history-client",
+    "matching-client"
+  ],
+  "concepts": [
+    "retry-policy",
+    "rate-limiting",
+    "goroutine-blocking",
+    "client-backoff",
+    "task-processing"
+  ],
+  "severity": "high",
+  "userImpact": "Task processing performance degrades significantly during rate limiting as goroutines are held while requests are slowly retried with backoff.",
+  "rootCause": "History task executor uses retryable client for remote service calls instead of raw client, causing tasks to retry unnecessarily while holding goroutines.",
+  "proposedFix": "Use raw history/matching client instead of retryable client in history task executor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Using retryable history/matching client for talking to remote service when processing tasks are unnecessary and will cause tasks to retry while holding the goroutine.",
+  "number": 4707,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:04.760Z"
+}

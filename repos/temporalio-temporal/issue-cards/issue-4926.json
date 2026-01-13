@@ -1,0 +1,30 @@
+{
+  "summary": "Add rate limiting capabilities to server-side batch operations to prevent overloading workers. Users lost the `--rps` and `--concurrency` options that existed in the previous client-side `tctl` implementation when batch operations were moved to the server.",
+  "category": "feature",
+  "subcategory": "batch-operations",
+  "apis": [],
+  "components": [
+    "batch-operations",
+    "server",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "batch-operations",
+    "worker-capacity",
+    "concurrency",
+    "throughput-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot control the rate at which batch operations execute, risking worker overload and service disruption when operating on millions of executions.",
+  "rootCause": null,
+  "proposedFix": "Implement rate limiting options (--rps, --concurrency) for all types of batch operations on the server side, similar to the previous client-side tctl implementation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow rate limiting a batch operation, this option should be allowed for all types of batch operations.",
+  "number": 4926,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:48.105Z"
+}

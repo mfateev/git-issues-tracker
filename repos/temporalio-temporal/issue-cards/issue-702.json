@@ -1,0 +1,30 @@
+{
+  "summary": "Remove unused fields (start version, last write version, current version) from MutableState record and related functions in persistence layer utilities.",
+  "category": "other",
+  "subcategory": "persistence-cleanup",
+  "apis": [],
+  "components": [
+    "MutableState",
+    "sqlExecutionManagerUtil",
+    "cassandraPersistenceUtil"
+  ],
+  "concepts": [
+    "code-cleanup",
+    "technical-debt",
+    "persistence",
+    "unused-fields",
+    "refactoring"
+  ],
+  "severity": "low",
+  "userImpact": "No direct user impact; this is internal code cleanup to reduce maintenance burden.",
+  "rootCause": "Unused fields in MutableState record and createOrUpdateCurrentExecution function that can be safely removed.",
+  "proposedFix": "Remove start version, last write version, and current version fields from MutableState, and remove start version from createOrUpdateCurrentExecution function at specified lines.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed in favor of a broader end-to-end cleanup effort to be handled separately.",
+  "related": [],
+  "keyQuote": "there are other attr not really being used, close this specific issue, we will handle the e2e cleanup later",
+  "number": 702,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:08.629Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Users request the ability to update workflow configuration properties like cron schedule and search attributes while a workflow is running, without requiring cancellation and restart.",
+  "category": "feature",
+  "subcategory": "workflow-configuration",
+  "apis": [],
+  "components": [
+    "workflow-config",
+    "cron-scheduler",
+    "search-attributes"
+  ],
+  "concepts": [
+    "workflow-update",
+    "configuration-management",
+    "cron-schedule",
+    "retry-policy",
+    "dynamic-updates"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must cancel and restart workflows to modify configuration, limiting flexibility for production workloads.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2651
+  ],
+  "keyQuote": "The ability to update a workflow config, including but not limited to CronSchedule, SearchAttributes, etc. without having to cancel and restart the workflow would be nice.",
+  "number": 1499,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:34:16.162Z"
+}

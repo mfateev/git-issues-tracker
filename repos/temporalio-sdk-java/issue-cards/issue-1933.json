@@ -1,0 +1,30 @@
+{
+  "summary": "User encountered a DataConverterException for 'binary/null' encoding in Java SDK. The issue was resolved by clarifying that NullPayloadConverter is already part of the default data converter and must be explicitly registered if not using default settings.",
+  "category": "question",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "payload-converter",
+    "NullPayloadConverter"
+  ],
+  "concepts": [
+    "serialization",
+    "encoding",
+    "null-handling",
+    "data-conversion",
+    "default-converter"
+  ],
+  "severity": "low",
+  "userImpact": "Users not using the default data converter may encounter exceptions when handling binary null payloads unless they explicitly register NullPayloadConverter.",
+  "rootCause": "User was not using the default data converter which includes NullPayloadConverter, or failed to register it manually when using a custom converter.",
+  "proposedFix": "Ensure NullPayloadConverter is registered in the data converter configuration, either by using the default data converter or explicitly adding it to a custom configuration.",
+  "workaround": "Register NullPayloadConverter explicitly when configuring a custom DataConverter.",
+  "resolution": "fixed",
+  "resolutionDetails": "Clarified that NullPayloadConverter is already implemented in Java SDK's default data converter. Users need to ensure it's registered if using custom configurations.",
+  "related": [],
+  "keyQuote": "The NullPayloadConverter is part of the default data converter for Java does register itself for binary/null",
+  "number": 1933,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:02.454Z"
+}

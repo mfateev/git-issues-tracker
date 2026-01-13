@@ -1,0 +1,34 @@
+{
+  "summary": "RequestCancelWorkflowExecutionRequest is missing reason and details fields that exist in TerminateWorkflowExecutionRequest, causing API inconsistency. These fields need to be added to the proto definition and supported in the CLI.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [
+    "RequestCancelWorkflowExecutionRequest",
+    "TerminateWorkflowExecutionRequest"
+  ],
+  "components": [
+    "workflow-service",
+    "api",
+    "cli"
+  ],
+  "concepts": [
+    "api-parity",
+    "proto-schema",
+    "workflow-cancellation",
+    "termination",
+    "request-details",
+    "reason-field"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot provide reason and details when cancelling workflows, limiting visibility into cancellation context compared to termination operations.",
+  "rootCause": "RequestCancelWorkflowExecutionRequest proto definition was not updated to match TerminateWorkflowExecutionRequest fields.",
+  "proposedFix": "Add reason and details fields to RequestCancelWorkflowExecutionRequest proto and implement CLI support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The reason field was already available in the temporal/api proto as noted in the comment, resolving the feature request.",
+  "related": [],
+  "keyQuote": "To keep parity these fields needs to be added and supported by CLI (at least `reason`).",
+  "number": 491,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:01:48.626Z"
+}

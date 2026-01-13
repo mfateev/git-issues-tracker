@@ -1,0 +1,31 @@
+{
+  "summary": "User asks how to scale Temporal services independently in a self-hosted production deployment. They read that production clusters can have multiple Frontend, History, Matching, and Worker services but cannot find operational documentation on how to configure this scaling.",
+  "category": "docs",
+  "subcategory": "deployment-configuration",
+  "apis": [],
+  "components": [
+    "frontend-service",
+    "history-service",
+    "matching-service",
+    "worker-service"
+  ],
+  "concepts": [
+    "scaling",
+    "production-deployment",
+    "cluster-configuration",
+    "service-architecture",
+    "self-hosted"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to deploy Temporal in production lack clear documentation on how to scale different server roles independently.",
+  "rootCause": "Documentation on scaling individual server roles in self-hosted Temporal deployments is missing or difficult to find.",
+  "proposedFix": "Refer users to Helm charts documentation and community forum for production deployment guidance.",
+  "workaround": "Use Helm charts (https://github.com/temporalio/helm-charts) for production deployments with independent service scaling.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as this is a question better suited for community forum rather than a documentation bug or feature request. Respondent provided links to Helm charts and community resources.",
+  "related": [],
+  "keyQuote": "For production setup, you want to run different server roles separately and they can be scaled differently based on needs.",
+  "number": 4836,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:20.293Z"
+}

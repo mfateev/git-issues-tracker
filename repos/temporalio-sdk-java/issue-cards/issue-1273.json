@@ -1,0 +1,36 @@
+{
+  "summary": "Request to add trace-id and span-id to logs when using OpenTracingWorkerInterceptor in Java SDK. Currently these identifiers are not being printed, requiring users to implement custom interceptors as a workaround.",
+  "category": "feature",
+  "subcategory": "tracing-observability",
+  "apis": [
+    "OpenTracingWorkerInterceptor",
+    "OpenTracingWorkflowInboundCallsInterceptor",
+    "OpenTracingActivityInboundCallsInterceptor"
+  ],
+  "components": [
+    "worker-interceptor",
+    "logging",
+    "tracing",
+    "MDC"
+  ],
+  "concepts": [
+    "observability",
+    "distributed-tracing",
+    "trace-context",
+    "span-correlation",
+    "logging-enrichment",
+    "MDC-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily correlate logs with distributed traces without implementing custom interceptors, reducing observability in production systems.",
+  "rootCause": null,
+  "proposedFix": "Add trace-id and span-id to MDC-context within the OpenTracingWorkerInterceptor implementation.",
+  "workaround": "Implement custom OpenTracingWorkerInterceptor, OpenTracingWorkflowInboundCallsInterceptor, and OpenTracingActivityInboundCallsInterceptor.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add trace-id and span-id to MDC-context.",
+  "number": 1273,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:20:26.894Z"
+}

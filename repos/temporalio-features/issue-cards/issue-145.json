@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow.await/sleep with zero or negative duration produces different event sequences compared to positive durations, causing non-deterministic replay issues when the duration is calculated dynamically in workflow code.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Workflow.await",
+    "Workflow.sleep"
+  ],
+  "components": [
+    "workflow-execution",
+    "event-history",
+    "replay-engine"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "timer-events",
+    "duration-calculation",
+    "non-deterministic-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows that calculate sleep duration dynamically fail non-deterministically during replay across SDK implementations.",
+  "rootCause": "SDKs produce different event sequences for zero/negative durations versus positive durations - zero duration doesn't generate TimerStarted event, causing history mismatch on replay.",
+  "proposedFix": "SDKs should handle zero/negative duration gracefully without failing - either skip timer generation with logging or fail with explicit error message rather than non-deterministic replay failure.",
+  "workaround": "Calculate duration inside side effects or local activities/activities so it's not re-calculated on replay.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow.await / sleep produces different sequence of events if n<=0 and when n>0 (basically if n>0 will have TimerStarted event from command in history, if n<=0 TimerStarted event is not in history)",
+  "number": 145,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:50:03.079Z"
+}

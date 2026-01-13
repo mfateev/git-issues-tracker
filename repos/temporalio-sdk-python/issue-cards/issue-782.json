@@ -1,0 +1,32 @@
+{
+  "summary": "When a workflow task that is blocking on a timer gets cancelled, the SDK's internal callback for resolving the timer future fires after cancellation, causing asyncio.exceptions.InvalidStateError because the future is already done. The workflow succeeds despite the logged exception.",
+  "category": "bug",
+  "subcategory": "timer-callback",
+  "apis": [
+    "workflow.sleep"
+  ],
+  "components": [
+    "workflow-instance",
+    "timer-handling",
+    "asyncio-integration"
+  ],
+  "concepts": [
+    "cancellation",
+    "future-state",
+    "callback-timing",
+    "asyncio-task",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see logged exceptions when cancelling tasks that are sleeping on timers, even though the workflow succeeds, causing concern and log noise.",
+  "rootCause": "The SDK sets a callback to resolve the sleep future at timer expiration time. If the task is cancelled before the timer fires, the future is already done when the callback executes, causing InvalidStateError because asyncio.Future.set_result() fails on already-done futures.",
+  "proposedFix": "Check if the future is already done before calling set_result() on it, or find other locations where this pattern occurs and apply the same fix.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Should just not call `set_result` on an already done future (and find where else we might be doing that).",
+  "number": 782,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:22:15.109Z"
+}

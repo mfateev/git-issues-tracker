@@ -1,0 +1,32 @@
+{
+  "summary": "Closing a metric subscope created with .tagged() or .subscope() unexpectedly closes the parent worker's metrics scope, disabling all metrics reporting. This is caused by subscopes closing their underlying reporter through the Uber Tally library dependency.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [
+    "getMetricsScope"
+  ],
+  "components": [
+    "metrics",
+    "scope",
+    "ReplayAwareScope"
+  ],
+  "concepts": [
+    "metrics reporting",
+    "scope lifecycle",
+    "resource management",
+    "try-with-resources",
+    "AutoCloseable"
+  ],
+  "severity": "high",
+  "userImpact": "Users closing metric subscopes cause silent failure of all metrics reporting for the entire worker.",
+  "rootCause": "ReplayAwareScope wraps an Uber Tally Scope which closes its reporter on close(), affecting the parent scope. This is by design in Tally's subscope implementation.",
+  "proposedFix": null,
+  "workaround": "Avoid calling close() on metric subscopes, or do not wrap subscopes in try-with-resources blocks.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Scope behavior is controlled by Uber Tally (transitive dependency). The Temporal Java SDK does not control Tally's abstractions. This will be addressed if/when Temporal creates its own Scope abstraction.",
+  "related": [],
+  "keyQuote": "Scope abstraction, contracts and implementation is not Temporal Java SDK abstraction, it's uber-tally, our transitive dependency.",
+  "number": 1684,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:22.469Z"
+}

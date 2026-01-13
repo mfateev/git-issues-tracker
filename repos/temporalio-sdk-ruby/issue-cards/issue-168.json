@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow users to set a Temporalio::Cancellation for client RPC calls in the Ruby SDK, enabling cancellation of in-flight client operations.",
+  "category": "feature",
+  "subcategory": "client-cancellation",
+  "apis": [
+    "Cancellation"
+  ],
+  "components": [
+    "client",
+    "rpc",
+    "cancellation"
+  ],
+  "concepts": [
+    "cancellation",
+    "client-calls",
+    "rpc-operations",
+    "async-operations",
+    "lifecycle-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently cancel in-flight client RPC calls, limiting control over long-running operations.",
+  "rootCause": null,
+  "proposedFix": "Implement support for setting Temporalio::Cancellation on client calls",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need to allow users to set a `Temporalio::Cancellation` for client calls",
+  "number": 168,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:07.771Z"
+}

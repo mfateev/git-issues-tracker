@@ -1,0 +1,30 @@
+{
+  "summary": "Go vulnerability CVE-2021-39293 is present in Temporal server binaries and container images. While Temporal doesn't use the vulnerable code directly, the base Docker image uses an older Go version that includes the vulnerability.",
+  "category": "bug",
+  "subcategory": "build-and-deployment",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "base-builder",
+    "build-process"
+  ],
+  "concepts": [
+    "vulnerability",
+    "golang-version",
+    "supply-chain",
+    "container-security",
+    "cve"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal using official Docker images are exposed to a known Go vulnerability (CVE-2021-39293) in the container environment.",
+  "rootCause": "Official Docker images built with Go versions older than 1.16.8 or 1.17.1, which contain the vulnerability.",
+  "proposedFix": "Rebuild Docker images with patched Go version (1.16.12+ or 1.17.6+) to eliminate the vulnerability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by updating Go version to 1.17.6 for Temporal server versions 1.13, 1.14, and 1.15.",
+  "related": [],
+  "keyQuote": "golang 1.17.6 is used for temporal server 1.13, 1.14 and 1.15.",
+  "number": 2184,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:33.910Z"
+}

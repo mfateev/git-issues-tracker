@@ -1,0 +1,33 @@
+{
+  "summary": "Parent workflows may exit before child workflows start when using abandon parent policy, leaving children permanently unstarted. The proposal is to delay workflow completion until child workflows with abandon parent policy have successfully started.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "ChildWorkflowStub.getExecution()"
+  ],
+  "components": [
+    "workflow-execution",
+    "child-workflow-manager",
+    "parent-child-coordination"
+  ],
+  "concepts": [
+    "parent-child-workflows",
+    "abandon-policy",
+    "workflow-completion",
+    "lifecycle-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can inadvertently create unstarted child workflows if parent workflows exit before child start requests complete, requiring obscure workarounds.",
+  "rootCause": "Parent workflow completion is not synchronized with child workflow start lifecycle when using abandon parent close policy.",
+  "proposedFix": "Automatically delay workflow completion until outstanding child start requests with abandon parent policy have successfully started. Also apply to cancellation requests for children with abandon parent policy.",
+  "workaround": "Call Promise returned from ChildWorkflowStub.getExecution() to wait for child startup.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Resolved as server-side implementation in temporal repository issue #685 instead of SDK-side due to complexity handling events after completion.",
+  "related": [
+    685
+  ],
+  "keyQuote": "The delay of completion is easy by the SDK. But dealing with events that happened after completion was requested and children have started is really hard without service support.",
+  "number": 74,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:19:00.533Z"
+}

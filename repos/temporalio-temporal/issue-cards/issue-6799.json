@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for WorkflowIdConflictPolicy in child workflows to replace the deprecated WorkflowIdReusePolicy. This feature is needed to allow child workflows to use the new Terminate-Existing conflict resolution policy instead of the deprecated Terminate-if-Running.",
+  "category": "feature",
+  "subcategory": "child-workflow",
+  "apis": [
+    "StartChildWorkflowExecution",
+    "WorkflowIdConflictPolicy"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-id-conflict-resolution",
+    "workflow-lifecycle"
+  ],
+  "concepts": [
+    "workflow-id-reuse",
+    "conflict-policy",
+    "deprecation",
+    "terminate-existing",
+    "child-workflows"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot migrate child workflows to the new WorkflowIdConflictPolicy and must continue using the deprecated WorkflowIdReusePolicy, blocking their migration path.",
+  "rootCause": "WorkflowIdConflictPolicy support has been implemented for parent workflows but not yet extended to child workflow execution.",
+  "proposedFix": null,
+  "workaround": "Use activities with long-polling and retries to wait for external workflow completion, or use signals with local activities (both cumbersome alternatives).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    558
+  ],
+  "keyQuote": "To complete this effort, support for child workflows is needed.",
+  "number": 6799,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:36.457Z"
+}

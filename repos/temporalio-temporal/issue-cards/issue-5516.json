@@ -1,0 +1,30 @@
+{
+  "summary": "User requests support for Azure Blob Storage as an archival destination alongside existing GCloud and AWS S3 support. They propose a plugin-based solution to enable custom implementations without forking the codebase.",
+  "category": "feature",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "archival",
+    "storage-plugin",
+    "server-options"
+  ],
+  "concepts": [
+    "cloud-storage",
+    "plugin-architecture",
+    "Azure",
+    "extensibility",
+    "data-archival"
+  ],
+  "severity": "medium",
+  "userImpact": "Azure customers cannot use Temporal's archival feature and must either fork the codebase or find alternative solutions.",
+  "rootCause": null,
+  "proposedFix": "Implement plugin-based archival solution allowing custom cloud storage implementations, or add native Azure Blob Storage support.",
+  "workaround": "Implement Azure support locally by forking the codebase (high maintenance burden).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We would like a plugin based solution where we can go ahead and implement our own code and pass them to something like the Server Options",
+  "number": 5516,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:16.193Z"
+}

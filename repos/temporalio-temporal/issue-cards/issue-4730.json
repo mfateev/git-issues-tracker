@@ -1,0 +1,30 @@
+{
+  "summary": "Internal SDK client uses report themselves as 'temporal-go' clients, conflating them with actual SDK users. The request is to distinguish internal server uses by setting a different client-name in gRPC headers.",
+  "category": "other",
+  "subcategory": "client-identification",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "client-headers",
+    "metadata"
+  ],
+  "concepts": [
+    "client-identification",
+    "telemetry",
+    "internal-vs-external",
+    "header-metadata",
+    "server-instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot distinguish between real SDK client usage and internal server usage of the SDK in monitoring and analytics.",
+  "rootCause": "Internal SDK client instances set the same gRPC client-name header as external SDK users, making them indistinguishable in telemetry.",
+  "proposedFix": "Set client-name to 'temporal-server' or similar for internal uses, either via metadata after initialization or through a new 'client-name-override' field.",
+  "workaround": "Use a client interceptor to modify gRPC metadata after client creation to set a different client-name.",
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement implemented to allow distinguishing internal SDK usage from external client usage through gRPC headers.",
+  "related": [],
+  "keyQuote": "The internal uses of the SDK should set it to something besides `temporal-go` to not conflate it with actual `temporal-go` clients.",
+  "number": 4730,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:18.096Z"
+}

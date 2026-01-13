@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add a flag allowing CRON workflows to execute their first run immediately instead of waiting for the scheduled time. Currently, the first execution always follows the cron schedule.",
+  "category": "feature",
+  "subcategory": "cron-scheduling",
+  "apis": [],
+  "components": [
+    "cron-workflow",
+    "workflow-scheduler"
+  ],
+  "concepts": [
+    "cron-schedule",
+    "immediate-execution",
+    "first-run",
+    "workflow-timing"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot configure CRON workflows to start immediately on creation; they must wait for the next scheduled time.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #404",
+  "related": [
+    404
+  ],
+  "keyQuote": "There are use cases when the first run needs to execute immediately",
+  "number": 405,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:55:16.967Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Request to create a NestJS integration/transport for the TypeScript SDK to enable decorator-based workflow and activity definitions following NestJS conventions. The requester explored a proof-of-concept and established design principles for supporting both monolithic and microservice architectures while avoiding non-deterministic code patterns.",
+  "category": "feature",
+  "subcategory": "framework-integration",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-executor",
+    "activity-executor",
+    "module-loader"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "decorators",
+    "framework-integration",
+    "microservices",
+    "module-system",
+    "async-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "NestJS developers cannot use familiar decorator-based patterns with Temporal SDK, requiring custom workarounds for dependency injection in activities.",
+  "rootCause": "The TypeScript SDK uses a functional paradigm rather than OOP/decorator-based approach that NestJS developers expect, limiting integration with NestJS's module system.",
+  "proposedFix": "Create a NestJS module that supports @Workflow() and @InjectActivities() decorators, with workflowsPath supporting both default export functions and object exports. Support for dependency injection through NestJS's container.",
+  "workaround": "Community members have built internal packages using higher-order functions for dependency injection, or used third-party packages like nestjs-temporal.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    169
+  ],
+  "keyQuote": "The main problem for me I am not able to inject other services into my activities, for example if I have an activity interacts with the outside world so it needs the httpService",
+  "number": 483,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:58:27.566Z"
+}

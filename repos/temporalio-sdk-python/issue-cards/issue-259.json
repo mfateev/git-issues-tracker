@@ -1,0 +1,32 @@
+{
+  "summary": "User requested documentation and guidance on workflow versioning in the Python SDK, following the TypeScript implementation pattern. The issue was resolved by redirecting to existing documentation and a related documentation issue.",
+  "category": "docs",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "patched"
+  ],
+  "components": [
+    "documentation",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "versioning",
+    "backward-compatibility",
+    "workflow-updates",
+    "patching"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clear documentation on how to implement workflow versioning in Python to safely evolve their workflows.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use the patched() function as documented in the Python SDK, mirroring the TypeScript implementation approach.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Resolved by pointing to existing patched() documentation and redirecting to documentation issue #1925.",
+  "related": [
+    1925
+  ],
+  "keyQuote": "Versioning is already supported in Python via the patched call in mostly the same way as TypeScript.",
+  "number": 259,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:57:57.923Z"
+}

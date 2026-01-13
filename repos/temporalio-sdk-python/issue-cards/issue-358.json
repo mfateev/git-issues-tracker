@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to improve documentation and guidance around threaded activities in Python SDK. The proposal suggests documenting blocking behavior in async code, the debug mode warning, and encouraging use of threaded activities as the default pattern unless users are certain their calls are non-blocking.",
+  "category": "docs",
+  "subcategory": "activity-patterns",
+  "apis": [],
+  "components": [
+    "threaded-activities",
+    "async-executor",
+    "documentation",
+    "quickstart"
+  ],
+  "concepts": [
+    "async-blocking",
+    "thread-safety",
+    "activity-execution",
+    "performance-debugging",
+    "best-practices"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may inadvertently block all async code by calling blocking operations in async activities, degrading application performance without understanding the root cause.",
+  "rootCause": "Lack of clear documentation and guidance on when to use threaded activities versus async activities in the Python SDK.",
+  "proposedFix": "Update quickstart and samples to use threaded activities by default, document the blocking behavior of async def calls, and document set_debug(True) which warns about tasks taking longer than 0.1 seconds.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated and samples were modified to use threaded activities as the recommended pattern.",
+  "related": [],
+  "keyQuote": "Encourage more use of threaded activities unless the user is sure their calls are non-thread-blocking",
+  "number": 358,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:21.184Z"
+}

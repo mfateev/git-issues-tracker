@@ -1,0 +1,33 @@
+{
+  "summary": "DescribeWorkflow and similar RPCs with an empty Run ID fail when the current run has been deleted, even if other runs with the same Workflow ID exist. The server doesn't properly fall back to previous runs when the current run is missing.",
+  "category": "bug",
+  "subcategory": "workflow-state-management",
+  "apis": [
+    "DescribeWorkflow",
+    "GetWorkflowHistory"
+  ],
+  "components": [
+    "workflow-service",
+    "persistence",
+    "run-management"
+  ],
+  "concepts": [
+    "run-deletion",
+    "continue-as-new",
+    "workflow-reset",
+    "empty-run-id",
+    "state-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot query workflow information with an empty Run ID after deleting the current run, breaking expected fallback behavior to previous runs.",
+  "rootCause": "The server fetches the current run-id when one is not provided, but deleting the current run does not automatically make a previous run current, causing subsequent queries to fail with not found errors.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by improving run lookup logic to handle deleted current runs properly.",
+  "related": [],
+  "keyQuote": "Delete current run does not make previous run as current run.",
+  "number": 4792,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:57:30.503Z"
+}

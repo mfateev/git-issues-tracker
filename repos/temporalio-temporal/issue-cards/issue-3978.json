@@ -1,0 +1,33 @@
+{
+  "summary": "Task latency metric includes workflow lock delays, causing false alerts when many workflows signal one target workflow. The request is to exclude latency from workflow lock timeouts from the task_latency metric or create a separate metric.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "task-processor",
+    "workflow-lock",
+    "metrics"
+  ],
+  "concepts": [
+    "latency-measurement",
+    "workflow-lock",
+    "timeout",
+    "retry-backoff",
+    "concurrent-signals",
+    "metric-accuracy"
+  ],
+  "severity": "medium",
+  "userImpact": "False latency alerts are triggered when workflows contend for locks, misleading operators about actual system performance.",
+  "rootCause": "task_latency metric includes all retry backoffs and workflow lock wait times, not just actual task processing latency.",
+  "proposedFix": "Exclude latency related to workflow lock timeouts from task_latency metric, or create a separate metric. Return a special error type from workflow lock acquisition to distinguish lock timeouts from other timeout errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #4408",
+  "related": [
+    4408
+  ],
+  "keyQuote": "task_latency will be very high and may trigger alerts when a large # of workflow trying to signal one workflow",
+  "number": 3978,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:19.001Z"
+}

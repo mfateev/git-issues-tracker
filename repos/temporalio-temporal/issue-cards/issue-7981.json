@@ -1,0 +1,34 @@
+{
+  "summary": "User unable to add search attributes when using GCS archiver with GCP application-default service account. Error occurs during search attribute creation despite successful archival operations with the same configuration.",
+  "category": "bug",
+  "subcategory": "archiver-gcs",
+  "apis": [],
+  "components": [
+    "archiver-provider",
+    "gcs-connector",
+    "visibility-store",
+    "search-attributes"
+  ],
+  "concepts": [
+    "credentials",
+    "gcp-authentication",
+    "archival",
+    "visibility",
+    "search-attributes",
+    "bootstrap"
+  ],
+  "severity": "medium",
+  "userImpact": "Users configuring Temporal with GCS archival using application-default service accounts cannot create search attributes for visibility stores.",
+  "rootCause": "Missing bootstrap container initialization when using GCS provider with application-default credentials, fixed in v1.28.0 by PR #7766.",
+  "proposedFix": "Upgrade to v1.28.0 or later where the bootstrap container initialization issue was resolved.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in v1.28.0 by PR #7766 which fixed the 'unable to find bootstrap container' error.",
+  "related": [
+    7766
+  ],
+  "keyQuote": "unable to find bootstrap container for the given service name",
+  "number": 7981,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:37.349Z"
+}

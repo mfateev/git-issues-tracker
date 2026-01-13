@@ -1,0 +1,30 @@
+{
+  "summary": "Python SDK should drop signals that cannot be deserialized, matching behavior in Go and Java SDKs. This prevents errors when signal arguments cannot be properly deserialized.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-dispatcher",
+    "serialization",
+    "worker"
+  ],
+  "concepts": [
+    "deserialization",
+    "signal-handling",
+    "error-recovery",
+    "compatibility",
+    "argument-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter unhandled errors when signals with incompatible arguments are received, instead of having them gracefully dropped like in other SDKs.",
+  "rootCause": "Python SDK lacks the signal deserialization error handling that Go and Java SDKs implement to silently drop problematic signals.",
+  "proposedFix": "Implement signal dropping logic for deserialization failures, consistent with Go and Java SDK behavior.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented signal dropping for deserialization errors to match Go and Java SDK behavior",
+  "related": [],
+  "keyQuote": "In Go and Java we drop signals whose args can't be deserialized, we should here too.",
+  "number": 347,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:48.717Z"
+}

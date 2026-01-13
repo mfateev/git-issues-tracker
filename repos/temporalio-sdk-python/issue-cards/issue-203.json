@@ -1,0 +1,30 @@
+{
+  "summary": "README documentation uses incorrect argument name 'runner' instead of 'workflow_runner' in sandbox examples, causing copy-paste errors for users following the guide.",
+  "category": "docs",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "readme",
+    "examples",
+    "sandbox"
+  ],
+  "concepts": [
+    "documentation",
+    "api-naming",
+    "examples",
+    "sandbox",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users copying example code from README get incorrect parameter names that fail to execute.",
+  "rootCause": "Documentation uses outdated or incorrect parameter name in code examples.",
+  "proposedFix": "Update README examples to use 'workflow_runner' instead of 'runner'.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation corrected to use correct parameter name.",
+  "related": [],
+  "keyQuote": "Wrong arg name in sample",
+  "number": 203,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:54:45.055Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for user metadata on workflows and events, including fixed summary/details on workflow start events and summary on timer start events to serve as timer identifiers.",
+  "category": "feature",
+  "subcategory": "workflow-metadata",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "event-system",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "metadata",
+    "workflow-start",
+    "timer",
+    "event-tracking",
+    "signal",
+    "child-workflow"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now attach and retrieve custom metadata on workflows and events for better tracking, identification, and organization of workflow instances.",
+  "rootCause": null,
+  "proposedFix": "Implement metadata support on workflow start events (including signals, child workflows, and scheduled workflows) and timer start events",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented as an MVP with metadata support on workflow start and timer start events",
+  "related": [
+    486
+  ],
+  "keyQuote": "Add support for user meta data on events with fixed summary and details on workflow start and summary on timer start",
+  "number": 2216,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:02:52.888Z"
+}

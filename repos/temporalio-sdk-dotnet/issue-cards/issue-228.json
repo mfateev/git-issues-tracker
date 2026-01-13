@@ -1,0 +1,30 @@
+{
+  "summary": "Request to make all client response classes user-instantiable and mockable by adding parameterless constructors and property setters. Currently some responses like workflow list results only have internal constructors, making testing difficult.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "client-responses",
+    "workflow-list",
+    "test-utilities"
+  ],
+  "concepts": [
+    "testability",
+    "mocking",
+    "instantiation",
+    "property-access",
+    "user-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot mock or instantiate client response objects for testing, limiting their ability to write comprehensive unit tests.",
+  "rootCause": null,
+  "proposedFix": "Add parameterless constructors and property setters to all client response classes to match patterns used by other SDK clients like Azure clients.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was implemented to allow user instantiation and mocking of client responses.",
+  "related": [],
+  "keyQuote": "Make their classes simple classes with parameterless constructors and have all properties also have setters.",
+  "number": 228,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:30:46.844Z"
+}

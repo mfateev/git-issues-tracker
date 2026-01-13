@@ -1,0 +1,30 @@
+{
+  "summary": "A ReDoS vulnerability (CVE-2022-25883) was identified in the semver package v7.3.8, a transitive dependency of @temporalio/worker v1.5.2. The vulnerability allows denial of service through the Range function when processing untrusted input.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "worker",
+    "dependency-management",
+    "semver-parser"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "regex-redos",
+    "dependency-upgrade",
+    "transitive-dependency"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using @temporalio/worker v1.5.2 are exposed to a denial of service vulnerability through the semver parsing library.",
+  "rootCause": "Regular Expression Denial of Service (ReDoS) vulnerability in semver package versions before 7.5.2 when processing untrusted range input.",
+  "proposedFix": "Upgrade @temporalio/worker to version 1.7.0 or later, which upgrades the transitive semver dependency to version 7.5.2.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend after the vulnerable library was either marked as ignored or removed from the Mend inventory, indicating the dependency was upgraded.",
+  "related": [],
+  "keyQuote": "Versions of the package semver before 7.5.2 are vulnerable to Regular Expression Denial of Service (ReDoS) via the function new Range",
+  "number": 249,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:55:49.619Z"
+}

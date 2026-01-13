@@ -1,0 +1,31 @@
+{
+  "summary": "CLI currently races against operator service when registering search attributes after server start. Request to add a server option/config that accepts search attributes and prevents startup until they are confirmed set with the proper type.",
+  "category": "feature",
+  "subcategory": "server-startup",
+  "apis": [],
+  "components": [
+    "server",
+    "operator-service",
+    "search-attributes",
+    "cli"
+  ],
+  "concepts": [
+    "startup-configuration",
+    "search-attributes",
+    "type-validation",
+    "initialization",
+    "race-condition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably register custom search attributes during server startup without risking race conditions that prevent proper initialization.",
+  "rootCause": "CLI registers search attributes after server start via operator service, but users check port availability to determine if server is ready, creating a race condition.",
+  "proposedFix": "Add server option (similar to WithSearchAttributes) that accepts map[string]enums.IndexedValueType, registers attributes before startup completes, and validates existing attributes match expected types.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "register if attr name not there, do nothing if attr name there and the proper type, and fail startup if attr there but wrong type",
+  "number": 6475,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:34.725Z"
+}

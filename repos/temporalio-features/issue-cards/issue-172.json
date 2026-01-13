@@ -1,0 +1,29 @@
+{
+  "summary": "Test suite experiencing intermittent failures in TypeScript and Java implementations, particularly with query type validation returning unexpected error types. Issue was resolved by upgrading the SDK.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "query-validation",
+    "error-handling",
+    "test-suite"
+  ],
+  "concepts": [
+    "flaky-tests",
+    "error-type-mismatch",
+    "query-registration",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Test suite reliability is compromised, affecting continuous integration and development workflow validation.",
+  "rootCause": "SDK version mismatch causing query type validation to return ServiceError instead of expected QueryNotRegisteredError",
+  "proposedFix": "Upgrade the SDK to a version with correct error type handling",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by upgrading the SDK to resolve the error type mismatch in query validation",
+  "related": [],
+  "keyQuote": "The error is expected to be an instance of \"QueryNotRegisteredError\". Received \"ServiceError\"",
+  "number": 172,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:02.088Z"
+}

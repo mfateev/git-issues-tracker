@@ -1,0 +1,32 @@
+{
+  "summary": "Add tests to verify Nexus support in the time-skipping test server environment for .NET SDK. This addresses a gap in test coverage introduced when Nexus was initially added, with a known dependency on resolving a blocker issue in the Java SDK.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "nexus",
+    "test-server",
+    "time-skipping"
+  ],
+  "concepts": [
+    "testing",
+    "time-skipping",
+    "nexus-support",
+    "test-coverage",
+    "integration-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on time-skipping test server environments cannot currently verify that Nexus functionality works correctly in those conditions.",
+  "rootCause": null,
+  "proposedFix": "Add at least one common test confirming time skipping test server works with Nexus",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2592
+  ],
+  "keyQuote": "At least a common test confirming time skipping test server works with Nexus should be added.",
+  "number": 578,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:37:40.428Z"
+}

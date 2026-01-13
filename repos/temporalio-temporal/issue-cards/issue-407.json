@@ -1,0 +1,32 @@
+{
+  "summary": "StartChildWorkflowExecution failure enum includes UnknownExternalWorkflowExecution which is inappropriate for workflow creation. The enum should be separated into distinct types for starting workflows versus signaling/canceling external executions.",
+  "category": "bug",
+  "subcategory": "child-workflow",
+  "apis": [
+    "StartChildWorkflowExecution"
+  ],
+  "components": [
+    "child-workflow-execution",
+    "workflow-execution-failed-cause",
+    "external-workflow-execution"
+  ],
+  "concepts": [
+    "enum-design",
+    "api-design",
+    "error-handling",
+    "external-workflow",
+    "signal-cancel"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter semantically incorrect failure reasons when child workflow execution fails, causing confusion about actual failure causes.",
+  "rootCause": "Single enum used for multiple different operations (start, signal, cancel) leads to invalid reason values for specific operations",
+  "proposedFix": "Separate the enum into two: one for StartChildWorkflowExecution failures and another for signal/cancel external execution failures",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The same enum is used when signalling and cancelling external executions. The solution is to separate this enum in two.",
+  "number": 407,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:55:18.404Z"
+}

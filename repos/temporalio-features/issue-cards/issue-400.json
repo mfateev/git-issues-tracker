@@ -1,0 +1,42 @@
+{
+  "summary": "Add workflow initialization support that allows workflows to run setup code before start to configure handlers and use workflow input, without returning values. Feature needs implementation across SDKs (PHP, TypeScript, Java, Python, Go) with language-specific approaches.",
+  "category": "feature",
+  "subcategory": "workflow-initialization",
+  "apis": [
+    "WorkflowInit",
+    "WorkflowConstructor",
+    "workflow.init"
+  ],
+  "components": [
+    "workflow-runtime",
+    "handler-registration",
+    "workflow-lifecycle",
+    "constructor-execution"
+  ],
+  "concepts": [
+    "initialization",
+    "handler-setup",
+    "state-management",
+    "workflow-input",
+    "lifecycle-hooks",
+    "pre-execution-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can now initialize workflow state and register handlers before workflow execution, reducing boilerplate and enabling better use of workflow input in signal/update handlers.",
+  "rootCause": "Workflows lacked a mechanism to run initialization code that could access workflow input before handlers need to be registered.",
+  "proposedFix": "Add language-specific initialization methods: @WorkflowInitMethod/@WorkflowConstructor (Java), @workflow.init on __init__ (Python), register option or Init() method (Go), @WorkflowInit (PHP), file-level code (TypeScript), [WorkflowInit] (already implemented in .NET)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed across SDKs with language-specific patterns. .NET already had support; other SDKs implemented according to their design patterns.",
+  "related": [
+    480,
+    1483,
+    865,
+    600,
+    1576
+  ],
+  "keyQuote": "Workflows need a way to run code before start to setup handlers and anything else they may want.",
+  "number": 400,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:49.537Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Request to provide a way to inject options (RetryOptions, ActivityOptions) into Workflow instances for configuration-driven behavior and unit testing, since dependency injection is discouraged.",
+  "category": "feature",
+  "subcategory": "dependency-injection",
+  "apis": [
+    "RetryOptions",
+    "ActivityOptions"
+  ],
+  "components": [
+    "workflow-instance",
+    "options-framework",
+    "test-support"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "configuration",
+    "options",
+    "testing",
+    "retry-policy",
+    "activity-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily configure workflow behavior dynamically or inject test options without relying on discouraged dependency injection patterns.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If injection to Workflow instances is discouraged, we should have a way to provide options to the workflow instances.",
+  "number": 748,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:39:30.316Z"
+}

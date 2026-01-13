@@ -1,0 +1,32 @@
+{
+  "summary": "When a worker restarts without setting MaxActivityTasksPerSecond, the server retains the previous dispatch rate limit instead of resetting to the default value. The field is not included in PollActivityTaskQueueRequest when unset, but the server doesn't treat this absence as a reset signal.",
+  "category": "bug",
+  "subcategory": "activity-task-dispatch",
+  "apis": [
+    "PollActivityTaskQueueRequest"
+  ],
+  "components": [
+    "matching",
+    "task-queue-partition-manager",
+    "activity-dispatcher"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "task-dispatch",
+    "configuration-reset",
+    "worker-lifecycle",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers cannot reduce or remove activity dispatch rate limits after setting them, forcing server restarts or workarounds to reset the configuration.",
+  "rootCause": "The task_queue_partition_manager does not treat an absent max_tasks_per_second field in PollActivityTaskQueueRequest as a reset signal; instead it preserves the previously stored value.",
+  "proposedFix": null,
+  "workaround": "Use the UpdateTaskQueueConfig request API to explicitly unset the limit.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Resolved as expected behavior with workaround. Users should use UpdateTaskQueueConfig API instead of relying on absent field to reset configuration.",
+  "related": [],
+  "keyQuote": "if the worker restarts without setting MaxActivityTasksPerSecond, the server does not reset the dispatch rate to its default value, it retains the previous value instead",
+  "number": 8137,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:34.887Z"
+}

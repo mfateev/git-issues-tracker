@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to include string representations of enums in failure objects for better debuggability. Currently, enum values appear as numbers (e.g., `retryState: 4`), making it difficult for users to understand what the values mean.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "failure-objects",
+    "error-serialization"
+  ],
+  "concepts": [
+    "enum-representation",
+    "debugging",
+    "error-logging",
+    "user-experience",
+    "serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily understand enum values in failure objects without looking up the enum definitions, reducing debugging efficiency.",
+  "rootCause": null,
+  "proposedFix": "Add string enum representations alongside numeric values in failure objects (e.g., `retryStateString: 'MAXIMUM_ATTEMPTS_REACHED'`), or provide a helper function like `logFriendly(failure)` or `failure.pretty()`.",
+  "workaround": "Users can manually look up enum names and implement their own conversion function.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers decided not to implement this feature, determining that users can easily look up enum names and implement custom functions if needed. Suggested users could create their own helper.",
+  "related": [],
+  "keyQuote": "Users can easily look up the enum names and implement this function. Let's close for now and revisit if there's demand.",
+  "number": 777,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:11:32.665Z"
+}

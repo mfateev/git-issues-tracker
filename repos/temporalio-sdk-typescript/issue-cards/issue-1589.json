@@ -1,0 +1,32 @@
+{
+  "summary": "Integration tests for RST_STREAM retry behavior are failing on Windows with Node v22.12.0+. The issue is related to a Node.js regression and was fixed by disabling affected tests on Windows for affected Node versions.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "grpc",
+    "retry-logic",
+    "windows-ci"
+  ],
+  "concepts": [
+    "rst-stream",
+    "node-compatibility",
+    "windows-platform",
+    "grpc-js",
+    "connection-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "CI tests fail on Windows with Node 22.12.0+, preventing reliable testing and blocking releases on that platform/version combination.",
+  "rootCause": "Node.js regression introduced in v22.12.0 affecting RST_STREAM handling, related to https://github.com/nodejs/node/issues/56137",
+  "proposedFix": "Disable the two RST_STREAM retry tests on Windows for Node versions 22.12.x through 22.14.x",
+  "workaround": "Use Node v22.11.0 instead of 22.12.0 or later",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1586 which disabled the failing tests on Windows for affected Node versions",
+  "related": [
+    1586
+  ],
+  "keyQuote": "Integration tests `Retry on \"RST_STREAM with code 0\"` and `Retry on \"RST_STREAM with code 2\"` have started failing on Windows since Node v22.12.0",
+  "number": 1589,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:35.020Z"
+}

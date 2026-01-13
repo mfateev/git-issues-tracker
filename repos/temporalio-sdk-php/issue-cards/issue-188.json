@@ -1,0 +1,31 @@
+{
+  "summary": "User requests a dedicated method to check if a workflow is running by ID without having to catch exceptions. Currently, the only way is to attempt getting a running workflow stub and catching WorkflowException if it fails.",
+  "category": "feature",
+  "subcategory": "workflow-management",
+  "apis": [
+    "newUntypedRunningWorkflowStub"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-stub"
+  ],
+  "concepts": [
+    "workflow-state",
+    "running-check",
+    "error-handling",
+    "api-design",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users must use exception-based error handling to determine workflow status instead of having a clean API method.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Use newUntypedRunningWorkflowStub() and catch WorkflowException to determine if workflow is running",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by implementing a dedicated method to check workflow running status",
+  "related": [],
+  "keyQuote": "At the moment the only possible way is to try to get a running workflow and catch an exception",
+  "number": 188,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:07.304Z"
+}

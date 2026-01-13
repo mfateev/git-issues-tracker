@@ -1,0 +1,33 @@
+{
+  "summary": "Activity context deadline is not updated for retry attempts. The deadline should reflect the retry start time + StartToCloseTimeout, but instead remains set to the original activity execution time, causing context deadline exceeded errors on retry.",
+  "category": "bug",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "context-deadline",
+    "scheduler"
+  ],
+  "concepts": [
+    "deadline",
+    "retry",
+    "timeout",
+    "context",
+    "scheduling",
+    "activity-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience immediate context deadline exceeded errors when activities are retried, making retried activity execution impossible without workarounds.",
+  "rootCause": "The task.GetScheduledTime() value never changes on retry, so the deadline calculation uses the original scheduled time instead of the retry attempt's start time.",
+  "proposedFix": "Update the deadline calculation in the activity execution path to use the current retry attempt's scheduled time rather than the original task scheduled time.",
+  "workaround": "Use context.Background() instead of the provided activity context.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in patch release v1.5.1 shortly after being reported.",
+  "related": [
+    1141
+  ],
+  "keyQuote": "When an activity is retried, the deadline value in the activity environment should reflect the start time of the retry attempt + StartToCloseTimeout.",
+  "number": 1139,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:00.187Z"
+}

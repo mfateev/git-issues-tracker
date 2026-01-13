@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add metrics for tracking payload sizes of workflow/activity input/output/signals to help users monitor approaching the 2MB size limit before hitting it, with optional logging for which workflow IDs and events are approaching the limit.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "payload-handling",
+    "monitoring"
+  ],
+  "concepts": [
+    "payload-size",
+    "limit-monitoring",
+    "threshold-alerting",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can proactively monitor payload sizes and redesign applications before hitting the 2MB size limit, improving operational visibility.",
+  "rootCause": null,
+  "proposedFix": "Add a metric like `history_event_payload_size` and optionally log workflow IDs and events approaching size limits",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal enforce 2MB size limit by default. But it would be too late when users run into this. It will be better to let user set up a monitor on the size with a lower threshold like 1MB",
+  "number": 376,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:59:29.420Z"
+}

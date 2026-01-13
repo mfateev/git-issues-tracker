@@ -1,0 +1,31 @@
+{
+  "summary": "Elasticsearch HTTPS connections are not supported - the temporal Helm chart exposes an HTTPS scheme option, but the start script hardcodes HTTP, preventing secure connections to Elasticsearch.",
+  "category": "bug",
+  "subcategory": "elasticsearch-connectivity",
+  "apis": [],
+  "components": [
+    "elasticsearch-client",
+    "helm-charts",
+    "start-script"
+  ],
+  "concepts": [
+    "https",
+    "ssl",
+    "elasticsearch",
+    "connection",
+    "security",
+    "helm-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot securely connect Temporal to Elasticsearch over HTTPS despite the Helm chart suggesting support, causing startup failures.",
+  "rootCause": "HTTP is hardcoded in the start script despite Helm chart exposing a scheme configuration option for HTTPS support.",
+  "proposedFix": "Update the start script and Elasticsearch client initialization to respect the configured scheme parameter and support HTTPS connections.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved based on author's comment that the feature is now implemented.",
+  "related": [],
+  "keyQuote": "I'm not able to connect to elasticsearch over https. The temporal helm chart has a property for scheme which makes it seem like https would be supported",
+  "number": 562,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:15:30.921Z"
+}

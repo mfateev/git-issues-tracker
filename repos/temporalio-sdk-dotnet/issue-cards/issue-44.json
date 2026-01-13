@@ -1,0 +1,37 @@
+{
+  "summary": "ASP.NET client created at startup hangs when calling StartWorkflowAsync from an endpoint, while creating the client inside the endpoint lambda works fine. The issue was caused by socket/connection polling problems in Tonic that were resolved in upstream dependencies.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "TemporalClient.ConnectAsync",
+    "StartWorkflowAsync"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "gRPC",
+    "tonic"
+  ],
+  "concepts": [
+    "deadlock",
+    "async-context",
+    "dependency-injection",
+    "socket-polling",
+    "thread-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reuse a TemporalClient instance created at ASP.NET startup, forcing them to create new connections for each request.",
+  "rootCause": "Tonic dependency issue causing Connection:poll to not execute when client created outside request context, preventing gRPC calls from completing. Fixed in Tonic 0.9+ with upstream dependency updates.",
+  "proposedFix": "Update sdk-core dependency to include https://github.com/temporalio/sdk-core/pull/584 and set minimum Tonic version to 0.9.",
+  "workaround": "Create a new TemporalClient instance inside each endpoint handler lambda instead of reusing a singleton client.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by updating core to pull #584 and requiring Tonic 0.9+, which resolved upstream socket polling issues.",
+  "related": [
+    584,
+    544
+  ],
+  "keyQuote": "Something is inadvertently stopping/killing connection poll and I am not sure what.",
+  "number": 44,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:08:21.333Z"
+}

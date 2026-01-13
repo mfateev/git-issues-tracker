@@ -1,0 +1,35 @@
+{
+  "summary": "User encountered deprecation warnings and breaking API changes in Python SDK 1.4.0, requiring migration of their codebase. They request a new release with improved documentation and a longer transition period for deprecated APIs.",
+  "category": "bug",
+  "subcategory": "release-management",
+  "apis": [
+    "typed_search_attributes"
+  ],
+  "components": [
+    "python-sdk",
+    "deprecation",
+    "testing"
+  ],
+  "concepts": [
+    "deprecation",
+    "backward-compatibility",
+    "migration",
+    "release-cycle",
+    "api-stability",
+    "testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users updating to new SDK versions face breaking changes and deprecation warnings that cause test failures, requiring codebase migration without adequate transition time or documentation.",
+  "rootCause": "Typed search attributes API changes introduced deprecation warnings that fail pytest tests by default, with insufficient migration guidance and limited transition period before breaking changes.",
+  "proposedFix": "Cut a new release with updated samples and provide a longer transition period before marking old APIs as deprecated.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Version 1.5.0 was released addressing the issue.",
+  "related": [
+    336
+  ],
+  "keyQuote": "Updating the python samples and a longer transition period before marking old apis as deprecated would be nice. Even just one release to massage any bugs.",
+  "number": 448,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:36.055Z"
+}

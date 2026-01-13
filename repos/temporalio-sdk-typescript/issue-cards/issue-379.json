@@ -1,0 +1,35 @@
+{
+  "summary": "npm install fails on Windows with MSVC 2017 due to three cross-platform compatibility issues: non-cross-OS build script in core-bridge, OS-specific cargo artifact spawning, and isolated-vm compilation errors with Windows macro expansion.",
+  "category": "bug",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "worker",
+    "isolated-vm",
+    "build-scripts"
+  ],
+  "concepts": [
+    "cross-platform",
+    "windows-compatibility",
+    "build-system",
+    "native-compilation",
+    "rust-interop",
+    "npm-install"
+  ],
+  "severity": "high",
+  "userImpact": "Windows developers cannot install the TypeScript SDK, blocking adoption on Windows platforms.",
+  "rootCause": "Build scripts use OS-specific paths and spawning mechanisms; isolated-vm compilation fails due to Windows macro name collision with std::max.",
+  "proposedFix": "Refactor build scripts to be cross-platform compatible; fix macro collision in isolated-vm bindings.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Author prepared fixes in fork and PR was welcomed by maintainers to address the outstanding Windows support issue #12.",
+  "related": [
+    12,
+    61
+  ],
+  "keyQuote": "I have the required changes in my fork ready for a PR. This is great, we've had an outstanding issue to support windows build for a while now #12. PR will be very welcome.",
+  "number": 379,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:27.387Z"
+}

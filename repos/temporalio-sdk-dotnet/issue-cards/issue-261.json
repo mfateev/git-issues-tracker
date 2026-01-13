@@ -1,0 +1,32 @@
+{
+  "summary": "Need to warn or error when update handlers don't complete before workflow exit (cancellation, failure, or success). The .NET SDK should implement a handler completion policy allowing users to wait for handlers to finish or explicitly abandon them.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [
+    "workflow.all_handlers_finished()"
+  ],
+  "components": [
+    "worker",
+    "workflow-runtime",
+    "update-handler"
+  ],
+  "concepts": [
+    "handler-lifecycle",
+    "workflow-exit",
+    "cancellation",
+    "resource-cleanup",
+    "policy-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may accidentally leave update handlers dangling when workflows exit, potentially causing data loss or resource leaks, without being warned.",
+  "rootCause": "Update handlers that are not awaited or explicitly abandoned can remain incomplete when workflows exit through cancellation, failure, or success.",
+  "proposedFix": "Implement a HandlerUnfinishedPolicy with WARN_AND_ABANDON as default, providing an all_handlers_finished() method, and emitting warnings when handlers are unfinished at workflow exit.",
+  "workaround": "Users can manually wait for all handlers before workflow completion or explicitly set unfinished policy to ABANDON per handler.",
+  "resolution": "fixed",
+  "resolutionDetails": "Python SDK PR #556 merged with proposed spec. Implementation involves handler lifecycle management, policy configuration, and completion tracking across workflow exit scenarios.",
+  "related": [],
+  "keyQuote": "Workflow code can wait on a method named similarly to `workflow.all_handlers_finished()`",
+  "number": 261,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:54:02.707Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Feature request to support loading workflow execution history from tctl/web JSON exports in the replayer by leveraging proto JSON serialization with json-module output.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "replayer",
+    "proto-serialization"
+  ],
+  "concepts": [
+    "history-replay",
+    "json-serialization",
+    "tctl-export",
+    "testing-utility"
+  ],
+  "severity": "low",
+  "userImpact": "Users can replay workflow histories exported from tctl/web UI without manual conversion, improving testing and debugging workflows.",
+  "rootCause": null,
+  "proposedFix": "Use proto JSON serialization to load history from tctl/web JSON exports directly in the replayer",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and marked as done",
+  "related": [],
+  "keyQuote": "Now that we're compiling our protos using `json-module` output we should be able to use proper proto json serialization.",
+  "number": 629,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:05:03.179Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Server fails to start when using `--dynamic-config-value` flag with JSON configuration values, returning 'invalid JSON value' error even for valid JSON. User cannot apply dynamic configuration via CLI despite the feature being documented.",
+  "category": "bug",
+  "subcategory": "configuration-dynamic-config",
+  "apis": [],
+  "components": [
+    "server-startup",
+    "cli-arguments",
+    "config-parser"
+  ],
+  "concepts": [
+    "configuration",
+    "dynamic-config",
+    "JSON-parsing",
+    "CLI-flags",
+    "initialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot configure the Temporal server via command-line dynamic config values, blocking server startup with valid configuration parameters.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The server fails to start and gives the error \"Error: invalid JSON value for key \"persistence.defaultStore\"",
+  "number": 5642,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:18.082Z"
+}

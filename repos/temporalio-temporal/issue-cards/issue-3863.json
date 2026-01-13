@@ -1,0 +1,31 @@
+{
+  "summary": "Users need a way to pin/preserve specific closed workflow runs to prevent them from being automatically purged, allowing developers to investigate rare or difficult-to-reproduce issues without racing against retention deadlines.",
+  "category": "feature",
+  "subcategory": "workflow-retention",
+  "apis": [],
+  "components": [
+    "retention-policy",
+    "workflow-history",
+    "ui"
+  ],
+  "concepts": [
+    "data-retention",
+    "workflow-preservation",
+    "purging",
+    "lifecycle-management",
+    "debugging",
+    "investigation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose the ability to investigate rare or difficult-to-reproduce workflow issues if they don't preserve them before automatic purging occurs.",
+  "rootCause": null,
+  "proposedFix": "Implement a pin/mark feature in the Temporal UI that allows users to explicitly prevent specific closed workflow runs from being purged by the retention policy.",
+  "workaround": "Users can manually download workflow history JSON for local storage as a temporary workaround.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal can provide a button to mark/pin/save a run and this makes sure the run would not get purged.",
+  "number": 3863,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:40.521Z"
+}

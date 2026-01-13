@@ -1,0 +1,34 @@
+{
+  "summary": "The startWithSignal() method initializes the Workflow handler before processing signals, causing signals sent with signal-with-start to potentially be lost if the workflow's main method returns early. Signals must be processed before handler initialization to ensure they're not lost.",
+  "category": "bug",
+  "subcategory": "signal-with-start",
+  "apis": [
+    "startWithSignal"
+  ],
+  "components": [
+    "workflow-handler",
+    "signal-processor",
+    "workflow-initialization"
+  ],
+  "concepts": [
+    "signal-processing",
+    "workflow-lifecycle",
+    "initialization-order",
+    "message-passing",
+    "signal-with-start"
+  ],
+  "severity": "high",
+  "userImpact": "Users lose signals sent via startWithSignal if the workflow's main method returns before signal handlers execute, breaking core use cases like signal handlers incrementing counters.",
+  "rootCause": "The workflow handler initialization occurs before signal processing in the startWithSignal() execution flow, violating the expected ordering where signals should execute before the workflow main method.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Signal processing order was corrected to execute before workflow handler initialization, matching the TypeScript SDK behavior and Temporal documentation.",
+  "related": [
+    485
+  ],
+  "keyQuote": "signals are not lost if the main method decides to return. The most basic scenario is the main method returning a counter and a signal handler incrementing it.",
+  "number": 457,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:51.752Z"
+}

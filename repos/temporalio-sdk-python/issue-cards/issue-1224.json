@@ -1,0 +1,36 @@
+{
+  "summary": "Workflow cancellation race condition causes CancelledError to not be raised reliably (~10% of the time), preventing cleanup handlers from executing when workflows are cancelled between activity completion and workflow task start.",
+  "category": "bug",
+  "subcategory": "cancellation-handling",
+  "apis": [
+    "workflow.execute_activity",
+    "workflow.cancel",
+    "is_cancelled_exception"
+  ],
+  "components": [
+    "cancellation-scope",
+    "workflow-task-handler",
+    "exception-propagation"
+  ],
+  "concepts": [
+    "race-condition",
+    "cancellation",
+    "cleanup",
+    "exception-handling",
+    "task-boundary",
+    "signal-alternative",
+    "asyncio"
+  ],
+  "severity": "high",
+  "userImpact": "Critical cleanup code (notifications, state cleanup, event logging) fails to execute when workflows are cancelled, leaving systems in inconsistent states.",
+  "rootCause": "Race condition where Temporal marks workflow as cancelled before CancelledError can be raised during the workflow task when cancellation arrives at task boundaries.",
+  "proposedFix": "Use signals to move workflow into cleanup state rather than relying on exception propagation, or ensure CancelledError is raised during workflow task execution.",
+  "workaround": "Use signals instead of try/except patterns to handle cancellation and trigger cleanup state transitions.",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK maintainer confirmed this is a known limitation of asyncio-based exception propagation in Python. Recommended using signals pattern instead, which is more reliable for cleanup in Temporal workflows.",
+  "related": [],
+  "keyQuote": "no CancelledError exception was raised during the workflow task execution, so my except block never ran to call handle_cancellation()",
+  "number": 1224,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:15.575Z"
+}

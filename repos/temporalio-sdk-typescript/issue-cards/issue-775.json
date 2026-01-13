@@ -1,0 +1,32 @@
+{
+  "summary": "User requests batched replay functionality to replay multiple workflows in parallel, which would improve test performance by allowing concurrent worker initialization instead of sequential replays.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "runReplayHistory"
+  ],
+  "components": [
+    "worker",
+    "replay-engine",
+    "test-framework"
+  ],
+  "concepts": [
+    "determinism",
+    "testing",
+    "performance",
+    "parallelization",
+    "workflow-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must replay workflows sequentially, causing slow test execution when validating determinism across multiple workflows.",
+  "rootCause": "Worker registration and initialization is not parallelizable in current implementation; each replay requires sequential setup.",
+  "proposedFix": "Add a batched replay feature that accepts a list of workflow IDs and replays them in parallel, returning results and failures.",
+  "workaround": "Use Promise.allSettled to parallelize runReplayHistory calls manually, though this provides limited speedup due to serialized worker initialization.",
+  "resolution": "fixed",
+  "resolutionDetails": "Support added in sdk-core which enables batched replay functionality.",
+  "related": [],
+  "keyQuote": "It would be useful to have a feature that allows you to kick off a replay that takes in a list of workflow IDs and replays all of them in parallel",
+  "number": 775,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:11:29.482Z"
+}

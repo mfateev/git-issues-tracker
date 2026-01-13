@@ -1,0 +1,34 @@
+{
+  "summary": "react/promise v3 incompatibility causes unhandled promise rejections to trigger error_log calls with unpredictable side effects. The SDK cannot disable this behavior, and react/promise's handler mechanism is one-time rather than permanent, making the library unsuitable for async workflow coroutines until react/promise v3 is improved or a fork is created.",
+  "category": "bug",
+  "subcategory": "promise-handling",
+  "apis": [],
+  "components": [
+    "coroutine-system",
+    "promise-executor",
+    "async-workflow",
+    "react-promise"
+  ],
+  "concepts": [
+    "unhandled-exceptions",
+    "promise-rejection",
+    "async-operations",
+    "error-handling",
+    "dependency-incompatibility",
+    "side-effects"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unpredictable error_log side effects when workflows use rejected promises without handlers, and the SDK cannot disable this react/promise v3 behavior.",
+  "rootCause": "react/promise v3 changed its error handling strategy to call error_log() for unhandled promise rejections, and its handler mechanism only works once rather than permanently, making it incompatible with SDK's coroutine-based workflow model.",
+  "proposedFix": "Temporarily revert to react/promise v2.6.1 until react/promise v3 provides a permanent (not one-time) handler mechanism, or create and maintain a Temporal-compatible fork of react/promise.",
+  "workaround": "Use react/promise v2.6.1 instead of v3",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by downgrading or constraining dependency to react/promise v2 compatibility; long-term solution involves either upstream react/promise improvements or maintaining a fork.",
+  "related": [
+    359
+  ],
+  "keyQuote": "when a rejected promise is completed, in which there is no exception handler, the error_log() function is called with the error text. The side effects of such behavior are unpredictable, and it is currently impossible to disable it.",
+  "number": 357,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:08.114Z"
+}

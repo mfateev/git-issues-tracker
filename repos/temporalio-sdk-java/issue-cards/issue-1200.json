@@ -1,0 +1,35 @@
+{
+  "summary": "Search attributes are not automatically carried forward when using `continueAsNew()`, requiring manual re-specification via `ContinueAsNewOptions.Builder#setSearchAttributes()`. This was part of a broader issue where multiple workflow options weren't being propagated to continued workflows.",
+  "category": "bug",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "continueAsNew",
+    "ContinueAsNewOptions"
+  ],
+  "components": [
+    "workflow-executor",
+    "continuation-handler",
+    "search-attributes"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "state-propagation",
+    "search-attributes",
+    "workflow-options",
+    "metadata-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually re-specify search attributes when calling continueAsNew, otherwise continued workflows lose searchability metadata from the original run.",
+  "rootCause": "The continueAsNew implementation does not automatically copy search attributes and other workflow options from the original workflow execution context.",
+  "proposedFix": "Automatically carry forward search attributes and other applicable workflow options during continueAsNew execution.",
+  "workaround": "Use `ContinueAsNewOptions.Builder#setSearchAttributes()` to manually pass search attributes into continueAsNew.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #1201 which addresses the broader problem of multiple attributes not being passed during continuation.",
+  "related": [
+    1201
+  ],
+  "keyQuote": "Use `ContinueAsNewOptions.Builder#setSearchAttributes` to pass search attributes into `continueAsNew` for now.",
+  "number": 1200,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:13:05.559Z"
+}

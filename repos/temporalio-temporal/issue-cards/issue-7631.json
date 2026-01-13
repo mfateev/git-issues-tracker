@@ -1,0 +1,33 @@
+{
+  "summary": "Namespace creation fails with S3 archival enabled when internal-frontend service is running. The archiver provider was being called with FrontendService instead of InternalFrontendService, causing bootstrap container lookup failures.",
+  "category": "bug",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "internal-frontend",
+    "archiver-provider",
+    "workflow-handler"
+  ],
+  "concepts": [
+    "namespace-registration",
+    "archival",
+    "s3-storage",
+    "service-bootstrap",
+    "internal-frontend"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create namespaces with S3 archival enabled when using the internal-frontend service with authentication enabled.",
+  "rootCause": "GetHistoryArchiver and GetVisibilityArchiver were being called with primitives.FrontendService parameter even when the request came through internal-frontend, causing bootstrap container lookup to fail.",
+  "proposedFix": "Check both FrontendService and InternalFrontendService when calling GetHistoryArchiver and GetVisibilityArchiver, applying the fallback pattern suggested in comments.",
+  "workaround": "Disable internal-frontend service or disable authentication on the frontend service.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #7766 which updated archiver calls to handle both FrontendService and InternalFrontendService appropriately.",
+  "related": [
+    7748,
+    7766
+  ],
+  "keyQuote": "In case of internal-frontend there must be primitives.InternalFrontendService",
+  "number": 7631,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:20:08.836Z"
+}

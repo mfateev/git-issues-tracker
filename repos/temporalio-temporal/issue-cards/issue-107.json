@@ -1,0 +1,33 @@
+{
+  "summary": "Add metadata headers to all blob payload fields to support encoding schemes, encryption, compression, and encoding information for interoperability across services and migration scenarios.",
+  "category": "feature",
+  "subcategory": "payload-encoding",
+  "apis": [],
+  "components": [
+    "payload-codec",
+    "data-converter",
+    "proto-marshaling",
+    "event-attributes"
+  ],
+  "concepts": [
+    "metadata",
+    "encoding",
+    "interoperability",
+    "serialization",
+    "encryption",
+    "schema-evolution",
+    "data-format"
+  ],
+  "severity": "high",
+  "userImpact": "Enables services using Temporal to exchange payloads with different encodings and allows applications to migrate encoding schemes without disrupting running workflows.",
+  "rootCause": "Binary payload fields lack metadata about their encoding, compression, and encryption, causing compatibility issues in service mesh deployments and preventing encoding migration.",
+  "proposedFix": "Wrap all binary blob fields in a Payload message containing a Header with metadata map and data bytes. Support encoding types (json, raw, proto) with metadata for name, encoding, and other attributes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented Payload wrapper with PayloadItem structure supporting metadata for encoding, names, and proto serialization across all blob fields and event attributes.",
+  "related": [],
+  "keyQuote": "This would allow to specify something like: this is an encrypted field with ## version of certificate, gziped, JSON encoded.",
+  "number": 107,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:18:20.072Z"
+}

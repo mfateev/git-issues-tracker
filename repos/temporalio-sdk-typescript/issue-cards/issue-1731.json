@@ -1,0 +1,33 @@
+{
+  "summary": "Tests fail to start the Temporal test server on Apple M3 Pro with a CPU features error after a change in the test server build process. The issue was caused by compiler optimizations in GraalVM that depend on AMD64 CPU features not emulated by Rosetta on ARM-based Macs.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "native-build",
+    "graalvm"
+  ],
+  "concepts": [
+    "cpu-features",
+    "arm64-support",
+    "rosetta-emulation",
+    "native-build-process",
+    "compiler-optimizations"
+  ],
+  "severity": "high",
+  "userImpact": "Users with Apple M-series processors cannot run tests with the Temporal test library, blocking test execution and development workflows.",
+  "rootCause": "Test Server 1.30.0 added native ARM64 support by rewriting native-build scripts, but the new scripts unintentionally enabled GraalVM compiler optimizations that depend on AMD64 CPU features not emulated by Rosetta on ARM-based Macs.",
+  "proposedFix": "Fixed in Test Server 1.30.1 by explicitly opting out of GraalVM's default compiler optimizations that require specific AMD64 CPU features.",
+  "workaround": "Remove cached download files by running `rm $TMPDIR/temporal-test-server-sdk-typescript-*` or `fd temporal /private/var/folders | xargs rm` to force re-download of the fixed executable.",
+  "resolution": "fixed",
+  "resolutionDetails": "Test Server 1.30.1 fixed the native-build process to disable problematic compiler optimizations, allowing proper execution on both AMD64 and ARM64 Macs.",
+  "related": [
+    2448,
+    2571
+  ],
+  "keyQuote": "The native-build process for our Test Server has now been fixed, so Test Server 1.30.1 will again run properly on MacOS.",
+  "number": 1731,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:14.680Z"
+}

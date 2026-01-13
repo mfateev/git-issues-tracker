@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in atty-0.2.14 (CVSS 5.3) affecting cbindgen-0.24.5 through clap. The issue involves potential pointer misalignment on Windows, though practically mitigated by the system allocator.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "cbindgen",
+    "cargo-dependencies",
+    "bridge-library"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "transitive-dependency",
+    "pointer-alignment",
+    "windows-specific",
+    "memory-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the .NET SDK are exposed to a medium-severity vulnerability in a transitive dependency that could affect application stability on Windows systems.",
+  "rootCause": "atty-0.2.14 dereferences a potentially unaligned pointer on Windows, though the System allocator's HeapAlloc guarantees sufficient alignment in practice.",
+  "proposedFix": "Disable cbindgen default features to remove the atty dependency, or upgrade transitive dependencies to patched versions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bridge library was moved to sdk-core repo and cbindgen default features were disabled, eliminating the atty dependency.",
+  "related": [],
+  "keyQuote": "Bridge library has been moved to sdk-core repo. Also, `cbindgen` default features were disabled so the library doesn't depend on `atty` anymore.",
+  "number": 128,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:06:44.070Z"
+}

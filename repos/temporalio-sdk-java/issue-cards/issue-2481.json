@@ -1,0 +1,35 @@
+{
+  "summary": "User requests to display the retry policy configuration on the activity info object, similar to feature request in the features repository. This would allow developers to inspect what retry policy is applied to an activity at runtime.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "activity-info",
+    "retry-policy"
+  ],
+  "concepts": [
+    "retry",
+    "policy",
+    "configuration",
+    "activity-metadata",
+    "observability",
+    "runtime-inspection"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can inspect the retry policy configuration applied to activities at runtime for debugging and observability.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Retry policy information was added to activity info, allowing developers to inspect it at runtime.",
+  "related": [
+    615
+  ],
+  "keyQuote": "Show retry policy on activity info",
+  "number": 2481,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:09:47.396Z"
+}

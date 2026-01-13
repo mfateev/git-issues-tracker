@@ -1,0 +1,37 @@
+{
+  "summary": "SDKs need to stop retrying on 'Internal' server errors and instead treat them as non-retryable, while continuing to retry 'Unavailable' errors. SDKs should use the capabilities reported in the getSystemInfo API to distinguish between server versions that properly differentiate these error codes.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "getSystemInfo"
+  ],
+  "components": [
+    "retry-logic",
+    "error-handling",
+    "server-communication"
+  ],
+  "concepts": [
+    "retry",
+    "error-codes",
+    "server-compatibility",
+    "Internal-error",
+    "Unavailable-error",
+    "capabilities"
+  ],
+  "severity": "high",
+  "userImpact": "Without this fix, SDKs retry on Internal errors that shouldn't be retried, leading to unnecessary delays and potential cascading failures when the server encounters non-recoverable errors.",
+  "rootCause": "Server previously returned only 'Internal' errors, so SDKs always retried them. Now server differentiates between 'Internal' (non-retryable) and 'Unavailable' (retryable), requiring SDK changes.",
+  "proposedFix": "SDKs should use the capabilities reported in the getSystemInfo API call to determine if the server properly supports the Internal/Unavailable differentiation, and conditionally stop retrying Internal errors.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across all SDKs: Go SDK, Core SDK, TypeScript SDK client, Java SDK (issue #1315), and PHP SDK (issue #221). Verified complete in all implementations.",
+  "related": [
+    1315,
+    221,
+    27
+  ],
+  "keyQuote": "SDKs need to stop retry on Internal. In order to distinguish between the server versions SDKs should use the capabilities reported in the getSystemInfo API call.",
+  "number": 6,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:41:51.501Z"
+}

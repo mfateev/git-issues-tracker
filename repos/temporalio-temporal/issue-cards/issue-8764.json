@@ -1,0 +1,30 @@
+{
+  "summary": "User requests the ability to list workflows and activities registered in the Temporal system using the Python SDK. Currently, the server does not maintain a registry of workflow and activity types, and the discussion explores potential solutions including querying workers directly.",
+  "category": "feature",
+  "subcategory": "registry-discovery",
+  "apis": [],
+  "components": [
+    "worker",
+    "server",
+    "registry"
+  ],
+  "concepts": [
+    "service-discovery",
+    "workflow-registration",
+    "activity-registration",
+    "worker-communication",
+    "registry-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot programmatically discover available workflows and activities in the system, forcing them to maintain separate internal registries.",
+  "rootCause": "Server does not maintain a built-in registry of workflow and activity types.",
+  "proposedFix": "Either implement server-side registry of workflow/activity types, or provide APIs to query workers for registered types (requires running workers and task queue information).",
+  "workaround": "Build and maintain an internal registry of workflows and activities.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "As of now server does not keep registry of Workflow and Activity Types. But this is something that maybe we want to consider in the future.",
+  "number": 8764,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:16.358Z"
+}

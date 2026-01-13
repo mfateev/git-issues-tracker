@@ -1,0 +1,30 @@
+{
+  "summary": "Add a utility function to convert exceptions into the standardized temporal.api.failure.v1.IFailure format for use throughout the TypeScript SDK codebase.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "exception-conversion",
+    "failure-serialization"
+  ],
+  "concepts": [
+    "exception-handling",
+    "error-conversion",
+    "failure-representation",
+    "standardization",
+    "codebase-refactoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides a consistent and standardized way to handle exceptions across the SDK, ensuring proper error representation in the Temporal API.",
+  "rootCause": null,
+  "proposedFix": "Create a utility function to convert exceptions into IFailure format and apply it throughout the codebase where TODO comments indicated the need.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Exceptions are now expressed via coresdk.common.IUserCodeFailure with the utility applied to relevant occurrences throughout the codebase.",
+  "related": [],
+  "keyQuote": "Exceptions are now express via `coresdk.common.IUserCodeFailure`, updated the relevant occurrences.",
+  "number": 34,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:38.575Z"
+}

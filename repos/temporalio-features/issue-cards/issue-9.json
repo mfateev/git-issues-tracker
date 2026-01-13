@@ -1,0 +1,33 @@
+{
+  "summary": "Client certificate expiration errors show generic 'Context deadline exceeded' message instead of clearly indicating the certificate has expired. Request for improved error messaging and associated error codes to aid debugging.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "tls-handshake",
+    "error-reporting"
+  ],
+  "concepts": [
+    "certificate-expiration",
+    "error-messaging",
+    "tls-failure",
+    "connection-failure",
+    "debugging",
+    "error-codes",
+    "metrics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter cryptic error messages when client certificates expire, making it difficult to diagnose and resolve certificate-related connectivity issues.",
+  "rootCause": "gRPC retries connection failures with generic timeout messages rather than reporting the underlying TLS certificate validation failure from the server.",
+  "proposedFix": "Improve error messages to explicitly state 'Expired Certificate' or equivalent, add error codes, bump poll-failure SDK logs to WARN level, and potentially add dedicated metrics for TLS/certificate failures.",
+  "workaround": "Enable verbose logging via EnableVerboseLogging to see debug-level poll errors, or check server-side TLS handshake logs for certificate validation details.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Have a message which clearly states `Expired Certificate or something equivalent`. Also it will be beneficial if we can have error code associated with this message",
+  "number": 9,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:08.852Z"
+}

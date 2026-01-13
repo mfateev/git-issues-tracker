@@ -1,0 +1,33 @@
+{
+  "summary": "Dependency vulnerability in zip library (CVE-2025-29787) used for extracting ephemeral server binaries in test environments. While the actual risk is low due to the library's limited usage context and trusted source downloads, the dependency was updated to version 2.3.0 to resolve compliance and audit concerns.",
+  "category": "bug",
+  "subcategory": "security-dependency",
+  "apis": [
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-framework",
+    "ephemeral-server",
+    "dependency-management"
+  ],
+  "concepts": [
+    "vulnerability",
+    "security",
+    "dependency-update",
+    "test-environment",
+    "compliance",
+    "trusted-source"
+  ],
+  "severity": "low",
+  "userImpact": "Users relying on vulnerability scanning tools will see alerts; compliance requirements may trigger; fixed in patch release.",
+  "rootCause": "Zip library dependency contains vulnerability CVE-2025-29787, though actual risk is mitigated by limited usage in test-only contexts with trusted sources.",
+  "proposedFix": "Update zip dependency from 2.2.2 to 2.3.0",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.11.8 with zip dependency update to 2.3.0",
+  "related": [],
+  "keyQuote": "The Temporal SDK only uses the zip library to extract downloaded ephemeral server binaries (i.e. when using the TestWorkflowEnvironment.createXxx())",
+  "number": 1655,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:08.886Z"
+}

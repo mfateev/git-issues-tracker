@@ -1,0 +1,34 @@
+{
+  "summary": "Implement application failure logging and metrics behavior in Python SDK according to ApplicationErrorCategory, following the pattern established in core SDK. This requires alignment with core SDK changes and feature specifications.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "logging",
+    "metrics",
+    "error-handling"
+  ],
+  "concepts": [
+    "application-failure",
+    "error-category",
+    "logging-behavior",
+    "metrics-behavior",
+    "error-classification",
+    "failure-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need consistent logging and metrics behavior for application failures across SDK implementations, improving observability and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Apply logging behavior according to ApplicationErrorCategory specification, with metrics handling delegated to core SDK",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented following core SDK specification and features issue guidelines",
+  "related": [
+    614,
+    897
+  ],
+  "keyQuote": "Core-based SDKs only need to apply corresponding logging behaviour, core handles metrics.",
+  "number": 820,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:24:02.064Z"
+}

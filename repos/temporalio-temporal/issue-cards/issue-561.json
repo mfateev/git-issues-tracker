@@ -1,0 +1,33 @@
+{
+  "summary": "Users request the ability to clear or unset search attributes in workflows, rather than only being able to set or update them. Currently, workarounds involve setting sentinel values or empty collections.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "UpsertSearchAttributes"
+  ],
+  "components": [
+    "search-attributes",
+    "workflow-execution",
+    "payload-metadata"
+  ],
+  "concepts": [
+    "search-attributes",
+    "clearing-values",
+    "sentinel-values",
+    "empty-collections",
+    "workflow-state",
+    "metadata-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must use workarounds like sentinel values or empty collections to simulate clearing search attributes, making documents less clean and queries more complex.",
+  "rootCause": "Search attributes API only supports setting and updating values, not deletion or clearing.",
+  "proposedFix": "Add flag to Payload metadata indicating deletion, or use nil/empty slice values as magic values to clear search attributes.",
+  "workaround": "Set search attribute to sentinel value (e.g., -1 for integers) or send empty collection.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented support for nil and empty slice values to clear search attributes during upsert operations.",
+  "related": [],
+  "keyQuote": "Both `nil` and empty slice values clears search attributes now.",
+  "number": 561,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:14:53.377Z"
+}

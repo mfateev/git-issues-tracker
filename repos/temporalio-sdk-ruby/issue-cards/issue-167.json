@@ -1,0 +1,32 @@
+{
+  "summary": "Need activity test environment for Ruby SDK that can capture heartbeats, inject cancellation, and mock activity info during testing.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "test-utilities",
+    "worker"
+  ],
+  "concepts": [
+    "testing",
+    "heartbeat",
+    "cancellation",
+    "mocking",
+    "activity-environment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better testing capabilities for activities with the ability to simulate heartbeats and cancellation scenarios.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of PR #161",
+  "related": [
+    161
+  ],
+  "keyQuote": "Need activity test environment that can capture heartbeats, inject cancellation, mock info, etc.",
+  "number": 167,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:09.248Z"
+}

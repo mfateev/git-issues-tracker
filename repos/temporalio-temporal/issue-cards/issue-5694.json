@@ -1,0 +1,35 @@
+{
+  "summary": "Replace namespace failover version with an opaque consistency token in NexusOperationCompletion to avoid exposing internal implementation details to the application layer in the new state machine framework.",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "NexusOperationCompletion"
+  ],
+  "components": [
+    "nexus",
+    "state-machine-framework",
+    "consistency-token"
+  ],
+  "concepts": [
+    "opaque-token",
+    "consistency",
+    "namespace-failover",
+    "abstraction",
+    "internal-details",
+    "api-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Prevents internal implementation details from leaking into the application layer when using Nexus operations.",
+  "rootCause": "Current design exposes namespace failover version to application layer instead of using an opaque consistency token.",
+  "proposedFix": "Replace namespace failover version with an opaque consistency token in NexusOperationCompletion.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed via PR #5686 with discussion about using opaque consistency tokens.",
+  "related": [
+    5686
+  ],
+  "keyQuote": "We're using namespace failover version and we'd rather not leak that into the \"application layer\" in the new state machine framework.",
+  "number": 5694,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:43.961Z"
+}

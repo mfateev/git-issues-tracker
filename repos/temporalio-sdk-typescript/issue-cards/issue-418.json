@@ -1,0 +1,31 @@
+{
+  "summary": "Add generic default type parameter to WorkflowHandle interface to allow usage without specifying explicit workflow type. Currently requires T extends Workflow, but should support T extends Workflow = Workflow for more flexible handle creation.",
+  "category": "feature",
+  "subcategory": "workflow-handle",
+  "apis": [
+    "WorkflowHandle"
+  ],
+  "components": [
+    "workflow-handle",
+    "type-system"
+  ],
+  "concepts": [
+    "generic-types",
+    "type-parameters",
+    "default-types",
+    "type-inference",
+    "api-flexibility"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can create WorkflowHandle instances without explicitly specifying the workflow type parameter, reducing boilerplate in cases where type specifics aren't needed.",
+  "rootCause": null,
+  "proposedFix": "Change WorkflowHandle interface definition from `WorkflowHandle<T extends Workflow>` to `WorkflowHandle<T extends Workflow = Workflow>`",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Generic default type parameter was added to WorkflowHandle interface to provide Workflow as the default type when not specified.",
+  "related": [],
+  "keyQuote": "WorkflowHandle requires an explicit T extends Workflow. It'd be nice to make it T extends Workflow = Workflow",
+  "number": 418,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:21.590Z"
+}

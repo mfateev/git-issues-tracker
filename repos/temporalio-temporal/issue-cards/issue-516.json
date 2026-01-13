@@ -1,0 +1,34 @@
+{
+  "summary": "CLI unable to display workflow details when heartbeat data contains non-string values (e.g., numbers). The CLI attempts to unmarshal JSON heartbeat details into a string type, causing deserialization failures.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordHeartbeat"
+  ],
+  "components": [
+    "cli",
+    "heartbeat-handler",
+    "payload-decoder"
+  ],
+  "concepts": [
+    "serialization",
+    "json-deserialization",
+    "payload-encoding",
+    "type-mismatch",
+    "heartbeat-details"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot inspect workflow details via CLI when activities record heartbeat data with non-string values, blocking operational visibility.",
+  "rootCause": "CLI code attempts to unmarshal JSON heartbeat values directly into a string pointer without handling cases where the payload is a number or other non-string JSON type. The Payloads struct contains metadata about encoding but the CLI doesn't properly deserialize based on the actual payload type.",
+  "proposedFix": "Return raw JSON byte array converted to string instead of unmarshalling to specific type, or make HeartbeatDetails an interface{} to handle arbitrary types, or provide fallback error message when decoding fails.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #525 by properly handling heartbeat payload deserialization and supporting multiple heartbeat arguments.",
+  "related": [
+    525
+  ],
+  "keyQuote": "We are then unmarshalling the JSON number and then trying to assign it to a string pointer. You can't assign a number to an string, which is the error you are getting.",
+  "number": 516,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:11:00.296Z"
+}

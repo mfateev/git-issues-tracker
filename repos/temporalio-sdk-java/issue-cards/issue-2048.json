@@ -1,0 +1,34 @@
+{
+  "summary": "ScheduleClient lacks an API to add interceptors (ScheduleClientCallsInterceptor or ScheduleClientInterceptor) for request interception and customization, following the pattern established by WorkflowClient.",
+  "category": "feature",
+  "subcategory": "schedule-client-interceptors",
+  "apis": [
+    "ScheduleClient",
+    "ScheduleClientOptions",
+    "ScheduleClientCallsInterceptor"
+  ],
+  "components": [
+    "schedule-client",
+    "client-options",
+    "interceptor-framework"
+  ],
+  "concepts": [
+    "interceptors",
+    "request-interception",
+    "client-customization",
+    "api-consistency",
+    "extension-point"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot add custom interceptors to ScheduleClient for request interception, limiting ability to customize behavior and add cross-cutting concerns like logging or monitoring.",
+  "rootCause": null,
+  "proposedFix": "Add API to ScheduleClientOptions to register ScheduleClientCallsInterceptor instances, following WorkflowClient's interceptor pattern.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ScheduleClientOptions was updated to support adding interceptors through an API consistent with WorkflowClient.",
+  "related": [],
+  "keyQuote": "There should be an API on ScheduleClientOptions to add ScheduleClientCallsInterceptor instances to the ScheduleClient.",
+  "number": 2048,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:56:34.285Z"
+}

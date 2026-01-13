@@ -1,0 +1,29 @@
+{
+  "summary": "Importing gevent.os causes sandbox errors due to gevent's internal use of dict.items() on a restricted proxy object, which Python's C code rejects.",
+  "category": "bug",
+  "subcategory": "sandbox-restrictions",
+  "apis": [],
+  "components": [
+    "sandbox",
+    "restricted-proxy",
+    "gevent-compatibility"
+  ],
+  "concepts": [
+    "module-introspection",
+    "dict-methods",
+    "proxy-wrapper",
+    "sandbox-enforcement"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot import gevent.os in workflows due to sandbox violations, breaking gevent-based code.",
+  "rootCause": "gevent internally calls dict.items() on the module's __dict__ through a restricted proxy wrapper, which Python's C code explicitly rejects for non-dict objects.",
+  "proposedFix": null,
+  "workaround": "Avoid importing gevent.os or use alternative approaches; workarounds to be suggested by maintainers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue is in gevent's C code implementation and cannot be fixed by Temporal SDK; workarounds were to be provided.",
+  "related": [],
+  "keyQuote": "This is checked in C code and we can't fix it. Will suggest work arounds.",
+  "number": 216,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:55:30.555Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Remove abbreviated option names in worker configuration to improve clarity. Options like `max_concurrent_wft_polls` should be renamed to `max_concurrent_workflow_task_polls` and `max_concurrent_at_polls` to `max_concurrent_activity_task_polls`.",
+  "category": "other",
+  "subcategory": "worker-options",
+  "apis": [],
+  "components": [
+    "worker-options",
+    "configuration"
+  ],
+  "concepts": [
+    "naming-clarity",
+    "api-design",
+    "abbreviations",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users working with worker options must remember cryptic abbreviations, reducing code readability and increasing learning curve.",
+  "rootCause": null,
+  "proposedFix": "Rename abbreviated option names to their full descriptive equivalents throughout the worker options API.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Option names were expanded to use full descriptive names instead of abbreviations for improved API clarity.",
+  "related": [],
+  "keyQuote": "In worker options, `max_concurrent_wft_polls` should be `max_concurrent_workflow_task_polls` and `max_concurrent_at_polls` should be `max_concurrent_activity_task_polls`.",
+  "number": 122,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:50:29.660Z"
+}

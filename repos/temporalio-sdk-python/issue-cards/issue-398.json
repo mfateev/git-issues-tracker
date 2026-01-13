@@ -1,0 +1,31 @@
+{
+  "summary": "Drop Python 3.7 support, update to minimum Python 3.8, and add Python 3.12 to CI. Also update build tooling versions (setuptools-rust, cibuildwheel) and re-investigate build system hacks.",
+  "category": "feature",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "build-tooling",
+    "CI-pipeline",
+    "setuptools-rust",
+    "cibuildwheel"
+  ],
+  "concepts": [
+    "version-support",
+    "python-compatibility",
+    "build-automation",
+    "dependency-management",
+    "CI-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to update to Python 3.8+ and benefit from Python 3.12 support and modernized build infrastructure.",
+  "rootCause": null,
+  "proposedFix": "Remove Python 3.7 support, update build tooling versions, add Python 3.12 to CI matrix, re-investigate and fix build system hacks",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the requested build improvements and Python version updates were completed",
+  "related": [],
+  "keyQuote": "Remove support for 3.7 (i.e. update everything to 3.8), Update build tooling versions of setuptools-rust, cibuildwheel, and others, Add 3.12 to CI",
+  "number": 398,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:02.877Z"
+}

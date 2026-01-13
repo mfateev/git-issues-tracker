@@ -1,0 +1,30 @@
+{
+  "summary": "Tracing spans for local and remote activities have identical prefixes, making it difficult to distinguish between them in span data. The request is to add differentiation to span names to clarify whether an activity is local or remote.",
+  "category": "other",
+  "subcategory": "tracing",
+  "apis": [],
+  "components": [
+    "tracing",
+    "activity-executor",
+    "local-activity"
+  ],
+  "concepts": [
+    "observability",
+    "span-naming",
+    "activity-type",
+    "distributed-tracing",
+    "debugging"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot easily distinguish between local and remote activity spans when analyzing distributed traces, making debugging and performance monitoring more difficult.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "tracing spans created for normal and local activities have the same exact prefix like \"startactivity\" and \"runactivity\"",
+  "number": 1440,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:39.723Z"
+}

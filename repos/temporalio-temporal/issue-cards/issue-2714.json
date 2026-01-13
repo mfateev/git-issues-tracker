@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow.sleep(0) does not add an event to the workflow history in the Java SDK, which can cause nondeterminism errors when sleep duration is controlled by dynamic properties that change between 0 and non-zero values.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow.sleep"
+  ],
+  "components": [
+    "workflow-executor",
+    "history-management",
+    "replay-engine"
+  ],
+  "concepts": [
+    "determinism",
+    "history-events",
+    "dynamic-configuration",
+    "workflow-replay",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who use dynamic properties to control Workflow.sleep duration risk nondeterminism errors when the property value changes to or from 0.",
+  "rootCause": "Workflow.sleep(0) is a no-op that does not generate a history event, unlike non-zero sleep durations, creating an inconsistency in replay behavior.",
+  "proposedFix": "Add a history event for Workflow.sleep(0) to maintain determinism when sleep duration is controlled dynamically.",
+  "workaround": "Use SideEffect or MutableSideEffect to fetch dynamic configuration to ensure replay safety instead of directly controlling sleep duration with dynamic values.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The issue was closed as the team determined that adding an event for Workflow.sleep(0) would be a breaking change. The recommended approach is to use SideEffect/MutableSideEffect for dynamic configuration.",
+  "related": [],
+  "keyQuote": "If the property value is changed to or from 0, the workflow history will have changed and this causes nondeterminism errors.",
+  "number": 2714,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:56.550Z"
+}

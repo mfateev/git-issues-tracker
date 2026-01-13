@@ -1,0 +1,32 @@
+{
+  "summary": "Proposal for a new way to write Temporal workflows using WorkflowState definitions instead of traditional replay-safe workflow code, inspired by AWS StepFunctions but built on Temporal to reduce developer complexity and eliminate non-deterministic errors.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow",
+    "activity",
+    "signal",
+    "timer"
+  ],
+  "concepts": [
+    "replayability",
+    "state-machine",
+    "workflow-abstraction",
+    "non-determinism",
+    "developer-experience",
+    "code-generation"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides developers with a simpler, safer way to write Temporal workflows without needing to understand replay semantics, reducing cognitive load and common errors.",
+  "rootCause": "Current Temporal workflow development requires understanding replay safety and determinism, which is counter to typical programming patterns and causes difficulty for engineers.",
+  "proposedFix": "Implement a WorkflowState-based DSL where users define workflow logic through state definitions with requestPrecondition and decideNextStates callbacks, executed as activities within a single framework-provided workflow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Instead of writing the Temporal workflow, we let users write workflow in code by defining a set of **WorkflowState**.",
+  "number": 2685,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:31:04.518Z"
+}

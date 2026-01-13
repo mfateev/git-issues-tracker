@@ -1,0 +1,31 @@
+{
+  "summary": "Implement history compatibility testing for all SDKs (TypeScript, Python, .NET) and all features to ensure new SDK releases maintain compatibility with older SDK-recorded histories. Currently supported only in Go and Java.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "history-recording",
+    "history-comparison",
+    "ci-validation",
+    "sdk-testing"
+  ],
+  "concepts": [
+    "history-compatibility",
+    "backward-compatibility",
+    "cross-sdk-testing",
+    "test-automation",
+    "version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot verify that new SDK releases maintain history compatibility across all SDKs and features, risking silent compatibility breaks.",
+  "rootCause": null,
+  "proposedFix": "Add history recording and comparison support to TypeScript, Python, and .NET SDKs; implement CI check to validate all features have recorded histories.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed across all SDKs with history recording and comparison support added to TypeScript, Python, and .NET.",
+  "related": [],
+  "keyQuote": "Support was added for Go and Java tests to record histories and compare them to histories created during a run.",
+  "number": 444,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:30.500Z"
+}

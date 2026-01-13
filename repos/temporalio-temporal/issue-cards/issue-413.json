@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal CLI workflow query command returns JSON unmarshal errors when querying with certain query types like __open_sessions or getStats, failing to properly decode response payloads.",
+  "category": "bug",
+  "subcategory": "cli-workflow-query",
+  "apis": [],
+  "components": [
+    "cli",
+    "workflow-query",
+    "json-decoder"
+  ],
+  "concepts": [
+    "query-result",
+    "json-unmarshalling",
+    "response-decoding",
+    "workflow-state",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot query workflow status using the CLI with certain query types due to JSON decoding failures.",
+  "rootCause": "JSON unmarshal logic incorrectly expects string type but receives array or object in response payload.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #542 according to comment from maintainer.",
+  "related": [
+    542
+  ],
+  "keyQuote": "unable to decode JSON: json: cannot unmarshal array into Go value of type string",
+  "number": 413,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:55:57.869Z"
+}

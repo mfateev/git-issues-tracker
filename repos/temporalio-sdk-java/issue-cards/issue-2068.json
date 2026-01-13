@@ -1,0 +1,33 @@
+{
+  "summary": "Remove the ability to call continue-as-new in update handlers for the Java SDK. A previous decision to allow this was reverted across SDKs, but Java still has this functionality implemented and should be updated to disallow it.",
+  "category": "other",
+  "subcategory": "update-handlers",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "update-handlers",
+    "workflow-lifecycle",
+    "API-consistency",
+    "SDK-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may accidentally use an unsupported feature that contradicts the behavior of other SDKs, leading to inconsistent workflow behavior.",
+  "rootCause": "Java SDK was the only implementation to support continue-as-new in update handlers after a cross-SDK decision to revert this feature.",
+  "proposedFix": "Fail with an error if users try to call continue-as-new within an update handler.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation aligned Java SDK with the reverted cross-SDK decision by disallowing continue-as-new in update handlers.",
+  "related": [
+    379
+  ],
+  "keyQuote": "Previously at https://github.com/temporalio/features/issues/379 it was decided to allow continue-as-new in update handlers. This decision has been reverted but Java was the only one that implemented it.",
+  "number": 2068,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:57:40.176Z"
+}

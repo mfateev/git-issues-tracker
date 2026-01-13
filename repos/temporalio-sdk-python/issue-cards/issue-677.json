@@ -1,0 +1,33 @@
+{
+  "summary": "User asks how to log uncaught exceptions from activities and workflows running in thread pool executors while still allowing Temporal to capture failures for retries and UI display. The standard sys.excepthook approach doesn't work for threads.",
+  "category": "question",
+  "subcategory": "exception-handling",
+  "apis": [
+    "ExecuteActivity",
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "interceptor"
+  ],
+  "concepts": [
+    "exception-handling",
+    "logging",
+    "threading",
+    "error-propagation",
+    "retry-mechanism"
+  ],
+  "severity": "low",
+  "userImpact": "Users running activities in thread pool executors cannot customize exception logging without losing error propagation to Temporal.",
+  "rootCause": "sys.excepthook is not propagated to threads by Python, so standard exception handling patterns fail in worker thread pools.",
+  "proposedFix": "Use activity and workflow interceptors to catch, log, and re-raise exceptions.",
+  "workaround": "Redirect stderr to /dev/null in a context manager while using interceptors for logging.",
+  "resolution": "fixed",
+  "resolutionDetails": "User implemented an interceptor-based solution using structlog to log exceptions from both activities and workflows while maintaining error propagation.",
+  "related": [],
+  "keyQuote": "You should look into interceptors. For instance, this sample sends errors to Sentry. You can make an activity interceptor that logs and re-raises.",
+  "number": 677,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:25.576Z"
+}

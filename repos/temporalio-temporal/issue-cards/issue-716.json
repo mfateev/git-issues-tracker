@@ -1,0 +1,31 @@
+{
+  "summary": "User reports that automatic cluster failover is not working as expected in their NDC deployment. After killing the active cluster, no automatic switch to standby cluster occurred, and they request clarification on HA cluster switching behavior.",
+  "category": "question",
+  "subcategory": "cluster-failover",
+  "apis": [],
+  "components": [
+    "cluster-manager",
+    "namespace-replication",
+    "multi-cluster-setup"
+  ],
+  "concepts": [
+    "high-availability",
+    "failover",
+    "active-cluster",
+    "cluster-switching",
+    "disaster-recovery",
+    "ndc"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying multi-cluster setups cannot rely on automatic failover to standby clusters, requiring manual intervention during outages.",
+  "rootCause": "Automatic cluster switching for namespace failover is not implemented; cluster active/passive settings must be managed manually.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Active/passive cluster settings are managed manually by operators, automatic failover is not a supported feature.",
+  "related": [],
+  "keyQuote": "Namespace active / passive settings are currently managed by human, at least for now",
+  "number": 716,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:34.970Z"
+}

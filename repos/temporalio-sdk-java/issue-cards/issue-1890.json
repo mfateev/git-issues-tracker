@@ -1,0 +1,32 @@
+{
+  "summary": "The spring-boot-starter dependency in the Java SDK contains 9 known vulnerabilities from transitive dependencies (snakeyaml, logback, spring-boot), with the most critical being CVE-2022-1471 (CVSS 9.8) allowing remote code execution via unsafe YAML deserialization.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "dependency-management",
+    "build-configuration"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency-upgrade",
+    "transitive-dependency",
+    "deserialization",
+    "remote-code-execution",
+    "yaml-parsing"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using the Temporal Java SDK with spring-boot-starter are exposed to remote code execution attacks and denial-of-service through vulnerable transitive dependencies.",
+  "rootCause": "Outdated transitive dependencies in spring-boot-starter (snakeyaml-1.30, logback-classic-1.2.12, spring-boot-2.7.12) contain unpatched security vulnerabilities with high CVSS scores.",
+  "proposedFix": "Upgrade spring-boot-starter to version 3.2.0 or later, which includes patched versions of snakeyaml (2.0+), logback-classic (1.2.13+), and spring-boot (2.7.18+) to remediate all 9 CVEs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization. Deserializing yaml content provided by an attacker can lead to remote code execution.",
+  "number": 1890,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:49.779Z"
+}

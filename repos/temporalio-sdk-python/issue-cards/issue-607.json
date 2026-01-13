@@ -1,0 +1,32 @@
+{
+  "summary": "Python worker unintentionally hot-reloads workflow definitions from disk on every workflow run or CAN instead of requiring process restart, creating production deployment risks where users expect file overwrites to only take effect after process restart.",
+  "category": "bug",
+  "subcategory": "worker-sandboxing",
+  "apis": [],
+  "components": [
+    "worker",
+    "sandboxing",
+    "import-system",
+    "workflow-loader"
+  ],
+  "concepts": [
+    "hot-reload",
+    "import-cache",
+    "workflow-definition",
+    "process-restart",
+    "production-safety",
+    "file-system"
+  ],
+  "severity": "high",
+  "userImpact": "Production deployments are at risk because running workflow processes can unexpectedly hot-reload code changes from disk, breaking user expectations that file modifications only take effect after process restart.",
+  "rootCause": "Worker sandboxing implementation disables Python import cache, causing the workflow definition to be re-read from disk on every workflow run and CAN instead of being cached.",
+  "proposedFix": "Permit the re-read-from-disk to continue but have the worker copy relevant files to a private location and import workflows from there instead of directly from the original location.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "worker sandboxing involves disabling import cache which results in re-reading from disk... users are likely to expect that during deployments they can overwrite files without any modifications to running processes until process restart",
+  "number": 607,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:01.332Z"
+}

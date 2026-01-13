@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowAlreadyStartedException constructor incorrectly places workflow type in the run ID parameter position and doesn't properly accept workflow type. The exception needs a separate constructor that accepts workflow type with a nullable run ID, and the run ID property should be made nullable.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "WorkflowAlreadyStartedException"
+  ],
+  "components": [
+    "exception-handling",
+    "child-workflow-manager",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "exception-design",
+    "constructor-overloading",
+    "child-workflows",
+    "type-safety",
+    "API-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter confusing exception behavior when child workflows are already started, with incorrect parameter positioning making error handling and debugging difficult.",
+  "rootCause": "WorkflowAlreadyStartedException constructor design places workflow type value in the run ID parameter, creating an API mismatch between the exception's purpose and its implementation.",
+  "proposedFix": "Create a separate constructor that accepts workflow type with nullable run ID; expose workflow type property; make run ID property nullable.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by restructuring the exception constructor to properly accept workflow type and nullable run ID parameters.",
+  "related": [],
+  "keyQuote": "Child workflow already started throws WorkflowAlreadyStartedException, but not only does that not accept a workflow type, but it _requires_ a run ID and is accidentally putting the workflow type in the run ID's place.",
+  "number": 371,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:16:41.147Z"
+}

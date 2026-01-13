@@ -1,0 +1,34 @@
+{
+  "summary": "Request to allow setting WorkflowOptions via WorkflowImplementationOptions to configure default workflow options per workflow type, similar to how ActivityOptions can be configured. This would enable configuration-driven setup instead of requiring injection at stub creation time.",
+  "category": "feature",
+  "subcategory": "workflow-configuration",
+  "apis": [
+    "WorkflowImplementationOptions",
+    "WorkflowOptions",
+    "WorkerOptions"
+  ],
+  "components": [
+    "worker",
+    "workflow-stub",
+    "configuration"
+  ],
+  "concepts": [
+    "configuration",
+    "defaults",
+    "dependency-injection",
+    "workflow-dispatch",
+    "options-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must inject configuration objects into workflow stub creation code rather than being able to set defaults centrally per workflow type.",
+  "rootCause": "WorkflowOptions must be defined before workflow dispatch to the worker, so the worker cannot decide them like it can with ActivityOptions.",
+  "proposedFix": "Allow WorkerOptions to set default WorkflowOptions per workflow type, if technically feasible.",
+  "workaround": "Inject configuration options into any code that creates a workflow stub.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Not possible with current design as WorkflowOptions must be defined before workflow dispatch. A new component is being developed to address this broader problem.",
+  "related": [],
+  "keyQuote": "WorkflowOptions have to be defined at the workflow start BEFORE the workflow ever gets dispatched to the worker.",
+  "number": 1464,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:36:13.092Z"
+}

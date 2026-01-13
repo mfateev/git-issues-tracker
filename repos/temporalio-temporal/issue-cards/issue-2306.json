@@ -1,0 +1,34 @@
+{
+  "summary": "Multiple retry layers in history service persistence calls cause excessive retries when errors occur. The issue requests consolidating retry logic to specific layers (client, network interceptor, async tasks) rather than having retry logic scattered throughout business logic.",
+  "category": "bug",
+  "subcategory": "persistence-retry",
+  "apis": [],
+  "components": [
+    "history-service",
+    "persistence-layer",
+    "network-interceptor",
+    "client-layer",
+    "workflow-transaction"
+  ],
+  "concepts": [
+    "retry-logic",
+    "error-handling",
+    "resource-limits",
+    "distributed-system",
+    "redundant-retries",
+    "network-resilience",
+    "transaction-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Duplicate retry logic across multiple layers amplifies the number of requests sent during errors, potentially overwhelming services and degrading performance during resource constraint situations.",
+  "rootCause": "Retry logic is implemented at multiple independent layers (client, network API, persistence transaction) without coordination, leading to exponential retry attempts when errors occur.",
+  "proposedFix": "Consolidate retry logic to specific designated layers: client (2x), service network interceptor (2x), and async task processing, with no retry within business logic.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue author's comment indicates this was resolved, though no specific PR or commit reference is provided.",
+  "related": [],
+  "keyQuote": "When error actually happen, e.g. resource limit exceeded, retry will be done in multiple layer, causing even more requests sent to e.g. history service",
+  "number": 2306,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:39.234Z"
+}

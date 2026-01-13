@@ -1,0 +1,30 @@
+{
+  "summary": "The Cassandra data backend should use a lower consistency level (LOCAL_QUORUM or QUORUM) instead of ALL when performing schema version checks during server startup, to improve reliability and performance.",
+  "category": "other",
+  "subcategory": "cassandra-persistence",
+  "apis": [],
+  "components": [
+    "cassandra-backend",
+    "schema-version-check",
+    "startup"
+  ],
+  "concepts": [
+    "consistency-level",
+    "data-persistence",
+    "server-initialization",
+    "cassandra",
+    "reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Using ALL consistency level for schema checks can cause startup failures or performance degradation when Cassandra nodes are unavailable.",
+  "rootCause": "Schema version check during startup uses ALL consistency level, which is overly strict for this non-critical operation.",
+  "proposedFix": "Change consistency level to LOCAL_QUORUM or QUORUM for schema version checks during startup.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Cassandra data backend should not use consistency level `ALL` when doing schema version check during start up",
+  "number": 1085,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:01:38.657Z"
+}

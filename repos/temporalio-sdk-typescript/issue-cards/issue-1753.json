@@ -1,0 +1,35 @@
+{
+  "summary": "TypeScript SDK client sends versioning override data in a format incompatible with Temporal Server 1.28.0+, which expects either the new v0.32 structure with pinned override behavior or the deprecated v0.31 structure, but not both mixed together. This causes workflow startup to fail with a validation error.",
+  "category": "bug",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "WorkflowClient.start()"
+  ],
+  "components": [
+    "client",
+    "worker-versioning",
+    "versioning-override"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "pinned-behavior",
+    "api-compatibility",
+    "deployment",
+    "build-id",
+    "validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start workflows with pinned worker versioning overrides on Temporal Server 1.28.0 or later using TypeScript SDK 1.12+.",
+  "rootCause": "TypeScript SDK sends versioning override data combining both v0.31 and v0.32 API structures simultaneously, while server 1.28.0+ validates and prefers the v0.32 structure exclusively, rejecting the mixed format.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    8114
+  ],
+  "keyQuote": "This fails validation, as the server prefers validation of the v0.32 structure over the deprecated v0.31 structure.",
+  "number": 1753,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:16.742Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "The lastWorkerIdentity field in describeWorkflow's pendingActivity is empty when an activity is picked up by a worker on its first attempt. The server captures the worker identity from the long poll request but stores it in StartedIdentity instead of RetryLastWorkerIdentity, which describeWorkflow uses to report the value.",
+  "category": "bug",
+  "subcategory": "activity-worker-identity",
+  "apis": [
+    "describeWorkflow"
+  ],
+  "components": [
+    "history-engine",
+    "mutable-state",
+    "activity-info"
+  ],
+  "concepts": [
+    "worker-identity",
+    "activity-execution",
+    "pending-activity",
+    "retry-policy",
+    "first-attempt"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot identify which worker is executing a pending activity on its first attempt, making it difficult to debug distributed workflow execution and monitor activity assignment.",
+  "rootCause": "The server persists worker identity to ActivityInfo#StartedIdentity on first attempt but describeWorkflow only reads from ActivityInfo#RetryLastWorkerIdentity, which is only populated on retries.",
+  "proposedFix": "Write the worker identity to ActivityInfo#RetryLastWorkerIdentity immediately after StartedIdentity on the first attempt, or modify describeWorkflow to check StartedIdentity when RetryLastWorkerIdentity is empty.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #2007 which ensured worker identity is properly persisted to RetryLastWorkerIdentity on first attempt.",
+  "related": [
+    2007,
+    784
+  ],
+  "keyQuote": "If the activity is picked up by the worker the first time and is in-progress, describeWorkflow returns an empty pendingActivity#lastWorkerIdentity.",
+  "number": 1999,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:12.499Z"
+}

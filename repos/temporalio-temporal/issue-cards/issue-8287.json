@@ -1,0 +1,31 @@
+{
+  "summary": "PostgreSQL archival service causes significant performance degradation at scale due to inefficient row-by-row DELETE operations. User proposes a partition-aware archival mode that detaches, archives, and drops entire table partitions instead of deleting rows.",
+  "category": "feature",
+  "subcategory": "archival-performance",
+  "apis": [],
+  "components": [
+    "archival-service",
+    "postgres-backend",
+    "blob-store"
+  ],
+  "concepts": [
+    "partitioning",
+    "table-lifecycle",
+    "storage-reclamation",
+    "database-maintenance",
+    "operational-efficiency",
+    "iops-optimization"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal at scale with PostgreSQL experience severe database performance degradation, table bloat, and resource exhaustion due to the archival service's inefficient deletion pattern.",
+  "rootCause": "The current archival process relies on row-by-row DELETE operations which do not scale efficiently on massive tables, causing excessive IOPS, CPU consumption, and table bloat.",
+  "proposedFix": "Implement partition-aware archival mode for PostgreSQL that: (1) detaches partitions older than retention period, (2) archives entire partition contents to blob store, (3) drops detached partition for instant storage reclamation.",
+  "workaround": "Tune dynamic configs: history.archivalBackendMaxRPS and history.archivalTaskBatchSize to throttle the archival process to avoid impacting live workloads.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not planned because data has varying lifespans across workflows and namespaces with different retention policies, making time-based partition dropping impractical. Server deduplication requirements also complicate the approach.",
+  "related": [],
+  "keyQuote": "Data that we write to the DB may have varying lifespans...There is no clear cut to just dropping a data partition by time.",
+  "number": 8287,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:38.508Z"
+}

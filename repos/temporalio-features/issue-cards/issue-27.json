@@ -1,0 +1,30 @@
+{
+  "summary": "Each SDK's gRPC retry logic implementation differs across the codebase. This feature request calls for unifying the retry behavior across Core, TypeScript, Java, Go, and PHP SDKs to ensure consistent and maintainable retry semantics.",
+  "category": "feature",
+  "subcategory": "grpc-retry",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "retry-interceptor",
+    "service-client"
+  ],
+  "concepts": [
+    "retry-logic",
+    "grpc",
+    "cross-sdk-consistency",
+    "error-handling",
+    "network-resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Inconsistent gRPC retry behavior across SDKs creates confusion and potential reliability issues for users building polyglot Temporal applications.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Each SDK's gRPC retry logic is a bit different and should be unified.",
+  "number": 27,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:06.075Z"
+}

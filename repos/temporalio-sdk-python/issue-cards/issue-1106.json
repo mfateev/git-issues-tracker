@@ -1,0 +1,32 @@
+{
+  "summary": "TLS certificate verification fails during poll_workflow_task_queue when connecting to Temporal server in Kubernetes. The client attempts to resolve the matching service pod IP instead of using the frontend service hostname, causing certificate SAN validation errors.",
+  "category": "bug",
+  "subcategory": "tls-certificate-validation",
+  "apis": [
+    "poll_workflow_task_queue"
+  ],
+  "components": [
+    "client",
+    "connection",
+    "tls"
+  ],
+  "concepts": [
+    "tls-certificate",
+    "kubernetes-service-discovery",
+    "hostname-resolution",
+    "certificate-san",
+    "internode-communication"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Python workers in Kubernetes with TLS cannot connect to Temporal server due to certificate verification failures on task queue polling.",
+  "rootCause": "Missing server_name configuration under server.config.tls.internode.client in Helm chart configuration, causing gRPC client to use pod IP instead of frontend service hostname for TLS verification.",
+  "proposedFix": "Add server_name parameter under server.config.tls.internode.client in Helm configuration to explicitly specify the hostname for TLS certificate verification.",
+  "workaround": "Configure server_name in the internode TLS client settings to match the certificate SAN (e.g., temporal-frontend.main.svc).",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by adding server_name configuration to Helm chart's TLS internode client settings, allowing proper hostname resolution during TLS handshake.",
+  "related": [],
+  "keyQuote": "I was missing server_name under server.config.tls.internode.client in my Helm config.",
+  "number": 1106,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:32:28.540Z"
+}

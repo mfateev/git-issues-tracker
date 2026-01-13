@@ -1,0 +1,32 @@
+{
+  "summary": "Update the remove_dir_all dependency to address a security vulnerability (GHSA-mc8h-8q98-g5hr) in the transitive dependency chain. The vulnerable library is remove_dir_all-0.5.3 which is required by tempfile through the Rust build chain.",
+  "category": "bug",
+  "subcategory": "dependency-vulnerability",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "build-system",
+    "rust-bridge"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "dependency-update",
+    "transitive-dependency",
+    "cargo"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to a security vulnerability through a transitive dependency that could be exploited if the vulnerable code path is triggered.",
+  "rootCause": "Outdated remove_dir_all-0.5.3 dependency in the transitive dependency chain through tempfile-3.3.0, prost-build-0.11.1, and tonic-build-0.8.2.",
+  "proposedFix": "Run `cargo update` in the Python bridge to update the vulnerable transitive dependencies to patched versions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via cargo update in Python bridge, merged in PR #307.",
+  "related": [
+    54
+  ],
+  "keyQuote": "This can be fixed via `cargo update` in Python bridge",
+  "number": 297,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:04.563Z"
+}

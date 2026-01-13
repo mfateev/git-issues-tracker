@@ -1,0 +1,32 @@
+{
+  "summary": "The pageSize parameter in temporalClient.list() doesn't work as expected—returning thousands of results instead of the specified page size of 1. User cannot test pagination functionality and needs clarification on proper usage.",
+  "category": "bug",
+  "subcategory": "list-pagination",
+  "apis": [
+    "list"
+  ],
+  "components": [
+    "client",
+    "list-method",
+    "pagination"
+  ],
+  "concepts": [
+    "pageSize",
+    "pagination",
+    "query-filtering",
+    "visibility",
+    "async-iteration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively paginate through workflow query results, blocking large-scale data retrieval use cases.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "completed",
+  "resolutionDetails": "Issue marked as completed, though commenter questions if fix was actually applied or if user discovered a workaround/misuse of the API.",
+  "related": [],
+  "keyQuote": "I'm calling temporalClient.list({pageSize: 1, query: 'randomQuery'}) but it seems to just returns thousands of results",
+  "number": 1382,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:36.108Z"
+}

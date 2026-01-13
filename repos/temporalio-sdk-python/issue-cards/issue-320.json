@@ -1,0 +1,31 @@
+{
+  "summary": "Remove the experimental warning from Schedules API in Python SDK, bringing it in line with the Go SDK which already had this warning removed.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [
+    "Schedules"
+  ],
+  "components": [
+    "schedules",
+    "api",
+    "python-sdk"
+  ],
+  "concepts": [
+    "experimental-warning",
+    "api-stability",
+    "feature-maturity",
+    "sdk-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users can use Schedules without seeing experimental warnings, indicating the feature is stable and production-ready.",
+  "rootCause": null,
+  "proposedFix": "Remove the experimental warning annotation/documentation from Schedules, following the pattern already implemented in Go SDK",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Experimental warning was removed from Schedules in Python SDK to match Go SDK changes",
+  "related": [],
+  "keyQuote": "Already removed in Go at https://github.com/temporalio/sdk-go/pull/1064.",
+  "number": 320,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:33.665Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "Worker process hangs indefinitely after encountering a polling error (PermissionDenied) during task retrieval from the server. The worker logs the error but fails to properly shut down, leaving the process in a hung state.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "Worker",
+    "Client.connect"
+  ],
+  "components": [
+    "worker",
+    "poll-task",
+    "error-handling",
+    "shutdown"
+  ],
+  "concepts": [
+    "authorization",
+    "polling",
+    "error-recovery",
+    "graceful-shutdown",
+    "permission-denied",
+    "hang-state",
+    "task-polling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot recover from authentication or permission errors when starting a worker—the process hangs indefinitely and must be manually killed.",
+  "rootCause": "Root cause identified in Rust Core layer (temporal/sdk-core#667). The core SDK fails to properly handle permission-denied errors during polling, preventing graceful worker shutdown.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in the Rust Core SDK (temporalio/sdk-core#667). The fix has been merged but was not yet released in a Python SDK version at the time of issue closure.",
+  "related": [
+    667
+  ],
+  "keyQuote": "Worker hangs after an error during polling. The authorization token is incorrect, so the worker cannot retrieve any tasks from the server.",
+  "number": 459,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:08:26.172Z"
+}

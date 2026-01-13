@@ -1,0 +1,31 @@
+{
+  "summary": "Team exploring Temporal for large-scale workflow system inquires about feasibility of BigTable-based persistence as alternative to Cassandra, given their Google Cloud infrastructure preference and scale requirements (100s of executions/sec).",
+  "category": "question",
+  "subcategory": "persistence-layer",
+  "apis": [],
+  "components": [
+    "persistence",
+    "cassandra-driver",
+    "database-abstraction"
+  ],
+  "concepts": [
+    "consistency-guarantees",
+    "atomic-updates",
+    "row-level-transactions",
+    "cloud-infrastructure",
+    "scalability",
+    "workflow-execution-state"
+  ],
+  "severity": "low",
+  "userImpact": "Users running Temporal on Google Cloud seeking alternative persistence backends face limited options and must choose between unfamiliar Cassandra operations or expensive Cloud Spanner.",
+  "rootCause": "Temporal's persistence layer is tightly coupled to Cassandra's consistency model; BigTable's single-row atomicity and lack of multi-row transactions are insufficient for UpdateCurrentWorkflowExecutionForNewQuery operations.",
+  "proposedFix": "Implement conditional read-then-write operations over BigTable to simulate multi-row consistency for critical queries like UpdateCurrentWorkflowExecutionForNewQuery.",
+  "workaround": "Use Google Cloud Spanner (more expensive but supports necessary transactions) or invest in operating Cassandra despite unfamiliarity.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Community confirmed that BigTable's lack of multi-row transactions and complex consistency mechanisms make it incompatible with Temporal's requirements. Spanner is cost-prohibitive, leaving Cassandra as the practical choice for Google Cloud deployments.",
+  "related": [],
+  "keyQuote": "big table is not targeted as a OLTP database, so if your target is to use a google product, consider spanner or cloud sql",
+  "number": 1514,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:34:28.812Z"
+}

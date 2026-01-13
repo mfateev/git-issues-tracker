@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow execution with oversized arguments creates a corrupted history event with no events, causing subsequent workflow retrievals to fail with 'corrupted history event batch' errors and blocking other workflow executions in the namespace.",
+  "category": "bug",
+  "subcategory": "history-corruption",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "history-service",
+    "workflow-execution",
+    "event-storage",
+    "batch-handling"
+  ],
+  "concepts": [
+    "payload-size-limits",
+    "history-corruption",
+    "event-batching",
+    "database-consistency",
+    "error-handling"
+  ],
+  "severity": "critical",
+  "userImpact": "Users cannot execute workflows with large arguments, and corrupted executions block all subsequent workflows in the namespace until manually cleared from the database.",
+  "rootCause": "When workflow arguments exceed max history size, the server creates a workflow execution with no initial history events, leaving the event stream in an inconsistent state that database queries cannot read.",
+  "proposedFix": null,
+  "workaround": "Manually delete the corrupted execution from the database.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not officially supported issue - Scylla database behavior differs from Cassandra regarding batch size thresholds, and Scylla is not officially supported (Cassandra 3.11, MySQL 5.7, PostgreSQL 9.6 only).",
+  "related": [],
+  "keyQuote": "A workflow execution is created with no history. Subsequent attempts to retrieve the workflow get 'corrupted history event batch, eventID is not continuous'",
+  "number": 1267,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:11:46.754Z"
+}

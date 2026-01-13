@@ -1,0 +1,30 @@
+{
+  "summary": "pnpm package manager support is needed for the TypeScript SDK. Currently webpack builds fail with pnpm due to its hoisted module structure, requiring workaround using shamefully-hoist flag. Discussion concluded that users should install @temporalio/* packages directly instead of the temporalio package.",
+  "category": "feature",
+  "subcategory": "package-manager-support",
+  "apis": [],
+  "components": [
+    "webpack",
+    "build-system",
+    "package-management"
+  ],
+  "concepts": [
+    "pnpm",
+    "module-resolution",
+    "hoisting",
+    "yarn-pnp",
+    "package-structure"
+  ],
+  "severity": "low",
+  "userImpact": "Users trying to use pnpm with the TypeScript SDK encounter webpack build failures and must use workarounds like shamefully-hoist flag.",
+  "rootCause": "pnpm's non-hoisted module structure (node_modules in workspace subdirectories) differs from npm/yarn, causing webpack configuration issues during builds.",
+  "proposedFix": "Document that users should install @temporalio/* packages directly rather than the temporalio package when using yarn or pnpm.",
+  "workaround": "Add shamefully-hoist=true option to pnpm configuration to revert to npm/yarn style module locations.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided not to modify the package structure but instead document that users should import from @temporalio/* packages directly when using yarn/pnpm, avoiding the monolithic temporalio package.",
+  "related": [],
+  "keyQuote": "Don't install the `temporalio` package if you're using yarn or pnpm. Instead, install the `@temporalio/*` packages that you import from.",
+  "number": 421,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:08:38.479Z"
+}

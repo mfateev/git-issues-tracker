@@ -1,0 +1,30 @@
+{
+  "summary": "Allow replayers to execute queries at specific task boundaries (event numbers), enabling query execution at every task boundary during workflow replay.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "query-execution",
+    "task-boundary"
+  ],
+  "concepts": [
+    "replay",
+    "query",
+    "task-boundary",
+    "event-number",
+    "temporal-cli"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain the ability to run queries at specific points during workflow replay, enabling more flexible testing and debugging of workflow executions.",
+  "rootCause": null,
+  "proposedFix": "Replayers should accept a query parameter and task boundary identifier to execute queries at specified event numbers or at every task boundary.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Replayers should allow users to provide a query and a certain task boundary to run it. Each query should effectively be a promise that is fulfilled during replay.",
+  "number": 550,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:29.181Z"
+}

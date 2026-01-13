@@ -1,0 +1,31 @@
+{
+  "summary": "SDKs need to prefix span and span tag names with 'temporal' or 'io.temporal' for proper namespacing in observability systems. The discussion centers on whether this should be the default behavior or opt-in, considering backwards compatibility implications.",
+  "category": "feature",
+  "subcategory": "observability-spans",
+  "apis": [],
+  "components": [
+    "span-naming",
+    "observability",
+    "tracing"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "span-tags",
+    "backwards-compatibility",
+    "namespacing",
+    "defaults"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter span name collisions or lack of proper namespacing in observability systems when using Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": "Prefix all SDK span and span tag names with 'temporal' or 'io.temporal' by default across all SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Prefix with `temporal` or `io.temporal` in all SDKs. The concern is whether we have to retain backwards compatibility as unprefixed by default.",
+  "number": 93,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:09.553Z"
+}

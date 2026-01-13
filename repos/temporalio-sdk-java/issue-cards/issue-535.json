@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add thread pool metrics for the pollExecutor to help understand SDK thread usage and tune workers. The main challenge is identifying worker groups consistently across process deployments while maintaining unique identity per worker.",
+  "category": "feature",
+  "subcategory": "metrics-monitoring",
+  "apis": [
+    "WorkflowClientOptions"
+  ],
+  "components": [
+    "poller",
+    "thread-pool",
+    "metrics",
+    "worker"
+  ],
+  "concepts": [
+    "thread-pool-metrics",
+    "monitoring",
+    "observability",
+    "worker-identity",
+    "performance-tuning",
+    "resource-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to monitor thread pool usage and tune worker performance more effectively through deterministic metric tags that persist across deployments.",
+  "rootCause": "Current identity scheme uses process-unique values, preventing metric correlation across worker instances and deployments.",
+  "proposedFix": "Add an optional 'identityGroup' property to WorkflowClientOptions to provide a static, non-unique identifier for grouping workers across processes for metric correlation.",
+  "workaround": "Users could set a static identity value, but this would lose the ability to identify individual pollers uniquely.",
+  "resolution": "fixed",
+  "resolutionDetails": "Rob was able to solve the problem using existing APIs and capabilities that Temporal provides.",
+  "related": [],
+  "keyQuote": "what I'm describing is impossible if there is more than 1 poller in the process. Defining a static identity value would provide us this capability, but then we would lose the ability to identify pollers uniquely",
+  "number": 535,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:24:18.261Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "User requested typed return types for workflow.execute_activity() using Python generics instead of returning Any. Discussion revealed the SDK already supports type-safe overloads that extract return types from activity definitions, suggesting the issue may be an IDE limitation rather than an SDK bug.",
+  "category": "question",
+  "subcategory": "type-annotations",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "workflow",
+    "activity",
+    "type-hints"
+  ],
+  "concepts": [
+    "type-safety",
+    "generics",
+    "ide-support",
+    "type-inference",
+    "overloads"
+  ],
+  "severity": "low",
+  "userImpact": "Users may experience inadequate IDE type hints when calling execute_activity, making it harder to discover activity return types during development.",
+  "rootCause": "Potential PyCharm IDE limitation with recognizing type-safe overloads rather than an SDK implementation issue.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The requested feature already exists - the SDK provides type-safe overloads that extract return types from activity definitions. The issue was resolved when the author discovered PyCharm may have a limitation with recognizing these overloads.",
+  "related": [],
+  "keyQuote": "The typesafe overloads for this extract the return type from the activity passed in.",
+  "number": 732,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:28.113Z"
+}

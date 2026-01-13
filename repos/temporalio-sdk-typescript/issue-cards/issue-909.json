@@ -1,0 +1,33 @@
+{
+  "summary": "Worker processes continue running as orphaned processes after Ctrl+C interruption or ignore code changes during development, causing stale workers to persist. The issue is caused by the Runtime adding process signal listeners without registered callbacks, preventing proper signal handling.",
+  "category": "bug",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Runtime",
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "runtime",
+    "signal-handling"
+  ],
+  "concepts": [
+    "process-signals",
+    "graceful-shutdown",
+    "development-workflow",
+    "process-lifecycle",
+    "signal-interruption"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience stale worker processes continuing to run with outdated code during development workflows, causing unpredictable behavior.",
+  "rootCause": "The Runtime's setupShutdownHook adds a listener to process signals before any shutdown callbacks are registered, which prevents the default signal behavior from triggering. Shutdown callbacks are only added after the worker starts, creating a race condition where early signals are ignored.",
+  "proposedFix": "Patch Runtime to only add listener to process signal when there is a callback registered, or add a listener that always exits for development scenarios.",
+  "workaround": "Manually manage process signal listeners or use development tooling workarounds to ensure workers properly terminate.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by improving signal handling in the Runtime to properly register and manage shutdown signal callbacks.",
+  "related": [],
+  "keyQuote": "When a listener to a process signal is added, the signal no longer causes the default behavior, so the signal is ignored.",
+  "number": 909,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:43.146Z"
+}

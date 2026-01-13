@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add `--version latest` support across all Temporal SDKs to enable using the latest version tag. This would leverage language-specific mechanisms and could be integrated into CI workflows.",
+  "category": "feature",
+  "subcategory": "sdk-tooling",
+  "apis": [],
+  "components": [
+    "sdk-build",
+    "version-management",
+    "ci-cd"
+  ],
+  "concepts": [
+    "versioning",
+    "sdk-tooling",
+    "ci-automation",
+    "dependency-management",
+    "release-process"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would be able to easily reference the latest SDK version without manually tracking version numbers, simplifying SDK dependency management.",
+  "rootCause": null,
+  "proposedFix": "Implement language-dependent mechanisms to resolve `--version latest` to the actual latest version tag for each SDK.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need `--version latest` support for all SDKs. This should use language-dependent ways to use the latest tag.",
+  "number": 166,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:50:48.091Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Transitive dependency vulnerability in ajv 5.5.2 (CVE-2020-15366) affecting the nyc-test-coverage package. A specially crafted JSON schema could enable code execution through prototype pollution in Ajv's validate() function.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "nyc-test-coverage",
+    "schema-utils",
+    "ajv"
+  ],
+  "concepts": [
+    "security",
+    "prototype-pollution",
+    "json-schema-validation",
+    "transitive-dependency",
+    "code-execution",
+    "vulnerability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may be exposed to code execution risk if untrusted JSON schemas are validated using the affected transitive dependency.",
+  "rootCause": "Prototype pollution vulnerability in ajv 5.5.2 allows arbitrary code execution when processing specially crafted JSON schemas.",
+  "proposedFix": "Upgrade ajv to version 6.12.3 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was removed from the Mend inventory or marked as ignored in the specific branch, resolving the security concern.",
+  "related": [],
+  "keyQuote": "A carefully crafted JSON schema could be provided that allows execution of other code by prototype pollution.",
+  "number": 895,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:11.155Z"
+}

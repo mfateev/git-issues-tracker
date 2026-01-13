@@ -1,0 +1,30 @@
+{
+  "summary": "Activity tasks are getting lost when matching roles restart, causing scheduled activities to timeout with SCHEDULE_TO_START errors instead of being dispatched to workers. This results in workflows getting stuck waiting for activity execution.",
+  "category": "bug",
+  "subcategory": "activity-dispatch",
+  "apis": [],
+  "components": [
+    "matching-role",
+    "activity-dispatcher",
+    "task-routing"
+  ],
+  "concepts": [
+    "activity-timeout",
+    "task-dispatch",
+    "role-restart",
+    "task-loss",
+    "schedule-to-start"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows hang indefinitely when activities fail to dispatch after matching role restarts, breaking application workflows that depend on activity execution.",
+  "rootCause": "Activity tasks are not being properly redelivered to workers when matching roles restart, causing them to timeout rather than execute.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue closed due to inability to reproduce and lack of further information. No fix was implemented.",
+  "related": [],
+  "keyQuote": "Activity task times out due to ScheduleToStart when matching roles restart, causing workflow to get stuck",
+  "number": 459,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:59:14.763Z"
+}

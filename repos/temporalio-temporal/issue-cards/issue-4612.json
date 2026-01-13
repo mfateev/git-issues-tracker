@@ -1,0 +1,32 @@
+{
+  "summary": "Matching service enters a busy loop generating excessive database requests when the history service is unavailable, as failed task dispatches trigger task acking and recreation indefinitely.",
+  "category": "bug",
+  "subcategory": "task-dispatch",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "task-dispatch",
+    "persistence",
+    "history-service"
+  ],
+  "concepts": [
+    "busy-loop",
+    "resource-exhaustion",
+    "service-availability",
+    "task-queue",
+    "database-load",
+    "service-startup-order"
+  ],
+  "severity": "high",
+  "userImpact": "Operators experience severe database resource consumption and potential cluster instability when history service is unavailable, requiring careful service startup sequencing.",
+  "rootCause": "Failed task dispatch logic acknowledges the loaded task and creates a new one to prevent blocking, creating an infinite loop when history service is unavailable.",
+  "proposedFix": null,
+  "workaround": "Start services in specific sequence: history, matching, frontend, worker.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When task in matching tasks table failed to be dispatched, the loaded task will be acked and a new task will be created. This is essentially a busy loop and consume tons of persistence resources.",
+  "number": 4612,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:15.968Z"
+}

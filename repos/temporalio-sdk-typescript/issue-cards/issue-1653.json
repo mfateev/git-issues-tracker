@@ -1,0 +1,32 @@
+{
+  "summary": "Documentation link in WorkerOptions.workflowBundle docstring is broken and points to non-existent page. User cannot find the referenced production deployment documentation.",
+  "category": "docs",
+  "subcategory": "broken-links",
+  "apis": [
+    "Worker.create",
+    "bundleWorkflowCode"
+  ],
+  "components": [
+    "worker",
+    "documentation",
+    "worker-options"
+  ],
+  "concepts": [
+    "production-deployment",
+    "workflow-bundling",
+    "documentation-accuracy",
+    "deployment-guidance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following documentation examples are directed to broken links, preventing them from learning proper production deployment practices for TypeScript workers.",
+  "rootCause": "Documentation page at https://docs.temporal.io/typescript/production-deploy#pre-build-code does not exist or has been moved.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The following link is in the docstrings: https://docs.temporal.io/typescript/production-deploy#pre-build-code and it does not resolve.",
+  "number": 1653,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:08.867Z"
+}

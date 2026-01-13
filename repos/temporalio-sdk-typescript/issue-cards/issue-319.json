@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to adopt the newer `Context.SetPromiseHooks` API for workflow isolate extensions. The new API is bound to a single context and uses faster JS functions compared to the current C++ implementation that redundantly overrides promise hooks per context.",
+  "category": "feature",
+  "subcategory": "workflow-isolate",
+  "apis": [],
+  "components": [
+    "workflow-isolate",
+    "promise-hooks",
+    "context-management"
+  ],
+  "concepts": [
+    "performance",
+    "isolate-management",
+    "promise-handling",
+    "api-upgrade",
+    "context-binding"
+  ],
+  "severity": "low",
+  "userImpact": "Potential performance improvement and cleaner implementation for workflow isolation through more efficient promise hook management.",
+  "rootCause": null,
+  "proposedFix": "Migrate to using `Context.SetPromiseHooks` API which is bound to a single context and uses JS functions instead of C++ functions.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Implementation became irrelevant after transitioning to `vm` and using Node.js's native `AsyncLocalStorage` instead.",
+  "related": [],
+  "keyQuote": "Not relevant since we ended up using `AsyncLocalStorage`",
+  "number": 319,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:05:09.287Z"
+}

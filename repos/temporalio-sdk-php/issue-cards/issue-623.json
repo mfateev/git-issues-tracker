@@ -1,0 +1,33 @@
+{
+  "summary": "ActivityMocker in PHP SDK doesn't properly serialize/deserialize DTO structures during testing because it's created without a custom converter for RoadRunnerActivityInvocationCache. User reports mocked activities fail to unserialize passed objects.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "ActivityMocker",
+    "RoadRunnerActivityInvocationCache",
+    "serialization"
+  ],
+  "concepts": [
+    "testing",
+    "mocking",
+    "serialization",
+    "deserialization",
+    "data-transfer-objects",
+    "converter"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test activities that use custom DTO structures because the mock framework fails to serialize and deserialize objects correctly.",
+  "rootCause": "ActivityMocker is instantiated without a custom converter parameter for RoadRunnerActivityInvocationCache, causing serialization issues with complex objects.",
+  "proposedFix": "Add custom converter parameter to ActivityMocker's __construct() method, similar to how RoadRunnerActivityInvocationCache is initialized.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    681
+  ],
+  "keyQuote": "The problem is `ActivityMocker` is created without custom converter for `RoadRunnerActivityInvocationCache`",
+  "number": 623,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:43:32.195Z"
+}

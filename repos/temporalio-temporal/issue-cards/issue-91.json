@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow cannot signal external workflows without providing input, despite this being allowed when signalling from outside. This inconsistency causes BadRequestError when attempting to signal without input.",
+  "category": "bug",
+  "subcategory": "workflow-signalling",
+  "apis": [
+    "SignalExternalWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "signal-handler",
+    "decision-processor"
+  ],
+  "concepts": [
+    "workflow-signal",
+    "external-workflow",
+    "input-validation",
+    "api-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot signal external workflows without input, limiting workflow communication patterns and creating inconsistent behavior between internal and external signalling.",
+  "rootCause": "Input validation is incorrectly enforced when signalling external workflows from within a workflow, while the same operation is allowed from external clients.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by commit 84c85cd00e08d0084b2f18ee632d2ddee7ad66a6 which removed the input requirement for external workflow signals.",
+  "related": [],
+  "keyQuote": "There is no reason to enforce input when workflow signals an external workflow as it is already allowed when signalling from outside",
+  "number": 91,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:17:40.017Z"
+}

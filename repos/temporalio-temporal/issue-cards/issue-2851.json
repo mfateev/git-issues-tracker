@@ -1,0 +1,32 @@
+{
+  "summary": "ListWorkflow API for basic visibility requires BETWEEN filter syntax instead of supporting simpler comparison operators (>, >=, <, <=) like StartTime > SOME_TIME. This limitation is confusing for users and differs from expected SQL-like behavior.",
+  "category": "feature",
+  "subcategory": "visibility-api",
+  "apis": [
+    "ListWorkflow"
+  ],
+  "components": [
+    "visibility",
+    "basic-visibility",
+    "query-api"
+  ],
+  "concepts": [
+    "filtering",
+    "time-range",
+    "visibility-store",
+    "query-syntax",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users find the BETWEEN-only filter syntax unintuitive and confusing when they expect standard comparison operators to work with the ListWorkflow API.",
+  "rootCause": "Basic visibility API implementation only supports BETWEEN filter syntax, not individual comparison operators.",
+  "proposedFix": "Add support for >, >=, <, <= comparison operators in basic visibility API filters.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Basic visibility APIs are being deprecated in favor of advanced visibility APIs. SQL visibility store now supports advanced visibility with full filter capabilities.",
+  "related": [],
+  "keyQuote": "No plan to improve basic visibility APIs. We decided to deprecate basic visibility API and unify on advanced visibility APIs.",
+  "number": 2851,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:28.617Z"
+}

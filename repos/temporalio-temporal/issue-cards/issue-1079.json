@@ -1,0 +1,33 @@
+{
+  "summary": "Allow direct task injection into the database without requiring mutable state updates. This capability is needed for workflow record deletion in Elasticsearch, enabling the DB layer to handle tasks independently of mutable state management.",
+  "category": "feature",
+  "subcategory": "persistence-layer",
+  "apis": [],
+  "components": [
+    "persistence",
+    "db-layer",
+    "workflow-execution",
+    "elasticsearch"
+  ],
+  "concepts": [
+    "task-injection",
+    "mutable-state",
+    "workflow-deletion",
+    "zombie-state",
+    "database-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables more efficient deletion of workflow records by decoupling task injection from mutable state requirements.",
+  "rootCause": "Current implementation requires mutable state to be present when injecting tasks, limiting flexibility in cleanup operations.",
+  "proposedFix": "Modify the DB layer to provide functionality for directly injecting tasks without requiring mutable state updates, and re-enable zombie state validation checks.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow direct task injection without mutable state, with zombie state checks re-enabled and test case resurrected.",
+  "related": [
+    988
+  ],
+  "keyQuote": "DB layer should provide the functionality to directly inject tasks without mutable state",
+  "number": 1079,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:56:59.543Z"
+}

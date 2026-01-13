@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose manual pagination controls for workflow list operations, allowing users to specify page size and retrieve next page tokens. This enables stateless pagination for UIs that cannot maintain async iterators in memory.",
+  "category": "feature",
+  "subcategory": "workflow-list-pagination",
+  "apis": [
+    "ListWorkflowsAsync"
+  ],
+  "components": [
+    "list-interceptor",
+    "pagination",
+    "async-iterator"
+  ],
+  "concepts": [
+    "pagination",
+    "stateless",
+    "page-token",
+    "user-interface",
+    "memory-management",
+    "async-iteration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need manual pagination controls to power stateless UIs that cannot keep async iterators in memory.",
+  "rootCause": "Current implementation only provides async iterators with internal paging, not exposed pagination controls.",
+  "proposedFix": "Surface paging to users by exposing page size and next page token parameters, possibly through a new single-page interceptor or tailoring the existing ListWorkflowsAsync interceptor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Reopened and scoped to workflow list only after identifying stateless pagination use cases for UI implementations.",
+  "related": [],
+  "keyQuote": "Reopening issue because there are use cases that involve stateless pagination, e.g. to power user UIs that can't keep async iterator in memory.",
+  "number": 221,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T10:14:16.289Z"
+}

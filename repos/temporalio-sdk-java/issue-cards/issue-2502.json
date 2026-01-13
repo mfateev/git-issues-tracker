@@ -1,0 +1,31 @@
+{
+  "summary": "Remove license headers from all Java SDK files following the server's decision to eliminate this requirement, and remove any tooling that generates or enforces them.",
+  "category": "feature",
+  "subcategory": "build-system",
+  "apis": [],
+  "components": [
+    "build-tooling",
+    "file-headers",
+    "license-management"
+  ],
+  "concepts": [
+    "license-headers",
+    "code-generation",
+    "build-automation",
+    "compliance",
+    "maintenance",
+    "cleanup"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have cleaner source files without unnecessary license headers, reducing file clutter and maintenance overhead.",
+  "rootCause": null,
+  "proposedFix": "Remove license headers from all files in the SDK and remove any tooling (build plugins, scripts) that generates them or requires them, following the pattern established by the server repository.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "License headers were removed from files and the tooling that enforced them was updated.",
+  "related": [],
+  "keyQuote": "Following server in https://github.com/temporalio/temporal/pull/7689, license headers are no longer required on files.",
+  "number": 2502,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:29.205Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Activity start and failure events are not recorded in workflow history while activities are in retry loops, causing status loss if the workflow completes before the ScheduleToClose timeout is exhausted. The request is to record these events for activities in retry before workflow completion.",
+  "category": "feature",
+  "subcategory": "activity-history",
+  "apis": [],
+  "components": [
+    "history",
+    "activity-executor",
+    "retry-logic",
+    "workflow-completion"
+  ],
+  "concepts": [
+    "retry",
+    "history-events",
+    "activity-status",
+    "timeout",
+    "workflow-completion",
+    "event-recording"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose visibility into activity execution status when workflows complete while activities are still in retry loops, making debugging difficult.",
+  "rootCause": "Events are only recorded when ScheduleToClose timeout expires, not during intermediate failures in retry loops.",
+  "proposedFix": "Record started and failed events for all activities in retry loops before completing the workflow.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Record started and failed events for all activities that are in a retry loop before completing the workflow.",
+  "number": 503,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:03:05.227Z"
+}

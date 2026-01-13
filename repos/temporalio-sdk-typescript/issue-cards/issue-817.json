@@ -1,0 +1,32 @@
+{
+  "summary": "Request to upsert TemporalChangeVersion on patch updates. This feature was implemented in PR #1072 with the latest Core and requires server version 1.20 or later to take effect.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "core",
+    "versioning",
+    "patch-management"
+  ],
+  "concepts": [
+    "versioning",
+    "temporal-change-version",
+    "patch-updates",
+    "server-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now automatically update TemporalChangeVersion when applying patches, improving version management workflows.",
+  "rootCause": null,
+  "proposedFix": "Implemented via PR #1072 with latest Core",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented in PR #1072 with latest Core, requires server version 1.20+",
+  "related": [
+    1072,
+    117
+  ],
+  "keyQuote": "This will now happen as of #1072 with latest Core. Requires server version 1.20 to take effect.",
+  "number": 817,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:13:33.857Z"
+}

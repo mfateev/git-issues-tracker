@@ -1,0 +1,34 @@
+{
+  "summary": "respondWorkflowTaskCompleted returns OK instead of failing with INVALID_ARGUMENT when commands are malformed, such as RECORD_MARKER commands missing required attributes.",
+  "category": "bug",
+  "subcategory": "workflow-task-handling",
+  "apis": [
+    "respondWorkflowTaskCompleted",
+    "pollWorkflowTaskQueue",
+    "startWorkflowExecution"
+  ],
+  "components": [
+    "history-engine",
+    "workflow-task-handler",
+    "command-validation"
+  ],
+  "concepts": [
+    "validation",
+    "error-handling",
+    "command-processing",
+    "gRPC-response",
+    "malformed-input"
+  ],
+  "severity": "medium",
+  "userImpact": "Users do not receive proper error feedback when submitting malformed workflow task commands, leading to silent failures and workflow execution issues.",
+  "rootCause": "The respondWorkflowTaskCompleted endpoint does not validate command attributes before returning OK, allowing invalid commands to be processed without error.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The service was updated to properly validate command attributes in respondWorkflowTaskCompleted and return INVALID_ARGUMENT gRPC errors for malformed commands.",
+  "related": [],
+  "keyQuote": "respondWorkflowTaskCompleted call is expected to throw INVALID_ARGUMENT gRPC failure if commands are not formatted properly.",
+  "number": 652,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:21:57.136Z"
+}

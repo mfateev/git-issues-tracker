@@ -1,0 +1,35 @@
+{
+  "summary": "VSCode debugger attachment fails when running workflows due to a KeyError in the workflow sandbox's import system. The debugpy module tries to access the 'warnings' module through the sandbox's restricted module loader, which doesn't provide it, causing workflow execution to crash.",
+  "category": "bug",
+  "subcategory": "debugging-sandbox",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "workflow-sandbox",
+    "importer",
+    "worker"
+  ],
+  "concepts": [
+    "debugging",
+    "sandbox-restrictions",
+    "module-access",
+    "vscode-debugger",
+    "import-system"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot debug workflows using VSCode debugger without manually disabling the sandbox, significantly impacting developer productivity during debugging sessions.",
+  "rootCause": "The workflow sandbox's custom module loader (__getitem__ in _importer.py) doesn't provide access to standard library modules like 'warnings' that debugpy requires, causing KeyError when debugger tries to access sys.modules['warnings'].",
+  "proposedFix": "Allow debugpy's _pydevd_bundle module to bypass sandbox restrictions or make standard library modules accessible through the sandbox's import system.",
+  "workaround": "Disable the sandbox by using UnsandboxedWorkflowRunner() or SandboxedWorkflowRunner with explicit passthrough for _pydevd_bundle module, optionally setting debug_mode=True to avoid deadlock timeouts.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    213,
+    254
+  ],
+  "keyQuote": "KeyError: 'warnings' when VSCode debugger tries to access sys.modules through workflow sandbox's custom import system",
+  "number": 238,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:53.461Z"
+}

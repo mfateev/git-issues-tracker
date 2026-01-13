@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose the `use_seconds_for_duration` metric option from sdk-core PR #706 on Prometheus metrics in the .NET SDK, with potential additional updates needed due to other changes in that PR.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "prometheus-metrics",
+    "metrics-configuration"
+  ],
+  "concepts": [
+    "duration-units",
+    "metric-options",
+    "prometheus-integration",
+    "sdk-core-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need access to the seconds-based duration metric option that was added to sdk-core but is not yet exposed in the .NET SDK.",
+  "rootCause": null,
+  "proposedFix": "Expose `use_seconds_for_duration` option on Prometheus metrics and apply other metric-related changes from sdk-core PR #706",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose the metric option",
+  "related": [
+    706
+  ],
+  "keyQuote": "Need to at least expose `use_seconds_for_duration` option on Prometheus metrics from https://github.com/temporalio/sdk-core/pull/706",
+  "number": 209,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:41:47.793Z"
+}

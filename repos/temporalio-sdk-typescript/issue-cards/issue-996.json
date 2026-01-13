@@ -1,0 +1,31 @@
+{
+  "summary": "Logs are not emitted when replaying workflows that use interceptors in the TypeScript SDK. Users need to be able to see logs during workflow replay for debugging purposes.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "worker",
+    "interceptors",
+    "sinks",
+    "logging"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "log-interception",
+    "debugging",
+    "external-sinks",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot debug replayed workflows because logs from interceptors are suppressed during replay, making it difficult to understand workflow behavior.",
+  "rootCause": "Logs are being filtered out during workflow replay before they reach the configured sinks/interceptors.",
+  "proposedFix": "Make log emission during replay configurable, similar to the Go SDK approach (https://github.com/temporalio/sdk-go/pull/979).",
+  "workaround": "Set log configuration on the sinks level using the configuration option in packages/worker/src/sinks.ts",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by making log emission during replay configurable at the sinks level, allowing users to opt-in to receiving logs during workflow replay.",
+  "related": [],
+  "keyQuote": "I agree that we should allow logs to be emitted during replays, we just got a contribution for Go SDK to make this configurable.",
+  "number": 996,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:47.485Z"
+}

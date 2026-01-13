@@ -1,0 +1,39 @@
+{
+  "summary": "Feature request to interrupt long-running heartbeating activities when paused via `temporal activity pause` command. Users should be able to distinguish pause interruption from cancellation, as they may require different handling logic.",
+  "category": "feature",
+  "subcategory": "activity-pause",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "heartbeat",
+    "pause-handler"
+  ],
+  "concepts": [
+    "activity-pause",
+    "heartbeat",
+    "interruption",
+    "cancellation",
+    "long-running-activities",
+    "exception-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now pause long-running heartbeating activities without predicting the need in advance, with pause-specific interruption behavior distinct from cancellation.",
+  "rootCause": null,
+  "proposedFix": "Throw a cancel-like exception (language-appropriate) that is distinguishable from regular cancellation, allowing different handling based on whether activity is ending completely or pausing temporarily.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    812,
+    2465,
+    441,
+    1899,
+    1665,
+    241,
+    895
+  ],
+  "keyQuote": "Always, for now - We can add a flag later to turn it off if people ask for it (but they probably won't). It's important that by default, pause 'just works'",
+  "number": 602,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:09:09.193Z"
+}

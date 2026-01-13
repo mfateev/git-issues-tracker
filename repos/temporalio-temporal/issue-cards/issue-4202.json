@@ -1,0 +1,30 @@
+{
+  "summary": "Request to use gRPC GracefulStop instead of Stop for closing frontend connections, allowing the server to drain active connections while refusing new ones during shutdown. This would reduce disruption to workers during upgrades by giving clients time to gracefully disconnect before forcefully closing connections.",
+  "category": "feature",
+  "subcategory": "graceful-shutdown",
+  "apis": [],
+  "components": [
+    "grpc",
+    "frontend",
+    "connection-management"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "connection-draining",
+    "upgrade-resilience",
+    "long-polling",
+    "client-notification"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables graceful server shutdown that reduces connection disruption for workers, especially those sensitive to sudden connection termination during upgrades.",
+  "rootCause": null,
+  "proposedFix": "Use gRPC GracefulStop with shutdownDrainDuration as a timeout to drain active connections before forcefully closing them. Stop accepting new connections, wait the drain duration, then send GOAWAY before finishing shutdown.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented graceful stop for frontend connections",
+  "related": [],
+  "keyQuote": "using grpc GracefulStop with the shutdownDrainDuration as a timeout before forcefully closing connections seems like a good option",
+  "number": 4202,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:10.215Z"
+}

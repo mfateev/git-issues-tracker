@@ -1,0 +1,37 @@
+{
+  "summary": "User requests ability to inject a custom reader into WorkerFactory to support gradual migration from legacy annotation-based workflow/activity registration to Temporal attributes. Current implementation uses final classes, preventing subclassing and customization.",
+  "category": "feature",
+  "subcategory": "worker-factory",
+  "apis": [
+    "WorkerFactory",
+    "Worker"
+  ],
+  "components": [
+    "worker-factory",
+    "reader",
+    "data-converter"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "customization",
+    "legacy-integration",
+    "migration",
+    "extensibility",
+    "attributes",
+    "annotations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users migrating from legacy systems cannot gradually transition to Temporal attributes without reimplementing the entire WorkerFactory.",
+  "rootCause": "WorkerFactory and related classes are declared as final, preventing subclassing and customization of the reader selection logic.",
+  "proposedFix": "Add ReaderInterface as an optional parameter to WorkerFactory::create() method, similar to how DataConverterInterface is already handled. Make createReader() method protected or allow dependency injection via constructor.",
+  "workaround": "Copy the entire WorkerFactory implementation to customize the reader selection logic.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was closed after the user agreed to submit a PR addressing the feature request.",
+  "related": [
+    88
+  ],
+  "keyQuote": "The best option of course would be if I could override the default reader with my own through constructor, just like it's done with DataConverter currently.",
+  "number": 110,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:04.717Z"
+}

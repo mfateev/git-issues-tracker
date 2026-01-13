@@ -1,0 +1,29 @@
+{
+  "summary": "Remove the leftover OneboxService interface used only in onebox workers and replace it with the standard Resource interface used throughout the codebase.",
+  "category": "feature",
+  "subcategory": "onebox-service",
+  "apis": [],
+  "components": [
+    "onebox",
+    "worker",
+    "service-interface"
+  ],
+  "concepts": [
+    "interface-standardization",
+    "code-cleanup",
+    "resource-pattern",
+    "service-abstraction"
+  ],
+  "severity": "low",
+  "userImpact": "Improves internal code consistency and maintainability by removing legacy interface patterns.",
+  "rootCause": "OneboxService interface exists as legacy code not aligned with standard Resource interface pattern used elsewhere.",
+  "proposedFix": "Replace OneboxService interface with Resource interface and remove OneboxService completely.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "OneboxService was replaced with Resource interface and removed from codebase.",
+  "related": [],
+  "keyQuote": "There is leftover `OneboxService` interface, used by workers in onebox only. It needs to be replaced with `Resource` interface",
+  "number": 135,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:19:37.167Z"
+}

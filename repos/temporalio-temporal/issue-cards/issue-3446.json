@@ -1,0 +1,32 @@
+{
+  "summary": "User encountered a context deadline exceeded error with command ID generation in the Go SDK. The error appears related to attempting to generate a command before processing WorkflowTaskStarted event, possibly triggered by querying cron workflows.",
+  "category": "bug",
+  "subcategory": "command-generation",
+  "apis": [],
+  "components": [
+    "commandsHelper",
+    "workflow-task-processor",
+    "cron-workflow"
+  ],
+  "concepts": [
+    "context-deadline",
+    "command-generation",
+    "workflow-events",
+    "error-handling",
+    "query-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience runtime errors when querying cron workflows, preventing normal workflow execution.",
+  "rootCause": "Known bug triggered when querying cron workflows, caused by attempting to generate commands before the WorkflowTaskStarted event is processed.",
+  "proposedFix": "Fixed in PR #2826 and released since v1.17.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Bug was fixed in PR #2826 and released in v1.17 or later.",
+  "related": [
+    2826
+  ],
+  "keyQuote": "Error: Attempt to generate a command before processing WorkflowTaskStarted event. Is the error triggered by a query? There is a known bug that could cause this error when query cron workflow.",
+  "number": 3446,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:42:22.924Z"
+}

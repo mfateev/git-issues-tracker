@@ -1,0 +1,35 @@
+{
+  "summary": "Protobuf messages returned from CRON scheduled workflows cannot be decoded when fetching previous results via Workflow::getLastCompletionResult(). The issue was resolved by explicitly declaring the return type using the #[ReturnType] attribute.",
+  "category": "bug",
+  "subcategory": "protobuf-serialization",
+  "apis": [
+    "Workflow::getLastCompletionResult()",
+    "WorkflowMethod",
+    "ReturnType"
+  ],
+  "components": [
+    "data-converter",
+    "protobuf-converter",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "protobuf",
+    "serialization",
+    "type-hints",
+    "cron-workflow",
+    "workflow-result",
+    "data-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve protobuf-encoded results from CRON scheduled workflows without explicitly specifying the return type.",
+  "rootCause": "The DataConverter cannot properly decode protobuf values without explicit type information provided via the #[ReturnType] attribute.",
+  "proposedFix": "Add explicit #[ReturnType(ClassName::class)] attribute to the WorkflowInterface method definition.",
+  "workaround": "Use the #[ReturnType] attribute on workflow methods that return protobuf messages and access the result object via type-safe getters.",
+  "resolution": "fixed",
+  "resolutionDetails": "User confirmed that adding explicit #[ReturnType] attribute to the workflow method resolved the decoding issue.",
+  "related": [],
+  "keyQuote": "Try to do the following: In your WorkflowInterface add explicit attribute for the return type",
+  "number": 141,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:37.437Z"
+}

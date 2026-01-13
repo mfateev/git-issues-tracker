@@ -1,0 +1,33 @@
+{
+  "summary": "Creating a schedule with TriggerImmediately and no policy set throws a null pointer exception instead of working as expected.",
+  "category": "bug",
+  "subcategory": "schedules",
+  "apis": [
+    "CreateSchedule",
+    "TriggerImmediately"
+  ],
+  "components": [
+    "schedule-service",
+    "schedule-validation",
+    "api-server"
+  ],
+  "concepts": [
+    "null-safety",
+    "schedule-creation",
+    "policy-handling",
+    "trigger-logic",
+    "validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create schedules with immediate triggers and no policy, preventing use of a valid configuration.",
+  "rootCause": "Null pointer exception when policy is not set but TriggerImmediately is used, indicating missing null-safety validation in schedule creation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved, likely through adding null-safety checks or default policy handling for TriggerImmediately schedules.",
+  "related": [],
+  "keyQuote": "Creating a schedule with `TriggerImmediately` and no policy set throws a null pointer exception",
+  "number": 1864,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:46.353Z"
+}

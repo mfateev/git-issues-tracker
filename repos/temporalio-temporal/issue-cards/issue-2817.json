@@ -1,0 +1,31 @@
+{
+  "summary": "Prometheus histogram metrics are being registered with conflicting label sets, causing reporter errors. The issue stems from a tally scope using the root scope instead of a properly tagged child scope when reporting histogram metrics.",
+  "category": "bug",
+  "subcategory": "metrics-prometheus",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus-reporter",
+    "tally-scope",
+    "frontend-handler"
+  ],
+  "concepts": [
+    "histogram",
+    "metrics-registration",
+    "label-conflict",
+    "prometheus",
+    "tally-scope"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running the Temporal server from the master branch encounter warning errors in the prometheus reporter due to conflicting histogram metric descriptors.",
+  "rootCause": "The tally scope in workflowHandler.go line 3116 is using the root scope instead of the tagged child scope (with stats_type tag) to report the histogram, causing the metric to be registered with different label sets than previously registered metrics with the same name.",
+  "proposedFix": "Use the properly tagged child scope instead of rootScope when reporting the histogram metric in the frontend workflowHandler.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The error from SizeStatsTypeTagValue has been fixed, likely by correcting the tally scope reference to use the tagged child scope.",
+  "related": [],
+  "keyQuote": "The root cause is tally scope is using rootScope instead of that tagged child scope to report the histogram.",
+  "number": 2817,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:02.857Z"
+}

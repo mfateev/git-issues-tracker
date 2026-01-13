@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow updates hang indefinitely when called in time-skipping test environments. The update method never completes even though it should immediately return, causing the workflow to become unresponsive.",
+  "category": "bug",
+  "subcategory": "workflow-update",
+  "apis": [
+    "ExecuteUpdateAsync",
+    "StartWorkflowAsync",
+    "DelayAsync"
+  ],
+  "components": [
+    "workflow-update",
+    "time-skipping",
+    "test-framework"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "time-skipping",
+    "async-blocking",
+    "test-environment",
+    "update-handler"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably test workflows with updates in time-skipping environments, blocking workflow update functionality testing.",
+  "rootCause": "Time-skipping environment does not properly handle workflow update execution, causing the update handler to block indefinitely instead of returning.",
+  "proposedFix": null,
+  "workaround": "Use a normal local Temporal server for testing updates instead of time-skipping environment.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Updates are experimental/unstable currently, but in the meantime you should be able to use a normal local server if you must use them and need to test them.",
+  "number": 179,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:29.542Z"
+}

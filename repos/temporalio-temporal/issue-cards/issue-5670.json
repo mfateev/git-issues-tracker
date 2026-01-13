@@ -1,0 +1,32 @@
+{
+  "summary": "Custom search attribute names with more than 2 dot separators cause SQL parsing errors in workflow list queries. Users must use backticks to escape attribute names containing dots, but the escaping rules are inconsistent and undocumented.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "search-attributes",
+    "query-parser",
+    "sql-engine"
+  ],
+  "concepts": [
+    "naming-convention",
+    "escaping",
+    "query-syntax",
+    "dot-notation",
+    "sql-parsing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably query workflows using custom search attributes with multiple dots in their names without understanding undocumented escaping rules.",
+  "rootCause": "SQL query parser fails to properly handle search attribute names containing dots without backtick escaping; escaping rules are not clearly defined.",
+  "proposedFix": null,
+  "workaround": "Enclose search attribute names with backticks in queries (e.g., `A.B.C.D` or 'glossary.GlossDiv.GlossList.GlossEntry.GlossTerm').",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was closed as potential-bug but appears to be expected behavior requiring documentation of escaping rules rather than a code fix.",
+  "related": [],
+  "keyQuote": "You need to enclose the search attribute name with backticks. Eg: `A.B.C.D` = 'abcd'.",
+  "number": 5670,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:06:32.316Z"
+}

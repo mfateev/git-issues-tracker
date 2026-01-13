@@ -1,0 +1,40 @@
+{
+  "summary": "Workflow APIs that modify state (like commands, random generation, and signal handlers) should throw an error when invoked from read-only contexts such as query handlers and update validation handlers, preventing runtime failures and NDE errors.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "setHandler",
+    "setDefaultSignalHandler",
+    "condition",
+    "CancellableScope",
+    "RespondToQuery",
+    "UpdateResponse.accepted",
+    "UpdateResponse.rejected"
+  ],
+  "components": [
+    "query-handler",
+    "update-validation",
+    "workflow-execution",
+    "command-generation"
+  ],
+  "concepts": [
+    "replayability",
+    "read-only-context",
+    "state-mutation",
+    "non-determinism",
+    "error-handling",
+    "validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users can accidentally invoke state-modifying APIs in read-only contexts, leading to cryptic failures or non-deterministic execution errors that are difficult to debug.",
+  "rootCause": "Missing runtime checks to prevent state-modifying API calls from non-replayable contexts, allowing invalid operations that fail late (on completion or subsequent tasks).",
+  "proposedFix": "Add validation to throw errors when state-modifying APIs are invoked from query handlers, update validation handlers, or other read-only execution contexts.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "usage of these APIs may result in either failure on completion (from Core) or NDE on subsequent workflow tasks",
+  "number": 1652,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:12:07.156Z"
+}

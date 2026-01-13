@@ -1,0 +1,40 @@
+{
+  "summary": "Request to support dynamic workflows, activities, signals, and queries in the .NET SDK as part of a broader Temporal feature initiative. This involves enabling runtime definition and registration of these core components rather than requiring compile-time declaration.",
+  "category": "feature",
+  "subcategory": "dynamic-registration",
+  "apis": [
+    "ExecuteActivity",
+    "StartWorkflow",
+    "SignalWorkflow",
+    "QueryWorkflow"
+  ],
+  "components": [
+    "workflow-registry",
+    "activity-registry",
+    "signal-handler",
+    "query-handler"
+  ],
+  "concepts": [
+    "dynamic-registration",
+    "runtime-definition",
+    "workflow-definition",
+    "activity-definition",
+    "feature-parity",
+    "extensibility",
+    "reflection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot register workflows, activities, signals, and queries at runtime, limiting flexibility in dynamic scenarios and creating parity issues with other Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to support dynamic workflows, activities, signals, and queries in the .NET SDK.",
+  "related": [
+    201
+  ],
+  "keyQuote": "Need to support all of these things dynamically as part of general Temporal feature",
+  "number": 27,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:07:27.640Z"
+}

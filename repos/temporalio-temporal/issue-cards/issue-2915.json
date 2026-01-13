@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add a push model listener for dynamic config changes instead of relying on polling. Currently, infrequently accessed configs require either ignoring updates or implementing redundant polling code in each component.",
+  "category": "feature",
+  "subcategory": "dynamic-config",
+  "apis": [],
+  "components": [
+    "dynamic-config",
+    "config-listener",
+    "worker-pool"
+  ],
+  "concepts": [
+    "dynamic-config",
+    "push-model",
+    "event-listener",
+    "configuration-management",
+    "polling-overhead"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must either ignore config updates at runtime or implement duplicated polling logic in each component that needs infrequently updated configurations.",
+  "rootCause": null,
+  "proposedFix": "Add support for a push model in dynamic config where listeners can be registered for specific configuration keys to receive notifications on changes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2911
+  ],
+  "keyQuote": "Add support for push model in dynamic config so that a listener can be registered for a certain key.",
+  "number": 2915,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:34:06.849Z"
+}

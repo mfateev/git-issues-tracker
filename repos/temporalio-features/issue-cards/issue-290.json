@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add test cases demonstrating update deduplication in Java and Go SDKs. Updates with duplicate IDs targeting the same workflow should only execute once.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "workflow-update",
+    "test-framework",
+    "sdk-java",
+    "sdk-go"
+  ],
+  "concepts": [
+    "deduplication",
+    "idempotency",
+    "update-handler",
+    "workflow-state",
+    "duplicate-detection"
+  ],
+  "severity": "low",
+  "userImpact": "Developers need test examples to understand and verify that update deduplication works correctly in their applications.",
+  "rootCause": null,
+  "proposedFix": "Add Java and Go feature tests that demonstrate update deduplication behavior",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implementation was completed to add update deduplication tests to Java and Go SDKs",
+  "related": [],
+  "keyQuote": "Updates that reuse the update ID, and target the same workflow, should only be performed once.",
+  "number": 290,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:52.040Z"
+}

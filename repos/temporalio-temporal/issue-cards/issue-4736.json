@@ -1,0 +1,31 @@
+{
+  "summary": "Build fails on 32-bit platforms due to math.MaxInt64 constant overflowing untyped int variable declarations. The issue was identified in cassandra/errors.go but may exist elsewhere in the codebase.",
+  "category": "bug",
+  "subcategory": "build-compatibility",
+  "apis": [],
+  "components": [
+    "persistence",
+    "cassandra",
+    "build-system"
+  ],
+  "concepts": [
+    "32-bit platforms",
+    "type inference",
+    "integer overflow",
+    "golang",
+    "compilation",
+    "platform support"
+  ],
+  "severity": "low",
+  "userImpact": "Users on 32-bit platforms (e.g., Raspberry Pi) cannot build Temporal from source.",
+  "rootCause": "Untyped int variable declarations default to native int type (4 bytes on 32-bit platforms), causing overflow when assigned math.MaxInt64 value",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers explicitly stated no plan to support 32-bit platforms",
+  "related": [],
+  "keyQuote": "No plan to support 32-bit platform at the moment.",
+  "number": 4736,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:30.409Z"
+}

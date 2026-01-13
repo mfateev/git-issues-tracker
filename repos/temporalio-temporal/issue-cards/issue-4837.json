@@ -1,0 +1,33 @@
+{
+  "summary": "Expose OpenAPI specification on the Temporal HTTP API server to allow API consumers to discover and understand available endpoints. Requires investigation into spec generation tools, versioning strategy, and proper endpoint naming.",
+  "category": "feature",
+  "subcategory": "api-documentation",
+  "apis": [],
+  "components": [
+    "http-api-server",
+    "api-go",
+    "openapi-spec"
+  ],
+  "concepts": [
+    "api-documentation",
+    "openapi",
+    "spec-generation",
+    "grpc-gateway",
+    "api-discovery",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot discover or understand available HTTP API endpoints without OpenAPI documentation, making integration more difficult.",
+  "rootCause": null,
+  "proposedFix": "Generate OpenAPI spec in api-go repo using protoc-gen-openapiv2 or protoc-gen-openapi tools, embed it as go:embed, and expose it at a standard endpoint (e.g., openapi.json). Mark as experimental until stable.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "OpenAPI spec exposure was implemented in #5393, though HTTP API may not yet be fully documented as a feature.",
+  "related": [
+    5393
+  ],
+  "keyQuote": "Exposing the spec was done in #5393. HTTP API may not yet be a documented feature.",
+  "number": 4837,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:18.046Z"
+}

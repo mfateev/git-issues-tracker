@@ -1,0 +1,31 @@
+{
+  "summary": "Code crashes with AttributeError when trying to access HistoryEventFilterType.ValueType enum value. The issue occurs during workflow history event fetching in the multiprocess activity example. User resolved it by upgrading to protobuf 3.20.0+, which introduced the missing ValueType attribute.",
+  "category": "bug",
+  "subcategory": "protobuf-compatibility",
+  "apis": [
+    "execute_workflow"
+  ],
+  "components": [
+    "client",
+    "history-events",
+    "protobuf-binding"
+  ],
+  "concepts": [
+    "enum-handling",
+    "dependency-versioning",
+    "protobuf-version-compatibility",
+    "workflow-result-retrieval"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running the multiprocess activity example with older protobuf versions encounter crashes when executing workflows and retrieving history.",
+  "rootCause": "Protobuf enum ValueType attribute was added in protobuf 3.20.0. SDK code attempted to use this attribute without enforcing minimum protobuf version requirement.",
+  "proposedFix": "Upgrade protobuf to version 3.20.0 or later",
+  "workaround": "Manually upgrade protobuf dependency to 3.20.0+",
+  "resolution": "fixed",
+  "resolutionDetails": "User confirmed that upgrading to protobuf 3.20.0 resolved the issue. Root cause was identified as missing protobuf version requirement.",
+  "related": [],
+  "keyQuote": "That was it. I upgraded to version 3.20.0 and that resolved the issue.",
+  "number": 288,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:59:16.910Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "User requests changing the log level of dynamic config update messages from info to warn in file_based_client so they can see important config changes without enabling verbose info-level logging.",
+  "category": "feature",
+  "subcategory": "dynamic-config",
+  "apis": [],
+  "components": [
+    "file_based_client",
+    "dynamicconfig",
+    "logging"
+  ],
+  "concepts": [
+    "logging",
+    "dynamic-configuration",
+    "observability",
+    "configuration-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users must enable info-level logging to see important dynamic config change notifications, resulting in excessive log volume.",
+  "rootCause": null,
+  "proposedFix": "Change log level of dynamic config updated message from info to warn in file_based_client.go",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Message can be pretty important to have in logs to know that dynamic config changes have been applied (and when according to timestamp)",
+  "number": 8432,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:27:06.404Z"
+}

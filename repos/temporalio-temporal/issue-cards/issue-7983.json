@@ -1,0 +1,31 @@
+{
+  "summary": "Cron jobs scheduled with CRON_TZ incorrectly shift by one hour after DST transitions when the server uses an out-of-date tzdata database that doesn't include recent timezone rule changes. After Cairo's 2023 DST transition, a job scheduled for 09:59 AM executed at 10:59 AM instead.",
+  "category": "bug",
+  "subcategory": "cron-scheduling",
+  "apis": [],
+  "components": [
+    "cron-scheduler",
+    "timezone-handler",
+    "server"
+  ],
+  "concepts": [
+    "DST",
+    "timezone",
+    "scheduling",
+    "tzdata",
+    "local-time",
+    "wall-clock"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with outdated tzdata may see their cron jobs execute at incorrect local times after DST transitions, causing missed or misaligned scheduled workflows.",
+  "rootCause": "Server uses out-of-date tzdata database (2022f) that doesn't include 2023 DST rule updates for affected timezones like Africa/Cairo.",
+  "proposedFix": "Update tzdata on server pods to a version that includes recent timezone rule changes (2023 or later).",
+  "workaround": "Update the tzdata package on your Temporal server deployment to a version that includes the necessary timezone rule updates.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating tzdata on the server pods to include recent DST rule changes.",
+  "related": [],
+  "keyQuote": "If you update tzdata on your pods that should resolve the issue.",
+  "number": 7983,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:50.150Z"
+}

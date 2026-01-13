@@ -1,0 +1,30 @@
+{
+  "summary": "Move memo and search attribute data from mutable state to history events to reduce memory pressure. The history event needs to store both the upsert value and the merged value, with callers loading them from history or storing as part of task data.",
+  "category": "feature",
+  "subcategory": "mutable-state-optimization",
+  "apis": [],
+  "components": [
+    "mutable-state",
+    "history-event",
+    "task-data"
+  ],
+  "concepts": [
+    "memory-optimization",
+    "data-storage",
+    "state-management",
+    "event-sourcing",
+    "payload-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces memory consumption in Temporal Server, improving performance and scalability for workflows with large memo and search attribute values.",
+  "rootCause": "Memo and search attribute payloads stored in mutable state create unnecessary memory pressure on the server.",
+  "proposedFix": "Store memo and search attribute data in history events instead of mutable state; callers can retrieve from history events or store in task data (transfer/timer tasks).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed as an enhancement, indicating the proposed approach was implemented.",
+  "related": [],
+  "keyQuote": "Store payload of memo and search attribute put a lot of pressure on mutable state. We should move them to history event.",
+  "number": 3357,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:48.882Z"
+}

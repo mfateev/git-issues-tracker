@@ -1,0 +1,35 @@
+{
+  "summary": "WorkflowStub.getResult() skips timers in TestEnv without requiring testEnv.sleep(). User expected the second timer to wait 10 minutes but it completes immediately after the first timer, suggesting time-skipping behavior that wasn't documented.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowStub",
+    "getResult",
+    "Workflow.await",
+    "Workflow.sleep"
+  ],
+  "components": [
+    "test-environment",
+    "time-locking-interceptor",
+    "workflow-stub"
+  ],
+  "concepts": [
+    "time-skipping",
+    "timer",
+    "test-execution",
+    "synchronous-waiting",
+    "workflow-completion"
+  ],
+  "severity": "low",
+  "userImpact": "Users testing workflows with multiple timers may be confused by automatic time-skipping behavior in TestEnv that differs from documented expectations.",
+  "rootCause": "TimeLockingInterceptor enables unlimited time skipping after getResult() is called to simplify test writing, which causes subsequent timers to complete immediately without explicit testEnv.sleep() calls.",
+  "proposedFix": null,
+  "workaround": "Call testEnv.sleep() explicitly for each timer duration instead of relying on getResult() to handle all time advancement.",
+  "resolution": "invalid",
+  "resolutionDetails": "Maintainer clarified this is intentional behavior (not a bug) implemented via TimeLockingInterceptor to remove frustration from unit test writers. When getResult() is called, the framework automatically skips time until workflow completion.",
+  "related": [],
+  "keyQuote": "This is actually not a bug, but a feature. It's implemented in `TimeLockingInterceptor` that is used by default in the test environment.",
+  "number": 578,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:25:39.345Z"
+}

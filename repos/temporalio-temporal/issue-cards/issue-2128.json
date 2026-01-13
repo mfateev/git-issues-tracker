@@ -1,0 +1,30 @@
+{
+  "summary": "ErrShardClosed error is returned directly to clients instead of being converted to ShardOwnershipLost and retried on a different history node. When a history node shuts down during deployment, clients receive a serviceerror.Unknown instead of proper error handling.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "history-shard",
+    "frontend",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-conversion",
+    "retry-logic",
+    "node-shutdown",
+    "deployment",
+    "shard-ownership"
+  ],
+  "severity": "high",
+  "userImpact": "Clients receive unknown errors during history node restarts and cannot properly retry requests, potentially causing workflow execution failures during deployments.",
+  "rootCause": "ErrShardClosed is not being converted to serviceerrors.ShardOwnershipLost before being returned to the client, preventing the frontend from retrying on a different node.",
+  "proposedFix": "Convert ErrShardClosed to serviceerrors.ShardOwnershipLost so the frontend can handle the error properly and retry on a different history node.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error handling was implemented to properly convert ErrShardClosed to ShardOwnershipLost before returning to client.",
+  "related": [],
+  "keyQuote": "ErrShardClosed is returned to the client if request reached history node when node is shutting down (during deployment, for instance).",
+  "number": 2128,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:50.362Z"
+}

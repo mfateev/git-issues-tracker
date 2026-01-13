@@ -1,0 +1,36 @@
+{
+  "summary": "Typed search attributes in Java SDK have incomplete integration with Schedule Workflows. The ScheduleOptions still uses the deprecated search attribute approach, and there are inconsistencies in how the SDK handles deprecated vs. typed search attributes when creating schedules, as well as panic conditions when describing schedules with incomplete metadata.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "ScheduleOptions",
+    "Schedule",
+    "SearchAttribute"
+  ],
+  "components": [
+    "schedule-workflow",
+    "search-attributes",
+    "schedule-options",
+    "typed-search-attributes"
+  ],
+  "concepts": [
+    "type-safety",
+    "api-consistency",
+    "deprecation",
+    "metadata",
+    "backward-compatibility",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience inconsistent behavior and potential runtime panics when using typed search attributes with Schedule Workflows, and deprecated approach inconsistently interacts with the new typed API.",
+  "rootCause": "The typed search attributes PR was completed before Schedule Workflows feature was merged, resulting in incomplete integration. ScheduleOptions was missed, and the schedule workflow action doesn't properly handle the transition from deprecated to typed search attributes.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by updating ScheduleOptions to use typed search attributes and fixing the schedule workflow action to properly handle both deprecated and typed approaches with appropriate validation and error messaging.",
+  "related": [],
+  "keyQuote": "Java SDK will panic if the search attributes does not type information in their metadata. Java always writes this, but other SDKs like Go did not",
+  "number": 1847,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:02.905Z"
+}

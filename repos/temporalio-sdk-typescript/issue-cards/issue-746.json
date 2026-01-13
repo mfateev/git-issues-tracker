@@ -1,0 +1,31 @@
+{
+  "summary": "Security advisory for 8 vulnerabilities (CVSS up to 9.8) detected in transitive dependencies of the documentation package, including high-severity prototype pollution and ReDoS issues in minimist, terser, and other libraries. Issue was auto-closed after marking as ignored in Mend inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "docs-package",
+    "dependency-management",
+    "build-tools"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "prototype-pollution",
+    "regular-expression-denial-of-service",
+    "dependency-management",
+    "transitive-dependency",
+    "cvss-score"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the TypeScript SDK documentation may be exposed to high-severity security vulnerabilities in nested dependencies of the docs build system.",
+  "rootCause": "Outdated transitive dependencies in the @docusaurus/core dependency chain include vulnerable versions of minimist (CVE-2021-44906: prototype pollution), terser (CVE-2022-25858: ReDoS), and other libraries with known security issues.",
+  "proposedFix": "Update @docusaurus/core to a version that includes patched transitive dependencies with minimist >=1.2.6, terser >=5.14.2, and other fixed versions.",
+  "workaround": "Mark vulnerabilities as ignored in Mend until docusaurus updates their dependencies.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was auto-closed by Mend after being marked as ignored in the Mend inventory. The vulnerabilities were determined to not affect the deployed documentation site and would be addressed by updating docusaurus when they update their transitive dependencies.",
+  "related": [],
+  "keyQuote": "This report is coming from the docs package, not the SDK itself, and it does not affect our deployed docs site",
+  "number": 746,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:09:47.322Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "SDKs need testing infrastructure for pre-patched workflow code to ensure patches work correctly across different workflow versions and replay scenarios. Current testing only covers new workflows with the latest patch/getVersion code.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "patch-system",
+    "replay-engine",
+    "test-framework"
+  ],
+  "concepts": [
+    "patch-testing",
+    "workflow-versioning",
+    "code-replay",
+    "backward-compatibility",
+    "event-history"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot verify that their workflow patches correctly handle pre-patched code paths during workflow replay, risking compatibility issues in production.",
+  "rootCause": "SDKs lack testing mechanisms to replay workflow executions against older pre-patched code paths, making it difficult to validate patch behavior.",
+  "proposedFix": "Implement a testing approach that allows replaying a certain amount of commands/events to trigger pre-patched code paths, while assuming some commands have already replayed.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Investigate (and implement) an approach to testing the pre-patched code. There are struggles with this such as the fact that some people patch with the expectation all pre-patched workflow runs are past a certain point.",
+  "number": 613,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:43:40.017Z"
+}

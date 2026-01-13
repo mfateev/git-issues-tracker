@@ -1,0 +1,32 @@
+{
+  "summary": "Expose gRPC static headers support in NativeConnection to match core client capabilities. This feature is already implemented in the core client but needs to be exposed through the NativeConnection API and integrated in the bridge.",
+  "category": "feature",
+  "subcategory": "connection-management",
+  "apis": [
+    "NativeConnection"
+  ],
+  "components": [
+    "NativeConnection",
+    "bridge",
+    "grpc-client"
+  ],
+  "concepts": [
+    "grpc",
+    "headers",
+    "static-headers",
+    "connection-configuration",
+    "core-client-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently set static gRPC headers when using NativeConnection, limiting their ability to customize connection behavior.",
+  "rootCause": null,
+  "proposedFix": "Expose the gRPC static headers support that already exists in the core client through the NativeConnection API and hook it up in the bridge.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to expose gRPC static headers through NativeConnection.",
+  "related": [],
+  "keyQuote": "This is already supported by the core client, need to expose in NativeConnection and hook it up in the bridge",
+  "number": 642,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:05:23.862Z"
+}

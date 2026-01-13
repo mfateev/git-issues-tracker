@@ -1,0 +1,30 @@
+{
+  "summary": "TestCronChildWorkflowExecution test is flaky with nil pointer assertions. The error indicates a race condition or timing issue in the test suite where an expected value is unexpectedly nil.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "integration-tests",
+    "cron-workflows",
+    "child-workflows"
+  ],
+  "concepts": [
+    "flaky-test",
+    "race-condition",
+    "timing",
+    "test-reliability",
+    "nil-pointer"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce developer productivity and reliability of the CI/CD pipeline, making it harder to identify real issues.",
+  "rootCause": "Likely a timing or synchronization issue in the cron child workflow execution test where a value that should be set is null at assertion time.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Line number alignment was corrected in the test, resolving the flaky assertion.",
+  "related": [],
+  "keyQuote": "Expected value not to be nil.",
+  "number": 592,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:18:43.700Z"
+}

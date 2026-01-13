@@ -1,0 +1,29 @@
+{
+  "summary": "Schedule's StartAt parameter is not being used correctly when calculating intervals. When creating a schedule with a 365-day interval and specifying a StartAt date, the first run occurs much sooner than expected (within 6 months) instead of at the specified start time.",
+  "category": "bug",
+  "subcategory": "schedule-intervals",
+  "apis": [],
+  "components": [
+    "schedule-engine",
+    "interval-calculation"
+  ],
+  "concepts": [
+    "schedule-calculation",
+    "interval-timing",
+    "startAt-parameter",
+    "temporal-scheduling",
+    "date-calculation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably control when scheduled workflows first run when specifying both a long interval and a StartAt time, making it impossible to schedule workflows to begin at a specific future date.",
+  "rootCause": "The StartAt parameter appears to be ignored or not properly integrated into the interval calculation logic, resulting in incorrect first-run times.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Start this workflow every 365 days with start at 2025-02-03 04:05:06, then the upcoming runs would look like: 2025-02-03 04:05:06, 2026-02-03 04:05:06, 2027-02-03 04:05:06",
+  "number": 6173,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:21.720Z"
+}

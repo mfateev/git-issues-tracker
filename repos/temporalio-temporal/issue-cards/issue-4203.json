@@ -1,0 +1,32 @@
+{
+  "summary": "Implement base64 or hex encoding of hashes for task queue versioning data set IDs. This is a technical improvement to how version identifiers are encoded in the task queue versioning system.",
+  "category": "feature",
+  "subcategory": "task-queue-versioning",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "versioning",
+    "set-id"
+  ],
+  "concepts": [
+    "hashing",
+    "encoding",
+    "data-serialization",
+    "task-queue-versioning",
+    "identifier-format"
+  ],
+  "severity": "low",
+  "userImpact": "Improves the encoding format of version set identifiers for better compatibility and representation in task queue versioning.",
+  "rootCause": null,
+  "proposedFix": "Use a base64 or hex encoded hash of the version for the set ID",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed and integrated into the task queue versioning system",
+  "related": [
+    4194
+  ],
+  "keyQuote": "use a base64 or hex encoded hash of the version here",
+  "number": 4203,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:12.006Z"
+}

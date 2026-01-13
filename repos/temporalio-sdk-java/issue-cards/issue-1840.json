@@ -1,0 +1,32 @@
+{
+  "summary": "Spring Boot 3 native image compilation fails due to missing `-parameters` compiler argument in Temporal Spring Boot autoconfigure classes. Constructor binding requires this flag for native image support.",
+  "category": "feature",
+  "subcategory": "spring-boot-native-image",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "configuration-properties",
+    "native-image"
+  ],
+  "concepts": [
+    "native-image",
+    "spring-boot-3",
+    "compiler-arguments",
+    "constructor-binding",
+    "reflection"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build Spring Boot 3 native images with Temporal SDK until the -parameters compiler flag is added.",
+  "rootCause": "WorkerProperties and related configuration classes lack the -parameters compiler argument needed for Spring Boot's constructor binding reflection in native images.",
+  "proposedFix": "Add `tasks.withType<JavaCompile> { options.compilerArgs = options.compilerArgs + \"-parameters\" }` to temporal-spring-boot-autoconfigure-alpha/build.gradle",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by PR #1877 which likely added the -parameters compiler argument to the build configuration.",
+  "related": [
+    1877
+  ],
+  "keyQuote": "Constructor binding in a native image requires compilation with -parameters but the following classes were compiled without it",
+  "number": 1840,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:48:47.275Z"
+}

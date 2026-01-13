@@ -1,0 +1,35 @@
+{
+  "summary": "After upgrading to v0.6.0, Ruby SDK workflows deadlock with a 2-second timeout error due to call tracing overhead. The illegal call tracer was causing excessive validation that made workflows slow enough to trigger the deadlock detector.",
+  "category": "bug",
+  "subcategory": "deadlock-detection",
+  "apis": [
+    "Future.new",
+    "Future.all_of"
+  ],
+  "components": [
+    "call-tracer",
+    "deadlock-detector",
+    "worker"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "performance-regression",
+    "call-tracing",
+    "validation-overhead",
+    "cpu-bound-work"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to v0.6.0 experience consistent workflow deadlocks with 2-second timeout errors, preventing benchmarks and other async workflows from completing.",
+  "rootCause": "The illegal call tracer introduced in v0.6.0 added significant overhead to validation, causing workflows to exceed the 2-second deadlock detection threshold.",
+  "proposedFix": "PR #332 reduces the scope of the illegal call tracer validation to minimize performance impact and prevent workflows from hitting the deadlock detector.",
+  "workaround": "Set `debug_mode: true` when creating the worker to disable the deadlock detector, allowing CPU-bound work to take longer than 2 seconds.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #332 which reduced call tracing scope to prevent performance degradation that triggered deadlock detection.",
+  "related": [
+    332
+  ],
+  "keyQuote": "This is a case where, with the illegal call tracer on, it actually does take over 2s to process things. There is also a bug preventing the disabling of the call tracer we will fix.",
+  "number": 330,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:52:16.161Z"
+}

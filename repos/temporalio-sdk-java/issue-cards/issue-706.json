@@ -1,0 +1,33 @@
+{
+  "summary": "Removing Workflow#getVersion calls breaks workflow replay even after all old workflow instances complete, preventing clean code removal. The versioning system requires keeping version markers in code indefinitely to maintain replay compatibility.",
+  "category": "bug",
+  "subcategory": "workflow-versioning",
+  "apis": [
+    "Workflow#getVersion",
+    "Worker#replayWorkflowExecution"
+  ],
+  "components": [
+    "workflow-versioning",
+    "history-replay",
+    "version-state-machine"
+  ],
+  "concepts": [
+    "versioning",
+    "workflow-replay",
+    "history-compatibility",
+    "code-evolution",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot safely remove versioning code after migrations complete, forcing them to maintain deprecated code paths indefinitely.",
+  "rootCause": "Java SDK version state machine does not properly ignore version markers when getVersion calls are removed, causing replay failures.",
+  "proposedFix": "Version markers should be ignored if the getVersion call is removed from the workflow code, allowing safe removal of versioning calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Recognized as a Java SDK version state machine bug that should be fixed to allow version markers to be ignored when getVersion is removed.",
+  "related": [],
+  "keyQuote": "Version marker should be ignored if `getVersion` call is removed and it's a supported behavior. So it looks like java-sdk Version state machine bug for me.",
+  "number": 706,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:35:32.830Z"
+}

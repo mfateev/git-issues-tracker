@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to make startUpdate API users aware that it's synchronous with the worker. The API parameter should not be optional and users need clarity on synchronous behavior.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "startUpdate"
+  ],
+  "components": [
+    "workflow-client",
+    "update-handler"
+  ],
+  "concepts": [
+    "synchronous-operation",
+    "worker-interaction",
+    "api-design",
+    "user-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be unaware that startUpdate is synchronous with the worker, potentially leading to unexpected blocking behavior.",
+  "rootCause": null,
+  "proposedFix": "Make the API parameter required (not optional) to force users to explicitly specify what they wait for",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    469
+  ],
+  "keyQuote": "Shouldn't be optional to pass what you'll wait for.",
+  "number": 1403,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:14.167Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Add an admin command to dump dynamic configuration values for the Temporal cluster to help with troubleshooting and visibility into current configuration state.",
+  "category": "feature",
+  "subcategory": "admin-commands",
+  "apis": [],
+  "components": [
+    "admin-cli",
+    "dynamic-config",
+    "cluster-management"
+  ],
+  "concepts": [
+    "configuration",
+    "troubleshooting",
+    "observability",
+    "cluster-state",
+    "operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators and administrators cannot easily inspect current cluster dynamic configuration values, making troubleshooting and configuration verification difficult.",
+  "rootCause": null,
+  "proposedFix": "Add a new admin command that allows dumping either all dynamic config values or a specific config value",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently it is hard to know the current cluster configuration. Dumping all dynamic config values or at least a specific one would be very useful for troubleshooting.",
+  "number": 421,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:56:34.497Z"
+}

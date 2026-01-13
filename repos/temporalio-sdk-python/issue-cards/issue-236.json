@@ -1,0 +1,30 @@
+{
+  "summary": "The `inspect.isclass` check in temporalio/common.py doesn't properly handle `typing.Optional` (which is an alias for `typing.Union`), causing optional parameters with types like `Optional[X]` to not be handled correctly. The check needs to be removed and tests should validate that optional parameters work, including with Pydantic models.",
+  "category": "bug",
+  "subcategory": "type-handling",
+  "apis": [],
+  "components": [
+    "type-validation",
+    "parameter-handling",
+    "common"
+  ],
+  "concepts": [
+    "optional-types",
+    "type-unions",
+    "parameter-serialization",
+    "type-checking",
+    "pydantic-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use Optional[X] type hints for parameters, limiting expressiveness of workflow and activity signatures.",
+  "rootCause": "The `inspect.isclass` check at temporalio/common.py#L247 returns False for typing.Optional (Union types), preventing proper type handling",
+  "proposedFix": "Remove the `inspect.isclass` check to allow Union types like Optional to be processed correctly",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The check was removed to handle Optional/Union types properly",
+  "related": [],
+  "keyQuote": "Our check at line 247 that does `inspect.isclass` is `False` for `typing.Optional` (which is an alias for `typing.Union`). Remove that check.",
+  "number": 236,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:39.086Z"
+}

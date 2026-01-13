@@ -1,0 +1,33 @@
+{
+  "summary": "Add a metric tag to differentiate between two types of rate limiting issues: RPS (requests per second) limit exceeded versus poller concurrent limit exceeded. This enables better observability and troubleshooting of rate limiting problems.",
+  "category": "feature",
+  "subcategory": "metrics-observability",
+  "apis": [],
+  "components": [
+    "metrics",
+    "rate-limiter",
+    "poller"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "metrics-tagging",
+    "observability",
+    "throttling",
+    "RPS",
+    "concurrency-limits"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot distinguish between different rate limiting causes in metrics, making it harder to diagnose and resolve throttling issues.",
+  "rootCause": "Lack of metric tags to differentiate RPS limit exceeded from poller concurrent limit exceeded.",
+  "proposedFix": "Add metric tags that indicate the cause of throttling (RPS vs poller concurrent limit).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #2423 with metric tags to differentiate rate limiting causes.",
+  "related": [
+    2423
+  ],
+  "keyQuote": "Currently, throttling could be due to RPS exceed or poller concurrent limit exceed. We need the ability to differentiate them from metrics.",
+  "number": 2108,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:37.804Z"
+}

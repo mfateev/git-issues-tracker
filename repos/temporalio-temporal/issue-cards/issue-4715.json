@@ -1,0 +1,34 @@
+{
+  "summary": "Server crashes when upgrading from v1.20.4 to v1.21.4 with archival disabled. The cluster fails to start after the upgrade even though archival was never enabled in the previous version.",
+  "category": "bug",
+  "subcategory": "archival-configuration",
+  "apis": [],
+  "components": [
+    "server",
+    "archival",
+    "configuration",
+    "upgrade-migration"
+  ],
+  "concepts": [
+    "cluster-upgrade",
+    "configuration-compatibility",
+    "archival-state",
+    "server-startup",
+    "backward-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot upgrade their Temporal clusters from v1.20.4 to v1.21.4 when archival is disabled, causing service downtime.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4638,
+    4634
+  ],
+  "keyQuote": "Able to upgrade temporal cluster from 1.20.4 to 1.21.4 with archival disabled",
+  "number": 4715,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:56:05.065Z"
+}

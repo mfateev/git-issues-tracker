@@ -1,0 +1,33 @@
+{
+  "summary": "User reports that `instanceof` checks fail for ActivityError in workflows, even though the activity returns the error object. The error type checking only works when performed inside the activity before returning.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "ActivityFailure",
+    "ApplicationFailure"
+  ],
+  "components": [
+    "workflow-runtime",
+    "error-handling",
+    "type-system"
+  ],
+  "concepts": [
+    "instanceof",
+    "type-checking",
+    "error-wrapping",
+    "activity-errors",
+    "exception-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably use instanceof to check for activity errors in workflows, forcing them to implement workarounds or move type checking into activities.",
+  "rootCause": "Activity errors are wrapped on the workflow side, so instanceof checks against the original error type fail because the error is wrapped in ActivityFailure/ApplicationFailure.",
+  "proposedFix": null,
+  "workaround": "Catch ActivityFailure with cause set to ApplicationFailure and check the type property instead of using instanceof.",
+  "resolution": "invalid",
+  "resolutionDetails": "Not a bug but expected behavior - activity errors are wrapped in ActivityFailure/ApplicationFailure on the workflow side. Users should follow the documented pattern for handling activity failures.",
+  "related": [],
+  "keyQuote": "Activity errors are wrapped on the workflow side. You should be able to catch an ActivityFailure with cause set to ApplicationFailure with the type of the original exception thrown in the activity.",
+  "number": 1083,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:25.431Z"
+}

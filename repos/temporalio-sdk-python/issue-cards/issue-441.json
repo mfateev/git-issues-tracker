@@ -1,0 +1,33 @@
+{
+  "summary": "GeneratorExit exceptions are causing context detach failures in OpenTelemetry integration when coroutines are garbage collected. The issue occurs when the garbage collector wakes up a coroutine on a different thread, causing token validation errors during context cleanup in the finally block.",
+  "category": "bug",
+  "subcategory": "opentelemetry-integration",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "context-management",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "generator-exit",
+    "context-detach",
+    "garbage-collection",
+    "threading",
+    "coroutine-lifecycle",
+    "token-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience runtime errors and context cleanup failures when workflows are garbage collected, potentially leaving traces incomplete and causing context state corruption.",
+  "rootCause": "GeneratorExit is triggered by garbage collection of coroutines/generators, potentially on different threads than where they started. When context detach is called in the finally block, the OpenTelemetry token was created in a different Context, causing ValueError.",
+  "proposedFix": "Ensure all tasks complete gracefully rather than allowing coroutines/generators to be garbage collected without proper cancellation and cleanup.",
+  "workaround": "Prevent reaching GeneratorExit by ensuring all coroutines are properly cancelled and awaited to completion rather than relying on GC. A specific workaround is mentioned in the linked OpenTelemetry issue.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by ensuring proper task completion and graceful shutdown to prevent GeneratorExit during garbage collection.",
+  "related": [
+    2606
+  ],
+  "keyQuote": "There's no way to disable this behavior, no way to intercept, and with threading (especially thread pools) no guarantee where it may wake up.",
+  "number": 441,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:08.362Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "ResourceBasedSlotOptions fields in the Python SDK documentation showed values between 0 and 1, but the underlying Rust implementation expected percentages between 0 and 100. This caused confusion and incorrect tuner behavior until the reporter realized the issue was insufficient container memory, not the value range itself.",
+  "category": "docs",
+  "subcategory": "worker-tuning",
+  "apis": [
+    "WorkerTuner.create_resource_based"
+  ],
+  "components": [
+    "worker",
+    "tuner",
+    "resource-based-tuner"
+  ],
+  "concepts": [
+    "resource-allocation",
+    "memory-usage",
+    "cpu-usage",
+    "slot-allocation",
+    "documentation-accuracy"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the documentation with normalized values (0-1) experienced incorrect slot allocation behavior, requiring them to debug and discover the correct percentage format (0-100).",
+  "rootCause": "Documentation inconsistency between Python SDK documentation showing 0-1 range and underlying Rust implementation expecting 0-100 range. The actual issue was insufficient container memory, misdiagnosed by the reporter due to the documentation mismatch.",
+  "proposedFix": null,
+  "workaround": "Use percentage values (0-100) instead of normalized values (0-1) for target_memory_usage and target_cpu_usage.",
+  "resolution": "self_resolved",
+  "resolutionDetails": "Reporter realized the documentation was misleading but the actual root cause was insufficient container memory. The documentation should be clarified to explicitly state that values should be percentages (0-100).",
+  "related": [],
+  "keyQuote": "When setting values as percentages, i.e. 80.0 rather than 0.8, the tuner behaves as expected.",
+  "number": 743,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:41.268Z"
+}

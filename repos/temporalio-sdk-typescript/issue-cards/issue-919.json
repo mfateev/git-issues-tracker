@@ -1,0 +1,32 @@
+{
+  "summary": "Two transitive dependencies in loader-utils (CVE-2022-37601 and CVE-2022-37599) were detected with a maximum CVSS severity of 9.8. The prototype pollution vulnerability in loader-utils 1.4.0 was flagged through the dependency chain and automatically resolved as part of dependency updates.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "build-system",
+    "webpack-loader",
+    "dependencies",
+    "test-framework"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "prototype-pollution",
+    "regular-expression-denial-of-service",
+    "transitive-dependencies",
+    "supply-chain"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of the SDK could be exposed to prototype pollution attacks and denial of service if the vulnerable transitive dependencies were not updated.",
+  "rootCause": "istanbul-instrumenter-loader@3.0.1 depends on loader-utils@1.4.0 which contains CVE-2022-37601 (prototype pollution) and CVE-2022-37599 (ReDoS) vulnerabilities.",
+  "proposedFix": "Upgrade loader-utils to version 2.0.0 or later to address both CVE-2022-37601 and CVE-2022-37599.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or is no longer part of the Mend inventory, indicating dependency updates resolved the vulnerability.",
+  "related": [],
+  "keyQuote": "Prototype pollution vulnerability in function parseQuery in parseQuery.js in webpack loader-utils 2.0.0 via the name variable in parseQuery.js.",
+  "number": 919,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:23:32.400Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The gRPC interceptor automatically retries ResourceExhausted errors, but should not retry the specific case where a message exceeds the 4MB size limit. Currently, message-too-large errors are retried unnecessarily and should either be prevented before transmission or handled specially to fail the workflow task immediately.",
+  "category": "bug",
+  "subcategory": "grpc-communication",
+  "apis": [],
+  "components": [
+    "grpc-interceptor",
+    "retry-logic",
+    "message-handling"
+  ],
+  "concepts": [
+    "retry",
+    "error-handling",
+    "message-size",
+    "grpc",
+    "resource-exhaustion",
+    "workflow-task"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unnecessary retries and delayed workflow task failures when their activity payloads exceed the 4MB message size limit.",
+  "rootCause": "The gRPC interceptor treats all ResourceExhausted errors uniformly as retryable, but message-size-too-large errors should fail immediately rather than retry.",
+  "proposedFix": "Either pre-calculate message size to prevent exceeding the limit before transmission, or detect and skip retrying this specific ResourceExhausted error variant by checking the error message.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented special handling to detect gRPC message-size-too-large errors and prevent them from being retried by the interceptor.",
+  "related": [
+    624
+  ],
+  "keyQuote": "grpc: received message larger than max (10248653 vs. 4194304) ... We need to stop retrying this one in particular but still retry others.",
+  "number": 1585,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:40:32.811Z"
+}

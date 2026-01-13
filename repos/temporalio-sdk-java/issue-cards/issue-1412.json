@@ -1,0 +1,34 @@
+{
+  "summary": "MetricsScope configuration on TestEnvironmentOptions doesn't work as documented - metrics must be set directly on TestEnvironmentOptions rather than through WorkflowServiceStubsOptions, causing confusion and unexpected behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestEnvironmentOptions",
+    "WorkflowServiceStubsOptions",
+    "TestWorkflowEnvironment"
+  ],
+  "components": [
+    "test-environment",
+    "metrics-reporting",
+    "configuration"
+  ],
+  "concepts": [
+    "metrics-scope",
+    "micrometer-integration",
+    "test-setup",
+    "configuration-hierarchy",
+    "stats-reporting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly configure metrics reporting in tests using the documented approach, requiring them to discover an undocumented workaround.",
+  "rootCause": "MetricsScope set via WorkflowServiceStubsOptions is not properly propagated to or recognized by the TestEnvironmentOptions, while direct configuration on TestEnvironmentOptions works.",
+  "proposedFix": null,
+  "workaround": "Set MetricsScope directly on TestEnvironmentOptions instead of through WorkflowServiceStubsOptions.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the configuration behavior or documentation to clarify the correct approach.",
+  "related": [],
+  "keyQuote": "Worker & Client are not reported to your MeterRegistry, unless MeterRegistry is registered using setMetricsScope on TestEnvironmentOptions",
+  "number": 1412,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:34:41.265Z"
+}

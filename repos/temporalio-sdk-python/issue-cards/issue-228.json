@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to provide eager validation when registering an activity class instead of an instance, failing at worker registration time rather than at activity runtime.",
+  "category": "feature",
+  "subcategory": "activity-registration",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "registration"
+  ],
+  "concepts": [
+    "validation",
+    "error-handling",
+    "registration",
+    "class-vs-instance",
+    "early-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently receive runtime errors for incorrect activity class registration when they should fail immediately during worker setup.",
+  "rootCause": null,
+  "proposedFix": "Add validation at worker registration time to detect when a callable activity class is registered instead of an instance.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation added eager validation to fail at worker registration time when activity class is registered instead of instance.",
+  "related": [],
+  "keyQuote": "Right now we get a failure at activity runtime. We should fail at worker registration time.",
+  "number": 228,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:56:05.679Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for signal total ordering - ensuring signals are processed in the exact order they're received globally across signal types in TypeScript workflows. The discussion explores various implementation approaches including object-based handlers, channel-based queuing, and serial processing utilities.",
+  "category": "feature",
+  "subcategory": "signal-ordering",
+  "apis": [
+    "defineSignal",
+    "on"
+  ],
+  "components": [
+    "signal-handler",
+    "workflow-runtime",
+    "api-design"
+  ],
+  "concepts": [
+    "signal-ordering",
+    "concurrency-control",
+    "workflow-execution",
+    "serial-processing",
+    "message-queue"
+  ],
+  "severity": "medium",
+  "userImpact": "Users requiring strict signal ordering across multiple signal types must implement custom queuing logic rather than relying on native SDK support.",
+  "rootCause": "SDK does not provide built-in support for global signal ordering; only per-signal-type ordering is available.",
+  "proposedFix": "Multiple proposals discussed: (1) signals prop as object/function handler, (2) _globalHandler registration, (3) registerSignalHandler API, (4) channel-based user-space implementation with async-mutex.",
+  "workaround": "Implement channel-based queuing pattern locally; use async-mutex npm package for serial processing of signals.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not planned - decision made to keep feature in user-space rather than add SDK support, with option to revisit if more requests received.",
+  "related": [],
+  "keyQuote": "this is all possible to implement in userspace. If we get enough requests for this we'll revisit.",
+  "number": 274,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:07.868Z"
+}

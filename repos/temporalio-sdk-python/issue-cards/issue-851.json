@@ -1,0 +1,37 @@
+{
+  "summary": "Test server in time-skipping mode does not populate userMetadata.summary on HistoryEvents, despite the summary attribute being passed when executing workflows and activities.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "execute_activity",
+    "fetch_history_events"
+  ],
+  "components": [
+    "test-server",
+    "time-skipping-mode",
+    "history-events",
+    "metadata-handling"
+  ],
+  "concepts": [
+    "userMetadata",
+    "summary",
+    "time-skipping",
+    "test-framework",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test userMetadata.summary functionality in time-skipping mode, limiting test coverage for UI features that display workflow/activity summaries.",
+  "rootCause": "Test server's time-skipping mode does not properly populate userMetadata.summary field on HistoryEvents, while dev mode handles it correctly.",
+  "proposedFix": null,
+  "workaround": "Clear temporal-prefixed files in $TMPDIR and retry; switch to dev mode for testing userMetadata.summary functionality.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2441
+  ],
+  "keyQuote": "I can see `userMetadata.summary` populated on the `HistoryEvent` when running in dev mode, but it is missing in time-skipping mode.",
+  "number": 851,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:30.436Z"
+}

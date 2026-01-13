@@ -1,0 +1,31 @@
+{
+  "summary": "Request to convert all exposed modules (temporalio.activity, temporalio.workflow, etc.) into packages to better organize code across multiple files and provide clearer control over `__all__` to improve intellisense accuracy by hiding imported items.",
+  "category": "feature",
+  "subcategory": "module-structure",
+  "apis": [],
+  "components": [
+    "activity",
+    "workflow",
+    "module-exports"
+  ],
+  "concepts": [
+    "package-structure",
+    "code-organization",
+    "api-visibility",
+    "intellisense",
+    "imports",
+    "namespace-control"
+  ],
+  "severity": "low",
+  "userImpact": "Improves developer experience through cleaner intellisense and better code organization without affecting runtime behavior.",
+  "rootCause": null,
+  "proposedFix": "Convert modules like temporalio.activity and temporalio.workflow into packages with explicit `__all__` definitions to control what is exposed.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we can control `__all__` a bit more clearly so that users' intellisense doesn't display things we've imported",
+  "number": 348,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:46.958Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "OpenTelemetry tracing is not generated or propagated for scheduled workflow executions in the Python SDK. When workflows are triggered by Temporal schedules, trace IDs are broken across activities, unlike manually invoked workflows which maintain consistent trace IDs.",
+  "category": "bug",
+  "subcategory": "observability-tracing",
+  "apis": [],
+  "components": [
+    "tracing",
+    "scheduler",
+    "worker",
+    "context-propagation"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "tracing",
+    "span-propagation",
+    "trace-context",
+    "scheduling",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot effectively trace and observe scheduled workflow executions, making it difficult to debug and monitor workflows triggered by Temporal schedules.",
+  "rootCause": "Trace context is not propagated from the scheduler to workflow executions; only user-controlled clients can create initial spans when starting workflows, and the SDK doesn't support creating orphaned spans server-side.",
+  "proposedFix": "Support orphaned worker-side spans or implement a new mechanism to attach start-workflow headers on first task to propagate tracing context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in a separate issue #454 with support for trace context propagation in scheduled workflows.",
+  "related": [
+    362,
+    454
+  ],
+  "keyQuote": "We can't know what tracer or tracing framework a user is using to create the span for them when we start the workflow server side.",
+  "number": 449,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:53.492Z"
+}

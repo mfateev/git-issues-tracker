@@ -1,0 +1,34 @@
+{
+  "summary": "User experiences unexpected latency spikes when scheduling multiple activities with limited concurrency, where workflow completion time occasionally increases from 500-600ms to 2+ seconds despite activities being properly queued.",
+  "category": "bug",
+  "subcategory": "activity-scheduling",
+  "apis": [
+    "ExecuteActivity",
+    "StartWorkflow"
+  ],
+  "components": [
+    "activity-scheduler",
+    "worker",
+    "activity-executor"
+  ],
+  "concepts": [
+    "latency",
+    "activity-scheduling",
+    "concurrency",
+    "scheduling-delay",
+    "queueing",
+    "performance-variance"
+  ],
+  "severity": "medium",
+  "userImpact": "Unpredictable latency spikes in activity execution create performance inconsistencies that are difficult to debug and affect workflow completion times.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue closed as discussion moved to Slack; no definitive resolution documented",
+  "related": [],
+  "keyQuote": "I don't understand why there are such long idle time between activity scheduled and activity started",
+  "number": 7982,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:36.221Z"
+}

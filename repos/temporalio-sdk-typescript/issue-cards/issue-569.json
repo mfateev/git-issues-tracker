@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in qs 6.5.3 (CVE-2021-44907) via lerna causes a Denial of Service risk due to insufficient property sanitization in query parsing. The issue was automatically closed after the vulnerable library was removed from inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-tools",
+    "package-manager"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "query-parsing",
+    "transitive-dependency",
+    "cvss-7.5"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to a potential Denial of Service attack through a vulnerable transitive dependency in the query string parser.",
+  "rootCause": "Insufficient sanitization of properties in qs.parse() function allowing array property assignment to be converted to objects, potentially causing DoS.",
+  "proposedFix": "Upgrade qs from 6.5.3 to 6.8.1 or later to address CVE-2021-44907.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was removed from the WhiteSource inventory and the dependency chain was updated, eliminating the transitive dependency on the vulnerable qs version.",
+  "related": [],
+  "keyQuote": "A Denial of Service vulnerability exists in qs up to 6.8.0 due to insufficient sanitization of property in the gs.parse function.",
+  "number": 569,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:01:58.056Z"
+}

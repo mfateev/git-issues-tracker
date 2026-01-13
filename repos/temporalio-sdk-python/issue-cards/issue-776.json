@@ -1,0 +1,31 @@
+{
+  "summary": "User requests implementation of `run_in_executor` on the workflow event loop to support async logging libraries like structlog that use thread executors. The maintainer explains that the deterministic workflow loop intentionally lacks thread capabilities and suggests alternatives.",
+  "category": "feature",
+  "subcategory": "workflow-logging",
+  "apis": [],
+  "components": [
+    "event-loop",
+    "workflow-instance",
+    "deterministic-loop"
+  ],
+  "concepts": [
+    "async-logging",
+    "thread-executor",
+    "determinism",
+    "event-loop",
+    "structlog",
+    "non-blocking-io"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use async logging libraries with thread executors inside workflows due to NotImplementedError.",
+  "rootCause": "The workflow event loop is a custom deterministic loop with no thread capabilities by design to maintain determinism guarantees.",
+  "proposedFix": "Use `asyncio.run_coroutine_threadsafe(my_async_call(), my_primary_loop).result()` or replace the base logger of `workflow.logger` with async-compatible equivalent.",
+  "workaround": "Call asyncio operations from outside the deterministic loop; consider wrapping with `asyncio.run_coroutine_threadsafe()` or use `workflow.logger` with modified base logger.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer clarified that implementing run_in_executor is not possible because the deterministic workflow loop intentionally excludes thread capabilities to preserve determinism. Recommended alternative approaches instead.",
+  "related": [],
+  "keyQuote": "The async loop in workflows is a custom deterministic loop with no thread capabilities by intention, because threads are non-deterministic.",
+  "number": 776,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:57.164Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Race condition in TestWorkflowMutableStateImpl where a TIMER_FIRED event removes a timer in the same workflow task, causing a subsequent CancelTimer command to fail with an invalid_argument exception. This prevents the workflow from completing and making progress.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "workflow-mutable-state",
+    "timer-management",
+    "history-builder"
+  ],
+  "concepts": [
+    "race-condition",
+    "timer-lifecycle",
+    "workflow-task",
+    "command-processing",
+    "state-synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users writing tests with the Java test server experience workflow execution failures and may not be able to complete tests reliably when timer cancellations race with timer fired events.",
+  "rootCause": "When a workflow task receives both a TIMER_FIRED event and a CancelTimer command for the same timer, the timer is removed by the TIMER_FIRED handler before the CancelTimer handler executes, causing processCancelTimer to throw an exception when it checks for a null timer without considering this race condition.",
+  "proposedFix": "Check if the timer was removed by a TIMER_FIRED event in the same workflow task before throwing an exception in processCancelTimer, allowing graceful handling of this race condition.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I think on cancel command, we should only throw if we check first that if timer is null if it was actually removed in same workflow task.",
+  "number": 2606,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:13:16.588Z"
+}

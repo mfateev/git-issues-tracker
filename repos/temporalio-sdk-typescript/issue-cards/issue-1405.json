@@ -1,0 +1,31 @@
+{
+  "summary": "Review and validate all type assertions in the TypeScript SDK where protobuf fields are assumed to be non-null despite not being technically guaranteed by the type system. Fix any unsafe assertions that could cause unexpected errors if server behavior changes.",
+  "category": "bug",
+  "subcategory": "type-safety",
+  "apis": [],
+  "components": [
+    "protobuf-handling",
+    "type-system",
+    "server-communication"
+  ],
+  "concepts": [
+    "type-assertion",
+    "null-safety",
+    "type-validation",
+    "protobuf-schema",
+    "server-contract",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Unsafe type assertions could cause runtime errors if the server's protobuf message behavior changes, leading to unexpected crashes.",
+  "rootCause": "SDK code uses type assertions that rely on undocumented server guarantees rather than proper type validation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are some places in the SDK where we expect some protobuf fields to be non-null (because the server effectively never return a null value for that field), even though the field isn't technically _guaranteed_ to be non-null.",
+  "number": 1405,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:26.493Z"
+}

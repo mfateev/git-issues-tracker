@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add an option for bidirectional gRPC streaming instead of unary RPC for worker-frontend communication. This would provide flexibility for traffic management solutions and connection policies that may benefit from streaming instead of long polling.",
+  "category": "feature",
+  "subcategory": "grpc-streaming",
+  "apis": [],
+  "components": [
+    "worker",
+    "frontend",
+    "grpc",
+    "connection-management"
+  ],
+  "concepts": [
+    "streaming",
+    "bidirectional-communication",
+    "traffic-management",
+    "load-balancing",
+    "connection-policies",
+    "long-polling"
+  ],
+  "severity": "low",
+  "userImpact": "Users with specific traffic management or connection policy requirements could optimize worker-frontend communication by choosing bidirectional streaming.",
+  "rootCause": null,
+  "proposedFix": "Add an option to use gRPC bidirectional streaming for sending/receiving multiple requests as an alternative to unary RPC with long polling",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ideally an option to use gRPC bidirectional streaming for sending / receiving multiple requests rather than using long polling with unary RPC",
+  "number": 2565,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:10.638Z"
+}

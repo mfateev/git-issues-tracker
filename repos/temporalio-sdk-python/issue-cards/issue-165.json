@@ -1,0 +1,32 @@
+{
+  "summary": "Add CI tests to confirm Python 3.11 support is working. This is a testing infrastructure enhancement to validate compatibility with Python 3.11.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [],
+  "components": [
+    "ci",
+    "test-framework",
+    "python-runtime"
+  ],
+  "concepts": [
+    "python-version",
+    "compatibility",
+    "ci-testing",
+    "version-support",
+    "regression-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures Python 3.11 compatibility is continuously verified, preventing regressions for users running the SDK on Python 3.11.",
+  "rootCause": null,
+  "proposedFix": "Add Python 3.11 to CI test matrix after issue #164 is resolved.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "CI tests for Python 3.11 support were added and implemented.",
+  "related": [
+    164
+  ],
+  "keyQuote": "Confirm in CI we support 3.11. Do not do this until after #164 lands.",
+  "number": 165,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:16.528Z"
+}

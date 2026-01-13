@@ -1,0 +1,33 @@
+{
+  "summary": "SDK should not return an update handle if the update has not reached the desired state, as referenced in the cross-repository features issue #432.",
+  "category": "feature",
+  "subcategory": "update-handling",
+  "apis": [
+    "UpdateHandle"
+  ],
+  "components": [
+    "update-executor",
+    "workflow-engine",
+    "client-sdk"
+  ],
+  "concepts": [
+    "update-state",
+    "handle-lifecycle",
+    "state-validation",
+    "async-operations"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may receive invalid update handles for updates that haven't completed, leading to incorrect state management and failed update tracking.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the feature was implemented or resolved",
+  "related": [
+    432
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/432",
+  "number": 199,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:41:30.403Z"
+}

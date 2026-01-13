@@ -1,0 +1,32 @@
+{
+  "summary": "The Temporal PHP SDK performs runtime checks for the gRPC extension instead of declaring it as a composer dependency, breaking installations with `--ignore-platform-reqs` and causing failures during Laravel's package discovery process.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "BaseClient",
+    "GRPC",
+    "composer-integration"
+  ],
+  "concepts": [
+    "platform-requirements",
+    "composer-dependencies",
+    "package-discovery",
+    "extension-loading",
+    "laravel-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use `composer install --ignore-platform-reqs` to install the SDK without gRPC, and Laravel projects fail during package discovery due to runtime extension checks.",
+  "rootCause": "The gRPC extension requirement is checked at runtime in BaseClient.php instead of being declared in composer.json as `ext-grpc`, violating composer best practices and causing issues with package discovery systems.",
+  "proposedFix": "Add `\"ext-grpc\": \"*\"` to the `require` section of composer.json alongside existing extension requirements (`ext-curl`, `ext-json`).",
+  "workaround": "Add `temporal/sdk` to Laravel's `dont-discover` array in composer.json, though this does not fully solve the problem.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    394
+  ],
+  "keyQuote": "The gRPC extension is required to use Temporal Client. Instead the `grpc` availability is check in code rather than declared in composer.json",
+  "number": 689,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:45:19.131Z"
+}

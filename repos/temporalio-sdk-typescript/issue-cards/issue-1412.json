@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to enable runtime replacement of the worker client with a new client instance that may be configured with different options (e.g., updated TLS certificates). This allows workers to reconnect with new credentials without restarting.",
+  "category": "feature",
+  "subcategory": "worker-client",
+  "apis": [],
+  "components": [
+    "worker",
+    "client"
+  ],
+  "concepts": [
+    "client-replacement",
+    "runtime-reconfiguration",
+    "TLS-certificates",
+    "connection-options",
+    "worker-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot update worker client credentials or connection options at runtime without completely restarting the worker process.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    11
+  ],
+  "keyQuote": "Need to be able to replace the worker client with a new client that may be connected with different options (e.g. a new TLS cert).",
+  "number": 1412,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:39.151Z"
+}

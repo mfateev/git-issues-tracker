@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal caches the archiver object with AWS credentials at startup, preventing credential refresh when using time-limited AWS keys that rotate every 8 hours. This causes archival failures after credentials expire.",
+  "category": "bug",
+  "subcategory": "archival-credentials",
+  "apis": [],
+  "components": [
+    "archiver",
+    "storage-service",
+    "aws-s3",
+    "credential-management"
+  ],
+  "concepts": [
+    "credential-refresh",
+    "session-caching",
+    "authentication",
+    "archival",
+    "aws-integration",
+    "credential-rotation"
+  ],
+  "severity": "high",
+  "userImpact": "Users with rotating AWS credentials experience archival failures after credential expiration, blocking archived workflow access.",
+  "rootCause": "Archiver object is created and cached once at application startup, using initial credentials for the entire application lifecycle without refreshing from credential file.",
+  "proposedFix": null,
+  "workaround": "The AWS Go SDK may support credential refresh; see aws/aws-sdk-go#1993 for possible workaround details.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Archiver object which does the archiving is created only once for the first call and is cached. There after for subsequent calls, the same archiver object is used.",
+  "number": 2470,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:08.745Z"
+}

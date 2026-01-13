@@ -1,0 +1,28 @@
+{
+  "summary": "Request to add cron jitter support to avoid all scheduled workflows starting simultaneously. User currently implements workaround at application level, citing similar functionality in Cadence SDK.",
+  "category": "feature",
+  "subcategory": "cron-scheduling",
+  "apis": [],
+  "components": [
+    "cron-scheduler",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "scheduling",
+    "jitter",
+    "concurrency-control",
+    "load-distribution"
+  ],
+  "severity": "low",
+  "userImpact": "Users must implement cron jitter workarounds at application level to prevent thundering herd scenarios with scheduled workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement jitter parameter in cron scheduling similar to Cadence SDK implementation",
+  "workaround": "Handle jittering at application level",
+  "resolution": "wontfix",
+  "resolutionDetails": "Existing cron functionality will not evolve; team is developing a new flexible scheduling API to replace it",
+  "related": [],
+  "keyQuote": "Existing cron functionality will not evolve, the internal implementation and the whole experience are quite finicky. We are working on a brand new fully revisited flexible scheduling API",
+  "number": 1511,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:37:49.177Z"
+}

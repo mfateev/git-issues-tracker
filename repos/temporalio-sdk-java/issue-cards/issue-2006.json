@@ -1,0 +1,33 @@
+{
+  "summary": "Request to upgrade the Protobuf plugin to v26.0 with breaking changes. Upgrade is blocked by compatibility issues between Proto 4 and grpc-java, requiring investigation of gRPC recommendations before proceeding.",
+  "category": "other",
+  "subcategory": "build-dependencies",
+  "apis": [],
+  "components": [
+    "protobuf-plugin",
+    "grpc-java",
+    "build-system"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "breaking-changes",
+    "compatibility",
+    "plugin-version",
+    "proto-compiler"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot benefit from Protobuf v26.0 improvements and security fixes until the SDK upgrades its plugin and resolves gRPC compatibility issues.",
+  "rootCause": "Proto 4 has compatibility issues with grpc-java that need to be resolved before upgrading; gRPC team is working on recommendations.",
+  "proposedFix": "Follow gRPC recommendations for Proto 4 compatibility: make SDK compatible with both Proto 3.x and 4.x, replace GeneratedMessage/GeneratedMessageV3 with Message, and use protoc 25.x for generated code.",
+  "workaround": "Use Proto 3.x until Proto 4 compatibility is resolved in grpc-java.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by following gRPC's compatibility recommendations and completing the Protobuf upgrade.",
+  "related": [
+    1752,
+    11015
+  ],
+  "keyQuote": "Proto 4 has some issues with grpc-java. We're waiting for grpc/grpc-java#11015 to resolve and plan to follow their recommendations.",
+  "number": 2006,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:55:08.993Z"
+}

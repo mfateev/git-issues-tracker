@@ -1,0 +1,34 @@
+{
+  "summary": "Implement CallerTypePreemptable priority for replication and non-critical queues (excluding transfer/timer/visibility) to mitigate resource contention during namespace migration.",
+  "category": "feature",
+  "subcategory": "task-scheduling",
+  "apis": [],
+  "components": [
+    "task-executor",
+    "queue-management",
+    "replication",
+    "task-loading"
+  ],
+  "concepts": [
+    "priority-scheduling",
+    "resource-contention",
+    "caller-type",
+    "namespace-migration",
+    "queue-management",
+    "task-categorization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users performing namespace migrations will experience improved resource contention and stability through prioritization of critical queue operations.",
+  "rootCause": "Task executor assumes all tasks are background priority, lacking differentiated caller type specification for different task categories.",
+  "proposedFix": "Implement mechanism to specify different caller types for different task categories in task executor and task loading implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed, confirmed by maintainer.",
+  "related": [
+    3870
+  ],
+  "keyQuote": "The new CallerTypePreemptable should be used for all replication and all queues other than transfer/timer/visibility to resolve issues of resource contention.",
+  "number": 3874,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:46:42.491Z"
+}

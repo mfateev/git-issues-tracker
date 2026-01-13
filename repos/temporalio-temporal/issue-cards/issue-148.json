@@ -1,0 +1,32 @@
+{
+  "summary": "Cron workflows internally used continue as new to schedule the next run, which conflicted with user workflows that called continue as new explicitly. The proposal is to allow explicit continue as new calls while automatically scheduling the next run only when the workflow completes.",
+  "category": "feature",
+  "subcategory": "cron-workflows",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "cron-engine",
+    "workflow-scheduler",
+    "continue-as-new-handler"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "workflow-continuation",
+    "automatic-retry",
+    "workflow-lifecycle",
+    "temporal-scheduling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now explicitly call continue as new in cron workflows without conflicts, enabling more flexible scheduling patterns.",
+  "rootCause": "Cron workflows were internally using continue as new for scheduling, which prevented users from using continue as new explicitly in their workflow logic.",
+  "proposedFix": "Allow explicit continue as new calls and defer next run scheduling until workflow completion instead of using continue as new internally.",
+  "workaround": "Trigger an activity at the end of each workflow to create the next cron workflow and kill the previous one at the start of the following workflow.",
+  "resolution": "fixed",
+  "resolutionDetails": "The cron implementation was changed to not use continueAsNew internally, allowing user workflows to call continue as new explicitly. Next runs are scheduled automatically when the user workflow completes.",
+  "related": [],
+  "keyQuote": "User workflow could do continue as new and next run is only scheduled when user workflow completed.",
+  "number": 148,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:20:17.589Z"
+}

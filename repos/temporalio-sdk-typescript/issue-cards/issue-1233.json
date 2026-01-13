@@ -1,0 +1,32 @@
+{
+  "summary": "The @temporalio/nyc-test-coverage package is difficult to use correctly and fragile, causing users to encounter various errors (invalid coverage objects, incorrect coverage reports) despite following documentation. The issue requires both tool improvements for resilience and better usage documentation.",
+  "category": "bug",
+  "subcategory": "test-coverage",
+  "apis": [],
+  "components": [
+    "nyc-test-coverage",
+    "istanbul-lib-coverage",
+    "coverage-merging"
+  ],
+  "concepts": [
+    "test-coverage",
+    "instrumentation",
+    "workflow-testing",
+    "source-maps",
+    "jest-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users struggle to set up test coverage for workflow tests and encounter errors or incorrect coverage reports, making it difficult to measure test quality.",
+  "rootCause": "FileCoverage constructor receives CoverageMap instances when expecting FileCoverage instances; mergeIntoGlobalCoverage function doesn't correctly handle coverage merging with different source maps from different transpilers (ts-jest vs webpack).",
+  "proposedFix": "Improve tool resilience to runtime environment variations; patch FileCoverage constructor to handle CoverageMap instances; fix mergeIntoGlobalCoverage function to properly merge coverage data regardless of source map differences.",
+  "workaround": "Bypass mergeIntoGlobalCoverage and manually write coverage data to .nyc_output using createCoverageMap().merge() for each coverage map; patch istanbul-lib-coverage FileCoverage constructor locally.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1226
+  ],
+  "keyQuote": "using the `@temporalio/nyc-test-coverage` package to collect coverage data for Workflow tests is quite difficult and generally fragile",
+  "number": 1233,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:06.712Z"
+}

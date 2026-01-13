@@ -1,0 +1,33 @@
+{
+  "summary": "Add feature tests for .NET HTTP proxy support following the implementation in sdk-dotnet#318. Tests needed for both basic HTTP proxy and HTTP proxy authentication scenarios.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "http-proxy",
+    "client",
+    "test-framework",
+    "dotnet-sdk"
+  ],
+  "concepts": [
+    "http-proxy",
+    "authentication",
+    "client-configuration",
+    "feature-testing",
+    "proxy-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need comprehensive feature tests to validate HTTP proxy functionality works correctly in .NET SDK implementations.",
+  "rootCause": null,
+  "proposedFix": "Create feature tests in the features repository for http_proxy and http_proxy_auth directories to match the .NET SDK implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were implemented and committed at commit 2376f0dcde96dabe2ffb6dfcd8c9a1c86d72b0a9",
+  "related": [
+    318
+  ],
+  "keyQuote": "Need tests at https://github.com/temporalio/features/tree/main/features/client/http_proxy and http_proxy_auth now that sdk-dotnet#318 has landed.",
+  "number": 521,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:43.798Z"
+}

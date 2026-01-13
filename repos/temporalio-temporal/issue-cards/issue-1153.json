@@ -1,0 +1,32 @@
+{
+  "summary": "Add unit tests for NoSQL persistence layer queries covering all persistence abstractions (cluster metadata, history, matching, namespace, queue, and visibility). This is part of a broader NoSQL persistence refactoring effort to ensure comprehensive test coverage.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "persistence",
+    "nosql-plugin",
+    "unit-tests",
+    "sql-abstraction"
+  ],
+  "concepts": [
+    "testing",
+    "persistence-layer",
+    "query-abstraction",
+    "coverage",
+    "refactoring",
+    "validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures reliability and correctness of NoSQL persistence implementations across all query types used by Temporal.",
+  "rootCause": null,
+  "proposedFix": "Create unit tests following the existing SQL plugin test pattern for each of the 22 persistence query types listed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test suite was implemented as part of the NoSQL persistence refactoring effort.",
+  "related": [],
+  "keyQuote": "Unit test for each NoSQL persistence query",
+  "number": 1153,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:10.644Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Request to add broadcastPort configuration option alongside existing broadcastAddress to support dynamic port mapping scenarios in Temporal Server.",
+  "category": "feature",
+  "subcategory": "networking",
+  "apis": [],
+  "components": [
+    "server-config",
+    "networking"
+  ],
+  "concepts": [
+    "broadcast-address",
+    "port-mapping",
+    "dynamic-configuration",
+    "network-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal Server in dynamic port mapping environments cannot configure broadcast ports separately from addresses.",
+  "rootCause": null,
+  "proposedFix": "Add broadcastPort configuration option to complement existing broadcastAddress option",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and completed, though documentation may not fully reflect the capability",
+  "related": [],
+  "keyQuote": "In order to support dynamic port mapping scenarios we should add broadcastPort alongside the existing broadcastAddress option.",
+  "number": 430,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:57:13.574Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal server is making excessive MySQL queries (2000+ per 30 seconds) under no-load conditions, causing potential performance and database pressure issues. The issue appears related to frequent task pump polling across multiple database shards.",
+  "category": "bug",
+  "subcategory": "database-polling",
+  "apis": [],
+  "components": [
+    "task-pump",
+    "persistence-layer",
+    "history-shard"
+  ],
+  "concepts": [
+    "database-polling",
+    "connection-frequency",
+    "query-overhead",
+    "shard-scaling",
+    "performance-degradation"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience excessive database load and potential performance degradation even when Temporal server is idle, impacting database resource utilization and costs.",
+  "rootCause": "Each history shard has task pumps that read the database periodically for tasks. With 512 shards configured, the cumulative polling frequency becomes excessive, causing 36,000+ queries in 30 seconds under no load.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "resolution": null,
+  "resolutionDetails": null,
+  "keyQuote": "Each shard will have some task pump to read DB peroidically for tasks to be processed. So if your shard count is too large it would have considerable overhead cost.",
+  "number": 4193,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:51:59.323Z"
+}

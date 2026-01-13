@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a helper function to check if an exception represents workflow cancellation. Currently users must check multiple exception types (asyncio.CancelledError, temporalio.exceptions.CancelledError, and nested cancellation in ActivityError/ChildWorkflowError) manually.",
+  "category": "feature",
+  "subcategory": "exception-handling",
+  "apis": [],
+  "components": [
+    "exception-handling",
+    "workflow-runtime",
+    "activity-execution"
+  ],
+  "concepts": [
+    "cancellation",
+    "exception-type-checking",
+    "error-handling",
+    "asyncio-integration",
+    "helper-function"
+  ],
+  "severity": "low",
+  "userImpact": "Users must write verbose exception checking logic to detect cancellation scenarios, reducing code readability and increasing error-proneness.",
+  "rootCause": null,
+  "proposedFix": "Add a helper function that encapsulates the cancellation detection logic shown in the issue description.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "A helper function was implemented to check for cancellation exceptions across multiple types.",
+  "related": [],
+  "keyQuote": "is_cancelled = isinstance(err, asyncio.CancelledError) or isinstance(err, temporalio.exceptions.CancelledError) or (isinstance(err, temporalio.exceptions.ActivityError) or isinstance(err, temporalio.exceptions.ChildWorkflowError)) and isinstance(err.cause, temporalio.exceptions.CancelledError)",
+  "number": 326,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:02.380Z"
+}

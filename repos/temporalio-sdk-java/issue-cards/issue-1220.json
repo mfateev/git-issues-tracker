@@ -1,0 +1,33 @@
+{
+  "summary": "The test server crashes with a RuntimeException when attempting to start a workflow with a duplicate ID. The error occurs in protobuf reflection when trying to pack error details, specifically due to a missing getStartRequestId() method on WorkflowExecutionAlreadyStartedFailure.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "test-service",
+    "error-handling",
+    "protobuf-reflection",
+    "grpc"
+  ],
+  "concepts": [
+    "duplicate-workflow-id",
+    "error-details",
+    "graal-vm",
+    "reflection",
+    "protobuf"
+  ],
+  "severity": "high",
+  "userImpact": "Integration tests fail when starting workflows with duplicate IDs on the test server, even though the same code works correctly on local and cloud servers.",
+  "rootCause": "The WorkflowExecutionAlreadyStartedFailure proto message is missing the getStartRequestId() method required by protobuf reflection. This is likely a Graal VM-specific issue where error detail protos are not properly available for reflection.",
+  "proposedFix": "Make the entire errordetails.v1 package available for reflection, or ensure that WorkflowExecutionAlreadyStartedFailure and QueryFailedFailure have all required methods for protobuf reflection.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by ensuring proper protobuf message definitions and reflection support for error details.",
+  "related": [],
+  "keyQuote": "Generated message class \"io.temporal.api.errordetails.v1.WorkflowExecutionAlreadyStartedFailure\" missing method \"getStartRequestId\".",
+  "number": 1220,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:15:07.812Z"
+}

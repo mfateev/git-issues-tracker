@@ -1,0 +1,37 @@
+{
+  "summary": "Test hangs when workflowExecutionTimeout is set on workflow options and testEnv.sleep() is used in the same test. The timeout conflicts with the test environment's time advancement mechanism, causing deadlock.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowOptions",
+    "TestWorkflowEnvironment",
+    "WorkflowClient",
+    "WorkflowStub"
+  ],
+  "components": [
+    "test-environment",
+    "workflow-execution",
+    "timeout-handler",
+    "time-advancement"
+  ],
+  "concepts": [
+    "timeout",
+    "test-execution",
+    "time-advancement",
+    "deadlock",
+    "workflow-execution",
+    "test-harness"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot set workflowExecutionTimeout in test environments when using testEnv.sleep(), blocking the use of this standard feature in tests.",
+  "rootCause": "workflowExecutionTimeout conflicts with testEnv.sleep() time advancement mechanism, causing the test to deadlock instead of progressing",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the interaction between workflowExecutionTimeout and test environment time advancement",
+  "related": [],
+  "keyQuote": "setting this makes the test hang... this normally works outside of TestWorkflowEnv",
+  "number": 577,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:25:37.910Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Auto-setup Docker image fails to start when DYNAMIC_CONFIG_FILE_PATH environment variable is not set, attempting to read a directory as a file. The dynamic config client initialization should be conditionally wrapped to allow server startup without dynamic configuration.",
+  "category": "bug",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "dynamic-config-client",
+    "config-template"
+  ],
+  "concepts": [
+    "configuration",
+    "environment-variables",
+    "docker-setup",
+    "conditional-initialization",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot launch the auto-setup Docker image without providing a dynamic config file path, preventing simple deployment scenarios.",
+  "rootCause": "The config_template.yaml does not conditionally wrap the dynamicConfigClient segment, causing it to attempt reading a directory as a configuration file when the DYNAMIC_CONFIG_FILE_PATH environment variable is absent.",
+  "proposedFix": "Wrap the dynamicConfigClient segment in config_template.yaml with {{- if .Env.DYNAMIC_CONFIG_FILE_PATH }} conditional logic.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Server startup failed with `Unable to create dynamic config client. Error: unable to read dynamic config: dynamic config file: /etc/temporal/config/dynamicconfig: read /etc/temporal/config/dynamicconfig: is a directory`",
+  "number": 2482,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:22.575Z"
+}

@@ -1,0 +1,28 @@
+{
+  "summary": "Feature request to expose in-workflow OpenTelemetry span creation to users. The issue was quickly resolved after the author discovered the feature already exists at `temporalio.contrib.opentelemetry.workflow.completed_span`.",
+  "category": "feature",
+  "subcategory": "opentelemetry-integration",
+  "apis": [],
+  "components": [
+    "opentelemetry-interceptor",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "span-creation",
+    "instrumentation"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now create OpenTelemetry spans during workflow execution for better observability and tracing.",
+  "rootCause": null,
+  "proposedFix": "Expose the existing completed_span functionality and document its caveats (original tracer usage, immediate completion, no replay behavior).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The feature was already implemented at temporalio.contrib.opentelemetry.workflow.completed_span; the issue was a discovery that the functionality existed.",
+  "related": [],
+  "keyQuote": "We should expose this to users but document the caveats (e.g. that it uses the original tracer, that it is marked completed immediately, that it is not done on replay, etc).",
+  "number": 345,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:35.322Z"
+}

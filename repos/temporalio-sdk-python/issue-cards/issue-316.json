@@ -1,0 +1,33 @@
+{
+  "summary": "The ScheduleState.limited_actions documentation incorrectly states it's not allowed on create, when it should be required for remaining_actions to take effect. The API needs validation to ensure limited_actions and remaining_actions fields are consistent on creation.",
+  "category": "bug",
+  "subcategory": "schedule-api",
+  "apis": [
+    "ScheduleState"
+  ],
+  "components": [
+    "schedule",
+    "api-validation",
+    "documentation"
+  ],
+  "concepts": [
+    "schedule-creation",
+    "field-validation",
+    "API-consistency",
+    "remaining-actions",
+    "limited-actions",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive incorrect documentation about schedule creation requirements and may face unexpected validation errors if field values are inconsistent.",
+  "rootCause": "Documentation inaccuracy combined with missing validation logic to enforce consistency between limited_actions and remaining_actions fields.",
+  "proposedFix": "Error on create if (limited_actions == True) != (remaining_actions > 0), while allowing mismatched fields on update.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation corrected and validation logic implemented to enforce field consistency on schedule creation.",
+  "related": [],
+  "keyQuote": "Error _on create_ if (limited_actions == True) != (remaining_actions > 0). Can allow the mismatched fields on update though just in case they only want to update one.",
+  "number": 316,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:01:14.594Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Update bzip2 dependency to address CVE-2023-22895 vulnerability in the Rust bzip2 crate. The vulnerability is transitive through temporal-sdk-core -> zip -> bzip2 dependency chain.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "temporal-sdk-core",
+    "dependency-management",
+    "rust-bridge"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-update",
+    "cve",
+    "transitive-dependency",
+    "cargo-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to CVE-2023-22895 security vulnerability through transitive dependencies in the SDK.",
+  "rootCause": "bzip2-0.4.3.crate contains a known vulnerability (CVE-2023-22895); requires explicit update via cargo",
+  "proposedFix": "Update bzip2 dependency via `cargo update` in Python bridge; PR #307 implements this fix",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by updating bzip2 dependency through cargo update in the Rust bridge, merged in PR #307",
+  "related": [
+    61
+  ],
+  "keyQuote": "Note, per https://github.com/zip-rs/zip/issues/335#issuecomment-1411543375 we will have to explicitly update bzip2 ourselves",
+  "number": 298,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:07.032Z"
+}

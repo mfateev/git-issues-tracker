@@ -1,0 +1,29 @@
+{
+  "summary": "Feature request to allow retention period to be configured per workflow completion type (e.g., different retention for completed vs failed workflows) rather than applying a single retention period to all workflows.",
+  "category": "feature",
+  "subcategory": "retention-policy",
+  "apis": [],
+  "components": [
+    "namespace-management",
+    "tctl",
+    "retention-service"
+  ],
+  "concepts": [
+    "retention-period",
+    "workflow-completion",
+    "data-governance",
+    "namespace-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot optimize data retention strategies for different workflow outcomes, leading to inefficient storage utilization or compliance challenges.",
+  "rootCause": null,
+  "proposedFix": "Add workflow completion type parameter to tctl namespace update --retention command to allow fine-grained retention configuration per completion state.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow to set workflow completion type when updating retention for a namespace in tctl namespace update --retention X",
+  "number": 2617,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:00.040Z"
+}

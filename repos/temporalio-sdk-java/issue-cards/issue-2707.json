@@ -1,0 +1,29 @@
+{
+  "summary": "RPCRetryOptions class duplicates error messages for multiple properties, making it hard to identify which property is misconfigured. Request to update error messages to be unique for each property.",
+  "category": "other",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "RpcRetryOptions",
+    "serviceclient"
+  ],
+  "concepts": [
+    "error-messaging",
+    "configuration-validation",
+    "user-experience",
+    "debugging",
+    "properties"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily identify which RPC retry property is misconfigured when errors occur due to duplicate error messages.",
+  "rootCause": "Duplicated error message strings in RPCRetryOptions for different validation scenarios",
+  "proposedFix": "Update the error messages in RPCRetryOptions to be unique for each property",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Error messages were updated to be unique for each property in RPCRetryOptions",
+  "related": [],
+  "keyQuote": "This duplication makes it difficult to determine which property is misconfigured when the error occurs",
+  "number": 2707,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:16:32.897Z"
+}

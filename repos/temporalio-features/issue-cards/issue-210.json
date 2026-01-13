@@ -1,0 +1,31 @@
+{
+  "summary": "TypeScript tests in the features repository are experiencing flakiness, with workflow processes still running after 5 seconds during schedule/backfill testing, causing intermittent test failures.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "scheduler",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "flakiness",
+    "race-condition",
+    "timeout",
+    "workflow-execution",
+    "backfill",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Test suite is unreliable, making it difficult to validate TypeScript SDK functionality and blocking continuous integration workflows.",
+  "rootCause": "Workflow processes not completing within expected 5-second timeout during backfill operations, indicating potential timing issues or race conditions in the test setup.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through fixes to the test framework or timing logic.",
+  "related": [],
+  "keyQuote": "after 5s, 1 workflow(s) are still running: schedule-backfill-...",
+  "number": 210,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:43.078Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Flaky integration test TestVisibility occasionally fails with visibility count mismatch (expecting 1, getting 2), passing on retry attempts. The test has been fixed.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-visibility",
+    "integration-tests",
+    "test-suite"
+  ],
+  "concepts": [
+    "flakiness",
+    "test-reliability",
+    "race-condition",
+    "visibility-index",
+    "determinism"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in test reliability and can block CI/CD pipelines intermittently.",
+  "rootCause": "Race condition or timing issue in visibility index updates during workflow execution",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The flakiness was fixed, as indicated by the comment 'this is fixed'",
+  "related": [],
+  "keyQuote": "flakey integration test, failed twice, succeed on 3rd retry",
+  "number": 1783,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:40.261Z"
+}

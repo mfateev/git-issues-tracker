@@ -1,0 +1,33 @@
+{
+  "summary": "Go SDK child workflows that return no value (nil/missing result) cause .NET parent workflows to hang indefinitely when awaiting completion. The issue stems from Go SDK omitting the result field entirely when a child workflow has no return value, which .NET SDK doesn't handle properly.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "ExecuteChildWorkflowAsync",
+    "DelayAsync"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-completion-handler",
+    "sdk-interoperability"
+  ],
+  "concepts": [
+    "cross-sdk-compatibility",
+    "async-await",
+    "event-serialization",
+    "workflow-return-values",
+    "task-completion"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably call Go child workflows from .NET parent workflows if the child returns no value, causing parent workflows to hang indefinitely.",
+  "rootCause": "Go SDK omits the result field in ChildWorkflowExecutionCompleted events when a workflow returns nil, but .NET SDK expects this field to be present and fails to complete the async task when it's missing.",
+  "proposedFix": "Go SDK should include an empty or null result payload in ChildWorkflowExecutionCompleted events even when the workflow returns no value, ensuring compatibility with other SDKs.",
+  "workaround": "Child workflows in Go should return a non-null value (e.g., struct{}{}) when called from .NET parent workflows.",
+  "resolution": "fixed",
+  "resolutionDetails": "Go SDK was fixed to properly include result payloads in completion events to ensure cross-SDK compatibility.",
+  "related": [],
+  "keyQuote": "It looks like the Go SDK is omitting the result field when the Child Workflow return a nil value and that the .NET SDK is not expecting this field to be missing",
+  "number": 445,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:25:52.719Z"
+}

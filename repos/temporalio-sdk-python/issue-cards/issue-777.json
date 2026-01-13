@@ -1,0 +1,32 @@
+{
+  "summary": "User requests ability to customize histogram bucket configuration for activity metrics, which currently max out at 60 seconds, limiting observability for long-running activities. Feature was implemented in sdk-core and successfully added to Python SDK.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "runtime",
+    "prometheus-config",
+    "metrics-bridge"
+  ],
+  "concepts": [
+    "observability",
+    "metrics",
+    "histogram",
+    "activity-duration",
+    "prometheus"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now configure custom histogram buckets for activity metrics to improve observability on long-running operations.",
+  "rootCause": null,
+  "proposedFix": "Add histogram_bucket_overrides parameter to PrometheusConfig dataclass and pass it through to the bridge layer, similar to the sdk-core implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #781, which added histogram_bucket_overrides support to PrometheusConfig for custom metric bucket configuration.",
+  "related": [
+    781
+  ],
+  "keyQuote": "I would like to have a method of specifying a desired binning strategy on activity metrics.",
+  "number": 777,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:21:58.311Z"
+}

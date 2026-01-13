@@ -1,0 +1,32 @@
+{
+  "summary": "RpcException failures from client_rpc_call invocations lack detailed error information compared to connection failures. The exception only contains a generic 'transport error' message without the underlying gRPC status code or detailed error source information that would aid debugging.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "Bridge",
+    "RpcException",
+    "client_rpc_call",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-details",
+    "gRPC-status",
+    "transport-error",
+    "debugging",
+    "exception-messages",
+    "error-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive generic error messages from RPC failures that lack sufficient detail for effective debugging of connection and transport issues.",
+  "rootCause": "The failureDetails from Tonic errors is not being properly extracted and included in RpcException messages; non-status errors from Tonic lack detailed source information in their fmt::Display representation.",
+  "proposedFix": "Extract more detailed information from Tonic transport errors including gRPC status codes and underlying error sources (e.g., hyper::Error details) and include them in RpcException messages similar to how connection errors are formatted.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Having this kind of additional context available is very helpful for debugging problems. Doing a cursory search shows that `transport error` can have multiple different root causes.",
+  "number": 337,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:17:16.897Z"
+}

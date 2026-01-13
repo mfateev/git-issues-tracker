@@ -1,0 +1,28 @@
+{
+  "summary": "Investigate whether Java proto library allows non-UTF8 strings in proto messages, following a similar validation gap discovered in Go. Determine compatibility and plan mitigation if needed.",
+  "category": "question",
+  "subcategory": "proto-serialization",
+  "apis": [],
+  "components": [
+    "proto-serialization",
+    "failure-message"
+  ],
+  "concepts": [
+    "utf8-validation",
+    "proto-compatibility",
+    "data-serialization",
+    "cross-language-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users who have previously set invalid UTF-8 in proto Failure messages may experience compatibility issues between SDKs.",
+  "rootCause": "Proto library implementations differ in UTF-8 validation enforcement between gogoproto and common proto across languages.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Confirmed that the Java proto library does not allow non-UTF8 proto strings, resolving the investigation.",
+  "related": [],
+  "keyQuote": "Confirmed the java proto library does not allow non-utf8 proto string",
+  "number": 2106,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:58:49.104Z"
+}

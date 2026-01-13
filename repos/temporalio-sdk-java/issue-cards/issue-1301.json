@@ -1,0 +1,30 @@
+{
+  "summary": "Users' data converters that perform IO operations sometimes trigger the deadlock detector. The request is to add a way to disable the deadlock detector for specific code sections and data converters, similar to the Go SDK implementation.",
+  "category": "feature",
+  "subcategory": "data-converter",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "deadlock-detector",
+    "workflow-unsafe"
+  ],
+  "concepts": [
+    "deadlock-detection",
+    "io-operations",
+    "data-conversion",
+    "timeout",
+    "concurrency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with IO-performing data converters experience false-positive deadlock detector triggering, causing workflow disruptions.",
+  "rootCause": "Deadlock detector does not account for legitimate IO operations in data converters, treating them as potential deadlocks.",
+  "proposedFix": "Add configuration option to disable deadlock detector for specific data converters and code sections under WorkflowUnsafe, following the Go SDK approach from PR #772.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow disabling deadlock detector for data converters performing IO operations.",
+  "related": [],
+  "keyQuote": "JavaSDK should have a way to disable deadline detector for a piece of code (under `WorkflowUnsafe`) and for a specific data converter.",
+  "number": 1301,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:23:43.598Z"
+}

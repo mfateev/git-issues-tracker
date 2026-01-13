@@ -1,0 +1,36 @@
+{
+  "summary": "Allow users to specify a custom UI port when enabling the dev server in programmatic configuration. Currently, SDKs don't expose the UI port customization option even though it's available in the underlying implementation.",
+  "category": "feature",
+  "subcategory": "dev-server",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "ui-configuration",
+    "sdk-configuration"
+  ],
+  "concepts": [
+    "dev-server",
+    "ui-port",
+    "configuration",
+    "customization",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using the dev server cannot customize the UI port, limiting their ability to configure the development environment to their needs.",
+  "rootCause": null,
+  "proposedFix": "Expose the UI port configuration option across SDKs to match the Core and Temporal CLI implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1788,
+    1611,
+    748,
+    396,
+    205
+  ],
+  "keyQuote": "Most (all?) SDKs with dev server allow enabling the UI but do not allow customizing the UI port even though the option is available.",
+  "number": 588,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:06.916Z"
+}

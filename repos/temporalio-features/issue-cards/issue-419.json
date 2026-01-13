@@ -1,0 +1,44 @@
+{
+  "summary": "Add support for exposing next retry delay on ApplicationFailure across all Temporal SDKs and local activities. This feature was added to the API but needs to be implemented in Python, PHP SDKs and verified in other SDKs.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "ApplicationFailureInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "failure-handling",
+    "local-activities"
+  ],
+  "concepts": [
+    "retry",
+    "delay",
+    "failure-handling",
+    "application-failure",
+    "SDK-parity",
+    "activity-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need consistent access to next retry delay across all SDKs to implement custom retry logic and failure handling strategies.",
+  "rootCause": null,
+  "proposedFix": "Expose the next_retry_delay field from ApplicationFailureInfo in SDK APIs for both regular and local activities.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1319,
+    1983,
+    1349,
+    468,
+    186,
+    395,
+    1454,
+    2054,
+    735
+  ],
+  "keyQuote": "We recently added the ability for an activity to specify the next retry delay on failure via a field on ApplicationFailureInfo",
+  "number": 419,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:04.049Z"
+}

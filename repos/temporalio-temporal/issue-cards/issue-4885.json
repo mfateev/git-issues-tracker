@@ -1,0 +1,33 @@
+{
+  "summary": "Replace the confusing signalWithStart API with a clearer signalOrStart alternative that better handles the use case where users want to signal a workflow only if it's not already running, addressing confusion about the 'with' terminology and the race condition where signals can arrive before the workflow starts.",
+  "category": "feature",
+  "subcategory": "workflow-signals",
+  "apis": [
+    "SignalWithStart",
+    "SignalOrStart"
+  ],
+  "components": [
+    "workflow-client",
+    "signal-handler",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "signal-workflow",
+    "workflow-startup",
+    "api-design",
+    "race-condition",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Provides a clearer, more intuitive API for signaling workflows at startup, reducing confusion and preventing race conditions where signals arrive before the workflow method executes.",
+  "rootCause": "The signalWithStart API name and semantics are confusing - the 'with' terminology is ambiguous and doesn't clearly convey the intent, plus it requires handling the case where signals arrive before workflow execution.",
+  "proposedFix": "Build a new signalOrStart API based on the existing signalWithStart implementation that better represents the semantic intent of 'signal if not already running, otherwise start and signal'.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The feature was not implemented. A commenter noted that adding another API would increase confusion rather than resolve it, and there's no way to deprecate the existing signalWithStart API.",
+  "related": [],
+  "keyQuote": "At this point, adding more API to do the same probably just add more confusion and no way to deprecate existing one.",
+  "number": 4885,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:59.173Z"
+}

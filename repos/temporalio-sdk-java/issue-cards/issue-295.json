@@ -1,0 +1,31 @@
+{
+  "summary": "Request to support GraalVM native image compilation for the Java SDK to enable reduced memory footprint and faster startup times. The community has provided native-image descriptors and the team has documented the approach for users to provide their own proxy configurations.",
+  "category": "feature",
+  "subcategory": "graalvm-native-image",
+  "apis": [],
+  "components": [
+    "graalvm-native-image",
+    "reflection-metadata",
+    "proxy-configuration"
+  ],
+  "concepts": [
+    "native-compilation",
+    "memory-optimization",
+    "startup-performance",
+    "ahead-of-time-compilation",
+    "descriptor-generation",
+    "reflection-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now compile Temporal Java SDK applications as GraalVM native images for significantly faster startup times and reduced memory usage in containerized environments.",
+  "rootCause": "GraalVM native image compilation requires reflection metadata descriptors (native-image.properties, reflect-config.json, proxy-config.json) which must be provided for the SDK and user-defined classes.",
+  "proposedFix": "SDK provides native-image descriptors for Temporal classes; users supply descriptors for their own workflows using GraalVM tracing agent or manual configuration.",
+  "workaround": "Use GraalVM tracing agent during testing to automatically generate native-image descriptors, then manually clean and integrate them; or manually create proxy-config.json entries for workflow interfaces.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation added at docs/AOT-native-image.md with guidance on generating descriptors using the tracing agent; community-provided descriptors cleaned and integrated into the SDK.",
+  "related": [],
+  "keyQuote": "The performance of a Java application running on a native image is super impressive.",
+  "number": 295,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:05:19.512Z"
+}

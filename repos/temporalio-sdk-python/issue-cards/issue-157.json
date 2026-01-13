@@ -1,0 +1,40 @@
+{
+  "summary": "Feature request to add an integration test confirming the OpenTelemetry gRPC URL format and TLS support for metrics collection in the Python SDK. After investigation, the implementation was deferred to the samples repository.",
+  "category": "feature",
+  "subcategory": "telemetry-integration",
+  "apis": [
+    "init_telemetry",
+    "TelemetryConfig",
+    "OtelCollectorConfig",
+    "Client.connect",
+    "Worker",
+    "execute_workflow"
+  ],
+  "components": [
+    "telemetry",
+    "otel-integration",
+    "grpc-collector",
+    "test-framework"
+  ],
+  "concepts": [
+    "observability",
+    "metrics-collection",
+    "integration-testing",
+    "gRPC",
+    "TLS",
+    "OpenTelemetry",
+    "localhost-endpoint"
+  ],
+  "severity": "low",
+  "userImpact": "Users need confirmation that OpenTelemetry gRPC metrics collection works correctly with the SDK, including TLS support.",
+  "rootCause": "Lack of integration test coverage for OpenTelemetry gRPC collector configuration in the SDK.",
+  "proposedFix": "Add integration test to verify OtelCollectorConfig with gRPC URL format and TLS support.",
+  "workaround": "Use samples repository for testing (referenced in PR temporalio/samples-python#18).",
+  "resolution": "wontfix",
+  "resolutionDetails": "Integration test moved to samples-python repository instead of primary SDK repo; issue author decided not to complete integration test in SDK.",
+  "related": [],
+  "keyQuote": "There's not a good way to put an integration test for the collector side in the primary SDK repo, so I added it to the PR at https://github.com/temporalio/samples-python/pull/18.",
+  "number": 157,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:47.141Z"
+}

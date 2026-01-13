@@ -1,0 +1,34 @@
+{
+  "summary": "Request to support wildcard and regex search capabilities for workflow attributes like WorkflowId. Currently users must create custom search attributes to perform partial matches on machine-generated identifiers like product-prefixed IDs.",
+  "category": "feature",
+  "subcategory": "workflow-search",
+  "apis": [],
+  "components": [
+    "workflow-search",
+    "elasticsearch",
+    "search-attributes",
+    "list-filters"
+  ],
+  "concepts": [
+    "wildcard-search",
+    "regex-matching",
+    "keyword-queries",
+    "search-filters",
+    "pattern-matching",
+    "machine-generated-ids"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently create custom search attributes to search for workflows by partial identifiers (e.g., by product prefix), adding complexity to the developer experience.",
+  "rootCause": "Built-in keyword search attributes do not support wildcard or regex patterns, limiting search capabilities for machine-generated identifiers.",
+  "proposedFix": "Enable wildcard and/or regex support in List Filters for keyword search attributes using Elasticsearch' native wildcard and regexp query capabilities.",
+  "workaround": "Users can create custom Search Attributes as an alternative, though this requires additional configuration.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    3962
+  ],
+  "keyQuote": "Wildcard search for built-in Keyword search attributes is a recurring request/need (like with a WorkflowId that is <productId>-<uuid>)",
+  "number": 3056,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:03.155Z"
+}

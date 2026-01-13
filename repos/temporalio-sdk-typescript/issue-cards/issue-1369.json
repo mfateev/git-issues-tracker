@@ -1,0 +1,32 @@
+{
+  "summary": "Error messages from FailureConverters incorrectly identify themselves as PayloadConverters. The error messages need to be made more generic using template variables and use failure converter-specific methods where needed.",
+  "category": "bug",
+  "subcategory": "data-converters",
+  "apis": [],
+  "components": [
+    "data-converters",
+    "failure-converters",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-messages",
+    "type-specificity",
+    "converter-identification",
+    "logging",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users see confusing error messages that misidentify which type of converter encountered an error, making debugging more difficult.",
+  "rootCause": "Error messages hardcode 'payloadConverter' instead of using generic type variables, causing FailureConverters to be mislabeled.",
+  "proposedFix": "Use ${type} template variable in error messages instead of hardcoding 'payloadConverter', and implement failure converter-specific error reporting methods.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #1373",
+  "related": [
+    1373
+  ],
+  "keyQuote": "The errors thrown by data converters should be made more generic by using ${type} instead of hardcoding payloadConverter",
+  "number": 1369,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:13.082Z"
+}

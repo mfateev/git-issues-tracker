@@ -1,0 +1,37 @@
+{
+  "summary": "After upgrading from v1.11.8 to v1.13.2, OpenTelemetry instrumentation causes excessive CPU usage (up to 100%), which disappears when OTel is disabled. The issue appears related to changes between these versions, possibly involving the reusev8context option or lazy-loaded modules.",
+  "category": "bug",
+  "subcategory": "otel-instrumentation",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "interceptors-opentelemetry",
+    "worker",
+    "v8-context",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "cpu-usage",
+    "performance-regression",
+    "otel-instrumentation",
+    "v8-context-reuse",
+    "lazy-loading",
+    "native-dependencies"
+  ],
+  "severity": "high",
+  "userImpact": "Users with OpenTelemetry instrumentation enabled experience severe CPU usage spikes (up to 100%) after upgrading to v1.13.x, making production deployments unusable.",
+  "rootCause": "Likely a lazy-loaded module added in v1.13.2 or interaction between OTel interceptors and reusev8context option, with additional regression in v1.13.2 vs v1.13.1.",
+  "proposedFix": "Remove the lazy-loaded module added in v1.13.2 or disable reusev8context option as a workaround. Upgrade to v1.14.1 which removed the problematic lazy-loaded module.",
+  "workaround": "Disable reusev8context option, or downgrade to v1.11.8, or remove OpenTelemetry instrumentation temporarily.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1834,
+    1860
+  ],
+  "keyQuote": "Upon updating from v1.11.8 to v1.13.2, we started to see excessive CPU usage, sometimes up to 100%. Removing all uses of @temporalio/interceptors-opentelemetry resolves the CPU issue.",
+  "number": 1859,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T09:13:12.293Z"
+}

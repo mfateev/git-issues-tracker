@@ -1,0 +1,35 @@
+{
+  "summary": "TestWorkflowEnvironment does not properly set search attributes when using ContinueAsNewOptions. Setting typed search attributes via ContinueAsNewOptions.setTypedSearchAttributes() or the deprecated setSearchAttributes() method does not carry over to the continued workflow execution.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ContinueAsNewOptions",
+    "SearchAttributes"
+  ],
+  "components": [
+    "test-workflow-environment",
+    "continue-as-new",
+    "search-attributes"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "search-attributes",
+    "test-environment",
+    "workflow-options",
+    "state-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly test workflow continuations with search attributes in test environments, limiting their ability to validate search attribute behavior in continued workflows.",
+  "rootCause": "TestWorkflowEnvironment does not properly propagate search attributes from ContinueAsNewOptions to the continued workflow execution",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2178
+  ],
+  "keyQuote": "When using TestWorkflowEnvironment setting search attributes in ContinueAsNewOptions does not set them with the continued exec",
+  "number": 2364,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:06:40.040Z"
+}

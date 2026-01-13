@@ -1,0 +1,30 @@
+{
+  "summary": "Request to support higher-level activity options configuration across SDKs. TypeScript and Java already support workflow-level or type-level activity options, but Go and Python lack these capabilities, creating inconsistency in how developers can configure activity behavior.",
+  "category": "feature",
+  "subcategory": "activity-options",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "workflow-implementation",
+    "sdk-configuration"
+  ],
+  "concepts": [
+    "activity-options",
+    "workflow-level-configuration",
+    "type-level-options",
+    "default-options",
+    "api-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of Go and Python SDKs cannot configure activity options at the workflow or type level, forcing them to pass options at call sites or use workarounds like partial functions.",
+  "rootCause": "Different SDK implementations have evolved with different approaches to activity option configuration; Go and Python SDKs lack the higher-level abstractions present in TypeScript and Java.",
+  "proposedFix": "Consider adding workflow-level or type-level activity option support to Go and Python SDKs, potentially with a more generalized solution allowing definition-site configuration of workflow and activity options.",
+  "workaround": "In Python, developers can use `partial` functions to bake options into activity functions, providing semantics similar to TypeScript and Java proxies.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would prefer a more generalized solution where workflow and activity options can be defined on the implementation side.",
+  "number": 174,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:51:00.950Z"
+}

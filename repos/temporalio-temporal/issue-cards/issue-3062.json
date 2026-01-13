@@ -1,0 +1,30 @@
+{
+  "summary": "Request for a new error type to distinguish between workflow not found and workflow already completed cases. Currently both return NotFound error, preventing callers from implementing different error handling logic for these distinct scenarios.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "workflow-state-machine",
+    "workflow-service"
+  ],
+  "concepts": [
+    "error-types",
+    "workflow-lifecycle",
+    "completion-state",
+    "error-differentiation",
+    "state-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot distinguish between workflow not found and already completed scenarios, making it difficult to implement appropriate error recovery strategies.",
+  "rootCause": "API returns the same NotFound error type for two distinct workflow states, preventing proper error differentiation at the caller level.",
+  "proposedFix": "Introduce a new error type specifically for workflow already completed case, separate from NotFound error.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For both workflow not found and workflow already completed case, we return a NotFound error. And caller can't tell the which case it is just by checking the error type",
+  "number": 3062,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:16.415Z"
+}

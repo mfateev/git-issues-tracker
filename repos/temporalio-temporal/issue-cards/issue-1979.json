@@ -1,0 +1,35 @@
+{
+  "summary": "Worker identity from activity heartbeats is not exposed in the describeExecution API, even though the heartbeat API accepts an identity field. The issue proposes either overriding the lastWorkerIdentity field with heartbeat identity or exposing it as a separate field to handle cases where different workers pick up and heartbeat the same activity.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "RecordActivityTaskHeartbeatRequest",
+    "RecordActivityTaskHeartbeatByIdRequest",
+    "PendingActivityInfo"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "history-engine",
+    "activity-heartbeat"
+  ],
+  "concepts": [
+    "worker-identity",
+    "heartbeat",
+    "activity-tracking",
+    "async-completion",
+    "worker-rotation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot track which worker is currently processing an activity when heartbeats are sent by a different worker than the one that originally picked up the task.",
+  "rootCause": "The identity field in heartbeat requests is accepted but not stored or exposed through the PendingActivityInfo API, creating a gap in worker identity tracking.",
+  "proposedFix": "Either override PendingActivityInfo#lastWorkerIdentity with heartbeat identity when present, or expose heartbeat identity in a new PendingActivityInfo field.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Worker 1 picked the task, Worker 2 heartbeats for this task. Especially relevant with async completion of activities.",
+  "number": 1979,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:41.699Z"
+}

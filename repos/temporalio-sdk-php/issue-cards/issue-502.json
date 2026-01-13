@@ -1,0 +1,29 @@
+{
+  "summary": "A test case in the Harness Schedule BasicTest intermittently fails in CI, with failures potentially related to the order or number of previously executed tests.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-harness",
+    "schedule-tests",
+    "ci-environment"
+  ],
+  "concepts": [
+    "test-isolation",
+    "test-order-dependency",
+    "flaky-tests",
+    "ci-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience unreliable test results in CI pipelines, making it difficult to verify code changes reliably.",
+  "rootCause": "Potential test state pollution or ordering dependency - failure rate depends on how many tests executed before the Harness test",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to figure out why the Harness test sometimes fails in CI. This may be related to how many tests were executed before it.",
+  "number": 502,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:29.294Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add explicit memoization support to the `patched()` API in the Python SDK. This involves adding a `memoized` argument while maintaining backward compatibility and delegating the patched logic to Core.",
+  "category": "feature",
+  "subcategory": "memoization",
+  "apis": [
+    "patched",
+    "deprecate_patch"
+  ],
+  "components": [
+    "patched-api",
+    "core-delegation",
+    "backward-compatibility"
+  ],
+  "concepts": [
+    "memoization",
+    "workflow-patching",
+    "deprecation",
+    "backward-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to explicitly control memoization behavior in patched workflows, improving API clarity and consistency with Core.",
+  "rootCause": null,
+  "proposedFix": "Add `memoized` argument to `patched` and `deprecate_patch` APIs, deprecate non-specifying signatures, and delegate logic to Core.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    591
+  ],
+  "keyQuote": "Add a `memoized` argument to the `patched` and `deprecate_patch` APIs.",
+  "number": 754,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:56.086Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Proto-generated PHP files cause Psalm type-checking issues that could be resolved by adding PHP annotations like @psalm-mutation-free and @psalm-assert-if-true to generated getter and hasX methods.",
+  "category": "feature",
+  "subcategory": "proto-codegen",
+  "apis": [],
+  "components": [
+    "protobuf-codegen",
+    "type-checking",
+    "php-runtime"
+  ],
+  "concepts": [
+    "static-analysis",
+    "type-safety",
+    "code-generation",
+    "psalm",
+    "null-safety",
+    "generated-code"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers working with proto-generated PHP files face false-positive type errors in Psalm that complicate development workflows and reduce confidence in static analysis.",
+  "rootCause": "Generated proto PHP files lack type-checking annotations that Psalm uses to understand null-safety semantics of hasX() and getX() method pairs.",
+  "proposedFix": "Add @psalm-mutation-free and @psalm-assert-if-true annotations to generated getter and hasX methods in proto PHP code generator.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "That case will be fixed if we add additional annotations in generated files like @psalm-mutation-free and @psalm-assert-if-true",
+  "number": 318,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:26:54.408Z"
+}

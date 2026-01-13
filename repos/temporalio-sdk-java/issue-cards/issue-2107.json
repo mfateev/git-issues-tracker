@@ -1,0 +1,30 @@
+{
+  "summary": "LocalActivityMeteringHelper throws ConcurrentModificationException when executing workflow tasks with local activities due to illegal modifications to its underlying data structure during newWFTStarting calls.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [],
+  "components": [
+    "LocalActivityMeteringHelper",
+    "ReplayWorkflowRunTaskHandler",
+    "WorkflowWorker"
+  ],
+  "concepts": [
+    "concurrent-modification",
+    "local-activities",
+    "workflow-task-execution",
+    "data-structure-iteration",
+    "thread-safety"
+  ],
+  "severity": "high",
+  "userImpact": "Users executing workflows with local activities experience runtime crashes due to ConcurrentModificationException, preventing workflow execution.",
+  "rootCause": "LocalActivityMeteringHelper modifies a HashMap while iterating over it during newWFTStarting, violating HashMap's concurrent modification contract.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The concurrent modification issue in LocalActivityMeteringHelper was resolved, likely by using a copy of the collection or synchronized iteration.",
+  "related": [],
+  "keyQuote": "LocalActivityMeteringHelper may attempt to make illegal modifications to its underlying data structure when calling newWFTStarting causing a ConcurrentModificationException",
+  "number": 2107,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:02.037Z"
+}

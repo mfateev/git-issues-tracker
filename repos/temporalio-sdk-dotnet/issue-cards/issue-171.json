@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to add automatic tracing span creation when scheduling workflows with the tracing interceptor enabled, with opt-out capability in tracing options.",
+  "category": "feature",
+  "subcategory": "tracing-instrumentation",
+  "apis": [
+    "CreateSchedule",
+    "StartWorkflow"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "schedule-client",
+    "workflow-header"
+  ],
+  "concepts": [
+    "tracing",
+    "spans",
+    "instrumentation",
+    "observability",
+    "schedule-creation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need manual workarounds to create tracing spans for schedules when using the tracing interceptor, reducing automatic observability coverage.",
+  "rootCause": null,
+  "proposedFix": "Default behavior: create spans for schedule creation and set on workflow header when action starts workflow. Allow opt-out via tracing interceptor options.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    394
+  ],
+  "keyQuote": "When the tracing interceptor is in use, by default creating a schedule should create a span for the schedule and set it on the workflow header if the action is starting a workflow.",
+  "number": 171,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:11.562Z"
+}

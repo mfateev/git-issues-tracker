@@ -1,0 +1,35 @@
+{
+  "summary": "Sorbet type checker is creating duplicate singleton methods on Temporal workflow definition classes, causing a RuntimeError. The issue occurs when using Sorbet runtime decorators on handler methods, and has been resolved in recent Sorbet releases.",
+  "category": "bug",
+  "subcategory": "type-checking-compatibility",
+  "apis": [
+    "workflow_signal"
+  ],
+  "components": [
+    "workflow",
+    "definition",
+    "signal-handlers"
+  ],
+  "concepts": [
+    "singleton-methods",
+    "type-checking",
+    "sorbet-runtime",
+    "decorators",
+    "method-override"
+  ],
+  "severity": "medium",
+  "userImpact": "Users employing Sorbet for type checking encounter runtime errors that prevent workflow definitions with signal handlers from loading.",
+  "rootCause": "Sorbet runtime adds singleton methods when decorating instance methods, conflicting with Temporal's own singleton method handling in the Definition class.",
+  "proposedFix": "Detect when Sorbet is adding a method and ignore it, or await fixes in Sorbet that prevent duplicate singleton method creation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in recent Sorbet releases (sorbet/sorbet#8592 and sorbet/sorbet#9084 were fixed upstream)",
+  "related": [
+    8592,
+    9084
+  ],
+  "keyQuote": "Attempting to override Temporal-defined class definition method (RuntimeError)",
+  "number": 292,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:50.348Z"
+}

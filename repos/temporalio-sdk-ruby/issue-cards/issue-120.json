@@ -1,0 +1,29 @@
+{
+  "summary": "SDK validation for empty strings when preparing activities and workflows in a worker. This issue applied to a previous version of the Ruby SDK and is no longer applicable after the SDK rewrite.",
+  "category": "bug",
+  "subcategory": "worker-setup",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-registration",
+    "workflow-registration"
+  ],
+  "concepts": [
+    "validation",
+    "worker-initialization",
+    "empty-strings",
+    "input-sanitization"
+  ],
+  "severity": "low",
+  "userImpact": "Users could potentially register activities or workflows with empty string names without immediate validation, causing issues downstream.",
+  "rootCause": "Missing empty string validation when preparing activities and workflows during worker initialization in the previous SDK version.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The SDK underwent a rewrite and refresh, making this issue no longer applicable to the current version.",
+  "related": [],
+  "keyQuote": "The SDK is undergoing a rewrite/refresh and this issue applied to a previous version and is no longer applicable",
+  "number": 120,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:42:53.928Z"
+}

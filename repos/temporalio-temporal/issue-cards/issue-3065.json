@@ -1,0 +1,31 @@
+{
+  "summary": "TaskQueue history metrics endpoint returns an excessive number of metrics (80,000+ activity metrics) that exceeds Prometheus's capacity to scrape, causing performance issues for monitoring systems.",
+  "category": "bug",
+  "subcategory": "metrics-taskqueue",
+  "apis": [],
+  "components": [
+    "metrics",
+    "taskqueue",
+    "monitoring"
+  ],
+  "concepts": [
+    "prometheus",
+    "metrics-cardinality",
+    "performance",
+    "scraping",
+    "observability",
+    "activity-metrics"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot effectively monitor their Temporal deployments because the metrics endpoint returns too much data for Prometheus to handle.",
+  "rootCause": "TaskQueue history metrics include individual entries for all activities, creating unbounded cardinality that scales linearly with activity count.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "i get taskqueue history metics,it has abort all 80000 activities metrics.it is to large for promethues to pull",
+  "number": 3065,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:36:16.018Z"
+}

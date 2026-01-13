@@ -1,0 +1,34 @@
+{
+  "summary": "Frontend service experiences unbounded growth of goroutines, heap objects, and memory allocations even under minimal load, causing CPU and memory increases that eventually lead to outages. The issue appears to be caused by improper gRPC ClientConn cleanup and possibly a stub-level caching issue.",
+  "category": "bug",
+  "subcategory": "goroutine-leak",
+  "apis": [],
+  "components": [
+    "frontend-service",
+    "grpc-client-conn",
+    "memory-management"
+  ],
+  "concepts": [
+    "goroutine-leak",
+    "memory-leak",
+    "garbage-collection",
+    "connection-cleanup",
+    "resource-management",
+    "cpu-usage",
+    "heap-allocation"
+  ],
+  "severity": "critical",
+  "userImpact": "Production services experience uncontrolled memory and CPU growth requiring frequent restarts to maintain availability.",
+  "rootCause": "Improper gRPC ClientConn cleanup; grpc.ClientConn objects are created frequently without being properly closed, and the stub-level cache may not be preventing duplicate connections as intended.",
+  "proposedFix": "Cache gRPC connections to avoid creating them frequently on demand (PR #6441 mentioned as potential fix).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    6441
+  ],
+  "keyQuote": "Looking at the hung Goroutines, it seems to be coming from improper `grpc.ClientConn` cleanup.",
+  "number": 6323,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:11.173Z"
+}

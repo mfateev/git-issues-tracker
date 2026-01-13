@@ -1,0 +1,31 @@
+{
+  "summary": "SDKs should use the worker_may_ignore flag on history events to enable safe handling of new events by older SDK versions. This allows the server to add new events that can be safely ignored by SDKs that don't yet understand them.",
+  "category": "feature",
+  "subcategory": "event-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "history-event-processor",
+    "version-compatibility"
+  ],
+  "concepts": [
+    "backward-compatibility",
+    "event-handling",
+    "version-management",
+    "sdk-upgrade",
+    "event-flags",
+    "protocol-evolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Without this feature, SDKs cannot safely add new events to the workflow history without breaking older SDK versions, limiting the ability to evolve the Temporal protocol.",
+  "rootCause": null,
+  "proposedFix": "SDKs should start using the worker_may_ignore flag to check if events can be safely ignored before processing unknown events.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDKs should start using this flag to enable adding new events that are safe to ignore by older SDKs.",
+  "number": 143,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:49:52.212Z"
+}

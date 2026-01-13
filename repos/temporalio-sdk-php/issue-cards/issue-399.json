@@ -1,0 +1,33 @@
+{
+  "summary": "User reports that `awaitWithTimeout` doesn't immediately continue when a promise in `Promise::all()` rejects with an error; instead it waits for the full timeout interval. The issue was clarified to be expected behavior—rejected promises cause `all()` to reject, requiring explicit error handling.",
+  "category": "question",
+  "subcategory": "promise-handling",
+  "apis": [
+    "awaitWithTimeout",
+    "Promise::all"
+  ],
+  "components": [
+    "workflow-executor",
+    "promise-handling",
+    "activity-completion"
+  ],
+  "concepts": [
+    "promise-rejection",
+    "timeout-behavior",
+    "error-handling",
+    "await-semantics",
+    "promise-chaining"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about how `awaitWithTimeout` behaves when promises reject, leading to unexpected delays in workflow execution.",
+  "rootCause": "`Promise::all()` rejects when any promise rejects, but rejection doesn't automatically interrupt `awaitWithTimeout`; the timeout still runs unless the promise completes or resolves.",
+  "proposedFix": "Explicitly handle rejected promises by mapping them with `.otherwise()` to return a falsy value instead of throwing: `array_map(fn (ExtendedPromiseInterface $promise) => $promise->otherwise(fn () => false), $promises)`",
+  "workaround": "Use a manual counter with a deferred promise that resolves when all activities complete (both success and error cases), or map all promises to handle errors explicitly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Seems not an issue, `all` promise is rejected if any of promises is rejected, so the solution here is to map promises with `.otherwise()`",
+  "number": 399,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:24.609Z"
+}

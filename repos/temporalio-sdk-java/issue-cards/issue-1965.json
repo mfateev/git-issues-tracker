@@ -1,0 +1,34 @@
+{
+  "summary": "Activity heartbeats are retrying with the first heartbeat data instead of the last recorded heartbeat, causing retried activities to restart processing with outdated progress information rather than resuming from the last checkpoint.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "Activity.getExecutionContext",
+    "ActivityExecutionContext.getHeartbeatDetails",
+    "ActivityExecutionContext.heartbeat"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-storage",
+    "activity-retry"
+  ],
+  "concepts": [
+    "checkpoint",
+    "retry",
+    "activity-resumption",
+    "heartbeat-throttling",
+    "state-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users performing long-running activities with checkpointing lose progress on retry because the activity resumes from the first heartbeat instead of the most recent one.",
+  "rootCause": "The Java SDK is not properly propagating the last heartbeat details to the Cluster during retries; it appears to be using earlier heartbeat data instead of the most recent one.",
+  "proposedFix": "The Java SDK should set the latest heartbeat details on the ActivityTask when retrying, as indicated in the Temporal API specification for workflowservice request_response.proto.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was identified as a Java SDK bug where heartbeat details were not being properly propagated during retries. The SDK needed to ensure the last heartbeat data was sent to the Cluster.",
+  "related": [],
+  "keyQuote": "If I throw an exception in the 4th iteration, then I would expect a retry that calls me with the remaining 1 elements however, I am called with remaining 4",
+  "number": 1965,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:53:25.170Z"
+}

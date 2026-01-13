@@ -1,0 +1,31 @@
+{
+  "summary": "System worker fails to connect to Frontend service in TLS-enabled clusters after removing publicClient configuration. The issue appears to be caused by service discovery returning an IP address while TLS certificate validation fails because the certificate's DNS name doesn't match the IP.",
+  "category": "bug",
+  "subcategory": "tls-connectivity",
+  "apis": [],
+  "components": [
+    "worker",
+    "service-discovery",
+    "tls-client"
+  ],
+  "concepts": [
+    "tls",
+    "certificate-validation",
+    "service-discovery",
+    "dns",
+    "connection",
+    "cluster-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run system workers in TLS-enabled clusters after removing publicClient settings due to connection failures.",
+  "rootCause": "Service discovery returns IP addresses while TLS certificate validation expects DNS names that match the certificate's Subject Alternative Names (SANs), causing validation to fail.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "System worker should be able to connect to a Frontend service resolved by a new service discovery when a publicClient configuration is removed and a Temporal cluster is TLS enabled",
+  "number": 3527,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:24.057Z"
+}

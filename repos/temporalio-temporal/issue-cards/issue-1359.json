@@ -1,0 +1,36 @@
+{
+  "summary": "Workflow panics with a state machine error when a cancel request occurs during a workflow sleep with a cleanup activity deferred. The error indicates a lookup failure for scheduledEventID to activityID mapping, causing the workflow to remain stuck in Running state instead of transitioning to Canceled.",
+  "category": "bug",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "ExecuteActivity",
+    "Sleep",
+    "NewDisconnectedContext"
+  ],
+  "components": [
+    "workflow-execution",
+    "decision-state-machine",
+    "event-handler",
+    "activity-scheduler"
+  ],
+  "concepts": [
+    "cancellation",
+    "cleanup",
+    "state-machine",
+    "event-processing",
+    "deferred-activity",
+    "timer-cancellation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows panic and hang in Running state when cancelled during sleep with a deferred cleanup activity, requiring manual intervention to resolve.",
+  "rootCause": "Event handler fails to map scheduledEventID to activityID when processing activity task scheduled events during concurrent cancellation, causing illegal state panic in decision state machine.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Author closed as duplicate and resubmitted in the correct sdk-go repository.",
+  "related": [],
+  "keyQuote": "lookup failed for scheduledEventID to activityID: scheduleEventID: 11, activityID: 10",
+  "number": 1359,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:01.004Z"
+}

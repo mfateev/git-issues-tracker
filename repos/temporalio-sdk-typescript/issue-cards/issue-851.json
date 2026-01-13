@@ -1,0 +1,32 @@
+{
+  "summary": "Jest test runner fails to exit cleanly due to an open handle in the native Temporal module, preventing proper code coverage collection with nyc. The issue occurs when registering native errors during module initialization.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "native-module",
+    "test-infrastructure"
+  ],
+  "concepts": [
+    "process-exit",
+    "open-handles",
+    "code-coverage",
+    "native-binding",
+    "initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing TypeScript Temporal code cannot properly exit Jest tests or collect code coverage due to hanging processes.",
+  "rootCause": "A neon threadsafe function created during native error registration keeps the process open",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    189
+  ],
+  "keyQuote": "Jest has detected the following 1 open handle potentially keeping Jest from exiting: neon threadsafe function",
+  "number": 851,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:20:26.750Z"
+}

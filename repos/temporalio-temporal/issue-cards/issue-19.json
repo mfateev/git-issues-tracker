@@ -1,0 +1,30 @@
+{
+  "summary": "Add a clear startup message to the Temporal service logs indicating when the service is up and running. Currently, users starting the service via docker-compose lack visual confirmation that initialization is complete.",
+  "category": "feature",
+  "subcategory": "startup-messaging",
+  "apis": [],
+  "components": [
+    "docker",
+    "startup",
+    "logging"
+  ],
+  "concepts": [
+    "service-readiness",
+    "startup-confirmation",
+    "user-experience",
+    "docker-compose",
+    "log-output"
+  ],
+  "severity": "low",
+  "userImpact": "Users running docker-compose or other startup methods cannot easily determine when the Temporal service has finished initializing and is ready to accept connections.",
+  "rootCause": null,
+  "proposedFix": "Display a prominent ASCII art banner or clear message in logs on successful service startup, similar to the example provided in the issue.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "docker-compose up and other ways to start a service should produce a clear message into the log that indicates that service is up and running",
+  "number": 19,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T10:22:53.952Z"
+}

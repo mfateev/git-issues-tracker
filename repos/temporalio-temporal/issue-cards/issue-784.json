@@ -1,0 +1,29 @@
+{
+  "summary": "Error handling in replication task fetcher logic is implicit and should be made explicit. The issue references #776 and requests that non-nil error cases be handled explicitly rather than implicitly.",
+  "category": "bug",
+  "subcategory": "replication",
+  "apis": [],
+  "components": [
+    "replication",
+    "task-fetcher"
+  ],
+  "concepts": [
+    "error-handling",
+    "code-clarity",
+    "explicit-vs-implicit"
+  ],
+  "severity": "low",
+  "userImpact": "Improper error handling in replication task fetching could lead to silent failures or unexpected behavior.",
+  "rootCause": "Error return values in replication task fetcher are not explicitly checked and handled",
+  "proposedFix": "Make error handling explicit by adding proper error checks instead of implicit handling",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    776
+  ],
+  "keyQuote": "Handle the err being non nil case explicitly, other than implicitly",
+  "number": 784,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:15.880Z"
+}

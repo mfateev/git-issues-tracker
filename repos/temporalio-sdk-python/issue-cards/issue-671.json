@@ -1,0 +1,33 @@
+{
+  "summary": "Security vulnerability identified in tonic Rust dependency affecting the Python SDK. Requires updating the package to version 0.12.3 to apply necessary security patches for GHSA-4jwc-w2hc-78qv and CVE-2024-47609.",
+  "category": "bug",
+  "subcategory": "security-dependency",
+  "apis": [],
+  "components": [
+    "tonic",
+    "rust-dependencies",
+    "security-scanning"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-update",
+    "version-upgrade",
+    "rust-package",
+    "security-patch",
+    "advisory"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the Python SDK are exposed to a known security vulnerability in the tonic Rust dependency until the package is updated.",
+  "rootCause": "Outdated version of tonic Rust package containing known security advisories GHSA-4jwc-w2hc-78qv and CVE-2024-47609.",
+  "proposedFix": "Update tonic package to version 0.12.3 which contains the necessary security patches.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed as part of Core upgrade, completed in pull request #683.",
+  "related": [
+    683
+  ],
+  "keyQuote": "Security scans have identified a vulnerability in one of the Rust dependencies. The current version of the package is affected by the following advisories",
+  "number": 671,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:18:10.212Z"
+}

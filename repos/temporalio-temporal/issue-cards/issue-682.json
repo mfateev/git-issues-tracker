@@ -1,0 +1,35 @@
+{
+  "summary": "Workflows cannot signal themselves, throwing UnknownExternalWorkflowExecution error. Users request this capability as an enhancement for metrics tracking and signal-driven architecture patterns, though the server currently prevents it due to implementation constraints (deadlock risk from locking).",
+  "category": "feature",
+  "subcategory": "signal-external-workflow",
+  "apis": [
+    "SignalExternalWorkflow",
+    "GetInfo"
+  ],
+  "components": [
+    "signal-processing",
+    "workflow-execution",
+    "external-workflow"
+  ],
+  "concepts": [
+    "self-signaling",
+    "signal-delivery",
+    "deadlock-prevention",
+    "workflow-communication",
+    "metrics",
+    "locking",
+    "command-processing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use self-signaling for metrics tracking or architectural patterns requiring workflows to signal themselves, forcing workarounds like local channels.",
+  "rootCause": "Server's signal command processing holds a lock on source execution while writing to target execution; same source/target causes deadlock, so server blocks self-signals as a protection mechanism.",
+  "proposedFix": "Implement safe self-signaling support to allow workflows to signal themselves without causing deadlocks; suggested improvement: better error message (WorkflowCantSignalItself instead of UnknownExternalWorkflowExecution).",
+  "workaround": "Use local workflow channels to pipe signals instead of SignalExternalWorkflow for self-signals.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal server does not have support for signal command which tries to send a signal to itself... If source and target are the same then it results in a deadlock",
+  "number": 682,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:23:54.093Z"
+}

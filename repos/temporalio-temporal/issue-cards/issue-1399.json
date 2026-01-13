@@ -1,0 +1,32 @@
+{
+  "summary": "Optimize mutable state transaction handling for workflow execution by eliminating unnecessary database updates within the same batch. Currently, activity updates are performed even when they will be immediately deleted in the same transaction, causing inefficient queries.",
+  "category": "feature",
+  "subcategory": "mutable-state-optimization",
+  "apis": [],
+  "components": [
+    "mutable-state",
+    "transaction-handler",
+    "activity-executor",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "batch-optimization",
+    "database-efficiency",
+    "transaction-batching",
+    "state-mutation",
+    "query-elimination",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience slower workflow execution and database operations due to unnecessary state updates and queries being performed in the same batch transaction.",
+  "rootCause": "Post mutable state transaction optimization is insufficient - activity task updates are performed even when the activity will be deleted within the same batch update.",
+  "proposedFix": "Implement post mutable state transaction optimization to eliminate unnecessary queries and state updates for activities that will be deleted in the same batch.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the update of target activity to mutable state can be omitted since within the same batch the target activity will be deleted",
+  "number": 1399,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:46.794Z"
+}

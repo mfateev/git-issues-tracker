@@ -1,0 +1,30 @@
+{
+  "summary": "A test called `taskTimeoutWillRescheduleTheTaskOnTheGlobalList` is flaky on the test server and doesn't pass consistently. The issue indicates a timing or race condition in the task timeout and rescheduling logic.",
+  "category": "bug",
+  "subcategory": "task-timeout",
+  "apis": [],
+  "components": [
+    "test-server",
+    "task-timeout",
+    "task-scheduler"
+  ],
+  "concepts": [
+    "timeout",
+    "task-rescheduling",
+    "flakiness",
+    "race-condition",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Unreliable test results on the Temporal test server can mask real issues and reduce confidence in SDK functionality.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "taskTimeoutWillRescheduleTheTaskOnTheGlobalList doesn't always pass on the test server",
+  "number": 2333,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:54.708Z"
+}

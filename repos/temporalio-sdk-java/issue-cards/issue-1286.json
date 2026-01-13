@@ -1,0 +1,30 @@
+{
+  "summary": "Kotlin Standard Library 1.4.32 contains a medium severity vulnerability (CVE-2022-24329) affecting dependency locking in Multiplatform Gradle Projects. The issue was automatically resolved when the vulnerable library was removed from the project's dependency inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "gradle-build",
+    "kotlin-stdlib",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-locking",
+    "transitive-dependency",
+    "cvss-5.3",
+    "integrity-impact"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may be exposed to integrity attacks through the vulnerable Kotlin Standard Library dependency used in Multiplatform Gradle Projects.",
+  "rootCause": "Kotlin Standard Library version 1.4.32 lacked proper dependency locking mechanism for Multiplatform Gradle Projects, allowing potential integrity compromise via network attack.",
+  "proposedFix": "Upgrade kotlin-stdlib from 1.4.32 to 1.6.0 or later (kotlin-scripting-compiler-embeddable to 1.6.0)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend when the vulnerable library was either marked as ignored or removed from the project's dependency inventory.",
+  "related": [],
+  "keyQuote": "In JetBrains Kotlin before 1.6.0, it was not possible to lock dependencies for Multiplatform Gradle Projects.",
+  "number": 1286,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:21:36.350Z"
+}

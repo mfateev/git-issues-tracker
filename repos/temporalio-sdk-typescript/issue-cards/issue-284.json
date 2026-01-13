@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to make Worker.shutdown() return a Promise<void> instead of void, allowing cleaner async handling in test teardown code. After discussion, maintainers decided against this as shutdown is synchronous and returning the run promise would be confusing.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "Worker.shutdown",
+    "Worker.run"
+  ],
+  "components": [
+    "worker",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "shutdown",
+    "async-handling",
+    "promise-based-api",
+    "testing",
+    "worker-lifecycle",
+    "synchronous-operations"
+  ],
+  "severity": "low",
+  "userImpact": "Users must manually await the run promise separately after shutdown instead of awaiting shutdown directly, requiring more boilerplate in test code.",
+  "rootCause": "Worker.shutdown() is a synchronous operation that only requests shutdown, making it inconsistent with async patterns.",
+  "proposedFix": "Return a Promise<void> from shutdown() or return the run promise from shutdown().",
+  "workaround": "Store the run promise separately and await it after calling shutdown().",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided against this because shutdown is a synchronous operation and returning the run promise would be confusing with weird stack traces. In production code, workers shut themselves down on signals rather than being explicitly shutdown.",
+  "related": [],
+  "keyQuote": "Shutdown ATM is a synchronous operation that only requests shutdown, making it return the run promise is a bit confusing especially because the stack trace would be weird.",
+  "number": 284,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:39.446Z"
+}

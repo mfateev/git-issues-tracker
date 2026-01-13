@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency vulnerability in got 12.0.3 package (CVE-2022-33987) allowing redirect to UNIX socket. This medium severity issue was automatically resolved by removing the vulnerable library from the project inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "testing-package",
+    "package-management",
+    "dependency-resolution"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "cvss-score",
+    "redirect-attack",
+    "unix-socket"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could be vulnerable to attacks exploiting the redirect behavior in the got HTTP library if they depend on affected versions of the testing package.",
+  "rootCause": "The got package before version 12.1.0 (or 11.8.5) allows HTTP redirects to UNIX sockets, potentially enabling exploitation.",
+  "proposedFix": "Upgrade got library to version 12.1.0 or 11.8.5 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automatically closed by Mend as the vulnerable library was removed from the project dependency inventory or marked as ignored",
+  "related": [],
+  "keyQuote": "The got package before 12.1.0 (also fixed in 11.8.5) for Node.js allows a redirect to a UNIX socket.",
+  "number": 712,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:08:11.404Z"
+}

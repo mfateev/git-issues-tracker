@@ -1,0 +1,33 @@
+{
+  "summary": "Type hints are not used for workflow/activity parameters if the argument count doesn't match the input count, even when extra parameters have default values. This causes parameters to be treated as dicts instead of their intended types when using UI-based workflow starting with fewer arguments.",
+  "category": "feature",
+  "subcategory": "type-hints",
+  "apis": [
+    "@workflow.run",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-decorator",
+    "type-hint-resolver",
+    "parameter-binding"
+  ],
+  "concepts": [
+    "type-hints",
+    "default-parameters",
+    "pydantic",
+    "type-validation",
+    "parameter-matching"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience unexpected type conversions (dict instead of model objects) when starting workflows from UI with fewer arguments than defined, leading to confusion about data converter configuration.",
+  "rootCause": "The type hint validation logic requires exact argument count match, ignoring parameters with default values that don't need to be provided at call time.",
+  "proposedFix": "Either use type hints when required arg count matches input count, or remove the check altogether and use as many type hints as applicable.",
+  "workaround": "Manually validate dicts to models using pydantic validation or wrap the workflow to handle type conversion.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the model becomes a `dict`. So maybe this limitation worth to be mentioned in README, somewhere around `@workflow.run` and Pydantic sections.",
+  "number": 360,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:25.738Z"
+}

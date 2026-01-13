@@ -1,0 +1,34 @@
+{
+  "summary": "Worker suspend/resume functionality can cause workflows to get stuck when repeatedly suspending and resuming workers. The root cause is that Worker#isSuspended() returns incorrect values, causing the resume method to not be called when needed.",
+  "category": "bug",
+  "subcategory": "worker-polling",
+  "apis": [
+    "suspendPolling",
+    "resumePolling"
+  ],
+  "components": [
+    "worker",
+    "polling",
+    "task-matching"
+  ],
+  "concepts": [
+    "suspension",
+    "polling",
+    "task-distribution",
+    "worker-lifecycle",
+    "synchronization",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow execution getting permanently stuck when using suspend/resume operations repeatedly, making the feature unreliable for production use cases.",
+  "rootCause": "Worker#isSuspended() method not returning the correct value consistently, causing logical errors in code that checks this state before calling resume()",
+  "proposedFix": null,
+  "workaround": "Avoid repeated suspend/resume cycles; ensure Worker#isSuspended() state is properly verified before calling resume()",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.10 by correcting the Worker#isSuspended() method to return accurate state values",
+  "related": [],
+  "keyQuote": "The problem is in `Worker#isSuspended` not returning the right value sometimes and your code trust this value and doesn't call `#resume` if it's already suspended.",
+  "number": 1114,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:07:42.981Z"
+}

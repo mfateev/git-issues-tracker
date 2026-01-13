@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to investigate integrating Allure reporting framework into the Python SDK's GitHub Actions CI workflows. The reporting tool offers historical correlation of test results across runs, potentially improving test visibility and debugging.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "ci",
+    "github-actions",
+    "testing"
+  ],
+  "concepts": [
+    "test-reporting",
+    "historical-analysis",
+    "continuous-integration",
+    "test-correlation",
+    "visualization"
+  ],
+  "severity": "low",
+  "userImpact": "Better test visibility and historical trend analysis for developers working with the Python SDK, improving ability to identify flaky tests and regressions.",
+  "rootCause": null,
+  "proposedFix": "Integrate Allure pytest plugin into GitHub Actions workflows to generate and serve test reports with historical correlation capabilities.",
+  "workaround": "Manual local setup: `brew install allure`, `pip install allure-pytest`, `pytest --alluredir`, `allure serve`",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The feature providing correlation of results across historical runs sounds particularly interesting, if it works well.",
+  "number": 613,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:16.213Z"
+}

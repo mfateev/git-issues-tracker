@@ -1,0 +1,39 @@
+{
+  "summary": "Add support for user metadata in the Python SDK by accepting optional summary/details parameters when starting workflows, creating activities and timers, and implementing the __temporal_workflow_metadata query handler.",
+  "category": "feature",
+  "subcategory": "user-metadata",
+  "apis": [
+    "StartWorkflow",
+    "ExecuteActivity",
+    "CreateTimer"
+  ],
+  "components": [
+    "workflow-client",
+    "activity-executor",
+    "timer-executor",
+    "metadata-handler"
+  ],
+  "concepts": [
+    "user-metadata",
+    "workflow-summary",
+    "activity-summary",
+    "metadata-query",
+    "workflow-visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now provide custom metadata summaries for workflows, activities, and timers to improve visibility and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Accept optional static summary and static details parameters in workflow start methods, optional summary in timer and activity creation, and implement __temporal_workflow_metadata query handler.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented across workflow, activity, and timer APIs with metadata query support.",
+  "related": [
+    486,
+    830,
+    1597
+  ],
+  "keyQuote": "Accept optional \"static summary\" and \"static details\" on all ways to start a workflow (start, signal with start, schedule, and child workflow)",
+  "number": 670,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:56.920Z"
+}

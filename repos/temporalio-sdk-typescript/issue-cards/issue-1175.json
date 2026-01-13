@@ -1,0 +1,32 @@
+{
+  "summary": "Worker fails with \"Automatic publicPath is not supported in this browser\" error when running compiled JavaScript via node, but works with ts-node. Root cause identified as third-party packages importing browser-specific modules into the workflow bundle.",
+  "category": "bug",
+  "subcategory": "bundler-configuration",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "bundler",
+    "vm-workflow-creator"
+  ],
+  "concepts": [
+    "workflow-bundling",
+    "module-resolution",
+    "bundler-options",
+    "browser-incompatibility",
+    "webpack-publicPath"
+  ],
+  "severity": "high",
+  "userImpact": "Workers fail to activate workflows in production Node.js environments when the workflow bundle contains browser-targeting dependencies.",
+  "rootCause": "Third-party packages (e.g., @supabase/supabase-js) importing browser-specific modules that use Webpack's automatic publicPath feature, which is incompatible with Node.js VM execution context.",
+  "proposedFix": "Use bundlerOptions.ignoreModules to exclude problematic packages from the workflow bundle.",
+  "workaround": "Run workers with ts-node instead of compiled JavaScript, or exclude the offending NPM package using ignoreModules configuration.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue determined to be caused by user's workflow importing incompatible third-party packages. SDK behavior is correct; users must review and filter their workflow imports.",
+  "related": [],
+  "keyQuote": "Your Workflow code is somehow importing an NPM package that uses Webpack's automatic publicPath feature. That feature only makes sense in a web app",
+  "number": 1175,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:59.715Z"
+}

@@ -1,0 +1,55 @@
+{
+  "summary": "Feature request to add user-provided metadata that's visible in UI/CLI for workflows, including static metadata at workflow start, updateable current details, metadata queries with signal/query/update information, and metadata for timers and activities.",
+  "category": "feature",
+  "subcategory": "workflow-metadata",
+  "apis": [
+    "StartWorkflow",
+    "Signal",
+    "Query",
+    "Update"
+  ],
+  "components": [
+    "workflow-execution",
+    "metadata-storage",
+    "query-handler",
+    "ui-cli"
+  ],
+  "concepts": [
+    "metadata",
+    "visibility",
+    "workflow-description",
+    "signal-registration",
+    "query-registration",
+    "update-registration"
+  ],
+  "severity": "high",
+  "userImpact": "Users can now provide custom metadata visible in UI/CLI to better identify and track workflows, timers, and activities with descriptive information.",
+  "rootCause": null,
+  "proposedFix": "Implement metadata fields including static summary/details on workflow start, updateable current details, metadata query API, and metadata for timers and activities. Text format to use mini markdown.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    51,
+    1565,
+    1673,
+    2216,
+    335,
+    2268,
+    830,
+    1544,
+    670,
+    359,
+    217,
+    517,
+    690,
+    371,
+    5857,
+    6412,
+    6413
+  ],
+  "keyQuote": "Users need to provide certain bits of user metadata that is visible in the UI/CLI.",
+  "number": 486,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:04:36.587Z"
+}

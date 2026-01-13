@@ -1,0 +1,37 @@
+{
+  "summary": "Test server occasionally fails to include signal events in the first workflow task for SDK Python when signals are sent before the worker starts, particularly on macOS Intel runners. The signal event is sometimes missing from the first WFT activation, causing the workflow to process start_workflow before signal_workflow.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "start_workflow",
+    "signal_workflow"
+  ],
+  "components": [
+    "test-server",
+    "activation",
+    "signal-handling",
+    "workflow-task"
+  ],
+  "concepts": [
+    "signal-ordering",
+    "race-condition",
+    "event-sequencing",
+    "time-skipping",
+    "activation-ordering",
+    "event-loss"
+  ],
+  "severity": "medium",
+  "userImpact": "Test reliability is compromised as signals sent before worker startup are occasionally not included in the first workflow task, causing test flakiness on certain platforms.",
+  "rootCause": "Test server does not reliably include signal events in the first WFT when signals are sent before worker startup, with the issue more common on macOS Intel builds; cancel requests appear to work around the issue.",
+  "proposedFix": null,
+  "workaround": "Sending a cancel request before starting the worker appears to ensure all signals are included in the first WFT.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    556
+  ],
+  "keyQuote": "Occasionally (on `macos-intel` builds) Python processes a `start_workflow` activation job first... the first WFT has no signal in it",
+  "number": 2127,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:00.446Z"
+}

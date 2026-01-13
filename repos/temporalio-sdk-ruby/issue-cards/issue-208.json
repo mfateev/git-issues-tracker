@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add Ruby version requirement (>= 3.2.0) back to the gemspec now that rake-compiler-dock dependency issue is resolved.",
+  "category": "feature",
+  "subcategory": "gem-configuration",
+  "apis": [],
+  "components": [
+    "gemspec",
+    "gem-build",
+    "ruby-version-constraint"
+  ],
+  "concepts": [
+    "version-requirement",
+    "dependency-constraint",
+    "gem-metadata",
+    "ruby-compatibility",
+    "build-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Ensures users install the SDK on compatible Ruby versions, preventing runtime errors from version mismatches.",
+  "rootCause": null,
+  "proposedFix": "Add required_ruby_version >= 3.2.0 to gemspec after rake-compiler-dock issue #145 is complete and released",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Likely implemented after rake-compiler-dock dependency was resolved",
+  "related": [],
+  "keyQuote": "With rake-compiler-dock/issues/145 complete and released, can put this limitation into the gemspec",
+  "number": 208,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:45:48.229Z"
+}

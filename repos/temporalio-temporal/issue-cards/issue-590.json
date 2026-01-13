@@ -1,0 +1,30 @@
+{
+  "summary": "TestWorkflowTimeout test in the integration test suite is flaky, sometimes expecting 1 result but getting 2. The issue was reported as passing consistently after investigation.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "integration-test",
+    "workflow-timeout",
+    "test-framework"
+  ],
+  "concepts": [
+    "flaky-test",
+    "timeout",
+    "test-reliability",
+    "race-condition",
+    "test-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests reduce confidence in the test suite and make it harder to identify real issues versus test infrastructure problems.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test was confirmed to be passing consistently after investigation, indicating the flakiness issue was resolved.",
+  "related": [],
+  "keyQuote": "This is passing consistently throughput last month.",
+  "number": 590,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:18:05.801Z"
+}

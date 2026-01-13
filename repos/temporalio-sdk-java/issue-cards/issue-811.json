@@ -1,0 +1,35 @@
+{
+  "summary": "Request to add a test framework capability for replaying partial JSON workflow history and continuing execution to simulate failure recovery and worker cache eviction scenarios. Currently supported for state machines testing but missing from workflow integration testing framework.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowReplayer",
+    "queryWorkflowExecution"
+  ],
+  "components": [
+    "test-service",
+    "workflow-replayer",
+    "history-replay",
+    "worker"
+  ],
+  "concepts": [
+    "history-replay",
+    "failure-recovery",
+    "state-restoration",
+    "worker-cache-eviction",
+    "replayability-testing",
+    "compatibility-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test workflow replayability after partial history replays or simulate recovery from failures, limiting test coverage for state machine permutations and compatibility with older SDK versions.",
+  "rootCause": null,
+  "proposedFix": "Add ability for TestService to load partial workflow history from JSON, restore workflow mutable state, and dispatch workflow tasks to continue execution simulating restoring after failure or cache eviction.",
+  "workaround": "Simulate a failure at the desired replay point during test execution, but this doesn't allow testing compatibility with histories from older SDK versions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We don't have a way to make a replay of a partial json history and continue the execution (aka restoring from a failure).",
+  "number": 811,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:43:30.077Z"
+}

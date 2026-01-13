@@ -1,0 +1,32 @@
+{
+  "summary": "User requests adding `getMetricsScope` method to `WorkflowOutboundCallsInterceptor` to enable custom tags on metrics emitted within workflows.",
+  "category": "feature",
+  "subcategory": "metrics-and-monitoring",
+  "apis": [
+    "WorkflowOutboundCallsInterceptor"
+  ],
+  "components": [
+    "workflow-interceptor",
+    "metrics",
+    "monitoring"
+  ],
+  "concepts": [
+    "metrics",
+    "custom-tags",
+    "instrumentation",
+    "observability",
+    "workflow-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently add custom tags to metrics emitted in workflows without accessing the metrics scope through the interceptor.",
+  "rootCause": null,
+  "proposedFix": "Add `getMetricsScope` method to `WorkflowOutboundCallsInterceptor` interface",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented and merged into the codebase",
+  "related": [],
+  "keyQuote": "Add `getMetricsScope` to `WorkflowOutboundCallsInterceptor`",
+  "number": 2208,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:02:21.518Z"
+}

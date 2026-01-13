@@ -1,0 +1,38 @@
+{
+  "summary": "Multiple tests in a test class fail when run together due to shared static activity stubs between workflow instances, though each test passes individually. The mocking setup fails for subsequent tests because activity stubs cannot be shared across workflow instances.",
+  "category": "question",
+  "subcategory": "test-framework",
+  "apis": [
+    "Workflow.newActivityStub",
+    "TestWorkflowEnvironment",
+    "WorkflowClient"
+  ],
+  "components": [
+    "test-framework",
+    "activity-stub",
+    "workflow-instance",
+    "mocking"
+  ],
+  "concepts": [
+    "test-isolation",
+    "shared-state",
+    "activity-mocking",
+    "stub-lifecycle",
+    "test-ordering",
+    "mockito-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot run multiple tests with mocked activities in the same test class because shared static stubs cause mocking to fail after the first test.",
+  "rootCause": "Activity stubs are created as static fields and shared between multiple workflow instances, which violates the SDK requirement that stubs must be created per-workflow-instance.",
+  "proposedFix": "Remove the `static` modifier from the activity stub field or move stub creation inside the workflow method instead of initializing it at class load time.",
+  "workaround": "Create activity stubs inside the workflow method (non-static) rather than as static class fields.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by identifying that activity stubs cannot be shared between workflow instances. The solution is to create stubs per-workflow-instance rather than statically.",
+  "related": [
+    746
+  ],
+  "keyQuote": "stubs can't be shared between workflow instances. They need to be created during workflow instance initialization in a workflow code.",
+  "number": 1518,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:11.074Z"
+}

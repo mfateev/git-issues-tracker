@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to add WorkflowIdConflictPolicy support for child workflows, similar to the existing support in parent workflows. This would allow developers to specify conflict handling policies when starting or executing child workflows.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "start_child_workflow",
+    "execute_child_workflow",
+    "execute_workflow",
+    "start_workflow"
+  ],
+  "components": [
+    "child-workflow-client",
+    "workflow-orchestration",
+    "conflict-resolution"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "policy-configuration",
+    "child-workflow-execution",
+    "error-handling",
+    "workflow-composition"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot specify conflict policies for child workflows, limiting their ability to handle workflow ID conflicts in hierarchical workflow scenarios.",
+  "rootCause": null,
+  "proposedFix": "Add id_conflict_policy parameter to start_child_workflow() and execute_child_workflow() methods, consistent with parent workflow API.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "This is tracked as an open request on the server side (temporal#6799), indicating it requires server support before SDK implementation.",
+  "related": [
+    504,
+    6799
+  ],
+  "keyQuote": "I would love for start_child_workflow() and execute_child_workflow() [to support WorkflowIDConflictPolicy]",
+  "number": 1112,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:02.281Z"
+}

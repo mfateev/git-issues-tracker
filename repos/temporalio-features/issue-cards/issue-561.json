@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add mutable side effect support in core-based SDKs. The discussion evaluates whether mutable side effects provide sufficient value over local activities, with community debate on use cases and implementation priorities.",
+  "category": "feature",
+  "subcategory": "workflow-side-effects",
+  "apis": [
+    "MutableSideEffect"
+  ],
+  "components": [
+    "sdk-core",
+    "workflow-engine",
+    "determinism-tracking"
+  ],
+  "concepts": [
+    "determinism",
+    "caching",
+    "workflow-safety",
+    "non-deterministic-actions",
+    "local-activities",
+    "side-effects"
+  ],
+  "severity": "low",
+  "userImpact": "Users asking for safer workflows could use mutable side effects to cache deterministic function results, though local activities are presented as the current recommended approach.",
+  "rootCause": null,
+  "proposedFix": "Implement mutable side effect API based on Go SDK's MutableSideEffect pattern after evaluating core SDK support requirements.",
+  "workaround": "Use local activities or pass values as workflow arguments instead of side effects.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Side-effect will probably not be implemented in newer SDKs, we should consider implementing mutable side effects.",
+  "number": 561,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:55.621Z"
+}

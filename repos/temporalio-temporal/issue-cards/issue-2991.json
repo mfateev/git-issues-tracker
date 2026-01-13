@@ -1,0 +1,34 @@
+{
+  "summary": "Refactor metrics collection to dynamically generate task type tag values instead of using static lookup tables for queue processors (active/standby transfer/timer and visibility queues).",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "queue-processor",
+    "timer-queue",
+    "transfer-queue",
+    "visibility-queue",
+    "metrics"
+  ],
+  "concepts": [
+    "metrics-tagging",
+    "task-type-enumeration",
+    "code-generation",
+    "dashboard-compatibility",
+    "refactoring"
+  ],
+  "severity": "low",
+  "userImpact": "This is primarily an internal refactoring that maintains existing metrics output while reducing code duplication in task type tagging.",
+  "rootCause": "Static lookup tables for task type tag values are duplicated across multiple queue processors and could be replaced with dynamic generation from proto enum definitions.",
+  "proposedFix": "Dynamically generate task type tag values based on the proto enum definition for task types, with options including string manipulation, proto definition updates, or introducing separate active/standby tags.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2930
+  ],
+  "keyQuote": "Is it possible to get rid of the look up table and dynamically generate the value based on task type?",
+  "number": 2991,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:35:01.335Z"
+}

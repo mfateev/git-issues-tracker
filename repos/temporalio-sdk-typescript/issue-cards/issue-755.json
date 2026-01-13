@@ -1,0 +1,30 @@
+{
+  "summary": "Yarn PnP (Plug'n'Play) package manager breaks workflow tests in TypeScript SDK due to ESM module resolution issues and missing pnpapi dependency. The testing framework fails with VM module errors and require stack issues when using yarn workspaces.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "worker-bundler",
+    "jest-integration"
+  ],
+  "concepts": [
+    "yarn-pnp",
+    "esm-modules",
+    "package-resolution",
+    "monorepo",
+    "jest-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with yarn PnP package managers cannot run workflow tests without manual patches or workarounds, blocking testing capabilities.",
+  "rootCause": "The @temporalio/testing library and dependencies like get-port use ESM syntax which is incompatible with yarn PnP's module resolution; enhanced-resolve cannot find pnpapi in the require stack.",
+  "proposedFix": "Vendor and port get-port package to CommonJS to eliminate ESM dependency issues; update @temporalio/testing to handle both ESM and CommonJS module systems.",
+  "workaround": "Use patch-package to manually convert ESM imports to require statements; set NODE_OPTIONS=--experimental-vm-modules when running tests.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by removing dependency on get-port package, eliminating the ESM compatibility issues with yarn PnP.",
+  "related": [],
+  "keyQuote": "Closing, we don't depend on `get-port` anymore.",
+  "number": 755,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:10:30.104Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Docker worker fails with TCP connection error (Cannot assign requested address) when started via docker run, but works when manually running the same command inside the container. The issue appears to be an environment or networking configuration problem specific to the container startup context.",
+  "category": "bug",
+  "subcategory": "docker-deployment",
+  "apis": [
+    "NativeConnection",
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "connection",
+    "native-transport",
+    "docker-environment"
+  ],
+  "concepts": [
+    "networking",
+    "docker-deployment",
+    "tcp-connection",
+    "container-environment",
+    "address-binding",
+    "connection-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot deploy Temporal TypeScript workers in Docker containers using standard docker run commands without manual intervention.",
+  "rootCause": "Network binding issue specific to how Docker initializes the container environment - likely related to host address resolution or network interface availability at container startup time versus manual execution.",
+  "proposedFix": null,
+  "workaround": "Manually shell into the container and run the worker initialization command directly (e.g., shell exec form in Dockerfile or manual docker exec).",
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed due to lack of response from original poster and insufficient debugging information. Maintainers requested more context (NativeConnection options, Worker options, Dockerfile) to diagnose.",
+  "related": [],
+  "keyQuote": "It works when I manually shell into the container and manually run `node worker.js`.",
+  "number": 1273,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:55.800Z"
+}

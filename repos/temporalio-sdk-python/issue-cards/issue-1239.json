@@ -1,0 +1,33 @@
+{
+  "summary": "The `page_size` parameter in `WorkflowHistoryEventAsyncIterator.fetch_next_page()` is ignored and not used during pagination. This prevents users from controlling the batch size of history events retrieved.",
+  "category": "bug",
+  "subcategory": "workflow-history",
+  "apis": [
+    "WorkflowHistoryEventAsyncIterator"
+  ],
+  "components": [
+    "workflow-history",
+    "async-iterator",
+    "pagination"
+  ],
+  "concepts": [
+    "pagination",
+    "batch-size",
+    "page-size",
+    "history-events",
+    "async-iteration",
+    "parameter-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot control the page size when fetching workflow history events, limiting their ability to optimize memory usage and performance for large histories.",
+  "rootCause": "The `fetch_next_page()` method does not pass or utilize the `page_size` argument when constructing pagination requests.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "`WorkflowHistoryEventAsyncIterator.fetch_next_page` never uses the `page_size` argument.",
+  "number": 1239,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:43.926Z"
+}

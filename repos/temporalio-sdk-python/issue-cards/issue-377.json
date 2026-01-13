@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add a warning when an activity method has `self` as its first parameter but is registered as a static activity, indicating the instance wasn't properly instantiated.",
+  "category": "feature",
+  "subcategory": "activity-registration",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-registration",
+    "validation"
+  ],
+  "concepts": [
+    "static-activity",
+    "instance-method",
+    "method-signature",
+    "registration-validation",
+    "developer-warning"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can miss configuration errors when registering activities, leading to runtime failures that could be caught earlier with a warning.",
+  "rootCause": null,
+  "proposedFix": "Add validation during worker creation to warn if an activity's first parameter is `self` but it's not an instance method.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If an activity's first parameter is `self` but it's not an instance method, warn when creating the worker.",
+  "number": 377,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:03:57.681Z"
+}

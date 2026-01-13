@@ -1,0 +1,33 @@
+{
+  "summary": "Worker doesn't log errors when TemporalFailure instances are thrown in workflows, only logging standard Errors. User requests consistent error logging for all error types including ApplicationFailure and custom failures extending TemporalFailure.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-logging",
+    "failure-types",
+    "workflow-activation",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers have difficulty debugging workflow failures when throwing TemporalFailure subclasses because errors are not logged to the console.",
+  "rootCause": "Worker only logs standard Error instances but not TemporalFailure subclasses, creating inconsistent debugging experience.",
+  "proposedFix": "Add logger for workflow activations and activity tasks to increase log level and ensure all failure types are logged.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved through improved logging implementation for failure types in worker.",
+  "related": [
+    407
+  ],
+  "keyQuote": "I would add a logger for activity tasks and workflow activations. We already have DEBUG logging, maybe we just need to increase the log level.",
+  "number": 461,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:10:05.594Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Documentation search results contain URLs with incorrect casing (e.g., lowercase class names) that return 404 errors when opened in new tabs or refreshed. The search index from Algolia has incorrect normalization for class names with mixed case.",
+  "category": "bug",
+  "subcategory": "documentation-search",
+  "apis": [],
+  "components": [
+    "documentation-search",
+    "typedoc-plugin",
+    "algolia-integration",
+    "url-routing"
+  ],
+  "concepts": [
+    "case-sensitivity",
+    "url-normalization",
+    "search-indexing",
+    "documentation-link",
+    "404-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot share or revisit documentation search result links if they contain uppercase characters, breaking the usability of the search feature.",
+  "rootCause": "Algolia search index was crawled from Netlify URLs (which redirect SentenceCase to lowercase) before migration to Vercel (which is case-sensitive). The typedoc plugin generates mixed-case URLs, but the search index contains lowercase versions.",
+  "proposedFix": "Change the typedoc plugin to generate lowercase URLs consistently, or implement custom normalization rules in Algolia to handle camelCase to lowercase conversion.",
+  "workaround": "Manually correct the casing in the URL before opening it, or use the normalized lowercase version of class names in searches.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved when Algolia crawler re-indexed the Vercel-hosted site, which correctly served SentenceCase URLs without redirects, causing the index to contain correct mixed-case URLs.",
+  "related": [],
+  "keyQuote": "After the crawler crawled the site hosted on Vercel (which doesn't redirect), it got SentenceCase URLs, which work fine.",
+  "number": 917,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:23:16.438Z"
+}

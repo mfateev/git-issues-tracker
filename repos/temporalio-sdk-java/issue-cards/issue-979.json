@@ -1,0 +1,31 @@
+{
+  "summary": "Gauge metrics disappear approximately 60 seconds after being reported to Micrometer, despite being properly initialized. The issue occurs in MicrometerClientStatsReporter which creates gauges with primitive number values, violating Micrometer's requirement to maintain strong references to state objects.",
+  "category": "bug",
+  "subcategory": "metrics-gauges",
+  "apis": [],
+  "components": [
+    "MicrometerClientStatsReporter",
+    "MeterRegistry",
+    "metrics-collection"
+  ],
+  "concepts": [
+    "gauge-metrics",
+    "garbage-collection",
+    "micrometer-integration",
+    "metrics-reporting",
+    "reference-management",
+    "memory-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably track gauge metrics in their Temporal applications as reported metrics disappear after approximately 60 seconds.",
+  "rootCause": "MicrometerClientStatsReporter creates gauges with primitive double values instead of maintaining strong references to state objects, causing them to be garbage collected as Micrometer expects the user to hold references to the measured object.",
+  "proposedFix": "Modify MicrometerClientStatsReporter to create gauges using AtomicLong or similar wrapper objects and maintain strong references to ensure they are not garbage collected, consistent with Micrometer's gauge documentation.",
+  "workaround": "Create Gauge instances directly through MeterRegistry with AtomicLong and ensure the reference is held to prevent garbage collection.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was confirmed as a bug in MicrometerClientStatsReporter's integration with Micrometer, indicating it was subsequently fixed in a later version.",
+  "related": [],
+  "keyQuote": "It is your responsibility to hold a strong reference to the state object that you are measuring with a Gauge.",
+  "number": 979,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:57:01.327Z"
+}

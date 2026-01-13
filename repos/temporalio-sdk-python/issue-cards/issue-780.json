@@ -1,0 +1,39 @@
+{
+  "summary": "Debugger attachment causes TypeError in asyncio event loop callbacks when running Temporal workflow with PyCharm debugger. The issue occurs when attempting to debug workflow code that uses UnsandboxedWorkflowRunner.",
+  "category": "bug",
+  "subcategory": "debugging-dev-experience",
+  "apis": [
+    "Client.connect",
+    "Worker",
+    "workflow.execute_activity",
+    "UnsandboxedWorkflowRunner"
+  ],
+  "components": [
+    "worker",
+    "workflow-runner",
+    "event-loop",
+    "debugging"
+  ],
+  "concepts": [
+    "debugging",
+    "asyncio",
+    "callback",
+    "development-experience",
+    "workflow-execution",
+    "ide-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot debug workflow code using standard Python debuggers like PyCharm, severely limiting development productivity.",
+  "rootCause": "PyCharm debugger's callback handling interferes with asyncio event loop in the Temporal worker, causing 'Task' object is not callable errors in the event loop callback mechanism.",
+  "proposedFix": null,
+  "workaround": "Refer to tips in issue #603 for workaround strategies.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was marked as duplicate and discussion was redirected to #603 which contains debugging tips.",
+  "related": [
+    603
+  ],
+  "keyQuote": "The moment I run in debug mode I start getting this exception: TypeError: 'Task' object is not callable",
+  "number": 780,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:22:15.698Z"
+}

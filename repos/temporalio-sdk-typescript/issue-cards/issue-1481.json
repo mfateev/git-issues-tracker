@@ -1,0 +1,33 @@
+{
+  "summary": "TypeScript compilation times are slow due to large barrel imports in @temporalio/client and a massive 49k-line proto declaration file. The request is to optimize package structure with deep path imports and split proto definitions into smaller files for parallel type checking.",
+  "category": "feature",
+  "subcategory": "build-performance",
+  "apis": [],
+  "components": [
+    "client",
+    "proto",
+    "type-declarations",
+    "barrel-exports"
+  ],
+  "concepts": [
+    "compilation-performance",
+    "type-checking",
+    "module-structure",
+    "bundle-size",
+    "parsing"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience slow TypeScript compilation times (1+ second for client imports) which impacts development velocity in monorepo projects.",
+  "rootCause": "Large barrel index exports and a massive 49k-line proto declaration file (root.d.ts, 2.67 MB) that must be fully parsed and type-checked sequentially instead of in parallel.",
+  "proposedFix": "Remove barrel imports and use deep path imports for @temporalio/client; split root.d.ts into multiple focused files (coresdk.d.ts, temporal.d.ts, google.d.ts, grpc.d.ts) for parallel type checking.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through optimization of import structure and proto file splitting to reduce type-checking burden.",
+  "related": [
+    2
+  ],
+  "keyQuote": "Importing the @temporalio/client package takes 1 second... The generated file at @temporalio/proto/protos/root.d.ts is massive and is most likely consuming most of the parsing/checking time.",
+  "number": 1481,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:47.570Z"
+}

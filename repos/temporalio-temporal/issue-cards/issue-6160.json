@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to automatically load all task queue partitions when the root partition is loaded, which helps prevent dispatch delays in low-traffic scenarios with long worker poll timeouts.",
+  "category": "feature",
+  "subcategory": "task-queue-partitioning",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "worker",
+    "dispatcher"
+  ],
+  "concepts": [
+    "partitioning",
+    "task-dispatch",
+    "poll-timeout",
+    "low-traffic",
+    "partition-loading"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience reduced task dispatch delays in low-traffic situations by having all task queue partitions preloaded.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via issue #6324 which added the feature to load all task queue partitions when root partition is loaded.",
+  "related": [
+    6324
+  ],
+  "keyQuote": "Load all task queue partitions when root one is loaded. This helps prevent possible delays in task dispatch in low traffic situations",
+  "number": 6160,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:22.567Z"
+}

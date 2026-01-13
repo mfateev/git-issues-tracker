@@ -1,0 +1,32 @@
+{
+  "summary": "Worker appears to stop polling task queue after period of inactivity in Kubernetes environment. Issue resolves after worker restart, but recurs without configuration changes.",
+  "category": "bug",
+  "subcategory": "worker-polling",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "task-queue-polling",
+    "kubernetes-deployment"
+  ],
+  "concepts": [
+    "connection-loss",
+    "task-queue-polling",
+    "worker-availability",
+    "deployment-lifecycle",
+    "graceful-shutdown"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience task processing interruptions where workers stop polling task queues without visible configuration changes, requiring manual worker restarts to restore functionality.",
+  "rootCause": "Potentially running out of slots on worker(s) or connection/polling mechanism not recovering from network/timing issues in Kubernetes environment",
+  "proposedFix": null,
+  "workaround": "Restart worker deployment to restore task queue polling",
+  "resolution": "invalid",
+  "resolutionDetails": "Community team indicated this is a diagnostics issue requiring metrics/logs review rather than SDK bug; user directed to community Slack for support",
+  "related": [],
+  "keyQuote": "After some times without any changes in worker or server configs, in the web ui i see: 'There are no Workers polling the X Task Queue.'",
+  "number": 1103,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:32:30.955Z"
+}

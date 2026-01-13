@@ -1,0 +1,31 @@
+{
+  "summary": "TypeScript SDK has multiple deprecated npm dependencies causing warnings during installation. Includes outdated packages like source-map tools, uuid v3, request, and core-js v2 that need upgrades.",
+  "category": "bug",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "package-management",
+    "build-system"
+  ],
+  "concepts": [
+    "dependency-management",
+    "security",
+    "maintenance",
+    "version-upgrade",
+    "npm-warnings"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see numerous npm warnings during installation, creating noise and potential security concerns from using outdated packages.",
+  "rootCause": "Dependencies have not been updated to their latest versions; transitive dependencies include packages no longer actively maintained or recommended.",
+  "proposedFix": "Upgrade all deprecated dependencies to their current versions, particularly fsevents (v2), chokidar (v3), uuid (v7+), and replace request with alternatives.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependencies were pruned and updated as part of issue #1330.",
+  "related": [
+    1330
+  ],
+  "keyQuote": "Pruned all dependencies as part of #1330.",
+  "number": 894,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:22:07.076Z"
+}

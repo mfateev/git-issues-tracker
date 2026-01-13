@@ -1,0 +1,39 @@
+{
+  "summary": "Cross-SDK feature to detect server capabilities using getSystemInfo request instead of health checks. Enables SDKs to determine feature support and optionally require specific capabilities for connection establishment.",
+  "category": "feature",
+  "subcategory": "server-capabilities",
+  "apis": [
+    "getSystemInfo"
+  ],
+  "components": [
+    "connection",
+    "server-discovery",
+    "capability-detection",
+    "health-check"
+  ],
+  "concepts": [
+    "server-capabilities",
+    "feature-detection",
+    "connection-establishment",
+    "sdk-compatibility",
+    "health-check"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can rely on consistent capability detection across SDKs and optionally enforce minimum server feature requirements.",
+  "rootCause": null,
+  "proposedFix": "Replace health check calls with getSystemInfo request across all SDKs and add optional capability requirement validation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented across Go, TypeScript, Java SDKs and sdk-core; PHP SDK implementation pending.",
+  "related": [
+    701,
+    682,
+    290,
+    1312,
+    223
+  ],
+  "keyQuote": "Should this call replace the health check call that Go and Java use when they establish a connection?",
+  "number": 7,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:42:06.146Z"
+}

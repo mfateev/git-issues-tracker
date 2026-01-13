@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to add native workflow queueing/buffering capability similar to executeChild, allowing workflows to queue subsequent executions without creating schedules or clients. Current workaround uses schedules with BUFFER_ONE policy but has limitations like inability to pass arguments.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "executeChild",
+    "signalWithStart",
+    "continueAsNew",
+    "setHandler"
+  ],
+  "components": [
+    "workflow-executor",
+    "client-interface",
+    "scheduler",
+    "signal-handler"
+  ],
+  "concepts": [
+    "workflow-queueing",
+    "buffering",
+    "scheduling",
+    "signal-handling",
+    "continuation",
+    "entity-pattern",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently queue workflows from within a workflow without creating schedules and clients, requiring boilerplate code to implement buffering patterns.",
+  "rootCause": null,
+  "proposedFix": "Add native workflow queueing capability similar to executeChild that allows workflows to queue subsequent executions from within the workflow without requiring schedule creation or client instantiation.",
+  "workaround": "Use entity workflow pattern with signals and continueAsNew to buffer requests in-memory, maintaining a queue that processes items sequentially while managing history growth.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The ability to queue a workflow after the completion of a currently running workflow, similar to the BUFFER_ONE schedule overlap policy.",
+  "number": 1375,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:26.032Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The visibility database can become out-of-sync with the main database due to various reasons. This feature request proposes creating a system workflow that can reconstruct the entire visibility database from the main database, started via tctl command.",
+  "category": "feature",
+  "subcategory": "visibility-reconciliation",
+  "apis": [],
+  "components": [
+    "visibility-database",
+    "main-database",
+    "workflow-system",
+    "tctl"
+  ],
+  "concepts": [
+    "database-synchronization",
+    "data-consistency",
+    "reconciliation",
+    "reconstruction",
+    "system-workflow",
+    "visibility-records"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can recover from visibility database inconsistencies by running a reconciliation workflow to rebuild visibility records from the authoritative main database.",
+  "rootCause": "Various unspecified reasons can cause visibility records to get out of sync with the main database.",
+  "proposedFix": "Create a system workflow that reconstructs the entire visibility database from the main database, started via tctl command.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It is possible to reconstruct entire visibility database from the main database.",
+  "number": 1904,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:57.467Z"
+}

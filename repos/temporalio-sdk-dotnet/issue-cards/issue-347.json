@@ -1,0 +1,32 @@
+{
+  "summary": "NuGet package vulnerability warnings are being treated as errors due to TreatWarningsAsErrors setting, causing dotnet build to fail when System.Text.Json and other system packages have known vulnerabilities.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "build-system",
+    "nuget-package-management",
+    "project-configuration"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "build-failure",
+    "dependency-resolution",
+    "compiler-warnings",
+    "package-management"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot build the SDK solution due to NuGet audit warnings being converted to build errors when vulnerable dependencies are detected.",
+  "rootCause": "System.Text.Json 8.0.4 and other system packages have known high-severity vulnerabilities; combined with TreatWarningsAsErrors=true, this causes NU1903 warnings to fail the build.",
+  "proposedFix": "Update System.Text.Json dependency to a patched version and use <WarningsNotAsErrors>NU1903</WarningsNotAsErrors> in project configuration to allow builds to succeed while maintaining awareness of vulnerabilities.",
+  "workaround": "Use <WarningsNotAsErrors>NU1903</WarningsNotAsErrors> in csproj to suppress treating NuGet audit warnings as errors.",
+  "resolution": "fixed",
+  "resolutionDetails": "Updated System.Text.Json dependency to a patched version and configured project to handle NuGet audit warnings appropriately.",
+  "related": [
+    356
+  ],
+  "keyQuote": "I wonder if a fresh build is pulling in fixed versions of those dependencies? Or is there some other setting governing this?",
+  "number": 347,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:35:01.803Z"
+}

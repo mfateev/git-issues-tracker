@@ -1,0 +1,33 @@
+{
+  "summary": "Mac developer encountered missing Rust/Cargo installation when following the Environment setup instructions. After discovering and following the building.md documentation and running lerna clean, the build succeeded. Clarification needed on whether all macOS developers need to follow building.md or just some.",
+  "category": "docs",
+  "subcategory": "setup-instructions",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "build-system",
+    "environment-setup"
+  ],
+  "concepts": [
+    "rust",
+    "cargo",
+    "build-setup",
+    "environment-configuration",
+    "developer-experience",
+    "mac-specific"
+  ],
+  "severity": "medium",
+  "userImpact": "macOS developers cannot build the SDK without discovering and following additional undocumented setup steps beyond the main contributing instructions.",
+  "rootCause": "The Environment setup instructions in the main documentation do not mention the Rust/Cargo requirement for building the core-bridge package on macOS.",
+  "proposedFix": "Add verification step 'which cargo' at the end of setup instructions and include a troubleshooting section mentioning 'npx lerna clean -- -f && npm ci' for environment resets.",
+  "workaround": "Follow the building.md instructions and run 'lerna clean -f' before building.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was clarified through discussion. Contributors should follow building.md for cross-compilation setup, but basic setup should be verified with 'which cargo' check. Troubleshooting section was suggested.",
+  "related": [
+    176
+  ],
+  "keyQuote": "Maybe we should conclude the setup part with a check `which cargo` to verify that everything was set up properly?",
+  "number": 184,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:59:39.101Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Test flake in test_queue where first workflow can complete before the second starts, causing assertion failures on workflow IDs. Issue appears resolved after Core upgrade but may recur.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-queue",
+    "multi-runner"
+  ],
+  "concepts": [
+    "test-flake",
+    "workflow-execution",
+    "task-queue-routing",
+    "race-condition",
+    "sticky-worker"
+  ],
+  "severity": "medium",
+  "userImpact": "Causes intermittent CI test failures that block development workflows.",
+  "rootCause": "Sticky worker unavailability causing race condition where first workflow completes before second workflow starts, leading to unexpected workflow ID reuse.",
+  "proposedFix": "Add failed-only ID reuse policy to the last execute_workflow call in the test.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue not reproduced after Temporal Core upgrade; closed pending reoccurrence.",
+  "related": [
+    263
+  ],
+  "keyQuote": "sticky worker unavailable, please use original task queue.",
+  "number": 264,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:48:36.028Z"
+}

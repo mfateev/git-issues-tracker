@@ -1,0 +1,35 @@
+{
+  "summary": "User requests a describe() method for ExternalWorkflowHandle to retrieve workflow status without requiring an extra activity. Feature requires server-side support before SDK implementation.",
+  "category": "feature",
+  "subcategory": "workflow-client",
+  "apis": [
+    "ExternalWorkflowHandle",
+    "WorkflowHandle"
+  ],
+  "components": [
+    "workflow-client",
+    "external-workflow",
+    "api"
+  ],
+  "concepts": [
+    "workflow-status",
+    "workflow-introspection",
+    "external-workflow",
+    "describe",
+    "client-api"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently need to implement extra activities to check workflow status when using external workflow handles.",
+  "rootCause": "Server does not support the describe command for external workflows yet.",
+  "proposedFix": "Add describe() method to ExternalWorkflowHandle similar to the one in WorkflowHandle, after server support is implemented.",
+  "workaround": "Implement an extra activity to retrieve workflow status.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as server-driven feature request. Moved to platform-level tracking in temporalio/features repo and linked to server issue #3261.",
+  "related": [
+    3261
+  ],
+  "keyQuote": "I personally need it to get the workflow status, and it would remove the necessity to add extra activity to receive it.",
+  "number": 590,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:08:21.777Z"
+}

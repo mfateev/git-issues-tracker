@@ -1,0 +1,32 @@
+{
+  "summary": "Activity cancellation notifications have excessive latency due to the heartbeat suppression algorithm, which only notifies at the 80% timeout threshold. The request is for a low-overhead mechanism to deliver cancellation notifications immediately, either via a non-heartbeat-dependent API like isCanceled() or via server-side push notifications to the worker.",
+  "category": "feature",
+  "subcategory": "activity-cancellation",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "heartbeat-suppression",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "notification-latency",
+    "heartbeat-optimization",
+    "push-notification",
+    "real-time-synchronous",
+    "activity-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with long-running activities requiring quick cancellation confirmation must use aggressive heartbeat settings, incurring significant overhead, or accept 15-20 second cancellation notification delays.",
+  "rootCause": "The heartbeat suppression algorithm only delivers ActivityCancelled exception at 80% of the heartbeat timeout threshold, creating a minimum latency floor regardless of heartbeat frequency.",
+  "proposedFix": "Implement a server-side push-based notification mechanism from the server to the worker to proactively notify activities of cancellation without waiting for heartbeat requests, or provide an isCanceled() API not subject to heartbeat optimizations.",
+  "workaround": "Use more aggressive heartbeat strategy (e.g., 1-5 second intervals) but this incurs significant overhead for activities with rare cancellations.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the server needs to somehow notify the worker that the activity is cancelled proactively without waiting for the worker to send a heartbeat request",
+  "number": 5135,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:02:17.088Z"
+}

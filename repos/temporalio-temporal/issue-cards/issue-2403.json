@@ -1,0 +1,30 @@
+{
+  "summary": "Importing github.com/cactus/go-statsd-client creates an ambiguous import error in go.temporal.io/server v1.14.3 due to multiple versions of the package being loaded, causing go mod tidy to fail with Go 1.16+.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "metrics",
+    "authorization",
+    "dependency-resolution"
+  ],
+  "concepts": [
+    "module-dependency",
+    "import-ambiguity",
+    "go-modules",
+    "version-conflict",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot upgrade to go.temporal.io/server v1.14.3+ without encountering go mod tidy failures, blocking adoption of newer server versions.",
+  "rootCause": "Multiple versions of github.com/cactus/go-statsd-client are loaded simultaneously (v3.1.1+incompatible and v0.0.0-20200423205355), creating ambiguous import paths that go 1.16+ cannot resolve.",
+  "proposedFix": null,
+  "workaround": "Use go mod tidy -compat=1.17 instead of standard go mod tidy",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "ambiguous import: found package github.com/cactus/go-statsd-client/statsd in multiple modules",
+  "number": 2403,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:54.426Z"
+}

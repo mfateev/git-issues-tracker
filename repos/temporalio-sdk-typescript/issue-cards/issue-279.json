@@ -1,0 +1,30 @@
+{
+  "summary": "The SDK cannot currently use pure ESM npm modules like node-fetch@3 due to hardcoded CommonJS Webpack configuration. As the Node ecosystem increasingly adopts ESM, this limitation will become a growing problem requiring a bundling solution that supports both ESM and CommonJS.",
+  "category": "feature",
+  "subcategory": "bundling",
+  "apis": [],
+  "components": [
+    "webpack",
+    "bundler",
+    "module-resolution"
+  ],
+  "concepts": [
+    "ESM",
+    "CommonJS",
+    "npm-modules",
+    "bundling",
+    "ecosystem-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are unable to use pure ESM npm modules in their Temporal applications and must downgrade to older CommonJS versions.",
+  "rootCause": "Webpack configuration is hardcoded to CommonJS, preventing import of pure ESM modules.",
+  "proposedFix": "Implement a smooth bundling solution that supports both ESM and CommonJS modules.",
+  "workaround": "Downgrade to older CommonJS versions of packages (e.g., node-fetch@2 instead of @3).",
+  "resolution": "fixed",
+  "resolutionDetails": "A sample ESM solution was created and subsequently implemented in a subsequent release.",
+  "related": [],
+  "keyQuote": "over time, this will increasingly be a problem, as more and more of the Node ecosystem goes pure ESM",
+  "number": 279,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:21.147Z"
+}

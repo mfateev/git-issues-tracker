@@ -1,0 +1,32 @@
+{
+  "summary": "OpenTracing span becomes disconnected when continueAsNew is used. The continueAsNew interception and header handling doesn't correctly propagate tracing context in the Java SDK.",
+  "category": "bug",
+  "subcategory": "opentracing-integration",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "opentracing",
+    "interceptor",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "distributed-tracing",
+    "span-continuity",
+    "context-propagation",
+    "header-handling",
+    "workflow-continuation"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on OpenTracing for observability lose trace continuity when using continueAsNew, breaking distributed tracing visibility.",
+  "rootCause": "continueAsNew interception and header implementation in Java SDK does not correctly maintain OpenTracing span context across workflow continuation boundaries.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the continueAsNew interception to properly handle OpenTracing span context propagation and headers.",
+  "related": [],
+  "keyQuote": "continueAsNew leads to a disconnected OpenTracing span",
+  "number": 844,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:46:49.752Z"
+}

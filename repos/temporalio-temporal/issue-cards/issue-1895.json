@@ -1,0 +1,30 @@
+{
+  "summary": "Request to use a non-root user with configurable UID/GID for Docker containers instead of hardcoded 1000:1000, to accommodate security scanning requirements and Docker implementations that require specific user IDs.",
+  "category": "feature",
+  "subcategory": "docker-security",
+  "apis": [],
+  "components": [
+    "docker",
+    "container-runtime",
+    "security"
+  ],
+  "concepts": [
+    "uid-gid",
+    "non-root-user",
+    "docker-security",
+    "container-permissions",
+    "security-scanning"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal in Docker with security scanning or custom UID/GID requirements cannot use the current hardcoded 1000:1000 user configuration.",
+  "rootCause": "Docker implementation hardcodes uid:gid to 1000:1000, which conflicts with security scanning requirements (UID/GID > 10000) and Docker setups requiring custom user IDs.",
+  "proposedFix": "Use a configurable user account instead of hardcoded 1000:1000, or allow passing UID/GID as parameters.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We have a similar requirement for passing security scans that require UID/GID > 10000",
+  "number": 1895,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:33.595Z"
+}

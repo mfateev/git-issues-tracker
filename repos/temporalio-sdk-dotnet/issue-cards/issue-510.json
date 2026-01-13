@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to reclassify benign application errors in OpenTelemetry spans, following the pattern established in the Python SDK issue #1041.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "opentelemetry",
+    "span-recording",
+    "error-handling"
+  ],
+  "concepts": [
+    "observability",
+    "error-classification",
+    "instrumentation",
+    "benign-errors",
+    "span-attributes"
+  ],
+  "severity": "low",
+  "userImpact": "Users can better distinguish between actual failures and expected application errors in their distributed traces and monitoring dashboards.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed, likely implemented following the Python SDK solution",
+  "related": [
+    1041
+  ],
+  "keyQuote": "See issue description here: https://github.com/temporalio/sdk-python/issues/1041",
+  "number": 510,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:31:50.262Z"
+}

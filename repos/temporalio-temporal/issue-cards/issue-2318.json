@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add MongoDB and MongoDB Atlas as a persistent storage backend for Temporal, similar to existing Cassandra and SQL database support. Company heavily uses MongoDB and wants to consolidate their data infrastructure.",
+  "category": "feature",
+  "subcategory": "persistence-layer",
+  "apis": [],
+  "components": [
+    "persistence-layer",
+    "database-adapter",
+    "mongodb-driver"
+  ],
+  "concepts": [
+    "persistence",
+    "storage-backend",
+    "mongodb",
+    "data-store",
+    "backup-restore",
+    "infrastructure-consolidation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with MongoDB infrastructure could standardize their data persistence layer without requiring multiple databases.",
+  "rootCause": null,
+  "proposedFix": "Implement MongoDB persistence adapter similar to existing Cassandra and SQL database implementations",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8908
+  ],
+  "keyQuote": "it makes sense for us to run everything through MongoDB as our primary data store specially when it comes to backup / restore",
+  "number": 2318,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:52.989Z"
+}

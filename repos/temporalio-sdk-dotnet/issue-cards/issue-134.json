@@ -1,0 +1,32 @@
+{
+  "summary": "Request for a type-safe helper method on options for signal with start functionality. Currently uses an untyped approach; the feature request seeks a lambda expression-based alternative that provides compile-time type safety.",
+  "category": "feature",
+  "subcategory": "signal-with-start",
+  "apis": [
+    "SignalWithStart"
+  ],
+  "components": [
+    "options",
+    "signal-handling",
+    "type-safety"
+  ],
+  "concepts": [
+    "type-safety",
+    "lambda-expressions",
+    "helper-methods",
+    "signals",
+    "workflow-start"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently lack type-safe options for signal with start operations, requiring untyped approaches that increase runtime errors.",
+  "rootCause": null,
+  "proposedFix": "Add a helper method on options that accepts lambda expressions for type-safe signal with start configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide type-safe lambda expression support for signal with start options.",
+  "related": [],
+  "keyQuote": "Need a helper on options that will accept lambda expression approach for signal with start instead of the untyped approach in use today.",
+  "number": 134,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:19:25.413Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to have worker tracing interceptors automatically create spans for schedules/workflows and upsert them into workflow headers, with options to opt-out. After discussion, the team identified implementation challenges around span lifecycle, lack of universal interceptor hooks for persisting data, and header mutation constraints across SDKs.",
+  "category": "feature",
+  "subcategory": "tracing-interceptors",
+  "apis": [],
+  "components": [
+    "tracing-interceptor",
+    "worker",
+    "workflow-header"
+  ],
+  "concepts": [
+    "span-creation",
+    "header-mutation",
+    "interceptor-hooks",
+    "distributed-tracing",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better control over tracing span creation and propagation for schedules/workflows, but SDK limitations make this difficult to implement universally.",
+  "rootCause": "No universal place in all SDKs for interceptors to persist durable data; only some SDKs have side effect capabilities, local activities can't be used due to registration requirements, and header mutation has lookahead problems preventing atomic updates to history.",
+  "proposedFix": "Initially proposed creating spans for schedules and setting them on workflow headers with opt-out capability. Later discussions explored creating spans per workflow on first run instead, but implementation was found to be infeasible.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1334,
+    1963,
+    1331,
+    454,
+    171
+  ],
+  "keyQuote": "upsert header has a lookahead problem since we can't mutate the header, only mark that we have updated it within history",
+  "number": 394,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:00:18.767Z"
+}

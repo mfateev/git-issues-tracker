@@ -1,0 +1,34 @@
+{
+  "summary": "Request to expose more SQL connection metrics from Temporal to provide better visibility when troubleshooting database connection issues and configuration tuning, addressing concerns about excessive connections to PostgreSQL.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "database",
+    "metrics",
+    "connection-pool",
+    "postgres"
+  ],
+  "concepts": [
+    "connection-pooling",
+    "metrics-exposure",
+    "troubleshooting",
+    "database-monitoring",
+    "configuration-tuning",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack visibility into SQL connection behavior, making it difficult to diagnose and tune database connection issues in production.",
+  "rootCause": null,
+  "proposedFix": "Expose additional SQL connection metrics from the Temporal server",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8071
+  ],
+  "keyQuote": "Expose more SQL connection metrics from temporal, provide more insight when troubleshooting and config tunning",
+  "number": 8072,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:26.264Z"
+}

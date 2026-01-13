@@ -1,0 +1,33 @@
+{
+  "summary": "Per-task-queue rate limiting counts all tasks including expired and failed ones, causing invalid tasks to consume rate limiter tokens and artificially throttle the backlog drain rate. Only successfully started tasks should count toward the TaskQueueActivitiesPerSecond limit.",
+  "category": "bug",
+  "subcategory": "rate-limiting",
+  "apis": [
+    "TaskQueueActivitiesPerSecond"
+  ],
+  "components": [
+    "matching",
+    "rate-limiter",
+    "task-queue"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "task-queue",
+    "backpressure",
+    "throughput",
+    "task-expiration",
+    "token-consumption"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience artificially reduced activity task throughput when expired or failed tasks are in the queue, even though no actual work is being dispatched.",
+  "rootCause": "Rate limiting is applied at the match attempt stage (service/matching/matcher.go#L228) before validating whether a task successfully started, causing all task attempts to consume rate limit tokens regardless of outcome.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "All tasks, regardless of whether its expired or failed to start or successfully started will consume token from the rate limiter",
+  "number": 3145,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:53.891Z"
+}

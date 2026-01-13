@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for Python 3.14 once it becomes stable. The SDK needs to ensure compatibility with Python 3.14 beta and track blocking dependencies (pyo3, pydantic, fastuuid) for full support when the release is finalized.",
+  "category": "feature",
+  "subcategory": "python-version-support",
+  "apis": [],
+  "components": [
+    "pyo3-bindings",
+    "dependency-management",
+    "ci-cd"
+  ],
+  "concepts": [
+    "version-support",
+    "python-compatibility",
+    "dependency-upgrade",
+    "beta-testing",
+    "ci-pipeline"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use the SDK with Python 3.14 until explicit support is confirmed and blocking dependencies are upgraded.",
+  "rootCause": "Blocking dependencies (pyo3 < 0.25, pydantic, fastuuid) do not yet support Python 3.14.",
+  "proposedFix": "Upgrade pyo3 to version 0.25, wait for pydantic and fastuuid to support Python 3.14, then update CI and drop Python 3.9 support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Python 3.14 support was confirmed and implemented by upgrading blocking dependencies.",
+  "related": [
+    816
+  ],
+  "keyQuote": "Python 3.14 is now beta. Please confirm support. If this doesn't include explicitly upgrading CI for fears of it not being stable yet, please open a separate issue to do that in October.",
+  "number": 863,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:26:03.733Z"
+}

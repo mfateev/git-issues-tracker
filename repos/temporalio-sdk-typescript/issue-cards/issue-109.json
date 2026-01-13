@@ -1,0 +1,28 @@
+{
+  "summary": "Activity identifiers in the TypeScript SDK include the module name using JSON.stringify([module, functionName]), but this is inconsistent with other SDKs. The fix should use only the function name as the identifier and have the Worker throw an error on duplicate activity names.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-registry"
+  ],
+  "concepts": [
+    "activity-naming",
+    "identifier-collision",
+    "module-refactoring",
+    "naming-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience inconsistent activity naming behavior compared to other Temporal SDKs, and cannot easily refactor activities to different modules.",
+  "rootCause": "The TypeScript SDK uses JSON.stringify([module, functionName]) instead of just the function name for activity identifiers, creating a cross-SDK inconsistency.",
+  "proposedFix": "Use only the function name as the activity identifier and have the Worker throw an error if multiple activities are registered with the same name.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Changed activity identifier generation to use only the function name instead of including the module, with duplicate name validation in the Worker.",
+  "related": [],
+  "keyQuote": "We should be consistent with the other SDKs and use only the function name.",
+  "number": 109,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:56:56.376Z"
+}

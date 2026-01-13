@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add buffered metrics support to the Ruby SDK, similar to the Python SDK implementation, allowing users to provide a metric buffer to the runtime as an alternative to OTel and Prometheus.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "runtime",
+    "buffer"
+  ],
+  "concepts": [
+    "metrics",
+    "buffering",
+    "observability",
+    "telemetry",
+    "alternative-backends"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the Ruby SDK are unable to use buffered metrics as an alternative to OTel and Prometheus for metric collection.",
+  "rootCause": null,
+  "proposedFix": "Implement buffered metrics feature in Ruby SDK similar to Python SDK implementation, with specialized Rust-side work required.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed due to active development. The team indicated it would be difficult to contribute at the early stage until stable release, and specialized Rust work is required.",
+  "related": [],
+  "keyQuote": "Since it is under so much active development right now, it would be a bit difficult to contribute. We have a large PR coming within the next few weeks for full workflow support that changes so much it may not be worth contributing at least until then.",
+  "number": 176,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:21.964Z"
+}

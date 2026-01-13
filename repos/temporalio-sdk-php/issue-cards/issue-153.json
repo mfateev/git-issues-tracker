@@ -1,0 +1,32 @@
+{
+  "summary": "Add a finalizer mechanism to clean up resources after activity invocation, building on the stateless activities implementation.",
+  "category": "feature",
+  "subcategory": "activity-cleanup",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "activity-lifecycle",
+    "resource-management"
+  ],
+  "concepts": [
+    "resource-cleanup",
+    "finalization",
+    "activity-lifecycle",
+    "stateless-activities",
+    "resource-deallocation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now properly manage resource cleanup after activities complete, enabling more efficient resource utilization.",
+  "rootCause": null,
+  "proposedFix": "Implement a finalizer mechanism to clear resources after activity invocation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented as indicated by the closed status and reference to prior stateless activities work",
+  "related": [
+    151
+  ],
+  "keyQuote": "The next step is to add an ability to clean up resources after activity is invoked.",
+  "number": 153,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:21:50.901Z"
+}

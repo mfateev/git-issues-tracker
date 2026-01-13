@@ -1,0 +1,29 @@
+{
+  "summary": "Task queue user data is now in the critical path for every task queue partition, and only versioning data is stored in user data. A dynamic config is needed to disable this mechanism until the user data mechanism is proven reliable.",
+  "category": "feature",
+  "subcategory": "task-queue-management",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "user-data",
+    "configuration"
+  ],
+  "concepts": [
+    "dynamic-config",
+    "versioning",
+    "critical-path",
+    "task-queue-partition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to disable task queue user data loading in production if issues emerge before the mechanism is fully confident.",
+  "rootCause": "Task queue user data was added to critical path for all partitions and currently only stores versioning data, creating potential risk.",
+  "proposedFix": "Add a dynamic config option to disable loading task queue user data",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "At the time of writing only versioning data is stored in user data and until we're confident with the user data mechanism, we need the ability to disable it.",
+  "number": 4450,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:15.070Z"
+}

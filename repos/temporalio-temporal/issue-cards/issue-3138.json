@@ -1,0 +1,31 @@
+{
+  "summary": "Update gocql (Cassandra driver) dependency to v1.2.0 to incorporate necessary fixes required for PR #3076.",
+  "category": "other",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "cassandra-driver",
+    "dependencies"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "cassandra",
+    "client-library",
+    "database-driver"
+  ],
+  "severity": "medium",
+  "userImpact": "Updates the Cassandra client library to include bug fixes that improve stability and compatibility with Temporal's Cassandra persistence layer.",
+  "rootCause": null,
+  "proposedFix": "Upgrade gocql to v1.2.0 as specified in PR #3226",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Updated to gocql v1.2.0 via PR #3226",
+  "related": [
+    3076,
+    3226
+  ],
+  "keyQuote": "There are fixes necessary for PR https://github.com/temporalio/temporal/pull/3076",
+  "number": 3138,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:37:29.186Z"
+}

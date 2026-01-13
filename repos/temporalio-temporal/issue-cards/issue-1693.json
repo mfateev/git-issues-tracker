@@ -1,0 +1,31 @@
+{
+  "summary": "User requests documentation for running Temporal Server tutorial with MySQL instead of Cassandra, which consumes excessive memory on developer laptops. Existing MySQL docker-compose file exists but isn't promoted as the default option.",
+  "category": "docs",
+  "subcategory": "setup-documentation",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "server-setup",
+    "documentation"
+  ],
+  "concepts": [
+    "database-configuration",
+    "memory-efficiency",
+    "development-environment",
+    "tutorial",
+    "docker",
+    "local-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Developers experience system performance issues when following the default tutorial setup, making it difficult to get started with Temporal Server.",
+  "rootCause": "Cassandra requires significant system resources and the documentation doesn't highlight the lightweight MySQL alternative for development.",
+  "proposedFix": "Promote the existing docker-compose-mysql.yml (or docker-compose-mysql-es.yml) as the default or recommended option for tutorial setup in the documentation.",
+  "workaround": "Users can manually use the docker-compose-mysql.yml file from the docker-compose repository instead of the default Cassandra setup.",
+  "resolution": "stale",
+  "resolutionDetails": "Issue was closed due to no activity. The underlying need (MySQL documentation) was addressed by pointing to the existing docker-compose repository with MySQL options.",
+  "related": [],
+  "keyQuote": "Devs like me would like a small and neat Mysql version. docker-compose -f docker-compose-mysql.yml up",
+  "number": 1693,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:17:18.225Z"
+}

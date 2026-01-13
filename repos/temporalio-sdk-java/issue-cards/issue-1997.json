@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add a dedicated `setApiKey` method as syntactic sugar for setting API credentials in the Java SDK, potentially as a foundation for future `setCloudApiKey` functionality that could default the target.",
+  "category": "feature",
+  "subcategory": "authentication",
+  "apis": [
+    "WorkflowServiceStubsOptions"
+  ],
+  "components": [
+    "client",
+    "grpc-metadata",
+    "authentication"
+  ],
+  "concepts": [
+    "api-key",
+    "authentication",
+    "credentials",
+    "grpc-metadata",
+    "client-options"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would have a more intuitive and explicit way to configure API key authentication instead of using lower-level metadata providers.",
+  "rootCause": null,
+  "proposedFix": "Add a `setApiKey` method to WorkflowServiceStubsOptions as convenience syntax for AuthorizationGrpcMetadataProvider configuration.",
+  "workaround": "Use `AuthorizationGrpcMetadataProvider` with `addGrpcMetadataProvider` to attach API key as Bearer token in metadata.",
+  "resolution": "fixed",
+  "resolutionDetails": "Likely implemented through the AuthorizationGrpcMetadataProvider approach, though specific resolution details not provided in comments.",
+  "related": [
+    426
+  ],
+  "keyQuote": "I was hoping to have a literal `setApiKey` even if it's sugar, but can be convinced otherwise if we don't think it's needed here.",
+  "number": 1997,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:52.128Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose client keep-alive functionality once the design is finalized in sdk-core. This is a dependency on upstream architecture decisions.",
+  "category": "feature",
+  "subcategory": "client-connection",
+  "apis": [],
+  "components": [
+    "client",
+    "connection-management"
+  ],
+  "concepts": [
+    "keep-alive",
+    "connection-persistence",
+    "client-lifecycle",
+    "heartbeat"
+  ],
+  "severity": "low",
+  "userImpact": "Users need client keep-alive support to maintain stable long-lived connections with the Temporal server.",
+  "rootCause": null,
+  "proposedFix": "Expose the keep-alive mechanism once sdk-core issue #585 is resolved with a final design.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented after upstream sdk-core issue #585 was resolved with a finalized design.",
+  "related": [
+    585
+  ],
+  "keyQuote": "Expose whatever is decided at https://github.com/temporalio/sdk-core/issues/585 once that is done",
+  "number": 125,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:06:32.149Z"
+}

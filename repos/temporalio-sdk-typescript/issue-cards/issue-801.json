@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency vulnerability in node-fetch (CVE-2022-2596) with CVSS score 5.9 affecting the documentation build process through docusaurus-plugin-snipsync. The vulnerability is a denial of service issue in node-fetch prior to version 3.2.10.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "docs-build",
+    "package-management",
+    "node-fetch"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "transitive-dependency",
+    "supply-chain",
+    "version-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building the documentation are exposed to a potential denial of service vulnerability through a transitive dependency.",
+  "rootCause": "node-fetch version 2.6.7 contains CVE-2022-2596, a DoS vulnerability that could be exploited via network requests under specific conditions.",
+  "proposedFix": "Upgrade node-fetch to version 3.2.10 or later to resolve CVE-2022-2596.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was automatically closed by Mend after the vulnerable library was either marked as ignored or removed from the dependency tree.",
+  "related": [],
+  "keyQuote": "Denial of Service in GitHub repository node-fetch/node-fetch prior to 3.2.10",
+  "number": 801,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:12:48.076Z"
+}

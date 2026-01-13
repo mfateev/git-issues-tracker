@@ -1,0 +1,33 @@
+{
+  "summary": "Matching service experiences significant performance degradation when exposed to a large number of task lists, with symptoms including memory pressure and database timer operations on UpdateTaskList calls. Performance recovers after process restart.",
+  "category": "bug",
+  "subcategory": "matching-service",
+  "apis": [
+    "UpdateTaskList"
+  ],
+  "components": [
+    "matching-service",
+    "task-list-manager",
+    "database",
+    "timer"
+  ],
+  "concepts": [
+    "performance-degradation",
+    "resource-leak",
+    "scaling",
+    "database-pressure",
+    "task-list-proliferation"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience severe performance degradation in the matching service when creating many task lists, impacting workflow execution throughput.",
+  "rootCause": "Likely resource leak or inefficient database operations related to UpdateTaskList when handling large numbers of task lists",
+  "proposedFix": null,
+  "workaround": "Process restart temporarily restores normal performance",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Seeing significant degradation in the matching service after being exposed to many task lists. Some timer is operating on the DB because of them.",
+  "number": 266,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:24:13.859Z"
+}

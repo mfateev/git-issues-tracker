@@ -1,0 +1,36 @@
+{
+  "summary": "Add a high-level `describe()` method to workflow stubs that returns a `WorkflowExecutionDescription` with execution details and access to the raw describe response. The method should be interceptable and follow the design patterns from TypeScript, Python, and .NET SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-client-api",
+  "apis": [
+    "describe",
+    "WorkflowExecutionDescription",
+    "WorkflowExecutionMetadata"
+  ],
+  "components": [
+    "workflow-stub",
+    "client-api",
+    "interceptors"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "metadata",
+    "high-level-api",
+    "interception",
+    "client-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain the ability to retrieve detailed workflow execution information through a high-level describe API with interceptor support.",
+  "rootCause": null,
+  "proposedFix": "Implement a `describe()` method on workflow stub that returns `WorkflowExecutionDescription` extending `WorkflowExecutionMetadata` with raw response access, following existing SDK implementations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented and merged to provide high-level workflow describe capability",
+  "related": [
+    1667
+  ],
+  "keyQuote": "Add high-level workflow describe call. Probably `describe` on the workflow stub",
+  "number": 2265,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:03.994Z"
+}

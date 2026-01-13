@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal fails to start in Docker Swarm mode due to Ringpop membership issues. The service encounters broadcast address resolution errors on startup and connection timeout problems after restarts, with increasing cluster_membership table entries on each restart.",
+  "category": "bug",
+  "subcategory": "networking-docker-deployment",
+  "apis": [],
+  "components": [
+    "ringpop",
+    "membership",
+    "history-service",
+    "docker-networking"
+  ],
+  "concepts": [
+    "broadcast-address",
+    "cluster-discovery",
+    "docker-swarm",
+    "networking",
+    "membership-discovery",
+    "container-restart"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably run Temporal in Docker Swarm environments due to recurring startup failures and instability after container restarts.",
+  "rootCause": "Ringpop fails to discover and join the cluster when containers receive dynamic IP addresses in Docker Swarm, and the bootstrap join timeout (30s) is exceeded. Stale cluster membership records accumulate on each restart.",
+  "proposedFix": null,
+  "workaround": "Manually set TEMPORAL_BROADCAST_ADDRESS to the container's IP and BIND_ON_IP to 0.0.0.0 via bash command wrapper; however, this only partially mitigates the issue.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "join duration of 49.070856456s exceeded max 30s",
+  "number": 442,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:58:33.548Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to support pausing and resuming Temporal services during blue/green deployments. Users need to put services into a disabled state during rollouts where infrastructure remains hot but doesn't process work, enabling faster rollback without full service restart.",
+  "category": "feature",
+  "subcategory": "service-lifecycle",
+  "apis": [],
+  "components": [
+    "frontend",
+    "worker-factory",
+    "service-api"
+  ],
+  "concepts": [
+    "deployment",
+    "blue-green",
+    "service-state",
+    "traffic-control",
+    "operational-agility",
+    "rollback"
+  ],
+  "severity": "medium",
+  "userImpact": "Users performing blue/green deployments of Temporal services need a way to pause work processing during rollouts to enable faster rollback without full infrastructure teardown.",
+  "rootCause": null,
+  "proposedFix": "An extension point similar to WorkerFactory's suspendPolling/enablePolling, or an API to send signals to the service process to enable/disable work processing.",
+  "workaround": "Deploy a sidecar that subscribes to Discovery status change events and sends sigstop/sigcont signals, though this breaks down in containerized environments like Titus.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #3006 which provides a more comprehensive solution for pausing/resuming work.",
+  "related": [
+    3006
+  ],
+  "keyQuote": "I'd like an extension point that would allow us to write a listener into the services themselves to actuate an enable/disabled state for the process",
+  "number": 1012,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:46:42.941Z"
+}

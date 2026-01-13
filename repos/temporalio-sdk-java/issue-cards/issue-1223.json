@@ -1,0 +1,32 @@
+{
+  "summary": "Test server generates duplicate activity task tokens on retry instead of unique tokens for each attempt. This issue is a duplicate of #84.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "activity-task-handler",
+    "task-token-generator"
+  ],
+  "concepts": [
+    "task-token",
+    "retry",
+    "activity-execution",
+    "test-server-behavior",
+    "token-uniqueness"
+  ],
+  "severity": "medium",
+  "userImpact": "Test server behaves incorrectly during activity retries, issuing the same token which can cause test failures and incorrect behavior simulation.",
+  "rootCause": "Test server's token generation logic does not account for retry attempts, reusing the same token for activity tasks.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue is a duplicate of #84 where the same problem is tracked.",
+  "related": [
+    84
+  ],
+  "keyQuote": "Same token issued",
+  "number": 1223,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:15:46.447Z"
+}

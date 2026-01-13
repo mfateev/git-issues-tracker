@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to rename the `nonRetryable` boolean parameter to `retryable` with inverted default in SDK constructors for improved code readability. The request was rejected due to backwards compatibility concerns.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "constructor",
+    "error-handling",
+    "retry-policy"
+  ],
+  "concepts": [
+    "backwards-compatibility",
+    "api-naming",
+    "boolean-parameters",
+    "code-readability",
+    "negation"
+  ],
+  "severity": "low",
+  "userImpact": "Rejected feature that would have simplified code readability but required users to update parameter usage during SDK upgrades.",
+  "rootCause": null,
+  "proposedFix": "Rename `nonRetryable` parameter to `retryable` with default value changed from false to true",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Declined due to backwards compatibility concerns; maintainers determined the breaking change burden on users outweighs the readability improvement",
+  "related": [],
+  "keyQuote": "If we change this now it'd be a critical backwards incompatible change. I think it's too late at this point.",
+  "number": 587,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:03:04.998Z"
+}

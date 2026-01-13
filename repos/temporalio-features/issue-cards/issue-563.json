@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add exception type tagging to the workflow_failed counter metric to allow users to filter and alert on unexpected failures while distinguishing intentional business logic failures.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-execution",
+    "failure-handling"
+  ],
+  "concepts": [
+    "metrics-tagging",
+    "observability",
+    "alerting",
+    "exception-types",
+    "business-failures",
+    "filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively alert on unexpected workflow failures because metric cardinality issues prevent tagging exception types, forcing workarounds with custom search attributes.",
+  "rootCause": "The workflow_failed counter metric lacks exception type tags, making it impossible to distinguish between business-intentional failures and unexpected failures for alerting purposes.",
+  "proposedFix": "Add exception type as a tag to the workflow_failed counter metric; alternatively, allow specifying exception severity levels that can be tagged and filtered in metrics.",
+  "workaround": "Users currently resort to custom search attributes with upserted business failure values or custom metrics, though not all SDKs support custom metric tags.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1229
+  ],
+  "keyQuote": "tag workflow_failed counter metric with the application failure type that caused workflow to fail",
+  "number": 563,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:11.457Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "AsyncLocalStorage in Workflow context retains memory and adds performance overhead when not properly disposed. The SDK should track and automatically cleanup ALS instances when workflows are evicted from cache, and investigate providing a workflow-aware ALS implementation that scales better.",
+  "category": "feature",
+  "subcategory": "async-local-storage",
+  "apis": [],
+  "components": [
+    "workflow-context",
+    "async-local-storage",
+    "worker-cache"
+  ],
+  "concepts": [
+    "memory-management",
+    "performance-optimization",
+    "context-propagation",
+    "resource-disposal",
+    "heap-retention"
+  ],
+  "severity": "medium",
+  "userImpact": "Users using AsyncLocalStorage for tracing or context propagation in workflows may experience memory leaks and performance degradation under high workflow caching scenarios.",
+  "rootCause": "AsyncLocalStorage tags every AsyncResource created in the worker thread regardless of which VM created it, adding 48-byte overhead per resource without automatic cleanup when workflows are evicted.",
+  "proposedFix": "SDK should automatically track and dispose AsyncLocalStorage instances when execution context is destroyed, and provide a custom workflow-aware ALS implementation.",
+  "workaround": "Users must manually dispose AsyncLocalStorage instances before workflow execution ends to prevent heap retention.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was marked as duplicate of #1557",
+  "related": [
+    1557
+  ],
+  "keyQuote": "ALS must be 'disabled' when they are no longer required otherwise they do retain heap and still get called for every single AsyncResource creation.",
+  "number": 1432,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:01:26.850Z"
+}

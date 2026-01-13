@@ -1,0 +1,29 @@
+{
+  "summary": "User questions why the .NET SDK doesn't build for .NET 6 LTS and suggests that keeping each framework version aligned (6 on 6, 7 on 7, 8 on 8) would prevent compatibility issues with transitive dependencies like System.Diagnostics.DiagnosticSource.",
+  "category": "question",
+  "subcategory": "build-configuration",
+  "apis": [],
+  "components": [
+    "extensions-opentelemetry",
+    "extensions-hosting",
+    "nuget-package"
+  ],
+  "concepts": [
+    "dependency-management",
+    "framework-targeting",
+    "version-compatibility",
+    "lts-support"
+  ],
+  "severity": "low",
+  "userImpact": "Users on .NET 6 LTS may experience compatibility issues if the SDK targets .NET 7 dependencies without providing dedicated .NET 6 builds.",
+  "rootCause": "Misunderstanding about how framework targeting works; the maintainers clarified the SDK already supports .NET 6 and their tests run on it.",
+  "proposedFix": "Ensure dedicated .NET 6 builds in the project configuration, or maintain strict version alignment between framework target and dependencies.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Maintainers clarified that the SDK already supports .NET 6 with proper test coverage; the concern was based on a misunderstanding of framework targeting and dependency version compatibility.",
+  "related": [],
+  "keyQuote": "When on net 6, it is best to keep everything on .net6. Trust me, you think this ddl and that dll are safe, then it ends up using something else, and no longer safe.",
+  "number": 169,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:07:00.522Z"
+}

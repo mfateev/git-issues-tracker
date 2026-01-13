@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow retry after activity failure doesn't work correctly with TestService. When an activity is configured to fail once then succeed, and the workflow is configured to retry, the workflow fails in unit tests instead of retrying, but passes when using an external service.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "retryOptions",
+    "maxAttempt"
+  ],
+  "components": [
+    "TestService",
+    "workflow-retry",
+    "activity-retry"
+  ],
+  "concepts": [
+    "retry-logic",
+    "activity-failure",
+    "test-execution",
+    "workflow-execution",
+    "error-handling",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Unit tests for workflows with retry logic fail incorrectly, making it impossible to properly test retry scenarios without using external services.",
+  "rootCause": "Issue is in TestService implementation rather than retry logic itself, as confirmed by test passing with external service",
+  "proposedFix": null,
+  "workaround": "Use external service instead of TestService for testing retry scenarios",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If uncomment .setUseExternalService(true) the test passes which points that the issue is probably in TestService implementation",
+  "number": 414,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:17:43.871Z"
+}

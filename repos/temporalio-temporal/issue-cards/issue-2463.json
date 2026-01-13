@@ -1,0 +1,31 @@
+{
+  "summary": "Request for a metric to detect when task queues have pending tasks but no workers listening, which can indicate misconfiguration or versioning schema issues. A new metric 'no_poller_tasks' was added to address this.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "matching-engine",
+    "task-queue",
+    "metrics"
+  ],
+  "concepts": [
+    "task-queue",
+    "worker-availability",
+    "monitoring",
+    "misconfiguration",
+    "versioning",
+    "task-backlog"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now detect when tasks are stuck in a queue due to missing workers, improving operational visibility and debugging capabilities.",
+  "rootCause": "Lack of observability metric to distinguish between slow workers and absent workers on a task queue.",
+  "proposedFix": "Add a metric to detect non-empty queues with no active workers listening on them.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Metrics 'no_poller_tasks' was added to support detection of task queues with tasks but no workers.",
+  "related": [],
+  "keyQuote": "If for any reason there is a task queue with tasks and just no workers listening on this queue, there is no way to detect it.",
+  "number": 2463,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:08.049Z"
+}

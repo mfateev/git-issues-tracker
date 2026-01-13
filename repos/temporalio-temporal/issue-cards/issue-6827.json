@@ -1,0 +1,31 @@
+{
+  "summary": "Request to support environment variable substitution in the clusterMetadata section of Temporal configuration templates, enabling dynamic multi-cluster setup and feature configuration without manual file edits.",
+  "category": "feature",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "config-templates",
+    "cluster-metadata",
+    "configuration-loader"
+  ],
+  "concepts": [
+    "environment-variables",
+    "dynamic-configuration",
+    "template-substitution",
+    "multi-cluster",
+    "feature-flags",
+    "global-namespace"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot dynamically configure multi-cluster setups or toggle features like enableGlobalNamespace without manually modifying configuration files.",
+  "rootCause": null,
+  "proposedFix": "Implement environment variable substitution syntax (e.g., {{ env \"VARIABLE_NAME\" | default \"value\" }}) in the clusterMetadata configuration template section.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support for environment variables within the clusterMetadata section. Ability to set dynamic cluster configurations through environment variables.",
+  "number": 6827,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:01.518Z"
+}

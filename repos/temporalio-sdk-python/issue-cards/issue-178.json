@@ -1,0 +1,30 @@
+{
+  "summary": "IDE auto-complete is cluttered with private implementation modules that should be hidden. Proposal to prefix private module filenames with underscores to make them truly private and improve IDE experience for users.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "module-organization",
+    "public-api",
+    "worker"
+  ],
+  "concepts": [
+    "encapsulation",
+    "api-visibility",
+    "ide-experience",
+    "python-conventions",
+    "module-privacy"
+  ],
+  "severity": "low",
+  "userImpact": "Users experience cleaner IDE auto-complete by having private implementation details hidden from public API suggestions.",
+  "rootCause": null,
+  "proposedFix": "Rename private module filenames to use underscore prefix (e.g., temporalio/_worker.py) while maintaining __all__ exports for the public API.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Private modules were renamed with underscore prefixes to improve module organization and hide implementation details from IDE auto-complete.",
+  "related": [],
+  "keyQuote": "Auto complete in IDE keeps bringing up things like temporalio.worker.activity even though we expose what we want via __all__",
+  "number": 178,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:43.402Z"
+}

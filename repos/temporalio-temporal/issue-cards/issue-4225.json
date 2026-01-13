@@ -1,0 +1,31 @@
+{
+  "summary": "Implement a background process to periodically clean up unused build IDs from the database, as they accumulate in a size-limited column and need to be scavenged to prevent storage exhaustion.",
+  "category": "feature",
+  "subcategory": "database-maintenance",
+  "apis": [],
+  "components": [
+    "database",
+    "build-id-management",
+    "maintenance-worker"
+  ],
+  "concepts": [
+    "build-id",
+    "database-cleanup",
+    "scavenging",
+    "storage-limits",
+    "retention-policy",
+    "periodic-tasks"
+  ],
+  "severity": "medium",
+  "userImpact": "Without a cleanup mechanism, accumulated build IDs will eventually fill the limited database column, potentially affecting system functionality.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Once we start accumulating build IDs in the DB, we'll need a process that will periodically clean up unused build IDs.",
+  "number": 4225,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:52:10.705Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Query tasks discard the event history after handling since RespondQueryTaskCompletedRequest lacks sticky attributes. This is wasteful for query-heavy workflows with large histories, especially when codecs are involved, as subsequent queries must reprocess the same history.",
+  "category": "feature",
+  "subcategory": "query-caching",
+  "apis": [
+    "RespondQueryTaskCompletedRequest"
+  ],
+  "components": [
+    "query-handler",
+    "worker",
+    "sticky-queue",
+    "history-cache"
+  ],
+  "concepts": [
+    "caching",
+    "query-performance",
+    "sticky-attributes",
+    "event-history",
+    "latency",
+    "codec",
+    "reuse"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with query-heavy workflows pay unnecessary latency penalties and waste computational resources by repeatedly processing large event histories.",
+  "rootCause": "RespondQueryTaskCompletedRequest does not carry sticky attributes, so event history is discarded after query handling and must be rehydrated for subsequent queries.",
+  "proposedFix": "Add sticky attributes to RespondQueryTaskCompletedRequest or implement another mechanism to cache event history on the worker for efficient handling of subsequent queries.",
+  "workaround": "Set a repeating workflow timer with short intervals to revive the workflow and rehydrate the cache, re-establishing the sticky queue.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For query heavy workflows with large history, especially when codec is involved, discarding the payload seems to be wasteful, and paying latency penalty unnecessarily.",
+  "number": 4463,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:13.901Z"
+}

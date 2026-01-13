@@ -1,0 +1,30 @@
+{
+  "summary": "Spring Boot starter 2.7.9 contains 7 vulnerabilities in SnakeYAML 1.30, including a critical RCE vulnerability (CVE-2022-1471) with CVSS score 9.8. The issue was automatically closed after the vulnerable dependency was removed or ignored.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "dependency-management",
+    "snakeyaml"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "remote-code-execution",
+    "dependency-upgrade",
+    "transitive-dependency",
+    "deserialization"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of the Spring Boot starter are exposed to critical RCE and DoS vulnerabilities through the outdated SnakeYAML transitive dependency.",
+  "rootCause": "SnakeYAML 1.30 lacks proper type restrictions during YAML deserialization and nested depth limitations, allowing remote code execution and denial of service attacks.",
+  "proposedFix": "Upgrade spring-boot-starter to version 3.0.0 or later, which includes SnakeYAML 2.0+. For the critical CVE-2022-1471, upgrade snakeyaml to 2.0 or beyond.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The vulnerable library was either marked as ignored or removed from the Mend inventory in the specific branch, allowing the issue to be automatically closed.",
+  "related": [],
+  "keyQuote": "SnakeYaml's Constructor() class does not restrict types which can be instantiated during deserialization. Deserializing yaml content provided by an attacker can lead to remote code execution.",
+  "number": 1700,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:52.788Z"
+}

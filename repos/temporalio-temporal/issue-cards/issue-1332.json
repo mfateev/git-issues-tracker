@@ -1,0 +1,30 @@
+{
+  "summary": "Request to define searchAttributes on a per-namespace basis to avoid collisions between namespaces. Currently search attributes are scoped at the cluster level with no plans for namespace-level configuration.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "namespace",
+    "cluster"
+  ],
+  "concepts": [
+    "namespace-isolation",
+    "search-attributes",
+    "collision-prevention",
+    "cluster-scope",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users operating multiple namespaces must prefix search attributes to avoid collisions, adding complexity to their setup.",
+  "rootCause": "Search attributes are currently scoped at cluster level rather than namespace level.",
+  "proposedFix": "Implement namespace-level search attribute definitions.",
+  "workaround": "Prefix each searchAttribute with a per-namespace string.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Search attributes are scoped at cluster level. The team decided there are no plans for namespace level search attributes.",
+  "related": [],
+  "keyQuote": "Search attributes are scoped at cluster level. Currently there are no plans for namespace level search attributes.",
+  "number": 1332,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:13.596Z"
+}

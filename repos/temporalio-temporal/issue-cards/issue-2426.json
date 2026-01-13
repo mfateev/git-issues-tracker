@@ -1,0 +1,34 @@
+{
+  "summary": "Request to add a 'reason' field to RequestCancelWorkflowExecutionRequest for API consistency, matching the existing 'reason' fields in TerminateWorkflowExecutionRequest and ResetWorkflowExecutionRequest.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "RequestCancelWorkflowExecutionRequest",
+    "TerminateWorkflowExecutionRequest",
+    "ResetWorkflowExecutionRequest"
+  ],
+  "components": [
+    "workflow-execution",
+    "api",
+    "proto-definitions"
+  ],
+  "concepts": [
+    "workflow-cancellation",
+    "api-consistency",
+    "metadata",
+    "audit-trail",
+    "reason-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot provide a reason when canceling workflow executions, limiting visibility into cancellation decisions and audit trails.",
+  "rootCause": null,
+  "proposedFix": "Add a 'reason' field to RequestCancelWorkflowExecutionRequest matching the implementation in TerminateWorkflowExecutionRequest and ResetWorkflowExecutionRequest.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently both TerminateWorkflowExecutionRequest and ResetWorkflowExecutionRequest have a \"reason\" field. RequestCancelWorkflowExecutionRequest does not.",
+  "number": 2426,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:33.233Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Add a defaultConnection() static method to all SDKs that uses localhost by default but can be configured via environment variables or config files to connect to Temporal Cloud, enabling users to easily switch samples between local and cloud environments.",
+  "category": "feature",
+  "subcategory": "connection-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "configuration"
+  ],
+  "concepts": [
+    "connection-management",
+    "environment-configuration",
+    "cloud-compatibility",
+    "sample-infrastructure",
+    "configuration-file",
+    "localhost-default"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can run samples locally without modification and seamlessly switch to cloud by adding a configuration file, reducing setup complexity.",
+  "rootCause": null,
+  "proposedFix": "Implement a defaultConnection() static method in all SDKs that reads from ~/.config/temporalconnection or environment variables to determine whether to connect to localhost or cloud.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of design work in issue #441 with per-SDK implementation tickets created and tracked.",
+  "related": [
+    441
+  ],
+  "keyQuote": "We should have a defaultConnection() type static method in all the SDKs that uses localhost by default but, if some file path/env vars/etc are provided, will use those to connect to cloud.",
+  "number": 454,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:02:43.556Z"
+}

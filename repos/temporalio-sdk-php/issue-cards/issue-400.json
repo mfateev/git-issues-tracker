@@ -1,0 +1,32 @@
+{
+  "summary": "User requests exposure of the existing but unused OperatorServiceClient in the PHP SDK to enable namespace deletion functionality without reimplementing BaseClient.",
+  "category": "feature",
+  "subcategory": "operator-service",
+  "apis": [
+    "OperatorServiceClient"
+  ],
+  "components": [
+    "OperatorServiceClient",
+    "BaseClient",
+    "namespace-management"
+  ],
+  "concepts": [
+    "namespace-deletion",
+    "service-exposure",
+    "client-api",
+    "operator-service",
+    "api-accessibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot delete namespaces using the PHP SDK and must reimplement internal classes as a workaround.",
+  "rootCause": "OperatorServiceClient exists in the SDK but is not publicly exposed or documented for user access.",
+  "proposedFix": "Expose the OperatorServiceClient as a public API so users can directly use it for namespace operations.",
+  "workaround": "Users can reimplement BaseClient to access OperatorServiceClient functionality.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There is already working OperatorServiceClient in the SDK, but it's not used anywhere, so in order to use it I need to reimplement BaseClient.",
+  "number": 400,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:29:21.033Z"
+}

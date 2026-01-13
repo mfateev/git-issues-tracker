@@ -1,0 +1,35 @@
+{
+  "summary": "_RestrictedProxy incorrectly invokes __format__ on class types, causing a TypeError when formatting type hints in error messages. The issue manifests when trying to format a proxied datetime class in f-strings.",
+  "category": "bug",
+  "subcategory": "payload-conversion",
+  "apis": [
+    "from_payload"
+  ],
+  "components": [
+    "_RestrictedProxy",
+    "JSONPlainPayloadConverter",
+    "payload-converter"
+  ],
+  "concepts": [
+    "type-hints",
+    "format-protocol",
+    "proxy-wrapper",
+    "error-handling",
+    "deserialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users encounter confusing TypeError messages when defining custom from_payload functions that format type hints in error messages.",
+  "rootCause": "_RestrictedProxy.__format__ calls real_datetime.__format__(\"\") instead of delegating to type.__format__(proxy, \"\") which would convert to string appropriately.",
+  "proposedFix": "Fix _RestrictedProxy.__format__ to properly handle class types by delegating to the metaclass __format__ method.",
+  "workaround": "Explicitly convert to string using f\"{type_hint!s}\" instead of f\"{type_hint}\"",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.10 via PR #757",
+  "related": [
+    301,
+    757
+  ],
+  "keyQuote": "format(proxy_datetime, \"\") will run _RestrictedProxy.__format__(proxy_datetime, \"\"), which will run real_datetime.__format__(\"\"), which throws the above error.",
+  "number": 850,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:25:29.116Z"
+}

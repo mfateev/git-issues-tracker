@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add a start delay option to workflow start options in the Java SDK, allowing workflows to be scheduled to start at a future time.",
+  "category": "feature",
+  "subcategory": "workflow-options",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "start-options",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "delay",
+    "scheduling",
+    "workflow-start",
+    "temporal-options",
+    "future-execution"
+  ],
+  "severity": "low",
+  "userImpact": "Users can schedule workflows to start at a delayed time without external scheduling logic.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented as part of SDK enhancement to support delayed workflow start times.",
+  "related": [
+    338
+  ],
+  "keyQuote": "Add start delay to start workflow options",
+  "number": 1863,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:49.290Z"
+}

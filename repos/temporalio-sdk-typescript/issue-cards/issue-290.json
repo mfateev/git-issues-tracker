@@ -1,0 +1,35 @@
+{
+  "summary": "Worker crashes when Temporal server is down or goes offline, unable to reconnect. The TypeScript SDK should handle server unavailability gracefully like the Go SDK, allowing workers to be created before server is available and reconnect automatically when it comes back up.",
+  "category": "feature",
+  "subcategory": "worker-resilience",
+  "apis": [
+    "Worker.create",
+    "Worker.run"
+  ],
+  "components": [
+    "worker",
+    "grpc-client",
+    "connection-management",
+    "error-handling"
+  ],
+  "concepts": [
+    "reconnection",
+    "server-unavailability",
+    "graceful-degradation",
+    "connection-resilience",
+    "fault-tolerance",
+    "transport-error"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workers independently of server availability, preventing parallel service operation and requiring manual worker restart when server recovers.",
+  "rootCause": "Worker enters FAILED state on transport errors during polling instead of attempting reconnection, with no retry mechanism for server unavailability.",
+  "proposedFix": "Implement automatic reconnection logic similar to Go SDK; allow worker creation before server is available; gracefully handle transport errors during polling with retry attempts.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Worker should work like the Golang sdk, being able to create a worker even if the temporal server is down so I could have my other services running on parallel",
+  "number": 290,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:03:53.825Z"
+}

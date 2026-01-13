@@ -1,0 +1,31 @@
+{
+  "summary": "Request to create an ESLint plugin for the TypeScript SDK to catch determinism violations and other workflow-specific issues at compile time. The plugin would enforce workflow constraints like banned Node globals, proper async handling in signal handlers, and error throwing patterns.",
+  "category": "feature",
+  "subcategory": "tooling-linting",
+  "apis": [],
+  "components": [
+    "eslint-plugin",
+    "workflow-validation",
+    "static-analysis"
+  ],
+  "concepts": [
+    "determinism",
+    "static-analysis",
+    "compile-time-checking",
+    "workflow-constraints",
+    "code-quality",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would be able to catch workflow determinism violations and other common mistakes at compile time rather than runtime, improving development experience and code quality.",
+  "rootCause": null,
+  "proposedFix": "Create @temporalio/eslint-plugin with rules for detecting banned Node globals in workflows, async code in signal handlers, and improper error throwing patterns. Configuration would use src/workflows/.eslintrc.json with plugin:@temporalio/recommended preset.",
+  "workaround": "Currently users can use ESLint's no-restricted-imports rule as shown in temporalio/samples-typescript to prevent some issues, or manually review code for determinism violations.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we will probably make an eslint rule eventually but ultimately we are limited by what we can do with static analysis - cant query a module to see if it uses one of the banned Node globals.",
+  "number": 472,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:02.276Z"
+}

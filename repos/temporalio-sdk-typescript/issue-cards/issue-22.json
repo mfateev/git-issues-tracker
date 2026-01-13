@@ -1,0 +1,32 @@
+{
+  "summary": "Add E2E testing for `npm init @temporalio` workflow to verify the project initialization functionality doesn't break with each PR. The test should verify the complete workflow from publishing packages to a temporary registry, initializing a project, building it, and running worker/tests.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "npm-package",
+    "project-init",
+    "cli",
+    "docker"
+  ],
+  "concepts": [
+    "e2e-testing",
+    "package-publishing",
+    "project-initialization",
+    "ci-cd",
+    "cross-platform",
+    "integration-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures that users can reliably initialize new Temporal TypeScript projects without regressions in the crucial `npm init` workflow.",
+  "rootCause": null,
+  "proposedFix": "Implement E2E test workflow using temporary npm registry (verdaccio), Temporal docker-compose, and testing across multiple platforms (Windows, MacOS Intel/Apple, Linux).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed with adequate coverage achieved through precompilation of packages and removal of node-gyp dependency, reducing risk. Intel Mac testing against Temporal Cloud currently sufficient.",
+  "related": [],
+  "keyQuote": "Closing for good enough coverage, the risk is not as high now that we precompile everything and don't have the node-gyp dependency.",
+  "number": 22,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:09.458Z"
+}

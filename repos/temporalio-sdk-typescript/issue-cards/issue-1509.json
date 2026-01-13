@@ -1,0 +1,31 @@
+{
+  "summary": "Worker fails to start in ARM64 Docker containers due to a missing symbol (__register_atfork) in the core-bridge native module. The issue was resolved by using a non-Alpine Linux distribution (e.g., Bullseye) instead of musl-based distributions.",
+  "category": "bug",
+  "subcategory": "deployment-docker",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "worker",
+    "native-module"
+  ],
+  "concepts": [
+    "docker",
+    "arm64",
+    "platform-support",
+    "native-binary",
+    "symbol-resolution",
+    "libc-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy Temporal workers to ARM64 Docker containers using Alpine or other musl-based Linux distributions, preventing containerization on modern M-series Macs and ARM servers.",
+  "rootCause": "The core-bridge native module is compiled for glibc and requires the __register_atfork symbol which is not available in musl libc implementations used by Alpine Linux.",
+  "proposedFix": null,
+  "workaround": "Use a glibc-based Linux distribution such as Debian Bullseye instead of Alpine for the Docker image.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by switching from Alpine (musl) to Bullseye (glibc) Docker image as per the supported platforms documentation.",
+  "related": [],
+  "keyQuote": "Is your Docker image based on Alpine, or another muslc distro? That is not supported.",
+  "number": 1509,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:12.211Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add an optional headers parameter to WorkflowHandle.signal() and Workflow.execute_update()/start_update() methods to allow passing custom workflow-level headers. The request was declined because Temporal headers are intentionally only set via interceptors for implicit setting and context propagation.",
+  "category": "feature",
+  "subcategory": "workflow-signaling",
+  "apis": [
+    "WorkflowHandle.signal",
+    "Workflow.execute_update",
+    "Workflow.start_update"
+  ],
+  "components": [
+    "workflow-client",
+    "signal-handling",
+    "update-handling"
+  ],
+  "concepts": [
+    "headers",
+    "context-propagation",
+    "rpc-metadata",
+    "interceptors",
+    "workflow-communication"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot explicitly pass custom workflow-level headers through signal and update methods, though context propagation is possible via interceptors.",
+  "rootCause": null,
+  "proposedFix": "Add optional headers parameter to signal(), execute_update(), and start_update() methods accepting Mapping[str, temporalio.api.common.v1.Payloads]",
+  "workaround": "Use interceptors for context propagation and implicit header setting, as demonstrated in the context_propagation sample.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Temporal headers are intentionally only set via interceptors to support implicit setting and context propagation patterns, not explicit caller-provided headers.",
+  "related": [],
+  "keyQuote": "Temporal headers are intentionally only set via interceptors because they are meant for implicit setting and not explicit by callers.",
+  "number": 961,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:22.077Z"
+}

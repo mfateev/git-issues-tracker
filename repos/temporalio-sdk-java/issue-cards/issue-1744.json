@@ -1,0 +1,31 @@
+{
+  "summary": "Add ProtocolMessageCommand support to Java SDK when sending protocol messages during WorkflowTaskComplete. This enables proper non-determinism validation for workflow updates, which was previously difficult without this command.",
+  "category": "feature",
+  "subcategory": "protocol-messages",
+  "apis": [
+    "WorkflowTaskComplete"
+  ],
+  "components": [
+    "workflow-task-handler",
+    "protocol-message-processor",
+    "command-builder"
+  ],
+  "concepts": [
+    "protocol-messages",
+    "non-determinism-validation",
+    "workflow-updates",
+    "determinism"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now properly validate non-determinism in workflow updates through ProtocolMessageCommand support in the Java SDK.",
+  "rootCause": "ProtocolMessageCommand was not being written when protocol messages were sent, making non-determinism validation for updates difficult to implement.",
+  "proposedFix": "Write ProtocolMessageCommand along with protocol messages when WorkflowTaskComplete is sent.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented as part of commit ee2f5d0974bb9fabae71f97f7b2bb4c67c098608",
+  "related": [],
+  "keyQuote": "When the SDK sends a protocol message on `WorkflowTaskComplete` also write a `ProtocolMessageCommand`",
+  "number": 1744,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:45:39.449Z"
+}

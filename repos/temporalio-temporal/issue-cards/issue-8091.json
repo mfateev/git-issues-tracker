@@ -1,0 +1,36 @@
+{
+  "summary": "Multiple CVEs (CVE-2025-30204, CVE-2025-22870, CVE-2023-47108, CVE-2024-44337, CVE-2024-2689, CVE-2025-4575) detected in temporalio/server:1.28.0 Docker image with high and medium severity ratings. Requires dependency updates to address security vulnerabilities.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "dependencies",
+    "jwt",
+    "http-proxy",
+    "grpc-instrumentation",
+    "openssl"
+  ],
+  "concepts": [
+    "security",
+    "cve",
+    "vulnerability",
+    "dependency-management",
+    "docker",
+    "version-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users running temporalio/server:1.28.0 are exposed to multiple security vulnerabilities that could potentially be exploited.",
+  "rootCause": "Outdated dependencies with known CVEs: golang-jwt/jwt v4.5.1, golang.org/x/net v0.34.0, otelgrpc v0.36.4, gomarkdown/markdown parser, openssl 3.5.0-r0, and temporal server library versions",
+  "proposedFix": "Update dependencies: golang-jwt/jwt to 4.5.2+, golang.org/x/net to 0.36.0+, otelgrpc to 0.46.0+, temporal server to 1.20.5/1.21.6/1.22.7+, openssl to 3.5.1-r0+",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Issue was closed in favor of #8220 which addresses the same security concerns in a later patch release",
+  "related": [
+    8220
+  ],
+  "keyQuote": "Closing in favor of #8220 which is the latest patch release",
+  "number": 8091,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:38.980Z"
+}

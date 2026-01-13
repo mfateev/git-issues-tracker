@@ -1,0 +1,30 @@
+{
+  "summary": "After sequentially restarting Cassandra nodes with replication factor 1 while workflows are starting, corrupted history event batches occur with non-continuous event IDs, making workflows inaccessible.",
+  "category": "bug",
+  "subcategory": "history-persistence",
+  "apis": [],
+  "components": [
+    "cassandra-persistence",
+    "history-service",
+    "event-batch"
+  ],
+  "concepts": [
+    "data-corruption",
+    "cassandra-replication",
+    "history-events",
+    "node-restart",
+    "event-continuity"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows become inaccessible after Cassandra restarts due to corrupted history, requiring manual intervention to recover.",
+  "rootCause": "When Cassandra nodes restart with replication factor 1 (no replicas), data loss occurs and hints on remaining coordinators are insufficient to maintain event continuity.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue marked as no longer relevant; appears to be a configuration/deployment issue with RF=1 rather than a product bug.",
+  "related": [],
+  "keyQuote": "Without any replicas (RF=1) and a node down you _will_ loose data. We capture hints on the remaining coordinators, but that's a best effort.",
+  "number": 706,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:25.358Z"
+}

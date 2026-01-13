@@ -1,0 +1,32 @@
+{
+  "summary": "Worker shutdown is delayed because scheduled throttled activity heartbeat tasks are not properly drained during graceful shutdown. The heartbeat executor times out waiting for these tasks, forcing a fallback to forceful shutdown.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "heartbeat-executor",
+    "shutdown-manager"
+  ],
+  "concepts": [
+    "shutdown",
+    "graceful-shutdown",
+    "heartbeat",
+    "timeout",
+    "task-draining",
+    "executor"
+  ],
+  "severity": "medium",
+  "userImpact": "Workers experience delayed shutdown times when activities have scheduled heartbeats, impacting deployment and scaling operations.",
+  "rootCause": "Scheduled throttled activity heartbeat tasks are not being properly drained during the graceful shutdown process of the heartbeat executor.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Worker shutdown is delayed on the shutdown of activity heartbeat executor because there are scheduled heartbeat tasks.",
+  "number": 1257,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:19:03.702Z"
+}

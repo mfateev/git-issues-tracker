@@ -1,0 +1,36 @@
+{
+  "summary": "Improve javadoc documentation for ApplicationFailure to clarify interaction with retry options and failure handling. Consider adding convenience methods to create non-retryable failures directly from exceptions.",
+  "category": "docs",
+  "subcategory": "exception-handling",
+  "apis": [
+    "ApplicationFailure.newNonRetryableFailure",
+    "ActivityOptions.retryOptions",
+    "WorkflowImplementationOptions.setFailWorkflowExceptionTypes"
+  ],
+  "components": [
+    "ApplicationFailure",
+    "exception-handling",
+    "activity-options",
+    "workflow-options"
+  ],
+  "concepts": [
+    "non-retryable-exceptions",
+    "retry-policy",
+    "failure-handling",
+    "documentation",
+    "api-usability",
+    "exception-wrapping"
+  ],
+  "severity": "low",
+  "userImpact": "Users have difficulty understanding how to properly create non-retryable failures and how they interact with retry options, requiring them to consult code or documentation beyond the javadoc.",
+  "rootCause": null,
+  "proposedFix": "Add comprehensive javadoc explaining the relationship between ApplicationFailure.newNonRetryableFailure(), ActivityOptions.retryOptions.setDoNotRetry, and WorkflowImplementationOptions.setFailWorkflowExceptionTypes. Add convenience methods to create non-retryable failures directly from exceptions.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Javadoc was improved and convenience methods were added to ApplicationFailure for creating non-retryable failures.",
+  "related": [],
+  "keyQuote": "Consider adding additional methods that allow the creation of non-retryable ApplicationFailure from an exception directly without wrapping to simplify handling",
+  "number": 1318,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:25:40.652Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add an Admin CLI command to inspect the DB cluster_membership table, allowing comparison with Ringpop membership information for cluster state inspection.",
+  "category": "feature",
+  "subcategory": "admin-cli",
+  "apis": [],
+  "components": [
+    "admin-cli",
+    "cluster-membership",
+    "database"
+  ],
+  "concepts": [
+    "cluster-management",
+    "membership",
+    "inspection",
+    "database",
+    "ringpop"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now inspect and compare DB cluster membership state through the admin CLI for better cluster diagnostics.",
+  "rootCause": null,
+  "proposedFix": "Add `tctl admin membership list_db` command to inspect cluster_membership table",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The tctl admin membership list_db command was implemented to inspect the DB cluster_membership table",
+  "related": [
+    83
+  ],
+  "keyQuote": "Admin CLI lets us inspect Ringpop membership, lets also have a way to inspect the DB cluster_membership table and be able to compare.",
+  "number": 146,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:20:17.060Z"
+}

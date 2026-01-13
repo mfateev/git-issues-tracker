@@ -1,0 +1,31 @@
+{
+  "summary": "Reset workflow execution fails when there are pending child workflows. The feature request asks for a flag option that would allow terminating pending child workflows to enable the reset command to proceed.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "reset-handler",
+    "child-workflow-manager"
+  ],
+  "concepts": [
+    "reset",
+    "child-workflows",
+    "workflow-termination",
+    "pending-executions",
+    "execution-control",
+    "state-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reset workflows that have pending child workflows, limiting their ability to recover from failed states or correct workflow logic.",
+  "rootCause": null,
+  "proposedFix": "Add a flag or option to the reset command that automatically terminates any pending child workflow executions before performing the reset.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow a flag to terminate the child workflow execution allowing reset command to go through.",
+  "number": 3258,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:44.745Z"
+}

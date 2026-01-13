@@ -1,0 +1,33 @@
+{
+  "summary": "Java SDK lacks a way to distinguish between a returned existing workflow execution versus a newly started one when WorkflowReusePolicy prevents re-execution. Go SDK has WorkflowExecutionErrorWhenAlreadyStarted flag to address this; Java needs similar functionality for both sync and async APIs.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteWorkflow",
+    "StartWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-execution",
+    "api-consistency"
+  ],
+  "concepts": [
+    "workflow-reuse-policy",
+    "duplicate-detection",
+    "error-handling",
+    "api-consistency",
+    "execution-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably determine if a workflow execution was newly started or if an existing execution was returned, forcing them to use exceptions for control flow or leading to inconsistent behavior between sync and async APIs.",
+  "rootCause": "Java SDK's ExecuteWorkflow returns an existing execution on reuse-policy conflicts instead of providing an option to error out, and StartWorkflow throws exceptions, creating inconsistent behavior between the two APIs.",
+  "proposedFix": "Add a configuration flag (similar to Go's WorkflowExecutionErrorWhenAlreadyStarted) to both sync and async execution methods allowing users to choose between erroring out or returning the existing execution when WorkflowReusePolicy prevents re-execution.",
+  "workaround": "Make two separate API calls: StartWorkflow (catches exception) followed by waiting for workflow result, but this uses exceptions as control flow which is not ideal.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This makes users use exceptions as a part of their normal code flow. It is bad practice especially when we already have all the underlying APIs to make it possible without exceptions.",
+  "number": 1025,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:00:22.170Z"
+}

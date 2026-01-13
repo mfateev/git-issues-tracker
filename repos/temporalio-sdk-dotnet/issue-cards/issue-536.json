@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add Nexus service support within the Temporalio.Extensions.Hosting dependency injection framework for .NET SDK.",
+  "category": "feature",
+  "subcategory": "nexus-integration",
+  "apis": [],
+  "components": [
+    "Temporalio.Extensions.Hosting",
+    "Nexus",
+    "dependency-injection"
+  ],
+  "concepts": [
+    "service-registration",
+    "dependency-injection",
+    "nexus-services",
+    "hosting-extension",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily register and configure Nexus services using the standard .NET dependency injection patterns provided by the Hosting extension.",
+  "rootCause": null,
+  "proposedFix": "Extend Temporalio.Extensions.Hosting to support Nexus service registration and configuration through the DI container.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Nexus support was implemented in the Temporalio.Extensions.Hosting extension.",
+  "related": [],
+  "keyQuote": "Support Nexus services with DI and such in `Temporalio.Extensions.Hosting`.",
+  "number": 536,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:33:46.909Z"
+}

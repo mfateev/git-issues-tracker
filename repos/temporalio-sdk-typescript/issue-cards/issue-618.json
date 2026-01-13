@@ -1,0 +1,32 @@
+{
+  "summary": "Tests cannot run from GitHub forks due to a regression in the test infrastructure. This breaks CI/CD pipelines for external contributors.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "ci-cd",
+    "test-runner",
+    "github-actions"
+  ],
+  "concepts": [
+    "fork-testing",
+    "regression",
+    "ci-pipeline",
+    "github-actions",
+    "test-execution"
+  ],
+  "severity": "high",
+  "userImpact": "External contributors cannot run tests on their forks, blocking pull request validation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed by lorensr before this issue was closed.",
+  "related": [
+    613
+  ],
+  "keyQuote": "We have a regression in our tests where we can no longer run tests from forks",
+  "number": 618,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:04:40.377Z"
+}

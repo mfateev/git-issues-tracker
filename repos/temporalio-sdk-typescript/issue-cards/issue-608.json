@@ -1,0 +1,31 @@
+{
+  "summary": "Worker threads in the TypeScript SDK use round-robin dispatch for workflows, which can lead to unbalanced load distribution. Implementing a least-loaded worker selection strategy would improve thread utilization and overall system balance.",
+  "category": "feature",
+  "subcategory": "worker-pool-balancing",
+  "apis": [],
+  "components": [
+    "worker",
+    "dispatcher",
+    "thread-pool",
+    "workflow-dispatch"
+  ],
+  "concepts": [
+    "load-balancing",
+    "worker-threads",
+    "round-robin",
+    "workflow-distribution",
+    "resource-utilization"
+  ],
+  "severity": "medium",
+  "userImpact": "Unbalanced worker threads can cause some threads to become overloaded while others remain underutilized, reducing throughput and increasing latency for workflow execution.",
+  "rootCause": "Current round-robin dispatcher does not account for workflow eviction, leading to unbalanced thread loads over time.",
+  "proposedFix": "Refactor dispatcher to select worker thread with least number of active workflows instead of using round-robin allocation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented least-loaded worker selection strategy to replace round-robin dispatch mechanism.",
+  "related": [],
+  "keyQuote": "A simple refactoring of this dispatcher to choose the worker thread with least workflows would improve the overall balancing of work between the threads.",
+  "number": 608,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:04:13.359Z"
+}

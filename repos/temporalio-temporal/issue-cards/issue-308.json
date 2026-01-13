@@ -1,0 +1,32 @@
+{
+  "summary": "Reduce memory consumption of the docker-compose-es development environment, particularly for ElasticSearch and Cassandra containers, to make it feasible to run on developer machines with limited resources.",
+  "category": "feature",
+  "subcategory": "docker-compose",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "elasticsearch",
+    "cassandra"
+  ],
+  "concepts": [
+    "memory-optimization",
+    "resource-constraints",
+    "development-environment",
+    "docker-configuration",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can run the full Temporal development stack (Cadence+ES+Kibana) on machines with limited RAM without performance degradation.",
+  "rootCause": "Default ElasticSearch and Cassandra configurations in docker-compose consume excessive memory for development purposes.",
+  "proposedFix": "Tune ElasticSearch and Cassandra container configurations to reduce memory requirements by approximately 50%.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ElasticSearch memory configuration was optimized in commit 729c8e458ac0fd3bf6d6f1ad509b2e20300e2bd9, with details documented in PR #311.",
+  "related": [
+    311
+  ],
+  "keyQuote": "tune the configs for those to get them to consume less RAM (hoping we might be able to cut their RAM utilization in half)",
+  "number": 308,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:28:09.839Z"
+}

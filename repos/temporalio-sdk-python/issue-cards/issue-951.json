@@ -1,0 +1,31 @@
+{
+  "summary": "OpenAI trace spans sometimes fail to complete when running OpenAI Agents samples. The issue appears to be a UI behavior in OpenAI Platform Dashboard where additional events, including span closes, require loading more data.",
+  "category": "bug",
+  "subcategory": "observability-tracing",
+  "apis": [],
+  "components": [
+    "openai-agents",
+    "tracing",
+    "spans"
+  ],
+  "concepts": [
+    "tracing",
+    "spans",
+    "observability",
+    "openai-integration",
+    "ui-behavior",
+    "event-loading"
+  ],
+  "severity": "low",
+  "userImpact": "Users viewing traces in OpenAI Platform Dashboard see spans that appear incomplete until they load additional events.",
+  "rootCause": "UI behavior in OpenAI Platform Dashboard - the load more button needs to be clicked to retrieve additional events including span closes",
+  "proposedFix": null,
+  "workaround": "Click the load more button at the bottom of the trace view to pull in additional events including the closes on 'ongoing' spans",
+  "resolution": "invalid",
+  "resolutionDetails": "Not a bug in the SDK - determined to be UI behavior in OpenAI Platform Dashboard where additional events are loaded on demand",
+  "related": [],
+  "keyQuote": "Turns out that this is UI behavior in OpenAI. The load more button at the bottom will pull in additional events, including the closes on these 'ongoing' spans.",
+  "number": 951,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:20.833Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add a Temporal CLI-based ephemeral server for testing purposes in the Ruby SDK, similar to what other SDKs provide as a programmatic testing interface. The issue became obsolete after SDK rewrite made the previous implementation no longer applicable.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "testing",
+    "server",
+    "cli-integration"
+  ],
+  "concepts": [
+    "ephemeral-server",
+    "testing-environment",
+    "development-server",
+    "programmatic-interface",
+    "sdk-rewrite"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would have convenient programmatic access to an ephemeral Temporal server for local testing without manual setup.",
+  "rootCause": null,
+  "proposedFix": "Implement a programmatic interface similar to TestWorkflowEnvironment in TypeScript SDK that downloads and manages an ephemeral server.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The SDK underwent rewrite/refresh and this feature request applied to the previous version, making it no longer applicable to the current codebase.",
+  "related": [
+    485
+  ],
+  "keyQuote": "The SDK is undergoing a rewrite/refresh and this issue applied to a previous version and is no longer applicable",
+  "number": 117,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:42:40.921Z"
+}

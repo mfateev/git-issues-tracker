@@ -1,0 +1,33 @@
+{
+  "summary": "SDKs should warn users when they attempt to send payloads exceeding a configurable size threshold (default 512 KB), similar to server-side warnings. This helps users catch payload size violations early on the client side before requests fail.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [
+    "StartWorkflow",
+    "SignalWorkflow"
+  ],
+  "components": [
+    "sdk-client",
+    "payload-validator",
+    "codec-processor"
+  ],
+  "concepts": [
+    "payload-size-limit",
+    "validation",
+    "warning",
+    "codec",
+    "transaction-limit"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be warned about oversized payloads during development, preventing runtime failures on self-hosted or cloud Temporal instances.",
+  "rootCause": null,
+  "proposedFix": "Implement client-side payload size checking after codec processing, with configurable threshold and ability to disable warnings.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Warn if the SDK detects a payload above a certain size (default 512 KB) like the Temporal server does today.",
+  "number": 701,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:45.879Z"
+}

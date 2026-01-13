@@ -1,0 +1,32 @@
+{
+  "summary": "TransportError exceptions lack detailed error information and stack traces, making it difficult to troubleshoot connection issues to Temporal clusters. Users need better diagnostics to identify root causes like missing CA certificates, incorrect server addresses, or missing/invalid TLS certificates.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "transport",
+    "tls",
+    "connection",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-diagnostics",
+    "connection-troubleshooting",
+    "tls-certificates",
+    "error-messaging",
+    "stack-traces",
+    "logging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to diagnose and fix connection problems because TransportError provides insufficient context about the underlying cause.",
+  "rootCause": "TransportError exceptions mask lower-level connection errors without surfacing detailed error information or stack traces.",
+  "proposedFix": "Surface lower-level error information and stack traces in TransportError to help users identify the specific connection problem.",
+  "workaround": "Refer to documentation on CA certificate installation and valid server addresses (localhost:7233 vs host.docker.internal:7233).",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by improving error details in TransportError reporting.",
+  "related": [],
+  "keyQuote": "It's hard to troubleshoot TransportErrors because they can be associated with any kind of problems when establishing a connection to a Temporal cluster.",
+  "number": 582,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:02:35.605Z"
+}

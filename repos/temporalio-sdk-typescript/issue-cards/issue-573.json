@@ -1,0 +1,31 @@
+{
+  "summary": "Three transitive dependencies in the Rust core-bridge package contain security vulnerabilities (2 high severity DoS issues in rustls-webpki and 1 medium severity memory issue in rustix). This is an automated security alert that was repeatedly opened and closed as dependencies were updated.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "rustls-webpki",
+    "rustix",
+    "temporal-client"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "denial-of-service",
+    "cpu-exhaustion",
+    "memory-explosion"
+  ],
+  "severity": "high",
+  "userImpact": "Users of the TypeScript SDK are vulnerable to CPU denial of service attacks via crafted certificate paths and potential memory exhaustion through directory iteration.",
+  "rootCause": "Outdated transitive dependencies (rustls-webpki-0.100.1 and rustix-0.37.20) containing known security vulnerabilities in certificate validation and filesystem operations.",
+  "proposedFix": "Upgrade rustls-webpki to version 0.100.2 or 0.101.4, and rustix to a patched version. Update remove_dir_all to ^0.8.0 as mentioned in comments.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through dependency updates. The automated Mend scanner repeatedly confirmed closure as vulnerable libraries were removed from the inventory.",
+  "related": [],
+  "keyQuote": "Can the remove_dir_all be updated to ^0.8.0 as this will fix the vulnerability. Latest version of remove_dir_all has been updated a week ago",
+  "number": 573,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:02:15.333Z"
+}

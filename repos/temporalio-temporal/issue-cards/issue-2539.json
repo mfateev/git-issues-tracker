@@ -1,0 +1,30 @@
+{
+  "summary": "Docker-compose deployment of Temporal Server fails to auto-setup in Gitpod between v1.14 and v1.15, with DNS resolution errors for the 'temporal' hostname. The same docker-compose file works in v1.13 and on local desktop, suggesting an undocumented networking change in the server.",
+  "category": "bug",
+  "subcategory": "docker-networking",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "auto-setup",
+    "network-dns"
+  ],
+  "concepts": [
+    "dns-resolution",
+    "container-networking",
+    "docker-compose",
+    "gitpod-environment",
+    "host-lookup"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on docker-compose for local Temporal setup in Gitpod or similar environments cannot upgrade beyond v1.13 without deployment failures.",
+  "rootCause": "Undocumented networking dependency or docker-compose configuration change introduced between v1.13 and v1.14 that breaks DNS resolution of the 'temporal' hostname in certain network environments.",
+  "proposedFix": null,
+  "workaround": "Remain on Temporal v1.13, or investigate container network connectivity in Gitpod environment to ensure temporal service DNS resolution.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue was not resolved; user decided to stay on v1.13 indefinitely as a practical workaround rather than debug further.",
+  "related": [],
+  "keyQuote": "the change between v1.13 and v1.14 (which i can consistently replicate) is behavior that is being broken somehow",
+  "number": 2539,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:00.133Z"
+}

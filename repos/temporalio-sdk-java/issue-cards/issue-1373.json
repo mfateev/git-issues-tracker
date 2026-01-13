@@ -1,0 +1,36 @@
+{
+  "summary": "Child workflow creation API lacks support for custom data converters, preventing parent workflows from specifying different serialization/encryption settings for child workflows on different task queues or namespaces. Users need this to support multi-team setups with different encryption keys.",
+  "category": "feature",
+  "subcategory": "child-workflow-options",
+  "apis": [
+    "ChildWorkflowOptions",
+    "StartChildWorkflow",
+    "ActivityOptions"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "data-converter",
+    "payload-converter",
+    "activity-options"
+  ],
+  "concepts": [
+    "data-serialization",
+    "encryption",
+    "multi-tenant",
+    "task-queue",
+    "namespace-isolation",
+    "payload-conversion"
+  ],
+  "severity": "high",
+  "userImpact": "Multi-team deployments with different workers using separate encryption keys cannot safely invoke child workflows across team boundaries without workarounds.",
+  "rootCause": "ChildWorkflowOptions and ActivityOptions do not expose a mechanism to override the data converter used for serializing payloads specific to that invocation.",
+  "proposedFix": "Add a custom data converter parameter to ChildWorkflowOptions (and ActivityOptions) that allows specifying a different data converter for that specific invocation.",
+  "workaround": "Users can create a PayloadConverter that applies only to the input class of the child workflow, though this approach is hacky and has limitations.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There is no way for a parent workflow to specify a different data converter for such a child workflow invocation.",
+  "number": 1373,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:30:45.017Z"
+}

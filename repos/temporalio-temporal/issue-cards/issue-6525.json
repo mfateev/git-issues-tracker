@@ -1,0 +1,32 @@
+{
+  "summary": "Rare spurious failures in CLI and SDK tests after Server 1.25 update, with error 'Current branch token and request branch token doesn't match.' occurring on history fetches and activity operations without any actual workflow resets being performed. The issue appears to be server-side as tests are non-reproducible locally but fail intermittently in CI.",
+  "category": "bug",
+  "subcategory": "history-fetching",
+  "apis": [],
+  "components": [
+    "history-service",
+    "branch-token-management",
+    "workflow-execution",
+    "test-server"
+  ],
+  "concepts": [
+    "branch-token",
+    "history-divergence",
+    "concurrent-requests",
+    "state-mismatch",
+    "race-condition",
+    "dev-server"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience intermittent test failures when using the CLI and SDKs with Temporal Server 1.25, causing non-deterministic failures that are difficult to debug and reproduce locally.",
+  "rootCause": "Server-side issue with branch token validation logic in version 1.25, possibly a race condition or state management bug in the history service that doesn't require actual workflow resets to manifest.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Current branch token and request branch token doesn't match.",
+  "number": 6525,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:57.534Z"
+}

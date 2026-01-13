@@ -1,0 +1,35 @@
+{
+  "summary": "The SQL visibility store orders closed workflow queries by start_time instead of close_time, which is confusing and prevents filtering workflows by close time. This needs to be changed to match expected behavior for closed workflows.",
+  "category": "bug",
+  "subcategory": "visibility-store",
+  "apis": [
+    "ListClosedWorkflowExecutions"
+  ],
+  "components": [
+    "visibility-store",
+    "sql-store",
+    "workflow-queries"
+  ],
+  "concepts": [
+    "ordering",
+    "filtering",
+    "closed-workflows",
+    "query-results",
+    "visibility",
+    "search"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot intuitively search or filter closed workflows by close time and get confusing results when listing closed executions.",
+  "rootCause": "SQL visibility store queries default to ordering by start_time for all workflow states instead of using close_time for closed workflows.",
+  "proposedFix": "Change default ordering for closed workflow queries to use close_time instead of start_time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed for SQL visibility stores to order closed workflows by close_time and support filtering by close_time.",
+  "related": [
+    312
+  ],
+  "keyQuote": "Currently all queries in non ES visibility are ordered by start_time which is very confusing for closed workflows where by close time ordering is expected.",
+  "number": 576,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:16:09.888Z"
+}

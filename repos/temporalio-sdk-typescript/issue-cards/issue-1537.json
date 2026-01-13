@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow lifecycle logging messages are ambiguous and misleading, with identical messages for workflow task failures and actual workflow failures, and repeated 'Workflow started' messages during task replays, making it difficult for users to differentiate between these cases and set up proper alerting.",
+  "category": "bug",
+  "subcategory": "logging-lifecycle",
+  "apis": [],
+  "components": [
+    "lifecycle-logger",
+    "worker",
+    "task-replay"
+  ],
+  "concepts": [
+    "logging",
+    "alerting",
+    "workflow-execution",
+    "task-failure",
+    "replay",
+    "state-reconstruction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably differentiate between workflow task failures and actual workflow failures using logs, preventing effective alerting and error monitoring.",
+  "rootCause": "The lifecycle handler logs from the perspective of cached workflow instances rather than the actual workflow execution lifecycle. Task replays cause duplicate messages, and task failures produce identical messages to actual workflow failures.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "On Workflow Task failure, the lifecycle logger prints out a message indicating that `Workflow failed`; that's exactly the same error message as on actual `Workflow Failure`, making it impossible to differentiate these cases.",
+  "number": 1537,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:55.134Z"
+}

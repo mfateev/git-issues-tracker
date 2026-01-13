@@ -1,0 +1,41 @@
+{
+  "summary": "Request to add a Summary field to LocalActivityOptions across all SDKs. This is a cross-SDK feature enhancement to provide better metadata and documentation capabilities for local activities.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [
+    "LocalActivityOptions"
+  ],
+  "components": [
+    "local-activity-executor",
+    "activity-options",
+    "sdk-options"
+  ],
+  "concepts": [
+    "metadata",
+    "activity-documentation",
+    "activity-configuration",
+    "summary-field",
+    "cross-sdk-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to document and describe local activities with summary information, improving code clarity and activity metadata across all SDK languages.",
+  "rootCause": null,
+  "proposedFix": "Add Summary field to LocalActivityOptions struct in all SDK implementations following the pattern used in Go SDK.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1988,
+    2580,
+    978,
+    298,
+    499,
+    1746,
+    638,
+    960
+  ],
+  "keyQuote": "Request is to add Summary to local activity options struct",
+  "number": 637,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:17:36.913Z"
+}

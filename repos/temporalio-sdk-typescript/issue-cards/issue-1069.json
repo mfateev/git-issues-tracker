@@ -1,0 +1,35 @@
+{
+  "summary": "User requested support for countWorkflowExecutions API in the TypeScript SDK to check if a workflow execution exists. The issue was resolved by using the alternative getHandle().describe() approach with status checking.",
+  "category": "feature",
+  "subcategory": "workflow-queries",
+  "apis": [
+    "countWorkflowExecutions",
+    "DescribeWorkflowExecution",
+    "getHandle",
+    "describe"
+  ],
+  "components": [
+    "client",
+    "workflow-service",
+    "grpc-api"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "search-queries",
+    "elasticsearch",
+    "execution-status",
+    "workflow-discovery"
+  ],
+  "severity": "low",
+  "userImpact": "Users need a convenient way to check if a workflow execution exists or is running without implementing complex search queries.",
+  "rootCause": "The TypeScript SDK does not provide a high-level API for countWorkflowExecutions; users must use raw gRPC API which requires Elasticsearch and proper query syntax.",
+  "proposedFix": "Provide a high-level SDK method wrapping countWorkflowExecutions similar to listWorkflowExecutions, or document the workaround using getHandle(workflowId).describe().",
+  "workaround": "Use client.getHandle(workflowId).describe() and check status code for WORKFLOW_EXECUTION_STATUS_RUNNING to determine if workflow is executing.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved through discussion; user found that getHandle(workflowId).describe() is the appropriate approach for checking workflow execution status in the SDK.",
+  "related": [],
+  "keyQuote": "this.client.getHandle(workflowId).describe() - This is working great, thanks for your help!",
+  "number": 1069,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:58.424Z"
+}

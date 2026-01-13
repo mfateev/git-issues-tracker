@@ -1,0 +1,30 @@
+{
+  "summary": "Add `run_id` field to the `Temporal::Error::WorkflowExecutionAlreadyStarted` exception based on Rust SDK implementation. This issue is obsolete due to SDK rewrite.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "WorkflowExecutionAlreadyStarted"
+  ],
+  "components": [
+    "error-types",
+    "exceptions"
+  ],
+  "concepts": [
+    "error-details",
+    "run-id",
+    "workflow-execution",
+    "exception-enhancement"
+  ],
+  "severity": "low",
+  "userImpact": "Users would have access to the run_id when catching WorkflowExecutionAlreadyStarted errors for better debugging.",
+  "rootCause": null,
+  "proposedFix": "Add run_id field to WorkflowExecutionAlreadyStarted exception similar to Rust SDK implementation",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue became obsolete due to Ruby SDK rewrite/refresh and is no longer applicable to the current version",
+  "related": [],
+  "keyQuote": "The SDK is undergoing a rewrite/refresh and this issue applied to a previous version and is no longer applicable",
+  "number": 72,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:40:36.748Z"
+}

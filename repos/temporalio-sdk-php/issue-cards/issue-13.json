@@ -1,0 +1,33 @@
+{
+  "summary": "Implement cancellation scopes functionality for the PHP SDK, including support for nested scopes, hierarchical cancellation, and comprehensive testing of cancellation behavior across various scenarios.",
+  "category": "feature",
+  "subcategory": "cancellation-scopes",
+  "apis": [
+    "CancellationScope"
+  ],
+  "components": [
+    "cancellation",
+    "scope-management",
+    "coroutine-executor",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "cancellation",
+    "nested-scopes",
+    "hierarchical-cancellation",
+    "coroutine-stack",
+    "scope-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Users can now properly manage cancellation within workflows using nested scopes, enabling fine-grained control over which parts of their workflow logic respond to cancellation signals.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature fully implemented with comprehensive testing covering execution, cancellation, nested scopes, hierarchical cancellation, nested scope cancellation, coroutine stack checks, and other edge cases.",
+  "related": [],
+  "keyQuote": "Implement functionality, Testing (Implement testing API) - Execution, Cancellation, Nested scopes, Hierarchical cancellation, Canceling a nested scope, Coroutine stack checks, Other cases",
+  "number": 13,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:18:43.528Z"
+}

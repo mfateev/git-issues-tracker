@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose update-with-start operations through the Python SDK API. This feature allows combining update and start workflow operations, similar to existing UpdateWithStart functionality in other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-operations",
+  "apis": [
+    "UpdateWithStart",
+    "StartWorkflow"
+  ],
+  "components": [
+    "sdk-api",
+    "workflow-client",
+    "update-handler"
+  ],
+  "concepts": [
+    "update",
+    "start-workflow",
+    "idempotency",
+    "workflow-state",
+    "operation-composition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot perform atomic update-with-start operations in Python, limiting their ability to safely update or create workflows in a single operation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "UpdateWithStart API was implemented and exposed in the Python SDK",
+  "related": [],
+  "keyQuote": "Expose update-with-start operations via the SDK",
+  "number": 643,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:50.141Z"
+}

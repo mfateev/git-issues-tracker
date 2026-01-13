@@ -1,0 +1,34 @@
+{
+  "summary": "Request to allow WorkflowImplementationOptions to be configured via Spring Boot configuration instead of only programmatically. This feature would improve Spring Boot integration by enabling declarative workflow option setup.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "WorkflowImplementationOptions"
+  ],
+  "components": [
+    "spring-boot-integration",
+    "workflow-configuration",
+    "options-handling"
+  ],
+  "concepts": [
+    "configuration",
+    "spring-boot",
+    "declarative-setup",
+    "workflow-options",
+    "integration"
+  ],
+  "severity": "low",
+  "userImpact": "Spring Boot users are currently unable to configure WorkflowImplementationOptions declaratively and must set them programmatically.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Folded into issue #1984 which provides a more comprehensive solution for Spring Boot configuration.",
+  "related": [
+    1984
+  ],
+  "keyQuote": "Currently its not possible to set WorkflowImplementationOptions via config in Spring Boot integration",
+  "number": 1647,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:05.081Z"
+}

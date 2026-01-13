@@ -1,0 +1,33 @@
+{
+  "summary": "Issue reported TLS certificate updates not being propagated to admin/frontend/matching/history clients due to client caching. Investigation determined the root cause was a missing refreshInterval configuration; cert reloading actually works through Go TLS callbacks without requiring client recreation.",
+  "category": "bug",
+  "subcategory": "tls-certificates",
+  "apis": [],
+  "components": [
+    "client_bean",
+    "tls_config_helper",
+    "local_store_tls_provider",
+    "local_store_cert_provider",
+    "grpc"
+  ],
+  "concepts": [
+    "tls-certificates",
+    "certificate-refresh",
+    "client-caching",
+    "grpc-connections",
+    "certificate-rotation",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience connection failures to remote services when TLS certificates are updated without server restart, requiring manual rolling restart as workaround.",
+  "rootCause": "User had not configured refreshInterval in global.tls (defaults to 0, disabling refresh). The caching is correct; cert reloading happens through Go TLS stack callbacks.",
+  "proposedFix": "Ensure refreshInterval is properly configured in global.tls settings; no code changes needed.",
+  "workaround": "Rolling restart of Temporal server to re-establish gRPC connections with new certificates.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as not a bug; investigation showed cert reloading works correctly through Go TLS callbacks. User likely had refreshInterval set to 0 or missing from configuration.",
+  "related": [],
+  "keyQuote": "Reloading certs happens way below creation of grpc clients...the Go TLS stack calls them when appropriate, you don't need to recreate the grpc client.",
+  "number": 4918,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:35.901Z"
+}

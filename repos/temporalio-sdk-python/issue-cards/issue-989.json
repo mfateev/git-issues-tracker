@@ -1,0 +1,34 @@
+{
+  "summary": "User requests ability to specify WorkflowIDConflictPolicy when starting child workflows in Python SDK, allowing them to check for and reuse existing child workflows instead of getting an error.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "start_child_workflow"
+  ],
+  "components": [
+    "child-workflow-executor",
+    "workflow-client",
+    "api-bindings"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "workflow-reuse",
+    "child-workflow-management",
+    "policy-configuration",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot gracefully handle scenarios where parent workflow restarts and needs to check for existing child workflows with the same ID.",
+  "rootCause": "WorkflowIDConflictPolicy parameter is not exposed in the Python SDK's start_child_workflow function, though the server supports it.",
+  "proposedFix": "Add a WorkflowIDConflictPolicy argument to temporalio.workflow.start_child_workflow function.",
+  "workaround": "Catch the error thrown when an existing workflow has the same ID, but this does not allow retrieving the workflow handle.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Server does not support this mechanism; tracked at higher level in features repository.",
+  "related": [
+    558
+  ],
+  "keyQuote": "Add an argument to temporalio.workflow.start_child_workflow that specifies a WorkflowIDConflictPolicy.",
+  "number": 989,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:28:57.812Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request for F# samples and documentation in the .NET SDK to lower the barrier of entry for F# users. Users have encountered challenges with serialization of F# unions and need guidance on F# compatibility with Temporal.",
+  "category": "feature",
+  "subcategory": "samples-documentation",
+  "apis": [],
+  "components": [
+    "samples",
+    "documentation",
+    "serialization",
+    "data-converter"
+  ],
+  "concepts": [
+    "F#-support",
+    "language-interoperability",
+    "documentation",
+    "onboarding",
+    "serialization",
+    "async-integration"
+  ],
+  "severity": "low",
+  "userImpact": "F# developers face higher barriers to entry and encounter undocumented serialization issues when working with Temporal workflows.",
+  "rootCause": "Lack of F#-specific samples, documentation, and helper libraries; F# union serialization not supported by default JSON converter.",
+  "proposedFix": "Create F#-specific samples and documentation; consider creating a `Temporalio.Extensions.FSharp` package with serialization helpers and workarounds for F# lambda expressions.",
+  "workaround": "Use `FSharp.SystemTextJson` with custom `JsonFSharpConverter` and custom `DataConverter` configuration with explicit converter ordering.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    10
+  ],
+  "keyQuote": "Full featured F# support would be more than a sample probably, it'd be a `Temporalio.Extensions.FSharp` package with some helpers",
+  "number": 390,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:17:59.555Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow termination fails with transaction size exceeded error when workflow execution contains buffered events exceeding 4MB limit. User cannot terminate workflow through UI, receiving 'cannot terminate workflow' error.",
+  "category": "bug",
+  "subcategory": "workflow-termination",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "persistence",
+    "transaction-handling"
+  ],
+  "concepts": [
+    "transaction-size-limit",
+    "buffered-events",
+    "workflow-termination",
+    "state-management",
+    "limits",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users are unable to terminate workflows that have accumulated large buffered events, blocking workflow cleanup and potentially blocking system resources.",
+  "rootCause": "Buffered events in workflow execution grow too large (>4MB), causing UpdateWorkflowExecution transaction to fail when termination attempts to flush events, preventing workflow termination.",
+  "proposedFix": "Prevent buffered events from growing larger than 2MB to avoid exceeding transaction size limit during termination.",
+  "workaround": "Temporarily increase system.transactionSizeLimit configuration value to allow termination to proceed, or delete workflow using temporal CLI which doesn't enforce size limit.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed due to inactivity. Fix implemented in later releases to prevent buffered events from exceeding 2MB limit.",
+  "related": [],
+  "keyQuote": "I am guessing there are too many buffered events in the workflow which exceeds the 4MB and can't be flushed upon workflow termination.",
+  "number": 6638,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:24.302Z"
+}

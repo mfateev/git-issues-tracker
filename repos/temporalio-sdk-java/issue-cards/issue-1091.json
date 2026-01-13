@@ -1,0 +1,30 @@
+{
+  "summary": "Maven dependency resolution for temporal-sdk 1.8.1 was pulling protobuf 4.0.0-rc-2 instead of respecting the intended version range constraint. This was fixed in a subsequent release by updating the version range restrictions.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "maven-pom",
+    "protobuf-dependency",
+    "build-configuration"
+  ],
+  "concepts": [
+    "dependency-resolution",
+    "version-constraints",
+    "maven-range",
+    "transitive-dependencies",
+    "build-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users building with Maven could receive incompatible protobuf versions, potentially causing runtime errors or incompatibilities.",
+  "rootCause": "The Maven POM for temporal-sdk 1.8.1 did not properly restrict the protobuf version range, allowing Maven to select version 4.0.0-rc-2 instead of the intended 3.x range.",
+  "proposedFix": "Update the version range constraints in the build configuration to exclude 4.x versions of protobuf.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Version range restrictions were updated to properly constrain protobuf to the 3.x branch. Testing with 1.9.0-SNAPSHOT confirmed the fix pulls version 3.20.0-rc-1 as intended.",
+  "related": [],
+  "keyQuote": "Tested with 1.9.0-SNAPSHOT and the updated range pulls com.google.protobuf:protobuf-java-util:jar:3.20.0-rc-1",
+  "number": 1091,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:05:01.894Z"
+}

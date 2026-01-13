@@ -1,0 +1,30 @@
+{
+  "summary": "Implement a workflow replayer for the Python SDK to enable history replay and JSON parsing/fixing capabilities, which is a blocking feature for production use.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "history-parser",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-replay",
+    "history-analysis",
+    "deadlock-detection",
+    "testing",
+    "production-readiness"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use the Python SDK in production without a replayer for analyzing and fixing workflow execution histories.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow replayer with history JSON parser and fixer, with configuration to disable deadlock detection.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented through active development on a branch with PR pending.",
+  "related": [],
+  "keyQuote": "replayer is a blocking feature for production",
+  "number": 82,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:25.751Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The sendArchiveSignal timeout in the archiver client is hard-coded to 300ms, causing archival failures for users with slower networks. The request is to increase the default timeout and make it configurable through dynamic config.",
+  "category": "feature",
+  "subcategory": "archiver",
+  "apis": [],
+  "components": [
+    "archiver",
+    "archiver-client",
+    "worker",
+    "dynamic-config"
+  ],
+  "concepts": [
+    "timeout",
+    "archival",
+    "signal",
+    "configurability",
+    "network-latency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experiencing archival failures due to timeout are forced to rebuild from source to increase the timeout value.",
+  "rootCause": "Hard-coded 300ms timeout in sendArchiveSignal is insufficient for networks with higher latency or under load.",
+  "proposedFix": "Increase default sendArchiveSignal timeout and make it configurable via dynamic config.",
+  "workaround": "Rebuild temporal from source with modified timeout value.",
+  "resolution": "fixed",
+  "resolutionDetails": "Default timeout was increased and made configurable through dynamic config.",
+  "related": [],
+  "keyQuote": "Users run into issues with it being too short and have to increase it and rebuild from source",
+  "number": 2655,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:30:24.346Z"
+}

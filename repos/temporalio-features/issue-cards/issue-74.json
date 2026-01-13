@@ -1,0 +1,37 @@
+{
+  "summary": "Separate data converter and encoder concepts in SDKs, ensuring stacktraces and failure information use standard Temporal data conversion without custom encryption by default, while allowing opt-in encryption and treating additional failure payloads as regular user objects.",
+  "category": "feature",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "data-converter",
+    "payload-codec",
+    "failure-handling",
+    "encryption"
+  ],
+  "concepts": [
+    "data-conversion",
+    "encryption",
+    "stacktrace",
+    "payload-handling",
+    "failure-information",
+    "data-encoder"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need clear separation between data conversion and encryption, with stacktraces remaining accessible by default while still allowing opt-in encryption for sensitive information.",
+  "rootCause": "Conflation of data converter and encoder concepts, leading to unnecessary encryption of diagnostic information that should be easily accessible in Temporal UI.",
+  "proposedFix": "Implement PayloadCodec framework as an abstraction separate from data converters, apply standard conversion to stacktraces/failures by default, and provide opt-in flag for encryption.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of #66, with much of the functionality already implemented in Java SDK via PayloadCodec framework and failure conversion/encryption.",
+  "related": [
+    66,
+    1330,
+    1645,
+    1586
+  ],
+  "keyQuote": "Stacktrace query results and stacktraces of Temporal Failures should always be converter using a standard Temporal Data Converter.",
+  "number": 74,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:46:03.294Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Transitive dependency vulnerability in golang.org/x/net (CVE-2022-27664) causing potential HTTP/2 connection hangs during shutdown. High severity DoS risk from Go net package used in temporalite dependency.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "temporalite",
+    "go-grpc-middleware",
+    "golang-net"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency",
+    "security",
+    "http2",
+    "denial-of-service",
+    "transitive-dependency",
+    "cvss"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the SDK are exposed to a high-severity HTTP/2 connection vulnerability that could cause denial of service during shutdown.",
+  "rootCause": "golang.org/x/net v0.0.0-20220708220712-1185a9018129 contains CVE-2022-27664: HTTP/2 connections can hang during closing if shutdown is preempted by fatal error.",
+  "proposedFix": "Update golang.org/x/net to version 1.18.6 or 1.19.1 and later where the vulnerability is patched.",
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Issue was automatically closed by Mend because the vulnerable library was either marked as ignored or no longer part of the Mend inventory, likely due to dependency updates.",
+  "related": [],
+  "keyQuote": "attackers can cause a denial of service because an HTTP/2 connection can hang during closing if shutdown were preempted by a fatal error",
+  "number": 161,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:53:02.362Z"
+}

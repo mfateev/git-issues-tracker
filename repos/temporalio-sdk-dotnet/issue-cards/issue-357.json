@@ -1,0 +1,33 @@
+{
+  "summary": "Activity returning Task<WorkflowHandle> causes unexpected serialization of the workflow handle (including sensitive client credentials) to workflow history. The issue occurs because WorkflowHandle contains a reference to TemporalClient with API keys and TLS options.",
+  "category": "bug",
+  "subcategory": "activity-serialization",
+  "apis": [
+    "StartWorkflowAsync",
+    "WorkflowHandle"
+  ],
+  "components": [
+    "activity-executor",
+    "serialization",
+    "client"
+  ],
+  "concepts": [
+    "serialization",
+    "credentials-leakage",
+    "security",
+    "task-return-types",
+    "workflow-history"
+  ],
+  "severity": "high",
+  "userImpact": "Developers may inadvertently leak sensitive Temporal client credentials (API keys, TLS certificates) to workflow history when activities return Task<WorkflowHandle>.",
+  "rootCause": "WorkflowHandle is not intended to be serializable but becomes serializable through System.Text.Json. When returned from an activity, it serializes the entire handle including the embedded TemporalClient with sensitive configuration.",
+  "proposedFix": "Rewrite activities to return Task instead of Task<WorkflowHandle>, using ContinueWith() for fire-and-forget patterns: startTask.ContinueWith(_ => Task.CompletedTask, TaskContinuationOptions.OnlyOnRanToCompletion).",
+  "workaround": "Avoid returning WorkflowHandle from activities. Use async/await pattern without returning the handle, or use ContinueWith() for non-awaited operations.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "WorkflowHandle is not meant to be serializable (just coincidence that it works with System.Text.Json)",
+  "number": 357,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:02:13.919Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "User requests support for Python's ExceptionGroup traceback in workflows using asyncio.TaskGroup. When an ExceptionGroup is raised, its sub-exception tracebacks are missing from the stack_trace field, making debugging harder.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "converter",
+    "failure-handling",
+    "traceback-formatting"
+  ],
+  "concepts": [
+    "exception-handling",
+    "asyncio",
+    "traceback",
+    "sub-exceptions",
+    "debugging",
+    "failure-serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot see sub-exception tracebacks in the UI when ExceptionGroup is raised, making it harder to debug issues in parallel activities.",
+  "rootCause": "The Temporal failure message protobuf only supports a single stack trace and cause, not multiple exceptions as needed for ExceptionGroup.",
+  "proposedFix": "Discussed using traceback.format_exception instead of format_tb for ExceptionGroup specifically, but blocked by the failure message model limitation.",
+  "workaround": "Users need to catch ExceptionGroup and re-raise as ApplicationError while logging the exception details manually.",
+  "resolution": "wontfix",
+  "resolutionDetails": "ExceptionGroup cannot be serialized to a Temporal failure (single stack trace, single cause model). Maintainers recommend handling via logs on the worker instead.",
+  "related": [],
+  "keyQuote": "Exception group is not serializable to a Temporal failure which is a single message w/ a single stack trace and a single cause.",
+  "number": 393,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:48.441Z"
+}

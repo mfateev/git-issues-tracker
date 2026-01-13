@@ -1,0 +1,31 @@
+{
+  "summary": "Spring Boot auto-discovery for workers incorrectly registers workflows and activities from packages not specified in the configuration. When multiple namespaces are configured with different package lists, all packages are registered in all namespaces instead of respecting the specified package boundaries.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-starter",
+    "worker-auto-discovery",
+    "namespace-configuration"
+  ],
+  "concepts": [
+    "package-filtering",
+    "namespace-isolation",
+    "configuration-scoping",
+    "bean-registration",
+    "auto-discovery",
+    "multi-namespace"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly isolate workflows and activities across packages or namespaces, causing unintended workers to be registered with incorrect task queues and namespaces.",
+  "rootCause": "The auto-discovery mechanism does not properly filter beans by the configured package list when registering workers, particularly in multi-namespace scenarios where package specifications should be namespace-scoped.",
+  "proposedFix": null,
+  "workaround": "Use @ActivityImpl annotations with task queue specifications to manually control which worker an auto-discovered activity registers for.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Marked as expected behavior by maintainer; clarified that Spring beans lack package concept and that @ActivityImpl provides the mechanism for worker control.",
+  "related": [],
+  "keyQuote": "All activities beans registered in the spring context are registered according to their task queue/worker. Have you looked at the options under `@ActivityImpl`",
+  "number": 2564,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:11:57.091Z"
+}

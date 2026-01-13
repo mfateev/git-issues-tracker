@@ -1,0 +1,30 @@
+{
+  "summary": "Dependency vulnerability in tally library (v4.1.2) with 2 high-severity CVEs affecting Apache Thrift integration causing potential denial of service through endless loops or panics when processing malformed input.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "tally",
+    "thrift",
+    "dependency-management"
+  ],
+  "concepts": [
+    "vulnerability",
+    "denial-of-service",
+    "dependency-security",
+    "input-validation",
+    "protocol-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal Server instances using vulnerable tally version could experience service disruption through malformed protocol input.",
+  "rootCause": "Apache Thrift library versions 0.9.3-0.12.0 have vulnerabilities in TJSONProtocol/TSimpleJSONProtocol that cause endless loops or panics on invalid input.",
+  "proposedFix": "Upgrade Apache Thrift dependency to version 0.13.0 or later.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was automatically closed by Mend as the vulnerable library was either marked as ignored or is no longer part of the Mend inventory in the specific branch.",
+  "related": [],
+  "keyQuote": "A server or client may run into an endless loop when feed with specific input data... or panic when feed with invalid input data.",
+  "number": 3370,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:13.776Z"
+}

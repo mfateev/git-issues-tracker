@@ -1,0 +1,31 @@
+{
+  "summary": "In Python 3.13, using isinstance() with typing.Literal in the converter.py value_to_type function raises TypeError because subscripted generics cannot be used with class and instance checks. The function attempts isinstance(key, key_type) where key_type is typing.Literal, failing on dict conversions with Literal-typed keys.",
+  "category": "bug",
+  "subcategory": "type-conversion",
+  "apis": [],
+  "components": [
+    "converter",
+    "value_to_type",
+    "payload-conversion"
+  ],
+  "concepts": [
+    "type-checking",
+    "isinstance",
+    "typing.Literal",
+    "Python-3.13-compatibility",
+    "generic-types",
+    "type-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail to deserialize data containing dictionaries with typing.Literal-typed keys when running on Python 3.13.",
+  "rootCause": "The code uses isinstance(key, key_type) directly with typing.Literal types. Python 3.13 disallows isinstance() checks on subscripted generic types like Literal, raising TypeError: 'Subscripted generics cannot be used with class and instance checks'.",
+  "proposedFix": "Add type checking to prevent isinstance() from being called with subscripted generics. Check if key_type is a special typing construct (like Literal) before attempting isinstance() validation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by adding proper type checking to handle subscripted generics in the isinstance validation logic.",
+  "related": [],
+  "keyQuote": "In Python 3.13, using isinstance() with subscripted generics like typing.Literal is no longer allowed and raises a TypeError: Subscripted generics cannot be used with class and instance checks.",
+  "number": 1188,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:14.838Z"
+}

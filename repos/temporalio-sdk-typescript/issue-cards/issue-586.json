@@ -1,0 +1,32 @@
+{
+  "summary": "Parent workflow remains stuck in Running state when child workflow fails with WorkflowExecutionAlreadyStartedError, preventing the parent from exiting even after child completes and is restarted.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "executeChild"
+  ],
+  "components": [
+    "workflow-executor",
+    "error-handling",
+    "workflow-task-processor"
+  ],
+  "concepts": [
+    "workflow-failure",
+    "error-propagation",
+    "workflow-state",
+    "execution-deadlock",
+    "child-workflow"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows get stuck indefinitely when attempting to spawn child workflows with duplicate IDs, requiring manual intervention to recover.",
+  "rootCause": "WorkflowExecutionAlreadyStartedError is thrown as Error instead of TemporalFailure, causing the workflow task to fail without properly failing the workflow execution.",
+  "proposedFix": "Make WorkflowExecutionAlreadyStartedError extend TemporalFailure so it fails the workflow execution instead of just the task.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "WorkflowExecutionAlreadyStartedError was changed to extend TemporalFailure to properly fail the workflow instead of the workflow task.",
+  "related": [],
+  "keyQuote": "WorkflowExecutionAlreadyStartedError should extend TemporalFailure and fail the workflow.",
+  "number": 586,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:03:09.985Z"
+}

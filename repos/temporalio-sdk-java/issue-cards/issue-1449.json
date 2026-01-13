@@ -1,0 +1,32 @@
+{
+  "summary": "Spring Boot framework integration currently rejects DynamicWorkflow implementations due to Spring integration validation. Request to add support for workflows that implement DynamicWorkflow interface alongside Spring Boot annotations.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "DynamicWorkflow"
+  ],
+  "components": [
+    "spring-boot-integration",
+    "workflow-validation",
+    "annotation-processor"
+  ],
+  "concepts": [
+    "dynamic-workflows",
+    "spring-framework",
+    "interface-validation",
+    "workflow-registration",
+    "spring-boot-auto-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Spring Boot users cannot use DynamicWorkflow for runtime workflow flexibility due to validation that requires specific @WorkflowInterface annotations.",
+  "rootCause": "Spring Boot integration's interface validation logic does not recognize DynamicWorkflow as a valid workflow interface type.",
+  "proposedFix": "Update Spring Boot annotation processor to accept DynamicWorkflow interface as valid alongside @WorkflowInterface-annotated interfaces.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Support for DynamicWorkflow was added to Spring Boot integration validation.",
+  "related": [],
+  "keyQuote": "currently raises: Class doesn't implement any non empty public interface annotated with @WorkflowInterface",
+  "number": 1449,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:56.280Z"
+}

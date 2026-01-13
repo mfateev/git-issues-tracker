@@ -1,0 +1,33 @@
+{
+  "summary": "Signal methods with type hints for associative arrays fail because Temporal converts arrays to stdClass objects, but stdClass cannot be used as a parameter type hint. The workaround is to remove the type hint, which defeats the purpose of type safety.",
+  "category": "bug",
+  "subcategory": "signal-parameters",
+  "apis": [
+    "SignalMethod"
+  ],
+  "components": [
+    "signal-handler",
+    "parameter-marshaling",
+    "type-hints"
+  ],
+  "concepts": [
+    "type-safety",
+    "serialization",
+    "associative-arrays",
+    "stdClass",
+    "parameter-binding",
+    "type-hints"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use type hints for signal method parameters that receive associative arrays, forcing them to either remove type hints or manually cast parameters.",
+  "rootCause": "Temporal's parameter marshaling converts associative arrays to stdClass objects, but PHP does not allow stdClass as a type hint in function signatures.",
+  "proposedFix": null,
+  "workaround": "Remove the type hint from the signal method parameter and rely on dynamic typing or manual casting.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by allowing stdClass to be recognized as a valid type hint or by improving the marshaling behavior to preserve type information.",
+  "related": [],
+  "keyQuote": "If you pass associative array as signal parameter, Temporal converts it to \\stdClass. But you cannot set \\stdClass as a param type in signal's method.",
+  "number": 199,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:24.252Z"
+}

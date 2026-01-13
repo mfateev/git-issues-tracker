@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to add a user-friendly `listWorkflows()` method to the workflow client that simplifies pagination and provides type-safe query filtering, replacing the lower-level protobuf-based `listWorkflowExecutions` API.",
+  "category": "feature",
+  "subcategory": "workflow-listing",
+  "apis": [
+    "listWorkflowExecutions"
+  ],
+  "components": [
+    "workflow-client",
+    "query-builder",
+    "pagination"
+  ],
+  "concepts": [
+    "pagination",
+    "query-filtering",
+    "type-safety",
+    "async-iterator",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers currently need to work with low-level protobuf APIs and manual pagination for listing workflows, making the API harder to use.",
+  "rootCause": null,
+  "proposedFix": "Add `workflowClient.listWorkflows()` method that returns an async iterator, includes type-safe query builder for filter expressions, and handles pagination internally.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    942
+  ],
+  "keyQuote": "Proposed: `workflowClient.listWorkflows()` that maybe makes pagination easier and converts types of returned executions",
+  "number": 754,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:10:10.687Z"
+}

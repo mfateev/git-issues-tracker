@@ -1,0 +1,33 @@
+{
+  "summary": "Discussion about whether the Java SDK implements exponential backoff for server polling requests. The author questions whether polling uses fixed intervals rather than exponential backoff, which could impact server load during high-traffic scenarios. A commenter clarifies that exponential backoff is already implemented via GrpcSyncRetryer and BackoffThrottler.",
+  "category": "question",
+  "subcategory": "server-communication",
+  "apis": [],
+  "components": [
+    "GrpcSyncRetryer",
+    "BackoffThrottler",
+    "GrpcDeadlineInterceptor"
+  ],
+  "concepts": [
+    "exponential-backoff",
+    "retry-logic",
+    "polling",
+    "server-load",
+    "rate-limiting"
+  ],
+  "severity": "low",
+  "userImpact": "Clarifies that exponential backoff is already implemented for server requests, preventing potential misunderstandings about client behavior under server load.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "The issue was based on a misunderstanding of the code. The Java SDK already implements exponential backoff through GrpcSyncRetryer and BackoffThrottler as confirmed by the maintainer.",
+  "related": [
+    1258,
+    947
+  ],
+  "keyQuote": "The Java SDK does do exponential backoff if you look at GrpcSyncRetier and the BackoffThrottler you will see it is exponential.",
+  "number": 1850,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:18.010Z"
+}

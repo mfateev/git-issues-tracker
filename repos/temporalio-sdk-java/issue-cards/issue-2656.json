@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a Java annotation in Spring Boot to specify which namespace beans (interceptors/customizers) belong to in multi-namespace setups, providing a more idiomatic alternative to bean name prefixing.",
+  "category": "feature",
+  "subcategory": "spring-boot-integration",
+  "apis": [],
+  "components": [
+    "spring-boot-sdk",
+    "interceptors",
+    "customizers",
+    "namespace-configuration"
+  ],
+  "concepts": [
+    "multi-namespace",
+    "dependency-injection",
+    "annotations",
+    "bean-scoping",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently must use bean name prefixes to assign interceptors/customizers to specific namespaces, which is less idiomatic than using a Java annotation.",
+  "rootCause": null,
+  "proposedFix": "Add a Java annotation or interface to specify which namespace a bean belongs to, providing a more idiomatic Spring Boot approach.",
+  "workaround": "Users can continue to specify namespace assignment by prefixing bean names with the appropriate namespace.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2638
+  ],
+  "keyQuote": "A Java annotation or interface may be more idiomatic in Springboot",
+  "number": 2656,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:55.336Z"
+}

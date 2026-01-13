@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to append workflow custom search attributes to activity tags in OpenTelemetry tracing to enable filtering traces by those attributes.",
+  "category": "feature",
+  "subcategory": "tracing-attributes",
+  "apis": [
+    "UpsertTypedSearchAttributes"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "activity-tags",
+    "opentelemetry"
+  ],
+  "concepts": [
+    "search-attributes",
+    "tracing",
+    "span-tags",
+    "opentelemetry",
+    "workflow-context",
+    "filtering"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily filter traces by workflow search attributes, limiting observability and debugging capabilities.",
+  "rootCause": "Search attributes are updated during workflow execution, but span tags are created upfront and not automatically updated with search attributes.",
+  "proposedFix": "Extend TracingInterceptor to append workflow search attributes to RunWorkflow activity tags, with customization options via TracingInterceptorOptions.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not planned. SDK maintainers decided this should be a user responsibility via custom interceptor logic, potentially demonstrated in a sample.",
+  "related": [
+    393
+  ],
+  "keyQuote": "The ability to do this makes sense, yes, but not necessarily sure it's something we should do in the SDK.",
+  "number": 394,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:18:37.573Z"
+}

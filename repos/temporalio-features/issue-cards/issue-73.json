@@ -1,0 +1,43 @@
+{
+  "summary": "Request to provide a high-level, SDK-friendly API for the Schedules feature across all Temporal SDKs. Currently only exposed via raw gRPC or tctl, this feature needs language-idiomatic interfaces implemented for TypeScript, Go, Java, Python, .NET, PHP, and Ruby.",
+  "category": "feature",
+  "subcategory": "schedules-api",
+  "apis": [
+    "Schedules"
+  ],
+  "components": [
+    "sdk-typescript",
+    "sdk-go",
+    "sdk-java",
+    "sdk-python",
+    "sdk-dotnet",
+    "sdk-php",
+    "sdk-ruby"
+  ],
+  "concepts": [
+    "high-level-api",
+    "language-idioms",
+    "scheduling",
+    "workflow-management",
+    "sdk-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Users must use low-level gRPC or tctl commands instead of convenient SDK methods to manage scheduled workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement high-level Schedules API across all SDKs following language-specific idioms, with TypeScript proposal as reference (temporalio/proposals/pull/62).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "High-level Schedules APIs have been implemented across all major SDKs (TS, Go, Java, Python, .NET, PHP, Ruby) following the TypeScript reference proposal and adapted to each language's idioms.",
+  "related": [
+    871,
+    1333,
+    794,
+    87,
+    23,
+    228
+  ],
+  "keyQuote": "SDKs should provide a friendly (high level) interface for this.",
+  "number": 73,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:46:04.712Z"
+}

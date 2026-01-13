@@ -1,0 +1,32 @@
+{
+  "summary": "When a schedule is created with UNSPECIFIED overlap policy, the server should store it as the current default (SKIP) instead of UNSPECIFIED. This prevents breaking changes if the server's default policy changes in the future.",
+  "category": "feature",
+  "subcategory": "schedule-overlap-policy",
+  "apis": [
+    "DescribeSchedule"
+  ],
+  "components": [
+    "schedule-service",
+    "overlap-policy",
+    "api-enums"
+  ],
+  "concepts": [
+    "default-behavior",
+    "backward-compatibility",
+    "api-versioning",
+    "schedule-configuration",
+    "state-persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Prevents unexpected schedule behavior changes if the server's default overlap policy changes after schedule creation.",
+  "rootCause": "Server stores UNSPECIFIED instead of resolving it to the current default value, making schedules fragile to future default changes.",
+  "proposedFix": "When server receives UNSPECIFIED schedule overlap policy on create or update, store it as the current default (SKIP).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue has been implemented and released.",
+  "related": [],
+  "keyQuote": "If server stores UNSPECIFIED and later changes its default, the schedule I created earlier thinking it would be default/SKIP will now behave differently",
+  "number": 3240,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:30.773Z"
+}

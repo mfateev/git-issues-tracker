@@ -1,0 +1,30 @@
+{
+  "summary": "User asks how to install and build tctl (CLI tool) on Windows, as the documentation only mentions make command which is Unix-specific. Community provides go build workarounds, but long-term Windows binary distribution would be beneficial.",
+  "category": "docs",
+  "subcategory": "installation-windows",
+  "apis": [],
+  "components": [
+    "tctl",
+    "cli",
+    "build-system"
+  ],
+  "concepts": [
+    "installation",
+    "windows-support",
+    "binary-distribution",
+    "documentation",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Windows developers cannot easily build tctl locally without workarounds, and lack of pre-built Windows binaries increases setup friction.",
+  "rootCause": "Documentation assumes Unix/Linux build environment (make) without Windows-specific instructions or pre-built binaries.",
+  "proposedFix": "Provide pre-built Windows binaries for tctl distribution, or update documentation with clear Windows build instructions.",
+  "workaround": "Use 'go build -o tctl.exe <path>\\cmd\\tctl\\main.go' on Windows after installing Go.",
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated with Windows-specific build instructions.",
+  "related": [],
+  "keyQuote": "Long term, a Win dist for tctl would be really appreciated. Instructions for building it locally will inevitably become out of date.",
+  "number": 781,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:16.410Z"
+}

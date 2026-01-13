@@ -1,0 +1,32 @@
+{
+  "summary": "Users reported that clients created in one asyncio event loop may not work properly if used in a different event loop. The issue requests clarification, documentation, and potentially error handling around this behavior.",
+  "category": "docs",
+  "subcategory": "asyncio-event-loop",
+  "apis": [
+    "Client"
+  ],
+  "components": [
+    "client",
+    "event-loop",
+    "asyncio"
+  ],
+  "concepts": [
+    "event-loop",
+    "asyncio",
+    "thread-safety",
+    "client-lifecycle",
+    "concurrent-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter unexpected behavior or failures when attempting to use a client across different asyncio event loops or threads.",
+  "rootCause": "The Python client is not thread-safe and does not support usage across different event loops than the one it was created in.",
+  "proposedFix": "Document the limitation that clients must be used within the same event loop they were created in, and potentially add runtime error handling to prevent misuse.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Confirmed the limitation exists and documented that clients are not thread-safe and should not be run in a separate event loop or thread.",
+  "related": [],
+  "keyQuote": "a client can run in a different event loop than it was created, but it is _not_ thread safe and therefore should not be run in a separate event loop",
+  "number": 147,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:00.904Z"
+}

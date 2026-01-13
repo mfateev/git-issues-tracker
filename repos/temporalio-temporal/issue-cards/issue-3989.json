@@ -1,0 +1,32 @@
+{
+  "summary": "User connects Temporal to a read-only MySQL slave database and expects it to work, but Temporal server fails to start because it requires write access to the database.",
+  "category": "question",
+  "subcategory": "database-configuration",
+  "apis": [],
+  "components": [
+    "frontend",
+    "history",
+    "matching",
+    "worker",
+    "persistence"
+  ],
+  "concepts": [
+    "read-only database",
+    "database connectivity",
+    "MySQL replication",
+    "startup failure",
+    "write access"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot start Temporal server when the database is configured as read-only, blocking deployment in read-only database setups.",
+  "rootCause": "Temporal server requires write access to the database for initialization and operation, but MySQL master-slave replication configured to read-only slaves prevents this.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Temporal server fundamentally requires write access to the database. Using a read-only replica is not a supported configuration.",
+  "related": [],
+  "keyQuote": "Temporal server needs write access to the MySQL db. With read-only, it is expected not working.",
+  "number": 3989,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:46.496Z"
+}

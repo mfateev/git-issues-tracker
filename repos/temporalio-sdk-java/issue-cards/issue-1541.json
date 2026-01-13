@@ -1,0 +1,33 @@
+{
+  "summary": "User requests a way to configure TLS server settings for Java SDK connections, similar to the Go SDK's ConnectionOptions. They need to connect through a TLS server to obtain certificates before connecting to the Temporal cluster.",
+  "category": "question",
+  "subcategory": "tls-configuration",
+  "apis": [
+    "ServiceStubsOptions",
+    "ManagedChannelBuilder"
+  ],
+  "components": [
+    "client",
+    "grpc-channel",
+    "tls-config"
+  ],
+  "concepts": [
+    "tls",
+    "certificate",
+    "connection-options",
+    "grpc-configuration",
+    "server-name"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily configure TLS server names for Java SDK connections without manually intercepting gRPC channel creation.",
+  "rootCause": "Java SDK lacks direct TLS server name configuration option equivalent to Go SDK's ConnectionOptions.TLS.ServerName.",
+  "proposedFix": "Provide a TLS configuration option in Java SDK connection settings, similar to Go SDK's approach.",
+  "workaround": "Use ServiceStubsOptions#setChannelInitializer to intercept gRPC's ManagedChannelBuilder and call overrideAuthority to set custom TLS server name.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was resolved by providing a workaround. The user was redirected to use the channel initializer pattern and advised to use Temporal community channels for questions.",
+  "related": [],
+  "keyQuote": "Use `ServiceStubsOptions#setChannelInitializer` to intercept the creation of gRPC's `ManagedChannelBuilder`... you can set a custom tls server name in `ManagedChannelBuilder#overrideAuthority`.",
+  "number": 1541,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:39:00.483Z"
+}

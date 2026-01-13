@@ -1,0 +1,32 @@
+{
+  "summary": "TLS encryption is not applied to the worker gRPC port (7239) and membership port (6939) in Temporal Server, despite proper TLS configuration. Only frontend and inter-node traffic use TLS.",
+  "category": "bug",
+  "subcategory": "tls-configuration",
+  "apis": [],
+  "components": [
+    "worker",
+    "grpc-server",
+    "membership-port",
+    "tls-config"
+  ],
+  "concepts": [
+    "tls",
+    "encryption",
+    "security",
+    "configuration",
+    "worker-communication",
+    "membership-protocol"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot enable TLS encryption for worker-to-server communication, leaving sensitive gRPC traffic unencrypted in mTLS deployments.",
+  "rootCause": "TLS configuration is not applied to worker RPC ports (grpcPort and membershipPort) in the server configuration, only to frontend and inter-node ports.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Author moved discussion to forum as this may be a feature request rather than a bug, indicating it was not fixed as a bug but rather deprioritized or reclassified.",
+  "related": [],
+  "keyQuote": "we could not find a way to enable tls for the traffic on the membership port and the worker grpc port",
+  "number": 5614,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:05:52.567Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Deeply nested failure causes can exceed the depth limits of some protobuf parsers (particularly upb-based ones used by Python, Ruby, and C/C++), breaking serialization. The issue proposes limiting failure cause depth to approximately 10-15 levels.",
+  "category": "bug",
+  "subcategory": "failure-handling",
+  "apis": [],
+  "components": [
+    "protobuf-serialization",
+    "failure-cause-chain",
+    "server-sdk-communication"
+  ],
+  "concepts": [
+    "serialization",
+    "protobuf",
+    "error-handling",
+    "depth-limitation",
+    "cross-language-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users with deeply nested failure causes experience broken protobuf parsing, particularly in Python, Ruby, and C/C++ SDKs.",
+  "rootCause": "Protobuf parsers based on upb library have depth limits that are exceeded when failure causes are nested beyond ~30 levels.",
+  "proposedFix": "Implement failure cause depth limiting, restricting maximum depth to 10-15 levels. Design details regarding whether to reject or handle deep failures remain open.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users can set very deep failure causes, and once it gets past 30 or so it breaks some protobuf parsers (any based on `upb` like Python and maybe Ruby/C/C++).",
+  "number": 5763,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:22.931Z"
+}

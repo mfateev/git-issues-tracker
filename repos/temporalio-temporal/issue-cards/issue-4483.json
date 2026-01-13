@@ -1,0 +1,30 @@
+{
+  "summary": "Replication task metrics (replication_tasks_lag, replication_tasks_fetched, replication_tasks_returned) are incorrectly configured with millisecond units and histogram boundaries, when they should be dimensionless counts since they record task ID differences, not time values.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "replication",
+    "ack-manager"
+  ],
+  "concepts": [
+    "metrics-units",
+    "histogram-boundaries",
+    "replication-lag",
+    "task-tracking",
+    "configuration-mismatch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive metrics with incorrect units and histogram boundaries, making replication lag monitoring inaccurate and misleading.",
+  "rootCause": "Metrics are defined as timers with millisecond units when they should be dimensionless counters, and task ID differences are being recorded instead of actual time values.",
+  "proposedFix": "Change metric definitions from timer-based with millisecond units to dimensionless histogram boundaries, and update the code recording the metrics to use the correct unit configuration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "what's actually being recorded is the difference between the task IDs, not time, but the metric is defined as a timer",
+  "number": 4483,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:25.943Z"
+}

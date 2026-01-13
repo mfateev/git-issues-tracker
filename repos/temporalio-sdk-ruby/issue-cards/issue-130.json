@@ -1,0 +1,29 @@
+{
+  "summary": "User encounters build error when trying to use temporalio gem with Ruby 3.0.4 and Rust 1.68.0. The error appears to be related to gem installation or compilation, and the user notes that some documentation still refers to the old 'temporal' package name instead of 'temporalio'.",
+  "category": "bug",
+  "subcategory": "gem-installation",
+  "apis": [],
+  "components": [
+    "gem-build",
+    "documentation"
+  ],
+  "concepts": [
+    "installation",
+    "compilation",
+    "gem-dependency",
+    "package-naming",
+    "documentation-accuracy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot install and use the Ruby SDK due to build failures with the temporalio gem.",
+  "rootCause": "Likely a gem compatibility issue or missing dependency, resolved in version 0.1.1",
+  "proposedFix": "Upgrade to version 0.1.1 of the temporalio gem",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Maintainer indicated the issue should be resolved in version 0.1.1",
+  "related": [],
+  "keyQuote": "I think this should work correctly in version 0.1.1. Could you please try that again?",
+  "number": 130,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:43:10.910Z"
+}

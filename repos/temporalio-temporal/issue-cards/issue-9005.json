@@ -1,0 +1,30 @@
+{
+  "summary": "Users request the ability to filter workflows in the UI by substring matching. Currently, the UI only supports filtering by exact match or 'starts with' pattern, limiting discoverability and search functionality.",
+  "category": "feature",
+  "subcategory": "workflow-filtering",
+  "apis": [],
+  "components": [
+    "ui",
+    "workflow-search",
+    "filtering"
+  ],
+  "concepts": [
+    "substring-matching",
+    "search",
+    "filtering",
+    "workflow-discovery",
+    "usability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently search and filter workflows by partial names, reducing productivity when managing large numbers of workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement substring filtering capability in the workflow filter UI alongside existing exact match and 'starts with' options.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A major frustration we have is that there is no way to filter workflows in UI by a substring. The only way to filter now is \"starts with\" or \"equal\"",
+  "number": 9005,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:30:19.958Z"
+}

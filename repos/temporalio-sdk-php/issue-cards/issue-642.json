@@ -1,0 +1,32 @@
+{
+  "summary": "Add first execution run ID to workflow info in PHP SDK. The feature request seeks to expose the first execution run ID through the workflow info object, allowing workflows to access the run ID of their initial execution.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "Workflow::getInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "runtime-api"
+  ],
+  "concepts": [
+    "first-execution",
+    "run-id",
+    "workflow-context",
+    "execution-history"
+  ],
+  "severity": "low",
+  "userImpact": "Users can access the first execution run ID of a workflow to track initial execution history and correlation.",
+  "rootCause": null,
+  "proposedFix": "Expose firstExecution->getRunID() or firstExecutionRunID property through Workflow::getInfo() following Java SDK implementation pattern",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    29
+  ],
+  "keyQuote": "You need to expose it via \\Temporal\\Workflow::getInfo()->firstExecution->getRunID(); or \\Temporal\\Workflow::getInfo()->firstExecutionRunID;",
+  "number": 642,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:34.075Z"
+}

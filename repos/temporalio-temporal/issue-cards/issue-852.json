@@ -1,0 +1,30 @@
+{
+  "summary": "Request to support in-memory TLS configuration (key, cert, CA) for PostgreSQL connections in Temporal Server, following similar functionality available in the pq PostgreSQL driver.",
+  "category": "feature",
+  "subcategory": "persistence-postgresql",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgresql",
+    "tls-configuration"
+  ],
+  "concepts": [
+    "tls",
+    "certificate-management",
+    "in-memory-storage",
+    "security",
+    "postgresql-driver"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently configure TLS certificates for PostgreSQL directly in memory, requiring file-based certificate management for secure database connections.",
+  "rootCause": null,
+  "proposedFix": "Add support for in-memory key, cert, and CA configuration for PostgreSQL TLS, similar to the functionality available in the lib/pq driver",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Support in mem key / cert / ca for PostgreSQL",
+  "number": 852,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:25.953Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "The temporal-sql-tool and temporal-cassandra-tool have hardcoded versions (0.0.1) that cannot be updated during the build process using standard Go build flags. The issue raises questions about whether these tools should be versioned together with temporal-server or independently.",
+  "category": "bug",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "temporal-cassandra-tool",
+    "build-system"
+  ],
+  "concepts": [
+    "versioning",
+    "build-flags",
+    "cli-tools",
+    "version-management",
+    "binary-distribution"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot determine the exact version of temporal-sql-tool and temporal-cassandra-tool they are running, making it difficult to track which code version is deployed.",
+  "rootCause": "Version is hardcoded in main.go and cannot be set via Go build flags (-ldflags) because the variable is scoped within a function.",
+  "proposedFix": "Implement proper version setting mechanism during build process, potentially folding these tools into tdbg sub commands instead of maintaining separate binaries.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Plan to fold temporal-sql-tool and temporal-cassandra-tool into tdbg sub commands to resolve versioning complexity.",
+  "related": [],
+  "keyQuote": "We will likely fold these tools into `tdbg` sub commands instead of maintaining separate binaries.",
+  "number": 7992,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:49.176Z"
+}

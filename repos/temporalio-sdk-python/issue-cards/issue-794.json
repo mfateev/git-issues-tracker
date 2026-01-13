@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add an option for OpenTelemetry workflow spans even when client spans are not present. Currently, spans are omitted to avoid orphaned spans during replay, but users starting workflows from schedules or CLI want workflow spans regardless.",
+  "category": "feature",
+  "subcategory": "tracing-otel",
+  "apis": [],
+  "components": [
+    "tracing-interceptor",
+    "otel-integration",
+    "workflow-spans"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "distributed-tracing",
+    "span-context",
+    "workflow-replay",
+    "orphaned-spans",
+    "opt-in"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now enable workflow span creation from schedules or CLI contexts where client spans may not be available.",
+  "rootCause": null,
+  "proposedFix": "Add an opt-in flag to the tracing interceptor to allow workflow span creation even without client-created spans in headers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented as opt-in flag on tracing interceptor configuration.",
+  "related": [],
+  "keyQuote": "some users starting from schedules or CLI want the workflow spans even if they may be orphaned, so we should allow this opt-in on the tracing interceptor",
+  "number": 794,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:23:00.197Z"
+}

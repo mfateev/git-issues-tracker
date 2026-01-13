@@ -1,0 +1,39 @@
+{
+  "summary": "Feature request to provide Temporal client access from activity context across all SDKs. This would allow activity authors to more easily use the client within their activities, with implementation status varying by SDK (Go, Java, Python, .NET, Ruby complete; TypeScript and PHP pending).",
+  "category": "feature",
+  "subcategory": "activity-client-access",
+  "apis": [
+    "Client",
+    "Activity"
+  ],
+  "components": [
+    "activity-context",
+    "client-sdk",
+    "worker"
+  ],
+  "concepts": [
+    "activity-execution",
+    "client-integration",
+    "developer-experience",
+    "sdk-consistency",
+    "context-injection"
+  ],
+  "severity": "medium",
+  "userImpact": "Activities currently lack convenient access to the Temporal client, forcing developers to manage client creation separately rather than having it injected into the activity context.",
+  "rootCause": null,
+  "proposedFix": "Provide a Temporal client to the activity context of each SDK, making it available through the activity context similar to how it's available in workflows.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1761,
+    2362,
+    721,
+    389,
+    181
+  ],
+  "keyQuote": "Provide a Temporal client to the activity context of each SDK so activity authors can more easily use the client.",
+  "number": 203,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:52:30.896Z"
+}

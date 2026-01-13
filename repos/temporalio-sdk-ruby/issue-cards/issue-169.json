@@ -1,0 +1,33 @@
+{
+  "summary": "Request for a metric meter abstraction in the Ruby SDK that can be accessed from the runtime, activities, and workflows for collecting and reporting application metrics.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "runtime",
+    "activity-executor",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "observability",
+    "metrics",
+    "instrumentation",
+    "monitoring",
+    "telemetry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently collect and track application metrics from within Temporal Ruby SDK applications, limiting observability and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement a metric meter abstraction accessible from runtime, activities, and workflows",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and closed; buffer implementation was moved to separate issue #176",
+  "related": [
+    176
+  ],
+  "keyQuote": "Need metric meter abstraction (i.e. accessible from runtime or activities or workflows)",
+  "number": 169,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:44:06.498Z"
+}

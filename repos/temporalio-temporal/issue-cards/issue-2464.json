@@ -1,0 +1,33 @@
+{
+  "summary": "Race condition in workflow archival where signaling the archival workflow succeeds despite caller's context deadline exceeded, causing deletion of history that wasn't confirmed archived. Subsequent archival attempts fail because history is already deleted.",
+  "category": "bug",
+  "subcategory": "archival",
+  "apis": [],
+  "components": [
+    "archival-system",
+    "history-archiver",
+    "transfer-task",
+    "signal-handling"
+  ],
+  "concepts": [
+    "archival",
+    "context-deadline",
+    "race-condition",
+    "retry",
+    "data-loss",
+    "history-deletion",
+    "signal-delivery"
+  ],
+  "severity": "high",
+  "userImpact": "Users risk losing workflow history data if archival signaling times out but is actually processed, causing history deletion before confirming archival success.",
+  "rootCause": "300ms context deadline timeout can expire from caller's perspective while the archival workflow still receives and processes the signal, causing asynchronous history deletion that conflicts with retry logic.",
+  "proposedFix": "Handle 'history not found' as an expected error rather than fatal non-retryable error; verify workflow has been archived before deleting history, or implement more resilient signal delivery confirmation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR modified how workflow history not found is handled during archival - returns nil error instead of non-retryable error since history not found is expected when archival already succeeded. Transfer task retries until archival request is delivered to system workflow.",
+  "related": [],
+  "keyQuote": "If the signal fails, we can check if the workflow has been archived, if yes, we can ignore the signal failure and proceed to delete the wf history.",
+  "number": 2464,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:28:10.554Z"
+}

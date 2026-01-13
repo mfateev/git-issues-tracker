@@ -1,0 +1,32 @@
+{
+  "summary": "Gson 2.8.6 dependency used in jaeger-client contains a denial of service vulnerability (CVSS 7.7) via writeReplace() method. Issue was automatically closed as the vulnerable library was only used in test scopes and has been fixed in a follow-up PR.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "jaeger-client",
+    "gradle-build",
+    "temporal-opentracing"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-management",
+    "transitive-dependency",
+    "test-scope"
+  ],
+  "severity": "high",
+  "userImpact": "Users could be vulnerable to denial of service attacks through gson if the jaeger library dependency is not upgraded to version 2.8.9 or later.",
+  "rootCause": "Gson version 2.8.6 contains a DoS vulnerability in the writeReplace() method that was fixed in version 2.8.9.",
+  "proposedFix": "Upgrade com.google.code.gson:gson from 2.8.6 to 2.8.9 or later. Exclude jaeger-client from production scopes as it's only needed for testing.",
+  "workaround": "Exclude jaeger library from non-test scopes in Gradle build configuration.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was auto-closed by WhiteSource. The vulnerability was in a test-only dependency. Follow-up PR #1136 fixed the Gradle configuration to explicitly exclude test scope from vulnerability scans.",
+  "related": [
+    1136
+  ],
+  "keyQuote": "This Jaeger library is only used in Gradle test scopes, which should have been explicitly excluded from the scan.",
+  "number": 1135,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:09:03.615Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add support for schedule search attribute updates in the PHP SDK, following the pattern established in the Go SDK and tracked in the cross-SDK features repository.",
+  "category": "feature",
+  "subcategory": "schedule-search-attributes",
+  "apis": [],
+  "components": [
+    "schedule",
+    "search-attributes",
+    "sdk-core"
+  ],
+  "concepts": [
+    "search-attributes",
+    "schedule",
+    "workflow-configuration",
+    "persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users of the PHP SDK cannot update search attributes on schedules, limiting their ability to organize and query scheduled workflows.",
+  "rootCause": null,
+  "proposedFix": "Implement schedule search attribute update support following the Go SDK implementation pattern",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support schedule search attribute updates in PHP SDK",
+  "related": [
+    512,
+    1561
+  ],
+  "keyQuote": "Support schedule search attribute update",
+  "number": 478,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:32:44.842Z"
+}

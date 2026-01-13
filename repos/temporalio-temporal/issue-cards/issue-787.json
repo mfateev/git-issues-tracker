@@ -1,0 +1,31 @@
+{
+  "summary": "S3 archival operations frequently timeout due to inconsistent context deadlines. While archiving to S3-compliant object stores, the timeout deadline varies from under 1 second to just under 60 seconds, causing many S3 calls to fail even with low-latency storage.",
+  "category": "bug",
+  "subcategory": "archival-timeout",
+  "apis": [],
+  "components": [
+    "archiver",
+    "s3store",
+    "history-service",
+    "context-management"
+  ],
+  "concepts": [
+    "timeout",
+    "context-deadline",
+    "S3-archival",
+    "background-worker",
+    "inline-archival"
+  ],
+  "severity": "medium",
+  "userImpact": "Users archiving to S3 experience frequent timeout errors in logs, creating noise even though background workers eventually complete the archival.",
+  "rootCause": "The ensureContextTimeout function only enforces a 1-minute timeout if no deadline is set by the caller. Inline archival calls from timer and transfer task queue processors set very short timeouts (1 second and 200 milliseconds respectively), overriding the intended 60-second timeout.",
+  "proposedFix": "Ensure consistent 1-minute deadline enforcement on all S3 API calls, possibly by reviewing how timeouts are set at call sites in the history service.",
+  "workaround": "Increase timeout values using dynamic config settings; background worker will eventually archive workflows despite inline archival failures.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "ensureContextTimeout actually sets timeout to 1 minute only if it is not set at all. If it is set by caller then it stays as is.",
+  "number": 787,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:32.960Z"
+}

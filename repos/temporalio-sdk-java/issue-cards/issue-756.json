@@ -1,0 +1,32 @@
+{
+  "summary": "AbandonOnCancelActivityTest flakes in build pipelines due to a NullPointerException in the test activity implementation, causing intermittent test failures.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "test-framework",
+    "thread-pool"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "null-pointer-exception",
+    "cancellation",
+    "activity-execution",
+    "thread-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Intermittent test failures in CI/CD pipelines reduce developer confidence and cause unpredictable build results.",
+  "rootCause": "NullPointerException in TestActivitiesImpl.lambda$activityWithDelay$0 at TestActivities.java:234, likely due to uninitialized or null field access during activity execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The underlying null pointer issue was identified and fixed in the test activity implementation.",
+  "related": [],
+  "keyQuote": "Exception in thread \"pool-1-thread-1\" java.lang.NullPointerException at io.temporal.workflow.shared.TestActivities$TestActivitiesImpl.lambda$activityWithDelay$0",
+  "number": 756,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:40:11.275Z"
+}

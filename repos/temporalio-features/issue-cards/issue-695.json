@@ -1,0 +1,34 @@
+{
+  "summary": "Add support for setting `GrpcMessageTooLarge` as a failure reason on the `temporal_workflow_task_execution_failed` metric when workflow tasks fail due to gRPC message size limits. This enhancement should help users identify and diagnose large message issues without significantly increasing metric cardinality.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "workflow-task-execution",
+    "gRPC"
+  ],
+  "concepts": [
+    "failure-reason",
+    "message-size",
+    "cardinality",
+    "observability",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to identify workflow task failures caused by gRPC message size limits through metrics, improving observability and debugging capabilities.",
+  "rootCause": "Lack of specific failure reason categorization for gRPC message too large errors in workflow task execution metrics",
+  "proposedFix": "Set `GrpcMessageTooLarge` as the `failure_reason` value on `temporal_workflow_task_execution_failed` metric when applicable",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2114,
+    2732,
+    1065
+  ],
+  "keyQuote": "If the workflow task failure is due to gRPC message too large, set `GrpcMessageTooLarge` as `failure_reason` on `temporal_workflow_task_execution_failed`",
+  "number": 695,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T07:05:34.530Z"
+}

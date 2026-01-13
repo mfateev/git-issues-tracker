@@ -1,0 +1,31 @@
+{
+  "summary": "When schedule activity task commands fail validation (e.g., payload size limits), error logs lack contextual information about the offending activity. Users need activity type and command details included in error messages to simplify debugging.",
+  "category": "other",
+  "subcategory": "error-logging",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "schedule-activity-command",
+    "validation"
+  ],
+  "concepts": [
+    "error-reporting",
+    "debugging",
+    "command-validation",
+    "payload-limits",
+    "error-context",
+    "logging"
+  ],
+  "severity": "medium",
+  "userImpact": "When activity command validation fails, debugging is harder due to insufficient error context about which activity caused the failure.",
+  "rootCause": null,
+  "proposedFix": "Include command info (e.g., activity type) in error messages when schedule activity task command validation fails",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "here err does not include any info about the offending activity, would be great to have this info if possible as would make debugging easier",
+  "number": 6896,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:28.747Z"
+}

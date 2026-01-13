@@ -1,0 +1,31 @@
+{
+  "summary": "Request for native OpenTelemetry interceptors in the Java SDK to replace the deprecated OpenTracing-based integration. The current approach using OpenTelemetry shims with OpenTracing has limitations with baggage propagation and is not recommended by OpenTelemetry documentation.",
+  "category": "feature",
+  "subcategory": "tracing-observability",
+  "apis": [],
+  "components": [
+    "tracing-interceptors",
+    "opentelemetry-integration",
+    "observability"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "baggage-propagation",
+    "w3c-tracecontext",
+    "span-processor",
+    "instrumentation",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a native OpenTelemetry integration path instead of relying on deprecated OpenTracing shims and compatibility layers.",
+  "rootCause": "OpenTracing is in maintenance mode and the OpenTelemetry shim approach has documented limitations with baggage propagation in mixed environments.",
+  "proposedFix": "Create a new temporal-opentelemetry module providing native OpenTelemetry integration similar to the existing temporal-opentracing module, with full W3C TraceContext compatibility.",
+  "workaround": "Continue using temporal-opentracing with OpenTelemetry compatibility layer, or create custom temporal interceptors for direct OpenTelemetry tracing.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Core Temporal team indicated this needs to be designed across SDKs and should be done by core members, not external contributors. Users encouraged to share implementations on Temporal code exchange.",
+  "related": [],
+  "keyQuote": "The exact standard still needs to be designed across our various SDKs so this is something that would need to be done by a core Temporal member.",
+  "number": 2671,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:15:46.624Z"
+}

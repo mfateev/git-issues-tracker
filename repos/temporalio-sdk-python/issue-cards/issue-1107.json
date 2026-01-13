@@ -1,0 +1,32 @@
+{
+  "summary": "Request to remove the upper bound constraint on protobuf dependency (currently pinned to <6) to allow usage of protobuf 6.x and later versions. This is important as protobuf 5.x reaches end of support in Q1 2026.",
+  "category": "feature",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "dependency-resolver",
+    "protobuf-integration",
+    "package-configuration"
+  ],
+  "concepts": [
+    "dependency-versioning",
+    "compatibility",
+    "end-of-support",
+    "upstream-libraries",
+    "version-constraints"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are blocked from using protobuf 6.x and later, which may cause dependency conflicts when other libraries require newer protobuf versions.",
+  "rootCause": "Upper bound constraint (<6) was set for protobuf dependency, preventing adoption of newer versions.",
+  "proposedFix": "Update protobuf dependency constraint from 'protobuf>=3.20,<6' to 'protobuf>=3.20' to allow any version from 3.20 onwards.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #1082 is in progress to support protobuf 6.x, addressing this feature request.",
+  "related": [
+    1082
+  ],
+  "keyQuote": "Protobuf 5x will reach End of Support in Q1 2026 so it's better to upgrade asap",
+  "number": 1107,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:32:50.085Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "The search-attributes API endpoint intermittently returns HTTP 503 errors instead of 200. Reproducing the issue requires refreshing the page 20-30 times, with errors occurring in the OperatorListSearchAttributes operation when namespace info retrieval fails.",
+  "category": "bug",
+  "subcategory": "search-attributes-api",
+  "apis": [
+    "ListSearchAttributes"
+  ],
+  "components": [
+    "frontend",
+    "operator-handler",
+    "namespace-validation",
+    "telemetry-interceptor"
+  ],
+  "concepts": [
+    "api-reliability",
+    "error-handling",
+    "namespace-resolution",
+    "service-availability",
+    "intermittent-failures",
+    "503-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience intermittent 503 Service Unavailable errors when querying search attributes, disrupting API availability and requiring page refreshes to recover.",
+  "rootCause": "The OperatorListSearchAttributes operation fails with 'Unable to get namespace info' error, but the exact underlying cause is not logged with sufficient detail. The error originates in the operator_handler.go around lines 518-526.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5473
+  ],
+  "keyQuote": "Unable to get namespace info with error: les - insufficient error context in logs to diagnose root cause",
+  "number": 5436,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:27.534Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Request to allow workers to listen on multiple task queues with independent rate limits, enabling fine-grained throttling of specific activities to prevent overloading downstream systems.",
+  "category": "feature",
+  "subcategory": "task-queue-routing",
+  "apis": [
+    "ExecuteActivity",
+    "WithActivityOptions"
+  ],
+  "components": [
+    "worker",
+    "task-queue",
+    "activity-executor",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "throttling",
+    "rate-limiting",
+    "task-queue",
+    "activity-routing",
+    "load-management",
+    "downstream-protection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users managing downstream API calls need external workarounds or multiple worker instances to implement per-activity throttling, increasing complexity and resource overhead.",
+  "rootCause": "Current worker architecture supports only a single task queue per worker instance, forcing users to run multiple workers for different rate limits.",
+  "proposedFix": "Allow worker.New() to accept multiple task queues with independent QueueOptions including TaskQueueActivitiesPerSecond, and enable activity execution to specify target queue via ActivityOptions.",
+  "workaround": "Run multiple workers in the same process, each listening on different task queues with different rate limits, though this requires manual resource sharing management.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the general direction we're going in is to make a single task queue more powerful and configurable instead of requiring the use of multiple task queues",
+  "number": 7916,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:10.486Z"
+}

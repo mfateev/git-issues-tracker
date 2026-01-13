@@ -1,0 +1,31 @@
+{
+  "summary": "The javadoc.jar artifact for temporal-serviceclient does not include documentation for classes in the io.temporal.api package, even though the compiled jar contains these classes. Users need complete javadoc coverage across all packages.",
+  "category": "other",
+  "subcategory": "javadoc-distribution",
+  "apis": [],
+  "components": [
+    "temporal-serviceclient",
+    "javadoc-generation",
+    "artifact-distribution"
+  ],
+  "concepts": [
+    "documentation",
+    "javadoc",
+    "artifact-completeness",
+    "api-package",
+    "distribution",
+    "consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Developers cannot access javadoc documentation for io.temporal.api classes, reducing discoverability and usability of the SDK.",
+  "rootCause": "The javadoc generation or aggregation process excludes the io.temporal.api package from the distributed javadoc.jar.",
+  "proposedFix": "Include io.temporal.api package documentation in the distributed javadoc.jar artifact to match the compiled jar contents.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by including io.temporal.api documentation in javadoc.jar distribution.",
+  "related": [],
+  "keyQuote": "The artifact temporal-serviceclient.jar contains classes in the package io.temporal.api, however the javadoc.jar artifact does not contain documentation",
+  "number": 1532,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:24.132Z"
+}

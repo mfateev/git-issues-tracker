@@ -1,0 +1,30 @@
+{
+  "summary": "WorkflowCache maintains deleted workflows in memory while they are removed from the database, causing inconsistency. This is particularly confusing for synchronous operations like the tdbg workflow deleted command, and results in deleted workflows still appearing in the Web UI with 404 errors when accessed.",
+  "category": "bug",
+  "subcategory": "workflow-cache",
+  "apis": [],
+  "components": [
+    "WorkflowCache",
+    "workflow-deletion",
+    "Web UI"
+  ],
+  "concepts": [
+    "cache-consistency",
+    "state-synchronization",
+    "deletion",
+    "async-operations",
+    "memory-database-mismatch"
+  ],
+  "severity": "medium",
+  "userImpact": "Deleted workflows remain visible in the UI and cache until async deletion completes, causing confusion when attempting to access them results in 404 errors.",
+  "rootCause": "WorkflowCache is not invalidated or updated synchronously when workflows are deleted from the database.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Cached workflow mutate state should always match state in DB.",
+  "number": 6527,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:13:08.679Z"
+}

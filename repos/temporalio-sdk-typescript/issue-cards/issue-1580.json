@@ -1,0 +1,36 @@
+{
+  "summary": "Workflows are sporadically getting stuck in a running state after cancellation, showing spurious WorkflowTaskFailed errors instead of completing cleanly. The issue occurs a few times per day in production, leading to infinite retries and blocking of orchestrator workflows.",
+  "category": "bug",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "proxyActivities",
+    "startChild",
+    "workflowInfo"
+  ],
+  "components": [
+    "workflow-task-processor",
+    "cancellation-handler",
+    "activity-executor",
+    "core-sdk-bridge"
+  ],
+  "concepts": [
+    "cancellation",
+    "workflow-task-failure",
+    "error-handling",
+    "race-condition",
+    "retry-logic",
+    "event-sequencing"
+  ],
+  "severity": "high",
+  "userImpact": "Production workflows get stuck in running state with infinite retries when cancellation fails, blocking dependent orchestrator workflows and requiring manual intervention.",
+  "rootCause": "Possible race condition where ActivityTaskCancelRequested event coincides with activity completion, causing the TypeScript SDK's `this.cancelled` flag to not be set correctly, leading the Core SDK to report a WorkflowTask failure instead of a clean cancellation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "is it possible that `this.cancelled` isn't being set correctly in all cases, especially when an Activity runs and successfully completes in parallel with a ActivityTaskCancelRequested event?",
+  "number": 1580,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:54:20.005Z"
+}

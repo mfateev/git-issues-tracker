@@ -1,0 +1,36 @@
+{
+  "summary": "Add comprehensive tests to verify that signal handlers execute before workflow code wakes up and that multiple signals in the same task are processed correctly. The issue addresses concerns about signal processing order and timing in the .NET SDK's scheduler.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "WaitConditionAsync",
+    "WorkflowSignal",
+    "WorkflowRun"
+  ],
+  "components": [
+    "scheduler",
+    "signal-handler",
+    "workflow-execution",
+    "task-queue"
+  ],
+  "concepts": [
+    "signal-processing",
+    "task-ordering",
+    "FIFO-scheduling",
+    "handler-execution",
+    "workflow-state",
+    "concurrency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need assurance that signal handlers execute in the correct order and that multiple signals in a single task are fully processed before the workflow's main logic resumes.",
+  "rootCause": "Uncertainty about whether multiple signals in the same task execute before workflow wake-up and whether the handlers-finished check is needed to guarantee this behavior.",
+  "proposedFix": "Implement comprehensive tests covering: (1) two signals in same task result in expected count, (2) handlers-finished check effectiveness, (3) same assertions hold with unhandled commands like local activities.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed after feature request was addressed with test implementation",
+  "related": [],
+  "keyQuote": "If two signals are in the same task, is the workflow result `2`? With where wait conditions are checked this should be true in .NET",
+  "number": 406,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:20:33.842Z"
+}

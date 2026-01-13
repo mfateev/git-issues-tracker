@@ -1,0 +1,31 @@
+{
+  "summary": "Add system search attributes to help find workflows that are backoff retrying an activity. Currently, finding such workflows is difficult and requires parsing noisy production logs.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "webui",
+    "search",
+    "activity-executor"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "search-attributes",
+    "workflow-visibility",
+    "activity-state",
+    "production-debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to find workflows experiencing activity retry backoff in production without wading through noisy logs.",
+  "rootCause": null,
+  "proposedFix": "Provide system search attributes (similar to historyLength) such as retryingActivityType to enable searching in WebUI",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Provide system search attributes like historyLength, eg retryingActivityType to help searching in webUI",
+  "number": 4059,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:23.187Z"
+}

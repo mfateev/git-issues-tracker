@@ -1,0 +1,29 @@
+{
+  "summary": "Refactor TypeScript SDK's stack trace query protobuf definitions to use updated proto structures, including renaming objects/fields and adding an `internal_code` flag to `FileLocation`.",
+  "category": "feature",
+  "subcategory": "proto-definitions",
+  "apis": [],
+  "components": [
+    "workflow",
+    "internals",
+    "query-protos"
+  ],
+  "concepts": [
+    "proto-definitions",
+    "stack-traces",
+    "api-migration",
+    "refactoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Ensures the TypeScript SDK uses the latest protobuf definitions for stack trace queries, improving compatibility with updated Temporal API.",
+  "rootCause": "Proto definitions in temporalio/api were updated but TypeScript SDK proto code was not yet refactored to match.",
+  "proposedFix": "Rename affected objects and fields in stack trace query protos, add `internal_code` flag to `FileLocation` structures in packages/workflow/src/internals.ts",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Proto definitions were refactored to align with updated temporalio/api specifications.",
+  "related": [],
+  "keyQuote": "Small reminder to refactor TS query protos regarding stack traces -- we have to rename a few objects and fields + add the `internal_code` flag",
+  "number": 1453,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:18:10.074Z"
+}

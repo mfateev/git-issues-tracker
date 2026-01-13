@@ -1,0 +1,35 @@
+{
+  "summary": "OpenAI Agents SDK integration fails during serialization with complex type annotations like `typing_extensions.Required`. The Temporal Python SDK's default data converter cannot handle OpenAI's complex generic types, causing workflows to fail immediately when executing agent operations.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "DataConverter",
+    "PayloadConverter",
+    "DefaultPayloadConverter"
+  ],
+  "components": [
+    "data-converter",
+    "openai-agents-plugin",
+    "type-system"
+  ],
+  "concepts": [
+    "serialization",
+    "type-annotations",
+    "generic-types",
+    "data-conversion",
+    "third-party-integration",
+    "type-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use OpenAI Agents SDK with Temporal Python SDK due to serialization failures on complex type annotations, blocking AI-powered workflow development.",
+  "rootCause": "Temporal's default data converter performs strict type validation that fails on OpenAI's complex generic type annotations like `typing_extensions.Required[Union[...]]`, which contain nested generics the converter doesn't support.",
+  "proposedFix": "Custom data converter implementation that handles OpenAI-specific types through pickle serialization and bypasses type validation for problematic type hints.",
+  "workaround": "Use custom PicklePayloadConverter that detects OpenAI types and serializes them with pickle instead of JSON, while skipping type hints for complex generic types.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by clarifying that OpenAIAgentsPlugin must be registered with both Client and Worker to provide proper DataConverter. Plugin should be passed to both client initialization and worker creation.",
+  "related": [],
+  "keyQuote": "If you look at all the samples, the plugin is provided to the `Client`, not the `Worker`. The plugin is simply not provided at all and therefore doesn't change the `DataConverter` as is required.",
+  "number": 1180,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:57.832Z"
+}

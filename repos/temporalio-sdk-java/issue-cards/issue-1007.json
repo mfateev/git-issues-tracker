@@ -1,0 +1,36 @@
+{
+  "summary": "Request for first-class Scala language support in the Java SDK, including interoperability for functional types (Func/Proc), Scala collection serialization, and Scala-idiomatic APIs for workflow operations.",
+  "category": "feature",
+  "subcategory": "language-support",
+  "apis": [
+    "WorkflowClient.start",
+    "WorkflowClient.execute",
+    "Workflow.await"
+  ],
+  "components": [
+    "workflow-client",
+    "serialization",
+    "scala-interop",
+    "method-references"
+  ],
+  "concepts": [
+    "scala-integration",
+    "functional-programming",
+    "type-conversion",
+    "method-references",
+    "collection-serialization",
+    "language-bindings"
+  ],
+  "severity": "medium",
+  "userImpact": "Scala developers must write verbose Java interop wrappers to use the SDK, reducing code ergonomics and adoption in Scala projects.",
+  "rootCause": "The Java SDK APIs use Java-specific functional types (Func, Proc, Supplier) and collection types that don't map naturally to Scala idioms; method reference handling differs between Java and Scala.",
+  "proposedFix": "Create a Scala module with idiomatic wrappers for WorkflowClient and Workflow operations, support Scala collections in serialization, and handle Scala method references correctly.",
+  "workaround": "Write small wrapper functions to convert Scala functions/lambdas to Java functional types; use Scala-Java interop libraries like scala-java8-compat for Future conversion.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Scala developers must write verbose Java interop wrappers to use the SDK, reducing code ergonomics and adoption in Scala projects.",
+  "number": 1007,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:59:00.282Z"
+}

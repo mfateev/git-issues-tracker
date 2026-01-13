@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow continue-as-new workflow transitions from update handlers in the .NET SDK. This capability was evaluated but ultimately decided against by the team.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-executor",
+    "update-handler",
+    "runtime"
+  ],
+  "concepts": [
+    "workflow-continuation",
+    "update-handler",
+    "state-transition",
+    "workflow-control",
+    "feature-request"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use continue-as-new functionality from within update handlers, limiting workflow control options in certain scenarios.",
+  "rootCause": null,
+  "proposedFix": "Enable continue-as-new to be callable from update handler context",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature request was decided against by the team",
+  "related": [],
+  "keyQuote": "This feature request was decided against",
+  "number": 161,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:50:10.162Z"
+}

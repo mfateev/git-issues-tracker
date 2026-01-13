@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose a defaultConnection() method that can switch between localhost and cloud-based Temporal connections based on environment variables. This would enable sample repositories to easily run in cloud environments without code changes.",
+  "category": "feature",
+  "subcategory": "connection-configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "connection",
+    "configuration"
+  ],
+  "concepts": [
+    "environment-variables",
+    "cloud-connectivity",
+    "localhost-fallback",
+    "connection-switching",
+    "sample-configuration",
+    "deployment-flexibility"
+  ],
+  "severity": "low",
+  "userImpact": "Developers can more easily switch between localhost and cloud Temporal instances in sample code without manual modifications.",
+  "rootCause": null,
+  "proposedFix": "Expose a defaultConnection() method or similar utility that reads an environment variable to determine whether to connect to localhost or cloud.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide a connection configuration method that supports environment-based switching.",
+  "related": [
+    454
+  ],
+  "keyQuote": "Expose a defaultConnection() method or similar that switches between localhost (default) and cloud based on some environment variable",
+  "number": 1395,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:44:01.407Z"
+}

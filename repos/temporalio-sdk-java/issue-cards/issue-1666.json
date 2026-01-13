@@ -1,0 +1,34 @@
+{
+  "summary": "User requests a high-level Schedule API example for Java SDK with Spring Boot integration. The feature is being tracked and was eventually delivered with a sample in the samples repository.",
+  "category": "feature",
+  "subcategory": "schedule-api",
+  "apis": [
+    "CreateSchedule",
+    "WorkflowService"
+  ],
+  "components": [
+    "schedule-api",
+    "spring-boot-integration"
+  ],
+  "concepts": [
+    "scheduling",
+    "cron-jobs",
+    "workflow-scheduling",
+    "api-design",
+    "examples"
+  ],
+  "severity": "low",
+  "userImpact": "Users need guidance on implementing Temporal schedules with Spring Boot, which affects adoption and ease of use of the scheduling feature.",
+  "rootCause": null,
+  "proposedFix": "Provide high-level Schedule API for Java SDK and Spring Boot examples/documentation.",
+  "workaround": "Use raw gRPC API with WorkflowService/CreateSchedule, or use legacy cron workflows pattern.",
+  "resolution": "fixed",
+  "resolutionDetails": "A schedule sample was provided in the samples repository at samples-java/core/src/main/java/io/temporal/samples/hello/HelloSchedules.java",
+  "related": [
+    1333
+  ],
+  "keyQuote": "A schedule sample is available in our samples repo... Springboot does not effect schedules so a spring boot specific example wouldn't provide much value",
+  "number": 1666,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:42:22.616Z"
+}

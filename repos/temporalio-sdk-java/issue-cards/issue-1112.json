@@ -1,0 +1,30 @@
+{
+  "summary": "Transitive dependency protobuf-java-3.4.0 contains CVE-2021-22569, a medium severity vulnerability (CVSS 5.5) that allows malicious payloads to cause denial of service through parser manipulation. The vulnerability was automatically resolved by removing the vulnerable library from the inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "protobuf",
+    "error_prone_core"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "denial-of-service",
+    "dependency-upgrade",
+    "transitive-dependency",
+    "parser-attack"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could be impacted by denial of service attacks if the vulnerable protobuf-java library is used to parse untrusted data.",
+  "rootCause": "protobuf-java-3.4.0 allows interleaving of UnknownFieldSet fields to be processed out of order, enabling malicious payloads to occupy the parser for extended periods through repeated object creation.",
+  "proposedFix": "Upgrade protobuf-java to version 3.16.1, 3.18.2, or 3.19.2; protobuf-kotlin to 3.18.2 or 3.19.2; or google-protobuf to 3.19.2",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automatically closed by WhiteSource as the vulnerable library was removed from inventory or marked as ignored in the branch",
+  "related": [],
+  "keyQuote": "A small malicious payload can occupy the parser for several minutes by creating large numbers of short-lived objects that cause frequent, repeated pauses.",
+  "number": 1112,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:07:03.207Z"
+}

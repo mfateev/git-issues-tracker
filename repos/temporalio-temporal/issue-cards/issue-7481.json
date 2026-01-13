@@ -1,0 +1,30 @@
+{
+  "summary": "The admin-tools Docker image (temporalio/admin-tools:1.27.1) contains multiple CVEs including high-severity vulnerabilities in golang.org/x/net/html and golang.org/x/net/http/httpproxy, along with medium and low-severity issues in dependencies like MariaDB, PostgreSQL, and expat.",
+  "category": "bug",
+  "subcategory": "dependency-vulnerabilities",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "admin-tools",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "CVE",
+    "dependency-patching",
+    "container-image",
+    "version-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users running the vulnerable admin-tools container image are exposed to security exploits that could lead to denial of service attacks and other security compromises.",
+  "rootCause": "Outdated dependencies in the admin-tools Docker image, including golang.org/x/net/html (v0.31.0), golang.org/x/net/http/httpproxy (v0.35.0), and database packages.",
+  "proposedFix": "Update vulnerable dependencies to fixed versions: golang.org/x/net/html to 0.33.0, golang.org/x/net/http/httpproxy to 0.36.0, MariaDB to 11.4.5-r0, PostgreSQL to 17.4-r0, and expat to 2.7.0-r0.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are several CVEs found from the latest Temporal image: temporalio/admin-tools:1.27.1-tctl-1.18.2-cli-1.3.0",
+  "number": 7481,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:18:43.128Z"
+}

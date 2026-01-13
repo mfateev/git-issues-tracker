@@ -1,0 +1,31 @@
+{
+  "summary": "Split resource limit exceeded errors into user-facing and internal-facing error types. User-facing errors should not be retried, while internal errors should be retried and eventually converted to unavailable errors.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "error-handling",
+    "resource-limits",
+    "retry-logic"
+  ],
+  "concepts": [
+    "resource-limits",
+    "error-classification",
+    "retry-behavior",
+    "internal-errors",
+    "user-facing-errors",
+    "unavailable-error"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive clearer error messages that distinguish between user-caused resource limit errors and transient internal errors, improving error handling and retry logic.",
+  "rootCause": null,
+  "proposedFix": "Separate resource limit exceed errors into two types: user-facing (non-retriable) and internal-facing (retriable, eventually becomes unavailable)",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Split resource limit exceed into user facing & internal facing error types",
+  "number": 1966,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:44.694Z"
+}

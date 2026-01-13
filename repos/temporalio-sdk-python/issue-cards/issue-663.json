@@ -1,0 +1,35 @@
+{
+  "summary": "User requests activity-specific worker tuning to control concurrency per activity type rather than globally, allowing better rate limit management for activities calling external APIs. The current WorkerTuner only supports per-task-queue tuning, which requires deploying separate workers for each activity type.",
+  "category": "feature",
+  "subcategory": "worker-tuning",
+  "apis": [
+    "WorkerTuner"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-queue",
+    "slot-supplier"
+  ],
+  "concepts": [
+    "concurrency-control",
+    "rate-limiting",
+    "activity-tuning",
+    "resource-management",
+    "worker-scaling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users managing rate-limited external API activities must deploy separate workers for each activity type, increasing operational complexity and DevOps overhead.",
+  "rootCause": "Temporal distributes work at the task queue level, not activity name level, so slots cannot be reserved per-activity. Concurrency control mechanisms (WorkerTuner, slots) operate at task queue granularity.",
+  "proposedFix": "Implement activity-specific slot allocation or expand WorkerTuner to support per-activity tuning configuration.",
+  "workaround": "Use separate task queues (separate workers) for activities needing independent concurrency limits, or implement a mutex workflow pattern to gate activity scheduling.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer explained that Temporal's architecture distributes work at task queue level, not activity level. Recommended using separate task queues or mutex workflows instead.",
+  "related": [
+    559
+  ],
+  "keyQuote": "A slot is a reserved spot to request work from a task queue from the server. The activity name is not known at slot reservation time.",
+  "number": 663,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:17:40.390Z"
+}

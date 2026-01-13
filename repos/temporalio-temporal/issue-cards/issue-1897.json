@@ -1,0 +1,30 @@
+{
+  "summary": "User asks whether calling CompleteActivity multiple times via a message broker with at-least-once delivery is idempotent, and what happens on the second call.",
+  "category": "question",
+  "subcategory": "activity-completion",
+  "apis": [
+    "CompleteActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "client"
+  ],
+  "concepts": [
+    "idempotency",
+    "at-least-once-delivery",
+    "message-broker",
+    "duplicate-requests"
+  ],
+  "severity": "low",
+  "userImpact": "Users integrating with message brokers need to understand whether repeated CompleteActivity calls are safe or will fail.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Clarified that second call returns NotFound error, establishing that CompleteActivity is not idempotent",
+  "related": [],
+  "keyQuote": "Second call would received a NotFound error.",
+  "number": 1897,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:20:47.985Z"
+}

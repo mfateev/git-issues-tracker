@@ -1,0 +1,33 @@
+{
+  "summary": "CancellationScope.nonCancellable does not prevent cancellation when a condition has a timeout, allowing CancelledFailure to propagate into the nonCancellable scope. The root issue is that timeouts are implemented via a cancellable CancellationScope that inherits cancellation from parent scopes even when nested inside a nonCancellable scope.",
+  "category": "bug",
+  "subcategory": "cancellation-scope",
+  "apis": [
+    "CancellationScope",
+    "condition"
+  ],
+  "components": [
+    "cancellation-scope",
+    "condition",
+    "scope-propagation"
+  ],
+  "concepts": [
+    "cancellation",
+    "timeout",
+    "scope-nesting",
+    "error-propagation",
+    "workflow-cleanup"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reliably use conditions with timeouts inside nonCancellable scopes, breaking expected behavior during cleanup operations and preventing proper cancellation control.",
+  "rootCause": "The timeout feature in condition is implemented through a cancellable CancellationScope that inherits cancellation from parent scopes, bypassing the nonCancellable boundary. The root scope propagates cancellation to all cancellable scopes even when nested inside nonCancellable scopes.",
+  "proposedFix": "Add an option to disable automatic cancellation propagation from parent scopes, or ensure nonCancellable scopes properly isolate their children from parent cancellation.",
+  "workaround": "Use Promise.race with a sleep timer instead of condition timeout, combined with checking parent scope cancellability.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "a cancellable CancellationScope cancels when any of its parent scope cancels, even when the parent is nonCancellable",
+  "number": 1423,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:45:03.234Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "IdentityInPendingActivityTest#testPendingActivityHasIdentity flakes intermittently in both in-memory and dockerized server environments during CI builds.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "activity-pending",
+    "in-memory-server",
+    "docker-server"
+  ],
+  "concepts": [
+    "flakiness",
+    "test-reliability",
+    "pending-activity",
+    "identity",
+    "ci-builds"
+  ],
+  "severity": "medium",
+  "userImpact": "Unreliable test suite causes false CI failures and reduces confidence in build validation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through test reliability improvements",
+  "related": [],
+  "keyQuote": "IdentityInPendingActivityTest.testPendingActivityHasIdentity flakes for both I'm-memory and dockerized service in buildkite.",
+  "number": 793,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:42:09.600Z"
+}

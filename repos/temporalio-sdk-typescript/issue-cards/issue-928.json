@@ -1,0 +1,38 @@
+{
+  "summary": "Jest detects open handles from neon threadsafe functions when using TestWorkflowEnvironment and MockActivityEnvironment, preventing Jest from exiting cleanly even after teardown.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "TestWorkflowEnvironment",
+    "Worker",
+    "Runtime",
+    "MockActivityEnvironment"
+  ],
+  "components": [
+    "testing",
+    "core-bridge",
+    "runtime",
+    "worker"
+  ],
+  "concepts": [
+    "handle-cleanup",
+    "test-environment",
+    "async-termination",
+    "resource-management",
+    "Jest-integration",
+    "native-bindings",
+    "threadsafe-function"
+  ],
+  "severity": "medium",
+  "userImpact": "Tests fail to exit cleanly when using Temporal testing utilities, causing Jest to report open handles and potentially blocking CI/CD pipelines.",
+  "rootCause": "Neon threadsafe functions from core-bridge are not properly cleaned up when Runtime or test environments are torn down, leaving handles open that Jest detects.",
+  "proposedFix": null,
+  "workaround": "Call `await Runtime._instance?.shutdown()` or `await Runtime.getInstance().shutdown()` in afterAll, or keep a reference to the worker.run() promise and await it after worker.shutdown().",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Jest has detected the following 1 open handle potentially keeping Jest from exiting: ● neon threadsafe function",
+  "number": 928,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:23:50.802Z"
+}

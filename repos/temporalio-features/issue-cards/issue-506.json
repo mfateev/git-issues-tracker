@@ -1,0 +1,30 @@
+{
+  "summary": "Users cannot replay workflows past the last WORKFLOW_TASK_COMPLETED event, making it difficult to debug workflow task failures. The feature request asks for replay capability beyond the last successful task completion.",
+  "category": "feature",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replayer",
+    "workflow-task",
+    "history"
+  ],
+  "concepts": [
+    "replay",
+    "debugging",
+    "workflow-task-completion",
+    "history",
+    "failure-analysis"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot effectively debug workflow task failures without the ability to replay past the last successful task completion.",
+  "rootCause": "The replayer is limited to replaying only tasks with associated WORKFLOW_TASK_COMPLETED events in the history.",
+  "proposedFix": "Extend replay capability to work past the last workflow task completion, potentially adjusting the isReplaying flag behavior and handling commands generated after history ends.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Make it possible to \"replay\" past the last workflow task completion.",
+  "number": 506,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:32.811Z"
+}

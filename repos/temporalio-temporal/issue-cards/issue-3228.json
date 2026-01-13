@@ -1,0 +1,31 @@
+{
+  "summary": "Users need a way to add metadata (names/labels) to timers to make them distinguishable in the Temporal UI. Currently timers are displayed generically (e.g., 'Timer 37()'), making it difficult to identify which timer corresponds to which part of the workflow when multiple timers exist.",
+  "category": "feature",
+  "subcategory": "timer-metadata",
+  "apis": [],
+  "components": [
+    "timer",
+    "ui",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "metadata",
+    "naming",
+    "observability",
+    "workflow-debugging",
+    "timer-identification",
+    "ui-readability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users struggle to identify and debug multiple timers in workflows, reducing visibility into workflow execution and making it harder to troubleshoot timer-related issues.",
+  "rootCause": null,
+  "proposedFix": "Add metadata field (such as a name or label) to Timer that displays in the UI alongside the timer ID to provide human-readable context.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A way to add metadata to the Timer. Say adding a name or something that would help readability in the UI.",
+  "number": 3228,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:20.824Z"
+}

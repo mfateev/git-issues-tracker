@@ -1,0 +1,30 @@
+{
+  "summary": "Proposal to wrap Core globals within a CoreRuntime singleton pattern in the Ruby SDK to better manage core runtime lifecycle and dependencies.",
+  "category": "feature",
+  "subcategory": "core-runtime",
+  "apis": [],
+  "components": [
+    "core-runtime",
+    "ruby-sdk",
+    "globals"
+  ],
+  "concepts": [
+    "singleton",
+    "lifecycle-management",
+    "core-globals",
+    "runtime-initialization",
+    "dependency-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users would benefit from cleaner core runtime management and better control over lifecycle dependencies.",
+  "rootCause": null,
+  "proposedFix": "Implement a CoreRuntime singleton to wrap Core globals instead of using raw global variables.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The CoreRuntime singleton pattern was implemented to properly manage core runtime globals in the Ruby SDK.",
+  "related": [],
+  "keyQuote": "Wrap Core globals within a `CoreRuntime` singleton in Ruby",
+  "number": 31,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:39:18.245Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for the new Worker Versioning API to .NET SDK by implementing annotations on workflows. This feature request references the Go SDK implementation and design specifications for consistent cross-language support.",
+  "category": "feature",
+  "subcategory": "worker-versioning",
+  "apis": [],
+  "components": [
+    "workflow",
+    "annotations",
+    "worker"
+  ],
+  "concepts": [
+    "versioning",
+    "api-design",
+    "worker-versioning",
+    "cross-language-consistency",
+    "sdk-feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to leverage new worker versioning capabilities in .NET applications, enabling safer deployment and version management strategies.",
+  "rootCause": null,
+  "proposedFix": "Add workflow annotations to support the new versioning APIs as designed in the cross-language specification document and implemented in the Go SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with support for worker versioning API annotations in the .NET SDK.",
+  "related": [
+    548
+  ],
+  "keyQuote": "We need to add annotations to workflows to support the new versioning APIs. Refer to temporalio/features#548 for the Go equivalents.",
+  "number": 437,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:24:31.469Z"
+}

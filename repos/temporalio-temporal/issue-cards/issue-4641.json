@@ -1,0 +1,30 @@
+{
+  "summary": "Flaky test that fails intermittently due to index out of range panic in TestUpdateWorkflow_NormalScheduledWorkflowTask_AcceptComplete. The test fails approximately once every 10 runs, suggesting a race condition or timing issue in workflow task processing.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "workflow-task-processor",
+    "task-poller",
+    "integration-tests"
+  ],
+  "concepts": [
+    "flaky-test",
+    "race-condition",
+    "index-bounds",
+    "workflow-update",
+    "test-reliability"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience intermittent test failures that reduce confidence in the test suite and can block CI/CD pipelines.",
+  "rootCause": "Index out of range panic suggests the expected workflow task list is empty when accessed, likely due to a race condition or timing issue in task polling.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved through fixes to the workflow update task handling logic to ensure proper synchronization and prevent race conditions.",
+  "related": [],
+  "keyQuote": "panic: runtime error: index out of range [0] with length 0",
+  "number": 4641,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:38.937Z"
+}

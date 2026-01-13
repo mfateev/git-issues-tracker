@@ -1,0 +1,29 @@
+{
+  "summary": "Task queue partition names are being written to event history instead of the actual task queue names in some cases, appearing as '/_sys/myTaskQueueName/2' instead of just the queue name. While workflows still process correctly, this causes confusion when viewing event history.",
+  "category": "bug",
+  "subcategory": "task-queue",
+  "apis": [],
+  "components": [
+    "history",
+    "task-queue",
+    "event-history"
+  ],
+  "concepts": [
+    "task-queue-partitioning",
+    "event-history",
+    "data-consistency",
+    "visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see confusing partition names in event history instead of the actual task queue names, potentially causing misunderstanding of their workflows.",
+  "rootCause": "The service is writing task queue partition references instead of the base task queue name to event history, likely in workflowTaskHandlerCallbacks.go and workflow_task_state_machine.go.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "taskQueue name exposed as partition like '/_sys/myTaskQueueName/2' - confusing in event history but does not fail workflow task execution",
+  "number": 4557,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:03.068Z"
+}

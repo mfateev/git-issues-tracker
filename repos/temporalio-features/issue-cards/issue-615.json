@@ -1,0 +1,42 @@
+{
+  "summary": "Add retry policy information to activity info exposed to activities, similar to how it's available for workflows. The retry policy can be updated in future features but only applies to successive tasks, not the current one.",
+  "category": "feature",
+  "subcategory": "activity-info",
+  "apis": [
+    "ActivityInfo",
+    "GetInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "info-provider",
+    "proto-binding"
+  ],
+  "concepts": [
+    "retry-policy",
+    "activity-info",
+    "task-configuration",
+    "failure-handling",
+    "metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently access retry policy information within their activity implementations, limiting their ability to understand task failure handling behavior.",
+  "rootCause": null,
+  "proposedFix": "Expose retry policy on activity info the same way it is exposed for workflows through proto and core bindings.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1919,
+    2481,
+    1680,
+    831,
+    457,
+    248,
+    602,
+    6502
+  ],
+  "keyQuote": "Retry policy is available via proto (and core) on activity tasks, need to make it available for activities the same way it is available for workflows.",
+  "number": 615,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:43:57.854Z"
+}

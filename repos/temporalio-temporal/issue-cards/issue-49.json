@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add TLS support for MySQL database connections. This enhancement was implemented to support secure database communication for both MySQL and PostgreSQL.",
+  "category": "feature",
+  "subcategory": "database-security",
+  "apis": [],
+  "components": [
+    "persistence",
+    "mysql-driver",
+    "database-connection"
+  ],
+  "concepts": [
+    "tls",
+    "encryption",
+    "database-security",
+    "mysql",
+    "postgresql",
+    "secure-connection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now establish encrypted TLS connections to MySQL databases, improving security for Temporal Server deployments.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "TLS support was implemented for both MySQL and PostgreSQL as confirmed in the resolution comment.",
+  "related": [],
+  "keyQuote": "TLS for both mysql & postgresql are supported",
+  "number": 49,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T11:29:59.042Z"
+}

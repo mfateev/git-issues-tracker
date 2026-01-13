@@ -1,0 +1,29 @@
+{
+  "summary": "Implement a From trait conversion to pass WorkerResult from Rust into Ruby using interop. This is a technical infrastructure issue for the Ruby SDK's Rust bridge layer.",
+  "category": "feature",
+  "subcategory": "ruby-interop",
+  "apis": [],
+  "components": [
+    "ruby-bridge",
+    "worker",
+    "ffi"
+  ],
+  "concepts": [
+    "interop",
+    "rust-to-ruby",
+    "type-conversion",
+    "worker-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables proper data passing between Rust runtime and Ruby code through standardized conversion traits.",
+  "rootCause": null,
+  "proposedFix": "Implement `impl From<WorkerResult>` for Ruby interop layer",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "From trait implementation was added to enable WorkerResult passing to Ruby",
+  "related": [],
+  "keyQuote": "Pass WorkerResult into Ruby land using `impl From<WorkerResult>`",
+  "number": 95,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:55.997Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add application_name to PostgreSQL connection string to enable database logging and metrics to identify the Temporal application. This provides better observability for database operations.",
+  "category": "feature",
+  "subcategory": "postgres-connection",
+  "apis": [],
+  "components": [
+    "postgres-plugin",
+    "sql-persistence",
+    "connection-pool"
+  ],
+  "concepts": [
+    "database-observability",
+    "application-identification",
+    "connection-string",
+    "logging",
+    "metrics"
+  ],
+  "severity": "low",
+  "userImpact": "Users can better track and monitor Temporal application database activity through PostgreSQL logs and metrics.",
+  "rootCause": null,
+  "proposedFix": "Set the application_name parameter in the PostgreSQL connection string configuration in the postgresql plugin.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by pull request #1214",
+  "related": [
+    1214
+  ],
+  "keyQuote": "Setting application_name informs the database. The value may be used in logs and metrics, depending on the DB implementation.",
+  "number": 1208,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:50.179Z"
+}

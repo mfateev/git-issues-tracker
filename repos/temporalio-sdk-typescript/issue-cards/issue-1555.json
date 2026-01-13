@@ -1,0 +1,36 @@
+{
+  "summary": "The `patched()` function always returns true inside signal handlers, causing all workflows to use the new signal flow instead of respecting version compatibility. This was a bug in SDK version 1.8.0-1.8.5 that prevented proper A/B testing of workflow changes.",
+  "category": "bug",
+  "subcategory": "signal-patching",
+  "apis": [
+    "setHandler",
+    "defineSignal",
+    "patched"
+  ],
+  "components": [
+    "workflow-runtime",
+    "signal-handler",
+    "versioning-system"
+  ],
+  "concepts": [
+    "patching",
+    "workflow-versioning",
+    "backward-compatibility",
+    "signal-handling",
+    "version-migration"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying workflow changes with signal modifications cannot safely roll out new versions without affecting existing workflow instances.",
+  "rootCause": "A bug in the patched() implementation when called within signal handlers that caused it to always evaluate to true regardless of the patch ID or workflow history.",
+  "proposedFix": null,
+  "workaround": "Upgrade to SDK version 1.8.6 or later where the bug was fixed.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in SDK version 1.8.6 as part of a broader patching system fix.",
+  "related": [
+    1234
+  ],
+  "keyQuote": "I think you are most likely hitting a bug that was fixed in 1.8.5 (see #1234). Can you please try this with TS SDK v1.11.3?",
+  "number": 1555,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:21.030Z"
+}

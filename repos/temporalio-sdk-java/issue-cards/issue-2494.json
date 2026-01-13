@@ -1,0 +1,36 @@
+{
+  "summary": "Test server is not displaying user metadata (summary/details) for workflow start in the EVENT_TYPE_WORKFLOW_EXECUTION_STARTED history event. The issue also needs verification that child workflows properly propagate this metadata.",
+  "category": "bug",
+  "subcategory": "test-server",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "test-server",
+    "history-event",
+    "workflow-execution",
+    "metadata-propagation"
+  ],
+  "concepts": [
+    "user-metadata",
+    "workflow-start",
+    "history-events",
+    "test-framework",
+    "child-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows on the test server cannot verify that workflow start metadata is properly recorded in execution history, hindering testing and debugging.",
+  "rootCause": "User metadata is not being captured or displayed in the workflow execution started event on the test server.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed, likely as part of or related to issue #2441 mentioned in the bug report.",
+  "related": [
+    2441,
+    851
+  ],
+  "keyQuote": "Workflow start with summary/details on test server should show this in user metadata of EVENT_TYPE_WORKFLOW_EXECUTION_STARTED event but it is not.",
+  "number": 2494,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:15.886Z"
+}

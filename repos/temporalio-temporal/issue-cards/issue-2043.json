@@ -1,0 +1,35 @@
+{
+  "summary": "ParentClosePolicy is ignored when a parent workflow in one namespace starts a child workflow in a different namespace, even though the parent info is correctly recorded. The policy works correctly when both workflows are in the same namespace.",
+  "category": "bug",
+  "subcategory": "parent-close-policy",
+  "apis": [
+    "ChildWorkflowOptions",
+    "StartWorkflow"
+  ],
+  "components": [
+    "parentclosepolicy",
+    "worker",
+    "cross-namespace"
+  ],
+  "concepts": [
+    "namespace",
+    "parent-child-workflows",
+    "policy-enforcement",
+    "task-routing",
+    "workflow-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably control child workflow termination behavior when children are in different namespaces than their parents, breaking cross-namespace workflow coordination patterns.",
+  "rootCause": "The parentclosepolicy workflow service uses request.Namespace instead of execution.Namespace when checking cross-namespace child workflows, causing it to fail the namespace comparison check.",
+  "proposedFix": "Change request.Namespace to execution.Namespace in the parentclosepolicy/workflow.go logic to correctly match the child's namespace.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #2224",
+  "related": [
+    2224
+  ],
+  "keyQuote": "The ParentClosePolicy setting however seems to be ignored completely in this case (if set in ChildWorkflowOptions by parent).",
+  "number": 2043,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:22:24.626Z"
+}

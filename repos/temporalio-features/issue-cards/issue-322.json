@@ -1,0 +1,46 @@
+{
+  "summary": "Feature request to allow users configure which exception types should fail workflows versus tasks across SDKs. Go and Java partially implement this; Java, TypeScript, and Python still need worker-level configuration options.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "WorkflowPanicPolicy",
+    "RegisterOptions",
+    "WorkerOptions",
+    "WorkflowImplementationOptions",
+    "WorkerConfig",
+    "WorkflowAttribute"
+  ],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "error-handling",
+    "task-failure"
+  ],
+  "concepts": [
+    "exception-types",
+    "failure-handling",
+    "nondeterminism",
+    "workflow-failure",
+    "task-failure",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot consistently control which exceptions fail the entire workflow versus just the current task, leading to different failure semantics across SDKs.",
+  "rootCause": "Inconsistent implementation across SDKs of which exception types should trigger workflow-level failures rather than task failures.",
+  "proposedFix": "Add configurable exception type options to Worker and Workflow definition APIs across all SDKs (Go, Java, TS, Python, .NET, Core).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1387,
+    1987,
+    656,
+    1358,
+    446,
+    166
+  ],
+  "keyQuote": "We need to let users choose what fails the workflow vs what just fails the task today. Go and Java already have some form of this.",
+  "number": 322,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:37.578Z"
+}

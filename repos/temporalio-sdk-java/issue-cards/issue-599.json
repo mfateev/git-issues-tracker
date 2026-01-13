@@ -1,0 +1,32 @@
+{
+  "summary": "MDC (Mapped Diagnostic Context) entries like WorkflowId and RunId were not being propagated to LocalActivities, causing logging context information to be missing when local activities were invoked. The ActivityWorker had MDC setup code that was absent in LocalActivityWorker.",
+  "category": "bug",
+  "subcategory": "local-activities",
+  "apis": [],
+  "components": [
+    "LocalActivityWorker",
+    "ActivityWorker",
+    "MDC"
+  ],
+  "concepts": [
+    "logging",
+    "context-propagation",
+    "diagnostic-context",
+    "local-activities",
+    "workflow-context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access workflow context information (WorkflowId, RunId) in logs from local activities, making debugging and tracing execution flow difficult.",
+  "rootCause": "LocalActivityWorker.handle() method was missing MDC setup code that was present in ActivityWorker, preventing context propagation to local activity threads.",
+  "proposedFix": "Add the MDC setup section from ActivityWorker (line 182) to LocalActivityWorker.handle() method",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "This was a duplicate of issue #489 which had already been fixed. A unit test was added to verify MDC propagation to local activities.",
+  "related": [
+    489
+  ],
+  "keyQuote": "This a duplicate of https://github.com/temporalio/sdk-java/issues/489 and it's fixed. We also have a unit test checking exactly MDC propagation to local activities",
+  "number": 599,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:26:58.318Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to skip re-executing completed activities when a workflow is retried due to failure. Currently, Temporal replays all activities from the beginning on workflow retry, causing duplicate side effects in external systems for activities with non-reversible effects.",
+  "category": "feature",
+  "subcategory": "workflow-retry",
+  "apis": [
+    "StartWorkflowOptions",
+    "RetryPolicy",
+    "ResetWorkflowExecution"
+  ],
+  "components": [
+    "workflow-retry-policy",
+    "event-history-replay",
+    "activity-execution"
+  ],
+  "concepts": [
+    "replay",
+    "idempotency",
+    "side-effects",
+    "retry-policy",
+    "event-history",
+    "workflow-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users with non-reversible external side effects cannot safely retry workflows without manual intervention to clean up duplicate records.",
+  "rootCause": "Workflow retry mechanism replays entire event history including completed activities, without option to skip already-completed steps.",
+  "proposedFix": "Add ReplayOnRetry flag to RetryPolicy that skips re-execution of already-completed activities and resumes from the point of last failure.",
+  "workaround": "Manual deletion of external records before retry, or making all activities idempotent to handle duplicate execution.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed with recommendation to implement idempotent activities as per Temporal best practices, rather than adding workflow-level replay skip feature.",
+  "related": [],
+  "keyQuote": "Temporal strongly recommends that Activities be idempotent. This activity may be retried for many reasons other than workflow retry policy.",
+  "number": 8901,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:29:41.266Z"
+}

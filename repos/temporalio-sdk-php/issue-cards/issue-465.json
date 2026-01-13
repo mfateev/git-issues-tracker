@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow users to set search attributes during dev server startup in the PHP SDK, with the attributes translating to --search-attribute CLI calls.",
+  "category": "feature",
+  "subcategory": "dev-server-configuration",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "cli-integration",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "dev-server",
+    "configuration",
+    "startup-options",
+    "cli-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users can configure search attributes when starting the dev server, improving developer workflow and testing flexibility.",
+  "rootCause": null,
+  "proposedFix": "Add search attributes option to dev server startup that translates to --search-attribute CLI calls, following the pattern established in temporalio/cli#593.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to accept search attributes in dev server startup configuration.",
+  "related": [
+    494
+  ],
+  "keyQuote": "users should be allowed to set search attributes in dev server option that translate to `--search-attribute` calls",
+  "number": 465,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:32:19.544Z"
+}

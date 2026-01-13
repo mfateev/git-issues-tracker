@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to implement environment configuration for the TypeScript SDK, following the pattern defined in the external client configuration proposal for all SDKs.",
+  "category": "feature",
+  "subcategory": "configuration",
+  "apis": [],
+  "components": [
+    "client",
+    "configuration",
+    "environment"
+  ],
+  "concepts": [
+    "environment-variables",
+    "configuration-management",
+    "external-client",
+    "sdk-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack a standardized way to configure the TypeScript SDK through environment variables, making setup and deployment configuration more difficult.",
+  "rootCause": null,
+  "proposedFix": "Implement environment configuration following the pattern defined in the external client configuration proposal (temporalio/proposals).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented following the cross-SDK external client configuration proposal guidelines.",
+  "related": [
+    441
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/441 and https://github.com/temporalio/proposals/blob/master/all-sdk/external-client-configuration.md",
+  "number": 1727,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:11.479Z"
+}

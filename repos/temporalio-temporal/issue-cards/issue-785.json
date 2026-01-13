@@ -1,0 +1,30 @@
+{
+  "summary": "Request to enable direct invocation of activities outside of workflows for better interactive development experience, particularly for specialized hardware setups and dynamic testing against staging/production clusters.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "runtime"
+  ],
+  "concepts": [
+    "activity-invocation",
+    "development-experience",
+    "interactive-development",
+    "specialized-hardware",
+    "staging-deployment"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using specialized hardware (GPU hosts) and working with Ruby/Python SDKs need direct activity invocation for improved interactive development workflows without workflow context.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow-less activity execution capability that allows direct activity invocation against staging/production clusters.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Ability to directly invoke an activity out side of workflows",
+  "number": 785,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:28.956Z"
+}

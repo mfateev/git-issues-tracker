@@ -1,0 +1,31 @@
+{
+  "summary": "Enhancement request to support alternative concurrency models in the Java SDK: Kotlin coroutines (suspend functions) for workflows/activities, and virtual threads for Java 21+. Community is interested in first-class coroutine support to improve context propagation and ease of use in Kotlin.",
+  "category": "feature",
+  "subcategory": "concurrency-models",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "activity-execution",
+    "concurrency-framework"
+  ],
+  "concepts": [
+    "coroutines",
+    "virtual-threads",
+    "concurrency",
+    "kotlin-integration",
+    "context-propagation",
+    "async-primitives"
+  ],
+  "severity": "medium",
+  "userImpact": "Kotlin developers struggle with context propagation and cancellation when using the SDK, making Kotlin support unnecessarily complex and hindering adoption.",
+  "rootCause": null,
+  "proposedFix": "Abstract workflow concurrency implementation, add Kotlin coroutine support as suspend functions, create Java 21+ virtual-threads project for virtual thread-based concurrency.",
+  "workaround": "Currently must manually bridge workflow/activity context thread locals into coroutine context for proper context propagation in Kotlin.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The problem with using Temporal Java SDK in Kotlin is we have to bridge the workflow/activity context thread locals into a coroutine context for proper context propagation and cancellation",
+  "number": 1845,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:49:05.776Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add a tctl command for removing/deleting namespaces. Currently, users cannot delete namespaces and must drop the entire temporal database to start fresh, which hinders experimentation and learning.",
+  "category": "feature",
+  "subcategory": "namespace-management",
+  "apis": [],
+  "components": [
+    "tctl",
+    "namespace-service",
+    "database"
+  ],
+  "concepts": [
+    "namespace-deletion",
+    "namespace-deprecation",
+    "experimentation",
+    "learning-curve",
+    "database-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users learning Temporal cannot easily delete namespaces to experiment with naming strategies without dropping the entire database.",
+  "rootCause": null,
+  "proposedFix": "Add a tctl command to remove/delete namespaces",
+  "workaround": "Drop the temporal database and recreate it using schema migration tools",
+  "resolution": "fixed",
+  "resolutionDetails": "Namespace deletion capability was implemented and tracked alongside namespace deprecation features in issue #1679",
+  "related": [
+    1679
+  ],
+  "keyQuote": "the ability to rename or delete namespaces is pretty important in that sense to make experimentation cheaper",
+  "number": 1626,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:15:35.797Z"
+}

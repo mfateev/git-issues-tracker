@@ -1,0 +1,30 @@
+{
+  "summary": "Installation of temporalio package fails on Python 3.11 Alpine Linux due to missing protoc-wheel-0 dependency. The SDK maintainers do not provide pre-built Alpine/musl binaries, requiring users to build from source.",
+  "category": "bug",
+  "subcategory": "installation",
+  "apis": [],
+  "components": [
+    "build-system",
+    "dependency-resolution",
+    "protoc-wheel"
+  ],
+  "concepts": [
+    "alpine-linux",
+    "musl-compatibility",
+    "binary-wheels",
+    "docker-base-image",
+    "build-dependencies"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot install temporalio on Alpine-based Python Docker images without building from source, limiting adoption of this popular lightweight base image.",
+  "rootCause": "SDK does not distribute pre-built wheels for musl/Alpine Linux, and build process requires protoc-wheel-0 which is not available for Alpine environments.",
+  "proposedFix": null,
+  "workaround": "Build the SDK from source following the build instructions in the repository README.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We do not provide Alpine/musl builds in PyPI. You will have to build the SDK yourself.",
+  "number": 622,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:15:35.819Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "ChildWorkflowHandle lacks a `.cancel()` method despite JSDoc claiming it can cancel workflow execution. Users must work around this limitation when needing to cancel child workflows created with `startChild()`.",
+  "category": "bug",
+  "subcategory": "child-workflow-handle",
+  "apis": [
+    "startChild",
+    "ChildWorkflowHandle",
+    "WorkflowHandle"
+  ],
+  "components": [
+    "workflow-client",
+    "child-workflow-handle",
+    "api"
+  ],
+  "concepts": [
+    "cancellation",
+    "child-workflow",
+    "workflow-handle",
+    "method-missing",
+    "api-consistency",
+    "user-expectation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot cancel child workflows using the expected `.cancel()` method, forcing them to find alternative approaches or workarounds.",
+  "rootCause": "The ChildWorkflowHandle type definition does not include the cancel() method implementation, despite the JSDoc documentation claiming this capability.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tracking issue #740 created to address the missing cancel() method on ChildWorkflowHandle.",
+  "related": [
+    740
+  ],
+  "keyQuote": "there is no `cancel()` method on the `ChildWorkflowHandle` like there is for a `WorkflowHandle<T>`",
+  "number": 1114,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:13.755Z"
+}

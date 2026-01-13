@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add a soft workflow timeout mechanism that sends cancellation requests instead of hard termination, allowing workflows to perform cleanup operations. Currently RunTimeout terminates workflows abruptly, forcing users to implement custom timer-based business logic for cleanup.",
+  "category": "feature",
+  "subcategory": "workflow-timeout",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "timeout-handler",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "cancellation",
+    "cleanup",
+    "graceful-shutdown",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently cannot perform cleanup on workflow timeouts without complex custom timer logic, requiring workarounds to ensure proper resource cleanup.",
+  "rootCause": null,
+  "proposedFix": "Add WorkflowRunCancellationTimeout that sends a cancellation request to the workflow when exceeded instead of immediate termination",
+  "workaround": "Implement custom timer-based business logic within workflows for cleanup operations",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add `WorkflowRunCancellationTimeout` (name is strawman) wich sends a cancellation request to the workflow when exceeded",
+  "number": 1412,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:14:59.930Z"
+}

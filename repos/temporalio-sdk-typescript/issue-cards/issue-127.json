@@ -1,0 +1,34 @@
+{
+  "summary": "Hello World sample workflow doesn't return output message when executed. User follows the Node.js getting started guide but receives no \"Hello, Temporal!\" message output when running the scheduled workflow script, though the workflow appears to run in Temporal Web.",
+  "category": "bug",
+  "subcategory": "getting-started-sample",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "worker",
+    "sample-app",
+    "client"
+  ],
+  "concepts": [
+    "output",
+    "message-return",
+    "workflow-execution",
+    "getting-started",
+    "sample-app"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following the getting-started guide cannot see expected output, making it unclear if the sample is working correctly.",
+  "rootCause": "Package version issue - the temporalio package version 0.2.2 had a bug that was fixed in 0.2.4",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by publishing temporalio@0.2.4 with @temporalio/proto@0.2.2",
+  "related": [
+    128
+  ],
+  "keyQuote": "No message returned when i start the Workflow, running getting started (hello world sample app)",
+  "number": 127,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:39.733Z"
+}

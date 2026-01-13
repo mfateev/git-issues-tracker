@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to simplify plugin creation by providing a function that creates plugins from static configurations (activities, workflows, dataconverter) instead of requiring implementation of multiple interfaces.",
+  "category": "feature",
+  "subcategory": "plugin-system",
+  "apis": [],
+  "components": [
+    "plugin-system",
+    "plugin-factory",
+    "configuration"
+  ],
+  "concepts": [
+    "plugin-creation",
+    "static-configuration",
+    "developer-experience",
+    "abstraction",
+    "simplification"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must implement multiple interfaces to create plugins, making plugin development complex and time-consuming for simple use cases.",
+  "rootCause": null,
+  "proposedFix": "Provide a factory function that creates simple plugins from a set of static configurations instead of requiring full interface implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to simplify plugin creation for common use cases.",
+  "related": [],
+  "keyQuote": "Provide a function for creating a simple plugin from a set of static configurations: activities, workflows, dataconverter, etc.",
+  "number": 1133,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:32.803Z"
+}

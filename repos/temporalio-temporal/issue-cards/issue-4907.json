@@ -1,0 +1,32 @@
+{
+  "summary": "The ListBatchOperations API ignores the pageSize query parameter and returns all batch operations up to the visibility maximum instead of respecting the requested page size.",
+  "category": "bug",
+  "subcategory": "batch-operations-api",
+  "apis": [
+    "ListBatchOperations"
+  ],
+  "components": [
+    "api-server",
+    "batch-operations",
+    "pagination"
+  ],
+  "concepts": [
+    "pagination",
+    "query-parameters",
+    "api-response",
+    "page-size",
+    "filtering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot limit the number of batch operations returned by the API, making it impossible to implement proper pagination in client applications.",
+  "rootCause": "The ListBatchOperations API endpoint is not parsing or respecting the pageSize query parameter when processing requests.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Making a GET request to /api/v1/namespaces/<namespace>/batch-operations?pageSize=5 returns all Batch Operations (up to the visibility maximum page size set via dynamic config)",
+  "number": 4907,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:21.328Z"
+}

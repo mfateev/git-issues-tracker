@@ -1,0 +1,31 @@
+{
+  "summary": "The default maxCachedWorkflows calculation uses V8 heap memory limits but doesn't account for the fact that workflow VM isolates allocate native memory outside the heap, causing unexpected OOM errors in containerized environments where heap limits are set high relative to container limits.",
+  "category": "bug",
+  "subcategory": "memory-management",
+  "apis": [],
+  "components": [
+    "workflow-cache",
+    "vm-isolate",
+    "memory-management"
+  ],
+  "concepts": [
+    "memory-allocation",
+    "heap-vs-native-memory",
+    "containerization",
+    "oom-killer",
+    "resource-limits",
+    "performance-tuning"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpected OOMKill events in Kubernetes when running TypeScript SDK workflows with high maxHeapMemory settings, despite appearing to have sufficient memory available.",
+  "rootCause": "The maxCachedWorkflows calculation formula only considers V8 heap memory (--max-old-space-size) but VM isolates consume native memory outside the heap, making the total memory footprint larger than calculated.",
+  "proposedFix": "Update default calculation to be more conservative or factor in that VM cache memory is additive to heap usage; add logging to warn when calculated maxCachedWorkflows * ~1MB + maxHeapMemory would exceed available system memory.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "VM isolates consume ~2.6GB of NATIVE memory (not heap), Total memory = heap + VM cache + overhead > container limit → OOMKill",
+  "number": 1843,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T08:55:04.396Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add a synchronous getResult() convenience method to UpdateHandle to make the common synchronous use case more usable. Currently requires calling getResultAsync().get() which is verbose for what should be a simple operation.",
+  "category": "feature",
+  "subcategory": "update-handle-api",
+  "apis": [
+    "UpdateHandle",
+    "getResultAsync"
+  ],
+  "components": [
+    "update-handle",
+    "workflow-stub",
+    "sync-api"
+  ],
+  "concepts": [
+    "convenience-method",
+    "sync-async-consistency",
+    "api-usability",
+    "result-retrieval"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using synchronous updates must write verbose boilerplate code to get results, reducing code readability and developer experience.",
+  "rootCause": null,
+  "proposedFix": "Add a getResult() convenience method to UpdateHandle that aliases getResultAsync().get(), following the precedent set by WorkflowStub which has both getResult() and getResultAsync() methods.",
+  "workaround": "Use handle.getResultAsync().get() for synchronous result retrieval.",
+  "resolution": "fixed",
+  "resolutionDetails": "Convenience method getResult() was added to UpdateHandle for synchronous use cases.",
+  "related": [],
+  "keyQuote": "To get the result of the update, you have to do `handle.getResultAsync().get()` Given that updates are mostly used for synchronous use cases, could we make this more convenient?",
+  "number": 2212,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:02:36.420Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to make the Python SDK's 2-second deadlock detection timeout configurable per worker, similar to Go SDK's DeadlockDetectionTimeout option. Request was closed after team discussion concluded that workflows needing longer timeouts should use activities instead.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "deadlock-detection",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timeout",
+    "deadlock-detection",
+    "worker-configuration",
+    "debug-mode",
+    "CPU-bound-operations",
+    "workflow-constraints"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot configure deadlock detection timeout in production and must restructure code or use debug mode for workflows with longer CPU-bound sections.",
+  "rootCause": "Python SDK enforces a fixed 2-second deadlock detection timeout without configuration option, unlike Go SDK which allows customization.",
+  "proposedFix": "Add deadlock_detection_timeout parameter to Worker class accepting timedelta, with default of 2 seconds and option to disable with None or 0.",
+  "workaround": "Run workflows in debug_mode or set TEMPORAL_DEBUG environment variable to disable deadlock detection, or restructure long-running CPU-bound code into activities.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided to keep the timeout fixed by design, as workflows legitimately needing longer timeouts should use activities instead of executing CPU-bound code in workflows.",
+  "related": [],
+  "keyQuote": "If you're doing things that extend the timeout beyond those values, there's a nearly 100% chance that you shouldn't be doing those things in a workflow context.",
+  "number": 1050,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:30:49.889Z"
+}

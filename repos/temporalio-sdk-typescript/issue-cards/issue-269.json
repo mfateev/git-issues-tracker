@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to replace the workDir parameter with a utility function and switch to using nodeModulesPaths array for webpack configuration in the TypeScript SDK Worker. The discussion explores better approaches for resolving workflow and module paths.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "webpack",
+    "module-resolution"
+  ],
+  "concepts": [
+    "path-resolution",
+    "node-modules",
+    "webpack-configuration",
+    "require-resolution",
+    "module-loading"
+  ],
+  "severity": "low",
+  "userImpact": "Users need a clearer, more intuitive API for specifying workflow and node_modules paths when creating workers.",
+  "rootCause": "Current workDir and nodeModulesPath parameters are not intuitive; using require.resolve() would be more ergonomic",
+  "proposedFix": "Use require.resolve('./workflows') to resolve workflow paths instead of manual workDir specification",
+  "workaround": "Users can manually specify nodeModulesPath as an absolute path if the default resolution doesn't work",
+  "resolution": "fixed",
+  "resolutionDetails": "The team converged on using require.resolve() for path resolution, which is simpler than adding utility functions",
+  "related": [],
+  "keyQuote": "even better IMHO: Worker.create({ workflowsPath: require.resolve('./workflows'), activities, taskQueue: 'test' })",
+  "number": 269,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:02:53.566Z"
+}

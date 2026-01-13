@@ -1,0 +1,30 @@
+{
+  "summary": "Convert all mocks in the repository to be generated on-the-fly using mockgen, similar to the gRPC mock generation process. This involves removing unused mocks and organizing generated mocks in a separate package structure.",
+  "category": "other",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "mocks",
+    "test-utilities",
+    "build-system"
+  ],
+  "concepts": [
+    "mock-generation",
+    "code-generation",
+    "testing",
+    "build-process",
+    "package-organization"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduces maintenance burden and build complexity by automating mock generation instead of manually maintaining mocks in the repository.",
+  "rootCause": "Manual maintenance of mocks creates build failures when incompatible mocks are left in the codebase, and mockgen cannot regenerate them properly.",
+  "proposedFix": "Migrate all mocks to be generated on-the-fly using mockgen in source mode, place generated mocks in a separate package/sub-directory.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "All mocks were converted to mockgen and checked into the repo. Source mode of mockgen only parses single files, so separate package organization was not needed.",
+  "related": [],
+  "keyQuote": "All mocks are converted to `mockgen` and checked into the repo.",
+  "number": 172,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:20:55.441Z"
+}

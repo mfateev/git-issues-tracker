@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to make start_update users aware that it's synchronous with the worker. Related to broader SDK awareness issues documented in the features repository.",
+  "category": "feature",
+  "subcategory": "update-workflow",
+  "apis": [
+    "start_update"
+  ],
+  "components": [
+    "update-handler",
+    "worker",
+    "api-documentation"
+  ],
+  "concepts": [
+    "synchronous-execution",
+    "worker-coordination",
+    "user-awareness",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be unaware that start_update is synchronous with the worker, potentially leading to misuse or unexpected behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through documentation or implementation changes to make the synchronous nature of start_update more apparent to users.",
+  "related": [
+    469
+  ],
+  "keyQuote": "Make start_update users aware that it's synchronous w/ worker",
+  "number": 514,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:45.447Z"
+}

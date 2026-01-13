@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose UpdateID in update handlers to allow users to generate unique idempotent primary keys for their update handler logic.",
+  "category": "feature",
+  "subcategory": "update-handler",
+  "apis": [
+    "UpdateID"
+  ],
+  "components": [
+    "update-handler",
+    "sdk-core"
+  ],
+  "concepts": [
+    "idempotency",
+    "update-handler",
+    "unique-identifier",
+    "primary-key"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot currently access UpdateID within update handlers, limiting their ability to implement idempotent request handling.",
+  "rootCause": null,
+  "proposedFix": "Expose UpdateID as an accessible field within update handler context",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "UpdateID was exposed in the update handler implementation",
+  "related": [],
+  "keyQuote": "This will allow users to use it when they want a unique idempotent primary key for handlers",
+  "number": 542,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:07.996Z"
+}

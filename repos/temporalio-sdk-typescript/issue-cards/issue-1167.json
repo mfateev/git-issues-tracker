@@ -1,0 +1,30 @@
+{
+  "summary": "Critical prototype pollution vulnerability (CVE-2023-36665) in protobufjs 7.2.3 transitive dependency with CVSS score of 9.8. Vulnerability allows attackers to pollute Object.prototype through untrusted protobuf message processing.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "protobufjs",
+    "package-dependencies",
+    "dependency-management"
+  ],
+  "concepts": [
+    "prototype-pollution",
+    "security-vulnerability",
+    "dependency-upgrade",
+    "transitive-dependency",
+    "code-execution-risk"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using the SDK are vulnerable to prototype pollution attacks that could lead to arbitrary code execution or data manipulation through specially crafted protobuf messages.",
+  "rootCause": "protobufjs versions 6.10.0 through 7.2.3 allow prototype pollution via Object.constructor.prototype manipulation when parsing untrusted protobuf messages or loading external .proto files.",
+  "proposedFix": "Upgrade protobufjs to version 7.2.4 or later to patch CVE-2023-36665.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was autoclosed by Mend after the vulnerable library was either marked as ignored or removed from the Mend inventory, indicating the vulnerability was addressed.",
+  "related": [],
+  "keyQuote": "protobuf.js (aka protobufjs) 6.10.0 through 7.x before 7.2.4 allows Prototype Pollution...A user-controlled protobuf message can be used by an attacker to pollute the prototype of Object.prototype",
+  "number": 1167,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:36:46.215Z"
+}

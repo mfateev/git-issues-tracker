@@ -1,0 +1,31 @@
+{
+  "summary": "Bulk processor fails when indexing to OpenSearch 2.11 with JSON parse errors due to control characters in serialized data. The root cause was identified as an OpenSearch issue that has been resolved upstream.",
+  "category": "bug",
+  "subcategory": "elasticsearch-integration",
+  "apis": [],
+  "components": [
+    "bulk-processor",
+    "elasticsearch-client",
+    "visibility-store"
+  ],
+  "concepts": [
+    "opensearch",
+    "elasticsearch",
+    "bulk-indexing",
+    "json-serialization",
+    "control-characters",
+    "data-corruption"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use OpenSearch 2.11 for advanced visibility due to bulk processor failures when indexing workflow data.",
+  "rootCause": "OpenSearch 2.11 introduced stricter JSON parsing that rejects control characters in bulk API requests; this was an OpenSearch bug (opensearch-project/OpenSearch#10802) that has been resolved.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Determined to be an OpenSearch issue rather than a Temporal issue. The problem was resolved in OpenSearch upstream.",
+  "related": [],
+  "keyQuote": "looks like that issue on open search is resolved... It seems that it's not a Temporal issue",
+  "number": 5103,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:40.238Z"
+}

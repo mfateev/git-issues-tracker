@@ -1,0 +1,36 @@
+{
+  "summary": "Request to include update handler and ID in logging context for better observability. An example implementation using interceptors is available in the samples.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "UpdateID",
+    "UpdateName"
+  ],
+  "components": [
+    "logger",
+    "interceptors",
+    "logging-context"
+  ],
+  "concepts": [
+    "logging",
+    "observability",
+    "context",
+    "update-handlers",
+    "debugging",
+    "tracing"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily track which update handler is executing in their logs without manual context management.",
+  "rootCause": null,
+  "proposedFix": "Implement built-in logger with interceptors to automatically add UpdateID and UpdateName to logging context, following the pattern shown in samples-php PR #62",
+  "workaround": "Users can implement a custom logger using interceptors as demonstrated in samples-php PR #62",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK does not have a built-in logger yet; users can implement via interceptors as shown in example",
+  "related": [
+    466
+  ],
+  "keyQuote": "We don't have a built-in logger in the SDK yet, but there is an example of a logger using interceptors",
+  "number": 512,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:43.909Z"
+}

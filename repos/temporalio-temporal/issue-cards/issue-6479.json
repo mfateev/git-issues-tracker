@@ -1,0 +1,32 @@
+{
+  "summary": "Web UI returns 404 errors when accessing workflow details from archived workflows in GKE deployment with Google Cloud Storage archival. Multiple users report the same issue when trying to view workflow details despite archival files being present in the bucket.",
+  "category": "bug",
+  "subcategory": "web-ui-archival",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "archival",
+    "gcs-provider",
+    "workflow-visibility"
+  ],
+  "concepts": [
+    "archival",
+    "visibility",
+    "workflow-details",
+    "gke-deployment",
+    "api-endpoint",
+    "http-404"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot view details of archived workflows through the Web UI, making it impossible to access historical workflow information despite successful archival to Google Cloud Storage.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Web UI 404 when accessing detail of workflow id from archival",
+  "number": 6479,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:12:33.972Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "DynamicRateLimiter's Rate() and Burst() functions don't update dynamically after the refresh interval when used as a RateBurst. The rate and burst quotas remain stale even though they should reflect updates made to the limiter.",
+  "category": "bug",
+  "subcategory": "rate-limiting",
+  "apis": [],
+  "components": [
+    "DynamicRateLimiterImpl",
+    "RateBurst",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "dynamic-updates",
+    "refresh-interval",
+    "concurrency",
+    "quota-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on DynamicRateLimiter for dynamic rate control experience stale rate and burst values that don't reflect updates, breaking the expected behavior of adaptive rate limiting.",
+  "rootCause": "The Rate() and Burst() functions are not refreshing their cached values based on the refresh interval updates to the limiter configuration.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    4933
+  ],
+  "keyQuote": "When you use DynamicRateLimiter as just a RateBurst, its rate and burst quotas should update dynamically after the refresh interval. They don't.",
+  "number": 4934,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:59:47.391Z"
+}

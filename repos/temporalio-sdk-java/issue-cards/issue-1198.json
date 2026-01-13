@@ -1,0 +1,33 @@
+{
+  "summary": "WorkflowStub#cancel and #terminate throw StatusRuntimeException instead of WorkflowNotFoundException when a workflow doesn't exist, inconsistent with other WorkflowStub methods like #signal.",
+  "category": "bug",
+  "subcategory": "workflow-management",
+  "apis": [
+    "WorkflowStub#cancel",
+    "WorkflowStub#terminate",
+    "WorkflowStub#signal"
+  ],
+  "components": [
+    "workflow-stub",
+    "grpc-client",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-mapping",
+    "workflow-lifecycle",
+    "error-consistency",
+    "not-found-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably distinguish between workflow not found and other errors when canceling or terminating workflows, requiring manual exception handling for gRPC errors.",
+  "rootCause": "The cancel and terminate methods are not translating gRPC StatusRuntimeException with NOT_FOUND code to WorkflowNotFoundException, unlike other WorkflowStub methods.",
+  "proposedFix": "Wrap cancel and terminate methods to catch StatusRuntimeException with NOT_FOUND code and throw WorkflowNotFoundException instead.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Exception handling was updated to map StatusRuntimeException with NOT_FOUND code to WorkflowNotFoundException for cancel and terminate methods.",
+  "related": [],
+  "keyQuote": "Raw gRPC `StatusRuntimeException` with NOT_FOUND code is thrown.",
+  "number": 1198,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:12:24.608Z"
+}

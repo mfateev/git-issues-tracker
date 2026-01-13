@@ -1,0 +1,30 @@
+{
+  "summary": "Users need a bulk pause feature in the Temporal Web UI to pause multiple schedules at once, rather than pausing each individually. This would improve usability for teams managing dozens or hundreds of schedules, with support for filtering, confirmation prompts, and bulk resume functionality.",
+  "category": "feature",
+  "subcategory": "ui-schedule-management",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "schedule-service",
+    "schedule-manager"
+  ],
+  "concepts": [
+    "bulk-operations",
+    "schedule-pause",
+    "user-efficiency",
+    "maintenance-operations",
+    "ui-selection-mechanism"
+  ],
+  "severity": "medium",
+  "userImpact": "Users managing large numbers of schedules must pause each individually, creating manual overhead and scaling inefficiency during maintenance or debugging operations.",
+  "rootCause": null,
+  "proposedFix": "Implement a checkbox selection mechanism on the Schedules list page with a 'Pause Selected' or 'Pause All' button, including confirmation prompts, logging, filtering capabilities (e.g., by task queue), and corresponding bulk resume functionality.",
+  "workaround": "Use temporal CLI (temporal schedule pause) in a scripted loop for batch operations, though this requires leaving the UI and handling authentication/error-checking manually.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This feature would greatly improve usability for teams managing dozens or hundreds of schedules.",
+  "number": 8247,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:25:25.085Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The temporalio/server:1.23.0 Docker image contains 27 security vulnerabilities (5 high, 19 medium, 3 low), primarily in dependencies like OpenTelemetry gRPC instrumentation, golang.org/x/net HTTP/2, and google.golang.org/grpc that need to be updated to patched versions.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "dependencies",
+    "grpc",
+    "http2",
+    "opentelemetry"
+  ],
+  "concepts": [
+    "security",
+    "cve",
+    "vulnerability",
+    "dependency-management",
+    "docker-security",
+    "http2-dos"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying temporalio/server:1.23.0 are exposed to known security vulnerabilities that could be exploited for denial-of-service attacks and other security compromises.",
+  "rootCause": "Outdated dependencies in the server image: OpenTelemetry gRPC instrumentation v0.36.4/v0.42.0 (fixed in 0.46.0), golang.org/x/net v0.7.0 (fixed in 0.17.0), and google.golang.org/grpc v1.53.0 (fixed in 1.58.3+)",
+  "proposedFix": "Update dependencies to patched versions: otelgrpc ≥0.46.0, golang.org/x/net ≥0.17.0, and google.golang.org/grpc ≥1.56.3",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependencies were updated in later releases to address the CVEs",
+  "related": [],
+  "keyQuote": "There are 27 vulnerabilities found for image temporalio/server:1.23.0, including 5 high, 19 medium and 3 low CVEs",
+  "number": 5740,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:10.125Z"
+}

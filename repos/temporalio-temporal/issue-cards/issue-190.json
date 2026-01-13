@@ -1,0 +1,32 @@
+{
+  "summary": "Request to publish an official Helm Chart for Temporal to enable easy installation, upgrading, and rolling back of Temporal instances. The chart has been created and published, though upgrade and rollback functionality are tracked separately.",
+  "category": "feature",
+  "subcategory": "deployment-helm",
+  "apis": [],
+  "components": [
+    "helm-chart",
+    "deployment",
+    "kubernetes"
+  ],
+  "concepts": [
+    "installation",
+    "upgrade",
+    "rollback",
+    "kubernetes",
+    "deployment-automation",
+    "release-management",
+    "infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now install and manage Temporal instances on Kubernetes using standard Helm workflows, reducing deployment complexity.",
+  "rootCause": null,
+  "proposedFix": "Publish Helm Chart to official repository",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Helm chart published at https://github.com/temporalio/helm-charts; upgrade and rollback scenarios tracked separately",
+  "related": [],
+  "keyQuote": "We now have a helm chart for installing temporal: https://github.com/temporalio/helm-charts",
+  "number": 190,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:22:14.922Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Exception handling in ActivityWorker's failure processing catch block doesn't log the exception or set the task token, potentially swallowing critical failures that occur while handling other failures.",
+  "category": "bug",
+  "subcategory": "activity-error-handling",
+  "apis": [
+    "ActivityExecutionContext"
+  ],
+  "components": [
+    "ActivityWorker",
+    "error-handling",
+    "task-token-management"
+  ],
+  "concepts": [
+    "exception-handling",
+    "error-recovery",
+    "logging",
+    "task-completion",
+    "cancellation"
+  ],
+  "severity": "medium",
+  "userImpact": "Critical failures occurring during error handling in activities may be silently swallowed, making debugging difficult and potentially leaving tasks in an incomplete state.",
+  "rootCause": "The outer catch block in ActivityWorker doesn't properly handle exceptions that occur during failure processing (e.g., during cancellation token callbacks), missing both logging and task token assignment.",
+  "proposedFix": "Log the exception and ensure the task token is set in the outer catch block that handles failures during failure processing.",
+  "workaround": "Wrap cancellation token callbacks in try-catch to prevent exceptions from propagating into the failure handler.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we are not logging nor are we setting the task token... try to fail while processing a failure",
+  "number": 349,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:52:03.306Z"
+}

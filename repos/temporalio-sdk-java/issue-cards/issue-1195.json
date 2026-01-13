@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to support dynamic custom tag values for metrics. Currently custom tags are static and cannot be updated during workflow execution. User requests ability to modify custom tags via Workflow.getMetricsScope().tagged() method based on dynamic inputs.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [
+    "getMetricsScope"
+  ],
+  "components": [
+    "metrics",
+    "workflow-execution",
+    "tags"
+  ],
+  "concepts": [
+    "custom-tags",
+    "dynamic-values",
+    "metrics-instrumentation",
+    "observability",
+    "workflow-context"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot tag metrics with dynamic values derived from workflow inputs, limiting observability and metrics categorization flexibility.",
+  "rootCause": null,
+  "proposedFix": "Ability to modify custom tag values using Workflow.getMetricsScope().tagged() method during workflow execution.",
+  "workaround": "Create custom metrics similar to those already exposed by the SDK instead of using tagged built-in metrics.",
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #1163 and won't fix for now.",
+  "related": [
+    1163
+  ],
+  "keyQuote": "Ability to modify the custom tag using Workflow.getMetricsScope().tagged() method (similarly for Activity too).",
+  "number": 1195,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:12:24.466Z"
+}

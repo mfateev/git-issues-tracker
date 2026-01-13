@@ -1,0 +1,30 @@
+{
+  "summary": "Temporal server hangs indefinitely during startup when using GCP Cloud SQL Proxy sidecar in Kubernetes because the startup script uses an incorrect host parameter that doesn't resolve properly with the proxy.",
+  "category": "bug",
+  "subcategory": "deployment-configuration",
+  "apis": [],
+  "components": [
+    "docker-setup",
+    "database-connectivity",
+    "startup-script"
+  ],
+  "concepts": [
+    "kubernetes",
+    "cloud-sql-proxy",
+    "network-connectivity",
+    "environment-variables",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal to GKE with Cloud SQL Proxy experience indefinite hangs during server startup, requiring configuration workarounds to resolve.",
+  "rootCause": "The startup script checks database connectivity using 'nc -z 5432' (hostname only) instead of 'nc -z localhost:5432' or 'nc -z 127.0.0.1:5432', which doesn't work with the Cloud SQL Proxy configuration. DB_ADDRESS is used by CLI, not the server; the server uses POSTGRES_SEEDS.",
+  "proposedFix": "Update startup script to use 'localhost' or '127.0.0.1' for database connectivity checks, and clarify documentation that POSTGRES_SEEDS (not DB_ADDRESS) controls server database configuration.",
+  "workaround": "Set POSTGRES_SEEDS environment variable to 'localhost' instead of relying on DB_ADDRESS.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was determined to be a user configuration problem - DB_ADDRESS is for CLI only, not the server. Server requires POSTGRES_SEEDS configuration. Closed as the issue was resolved through user education rather than code changes.",
+  "related": [],
+  "keyQuote": "Setting the postgres seed fixed this. It's confusing that DB_ADDRESS doesn't work.",
+  "number": 1451,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:16:37.211Z"
+}

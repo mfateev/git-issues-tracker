@@ -1,0 +1,34 @@
+{
+  "summary": "User seeks clarification on signalWithStart behavior after release notes mentioned throwing WorkflowExecutionAlreadyStartedError. The official documentation suggests it should signal without error if workflow is running, creating confusion about whether this is a regression.",
+  "category": "question",
+  "subcategory": "signal-with-start",
+  "apis": [
+    "signalWithStart",
+    "WorkflowClient"
+  ],
+  "components": [
+    "client",
+    "workflow-signaling"
+  ],
+  "concepts": [
+    "signal-with-start",
+    "workflow-execution",
+    "error-handling",
+    "api-behavior",
+    "release-notes"
+  ],
+  "severity": "low",
+  "userImpact": "Users are confused about the expected behavior of signalWithStart and whether throwing an error on running workflows is intended or a regression.",
+  "rootCause": "Unclear release notes wording combined with documentation that describes different behavior than what was implemented in v1.8.3.",
+  "proposedFix": null,
+  "workaround": "Use workflowIdReusePolicy: WORKFLOW_ID_REUSE_POLICY_ALLOW_DUPLICATE (the default) to avoid the error case.",
+  "resolution": "invalid",
+  "resolutionDetails": "Clarified that signalWithStart should not throw WorkflowExecutionAlreadyStartedError when workflow is running. The error only occurs in rare cases with specific workflowIdReusePolicy settings and non-running workflows.",
+  "related": [
+    1199
+  ],
+  "keyQuote": "In general `signalWithStart` should not throw `WorkflowExecutionAlreadyStartedError`.",
+  "number": 1227,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:38:40.883Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "The temporal-sql-tool is not idempotent - if it fails halfway through execution, re-running the same command fails because some tables were already created. This affects schema migrations from v0 to v1.0 and subsequent version upgrades, forcing users to manually drop and recreate the schema.",
+  "category": "bug",
+  "subcategory": "database-schema-setup",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "auto-setup",
+    "schema-migration"
+  ],
+  "concepts": [
+    "idempotency",
+    "database-initialization",
+    "error-recovery",
+    "version-upgrade",
+    "schema-versioning",
+    "deployment"
+  ],
+  "severity": "high",
+  "userImpact": "Users who experience connection failures or interruptions during schema setup must manually intervene to drop and recreate the database schema rather than simply rerunning the tool.",
+  "rootCause": "The tool attempts to create tables without checking if they already exist, and the auto-setup script exits on errors rather than continuing with schema updates.",
+  "proposedFix": "Make the temporal-sql-tool idempotent by checking if tables/schema versions already exist before attempting creation, and allow schema migration to proceed even if some steps have already been applied.",
+  "workaround": "Manually drop and recreate the schema before retrying the command.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    1370
+  ],
+  "keyQuote": "We should also make sure that v1.0 --> v1.1 upgrade and so on are also idempotent",
+  "number": 1087,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:01:40.955Z"
+}

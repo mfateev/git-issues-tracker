@@ -1,0 +1,35 @@
+{
+  "summary": "User requests a warning when sending unregistered signals to workflows. Currently, handle.signal() succeeds silently even when the workflow has no handler for that signal, making debugging difficult. A warning message should be logged by the Worker to help users identify misspelled signals or missing handler registrations.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [
+    "handle.signal()"
+  ],
+  "components": [
+    "worker",
+    "signal-handler",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "unregistered-signal",
+    "signal-routing",
+    "developer-experience",
+    "debugging",
+    "error-clarity",
+    "workflow-communication"
+  ],
+  "severity": "low",
+  "userImpact": "Users debugging signal handling issues spend time troubleshooting why their signal handlers aren't running when signals are silently ignored.",
+  "rootCause": null,
+  "proposedFix": "Log a warning message when a workflow receives a signal without a registered handler, including common causes (misspelling, missing setHandler call, outdated worker code)",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    51
+  ],
+  "keyQuote": "They likely meant to send a registered signal and are wondering why their signal handler isn't running.",
+  "number": 444,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:09:22.105Z"
+}

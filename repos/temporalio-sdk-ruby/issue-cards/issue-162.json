@@ -1,0 +1,32 @@
+{
+  "summary": "Fiber-based workers hang in Ruby 3.1/3.2 when Queue.push is called from a separate thread, but work correctly in Ruby 3.3+. The issue appears related to changes in Ruby's M:N scheduling model, preventing fibers waiting on queue.pop() from being woken up by pushes from other threads.",
+  "category": "bug",
+  "subcategory": "fiber-workers",
+  "apis": [],
+  "components": [
+    "worker",
+    "fiber-scheduler",
+    "queue-communication"
+  ],
+  "concepts": [
+    "fiber",
+    "threading",
+    "queue",
+    "scheduling",
+    "concurrency",
+    "callback",
+    "M:N-scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Ruby 3.1/3.2 users cannot use fiber-based workers, limiting concurrency improvements to Ruby 3.3+ only.",
+  "rootCause": "Likely related to M:N scheduling changes introduced in Ruby 3.3. Queue.push from a separate thread does not reliably wake up a fiber waiting on queue.pop in Ruby < 3.3, though the exact mechanism is not fully understood.",
+  "proposedFix": "Consider reworking callback logic to use `captured_fiber_scheduler.fiber { queue.push }` instead of pushing from another thread, or investigate alternative methods to wake fibers from other threads.",
+  "workaround": "Restrict fiber-based workers to Ruby 3.3+ only; use thread-based workers for earlier Ruby versions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "in some cases when we have one Ruby thread that pushes to a queue, a fiber that is waiting on queue pop is not woken up",
+  "number": 162,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:43:36.602Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Ruby SDK incorrectly compares workflow update stage enum as integer instead of symbol, causing ArgumentError. The comparison needs to resolve the protobuf enum value before comparison.",
+  "category": "bug",
+  "subcategory": "workflow-update",
+  "apis": [
+    "StartWorkflowUpdate",
+    "ExecuteUpdate"
+  ],
+  "components": [
+    "client-implementation",
+    "workflow-handle",
+    "protobuf-enum-handling"
+  ],
+  "concepts": [
+    "enum-comparison",
+    "type-mismatch",
+    "protobuf-integration",
+    "workflow-lifecycle",
+    "symbol-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot start or execute workflow updates because the SDK crashes with an ArgumentError when comparing enum values.",
+  "rootCause": "Protobuf enums in Ruby are symbols, not integers, but the code compares them as integers using the >= operator against a numeric value.",
+  "proposedFix": "Use Api::Enums::V1::UpdateWorkflowExecutionLifecycleStage.resolve(resp.stage) to properly convert the enum before comparison.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The enum comparison logic was updated to properly resolve protobuf enum values before numeric comparison.",
+  "related": [],
+  "keyQuote": "enums inside protos may be symbols instead of integers, so we were improperly comparing as if it was an integer",
+  "number": 278,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:49:17.545Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Clicking on a runId link from the event history in the Temporal Web UI incorrectly navigates to the list executions view instead of the execution details page for that specific run.",
+  "category": "bug",
+  "subcategory": "web-ui-navigation",
+  "apis": [],
+  "components": [
+    "web-ui",
+    "event-history",
+    "workflow-execution-links"
+  ],
+  "concepts": [
+    "navigation",
+    "execution-details",
+    "runId-linking",
+    "ui-routing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot navigate to execution details by clicking runId links in the event history, requiring manual navigation instead.",
+  "rootCause": "Event history API (getWorkflowExecutionHistoryAsync) returns child workflow events with blank namespace field, preventing proper construction of execution detail links.",
+  "proposedFix": "Fix the API to include namespace in child workflow execution completed events so the web UI can construct proper execution detail links.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #1350 merged to fix the issue by ensuring namespace is properly populated in event history responses.",
+  "related": [
+    1350
+  ],
+  "keyQuote": "To generate the workflow/summary link, you need the namespace, workflow id, and run id. The getWorkflowExecutionHistoryAsync event is returning events with blank namespaces.",
+  "number": 1351,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:45.685Z"
+}

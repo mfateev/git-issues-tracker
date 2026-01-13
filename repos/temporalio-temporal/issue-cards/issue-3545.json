@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow execution updates fail with DBRecordVersion mismatches when workflow history cache is disabled, causing workflows to stall. This occurs at scale (5k workflows) when using disabled history cache, with error messages showing version conflicts in lock checking.",
+  "category": "bug",
+  "subcategory": "workflow-cache",
+  "apis": [],
+  "components": [
+    "history-service",
+    "workflow-execution-store",
+    "lock-mechanism",
+    "transaction-handling"
+  ],
+  "concepts": [
+    "caching",
+    "concurrency-control",
+    "version-mismatch",
+    "database-locking",
+    "workflow-stalling",
+    "memory-optimization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run workflows with disabled history cache as execution updates fail with version conflicts, causing complete workflow stalling at scale.",
+  "rootCause": "DBRecordVersion check fails when history cache is disabled, likely due to concurrent updates not being properly serialized or version tracking being incorrect without cache buffer.",
+  "proposedFix": null,
+  "workaround": "Reduce cache size to a small number (e.g., 32) instead of completely disabling it (set to 0).",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by recommending cache size reduction rather than complete disabling, avoiding the version conflict scenario entirely.",
+  "related": [],
+  "keyQuote": "lockAndCheckExecution failed. DBRecordVersion expected: 7045, actually 7046",
+  "number": 3545,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:48.777Z"
+}

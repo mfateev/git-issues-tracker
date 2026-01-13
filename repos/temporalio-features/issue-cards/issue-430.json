@@ -1,0 +1,30 @@
+{
+  "summary": "Add a dashboard to expose the action metrics that the server is emitting, similar to existing dashboards.",
+  "category": "feature",
+  "subcategory": "metrics-dashboard",
+  "apis": [],
+  "components": [
+    "metrics",
+    "dashboards",
+    "server"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "dashboard",
+    "monitoring",
+    "action-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can better monitor and visualize action metrics from the Temporal server.",
+  "rootCause": null,
+  "proposedFix": "Expose server's action metrics in the dashboards repository",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via dashboards pull request #53",
+  "related": [],
+  "keyQuote": "Server is emitting `action` metrics. It would be valuable to expose that to our dashboards",
+  "number": 430,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:01:48.520Z"
+}

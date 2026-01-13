@@ -1,0 +1,33 @@
+{
+  "summary": "The test server fails to raise an error when attempting to start a child workflow that has already been started. Users expect a WorkflowExecutionAlreadyStartedFailure or similar error on the second start attempt, but instead nothing is returned.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "test-server",
+    "child-workflow",
+    "error-handling"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "duplicate-detection",
+    "error-handling",
+    "state-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users writing tests with the test server cannot reliably validate child workflow deduplication behavior, potentially missing bugs in production code.",
+  "rootCause": "Test server does not validate or error on duplicate child workflow start attempts",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1220
+  ],
+  "keyQuote": "Should be able to start a child workflow, then when I try to start it again, it should error",
+  "number": 1429,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:20.575Z"
+}

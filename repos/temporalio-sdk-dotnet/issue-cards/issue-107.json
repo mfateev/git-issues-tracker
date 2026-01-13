@@ -1,0 +1,31 @@
+{
+  "summary": "The README needs to clarify that the .NET SDK requires a native shared library (temporal_sdk_bridge) for different platforms and architectures. Users building for different platforms than their build machine need explicit runtime identifiers, and the documentation should explain why a Rust-backed native library is used.",
+  "category": "docs",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "native-interop",
+    "build-system",
+    "runtime-requirements",
+    "README"
+  ],
+  "concepts": [
+    "cross-compilation",
+    "platform-specific",
+    "runtime-identifiers",
+    "native-library",
+    "build-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to build for different platforms are confused about native library requirements and may experience build failures without explicit RID configuration.",
+  "rootCause": "The README does not adequately document the dependency on platform-specific native shared libraries or the need for explicit runtime identifiers during cross-platform builds.",
+  "proposedFix": "Update the README to clarify the native shared library dependency, list supported RIDs, explain the need for explicit --runtime flags when cross-compiling, and provide context about why the library uses a Rust-backed native core.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was improved to clarify the native library requirement and cross-compilation setup",
+  "related": [],
+  "keyQuote": "We need to make clear this is backed by an unmanaged native shared library, which RIDs we support, and that they need to be explicitly provided when building for a different platform",
+  "number": 107,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:58:14.837Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Admin DeleteWorkflowExecution API should support deletion by namespace ID in addition to namespace name, to allow cleanup of workflow data after a namespace has been deleted.",
+  "category": "feature",
+  "subcategory": "admin-api",
+  "apis": [
+    "DeleteWorkflowExecution"
+  ],
+  "components": [
+    "admin-api",
+    "namespace-management",
+    "data-cleanup"
+  ],
+  "concepts": [
+    "namespace-deletion",
+    "orphaned-data",
+    "cleanup",
+    "workflow-execution",
+    "data-retention"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot clean up workflow execution data after a namespace is deleted, leaving orphaned data in the system.",
+  "rootCause": null,
+  "proposedFix": "Modify Admin DeleteWorkflowExecution to accept namespace ID as an alternative parameter to namespace name",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Admin DeleteWorkflowExecution currently takes in namespace. After a namespace is deleted, we don't have a way to delete data if there is leftover data.",
+  "number": 3536,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:37.003Z"
+}

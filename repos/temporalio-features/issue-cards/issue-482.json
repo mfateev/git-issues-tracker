@@ -1,0 +1,32 @@
+{
+  "summary": "Clarify and standardize how SDKs handle exceptions when both workflow functions and signal handlers throw exceptions in the same task, determining precedence and consistency across implementations.",
+  "category": "feature",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "signal-handler",
+    "workflow-execution",
+    "error-handling"
+  ],
+  "concepts": [
+    "exception-precedence",
+    "signal-processing",
+    "failure-handling",
+    "task-execution",
+    "error-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need clear, consistent behavior across SDKs when both workflow and signal handler exceptions occur simultaneously to avoid unpredictable failure behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    481
+  ],
+  "keyQuote": "Currently exceptions in signal handlers are treated as if they were thrown in the main workflow function. But what happens when workflow function and signal handler both throw an exception in the same task?",
+  "number": 482,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:04:14.359Z"
+}

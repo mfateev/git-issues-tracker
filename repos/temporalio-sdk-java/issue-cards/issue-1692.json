@@ -1,0 +1,31 @@
+{
+  "summary": "Implement the workflow_start_delay feature in the test server to support delayed workflow start times for testing purposes, following the API specification defined in temporalio/api PR #264.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-delay",
+    "test-support",
+    "api-implementation",
+    "timing-control",
+    "test-framework"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to test workflows with delayed start times, improving test coverage for time-dependent workflow scenarios.",
+  "rootCause": null,
+  "proposedFix": "Implement workflow_start_delay feature in Java test server as specified in temporalio/api PR #264",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented following the API specification",
+  "related": [
+    264
+  ],
+  "keyQuote": "See API PR here: https://github.com/temporalio/api/pull/264",
+  "number": 1692,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:43:21.333Z"
+}

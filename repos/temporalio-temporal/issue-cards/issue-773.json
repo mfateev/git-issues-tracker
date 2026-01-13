@@ -1,0 +1,33 @@
+{
+  "summary": "User asks whether sessions apply to activities in child workflows and whether session data is preserved when passing context to child workflows. The issue questions if activities in child workflows execute on the same worker as the session.",
+  "category": "question",
+  "subcategory": "sessions-child-workflows",
+  "apis": [
+    "RecreateSession",
+    "StartWorkflow"
+  ],
+  "components": [
+    "session",
+    "child-workflow",
+    "activity-executor"
+  ],
+  "concepts": [
+    "session-affinity",
+    "worker-affinity",
+    "workflow-context",
+    "state-sharing",
+    "task-queue"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently share sessions across multiple workflows, limiting session-based activity coordination across workflow boundaries.",
+  "rootCause": "Sessions are designed for single workflow execution and cannot currently span multiple workflows due to architectural constraints.",
+  "proposedFix": "A feature request to enable sessions to spawn multiple workflows, though this would require significant refactoring.",
+  "workaround": "Use child workflows to keep whole workflow state in a single workflow execution, or implement a session keeper workflow that other workflows use to request activity executions through signals.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would require pretty significant refactoring to accommodate your scenario of sharing a session across multiple workflows.",
+  "number": 773,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:04.173Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add support for scheduling activities and child workflows across different domains/namespaces. This feature is currently not supported by the Temporal server.",
+  "category": "feature",
+  "subcategory": "cross-domain-scheduling",
+  "apis": [
+    "ExecuteActivity",
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-executor",
+    "domain-routing"
+  ],
+  "concepts": [
+    "cross-domain",
+    "cross-namespace",
+    "activity-scheduling",
+    "workflow-scheduling",
+    "multi-tenancy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot schedule activities or child workflows in different namespaces, limiting flexibility in multi-tenant and complex workflow architectures.",
+  "rootCause": "Server-side restriction that explicitly prevents cross-namespace scheduling",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Feature explicitly not supported by the Temporal server architecture",
+  "related": [],
+  "keyQuote": "Cross-namespace activity or workflow scheduling is currently explicitly not supported by the server.",
+  "number": 21,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T16:31:27.950Z"
+}

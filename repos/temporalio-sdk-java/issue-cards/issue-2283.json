@@ -1,0 +1,32 @@
+{
+  "summary": "Request to auto-skip time when waiting on update results in time-skipping testing environments, similar to the existing auto-skip behavior for workflow results.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "time-skipping",
+    "update-handling"
+  ],
+  "concepts": [
+    "time-skipping",
+    "testing",
+    "update-result",
+    "workflow-execution",
+    "test-environment"
+  ],
+  "severity": "low",
+  "userImpact": "Testing becomes more cumbersome without automatic time-skipping when waiting on update results, requiring manual time advancement in test scenarios.",
+  "rootCause": null,
+  "proposedFix": "Implement automatic time-skipping for update result waits, matching the existing behavior for workflow result waits.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    551
+  ],
+  "keyQuote": "We auto-skip time when waiting on workflow result, we need to do the same when waiting on update result.",
+  "number": 2283,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:04:14.643Z"
+}

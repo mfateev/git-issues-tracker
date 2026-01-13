@@ -1,0 +1,34 @@
+{
+  "summary": "Add gRPC Reflection API support to enable tools like grpcurl and grpcui to explore Temporal Frontend APIs without requiring protobuf definitions. This feature was blocked by protobuf library constraints but became possible after migrating from gogo to google protobuf generation.",
+  "category": "feature",
+  "subcategory": "grpc-reflection",
+  "apis": [],
+  "components": [
+    "frontend-api",
+    "grpc-server",
+    "protobuf"
+  ],
+  "concepts": [
+    "grpc-reflection",
+    "api-exploration",
+    "protobuf-generation",
+    "tooling",
+    "developer-experience",
+    "service-discovery"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now use standard gRPC tools to explore and test Temporal APIs without manual protobuf definition linking.",
+  "rootCause": "gRPC reflection was incompatible with gogo protobuf implementation; required migration to google protobuf generation (issue #38 and #5032)",
+  "proposedFix": "Support gRPC Reflection API for Frontend APIs; this was enabled through the protobuf library migration",
+  "workaround": "Use alternative tools like evans for gRPC service exploration",
+  "resolution": "fixed",
+  "resolutionDetails": "Automatically enabled by issue #5032 (migration to google protobuf from gogo)",
+  "related": [
+    38,
+    5032
+  ],
+  "keyQuote": "gRPC reflection will come automatically if we do #38. It doesn't work with gogo implementation.",
+  "number": 448,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:58:33.421Z"
+}

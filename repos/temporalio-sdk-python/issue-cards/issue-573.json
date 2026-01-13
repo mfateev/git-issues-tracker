@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add query support when listing schedules in the Python SDK, similar to the existing query functionality available for listing workflows.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ListSchedules"
+  ],
+  "components": [
+    "schedule-client",
+    "query-filter",
+    "list-operations"
+  ],
+  "concepts": [
+    "query-filtering",
+    "schedule-listing",
+    "api-parity",
+    "workflow-schedules"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot filter schedules when listing them, reducing the ability to manage and query large numbers of schedules programmatically.",
+  "rootCause": null,
+  "proposedFix": "Add query parameter support to the schedule listing API to match workflow listing functionality.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Need to support the query option when listing schedules same as we do when listing workflows.",
+  "number": 573,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:03.027Z"
+}

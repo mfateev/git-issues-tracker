@@ -1,0 +1,34 @@
+{
+  "summary": "User unable to connect to remote Temporal server on GCP, receiving HTTP2 exception. Issue resolved by using correct port (7233 instead of 8088).",
+  "category": "question",
+  "subcategory": "client-connection",
+  "apis": [
+    "WorkflowServiceStubs"
+  ],
+  "components": [
+    "client",
+    "grpc",
+    "connection",
+    "health-check"
+  ],
+  "concepts": [
+    "remote-connection",
+    "port-configuration",
+    "http2",
+    "grpc-protocol",
+    "network-connectivity",
+    "server-communication"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to connect to remote Temporal servers may encounter connection failures if using incorrect port numbers.",
+  "rootCause": "Incorrect port number (8088) used instead of the standard Temporal gRPC port (7233), causing HTTP/2 framing errors.",
+  "proposedFix": "Use port 7233 for Temporal server connections instead of 8088.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was not a bug but user error - incorrect port configuration. Resolved when user corrected port to 7233.",
+  "related": [],
+  "keyQuote": "My fault, should be to port 7233",
+  "number": 1952,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:29.698Z"
+}

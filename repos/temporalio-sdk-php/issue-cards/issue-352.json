@@ -1,0 +1,33 @@
+{
+  "summary": "The Doctrine Annotations library fails to parse third-party classes like Carbon\\Carbon that use @mixin annotations, causing crashes when SelectiveReader is used. The SDK checks for the presence of the Reader interface and defaults to using SelectiveReader, which tries to parse incompatible annotations.",
+  "category": "bug",
+  "subcategory": "attribute-reader",
+  "apis": [],
+  "components": [
+    "JsonConverter",
+    "WorkerFactory",
+    "WorkflowClient",
+    "SelectiveReader",
+    "AnnotationReader"
+  ],
+  "concepts": [
+    "annotations",
+    "doctrine",
+    "attributes",
+    "reflection",
+    "compatibility",
+    "dependency-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using Carbon or other libraries with @mixin annotations crash during initialization when the SDK's JsonConverter, WorkerFactory, or WorkflowClient are instantiated.",
+  "rootCause": "SelectiveReader attempts to parse all class annotations through AnnotationReader, which fails on third-party @mixin annotations that are not imported in the scope, causing AnnotationException.",
+  "proposedFix": "Add a configuration option to disable SelectiveReader, or refactor to use a central reader factory method that intelligently handles annotation compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed upstream in spiral/attributes library (pull request #16), which the SDK depends on.",
+  "related": [],
+  "keyQuote": "if (\\interface_exists(Reader::class)) { return new SelectiveReader([new AnnotationReader(), new AttributeReader()]); } - This causes Doctrine to fail parsing third-party annotations",
+  "number": 352,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:10.138Z"
+}

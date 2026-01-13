@@ -1,0 +1,30 @@
+{
+  "summary": "Add HTTP CONNECT proxy support to the .NET SDK, matching the implementation in sdk-core and following the pattern established by the Python SDK.",
+  "category": "feature",
+  "subcategory": "http-proxy",
+  "apis": [],
+  "components": [
+    "client",
+    "grpc-transport",
+    "connection-options"
+  ],
+  "concepts": [
+    "proxy",
+    "http-connect",
+    "networking",
+    "transport",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users requiring HTTP CONNECT proxy support for enterprise network configurations cannot connect to Temporal Server.",
+  "rootCause": null,
+  "proposedFix": "Implement HTTP CONNECT proxy options following sdk-core PR #714 pattern, mirroring the Python SDK implementation from PR #501.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support HTTP CONNECT proxy options in the .NET SDK, with tests added to the features repository.",
+  "related": [],
+  "keyQuote": "Support HTTP connect proxy options added in https://github.com/temporalio/sdk-core/pull/714",
+  "number": 215,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:57:50.183Z"
+}

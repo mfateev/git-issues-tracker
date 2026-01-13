@@ -1,0 +1,32 @@
+{
+  "summary": "Workflows should fail immediately when given invalid arguments instead of hanging indefinitely. Currently, workflows with bad arguments hang forever with no recovery option other than manual termination, and argument schema changes need to maintain backward compatibility across deployments.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "argument-validation",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "error-handling",
+    "argument-validation",
+    "backward-compatibility",
+    "workflow-failure",
+    "deployment"
+  ],
+  "severity": "high",
+  "userImpact": "Users whose workflows receive invalid arguments experience indefinite hangs with no way to recover except manual termination, blocking workflow execution and requiring operational intervention.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflows should fail if the arguments cannot be converted",
+  "number": 240,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:54:06.964Z"
+}

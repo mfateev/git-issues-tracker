@@ -1,0 +1,36 @@
+{
+  "summary": "Prometheus metrics server is broken in v1.9.0-rc.0 when configured with Runtime.install(). Tests are missing to catch this regression.",
+  "category": "bug",
+  "subcategory": "prometheus-metrics",
+  "apis": [
+    "Runtime.install"
+  ],
+  "components": [
+    "telemetry",
+    "metrics",
+    "prometheus-server",
+    "worker"
+  ],
+  "concepts": [
+    "metrics",
+    "prometheus",
+    "server",
+    "observability",
+    "regression",
+    "binding"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Prometheus metrics collection in v1.9.0-rc.0, breaking observability and monitoring capabilities.",
+  "rootCause": "Regression introduced between v1.8.6 and v1.9.0-rc.0 in Prometheus server initialization",
+  "proposedFix": "Add test coverage to verify Prometheus server starts correctly on the configured bind address",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1324",
+  "related": [
+    1324
+  ],
+  "keyQuote": "A worker started with Runtime.install({ telemetryOptions: { metrics: { prometheus: { bindAddress: '0.0.0.0:9090' } } } }) should bring up a server listening for metrics requests on 9090. This works on v1.8.6 but is broken in v1.9.0-rc.0.",
+  "number": 1323,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:28.452Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add activity reset support to the .NET SDK, tracking alignment with a cross-SDK features issue.",
+  "category": "feature",
+  "subcategory": "activity-management",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "worker",
+    "sdk-core"
+  ],
+  "concepts": [
+    "activity-reset",
+    "state-management",
+    "feature-parity",
+    "cross-sdk-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need the ability to reset activities in .NET SDK workflows, a capability available in other Temporal SDKs.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Activity reset support was implemented in the .NET SDK as part of cross-SDK feature parity work.",
+  "related": [
+    620
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/620",
+  "number": 464,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:27:48.982Z"
+}

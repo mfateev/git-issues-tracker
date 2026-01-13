@@ -1,0 +1,31 @@
+{
+  "summary": "Throwing non-Error objects with non-serializable properties from workflows causes DataCloneError and activation failure. The error message obscures the original exception, making debugging difficult. The issue requests better error handling or earlier serialization to provide context about non-serializable objects.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-worker-thread",
+    "serialization"
+  ],
+  "concepts": [
+    "serialization",
+    "error-handling",
+    "DataCloneError",
+    "exception-propagation",
+    "activation",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive confusing 'Failed to activate workflow' errors when throwing custom exceptions with non-serializable properties, making it difficult to identify the root cause of failures.",
+  "rootCause": "V8 Serialization cannot serialize non-serializable objects (like functions), and failure to encode objects in the sink calls list causes the entire operation to fail with a DataCloneError that masks the original exception.",
+  "proposedFix": "Serialize sink arguments immediately at call site instead of delaying until activation completion, or use a custom Serializer to intercept serialization errors and replace problematic objects with safe alternatives (JSON representation or warning message).",
+  "workaround": "Intercept exceptions and throw something serializable like ApplicationFailure or a class extending Error instead of throwing custom non-serializable objects.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Even though a `Failed to activate workflow` error message mentioning `DataCloneError` is visible in the log, the original exception is not accessible, making it difficult to figure out the origin of the failure.",
+  "number": 1325,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:29.116Z"
+}

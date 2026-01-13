@@ -1,0 +1,34 @@
+{
+  "summary": "Wrap gRPC CANCELED and DEADLINE_EXCEEDED errors in an SDK-specific timeout exception for the Update API, so users only need to catch one predictable exception type instead of handling raw gRPC errors.",
+  "category": "feature",
+  "subcategory": "exception-handling",
+  "apis": [
+    "Update"
+  ],
+  "components": [
+    "grpc-client",
+    "exception-handling",
+    "update-executor"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline-exceeded",
+    "error-wrapping",
+    "exception-hierarchy",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently catch multiple exception types (gRPC CANCELED and DEADLINE_EXCEEDED) when handling update timeouts; this change would provide a single, predictable SDK exception to catch.",
+  "rootCause": "Raw gRPC exceptions expose implementation details instead of providing a consistent SDK abstraction.",
+  "proposedFix": "Wrap gRPC CANCELED and DEADLINE_EXCEEDED errors in an SDK timeout exception; implementation details referenced in temporalio/features#483.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed by wrapping gRPC exceptions in SDK timeout exception per feature specification.",
+  "related": [
+    483
+  ],
+  "keyQuote": "So that users only have to catch one predictable exception",
+  "number": 250,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T11:37:43.737Z"
+}

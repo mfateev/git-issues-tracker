@@ -1,0 +1,33 @@
+{
+  "summary": "LocalDateTime serialization in search attributes fails against Docker due to format mismatch. The server rejects ISO 8601 datetime strings like '2021-08-26T13:21:52.059738' as invalid values for Datetime-type search attributes, suggesting either a documentation or implementation bug in datetime handling.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "SearchAttribute",
+    "WorkflowOptions"
+  ],
+  "components": [
+    "search-attributes",
+    "serialization",
+    "datetime-handling"
+  ],
+  "concepts": [
+    "serialization",
+    "datetime-format",
+    "iso8601",
+    "type-validation",
+    "server-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use LocalDateTime objects as search attribute values when running against Docker, blocking datetime-based workflow search functionality.",
+  "rootCause": "Mismatch between Java LocalDateTime serialization format (ISO 8601) and what the server's json.Unmarshal expects for time.Time values, or incorrect server-side validation of datetime format.",
+  "proposedFix": null,
+  "workaround": "The issue mentions commented-out lines in the test (lines 82-84) suggesting a workaround exists, but specifics are not detailed in the body.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "2021-08-26T13:21:52.059738 is not a valid value for search attribute CustomDatetimeField of type Datetime",
+  "number": 673,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:34:13.399Z"
+}

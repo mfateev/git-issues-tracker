@@ -1,0 +1,32 @@
+{
+  "summary": "Add per-namespace rate limiting for Visibility APIs to protect shared backend resources from being overwhelmed by requests across multiple namespaces. The feature should include both RPS limits and concurrent request limits.",
+  "category": "feature",
+  "subcategory": "visibility-api",
+  "apis": [],
+  "components": [
+    "visibility-api",
+    "namespace",
+    "rate-limiter"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "resource-protection",
+    "concurrency",
+    "namespace-isolation",
+    "backend-resources"
+  ],
+  "severity": "high",
+  "userImpact": "Without rate limiting, visibility API requests from one namespace can impact the stability and performance of the entire backend system.",
+  "rootCause": "Visibility APIs share backend resources among all namespaces without per-namespace rate limiting protection.",
+  "proposedFix": "Implement per-namespace RPS limit and concurrent request limit for Visibility APIs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Completed via PR #2585",
+  "related": [
+    2585
+  ],
+  "keyQuote": "We need per namespace rate limiting for Visibility APIs to protect backend resources as they are shared among all namespaces.",
+  "number": 2577,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:21.131Z"
+}

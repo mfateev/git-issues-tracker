@@ -1,0 +1,31 @@
+{
+  "summary": "The PHP SDK lacks support for decoding binary/protobuf encoded messages. A Binary Protobuf Converter needs to be added to the default converter set to enable decoding of these messages while maintaining JSON/protobuf as the default marshalling format.",
+  "category": "bug",
+  "subcategory": "data-conversion",
+  "apis": [],
+  "components": [
+    "converter",
+    "protobuf",
+    "message-encoding"
+  ],
+  "concepts": [
+    "serialization",
+    "data-encoding",
+    "binary-format",
+    "protobuf",
+    "message-decoding",
+    "converter-chain"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot decode messages that were converted using binary/protobuf format, limiting interoperability with systems using that encoding.",
+  "rootCause": "Binary Protobuf Converter is missing from the default converter set in the PHP SDK",
+  "proposedFix": "Add the Binary Protobuf Converter to the default set after ProtoJsonConverter",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Binary Protobuf Converter was added to the default converter set",
+  "related": [],
+  "keyQuote": "We have no ability to decode messages converted with binary/protobuf.",
+  "number": 455,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:31:38.074Z"
+}

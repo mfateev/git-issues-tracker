@@ -1,0 +1,37 @@
+{
+  "summary": "WorkflowExecutionInfo.ParentExecution is not populated for child workflows in List APIs, returning nil values. The field is only set in DescribeWorkflowExecution but not in ListOpenWorkflow/ListClosedWorkflow because parent execution info is not stored in the visibility database/Elasticsearch index.",
+  "category": "bug",
+  "subcategory": "workflow-visibility",
+  "apis": [
+    "ListOpenWorkflow",
+    "ListClosedWorkflow",
+    "DescribeWorkflowExecution",
+    "WorkflowExecutionInfo"
+  ],
+  "components": [
+    "visibility-store",
+    "persistence-sql",
+    "protobuf-migration",
+    "elasticsearch-index"
+  ],
+  "concepts": [
+    "parent-execution",
+    "child-workflows",
+    "visibility-database",
+    "list-apis",
+    "workflow-metadata",
+    "data-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot retrieve parent execution information for child workflows through List APIs, limiting visibility into workflow relationships and hierarchy.",
+  "rootCause": "ParentExecution, AutoResetPoints, and ParentNamespaceId fields are only populated in DescribeWorkflowExecution but not stored in the visibility database/Elasticsearch index used by List APIs.",
+  "proposedFix": "Store missing fields (ParentExecution, AutoResetPoints, ParentNamespaceId) in visibility database/Elasticsearch index and properly populate them in List APIs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Store this information in visibility database/Elasticsearch index and properly fill it in List* APIs.",
+  "number": 1119,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:02:07.358Z"
+}

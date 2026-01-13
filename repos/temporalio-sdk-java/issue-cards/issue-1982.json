@@ -1,0 +1,35 @@
+{
+  "summary": "DynamicWorkflow implementation needs to apply serialization context similar to issue #1895 to properly handle data conversion. A fix is proposed that wraps the dataConverter with WorkflowSerializationContext.",
+  "category": "bug",
+  "subcategory": "dynamic-workflow",
+  "apis": [
+    "DynamicWorkflow"
+  ],
+  "components": [
+    "dynamic-workflow",
+    "serialization",
+    "POJOWorkflowImplementationFactory",
+    "data-converter"
+  ],
+  "concepts": [
+    "serialization",
+    "dynamic-workflow",
+    "data-conversion",
+    "workflow-context",
+    "implementation-factory"
+  ],
+  "severity": "medium",
+  "userImpact": "Customers using DynamicWorkflow may experience serialization issues when data conversion doesn't properly apply workflow context.",
+  "rootCause": "DynamicWorkflow implementation in POJOWorkflowImplementationFactory is not applying WorkflowSerializationContext to the dataConverter, similar to the issue reported in #1895.",
+  "proposedFix": "Wrap dataConverter with WorkflowSerializationContext in the DynamicSyncWorkflowDefinition constructor call, passing namespace and workflow ID from execution context.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by applying the proposed fix to add WorkflowSerializationContext to DynamicWorkflow serialization handling.",
+  "related": [
+    1895
+  ],
+  "keyQuote": "replacing... for return new DynamicSyncWorkflowDefinition(dynamicWorkflowImplementationFactory, workerInterceptors, dataConverter.withContext(new WorkflowSerializationContext(namespace, execution.getWorkflowId()));",
+  "number": 1982,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:05.587Z"
+}

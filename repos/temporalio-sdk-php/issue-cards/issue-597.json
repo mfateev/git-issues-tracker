@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow::asyncDetached causes memory leaks when used without proper await/yield constructs, leaving orphaned requests in memory after workflow completion. The issue occurs because Client instances storing requests aren't properly cleaned up when the detached scope ends.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow::asyncDetached",
+    "Workflow::newUntypedChildWorkflowStub"
+  ],
+  "components": [
+    "workflow-scope",
+    "client-request-management",
+    "memory-cleanup",
+    "async-execution"
+  ],
+  "concepts": [
+    "memory-leak",
+    "child-workflow",
+    "detached-execution",
+    "request-lifecycle",
+    "resource-cleanup",
+    "async-await"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using Workflow::asyncDetached for child workflows experience significant memory leaks that accumulate over time, potentially causing out-of-memory errors in production.",
+  "rootCause": "Client instances store request collections that aren't properly cleaned up when detached scopes complete. Without await/yield, RoadRunner receives workflow completion signals before requests are resolved, leaving them orphaned in memory.",
+  "proposedFix": "Make Client instances individual per Workflow scope so they are destroyed along with the scope, preventing request collections from persisting after workflow completion.",
+  "workaround": "Use Workflow::newUntypedChildWorkflowStub(...)->start() instead of Workflow::asyncDetached, or ensure proper await/yield construction when using asyncDetached.",
+  "resolution": "fixed",
+  "resolutionDetails": "Proposed solution to use per-scope Client instances and proper cleanup",
+  "related": [],
+  "keyQuote": "the use of this method has led to large memory leaks in applications processing workflow tasks",
+  "number": 597,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:42:36.936Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Data race detected in TestTQMFetchesUserDataFailsAndTriesAgain test where goroutine 586 writes to shared memory at 0x00010506ff60 while goroutine 490 reads from it. The race occurs in the taskQueueManager's fetchUserData operation during test execution.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "task-queue-manager",
+    "matching-service",
+    "goroutine-group"
+  ],
+  "concepts": [
+    "data-race",
+    "concurrent-access",
+    "test-synchronization",
+    "memory-safety",
+    "goroutine-coordination"
+  ],
+  "severity": "high",
+  "userImpact": "Test failures prevent reliable server testing and indicate potential concurrency issues in production code paths.",
+  "rootCause": "Unsynchronized access to shared memory in task queue manager between test setup (setScoped) and fetchUserData execution in separate goroutines.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #4604",
+  "related": [
+    4604
+  ],
+  "keyQuote": "WARNING: DATA RACE Write at 0x00010506ff60 by goroutine 586... Previous read at 0x00010506ff60 by goroutine 490",
+  "number": 4590,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:15.577Z"
+}

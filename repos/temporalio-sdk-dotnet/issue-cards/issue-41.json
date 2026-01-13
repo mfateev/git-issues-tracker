@@ -1,0 +1,32 @@
+{
+  "summary": "DataConverter.Default with PayloadConverterType property assignment fails because the converter is eagerly instantiated before the property can be set. The lazy instantiation pattern should be used instead to allow proper initialization.",
+  "category": "bug",
+  "subcategory": "data-converter",
+  "apis": [
+    "DataConverter"
+  ],
+  "components": [
+    "data-converter",
+    "payload-converter",
+    "failure-converter"
+  ],
+  "concepts": [
+    "lazy-initialization",
+    "property-assignment",
+    "shallow-clone",
+    "type-instantiation",
+    "converter-pattern"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot customize PayloadConverterType through property assignment on DataConverter.Default clones due to timing issues in initialization.",
+  "rootCause": "DataConverter uses a shallow copy constructor and eagerly instantiates payload/failure converters before the PayloadConverterType property can be set.",
+  "proposedFix": "Make the payload/failure converter properties Lazy with PublicationOnly visibility to defer instantiation until actually needed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented lazy initialization pattern for payload and failure converter properties to allow deferred instantiation.",
+  "related": [],
+  "keyQuote": "Using `DataConverter.Default with { PayloadConverterType = typeof(MyPayloadConverter) }` means internally .NET does a clone then sets the property at which point it's too late",
+  "number": 41,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T07:08:01.490Z"
+}

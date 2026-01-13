@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to expose update-with-start operations via the TypeScript SDK. This capability allows workflows to be updated or created in a single operation, combining workflow execution initiation with state updates.",
+  "category": "feature",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "UpdateWithStart",
+    "StartWorkflow",
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "client",
+    "workflow-client",
+    "update-handler"
+  ],
+  "concepts": [
+    "workflow-creation",
+    "state-updates",
+    "atomic-operations",
+    "workflow-lifecycle",
+    "update-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently use update-with-start operations in TypeScript SDK, limiting their ability to atomically create and update workflows in a single call.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update-with-start operations were implemented and exposed via the SDK API",
+  "related": [],
+  "keyQuote": "Expose update-with-start operations via the SDK",
+  "number": 1522,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:52:38.618Z"
+}

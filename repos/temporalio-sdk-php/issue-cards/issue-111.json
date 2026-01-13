@@ -1,0 +1,38 @@
+{
+  "summary": "User asks how to inject configuration into workflow constructors, as workflows must be instantiated without arguments. Discussion reveals workflows must be deterministic and suggests using signals, activities, or side-effects for dependency injection.",
+  "category": "question",
+  "subcategory": "workflow-dependency-injection",
+  "apis": [
+    "WorkflowInterface",
+    "ActivityOptions",
+    "WorkerFactory",
+    "startWithSignal"
+  ],
+  "components": [
+    "workflow-registration",
+    "worker-factory",
+    "activity-options",
+    "signals"
+  ],
+  "concepts": [
+    "dependency-injection",
+    "determinism",
+    "workflow-configuration",
+    "signal-handling",
+    "deterministic-markers"
+  ],
+  "severity": "low",
+  "userImpact": "Developers need guidance on how to pass configuration to workflows while maintaining determinism, a common pattern in legacy system migrations.",
+  "rootCause": "Workflows require deterministic instantiation without constructor arguments to maintain replay consistency, creating tension with common DI patterns.",
+  "proposedFix": "Use signals, activities, or local activities to pass configuration data into workflows deterministically, with local activities being the preferred long-term solution.",
+  "workaround": "Load configuration via activity calls within the workflow, or use startWithSignal to inject config at workflow start time, or use side-effects for file-based config.",
+  "resolution": "invalid",
+  "resolutionDetails": "User resolved their own confusion by understanding Temporal's determinism requirements and implementing configuration loading via activities.",
+  "related": [
+    110
+  ],
+  "keyQuote": "Local Activities are planned in the 1.1 version of this SDK... workflow fully controls its config and does not expose anything to the outside.",
+  "number": 111,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:20:03.994Z"
+}

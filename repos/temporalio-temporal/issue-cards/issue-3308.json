@@ -1,0 +1,30 @@
+{
+  "summary": "User requests database sharding capability for the task results table when data exceeds 5 million rows, as queries timeout under high data volume. The issue lacks specific context about database type and query conditions.",
+  "category": "question",
+  "subcategory": "database-scaling",
+  "apis": [],
+  "components": [
+    "database",
+    "task-results-storage",
+    "query-execution"
+  ],
+  "concepts": [
+    "sharding",
+    "database-scaling",
+    "performance",
+    "large-datasets",
+    "query-optimization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience query timeouts when the task results table grows beyond 5 million rows, impacting system usability at scale.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed as invalid due to lack of sufficient context. Maintainers requested clarification about database type, specific table, and query conditions, but the user did not provide further details.",
+  "related": [],
+  "keyQuote": "In a certain field of business, the data in a single table has exceeded 5 million, and a timeout occurs when filtering data for a certain query condition.",
+  "number": 3308,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:34.782Z"
+}

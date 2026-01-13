@@ -1,0 +1,35 @@
+{
+  "summary": "Request to allow force-completing activities that are retrying or backing off without restarting the workflow. The RespondActivityTaskCompletedById API needs to support retry attempts and allow completion when activities are in backoff state.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [
+    "RespondActivityTaskCompleted",
+    "RespondActivityTaskCompletedById"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-handler",
+    "server-api"
+  ],
+  "concepts": [
+    "retry",
+    "activity-completion",
+    "backoff",
+    "error-recovery",
+    "cascading-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot recover from activity failures without restarting entire workflows when activities are retrying or backing off, causing cascading failures in dependent activities.",
+  "rootCause": "RespondActivityTaskCompletedById API does not support completing activities during retry backoff state, and lacks retry attempt parameter.",
+  "proposedFix": "Update RespondActivityTaskCompleted and RespondActivityTaskCompletedById to accept activity completions even when activity is backing off by default, and add retry attempt parameter support.",
+  "workaround": "Reset workflow to just before the failed activity was scheduled, or restart workflow from beginning.",
+  "resolution": "fixed",
+  "resolutionDetails": "Server behavior updated to accept activity completions even if activity is currently backing off. Closed by PR #5724, though some edge cases noted in #5877.",
+  "related": [
+    5877
+  ],
+  "keyQuote": "Provide a mechanism to force complete an activity in retry without restarting the workflow.",
+  "number": 987,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:31:04.927Z"
+}

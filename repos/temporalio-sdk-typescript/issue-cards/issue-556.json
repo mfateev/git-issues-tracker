@@ -1,0 +1,29 @@
+{
+  "summary": "Move CI/CD builds from BuildKite to GitHub Actions for better public visibility and to work around a BuildKite docker-compose plugin bug affecting nightly jobs.",
+  "category": "feature",
+  "subcategory": "ci-cd",
+  "apis": [],
+  "components": [
+    "ci-cd",
+    "github-actions",
+    "buildkite"
+  ],
+  "concepts": [
+    "continuous-integration",
+    "automation",
+    "visibility",
+    "infrastructure"
+  ],
+  "severity": "low",
+  "userImpact": "This improves build transparency and reliability for contributors and users following the project's CI status.",
+  "rootCause": "BuildKite docker-compose plugin bug causing nightly job failures",
+  "proposedFix": "Migrate both per-change and nightly build jobs from BuildKite to GitHub Actions once self-hosted runners are available",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The migration was completed as indicated by the author's comment 'This was done already'",
+  "related": [],
+  "keyQuote": "Once we get self hosted GH actions runners, we should move those jobs for better public visibility.",
+  "number": 556,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:01:06.229Z"
+}

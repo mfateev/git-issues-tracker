@@ -1,0 +1,30 @@
+{
+  "summary": "Add `upsertMemo` command to the TypeScript Workflow API. The underlying support already exists in the Core SDK and just needs to be exposed.",
+  "category": "feature",
+  "subcategory": "workflow-api",
+  "apis": [
+    "upsertMemo"
+  ],
+  "components": [
+    "workflow-api",
+    "core-sdk"
+  ],
+  "concepts": [
+    "memo",
+    "workflow-state",
+    "api-exposure",
+    "command"
+  ],
+  "severity": "low",
+  "userImpact": "Users can update workflow memos directly from the TypeScript SDK without workarounds.",
+  "rootCause": null,
+  "proposedFix": "Expose the existing Core SDK upsertMemo support in the TypeScript Workflow API",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented and exposed in the Workflow API",
+  "related": [],
+  "keyQuote": "Underlying support already exists in Core SDK.",
+  "number": 1124,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:39.951Z"
+}

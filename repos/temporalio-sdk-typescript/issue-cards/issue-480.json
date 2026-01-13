@@ -1,0 +1,30 @@
+{
+  "summary": "Request for sleepUntil and UpdatableTimer utility functions to simplify common async patterns in workflows, particularly for recurring tasks like monthly operations.",
+  "category": "feature",
+  "subcategory": "utility-functions",
+  "apis": [],
+  "components": [
+    "workflow-utilities",
+    "timer-management"
+  ],
+  "concepts": [
+    "sleep",
+    "scheduling",
+    "timer",
+    "recurring-tasks",
+    "async-patterns",
+    "workflow-composition"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently must implement sleepUntil and updatable timers themselves, making workflows with monthly operations or dynamic timer modifications cumbersome.",
+  "rootCause": null,
+  "proposedFix": "Implement sleepUntil and UpdatableTimer as utility functions that compose together, with sleepUntil handling absolute timestamp sleeping and UpdatableTimer allowing mid-flight timer modifications.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Left as samples/documentation examples rather than building into the SDK, with possibility of making it an auxiliary library eventually.",
+  "related": [],
+  "keyQuote": "sleepuntil is needed because most users will probably have to write it themselves. especially when they try to do anything on a monthly basis",
+  "number": 480,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:57:49.862Z"
+}

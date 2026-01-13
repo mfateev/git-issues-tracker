@@ -1,0 +1,30 @@
+{
+  "summary": "gRPC version used by the Java SDK is outdated and causes NoClassDefFoundError at runtime due to removed internal classes. The SDK needs to update to a newer gRPC version to maintain compatibility with modern applications.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "ChannelManager",
+    "WorkflowServiceStubs",
+    "gRPC-integration"
+  ],
+  "concepts": [
+    "dependency-versioning",
+    "breaking-changes",
+    "transitive-dependencies",
+    "class-loading",
+    "version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users integrating the Java SDK with modern gRPC versions or applications face startup failures due to missing internal gRPC classes.",
+  "rootCause": "The SDK depends on an outdated version of gRPC (specifically internal class AbstractManagedChannelImplBuilder was removed in newer versions), causing ClassNotFoundException when loaded alongside newer gRPC dependencies.",
+  "proposedFix": "Update gRPC version to latest (v1.72.0 or newer) and ensure all transitive dependencies are aligned.",
+  "workaround": "Users can manually override gRPC dependencies in their build configuration to use newer versions, though this shifts the burden to SDK users.",
+  "resolution": "fixed",
+  "resolutionDetails": "The team acknowledged the issue and committed to testing the SDK with the latest gRPC version (v1.72.0) in CI while maintaining compatibility policy.",
+  "related": [],
+  "keyQuote": "I firmly believe that open-source communities should strive to keep their third-party dependencies up to date.",
+  "number": 2508,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:10:47.547Z"
+}

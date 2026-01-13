@@ -1,0 +1,32 @@
+{
+  "summary": "Remove the deprecated WorkflowExecutionTimeout field from the ContinueAsNew request in the PHP SDK. This is a cleanup task to align with API deprecations tracked in the roadrunner-temporal project.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "ContinueAsNewOptions",
+    "workflow-api",
+    "request-handling"
+  ],
+  "concepts": [
+    "deprecation",
+    "cleanup",
+    "field-removal",
+    "api-alignment",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Removes deprecated field from ContinueAsNew options, helping users write cleaner code aligned with current API standards.",
+  "rootCause": null,
+  "proposedFix": "Remove WorkflowExecutionTimeout field from the ContinueAsNewOptions class in src/Workflow/ContinueAsNewOptions.php",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The deprecated WorkflowExecutionTimeout field was identified and removed from ContinueAsNewOptions.php",
+  "related": [],
+  "keyQuote": "Remove deprecated `WorkflowExecutionTimeout` field from the `ContinueAsNew` request",
+  "number": 253,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:06.888Z"
+}

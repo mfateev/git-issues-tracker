@@ -1,0 +1,31 @@
+{
+  "summary": "Cassandra-based docker compose configuration fails to start because the standard visibility keyspace 'temporal_visibility' does not exist. The docker image no longer supports standard visibility, and users should use the Elasticsearch-based compose file instead.",
+  "category": "bug",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker-compose",
+    "cassandra",
+    "visibility-store"
+  ],
+  "concepts": [
+    "docker",
+    "cassandra",
+    "keyspace",
+    "visibility",
+    "initialization",
+    "health-check"
+  ],
+  "severity": "high",
+  "userImpact": "Users following the standard docker compose setup instructions cannot start Temporal with Cassandra due to missing visibility keyspace configuration.",
+  "rootCause": "Standard visibility support was removed from docker images but the docker-compose-cass.yml file was not removed, causing health checks to fail when the visibility keyspace doesn't exist.",
+  "proposedFix": "Use docker-compose-cass-es.yml (Elasticsearch-based) instead of docker-compose-cass.yml, or remove the outdated docker-compose-cass.yml file from the repository.",
+  "workaround": "Use the Elasticsearch-based docker compose file (docker-compose-cass-es.yml) as an alternative configuration.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The docker-compose-cass.yml file is outdated and should be removed or deprecated. Users should migrate to the Elasticsearch-based compose file.",
+  "related": [],
+  "keyQuote": "standard visibility support has been removed from docker images, and this `docker-compose-cass.yml` should've been removed as well",
+  "number": 5734,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:10.883Z"
+}

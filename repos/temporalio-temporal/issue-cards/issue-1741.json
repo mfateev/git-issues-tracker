@@ -1,0 +1,30 @@
+{
+  "summary": "The `tctl adm namespace list` command displays raw Go object references instead of formatted output. The table format is printing the entire struct instead of extracting and displaying specific fields like namespace name, global namespace status, and notification version.",
+  "category": "bug",
+  "subcategory": "tctl-namespace-formatting",
+  "apis": [],
+  "components": [
+    "tctl",
+    "namespace-commands",
+    "table-formatting"
+  ],
+  "concepts": [
+    "output-formatting",
+    "namespace-management",
+    "cli-ux",
+    "object-serialization",
+    "table-display"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running tctl namespace list commands see unreadable Go object references instead of formatted data, making the command unusable for namespace inspection.",
+  "rootCause": "The printTable function is printing the entire struct instead of extracting and formatting individual fields from the NamespaceDetail object.",
+  "proposedFix": "Implement proper field extraction and formatting for the table output, similar to the approach used in the new tctl repository's workflow field printing mechanism.",
+  "workaround": "Use JSON output format instead of table format, which correctly marshals the entire response.",
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in the new temporal/CLI repository (https://github.com/temporalio/cli) which replaces tctl from the temporal repo with improved output formatting.",
+  "related": [],
+  "keyQuote": "The output should be outputting correct value and not golang object reference",
+  "number": 1741,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:03.022Z"
+}

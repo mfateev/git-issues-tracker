@@ -1,0 +1,31 @@
+{
+  "summary": "Security vulnerability in otelgrpc package (< 0.46.0) used by Temporal Server 1.22.4. The vulnerability was already fixed in the main branch but won't be included in the next 1.23 release, only in a followup 1.23.1 release.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "otelgrpc",
+    "dependencies",
+    "grpc-instrumentation"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "version-upgrade",
+    "opentelemetry"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal Server 1.22.4 and earlier are exposed to a known security vulnerability in the otelgrpc package until they upgrade.",
+  "rootCause": "go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc version 0.42.0 contains a security vulnerability fixed in 0.46.0.",
+  "proposedFix": "Update otelgrpc dependency to version 0.46.0 or later.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Library was already updated in PR #5396, scheduled for inclusion in Temporal 1.23.1 release.",
+  "related": [
+    5396
+  ],
+  "keyQuote": "the library was already updated 2 days ago... it should be part of a followup 1.23.1",
+  "number": 5403,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:15.411Z"
+}

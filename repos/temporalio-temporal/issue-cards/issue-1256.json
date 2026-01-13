@@ -1,0 +1,29 @@
+{
+  "summary": "Request for workflows to have the ability to reschedule or deschedule themselves dynamically. Currently, cron workflows that need to complete based on certain conditions require manual scheduling logic implementation.",
+  "category": "feature",
+  "subcategory": "workflow-scheduling",
+  "apis": [],
+  "components": [
+    "workflow-scheduler",
+    "cron-engine"
+  ],
+  "concepts": [
+    "cron-workflows",
+    "self-scheduling",
+    "workflow-lifecycle",
+    "dynamic-scheduling",
+    "workflow-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing periodic cron workflows cannot dynamically stop or reschedule execution without implementing custom scheduling logic.",
+  "rootCause": null,
+  "proposedFix": "Add a `Workflow.reschedule` or similar method to allow workflows to deschedule or reschedule themselves.",
+  "workaround": "Implement scheduling logic manually or call an activity to cancel the workflow execution.",
+  "resolution": "fixed",
+  "resolutionDetails": "Schedule feature added to Temporal that supports pause/resume functionality, providing the requested capability.",
+  "related": [],
+  "keyQuote": "After a cron workflow has started, I would like to be able to deschedule (or reschedule) itself if it determines that it no longer needs to run.",
+  "number": 1256,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:11:43.495Z"
+}

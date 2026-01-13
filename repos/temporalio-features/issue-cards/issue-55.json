@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to implement eager activity dispatch in SDKs by setting ScheduleActivityTaskCommandAttributes.request_eager_execution when workers have available activity slots. This allows the server to dispatch work directly back to the requesting worker for performance optimization.",
+  "category": "feature",
+  "subcategory": "activity-dispatch",
+  "apis": [
+    "ScheduleActivityTaskCommandAttributes"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "activity-dispatch",
+    "server-communication"
+  ],
+  "concepts": [
+    "eager-execution",
+    "load-balancing",
+    "activity-slots",
+    "worker-optimization",
+    "performance",
+    "dispatch-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users benefit from faster activity dispatch and reduced overhead through optimized server work distribution to available worker resources.",
+  "rootCause": null,
+  "proposedFix": "Set eager execution boolean when scheduling activities if worker has available slots, add worker option for max eager activities (configurable or disableable), track activity completion from WFT responses to manage slot availability.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented across all SDKs (Core, TypeScript, Go, Python, Java, PHP) with configuration for max eager activities per worker.",
+  "related": [
+    1339
+  ],
+  "keyQuote": "Set eager execution boolean when scheduling activity if the worker is known to have activity slots available",
+  "number": 55,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:45:02.187Z"
+}

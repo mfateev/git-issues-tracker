@@ -1,0 +1,32 @@
+{
+  "summary": "Users may inadvertently leave MDC (Mapped Diagnostic Context) set after activity or nexus task execution, causing context to leak between unrelated tasks when thread pools are reused. The request is to automatically clear MDC context after each task completes.",
+  "category": "feature",
+  "subcategory": "logging-and-diagnostics",
+  "apis": [],
+  "components": [
+    "task-executor",
+    "activity-executor",
+    "nexus-task-executor",
+    "mdc-context"
+  ],
+  "concepts": [
+    "context-leak",
+    "thread-pool",
+    "logging",
+    "diagnostics",
+    "resource-cleanup",
+    "isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience context leakage between unrelated tasks when MDC is not properly cleared, potentially causing incorrect log context and confusing diagnostic information.",
+  "rootCause": "Thread pool reuse without automatic MDC cleanup after task execution allows context set by one task to persist and affect subsequent unrelated tasks.",
+  "proposedFix": "Automatically clear MDC context after each task (activity or nexus task) completes execution.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "MDC context is now automatically cleared after each task execution to prevent leakage between unrelated tasks.",
+  "related": [],
+  "keyQuote": "Since the SDK may use thread pools to execute tasks this risks leaking context between unrelated tasks.",
+  "number": 2314,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:05:24.284Z"
+}

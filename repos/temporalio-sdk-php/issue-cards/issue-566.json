@@ -1,0 +1,30 @@
+{
+  "summary": "Request to prevent magic methods like constructors from being automatically registered as Activity methods in the PHP SDK.",
+  "category": "feature",
+  "subcategory": "activity-registration",
+  "apis": [],
+  "components": [
+    "activity-registry",
+    "reflection",
+    "activity-executor"
+  ],
+  "concepts": [
+    "magic-methods",
+    "registration",
+    "method-filtering",
+    "constructor",
+    "reflection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may have unintended magic methods registered as activities, causing runtime errors or unexpected behavior.",
+  "rootCause": "The activity registration mechanism does not exclude magic methods when scanning class definitions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Magic methods are now excluded from activity registration.",
+  "related": [],
+  "keyQuote": "Stop registering magic methods like constructor as Activity methods",
+  "number": 566,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:46.286Z"
+}

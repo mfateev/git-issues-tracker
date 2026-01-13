@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to provide an atomic API for resetting a workflow to a previous point and immediately applying an update request without a race condition where the workflow continues with the old state.",
+  "category": "feature",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "ResetWithUpdate"
+  ],
+  "components": [
+    "workflow-execution",
+    "reset-handler",
+    "update-handler"
+  ],
+  "concepts": [
+    "atomicity",
+    "race-condition",
+    "workflow-state",
+    "reset",
+    "update",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely reset a workflow and immediately update its state, risking data inconsistency when updates are delayed relative to reset operations.",
+  "rootCause": "Reset and update operations are not atomic, allowing the workflow to execute with stale state between the reset and update application.",
+  "proposedFix": "Implement a ResetWithUpdate(...) API that atomically applies both operations together.",
+  "workaround": "Using workflow.Await with extra flags to control logic flow, though this adds complexity.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There could be a race that when the code rely on the updated state after reset immediately, but the update request is not guaranteed to be applied atomically with reset",
+  "number": 7551,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:19:07.685Z"
+}

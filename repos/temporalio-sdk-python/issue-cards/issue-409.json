@@ -1,0 +1,31 @@
+{
+  "summary": "Remove the OutboundInterceptor.poll_workflow_update method as it doesn't need to be interceptable, similar to how getting a workflow result is not interceptable.",
+  "category": "feature",
+  "subcategory": "interceptor-framework",
+  "apis": [
+    "OutboundInterceptor.poll_workflow_update"
+  ],
+  "components": [
+    "interceptor",
+    "workflow-update",
+    "outbound-interceptor"
+  ],
+  "concepts": [
+    "interceptor-pattern",
+    "workflow-update",
+    "api-simplification",
+    "interception-scope"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have a simpler interceptor API with fewer methods to implement and override.",
+  "rootCause": "poll_workflow_update does not require interception like getting a workflow result does not require interception.",
+  "proposedFix": "Remove the poll_workflow_update method from OutboundInterceptor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The method was removed from the OutboundInterceptor interface in the SDK.",
+  "related": [],
+  "keyQuote": "This does not need to be interceptable any more than getting a workflow result does",
+  "number": 409,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:05:34.386Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Request to export ScopeDefinition factory methods or make the type exportable so external projects (like a Temporal Cloud proxy) can extend the metrics library with custom scope definitions. The issue was closed as the metrics.Client was deprecated in favor of the simpler metrics.MetricsHandler interface.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [
+    "MetricsHandler"
+  ],
+  "components": [
+    "metrics",
+    "metrics-library",
+    "scope-definition"
+  ],
+  "concepts": [
+    "metrics",
+    "extension",
+    "factory-methods",
+    "scope-definitions",
+    "metrics-handler",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "External projects cannot extend the metrics library with custom scope definitions due to unexported types, limiting metrics customization and consistency.",
+  "rootCause": "scopeDefinition was unexported (private) in the metrics package, preventing external extension while factory methods existed for other aspects.",
+  "proposedFix": "Create scopeDefinition factory methods or export ScopeDefinition type to allow external extension of scope definitions.",
+  "workaround": "Use a separate metrics client instead of extending the built-in metrics library.",
+  "resolution": "fixed",
+  "resolutionDetails": "metrics.Client was deprecated in favor of metrics.MetricsHandler which has a much simpler interface that addresses the need.",
+  "related": [],
+  "keyQuote": "Create `scopeDefinition` factory methods or export `ScopeDefinition` for extension. This will allow me to extend the existing scope definitions and metrics for new uses.",
+  "number": 3538,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:43:37.242Z"
+}

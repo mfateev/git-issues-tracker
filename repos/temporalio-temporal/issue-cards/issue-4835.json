@@ -1,0 +1,32 @@
+{
+  "summary": "User created a cluster with only 1 history shard without understanding the implications, causing severe latency issues. They need a way to either scale up history shards after cluster creation, retroactively enable replication by converting a local namespace to global, or import workflows to a new cluster.",
+  "category": "feature",
+  "subcategory": "namespace-configuration",
+  "apis": [],
+  "components": [
+    "namespace",
+    "history-shards",
+    "replication",
+    "persistence"
+  ],
+  "concepts": [
+    "namespace-configuration",
+    "history-shards",
+    "replication",
+    "cluster-migration",
+    "scalability",
+    "multi-cluster"
+  ],
+  "severity": "high",
+  "userImpact": "Users who configure clusters with insufficient history shards are locked into a suboptimal configuration with no path to migrate existing workflows to properly-configured clusters.",
+  "rootCause": "The 'global' namespace flag cannot be changed after namespace creation, and history shard count is immutable, preventing replication setup and shard scaling for existing namespaces.",
+  "proposedFix": "Either allow history shards to be scaled up after namespace creation, allow namespaces to be retroactively promoted to global status, or support importing events from one namespace/cluster to another.",
+  "workaround": "Route new workflows to a parallel cluster at the application level (not ideal for hobby projects).",
+  "resolution": "fixed",
+  "resolutionDetails": "The --promote-global flag exists to convert local namespaces to global, though the user encountered additional issues with adding a second cluster.",
+  "related": [],
+  "keyQuote": "These foot-guns are very easy to trigger and very hard to undo.",
+  "number": 4835,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:20.725Z"
+}

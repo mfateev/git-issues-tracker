@@ -1,0 +1,33 @@
+{
+  "summary": "TypeScript SDK v1.12.2 introduces a regression where worker heartbeats fail with permission denied errors when connecting to Temporal Cloud with API keys, causing workers to crash in production despite working in local dev environments.",
+  "category": "bug",
+  "subcategory": "worker-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "heartbeat",
+    "connection",
+    "authentication"
+  ],
+  "concepts": [
+    "network-error",
+    "permission-denied",
+    "api-key-authentication",
+    "grpc",
+    "regression"
+  ],
+  "severity": "critical",
+  "userImpact": "Production workers crash immediately after upgrading to v1.12.2 when using API key authentication with Temporal Cloud.",
+  "rootCause": "A change to worker heartbeat logic between v1.12.1 and v1.12.2 introduced a regression that causes permission validation failures with API key-based connections.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in TypeScript SDK v1.12.3",
+  "related": [
+    15108
+  ],
+  "keyQuote": "Network error while sending worker heartbeat... PermissionDenied, message: \"Request unauthorized.\"",
+  "number": 1765,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:32:35.974Z"
+}

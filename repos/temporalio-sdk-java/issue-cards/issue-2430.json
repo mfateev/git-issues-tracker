@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose the root workflow execution in the Java SDK, allowing users to access context about the parent workflow execution when running in a child workflow context.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-context",
+    "child-workflow"
+  ],
+  "concepts": [
+    "workflow-execution",
+    "parent-workflow",
+    "workflow-context",
+    "execution-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with child workflows cannot currently access information about the root workflow execution, limiting visibility into the overall execution hierarchy.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to expose root workflow execution metadata in child workflow context",
+  "related": [
+    605
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/605",
+  "number": 2430,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:15.121Z"
+}

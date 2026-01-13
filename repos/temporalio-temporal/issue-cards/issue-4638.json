@@ -1,0 +1,32 @@
+{
+  "summary": "Design and implement a proper deprecation strategy for history queues. Currently, removing a queue definition causes undefined behavior (panic in 1.21, silent failure in master), risking data loss or configuration issues.",
+  "category": "feature",
+  "subcategory": "history-queue-lifecycle",
+  "apis": [],
+  "components": [
+    "history-queue",
+    "shard-info",
+    "task-category",
+    "archival-queue"
+  ],
+  "concepts": [
+    "queue-deprecation",
+    "data-retention",
+    "configuration-management",
+    "graceful-shutdown",
+    "backlog-handling",
+    "lifecycle-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely remove or disable history queues (including archival) without risking data loss or server panics, complicating queue management and disabling archival.",
+  "rootCause": "No proper lifecycle management for history queues; skipping queue registration causes undefined behavior due to stale queue references in shard metadata.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should have a proper design for history queue deprecation. This could be useful for disabling archival queue and in the future if more history queues needs to be dynamically created and deleted.",
+  "number": 4638,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:55:27.996Z"
+}

@@ -1,0 +1,44 @@
+{
+  "summary": "Feature request to support user metadata in PHP SDK by accepting optional static summary and details on workflow start operations, summary for timers and activities, and handling the __temporal_workflow_metadata query to align with Go SDK implementation.",
+  "category": "feature",
+  "subcategory": "user-metadata",
+  "apis": [
+    "StartWorkflow",
+    "SignalWithStart",
+    "Schedule",
+    "ChildWorkflow",
+    "CreateTimer",
+    "CreateActivity"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-executor",
+    "timer-management",
+    "metadata-query",
+    "scheduling"
+  ],
+  "concepts": [
+    "metadata",
+    "workflow-start",
+    "activity-creation",
+    "timer-creation",
+    "query-handling",
+    "user-customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users gain the ability to attach custom metadata to workflows, activities, and timers for better observability and tracking within the PHP SDK.",
+  "rootCause": null,
+  "proposedFix": "Implement metadata support consistent with Go SDK (PR #1597), including optional summary/details parameters and __temporal_workflow_metadata query handling.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with metadata support across workflow start methods, timers, and activities, plus __temporal_workflow_metadata query handling.",
+  "related": [
+    486,
+    1597,
+    1673
+  ],
+  "keyQuote": "Accept optional \"static summary\" and \"static details\" on all ways to start a workflow (start, signal with start, schedule, and child workflow) and populate user metadata with them",
+  "number": 517,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:33:59.625Z"
+}

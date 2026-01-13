@@ -1,0 +1,30 @@
+{
+  "summary": "Activity retry expiration time is incorrectly calculated based on the original workflow's activityScheduleEvent time rather than being recalculated from the reset time, causing the activity scheduled time to become later than the retry expiration time.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-resetter",
+    "activity-retry",
+    "history-service"
+  ],
+  "concepts": [
+    "activity-retry",
+    "expiration-time",
+    "workflow-reset",
+    "scheduled-time",
+    "retry-logic"
+  ],
+  "severity": "high",
+  "userImpact": "Resetting workflows with retrying activities causes retry logic to fail because the expiration deadline passes before the activity can be rescheduled.",
+  "rootCause": "Activity retry expiration time is calculated using the base workflow's activityScheduleEvent time, then the activity scheduled time is overwritten to the reset time, inverting the temporal relationship.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Activity retry expiration time is based calculated using the base workflow's activityScheduleEvent time. Then activity scheduled time is overwritten to the reset time, causing activity scheduled time to be later than retry expiration time.",
+  "number": 6952,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:39.812Z"
+}

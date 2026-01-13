@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add toString() methods to ActivityInfo and WorkflowInfo classes for improved logging and debugging. Currently developers must manually construct log messages with individual field accessors instead of simply logging the info object directly.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "ActivityInfo",
+    "WorkflowInfo"
+  ],
+  "components": [
+    "activity-executor",
+    "workflow-executor",
+    "interceptor"
+  ],
+  "concepts": [
+    "logging",
+    "debugging",
+    "string-representation",
+    "activity-context",
+    "workflow-context"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must write verbose logging code when inspecting ActivityInfo and WorkflowInfo objects, reducing code readability and maintainability.",
+  "rootCause": null,
+  "proposedFix": "Add toString() method implementations to ActivityInfo and WorkflowInfo classes that return a formatted string representation of all fields.",
+  "workaround": "Manually construct log messages using individual getter methods for each field.",
+  "resolution": "fixed",
+  "resolutionDetails": "toString() methods were added to both ActivityInfo and WorkflowInfo classes.",
+  "related": [],
+  "keyQuote": "It is often necessary (especially in interceptors) to log all info about workflow or activity.",
+  "number": 1272,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:20:27.052Z"
+}

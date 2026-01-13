@@ -1,0 +1,30 @@
+{
+  "summary": "Users need an easier way to discover available dynamic configuration keys. Currently, they must manually check the source code at a specific git SHA, requiring knowledge of the running version and corresponding commit hash.",
+  "category": "feature",
+  "subcategory": "cli-webui",
+  "apis": [],
+  "components": [
+    "cli",
+    "webui",
+    "dynamic-config"
+  ],
+  "concepts": [
+    "configuration",
+    "discoverability",
+    "documentation",
+    "version-management",
+    "server-setup"
+  ],
+  "severity": "low",
+  "userImpact": "Users must perform cumbersome manual cross-referencing between release notes and source code to find available dynamic configuration options.",
+  "rootCause": null,
+  "proposedFix": "Add a CLI or Web UI option to list all dynamic configuration key-value pairs available in the running server version.",
+  "workaround": "Check the source code at the appropriate git SHA for the running version, cross-reference against release notes.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A CLI/Web UI option that prints out all dynamic configs KV pairs would make things much easier.",
+  "number": 7947,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:22:35.362Z"
+}

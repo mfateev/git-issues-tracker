@@ -1,0 +1,28 @@
+{
+  "summary": "User inquires about running Temporal TypeScript SDK on Bun runtime and reports encountering a Rust crash. The issue was resolved after a Bun upgrade, but broader compatibility with Bun runtime remains under investigation.",
+  "category": "question",
+  "subcategory": "runtime-compatibility",
+  "apis": [],
+  "components": [
+    "typescript-sdk",
+    "bun-runtime"
+  ],
+  "concepts": [
+    "runtime-compatibility",
+    "bun",
+    "javascript-runtime",
+    "sdk-support"
+  ],
+  "severity": "low",
+  "userImpact": "Users attempting to run Temporal TypeScript SDK on Bun runtime may encounter compatibility issues or crashes.",
+  "rootCause": "Bun runtime compatibility issue (possibly in Bun itself, resolved in version 1.1.20)",
+  "proposedFix": null,
+  "workaround": "Upgrade to Bun 1.1.20 or later",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by Bun 1.1.20 release which fixed the Rust crash reported in the issue",
+  "related": [],
+  "keyQuote": "bun 1.1.20 was released just a few hours ago, and running bun upgrade now seems to have resolved this issue",
+  "number": 6285,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:46.123Z"
+}

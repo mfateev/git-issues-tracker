@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for query filters when listing schedules in the Java SDK, matching the existing functionality available for listing workflows.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ListSchedules"
+  ],
+  "components": [
+    "schedule-client",
+    "query-filter",
+    "list-operations"
+  ],
+  "concepts": [
+    "query-filtering",
+    "schedule-listing",
+    "api-parity",
+    "workflow-operations"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot filter schedules during listing operations, reducing usability and requiring client-side filtering.",
+  "rootCause": null,
+  "proposedFix": "Implement query parameter support for ListSchedules to match ListWorkflows functionality",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Query support was added to the ListSchedules operation in the Java SDK",
+  "related": [],
+  "keyQuote": "Need to support the query option when listing schedules same as we do when listing workflows.",
+  "number": 2139,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:13.661Z"
+}

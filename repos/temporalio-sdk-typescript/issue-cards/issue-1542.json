@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to support asynchronous Update Validators in TypeScript SDK. Currently validators must be synchronous, but users need async operations for complex access control checks (database queries, ACLs) before allowing updates.",
+  "category": "feature",
+  "subcategory": "update-validators",
+  "apis": [
+    "UpdateValidators"
+  ],
+  "components": [
+    "update-handler",
+    "validator",
+    "message-passing"
+  ],
+  "concepts": [
+    "async-operations",
+    "access-control",
+    "database-queries",
+    "validation",
+    "workflow-history"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot perform async access control validation before allowing updates, forcing them to use activities which pollutes workflow history with irrelevant data.",
+  "rootCause": "Update Validators are designed to be synchronous-only; async validators are treated as activities and logged to workflow history instead of returning validation errors to callers.",
+  "proposedFix": "Allow Update Validators to be asynchronous functions that can perform async operations like database queries.",
+  "workaround": "Convert validators to Activities and call them from Update handlers, but this pollutes workflow history and requires additional polling logic.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I need to check complex access controls via a database query and return an error to the caller if not allowed.",
+  "number": 1542,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:53:06.580Z"
+}

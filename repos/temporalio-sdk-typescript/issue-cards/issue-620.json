@@ -1,0 +1,30 @@
+{
+  "summary": "OpenTelemetry interceptors package modifies the global object to add a `window` property when imported, affecting code outside the workflow isolate that depends on `typeof window === \"undefined\"` checks. This breaks existing Node.js projects that use this common pattern to detect browser vs server environments.",
+  "category": "bug",
+  "subcategory": "opentelemetry-interceptors",
+  "apis": [],
+  "components": [
+    "interceptors-opentelemetry",
+    "worker",
+    "workflow-runtime"
+  ],
+  "concepts": [
+    "global-scope-pollution",
+    "environment-detection",
+    "workflow-isolate",
+    "opentelemetry-instrumentation",
+    "node-browser-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Existing Node.js projects that rely on `typeof window === \"undefined\"` for environment detection break when using OpenTelemetry interceptors, as the global `window` property is added outside the workflow isolate.",
+  "rootCause": "The OpenTelemetry interceptors modify the global object to add a `window` property for workflow isolate compatibility, but this modification happens during import and affects the entire Node.js process rather than being scoped to the workflow isolate.",
+  "proposedFix": "Scope the global modifications to only affect code inside the workflow isolate, or avoid modifying globals altogether.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This modification may be necessary within the workflow isolate, but this code is also required outside the workflow isolate when just booting the worker",
+  "number": 620,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:05:08.136Z"
+}

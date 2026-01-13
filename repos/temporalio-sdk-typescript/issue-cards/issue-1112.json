@@ -1,0 +1,33 @@
+{
+  "summary": "The Workflow Bundler does not prevent usage of the `process` global variable in workflow code, which is not available in the workflow sandbox environment, causing ReferenceError at execution time. The issue requires implementing a custom Webpack target that matches the sandbox's capabilities while maintaining compatibility with external libraries using conditional package.json exports.",
+  "category": "bug",
+  "subcategory": "workflow-bundler",
+  "apis": [],
+  "components": [
+    "workflow-bundler",
+    "webpack-configuration",
+    "workflow-sandbox"
+  ],
+  "concepts": [
+    "process-global",
+    "webpack-target",
+    "sandbox-environment",
+    "conditional-exports",
+    "bundle-validation",
+    "build-configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Developers can write workflow code that compiles successfully but fails at runtime with ReferenceError when the bundler does not catch usage of unavailable globals like `process`.",
+  "rootCause": "Webpack defaults to 'web' target which does not forbid 'process' global usage, but the workflow sandbox environment does not provide this global. Setting target to 'false' would match the sandbox but breaks libraries with conditional package.json exports.",
+  "proposedFix": "Define a custom Webpack target that closely matches the workflow sandbox environment and enables 'browser' conditional exports to maintain compatibility with external libraries.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    958
+  ],
+  "keyQuote": "Setting target to `false` would be closest to the sandbox, but breaks libraries using conditional package.json exports. A custom Webpack target matching the sandbox with browser conditionals is the most appropriate solution.",
+  "number": 1112,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:35:15.020Z"
+}

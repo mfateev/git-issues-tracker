@@ -1,0 +1,33 @@
+{
+  "summary": "Task queue state validation logic in the delete workflow execution is tightly coupled with task processing, making the codebase harder to understand. The proposed solution moves this validation logic from the delete manager to task processing, checking transfer and visibility queue ack levels to determine if deletion tasks can be safely processed.",
+  "category": "feature",
+  "subcategory": "task-queue-deletion",
+  "apis": [],
+  "components": [
+    "delete-manager",
+    "task-processing",
+    "transfer-queue",
+    "visibility-queue",
+    "mutable-state"
+  ],
+  "concepts": [
+    "task-queue-state",
+    "validation",
+    "coupling",
+    "ack-levels",
+    "workflow-deletion",
+    "queue-processing"
+  ],
+  "severity": "medium",
+  "userImpact": "This refactoring improves code organization and maintainability by decoupling delete workflow execution logic from task processing, making it easier for developers to understand and modify deletion behavior.",
+  "rootCause": "Delete workflow execution behavior is tightly coupled with task processing state validation, creating unnecessary interdependencies between the delete manager and task processing components.",
+  "proposedFix": "Move task queue state validation from delete manager to task processing. For transfer queue: load mutable state to get close transfer task id when processing delete task. For visibility queue: store closed visibility task id in mutable state since mutable state may be deleted before visibility task processing.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should move this part into task processing.",
+  "number": 3368,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:41:13.136Z"
+}

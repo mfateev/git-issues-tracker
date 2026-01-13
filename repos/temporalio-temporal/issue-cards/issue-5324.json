@@ -1,0 +1,30 @@
+{
+  "summary": "User questions whether there are special considerations for accessing resources (activities/workflows) across different Temporal namespaces within the same server, particularly when activity outputs from one namespace need to feed into another namespace's activities.",
+  "category": "question",
+  "subcategory": "cross-namespace-communication",
+  "apis": [],
+  "components": [
+    "namespace",
+    "activity",
+    "workflow"
+  ],
+  "concepts": [
+    "cross-namespace",
+    "resource-access",
+    "data-flow",
+    "namespace-isolation",
+    "multi-namespace-architecture"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clarity on whether Temporal namespaces isolate resources like Kubernetes namespaces or allow cross-namespace activity/workflow invocation.",
+  "rootCause": null,
+  "proposedFix": "Cross namespace invocation will be supported by nexus service",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "would we run into any issues if the inputs for activity_2 depends on outputs from activity_1?",
+  "number": 5324,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:03:49.084Z"
+}

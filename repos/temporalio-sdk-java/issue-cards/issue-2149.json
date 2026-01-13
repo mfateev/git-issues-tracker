@@ -1,0 +1,30 @@
+{
+  "summary": "Local activity backpressure logic needs revisiting for slot suppliers without defined upper limits. Currently defaults to 100 slots for unlimited suppliers, but a more optimal default may be possible.",
+  "category": "feature",
+  "subcategory": "local-activities",
+  "apis": [],
+  "components": [
+    "slot-supplier",
+    "local-activity-executor",
+    "backpressure"
+  ],
+  "concepts": [
+    "backpressure",
+    "slot-management",
+    "concurrency-control",
+    "resource-limits",
+    "semaphore"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with slot suppliers that have no upper limit may experience suboptimal backpressure handling or unexpected WFT failures due to arbitrary default slot limits.",
+  "rootCause": "When slot suppliers have no defined upper limit, there is no principled way to choose a reasonable default backpressure semaphore size, currently hardcoded to 100.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "for suppliers with no defined upper-limit on slots, there is no way to pick a reasonable number, so we default to 100",
+  "number": 2149,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:27.703Z"
+}

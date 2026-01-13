@@ -1,0 +1,32 @@
+{
+  "summary": "NullPointerException occurs when calling continueAsNew on a workflow method without arguments. The SDK fails to handle null input when creating ContinueAsNewWorkflowExecutionDecisionAttributes.",
+  "category": "bug",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "continueAsNewWorkflow"
+  ],
+  "components": [
+    "DecisionsHelper",
+    "ContinueAsNewWorkflowExecutionDecisionAttributes",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "null-handling",
+    "continue-as-new",
+    "input-validation",
+    "workflow-method",
+    "argument-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use continue as new pattern with workflow methods that have no arguments, causing runtime exceptions in production workflows.",
+  "rootCause": "DecisionsHelper.continueAsNewWorkflowExecution does not properly handle null input when the workflow method has no parameters.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was resolved by adding proper null input handling in the continueAsNewWorkflowExecution method to support zero-argument workflow methods.",
+  "related": [],
+  "keyQuote": "java.lang.NullPointerException\\n\\tat io.temporal.proto.decision.ContinueAsNewWorkflowExecutionDecisionAttributes$Builder.setInput",
+  "number": 98,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T17:56:06.729Z"
+}

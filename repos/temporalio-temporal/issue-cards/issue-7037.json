@@ -1,0 +1,31 @@
+{
+  "summary": "Viewing and describing schedules throws 'context deadline exceeded' errors, preventing access to schedule details and execution. The issue appears to impact existing schedules selectively while newly created schedules remain accessible.",
+  "category": "bug",
+  "subcategory": "schedule-management",
+  "apis": [
+    "DescribeSchedule"
+  ],
+  "components": [
+    "schedule-service",
+    "frontend",
+    "gRPC"
+  ],
+  "concepts": [
+    "context-deadline",
+    "performance-degradation",
+    "database-query",
+    "schedule-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot view, pause, unpause, or trigger existing schedules, and affected schedules stop executing entirely, blocking critical workflow scheduling functionality.",
+  "rootCause": "Unclear from issue description, but comments suggest potential issues with worker configuration or underlying workflow state that causes slow gRPC calls and context deadline exceeded errors",
+  "proposedFix": null,
+  "workaround": "Disabling worker via 'worker.enabled: false' in configuration resolves the issue for some cases; resetting the underlying workflow has helped in other cases",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Same here, can list all schedules, but cannot open/pause/unpause/trigger ~0.5% of all schedules in the namespace... Receiving `context deadline exceeded` from UI/CLI, and `slow gRPC call` from `frontend` deployment.",
+  "number": 7037,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:06.878Z"
+}

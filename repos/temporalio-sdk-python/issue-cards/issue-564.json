@@ -1,0 +1,34 @@
+{
+  "summary": "Activity command creation occurs before parameter serialization, causing half-complete commands to be sent to Core if serialization fails and users treat the error as an application error rather than a task failure.",
+  "category": "bug",
+  "subcategory": "activity-scheduling",
+  "apis": [
+    "ScheduleActivity"
+  ],
+  "components": [
+    "activity-executor",
+    "command-builder",
+    "serialization"
+  ],
+  "concepts": [
+    "command-creation",
+    "serialization",
+    "error-handling",
+    "parameter-validation",
+    "protocol-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users who convert serialization errors to application errors may send incomplete command state to Core, causing unpredictable failures.",
+  "rootCause": "Commands are created before attempting to serialize parameters; if serialization fails after command creation, the incomplete command remains in the activations list.",
+  "proposedFix": "Either refactor to create commands only after all serialization succeeds, or ensure all potentially-failing operations complete before command creation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    540
+  ],
+  "keyQuote": "if it fails, the command is still in the activations commands list but incomplete",
+  "number": 564,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:12:50.391Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "pip install fails to build wheels for temporalio on Windows, showing compilation errors despite having Rust compiler installed. The user receives build failure messages when attempting to install the package.",
+  "category": "bug",
+  "subcategory": "installation",
+  "apis": [],
+  "components": [
+    "build-system",
+    "wheel-packaging",
+    "pip-installer"
+  ],
+  "concepts": [
+    "installation",
+    "wheels",
+    "compilation",
+    "platform-compatibility",
+    "windows"
+  ],
+  "severity": "high",
+  "userImpact": "Users on Windows cannot install the temporalio package via pip, blocking them from using the SDK.",
+  "rootCause": "pip is not using a prebuilt wheel, likely due to unsupported Windows architecture (ARM or 32-bit) or incompatible Python/platform tags.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For some reason your `pip` install is not using a prebuilt wheel. Can you show the output of `pip debug --verbose`?",
+  "number": 597,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:14:28.805Z"
+}

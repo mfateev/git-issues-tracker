@@ -1,0 +1,30 @@
+{
+  "summary": "Request for documentation on workflow initialization guarantees to ensure signals and updates can safely use initialized values. Need to document that signals can arrive before the workflow method executes and provide initialization patterns.",
+  "category": "docs",
+  "subcategory": "message-passing",
+  "apis": [],
+  "components": [
+    "workflow",
+    "signals",
+    "updates"
+  ],
+  "concepts": [
+    "initialization",
+    "message-passing",
+    "signal-handling",
+    "workflow-lifecycle",
+    "handler-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need clear documentation on initialization order to safely handle signals and updates in their workflows without race conditions.",
+  "rootCause": "Documentation gap regarding signal/update arrival timing relative to workflow method execution.",
+  "proposedFix": "Document the initialization pattern and signal handling guarantees in the TypeScript message-passing documentation.",
+  "workaround": "Document the workaround pattern in the TypeScript message-passing docs to handle signals arriving before workflow initialization.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved through documentation PR #3107 which added proper initialization pattern documentation.",
+  "related": [],
+  "keyQuote": "We should have a method that's guaranteed to initialize before signals and updates come in so handlers can use initialized values.",
+  "number": 1483,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:34:43.616Z"
+}

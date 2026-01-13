@@ -1,0 +1,34 @@
+{
+  "summary": "When an update request calls continue-as-new on a workflow, the SDK should fail or complete the update with a specific response to indicate the workflow continued as new rather than the update succeeding.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "update"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-execution",
+    "continue-as-new"
+  ],
+  "concepts": [
+    "update-semantics",
+    "workflow-continuation",
+    "request-completion",
+    "error-handling",
+    "state-transition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot distinguish whether an update request succeeded or if the workflow continued as new, making it unclear if the update operation was actually processed.",
+  "rootCause": "The SDK has no mechanism to fail or complete an update request with a specific response when continue-as-new is called, leaving the update in an ambiguous state.",
+  "proposedFix": "Fail the update request with a specific response indicating the workflow continued as new, or have the server handle unblocking pending updates when a workflow completes.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was closed in favor of temporalio/temporal#5174, indicating the fix should be implemented at the server level rather than in the SDK.",
+  "related": [
+    5174
+  ],
+  "keyQuote": "the update can't succeeded because I can't force the update handles type to be the type of the success message",
+  "number": 1944,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:52:19.608Z"
+}

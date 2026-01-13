@@ -1,0 +1,35 @@
+{
+  "summary": "Test suite fails intermittently with DEADLINE_EXCEEDED errors when creating and describing schedules in CI, causing CI flakes that impact build reliability.",
+  "category": "bug",
+  "subcategory": "schedules-testing",
+  "apis": [
+    "ScheduleClient"
+  ],
+  "components": [
+    "schedule-client",
+    "test-framework",
+    "grpc-client"
+  ],
+  "concepts": [
+    "deadline",
+    "timeout",
+    "context",
+    "ci-flake",
+    "async-operations",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers experience unreliable CI builds due to flaky schedule-related tests that fail intermittently with timeout errors.",
+  "rootCause": "Context deadline exceeded in gRPC calls during schedule operations, likely due to insufficient timeout configuration or slow CI environment",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by #1090 as indicated in comments",
+  "related": [
+    1090
+  ],
+  "keyQuote": "ServiceError: Failed to describe schedule... context deadline exceeded",
+  "number": 1050,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:32:52.673Z"
+}

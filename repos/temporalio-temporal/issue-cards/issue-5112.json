@@ -1,0 +1,29 @@
+{
+  "summary": "Docker image tags for version 1.22.2 were published with a 'v' prefix (v1.22.2) instead of the traditional format (1.22.2), creating duplicate tags pointing to different images. This caused issues with automation tools like Renovatebot that depend on consistent tag naming.",
+  "category": "bug",
+  "subcategory": "docker-release",
+  "apis": [],
+  "components": [
+    "docker-registry",
+    "release-pipeline"
+  ],
+  "concepts": [
+    "versioning",
+    "docker-tagging",
+    "release-automation",
+    "image-registry",
+    "tag-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users relying on automated tooling for Docker image updates experienced broken deployments when the tag naming convention changed unexpectedly.",
+  "rootCause": "Inconsistent Docker image tagging in the release pipeline introduced 'v' prefix for version 1.22.2, deviating from previous versioning convention.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Correct tags without the 'v' prefix were published. Team acknowledged the error and committed to avoiding deletion of published tags and maintaining consistency.",
+  "related": [],
+  "keyQuote": "Docker image tags should only be removed under critical circumstances if there is a serious bug in the release or security flaw not just because there was a mistake in the naming.",
+  "number": 5112,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:52.059Z"
+}

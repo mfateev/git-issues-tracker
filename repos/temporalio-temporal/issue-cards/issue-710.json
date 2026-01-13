@@ -1,0 +1,32 @@
+{
+  "summary": "Unit tests for REPLICATION_TASK_TYPE_HISTORY_V2_TASK message decoding were removed during refactoring to remove 2dc-specific code paths. Need to add new unit tests to cover the history replication task decoding functionality.",
+  "category": "other",
+  "subcategory": "replication-task-processor",
+  "apis": [],
+  "components": [
+    "replication-task-processor",
+    "history-replication",
+    "message-decoder"
+  ],
+  "concepts": [
+    "unit-testing",
+    "message-decoding",
+    "replication-tasks",
+    "refactoring",
+    "test-coverage"
+  ],
+  "severity": "medium",
+  "userImpact": "Reduced test coverage for critical replication functionality could lead to undetected bugs in the history replication task processing pipeline.",
+  "rootCause": "Unit tests were deleted as part of PR #692 which removed 2dc-specific code paths, leaving the history replication task decoding untested.",
+  "proposedFix": "Add new unit tests for REPLICATION_TASK_TYPE_HISTORY_V2_TASK message decoding that cover both success and failure scenarios.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were added to cover the history v2 task replication decoding functionality after the 2dc code removal.",
+  "related": [
+    692
+  ],
+  "keyQuote": "I had to delete unit test `TestDecodeMsgAndSubmit_History_Success` as part of removal of 2dc specific code path",
+  "number": 710,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:11:22.753Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Rename the 'external dependencies' feature to 'sinks' to better reflect its actual functionality. The current name is misleading because this mechanism cannot be used to return values into the workflow.",
+  "category": "feature",
+  "subcategory": "api-naming",
+  "apis": [],
+  "components": [
+    "external-dependencies",
+    "sinks",
+    "api"
+  ],
+  "concepts": [
+    "naming",
+    "api-design",
+    "workflow-interaction",
+    "external-systems"
+  ],
+  "severity": "low",
+  "userImpact": "Users will have a more accurate understanding of what the external dependencies/sinks feature can and cannot do based on its corrected name.",
+  "rootCause": "The original 'external dependencies' naming was inaccurate and did not reflect the actual capability constraints of the feature.",
+  "proposedFix": "Rename 'external dependencies' to 'sinks' throughout the SDK.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was renamed from 'external dependencies' to 'sinks' to accurately reflect its purpose.",
+  "related": [],
+  "keyQuote": "The name is no longer accurate because this mechanism cannot be used to return values into the workflow",
+  "number": 364,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:06:43.368Z"
+}

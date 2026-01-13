@@ -1,0 +1,29 @@
+{
+  "summary": "Mend security vulnerability report for nyc-test-coverage package with 2 high-severity vulnerabilities in transitive dependencies: CVE-2023-45133 in @babel/traverse (CVSS 8.8) and CVE-2022-25883 in semver (CVSS 7.5). Issue was automatically closed as the vulnerable library was removed from the project inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "build-tools",
+    "test-coverage",
+    "package-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "code-execution",
+    "denial-of-service"
+  ],
+  "severity": "high",
+  "userImpact": "Users could be exposed to arbitrary code execution during compilation when using affected Babel plugins, though actual impact depends on whether untrusted code is compiled.",
+  "rootCause": "Vulnerable transitive dependencies (traverse-7.21.4 and semver-7.5.0) in the test coverage configuration package nyc-test-coverage-1.8.6.",
+  "proposedFix": "Upgrade @babel/traverse to 7.23.2 or later, and semver to 7.5.2 or later.",
+  "workaround": "Upgrade affected Babel-related packages to patched versions: @babel/plugin-transform-runtime v7.23.2, @babel/preset-env v7.23.2, or other affected packages listed in the vulnerability details.",
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend as the vulnerable library was removed from the project or marked as ignored in the Mend inventory.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 1260,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:39:44.366Z"
+}

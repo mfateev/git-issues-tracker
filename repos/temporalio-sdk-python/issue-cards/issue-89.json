@@ -1,0 +1,32 @@
+{
+  "summary": "When a wait_condition times out and then later receives a successful bool result, attempting to set the result on the already-timed-out future raises an InvalidStateError.",
+  "category": "bug",
+  "subcategory": "workflow-conditions",
+  "apis": [
+    "wait_condition"
+  ],
+  "components": [
+    "workflow-engine",
+    "future-management",
+    "timeout-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "future-state",
+    "race-condition",
+    "callback-execution",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter crashes when wait_condition timeouts coincide with callback success, blocking workflow execution.",
+  "rootCause": "The timeout and callback success are both attempting to set the result on the same future, violating the single-assignment invariant of futures.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The wait_condition implementation was modified to prevent result-setting attempts after timeout or on already-resolved futures.",
+  "related": [],
+  "keyQuote": "When using `workflow.wait_condition`, if a wait condition times out _then_ gets a bool success, we attempt to set the future which causes an `InvalidStateError`.",
+  "number": 89,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:48:55.123Z"
+}

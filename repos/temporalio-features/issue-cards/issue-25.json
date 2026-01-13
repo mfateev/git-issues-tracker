@@ -1,0 +1,32 @@
+{
+  "summary": "Request to expose a workflow_started metric in SDKs to track worker-side workflow executions. Currently wf_completed and wf_continue_as_new metrics exist, but there is no corresponding metric for workflow starts.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "worker",
+    "metrics",
+    "sdk"
+  ],
+  "concepts": [
+    "metrics",
+    "observability",
+    "workflow-lifecycle",
+    "monitoring",
+    "execution-tracking"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot easily track the number of workflows actually started on workers, limiting observability of workflow execution patterns.",
+  "rootCause": null,
+  "proposedFix": "Add workflow_started metric to SDK to track worker-side workflow execution starts, complementing existing wf_completed and wf_continue_as_new metrics.",
+  "workaround": "Use temporal_request{operation=\"StartWorkflowExecution\"} as an approximation, though this only tracks client attempts rather than actual worker-side execution.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "wf_completed, wf_continue_as_new exists, but there is no corresponding wf_started metric.",
+  "number": 25,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:43:09.688Z"
+}

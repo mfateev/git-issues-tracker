@@ -1,0 +1,36 @@
+{
+  "summary": "Proposal for a built-in query mechanism to track which handlers (queries and signals) are currently registered in a workflow, enabling clients to determine which operations are legal to send at any given moment.",
+  "category": "feature",
+  "subcategory": "workflow-handlers",
+  "apis": [
+    "setHandler",
+    "defineQuery"
+  ],
+  "components": [
+    "workflow-runtime",
+    "query-handler",
+    "signal-handler"
+  ],
+  "concepts": [
+    "handler-registration",
+    "workflow-metadata",
+    "dynamic-dispatch",
+    "introspection",
+    "state-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Allows developers to discover available handlers at runtime and implement dynamic UX that only permits currently legal operations without manual tracking.",
+  "rootCause": null,
+  "proposedFix": "Implement a built-in metadata query that returns currently registered handlers, potentially as a cross-SDK feature using protobuf definitions in the temporal/api repository.",
+  "workaround": "Use AsyncLocalStorage-based wrapper around setHandler to manually track registered handlers and expose via custom query.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via metadata query as discussed in cross-SDK issue #51, with implementation completed in #1319.",
+  "related": [
+    1319,
+    51
+  ],
+  "keyQuote": "This allows us to drive UX experiences that only allow currently legal operations, which is a powerful technique for code-as-source-of-truth on our workflows.",
+  "number": 1081,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:34:23.751Z"
+}

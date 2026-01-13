@@ -1,0 +1,31 @@
+{
+  "summary": "Multiple test flakes have been encountered in the Go SDK test suite after upgrading to server 1.25.0-rc.0, particularly related to versioning. These flakes need investigation and server-side fixes before the 1.25.0 release.",
+  "category": "bug",
+  "subcategory": "test-flakes",
+  "apis": [],
+  "components": [
+    "test-suite",
+    "server",
+    "nexus"
+  ],
+  "concepts": [
+    "versioning",
+    "test-stability",
+    "server-upgrade",
+    "compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users testing against server 1.25.0-rc.0 may encounter flaky test behavior in their applications, blocking upgrade validation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1555
+  ],
+  "keyQuote": "The cause needs to be investigated and server code fixed before we cut an official 1.25.0 release.",
+  "number": 6320,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:55.082Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The auto-setup container fails to connect to the Temporal server when binding to IPv6 addresses because the IPv6 address format (with brackets) is not preserved during connection setup. The brackets are needed in IPv6 addresses with ports but are being stripped, causing \"too many colons in address\" errors.",
+  "category": "bug",
+  "subcategory": "network-configuration",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "client-factory",
+    "network-configuration"
+  ],
+  "concepts": [
+    "ipv6",
+    "address-binding",
+    "connection",
+    "network-setup",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run Temporal on IPv6-enabled clusters (like AWS EKS with IPv6) because the auto-setup container cannot connect to itself.",
+  "rootCause": "The auto-setup process strips bracket notation from IPv6 addresses when establishing SDK client connections, resulting in malformed addresses with too many colons for the TCP dialer.",
+  "proposedFix": "Fix the client factory to properly handle IPv6 addresses by preserving or adding bracket notation when constructing connection addresses.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in pull request #4766, to be available in the next release.",
+  "related": [
+    3612
+  ],
+  "keyQuote": "For some reason when autosetup is trying to connect the '[ ]' are disappearing... address 2a05:d014:6e0:c883:1d45::11:7233: too many colons in address",
+  "number": 3629,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:38.406Z"
+}

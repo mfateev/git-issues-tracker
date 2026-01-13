@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to call the Core worker.validate method on worker start/run, added in sdk-core PR #750, and propagate any validation errors to the user.",
+  "category": "feature",
+  "subcategory": "worker-validation",
+  "apis": [
+    "validate"
+  ],
+  "components": [
+    "worker",
+    "core-bridge"
+  ],
+  "concepts": [
+    "validation",
+    "worker-initialization",
+    "error-handling",
+    "core-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need validation errors from the Core worker to be surfaced during worker startup to catch configuration issues early.",
+  "rootCause": null,
+  "proposedFix": "Call worker.validate() on worker start/run and propagate any errors to the user",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to call Core worker.validate method and handle validation errors",
+  "related": [
+    750
+  ],
+  "keyQuote": "validate added in sdk-core PR #750, make sure to call it on worker start/run and if it errors, error to the user",
+  "number": 1430,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:45:14.051Z"
+}

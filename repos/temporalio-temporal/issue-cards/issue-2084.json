@@ -1,0 +1,33 @@
+{
+  "summary": "Auto-setup Docker image fails to migrate databases when the PostgreSQL user name differs from the database name, as it attempts to recreate an existing database. This occurs because the script uses user existence as a proxy for database existence, which doesn't account for mismatched naming conventions.",
+  "category": "bug",
+  "subcategory": "database-setup",
+  "apis": [],
+  "components": [
+    "auto-setup",
+    "docker",
+    "database-migration",
+    "postgresql"
+  ],
+  "concepts": [
+    "database-migration",
+    "user-database-mapping",
+    "postgresql-setup",
+    "container-initialization",
+    "version-upgrade"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot migrate Temporal instances when their PostgreSQL user and database names don't match, blocking upgrades to newer versions.",
+  "rootCause": "The auto-setup script checks if a PostgreSQL user exists as an indicator that the database already exists, but this assumption fails when user and database names differ. PostgreSQL 9.6 creates databases automatically with user creation, but the script doesn't account for non-standard naming.",
+  "proposedFix": null,
+  "workaround": "Use matching PostgreSQL user and database names during setup.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Auto-setup image is documented as development-only and not intended for production migrations. Users should use docker-compose instead. Sequential version updates are required, not major jumps.",
+  "related": [
+    1613
+  ],
+  "keyQuote": "auto-setup image is for local development only and was never tested for any migrations",
+  "number": 2084,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:23:11.150Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add built-in support for passing large data payloads (30MB+) between activities and workflows. Currently users must implement their own workarounds like saving blobs to external storage and passing URLs instead.",
+  "category": "feature",
+  "subcategory": "activity-communication",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "workflow-execution",
+    "data-serialization"
+  ],
+  "concepts": [
+    "large-payloads",
+    "blob-storage",
+    "inter-activity-communication",
+    "data-transfer",
+    "scalability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to pass large data between activities must implement custom blob storage solutions instead of using built-in Temporal mechanisms.",
+  "rootCause": null,
+  "proposedFix": "Add built-in blob storage (Cassandra/MySQL) that activities can call to save large data, returning IDs that workflows pass to subsequent activities.",
+  "workaround": "Save large blobs to external storage and pass URLs between activities instead of raw data.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Let the activity call Temporal to save the blob in Cassandra/MySQL, returns the id of the blob to the workflow that can pass it on.",
+  "number": 518,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:12:53.263Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Workflow StartDelay is not being respected when using TestWorkflowEnvironment, regardless of time skipping settings. When time skipping is disabled, no actual delay occurs before workflow starts, and when enabled, no timer is created.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "workflow-options",
+    "time-skipping"
+  ],
+  "concepts": [
+    "start-delay",
+    "timer",
+    "test-execution",
+    "time-handling",
+    "workflow-initialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test workflows with start delays using the test environment, making it difficult to validate timing-dependent workflow behavior.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Duplicate of issue #1692",
+  "related": [
+    1692
+  ],
+  "keyQuote": "there is already an issue to track this",
+  "number": 2451,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:08:59.000Z"
+}

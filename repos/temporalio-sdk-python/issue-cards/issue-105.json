@@ -1,0 +1,29 @@
+{
+  "summary": "Mend security scan detected 6 vulnerabilities in go.temporal.io/server-v1.17.1 transitive dependencies, including 4 high-severity CVEs (CVSS 7.5) affecting Apache Thrift, golang.org/x/net, and golang.org/x/text libraries. The issue was automatically closed by Mend as the vulnerable library was removed from inventory.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "build-system"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency-scanning",
+    "transitive-dependencies",
+    "denial-of-service",
+    "supply-chain-security"
+  ],
+  "severity": "high",
+  "userImpact": "Users running the Python SDK with Temporal Server dependencies could be exposed to remote denial-of-service attacks through vulnerable transitive dependencies.",
+  "rootCause": "Transitive dependencies from go.temporal.io/server-v1.17.1 contain known vulnerabilities in Apache Thrift (0.10.0), golang.org/x/net, and golang.org/x/text that allow network-based denial of service attacks.",
+  "proposedFix": "Upgrade vulnerable transitive dependencies: Apache Thrift to 0.13.0+, golang.org/x/net and golang.org/x/text to patched versions. Alternatively, upgrade go.temporal.io/server to a version with fixed dependencies.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend bot as the vulnerable library was marked as ignored or removed from the Mend inventory, not indicating actual remediation.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 105,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:49:27.392Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Ensure activity start and last timeout/fail events are flushed when a workflow finishes, to prevent loss of critical activity state information.",
+  "category": "feature",
+  "subcategory": "activity-events",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "activity-executor",
+    "event-handling"
+  ],
+  "concepts": [
+    "event-flushing",
+    "activity-lifecycle",
+    "timeout-handling",
+    "workflow-completion",
+    "state-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Without proper flushing, users may lose visibility into activity state changes at workflow completion.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #503, which addresses the same concern.",
+  "related": [
+    503
+  ],
+  "keyQuote": "close in favor of #503",
+  "number": 1346,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:13:28.484Z"
+}

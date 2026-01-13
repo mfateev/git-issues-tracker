@@ -1,0 +1,31 @@
+{
+  "summary": "Request to support native/exponential histograms in Temporal Server and SDKs to reduce observability costs. Native histograms provide 10x resolution at half the price compared to classic histograms by storing data with fewer metric series.",
+  "category": "feature",
+  "subcategory": "observability-metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "prometheus-exporter",
+    "observability"
+  ],
+  "concepts": [
+    "native-histograms",
+    "prometheus",
+    "cost-optimization",
+    "metric-series",
+    "observability-platforms",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Self-hosted deployments can significantly reduce observability platform costs by using native histograms instead of classic histograms for metric collection.",
+  "rootCause": "Current Server/SDK implementation only emits classic histograms; native histogram support is not implemented despite Prometheus experimental support.",
+  "proposedFix": "Update Server and SDK code to export exponential/native histograms as an option alongside classic histograms, allowing teams to reduce metric series volume and costs.",
+  "workaround": "Use Grafana Alloy to scrape metrics, though native histogram scraping is not currently functional with Temporal's classic histogram emission.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "you get 10x the resolution at half the price",
+  "number": 6633,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:14:22.611Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "When encode_common_attributes=True is set on the failure converter, querying an unregistered workflow query or the internal list query returns an \"Encoded failure\" error instead of a proper failure response. The UI's query listing feature fails because it relies on the internal query type which also encounters this encoding issue.",
+  "category": "bug",
+  "subcategory": "query-handling",
+  "apis": [
+    "Client.get_workflow_handle",
+    "query"
+  ],
+  "components": [
+    "query-handler",
+    "failure-converter",
+    "data-converter"
+  ],
+  "concepts": [
+    "query-failure",
+    "failure-encoding",
+    "encode-common-attributes",
+    "ui-integration",
+    "internal-queries"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot list workflow queries in the UI and cannot send unregistered queries with encrypted failure converters, both operations fail with uninformative \"Encoded failure\" errors.",
+  "rootCause": "The server doesn't support Failure structure encoding for query failures, making encrypted failures incompatible with the UI's query listing mechanism which uses internal queries.",
+  "proposedFix": "Server-side fix for query failure encoding (issue #6845), or SDK-side workaround to keep query failures in plain text temporarily.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    6845
+  ],
+  "keyQuote": "query failures use the Failure structure but the server doesn't support that for query failures",
+  "number": 641,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:37.512Z"
+}

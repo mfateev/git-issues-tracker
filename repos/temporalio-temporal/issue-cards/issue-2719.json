@@ -1,0 +1,31 @@
+{
+  "summary": "Apache Thrift dependency (0.10.0) in ringpop-go contains 3 vulnerabilities (2 high severity with CVSS 7.5, 1 medium with CVSS 6.5) affecting availability and confidentiality. Issue was automatically managed by Mend security scanner through repeated closure and reopening based on dependency inventory status.",
+  "category": "bug",
+  "subcategory": "dependency-security-vulnerability",
+  "apis": [],
+  "components": [
+    "ringpop-go",
+    "dependency-management",
+    "thrift-serialization"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-upgrade",
+    "availability-impact",
+    "dos-attack",
+    "path-traversal",
+    "protocol-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the vulnerable ringpop-go dependency are exposed to denial-of-service attacks and potential unauthorized file access via Apache Thrift vulnerabilities.",
+  "rootCause": "Apache Thrift 0.10.0 contains three unpatched CVEs: CVE-2019-0205 (endless loop in protocol handling), CVE-2019-0210 (panic in Go JSON protocol with invalid input), and CVE-2018-11798 (directory traversal in Node.js web server).",
+  "proposedFix": "Upgrade Apache Thrift to version 0.13.0 or later to resolve all three vulnerabilities.",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Automatically closed by Mend when vulnerable library was marked as ignored or removed from inventory. The final closure indicates the vulnerability was either remediated by dependency updates or intentionally ignored.",
+  "related": [],
+  "keyQuote": "This issue was automatically closed by Mend because the vulnerable library in the specific branch(es) was either marked as ignored or it is no longer part of the Mend inventory.",
+  "number": 2719,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:32:08.837Z"
+}

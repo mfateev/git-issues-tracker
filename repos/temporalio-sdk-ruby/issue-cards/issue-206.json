@@ -1,0 +1,32 @@
+{
+  "summary": "Allow setting search attributes in dev server startup options for the Ruby SDK, translating them to --search-attribute CLI calls to align with recent CLI improvements.",
+  "category": "feature",
+  "subcategory": "dev-server",
+  "apis": [],
+  "components": [
+    "dev-server",
+    "cli-integration",
+    "search-attributes"
+  ],
+  "concepts": [
+    "dev-server-configuration",
+    "search-attributes",
+    "cli-compatibility",
+    "sdk-startup",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Users can now configure search attributes directly in dev server startup options instead of managing them separately through CLI calls.",
+  "rootCause": null,
+  "proposedFix": "Add support for accepting search attributes in dev server startup options that translate to --search-attribute CLI parameters.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to accept search attributes in dev server startup options.",
+  "related": [
+    494
+  ],
+  "keyQuote": "users should be allowed to set search attributes in dev server option that translate to `--search-attribute` calls",
+  "number": 206,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:45:51.307Z"
+}

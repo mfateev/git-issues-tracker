@@ -1,0 +1,33 @@
+{
+  "summary": "The workflow reset API fails when attempting to reset workflows that have timed out without completing any workflow tasks. The reset should fall back to resetting to the start event when no completed workflow task exists.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "Reset",
+    "StartWorkflowExecution"
+  ],
+  "components": [
+    "workflow-reset",
+    "event-history",
+    "decision-task"
+  ],
+  "concepts": [
+    "reset",
+    "timeout",
+    "event-history",
+    "workflow-task",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reset workflows that timeout before completing any workflow tasks, blocking workflow recovery and replay operations.",
+  "rootCause": "Reset logic assumes at least one WorkflowTaskCompleted event exists to determine reset point; it fails when event history only contains WorkflowExecutionStarted -> DecisionTaskScheduled -> WorkflowExecutionTimedOut.",
+  "proposedFix": "Reset should fall back to resetting to the startWorkflowExecutionEvent when no completed workflow task event is found.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Reset now works for workflows without completed workflow tasks by falling back to resetting to the start event.",
+  "related": [],
+  "keyQuote": "If a workflow timed out without any workflow task started event, it should just reset to its startWorkflowExecutionEvent.",
+  "number": 494,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:01:49.466Z"
+}

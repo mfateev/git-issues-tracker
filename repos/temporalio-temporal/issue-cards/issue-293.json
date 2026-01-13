@@ -1,0 +1,28 @@
+{
+  "summary": "Dynamic config property names are inconsistent across the codebase—some use uppercase, others lowercase; some use abbreviations like 'num' and 'max', others use full words. Component prefixes are also inconsistently applied, and alphabetic organization by component would improve maintainability.",
+  "category": "other",
+  "subcategory": "configuration-naming",
+  "apis": [],
+  "components": [
+    "dynamicconfig",
+    "configuration-properties"
+  ],
+  "concepts": [
+    "naming-consistency",
+    "code-organization",
+    "configuration-management",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Inconsistent naming makes the configuration API harder to understand and use, requiring developers to remember which properties use abbreviations or uppercase conventions.",
+  "rootCause": "No standardized naming convention or organization system established for dynamic config properties in constants.go",
+  "proposedFix": "Establish consistent naming conventions (case style, abbreviation usage, component prefixes) and reorganize properties alphabetically by component",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Names of dynamic config properties are not consistent. Some of them start from capital letter, some of them from lower case.",
+  "number": 293,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:26:13.932Z"
+}

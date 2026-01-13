@@ -1,0 +1,30 @@
+{
+  "summary": "User downloaded Temporal CLI from the documented link but received a tarball instead of an executable binary, causing 'Exec format error'. The download URL provides a tar.gz file but the documentation doesn't clarify this, leading to confusion.",
+  "category": "docs",
+  "subcategory": "installation-guide",
+  "apis": [],
+  "components": [
+    "cli-distribution",
+    "download-facade",
+    "installation-docs"
+  ],
+  "concepts": [
+    "binary-format",
+    "installation",
+    "download-link",
+    "documentation-clarity",
+    "architecture-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users following the official documentation may download an incorrect file format and encounter installation errors, requiring troubleshooting to resolve.",
+  "rootCause": "The download link is a facade to GitHub releases that serves a tarball, but the documentation doesn't indicate this requires extraction before execution.",
+  "proposedFix": "Update the documentation to clarify that the download link provides a tar.gz file that must be extracted, or provide direct links to pre-built binaries.",
+  "workaround": "Use the direct GitHub releases URL (https://github.com/temporalio/cli/releases) instead of the facade download link.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed by maintainer with explanation that the download is intentionally a facade to GitHub releases. Users should use direct GitHub links for stable URLs rather than relying on the facade.",
+  "related": [],
+  "keyQuote": "While it shouldn't, it's just a facade to the GitHub releases area. If you want a stable link, use a link from GitHub directly",
+  "number": 6209,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:00.303Z"
+}

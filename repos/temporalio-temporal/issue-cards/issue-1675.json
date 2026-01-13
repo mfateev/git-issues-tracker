@@ -1,0 +1,33 @@
+{
+  "summary": "Activity retry policy with MaximumInterval cap is not respected - all retries occur at the maximum interval instead of respecting the initial interval and backoff coefficient until the cap is reached.",
+  "category": "bug",
+  "subcategory": "activity-retry-policy",
+  "apis": [
+    "RetryPolicy"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-engine",
+    "scheduler"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "interval",
+    "timeout",
+    "exponential-backoff",
+    "maximum-interval"
+  ],
+  "severity": "high",
+  "userImpact": "Activities with retry policies are not retrying with expected exponential backoff, causing incorrect retry timing and potentially excessive waiting between attempts.",
+  "rootCause": "The MaximumInterval cap is being applied incorrectly, causing all retries to use the maximum interval from the start instead of using exponential backoff until reaching the cap.",
+  "proposedFix": null,
+  "workaround": "Remove the MaximumInterval configuration to allow retries to behave as expected with normal exponential backoff.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "All retries are 1 hour apart... Now try again without the `MaximimInterval` - the retries go back to normal and behave as expected",
+  "number": 1675,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:46.197Z"
+}

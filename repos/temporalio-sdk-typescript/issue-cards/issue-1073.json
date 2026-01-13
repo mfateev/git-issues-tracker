@@ -1,0 +1,30 @@
+{
+  "summary": "High-severity security vulnerability (CVSS 9.8) in transitive dependency bumpalo-3.11.0 due to use-after-free in Vec::into_iter() lifetime constraints. The vulnerability exists in OpenTelemetry 0.18.0 through its dependency chain.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "opentelemetry",
+    "wasm-bindgen"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "memory-safety",
+    "use-after-free",
+    "transitive-dependency",
+    "cvss-score"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of the SDK are exposed to a critical use-after-free vulnerability that could allow remote code execution with high confidence, requiring urgent dependency updates.",
+  "rootCause": "Lifetime of iterator produced by Vec::into_iter() in bumpalo-3.11.0 is not constrained to the Bump lifetime, causing use-after-free when iterator is used after Bump is dropped.",
+  "proposedFix": "Upgrade bumpalo to version 3.11.1 or later",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependency was updated to a version with the fix applied",
+  "related": [],
+  "keyQuote": "Dependency has updated a very long time ago.",
+  "number": 1073,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:56.656Z"
+}

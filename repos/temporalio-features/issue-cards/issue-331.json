@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to implement codec support for headers across all SDKs. Currently, .NET and Ruby SDKs support this, but Go, Java, TypeScript, and Python need investigation or implementation to align behavior.",
+  "category": "feature",
+  "subcategory": "codec-headers",
+  "apis": [],
+  "components": [
+    "codec-system",
+    "headers",
+    "sdk-core"
+  ],
+  "concepts": [
+    "codecs",
+    "headers",
+    "cross-sdk-compatibility",
+    "data-serialization",
+    "encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users across different SDKs have inconsistent header encoding behavior, requiring manual codec application in some languages.",
+  "rootCause": null,
+  "proposedFix": "Implement codec support for headers in Go, Java, TypeScript, and Python SDKs to match .NET and Ruby implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    514,
+    925
+  ],
+  "keyQuote": "We need to align behavior with what we're doing in .Net and Ruby.",
+  "number": 331,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:57:50.656Z"
+}

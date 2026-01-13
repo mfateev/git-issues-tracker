@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to create a separate `@temporalio/worker-core` library that excludes bundler dependencies (webpack, @swc/core) to reduce runtime image size. Currently bundler deps are mandatory even when workflow bundling happens in a separate build step, adding ~150MB bloat to distroless images.",
+  "category": "feature",
+  "subcategory": "packaging",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "package-structure"
+  ],
+  "concepts": [
+    "dependency-management",
+    "docker-optimization",
+    "image-size",
+    "build-process",
+    "modular-packages",
+    "containerization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying to containerized environments are forced to include large unused bundler dependencies (~150MB) in runtime images, significantly increasing deployment size and bloating distroless images.",
+  "rootCause": "Dependencies are structured in @temporalio/worker's package.json such that webpack and @swc/core are listed as runtime dependencies rather than optional dev dependencies, making them impossible to exclude without manual modification.",
+  "proposedFix": "Create a separate `@temporalio/worker-core` package containing minimal deps for running a worker, excluded bundler components. The full `@temporalio/worker` could depend on both `worker-core` and bundler components for compatibility, or split into `bundler` and `worker-core` packages with `worker` reexporting both.",
+  "workaround": "Use npm `overrides`, yarn `resolutions`, or pnpm `overrides` properties to exclude bundler dependencies; or manually edit package-lock.json to remove @swc/core and swc-loader references.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1613
+  ],
+  "keyQuote": "@swc/core is around ~150MB, so it adds a lot of bloat to distroless images and goes completely unused if workflow bundling has already happened in a separate build step",
+  "number": 933,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:08.622Z"
+}

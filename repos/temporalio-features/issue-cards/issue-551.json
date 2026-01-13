@@ -1,0 +1,38 @@
+{
+  "summary": "Feature request to auto-skip time when waiting on update results in time-skipping test environments, similar to existing behavior for workflow results. Team discussion concluded this approach is problematic due to race conditions and concurrent update execution, with focus shifting to alternative solutions like server-side time-skipping control or documentation.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "UpdateWorkflow"
+  ],
+  "components": [
+    "test-framework",
+    "time-skipping",
+    "update-handler",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "time-skipping",
+    "testing",
+    "update-results",
+    "race-conditions",
+    "concurrent-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows with updates in time-skipping environments cannot automatically skip time for update results, requiring manual control that may not cover all scenarios.",
+  "rootCause": "Client-side time-skipping control creates race conditions between receiving update results and stopping time-skipping, and updates execute concurrently with other workflow activities making it unsafe to automatically skip time.",
+  "proposedFix": "Either move time-skipping control to server-side handling, or document that users must manually control time-skipping based on their specific scenario needs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2283,
+    1549,
+    675,
+    360
+  ],
+  "keyQuote": "this is problematic because the client is the one who says \"start/stop skipping time\", so there is a race between the client receiving the update result and time-skipping being stopped",
+  "number": 551,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:27.421Z"
+}

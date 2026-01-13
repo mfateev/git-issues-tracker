@@ -1,0 +1,29 @@
+{
+  "summary": "The 'temporal workflow list' command requires different filter syntax for archived workflows versus hot workflows. Using 'WorkflowType' fails with archived workflows but succeeds with hot workflows, while 'WorkflowTypeName' works with archived workflows, creating an inconsistent query interface.",
+  "category": "bug",
+  "subcategory": "workflow-list-query",
+  "apis": [],
+  "components": [
+    "workflow-list",
+    "query-filter",
+    "archival-backend"
+  ],
+  "concepts": [
+    "query-syntax",
+    "archived-workflows",
+    "filter-translation",
+    "backend-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must use different query filter names for archived and hot workflows, preventing uniform query syntax across workflow states.",
+  "rootCause": "Server limitation and query capability differences between hot and archival backends; filter name translation not supported across backends.",
+  "proposedFix": "Implement filter name translation/mapping to normalize query syntax between hot and archived workflows.",
+  "workaround": "Use 'WorkflowTypeName' instead of 'WorkflowType' when querying archived workflows.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should be able to fix/translate the filter name. But the query capability on different backends are very different",
+  "number": 7821,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:21:20.996Z"
+}

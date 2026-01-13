@@ -1,0 +1,30 @@
+{
+  "summary": "Initial docker-compose startup is slow due to schema creation. Request to ship Docker container with pre-populated schema to speed up developer setup, or explore other optimization approaches.",
+  "category": "feature",
+  "subcategory": "docker-development-experience",
+  "apis": [],
+  "components": [
+    "docker",
+    "database-schema",
+    "docker-compose"
+  ],
+  "concepts": [
+    "startup-performance",
+    "developer-experience",
+    "schema-initialization",
+    "containerization",
+    "setup-time"
+  ],
+  "severity": "low",
+  "userImpact": "Developers experience slow local development environment setup due to lengthy initial docker-compose initialization.",
+  "rootCause": "Database schema must be created during initial docker-compose execution, which is time-consuming.",
+  "proposedFix": "Ship Docker container with schema already populated; consider using scratch image with confd for configuration rendering.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Consider shipping a docker container with a schema already populated to speed up the startup.",
+  "number": 109,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:18:58.798Z"
+}

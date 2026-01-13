@@ -1,0 +1,30 @@
+{
+  "summary": "Worker in the Go tutorial times out with 'context deadline exceeded' error when running the sample application. The issue was caused by the tutorial using an outdated SDK version (v1.0.0) instead of a newer compatible version (1.14.0+).",
+  "category": "bug",
+  "subcategory": "tutorial-setup",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "task-queue"
+  ],
+  "concepts": [
+    "timeout",
+    "context-deadline",
+    "version-compatibility",
+    "sdk-upgrade",
+    "task-processing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users following the official Go tutorial cannot complete the introductory sample due to SDK version incompatibility causing activity timeouts.",
+  "rootCause": "Tutorial sample uses outdated SDK version (v1.0.0) instead of the minimum compatible version (1.14.0)",
+  "proposedFix": "Upgrade temporal SDK-Go version to 1.14.0 or later; pull latest code from https://github.com/temporalio/money-transfer-project-template-go",
+  "workaround": "Manually upgrade the SDK dependency to version 1.14.0 or later",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved by updating tutorial to use latest SDK version; repository updated to include correct dependencies",
+  "related": [],
+  "keyQuote": "After upgrade temporal sdk-go version to 1.14.0, it worked. Please pull latest code from https://github.com/temporalio/money-transfer-project-template-go",
+  "number": 2805,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:04.457Z"
+}

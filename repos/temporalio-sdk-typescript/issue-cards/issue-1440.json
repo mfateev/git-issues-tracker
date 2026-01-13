@@ -1,0 +1,28 @@
+{
+  "summary": "Client metrics emitted by the TypeScript SDK are missing the 'temporal_' prefix that should be added by default. This regression was introduced in version 1.10.1, affecting metrics like request_failure and long_request_failure.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "client"
+  ],
+  "concepts": [
+    "metrics",
+    "naming-convention",
+    "client-instrumentation",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lose observability into client behavior as metrics lack the expected temporal_ prefix, breaking monitoring dashboards and alerting rules.",
+  "rootCause": "Regression in version 1.10.1 where the default metric name prefix logic was removed or broken.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The temporal_ prefix was restored to client metrics in a subsequent release.",
+  "related": [],
+  "keyQuote": "looks like client metrics like request_failure, long_request_failure etc are missing the default temporal_ prefix in the metric name",
+  "number": 1440,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:17:42.046Z"
+}

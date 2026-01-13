@@ -1,0 +1,36 @@
+{
+  "summary": "User encountered missing `WorkflowExecutionUtils.describeWorkflowInstance()` method after upgrading from SDK v1.1.0 to v1.8.0. The method was removed during refactoring in v1.4.0. User asked for alternatives to get workflow execution status.",
+  "category": "question",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowExecutionUtils.describeWorkflowInstance",
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "WorkflowExecutionUtils",
+    "WorkflowClientHelper",
+    "WorkflowServiceStubs"
+  ],
+  "concepts": [
+    "internal-api",
+    "breaking-change",
+    "workflow-status",
+    "api-compatibility",
+    "migration",
+    "deprecated-method"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to newer SDK versions face compilation failures if they relied on the removed internal method.",
+  "rootCause": "The method was removed during refactoring of WorkflowExecutionUtils in v1.4.0 because it was part of an internal class not intended for public use.",
+  "proposedFix": "Use WorkflowServiceStubs directly with DescribeWorkflowExecutionRequest as shown in the comment, or wait for official SDK API exposure (issue #976).",
+  "workaround": "Copy the provided implementation of describeWorkflowInstance into the project, or call the gRPC stubs directly.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as invalid because the method was in an internal class not meant for public consumption. Users were directed to use gRPC stubs directly or wait for official API.",
+  "related": [
+    976
+  ],
+  "keyQuote": "io.temporal.internal.common.WorkflowExecutionUtils is an internal class and you shouldn't be using it in the first place.",
+  "number": 1028,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:01:02.801Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for ElasticSearch 7 to replace the current ElasticSearch 6 dependency. Custom search attributes fail to work properly with ES7 because the mapping doesn't include them, preventing searches from functioning correctly.",
+  "category": "feature",
+  "subcategory": "elasticsearch-upgrade",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "search-attributes",
+    "visibility"
+  ],
+  "concepts": [
+    "elasticsearch-version",
+    "custom-search-attributes",
+    "mapping",
+    "backwards-compatibility",
+    "search-functionality"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use custom search attributes with ElasticSearch 7 because mappings are not automatically updated, breaking search functionality.",
+  "rootCause": "Codebase is hardcoded for ElasticSearch 6; mapping generation does not account for ElasticSearch 7's schema requirements for custom search attributes.",
+  "proposedFix": "Update codebase to support ElasticSearch 7 and properly generate mappings for custom search attributes.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by PR #1164 which added ElasticSearch 7 support.",
+  "related": [
+    1164
+  ],
+  "keyQuote": "Please upgrade to 7 ASAP, because it causes problems with custom search attributes - they make it to ES, but because mapping does not include them, search does not work.",
+  "number": 313,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T13:28:49.128Z"
+}

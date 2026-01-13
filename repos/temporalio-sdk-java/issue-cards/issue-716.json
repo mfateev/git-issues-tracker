@@ -1,0 +1,31 @@
+{
+  "summary": "DynamicWorkflow fails to handle ApplicationFailure.newNonRetryableFailure correctly, causing workflows to hang and timeout instead of failing immediately as expected.",
+  "category": "bug",
+  "subcategory": "dynamic-workflow",
+  "apis": [
+    "ApplicationFailure"
+  ],
+  "components": [
+    "dynamic-workflow",
+    "failure-handling",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "non-retryable-failure",
+    "exception-handling",
+    "workflow-timeout",
+    "failure-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to use non-retryable failures in dynamic workflows experience unexpected timeouts instead of immediate failure.",
+  "rootCause": "DynamicWorkflow does not properly handle the non-retryable failure flag when processing ApplicationFailure exceptions.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved in a subsequent version after 1.0.9",
+  "related": [],
+  "keyQuote": "A dynamic workflow that throws ApplicationFailure.newNonRetryableFailure should fail immediately.",
+  "number": 716,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:36:10.555Z"
+}

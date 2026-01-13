@@ -1,0 +1,29 @@
+{
+  "summary": "Update openai-agents dependency to v0.3.0 to incorporate bug fixes and improvements to the hooks mechanism. Current version causes workflow task failures with unexpected keyword argument errors.",
+  "category": "feature",
+  "subcategory": "dependency-update",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "dependency-management"
+  ],
+  "concepts": [
+    "dependency-upgrade",
+    "hooks-mechanism",
+    "openai-agents",
+    "bug-fixes",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users utilizing openai-agents integration experience workflow task failures that can be resolved by updating to v0.3.0.",
+  "rootCause": "openai-agents library version mismatch causing _TemporalModelStub.get_response() to receive unexpected keyword argument 'conversation_id'",
+  "proposedFix": "Update openai-agents library dependency to version 0.3.0",
+  "workaround": "Build the dependency from main branch in the meantime",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was already fixed in main branch; maintainers indicated a release would be published soon with the fix",
+  "related": [],
+  "keyQuote": "Openai new version fixes various bugs and add new improvements to the hooks mechanism that we would like to incorporate",
+  "number": 1108,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:32:46.312Z"
+}

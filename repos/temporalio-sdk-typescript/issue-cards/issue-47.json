@@ -1,0 +1,31 @@
+{
+  "summary": "Ensure all test activity cases are covered in integration tests, including all ActivityResult variants and heartbeat timeout scenarios on the workflow side.",
+  "category": "other",
+  "subcategory": "test-framework",
+  "apis": [
+    "ActivityResult"
+  ],
+  "components": [
+    "test-activities",
+    "integration-tests",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "activity-testing",
+    "heartbeat-timeout",
+    "test-coverage",
+    "integration-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Incomplete test coverage may leave activity functionality untested and undiscovered issues in production.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Integration tests were completed covering all ActivityResult variants and heartbeat timeout scenarios.",
+  "related": [],
+  "keyQuote": "Get all of the cases from the test activities covered. Make sure to test all of the ActivityResult variants on the workflow side and heartbeat timeout on the workflow side.",
+  "number": 47,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:54:53.892Z"
+}

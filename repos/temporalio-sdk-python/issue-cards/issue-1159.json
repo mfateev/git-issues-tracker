@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to create a test verifying the OpenAI plugin works in activity-only and workflow-only worker configurations. Python users commonly split workers by type, and the plugin must support this setup instead of requiring activities and workflows in the same process.",
+  "category": "feature",
+  "subcategory": "plugin-testing",
+  "apis": [],
+  "components": [
+    "openai-plugin",
+    "worker",
+    "activity-worker",
+    "workflow-worker"
+  ],
+  "concepts": [
+    "plugin-compatibility",
+    "worker-separation",
+    "activity-only-mode",
+    "workflow-only-mode",
+    "worker-configuration",
+    "process-separation",
+    "plugin-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Python users splitting workers by type need assurance that the OpenAI plugin functions correctly in activity-only and workflow-only configurations.",
+  "rootCause": null,
+  "proposedFix": "Create a test to verify OpenAI plugin works in both activity-only and workflow-only worker modes",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test was created to verify OpenAI plugin compatibility with separated worker configurations",
+  "related": [],
+  "keyQuote": "Many Python users, perhaps more than any other SDK, are splitting up workers to activity-only workers and workflow-only workers.",
+  "number": 1159,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:34:05.600Z"
+}

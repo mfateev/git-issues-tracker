@@ -1,0 +1,32 @@
+{
+  "summary": "The WorkflowExecutionCancelRequestedEventAttributes.cause field should be exposed to workflows when they receive cancels. Additionally, this cause should be exposed as an input parameter when users initiate cancels from clients or issue cancel commands.",
+  "category": "feature",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "WorkflowExecutionCancelRequestedEventAttributes"
+  ],
+  "components": [
+    "workflow-execution",
+    "cancellation-handler",
+    "client-api"
+  ],
+  "concepts": [
+    "cancellation",
+    "workflow-lifecycle",
+    "event-attributes",
+    "cause-tracking",
+    "client-commands"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access the reason why a workflow was cancelled, limiting error handling and debugging capabilities in their workflows.",
+  "rootCause": null,
+  "proposedFix": "Expose the cause field from WorkflowExecutionCancelRequestedEventAttributes to workflows and allow passing cause when issuing cancellations from clients.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "WorkflowExecutionCancelRequestedEventAttributes has a cause field that should be exposed when workflows receive cancels",
+  "number": 567,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:35:44.830Z"
+}

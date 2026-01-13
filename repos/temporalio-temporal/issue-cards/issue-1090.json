@@ -1,0 +1,33 @@
+{
+  "summary": "Add built-in TokenKeyProvider implementation that supports both EC and RSA public signing keys, and handles JSON key responses without the optional x5c attribute.",
+  "category": "feature",
+  "subcategory": "authentication",
+  "apis": [
+    "TokenKeyProvider"
+  ],
+  "components": [
+    "TokenKeyProvider",
+    "key-management",
+    "authentication"
+  ],
+  "concepts": [
+    "JWT",
+    "public-key-infrastructure",
+    "EC-keys",
+    "RSA-keys",
+    "certificate-chain",
+    "key-provider"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use JWT providers that only supply EC keys or omit the x5c certificate attribute, limiting authentication options.",
+  "rootCause": "Current rsaKeyProvider only supports RSA keys and requires the x5c attribute, which is optional in the JSON response spec.",
+  "proposedFix": "Implement a new TokenKeyProvider that supports both EC and RSA keys and instantiates keys from non-optional fields only.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented enhanced TokenKeyProvider supporting EC and RSA keys without x5c dependency.",
+  "related": [],
+  "keyQuote": "The build in TokenKeyProvider should support instantiating keys from the non-optional fields of the json response.",
+  "number": 1090,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:01:55.191Z"
+}

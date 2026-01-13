@@ -1,0 +1,36 @@
+{
+  "summary": "The TerminatedFailure object is missing a 'details' field that is available on the WorkflowExecutionTerminatedEventAttributes and accepted by the terminate API. This inconsistency prevents users from accessing termination details.",
+  "category": "feature",
+  "subcategory": "workflow-termination",
+  "apis": [
+    "WorkflowHandle.terminate",
+    "WorkflowExecutionTerminatedEventAttributes",
+    "TerminatedFailure"
+  ],
+  "components": [
+    "workflow-client",
+    "failure-serialization",
+    "proto-generated-code"
+  ],
+  "concepts": [
+    "workflow-termination",
+    "error-details",
+    "api-consistency",
+    "proto-definitions",
+    "client-server-sync"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access termination details when a workflow is terminated, limiting their ability to understand and handle termination events properly.",
+  "rootCause": "The TerminatedFailureInfo proto definition in the core API is missing the details field that exists in WorkflowExecutionTerminatedEventAttributes.",
+  "proposedFix": "Add details field to TerminatedFailureInfo proto definition in temporalio/api repository and update WorkflowHandle.terminate to accept and pass through termination arguments.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    150
+  ],
+  "keyQuote": "terminate accepts \"details\", which are present on WorkflowExecutionTerminatedEventAttributes even though they aren't present on TerminatedFailureInfo.",
+  "number": 470,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:10:21.841Z"
+}

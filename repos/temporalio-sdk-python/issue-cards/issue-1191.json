@@ -1,0 +1,35 @@
+{
+  "summary": "When a custom codec is used for encryption, activity failures with details are not properly decoded in the workflow, causing a KeyError ('Unknown payload encoding binary/encrypted') and workflow timeouts. The issue occurs during failure conversion when the workflow tries to process an encrypted activity failure.",
+  "category": "bug",
+  "subcategory": "codec-encryption",
+  "apis": [
+    "ExecuteActivity",
+    "ActivityError"
+  ],
+  "components": [
+    "converter",
+    "failure-converter",
+    "worker",
+    "codec"
+  ],
+  "concepts": [
+    "encryption",
+    "codec",
+    "failure-handling",
+    "payload-encoding",
+    "deserialization",
+    "error-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using custom encryption codecs cannot handle activity failures, causing workflows to hang and timeout when activities fail.",
+  "rootCause": "The payload converter's from_payloads method does not recognize the 'binary/encrypted' encoding produced by custom codecs when decoding failure details from activities.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating it was resolved in a subsequent SDK version.",
+  "related": [],
+  "keyQuote": "KeyError: 'Unknown payload encoding binary/encrypted' - The from_payloads method fails to decode encrypted payloads in failure details.",
+  "number": 1191,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:12.738Z"
+}

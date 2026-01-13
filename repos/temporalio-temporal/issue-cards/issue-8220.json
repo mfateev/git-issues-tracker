@@ -1,0 +1,31 @@
+{
+  "summary": "Security vulnerabilities detected in Temporal server v1.28.1 Docker image, including CVEs in golang.org/x/net, OpenTelemetry gRPC instrumentation, and other dependencies. Most vulnerabilities are in deprecated tools (tctl) or planned-to-be-removed image components that will be addressed in future releases.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "tctl-binary",
+    "dockerize",
+    "curl-dependency"
+  ],
+  "concepts": [
+    "security-vulnerabilities",
+    "cve",
+    "dependency-management",
+    "image-hardening",
+    "deprecation"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal server v1.28.1 in Docker are exposed to multiple CVEs, some with high severity ratings, though most are in deprecated or planned-to-be-removed components.",
+  "rootCause": "Outdated or vulnerable versions of dependencies including golang.org/x/net, OpenTelemetry gRPC instrumentation, and markdown parser bundled in the Docker image.",
+  "proposedFix": "Upgrade golang.org/x/net to v0.36.0, upgrade OpenTelemetry gRPC to v0.46.0, upgrade OpenSSL to 3.5.1-r0, and remove deprecated tctl binary and dockerize from future image releases.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We will be taking action on all of these.",
+  "number": 8220,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:59.414Z"
+}

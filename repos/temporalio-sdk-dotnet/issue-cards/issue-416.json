@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to expose custom histogram metric bucket size overrides in the .NET SDK, as implemented in sdk-core and already available in other SDKs via the features specification.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "histogram"
+  ],
+  "concepts": [
+    "metric-customization",
+    "histogram-buckets",
+    "observability",
+    "monitoring"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot customize histogram bucket sizes for metrics in the .NET SDK, limiting observability customization compared to other SDKs.",
+  "rootCause": null,
+  "proposedFix": "Expose histogram bucket overrides made available in sdk-core PR #844",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    606
+  ],
+  "keyQuote": "Need to expose histogram bucket overrides made available in https://github.com/temporalio/sdk-core/pull/844",
+  "number": 416,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:21:51.268Z"
+}

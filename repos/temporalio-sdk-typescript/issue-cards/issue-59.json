@@ -1,0 +1,31 @@
+{
+  "summary": "Request to migrate from the deprecated `grpc` package to `@grpc/grpc-js` for faster installations on Node 15+. Discussion reveals potential TLS/mTLS compatibility issues that were encountered in other Temporal projects.",
+  "category": "feature",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "package-dependencies",
+    "tls-configuration"
+  ],
+  "concepts": [
+    "package-migration",
+    "grpc-js",
+    "tls",
+    "mtls",
+    "node-compatibility",
+    "installation-performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users could benefit from faster package installations on Node 15+, but potential TLS issues need verification.",
+  "rootCause": "Current dependency on deprecated `grpc` package; `@grpc/grpc-js` is pure JS alternative but has known TLS issues in some configurations",
+  "proposedFix": "Migrate from `grpc` to `@grpc/grpc-js` package with proper TLS/mTLS configuration handling",
+  "workaround": "Set GRPC_SSL_CIPHER_SUITES environment variable to address mTLS issues",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented; package migration was completed with TLS workaround documented",
+  "related": [],
+  "keyQuote": "It's implemented in pure JS which should make installations on node 15 faster.",
+  "number": 59,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:55:27.110Z"
+}

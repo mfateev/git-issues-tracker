@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTelemetry context is not propagated when activities are started from a workflow's `__init__` method, resulting in missing span context in the activity execution despite the client call being properly instrumented.",
+  "category": "bug",
+  "subcategory": "opentelemetry-integration",
+  "apis": [
+    "start_activity",
+    "execute_workflow"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "workflow-interceptor",
+    "workflow-instance"
+  ],
+  "concepts": [
+    "tracing",
+    "context-propagation",
+    "workflow-initialization",
+    "span-context",
+    "instrumentation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly trace activities started during workflow initialization, breaking distributed tracing visibility for initialization-time activity invocations.",
+  "rootCause": "WorkflowOutboundInterceptor lacks a hook to wrap workflow `__init__` execution, so OpenTelemetry context is not captured and propagated when activities are started during initialization.",
+  "proposedFix": "Introduce a hook in WorkflowOutboundInterceptor to wrap workflow `__init__` method execution, similar to how `run` is wrapped, to ensure context propagation.",
+  "workaround": "Move activity invocations from `__init__` to the `run` method where context propagation works correctly.",
+  "resolution": "wontfix",
+  "resolutionDetails": "SDK maintainers recommended against starting substantial actions in workflow constructors, aligning with practices across other Temporal SDKs. Users should defer activity invocations to the `run` method.",
+  "related": [],
+  "keyQuote": "In most SDKs we have specifically disallowed taking substantial action inside of the workflow constructors. I would recommend you refrain from setting up commands inside `__init` and do so during `run` instead.",
+  "number": 1054,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:31:12.034Z"
+}

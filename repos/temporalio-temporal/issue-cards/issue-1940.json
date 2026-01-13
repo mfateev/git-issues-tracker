@@ -1,0 +1,33 @@
+{
+  "summary": "Request to upstream the SQLite persistence plugin from the temporalite project to make lightweight Temporal deployments available for local development and testing without Docker containers.",
+  "category": "feature",
+  "subcategory": "persistence-plugin",
+  "apis": [],
+  "components": [
+    "persistence",
+    "sql-plugin",
+    "test-suite"
+  ],
+  "concepts": [
+    "sqlite",
+    "lightweight",
+    "local-development",
+    "testing",
+    "persistence",
+    "plugin-architecture"
+  ],
+  "severity": "low",
+  "userImpact": "Enables developers to use Temporal for local development and testing environments without requiring Docker or full server deployments.",
+  "rootCause": null,
+  "proposedFix": "Upstream the SQL plugin from temporalite (https://github.com/DataDog/temporalite/tree/main/internal/common/persistence/sql/sqlplugin) to the main Temporal repository",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Closed by issue #1968, indicating the upstreaming effort was completed",
+  "related": [
+    1968
+  ],
+  "keyQuote": "We want to upstream temporalite's sql plugin so we can run our test suite on them and make sqlite persistence available to others",
+  "number": 1940,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:13.380Z"
+}

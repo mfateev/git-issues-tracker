@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to rehydrate TypedSearchAttributes for sinks or provide a WorkflowInfo variant, following discussion in issue #1612 about improving type safety for search attributes in workflow context.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "search-attributes",
+    "workflow-context",
+    "type-system"
+  ],
+  "concepts": [
+    "type-safety",
+    "rehydration",
+    "search-attributes",
+    "workflow-info",
+    "type-preservation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better type safety when working with TypedSearchAttributes in workflow sinks and need access to rehydrated typed versions.",
+  "rootCause": null,
+  "proposedFix": "Either rehydrate TypedSearchAttributes for sinks or provide a WorkflowInfo variant that supports typed search attributes",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1612
+  ],
+  "keyQuote": "Result of discussion in #1612",
+  "number": 1635,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:11:55.366Z"
+}

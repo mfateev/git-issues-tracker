@@ -1,0 +1,36 @@
+{
+  "summary": "Multiple high and medium severity CVEs found in the temporalio/admin-tools Docker image version 1.25.2-tctl-1.18.1-cli-1.1.2, including vulnerabilities in setuptools, pip, PostgreSQL, curl, and Temporal Server itself.",
+  "category": "bug",
+  "subcategory": "security-vulnerabilities",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "docker-image",
+    "dependencies",
+    "setuptools",
+    "pip",
+    "postgresql",
+    "curl"
+  ],
+  "concepts": [
+    "security",
+    "cve",
+    "vulnerability",
+    "dependency-management",
+    "container-image",
+    "patch-management",
+    "supply-chain-security"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying the admin-tools Docker image are exposed to multiple known security vulnerabilities that could allow remote code execution, denial of service, and other attacks.",
+  "rootCause": "Outdated and unpatched dependencies bundled in the Docker image, including setuptools 65.5.0 (CVE-2024-6345), pip 24.0 (PRISMA-2022-0168), PostgreSQL 16.3 (CVE-2024-7348), curl 8.9.1 (CVE-2024-9681), and Temporal Server v1.18.1 (CVE-2024-2689, CVE-2023-3485).",
+  "proposedFix": "Update all dependencies to patched versions: setuptools ≥70.0.0, PostgreSQL ≥16.4-r0, curl ≥8.11.0-r0, and upgrade Temporal Server to versions 1.20.5, 1.21.6, 1.22.7 or later.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are a lot of CVEs found from the latest Temporal image: temporalio/admin-tools:1.25.2-tctl-1.18.1-cli-1.1.2",
+  "number": 6977,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:55.247Z"
+}

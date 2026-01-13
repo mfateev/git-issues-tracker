@@ -1,0 +1,28 @@
+{
+  "summary": "Request to extend the batch API to accept a list of workflow executions as input instead of just a visibility query, allowing users to apply bulk actions to a pre-determined set of workflows with a configurable size limit.",
+  "category": "feature",
+  "subcategory": "batch-api",
+  "apis": [],
+  "components": [
+    "batch-api",
+    "visibility-query"
+  ],
+  "concepts": [
+    "batch-operations",
+    "workflow-selection",
+    "api-flexibility",
+    "input-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users with pre-identified workflow execution lists could apply bulk actions directly without needing to construct visibility queries.",
+  "rootCause": null,
+  "proposedFix": "Add alternative input mode to batch API accepting a list of workflow executions (e.g., max 1000 items) alongside existing query-based approach.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to allow batch API to accept workflow execution lists as input.",
+  "related": [],
+  "keyQuote": "User should be able to specify either a query OR a list of workflow executions, but not both.",
+  "number": 3572,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:44:02.955Z"
+}

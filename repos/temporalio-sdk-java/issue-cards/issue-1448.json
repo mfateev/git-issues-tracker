@@ -1,0 +1,32 @@
+{
+  "summary": "Request to support Java 19+ Virtual Threads (Project Loom) in the Java SDK to eliminate OS thread blocking during I/O operations and reduce implementation complexity. Virtual Threads have now become a full-fledged feature and should be adopted for significant performance benefits.",
+  "category": "feature",
+  "subcategory": "threading-model",
+  "apis": [],
+  "components": [
+    "worker",
+    "thread-pool",
+    "activity-executor",
+    "io-handling"
+  ],
+  "concepts": [
+    "virtual-threads",
+    "concurrency",
+    "io-blocking",
+    "performance",
+    "loom",
+    "thread-pool-management"
+  ],
+  "severity": "high",
+  "userImpact": "Adopting Virtual Threads would allow the SDK to handle concurrent I/O operations more efficiently without blocking OS threads, improving scalability and reducing resource overhead for applications.",
+  "rootCause": "The current SDK implementation requires complex eviction logic to manage OS threads blocked during I/O operations, creating performance penalties and implementation overhead.",
+  "proposedFix": "Integrate Virtual Threads support in the Java SDK threading model to allow blocking I/O without consuming OS threads.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Virtual Threads support has been implemented or planned for adoption in the Java SDK following its full release as a standard feature in Java 21+.",
+  "related": [],
+  "keyQuote": "This enables applications to block a thread while waiting for some I/O to complete, without actually blocking any underlying OS thread.",
+  "number": 1448,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:39.556Z"
+}

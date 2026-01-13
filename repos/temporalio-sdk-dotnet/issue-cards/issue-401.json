@@ -1,0 +1,34 @@
+{
+  "summary": "TLS connectivity fails in .NET 8 when using the latest SDK with AWS or Azure .NET images, showing 'native TLS certs not found' error. The issue only occurs when all three conditions are met: latest SDK, AWS/Azure image, and .NET 8.",
+  "category": "bug",
+  "subcategory": "tls-certificate-handling",
+  "apis": [],
+  "components": [
+    "tls-certificate-resolution",
+    "platform-integration",
+    "aws-lambda",
+    "azure-functions"
+  ],
+  "concepts": [
+    "tls",
+    "certificate-resolution",
+    "native-certificates",
+    "platform-images",
+    "dotnet-8",
+    "connectivity"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying .NET 8 applications to AWS Lambda or Azure Functions with the latest SDK encounter TLS connectivity failures preventing deployment.",
+  "rootCause": "Native TLS certificates are not properly resolved in AWS/Azure .NET 8 images when using the latest SDK version",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1973
+  ],
+  "keyQuote": "If you use the latest .NET SDK _and_ AWS/Azure .NET images _and_ use .NET 8, there is a TLS connectivity issue with 'native TLS certs not found'",
+  "number": 401,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:19:54.792Z"
+}

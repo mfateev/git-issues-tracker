@@ -1,0 +1,31 @@
+{
+  "summary": "User seeks guidance on automatically scaling Temporal workers based on task queue load. They want to monitor metrics to scale workers up when workflows are queued and down when queue is empty, but lack a direct metric for pending tasks in the queue.",
+  "category": "question",
+  "subcategory": "worker-scaling",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-queue",
+    "metrics"
+  ],
+  "concepts": [
+    "scaling",
+    "auto-scaling",
+    "task-queue-load",
+    "workflow-scheduling",
+    "latency",
+    "capacity-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily implement automatic worker scaling based on task queue demand, making it difficult to optimize resource utilization and maintain responsive workflow processing.",
+  "rootCause": null,
+  "proposedFix": "Monitor schedule-to-start latency as a proxy metric for queue load, as suggested in the Temporal scaling documentation.",
+  "workaround": "Use schedule-to-start latency monitoring to infer queue load and make scaling decisions based on that metric.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "what alternative methods are suggested to scale workers up and down based on task queue load?",
+  "number": 6805,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:15:36.674Z"
+}

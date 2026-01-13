@@ -1,0 +1,32 @@
+{
+  "summary": "Multiple CVEs found in temporalio/admin-tools:1.29.1 Docker image, including critical sqlite vulnerability and high-severity golang.org/x/net and OpenTelemetry vulnerabilities. Requires updating Go dependencies and Alpine base image to address security risks in production deployments.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "docker-image",
+    "dependencies",
+    "base-image"
+  ],
+  "concepts": [
+    "vulnerability",
+    "cve",
+    "dependency-update",
+    "container-security",
+    "alpine-image",
+    "golang-dependencies"
+  ],
+  "severity": "critical",
+  "userImpact": "Production deployments using the admin-tools container are exposed to critical and high-severity security vulnerabilities that could lead to security breaches.",
+  "rootCause": "Outdated Go dependencies (golang.org/x/net v0.39.0, otelgrpc v0.59.0) and vulnerable Alpine base image (3.22 with sqlite 3.49.2-r0 containing CVSS 9.8 vulnerability)",
+  "proposedFix": "Update Go dependencies in go.mod to latest secure versions, update Alpine base image from 3.22 to 3.23+, run dependency audit and vulnerability scan, and update go.sum",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The CRITICAL sqlite vulnerability affects the admin-tools container which is used for database migrations and administrative operations",
+  "number": 8655,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:28:50.367Z"
+}

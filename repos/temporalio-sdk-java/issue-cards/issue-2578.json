@@ -1,0 +1,34 @@
+{
+  "summary": "JavaDoc for `startUpdate` incorrectly states it's always asynchronous, but when called with `waitForStage` set to `WorkflowUpdateStage.COMPLETED`, the method actually blocks until the update completes. The documentation needs to clarify this behavior.",
+  "category": "docs",
+  "subcategory": "javadoc",
+  "apis": [
+    "startUpdate",
+    "UpdateOptions",
+    "WorkflowUpdateStage"
+  ],
+  "components": [
+    "client",
+    "workflow-stub",
+    "update-options"
+  ],
+  "concepts": [
+    "asynchronous-behavior",
+    "blocking-calls",
+    "documentation-accuracy",
+    "wait-stages",
+    "api-contracts"
+  ],
+  "severity": "low",
+  "userImpact": "Developers may misunderstand the behavior of `startUpdate` based on incorrect JavaDoc, leading to unexpected blocking calls in their code.",
+  "rootCause": "JavaDoc description for `startUpdate` does not account for the `waitForStage` parameter's effect on method behavior.",
+  "proposedFix": "Remove the word 'asynchronously' from the JavaDoc or clarify that the function's blocking behavior depends on the `waitForStage` parameter.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The JavaDoc for `startUpdate` says the following: Start a zero argument update workflow request asynchronously. However, the following code will block until the update is completed",
+  "number": 2578,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:12:09.932Z"
+}

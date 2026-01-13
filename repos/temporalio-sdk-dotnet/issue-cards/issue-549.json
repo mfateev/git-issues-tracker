@@ -1,0 +1,30 @@
+{
+  "summary": "The `ExecuteWorkflowAsync_PollingBehavior_Autoscaling` test flakes intermittently with an empty collection error, indicating a race condition or timing issue in the worker's polling autoscaling behavior.",
+  "category": "bug",
+  "subcategory": "test-flakiness",
+  "apis": [],
+  "components": [
+    "worker",
+    "polling",
+    "test-framework"
+  ],
+  "concepts": [
+    "autoscaling",
+    "polling-behavior",
+    "race-condition",
+    "test-flakiness",
+    "timing-issue"
+  ],
+  "severity": "medium",
+  "userImpact": "Test failures reduce confidence in SDK stability and can block CI/CD pipelines.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The collection was expected to contain a single element, but it was empty.",
+  "number": 549,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:35:04.852Z"
+}

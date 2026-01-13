@@ -1,0 +1,35 @@
+{
+  "summary": "Stack trace reporting for deadlock exceptions needs improvements: ensure it works for non-sandboxed environments, add tests to verify the feature, and improve error messaging for edge cases where thread IDs aren't available.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "deadlock-detection",
+    "stack-trace-capture",
+    "sandboxing",
+    "threading"
+  ],
+  "concepts": [
+    "stack-trace",
+    "deadlock",
+    "error-reporting",
+    "debugging",
+    "thread-safety",
+    "exception-handling",
+    "sandboxing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users debugging deadlock issues may not get proper stack traces if they've disabled sandboxing, and error messages may be unclear when thread information is unavailable.",
+  "rootCause": "PR #626 added stack trace reporting for deadlocking threads but may not work consistently across all configurations and lacks adequate test coverage.",
+  "proposedFix": "1) Verify stack trace capture works for non-sandboxed environments 2) Add tests to confirm deadlock stack traces are properly captured 3) Add '(no thread ID available)' message for cases where thread ID is missing",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    626
+  ],
+  "keyQuote": "Add something like `(no thread ID available)` if the earlier condition occurs where for some reason we don't have a thread ID at all.",
+  "number": 722,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:12.051Z"
+}

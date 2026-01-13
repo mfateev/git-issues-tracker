@@ -1,0 +1,31 @@
+{
+  "summary": "WorkerStatus API lacks visibility into the number of concurrent local activities, making it impossible to monitor load across all three task slot types (workflows, activities, and local activities). The user requests a numInFlightLocalActivities field similar to the existing numInFlightActivities.",
+  "category": "feature",
+  "subcategory": "worker-status",
+  "apis": [
+    "WorkerStatus"
+  ],
+  "components": [
+    "worker",
+    "status-monitoring"
+  ],
+  "concepts": [
+    "concurrency-limit",
+    "load-monitoring",
+    "task-slots",
+    "local-activities",
+    "worker-capacity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately monitor worker load and determine how close they are to local activity concurrency limits.",
+  "rootCause": null,
+  "proposedFix": "Add numInFlightLocalActivities field to WorkerStatus, similar to the existing numInFlightActivities field",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The numInFlightLocalActivities field was added to WorkerStatus to provide visibility into concurrent local activity count",
+  "related": [],
+  "keyQuote": "We have 3 types of task slots (workflow / activities / local activities) in the worker each with a concurrency limit. However, I have no way of finding out how many concurrent local activities are running.",
+  "number": 1359,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:42:45.537Z"
+}

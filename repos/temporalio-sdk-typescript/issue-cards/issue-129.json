@@ -1,0 +1,32 @@
+{
+  "summary": "Add the missing `ActivityCancellationType` enum to `ActivityOptions` in the TypeScript SDK to provide programmatic control over how activities handle cancellation requests.",
+  "category": "feature",
+  "subcategory": "activity-options",
+  "apis": [
+    "ActivityOptions"
+  ],
+  "components": [
+    "activity-executor",
+    "options-builder",
+    "type-definitions"
+  ],
+  "concepts": [
+    "cancellation",
+    "activity-lifecycle",
+    "error-handling",
+    "configuration",
+    "api-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot programmatically specify cancellation behavior for activities, limiting control over activity execution policies.",
+  "rootCause": "The `ActivityCancellationType` enum exists in the protobuf definition and other SDKs but is not exposed in the TypeScript SDK's `ActivityOptions` interface.",
+  "proposedFix": "Add `ActivityCancellationType` enum and expose it as a field in `ActivityOptions` to match the proto definition.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The ActivityCancellationType was added to ActivityOptions in the TypeScript SDK.",
+  "related": [],
+  "keyQuote": "Add missing `ActivityCancellationType` to `ActivityOptions`",
+  "number": 129,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T21:57:39.913Z"
+}

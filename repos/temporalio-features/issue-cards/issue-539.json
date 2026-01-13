@@ -1,0 +1,33 @@
+{
+  "summary": "Python SDK is missing several metrics that are available in Java SDK. Out of 32 metrics, only 18 are currently available for Python, creating an incompleteness in the SDK's observability capabilities.",
+  "category": "feature",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "python-sdk",
+    "metrics",
+    "observability"
+  ],
+  "concepts": [
+    "metrics-parity",
+    "observability",
+    "sdk-consistency",
+    "monitoring",
+    "feature-completeness"
+  ],
+  "severity": "medium",
+  "userImpact": "Python SDK users cannot access the full set of metrics available in Java, limiting their ability to monitor and observe Temporal workflow execution.",
+  "rootCause": "Python SDK metrics implementation lags behind Java SDK, with only 18 out of 32 metrics currently implemented.",
+  "proposedFix": "Implement all metrics available in Java SDK in the Python SDK to achieve feature parity.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as a duplicate of issue #607 in the temporalio-features repository.",
+  "related": [
+    607,
+    796
+  ],
+  "keyQuote": "All the metrics available in Java are available in core/python.",
+  "number": 539,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:06:15.674Z"
+}

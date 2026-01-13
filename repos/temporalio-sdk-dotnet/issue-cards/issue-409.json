@@ -1,0 +1,31 @@
+{
+  "summary": "Remove the experimental warning from the `RequestEagerStart` API option for eager workflow start in the .NET SDK. This is a documentation cleanup that depends on eager workflow start being officially marked as GA.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "RequestEagerStart",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-client",
+    "documentation"
+  ],
+  "concepts": [
+    "eager-start",
+    "experimental-api",
+    "ga-readiness",
+    "workflow-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users currently see experimental warnings when using eager workflow start, which may cause confusion despite the feature being ready for general use.",
+  "rootCause": null,
+  "proposedFix": "Remove experimental doc warning from `RequestEagerStart` option once eager workflow start is officially GA",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by removing the experimental warning documentation from RequestEagerStart after eager workflow start was marked GA",
+  "related": [],
+  "keyQuote": "Remove experimental doc warning from eager workflow start option",
+  "number": 409,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:21:13.137Z"
+}

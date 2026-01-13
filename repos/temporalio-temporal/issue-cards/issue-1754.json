@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add ScheduleToStartLatency metric for activity and workflow tasks to help monitor SDK worker backlog accumulation. The metric should be tracked per namespace, task queue, and task type.",
+  "category": "feature",
+  "subcategory": "metrics-observability",
+  "apis": [],
+  "components": [
+    "metrics",
+    "activity-task",
+    "workflow-task",
+    "task-queue"
+  ],
+  "concepts": [
+    "latency",
+    "scheduling",
+    "backlog",
+    "worker-capacity",
+    "observability",
+    "performance-monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators lack visibility into whether SDK workers are falling behind, making it difficult to detect and respond to backlog accumulation.",
+  "rootCause": null,
+  "proposedFix": "Implement ScheduleToStartLatency metric tracking per namespace, task queue, and task type",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Metric was implemented as requested, providing per-namespace, per-task-queue, and per-task-type tracking",
+  "related": [],
+  "keyQuote": "This metrics could be used as a proxy to estimate if SDK worker is falling behind and accumulate backlogs.",
+  "number": 1754,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:14.481Z"
+}

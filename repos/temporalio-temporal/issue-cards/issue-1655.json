@@ -1,0 +1,30 @@
+{
+  "summary": "tctl workflow signal command fails to pass multiple parameters to workflows correctly - only the first parameter is received while subsequent parameters arrive as null. This issue affects users sending signals with 2+ parameters from tctl.",
+  "category": "bug",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "tctl",
+    "signal-handler",
+    "parameter-marshalling"
+  ],
+  "concepts": [
+    "signal",
+    "parameters",
+    "multi-parameter",
+    "marshalling",
+    "CLI"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably send signals with multiple parameters via tctl, breaking workflows that depend on multi-parameter signals.",
+  "rootCause": "Parameter marshalling or deserialization in tctl signal command fails to handle multiple parameters correctly",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue resolved by deprecation - tctl was deprecated in favor of temporal/CLI which should handle multi-parameter signals correctly",
+  "related": [],
+  "keyQuote": "TCTL is deprecated. Please switch to temporal/CLI https://github.com/temporalio/cli",
+  "number": 1655,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:16:19.624Z"
+}

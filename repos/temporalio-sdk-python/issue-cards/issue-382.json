@@ -1,0 +1,32 @@
+{
+  "summary": "Transitive dependency vulnerability in rustls-webpki-0.101.4 (CVSS 7.5) causing potential CPU denial of service in certificate path building. Issue was automatically closed after the vulnerable library was removed from the dependency tree.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "tonic",
+    "tokio-rustls",
+    "rustls",
+    "bridge"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "denial-of-service",
+    "certificate-verification",
+    "transitive-dependency",
+    "rust-crate"
+  ],
+  "severity": "high",
+  "userImpact": "Users are exposed to potential CPU denial of service attacks through the Python SDK's Rust bridge due to a vulnerability in the underlying TLS certificate verification library.",
+  "rootCause": "CPU denial of service in rustls-webpki certificate path building logic when processing specially crafted X.509 certificates.",
+  "proposedFix": "Upgrade rustls-webpki to version 0.100.2 or 0.101.4 (fix versions per advisory GHSA-fh2r-99q2-6mmg).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue automatically closed by Mend when the vulnerable library was removed from the dependency tree or marked as ignored.",
+  "related": [],
+  "keyQuote": "CPU denial of service in certificate path building - Availability Impact: High - CVSS Score: 7.5",
+  "number": 382,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:19.249Z"
+}

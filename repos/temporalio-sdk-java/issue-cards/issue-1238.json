@@ -1,0 +1,32 @@
+{
+  "summary": "Worker startup logging needs improvement to explicitly report whether pollers are started on task queues and to display registered workflow and activity types for better diagnostics and UI visibility.",
+  "category": "feature",
+  "subcategory": "worker-startup-logging",
+  "apis": [
+    "StartWorker"
+  ],
+  "components": [
+    "worker",
+    "poller",
+    "logging"
+  ],
+  "concepts": [
+    "diagnostics",
+    "startup",
+    "visibility",
+    "task-queue",
+    "registration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily diagnose worker startup issues or verify that workers are properly configured and visible in monitoring tools without detailed logging.",
+  "rootCause": null,
+  "proposedFix": "Add explicit logging to report poller startup status per task queue and list registered workflow and activity types during worker initialization.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Worker startup logging was enhanced to provide more diagnostic information about poller initialization and registered types.",
+  "related": [],
+  "keyQuote": "Worker should explicitly report if it does or especially DOESN'T start a poller on the workflow task queue.",
+  "number": 1238,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:17:05.437Z"
+}

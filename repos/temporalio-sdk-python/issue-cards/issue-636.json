@@ -1,0 +1,31 @@
+{
+  "summary": "Request to add type-level testing capabilities to verify that mypy and pyright type checkers enforce the desired type constraints, and to prevent future regressions in type safety.",
+  "category": "feature",
+  "subcategory": "type-checking",
+  "apis": [],
+  "components": [
+    "type-stubs",
+    "type-checker-integration",
+    "test-framework"
+  ],
+  "concepts": [
+    "type-safety",
+    "static-analysis",
+    "mypy",
+    "pyright",
+    "type-enforcement",
+    "regression-prevention"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need confidence that the SDK's type hints are correctly enforced by type checkers to catch errors at development time.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We'd like a good way to write type-level tests to confirm that mypy and pyright are enforcing what we want them to enforce and to prevent regressions.",
+  "number": 636,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:16:17.597Z"
+}

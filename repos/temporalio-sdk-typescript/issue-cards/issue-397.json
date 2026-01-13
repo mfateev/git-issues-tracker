@@ -1,0 +1,32 @@
+{
+  "summary": "ContinueAsNew workflow transitions are incorrectly appearing as errors in OpenTelemetry traces, causing unnecessary noise and confusion in observability data.",
+  "category": "bug",
+  "subcategory": "observability",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "otel-tracer",
+    "workflow-execution",
+    "tracing"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "error-handling",
+    "workflow-lifecycle",
+    "opentelemetry"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see spurious error traces for normal ContinueAsNew workflow transitions, complicating debugging and increasing noise in monitoring systems.",
+  "rootCause": "ContinueAsNew completion is being treated as an error condition in the OpenTelemetry tracing instrumentation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ContinueAsNew is now properly handled as a normal workflow lifecycle event rather than an error in OTEL traces.",
+  "related": [],
+  "keyQuote": "It's quite irritating to see this error in my workflow traces",
+  "number": 397,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:07:53.764Z"
+}

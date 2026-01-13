@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to make the `create` command's post-installation instructions more intelligent by detecting the platform and checking if dependencies like docker-compose, Temporal Server, and Node.js are already installed before displaying setup instructions.",
+  "category": "feature",
+  "subcategory": "developer-experience",
+  "apis": [],
+  "components": [
+    "create-command",
+    "post-install-setup",
+    "installation-guide"
+  ],
+  "concepts": [
+    "platform-detection",
+    "dependency-checking",
+    "setup-instructions",
+    "developer-experience",
+    "automation",
+    "conditional-output"
+  ],
+  "severity": "low",
+  "userImpact": "Users would see only relevant setup instructions for their specific platform and environment, reducing unnecessary output and confusion.",
+  "rootCause": null,
+  "proposedFix": "Support templating in .post-create file (handlebars/ejs) or replace with .post-create.js script for conditional logic.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Team decided the package initializer was already complex enough and that the custom template approach was sufficient for maintainability.",
+  "related": [
+    107
+  ],
+  "keyQuote": "I think our package initializer is complex enough as is. The custom template is more than enough imho.",
+  "number": 541,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:00:28.473Z"
+}

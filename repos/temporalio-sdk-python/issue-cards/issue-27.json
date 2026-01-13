@@ -1,0 +1,28 @@
+{
+  "summary": "Request to implement Python SDK patching functionality equivalent to the TypeScript SDK's patching feature documented at https://docs.temporal.io/typescript/patching",
+  "category": "feature",
+  "subcategory": "patching",
+  "apis": [],
+  "components": [
+    "sdk-python",
+    "workflow-engine"
+  ],
+  "concepts": [
+    "versioning",
+    "patching",
+    "workflow-compatibility",
+    "code-evolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Python SDK users cannot easily manage workflow versioning and patching compared to TypeScript SDK users.",
+  "rootCause": null,
+  "proposedFix": "Implement patching functionality matching the TypeScript SDK implementation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Patching functionality was implemented in the Python SDK",
+  "related": [],
+  "keyQuote": "Basically https://docs.temporal.io/typescript/patching in Python",
+  "number": 27,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:46:13.639Z"
+}

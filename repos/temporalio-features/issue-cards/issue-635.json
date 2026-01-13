@@ -1,0 +1,37 @@
+{
+  "summary": "Add support for accessing the last result and last failure from workflows that are continued from cron or schedule executions. This data comes from workflow history but should be exposed through the SDK workflow context in a consistent way across all SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [
+    "GetWorkflowInfo",
+    "WorkflowContext"
+  ],
+  "components": [
+    "workflow-context",
+    "history-processing",
+    "cron-schedule"
+  ],
+  "concepts": [
+    "cron-scheduling",
+    "workflow-continuation",
+    "last-result",
+    "failure-handling",
+    "immutable-data"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with cron or scheduled workflows need a standard way to access continuation data (last result and failure) across all SDK languages.",
+  "rootCause": null,
+  "proposedFix": "Expose last_result and last_failure as properties on the workflow context, with clear differentiation between null values and absence of data, similar to Go and Java implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    383,
+    489,
+    281
+  ],
+  "keyQuote": "Go, Java, and TypeScript all provide a way to get the \"last result\" and \"last failure\" if this was via cron or schedule",
+  "number": 635,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:17:38.858Z"
+}

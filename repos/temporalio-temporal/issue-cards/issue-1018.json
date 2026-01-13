@@ -1,0 +1,33 @@
+{
+  "summary": "DescribeWorkflowExecution API result does not indicate when a workflow cancel has been requested. The feature request asks for adding a CANCEL_REQUESTED status or additional property to the DescribeWorkflowExecutionResult to distinguish between canceled and canceling states.",
+  "category": "feature",
+  "subcategory": "workflow-status",
+  "apis": [
+    "DescribeWorkflowExecution",
+    "DescribeWorkflowExecutionResult"
+  ],
+  "components": [
+    "workflow-execution",
+    "api",
+    "status-management"
+  ],
+  "concepts": [
+    "workflow-status",
+    "cancellation",
+    "state-tracking",
+    "execution-visibility",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot determine through the API whether a workflow cancellation was requested, making it difficult to track workflow lifecycle state accurately.",
+  "rootCause": null,
+  "proposedFix": "Add CANCEL_REQUESTED status or additional property to the DescribeWorkflowExecutionResult.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "DescribeWorkflowExecution result doesn't indicate if workflow cancel was requested.",
+  "number": 1018,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:46:58.743Z"
+}

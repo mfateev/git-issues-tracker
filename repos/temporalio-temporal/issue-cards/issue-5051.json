@@ -1,0 +1,35 @@
+{
+  "summary": "User running Temporal on Kubernetes with EKS needs IRSA (IAM Roles for Service Accounts) support for S3 archival authentication. The Go SDK supports IRSA through environment variables, but Temporal's archival configuration appears to require using NewSessionWithOptions instead of NewSession to properly handle these credentials.",
+  "category": "feature",
+  "subcategory": "archival-s3",
+  "apis": [],
+  "components": [
+    "archiver",
+    "s3store",
+    "history-archiver",
+    "aws-sdk"
+  ],
+  "concepts": [
+    "authentication",
+    "irsa",
+    "iam-roles",
+    "kubernetes",
+    "service-accounts",
+    "aws-credentials"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal on EKS with IRSA cannot authenticate to S3 for archival without manual credential management, limiting cloud-native deployment patterns.",
+  "rootCause": "AWS Go SDK's session.NewSession does not automatically load credentials from IRSA environment variables; NewSessionWithOptions is required for proper IRSA integration.",
+  "proposedFix": "Replace session.NewSession with session.NewSessionWithOptions in history_archiver.go to properly support IRSA credential loading from environment variables.",
+  "workaround": "Manually configure AWS credentials instead of relying on IRSA-injected environment variables, or use alternative authentication methods.",
+  "resolution": "fixed",
+  "resolutionDetails": "User created PR #5059 to add AWS SDK debug logging support for troubleshooting. Issue was resolved by enabling debug logging and fixing underlying IAM permissions.",
+  "related": [
+    983,
+    5059
+  ],
+  "keyQuote": "AWS Go SDK's session.NewSession must be probably replaced with session.NewSessionWithOptions",
+  "number": 5051,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:14.845Z"
+}

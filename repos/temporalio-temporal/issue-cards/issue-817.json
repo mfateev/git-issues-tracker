@@ -1,0 +1,32 @@
+{
+  "summary": "PostgreSQL persistence tests fail to properly drop test databases, resulting in 'database is being accessed by other users' errors. This prevents test cleanup and causes test suite failures.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgresql",
+    "test-database",
+    "database-cleanup"
+  ],
+  "concepts": [
+    "database-cleanup",
+    "test-isolation",
+    "connection-management",
+    "database-drops",
+    "test-concurrency",
+    "resource-cleanup"
+  ],
+  "severity": "high",
+  "userImpact": "Developers running PostgreSQL persistence tests experience test failures due to improper database cleanup, blocking test execution and development workflows.",
+  "rootCause": "Test database connections are not being properly closed before attempting to drop the database, leaving active connections that prevent deletion.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented proper connection closure mechanism in PostgreSQL test cleanup to ensure all connections are terminated before database drop.",
+  "related": [],
+  "keyQuote": "test panicked: pq: database \"test_1008214627_jyv\" is being accessed by other users",
+  "number": 817,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:12:57.103Z"
+}

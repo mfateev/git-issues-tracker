@@ -1,0 +1,32 @@
+{
+  "summary": "User wants to control which workflow execution processes scheduled tasks when multiple workers are available, rather than having all workers receive and process the same task. Mistakenly believes multiple workflow executions are needed for high availability.",
+  "category": "question",
+  "subcategory": "workflow-routing",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "task-dispatch"
+  ],
+  "concepts": [
+    "high-availability",
+    "load-distribution",
+    "task-routing",
+    "cron-scheduling",
+    "multi-worker-coordination"
+  ],
+  "severity": "low",
+  "userImpact": "User unable to control task distribution across multiple workers and workflow executions, leading to unnecessary redundant processing.",
+  "rootCause": "Misunderstanding of Temporal's distributed architecture. User expects to control which workflow execution processes tasks, but Temporal's design handles high availability through worker-to-task assignment and timeout-based reassignment.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Marked as duplicate of issue #3309, which addresses the same requirement for selective worker task assignment.",
+  "related": [
+    3309
+  ],
+  "keyQuote": "I just want to send to multiple workflows to get relevant information and execute tasks preemptively, not all workflows get this information and process.",
+  "number": 3281,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:09.037Z"
+}

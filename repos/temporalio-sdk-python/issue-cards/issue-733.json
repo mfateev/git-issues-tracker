@@ -1,0 +1,35 @@
+{
+  "summary": "OpenTelemetry SDK 1.29+ calls os.environ.get in workflows, which is blocked by Temporal's sandbox. Users need to either downgrade OTel or manually pass through the opentelemetry and ddtrace modules in SandboxRestrictions.",
+  "category": "bug",
+  "subcategory": "sandbox-restrictions",
+  "apis": [
+    "Worker",
+    "SandboxedWorkflowRunner",
+    "SandboxRestrictions"
+  ],
+  "components": [
+    "workflow-sandbox",
+    "interceptor-framework",
+    "restrictions-engine"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "ddtrace",
+    "tracing",
+    "sandbox-environment",
+    "import-restrictions",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users enabling distributed tracing with OpenTelemetry/ddtrace cannot run workflows with SDK 1.9.0 when using OTel 1.29+.",
+  "rootCause": "OpenTelemetry SDK 1.29 started calling os.environ.get at import time, which violates Temporal's workflow sandbox restrictions that prevent environment access.",
+  "proposedFix": "Pass opentelemetry and ddtrace modules through SandboxRestrictions via with_passthrough_modules() when creating the Worker.",
+  "workaround": "Either downgrade OpenTelemetry SDK to pre-1.29 version or use SandboxRestrictions.default.with_passthrough_modules('opentelemetry', 'ddtrace')",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we need to get those imports preloaded and passed through. You may be able to do something like... with_passthrough_modules(\"opentelemetry\", \"ddtrace\")",
+  "number": 733,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:20:26.318Z"
+}

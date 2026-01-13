@@ -1,0 +1,29 @@
+{
+  "summary": "The converter incorrectly handles `dict[None, Any]` types, returning `{'null': \"1\"}` which doesn't match the expected return object structure when converting dictionaries with None keys.",
+  "category": "bug",
+  "subcategory": "converter",
+  "apis": [],
+  "components": [
+    "converter",
+    "type-conversion",
+    "test-framework"
+  ],
+  "concepts": [
+    "type-mapping",
+    "null-handling",
+    "dict-conversion",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter incorrect value conversion when working with dictionaries that have None as keys, leading to unexpected data structures.",
+  "rootCause": "The converter appears to be mapping None keys to the string 'null' instead of properly handling None as a dictionary key type.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In `test_converter.py`, `ok(dict[None, str], {'null': \"1\"})` passes, but that doesn't really seem like the correct return object.",
+  "number": 1237,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:30.326Z"
+}

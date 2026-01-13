@@ -1,0 +1,30 @@
+{
+  "summary": "The `create_schedule` method in the Python SDK accepts `static_summary` and `static_details` parameters but never uses them when constructing the CreateScheduleInput. These parameters should either be forwarded to the API call or removed.",
+  "category": "bug",
+  "subcategory": "schedule-creation",
+  "apis": [
+    "create_schedule",
+    "CreateScheduleInput"
+  ],
+  "components": [
+    "schedule-client",
+    "api-binding"
+  ],
+  "concepts": [
+    "parameter-handling",
+    "api-completeness",
+    "static-metadata"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who pass static_summary and static_details to create_schedule will have these values silently ignored, potentially leading to incomplete schedule metadata.",
+  "rootCause": "The static_summary and static_details parameters are accepted in the method signature but not passed to CreateScheduleInput during construction.",
+  "proposedFix": "Remove the unused static_summary and static_details parameters from the create_schedule method signature, as the server API doesn't support them and details are included as part of the action embedded in the schedule.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Parameters were removed from the API as they are not supported by the server API and details are included as part of the action embedded in the schedule.",
+  "related": [],
+  "keyQuote": "The server API doesn't include it, the details are included as part of the action embedded in the schedule. Should be removed from the API.",
+  "number": 1238,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:36:42.234Z"
+}

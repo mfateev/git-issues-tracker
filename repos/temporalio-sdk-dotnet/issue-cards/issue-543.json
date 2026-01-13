@@ -1,0 +1,30 @@
+{
+  "summary": "Move ClientEnvConfig from the client-specific namespace (Temporalio.Client.EnvConfig) to the common namespace (Temporalio.Common.EnvConfig) to align with other SDKs and improve API organization. This is a backwards-incompatible change that is acceptable since the SDK is not yet GA.",
+  "category": "feature",
+  "subcategory": "api-organization",
+  "apis": [],
+  "components": [
+    "client-config",
+    "namespace",
+    "api-structure"
+  ],
+  "concepts": [
+    "namespace-organization",
+    "backwards-compatibility",
+    "api-consistency",
+    "SDK-alignment",
+    "pre-GA-changes"
+  ],
+  "severity": "low",
+  "userImpact": "Users will need to update their imports when upgrading to use ClientEnvConfig from the new common namespace location.",
+  "rootCause": null,
+  "proposedFix": "Move ClientEnvConfig class from Temporalio.Client.EnvConfig namespace to Temporalio.Common.EnvConfig namespace.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The namespace change was implemented as requested, moving ClientEnvConfig to align with other SDKs.",
+  "related": [],
+  "keyQuote": "We don't need it in client-specific namespace even though it is only for client things. This matches other SDKs and it's not GA yet so even though this is a backwards-incompatible change, it's acceptable.",
+  "number": 543,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:34:25.648Z"
+}

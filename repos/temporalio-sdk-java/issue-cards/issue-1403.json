@@ -1,0 +1,31 @@
+{
+  "summary": "Test server should emit warning logs when tasks are scheduled on task queues with no listening workers. This helps users quickly identify the common mistake of forgetting to register workers on all required queues, which currently manifests only as test timeouts.",
+  "category": "feature",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "task-queue",
+    "worker-registration"
+  ],
+  "concepts": [
+    "task-queue",
+    "worker-listening",
+    "diagnostics",
+    "logging",
+    "test-debugging",
+    "developer-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive confusing test timeouts when workers aren't registered on all required task queues, making it difficult to diagnose the actual problem.",
+  "rootCause": "Test server lacks visibility into task queue listener registration; tasks scheduled on unlistened queues fail silently without diagnostic output.",
+  "proposedFix": "Add warning log messages to the test server when tasks are scheduled on task queues that have no registered workers listening on them.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A typical user mistake in unit tests which may be a little tricky for users to realize is forgetting to register workers on all the queues that participate in a unit test.",
+  "number": 1403,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:34:01.038Z"
+}

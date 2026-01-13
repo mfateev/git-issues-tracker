@@ -1,0 +1,31 @@
+{
+  "summary": "PyCharm IDE shows lint warnings when calling client.execute_workflow() with a parameterless workflow, even though the code is valid and passes other type checkers like Pyright.",
+  "category": "question",
+  "subcategory": "type-checking",
+  "apis": [
+    "execute_workflow"
+  ],
+  "components": [
+    "client",
+    "type-stubs"
+  ],
+  "concepts": [
+    "type-checking",
+    "IDE-integration",
+    "linting",
+    "coroutines",
+    "type-hints"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using PyCharm CE see spurious type warnings that don't represent actual code errors, causing distraction and confusion.",
+  "rootCause": "PyCharm's type checking appears to have different behavior than MyPy or Pyright when handling the execute_workflow method signature with parameterless workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue determined to be a PyCharm-specific problem, not a Temporal SDK issue. The code works correctly with other type checkers (Pyright, MyPy).",
+  "related": [],
+  "keyQuote": "I tested my code with pyright, no issues reported, it should be a Pycharm issue.",
+  "number": 444,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:07:23.263Z"
+}

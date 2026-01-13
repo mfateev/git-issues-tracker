@@ -1,0 +1,34 @@
+{
+  "summary": "User asks how to query workflows based on custom object properties added to the workflow interface. The solution involves using Temporal's search attributes feature, which requires registering search attributes and tagging workflows with values during workflow start.",
+  "category": "question",
+  "subcategory": "workflow-querying",
+  "apis": [
+    "ListWorkflowExecutions",
+    "UpsertSearchAttribute",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-execution",
+    "list-workflows",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "workflow-filtering",
+    "query-language",
+    "metadata-indexing",
+    "workflow-execution-info"
+  ],
+  "severity": "low",
+  "userImpact": "Users need to understand the search attributes mechanism to filter workflows by custom properties, requiring setup and explicit tagging.",
+  "rootCause": null,
+  "proposedFix": "Register a search attribute via the TCLD API, then use UpsertSearchAttribute in workflow code to tag workflows, and filter using the search attribute name in ListWorkflow queries.",
+  "workaround": "Set SearchAttributes when starting the workflow via the StartWorkflow request to avoid needing UpsertSearchAttribute calls during execution.",
+  "resolution": "fixed",
+  "resolutionDetails": "Question answered with clear solution: use search attributes feature with registration and tagging, optionally set during workflow start.",
+  "related": [],
+  "keyQuote": "You need to 1) register your search attribute (this is a one time job); 2) tag your workflow with your search attribute.",
+  "number": 3229,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:39:20.898Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "External workflow signal operations throw incorrect ApplicationFailure exception instead of the proper SignalExternalWorkflowException. The SDK has an unused SignalExternalWorkflowException class and a TODO comment indicating this was never properly implemented.",
+  "category": "bug",
+  "subcategory": "external-workflow-signals",
+  "apis": [
+    "Workflow.newUntypedExternalWorkflowStub",
+    "signal"
+  ],
+  "components": [
+    "external-workflow-client",
+    "signal-execution",
+    "state-machine",
+    "exception-handling"
+  ],
+  "concepts": [
+    "external-workflow-signals",
+    "exception-type",
+    "workflow-not-found",
+    "signal-failure",
+    "api-correctness"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly catch and handle external workflow signal failures because the wrong exception type is thrown, forcing them to catch generic ApplicationFailure.",
+  "rootCause": "SignalExternalStateMachine has an unimplemented TODO comment and never creates the proper SignalExternalWorkflowException when signal execution fails.",
+  "proposedFix": "Implement the TODO in SignalExternalStateMachine.java:152 to properly throw SignalExternalWorkflowException or WorkflowNotFoundException instead of ApplicationFailure.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "ApplicationFailure is an incorrect exception to be thrown here. There is already an exception for this situation: SignalExternalWorkflowException that is currently not created anywhere.",
+  "number": 1374,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:31:38.192Z"
+}

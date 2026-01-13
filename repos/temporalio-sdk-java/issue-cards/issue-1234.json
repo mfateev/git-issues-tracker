@@ -1,0 +1,31 @@
+{
+  "summary": "Users need a built-in Prometheus scrape endpoint implementation in the Java SDK to easily export metrics from the micrometer reporter without implementing their own custom endpoint.",
+  "category": "feature",
+  "subcategory": "metrics-export",
+  "apis": [],
+  "components": [
+    "metrics",
+    "micrometer-reporter",
+    "observability"
+  ],
+  "concepts": [
+    "prometheus",
+    "monitoring",
+    "metrics-export",
+    "observability",
+    "configuration",
+    "port-binding"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently implement their own Prometheus scrape endpoint, adding friction to metrics collection setup.",
+  "rootCause": null,
+  "proposedFix": "Add a built-in Prometheus scrape endpoint implementation to the JavaSDK with configurable port and URL to avoid port conflicts.",
+  "workaround": "Users can manually implement a scrape endpoint following Tanzu documentation for exposing metrics to Prometheus.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal JavaSDK should have a built-in implementation of a scrape endpoint for prometheus. This endpoint should allow port/url configuration to be passed to avoid any port conflicts.",
+  "number": 1234,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:17:05.707Z"
+}

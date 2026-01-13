@@ -1,0 +1,29 @@
+{
+  "summary": "GetHistoryTask persistence API is unused in the codebase. The author proposes removing it since the batch read version (GetHistoryTasks) can handle the same use cases for admin tools.",
+  "category": "other",
+  "subcategory": "persistence-api",
+  "apis": [],
+  "components": [
+    "persistence",
+    "history-task",
+    "admin-api"
+  ],
+  "concepts": [
+    "api-cleanup",
+    "unused-code",
+    "batch-operations",
+    "task-visibility"
+  ],
+  "severity": "low",
+  "userImpact": "Removal of unused API simplifies the codebase with no impact on users as GetHistoryTasks provides equivalent functionality.",
+  "rootCause": "GetHistoryTask was never utilized in the codebase; GetHistoryTasks (batch version) provides sufficient functionality for all use cases.",
+  "proposedFix": "Remove GetHistoryTask API from the codebase.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Will remove this API. The only use case I can see is use it as an admin tool to dump information for a certain task, which GetHistoryTasks (the batch read version) can also do.",
+  "number": 3983,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:32.646Z"
+}

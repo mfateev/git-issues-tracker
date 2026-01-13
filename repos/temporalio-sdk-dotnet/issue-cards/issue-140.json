@@ -1,0 +1,32 @@
+{
+  "summary": "Add support for log forwarding from core to language side in .NET SDK, similar to existing TypeScript implementation. Currently, a log forwarding export layer is registered in Bridge but never polled, making it effectively a no-op.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "bridge",
+    "log-exporter",
+    "runtime"
+  ],
+  "concepts": [
+    "log-forwarding",
+    "observability",
+    "core-lang-communication",
+    "metrics-forwarding",
+    "push-based-export"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently forward logs from Temporal core to the .NET language layer for centralized logging and observability.",
+  "rootCause": "Log forwarding registration exists in runtime.rs but the language side never polls for log entries, making the exporter non-functional.",
+  "proposedFix": "Implement push-based log forwarding similar to metrics forwarding to avoid FFI overhead, depending on sdk-core issue #618 for core-side support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented to provide push-based log forwarding matching the metrics forwarding behavior.",
+  "related": [
+    618
+  ],
+  "keyQuote": "we'd surely want this push based in .NET where there is not as much FFI overhead as there is in other languages",
+  "number": 140,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T08:33:35.291Z"
+}

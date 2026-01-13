@@ -1,0 +1,31 @@
+{
+  "summary": "User needs a gRPC API to dynamically set task queue rate limiting (maxTaskQueueActivitiesPerSecond) without redeploying workers. Currently requires full worker redeployment to change this setting.",
+  "category": "feature",
+  "subcategory": "task-queue-rate-limiting",
+  "apis": [],
+  "components": [
+    "task-queue",
+    "rate-limiting",
+    "gRPC",
+    "worker"
+  ],
+  "concepts": [
+    "dynamic-configuration",
+    "rate-limiting",
+    "task-queue-management",
+    "deployment-avoidance",
+    "operational-efficiency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must redeploy all workers to change task queue rate limits, preventing dynamic operational adjustments without downtime.",
+  "rootCause": null,
+  "proposedFix": "Add a gRPC method that accepts task queue name and rate limit value, allowing configuration via gRPC/tctl/SDK without worker redeployment.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A gRPC method for setting a new value (takes task queue name and a number). Then a user can not set it on the Workers, and only use gRPC/tctl/SDK.",
+  "number": 3288,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:40:22.838Z"
+}

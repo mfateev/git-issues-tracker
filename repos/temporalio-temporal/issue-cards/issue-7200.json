@@ -1,0 +1,32 @@
+{
+  "summary": "Go SDK client fails with 'context deadline exceeded' error when connecting to Temporal server deployed on Kubernetes via port-forward, even though the temporal CLI works successfully on the same setup.",
+  "category": "bug",
+  "subcategory": "client-connection",
+  "apis": [
+    "client.Dial"
+  ],
+  "components": [
+    "go-client",
+    "connection",
+    "kubernetes-deployment"
+  ],
+  "concepts": [
+    "context-deadline",
+    "connection-timeout",
+    "grpc",
+    "port-forwarding",
+    "kubernetes-networking"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run official Go SDK samples against Kubernetes-deployed Temporal servers, blocking workflow development and testing.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Enable gRPC debugging with GRPC_GO_LOG_VERBOSITY_LEVEL=99 and GRPC_GO_LOG_SEVERITY_LEVEL=info to diagnose connection issues.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Unable to create client failed reaching server: context deadline exceeded",
+  "number": 7200,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:17:53.021Z"
+}

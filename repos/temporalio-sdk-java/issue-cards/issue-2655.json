@@ -1,0 +1,32 @@
+{
+  "summary": "The testing server's continue-as-new implementation doesn't propagate memo and search attributes from the ContinueAsNewWorkflowExecutionCommandAttributes, unlike the production Temporal server which correctly carries these forward to the new workflow execution.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "test-server",
+    "workflow-service",
+    "continue-as-new-handler"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "memo",
+    "search-attributes",
+    "state-propagation",
+    "test-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users testing workflows that rely on continue-as-new with memo or search attributes will encounter unexpected behavior differences between testing and production environments.",
+  "rootCause": "The TestWorkflowService.continueAsNewWorkflowExecution() method constructs the start request without extracting memo and search attributes from the ContinueAsNewWorkflowExecutionCommandAttributes.",
+  "proposedFix": "Extract memo and search attributes from ContinueAsNewWorkflowExecutionCommandAttributes and include them in the start request construction.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the memo and search attributes in the command are dropped",
+  "number": 2655,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:14:53.855Z"
+}

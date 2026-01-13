@@ -1,0 +1,33 @@
+{
+  "summary": "Activity heartbeats fail silently without retry on network outages, causing activities to timeout prematurely. The issue requests implementing exponential backoff retries for failed heartbeats to make them more robust.",
+  "category": "feature",
+  "subcategory": "activity-heartbeat",
+  "apis": [
+    "ActivityContext.heartbeat()"
+  ],
+  "components": [
+    "activity-executor",
+    "heartbeat-executor",
+    "retry-logic"
+  ],
+  "concepts": [
+    "heartbeat",
+    "retry",
+    "network-resilience",
+    "exponential-backoff",
+    "timeout",
+    "activity-termination"
+  ],
+  "severity": "high",
+  "userImpact": "Activities can be terminated with heartbeat timeout during temporary network issues even when heartbeating regularly.",
+  "rootCause": "Failed heartbeats are ignored without retry logic, leaving no mechanism to recover from transient network failures.",
+  "proposedFix": "Use heartbeatExecutor to schedule asynchronous retries with exponential backoff throttling strategy for failed heartbeats.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If we get a network blip, such an activity will be terminated with heartbeat timeout.",
+  "number": 1258,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:19:03.705Z"
+}

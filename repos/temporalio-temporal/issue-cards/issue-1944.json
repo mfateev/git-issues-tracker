@@ -1,0 +1,35 @@
+{
+  "summary": "Workflow retry tests in JavaSDK fail on the latest Temporal server image (temporaliotest/auto-setup:latest) but pass on version 1.12.1, indicating a regression in workflow retry functionality between server versions.",
+  "category": "bug",
+  "subcategory": "workflow-retry",
+  "apis": [
+    "WorkflowRetry"
+  ],
+  "components": [
+    "workflow-executor",
+    "retry-handler",
+    "server-compatibility"
+  ],
+  "concepts": [
+    "workflow-retry",
+    "compatibility",
+    "regression",
+    "server-version",
+    "test-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow retry functionality is broken on the latest server version, preventing workflows from properly retrying on failure.",
+  "rootCause": "Regression introduced in commit 8b71d20d94001ab86b368beb0eeefb900e633f5c or related changes in PR #1866 between server versions 1.12.1 and latest.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1949",
+  "related": [
+    1866,
+    1949
+  ],
+  "keyQuote": "The tests pass on temporalio/auto-setup:1.12.1 but not on temporaliotest/auto-setup:latest",
+  "number": 1944,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:21:29.581Z"
+}

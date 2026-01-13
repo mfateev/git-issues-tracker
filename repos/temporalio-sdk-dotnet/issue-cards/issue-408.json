@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to include musl-based build in the NuGet package for the .NET SDK, referencing a cross-repository feature issue for standardization.",
+  "category": "feature",
+  "subcategory": "build-distribution",
+  "apis": [],
+  "components": [
+    "nuget-package",
+    "build-system"
+  ],
+  "concepts": [
+    "musl",
+    "alpine-linux",
+    "binary-compatibility",
+    "cross-platform-build",
+    "package-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal .NET SDK in musl-based environments (Alpine Linux containers) cannot use the standard NuGet package.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed, indicating musl-based build support was added to the NuGet package distribution.",
+  "related": [
+    594
+  ],
+  "keyQuote": "Include musl-based build in NuGet package",
+  "number": 408,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:21:12.420Z"
+}

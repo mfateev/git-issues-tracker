@@ -1,0 +1,30 @@
+{
+  "summary": "Proto comments from the Temporal API are not included in the generated TypeScript API documentation, making protobufjs-generated classes lack explanatory text for their properties. Users want proto file comments to appear in the generated TypeScript API docs.",
+  "category": "docs",
+  "subcategory": "api-documentation",
+  "apis": [],
+  "components": [
+    "protobufjs",
+    "api-documentation",
+    "typescript-sdk"
+  ],
+  "concepts": [
+    "proto-comments",
+    "api-docs",
+    "code-generation",
+    "documentation",
+    "type-safety"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot find property descriptions when browsing the generated API documentation and must refer to proto source files instead.",
+  "rootCause": "protobufjs library does not extract and preserve proto comments during code generation process",
+  "proposedFix": "Modify protobufjs to properly translate proto comments (// or /* */) into JSDoc comments for the generated TypeScript classes",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "protobufjs is no longer actively maintained (last commit May 2021) and the issue depends on upstream library changes",
+  "related": [],
+  "keyQuote": "protobufjs isn't really maintained unfortunately, last commit was May 2021",
+  "number": 506,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:59:27.515Z"
+}

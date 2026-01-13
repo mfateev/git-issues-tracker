@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose last activity failure information through PollActivityTaskQueueResponse, allowing users to access failure context within activity code for informed decision-making based on previous execution history.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [
+    "PollActivityTaskQueueResponse"
+  ],
+  "components": [
+    "activity-executor",
+    "worker",
+    "task-queue",
+    "api-response"
+  ],
+  "concepts": [
+    "failure-handling",
+    "activity-retry",
+    "execution-history",
+    "error-context",
+    "decision-making"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently access last activity failure information within activity code, limiting their ability to make context-aware decisions based on previous execution failures.",
+  "rootCause": null,
+  "proposedFix": "Expose last activity failure info via PollActivityTaskQueueResponse in the temporal/api workflowservice/v1/request_response.proto",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Would allow users to check last failure info within their activity code and able to make decisions based on it.",
+  "number": 8039,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:23:12.439Z"
+}

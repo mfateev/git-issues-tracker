@@ -1,0 +1,33 @@
+{
+  "summary": "Queries targeting nonexistent handlers fail workflow task completions on the non-legacy query path. When a query is issued as part of a workflow task (not as a legacy query), the SDK rejects the entire task instead of completing it successfully with a failed query result command.",
+  "category": "bug",
+  "subcategory": "query-handling",
+  "apis": [
+    "defineQuery",
+    "query"
+  ],
+  "components": [
+    "query-handler",
+    "workflow-task-execution",
+    "activation-processing"
+  ],
+  "concepts": [
+    "query-dispatch",
+    "error-handling",
+    "task-completion",
+    "workflow-activation",
+    "legacy-vs-nonlegacy-path"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows fail to complete when receiving queries for unregistered query handlers through the non-legacy path, causing unexpected WFT failures.",
+  "rootCause": "The SDK rejects the workflow task entirely instead of handling the nonexistent query gracefully by completing the activation with a failed query result command.",
+  "proposedFix": "Update the query handling logic to complete the activation successfully with a failed query result command instead of rejecting the entire workflow task when a query targets a nonexistent handler.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "that causes the SDK to reject the workflow task, where it should instead complete the activation successfully and include a failed query result command",
+  "number": 931,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:24:09.662Z"
+}

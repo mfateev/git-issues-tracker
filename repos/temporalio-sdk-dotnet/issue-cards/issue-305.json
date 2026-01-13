@@ -1,0 +1,33 @@
+{
+  "summary": "The .NET SDK incorrectly handles multiple completion commands by truncating non-query commands that appear after completion commands. This needs to be fixed to send all commands to core, allowing the core runtime to properly handle interleaved completion and non-completion commands.",
+  "category": "bug",
+  "subcategory": "command-handling",
+  "apis": [],
+  "components": [
+    "command-handler",
+    "completion-logic",
+    "core-integration"
+  ],
+  "concepts": [
+    "completion-commands",
+    "command-ordering",
+    "command-truncation",
+    "core-sync",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with workflows that have multiple completion commands may experience incorrect command handling and execution.",
+  "rootCause": "The logic added in PR #270 incorrectly truncates non-query commands that appear after completion commands, which is now being fixed in core.",
+  "proposedFix": "Send all commands to core with potentially multiple completion commands interleaved with non-completions, rather than truncating post-completion commands.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    270,
+    778
+  ],
+  "keyQuote": "send all commands to core i.e. with (potentially multiple) completion commands interleaved with non-completions",
+  "number": 305,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:21:47.905Z"
+}

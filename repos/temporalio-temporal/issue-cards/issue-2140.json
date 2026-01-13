@@ -1,0 +1,33 @@
+{
+  "summary": "ResetWorkflowExecution treats requests with empty requestId as duplicates and ignores subsequent calls, causing a deduplication issue where only the first reset succeeds. Users expect idempotent behavior but instead see silent failures on retries.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "ResetWorkflowExecution",
+    "ResetWorkflowExecutionRequest"
+  ],
+  "components": [
+    "server-reset",
+    "request-deduplication",
+    "api-semantics"
+  ],
+  "concepts": [
+    "idempotency",
+    "deduplication",
+    "request-id",
+    "retry",
+    "workflow-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reset workflows multiple times as subsequent reset requests silently fail due to empty requestId deduplication, breaking expected idempotent behavior.",
+  "rootCause": "Server deduplicates requests based on requestId, treating empty/null requestId as a valid deduplication key rather than disabling deduplication or requiring a unique ID.",
+  "proposedFix": "Either make requestId mandatory, generate random IDs for empty requestId, skip deduplication for empty requestId, or error on empty requestId requests.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was identified as a bug in the reset workflow execution deduplication logic and addressed in the codebase.",
+  "related": [],
+  "keyQuote": "resetWorkflowExecution is idempotent and duplicate requests with the same requestId is getting ignored, including an empty one. Such a request will work right at the first invocation, which makes the problem even hard to catch.",
+  "number": 2140,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:20.572Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "SDKs need to implement support for full query failure structure in the new `failure` field on query responses. Workers should set converted query failures while maintaining backward compatibility by keeping `error_message` aligned with `failure.message`. Clients should check for `QueryFailedFailure` gRPC details and set them as the cause of returned errors.",
+  "category": "feature",
+  "subcategory": "query-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "client",
+    "query-executor",
+    "error-handling"
+  ],
+  "concepts": [
+    "query-failure",
+    "error-structure",
+    "backward-compatibility",
+    "failure-details",
+    "gRPC",
+    "error-cause"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will have access to detailed query failure information with proper error cause chains while maintaining backward compatibility with existing error handling code.",
+  "rootCause": null,
+  "proposedFix": "Set converted query failures on the new `failure` field in query responses, maintain `error_message` alignment, and check for `QueryFailedFailure` in client gRPC failures to set as error cause.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    503,
+    6947
+  ],
+  "keyQuote": "SDK clients need to check for this `QueryFailedFailure` gRPC failure details on query response gRPC failure and if present, need to set that as the cause",
+  "number": 566,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:07:27.928Z"
+}

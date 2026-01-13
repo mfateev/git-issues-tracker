@@ -1,0 +1,31 @@
+{
+  "summary": "GCP's log collection treats stderr as errors and stdout as non-errors, causing Temporal's logs to be misclassified regardless of actual log level. Users need configurable output streams to properly separate error and non-error logs.",
+  "category": "feature",
+  "subcategory": "logging-configuration",
+  "apis": [],
+  "components": [
+    "logger",
+    "log-config",
+    "zap-logger"
+  ],
+  "concepts": [
+    "logging",
+    "output-streams",
+    "stderr",
+    "stdout",
+    "log-levels",
+    "cloud-platform-integration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal on GCP cannot properly segregate error and non-error logs due to mixed output streams, affecting observability and alerting.",
+  "rootCause": "Temporal outputs all logs (regardless of level) to the same stream, which cloud platforms like GCP interpret based on the stream rather than the log level.",
+  "proposedFix": "Add OutputPaths and ErrorOutputPaths configuration fields to the logger config, similar to Zap's configuration options, while maintaining backward compatibility with existing Stdout and OutputFile fields.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Google Cloud Platform collects logs output to stderr as error and those output to stdout as non-error...everything gets mixed up.",
+  "number": 1423,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:15:03.451Z"
+}

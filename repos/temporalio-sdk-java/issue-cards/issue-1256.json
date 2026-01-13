@@ -1,0 +1,31 @@
+{
+  "summary": "Activity heartbeats that are throttled and cached are not properly drained or discarded when the activity completes or the worker shuts down gracefully, potentially causing issues with cleanup and resource management.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "worker",
+    "heartbeat-manager"
+  ],
+  "concepts": [
+    "heartbeat",
+    "throttling",
+    "caching",
+    "graceful-shutdown",
+    "resource-cleanup",
+    "activity-completion"
+  ],
+  "severity": "medium",
+  "userImpact": "Cached heartbeats may not be properly cleaned up, potentially leaving orphaned heartbeat operations and causing resource leaks during activity completion or worker shutdown.",
+  "rootCause": "The heartbeat throttling and caching mechanism does not drain or cancel pending heartbeats when activities complete or workers shut down gracefully.",
+  "proposedFix": "The last cached heartbeat should be either drained before activity completion or discarded/canceled, with the same behavior applied during graceful worker shutdown.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by implementing proper cleanup of cached heartbeats during activity completion and worker shutdown.",
+  "related": [],
+  "keyQuote": "The last cached heartbeat should be either drained before the activity completion or discarded/canceled. This also should be happening during graceful worker shutdown.",
+  "number": 1256,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:18:24.804Z"
+}

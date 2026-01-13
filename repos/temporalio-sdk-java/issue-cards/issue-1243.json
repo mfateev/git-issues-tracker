@@ -1,0 +1,34 @@
+{
+  "summary": "WorkflowStub.getResultAsync performs unbalanced time locking (unlock-lock-lock sequence) in test environments with time-skipping, causing a time lock leak. This regression was introduced in Java SDK 1.12.0.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "getResultAsync"
+  ],
+  "components": [
+    "WorkflowStub",
+    "test-framework",
+    "time-skipping"
+  ],
+  "concepts": [
+    "time-locking",
+    "test-environment",
+    "resource-leak",
+    "synchronization",
+    "time-skipping"
+  ],
+  "severity": "high",
+  "userImpact": "Users testing workflows with time-skipping and getResultAsync encounter time lock leaks that can cause test hangs or failures.",
+  "rootCause": "Unbalanced unlock-lock-lock sequence in getResultAsync when used with time-skipping in test environment",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was fixed by restoring balanced time locking in getResultAsync",
+  "related": [
+    1210
+  ],
+  "keyQuote": "WorkflowStub.getResultAsync performs the sequence of unlock-lock-lock in test environment with time-skipping, leading to a leak and retaining a time lock.",
+  "number": 1243,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:18:24.780Z"
+}

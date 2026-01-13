@@ -1,0 +1,33 @@
+{
+  "summary": "Tasks dispatched to sticky task queues fail to find pollers after the original worker is gone, causing a 5-second delay before falling back to non-sticky queues. The system doesn't clear sticky queue flags when workers disconnect.",
+  "category": "bug",
+  "subcategory": "sticky-task-queue",
+  "apis": [],
+  "components": [
+    "task-dispatcher",
+    "sticky-task-queue",
+    "worker-matching",
+    "mutable-state"
+  ],
+  "concepts": [
+    "sticky-assignment",
+    "worker-lifecycle",
+    "task-routing",
+    "queue-polling",
+    "fallback-logic"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow tasks experience unnecessary 5-second delays when workers disconnect, reducing performance until tasks are routed to available workers.",
+  "rootCause": "Sticky task queue flags in mutable state persist after workers disconnect, causing new tasks to be dispatched to queues with no active pollers.",
+  "proposedFix": "Check during task matching if a sticky queue has no active pollers in the last X minutes, and if so, add the task to the non-sticky queue instead. When the task is picked by another worker, update the sticky queue assignment.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #2811 which implements the proposed logic to detect inactive sticky queues and route tasks to non-sticky queues when necessary.",
+  "related": [
+    2811
+  ],
+  "keyQuote": "We don't clear that sticky flag when worker is gone. New task will be dispatched to the sticky task queue that no poller is working on.",
+  "number": 2363,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:26:30.173Z"
+}

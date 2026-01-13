@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to provide an unsafe_close() method on ServiceClient for advanced users who need explicit control over TCP connection closure timing, without relying on garbage collection.",
+  "category": "feature",
+  "subcategory": "client-lifecycle",
+  "apis": [
+    "ServiceClient"
+  ],
+  "components": [
+    "client",
+    "connection-management",
+    "rust-interop"
+  ],
+  "concepts": [
+    "resource-cleanup",
+    "connection-lifecycle",
+    "explicit-disposal",
+    "tcp-socket",
+    "gc-independence"
+  ],
+  "severity": "low",
+  "userImpact": "Advanced users gain explicit control over client connection closure timing for performance-critical scenarios.",
+  "rootCause": null,
+  "proposedFix": "Implement ServiceClient.unsafe_close() method with Rust-level resource management (e.g., Option::take pattern), clearly documented as unsafe for production use.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Internal discussion led to alternative approach: server-side changes to provide clean exit mechanism instead of unsafe client-side closure.",
+  "related": [],
+  "keyQuote": "we'll be looking to provide a way to cleanly exit powered by some server side changes",
+  "number": 1202,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:35:44.028Z"
+}

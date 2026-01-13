@@ -1,0 +1,32 @@
+{
+  "summary": "Update result serialization exceptions are silently swallowed due to the use of `task.ContinueWith`, preventing proper error surfacing. This needs to be fixed to surface serialization failures as task failures similar to regular update failures.",
+  "category": "bug",
+  "subcategory": "update-serialization",
+  "apis": [],
+  "components": [
+    "update-handler",
+    "task-continuation",
+    "serialization"
+  ],
+  "concepts": [
+    "error-handling",
+    "exception-swallowing",
+    "task-failure",
+    "serialization",
+    "async-continuation"
+  ],
+  "severity": "high",
+  "userImpact": "Silent failures in update result serialization prevent developers from detecting and debugging serialization issues in their update handlers.",
+  "rootCause": "The use of `task.ContinueWith` in the update implementation causes exceptions during result serialization to be swallowed rather than propagated.",
+  "proposedFix": "Surface serialization failures as task failures following the same rules as regular update failures.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the serialization error handling was addressed to properly surface failures.",
+  "related": [
+    142
+  ],
+  "keyQuote": "when an exception occurs in update result serialization, it is swallowed. We need to make sure to surface this as a failure",
+  "number": 465,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:28:30.002Z"
+}

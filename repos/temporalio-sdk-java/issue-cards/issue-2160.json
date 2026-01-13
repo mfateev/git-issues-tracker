@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflow cancellation can trigger the SDK event loop without a WFT (Workflow Task) Started event, causing non-deterministic behavior. This issue requires versioning the fix to maintain determinism.",
+  "category": "bug",
+  "subcategory": "child-workflow-cancellation",
+  "apis": [],
+  "components": [
+    "event-loop",
+    "state-machines",
+    "workflow-task-processing"
+  ],
+  "concepts": [
+    "cancellation",
+    "event-loop",
+    "non-determinism",
+    "workflow-task",
+    "child-workflow",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Child workflow cancellations may cause unpredictable event loop triggering, potentially leading to workflow execution issues and non-deterministic behavior.",
+  "rootCause": "Child workflow cancellation triggers the event loop before a WFT Started event is received, breaking the expected event ordering.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2155
+  ],
+  "keyQuote": "Child workflow cancellation can trigger SDK event loop without a WFT Started",
+  "number": 2160,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:00:41.420Z"
+}

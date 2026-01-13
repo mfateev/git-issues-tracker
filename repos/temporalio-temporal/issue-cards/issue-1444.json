@@ -1,0 +1,30 @@
+{
+  "summary": "FromConfigToDefaultRetrySettings function does not correctly handle the distinction between int and float64 types, causing potential panics during configuration conversion.",
+  "category": "bug",
+  "subcategory": "retry-policy",
+  "apis": [],
+  "components": [
+    "config-parsing",
+    "retry-settings",
+    "type-conversion"
+  ],
+  "concepts": [
+    "type-handling",
+    "configuration",
+    "numeric-types",
+    "panic",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users with certain retry configuration formats may experience runtime panics when the Temporal server processes their configuration.",
+  "rootCause": "The FromConfigToDefaultRetrySettings function at common/util.go:483 does not properly distinguish between int and float64 numeric types during configuration conversion.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed by properly handling both int and float64 numeric types in the configuration conversion logic.",
+  "related": [],
+  "keyQuote": "FromConfigToDefaultRetrySettings does not handle int vs float64 correctly, which can cause panic",
+  "number": 1444,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:15:32.070Z"
+}

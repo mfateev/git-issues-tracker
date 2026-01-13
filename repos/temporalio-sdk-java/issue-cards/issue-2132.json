@@ -1,0 +1,34 @@
+{
+  "summary": "The Java SDK's `getSystemInfo` call (used in `ChannelManager#getServerCapabilities`) intentionally overrides the RPC timeout configuration, forcing users to rely on the deprecated `healthCheckAttemptTimeout` option. A request to add a separate `getSystemInfoTimeout` configuration option to allow independent deadline control.",
+  "category": "feature",
+  "subcategory": "client-configuration",
+  "apis": [
+    "getSystemInfo",
+    "getServerCapabilities"
+  ],
+  "components": [
+    "ChannelManager",
+    "SystemInfoInterceptor",
+    "ServiceStubsOptions"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "configuration",
+    "connection",
+    "initialization",
+    "gRPC"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot configure the deadline for server capability checks independently and are forced to use deprecated APIs as a workaround, causing connection failures when DNS resolution is slow.",
+  "rootCause": "The `getServerCapabilities` RPC call in `SystemInfoInterceptor` intentionally overrides the global RPC timeout with a hardcoded deadline, preventing configuration through the standard `rpcTimeout` option.",
+  "proposedFix": "Add a new `getSystemInfoTimeout` configuration option to `ServiceStubsOptions` to allow independent control of the server capability check deadline.",
+  "workaround": "Use the deprecated `setHealthCheckAttemptTimeout` method in `ServiceStubsOptions`.",
+  "resolution": "fixed",
+  "resolutionDetails": "A new configuration option was introduced to allow independent control of the system info timeout.",
+  "related": [],
+  "keyQuote": "We have encountered a problem connecting to Temporal after upgrading Java SDK from version 1.23.2 to 1.24.0. When we increased the timeout problem was solved.",
+  "number": 2132,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:59:58.200Z"
+}

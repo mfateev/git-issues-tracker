@@ -1,0 +1,34 @@
+{
+  "summary": "Spring Boot Starter lacks ability to customize workflow options by workflow type. Unlike the Java SDK which supports type-specific options via `registerWorkflowImplementationTypes()`, the Spring Boot Starter only allows global customization, preventing workflows like scheduled ones from having different failure handling (e.g., failing on NonDeterministicException) than others.",
+  "category": "feature",
+  "subcategory": "spring-boot-starter",
+  "apis": [
+    "registerWorkflowImplementationTypes",
+    "WorkflowImplementationOptions.Builder"
+  ],
+  "components": [
+    "spring-boot-starter",
+    "workflow-registration",
+    "workflow-options"
+  ],
+  "concepts": [
+    "customization",
+    "workflow-types",
+    "implementation-options",
+    "non-deterministic-exception",
+    "configuration",
+    "type-specific-behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot apply different workflow options to different workflow types in Spring Boot applications, forcing them to either use identical configurations across all workflows or avoid using the Spring Boot Starter.",
+  "rootCause": "The Spring Boot Starter's `TemporalOptionsCustomizer` and `WorkflowImplementationOptions.Builder` do not support workflow-type-specific customization, a feature available in the core Java SDK.",
+  "proposedFix": "Add capability to customize workflow implementation options by workflow type when using the Spring Boot Starter, similar to the Java SDK's `registerWorkflowImplementationTypes(WorkflowImplementationOptions options, Class<?>... workflowImplementationClasses)` method.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Add the capability to customize workflow options by workflow type when using the spring boot starter, as we might not want to apply these options to all workflow types.",
+  "number": 1984,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:54:22.027Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Mend security vulnerability report for 4 transitive dependencies in the TypeScript SDK documentation package, including high-severity prototype pollution in json5 and RCE vulnerability in eta template engine. Issue was automatically closed after vulnerabilities were resolved or marked as ignored.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "package-management",
+    "documentation-build",
+    "dependency-resolution"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "prototype-pollution",
+    "remote-code-execution",
+    "transitive-dependency",
+    "dependency-upgrade"
+  ],
+  "severity": "high",
+  "userImpact": "Users installing the SDK could be exposed to high-severity vulnerabilities in transitive dependencies if not properly patched.",
+  "rootCause": "Outdated transitive dependencies in the documentation package: json5 v2.2.1 vulnerable to prototype pollution, eta v1.12.3 vulnerable to RCE, trim v0.0.1 vulnerable to code injection, and got v9.6.0 with integrity issues.",
+  "proposedFix": "Upgrade vulnerable dependencies: json5 to v2.2.2 or later, eta to v2.0.0 or later, trim to a patched version, and got to a version with the fix applied.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Automatic closure by Mend indicates the vulnerable libraries were either marked as ignored in inventory or are no longer part of the dependency tree.",
+  "related": [],
+  "keyQuote": "This vulnerability pollutes the prototype of the object returned by JSON5.parse and not the global Object prototype, which is the commonly understood definition of Prototype Pollution.",
+  "number": 1001,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:02.234Z"
+}

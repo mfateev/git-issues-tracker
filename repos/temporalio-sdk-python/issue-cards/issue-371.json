@@ -1,0 +1,33 @@
+{
+  "summary": "mTLS connections fail when using EC private keys instead of PKCS8 format due to an outdated tonic dependency in sdk-core. Users must manually convert their EC private keys to PKCS8 format as a workaround.",
+  "category": "bug",
+  "subcategory": "mTLS-certificate-support",
+  "apis": [
+    "TLSConfig"
+  ],
+  "components": [
+    "client-connection",
+    "tonic-transport",
+    "certificate-parsing"
+  ],
+  "concepts": [
+    "mTLS",
+    "private-key-formats",
+    "EC-keys",
+    "PKCS8",
+    "dependency-management",
+    "certificate-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users with EC private key certificates cannot establish mTLS connections to Temporal without manually converting their keys to PKCS8 format.",
+  "rootCause": "python-sdk depends on an outdated version of tonic that cannot parse EC private key format; newer tonic versions support this format natively.",
+  "proposedFix": "Upgrade sdk-core to use a newer version of tonic that includes support for non-PKCS8 private key formats (fixed in tonic PR #1145).",
+  "workaround": "Convert EC private keys to PKCS8 format using: openssl pkcs8 -topk8 -nocrypt -in key.pem -out key-pkcs8.pem",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by upgrading tonic dependency as part of sdk-core updates before next release.",
+  "related": [],
+  "keyQuote": "python-sdk is pointing to an older commit in sdk-core which depends on an older version of tonic. The key issue has been fixed in this tonic PR.",
+  "number": 371,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:04:02.389Z"
+}

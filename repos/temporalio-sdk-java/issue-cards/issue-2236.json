@@ -1,0 +1,34 @@
+{
+  "summary": "The Java SDK should call the ShutdownWorker API when a worker is being shut down, aligning with cross-SDK feature requirements. Test server support is also needed for this functionality.",
+  "category": "feature",
+  "subcategory": "worker-lifecycle",
+  "apis": [
+    "ShutdownWorker"
+  ],
+  "components": [
+    "worker",
+    "shutdown",
+    "lifecycle-management"
+  ],
+  "concepts": [
+    "worker-shutdown",
+    "api-compatibility",
+    "graceful-shutdown",
+    "test-server",
+    "cross-sdk-feature"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need proper worker shutdown behavior that aligns with other SDKs and includes test server support for comprehensive testing.",
+  "rootCause": null,
+  "proposedFix": "Implement ShutdownWorker API call during worker shutdown process and add corresponding test server support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "ShutdownWorker API was implemented and integrated into the worker shutdown flow with test server support added.",
+  "related": [
+    542
+  ],
+  "keyQuote": "We will also need to add test server support here IMO",
+  "number": 2236,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:03:20.697Z"
+}

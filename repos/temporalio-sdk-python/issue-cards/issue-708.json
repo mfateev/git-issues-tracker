@@ -1,0 +1,29 @@
+{
+  "summary": "Tests for update operations are being skipped under the Java test server. The issue requests that either these tests should pass and stop being skipped, or the test server needs to be fixed to support them.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "update-tests",
+    "java-test-server"
+  ],
+  "concepts": [
+    "testing",
+    "test-server",
+    "skip-conditions",
+    "test-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Update operation tests are not being properly validated against the Java test server, reducing test coverage and potentially hiding bugs.",
+  "rootCause": "Update tests are being conditionally skipped under the Java test server, but it's unclear if this is due to test server limitations or test issues.",
+  "proposedFix": "Either fix the update tests to pass with the Java test server, or fix the Java test server implementation to support update operations.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Tests were either fixed to pass with the Java test server or the test server was updated to support update operations.",
+  "related": [],
+  "keyQuote": "Either these pass, in which case they should not be skipped, or they don't, in which case the test server must be fixed.",
+  "number": 708,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:19:44.528Z"
+}

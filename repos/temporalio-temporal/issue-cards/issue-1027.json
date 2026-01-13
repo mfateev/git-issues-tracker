@@ -1,0 +1,33 @@
+{
+  "summary": "Migrate AddWorkflowTask and AddActivityTask APIs to use task expiration time instead of TTL duration. This is a two-version migration where the first version sets both expiration time and TTL (matching service prefers expiration), and the second version deprecates TTL entirely.",
+  "category": "feature",
+  "subcategory": "task-expiration",
+  "apis": [
+    "AddWorkflowTask",
+    "AddActivityTask"
+  ],
+  "components": [
+    "history-service",
+    "matching-service",
+    "mutable-state"
+  ],
+  "concepts": [
+    "task-expiration",
+    "ttl-migration",
+    "timeout",
+    "backward-compatibility",
+    "api-deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves task timeout handling by using absolute expiration times instead of relative durations, reducing timing-related bugs and improving API clarity.",
+  "rootCause": "Current TTL duration approach is less precise than using absolute expiration times for task deadline management.",
+  "proposedFix": "Two-phase migration: Phase 1 persists concrete activity timeout as expiration time, sets both expiration time and TTL (matching service prefers expiration); Phase 2 deprecates TTL duration proto definition and uses only expiration time.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Migration implemented across two versions to maintain backward compatibility during transition from TTL duration to expiration time.",
+  "related": [],
+  "keyQuote": "The migration should be done in 2 versions... matching service should use expiration time over TTL duration.",
+  "number": 1027,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:51:44.817Z"
+}

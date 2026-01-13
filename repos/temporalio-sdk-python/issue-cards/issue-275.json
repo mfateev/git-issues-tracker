@@ -1,0 +1,33 @@
+{
+  "summary": "User requested a way to access information about the invoking workflow from within an activity method. The issue was resolved by pointing to the existing temporalio.activity.info() function which provides workflow context.",
+  "category": "question",
+  "subcategory": "activity-context",
+  "apis": [
+    "activity.info",
+    "activity.defn"
+  ],
+  "components": [
+    "activity",
+    "activity-executor",
+    "context-propagation"
+  ],
+  "concepts": [
+    "workflow-context",
+    "activity-metadata",
+    "invocation-info",
+    "activity-information",
+    "context-access"
+  ],
+  "severity": "low",
+  "userImpact": "Users can access invoking workflow information in activities through the documented activity.info() function.",
+  "rootCause": null,
+  "proposedFix": "Use temporalio.activity.info() to retrieve activity context including workflow information",
+  "workaround": null,
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was a support question rather than a bug or feature request. The requested functionality already exists via the activity.info() API.",
+  "related": [],
+  "keyQuote": "You can call temporalio.activity.info() which returns an Info class containing information about the activity including workflow information.",
+  "number": 275,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:58:45.977Z"
+}

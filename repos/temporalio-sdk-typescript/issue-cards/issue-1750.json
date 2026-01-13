@@ -1,0 +1,31 @@
+{
+  "summary": "Workflow application logs are not displayed unless the telemetry logging filter is set to DEBUG or TRACE, contrary to expected behavior where INFO level logs should appear with an INFO filter setting.",
+  "category": "bug",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "logging",
+    "worker",
+    "telemetry"
+  ],
+  "concepts": [
+    "log-filtering",
+    "log-propagation",
+    "telemetry-configuration",
+    "workflow-execution",
+    "log-buffering",
+    "memory-leak"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot see workflow application logs at INFO level without enabling DEBUG logging, and this may cause memory leaks as log buffers grow unbounded.",
+  "rootCause": "Log flushing issue in LogCollector where log entries are buffered but not properly propagated unless core logging filter is set to DEBUG or TRACE.",
+  "proposedFix": "Fix the log propagation mechanism to respect the configured telemetryOptions.logging.filter level rather than requiring DEBUG/TRACE to display logs.",
+  "workaround": "Downgrade to SDK version 1.11.8 or set core logging filter to DEBUG/TRACE.",
+  "resolution": "fixed",
+  "resolutionDetails": "Log propagation mechanism was corrected to properly respect configured filter levels.",
+  "related": [],
+  "keyQuote": "it would be expected if telemetryOptions.logging.filter is set to INFO, a log.info in workflow code will be reflected in the logs",
+  "number": 1750,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T07:31:59.884Z"
+}

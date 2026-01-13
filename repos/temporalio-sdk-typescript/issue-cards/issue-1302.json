@@ -1,0 +1,35 @@
+{
+  "summary": "Node.js discards promises created by the bridge-to-rust layer when callbacks are passed to non-node threads (e.g., Tokio runtime), causing unexpected process exits with code 13. The issue occurs because callbacks aren't marked as \"referenced\" by native code, and Neon doesn't expose the Thread Safe Functions API needed to fix it.",
+  "category": "bug",
+  "subcategory": "core-bridge",
+  "apis": [
+    "Runtime.shutdown",
+    "TestWorkflowEnvironment.createLocal"
+  ],
+  "components": [
+    "bridge-to-rust",
+    "native-code",
+    "callback-handling",
+    "worker-threads"
+  ],
+  "concepts": [
+    "promise-handling",
+    "callback-lifecycle",
+    "process-exit",
+    "thread-safety",
+    "ESM-compatibility",
+    "native-interop"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications may crash unexpectedly with exit code 13 when using ESM or worker threads, making the SDK unreliable in these environments.",
+  "rootCause": "Callback functions passed to non-node threads (Tokio runtime) are not marked as \"referenced\" by native code, causing Node.js to discard the associated promises as non-resolving and exit prematurely.",
+  "proposedFix": "Expose the Thread Safe Functions API in Neon to properly mark callbacks as referenced when they're passed to non-node threads.",
+  "workaround": "Wrap the promise with an additional timeout promise to keep the event loop alive (e.g., `Promise.all([runtime.shutdown(), setTimeout(2000)])`)",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "callback functions are not marked as \"referenced\" by the native code when they get passed to non-node threads",
+  "number": 1302,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:41:01.187Z"
+}

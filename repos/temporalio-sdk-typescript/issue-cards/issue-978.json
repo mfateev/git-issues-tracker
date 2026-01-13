@@ -1,0 +1,30 @@
+{
+  "summary": "User seeks documentation on how to bundle Temporal TypeScript workflows with esbuild instead of webpack, which offers significantly faster bundling but encounters issues with `__temporal_*` pseudo-modules that the SDK uses internally.",
+  "category": "docs",
+  "subcategory": "bundling",
+  "apis": [],
+  "components": [
+    "workflow-bundler",
+    "worker",
+    "entrypoint"
+  ],
+  "concepts": [
+    "bundling",
+    "esbuild",
+    "webpack",
+    "workflow-sandboxing",
+    "module-resolution"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use esbuild for faster workflow bundling due to incompatibilities with SDK's `__temporal_*` pseudo-modules and lack of documentation.",
+  "rootCause": "The SDK's bundling process relies on `__temporal_*` pseudo-modules and custom bundler logic that is tightly coupled to webpack; esbuild lacks support for these mechanisms.",
+  "proposedFix": "Use global injection to replace `__temporal_*` hacks or provide stub modules that can be replaced before execution, rather than relying on require()-based pseudo-modules.",
+  "workaround": "Manually sed-replace the bundled output to remove `__temporal_custom_payload_converter` imports, but this is fragile and unsupported.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainer noted that bundling details are integral to workflow sandboxing and regularly change; custom bundlers are too fragile to officially support. Official esbuild support was deferred as a future enhancement.",
+  "related": [],
+  "keyQuote": "Custom bundling processes are therefore very fragile and might require maintenance effort on each SDK release",
+  "number": 978,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:30:01.225Z"
+}

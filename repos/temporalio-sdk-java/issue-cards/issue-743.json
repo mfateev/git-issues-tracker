@@ -1,0 +1,30 @@
+{
+  "summary": "SignalTest#testSignalUntyped was a flaky test that was disabled. After investigation and re-enabling, the test has been stable for some time and no longer exhibits flakiness.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-framework",
+    "signal-handling",
+    "untyped-signals"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "signal-testing",
+    "test-stability",
+    "thread-timing",
+    "race-conditions"
+  ],
+  "severity": "low",
+  "userImpact": "Flaky tests reduce confidence in the SDK and make it harder to validate signal handling functionality.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Test was re-enabled and has been stable without flaking for some time.",
+  "related": [],
+  "keyQuote": "This test is reenabled back for some time and doesn't flake. Close for now.",
+  "number": 743,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:38:08.947Z"
+}

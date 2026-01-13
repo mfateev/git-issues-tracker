@@ -1,0 +1,32 @@
+{
+  "summary": "temporalio cannot be installed in Alpine Linux containers because protoc-wheel-0 is not available as a pre-built wheel for musl libc. The package's build process requires protoc-wheel-0 as a build dependency, but pip cannot locate it even after manual installation in an Alpine environment.",
+  "category": "bug",
+  "subcategory": "installation",
+  "apis": [],
+  "components": [
+    "build-system",
+    "packaging",
+    "protoc-wheel-0",
+    "poetry"
+  ],
+  "concepts": [
+    "alpine-linux",
+    "musl-libc",
+    "binary-wheels",
+    "build-dependencies",
+    "ci-pipeline",
+    "docker-container"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot install the temporalio SDK in Alpine Linux-based Docker containers, forcing them to use alternative Linux distributions or perform complex manual builds.",
+  "rootCause": "protoc-wheel-0 is only distributed as a pre-built wheel for glibc systems. Alpine Linux uses musl libc, which is incompatible with glibc-based wheels. The poetry build process treats protoc-wheel-0 as a build dependency and searches PyPI in an isolated subprocess that cannot access manually installed wheels.",
+  "proposedFix": "Build protoc-wheel-0 for musl/Alpine or provide an alternative installation method that doesn't require the pre-built wheel, allowing users to supply their own protoc binary via PATH.",
+  "workaround": "Use a different Linux distribution instead of Alpine, or manually build the SDK with MUSL support and a custom protoc installation while disabling the protoc-wheel-0 dependency.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainers acknowledge the limitation and suggest users either switch distros or manually build with custom protoc setup, as supporting Alpine/musl is not a default use case.",
+  "related": [],
+  "keyQuote": "You can attempt to build the SDK yourself with MUSL for the Rust part and it will likely work fine. We just don't distribute one.",
+  "number": 309,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:00:43.460Z"
+}

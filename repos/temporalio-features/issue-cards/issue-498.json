@@ -1,0 +1,33 @@
+{
+  "summary": "Request to enable listing and filtering workflows based on current failures, allowing batch operations like reset or pause on workflows matching specific failure patterns. Proposes adding search attributes to track failures such as activity retry counts, error types, and stuck duration.",
+  "category": "feature",
+  "subcategory": "workflow-visibility",
+  "apis": [],
+  "components": [
+    "workflow-visibility",
+    "search-attributes",
+    "failure-tracking",
+    "batch-operations"
+  ],
+  "concepts": [
+    "workflow-failure",
+    "search-filtering",
+    "batch-operations",
+    "failure-patterns",
+    "stuck-workflows",
+    "activity-retry",
+    "task-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently query and bulk-operate on workflows experiencing specific failure patterns, requiring manual identification for batch operations.",
+  "rootCause": null,
+  "proposedFix": "Write search attributes when certain conditions are met (e.g., > N retries of an activity or task failure, or workflow stuck for certain time), capturing activity type and error class information.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Perhaps you could write a search attribute when certain conditions are met, such as > N retries of an activity or task failure, or when the workflow has been stuck for a certain amount of time.",
+  "number": 498,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:05:04.726Z"
+}

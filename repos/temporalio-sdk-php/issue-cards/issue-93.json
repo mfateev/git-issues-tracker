@@ -1,0 +1,32 @@
+{
+  "summary": "Activity methods returning PHP associative arrays are deserialized as stdClass objects in workflows, causing 'Cannot use object as array' errors. Users need to explicitly cast the result back to an array or use DTOs instead.",
+  "category": "bug",
+  "subcategory": "serialization-deserialization",
+  "apis": [
+    "newActivityStub"
+  ],
+  "components": [
+    "activity-stub",
+    "serialization",
+    "codec"
+  ],
+  "concepts": [
+    "type-conversion",
+    "json-serialization",
+    "associative-array",
+    "data-transport",
+    "protocol-limitation"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers returning associative arrays from activities cannot use them as arrays in workflows without explicit casting or restructuring their code.",
+  "rootCause": "JSON protocol used for inter-service communication converts PHP associative arrays to JSON objects, which are deserialized as stdClass objects rather than arrays.",
+  "proposedFix": "Explicitly cast the result: (array)(yield $simple->getAssocArray($input)) or use proper DTOs with public properties for type safety.",
+  "workaround": "Cast returned objects to arrays using (array) typecast, or refactor to use Data Transfer Objects (DTOs) with public properties.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Limitation of JSON transport protocol. Users advised to use explicit casting or DTO approach instead of associative arrays for inter-service communication.",
+  "related": [],
+  "keyQuote": "when packing such data into this format, the types are converted from a hash-map to an object... this is not a bug, but rather a limitation of the transport protocol",
+  "number": 93,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:19:16.865Z"
+}

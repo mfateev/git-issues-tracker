@@ -1,0 +1,30 @@
+{
+  "summary": "ParentClosePolicy's terminate action fails to terminate child workflows that have called continue-as-new or are cron workflows, because it uses the wrong RunID.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "parentclosepolicy",
+    "worker",
+    "workflow-termination"
+  ],
+  "concepts": [
+    "parent-close-policy",
+    "continue-as-new",
+    "cron-workflow",
+    "runid",
+    "workflow-chain"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably terminate child workflows that use continue-as-new, breaking the parent-child workflow lifecycle management.",
+  "rootCause": "The terminate request uses the RunID of the child workflow, which becomes invalid after continue-as-new creates a new execution. The correct RunID should be the first workflow in the continue-as-new chain.",
+  "proposedFix": "Either change the semantic of RunID in the terminate request to reference the first workflow in the continue-as-new chain, or introduce a new parameter to handle this case.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by modifying the parentclosepolicy implementation to handle continue-as-new workflows correctly",
+  "related": [],
+  "keyQuote": "runID of a child is passed to a terminate request which doesn't work for children that called continue as new",
+  "number": 364,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T16:53:20.970Z"
+}

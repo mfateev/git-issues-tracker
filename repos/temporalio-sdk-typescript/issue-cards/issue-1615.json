@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal TypeScript SDK relies on function names for workflow types, which breaks in NextJS 15+ when code is minified. The function name property has no semantic guarantee in JavaScript and gets mangled by minifiers, causing workflow initialization failures.",
+  "category": "bug",
+  "subcategory": "workflow-registration",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-registration",
+    "workflow-options",
+    "minification-handling"
+  ],
+  "concepts": [
+    "function-names",
+    "minification",
+    "name-mangling",
+    "workflow-type-resolution",
+    "bundler-compatibility",
+    "production-builds"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run Temporal workflows in NextJS 15+ production environments without disabling minification entirely, which increases cold-start times and bundle sizes.",
+  "rootCause": "The SDK uses the `name` property of functions as workflow type identifiers, but JavaScript minifiers (SWC, OXC, Terser) mangle function names to reduce bundle size. Function names have no semantic significance per the ECMAScript spec and are not guaranteed to remain stable.",
+  "proposedFix": "SDK should support explicit workflow type specification via configuration options or decorators, allowing users to bypass function name resolution. Accept string-based workflow type identifiers as primary mechanism.",
+  "workaround": "Specify workflow type as a string argument: `await getTemporalClient().workflow.start<typeof WorkflowName>(\"WorkflowName\", {...})` instead of relying on function name inference. Use class-based workflows with decorators to explicitly set workflow names.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A function's name property is defined in the spec as having no semantic significance but is typically a variable or property name used at its point of definition",
+  "number": 1615,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T06:55:19.685Z"
+}

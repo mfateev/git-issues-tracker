@@ -1,0 +1,31 @@
+{
+  "summary": "Request to expose update-with-start operations via the .NET SDK, allowing workflows to be updated or created in a single operation.",
+  "category": "feature",
+  "subcategory": "workflow-update",
+  "apis": [
+    "UpdateWithStart"
+  ],
+  "components": [
+    "client",
+    "workflow-client",
+    "update-handler"
+  ],
+  "concepts": [
+    "workflow-update",
+    "start-workflow",
+    "idempotency",
+    "operation-composition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot efficiently update existing workflows or create them if they don't exist using a single API call.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Update-with-start operations were implemented and exposed in the .NET SDK.",
+  "related": [],
+  "keyQuote": "Expose update-with-start operations via the SDK",
+  "number": 346,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T14:34:59.797Z"
+}

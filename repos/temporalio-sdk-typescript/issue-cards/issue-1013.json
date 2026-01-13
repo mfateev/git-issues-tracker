@@ -1,0 +1,34 @@
+{
+  "summary": "ScheduleClient.list() returns an empty array or incomplete schedule objects (only IDs without spec data) when querying schedules on app startup, despite schedules being visible in tctl and UI. The issue appears to be an eventual consistency or data serialization problem affecting the TypeScript SDK.",
+  "category": "bug",
+  "subcategory": "schedule-client",
+  "apis": [
+    "ScheduleClient.list()"
+  ],
+  "components": [
+    "schedule-client",
+    "grpc-response-handling",
+    "data-serialization"
+  ],
+  "concepts": [
+    "eventual-consistency",
+    "list-schedules",
+    "data-completeness",
+    "grpc-response",
+    "schedule-metadata"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably list schedules on app startup, preventing proper schedule lifecycle management and synchronization with codebase configuration.",
+  "rootCause": "The workspaceService returns incomplete schedule responses containing only schedule IDs without spec data, causing the schedule client to filter them out as invalid.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by fixing the gRPC response handling to properly include schedule spec data in list responses.",
+  "related": [
+    192
+  ],
+  "keyQuote": "the response only contains an id, i.e. when using workspaceService. So it's not that we do not see any schedules, we see them, but the response only contains an id.",
+  "number": 1013,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:26.849Z"
+}

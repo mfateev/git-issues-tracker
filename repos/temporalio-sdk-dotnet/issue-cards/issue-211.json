@@ -1,0 +1,29 @@
+{
+  "summary": "User requests adding search functionality to the .NET SDK API reference documentation. Currently, the filter only works for some elements and doesn't include methods, making it difficult to find specific APIs like `Workflow.DelayAsync`.",
+  "category": "feature",
+  "subcategory": "documentation",
+  "apis": [],
+  "components": [
+    "documentation",
+    "api-reference"
+  ],
+  "concepts": [
+    "search",
+    "discoverability",
+    "navigation",
+    "api-documentation",
+    "filtering"
+  ],
+  "severity": "low",
+  "userImpact": "Users struggle to locate specific API methods in the .NET SDK documentation, requiring workarounds like Google site searches.",
+  "rootCause": "The documentation generator (DocFX) has limited search and filtering capabilities that don't cover all API elements.",
+  "proposedFix": "Add a search box to the API reference page or improve the existing filter to work with methods.",
+  "workaround": "Use Google site search: `site:https://dotnet.temporal.io delayasync`",
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as not feasible since the .NET SDK uses DocFX (language-standard documentation generator) which has inherent limitations.",
+  "related": [],
+  "keyQuote": "Closing as not something we can reasonably do since we use the language-standard documentation generator",
+  "number": 211,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T09:57:39.307Z"
+}

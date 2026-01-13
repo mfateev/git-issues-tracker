@@ -1,0 +1,32 @@
+{
+  "summary": "SDKs should implement more aggressive backoff when encountering ResourceExhaustedError from the server, as continued retry attempts can worsen outages. The request is to add a custom retry policy with larger backoff intervals and smaller max attempt counts specifically for resource exhaustion scenarios.",
+  "category": "feature",
+  "subcategory": "retry-policy",
+  "apis": [],
+  "components": [
+    "retry-policy",
+    "error-handling",
+    "backoff-logic"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "resource-exhaustion",
+    "transient-errors",
+    "server-capacity",
+    "error-classification",
+    "exponential-backoff"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience worse outages when SDKs aggressively retry during server resource exhaustion, instead of backing off more conservatively.",
+  "rootCause": "Current retry policy treats ResourceExhaustedError like other transient errors with insufficient backoff, causing aggressive retries that worsen server overload conditions.",
+  "proposedFix": "Implement a custom retry behavior for ResourceExhaustedError with larger backoff intervals and smaller max attempt counts. Consider using an attempt-aware backoff calculation method instead of fixed policies.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "aggressive retry will worsen the situation and could lead to more serious outage",
+  "number": 96,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:47:25.423Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to optionally hide or suppress the Temporal server startup banner that appears in test logs. The banner displays CLI version, server info, and metrics URLs which clutters test output.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "start_local"
+  ],
+  "components": [
+    "cli",
+    "test-utilities",
+    "logging"
+  ],
+  "concepts": [
+    "test-logging",
+    "banner-suppression",
+    "configuration",
+    "startup-output",
+    "test-isolation"
+  ],
+  "severity": "low",
+  "userImpact": "Developers testing with local Temporal servers experience cluttered test logs from startup banners, making test output harder to read.",
+  "rootCause": "The temporal CLI outputs a startup banner by default that cannot be suppressed, affecting all SDK tests using local server.",
+  "proposedFix": "Add a switch or configuration option to suppress the startup banner in start_local or related functions.",
+  "workaround": "Use a single ephemeral server instance across multiple test cases instead of starting a new server per test.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be great if this banner could be suppressed by default (or at least have a switch to mute it)?",
+  "number": 675,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T06:53:00.070Z"
+}

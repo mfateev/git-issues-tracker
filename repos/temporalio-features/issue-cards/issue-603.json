@@ -1,0 +1,38 @@
+{
+  "summary": "SDKs need to support a 'RawValue' wrapper that passes payloads through codec processing without applying traditional payload conversion, enabling dynamic deserialization and built-in queries like workflow metadata.",
+  "category": "feature",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "codec",
+    "activity-context",
+    "workflow-context"
+  ],
+  "concepts": [
+    "payload-conversion",
+    "codec",
+    "dynamic-deserialization",
+    "type-handling",
+    "payload-wrapper"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to handle dynamically-typed payloads and access built-in query responses without conversion overhead across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Implement RawValue class/wrapper in each SDK that bypasses traditional payload conversion in the converter chain while maintaining codec application.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    201,
+    604,
+    1231,
+    2425,
+    1629,
+    574
+  ],
+  "keyQuote": "SDKs need to support a payload wrapper called \"raw value\" that is just a payload but it is passed through the conversion stage (but still applies to codec).",
+  "number": 603,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:09:10.217Z"
+}

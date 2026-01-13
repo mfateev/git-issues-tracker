@@ -1,0 +1,33 @@
+{
+  "summary": "User needs ability to reload short-lived client certificates without restarting the client. Solution implemented: users can replace the worker's client with a newly connected client containing updated TLS configuration.",
+  "category": "feature",
+  "subcategory": "tls-certificate-management",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "tls",
+    "connection-pool"
+  ],
+  "concepts": [
+    "certificate-rotation",
+    "dynamic-configuration",
+    "connection-management",
+    "tls-lifecycle",
+    "client-refresh"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with short-lived certificates can now update them without restarting their workers, improving operational flexibility in production environments.",
+  "rootCause": "TLS configuration is set at client creation time with no mechanism to update certificates dynamically during runtime.",
+  "proposedFix": "Allow users to replace the worker's client by setting the client property with a newly connected client that has refreshed TLS configuration.",
+  "workaround": "Replace the worker's client property with a new client instance that has been connected with updated TLS configuration; the worker will use the new client for subsequent requests.",
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented client replacement capability via worker.client property setter, allowing dynamic client updates without stopping the worker.",
+  "related": [],
+  "keyQuote": "You set the `client` property on the worker (which has a setter for `client` property) to replace the client with a newly connected client.",
+  "number": 512,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:10:28.892Z"
+}

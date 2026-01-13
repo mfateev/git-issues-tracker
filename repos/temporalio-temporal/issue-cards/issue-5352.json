@@ -1,0 +1,30 @@
+{
+  "summary": "Resource exhaustion error codes lack granularity and have semantically misleading mappings. Three different errors map to BUSY_WORKFLOW reason, making it impossible to distinguish error types in metrics and alerting.",
+  "category": "other",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "service",
+    "history",
+    "error-handling"
+  ],
+  "concepts": [
+    "resource-exhaustion",
+    "error-codes",
+    "metrics",
+    "alerting",
+    "error-semantics"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot distinguish between different resource exhaustion scenarios in metrics and alerting, making it difficult to exclude non-exhaustion errors like WorkflowClosing from resource exhaustion alerts.",
+  "rootCause": "Three semantically different errors (ErrWorkflowClosing, ErrConsistentQueryBufferExceeded, ErrResourceExhaustedBusyWorkflow) all map to the same RESOURCE_EXHAUSTED_CAUSE_BUSY_WORKFLOW reason code, creating ambiguity and preventing proper error handling and monitoring.",
+  "proposedFix": "Introduce more granular reasons for service_errors_resource_exhausted to distinguish between different exhaustion scenarios.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "These errors are indistinguishable in metrics, so I cannot exclude ErrWorkflowClosing (which is valid in my workload) from alerts.",
+  "number": 5352,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:04:01.801Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Full replay of workflows exposes a fake WorkflowId to user code, which can break determinism. The SDK should provide the actual WorkflowId from the history instead.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "Worker.replayWorkflowExecution",
+    "WorkflowInfo"
+  ],
+  "components": [
+    "worker",
+    "replay",
+    "workflow-execution-history"
+  ],
+  "concepts": [
+    "determinism",
+    "workflow-replay",
+    "workflow-id",
+    "history-replay",
+    "test-framework",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow code that depends on WorkflowId values during replay may break due to receiving fake IDs instead of actual values from history.",
+  "rootCause": "The replay implementation supplies a fake WorkflowId from WorkflowExecutionHistory instead of using the actual value from the workflow history.",
+  "proposedFix": "Extract actual WorkflowId from the history and provide it to the Workflow via WorkflowInfo during replay.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by PR #1497 which passes the real WorkflowId during full replay.",
+  "related": [
+    1497
+  ],
+  "keyQuote": "Actual values from the history should be taken and supplied to the Workflow in WorkflowInfo during replay.",
+  "number": 1378,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:31:38.281Z"
+}

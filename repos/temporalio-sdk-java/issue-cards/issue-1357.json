@@ -1,0 +1,30 @@
+{
+  "summary": "The latest test-server binary fails with Java NoClassDefFound and reflection errors related to protobuf message classes, breaking the TypeScript SDK testing framework that depends on downloading the latest test-server build.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "test-server",
+    "protobuf-generated-code",
+    "grpc"
+  ],
+  "concepts": [
+    "dependency-version-mismatch",
+    "classloader-issue",
+    "reflection",
+    "java-compatibility",
+    "build-artifact"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot run tests with the TypeScript SDK testing framework as the test-server fails to initialize.",
+  "rootCause": "Protobuf version mismatch - generated message class missing expected reflection method (getUnverifiedLazy) causing ExceptionInInitializerError during gRPC message parsing.",
+  "proposedFix": null,
+  "workaround": "Downgrade to a previous working version of the test-server.",
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was mitigated, allowing users to use the TS testing framework again.",
+  "related": [],
+  "keyQuote": "Generated message class \"com.google.protobuf.DescriptorProtos$FieldOptions\" missing method \"getUnverifiedLazy\".",
+  "number": 1357,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:29:04.953Z"
+}

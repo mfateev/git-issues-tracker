@@ -1,0 +1,32 @@
+{
+  "summary": "Local activity worker polling is being incorrectly suspended, causing workflow tasks with local activities to get stuck in heartbeat loops. Additionally, during graceful shutdown, activities dispatched by the server may fail to execute because the worker's long-poll thread can be interrupted after the server registers the attempt but before the task is received.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "local-activity-poller",
+    "long-poll-thread",
+    "graceful-shutdown"
+  ],
+  "concepts": [
+    "polling",
+    "graceful-shutdown",
+    "heartbeat-loop",
+    "task-dispatch",
+    "thread-interruption",
+    "distributed-activities"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow tasks with local activities getting stuck without making progress and activities failing to execute during worker shutdown.",
+  "rootCause": "worker.suspendPolling stops local activity worker from polling, and worker long-poll thread can be interrupted after server registers an activity attempt but before the worker receives the task.",
+  "proposedFix": "Local activity poller should never stop polling since it's an implementation detail. Server should handle the scenario by sending CANCELLED and potentially registering an activity failure when dispatch occurs during shutdown.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the graceful shutdown problems were addressed",
+  "related": [],
+  "keyQuote": "Local activity poller should never stop polling. Local activity poller is an implementation detail and the only source it polls from is an internal worker queue.",
+  "number": 1510,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:37:53.746Z"
+}

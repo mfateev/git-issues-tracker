@@ -1,0 +1,31 @@
+{
+  "summary": "ActivityTaskStarted events are buffered until activity completion, causing workflow execution histories to not show that an activity was ever started when the workflow times out or closes. This makes debugging difficult as the history appears as if the activity was never picked up by a worker.",
+  "category": "bug",
+  "subcategory": "workflow-history",
+  "apis": [],
+  "components": [
+    "history",
+    "activity-executor",
+    "workflow-state-machine"
+  ],
+  "concepts": [
+    "history-fidelity",
+    "debugging",
+    "event-buffering",
+    "activity-lifecycle",
+    "timeout",
+    "workflow-closure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see in the execution history that an activity was started when a workflow times out or closes, making it harder to debug activity-related issues.",
+  "rootCause": "ActivityTaskStarted events are delayed or buffered until activity completion to simplify state machine processing, but these buffered events are not flushed when the workflow closes.",
+  "proposedFix": "Flush buffered ActivityTaskStarted events before closing the workflow (on completion, termination, cancellation, or timeout).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Flush buffered ActivityTaskStarted events before closing the workflow [completion, termination, cancellation, timeout]",
+  "number": 2282,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:25:10.338Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The temporal-cassandra-tool fails with a panic when deployed in the same Kubernetes namespace as Cassandra because the CASSANDRA_PORT environment variable is set to a connection string (e.g., 'tcp://10.43.109.12:9042') instead of a numeric port. The tool expects a valid integer port number and crashes when it receives the Kubernetes-injected environment variable format.",
+  "category": "bug",
+  "subcategory": "admin-tools",
+  "apis": [],
+  "components": [
+    "admin-tools",
+    "cassandra-tool",
+    "environment-parsing"
+  ],
+  "concepts": [
+    "kubernetes",
+    "environment-variables",
+    "docker",
+    "cassandra",
+    "deployment",
+    "port-parsing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users deploying admin-tools in Kubernetes for database migrations cannot run the tool in the same namespace as Cassandra without manually specifying the port or deploying to a different namespace.",
+  "rootCause": "The temporal-cassandra-tool's environment parsing expects CASSANDRA_PORT to be a numeric port value, but Kubernetes injects it as a connection string (tcp://host:port) when services are in the same namespace.",
+  "proposedFix": "The tool should parse the CASSANDRA_PORT environment variable to handle both numeric port format and Kubernetes connection string format, or provide better error messaging.",
+  "workaround": "Pass the port explicitly via the --port command line argument (e.g., --port 9042) or deploy the admin-tools container in a different namespace from Cassandra.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The maintainer indicated this is expected behavior and users should use the --port argument or specify CASSANDRA_PORT as a numeric value, rather than relying on Kubernetes environment variables.",
+  "related": [],
+  "keyQuote": "The temporal-cassandra-tool expect CASSANDRA_PORT to be a valid integer port number (like 9042). If you want to avoid this panic, you can pass in port as argument by `--port`.",
+  "number": 4467,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:54:27.798Z"
+}

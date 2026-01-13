@@ -1,0 +1,30 @@
+{
+  "summary": "User reports that activity retry configuration with maximumAttempts:1 causes the worker to stop, while retry values >1 work but cause duplicate activity executions and database duplicate records due to activity replay behavior.",
+  "category": "question",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "activity",
+    "worker",
+    "retry"
+  ],
+  "concepts": [
+    "retry",
+    "idempotency",
+    "activity-timeout",
+    "duplicate-execution",
+    "worker-state"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter worker crashes with retry:1 and duplicate database records with retry>1, making the activity execution unreliable for critical business operations.",
+  "rootCause": "Activity timeouts cause Temporal to retry activities; users are not properly implementing idempotent activities and need to account for activity start-to-close timeouts.",
+  "proposedFix": "Activities must be coded as idempotent to handle retries correctly, and developers should pay attention to activity start-to-close timeout configuration.",
+  "workaround": "Implement idempotent activity logic to prevent duplicate side effects when retries occur.",
+  "resolution": "invalid",
+  "resolutionDetails": "Closed as not a bug; issue stems from user misunderstanding of expected behavior and need for idempotent activity implementations.",
+  "related": [],
+  "keyQuote": "You should code the activities to be idempotent and prevent this situation from happening and pay attention to the activity start-to-close timeouts.",
+  "number": 8129,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:24:19.737Z"
+}

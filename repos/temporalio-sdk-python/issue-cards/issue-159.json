@@ -1,0 +1,29 @@
+{
+  "summary": "Function type hint lookup uses `__qualname__` as cache key, which is not unique across same-named classes in different scopes. Additionally, `typing.Set` and similar typing wrappers are excluded from return type hints because they don't satisfy `inspect.isclass`.",
+  "category": "bug",
+  "subcategory": "type-hints",
+  "apis": [],
+  "components": [
+    "type-hint-cache",
+    "type-validation"
+  ],
+  "concepts": [
+    "caching",
+    "type-hints",
+    "qualname",
+    "typing-module",
+    "class-definition"
+  ],
+  "severity": "medium",
+  "userImpact": "Users defining same-named workflow classes in different scopes may encounter type hint lookup failures, and generic typing hints like Set are not properly handled in return types.",
+  "rootCause": "The cache key relies on `__qualname__` which is only qualified to the class level, not accounting for module/scope differences. Additionally, return type validation uses `inspect.isclass` which excludes generic typing wrappers.",
+  "proposedFix": "Either fully qualify the cache key to be unique across modules/scopes, remove the type hint cache entirely, or store type hints directly on definitions themselves. Additionally, update return type hint validation to support typing module generics.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by improving the cache key implementation or removing the cache dependency",
+  "related": [],
+  "keyQuote": "The name is only qualified to the class level, not higher. We can find a way to qualify this or just remove the type hint cache.",
+  "number": 159,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:52:59.994Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Request to expose the worker identity information for started pending activities in the server. This would allow developers to know which worker is currently executing long-running tasks.",
+  "category": "feature",
+  "subcategory": "activity-execution",
+  "apis": [],
+  "components": [
+    "worker",
+    "activity-executor",
+    "pending-activity"
+  ],
+  "concepts": [
+    "worker-identity",
+    "task-assignment",
+    "activity-tracking",
+    "observability",
+    "long-running-tasks"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would gain visibility into which worker is executing their long-running activities, improving observability and debugging capabilities.",
+  "rootCause": null,
+  "proposedFix": "Expose the StartedIdentity field from server internal pending activity information",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Expose more info from server internal pending activty info (StartedIdentity). For long running task, it's nice to know which worker picked current task.",
+  "number": 4045,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:49:11.972Z"
+}

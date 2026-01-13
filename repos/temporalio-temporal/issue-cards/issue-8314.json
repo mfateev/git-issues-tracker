@@ -1,0 +1,37 @@
+{
+  "summary": "User reports discrepancy between Temporal.io documentation and SDK inline docs regarding WorkflowIdReusePolicy.TERMINATE_IF_RUNNING - docs show it as valid option but code suggests it's deprecated in favor of WorkflowIdReusePolicy + WorkflowIdConflictPolicy combination. User seeks clarification on whether this policy can be used for child workflows that need to reset with their parent.",
+  "category": "question",
+  "subcategory": "workflow-reuse-policy",
+  "apis": [
+    "WorkflowIdReusePolicy",
+    "WorkflowIdConflictPolicy",
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-options",
+    "child-workflow",
+    "workflow-id-management"
+  ],
+  "concepts": [
+    "workflow-reuse-policy",
+    "conflict-policy",
+    "child-workflow",
+    "workflow-reset",
+    "documentation-consistency",
+    "API-deprecation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are confused about which WorkflowIdReusePolicy settings are valid for child workflows, potentially leading to incorrect workflow configuration during resets.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "User currently relies on TERMINATE_IF_RUNNING for the intended behavior with child workflows, though clarification on alternatives is needed.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue appears to be closed as the user's specific use case (child workflows) has documented limitations on server side regarding conflict policies support.",
+  "related": [
+    1628
+  ],
+  "keyQuote": "Currently, it looks like the only way I can configure this behaviour is with `WorkflowIdReusePolicy.TERMINATE_IF_RUNNING`",
+  "number": 8314,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:26:16.166Z"
+}

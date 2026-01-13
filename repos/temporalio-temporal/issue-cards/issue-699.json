@@ -1,0 +1,31 @@
+{
+  "summary": "History engine codebase needs refactoring into smaller packages to improve test organization and maintainability. Current test suites (TestEngine2Suite, TestEngine3Suite, TestEngineSuite) are messy, particularly after 2DC removal.",
+  "category": "other",
+  "subcategory": "history-engine-testing",
+  "apis": [],
+  "components": [
+    "history-engine",
+    "test-framework",
+    "test-suites"
+  ],
+  "concepts": [
+    "refactoring",
+    "code-organization",
+    "test-maintenance",
+    "modularity",
+    "package-structure",
+    "test-cleanup"
+  ],
+  "severity": "medium",
+  "userImpact": "Internal refactoring to improve code quality and test maintainability, enabling faster development and easier debugging for contributors.",
+  "rootCause": "History engine tests became messy after 2DC removal, indicating the need for better code organization into smaller, focused packages.",
+  "proposedFix": "Refactor history engine codebase into smaller packages and reorganize test suites for better maintainability.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We need to refactor history engine code base into smaller packages. Following test suites need lots of attention: TestEngine2Suite, TestEngine3Suite, TestEngineSuite",
+  "number": 699,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:10:54.646Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Java HelloUpdate example hangs when using `temporal server start-dev` with UpdateWorkflowExecution enabled. The client hangs at the first update call and the server pegs CPU. Issue was resolved by updating to a newer CLI version.",
+  "category": "bug",
+  "subcategory": "update-workflow-execution",
+  "apis": [
+    "UpdateWorkflowExecution"
+  ],
+  "components": [
+    "server",
+    "client",
+    "update-handler"
+  ],
+  "concepts": [
+    "workflow-update",
+    "dev-server",
+    "cli-version",
+    "cpu-usage",
+    "deadlock"
+  ],
+  "severity": "high",
+  "userImpact": "Users following the Java tutorial cannot run the HelloUpdate example with the recommended dev server setup, making it impossible to learn about workflow updates locally.",
+  "rootCause": "Outdated CLI version (0.11.0) had a bug with UpdateWorkflowExecution in start-dev mode that was fixed in later versions.",
+  "proposedFix": "Update temporal CLI to version 0.13.2 or later.",
+  "workaround": "Use docker-compose to run Temporal Server instead of `temporal server start-dev`.",
+  "resolution": "fixed",
+  "resolutionDetails": "Updating to CLI version 0.13.2 resolved the hanging issue. The download link in the Java setup guide was pointing to an outdated version.",
+  "related": [],
+  "keyQuote": "The HelloUpdate example runs correctly when using the latest CLI version 0.13.2",
+  "number": 6352,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:36.010Z"
+}

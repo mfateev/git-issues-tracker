@@ -1,0 +1,31 @@
+{
+  "summary": "Search attributes with datetime type return inconsistent RFC3339 formats across environments (UTC format like 2023-04-27T22:52:33Z vs timezone-aware format like 2006-01-02T15:04:05-07:00), making parsing difficult without flexible RFC3339 parsing.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "datetime-handling",
+    "sdk-client"
+  ],
+  "concepts": [
+    "datetime-format",
+    "RFC3339",
+    "timezone-handling",
+    "parsing",
+    "consistency",
+    "serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users must handle multiple RFC3339 datetime formats when parsing search attribute values, requiring flexible parsing logic instead of fixed format strings.",
+  "rootCause": "System search attributes are stored in UTC, while custom search attributes preserve the timezone as set by the user, resulting in different RFC3339 representations.",
+  "proposedFix": "Use flexible RFC3339 parsing (e.g., time.RFC3339Nano in Go) that accepts both timezone-aware and UTC formats.",
+  "workaround": "Use time.Parse(time.RFC3339Nano, dt) for flexible RFC3339 datetime parsing.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed by maintainer after clarifying that system attributes use UTC while custom attributes preserve user-set timezone. The inconsistency is by design, not a bug.",
+  "related": [],
+  "keyQuote": "For system, we convert to UTC for storage. For custom, we try to keep it with timezone as set by the user so it can be retrieved exactly as the user set.",
+  "number": 4377,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:26.595Z"
+}

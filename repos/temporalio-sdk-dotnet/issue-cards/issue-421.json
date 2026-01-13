@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to add ActivityOptions provider capability for testing in .NET SDK, similar to Java SDK. The request was closed after discussion clarified that cross-SDK approach is to set activity options in workflow at runtime rather than externally.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ActivityOptions"
+  ],
+  "components": [
+    "workflow-runtime",
+    "activity-executor",
+    "test-framework"
+  ],
+  "concepts": [
+    "activity-options",
+    "testing",
+    "test-isolation",
+    "configuration-override",
+    "cross-sdk-consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Users requesting ability to override activity options during testing without modifying production workflow code.",
+  "rootCause": "Architectural decision to keep activity options configuration in workflow code at runtime rather than externally, unlike Java SDK.",
+  "proposedFix": "Alter workflow input to opt-in to different options for test runs (e.g., 'test mode' flag) instead of external override capability.",
+  "workaround": "Pass test mode configuration through workflow input parameters to conditionally apply different activity options.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Intentional design decision: Java's external option setting approach can cause SDK inconsistencies. Recommended pattern is to control options through workflow input parameters.",
+  "related": [],
+  "keyQuote": "Java is the only SDK that allows setting default activity options outside of the workflow run itself... you set your activity options in the workflow at runtime.",
+  "number": 421,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T15:23:12.246Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "The Python SDK's search attribute datetime parsing using `datetime.fromisoformat` fails to parse ISO 8601 strings with 'Z' timezone designator (RFC3339Nano format). This breaks workflow scheduling when the Temporal server sends timestamps like '2022-10-30T06:28:30Z'.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "converter",
+    "search-attributes",
+    "worker"
+  ],
+  "concepts": [
+    "datetime-parsing",
+    "ISO-8601",
+    "RFC3339",
+    "timezone-handling",
+    "datetime-formatting",
+    "search-attributes"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience workflow failures when using the Scheduler system because search attributes with RFC3339 timestamps cannot be parsed.",
+  "rootCause": "Python's `datetime.fromisoformat()` does not support the 'Z' timezone designator used in RFC3339Nano format, only ISO 8601 basic format without timezone info.",
+  "proposedFix": "Use `dateutil.parser.isoparse()` from the third-party dateutil package instead of `datetime.fromisoformat()` for full RFC3339 compliance.",
+  "workaround": "Users can use the dateutil package with `parser.isoparse()` directly, though this requires adding a dependency.",
+  "resolution": "fixed",
+  "resolutionDetails": "Adopted dateutil dependency to replace datetime.fromisoformat for proper RFC3339Nano support.",
+  "related": [],
+  "keyQuote": "This does not support parsing arbitrary ISO 8601 strings - it is only intended as the inverse operation of datetime.isoformat()",
+  "number": 144,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T20:51:45.060Z"
+}

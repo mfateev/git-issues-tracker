@@ -1,0 +1,31 @@
+{
+  "summary": "Remove the DataConverter requirement from header value objects in interceptors. Headers should be decoded on input and encoded only before sending, rather than requiring DataConverter dependency for header management.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [],
+  "components": [
+    "interceptors",
+    "headers",
+    "data-converter"
+  ],
+  "concepts": [
+    "header-encoding",
+    "data-conversion",
+    "lazy-decoding",
+    "payload-encoding"
+  ],
+  "severity": "medium",
+  "userImpact": "Simplifies interceptor API by removing unnecessary DataConverter dependency from header value objects, reducing coupling and improving usability.",
+  "rootCause": "Current implementation requires DataConverter for header value objects even when headers don't need decoding, creating unnecessary coupling.",
+  "proposedFix": "Decode headers immediately on input and encode them only before sending, eliminating the need to pass DataConverter to header value objects.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed by refactoring header handling to avoid DataConverter requirement in header value objects.",
+  "related": [
+    306
+  ],
+  "keyQuote": "headers on input will be decoded immediately and packed again only before sending",
+  "number": 353,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:28:07.585Z"
+}

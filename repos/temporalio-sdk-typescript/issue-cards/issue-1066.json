@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add typed string support for the `ms` package in the TypeScript SDK. The `sleep` method accepts both numbers and strings (via the `ms` package), but lacks proper type checking for valid ms-format strings, reducing type safety.",
+  "category": "feature",
+  "subcategory": "type-definitions",
+  "apis": [
+    "sleep"
+  ],
+  "components": [
+    "type-definitions",
+    "ms-package-integration"
+  ],
+  "concepts": [
+    "type-safety",
+    "duration-formatting",
+    "string-types",
+    "backward-compatibility",
+    "deprecation"
+  ],
+  "severity": "low",
+  "userImpact": "Users can pass invalid ms-format strings to sleep and similar methods without TypeScript catching the error, reducing type safety benefits.",
+  "rootCause": "The SDK uses generic `string` type for ms-package inputs instead of leveraging the typed `MsFormattedValue` from the ms package.",
+  "proposedFix": "Use `Duration = number | MsFormattedValue` type with deprecated overload for `string` to maintain backward compatibility while providing proper type checking.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by PR #1136 implementing typed duration support with deprecated string overload for backward compatibility.",
+  "related": [
+    1136
+  ],
+  "keyQuote": "It maintains backward compatibility, at the cost of complaining about deprecation rather than entirely refusing incorrect syntaxes.",
+  "number": 1066,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:33:43.875Z"
+}

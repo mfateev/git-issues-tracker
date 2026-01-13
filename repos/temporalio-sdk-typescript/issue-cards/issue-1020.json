@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to start workers in debug mode when the TEMPORAL_DEBUG environment variable is set, for consistency with other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "Worker"
+  ],
+  "components": [
+    "worker",
+    "debug-mode"
+  ],
+  "concepts": [
+    "environment-variables",
+    "debug-mode",
+    "cross-sdk-consistency",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using Temporal SDKs across multiple languages would have a consistent debugging experience through environment variables.",
+  "rootCause": null,
+  "proposedFix": "Support TEMPORAL_DEBUG environment variable to automatically start workers in debug mode",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to support TEMPORAL_DEBUG environment variable for starting workers in debug mode",
+  "related": [],
+  "keyQuote": "I'd rather support this for consistency with the other SDKs.",
+  "number": 1020,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:31:39.313Z"
+}

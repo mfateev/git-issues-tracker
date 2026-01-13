@@ -1,0 +1,30 @@
+{
+  "summary": "TypeScript SDK is unable to call tools when using Google as provider with MCP server due to a missing `clientArgs` property on the args object. The code references `args.clientArgs` which does not exist, causing the tool calling functionality to fail.",
+  "category": "bug",
+  "subcategory": "ai-sdk-tools",
+  "apis": [],
+  "components": [
+    "ai-sdk",
+    "tool-calling",
+    "mcp-server"
+  ],
+  "concepts": [
+    "tool-calling",
+    "provider-integration",
+    "google-ai",
+    "mcp",
+    "argument-passing"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use the tool calling feature with Google provider and MCP server due to a code error that prevents argument passing.",
+  "rootCause": "The code at line 59 references `args.clientArgs` which does not exist on the args object, causing a runtime error when attempting to call tools.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the missing clientArgs property was likely fixed in a subsequent commit.",
+  "related": [],
+  "keyQuote": "Line 59 -> args.clientArgs does not exist.",
+  "number": 1880,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T10:06:33.910Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "After migrating from Poetry to uv, Python version classifiers and license metadata are missing from the PyPI package, causing README badges to fail. The package needs proper version and license information set in the wheel/PyPI metadata.",
+  "category": "feature",
+  "subcategory": "packaging-metadata",
+  "apis": [],
+  "components": [
+    "packaging",
+    "pypi",
+    "build-system"
+  ],
+  "concepts": [
+    "package-metadata",
+    "version-classifier",
+    "license-information",
+    "build-configuration",
+    "pypi-distribution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot accurately see Python version compatibility and license information on PyPI, breaking documentation badges and reducing discoverability.",
+  "rootCause": "Migration from Poetry to uv build system removed Python version classifiers and license metadata configuration",
+  "proposedFix": "Set Python programming language version classifiers and license metadata in the wheel/PyPI configuration for uv",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was closed, indicating the packaging metadata was properly configured after uv migration",
+  "related": [],
+  "keyQuote": "With the move from poetry to uv, we have lost the programming language classifier I think.",
+  "number": 1132,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:33:37.696Z"
+}

@@ -1,0 +1,29 @@
+{
+  "summary": "Remove Go dependency from Ruby SDK's test pipeline. The Ruby SDK can now write the 'kitchen sink' workflow entirely in Ruby, eliminating the need for Go.",
+  "category": "feature",
+  "subcategory": "test-pipeline",
+  "apis": [],
+  "components": [
+    "test-pipeline",
+    "kitchen-sink-workflow",
+    "ci-cd"
+  ],
+  "concepts": [
+    "test-infrastructure",
+    "dependency-removal",
+    "language-purity",
+    "build-optimization"
+  ],
+  "severity": "low",
+  "userImpact": "Simplifies the Ruby SDK build and test process by removing an external language dependency.",
+  "rootCause": null,
+  "proposedFix": "Replace Go-based kitchen sink workflow with pure Ruby implementation",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Go is currently needed for the \"kitchen sink\" workflow, but we now have the ability to write that workflow in pure Ruby",
+  "number": 192,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:45:20.075Z"
+}

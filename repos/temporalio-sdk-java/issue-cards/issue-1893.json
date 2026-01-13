@@ -1,0 +1,33 @@
+{
+  "summary": "The Terminate call in the Java SDK is not setting the identity field, which should be included for proper request identification and tracking.",
+  "category": "bug",
+  "subcategory": "workflow-termination",
+  "apis": [
+    "Terminate"
+  ],
+  "components": [
+    "workflow-service",
+    "client",
+    "request-builder"
+  ],
+  "concepts": [
+    "identity",
+    "workflow-termination",
+    "request-metadata",
+    "cross-language-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users terminating workflows may lack proper identity tracking, affecting audit trails and request logging across SDK calls.",
+  "rootCause": "Identity field is not being set when constructing the Terminate request in the Java SDK implementation.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Identity field was added to the Terminate call implementation to match behavior in other SDKs, as referenced in the linked features issue.",
+  "related": [
+    193
+  ],
+  "keyQuote": "Identity not set on `Terminate` call in the Java SDK",
+  "number": 1893,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:50:46.721Z"
+}

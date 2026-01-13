@@ -1,0 +1,30 @@
+{
+  "summary": "User questioning whether execution DB and history tree/node DB are separate databases, noting different shard DB algorithms. The clarification confirms they are in the same DB, but user still seeks understanding of how range_id field is processed in history service.",
+  "category": "question",
+  "subcategory": "database-architecture",
+  "apis": [],
+  "components": [
+    "execution-db",
+    "history-service",
+    "database-sharding"
+  ],
+  "concepts": [
+    "database-sharding",
+    "shard-algorithm",
+    "range-id",
+    "database-architecture",
+    "history-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users may be confused about Temporal's internal database structure and how data is partitioned across shards.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "stale",
+  "resolutionDetails": "Closed after 30 days (auto-close label indicates no follow-up or resolution provided)",
+  "related": [],
+  "keyQuote": "They are in same DB. What are the different shard db algorithm?",
+  "number": 2172,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:24:31.362Z"
+}

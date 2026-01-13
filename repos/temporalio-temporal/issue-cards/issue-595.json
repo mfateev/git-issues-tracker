@@ -1,0 +1,31 @@
+{
+  "summary": "Docker image lacks a mechanism to configure archival settings. Users need the ability to override archival configuration when deploying Temporal via Docker.",
+  "category": "feature",
+  "subcategory": "docker-configuration",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "config-template",
+    "server-configuration"
+  ],
+  "concepts": [
+    "archival",
+    "docker-deployment",
+    "configuration-management",
+    "environment-override",
+    "containerization",
+    "server-setup"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure archival settings when deploying Temporal via Docker, forcing them to use workarounds or manual configuration.",
+  "rootCause": null,
+  "proposedFix": "Update config_template.yaml to support overriding archival configuration through Docker environment variables or configuration files.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal docker image does not provide a mechanism for users to pass in there own archival config for the server.",
+  "number": 595,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-12T17:19:20.833Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request for multi-AZ PostgreSQL with read-only replication support. Currently Temporal assumes static read-write PostgreSQL configurations and fails during HA failover. Proposal is to support dynamic routing where write operations go to read-write (master) nodes and detect read-only instances using pg_is_in_recovery().",
+  "category": "feature",
+  "subcategory": "database-ha",
+  "apis": [],
+  "components": [
+    "database-connection",
+    "postgres-driver",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "high-availability",
+    "failover",
+    "read-only-replica",
+    "connection-routing",
+    "database-recovery",
+    "master-replica"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with multi-AZ PostgreSQL HA setups experience Temporal server failures during instance recovery or failover events.",
+  "rootCause": "Temporal server treats all database connections as read-write and cannot distinguish between or route around read-only replicas; no pg_is_in_recovery() check is performed.",
+  "proposedFix": "Implement pg_is_in_recovery() checks on connection initialization to detect read-only instances, drop those connections, and route all queries to available read-write (master) instances.",
+  "workaround": "Implement pg_is_in_recovery() check when initiating connections and drop read-only connections; however this has limitations when PG enters recovery after connection establishment or no read-write hosts remain available.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the client could distinguish at the minimum between writable database hosts at runtime and reroute all queries to that database",
+  "number": 6100,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:09:11.230Z"
+}

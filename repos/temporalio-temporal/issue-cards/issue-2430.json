@@ -1,0 +1,30 @@
+{
+  "summary": "Request to add a temporal_cluster label to exported metrics to enable consistent filtering across multiple clusters regardless of deployment environment (Kubernetes or VM).",
+  "category": "feature",
+  "subcategory": "metrics-observability",
+  "apis": [],
+  "components": [
+    "metrics-exporter",
+    "server-config",
+    "prometheus-integration"
+  ],
+  "concepts": [
+    "observability",
+    "multi-tenant",
+    "metrics-labeling",
+    "cluster-identification",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users managing multiple Temporal clusters need cluster-aware metric filtering without relying on external labeling mechanisms.",
+  "rootCause": null,
+  "proposedFix": "Add temporal_cluster label to the metrics exporter, or ensure server config allows injecting cluster-identifying tags via metrics.tags configuration.",
+  "workaround": "Add cluster label via Kubernetes labels or configure temporal server with metrics.tags in global config to inject custom labels.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by pointing user to existing config option: global.metrics.tags can be used to inject cluster labels into all metrics reported by server.",
+  "related": [],
+  "keyQuote": "You can also add label into temporal server config. This label will be injected into all the metrics reported by server.",
+  "number": 2430,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:27:32.215Z"
+}

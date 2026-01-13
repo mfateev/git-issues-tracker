@@ -1,0 +1,29 @@
+{
+  "summary": "Implement a plugin system for the PHP SDK to allow users to create custom integrations with Temporal Workflows, similar to the existing Python implementation.",
+  "category": "feature",
+  "subcategory": "plugin-system",
+  "apis": [],
+  "components": [
+    "plugin-system",
+    "sdk-core",
+    "integration-framework"
+  ],
+  "concepts": [
+    "extensibility",
+    "plugin-architecture",
+    "self-service-integration",
+    "customization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to create custom integrations and extensions for Temporal workflows without modifying core SDK code.",
+  "rootCause": null,
+  "proposedFix": "Implement plugin system based on Python SDK plugin implementation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Plugin system implemented following Python SDK pattern",
+  "related": [],
+  "keyQuote": "Implement Plugins so that users can self-serve creating integrations with Temporal Workflows. This is done in Python and we can copy.",
+  "number": 660,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:45:01.565Z"
+}

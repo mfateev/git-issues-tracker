@@ -1,0 +1,32 @@
+{
+  "summary": "Continue as new operations copy over prev_auto_reset_points, potentially causing unbounded growth. The issue was closed as by-design since a MaxAutoResetPoints limit of 20 prevents actual growth, but the reason for copying these points during continue-as-new operations remains unclear.",
+  "category": "feature",
+  "subcategory": "workflow-continuation",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "history-service",
+    "workflow-execution",
+    "auto-reset"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "auto-reset-points",
+    "memory-growth",
+    "workflow-replay",
+    "state-management"
+  ],
+  "severity": "low",
+  "userImpact": "Long-running workflows using continue-as-new could accumulate excessive auto-reset-point data, though a safety limit prevents unbounded growth.",
+  "rootCause": "Continue-as-new implementation copies prev_auto_reset_points from previous runs, potentially accumulating historical data unnecessarily.",
+  "proposedFix": "Possible solutions mentioned: add an option to purge auto-reset-points, or only retain the previous run's values instead of all historical values.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as by-design. MaxAutoResetPoints is already capped at 20, preventing unbounded growth. The copying behavior is intentional.",
+  "related": [],
+  "keyQuote": "I'm gonna go ahead and close this issue as by-design.",
+  "number": 2558,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:29:10.583Z"
+}

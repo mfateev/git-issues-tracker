@@ -1,0 +1,33 @@
+{
+  "summary": "Implement Nexus support across all Temporal SDKs and CLI. This is an umbrella tracking issue for implementing a generic Nexus common library for each language and language-specific Temporal SDK implementations.",
+  "category": "feature",
+  "subcategory": "nexus-implementation",
+  "apis": [],
+  "components": [
+    "nexus-library",
+    "sdk-implementation",
+    "temporal-cli"
+  ],
+  "concepts": [
+    "nexus-rpc",
+    "cross-language",
+    "sdk-support",
+    "async-workflow",
+    "service-integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users can build Nexus-based service interactions across all supported Temporal SDK languages.",
+  "rootCause": null,
+  "proposedFix": "Implement Nexus common library and SDK-specific implementations for each language based on Nexus specifications and existing implementations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    232,
+    580
+  ],
+  "keyQuote": "Each language needs a generic Nexus common library in https://github.com/nexus-rpc and each language needs a Temporal-specific Nexus implementation in the Temporal SDK",
+  "number": 609,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T05:26:08.763Z"
+}

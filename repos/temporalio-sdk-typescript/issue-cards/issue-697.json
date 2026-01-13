@@ -1,0 +1,30 @@
+{
+  "summary": "Move NativeConnectionOptions fields (identity and workerBinaryId) from connection-level to worker-level configuration. This requires coordination with Core-side changes.",
+  "category": "bug",
+  "subcategory": "native-connection",
+  "apis": [],
+  "components": [
+    "worker",
+    "native-connection",
+    "connection-options"
+  ],
+  "concepts": [
+    "configuration",
+    "connection-options",
+    "worker-setup",
+    "native-connection",
+    "identity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to reconfigure where these connection options are specified, moving them from connection to worker setup.",
+  "rootCause": "Fields are currently at the wrong API level (connection instead of worker)",
+  "proposedFix": "Move NativeConnectionOptions.identity and NativeConnectionOptions.workerBinaryId to Worker configuration",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fields were moved to worker-level configuration in coordination with Core-side changes",
+  "related": [],
+  "keyQuote": "Move these to Worker: NativeConnectionOptions.identity NativeConnectionOptions.workerBinaryId",
+  "number": 697,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:48.036Z"
+}

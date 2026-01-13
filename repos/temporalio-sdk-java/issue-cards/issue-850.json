@@ -1,0 +1,34 @@
+{
+  "summary": "Document and normalize gRPC retry logic, deadlines, and parameters across all SDKs. Each SDK currently has different implementations with varying default values, timeout handling, jitter, and retry behaviors that need to be unified.",
+  "category": "docs",
+  "subcategory": "grpc-retry-policy",
+  "apis": [],
+  "components": [
+    "grpc-client",
+    "retry-logic",
+    "deadline-handling"
+  ],
+  "concepts": [
+    "retry",
+    "deadline",
+    "timeout",
+    "jitter",
+    "grpc",
+    "standardization",
+    "cross-sdk-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Inconsistent retry behavior across SDKs makes it difficult for users to predict and configure gRPC communication reliability.",
+  "rootCause": "Each SDK independently implemented gRPC retry and deadline logic without unified specification, leading to divergent parameters and behaviors.",
+  "proposedFix": "Create unified specification with documented default parameter values and normalize retry behavior across all SDKs.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of temporalio/features#27 as a cross-SDK issue requiring centralized solution.",
+  "related": [
+    27
+  ],
+  "keyQuote": "We should write a unified specification including default parameter values and normalize the retrying behavior across SDKs.",
+  "number": 850,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:47:30.713Z"
+}

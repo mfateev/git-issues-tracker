@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to implement Rust dependency caching in CI using the rust-cache GitHub Action to improve build times by reducing redundant dependency compilation across builds.",
+  "category": "feature",
+  "subcategory": "ci-optimization",
+  "apis": [],
+  "components": [
+    "ci",
+    "build-system",
+    "rust-compiler"
+  ],
+  "concepts": [
+    "caching",
+    "build-performance",
+    "ci-optimization",
+    "dependency-management",
+    "github-actions"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces CI build times, enabling faster iteration and deployment cycles for SDK development.",
+  "rootCause": null,
+  "proposedFix": "Integrate Swatinem/rust-cache GitHub Action into CI workflow with working-directory option configured.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PR #864 which integrated the rust-cache action, saving several minutes per build.",
+  "related": [
+    864
+  ],
+  "keyQuote": "I just merged a PR (#864) that uses the action, save a few minutes. Wish we'd done this a while ago..",
+  "number": 691,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:07:30.182Z"
+}

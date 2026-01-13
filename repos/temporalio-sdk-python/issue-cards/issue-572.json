@@ -1,0 +1,35 @@
+{
+  "summary": "Upserting a datetime search attribute fails because the Python SDK doesn't format the datetime with a timezone. The server requires timezone information in the ISO 8601 format (with 'Z' suffix for UTC), but the SDK was sending the datetime without it, causing an InvalidArgument error.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [
+    "upsert_search_attributes",
+    "SearchAttributeKey.for_datetime"
+  ],
+  "components": [
+    "search-attributes",
+    "datetime-serialization",
+    "workflow-sdk"
+  ],
+  "concepts": [
+    "search-attributes",
+    "datetime",
+    "timezone",
+    "serialization",
+    "workflow-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot upsert datetime search attributes without encountering an InvalidArgument error from the server.",
+  "rootCause": "The Python SDK serializes datetime objects to ISO 8601 format without timezone information, but the Temporal server requires a timezone (typically 'Z' for UTC) to properly store and validate datetime search attributes.",
+  "proposedFix": "The SDK should automatically append 'Z' to the ISO 8601 datetime string when serializing datetime search attributes, or require users to provide timezone-aware datetime objects.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The issue was addressed by improving datetime serialization in the Python SDK to include timezone information and through a companion issue (#611) to add better error messages.",
+  "related": [
+    611
+  ],
+  "keyQuote": "the SDK requires you to specify a timezone -- our server needs to store user timestamps with a timezone",
+  "number": 572,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:08.393Z"
+}

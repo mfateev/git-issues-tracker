@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to throw RpcException with gRPC details when the initial GetSystemInfo call fails during client connection, rather than a generic connection failure exception.",
+  "category": "feature",
+  "subcategory": "client-connection",
+  "apis": [
+    "GetSystemInfo"
+  ],
+  "components": [
+    "client",
+    "connection-handler",
+    "grpc-client"
+  ],
+  "concepts": [
+    "error-handling",
+    "grpc-details",
+    "connection-failure",
+    "exception-types",
+    "permission-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will receive more specific gRPC error details when initial client connection fails due to permission or other gRPC issues, enabling better debugging and error handling.",
+  "rootCause": null,
+  "proposedFix": "Distinguish between TCP connection failures and gRPC call failures; return RpcException with gRPC details when GetSystemInfo call fails after successful TCP connection.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the TCP connection succeeds but the gRPC call fails (e.g. permission denied), throw the `RpcException` with gRPC details instead of a common exception",
+  "number": 299,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:04:36.140Z"
+}

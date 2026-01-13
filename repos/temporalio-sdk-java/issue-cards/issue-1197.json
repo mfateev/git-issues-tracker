@@ -1,0 +1,33 @@
+{
+  "summary": "getResultAsync long poll requests are prematurely terminated after 10 seconds due to default rpcTimeout, instead of allowing the expected 60-second long poll like getResult does.",
+  "category": "bug",
+  "subcategory": "async-result-polling",
+  "apis": [
+    "getResultAsync",
+    "getResult"
+  ],
+  "components": [
+    "result-poller",
+    "rpc-client",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "long-poll",
+    "timeout",
+    "async-execution",
+    "rpc",
+    "result-retrieval"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on getResultAsync experience premature request termination, breaking long-poll behavior and potentially losing workflow results.",
+  "rootCause": "getResultAsync applies the default 10-second rpcTimeout instead of using the extended timeout for long polling operations.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The timeout handling for getResultAsync was corrected to use appropriate long-poll duration instead of default rpcTimeout.",
+  "related": [],
+  "keyQuote": "getResultAsync long poll requests get terminated after 10 seconds (default rpcTimeout)",
+  "number": 1197,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:12:24.021Z"
+}

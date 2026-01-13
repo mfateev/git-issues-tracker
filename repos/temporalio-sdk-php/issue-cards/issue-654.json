@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow::upsertTypedSearchAttributes causes test timeout when called inside a workflow. The user suspects search attributes may not be supported by the test server.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "upsertTypedSearchAttributes"
+  ],
+  "components": [
+    "test-server",
+    "workflow-runtime",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "workflow-execution",
+    "test-isolation",
+    "timeout",
+    "test-support"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot test workflows that use typed search attribute upserts, causing test failures and blocking development.",
+  "rootCause": "Search attributes may not be supported by the test server, causing the upsert operation to hang indefinitely.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'm not sure that search attributes are supported by the test server at all",
+  "number": 654,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:44:50.909Z"
+}

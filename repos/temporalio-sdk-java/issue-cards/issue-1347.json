@@ -1,0 +1,32 @@
+{
+  "summary": "When a Temporal cluster is restarted in a multi-cluster environment, the first getClusterInfo() call fails with a connection error, even though the cluster is fully operational. Subsequent calls succeed, suggesting a gRPC channel state management issue.",
+  "category": "bug",
+  "subcategory": "grpc-connection",
+  "apis": [
+    "getClusterInfo"
+  ],
+  "components": [
+    "grpc-channel",
+    "connection-pool",
+    "health-check"
+  ],
+  "concepts": [
+    "connection-refused",
+    "channel-state",
+    "cluster-recovery",
+    "retry-logic",
+    "server-restart"
+  ],
+  "severity": "medium",
+  "userImpact": "Multi-cluster deployments experience intermittent connection failures on cluster restart, requiring retry logic to work around the issue.",
+  "rootCause": "gRPC channel does not properly reconnect after server restart; connection attempts are refused on the first call despite server being ready, suggesting stale channel state or timing issue in connection reestablishment.",
+  "proposedFix": null,
+  "workaround": "Retry the getClusterInfo() call; the second attempt succeeds after cluster restart.",
+  "resolution": "stale",
+  "resolutionDetails": "Issue closed due to inactivity; no fix was implemented or confirmed.",
+  "related": [],
+  "keyQuote": "It does not seem to matter how long this first call is after turning the cluster back on, it still fails.",
+  "number": 1347,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:28:16.236Z"
+}

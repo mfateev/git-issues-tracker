@@ -1,0 +1,27 @@
+{
+  "summary": "Version was not bumped in v1.11.0 release, discovered via the versionChecker code. A patch release v1.11.1 was subsequently published to address the issue.",
+  "category": "bug",
+  "subcategory": "release-management",
+  "apis": [],
+  "components": [
+    "version-checker",
+    "release-process"
+  ],
+  "concepts": [
+    "version-management",
+    "release-versioning",
+    "semantic-versioning"
+  ],
+  "severity": "low",
+  "userImpact": "Users running v1.11.0 may have version detection issues due to the missing version bump.",
+  "rootCause": "Release process did not properly bump the version string in versionChecker.go",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "A patch release v1.11.1 was created with the correct version bump.",
+  "related": [],
+  "keyQuote": "Release v1.11.0 did not bump version.",
+  "number": 1743,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:18:02.528Z"
+}

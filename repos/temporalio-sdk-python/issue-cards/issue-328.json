@@ -1,0 +1,28 @@
+{
+  "summary": "Remove outdated statement about Pydantic support from the README's no-generic section. The statement claiming limited similarity to Pydantic is inaccurate since Pydantic now has limited support in the SDK.",
+  "category": "docs",
+  "subcategory": "readme",
+  "apis": [],
+  "components": [
+    "documentation",
+    "readme"
+  ],
+  "concepts": [
+    "pydantic",
+    "generics",
+    "type-hints",
+    "documentation-accuracy"
+  ],
+  "severity": "low",
+  "userImpact": "Users reading the README may be misled about Pydantic support capabilities in the Python SDK.",
+  "rootCause": null,
+  "proposedFix": "Remove or update the \"similar to Pydantic\" reference in the no-generic section of README to reflect current Pydantic support.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Documentation was updated to remove or correct the outdated Pydantic reference.",
+  "related": [],
+  "keyQuote": "They do have limited support now",
+  "number": 328,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:02:04.877Z"
+}

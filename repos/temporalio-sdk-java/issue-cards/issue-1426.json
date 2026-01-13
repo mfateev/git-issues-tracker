@@ -1,0 +1,35 @@
+{
+  "summary": "Test server incorrectly sets workflow execution timeout and schedule-to-close timeout to 10 years when not explicitly configured by the user, causing API responses to be inaccurate compared to production behavior.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowExecutionStartedEventAttributes",
+    "PollActivityTaskQueueResponse",
+    "ActivityInfo.getScheduleToCloseTimeout"
+  ],
+  "components": [
+    "test-server",
+    "activity-executor",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "timeout",
+    "test-environment",
+    "production-parity",
+    "configuration",
+    "default-values",
+    "API-accuracy"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows tested with the test server may pass but fail in production due to incorrect timeout defaults, leading to production incidents.",
+  "rootCause": "Test server defaults workflow and activity timeouts to 10 years internally instead of leaving them unset when not user-configured.",
+  "proposedFix": "Make test server API responses accurate by either not setting these timeouts or validating required timeout configuration before activity execution.",
+  "workaround": "Users must manually validate and set timeout configurations in their own code to match production requirements.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This issue just took down all of our production workflows cause we made an incorrect assumption that all of our Workflow Tests would've caught this issue.",
+  "number": 1426,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:35:21.417Z"
+}

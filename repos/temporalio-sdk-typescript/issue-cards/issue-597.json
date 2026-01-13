@@ -1,0 +1,29 @@
+{
+  "summary": "Request to ensure only a single version of @temporalio/workflow is loaded into the workflow runtime. Multiple library versions cause failures because workflow state is stored in module static variables.",
+  "category": "feature",
+  "subcategory": "module-versioning",
+  "apis": [],
+  "components": [
+    "workflow-runtime",
+    "module-loader",
+    "state-management"
+  ],
+  "concepts": [
+    "version-conflict",
+    "dependency-management",
+    "module-static-state",
+    "runtime-isolation"
+  ],
+  "severity": "high",
+  "userImpact": "Users with libraries depending on different versions of @temporalio/workflow encounter runtime failures due to incompatible state management.",
+  "rootCause": "Workflow state is stored in module static variables, making it incompatible with multiple versions loaded simultaneously",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We've seen cases where a library depends on a different version of our runtime which is not supported because we store workflow state in a module static variable.",
+  "number": 597,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:03:24.503Z"
+}

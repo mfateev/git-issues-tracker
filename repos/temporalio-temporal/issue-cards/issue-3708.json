@@ -1,0 +1,30 @@
+{
+  "summary": "SQL persistence layer throws a NullPointerException when accessed after being closed instead of returning a proper error. The NPE occurs in the factory.go file when attempting to use a closed persistence connection.",
+  "category": "bug",
+  "subcategory": "sql-persistence",
+  "apis": [],
+  "components": [
+    "sql-persistence",
+    "factory",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "connection-lifecycle",
+    "null-pointer-exception",
+    "error-handling",
+    "resource-cleanup",
+    "closed-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience crashes with unhelpful NPE errors instead of clear error messages when the SQL persistence layer is closed.",
+  "rootCause": "Missing null check or proper state validation before accessing persistence resources after closure",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Return error from sql persistence if persistence layer is already closed.",
+  "number": 3708,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:45:26.913Z"
+}

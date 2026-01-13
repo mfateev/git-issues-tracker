@@ -1,0 +1,33 @@
+{
+  "summary": "User reported that workflow.continue_as_new() was not creating a new workflow instance in Python SDK 1.8.0. After investigation, the issue was traced to incorrect serialization/deserialization of Pydantic and Modelina classes in custom payload converters, not a bug in continue_as_new itself.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "continue_as_new"
+  ],
+  "components": [
+    "workflow-execution",
+    "payload-converter",
+    "serialization"
+  ],
+  "concepts": [
+    "continue_as_new",
+    "workflow-lifecycle",
+    "serialization",
+    "deserialization",
+    "payload-conversion",
+    "pydantic"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experienced workflow.continue_as_new failing silently without creating new instances when using custom payload converters with Pydantic/Modelina classes.",
+  "rootCause": "Custom payload converter (PydanticJSONPayloadConverter) was incorrectly handling complex types like collections.deque[MachineStatusUpdateEvent], causing silent serialization failures that prevented proper workflow continuation.",
+  "proposedFix": "Use only Pydantic classes or single instances of Modelina classes in workflow parameters, avoiding complex collection types with custom objects.",
+  "workaround": "Refactor interfaces to only use Pydantic classes or single instances of Modelina classes instead of collections of custom types.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was not a bug in continue_as_new but rather a user code issue with custom payload converter implementation. User resolved by changing their data model interfaces.",
+  "related": [],
+  "keyQuote": "This is not a real bug. What was happening was that the PydanticJSONPayloadConverter was handling the events argument... Once I changed my interfaces to only use pydantic classes or single instances of Modelina classes the continue_as_new worked.",
+  "number": 6969,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:16:54.984Z"
+}

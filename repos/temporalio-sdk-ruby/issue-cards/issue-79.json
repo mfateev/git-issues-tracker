@@ -1,0 +1,29 @@
+{
+  "summary": "Add a way to mark APIs as unstable or private in the Ruby SDK to indicate to users which APIs are not part of the stable public interface and may change without warning.",
+  "category": "feature",
+  "subcategory": "api-design",
+  "apis": [],
+  "components": [
+    "api-documentation",
+    "visibility-control"
+  ],
+  "concepts": [
+    "api-stability",
+    "private-api",
+    "visibility",
+    "documentation",
+    "api-design"
+  ],
+  "severity": "low",
+  "userImpact": "Users need clear guidance on which Ruby SDK APIs are stable and safe to depend on versus internal implementation details.",
+  "rootCause": null,
+  "proposedFix": "Use YARD documentation tags (@private) or a combination of Ruby's private_constant and private/protected scope modifiers to mark unstable/private APIs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved by adopting YARD's @private tag for documentation-based API stability marking.",
+  "related": [],
+  "keyQuote": "I think this one should work well for us — https://rubydoc.info/gems/yard/file/docs/Tags.md#private",
+  "number": 79,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-01-11T21:41:01.724Z"
+}

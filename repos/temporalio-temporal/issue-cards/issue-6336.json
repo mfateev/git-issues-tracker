@@ -1,0 +1,35 @@
+{
+  "summary": "Request to expose the start delay option in child workflow execution parameters. This feature would allow developers to configure delayed execution for child workflows, similar to existing capabilities in the features specification.",
+  "category": "feature",
+  "subcategory": "child-workflow-options",
+  "apis": [
+    "StartChildWorkflowExecution"
+  ],
+  "components": [
+    "child-workflow",
+    "workflow-options",
+    "api"
+  ],
+  "concepts": [
+    "start-delay",
+    "child-workflow",
+    "workflow-execution",
+    "scheduling",
+    "timing",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot currently configure start delay for child workflows, limiting scheduling flexibility for child workflow executions.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    515
+  ],
+  "keyQuote": "See https://github.com/temporalio/features/issues/515 for more information",
+  "number": 6336,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:11:22.313Z"
+}

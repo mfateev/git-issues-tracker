@@ -1,0 +1,32 @@
+{
+  "summary": "A test for Nexus operation timeout handling is flaking due to a CancellationTokenSource being disposed prematurely. The test fails with ObjectDisposedException when trying to access the WaitHandle of an already-disposed cancellation token source.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteNexusOperationAsync"
+  ],
+  "components": [
+    "test-framework",
+    "nexus-worker",
+    "cancellation-handling"
+  ],
+  "concepts": [
+    "timeout",
+    "cancellation-token",
+    "test-flake",
+    "resource-disposal",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "This test flake indicates a potential race condition or premature disposal issue that could affect the reliability of Nexus operation timeout handling in production scenarios.",
+  "rootCause": "A CancellationTokenSource is being disposed before the test completes, likely due to a race condition in timeout handling or resource cleanup.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [],
+  "resolution": null,
+  "resolutionDetails": null,
+  "keyQuote": "System.ObjectDisposedException : The CancellationTokenSource has been disposed.",
+  "number": 592,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-13T00:09:16.343Z"
+}

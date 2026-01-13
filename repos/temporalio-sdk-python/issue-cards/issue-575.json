@@ -1,0 +1,32 @@
+{
+  "summary": "Workflow cancellation does not cancel in-progress signal/update handler executions. Clients receive a generic 'workflow execution already completed' exception instead of a cancellation-specific error, making it unclear that the update was canceled due to workflow cancellation.",
+  "category": "feature",
+  "subcategory": "update-handlers",
+  "apis": [
+    "execute_update"
+  ],
+  "components": [
+    "update-handler",
+    "workflow-cancellation",
+    "signal-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "handler-execution",
+    "exception-handling",
+    "workflow-lifecycle",
+    "client-notification"
+  ],
+  "severity": "medium",
+  "userImpact": "Clients cannot distinguish between update failures due to workflow completion versus workflow cancellation, making it harder to implement proper error handling and retry logic.",
+  "rootCause": "Workflow cancellation logic does not propagate cancellation signals to in-progress handler executions, allowing handlers to continue or fail with generic completion errors.",
+  "proposedFix": "Update handler executions should be canceled when the workflow is canceled, with clients receiving a cancellation-specific exception. For signal handlers, use an SDK workflow logic flag to maintain backwards compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation added cancellation handling for update handlers with cancellation-specific exceptions, and a workflow logic flag for signal handler cancellation compatibility.",
+  "related": [],
+  "keyQuote": "the client waiting on the update gets an exception, but the exception is `workflow execution already completed`. This ticket calls for that exception to inform the client that the update was canceled due to cancellation of the workflow.",
+  "number": 575,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-11T21:13:24.076Z"
+}

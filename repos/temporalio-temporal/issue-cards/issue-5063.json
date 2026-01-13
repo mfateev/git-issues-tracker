@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow task timeouts specified in WorkflowTaskStartedToCloseTimeout are not always respected, particularly when tasks are processed on sticky queues. A task with a 1-second timeout may not timeout for 10 seconds, and the issue appears to be related to outstanding workflow updates.",
+  "category": "bug",
+  "subcategory": "workflow-task-timeout",
+  "apis": [],
+  "components": [
+    "workflow-task-processor",
+    "sticky-queue",
+    "timeout-handler"
+  ],
+  "concepts": [
+    "timeout",
+    "sticky-queue",
+    "workflow-task",
+    "task-timeout",
+    "timing",
+    "update-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow tasks may not timeout as configured, causing unexpected delays and incorrect workflow behavior when using sticky queues.",
+  "rootCause": "Sticky queue processing may not properly enforce task timeouts, particularly when outstanding workflow updates are present.",
+  "proposedFix": null,
+  "workaround": "Explicitly reset the sticky task queue to force task processing without waiting for the timeout.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    624
+  ],
+  "keyQuote": "Sometimes the timeout may not be respected. In particular, if the task is being processed on a sticky queue.",
+  "number": 5063,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:01:26.052Z"
+}

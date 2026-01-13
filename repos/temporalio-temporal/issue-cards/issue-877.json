@@ -1,0 +1,30 @@
+{
+  "summary": "The Temporal Docker image's start.sh script hardcodes the database hostname to 'postgresql', preventing users from using custom database service names like 'temporal-db'. This causes initialization failures when the actual service name differs from the expected one.",
+  "category": "bug",
+  "subcategory": "docker-setup",
+  "apis": [],
+  "components": [
+    "docker",
+    "start.sh",
+    "auto-setup"
+  ],
+  "concepts": [
+    "configuration",
+    "database-connection",
+    "docker-compose",
+    "service-discovery",
+    "hardcoded-values"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use custom database service names in Docker Compose setups, forcing them to name their database service 'postgresql' or face connection failures during initialization.",
+  "rootCause": "The start.sh script checks for hardcoded database hostname 'postgresql' rather than checking for environment variables like POSTGRES_SEEDS being non-empty or a DB_TYPE parameter.",
+  "proposedFix": "Check for POSTGRES_SEEDS being non-empty or add an additional DB_TYPE argument (e.g., DB_TYPE=postgresql) to determine which seed scripts to use, rather than relying on the database service hostname.",
+  "workaround": "Set POSTGRES_SEEDS environment variable and ensure database service is named 'postgresql' in Docker Compose, or build from master branch with the fix.",
+  "resolution": "fixed",
+  "resolutionDetails": "Resolved in version 1.2.1 release - the startup script was updated to properly detect PostgreSQL configuration via environment variables rather than hardcoded hostname.",
+  "related": [],
+  "keyQuote": "temporal should not hardcode database hostnames since most people will want to dedicate a custom name to the database, such as `temporal-db`.",
+  "number": 877,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T00:13:53.526Z"
+}

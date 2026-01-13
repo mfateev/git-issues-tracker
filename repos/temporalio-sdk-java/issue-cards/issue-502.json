@@ -1,0 +1,32 @@
+{
+  "summary": "Request to make OpenTracing span naming and tagging pluggable to support different APM systems like DataDog that expect different span naming conventions (e.g., generic span names with metadata in tags rather than concatenated names).",
+  "category": "feature",
+  "subcategory": "opentracing-observability",
+  "apis": [],
+  "components": [
+    "opentracing",
+    "tracing-options",
+    "span-naming"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "apm-integration",
+    "span-naming",
+    "tagging-strategy",
+    "datadog",
+    "pluggable-strategy"
+  ],
+  "severity": "medium",
+  "userImpact": "Users integrating with APM systems like DataDog cannot use OpenTracing with Temporal because span naming conventions don't match system expectations.",
+  "rootCause": "OpenTracing implementation uses hardcoded span naming strategy (RunWorkflow_<Name>, RunActivity_<Name>) that doesn't align with all APM providers' expectations.",
+  "proposedFix": "Create an OperationNameAndTagsProvider interface to allow custom span naming and tagging strategies, with multiple standard implementations (including current default and DataDog-compatible variant).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented with pluggable strategy interface following the JaxRS/Jersey pattern referenced in discussion.",
+  "related": [],
+  "keyQuote": "It would be great if the OpenTracingOptions provided the ability to completely override the strategy for naming/tagging spans.",
+  "number": 502,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:23:00.320Z"
+}

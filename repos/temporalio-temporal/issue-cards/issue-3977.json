@@ -1,0 +1,32 @@
+{
+  "summary": "Parent workflows can get stuck when child workflows timeout or are terminated before the child started event is recorded in the parent's history. The parent fails to record the child completion event, preventing progress.",
+  "category": "bug",
+  "subcategory": "child-workflow-handling",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-engine",
+    "history-processing",
+    "child-workflow-executor"
+  ],
+  "concepts": [
+    "child-workflow",
+    "event-ordering",
+    "timeout",
+    "workflow-completion",
+    "history-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Parent workflows can become stuck and unable to progress when child workflows timeout or terminate before their started event is recorded.",
+  "rootCause": "The record child completed logic does not handle the case where the child workflow completion event arrives before the child started event has been recorded in the parent's history.",
+  "proposedFix": "Create the child started event on child completion when it hasn't been recorded yet.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Parent won't record the completion event and can get stuck if child timedout or get terminated before child started event is recorded in parent's history.",
+  "number": 3977,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:47:17.318Z"
+}

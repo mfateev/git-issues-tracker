@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to support flexible workflow and method naming across language SDKs to enable seamless migration. Currently, the TypeScript SDK requires workflows to be named from filenames and use an `execute` method, creating incompatibilities with PHP and Java implementations that use custom method names.",
+  "category": "feature",
+  "subcategory": "workflow-interface-naming",
+  "apis": [],
+  "components": [
+    "workflow-registration",
+    "workflow-interface",
+    "polyglot-interop"
+  ],
+  "concepts": [
+    "cross-language-compatibility",
+    "workflow-naming",
+    "method-naming",
+    "migration",
+    "decorator-pattern",
+    "language-constraints"
+  ],
+  "severity": "low",
+  "userImpact": "Users migrating workflows from other languages like PHP or Java to TypeScript must rename methods and potentially restructure their code to comply with SDK conventions.",
+  "rootCause": "TypeScript SDK uses fixed naming conventions (file-based registration, `execute` method) whereas other language SDKs (PHP, Java) allow custom method names via decorators/annotations.",
+  "proposedFix": "Support custom method names using TypeScript decorators, or document a cross-language compatibility matrix showing naming restrictions and calling patterns.",
+  "workaround": "Define workflow interfaces in other languages with custom method names and call them from Node via stub interfaces that use the `execute` convention.",
+  "resolution": "wontfix",
+  "resolutionDetails": "The SDK team decided to maintain the `execute` method convention for consistency and rejected decorators to preserve JavaScript compatibility. Documentation of cross-language patterns was recommended instead.",
+  "related": [
+    225,
+    232
+  ],
+  "keyQuote": "I think it would be a rude surprise for someone hoping to migrate to TypeScript to realize that they have to change a lot of legacy workflow interfaces.",
+  "number": 228,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T22:01:08.148Z"
+}

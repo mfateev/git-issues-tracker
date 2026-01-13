@@ -1,0 +1,29 @@
+{
+  "summary": "Update the SDK's command reordering logic to align with Core's new approach of moving the first workflow completion command last, while properly handling multiple completion commands and maintaining backward compatibility.",
+  "category": "feature",
+  "subcategory": "workflow-completion",
+  "apis": [],
+  "components": [
+    "command-reordering",
+    "workflow-executor",
+    "completion-handler"
+  ],
+  "concepts": [
+    "command-reordering",
+    "workflow-completion",
+    "backward-compatibility",
+    "command-sequencing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will benefit from more efficient and correct command ordering during workflow completion, matching Core's implementation.",
+  "rootCause": null,
+  "proposedFix": "Align SDK command reordering to move first completion command last instead of truncating after last completion, and properly handle multiple completion commands.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation updated to match Core's command reordering approach for workflow completion handling.",
+  "related": [],
+  "keyQuote": "Core now has command reordering to move first workflow completion last. We had a poor attempt at this before in two ways: first was only truncate after _last_ completion command (as opposed to new Core which is after _first_ completion command), and second didn't account for multiple completion commands.",
+  "number": 312,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-11T13:38:43.423Z"
+}

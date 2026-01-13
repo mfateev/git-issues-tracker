@@ -1,0 +1,31 @@
+{
+  "summary": "The isReplaying flag needs to be updated to reflect the current execution context in the main thread during workflow replay. This is a follow-up to PR #657 addressing how replay state is communicated.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [],
+  "components": [
+    "replay-engine",
+    "workflow-context",
+    "main-thread"
+  ],
+  "concepts": [
+    "replay-state",
+    "execution-context",
+    "thread-safety",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may receive incorrect isReplaying values during workflow execution, leading to unexpected behavior in replay detection logic.",
+  "rootCause": "The isReplaying flag is not properly synchronized with the main thread execution state during workflow replay.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved through updates to the replay mechanism to properly track isReplaying state in the main thread context.",
+  "related": [
+    657
+  ],
+  "keyQuote": "Update isReplaying in main thread",
+  "number": 667,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:36.500Z"
+}

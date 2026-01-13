@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add a user-friendly `getHistory()` method on workflow handles instead of requiring direct calls to `workflowService.getWorkflowExecutionHistory()` with verbose configuration. Should throw `WorkflowNotFoundError` instead of generic errors.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [
+    "getWorkflowExecutionHistory"
+  ],
+  "components": [
+    "workflow-handle",
+    "history-retrieval",
+    "error-handling"
+  ],
+  "concepts": [
+    "api-ergonomics",
+    "workflow-execution",
+    "error-messages",
+    "developer-experience"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must use verbose low-level API calls and handle unclear errors when retrieving workflow history, reducing ease of use.",
+  "rootCause": null,
+  "proposedFix": "Add a `getHistory()` method to workflow handles that wraps the lower-level API call with simpler syntax and better error handling.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Instead of ... and throwing errors like [...] const history = await workflowHandle.getHistory() and throwing `WorkflowNotFoundError`",
+  "number": 76,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:46:17.800Z"
+}

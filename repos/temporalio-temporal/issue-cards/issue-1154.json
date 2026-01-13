@@ -1,0 +1,31 @@
+{
+  "summary": "Refactor and unify error handling in the Cassandra persistence layer to improve code maintainability and consistency. The issue targets two specific sections of the cassandraPersistence.go file that have duplicated or inconsistent error handling patterns.",
+  "category": "feature",
+  "subcategory": "persistence-cassandra",
+  "apis": [],
+  "components": [
+    "cassandra-persistence",
+    "error-handling",
+    "database-layer"
+  ],
+  "concepts": [
+    "error-handling",
+    "code-refactoring",
+    "persistence-layer",
+    "cassandra",
+    "maintainability",
+    "consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Better error handling in the persistence layer improves system reliability and makes it easier for developers to maintain and extend the codebase.",
+  "rootCause": null,
+  "proposedFix": "Unify and refactor the error handling logic in the two referenced sections of cassandraPersistence.go (lines 1515-1598 and 973-1091).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Unify the error handling in Cassandra layer",
+  "number": 1154,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T01:07:11.513Z"
+}

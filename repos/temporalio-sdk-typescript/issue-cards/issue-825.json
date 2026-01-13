@@ -1,0 +1,30 @@
+{
+  "summary": "Users encountered TypeError when using console.warn() in workflows. Request to add missing console methods (warn, error, info, debug) to the workflow VM, which currently only supports console.log().",
+  "category": "feature",
+  "subcategory": "workflow-vm",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-vm",
+    "console"
+  ],
+  "concepts": [
+    "debugging",
+    "logging",
+    "workflow-isolation",
+    "developer-experience",
+    "console-api"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use standard console methods beyond console.log() within workflows, forcing workarounds or incomplete logging capabilities.",
+  "rootCause": "The workflow VM sandbox only exposes console.log() function, missing other standard console methods.",
+  "proposedFix": "Add console.warn(), console.error(), console.info(), and console.debug() functions to the workflow VM environment alongside the existing console.log().",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The missing console methods were added to the workflow VM.",
+  "related": [],
+  "keyQuote": "Add some common functions like `console.warn`, `.error`, `.info`, `.debug`.",
+  "number": 825,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:17:39.924Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Add support for musl-based test server binary in Java SDK releases. The test server should be distributed as an asset with a clear naming convention for use with temporal.download.",
+  "category": "feature",
+  "subcategory": "test-server",
+  "apis": [],
+  "components": [
+    "test-server",
+    "binary-distribution",
+    "temporal.download"
+  ],
+  "concepts": [
+    "musl-libc",
+    "test-infrastructure",
+    "build-compatibility",
+    "binary-distribution",
+    "platform-support",
+    "ci-testing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can run tests with musl-based test server binary, enabling testing in musl-based environments.",
+  "rootCause": null,
+  "proposedFix": "Distribute a musl-based test server binary as a named asset alongside Java SDK releases for use with temporal.download.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "musl-based test server binary was added to Java SDK release assets with appropriate naming for temporal.download compatibility.",
+  "related": [
+    594
+  ],
+  "keyQuote": "support a musl-based test server binary in the assets with an obvious name that can be used by `temporal.download`",
+  "number": 2402,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T20:07:31.342Z"
+}

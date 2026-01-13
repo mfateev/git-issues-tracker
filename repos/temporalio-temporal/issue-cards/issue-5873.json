@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to expose a boolean flag in WorkflowContext indicating whether the current workflow task is from a reset, enabling workflows to implement soft timeout behavior by failing and later resuming via reset.",
+  "category": "feature",
+  "subcategory": "workflow-context",
+  "apis": [
+    "WorkflowContext"
+  ],
+  "components": [
+    "workflow-engine",
+    "task-history",
+    "context-api"
+  ],
+  "concepts": [
+    "reset",
+    "soft-timeout",
+    "workflow-recovery",
+    "task-state",
+    "history-replay",
+    "resume"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need to know if a workflow task is executing after a reset to implement soft timeout patterns and conditional recovery logic.",
+  "rootCause": "WorkflowContext does not expose whether the current task is from a reset, even though the SDK internally uses this information to reseed the RNG.",
+  "proposedFix": "Add a boolean flag to WorkflowContext that is true only for the first workflow task after a reset (remains false on subsequent tasks).",
+  "workaround": "Create a timer and cancel the root workflow scope for a soft timeout as a temporary solution.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1412
+  ],
+  "keyQuote": "I need to implement a soft timeout for a workflow. It will fail the workflow on the timeout. But later on I will let a human to manually restart it by resetting the workflow back.",
+  "number": 5873,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:07:56.791Z"
+}

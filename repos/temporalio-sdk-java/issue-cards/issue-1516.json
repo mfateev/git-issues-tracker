@@ -1,0 +1,33 @@
+{
+  "summary": "Spring Boot dependency spring-boot-dependencies-2.7.5.pom contains 7 vulnerabilities in the transitive snakeyaml-1.30 dependency, with the highest severity at 9.8 (CVE-2022-1471 remote code execution). Issue was automatically closed when the vulnerable library was removed from the Mend inventory.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "dependency-management",
+    "snakeyaml",
+    "yaml-parsing"
+  ],
+  "concepts": [
+    "vulnerability",
+    "security",
+    "deserialization",
+    "remote-code-execution",
+    "transitive-dependency",
+    "supply-chain",
+    "yaml-parsing"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of the spring-boot-starter could be vulnerable to remote code execution if untrusted YAML content is deserialized, requiring immediate dependency upgrades.",
+  "rootCause": "SnakeYaml Constructor class does not restrict types during deserialization, allowing arbitrary object instantiation from malicious YAML input.",
+  "proposedFix": "Upgrade snakeyaml to version 1.31 or later, or use SnakeYaml's SafeConstructor when parsing untrusted content.",
+  "workaround": "Use SafeConstructor instead of Constructor for parsing untrusted YAML content.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was automatically closed by Mend when the vulnerable library was removed from the inventory, indicating the spring-boot-dependencies version was updated to exclude snakeyaml-1.30.",
+  "related": [],
+  "keyQuote": "Deserializing yaml content provided by an attacker can lead to remote code execution. We recommend using SnakeYaml's SafeConsturctor when parsing untrusted content.",
+  "number": 1516,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:38:10.043Z"
+}

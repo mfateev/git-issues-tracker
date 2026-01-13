@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for WorkflowIdConflictPolicy in TypeScript SDK to handle workflow ID conflicts consistently with other Temporal SDKs. This feature request includes implementation of the policy for the SignalWithStart API as well.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "StartWorkflow",
+    "SignalWithStart"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-options",
+    "api-bindings"
+  ],
+  "concepts": [
+    "workflow-id-conflict",
+    "policy-handling",
+    "cross-sdk-parity",
+    "error-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "TypeScript SDK users cannot handle workflow ID conflicts with a configurable policy, while other SDKs support this feature.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged via PR #1490, addressing the gap between TypeScript SDK and other SDK implementations.",
+  "related": [
+    437,
+    1490
+  ],
+  "keyQuote": "TS sdk is the only one missing this feature",
+  "number": 1392,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-12T05:43:48.521Z"
+}

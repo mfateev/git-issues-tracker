@@ -1,0 +1,32 @@
+{
+  "summary": "Users need the ability to validate and authenticate encrypted payloads sent to the server. Currently, the server accepts all payloads without verification, but many users want to restrict payloads to only those they've created and signed.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [],
+  "components": [
+    "server",
+    "payload-handler",
+    "interceptor",
+    "namespace-configuration"
+  ],
+  "concepts": [
+    "encryption",
+    "payload-validation",
+    "authentication",
+    "digital-signatures",
+    "public-key-infrastructure",
+    "security"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently validate that payloads were created by trusted sources, creating a security gap for applications requiring payload authenticity verification.",
+  "rootCause": null,
+  "proposedFix": "Implement server/namespace-level public key management (RSA or ECDSA) with CRUD API. Use VisitPayloads interceptor to validate that each non-search-attribute payload has keyId and signature metadata entries matching a configured public key.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Many users want to restrict payloads to only ones they create... use VisitPayloads via interceptor to ensure that every non-search-attribute payload has a keyId payload metadata entry",
+  "number": 6259,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T03:10:34.274Z"
+}

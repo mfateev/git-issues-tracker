@@ -1,0 +1,35 @@
+{
+  "summary": "ActivityCompletionClient's completeExceptionally method throws an IllegalStateException when used with ApplicationFailure exceptions because the converter is not set, preventing proper exception serialization.",
+  "category": "bug",
+  "subcategory": "activity-completion",
+  "apis": [
+    "ActivityCompletionClient",
+    "ApplicationFailure"
+  ],
+  "components": [
+    "activity-completion-client",
+    "failure-converter",
+    "manual-activity-completion"
+  ],
+  "concepts": [
+    "exception-handling",
+    "async-completion",
+    "failure-serialization",
+    "converter",
+    "non-retryable-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use ActivityCompletionClient.completeExceptionally() with ApplicationFailure without encountering errors and error logs.",
+  "rootCause": "The FailureConverter attempts to convert exceptions to Failure objects but the payload converter is not initialized when called from ManualActivityCompletionClientImpl.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed by PR #307 according to comment from vitarb",
+  "related": [
+    307
+  ],
+  "keyQuote": "converter not set at io.temporal.common.converter.EncodedValues.toPayloads(EncodedValues.java:48)",
+  "number": 308,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T18:05:58.390Z"
+}

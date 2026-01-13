@@ -1,0 +1,34 @@
+{
+  "summary": "When cancelling a workflow coroutine that contains an `awaitWithTimeout()` call, execution incorrectly continues to subsequent async tasks after the timeout is cancelled, instead of respecting the cancellation and stopping.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "Workflow.async",
+    "Workflow.awaitWithTimeout",
+    "Workflow.await"
+  ],
+  "components": [
+    "workflow-executor",
+    "promise-cancellation",
+    "coroutine-context"
+  ],
+  "concepts": [
+    "cancellation",
+    "timeout",
+    "coroutine",
+    "context-restoration",
+    "task-flow"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot reliably cancel workflow coroutines containing timeout operations, as code continues executing after the timeout is cancelled.",
+  "rootCause": "When restoring context after a cancelled timer, the code does not check whether the coroutine itself was cancelled before returning to it, allowing subsequent async tasks to execute.",
+  "proposedFix": "Before entering a coroutine after cancelling a timer, check whether the coroutine is cancelled and skip execution if it is.",
+  "workaround": "Replace `awaitWithTimeout()` with `await()` to avoid the issue, though this removes timeout functionality.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Before entering the coroutine we should check whether it is cancelled or not.",
+  "number": 192,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:23:10.081Z"
+}

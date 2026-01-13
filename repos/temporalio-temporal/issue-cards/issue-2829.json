@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflows started with abandon close policy are not started after parent workflow closes if the child start event hasn't been recorded yet. Users must explicitly wait for the start event before completing the parent to work around this limitation.",
+  "category": "bug",
+  "subcategory": "child-workflow-lifecycle",
+  "apis": [
+    "StartChildWorkflow",
+    "SignalExternalWorkflow"
+  ],
+  "components": [
+    "history-service",
+    "transfer-queue-executor",
+    "workflow-close-policy"
+  ],
+  "concepts": [
+    "child-workflow",
+    "abandon-policy",
+    "workflow-closure",
+    "event-recording",
+    "async-start"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably start child workflows with abandon policy after parent closure, forcing workarounds to wait for start events.",
+  "rootCause": "Child start is skipped when parent workflow is closed if the child started event has not been recorded, regardless of abandon close policy setting.",
+  "proposedFix": "Modify transferQueueActiveTaskExecutor and transferQueueStandbyTaskExecutor to allow child start even after parent closure when abandon policy is set.",
+  "workaround": "Explicitly wait for the child workflow started event before completing the parent workflow.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "if child is not started yet (meaning child started event not recorded), child start will be skipped even if the parent close policy is abandon",
+  "number": 2829,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:33:15.068Z"
+}

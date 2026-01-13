@@ -1,0 +1,31 @@
+{
+  "summary": "User encountered a WorkflowNotFoundError when attempting to create a new workflow with the same workflowId as a completed one, even after specifying ALLOW_DUPLICATE policy. The error was ultimately traced to signal() calls rather than workflow creation.",
+  "category": "bug",
+  "subcategory": "workflow-id-reuse",
+  "apis": [
+    "WorkflowClient.start",
+    "handle.signal"
+  ],
+  "components": [
+    "workflow-client",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "workflow-id-reuse-policy",
+    "duplicate-workflow",
+    "error-handling",
+    "workflow-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are unable to reuse workflow IDs for new executions and receive confusing error messages that don't point to the actual root cause.",
+  "rootCause": "The error was not from starting a new workflow with a duplicate ID, but from calling signal() on a completed workflow execution. The error message was misleading about the actual source.",
+  "proposedFix": null,
+  "workaround": "Verify that signal() is not being called on completed workflows; the ALLOW_DUPLICATE policy works correctly for starting new workflows.",
+  "resolution": "invalid",
+  "resolutionDetails": "Issue was not a bug in the SDK but user error - the error originated from calling signal() on a completed workflow, not from workflow creation with duplicate IDs.",
+  "related": [],
+  "keyQuote": "From `at Object.signal` in the trace, it looks like the error is actually coming from calling `handle.signal()`?",
+  "number": 661,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-11T23:06:19.210Z"
+}

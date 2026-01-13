@@ -1,0 +1,33 @@
+{
+  "summary": "TestWorkflowEnvironment does not properly terminate child workflows when parent completes with ParentClosePolicy set to TERMINATE. Child workflows are allowed to complete instead of being terminated.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "ChildWorkflowOptions",
+    "setParentClosePolicy"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "child-workflow-execution",
+    "parent-close-policy"
+  ],
+  "concepts": [
+    "workflow-termination",
+    "parent-child-relationship",
+    "async-child-workflow",
+    "lifecycle-management",
+    "test-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Tests using async child workflows with TERMINATE parent close policy produce incorrect results, allowing terminated workflows to complete instead.",
+  "rootCause": "TestWorkflowEnvironment does not properly handle the TERMINATE parent close policy when parent workflow completes, failing to terminate child workflows as expected.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "when the parent completes, the child workflow is not terminated, but still is allowed to complete.",
+  "number": 1079,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-01-11T19:04:21.026Z"
+}

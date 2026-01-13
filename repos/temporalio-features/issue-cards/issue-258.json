@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to expose TemporalScheduledStartTime search attribute as a typed datetime in workflow info instead of requiring users to work with string names.",
+  "category": "feature",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "search-attributes",
+    "sdk-api"
+  ],
+  "concepts": [
+    "search-attributes",
+    "typed-access",
+    "datetime",
+    "workflow-metadata"
+  ],
+  "severity": "low",
+  "userImpact": "Users must currently work with string-based search attribute names instead of having language-friendly typed access to TemporalScheduledStartTime.",
+  "rootCause": null,
+  "proposedFix": "Expose TemporalScheduledStartTime as a typed datetime field in the workflow info API across SDKs.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of issue #243, which addresses the same requirement.",
+  "related": [
+    243
+  ],
+  "keyQuote": "This info is already available as a search attribute, need language-friendly exposure of it instead of requiring they use string names.",
+  "number": 258,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-11T04:56:04.433Z"
+}

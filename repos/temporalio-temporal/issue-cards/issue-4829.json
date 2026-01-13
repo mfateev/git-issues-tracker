@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add the ability to specify a task queue when calling the reset API. Currently, the reset functionality does not allow users to override or specify which task queue the reset should be applied to.",
+  "category": "feature",
+  "subcategory": "reset-api",
+  "apis": [
+    "Reset"
+  ],
+  "components": [
+    "reset-api",
+    "task-queue",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "reset",
+    "task-queue",
+    "execution",
+    "api-flexibility",
+    "workflow-management"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot specify a task queue when resetting an execution, limiting flexibility in reset operations and potentially requiring workarounds.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Request is for adding ability to specify task queue for reset api",
+  "number": 4829,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:58:05.464Z"
+}

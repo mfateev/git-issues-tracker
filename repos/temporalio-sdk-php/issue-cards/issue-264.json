@@ -1,0 +1,32 @@
+{
+  "summary": "Class Generator is marked as internal and final, preventing instantiation in nested child workflow scenarios. The issue occurs when deserializing workflow results that contain Generator instances returned from deeply nested child workflows.",
+  "category": "bug",
+  "subcategory": "data-conversion",
+  "apis": [
+    "newChildWorkflowStub"
+  ],
+  "components": [
+    "data-converter",
+    "json-converter",
+    "reflection"
+  ],
+  "concepts": [
+    "serialization",
+    "deserialization",
+    "generator",
+    "child-workflow",
+    "nested-workflow"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use nested child workflows (parent -> child -> grandchild) when the deepest workflow returns a Generator, causing DataConverterException at runtime.",
+  "rootCause": "JsonConverter attempts to instantiate Generator class via Reflection without invoking constructor, but Generator is a final internal PHP class that cannot be instantiated this way.",
+  "proposedFix": "Explicitly set return type as Iterable instead of relying on Generator inference during deserialization.",
+  "workaround": "Explicitly declare return type as Iterable on workflow methods to avoid Generator type inference issues.",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was resolved by explicitly setting return type as Iterable instead of allowing Generator type to be inferred during serialization/deserialization.",
+  "related": [],
+  "keyQuote": "Yes, error has if return class Generator in SubChild fixed set return type Iterable",
+  "number": 264,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-01-11T20:25:24.225Z"
+}

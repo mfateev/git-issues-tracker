@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to persist and modify worker activity rate limits across restarts and migrations. Currently WorkerActivitiesPerSecond resets when a worker restarts or moves, causing rate limiting strategy problems especially when observing third-party downstream rate limits.",
+  "category": "feature",
+  "subcategory": "rate-limiting",
+  "apis": [
+    "WorkerActivitiesPerSecond"
+  ],
+  "components": [
+    "worker",
+    "rate-limiter",
+    "activity-executor"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "worker-persistence",
+    "state-management",
+    "downstream-limits",
+    "worker-restart",
+    "configuration-modification"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot maintain consistent rate limits across worker restarts or migrations, forcing them to implement workarounds like external rate limiting systems.",
+  "rootCause": "Rate limit state is not persisted and is tied to worker instance lifecycle rather than worker identity, causing loss of settings on restart or migration.",
+  "proposedFix": "Tie rate limit state to worker ID for persistence across restarts/migrations and provide ability to modify WorkerActivitiesPerSecond after worker creation without requiring restart.",
+  "workaround": "Use external rate limiting systems like Gubernator with additional activities to check and register hits, or add sleep delays in worker's main method during token replenishment period.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue author concluded the concerns were not significant after reviewing rate limiter implementation, noting burst value of one means minimal overage on restart and impact depends on restart frequency relative to token replenishment.",
+  "related": [],
+  "keyQuote": "Allow the WorkerActivitiesPerSecond limit to stick around when a worker restarts or moves to a new machine and make it possible to change the limit after the worker is created.",
+  "number": 4361,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-13T02:53:27.536Z"
+}
