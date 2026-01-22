@@ -6,20 +6,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Local GitHub issue tracking system for Temporal repositories. Mirrors issues for offline analysis using GitHub CLI (`gh`) and Node.js scripts.
 
-## Currently Tracked (5,770 issues)
+## Currently Tracked Repositories
 
-| Repository | Directory | Open | Closed | Total |
-|------------|-----------|------|--------|-------|
-| temporalio/temporal | temporalio-temporal | 533 | 951 | 1484 |
-| temporalio/sdk-java | temporalio-sdk-java | 216 | 724 | 940 |
-| temporalio/sdk-go | temporalio-sdk-go | 163 | 661 | 824 |
-| temporalio/sdk-typescript | temporalio-sdk-typescript | 144 | 653 | 797 |
-| temporalio/sdk-python | temporalio-sdk-python | 114 | 475 | 589 |
-| temporalio/features | temporalio-features | 244 | 138 | 382 |
-| temporalio/sdk-dotnet | temporalio-sdk-dotnet | 49 | 240 | 289 |
-| temporalio/sdk-php | temporalio-sdk-php | 49 | 211 | 260 |
-| temporalio/sdk-ruby | temporalio-sdk-ruby | 22 | 158 | 180 |
-| temporalio/api | temporalio-api | 13 | 12 | 25 |
+| Repository | Directory |
+|------------|-----------|
+| temporalio/temporal | temporalio-temporal |
+| temporalio/sdk-java | temporalio-sdk-java |
+| temporalio/sdk-go | temporalio-sdk-go |
+| temporalio/sdk-typescript | temporalio-sdk-typescript |
+| temporalio/sdk-python | temporalio-sdk-python |
+| temporalio/features | temporalio-features |
+| temporalio/sdk-dotnet | temporalio-sdk-dotnet |
+| temporalio/sdk-php | temporalio-sdk-php |
+| temporalio/sdk-ruby | temporalio-sdk-ruby |
+| temporalio/api | temporalio-api |
+
+Run `node scripts/build-index.js --list` for current issue counts.
 
 ## Common Commands
 

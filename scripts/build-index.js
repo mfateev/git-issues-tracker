@@ -106,6 +106,19 @@ function buildIndex(repoDir) {
 
     fs.writeFileSync(indexFile, JSON.stringify(index, null, 2));
 
+    // Update sync-metadata.json with accurate counts
+    const metadataFile = path.join(repoDir, 'sync-metadata.json');
+    if (fs.existsSync(metadataFile)) {
+        const metadata = JSON.parse(fs.readFileSync(metadataFile));
+        metadata.issue_count = index.total_count;
+        metadata.counts = {
+            open: states['OPEN'] || 0,
+            closed: states['CLOSED'] || 0,
+            total: index.total_count
+        };
+        fs.writeFileSync(metadataFile, JSON.stringify(metadata, null, 2));
+    }
+
     return index;
 }
 
