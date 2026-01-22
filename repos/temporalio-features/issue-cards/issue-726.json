@@ -1,0 +1,40 @@
+{
+  "summary": "Add comprehensive versioning support for OSS v1.30 GA release, including exposing RoutingConfigUpdateState, Upgrade-on-CaN option, Backlog Stats, TaskQueue information in DescribeVersion/DescribeTaskQueue, and making Pinned Version optional for pinned workflow overrides.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "DescribeVersion",
+    "DescribeTaskQueue",
+    "StartWorkflow",
+    "UpdateWorkflow",
+    "ResetWorkflow"
+  ],
+  "components": [
+    "versioning-system",
+    "task-queue-management",
+    "deployment-info",
+    "api-definitions"
+  ],
+  "concepts": [
+    "versioning",
+    "upgrade-on-can",
+    "routing-config",
+    "task-queue-stats",
+    "pinned-override",
+    "backlog-stats"
+  ],
+  "severity": "high",
+  "userImpact": "Users need full versioning support including upgrade options and task queue statistics to fully adopt versioning for GA and manage workflow deployments effectively.",
+  "rootCause": null,
+  "proposedFix": "Expose RoutingConfigUpdateState in DeploymentInfo, add Upgrade-on-CaN option and ContinueAsNewSuggestedReasons, expose Backlog Stats in DescribeVersion, add TaskQueueStats/TaskQueueConfig to DescribeTaskQueue, and make Pinned Version optional for pinned workflow overrides.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2162
+  ],
+  "keyQuote": "Need to support versioning more fully to announce GA. Also need to expose upgrade-on-CaN option",
+  "number": 726,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-22T20:28:21.359Z"
+}

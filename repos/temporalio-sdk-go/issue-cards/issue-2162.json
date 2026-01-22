@@ -1,0 +1,35 @@
+{
+  "summary": "DescribeTaskQueueEnhanced should be deprecated as it uses deprecated gRPC fields. DescribeTaskQueue should be enhanced to accept struct-based input parameters (ReportStats and ReportConfig) and expose TaskQueueStats and TaskQueueConfig in responses.",
+  "category": "feature",
+  "subcategory": "task-queue-management",
+  "apis": [
+    "DescribeTaskQueue",
+    "DescribeTaskQueueEnhanced"
+  ],
+  "components": [
+    "task-queue",
+    "gRPC-bindings",
+    "api-design"
+  ],
+  "concepts": [
+    "versioning",
+    "deprecation",
+    "backlog-stats",
+    "priority-fairness",
+    "api-refactoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need a clean, non-deprecated API to describe task queues with optional stats and configuration details.",
+  "rootCause": "DescribeTaskQueueEnhanced relies on deprecated gRPC fields for v2 versioning; DescribeTaskQueue lacks flexible input parameters for optional fields",
+  "proposedFix": "Change DescribeTaskQueue to use struct-based input with ReportStats and ReportConfig flags; deprecate DescribeTaskQueueEnhanced; ensure VersioningInfo is exposed in response",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed after implementation of enhanced DescribeTaskQueue with proper input/output structure and deprecation of DescribeTaskQueueEnhanced",
+  "related": [
+    726
+  ],
+  "keyQuote": "DescribeTaskQueue does not currently follow the pattern of using a struct as the input, making it a bit complicated to change the input parameters.",
+  "number": 2162,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-22T20:29:06.282Z"
+}

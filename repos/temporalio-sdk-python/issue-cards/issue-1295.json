@@ -1,0 +1,35 @@
+{
+  "summary": "Worker intermittently stops polling after completing long-running synchronous activities, causing a 5-15 minute delay before auto-reconnection. The gRPC connection drops after activity completion even though the CompleteActivity RPC succeeds, suggesting a race condition in the SDK's handling of synchronous activity completion.",
+  "category": "bug",
+  "subcategory": "worker-polling",
+  "apis": [
+    "Worker",
+    "CompleteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "grpc-connection",
+    "polling-loop"
+  ],
+  "concepts": [
+    "race-condition",
+    "connection-management",
+    "activity-completion",
+    "thread-pool",
+    "polling",
+    "reconnection"
+  ],
+  "severity": "high",
+  "userImpact": "Activities complete successfully but workers stop polling for new tasks, causing processing delays of 5-15 minutes until automatic reconnection occurs.",
+  "rootCause": "Race condition in SDK's handling of synchronous activity completion after ThreadPoolExecutor returns result and CompleteActivity RPC succeeds, preventing polling from resuming properly.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Worker stops polling - no new poll requests after activity completes, CompleteActivity RPC succeeds, but queue closes exactly 5 min after activity completion",
+  "number": 1295,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:30:03.902Z"
+}

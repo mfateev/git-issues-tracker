@@ -1,6 +1,6 @@
 # Java SDK - Issue Statistics
 
-**Generated:** 2026-01-13
+**Generated:** 2026-01-22
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 217 |
-| Total Closed Issues | 724 |
+| Total Open Issues | 215 |
+| Total Closed Issues | 726 |
 | Total All Issues | 941 |
 | Bugs (open) | 33 |
 | Enhancements/Features (open) | 127 |
 | Security Issues (open) | 4 |
 | Total Upvotes (👍) on open | 104 |
-| Total Comments on open | 205 |
+| Total Comments on open | 207 |
 | Issues with Upvotes | 37 (17%) |
-| Issues with Comments | 87 (40%) |
-| Average Age (days) | 984 |
-| Stale Issues (>12 months) | 156 (72%) |
+| Issues with Comments | 88 (41%) |
+| Average Age (days) | 1002 |
+| Stale Issues (>12 months) | 156 (73%) |
 
 ---
 ## Resolution Metrics
@@ -36,7 +36,7 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 77% (724/941) |
+| Resolution Rate | 77% (726/941) |
 | Avg Time to Close (calendar) | 199 days |
 | Avg Time to Close (business) | 143 days |
 | Median Time to Close (calendar) | 27 days |
@@ -57,7 +57,7 @@
 | Won't Fix | 13 | 2% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 7 | 1% |
-| Other | 279 | 39% |
+| Other | 281 | 39% |
 
 ---
 ## Issue Velocity (Last 12 Months)
@@ -75,10 +75,10 @@
 | 2025-10 | 11 | 13 | -2 |
 | 2025-11 | 9 | 7 | +2 |
 | 2025-12 | 6 | 2 | +4 |
-| 2026-01 | 3 | 1 | +2 |
-| **Total** | **121** | **165** | **-44** |
+| 2026-01 | 3 | 3 | 0 |
+| **Total** | **121** | **167** | **-46** |
 
-📉 **Backlog Shrinking:** 44 more issues closed than opened in the last 12 months.
+📉 **Backlog Shrinking:** 46 more issues closed than opened in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,9 +87,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 60 |
+| Issues Opened | 57 |
 | Issues Closed | 50 |
-| Net Change | +10 |
+| Net Change | +7 |
 | Bugs Closed | 2 |
 | Enhancements Closed | 21 |
 
@@ -97,16 +97,16 @@
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 148 | 106 |
-| Median | 8 | 7 |
+| Average | 152 | 109 |
+| Median | 12 | 10 |
 | 90th Percentile | 482 | 344 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 66% |
-| Within 90 days | 74% |
+| Within 30 days | 64% |
+| Within 90 days | 72% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -123,10 +123,10 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 5 | 2% |
+| Last 30 days | 4 | 2% |
 | 1-3 months | 9 | 4% |
 | 3-6 months | 11 | 5% |
-| 6-12 months | 17 | 8% |
+| 6-12 months | 16 | 7% |
 | 1-2 years | 38 | 18% |
 | 2-3 years | 33 | 15% |
 | 3+ years | 104 | 48% |
@@ -202,7 +202,6 @@ Priority = Upvotes × 2 + Comments
 |------|-------|-----|-------|
 | 2026-01-09 | [#2758](https://github.com/temporalio/sdk-java/issues/2758) | 0 | Spring Metrics Configuration fails with Spring Boot 4 |
 | 2026-01-05 | [#2755](https://github.com/temporalio/sdk-java/issues/2755) | 0 | Support using Temporal failures in Nexus APIs |
-| 2026-01-04 | [#2754](https://github.com/temporalio/sdk-java/issues/2754) | 0 | Environment Configuration does not read the correct file pat... |
 | 2025-12-30 | [#2752](https://github.com/temporalio/sdk-java/issues/2752) | 0 | OpenTracingWorkflowClientCallsInterceptor - support for upda... |
 | 2025-12-28 | [#2750](https://github.com/temporalio/sdk-java/issues/2750) | 0 | Tests not passing: TestStatsReporter Flush not flushing |
 

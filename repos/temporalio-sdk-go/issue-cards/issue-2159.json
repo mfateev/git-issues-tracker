@@ -1,0 +1,35 @@
+{
+  "summary": "Users need visibility into the status of routing configuration propagation after calling SetCurrentVersion and SetRampingVersion. This allows them to wait before starting workflows or write reliable tests.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "SetCurrentVersion",
+    "SetRampingVersion"
+  ],
+  "components": [
+    "versioning",
+    "routing-config",
+    "version-info"
+  ],
+  "concepts": [
+    "propagation-status",
+    "visibility",
+    "workflow-startup",
+    "testing",
+    "configuration-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably determine when routing configuration changes are fully propagated, making it difficult to safely start workflows or write deterministic tests.",
+  "rootCause": "SetCurrentVersion and SetRampingVersion return success before routing config propagation is complete, leaving users without visibility into the actual propagation status.",
+  "proposedFix": "Expose RoutingConfigUpdateState in VersionInfo to provide visibility into the routing configuration propagation status.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "RoutingConfigUpdateState was exposed in VersionInfo as part of the GA versioning release.",
+  "related": [
+    726
+  ],
+  "keyQuote": "Users may want visibility into the status so they can wait before starting workflows, or write reliable tests",
+  "number": 2159,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-22T20:28:47.918Z"
+}

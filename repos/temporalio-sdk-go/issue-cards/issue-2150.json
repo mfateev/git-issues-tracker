@@ -1,0 +1,33 @@
+{
+  "summary": "Stop sending null search attribute values when starting workflows or using continue as new. Null values can be produced by upsert search attributes being stored in workflow info and then reused, creating unwanted null entries in new workflows.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "StartWorkflow",
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-start",
+    "search-attributes",
+    "workflow-info"
+  ],
+  "concepts": [
+    "null-values",
+    "search-attributes",
+    "backwards-incompatibility",
+    "workflow-execution",
+    "upsert"
+  ],
+  "severity": "low",
+  "userImpact": "Users will see fewer null search attribute entries in new workflows, which is a minor backwards-incompatible change in attribute visibility.",
+  "rootCause": "Upsert search attributes stores null values in workflow info which is then reused for continue as new operations",
+  "proposedFix": "Stop sending null search attribute values on workflow start and continue as new operations",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should stop sending null search attributes on start or continue as new",
+  "number": 2150,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-22T20:28:51.408Z"
+}

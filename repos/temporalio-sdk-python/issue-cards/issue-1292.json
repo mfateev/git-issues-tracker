@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to change temporalio.CancelledError to inherit from BaseException instead of Exception, to prevent accidental suppression of cancellation attempts by broad exception handlers. The issue highlights that Temporal cancellation errors can surface at arbitrary points in user code due to low-level C-extension API injection, making them easy to inadvertently catch with broad `except Exception` clauses.",
+  "category": "feature",
+  "subcategory": "exception-hierarchy",
+  "apis": [
+    "activity.defn",
+    "activity.is_cancelled",
+    "activity.wait_for_cancelled_sync"
+  ],
+  "components": [
+    "exceptions",
+    "activity-executor",
+    "thread-management"
+  ],
+  "concepts": [
+    "cancellation",
+    "exception-handling",
+    "thread-interruption",
+    "error-semantics",
+    "backward-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users migrating existing code to Temporal may inadvertently suppress cancellation attempts with broad exception handlers, causing workflows to continue running when they should be cancelled.",
+  "rootCause": "CancelledError inherits from Exception rather than BaseException, allowing it to be caught by broad exception handlers that don't intend to catch cancellation errors, similar to the issue Python's asyncio.CancelledError faced.",
+  "proposedFix": "Change CancelledError to inherit from BaseException instead of Exception, or allow customization of the exception type raised during thread cancellation via decorator and worker options.",
+  "workaround": "Disable thread-based cancellation injection with `@activity.defn(no_thread_cancel_exception=True)` and explicitly check cancellation status using `activity.is_cancelled()` or `activity.wait_for_cancelled_sync()`.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This creates a scenario where it's easy for error handling logic in random application code to unintentionally ignore Temporal Cancellation attempts",
+  "number": 1292,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:30:07.684Z"
+}

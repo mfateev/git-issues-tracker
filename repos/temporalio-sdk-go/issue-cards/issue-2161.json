@@ -1,0 +1,34 @@
+{
+  "summary": "Add backlog stats exposure in the DescribeVersion request and response to enable per-version backlog statistics queries via the API.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "DescribeVersion"
+  ],
+  "components": [
+    "versioning",
+    "api",
+    "task-queue"
+  ],
+  "concepts": [
+    "backlog",
+    "statistics",
+    "version",
+    "query",
+    "task-queue-stats"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can now query backlog statistics for specific SDK versions, enabling better monitoring and analysis of version-specific workload patterns.",
+  "rootCause": null,
+  "proposedFix": "Expose backlog stats in DescribeVersion request and response based on the provided branch implementation.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implementation completed via versioning-ga branch that adds backlog stats to DescribeVersion API.",
+  "related": [
+    726
+  ],
+  "keyQuote": "Need this to be able to query per-version backlog stats via the API",
+  "number": 2161,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-22T20:29:04.392Z"
+}

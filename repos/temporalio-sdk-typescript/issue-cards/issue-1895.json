@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to add workflow API for creating independent deterministic PRNG sequences to prevent NDEs when plugins and workflow code both use Math.random() or uuid4(), which can disrupt the global PRNG sequence during replay.",
+  "category": "feature",
+  "subcategory": "workflow-plugins",
+  "apis": [],
+  "components": [
+    "workflow-api",
+    "prng",
+    "plugin-system"
+  ],
+  "concepts": [
+    "deterministic-execution",
+    "replay-safety",
+    "random-number-generation",
+    "uuid-generation",
+    "plugin-isolation",
+    "non-deterministic-errors"
+  ],
+  "severity": "medium",
+  "userImpact": "Workflow plugins that use random number generation or UUID creation can cause non-deterministic errors during workflow replay if the global PRNG sequence is shared with workflow code.",
+  "rootCause": "Workflow plugins and workflow code share the same PRNG sequence, causing sequence misalignment during replay when plugins are added or removed.",
+  "proposedFix": "Add API to create distinct deterministic PRNG instances, generate UUIDs from those instances, and activate a PRNG instance as the global one within a given execution scope to isolate plugin PRNG usage.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the workflow code also use these methods, then the plugin and the workflow code both pull values out of the same PRNG sequence. That may result in NDEs if a workflow is replayed after adding/removing a Plugin.",
+  "number": 1895,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-22T20:30:39.598Z"
+}

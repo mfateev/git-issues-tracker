@@ -1,0 +1,34 @@
+{
+  "summary": "Expose the Upgrade-on-CaN option and ContinueAsNewSuggestedReasons API to enable trampolining and upgrade-on-CaN support in the Go SDK.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "ContinueAsNewSuggestedReasons"
+  ],
+  "components": [
+    "worker",
+    "workflow-execution",
+    "versioning"
+  ],
+  "concepts": [
+    "upgrade-on-can",
+    "trampolining",
+    "versioning",
+    "workflow-continuation",
+    "api-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot leverage upgrade-on-CaN patterns for safe workflow version migrations without access to the necessary API options.",
+  "rootCause": null,
+  "proposedFix": "Expose Upgrade-on-CaN option and ContinueAsNewSuggestedReasons in the Go SDK API surface",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented and merged via the versioning/upgrade-on-can branch",
+  "related": [
+    726
+  ],
+  "keyQuote": "This is needed for Trampolining / upgrade-on-CaN support",
+  "number": 2160,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-22T20:29:06.358Z"
+}

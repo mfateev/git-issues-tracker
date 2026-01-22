@@ -1,20 +1,246 @@
 {
-  "generatedAt": "2026-01-13T14:02:57.124Z",
+  "generatedAt": "2026-01-22T20:33:01.724Z",
   "repo": "temporalio-sdk-typescript",
-  "totalCount": 800,
-  "cardsCount": 800,
+  "totalCount": 806,
+  "cardsCount": 806,
   "issues": [
+    {
+      "number": 1908,
+      "title": "[Bug] Update documentation and examples on how to use typedSearchAttributes",
+      "state": "OPEN",
+      "author": "huksley",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-22T07:53:15Z",
+      "updatedAt": "2026-01-22T07:53:15Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1908",
+      "bodyLength": 463,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.13.2"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Documentation for typedSearchAttributes is incomplete and lacks concrete examples for migrating from the deprecated searchAttributes API in WorkflowOptions.",
+      "category": "docs",
+      "subcategory": "search-attributes",
+      "apis": [
+        "WorkflowOptions",
+        "typedSearchAttributes"
+      ],
+      "components": [
+        "documentation",
+        "examples",
+        "search-attributes"
+      ],
+      "concepts": [
+        "migration",
+        "deprecated-api",
+        "observability",
+        "workflow-options",
+        "type-safety"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1895,
+      "title": "[Feature Request] Add workflow API to create independent deterministic pseudo-number sequence",
+      "state": "OPEN",
+      "author": "mjameswh",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-15T23:29:22Z",
+      "updatedAt": "2026-01-15T23:29:22Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1895",
+      "bodyLength": 814,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to add workflow API for creating independent deterministic PRNG sequences to prevent NDEs when plugins and workflow code both use Math.random() or uuid4(), which can disrupt the global PRNG sequence during replay.",
+      "category": "feature",
+      "subcategory": "workflow-plugins",
+      "apis": [],
+      "components": [
+        "workflow-api",
+        "prng",
+        "plugin-system"
+      ],
+      "concepts": [
+        "deterministic-execution",
+        "replay-safety",
+        "random-number-generation",
+        "uuid-generation",
+        "plugin-isolation",
+        "non-deterministic-errors"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1889,
+      "title": "[Bug] AI-SDK - Missing descriptions of tools, fields and wrong input parameter definitions",
+      "state": "CLOSED",
+      "author": "maxi1555",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-15T14:17:38Z",
+      "updatedAt": "2026-01-22T17:54:56Z",
+      "closedAt": "2026-01-22T17:54:56Z",
+      "commentCount": 4,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1889",
+      "bodyLength": 29034,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "MCP tools passed to the AI-SDK are missing descriptions and have incorrect input parameter definitions. The tool descriptions are being dropped, and nested jsonSchema structures are causing parsing failures in the model.",
+      "category": "bug",
+      "subcategory": "ai-sdk-mcp-integration",
+      "apis": [
+        "TemporalMCPClient",
+        "AiSdkPlugin"
+      ],
+      "components": [
+        "ai-sdk-plugin",
+        "mcp-client",
+        "tool-serialization"
+      ],
+      "concepts": [
+        "tool-descriptions",
+        "schema-validation",
+        "mcp-integration",
+        "parameter-definition",
+        "model-compatibility"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1888,
+      "title": "[Feature Request] Expose activityType counts in WorkerInfo",
+      "state": "OPEN",
+      "author": "tsurdilo",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-14T23:15:32Z",
+      "updatedAt": "2026-01-14T23:16:44Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1888",
+      "bodyLength": 813,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Request to expose per-activity-type counts in WorkerInfo alongside existing aggregate metrics like numInFlightActivities. This would help developers debug worker task slot exhaustion by identifying which activity types are consuming resources.",
+      "category": "feature",
+      "subcategory": "worker-monitoring",
+      "apis": [
+        "WorkerInfo"
+      ],
+      "components": [
+        "worker",
+        "activity-executor",
+        "worker-info"
+      ],
+      "concepts": [
+        "task-slots",
+        "activity-types",
+        "in-flight-activities",
+        "debugging",
+        "resource-monitoring",
+        "worker-capacity"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1887,
+      "title": "Allow logging in queries and update validators",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [],
+      "createdAt": "2026-01-14T21:41:48Z",
+      "updatedAt": "2026-01-14T21:41:48Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1887",
+      "bodyLength": 402,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        718
+      ],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "Logging is currently suppressed during queries and update validators because `isReplaying()` returns true. This feature request seeks to allow logging in these live read operations, bringing TypeScript SDK in line with other SDKs.",
+      "category": "feature",
+      "subcategory": "logging",
+      "apis": [
+        "isReplaying"
+      ],
+      "components": [
+        "logger",
+        "query-handler",
+        "update-validator",
+        "replay-detection"
+      ],
+      "concepts": [
+        "logging",
+        "queries",
+        "update-validators",
+        "live-read-operations",
+        "replay-detection",
+        "debugging"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 1883,
       "title": "[Bug] operatorService not accessible on `ConnectionLike`",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "vaibhavscale",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-01-12T19:46:28Z",
-      "updatedAt": "2026-01-12T19:46:28Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-22T16:53:00Z",
+      "closedAt": "2026-01-22T16:53:00Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1883",
@@ -365,9 +591,9 @@
         "bug"
       ],
       "createdAt": "2025-12-10T09:32:18Z",
-      "updatedAt": "2026-01-09T17:39:17Z",
+      "updatedAt": "2026-01-19T17:40:24Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 2,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1860",
       "bodyLength": 1641,
@@ -414,9 +640,9 @@
         "bug"
       ],
       "createdAt": "2025-12-08T10:39:51Z",
-      "updatedAt": "2026-01-09T17:39:09Z",
+      "updatedAt": "2026-01-19T11:23:48Z",
       "closedAt": null,
-      "commentCount": 3,
+      "commentCount": 4,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1859",
       "bodyLength": 4660,
@@ -1268,14 +1494,14 @@
     {
       "number": 1779,
       "title": "[Bug] `@temporalio/interceptors-opentelemetry` OTEL bypasses a required SDK component",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "sdedovic",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-08-29T16:56:46Z",
-      "updatedAt": "2025-08-29T16:56:46Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-20T15:04:36Z",
+      "closedAt": "2026-01-20T15:04:36Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1779",
@@ -1859,15 +2085,15 @@
     {
       "number": 1749,
       "title": "[Bug] Workflow task not found after SDK upgrade",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "btravers",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-07-23T05:56:52Z",
-      "updatedAt": "2025-09-08T16:23:59Z",
-      "closedAt": null,
-      "commentCount": 4,
+      "updatedAt": "2026-01-20T22:05:40Z",
+      "closedAt": "2026-01-20T22:05:40Z",
+      "commentCount": 5,
       "upvotes": 4,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1749",
       "bodyLength": 308,
@@ -2032,6 +2258,43 @@
       "hasCard": true
     },
     {
+      "number": 1742,
+      "title": "Why do you use this",
+      "state": "CLOSED",
+      "author": "nichechristie",
+      "labels": [],
+      "createdAt": "2025-07-14T19:04:54Z",
+      "updatedAt": "2025-07-14T21:08:26Z",
+      "closedAt": "2025-07-14T21:08:26Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1742",
+      "bodyLength": 133,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "User asks why a specific implementation approach is used in worker-options.ts without providing context. The maintainer suggests reviewing the worker shutdown documentation.",
+      "category": "question",
+      "subcategory": "worker-shutdown",
+      "apis": [],
+      "components": [
+        "worker",
+        "worker-options"
+      ],
+      "concepts": [
+        "worker-shutdown",
+        "implementation-rationale",
+        "configuration"
+      ],
+      "severity": "low",
+      "resolution": "invalid",
+      "hasCard": true
+    },
+    {
       "number": 1740,
       "title": "[Bug] webpackConfigHook doesn't seem to suppress all webpack output",
       "state": "OPEN",
@@ -2130,14 +2393,14 @@
     {
       "number": 1738,
       "title": "[Bug] opentelemetry traceState is handled properly in  makeWorkflowExporter",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "safareli",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-07-04T16:13:50Z",
-      "updatedAt": "2025-10-09T17:23:22Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-20T18:00:32Z",
+      "closedAt": "2026-01-20T18:00:32Z",
       "commentCount": 4,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1738",
@@ -4250,14 +4513,14 @@
     {
       "number": 1647,
       "title": "[Feature Request] Add summary to Nexus operation",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-03-11T18:41:55Z",
-      "updatedAt": "2025-03-11T18:41:55Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-13T17:18:39Z",
+      "closedAt": "2026-01-13T17:18:39Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1647",
@@ -8747,14 +9010,14 @@
     {
       "number": 1412,
       "title": "[Feature Request] Client replacement in worker",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-05-03T20:15:30Z",
-      "updatedAt": "2024-05-03T20:20:39Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-21T16:37:44Z",
+      "closedAt": "2026-01-21T16:37:44Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1412",
@@ -10498,10 +10761,10 @@
         "enhancement"
       ],
       "createdAt": "2024-01-10T08:59:55Z",
-      "updatedAt": "2025-12-22T04:23:02Z",
+      "updatedAt": "2026-01-22T18:01:30Z",
       "closedAt": null,
-      "commentCount": 46,
-      "upvotes": 46,
+      "commentCount": 51,
+      "upvotes": 49,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1334",
       "bodyLength": 2310,
       "hasCodeBlocks": true,
@@ -13532,9 +13795,9 @@
         "enhancement"
       ],
       "createdAt": "2023-07-19T19:08:46Z",
-      "updatedAt": "2025-02-11T20:41:19Z",
+      "updatedAt": "2026-01-13T11:47:18Z",
       "closedAt": null,
-      "commentCount": 4,
+      "commentCount": 5,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1177",
       "bodyLength": 787,

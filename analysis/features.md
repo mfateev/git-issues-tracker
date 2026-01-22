@@ -1,7 +1,7 @@
 # Temporal Features - Cross-SDK Test Suite Analysis
 
-**Generated:** January 13, 2026
-**Total Open Issues:** 244
+**Generated:** January 22, 2026
+**Total Open Issues:** 250
 **Total Closed Issues:** 138
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
@@ -26,9 +26,9 @@ Issues here typically relate to:
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Cross-SDK Feature Requests | 224 | High - SDK parity |
+| Cross-SDK Feature Requests | 229 | High - SDK parity |
 | Feature Test Specs | 8 | Medium |
-| Bugs | 6 | High |
+| Bugs | 7 | High |
 | Security Vulnerabilities | 5 | High |
 | Documentation | 1 | Low |
 
@@ -36,10 +36,10 @@ Issues here typically relate to:
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes | 106 |
-| Total Comments | 397 |
-| Issues with Upvotes | 32 (13%) |
-| Issues with Comments | 129 (53%) |
+| Total Upvotes | 109 |
+| Total Comments | 401 |
+| Issues with Upvotes | 34 (14%) |
+| Issues with Comments | 130 (52%) |
 
 ### Resolution Metrics
 
@@ -47,7 +47,7 @@ Issues here typically relate to:
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 36% (138/382) |
+| Resolution Rate | 36% (138/388) |
 | Median Time to Close | 151 days calendar / 108 days business |
 | Average Time to Close | 274 days calendar / 196 days business |
 | 90th Percentile | 818 days |
@@ -72,9 +72,9 @@ The low resolution rate (36%) is expected for this repository - it primarily tra
 
 | Trend | Issues Opened | Issues Closed | Net Change |
 |-------|---------------|---------------|------------|
-| Last 12 months | 67 | 44 | +23 |
+| Last 12 months | 73 | 44 | +29 |
 
-**Backlog Growing:** The features backlog is expanding with 23 more issues opened than closed. This reflects the increasing demand for cross-SDK feature parity as Temporal's user base grows.
+**Backlog Growing:** The features backlog is expanding with 29 more issues opened than closed. This reflects the increasing demand for cross-SDK feature parity as Temporal's user base grows.
 
 ### Monthly Breakdown
 
@@ -91,7 +91,7 @@ The low resolution rate (36%) is expected for this repository - it primarily tra
 | 2025-10 | 10 | 6 | +4 |
 | 2025-11 | 5 | 2 | +3 |
 | 2025-12 | 4 | 1 | +3 |
-| 2026-01 | 0 | 3 | -3 |
+| 2026-01 | 6 | 3 | +3 |
 
 ---
 
@@ -101,21 +101,21 @@ The low resolution rate (36%) is expected for this repository - it primarily tra
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 2 | 1% |
-| 1-3 months | 8 | 3% |
-| 3-6 months | 15 | 6% |
+| Last 30 days | 6 | 2% |
+| 1-3 months | 9 | 4% |
+| 3-6 months | 14 | 6% |
 | 6-12 months | 35 | 14% |
-| 1-2 years | 52 | 21% |
+| 1-2 years | 54 | 22% |
 | 2-3 years | 45 | 18% |
-| 3+ years | 87 | 36% |
+| 3+ years | 87 | 35% |
 
-**Average Age:** 807 days (over 2 years)
+**Average Age:** 797 days (over 2 years)
 
 The high average age reflects that many feature requests require significant cross-SDK coordination and are tracked long-term rather than implemented quickly.
 
 ### Stale Issues
 
-**145 issues (59%)** have had no activity in over 12 months. This is a significant maintenance concern, though expected for a feature tracking repository.
+**150 issues (60%)** have had no activity in over 12 months. This is a significant maintenance concern, though expected for a feature tracking repository.
 
 Top stale issues by upvotes:
 
@@ -305,7 +305,7 @@ Features requested for implementation across all SDKs:
 
 ## Nexus Integration
 
-Nexus cross-namespace operations represent a significant area of ongoing development with 8 open issues:
+Nexus cross-namespace operations represent a significant area of ongoing development with multiple open issues:
 
 | Issue | Description | Priority |
 |-------|-------------|----------|
@@ -351,10 +351,11 @@ Nexus cross-namespace operations represent a significant area of ongoing develop
 
 ---
 
-## Bugs (6 Open Issues)
+## Bugs (7 Open Issues)
 
 | Issue | Severity | Area | Description |
 |-------|----------|------|-------------|
+| [#718](https://github.com/temporalio/features/issues/718) | Medium | Logging | Logs not emitted during workflow queries (2 upvotes) |
 | [#503](https://github.com/temporalio/features/issues/503) | High | Child Workflows | Cancel/Signal should propagate on ABANDON policy (3 upvotes) |
 | [#422](https://github.com/temporalio/features/issues/422) | Medium | Tracing | Incomplete span reporting - only RunActivity spans |
 | [#330](https://github.com/temporalio/features/issues/330) | Medium | Flaky Test | bugs/go/child_workflow_cancel_panic test is flaky |
@@ -404,6 +405,7 @@ These dependency security vulnerabilities flagged by Mend should be prioritized 
 | [#571](https://github.com/temporalio/features/issues/571) | Context | Concept of "workflow local" value |
 | [#705](https://github.com/temporalio/features/issues/705) | History | Warn if SDK detects large workflow history |
 | [#701](https://github.com/temporalio/features/issues/701) | Payload | Warn if SDK tries to send oversized payload |
+| [#723](https://github.com/temporalio/features/issues/723) | Payload | SDK should fail workflow task if payloads size is known to be too large |
 
 ---
 
@@ -421,6 +423,7 @@ Multiple issues request standardized metrics across SDKs:
 | [#702](https://github.com/temporalio/features/issues/702) | activity_fail_endtoend_latency metric |
 | [#607](https://github.com/temporalio/features/issues/607) | Standardize metrics across SDK languages |
 | [#666](https://github.com/temporalio/features/issues/666) | Add BadScheduleActivityAttributes to workflow_task_execution_failed |
+| [#670](https://github.com/temporalio/features/issues/670) | Reclassify benign application errors in OpenTelemetry |
 
 ---
 
@@ -431,6 +434,7 @@ Multiple issues request standardized metrics across SDKs:
 | [#715](https://github.com/temporalio/features/issues/715) | Metadata | Custom metadata support for workers in UI/CLI |
 | [#696](https://github.com/temporalio/features/issues/696) | Heartbeating | Worker heartbeating |
 | [#694](https://github.com/temporalio/features/issues/694) | Deployment | Override Worker Deployment Version for child workflows |
+| [#726](https://github.com/temporalio/features/issues/726) | Versioning | Versioning support for OSS v1.30 |
 | [#456](https://github.com/temporalio/features/issues/456) | Status | Expose worker status information (5 upvotes) |
 | [#443](https://github.com/temporalio/features/issues/443) | Poll limiting | Activity task poll limit control (17 comments) |
 | [#573](https://github.com/temporalio/features/issues/573) | Cache control | Fine control for workflow cache eviction |
@@ -447,7 +451,6 @@ Multiple issues request standardized metrics across SDKs:
 |-------|--------|-------|
 | [#691](https://github.com/temporalio/features/issues/691) | 2026-01-09 | Deployment feature tests failing in Go docker build |
 | [#687](https://github.com/temporalio/features/issues/687) | 2026-01-05 | Assume TLS enabled if API key provided in SDKs |
-| [#400](https://github.com/temporalio/features/issues/400) | 2026-01-02 | Workflow-init support |
 | [#695](https://github.com/temporalio/features/issues/695) | 2025-12-02 | Set GrpcMessageTooLarge as failure_reason for workflow task failed metric |
 | [#682](https://github.com/temporalio/features/issues/682) | 2025-11-21 | Remove fetchResult and fetchInfo from Nexus SDKs |
 | [#703](https://github.com/temporalio/features/issues/703) | 2025-11-20 | Support setting of Temporal Headers through CLI/GUI |
@@ -474,12 +477,12 @@ Multiple issues request standardized metrics across SDKs:
    - [#254](https://github.com/temporalio/features/issues/254) - json-path (7.5)
    - [#116](https://github.com/temporalio/features/issues/116) - uber-go/tally (7.5)
 
-2. **Triage stale high-value issues:** Review the 145 stale issues, prioritizing those with upvotes:
+2. **Triage stale high-value issues:** Review the 150 stale issues, prioritizing those with upvotes:
    - [#399](https://github.com/temporalio/features/issues/399) - Custom markers (15 upvotes, stale since 2024-07)
    - [#229](https://github.com/temporalio/features/issues/229) - Auto heartbeating (6 upvotes, stale since 2023-02)
    - [#98](https://github.com/temporalio/features/issues/98) - worker_task_slots_total (3 upvotes, stale since 2022-08)
 
-3. **Close or update very old issues:** 87 issues (36%) are over 3 years old. Many may be obsolete or already addressed.
+3. **Close or update very old issues:** 87 issues (35%) are over 3 years old. Many may be obsolete or already addressed.
 
 ### Medium-Term Recommendations
 
@@ -489,7 +492,7 @@ Multiple issues request standardized metrics across SDKs:
 
 3. **Complete serialization context across SDKs ([#434](https://github.com/temporalio/features/issues/434)):** 4 SDKs (Go, TypeScript, Ruby, PHP) still need implementation.
 
-4. **Complete Nexus integration:** 8 open Nexus-related issues need coordination across SDKs. Focus on:
+4. **Complete Nexus integration:** Multiple open Nexus-related issues need coordination across SDKs. Focus on:
    - Serialization context ([#678](https://github.com/temporalio/features/issues/678))
    - Testing environments ([#658](https://github.com/temporalio/features/issues/658))
    - Request deadline exposure ([#673](https://github.com/temporalio/features/issues/673))
@@ -512,8 +515,12 @@ Multiple issues request standardized metrics across SDKs:
 
 | Date | Issue | Title |
 |------|-------|-------|
-| 2025-12-22 | [#715](https://github.com/temporalio/features/issues/715) | Custom Metadata Support for Workers |
-| 2025-12-18 | [#712](https://github.com/temporalio/features/issues/712) | Use pnpm when building TS worker |
+| 2026-01-22 | [#727](https://github.com/temporalio/features/issues/727) | Support as-is for scheduled workflow ID |
+| 2026-01-21 | [#726](https://github.com/temporalio/features/issues/726) | Versioning Support for OSS v1.30 |
+| 2026-01-20 | [#723](https://github.com/temporalio/features/issues/723) | SDK should fail workflow task if payloads size is known to be too large |
+| 2026-01-16 | [#721](https://github.com/temporalio/features/issues/721) | Add workflowId to the http header for workflow request |
+| 2026-01-16 | [#720](https://github.com/temporalio/features/issues/720) | Update Priority in WorkflowInfo |
+| 2026-01-08 | [#718](https://github.com/temporalio/features/issues/718) | Logs not emitted during workflow queries |
 
 ---
 
@@ -521,9 +528,9 @@ Multiple issues request standardized metrics across SDKs:
 
 The Features repository serves a critical role in tracking cross-SDK feature parity. Key observations:
 
-1. **Backlog is growing** (+23 net issues in 12 months), reflecting increasing demand for SDK feature standardization.
+1. **Backlog is growing** (+29 net issues in 12 months), reflecting increasing demand for SDK feature standardization.
 
-2. **High staleness** (59% of issues >12 months old) is partially expected but warrants systematic review.
+2. **High staleness** (60% of issues >12 months old) is partially expected but warrants systematic review.
 
 3. **Top priorities by community demand:**
    - Custom markers for workflow history ([#399](https://github.com/temporalio/features/issues/399))
@@ -532,7 +539,7 @@ The Features repository serves a critical role in tracking cross-SDK feature par
 
 4. **Good progress** on serialization context ([#434](https://github.com/temporalio/features/issues/434)) with 3 SDKs complete (Java, Python, .NET), 4 pending.
 
-5. **Nexus integration** is an active area with 8 open issues requiring cross-SDK coordination.
+5. **Nexus integration** is an active area with multiple open issues requiring cross-SDK coordination.
 
 6. **Security vulnerabilities** need immediate attention - 5 issues all with severity >= 7.1.
 

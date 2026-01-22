@@ -1,7 +1,296 @@
 {
-  "generatedAt": "2026-01-13T00:09:25.459Z",
-  "totalCards": 589,
+  "generatedAt": "2026-01-22T20:30:08.622Z",
+  "totalCards": 598,
   "cards": [
+    {
+      "summary": "Worker intermittently stops polling after completing long-running synchronous activities, causing a 5-15 minute delay before auto-reconnection. The gRPC connection drops after activity completion even though the CompleteActivity RPC succeeds, suggesting a race condition in the SDK's handling of synchronous activity completion.",
+      "category": "bug",
+      "subcategory": "worker-polling",
+      "apis": [
+        "Worker",
+        "CompleteActivity"
+      ],
+      "components": [
+        "worker",
+        "activity-executor",
+        "grpc-connection",
+        "polling-loop"
+      ],
+      "concepts": [
+        "race-condition",
+        "connection-management",
+        "activity-completion",
+        "thread-pool",
+        "polling",
+        "reconnection"
+      ],
+      "severity": "high",
+      "userImpact": "Activities complete successfully but workers stop polling for new tasks, causing processing delays of 5-15 minutes until automatic reconnection occurs.",
+      "rootCause": "Race condition in SDK's handling of synchronous activity completion after ThreadPoolExecutor returns result and CompleteActivity RPC succeeds, preventing polling from resuming properly.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Worker stops polling - no new poll requests after activity completes, CompleteActivity RPC succeeds, but queue closes exactly 5 min after activity completion",
+      "number": 1295,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:30:03.902Z"
+    },
+    {
+      "summary": "Update the `lru` Rust dependency in the Python SDK's bridge from 0.16.0 to 0.16.3 to patch a soundness vulnerability (GHSA-rhfx-m35p-ff5j) where IterMut iterator methods violate Rust's Stacked Borrows rules.",
+      "category": "bug",
+      "subcategory": "security",
+      "apis": [],
+      "components": [
+        "bridge",
+        "cargo-dependencies"
+      ],
+      "concepts": [
+        "security-vulnerability",
+        "soundness",
+        "dependency-management",
+        "rust-safety"
+      ],
+      "severity": "low",
+      "userImpact": "Users are exposed to a soundness vulnerability in the Rust bridge that could potentially cause undefined behavior in edge cases.",
+      "rootCause": "The `IterMut` iterator's `next` and `next_back` methods temporarily create an exclusive reference to the key when dereferencing the internal node pointer, violating Rust's Stacked Borrows rules.",
+      "proposedFix": "Update the `lru` dependency to version 0.16.3 or later in the Rust bridge's Cargo.lock.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Dependency updated via PR #1266",
+      "related": [
+        1266
+      ],
+      "keyQuote": "The `IterMut` iterator's `next` and `next_back` methods temporarily create an exclusive reference to the key when dereferencing the internal node pointer, violating Rust's Stacked Borrows rules.",
+      "number": 1294,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:30:08.517Z"
+    },
+    {
+      "summary": "Feature request to change temporalio.CancelledError to inherit from BaseException instead of Exception, to prevent accidental suppression of cancellation attempts by broad exception handlers. The issue highlights that Temporal cancellation errors can surface at arbitrary points in user code due to low-level C-extension API injection, making them easy to inadvertently catch with broad `except Exception` clauses.",
+      "category": "feature",
+      "subcategory": "exception-hierarchy",
+      "apis": [
+        "activity.defn",
+        "activity.is_cancelled",
+        "activity.wait_for_cancelled_sync"
+      ],
+      "components": [
+        "exceptions",
+        "activity-executor",
+        "thread-management"
+      ],
+      "concepts": [
+        "cancellation",
+        "exception-handling",
+        "thread-interruption",
+        "error-semantics",
+        "backward-compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Users migrating existing code to Temporal may inadvertently suppress cancellation attempts with broad exception handlers, causing workflows to continue running when they should be cancelled.",
+      "rootCause": "CancelledError inherits from Exception rather than BaseException, allowing it to be caught by broad exception handlers that don't intend to catch cancellation errors, similar to the issue Python's asyncio.CancelledError faced.",
+      "proposedFix": "Change CancelledError to inherit from BaseException instead of Exception, or allow customization of the exception type raised during thread cancellation via decorator and worker options.",
+      "workaround": "Disable thread-based cancellation injection with `@activity.defn(no_thread_cancel_exception=True)` and explicitly check cancellation status using `activity.is_cancelled()` or `activity.wait_for_cancelled_sync()`.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "This creates a scenario where it's easy for error handling logic in random application code to unintentionally ignore Temporal Cancellation attempts",
+      "number": 1292,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:30:07.684Z"
+    },
+    {
+      "summary": "Request to add SDK warning when workflow history exceeds a certain size threshold. This is a feature request to help developers detect potential performance issues early.",
+      "category": "feature",
+      "subcategory": "workflow-history",
+      "apis": [],
+      "components": [
+        "workflow-executor",
+        "history-management",
+        "logging"
+      ],
+      "concepts": [
+        "workflow-history",
+        "size-limit",
+        "performance-warning",
+        "developer-experience",
+        "debugging"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers will receive warnings when workflow history grows too large, helping them identify potential memory and performance issues earlier.",
+      "rootCause": null,
+      "proposedFix": "Implement SDK-level detection and warning when workflow history size exceeds a configurable threshold",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        705
+      ],
+      "keyQuote": "Warn if SDK detects a workflow history over a certain size",
+      "number": 1289,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:29:46.865Z"
+    },
+    {
+      "summary": "The workflow sandbox fails to restrict urllib3 version 1.26.19 when used with requests, allowing HTTP requests that should be blocked. Later versions like 2.6.2 correctly trigger sandbox restriction errors.",
+      "category": "bug",
+      "subcategory": "workflow-sandbox",
+      "apis": [],
+      "components": [
+        "workflow_sandbox",
+        "sandbox_restrictions"
+      ],
+      "concepts": [
+        "sandbox",
+        "import_restrictions",
+        "urllib3",
+        "http_requests",
+        "determinism"
+      ],
+      "severity": "high",
+      "userImpact": "Users can accidentally bypass workflow sandbox restrictions depending on their urllib3 version, allowing non-deterministic HTTP requests that could corrupt workflow state.",
+      "rootCause": "urllib3 1.26.19 defers the restricted http.client.IncompleteRead access to a later point in execution, allowing it to evade sandbox detection at import time unlike version 2.6.2.",
+      "proposedFix": null,
+      "workaround": "Mark requests as pass-through import if intentionally using it in workflows, or use urllib3 2.6.2+ which properly triggers sandbox errors.",
+      "resolution": "wontfix",
+      "resolutionDetails": "Maintainer confirmed sandbox is best-effort; users must explicitly mark imports as pass-through if they intend to use restricted libraries deterministically in workflows.",
+      "related": [],
+      "keyQuote": "The sandbox is best effort, we don't guarantee it will prevent every potential issue. Additionally, importing `requests` as pass through indicates that you are trying to use it in the workflow",
+      "number": 1287,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:29:51.317Z"
+    },
+    {
+      "summary": "SDK should fail workflow tasks when payload size exceeds known limits to prevent silent failures or partial execution.",
+      "category": "feature",
+      "subcategory": "workflow-execution",
+      "apis": [
+        "ExecuteWorkflow"
+      ],
+      "components": [
+        "workflow-executor",
+        "payload-validation",
+        "task-processor"
+      ],
+      "concepts": [
+        "payload-size",
+        "validation",
+        "error-handling",
+        "limits",
+        "workflow-task",
+        "failure-detection"
+      ],
+      "severity": "high",
+      "userImpact": "Workflows may silently fail or behave unexpectedly when payloads exceed size limits, requiring explicit validation logic.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": null,
+      "number": 1285,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:29:47.489Z"
+    },
+    {
+      "number": 1284,
+      "summary": "Add a warning when the Python SDK attempts to send a payload that exceeds a specific size threshold. This helps developers identify and address potential issues with oversized payloads before they cause problems.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [],
+      "components": [
+        "client",
+        "serialization",
+        "payload-handler"
+      ],
+      "concepts": [
+        "payload-size",
+        "validation",
+        "warning",
+        "limits",
+        "diagnostics"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers will receive warnings when attempting to send oversized payloads, helping them optimize their data transmission and avoid runtime issues.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        701
+      ],
+      "keyQuote": "Warn if the SDK tried to send a payload above a specific size",
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:29:30.615Z"
+    },
+    {
+      "summary": "Unable to cancel child workflows in tests due to an invalid state transition in the activity state machine. When cancelling one child workflow while others are executing activities, the SDK core logs a fatal warning about ActivityMachine transitioning from ScheduledActivityCancelCommandCreated state upon ActivityTaskStarted event, causing the cancellation to fail silently.",
+      "category": "bug",
+      "subcategory": "child-workflow-cancellation",
+      "apis": [
+        "execute_child_workflow",
+        "cancel"
+      ],
+      "components": [
+        "workflow-engine",
+        "activity-state-machine",
+        "child-workflow-handler"
+      ],
+      "concepts": [
+        "cancellation",
+        "state-machine",
+        "race-condition",
+        "activity-execution",
+        "workflow-coordination"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot reliably test child workflow cancellation scenarios as the cancellation operation fails silently with state machine warnings, making it impossible to verify correct behavior when cancelling individual child workflows.",
+      "rootCause": "Activity state machine receives ActivityTaskStarted event while in ScheduledActivityCancelCommandCreated state, which is an invalid transition. This appears to be a race condition where activity cancellation and activity start events occur in an unexpected order during concurrent child workflow execution.",
+      "proposedFix": null,
+      "workaround": "Ensure cancelled child workflows do not complete before cancellation is requested, or upgrade to SDK version 1.21.0+ where the issue has reduced occurrence rate. Remove early status checks that create race conditions in test code.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "ActivityMachine in state ScheduledActivityCancelCommandCreated says the transition is invalid during event EventInfo { event_id: 10, event_type: ActivityTaskStarted }",
+      "number": 1280,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:29:34.768Z"
+    },
+    {
+      "summary": "The Python SDK currently uses pydoctor for API documentation generation, but it has limitations in handling dataclasses and is unmaintained. The team should evaluate alternative API doc generators like pdoc or other ecosystem options to improve documentation quality.",
+      "category": "feature",
+      "subcategory": "documentation-tooling",
+      "apis": [],
+      "components": [
+        "documentation-generation",
+        "api-docs",
+        "build-system"
+      ],
+      "concepts": [
+        "documentation",
+        "api-reference",
+        "tooling",
+        "maintenance",
+        "dataclass-support",
+        "overload-handling"
+      ],
+      "severity": "medium",
+      "userImpact": "Users may encounter incomplete or inaccurate API documentation when reference docs are missing fields or misrepresent dataclass attributes.",
+      "rootCause": "pydoctor lacks proper understanding of Python dataclasses and is not actively maintained, leading to missing fields and incorrect rendering of class structures.",
+      "proposedFix": "Evaluate and migrate to alternative API documentation generators such as pdoc.dev or other actively maintained tools that better support modern Python patterns.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "It doesn't really get updated much and is a bit buggy...missing `default_versioning_behavior` that is in source with a default.",
+      "number": 1275,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-01-22T20:29:31.384Z"
+    },
     {
       "summary": "Worker pollers randomly drop to 0 despite available task slots and explicit poller configuration, causing workflow and activity task timeouts with no logged errors. This occurs across all poller behavior configurations and randomly affects workers 10-20 minutes after startup.",
       "category": "bug",

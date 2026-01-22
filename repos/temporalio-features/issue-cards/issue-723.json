@@ -1,0 +1,34 @@
+{
+  "summary": "SDKs should validate payload sizes before submission and fail workflow tasks gracefully when payloads exceed known limits, rather than submitting requests that will fail. This allows workflows to be updated and resumed without wasting network bandwidth.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [
+    "StartWorkflow",
+    "SignalWorkflow"
+  ],
+  "components": [
+    "sdk-client",
+    "workflow-task-handler",
+    "payload-validator"
+  ],
+  "concepts": [
+    "payload-size-limits",
+    "error-handling",
+    "workflow-recovery",
+    "network-optimization",
+    "data-compression",
+    "graceful-failure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can proactively handle oversized payloads by updating workflows to compress or externalize data, avoiding failed workflow runs and unnecessary network uploads.",
+  "rootCause": "SDKs currently do not validate payload sizes before submission, causing entire requests to fail when limits are exceeded rather than failing the task gracefully.",
+  "proposedFix": "SDKs should know the payload size limits and submit workflow task failures instead of completions with oversized payloads, allowing workflows to continue if updated.",
+  "workaround": "Users can manually compress data or move large payloads to external storage before submitting to Temporal.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If the SDK knows the error limits for payloads, it can submit a workflow task failure rather than submitting a completion that contains oversized payloads.",
+  "number": 723,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-22T20:28:18.942Z"
+}

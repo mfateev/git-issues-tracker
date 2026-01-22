@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add custom headers support to the \"Start Workflow\" form in the Temporal Web UI, enabling users to specify context propagation headers (like x-tenant-id) when manually starting workflows without needing CLI or custom scripts.",
+  "category": "feature",
+  "subcategory": "web-ui-workflow-management",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "web-ui",
+    "workflow-start-form",
+    "context-propagation"
+  ],
+  "concepts": [
+    "custom-headers",
+    "context-propagation",
+    "multi-tenant",
+    "workflow-execution",
+    "request-metadata",
+    "user-experience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must currently use CLI or custom scripts to start workflows with custom headers, limiting the Web UI's usefulness for testing and operational scenarios requiring header-based context.",
+  "rootCause": null,
+  "proposedFix": "Add a \"Headers\" section to the \"Start Workflow\" form accepting a JSON object with header names and string values, similar to existing Memo and Search Attributes sections.",
+  "workaround": "Use Temporal CLI with --header flag or create wrapper API endpoints to handle header-based context propagation.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Supporting custom headers in the Web UI would align the Web UI capabilities with what's possible via the SDK and make it a complete tool for workflow management.",
+  "number": 9012,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-22T20:30:54.227Z"
+}

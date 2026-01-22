@@ -1,6 +1,6 @@
 # Temporal API - Issues Analysis
 
-**Generated:** January 13, 2026
+**Generated:** January 22, 2026
 **Total Open Issues:** 13
 **Total Closed Issues:** 12
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
@@ -21,7 +21,7 @@ The API repository contains Temporal's Protobuf definitions used by all SDKs and
 
 ### Executive Summary
 
-The API repository has a small but aged backlog. With only 13 open issues, the raw count is manageable. However, **100% of issues are stale** (no activity for 12+ months), with an average age of **1079 days** (~3 years). This suggests deliberate API stability rather than neglect - changes here require coordination across all SDKs and the server, making them inherently slower to implement.
+The API repository has a small but aged backlog. With only 13 open issues, the raw count is manageable. However, **100% of issues are stale** (no activity for 12+ months), with an average age of **1,089 days** (~3 years). This suggests deliberate API stability rather than neglect - changes here require coordination across all SDKs and the server, making them inherently slower to implement.
 
 The repository maintains an excellent resolution rate when issues are addressed: **median time to close of 7 days** (the fastest across all tracked repositories), with 75% resolved within 30 days.
 

@@ -1,6 +1,6 @@
 # PHP SDK - Issue Statistics
 
-**Generated:** 2026-01-13
+**Generated:** 2026-01-22
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
 ## Related Documents
@@ -25,7 +25,7 @@
 | Total Comments on open | 69 |
 | Issues with Upvotes | 7 (14%) |
 | Issues with Comments | 23 (46%) |
-| Average Age (days) | 452 |
+| Average Age (days) | 462 |
 | Stale Issues (>12 months) | 18 (36%) |
 
 ---
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 16 |
-| Issues Closed | 23 |
-| Net Change | -7 |
-| Bugs Closed | 8 |
+| Issues Opened | 13 |
+| Issues Closed | 22 |
+| Net Change | -9 |
+| Bugs Closed | 7 |
 | Enhancements Closed | 9 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 287 | 205 |
-| Median | 185 | 133 |
+| Average | 298 | 213 |
+| Median | 189 | 136 |
 | 90th Percentile | 710 | 508 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 13% |
-| Within 90 days | 26% |
+| Within 30 days | 14% |
+| Within 90 days | 23% |
 
 
 ---
@@ -114,11 +114,11 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 4 | 8% |
-| 1-3 months | 1 | 2% |
-| 3-6 months | 6 | 12% |
-| 6-12 months | 17 | 34% |
-| 1-2 years | 14 | 28% |
+| Last 30 days | 3 | 6% |
+| 1-3 months | 2 | 4% |
+| 3-6 months | 4 | 8% |
+| 6-12 months | 18 | 36% |
+| 1-2 years | 15 | 30% |
 | 2-3 years | 4 | 8% |
 | 3+ years | 4 | 8% |
 
@@ -186,7 +186,6 @@ Priority = Upvotes × 2 + Comments
 | 2026-01-12 | [#698](https://github.com/temporalio/sdk-php/issues/698) | 0 | [Chore] Drop old packages support |
 | 2026-01-08 | [#692](https://github.com/temporalio/sdk-php/issues/692) | 0 | [Bug] Minimal Composer requirements conflicts with react/pro... |
 | 2026-01-07 | [#689](https://github.com/temporalio/sdk-php/issues/689) | 0 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
-| 2025-12-18 | [#670](https://github.com/temporalio/sdk-php/issues/670) | 0 | [Feature Request] Symfony 8.0 support |
 
 ---
 

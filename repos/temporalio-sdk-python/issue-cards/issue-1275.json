@@ -1,0 +1,31 @@
+{
+  "summary": "The Python SDK currently uses pydoctor for API documentation generation, but it has limitations in handling dataclasses and is unmaintained. The team should evaluate alternative API doc generators like pdoc or other ecosystem options to improve documentation quality.",
+  "category": "feature",
+  "subcategory": "documentation-tooling",
+  "apis": [],
+  "components": [
+    "documentation-generation",
+    "api-docs",
+    "build-system"
+  ],
+  "concepts": [
+    "documentation",
+    "api-reference",
+    "tooling",
+    "maintenance",
+    "dataclass-support",
+    "overload-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter incomplete or inaccurate API documentation when reference docs are missing fields or misrepresent dataclass attributes.",
+  "rootCause": "pydoctor lacks proper understanding of Python dataclasses and is not actively maintained, leading to missing fields and incorrect rendering of class structures.",
+  "proposedFix": "Evaluate and migrate to alternative API documentation generators such as pdoc.dev or other actively maintained tools that better support modern Python patterns.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It doesn't really get updated much and is a bit buggy...missing `default_versioning_behavior` that is in source with a default.",
+  "number": 1275,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:29:31.384Z"
+}

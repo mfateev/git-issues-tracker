@@ -1,7 +1,211 @@
 {
-  "generatedAt": "2026-01-13T03:30:20.177Z",
-  "totalCards": 1485,
+  "generatedAt": "2026-01-22T20:31:12.368Z",
+  "totalCards": 1491,
   "cards": [
+    {
+      "summary": "Feature request to separate read and write QPS limits for persistence operations. Currently, a single combined QPS limit causes issues where read-heavy operations like Schedule API queries and UI browsing fail due to persistence throttling, even though reads are less costly than writes.",
+      "category": "feature",
+      "subcategory": "persistence-qps",
+      "apis": [
+        "DescribeSchedule"
+      ],
+      "components": [
+        "persistence",
+        "history-service",
+        "namespace-quotas",
+        "schedule-api"
+      ],
+      "concepts": [
+        "qps-limit",
+        "throttling",
+        "read-write-separation",
+        "persistence-overhead",
+        "namespace-quotas",
+        "burst-traffic",
+        "database-load"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot access schedules via UI when persistence QPS limits are hit by read-heavy operations, limiting the usability of schedule management features.",
+      "rootCause": "A single DescribeSchedule request generates 5-20+ persistence read calls in burst (GetCurrentExecution, GetWorkflowExecution, ReadHistoryBranch, etc.), which are treated the same as write operations under a combined QPS limit, causing read-heavy workloads to exceed the limit.",
+      "proposedFix": "Introduce separate QPS configuration parameters: history.persistenceNamespaceReadMaxQPS and history.persistenceNamespaceWriteMaxQPS to allow independent rate limiting based on operation type.",
+      "workaround": "Increase the namespace QPS quota to accommodate read-heavy schedule operations.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "A single DescribeSchedule request can generate 5-20+ persistence calls (GetCurrentExecution, GetWorkflowExecution, ReadHistoryBranch, etc.) in a burst.",
+      "number": 9108,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-01-22T20:31:12.107Z"
+    },
+    {
+      "summary": "Remove obsolete version check and 9-second delay that was added in v1.27 release. The check was meant to be temporary during upgrade transitions but is no longer needed as multiple versions have been released since then.",
+      "category": "other",
+      "subcategory": "technical-debt",
+      "apis": [],
+      "components": [
+        "worker",
+        "deletenamespace",
+        "reclaimresources"
+      ],
+      "concepts": [
+        "version-check",
+        "technical-debt",
+        "cleanup",
+        "release-cycle",
+        "deprecated-code"
+      ],
+      "severity": "low",
+      "userImpact": "Reduces unnecessary complexity and conditional logic in the codebase without affecting user-facing functionality.",
+      "rootCause": "Temporary version check and delay were added during v1.27 release transition period and are now obsolete after subsequent releases.",
+      "proposedFix": "Remove the version check and 9-second delay constant from the workflow.go file.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        7385
+      ],
+      "keyQuote": "v1.27.0 was released 11 months ago... v1.28.0 was released in June... v1.29.0 was released in October",
+      "number": 9060,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-01-22T20:31:09.818Z"
+    },
+    {
+      "summary": "Comprehensive architectural guide documenting design patterns for building background code execution agents, including queue systems, job orchestration, state management, reliability patterns, security considerations, and implementation recommendations.",
+      "category": "docs",
+      "subcategory": "architecture-guide",
+      "apis": [],
+      "components": [
+        "queue-systems",
+        "job-orchestration",
+        "state-management",
+        "worker-pool"
+      ],
+      "concepts": [
+        "message-queues",
+        "workflow-orchestration",
+        "event-sourcing",
+        "distributed-systems",
+        "scalability",
+        "reliability",
+        "observability"
+      ],
+      "severity": "low",
+      "userImpact": "Provides architectural guidance for developers building robust background job execution systems with Temporal.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Choose patterns based on your specific requirements for consistency, availability, partition tolerance, and perf",
+      "number": 9057,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-01-22T20:31:07.557Z"
+    },
+    {
+      "summary": "When starting workflows, activities, Nexus operations, or creating schedules with null search attribute values, those attributes should be excluded from the started item rather than included. Currently this is mostly prevented by SDK implementations, but the server should handle it consistently.",
+      "category": "feature",
+      "subcategory": "search-attributes",
+      "apis": [
+        "StartWorkflow",
+        "StartActivity",
+        "NexusStart",
+        "CreateSchedule",
+        "ContinueAsNew"
+      ],
+      "components": [
+        "workflow-start",
+        "activity-start",
+        "nexus-operations",
+        "schedule-creation",
+        "search-attributes"
+      ],
+      "concepts": [
+        "search-attributes",
+        "null-handling",
+        "data-validation",
+        "workflow-initialization",
+        "consistency"
+      ],
+      "severity": "medium",
+      "userImpact": "Users may encounter inconsistent behavior when null search attributes are included in workflow/activity starts, potentially causing unexpected filtering or query results.",
+      "rootCause": "Server does not filter out null search attribute values during workflow/activity/Nexus/schedule initialization.",
+      "proposedFix": "Filter out search attributes with null values when processing workflow start, activity start, Nexus start, schedule create, or continue as new operations.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2150
+      ],
+      "keyQuote": "If a search attribute's value is null on workflow start, activity start, Nexus start, schedule create, or continue as new, it should not be included on the started item.",
+      "number": 9056,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-01-22T20:30:53.865Z"
+    },
+    {
+      "summary": "History scavenger is prematurely deleting workflow execution history for active workflows due to error handling in the namespace registry that incorrectly converts persistence errors to NamespaceNotFound, bypassing the mutable state check safeguard.",
+      "category": "bug",
+      "subcategory": "history-scavenger",
+      "apis": [],
+      "components": [
+        "history-scavenger",
+        "namespace-registry",
+        "execution-data-cleaner"
+      ],
+      "concepts": [
+        "data-loss",
+        "garbage-collection",
+        "mutable-state",
+        "safeguards",
+        "error-handling",
+        "namespace-resolution"
+      ],
+      "severity": "critical",
+      "userImpact": "Users experience complete loss of workflow execution history while mutable state still exists, causing inaccessible workflows and data integrity violations.",
+      "rootCause": "The namespace registry error handler at line 559 swallows all persistence errors and converts them to NamespaceNotFound, causing the scavenger's safeguard check to incorrectly pass and allow history deletion for active workflows.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "it swallow any error returned from persistence and convert it to a NamespaceNotFound error, make safeguard #2 to be satisfied also.",
+      "number": 9021,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-01-22T20:30:55.748Z"
+    },
+    {
+      "summary": "Request to add custom headers support to the \"Start Workflow\" form in the Temporal Web UI, enabling users to specify context propagation headers (like x-tenant-id) when manually starting workflows without needing CLI or custom scripts.",
+      "category": "feature",
+      "subcategory": "web-ui-workflow-management",
+      "apis": [
+        "StartWorkflow"
+      ],
+      "components": [
+        "web-ui",
+        "workflow-start-form",
+        "context-propagation"
+      ],
+      "concepts": [
+        "custom-headers",
+        "context-propagation",
+        "multi-tenant",
+        "workflow-execution",
+        "request-metadata",
+        "user-experience"
+      ],
+      "severity": "medium",
+      "userImpact": "Users must currently use CLI or custom scripts to start workflows with custom headers, limiting the Web UI's usefulness for testing and operational scenarios requiring header-based context.",
+      "rootCause": null,
+      "proposedFix": "Add a \"Headers\" section to the \"Start Workflow\" form accepting a JSON object with header names and string values, similar to existing Memo and Search Attributes sections.",
+      "workaround": "Use Temporal CLI with --header flag or create wrapper API endpoints to handle header-based context propagation.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Supporting custom headers in the Web UI would align the Web UI capabilities with what's possible via the SDK and make it a complete tool for workflow management.",
+      "number": 9012,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-01-22T20:30:54.227Z"
+    },
     {
       "summary": "Users request the ability to filter workflows in the UI by substring matching. Currently, the UI only supports filtering by exact match or 'starts with' pattern, limiting discoverability and search functionality.",
       "category": "feature",

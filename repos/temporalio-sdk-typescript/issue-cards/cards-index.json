@@ -1,7 +1,175 @@
 {
-  "generatedAt": "2026-01-13T00:09:33.553Z",
-  "totalCards": 800,
+  "generatedAt": "2026-01-22T20:30:39.731Z",
+  "totalCards": 806,
   "cards": [
+    {
+      "summary": "Documentation for typedSearchAttributes is incomplete and lacks concrete examples for migrating from the deprecated searchAttributes API in WorkflowOptions.",
+      "category": "docs",
+      "subcategory": "search-attributes",
+      "apis": [
+        "WorkflowOptions",
+        "typedSearchAttributes"
+      ],
+      "components": [
+        "documentation",
+        "examples",
+        "search-attributes"
+      ],
+      "concepts": [
+        "migration",
+        "deprecated-api",
+        "observability",
+        "workflow-options",
+        "type-safety"
+      ],
+      "severity": "medium",
+      "userImpact": "Users attempting to migrate from deprecated searchAttributes to typedSearchAttributes lack clear guidance and concrete examples in the documentation.",
+      "rootCause": null,
+      "proposedFix": "Add concrete examples and migration guidance for typedSearchAttributes to the TypeScript documentation at docs.temporal.io/develop/typescript/observability",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Documentation still mentions only searchAttributes at https://docs.temporal.io/develop/typescript/observability without the concrete examples how to use typedSearchAttributes",
+      "number": 1908,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-01-22T20:30:36.737Z"
+    },
+    {
+      "summary": "Feature request to add workflow API for creating independent deterministic PRNG sequences to prevent NDEs when plugins and workflow code both use Math.random() or uuid4(), which can disrupt the global PRNG sequence during replay.",
+      "category": "feature",
+      "subcategory": "workflow-plugins",
+      "apis": [],
+      "components": [
+        "workflow-api",
+        "prng",
+        "plugin-system"
+      ],
+      "concepts": [
+        "deterministic-execution",
+        "replay-safety",
+        "random-number-generation",
+        "uuid-generation",
+        "plugin-isolation",
+        "non-deterministic-errors"
+      ],
+      "severity": "medium",
+      "userImpact": "Workflow plugins that use random number generation or UUID creation can cause non-deterministic errors during workflow replay if the global PRNG sequence is shared with workflow code.",
+      "rootCause": "Workflow plugins and workflow code share the same PRNG sequence, causing sequence misalignment during replay when plugins are added or removed.",
+      "proposedFix": "Add API to create distinct deterministic PRNG instances, generate UUIDs from those instances, and activate a PRNG instance as the global one within a given execution scope to isolate plugin PRNG usage.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "If the workflow code also use these methods, then the plugin and the workflow code both pull values out of the same PRNG sequence. That may result in NDEs if a workflow is replayed after adding/removing a Plugin.",
+      "number": 1895,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-01-22T20:30:39.598Z"
+    },
+    {
+      "summary": "MCP tools passed to the AI-SDK are missing descriptions and have incorrect input parameter definitions. The tool descriptions are being dropped, and nested jsonSchema structures are causing parsing failures in the model.",
+      "category": "bug",
+      "subcategory": "ai-sdk-mcp-integration",
+      "apis": [
+        "TemporalMCPClient",
+        "AiSdkPlugin"
+      ],
+      "components": [
+        "ai-sdk-plugin",
+        "mcp-client",
+        "tool-serialization"
+      ],
+      "concepts": [
+        "tool-descriptions",
+        "schema-validation",
+        "mcp-integration",
+        "parameter-definition",
+        "model-compatibility"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot properly use MCP tools with the Temporal AI-SDK because tool descriptions are missing and malformed schemas prevent models from parsing tool definitions correctly.",
+      "rootCause": "Tool descriptions are being dropped during transformation, and inputSchema contains a nested jsonSchema structure instead of being flattened, which was partially addressed in PR #1890 but not fully applied.",
+      "proposedFix": "Ensure tool descriptions are preserved in the transformation pipeline and flatten the inputSchema structure to remove the nested jsonSchema wrapper.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Issue was addressed through PR #1890 and subsequent releases, though the reporter noted the fix required verification with newer versions.",
+      "related": [
+        1890
+      ],
+      "keyQuote": "You still have a nested jsonSchema inside inputSchema which means that #1890 was not applied successfully. That's making ollama fail to parse the tool.",
+      "number": 1889,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-01-22T20:30:36.923Z"
+    },
+    {
+      "summary": "Request to expose per-activity-type counts in WorkerInfo alongside existing aggregate metrics like numInFlightActivities. This would help developers debug worker task slot exhaustion by identifying which activity types are consuming resources.",
+      "category": "feature",
+      "subcategory": "worker-monitoring",
+      "apis": [
+        "WorkerInfo"
+      ],
+      "components": [
+        "worker",
+        "activity-executor",
+        "worker-info"
+      ],
+      "concepts": [
+        "task-slots",
+        "activity-types",
+        "in-flight-activities",
+        "debugging",
+        "resource-monitoring",
+        "worker-capacity"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers can better diagnose why worker activity task slots are full by identifying which activity types are occupying resources.",
+      "rootCause": null,
+      "proposedFix": "Add a Map field to WorkerInfo where keys are activity types and values are in-flight counts for that type, optionally behind an environment variable flag.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "when user detects that all worker activity task slots are full, basically worker stops at that point polling for more activity tasks, they can check what activity types are occupying worker",
+      "number": 1888,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-01-22T20:30:23.546Z"
+    },
+    {
+      "summary": "Logging is currently suppressed during queries and update validators because `isReplaying()` returns true. This feature request seeks to allow logging in these live read operations, bringing TypeScript SDK in line with other SDKs.",
+      "category": "feature",
+      "subcategory": "logging",
+      "apis": [
+        "isReplaying"
+      ],
+      "components": [
+        "logger",
+        "query-handler",
+        "update-validator",
+        "replay-detection"
+      ],
+      "concepts": [
+        "logging",
+        "queries",
+        "update-validators",
+        "live-read-operations",
+        "replay-detection",
+        "debugging"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot log diagnostics during query and update validator execution, limiting debugging and observability for these critical operations.",
+      "rootCause": "The `isReplaying()` check suppresses logging during all replay scenarios, but queries and update validators are live read operations that should allow logging.",
+      "proposedFix": "Modify the logging suppression logic to allow logging during queries and update validators while keeping it suppressed during actual workflow replay.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        718
+      ],
+      "keyQuote": "Currently logging is suppressed during queries and update validators because `isReplaying()` returns true. We should allow logging during these live read operations.",
+      "number": 1887,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-01-22T20:30:22.601Z"
+    },
     {
       "summary": "The `operatorService` is not accessible on the `ConnectionLike` interface, requiring users to cast the connection to `Connection` type to access operator functionality like listing search attributes.",
       "category": "bug",
@@ -1459,6 +1627,33 @@
       "number": 1744,
       "repo": "temporalio-sdk-typescript",
       "generatedAt": "2026-01-12T07:31:43.198Z"
+    },
+    {
+      "summary": "User asks why a specific implementation approach is used in worker-options.ts without providing context. The maintainer suggests reviewing the worker shutdown documentation.",
+      "category": "question",
+      "subcategory": "worker-shutdown",
+      "apis": [],
+      "components": [
+        "worker",
+        "worker-options"
+      ],
+      "concepts": [
+        "worker-shutdown",
+        "implementation-rationale",
+        "configuration"
+      ],
+      "severity": "low",
+      "userImpact": "User seeking clarification on worker implementation choices that may affect understanding of worker configuration and shutdown behavior.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "invalid",
+      "resolutionDetails": "Issue closed as the question was vague and user was directed to existing documentation without providing specific implementation concerns.",
+      "related": [],
+      "keyQuote": "Not sure what your question really is. I'd suggest taking a look at this doc page",
+      "number": 1742,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-01-22T20:30:20.215Z"
     },
     {
       "summary": "The webpackConfigHook doesn't suppress all webpack output despite setting config.stats to 'none'. Webpack logging is still being printed even when users try to minimize logs through bundlerOptions configuration.",

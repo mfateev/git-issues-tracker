@@ -1,6 +1,6 @@
 # API SDK - Issue Statistics
 
-**Generated:** 2026-01-13
+**Generated:** 2026-01-22
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
 
 ## Related Documents
@@ -25,7 +25,7 @@
 | Total Comments on open | 9 |
 | Issues with Upvotes | 1 (8%) |
 | Issues with Comments | 3 (23%) |
-| Average Age (days) | 1079 |
+| Average Age (days) | 1089 |
 | Stale Issues (>12 months) | 13 (100%) |
 
 ---

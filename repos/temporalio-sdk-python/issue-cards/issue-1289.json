@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add SDK warning when workflow history exceeds a certain size threshold. This is a feature request to help developers detect potential performance issues early.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "history-management",
+    "logging"
+  ],
+  "concepts": [
+    "workflow-history",
+    "size-limit",
+    "performance-warning",
+    "developer-experience",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will receive warnings when workflow history grows too large, helping them identify potential memory and performance issues earlier.",
+  "rootCause": null,
+  "proposedFix": "Implement SDK-level detection and warning when workflow history size exceeds a configurable threshold",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    705
+  ],
+  "keyQuote": "Warn if SDK detects a workflow history over a certain size",
+  "number": 1289,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:29:46.865Z"
+}

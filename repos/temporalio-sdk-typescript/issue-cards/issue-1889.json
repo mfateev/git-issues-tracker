@@ -1,0 +1,35 @@
+{
+  "summary": "MCP tools passed to the AI-SDK are missing descriptions and have incorrect input parameter definitions. The tool descriptions are being dropped, and nested jsonSchema structures are causing parsing failures in the model.",
+  "category": "bug",
+  "subcategory": "ai-sdk-mcp-integration",
+  "apis": [
+    "TemporalMCPClient",
+    "AiSdkPlugin"
+  ],
+  "components": [
+    "ai-sdk-plugin",
+    "mcp-client",
+    "tool-serialization"
+  ],
+  "concepts": [
+    "tool-descriptions",
+    "schema-validation",
+    "mcp-integration",
+    "parameter-definition",
+    "model-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly use MCP tools with the Temporal AI-SDK because tool descriptions are missing and malformed schemas prevent models from parsing tool definitions correctly.",
+  "rootCause": "Tool descriptions are being dropped during transformation, and inputSchema contains a nested jsonSchema structure instead of being flattened, which was partially addressed in PR #1890 but not fully applied.",
+  "proposedFix": "Ensure tool descriptions are preserved in the transformation pipeline and flatten the inputSchema structure to remove the nested jsonSchema wrapper.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue was addressed through PR #1890 and subsequent releases, though the reporter noted the fix required verification with newer versions.",
+  "related": [
+    1890
+  ],
+  "keyQuote": "You still have a nested jsonSchema inside inputSchema which means that #1890 was not applied successfully. That's making ollama fail to parse the tool.",
+  "number": 1889,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-22T20:30:36.923Z"
+}

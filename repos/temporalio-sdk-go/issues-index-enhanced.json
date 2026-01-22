@@ -1,9 +1,318 @@
 {
-  "generatedAt": "2026-01-13T14:02:56.592Z",
+  "generatedAt": "2026-01-22T20:33:01.109Z",
   "repo": "temporalio-sdk-go",
-  "totalCount": 824,
-  "cardsCount": 824,
+  "totalCount": 831,
+  "cardsCount": 831,
   "issues": [
+    {
+      "number": 2163,
+      "title": "Versioning GA: Make Pinned Version Optional when setting Pinned Override on already-pinned workflow",
+      "state": "CLOSED",
+      "author": "carlydf",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-21T22:00:12Z",
+      "updatedAt": "2026-01-21T22:32:08Z",
+      "closedAt": "2026-01-21T22:32:08Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2163",
+      "bodyLength": 282,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Make the pinned version parameter optional when setting a pinned override on an already-pinned workflow, aligning with API semantics from the temporal/api repository.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [],
+      "components": [
+        "versioning",
+        "workflow-pinning",
+        "sdk-api"
+      ],
+      "concepts": [
+        "versioning",
+        "workflow-pinning",
+        "optional-parameters",
+        "api-semantics",
+        "override"
+      ],
+      "severity": "low",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 2162,
+      "title": "Versioning + Priority and Fairness: Expose TaskQueueStats and TaskQueueConfig in DescribeTaskQueue, likely deprecate DescribeTaskQueueEnhanced",
+      "state": "CLOSED",
+      "author": "carlydf",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-21T21:58:11Z",
+      "updatedAt": "2026-01-21T22:32:03Z",
+      "closedAt": "2026-01-21T22:32:03Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2162",
+      "bodyLength": 851,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "DescribeTaskQueueEnhanced should be deprecated as it uses deprecated gRPC fields. DescribeTaskQueue should be enhanced to accept struct-based input parameters (ReportStats and ReportConfig) and expose TaskQueueStats and TaskQueueConfig in responses.",
+      "category": "feature",
+      "subcategory": "task-queue-management",
+      "apis": [
+        "DescribeTaskQueue",
+        "DescribeTaskQueueEnhanced"
+      ],
+      "components": [
+        "task-queue",
+        "gRPC-bindings",
+        "api-design"
+      ],
+      "concepts": [
+        "versioning",
+        "deprecation",
+        "backlog-stats",
+        "priority-fairness",
+        "api-refactoring"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 2161,
+      "title": "Versioning GA: Expose Backlog Stats in DescribeVersion request and response",
+      "state": "CLOSED",
+      "author": "carlydf",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-21T21:50:27Z",
+      "updatedAt": "2026-01-21T22:31:53Z",
+      "closedAt": "2026-01-21T22:31:53Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2161",
+      "bodyLength": 228,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Add backlog stats exposure in the DescribeVersion request and response to enable per-version backlog statistics queries via the API.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "DescribeVersion"
+      ],
+      "components": [
+        "versioning",
+        "api",
+        "task-queue"
+      ],
+      "concepts": [
+        "backlog",
+        "statistics",
+        "version",
+        "query",
+        "task-queue-stats"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 2160,
+      "title": "Versioning: Expose Upgrade-on-CaN option and ContinueAsNewSuggestedReasons",
+      "state": "CLOSED",
+      "author": "carlydf",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-21T21:48:57Z",
+      "updatedAt": "2026-01-21T22:31:50Z",
+      "closedAt": "2026-01-21T22:31:49Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2160",
+      "bodyLength": 198,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Expose the Upgrade-on-CaN option and ContinueAsNewSuggestedReasons API to enable trampolining and upgrade-on-CaN support in the Go SDK.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "ContinueAsNewSuggestedReasons"
+      ],
+      "components": [
+        "worker",
+        "workflow-execution",
+        "versioning"
+      ],
+      "concepts": [
+        "upgrade-on-can",
+        "trampolining",
+        "versioning",
+        "workflow-continuation",
+        "api-exposure"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 2159,
+      "title": "Versioning GA: Expose RoutingConfigUpdateState in VersionInfo",
+      "state": "CLOSED",
+      "author": "carlydf",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-21T21:47:37Z",
+      "updatedAt": "2026-01-21T22:31:45Z",
+      "closedAt": "2026-01-21T22:31:45Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2159",
+      "bodyLength": 375,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Users need visibility into the status of routing configuration propagation after calling SetCurrentVersion and SetRampingVersion. This allows them to wait before starting workflows or write reliable tests.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "SetCurrentVersion",
+        "SetRampingVersion"
+      ],
+      "components": [
+        "versioning",
+        "routing-config",
+        "version-info"
+      ],
+      "concepts": [
+        "propagation-status",
+        "visibility",
+        "workflow-startup",
+        "testing",
+        "configuration-management"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 2154,
+      "title": "Update datadog go integration to v2",
+      "state": "OPEN",
+      "author": "719media",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-16T23:20:24Z",
+      "updatedAt": "2026-01-16T23:59:16Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2154",
+      "bodyLength": 177,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.58.1",
+        "2.5.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Datadog Go integration is using outdated v1.58.1. This feature request asks to update it to the latest v2.5.0 to leverage current functionality and improvements.",
+      "category": "feature",
+      "subcategory": "datadog-integration",
+      "apis": [],
+      "components": [
+        "datadog-integration",
+        "observability"
+      ],
+      "concepts": [
+        "observability",
+        "monitoring",
+        "integration",
+        "dependency-upgrade",
+        "third-party-sdk"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 2150,
+      "title": "Stop sending null search attribute values on workflow start and continue as new",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-15T19:03:53Z",
+      "updatedAt": "2026-01-15T19:03:53Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2150",
+      "bodyLength": 496,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Stop sending null search attribute values when starting workflows or using continue as new. Null values can be produced by upsert search attributes being stored in workflow info and then reused, creating unwanted null entries in new workflows.",
+      "category": "feature",
+      "subcategory": "search-attributes",
+      "apis": [
+        "StartWorkflow",
+        "ContinueAsNew"
+      ],
+      "components": [
+        "workflow-start",
+        "search-attributes",
+        "workflow-info"
+      ],
+      "concepts": [
+        "null-values",
+        "search-attributes",
+        "backwards-incompatibility",
+        "workflow-execution",
+        "upsert"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 2141,
       "title": "Activity Alias Collision in Test Environment When Using Anonymous Functions",
@@ -63,9 +372,9 @@
         "bug"
       ],
       "createdAt": "2026-01-07T12:26:43Z",
-      "updatedAt": "2026-01-12T14:05:40Z",
+      "updatedAt": "2026-01-14T13:46:44Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 4,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2140",
       "bodyLength": 3268,
@@ -2902,7 +3211,7 @@
         "enhancement"
       ],
       "createdAt": "2025-06-17T12:57:32Z",
-      "updatedAt": "2025-07-20T06:02:39Z",
+      "updatedAt": "2026-01-16T17:21:32Z",
       "closedAt": null,
       "commentCount": 4,
       "upvotes": 0,
@@ -13906,14 +14215,14 @@
     {
       "number": 1282,
       "title": "Heartbeat timeout not raised while testing",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "miquelpuigmena",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2023-10-26T16:44:42Z",
-      "updatedAt": "2023-11-06T13:57:25Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-16T01:08:48Z",
+      "closedAt": "2026-01-16T01:08:48Z",
       "commentCount": 5,
       "upvotes": 5,
       "url": "https://github.com/temporalio/sdk-go/issues/1282",

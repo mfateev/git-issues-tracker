@@ -1,0 +1,31 @@
+{
+  "summary": "History scavenger is prematurely deleting workflow execution history for active workflows due to error handling in the namespace registry that incorrectly converts persistence errors to NamespaceNotFound, bypassing the mutable state check safeguard.",
+  "category": "bug",
+  "subcategory": "history-scavenger",
+  "apis": [],
+  "components": [
+    "history-scavenger",
+    "namespace-registry",
+    "execution-data-cleaner"
+  ],
+  "concepts": [
+    "data-loss",
+    "garbage-collection",
+    "mutable-state",
+    "safeguards",
+    "error-handling",
+    "namespace-resolution"
+  ],
+  "severity": "critical",
+  "userImpact": "Users experience complete loss of workflow execution history while mutable state still exists, causing inaccessible workflows and data integrity violations.",
+  "rootCause": "The namespace registry error handler at line 559 swallows all persistence errors and converts them to NamespaceNotFound, causing the scavenger's safeguard check to incorrectly pass and allow history deletion for active workflows.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "it swallow any error returned from persistence and convert it to a NamespaceNotFound error, make safeguard #2 to be satisfied also.",
+  "number": 9021,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-22T20:30:55.748Z"
+}

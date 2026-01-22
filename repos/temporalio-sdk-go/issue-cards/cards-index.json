@@ -1,7 +1,241 @@
 {
-  "generatedAt": "2026-01-13T00:09:16.494Z",
-  "totalCards": 824,
+  "generatedAt": "2026-01-22T20:29:17.328Z",
+  "totalCards": 831,
   "cards": [
+    {
+      "summary": "Make the pinned version parameter optional when setting a pinned override on an already-pinned workflow, aligning with API semantics from the temporal/api repository.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [],
+      "components": [
+        "versioning",
+        "workflow-pinning",
+        "sdk-api"
+      ],
+      "concepts": [
+        "versioning",
+        "workflow-pinning",
+        "optional-parameters",
+        "api-semantics",
+        "override"
+      ],
+      "severity": "low",
+      "userImpact": "Developers will have a simpler API for managing pinned workflow versions by not requiring redundant version specifications.",
+      "rootCause": null,
+      "proposedFix": "Follow the API semantics defined in temporalio/api to make the pinned version parameter optional when setting a pinned override on an already-pinned workflow.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Enhancement request to align SDK API with existing API semantics for versioning GA.",
+      "related": [
+        726
+      ],
+      "keyQuote": "Follow the API semantics here: https://github.com/temporalio/api/commit/4130a80613796f56a2c6be9fc22da9023929c645",
+      "number": 2163,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-01-22T20:29:17.174Z"
+    },
+    {
+      "summary": "DescribeTaskQueueEnhanced should be deprecated as it uses deprecated gRPC fields. DescribeTaskQueue should be enhanced to accept struct-based input parameters (ReportStats and ReportConfig) and expose TaskQueueStats and TaskQueueConfig in responses.",
+      "category": "feature",
+      "subcategory": "task-queue-management",
+      "apis": [
+        "DescribeTaskQueue",
+        "DescribeTaskQueueEnhanced"
+      ],
+      "components": [
+        "task-queue",
+        "gRPC-bindings",
+        "api-design"
+      ],
+      "concepts": [
+        "versioning",
+        "deprecation",
+        "backlog-stats",
+        "priority-fairness",
+        "api-refactoring"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need a clean, non-deprecated API to describe task queues with optional stats and configuration details.",
+      "rootCause": "DescribeTaskQueueEnhanced relies on deprecated gRPC fields for v2 versioning; DescribeTaskQueue lacks flexible input parameters for optional fields",
+      "proposedFix": "Change DescribeTaskQueue to use struct-based input with ReportStats and ReportConfig flags; deprecate DescribeTaskQueueEnhanced; ensure VersioningInfo is exposed in response",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Issue closed after implementation of enhanced DescribeTaskQueue with proper input/output structure and deprecation of DescribeTaskQueueEnhanced",
+      "related": [
+        726
+      ],
+      "keyQuote": "DescribeTaskQueue does not currently follow the pattern of using a struct as the input, making it a bit complicated to change the input parameters.",
+      "number": 2162,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-01-22T20:29:06.282Z"
+    },
+    {
+      "summary": "Add backlog stats exposure in the DescribeVersion request and response to enable per-version backlog statistics queries via the API.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "DescribeVersion"
+      ],
+      "components": [
+        "versioning",
+        "api",
+        "task-queue"
+      ],
+      "concepts": [
+        "backlog",
+        "statistics",
+        "version",
+        "query",
+        "task-queue-stats"
+      ],
+      "severity": "medium",
+      "userImpact": "Users can now query backlog statistics for specific SDK versions, enabling better monitoring and analysis of version-specific workload patterns.",
+      "rootCause": null,
+      "proposedFix": "Expose backlog stats in DescribeVersion request and response based on the provided branch implementation.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Implementation completed via versioning-ga branch that adds backlog stats to DescribeVersion API.",
+      "related": [
+        726
+      ],
+      "keyQuote": "Need this to be able to query per-version backlog stats via the API",
+      "number": 2161,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-01-22T20:29:04.392Z"
+    },
+    {
+      "summary": "Expose the Upgrade-on-CaN option and ContinueAsNewSuggestedReasons API to enable trampolining and upgrade-on-CaN support in the Go SDK.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "ContinueAsNewSuggestedReasons"
+      ],
+      "components": [
+        "worker",
+        "workflow-execution",
+        "versioning"
+      ],
+      "concepts": [
+        "upgrade-on-can",
+        "trampolining",
+        "versioning",
+        "workflow-continuation",
+        "api-exposure"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot leverage upgrade-on-CaN patterns for safe workflow version migrations without access to the necessary API options.",
+      "rootCause": null,
+      "proposedFix": "Expose Upgrade-on-CaN option and ContinueAsNewSuggestedReasons in the Go SDK API surface",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Feature was implemented and merged via the versioning/upgrade-on-can branch",
+      "related": [
+        726
+      ],
+      "keyQuote": "This is needed for Trampolining / upgrade-on-CaN support",
+      "number": 2160,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-01-22T20:29:06.358Z"
+    },
+    {
+      "summary": "Users need visibility into the status of routing configuration propagation after calling SetCurrentVersion and SetRampingVersion. This allows them to wait before starting workflows or write reliable tests.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "SetCurrentVersion",
+        "SetRampingVersion"
+      ],
+      "components": [
+        "versioning",
+        "routing-config",
+        "version-info"
+      ],
+      "concepts": [
+        "propagation-status",
+        "visibility",
+        "workflow-startup",
+        "testing",
+        "configuration-management"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot reliably determine when routing configuration changes are fully propagated, making it difficult to safely start workflows or write deterministic tests.",
+      "rootCause": "SetCurrentVersion and SetRampingVersion return success before routing config propagation is complete, leaving users without visibility into the actual propagation status.",
+      "proposedFix": "Expose RoutingConfigUpdateState in VersionInfo to provide visibility into the routing configuration propagation status.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "RoutingConfigUpdateState was exposed in VersionInfo as part of the GA versioning release.",
+      "related": [
+        726
+      ],
+      "keyQuote": "Users may want visibility into the status so they can wait before starting workflows, or write reliable tests",
+      "number": 2159,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-01-22T20:28:47.918Z"
+    },
+    {
+      "summary": "Datadog Go integration is using outdated v1.58.1. This feature request asks to update it to the latest v2.5.0 to leverage current functionality and improvements.",
+      "category": "feature",
+      "subcategory": "datadog-integration",
+      "apis": [],
+      "components": [
+        "datadog-integration",
+        "observability"
+      ],
+      "concepts": [
+        "observability",
+        "monitoring",
+        "integration",
+        "dependency-upgrade",
+        "third-party-sdk"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot benefit from new Datadog v2.x features and improvements in their Temporal Go SDK applications.",
+      "rootCause": null,
+      "proposedFix": "Update the Datadog Go integration dependency from v1.58.1 to v2.5.0",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2155
+      ],
+      "keyQuote": "the current datadog implementation is using an old version 1.58.1, and current datadog go sdk version is 2.5.0",
+      "number": 2154,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-01-22T20:28:50.086Z"
+    },
+    {
+      "summary": "Stop sending null search attribute values when starting workflows or using continue as new. Null values can be produced by upsert search attributes being stored in workflow info and then reused, creating unwanted null entries in new workflows.",
+      "category": "feature",
+      "subcategory": "search-attributes",
+      "apis": [
+        "StartWorkflow",
+        "ContinueAsNew"
+      ],
+      "components": [
+        "workflow-start",
+        "search-attributes",
+        "workflow-info"
+      ],
+      "concepts": [
+        "null-values",
+        "search-attributes",
+        "backwards-incompatibility",
+        "workflow-execution",
+        "upsert"
+      ],
+      "severity": "low",
+      "userImpact": "Users will see fewer null search attribute entries in new workflows, which is a minor backwards-incompatible change in attribute visibility.",
+      "rootCause": "Upsert search attributes stores null values in workflow info which is then reused for continue as new operations",
+      "proposedFix": "Stop sending null search attribute values on workflow start and continue as new operations",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "We should stop sending null search attributes on start or continue as new",
+      "number": 2150,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-01-22T20:28:51.408Z"
+    },
     {
       "summary": "Anonymous functions used in activity registration cause alias collisions in the test environment, where multiple packages register activities with the same short function name (e.g., 'func1'), resulting in local activities being incorrectly routed to unrelated registered activity mocks and causing panics.",
       "category": "bug",

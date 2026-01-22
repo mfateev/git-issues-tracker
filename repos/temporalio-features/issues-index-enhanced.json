@@ -1,9 +1,292 @@
 {
-  "generatedAt": "2026-01-13T14:02:56.355Z",
+  "generatedAt": "2026-01-22T20:33:00.880Z",
   "repo": "temporalio-features",
-  "totalCount": 382,
-  "cardsCount": 382,
+  "totalCount": 388,
+  "cardsCount": 388,
   "issues": [
+    {
+      "number": 727,
+      "title": "Support as-is for scheduled workflow ID",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-22T14:22:52Z",
+      "updatedAt": "2026-01-22T14:24:30Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/727",
+      "bodyLength": 442,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        910
+      ],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "Add support for the 'as-is' scheduled workflow ID field to programmatic SDK interfaces. This field was previously added to the API but needs to be exposed across all Temporal SDKs.",
+      "category": "feature",
+      "subcategory": "scheduling",
+      "apis": [
+        "SchedulePolicy"
+      ],
+      "components": [
+        "schedule-policy",
+        "sdk-interfaces",
+        "api-bindings"
+      ],
+      "concepts": [
+        "scheduling",
+        "workflow-id",
+        "schedule-options",
+        "api-alignment"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 726,
+      "title": "Versioning Support for OSS v1.30",
+      "state": "OPEN",
+      "author": "carlydf",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-21T22:30:40Z",
+      "updatedAt": "2026-01-21T22:35:56Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/726",
+      "bodyLength": 1471,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        2162
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Add comprehensive versioning support for OSS v1.30 GA release, including exposing RoutingConfigUpdateState, Upgrade-on-CaN option, Backlog Stats, TaskQueue information in DescribeVersion/DescribeTaskQueue, and making Pinned Version optional for pinned workflow overrides.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "DescribeVersion",
+        "DescribeTaskQueue",
+        "StartWorkflow",
+        "UpdateWorkflow",
+        "ResetWorkflow"
+      ],
+      "components": [
+        "versioning-system",
+        "task-queue-management",
+        "deployment-info",
+        "api-definitions"
+      ],
+      "concepts": [
+        "versioning",
+        "upgrade-on-can",
+        "routing-config",
+        "task-queue-stats",
+        "pinned-override",
+        "backlog-stats"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 723,
+      "title": "SDK should fail workflow task if payloads size it known to be too large",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-20T20:01:03Z",
+      "updatedAt": "2026-01-20T20:01:20Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/723",
+      "bodyLength": 1229,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "SDKs should validate payload sizes before submission and fail workflow tasks gracefully when payloads exceed known limits, rather than submitting requests that will fail. This allows workflows to be updated and resumed without wasting network bandwidth.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [
+        "StartWorkflow",
+        "SignalWorkflow"
+      ],
+      "components": [
+        "sdk-client",
+        "workflow-task-handler",
+        "payload-validator"
+      ],
+      "concepts": [
+        "payload-size-limits",
+        "error-handling",
+        "workflow-recovery",
+        "network-optimization",
+        "data-compression",
+        "graceful-failure"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 721,
+      "title": "Add workflowId to the http header for workflow request",
+      "state": "OPEN",
+      "author": "xwduan",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-16T18:35:17Z",
+      "updatedAt": "2026-01-16T18:35:17Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/721",
+      "bodyLength": 950,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Add workflowId to HTTP headers for workflow requests to enable API gateways and frontends to route requests to the correct active cluster without decoding the request payload. SDKs need to include workflowId in headers for initiated actions (StartWorkflow, SignalWorkflow) and attach headers from poll responses for action-after-poll requests (RespondWorkflow/ActivityTask).",
+      "category": "feature",
+      "subcategory": "http-routing",
+      "apis": [
+        "StartWorkflow",
+        "SignalWorkflow",
+        "TerminateWorkflow",
+        "RespondWorkflowTask",
+        "RespondActivityTask",
+        "PollWorkflowTaskQueue",
+        "PollActivityTaskQueue"
+      ],
+      "components": [
+        "http-client",
+        "request-headers",
+        "sdk-core",
+        "api-gateway-routing"
+      ],
+      "concepts": [
+        "request-routing",
+        "cluster-selection",
+        "http-headers",
+        "workflow-identity",
+        "load-balancing",
+        "api-gateway"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 720,
+      "title": "Update Priority in WorkflowInfo",
+      "state": "OPEN",
+      "author": "stephanos",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-16T17:47:54Z",
+      "updatedAt": "2026-01-16T17:53:11Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 1,
+      "url": "https://github.com/temporalio/features/issues/720",
+      "bodyLength": 760,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "WorkflowInfo.Priority field is currently immutable and does not reflect updates made via the new priority override capability introduced in api#610. The Priority in WorkflowInfo needs to be updated to reflect the current status when modified.",
+      "category": "bug",
+      "subcategory": "workflow-info",
+      "apis": [
+        "WorkflowInfo"
+      ],
+      "components": [
+        "workflow-info",
+        "priority-management"
+      ],
+      "concepts": [
+        "workflow-metadata",
+        "priority-override",
+        "state-synchronization",
+        "immutability"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 718,
+      "title": "[Bug] Logs not emitted during workflow queries",
+      "state": "OPEN",
+      "author": "marcoriopel",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-08T15:16:55Z",
+      "updatedAt": "2026-01-14T21:43:46Z",
+      "closedAt": null,
+      "commentCount": 4,
+      "upvotes": 2,
+      "url": "https://github.com/temporalio/features/issues/718",
+      "bodyLength": 728,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Logs emitted in query handler functions are dropped when using the replay-safe logger, because `workflow.unsafe.is_replaying()` returns true during query execution. This prevents developers from logging diagnostic information in query handlers.",
+      "category": "bug",
+      "subcategory": "logging-queries",
+      "apis": [
+        "workflow.logger",
+        "workflow.query",
+        "workflow.unsafe.is_replaying"
+      ],
+      "components": [
+        "logger",
+        "query-handler",
+        "replay-detection"
+      ],
+      "concepts": [
+        "logging",
+        "queries",
+        "replay-safety",
+        "side-effects",
+        "diagnostics"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 715,
       "title": "Custom Metadata Support for Workers in Temporal UI and CLI",
@@ -156,12 +439,12 @@
         "enhancement"
       ],
       "createdAt": "2025-12-01T18:53:23Z",
-      "updatedAt": "2025-12-01T18:53:23Z",
+      "updatedAt": "2026-01-20T22:44:56Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/705",
-      "bodyLength": 1007,
+      "bodyLength": 991,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -288,12 +571,12 @@
         "enhancement"
       ],
       "createdAt": "2025-11-18T21:30:35Z",
-      "updatedAt": "2025-11-18T21:30:35Z",
+      "updatedAt": "2026-01-20T20:03:45Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/701",
-      "bodyLength": 1038,
+      "bodyLength": 1022,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -1048,14 +1331,14 @@
     },
     {
       "number": 674,
-      "title": "[TS] Expose Temporal Nexus operation info to Temporal Nexus operation authors",
+      "title": "Expose Temporal Nexus operation info to Temporal Nexus operation authors",
       "state": "OPEN",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-09-11T18:19:23Z",
-      "updatedAt": "2025-10-07T17:58:58Z",
+      "updatedAt": "2026-01-16T17:18:53Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -2634,7 +2917,7 @@
         "enhancement"
       ],
       "createdAt": "2025-03-11T18:37:07Z",
-      "updatedAt": "2026-01-05T18:16:48Z",
+      "updatedAt": "2026-01-15T17:16:16Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,

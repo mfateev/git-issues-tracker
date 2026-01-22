@@ -1,6 +1,6 @@
 # Features SDK - Issue Statistics
 
-**Generated:** 2026-01-13
+**Generated:** 2026-01-22
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 244 |
+| Total Open Issues | 250 |
 | Total Closed Issues | 138 |
-| Total All Issues | 382 |
-| Bugs (open) | 6 |
-| Enhancements/Features (open) | 224 |
+| Total All Issues | 388 |
+| Bugs (open) | 7 |
+| Enhancements/Features (open) | 229 |
 | Security Issues (open) | 5 |
-| Total Upvotes (👍) on open | 106 |
-| Total Comments on open | 397 |
-| Issues with Upvotes | 32 (13%) |
-| Issues with Comments | 129 (53%) |
-| Average Age (days) | 807 |
-| Stale Issues (>12 months) | 145 (59%) |
+| Total Upvotes (👍) on open | 109 |
+| Total Comments on open | 401 |
+| Issues with Upvotes | 34 (14%) |
+| Issues with Comments | 130 (52%) |
+| Average Age (days) | 797 |
+| Stale Issues (>12 months) | 150 (60%) |
 
 ---
 ## Resolution Metrics
@@ -36,7 +36,7 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 36% (138/382) |
+| Resolution Rate | 36% (138/388) |
 | Avg Time to Close (calendar) | 274 days |
 | Avg Time to Close (business) | 196 days |
 | Median Time to Close (calendar) | 151 days |
@@ -75,10 +75,10 @@
 | 2025-10 | 10 | 6 | +4 |
 | 2025-11 | 5 | 2 | +3 |
 | 2025-12 | 4 | 1 | +3 |
-| 2026-01 | 0 | 3 | -3 |
-| **Total** | **67** | **44** | **+23** |
+| 2026-01 | 6 | 3 | +3 |
+| **Total** | **73** | **44** | **+29** |
 
-📈 **Backlog Growing:** 23 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 29 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 35 |
-| Issues Closed | 19 |
-| Net Change | +16 |
+| Issues Opened | 38 |
+| Issues Closed | 18 |
+| Net Change | +20 |
 | Bugs Closed | 0 |
-| Enhancements Closed | 17 |
+| Enhancements Closed | 16 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 301 | 215 |
-| Median | 76 | 54 |
+| Average | 272 | 195 |
+| Median | 75 | 54 |
 | 90th Percentile | 912 | 652 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 26% |
-| Within 90 days | 53% |
+| Within 30 days | 28% |
+| Within 90 days | 56% |
 
 
 ---
@@ -114,13 +114,13 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 2 | 1% |
-| 1-3 months | 8 | 3% |
-| 3-6 months | 15 | 6% |
+| Last 30 days | 6 | 2% |
+| 1-3 months | 9 | 4% |
+| 3-6 months | 14 | 6% |
 | 6-12 months | 35 | 14% |
-| 1-2 years | 52 | 21% |
+| 1-2 years | 54 | 22% |
 | 2-3 years | 45 | 18% |
-| 3+ years | 87 | 36% |
+| 3+ years | 87 | 35% |
 
 ---
 
@@ -141,8 +141,8 @@
 | 11 | [#503](https://github.com/temporalio/features/issues/503) | 3 | 1 | Cancel and Signal should still propagate to child workflows ... |
 | 12 | [#175](https://github.com/temporalio/features/issues/175) | 3 | 0 | [Feature Request] Endtoend latency metric for cron execution... |
 | 13 | [#98](https://github.com/temporalio/features/issues/98) | 3 | 0 | [Feature Request] New metric: worker_task_slots_total |
-| 14 | [#624](https://github.com/temporalio/features/issues/624) | 2 | 4 | Gracefully fail gRPC-message-too-large issues in worker |
-| 15 | [#463](https://github.com/temporalio/features/issues/463) | 2 | 5 | Customize activity failure logging (and more?) |
+| 14 | [#718](https://github.com/temporalio/features/issues/718) | 2 | 4 | [Bug] Logs not emitted during workflow queries |
+| 15 | [#624](https://github.com/temporalio/features/issues/624) | 2 | 4 | Gracefully fail gRPC-message-too-large issues in worker |
 
 ---
 
@@ -191,8 +191,12 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2025-12-22 | [#715](https://github.com/temporalio/features/issues/715) | 0 | Custom Metadata Support for Workers in Temporal UI and CLI |
-| 2025-12-18 | [#712](https://github.com/temporalio/features/issues/712) | 0 | [Bug] Use `pnpm` when building TS worker from source |
+| 2026-01-22 | [#727](https://github.com/temporalio/features/issues/727) | 0 | Support as-is for scheduled workflow ID |
+| 2026-01-21 | [#726](https://github.com/temporalio/features/issues/726) | 0 | Versioning Support for OSS v1.30 |
+| 2026-01-20 | [#723](https://github.com/temporalio/features/issues/723) | 0 | SDK should fail workflow task if payloads size it known to b... |
+| 2026-01-16 | [#721](https://github.com/temporalio/features/issues/721) | 0 | Add workflowId to the http header for workflow request |
+| 2026-01-16 | [#720](https://github.com/temporalio/features/issues/720) | 1 | Update Priority in WorkflowInfo |
+| 2026-01-08 | [#718](https://github.com/temporalio/features/issues/718) | 2 | [Bug] Logs not emitted during workflow queries |
 
 ---
 
@@ -200,9 +204,9 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 214 |
+| enhancement | 219 |
 | feature-test | 8 |
-| bug | 6 |
+| bug | 7 |
 | mend: dependency security vulnerability | 5 |
 | features-platform | 2 |
 | cdutrkgkteivjjuckjjvehvtledkdhdigcbk | 1 |
@@ -210,11 +214,12 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (6 open issues)
+## Bugs (7 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
 | [#503](https://github.com/temporalio/features/issues/503) | 3 | 1 | Cancel and Signal should still propagate to child workflows ... |
+| [#718](https://github.com/temporalio/features/issues/718) | 2 | 4 | [Bug] Logs not emitted during workflow queries |
 | [#422](https://github.com/temporalio/features/issues/422) | 0 | 7 | [Bug] Incomplete Span Reporting: Only RunActivity Spans Sent... |
 | [#330](https://github.com/temporalio/features/issues/330) | 0 | 0 | [Bug] bugs/go/child_workflow_cancel_panic flaky |
 | [#315](https://github.com/temporalio/features/issues/315) | 0 | 0 | [Bug] Stale workflows in sdk-ci.a2dd6 namespace |
@@ -223,7 +228,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (145 open issues with no activity >12 months)
+## Stale Issues (150 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -243,11 +248,11 @@ Top stale issues by upvotes:
 | [#204](https://github.com/temporalio/features/issues/204) | 1 | 2024-07-13 | [Feature Request] Expose currently configured payl... |
 | [#138](https://github.com/temporalio/features/issues/138) | 1 | 2022-09-30 | [Feature Request] SDKs should have built-in contex... |
 | [#114](https://github.com/temporalio/features/issues/114) | 1 | 2024-07-13 | [Feature Request] Setting namespace and task queue... |
+| [#581](https://github.com/temporalio/features/issues/581) | 0 | 2025-01-17 | [Features Platform] Remove TEMPORAL_FEATURES_DISAB... |
 | [#573](https://github.com/temporalio/features/issues/573) | 0 | 2025-01-08 | Add fine control for workflow cache eviction |
+| [#572](https://github.com/temporalio/features/issues/572) | 0 | 2025-01-14 | Access to workflow/activity instance created by Te... |
+| [#571](https://github.com/temporalio/features/issues/571) | 0 | 2025-01-14 | Concept of "workflow local" value |
 | [#568](https://github.com/temporalio/features/issues/568) | 0 | 2024-12-23 | SDK should provide a native query builder |
 | [#566](https://github.com/temporalio/features/issues/566) | 0 | 2024-12-06 | Support full query failure structure |
-| [#563](https://github.com/temporalio/features/issues/563) | 0 | 2024-12-03 | Tag workflow_failed counter metric with exception ... |
-| [#561](https://github.com/temporalio/features/issues/561) | 0 | 2024-11-20 | [Feature Request] Add Mutable Side Effect in Core ... |
-| [#560](https://github.com/temporalio/features/issues/560) | 0 | 2024-11-19 | Add `WorkflowExecutionInfo.pendingActivities` |
 
-*...and 125 more stale issues*
+*...and 130 more stale issues*

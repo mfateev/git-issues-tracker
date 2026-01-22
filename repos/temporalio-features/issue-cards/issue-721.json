@@ -1,0 +1,40 @@
+{
+  "summary": "Add workflowId to HTTP headers for workflow requests to enable API gateways and frontends to route requests to the correct active cluster without decoding the request payload. SDKs need to include workflowId in headers for initiated actions (StartWorkflow, SignalWorkflow) and attach headers from poll responses for action-after-poll requests (RespondWorkflow/ActivityTask).",
+  "category": "feature",
+  "subcategory": "http-routing",
+  "apis": [
+    "StartWorkflow",
+    "SignalWorkflow",
+    "TerminateWorkflow",
+    "RespondWorkflowTask",
+    "RespondActivityTask",
+    "PollWorkflowTaskQueue",
+    "PollActivityTaskQueue"
+  ],
+  "components": [
+    "http-client",
+    "request-headers",
+    "sdk-core",
+    "api-gateway-routing"
+  ],
+  "concepts": [
+    "request-routing",
+    "cluster-selection",
+    "http-headers",
+    "workflow-identity",
+    "load-balancing",
+    "api-gateway"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables API gateways and frontends to efficiently route workflow requests to correct active clusters without decoding request payloads.",
+  "rootCause": null,
+  "proposedFix": "SDK adds workflowId to request headers for SDK-initiated actions; SDK attaches headers from poll responses to action-after-poll requests; server adds header at poll response.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Include workflowId in the header will enable the api gateway/frontend route the workflow request to correct active cluster without having to decode/open the request payload",
+  "number": 721,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-22T20:28:02.715Z"
+}

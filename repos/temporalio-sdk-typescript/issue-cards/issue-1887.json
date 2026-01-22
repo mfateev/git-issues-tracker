@@ -1,0 +1,36 @@
+{
+  "summary": "Logging is currently suppressed during queries and update validators because `isReplaying()` returns true. This feature request seeks to allow logging in these live read operations, bringing TypeScript SDK in line with other SDKs.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [
+    "isReplaying"
+  ],
+  "components": [
+    "logger",
+    "query-handler",
+    "update-validator",
+    "replay-detection"
+  ],
+  "concepts": [
+    "logging",
+    "queries",
+    "update-validators",
+    "live-read-operations",
+    "replay-detection",
+    "debugging"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot log diagnostics during query and update validator execution, limiting debugging and observability for these critical operations.",
+  "rootCause": "The `isReplaying()` check suppresses logging during all replay scenarios, but queries and update validators are live read operations that should allow logging.",
+  "proposedFix": "Modify the logging suppression logic to allow logging during queries and update validators while keeping it suppressed during actual workflow replay.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    718
+  ],
+  "keyQuote": "Currently logging is suppressed during queries and update validators because `isReplaying()` returns true. We should allow logging during these live read operations.",
+  "number": 1887,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-22T20:30:22.601Z"
+}

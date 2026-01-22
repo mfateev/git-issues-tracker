@@ -1,0 +1,31 @@
+{
+  "summary": "The .NET SDK lacks support for the linux-musl-arm64 runtime identifier, preventing deployment on Alpine-based ARM64 containers. With .NET 10 discontinuing Debian images, Alpine becomes a primary choice, making this support essential for modern containerized deployments.",
+  "category": "feature",
+  "subcategory": "runtime-support",
+  "apis": [],
+  "components": [
+    "native-library",
+    "runtime-identifier",
+    "nuget-package"
+  ],
+  "concepts": [
+    "cross-platform-support",
+    "containerization",
+    "alpine-linux",
+    "arm64",
+    "libc-compatibility",
+    "deployment"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot deploy the Temporal .NET SDK in Alpine-based ARM64 containers, limiting deployment options as Microsoft transitions away from Debian images in .NET 10.",
+  "rootCause": "The built-in native shared libraries do not include a compiled binary for the linux-musl-arm64 runtime identifier.",
+  "proposedFix": "Add support for the linux-musl-arm64 runtime identifier to the built-in native shared libraries alongside currently supported RIDs, with a smoke test at package build time to verify compatibility.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Team approved implementation after discussion, recognized as important for supporting modern .NET container practices and Alpine-based ARM64 deployments.",
+  "related": [],
+  "keyQuote": "This would enable developers to deploy the .NET SDK on Alpine-based ARM64 containers and maintain compatibility with modern .NET container practices.",
+  "number": 597,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-22T20:28:33.102Z"
+}

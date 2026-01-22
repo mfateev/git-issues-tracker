@@ -1,0 +1,35 @@
+{
+  "summary": "The non-generic ExecuteAsync(Func<Task>) overload loses exceptions thrown by user tasks and throws TaskCanceledException instead. This regression affects workflows returning Task (void) but not Task<T>, caused by using OnlyOnRanToCompletion continuation option that discards exceptions.",
+  "category": "bug",
+  "subcategory": "worker-execution",
+  "apis": [
+    "ExecuteAsync",
+    "ExecuteWorkflowAsync"
+  ],
+  "components": [
+    "worker",
+    "task-execution",
+    "exception-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "task-continuation",
+    "async-execution",
+    "void-workflows",
+    "error-propagation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly handle exceptions from void workflows because the original exception is replaced with TaskCanceledException, breaking error handling and debugging.",
+  "rootCause": "ExecuteAsync(Func<Task>) uses ContinueWith with OnlyOnRanToCompletion, which prevents continuation execution when the task throws, causing the exception to be discarded and the resulting task to be canceled instead of faulted.",
+  "proposedFix": null,
+  "workaround": "Use the generic overload by returning a value (e.g., return ValueTuple.Create())",
+  "related": [
+    548
+  ],
+  "keyQuote": "When untilComplete() throws, OnlyOnRanToCompletion prevents the continuation from running, and the resulting task is canceled (not faulted). The original exception is discarded.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "number": 599,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-01-22T20:28:34.466Z"
+}

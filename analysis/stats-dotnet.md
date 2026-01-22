@@ -1,6 +1,6 @@
 # .NET SDK - Issue Statistics
 
-**Generated:** 2026-01-13
+**Generated:** 2026-01-22
 **Repository:** [temporalio/sdk-dotnet](https://github.com/temporalio/sdk-dotnet)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 50 |
-| Total Closed Issues | 240 |
-| Total All Issues | 290 |
-| Bugs (open) | 13 |
-| Enhancements/Features (open) | 30 |
+| Total Open Issues | 48 |
+| Total Closed Issues | 244 |
+| Total All Issues | 292 |
+| Bugs (open) | 12 |
+| Enhancements/Features (open) | 29 |
 | Security Issues (open) | 1 |
 | Total Upvotes (👍) on open | 13 |
-| Total Comments on open | 46 |
-| Issues with Upvotes | 6 (12%) |
-| Issues with Comments | 24 (48%) |
-| Average Age (days) | 384 |
-| Stale Issues (>12 months) | 24 (48%) |
+| Total Comments on open | 44 |
+| Issues with Upvotes | 6 (13%) |
+| Issues with Comments | 23 (48%) |
+| Average Age (days) | 407 |
+| Stale Issues (>12 months) | 24 (50%) |
 
 ---
 ## Resolution Metrics
@@ -36,8 +36,8 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 83% (240/290) |
-| Avg Time to Close (calendar) | 66 days |
+| Resolution Rate | 84% (244/292) |
+| Avg Time to Close (calendar) | 65 days |
 | Avg Time to Close (business) | 47 days |
 | Median Time to Close (calendar) | 21 days |
 | Median Time to Close (business) | 16 days |
@@ -50,8 +50,8 @@
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 43 | 18% |
-| Completed (features) | 118 | 49% |
+| Fixed (bugs) | 46 | 19% |
+| Completed (features) | 119 | 49% |
 | Self-resolved | 38 | 16% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
@@ -75,10 +75,10 @@
 | 2025-10 | 9 | 10 | -1 |
 | 2025-11 | 4 | 5 | -1 |
 | 2025-12 | 7 | 5 | +2 |
-| 2026-01 | 5 | 3 | +2 |
-| **Total** | **88** | **84** | **+4** |
+| 2026-01 | 7 | 7 | 0 |
+| **Total** | **90** | **88** | **+2** |
 
-📈 **Backlog Growing:** 4 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 2 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -88,25 +88,25 @@
 | Metric | Value |
 |--------|-------|
 | Issues Opened | 41 |
-| Issues Closed | 41 |
-| Net Change | 0 |
-| Bugs Closed | 10 |
+| Issues Closed | 43 |
+| Net Change | -2 |
+| Bugs Closed | 13 |
 | Enhancements Closed | 23 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 113 | 82 |
-| Median | 53 | 37 |
-| 90th Percentile | 265 | 190 |
+| Average | 87 | 63 |
+| Median | 35 | 26 |
+| 90th Percentile | 195 | 140 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 41% |
-| Within 90 days | 63% |
+| Within 30 days | 47% |
+| Within 90 days | 70% |
 
 
 ---
@@ -114,12 +114,12 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 7 | 14% |
-| 1-3 months | 7 | 14% |
-| 3-6 months | 0 | 0% |
-| 6-12 months | 10 | 20% |
-| 1-2 years | 21 | 42% |
-| 2-3 years | 5 | 10% |
+| Last 30 days | 5 | 10% |
+| 1-3 months | 6 | 13% |
+| 3-6 months | 1 | 2% |
+| 6-12 months | 9 | 19% |
+| 1-2 years | 21 | 44% |
+| 2-3 years | 6 | 13% |
 | 3+ years | 0 | 0% |
 
 ---
@@ -152,12 +152,12 @@ Priority = Upvotes × 2 + Comments
 | 7 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 3 | 1 | 1 | [Feature Request] Provide synchronous Run method i... |
 | 8 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation... |
 | 9 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | 0 | 3 | [Bug] Unexpected reuse of payload instances in pay... |
-| 10 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 2 | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_w... |
-| 11 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 2 | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMe... |
-| 12 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 2 | 1 | 0 | [Feature Request] Support single-platform local Nu... |
-| 13 | [#550](https://github.com/temporalio/sdk-dotnet/issues/550) | 1 | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` ... |
-| 14 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | 1 | Inconsistent log property names for the workflow r... |
-| 15 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | 0 | 1 | [Feature Request] Investigate test flake for `CanR... |
+| 10 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 2 | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMe... |
+| 11 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 2 | 1 | 0 | [Feature Request] Support single-platform local Nu... |
+| 12 | [#599](https://github.com/temporalio/sdk-dotnet/issues/599) | 1 | 0 | 1 | [Bug] TemporalWorker::ExecuteAsync(Func<Task>) swa... |
+| 13 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | 1 | Inconsistent log property names for the workflow r... |
+| 14 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | 0 | 1 | [Bug] Investigate test flake for `CanRunWith_Custo... |
+| 15 | [#435](https://github.com/temporalio/sdk-dotnet/issues/435) | 1 | 0 | 1 | [Feature Request] Workflow logging - NLog async ca... |
 
 ---
 
@@ -171,10 +171,10 @@ Priority = Upvotes × 2 + Comments
 | 4 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | 0 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
 | 5 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 3 | 2 | [Feature Request] F# Samples/Documentation |
 | 6 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | 0 | [Bug] Unexpected reuse of payload instances in payload codec... |
-| 7 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 2 | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
-| 8 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 2 | 1 | [Feature Request] Make scoped IServiceProvider available to ... |
-| 9 | [#550](https://github.com/temporalio/sdk-dotnet/issues/550) | 1 | 0 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
-| 10 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | Inconsistent log property names for the workflow run identif... |
+| 7 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 2 | 1 | [Feature Request] Make scoped IServiceProvider available to ... |
+| 8 | [#599](https://github.com/temporalio/sdk-dotnet/issues/599) | 1 | 0 | [Bug] TemporalWorker::ExecuteAsync(Func<Task>) swallows exce... |
+| 9 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | Inconsistent log property names for the workflow run identif... |
+| 10 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | 0 | [Bug] Investigate test flake for `CanRunWith_CustomSlotSuppl... |
 
 ---
 
@@ -182,13 +182,11 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-21 | [#599](https://github.com/temporalio/sdk-dotnet/issues/599) | 0 | [Bug] TemporalWorker::ExecuteAsync(Func<Task>) swallows exce... |
 | 2026-01-12 | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | 0 | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_Fa... |
 | 2026-01-07 | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
 | 2026-01-06 | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | 0 | Refactor Bridge.Client to be IDisposable instead of a SafeHa... |
 | 2026-01-06 | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | 0 | Separate unmanaged pointer lifecycle management into SafeHan... |
-| 2025-12-26 | [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | 0 | [Bug] Loading TLS certificates from path doesn't work |
-| 2025-12-17 | [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 0 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
-| 2025-12-17 | [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | 0 | [Feature Request] Add tests to confirm proper Nexus support ... |
 
 ---
 
@@ -196,22 +194,21 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 30 |
-| bug | 13 |
+| enhancement | 29 |
+| bug | 12 |
 | mend: dependency security vulnerability | 1 |
 
 ---
 
-## Bugs (13 open issues)
+## Bugs (12 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
+| [#599](https://github.com/temporalio/sdk-dotnet/issues/599) | 0 | 1 | [Bug] TemporalWorker::ExecuteAsync(Func<Task>) swallows exce... |
 | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | 0 | 0 | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_Fa... |
 | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | 0 | [Bug] Some unlikely workflow task failures like failure conv... |
-| [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | 0 | 0 | [Bug] Loading TLS certificates from path doesn't work |
-| [#579](https://github.com/temporalio/sdk-dotnet/issues/579) | 0 | 2 | [Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_ac... |
-| [#550](https://github.com/temporalio/sdk-dotnet/issues/550) | 0 | 1 | [Bug] Investigate `CanRunWith_CustomSlotSupplier` flake |
 | [#549](https://github.com/temporalio/sdk-dotnet/issues/549) | 0 | 0 | [Bug] Investigate `ExecuteWorkflowAsync_PollingBehavior_Auto... |
+| [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 0 | 1 | [Bug] Investigate test flake for `CanRunWith_CustomSlotSuppl... |
 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
 | [#357](https://github.com/temporalio/sdk-dotnet/issues/357) | 0 | 1 | [Bug] Unexpected Serialization of Activity Results |
 | [#305](https://github.com/temporalio/sdk-dotnet/issues/305) | 0 | 1 | Handle multiple completion commands |

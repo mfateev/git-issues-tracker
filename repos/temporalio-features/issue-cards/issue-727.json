@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for the 'as-is' scheduled workflow ID field to programmatic SDK interfaces. This field was previously added to the API but needs to be exposed across all Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "scheduling",
+  "apis": [
+    "SchedulePolicy"
+  ],
+  "components": [
+    "schedule-policy",
+    "sdk-interfaces",
+    "api-bindings"
+  ],
+  "concepts": [
+    "scheduling",
+    "workflow-id",
+    "schedule-options",
+    "api-alignment"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure as-is scheduled workflow IDs through SDK programmatic interfaces until this feature is implemented across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Add the new field to schedule policy in all SDKs (Go, Java, TypeScript, Python, .NET, Ruby, PHP) to match the API change from api#357",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This was added a while back in API at https://github.com/temporalio/api/pull/357 but never to our programmatic interfaces. Just need this new field on schedule policy.",
+  "number": 727,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-22T20:28:18.812Z"
+}

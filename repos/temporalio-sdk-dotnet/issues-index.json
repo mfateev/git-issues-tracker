@@ -1,7 +1,39 @@
 {
-  "generated_at": "2026-01-13T00:08:47.280Z",
-  "total_count": 290,
+  "generated_at": "2026-01-22T20:27:21.173Z",
+  "total_count": 292,
   "issues": [
+    {
+      "number": 599,
+      "title": "[Bug] TemporalWorker::ExecuteAsync(Func<Task>) swallows exceptions, throws TaskCanceledException instead",
+      "state": "OPEN",
+      "author": "adeal",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-21T23:40:10Z",
+      "updatedAt": "2026-01-22T15:09:12Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/599"
+    },
+    {
+      "number": 597,
+      "title": "[Feature Request] Support linux-musl-arm64",
+      "state": "CLOSED",
+      "author": "tomflenner-dg",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-16T17:06:11Z",
+      "updatedAt": "2026-01-21T16:10:03Z",
+      "closedAt": "2026-01-21T16:10:03Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/597"
+    },
     {
       "number": 592,
       "title": "[Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_FailsAsExpected` flake",
@@ -79,14 +111,14 @@
     {
       "number": 584,
       "title": "[Bug] Loading TLS certificates from path doesn't work",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maciejdudko",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-12-26T16:59:31Z",
-      "updatedAt": "2025-12-26T16:59:31Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-15T17:51:37Z",
+      "closedAt": "2026-01-15T17:51:37Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -95,15 +127,15 @@
     {
       "number": 579,
       "title": "[Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_activation on Linux",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cfauchere",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-12-17T22:50:42Z",
-      "updatedAt": "2025-12-18T15:28:10Z",
-      "closedAt": null,
-      "commentCount": 2,
+      "updatedAt": "2026-01-13T17:53:13Z",
+      "closedAt": "2026-01-13T17:53:13Z",
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/579"
@@ -283,14 +315,14 @@
     {
       "number": 550,
       "title": "[Bug] Investigate `CanRunWith_CustomSlotSupplier` flake",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-10-24T19:53:54Z",
-      "updatedAt": "2025-12-02T23:26:40Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-22T17:09:15Z",
+      "closedAt": "2026-01-22T17:09:15Z",
       "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
@@ -736,14 +768,14 @@
     },
     {
       "number": 478,
-      "title": "[Feature Request] Investigate test flake for `CanRunWith_CustomSlotSupplier`",
+      "title": "[Bug] Investigate test flake for `CanRunWith_CustomSlotSupplier`",
       "state": "OPEN",
       "author": "cretz",
       "labels": [
-        "enhancement"
+        "bug"
       ],
       "createdAt": "2025-05-14T19:44:14Z",
-      "updatedAt": "2025-06-03T16:17:53Z",
+      "updatedAt": "2026-01-22T17:11:33Z",
       "closedAt": null,
       "commentCount": 1,
       "upvotes": 0,
@@ -4575,20 +4607,20 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 50,
-      "CLOSED": 240
+      "OPEN": 48,
+      "CLOSED": 244
     },
     "by_label": {
       "enhancement": 170,
-      "bug": 69,
+      "bug": 71,
       "Mend: dependency security vulnerability": 13,
       "question": 3
     },
     "engagement": {
       "total_upvotes": 45,
-      "total_comments": 329,
+      "total_comments": 332,
       "issues_with_upvotes": 29,
-      "issues_with_comments": 132,
+      "issues_with_comments": 134,
       "upvote_rate": "10%",
       "comment_rate": "46%"
     }

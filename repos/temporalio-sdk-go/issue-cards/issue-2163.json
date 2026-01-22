@@ -1,0 +1,32 @@
+{
+  "summary": "Make the pinned version parameter optional when setting a pinned override on an already-pinned workflow, aligning with API semantics from the temporal/api repository.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "versioning",
+    "workflow-pinning",
+    "sdk-api"
+  ],
+  "concepts": [
+    "versioning",
+    "workflow-pinning",
+    "optional-parameters",
+    "api-semantics",
+    "override"
+  ],
+  "severity": "low",
+  "userImpact": "Developers will have a simpler API for managing pinned workflow versions by not requiring redundant version specifications.",
+  "rootCause": null,
+  "proposedFix": "Follow the API semantics defined in temporalio/api to make the pinned version parameter optional when setting a pinned override on an already-pinned workflow.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Enhancement request to align SDK API with existing API semantics for versioning GA.",
+  "related": [
+    726
+  ],
+  "keyQuote": "Follow the API semantics here: https://github.com/temporalio/api/commit/4130a80613796f56a2c6be9fc22da9023929c645",
+  "number": 2163,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-01-22T20:29:17.174Z"
+}

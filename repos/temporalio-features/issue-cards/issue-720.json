@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowInfo.Priority field is currently immutable and does not reflect updates made via the new priority override capability introduced in api#610. The Priority in WorkflowInfo needs to be updated to reflect the current status when modified.",
+  "category": "bug",
+  "subcategory": "workflow-info",
+  "apis": [
+    "WorkflowInfo"
+  ],
+  "components": [
+    "workflow-info",
+    "priority-management"
+  ],
+  "concepts": [
+    "workflow-metadata",
+    "priority-override",
+    "state-synchronization",
+    "immutability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see the current priority of their workflow in WorkflowInfo after updating it, causing confusion about the actual priority being used.",
+  "rootCause": "Priority field in WorkflowInfo is marked as immutable and not updated when priority is changed after workflow execution starts.",
+  "proposedFix": "Make Priority in WorkflowInfo mutable and ensure it reflects the current priority status when updated.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    610
+  ],
+  "keyQuote": "Priority in WorkflowInfo needs to reflect the current status; ie be changed when it was updated.",
+  "number": 720,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-22T20:28:00.825Z"
+}

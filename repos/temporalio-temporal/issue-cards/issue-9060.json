@@ -1,0 +1,32 @@
+{
+  "summary": "Remove obsolete version check and 9-second delay that was added in v1.27 release. The check was meant to be temporary during upgrade transitions but is no longer needed as multiple versions have been released since then.",
+  "category": "other",
+  "subcategory": "technical-debt",
+  "apis": [],
+  "components": [
+    "worker",
+    "deletenamespace",
+    "reclaimresources"
+  ],
+  "concepts": [
+    "version-check",
+    "technical-debt",
+    "cleanup",
+    "release-cycle",
+    "deprecated-code"
+  ],
+  "severity": "low",
+  "userImpact": "Reduces unnecessary complexity and conditional logic in the codebase without affecting user-facing functionality.",
+  "rootCause": "Temporary version check and delay were added during v1.27 release transition period and are now obsolete after subsequent releases.",
+  "proposedFix": "Remove the version check and 9-second delay constant from the workflow.go file.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    7385
+  ],
+  "keyQuote": "v1.27.0 was released 11 months ago... v1.28.0 was released in June... v1.29.0 was released in October",
+  "number": 9060,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-22T20:31:09.818Z"
+}

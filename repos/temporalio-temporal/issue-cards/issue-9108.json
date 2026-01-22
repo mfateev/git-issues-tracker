@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to separate read and write QPS limits for persistence operations. Currently, a single combined QPS limit causes issues where read-heavy operations like Schedule API queries and UI browsing fail due to persistence throttling, even though reads are less costly than writes.",
+  "category": "feature",
+  "subcategory": "persistence-qps",
+  "apis": [
+    "DescribeSchedule"
+  ],
+  "components": [
+    "persistence",
+    "history-service",
+    "namespace-quotas",
+    "schedule-api"
+  ],
+  "concepts": [
+    "qps-limit",
+    "throttling",
+    "read-write-separation",
+    "persistence-overhead",
+    "namespace-quotas",
+    "burst-traffic",
+    "database-load"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot access schedules via UI when persistence QPS limits are hit by read-heavy operations, limiting the usability of schedule management features.",
+  "rootCause": "A single DescribeSchedule request generates 5-20+ persistence read calls in burst (GetCurrentExecution, GetWorkflowExecution, ReadHistoryBranch, etc.), which are treated the same as write operations under a combined QPS limit, causing read-heavy workloads to exceed the limit.",
+  "proposedFix": "Introduce separate QPS configuration parameters: history.persistenceNamespaceReadMaxQPS and history.persistenceNamespaceWriteMaxQPS to allow independent rate limiting based on operation type.",
+  "workaround": "Increase the namespace QPS quota to accommodate read-heavy schedule operations.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A single DescribeSchedule request can generate 5-20+ persistence calls (GetCurrentExecution, GetWorkflowExecution, ReadHistoryBranch, etc.) in a burst.",
+  "number": 9108,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-22T20:31:12.107Z"
+}

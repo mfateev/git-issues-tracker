@@ -1,0 +1,30 @@
+{
+  "summary": "Update the `lru` Rust dependency in the Python SDK's bridge from 0.16.0 to 0.16.3 to patch a soundness vulnerability (GHSA-rhfx-m35p-ff5j) where IterMut iterator methods violate Rust's Stacked Borrows rules.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "bridge",
+    "cargo-dependencies"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "soundness",
+    "dependency-management",
+    "rust-safety"
+  ],
+  "severity": "low",
+  "userImpact": "Users are exposed to a soundness vulnerability in the Rust bridge that could potentially cause undefined behavior in edge cases.",
+  "rootCause": "The `IterMut` iterator's `next` and `next_back` methods temporarily create an exclusive reference to the key when dereferencing the internal node pointer, violating Rust's Stacked Borrows rules.",
+  "proposedFix": "Update the `lru` dependency to version 0.16.3 or later in the Rust bridge's Cargo.lock.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependency updated via PR #1266",
+  "related": [
+    1266
+  ],
+  "keyQuote": "The `IterMut` iterator's `next` and `next_back` methods temporarily create an exclusive reference to the key when dereferencing the internal node pointer, violating Rust's Stacked Borrows rules.",
+  "number": 1294,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:30:08.517Z"
+}

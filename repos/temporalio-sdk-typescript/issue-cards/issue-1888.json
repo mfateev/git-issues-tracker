@@ -1,0 +1,33 @@
+{
+  "summary": "Request to expose per-activity-type counts in WorkerInfo alongside existing aggregate metrics like numInFlightActivities. This would help developers debug worker task slot exhaustion by identifying which activity types are consuming resources.",
+  "category": "feature",
+  "subcategory": "worker-monitoring",
+  "apis": [
+    "WorkerInfo"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "worker-info"
+  ],
+  "concepts": [
+    "task-slots",
+    "activity-types",
+    "in-flight-activities",
+    "debugging",
+    "resource-monitoring",
+    "worker-capacity"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can better diagnose why worker activity task slots are full by identifying which activity types are occupying resources.",
+  "rootCause": null,
+  "proposedFix": "Add a Map field to WorkerInfo where keys are activity types and values are in-flight counts for that type, optionally behind an environment variable flag.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "when user detects that all worker activity task slots are full, basically worker stops at that point polling for more activity tasks, they can check what activity types are occupying worker",
+  "number": 1888,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-01-22T20:30:23.546Z"
+}

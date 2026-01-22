@@ -1,0 +1,39 @@
+{
+  "summary": "Logs emitted in query handler functions are dropped when using the replay-safe logger, because `workflow.unsafe.is_replaying()` returns true during query execution. This prevents developers from logging diagnostic information in query handlers.",
+  "category": "bug",
+  "subcategory": "logging-queries",
+  "apis": [
+    "workflow.logger",
+    "workflow.query",
+    "workflow.unsafe.is_replaying"
+  ],
+  "components": [
+    "logger",
+    "query-handler",
+    "replay-detection"
+  ],
+  "concepts": [
+    "logging",
+    "queries",
+    "replay-safety",
+    "side-effects",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot use replay-safe logging in query handlers, forcing them to switch to regular loggers or lose logging capability in queries.",
+  "rootCause": "The `is_replaying()` function returns true during query execution, and the replay-safe logger uses this to filter out logs, but queries should allow logging as a side effect.",
+  "proposedFix": "Modify the replay detection logic or logger behavior to allow logging in query handlers while maintaining replay safety elsewhere.",
+  "workaround": "Use a normal logger (logging.getLogger(...)) instead of the replay-safe logger inside query handlers.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1274,
+    594,
+    378,
+    1887
+  ],
+  "keyQuote": "It's intentional that `is_replaying` is true, but the side effect of not emitting logs isn't.",
+  "number": 718,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-01-22T20:28:05.030Z"
+}

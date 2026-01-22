@@ -1,0 +1,29 @@
+{
+  "summary": "The workflow sandbox fails to restrict urllib3 version 1.26.19 when used with requests, allowing HTTP requests that should be blocked. Later versions like 2.6.2 correctly trigger sandbox restriction errors.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow_sandbox",
+    "sandbox_restrictions"
+  ],
+  "concepts": [
+    "sandbox",
+    "import_restrictions",
+    "urllib3",
+    "http_requests",
+    "determinism"
+  ],
+  "severity": "high",
+  "userImpact": "Users can accidentally bypass workflow sandbox restrictions depending on their urllib3 version, allowing non-deterministic HTTP requests that could corrupt workflow state.",
+  "rootCause": "urllib3 1.26.19 defers the restricted http.client.IncompleteRead access to a later point in execution, allowing it to evade sandbox detection at import time unlike version 2.6.2.",
+  "proposedFix": null,
+  "workaround": "Mark requests as pass-through import if intentionally using it in workflows, or use urllib3 2.6.2+ which properly triggers sandbox errors.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainer confirmed sandbox is best-effort; users must explicitly mark imports as pass-through if they intend to use restricted libraries deterministically in workflows.",
+  "related": [],
+  "keyQuote": "The sandbox is best effort, we don't guarantee it will prevent every potential issue. Additionally, importing `requests` as pass through indicates that you are trying to use it in the workflow",
+  "number": 1287,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:29:51.317Z"
+}

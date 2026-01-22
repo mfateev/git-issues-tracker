@@ -1,0 +1,33 @@
+{
+  "summary": "Unable to cancel child workflows in tests due to an invalid state transition in the activity state machine. When cancelling one child workflow while others are executing activities, the SDK core logs a fatal warning about ActivityMachine transitioning from ScheduledActivityCancelCommandCreated state upon ActivityTaskStarted event, causing the cancellation to fail silently.",
+  "category": "bug",
+  "subcategory": "child-workflow-cancellation",
+  "apis": [
+    "execute_child_workflow",
+    "cancel"
+  ],
+  "components": [
+    "workflow-engine",
+    "activity-state-machine",
+    "child-workflow-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "state-machine",
+    "race-condition",
+    "activity-execution",
+    "workflow-coordination"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably test child workflow cancellation scenarios as the cancellation operation fails silently with state machine warnings, making it impossible to verify correct behavior when cancelling individual child workflows.",
+  "rootCause": "Activity state machine receives ActivityTaskStarted event while in ScheduledActivityCancelCommandCreated state, which is an invalid transition. This appears to be a race condition where activity cancellation and activity start events occur in an unexpected order during concurrent child workflow execution.",
+  "proposedFix": null,
+  "workaround": "Ensure cancelled child workflows do not complete before cancellation is requested, or upgrade to SDK version 1.21.0+ where the issue has reduced occurrence rate. Remove early status checks that create race conditions in test code.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "ActivityMachine in state ScheduledActivityCancelCommandCreated says the transition is invalid during event EventInfo { event_id: 10, event_type: ActivityTaskStarted }",
+  "number": 1280,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:29:34.768Z"
+}

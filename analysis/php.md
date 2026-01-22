@@ -1,19 +1,19 @@
 # Temporal PHP SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-01-13
+**Generated:** January 22, 2026
 **Total Open Issues:** 50
 **Total Closed Issues:** 211
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
-[Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md) | [Themes](themes/index.md)
+<- [Summary](summary.md) . [Contributors](contributors.md) . [Recent](recent.md) . [Themes](themes/index.md)
 
-**Other SDKs:** [Java](java.md) | [Go](go.md) | [TypeScript](typescript.md) | [Python](python.md) | [.NET](dotnet.md) | [Ruby](ruby.md) | [Server](server.md) | [Features](features.md)
+**Other SDKs:** [Java](java.md) . [Go](go.md) . [TypeScript](typescript.md) . [Python](python.md) . [.NET](dotnet.md) . [Ruby](ruby.md) . [Server](server.md) . [Features](features.md)
 
 ---
 
 ## Executive Summary
 
-The PHP SDK maintains a healthy 81% resolution rate (211/261 total issues) with 50 open issues. The backlog shows mixed trends: a slight increase (+8 net) over the last 12 months, but encouraging improvement in the last 6 months (-7 net, with 23 closed vs 16 opened). The primary concerns are testing infrastructure gaps, documentation deficiencies (particularly around serialization/marshalling), and ongoing framework compatibility needs for Symfony and Laravel.
+The PHP SDK maintains a healthy 81% resolution rate (211/261 total issues) with 50 open issues. The backlog shows mixed trends: a slight increase (+8 net) over the last 12 months, but encouraging improvement in the last 6 months (-9 net, with 22 closed vs 13 opened). The primary concerns are testing infrastructure gaps, documentation deficiencies (particularly around serialization/marshalling), and ongoing framework compatibility needs for Symfony and Laravel.
 
 ### Key Findings
 
@@ -69,20 +69,20 @@ Backlog Growing: 8 more issues opened than closed in the last 12 months. However
 
 ### Last 6 Months: Detailed Analysis
 
-The last 6 months demonstrate healthy resolution activity with 7 more issues closed than opened, indicating the team is making progress on the backlog.
+The last 6 months demonstrate healthy resolution activity with 9 more issues closed than opened, indicating the team is making progress on the backlog.
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 16 |
-| Issues Closed | 23 |
-| Net Change | -7 |
-| Bugs Closed | 8 |
+| Issues Opened | 13 |
+| Issues Closed | 22 |
+| Net Change | -9 |
+| Bugs Closed | 7 |
 | Enhancements Completed | 9 |
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average Time to Close | 287 | 205 |
-| Median Time to Close | 185 | 133 |
+| Average Time to Close | 298 | 213 |
+| Median Time to Close | 189 | 136 |
 | 90th Percentile | 710 | 508 |
 
 ### Popular Requests Resolved (Last 6 Months)
@@ -175,7 +175,7 @@ Based on issue analysis, the following areas have the most issues:
 | workflow-execution | 7 | Workflow lifecycle and execution |
 | child-workflows | 6 | Parent-child workflow interactions |
 | serialization | 6 | Data marshalling and encoding |
-| dependency-management | 5 | Composer and version conflicts |
+| dependency-management | 6 | Composer and version conflicts |
 | error-handling | 5 | Exception handling and failure propagation |
 | schedule-api | 4 | Schedule creation and management |
 
@@ -335,11 +335,11 @@ The most upvoted issue ([#592](https://github.com/temporalio/sdk-php/issues/592)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 4 | 8% |
-| 1-3 months | 1 | 2% |
-| 3-6 months | 6 | 12% |
-| 6-12 months | 17 | 34% |
-| 1-2 years | 14 | 28% |
+| Last 30 days | 3 | 6% |
+| 1-3 months | 2 | 4% |
+| 3-6 months | 4 | 8% |
+| 6-12 months | 18 | 36% |
+| 1-2 years | 15 | 30% |
 | 2-3 years | 4 | 8% |
 | 3+ years | 4 | 8% |
 
@@ -402,7 +402,7 @@ The PHP SDK is reasonably mature but has room for improvement in documentation a
 | Installation | Minor Issues | Recent Composer compatibility problems |
 | Feature Parity | In Progress | Nexus, Worker Versioning, workflow-local pending |
 
-The SDK's 81% resolution rate and improving velocity (net -7 issues in last 6 months) demonstrate responsive maintenance. Primary focus areas should be:
+The SDK's 81% resolution rate and improving velocity (net -9 issues in last 6 months) demonstrate responsive maintenance. Primary focus areas should be:
 
 1. **Documentation** - Address the critical marshaller gap (most upvoted issue)
 2. **Testing infrastructure** - 8 related issues indicate this is a major pain point

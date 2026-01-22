@@ -1,0 +1,40 @@
+{
+  "summary": "When starting workflows, activities, Nexus operations, or creating schedules with null search attribute values, those attributes should be excluded from the started item rather than included. Currently this is mostly prevented by SDK implementations, but the server should handle it consistently.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [
+    "StartWorkflow",
+    "StartActivity",
+    "NexusStart",
+    "CreateSchedule",
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-start",
+    "activity-start",
+    "nexus-operations",
+    "schedule-creation",
+    "search-attributes"
+  ],
+  "concepts": [
+    "search-attributes",
+    "null-handling",
+    "data-validation",
+    "workflow-initialization",
+    "consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter inconsistent behavior when null search attributes are included in workflow/activity starts, potentially causing unexpected filtering or query results.",
+  "rootCause": "Server does not filter out null search attribute values during workflow/activity/Nexus/schedule initialization.",
+  "proposedFix": "Filter out search attributes with null values when processing workflow start, activity start, Nexus start, schedule create, or continue as new operations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2150
+  ],
+  "keyQuote": "If a search attribute's value is null on workflow start, activity start, Nexus start, schedule create, or continue as new, it should not be included on the started item.",
+  "number": 9056,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-01-22T20:30:53.865Z"
+}

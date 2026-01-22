@@ -1,7 +1,223 @@
 {
-  "generatedAt": "2026-01-13T00:09:07.420Z",
-  "totalCards": 382,
+  "generatedAt": "2026-01-22T20:28:21.429Z",
+  "totalCards": 388,
   "cards": [
+    {
+      "summary": "Add support for the 'as-is' scheduled workflow ID field to programmatic SDK interfaces. This field was previously added to the API but needs to be exposed across all Temporal SDKs.",
+      "category": "feature",
+      "subcategory": "scheduling",
+      "apis": [
+        "SchedulePolicy"
+      ],
+      "components": [
+        "schedule-policy",
+        "sdk-interfaces",
+        "api-bindings"
+      ],
+      "concepts": [
+        "scheduling",
+        "workflow-id",
+        "schedule-options",
+        "api-alignment"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot configure as-is scheduled workflow IDs through SDK programmatic interfaces until this feature is implemented across all SDKs.",
+      "rootCause": null,
+      "proposedFix": "Add the new field to schedule policy in all SDKs (Go, Java, TypeScript, Python, .NET, Ruby, PHP) to match the API change from api#357",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "This was added a while back in API at https://github.com/temporalio/api/pull/357 but never to our programmatic interfaces. Just need this new field on schedule policy.",
+      "number": 727,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-01-22T20:28:18.812Z"
+    },
+    {
+      "summary": "Add comprehensive versioning support for OSS v1.30 GA release, including exposing RoutingConfigUpdateState, Upgrade-on-CaN option, Backlog Stats, TaskQueue information in DescribeVersion/DescribeTaskQueue, and making Pinned Version optional for pinned workflow overrides.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "DescribeVersion",
+        "DescribeTaskQueue",
+        "StartWorkflow",
+        "UpdateWorkflow",
+        "ResetWorkflow"
+      ],
+      "components": [
+        "versioning-system",
+        "task-queue-management",
+        "deployment-info",
+        "api-definitions"
+      ],
+      "concepts": [
+        "versioning",
+        "upgrade-on-can",
+        "routing-config",
+        "task-queue-stats",
+        "pinned-override",
+        "backlog-stats"
+      ],
+      "severity": "high",
+      "userImpact": "Users need full versioning support including upgrade options and task queue statistics to fully adopt versioning for GA and manage workflow deployments effectively.",
+      "rootCause": null,
+      "proposedFix": "Expose RoutingConfigUpdateState in DeploymentInfo, add Upgrade-on-CaN option and ContinueAsNewSuggestedReasons, expose Backlog Stats in DescribeVersion, add TaskQueueStats/TaskQueueConfig to DescribeTaskQueue, and make Pinned Version optional for pinned workflow overrides.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2162
+      ],
+      "keyQuote": "Need to support versioning more fully to announce GA. Also need to expose upgrade-on-CaN option",
+      "number": 726,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-01-22T20:28:21.359Z"
+    },
+    {
+      "summary": "SDKs should validate payload sizes before submission and fail workflow tasks gracefully when payloads exceed known limits, rather than submitting requests that will fail. This allows workflows to be updated and resumed without wasting network bandwidth.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [
+        "StartWorkflow",
+        "SignalWorkflow"
+      ],
+      "components": [
+        "sdk-client",
+        "workflow-task-handler",
+        "payload-validator"
+      ],
+      "concepts": [
+        "payload-size-limits",
+        "error-handling",
+        "workflow-recovery",
+        "network-optimization",
+        "data-compression",
+        "graceful-failure"
+      ],
+      "severity": "medium",
+      "userImpact": "Users can proactively handle oversized payloads by updating workflows to compress or externalize data, avoiding failed workflow runs and unnecessary network uploads.",
+      "rootCause": "SDKs currently do not validate payload sizes before submission, causing entire requests to fail when limits are exceeded rather than failing the task gracefully.",
+      "proposedFix": "SDKs should know the payload size limits and submit workflow task failures instead of completions with oversized payloads, allowing workflows to continue if updated.",
+      "workaround": "Users can manually compress data or move large payloads to external storage before submitting to Temporal.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "If the SDK knows the error limits for payloads, it can submit a workflow task failure rather than submitting a completion that contains oversized payloads.",
+      "number": 723,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-01-22T20:28:18.942Z"
+    },
+    {
+      "summary": "Add workflowId to HTTP headers for workflow requests to enable API gateways and frontends to route requests to the correct active cluster without decoding the request payload. SDKs need to include workflowId in headers for initiated actions (StartWorkflow, SignalWorkflow) and attach headers from poll responses for action-after-poll requests (RespondWorkflow/ActivityTask).",
+      "category": "feature",
+      "subcategory": "http-routing",
+      "apis": [
+        "StartWorkflow",
+        "SignalWorkflow",
+        "TerminateWorkflow",
+        "RespondWorkflowTask",
+        "RespondActivityTask",
+        "PollWorkflowTaskQueue",
+        "PollActivityTaskQueue"
+      ],
+      "components": [
+        "http-client",
+        "request-headers",
+        "sdk-core",
+        "api-gateway-routing"
+      ],
+      "concepts": [
+        "request-routing",
+        "cluster-selection",
+        "http-headers",
+        "workflow-identity",
+        "load-balancing",
+        "api-gateway"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables API gateways and frontends to efficiently route workflow requests to correct active clusters without decoding request payloads.",
+      "rootCause": null,
+      "proposedFix": "SDK adds workflowId to request headers for SDK-initiated actions; SDK attaches headers from poll responses to action-after-poll requests; server adds header at poll response.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Include workflowId in the header will enable the api gateway/frontend route the workflow request to correct active cluster without having to decode/open the request payload",
+      "number": 721,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-01-22T20:28:02.715Z"
+    },
+    {
+      "summary": "WorkflowInfo.Priority field is currently immutable and does not reflect updates made via the new priority override capability introduced in api#610. The Priority in WorkflowInfo needs to be updated to reflect the current status when modified.",
+      "category": "bug",
+      "subcategory": "workflow-info",
+      "apis": [
+        "WorkflowInfo"
+      ],
+      "components": [
+        "workflow-info",
+        "priority-management"
+      ],
+      "concepts": [
+        "workflow-metadata",
+        "priority-override",
+        "state-synchronization",
+        "immutability"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot see the current priority of their workflow in WorkflowInfo after updating it, causing confusion about the actual priority being used.",
+      "rootCause": "Priority field in WorkflowInfo is marked as immutable and not updated when priority is changed after workflow execution starts.",
+      "proposedFix": "Make Priority in WorkflowInfo mutable and ensure it reflects the current priority status when updated.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        610
+      ],
+      "keyQuote": "Priority in WorkflowInfo needs to reflect the current status; ie be changed when it was updated.",
+      "number": 720,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-01-22T20:28:00.825Z"
+    },
+    {
+      "summary": "Logs emitted in query handler functions are dropped when using the replay-safe logger, because `workflow.unsafe.is_replaying()` returns true during query execution. This prevents developers from logging diagnostic information in query handlers.",
+      "category": "bug",
+      "subcategory": "logging-queries",
+      "apis": [
+        "workflow.logger",
+        "workflow.query",
+        "workflow.unsafe.is_replaying"
+      ],
+      "components": [
+        "logger",
+        "query-handler",
+        "replay-detection"
+      ],
+      "concepts": [
+        "logging",
+        "queries",
+        "replay-safety",
+        "side-effects",
+        "diagnostics"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers cannot use replay-safe logging in query handlers, forcing them to switch to regular loggers or lose logging capability in queries.",
+      "rootCause": "The `is_replaying()` function returns true during query execution, and the replay-safe logger uses this to filter out logs, but queries should allow logging as a side effect.",
+      "proposedFix": "Modify the replay detection logic or logger behavior to allow logging in query handlers while maintaining replay safety elsewhere.",
+      "workaround": "Use a normal logger (logging.getLogger(...)) instead of the replay-safe logger inside query handlers.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1274,
+        594,
+        378,
+        1887
+      ],
+      "keyQuote": "It's intentional that `is_replaying` is true, but the side effect of not emitting logs isn't.",
+      "number": 718,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-01-22T20:28:05.030Z"
+    },
     {
       "summary": "Feature request to add custom metadata support for workers in Temporal, allowing users to attach operational information like environment, version, and team ownership that can be viewed in the UI and CLI.",
       "category": "feature",

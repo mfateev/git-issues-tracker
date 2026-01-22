@@ -1,7 +1,141 @@
 {
-  "generated_at": "2026-01-13T00:08:47.608Z",
-  "total_count": 589,
+  "generated_at": "2026-01-22T20:27:21.615Z",
+  "total_count": 598,
   "issues": [
+    {
+      "number": 1295,
+      "title": "[Bug] Worker intermittently stops polling after synchronous activity completion",
+      "state": "OPEN",
+      "author": "Chaitanya-Varun",
+      "labels": [],
+      "createdAt": "2026-01-22T11:36:08Z",
+      "updatedAt": "2026-01-22T11:36:08Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1295"
+    },
+    {
+      "number": 1294,
+      "title": "Security: Update lru Rust dependency to 0.16.3 (GHSA-rhfx-m35p-ff5j)",
+      "state": "CLOSED",
+      "author": "milieere",
+      "labels": [],
+      "createdAt": "2026-01-22T09:56:41Z",
+      "updatedAt": "2026-01-22T17:47:29Z",
+      "closedAt": "2026-01-22T17:47:29Z",
+      "commentCount": 2,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1294"
+    },
+    {
+      "number": 1292,
+      "title": "[Feature Request] temporalio.CancelledError should inherit from BaseException",
+      "state": "OPEN",
+      "author": "worace",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-21T16:01:03Z",
+      "updatedAt": "2026-01-22T16:47:48Z",
+      "closedAt": null,
+      "commentCount": 7,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1292"
+    },
+    {
+      "number": 1289,
+      "title": "Warn if SDK detects a workflow history over a certain size",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-01-20T22:44:55Z",
+      "updatedAt": "2026-01-20T22:46:22Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1289"
+    },
+    {
+      "number": 1287,
+      "title": "[Bug] workflow sandbox does not always restrict usage of urllib3",
+      "state": "CLOSED",
+      "author": "millerick",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-20T20:51:26Z",
+      "updatedAt": "2026-01-22T17:17:36Z",
+      "closedAt": "2026-01-22T17:17:30Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1287"
+    },
+    {
+      "number": 1285,
+      "title": "SDK should fail workflow task if payloads size it known to be too large",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-01-20T20:01:19Z",
+      "updatedAt": "2026-01-20T20:01:57Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1285"
+    },
+    {
+      "number": 1284,
+      "title": "Warn if the SDK tried to send a payload above a specific size",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-01-20T19:47:01Z",
+      "updatedAt": "2026-01-20T19:48:22Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1284"
+    },
+    {
+      "number": 1280,
+      "title": "[Bug] Unable to test child workflow cancellation: Invalid transition in activity",
+      "state": "OPEN",
+      "author": "alemar99",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-16T16:33:43Z",
+      "updatedAt": "2026-01-22T18:48:56Z",
+      "closedAt": null,
+      "commentCount": 7,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1280"
+    },
+    {
+      "number": 1275,
+      "title": "[Feature Request] Look into alternative API doc generators",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-14T18:44:49Z",
+      "updatedAt": "2026-01-14T18:44:49Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1275"
+    },
     {
       "number": 1268,
       "title": "[Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings",
@@ -11,9 +145,9 @@
         "bug"
       ],
       "createdAt": "2026-01-09T00:42:34Z",
-      "updatedAt": "2026-01-09T00:42:34Z",
+      "updatedAt": "2026-01-13T17:24:11Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1268"
@@ -329,9 +463,9 @@
         "bug"
       ],
       "createdAt": "2025-10-31T21:11:02Z",
-      "updatedAt": "2025-11-04T13:49:24Z",
+      "updatedAt": "2026-01-13T18:47:23Z",
       "closedAt": null,
-      "commentCount": 2,
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1203"
@@ -4915,14 +5049,14 @@
     {
       "number": 487,
       "title": "[Feature Request] Allow workflow logger to opt-out of sandboxing",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-03-12T17:58:04Z",
-      "updatedAt": "2025-10-16T00:06:49Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-21T19:22:53Z",
+      "closedAt": "2026-01-21T19:22:53Z",
       "commentCount": 3,
       "upvotes": 6,
       "totalReactions": 8,
@@ -9345,21 +9479,21 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 114,
-      "CLOSED": 475
+      "OPEN": 120,
+      "CLOSED": 478
     },
     "by_label": {
-      "enhancement": 313,
-      "bug": 220,
+      "enhancement": 315,
+      "bug": 222,
       "Mend: dependency security vulnerability": 12,
       "question": 2
     },
     "engagement": {
       "total_upvotes": 119,
-      "total_comments": 985,
+      "total_comments": 1004,
       "issues_with_upvotes": 62,
-      "issues_with_comments": 341,
-      "upvote_rate": "11%",
+      "issues_with_comments": 346,
+      "upvote_rate": "10%",
       "comment_rate": "58%"
     }
   },

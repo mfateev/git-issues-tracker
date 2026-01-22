@@ -1,6 +1,6 @@
 # Ruby SDK - Issue Statistics
 
-**Generated:** 2026-01-13
+**Generated:** 2026-01-22
 **Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
 ## Related Documents
@@ -25,8 +25,8 @@
 | Total Comments on open | 15 |
 | Issues with Upvotes | 2 (9%) |
 | Issues with Comments | 8 (36%) |
-| Average Age (days) | 253 |
-| Stale Issues (>12 months) | 4 (18%) |
+| Average Age (days) | 263 |
+| Stale Issues (>12 months) | 6 (27%) |
 
 ---
 ## Resolution Metrics
@@ -87,17 +87,17 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 25 |
-| Issues Closed | 29 |
+| Issues Opened | 23 |
+| Issues Closed | 27 |
 | Net Change | -4 |
 | Bugs Closed | 5 |
-| Enhancements Closed | 22 |
+| Enhancements Closed | 20 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 62 | 45 |
+| Average | 64 | 46 |
 | Median | 40 | 29 |
 | 90th Percentile | 154 | 111 |
 
@@ -105,8 +105,8 @@
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 31% |
-| Within 90 days | 76% |
+| Within 30 days | 30% |
+| Within 90 days | 74% |
 
 
 ---
@@ -116,9 +116,9 @@
 |-----|-------|---|
 | Last 30 days | 0 | 0% |
 | 1-3 months | 4 | 18% |
-| 3-6 months | 5 | 23% |
-| 6-12 months | 9 | 41% |
-| 1-2 years | 4 | 18% |
+| 3-6 months | 4 | 18% |
+| 6-12 months | 8 | 36% |
+| 1-2 years | 6 | 27% |
 | 2-3 years | 0 | 0% |
 | 3+ years | 0 | 0% |
 
@@ -192,12 +192,14 @@ No issues created in the last 30 days.
 
 ---
 
-## Stale Issues (4 open issues with no activity >12 months)
+## Stale Issues (6 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
+| [#192](https://github.com/temporalio/sdk-ruby/issues/192) | 0 | 2025-01-14 | [Feature Request] Remove Go from test pipeline |
+| [#191](https://github.com/temporalio/sdk-ruby/issues/191) | 0 | 2025-01-13 | [Feature Request] Deadlock detection - improve int... |
 | [#185](https://github.com/temporalio/sdk-ruby/issues/185) | 0 | 2025-01-08 | [Feature Request] Warn on unawaited workflow futur... |
 | [#179](https://github.com/temporalio/sdk-ruby/issues/179) | 0 | 2025-01-07 | [Feature Request] Provide "workflow local" |
 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 0 | 2024-10-17 | [Bug] Windows CI segfaulting during tests |

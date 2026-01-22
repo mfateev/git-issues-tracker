@@ -1,6 +1,6 @@
 # Server SDK - Issue Statistics
 
-**Generated:** 2026-01-13
+**Generated:** 2026-01-22
 **Repository:** [temporalio/temporal](https://github.com/temporalio/temporal)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 530 |
-| Total Closed Issues | 955 |
-| Total All Issues | 1485 |
-| Bugs (open) | 136 |
-| Enhancements/Features (open) | 352 |
+| Total Open Issues | 531 |
+| Total Closed Issues | 960 |
+| Total All Issues | 1491 |
+| Bugs (open) | 137 |
+| Enhancements/Features (open) | 353 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 872 |
-| Total Comments on open | 871 |
+| Total Comments on open | 872 |
 | Issues with Upvotes | 143 (27%) |
-| Issues with Comments | 291 (55%) |
-| Average Age (days) | 969 |
-| Stale Issues (>12 months) | 374 (71%) |
+| Issues with Comments | 290 (55%) |
+| Average Age (days) | 972 |
+| Stale Issues (>12 months) | 373 (70%) |
 
 ---
 ## Resolution Metrics
@@ -36,13 +36,13 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 64% (955/1485) |
-| Avg Time to Close (calendar) | 172 days |
-| Avg Time to Close (business) | 123 days |
+| Resolution Rate | 64% (960/1491) |
+| Avg Time to Close (calendar) | 174 days |
+| Avg Time to Close (business) | 125 days |
 | Median Time to Close (calendar) | 41 days |
 | Median Time to Close (business) | 30 days |
-| 90th Percentile (calendar) | 592 days |
-| 90th Percentile (business) | 424 days |
+| 90th Percentile (calendar) | 593 days |
+| 90th Percentile (business) | 425 days |
 | Resolved within 30 days | 47% |
 | Resolved within 90 days | 62% |
 
@@ -51,13 +51,13 @@
 | Reason | Count | % |
 |--------|-------|---|
 | Fixed (bugs) | 354 | 37% |
-| Completed (features) | 247 | 26% |
+| Completed (features) | 249 | 26% |
 | Self-resolved | 210 | 22% |
 | Duplicate | 5 | 1% |
 | Won't Fix | 2 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 137 | 14% |
+| Other | 140 | 15% |
 
 ---
 ## Issue Velocity (Last 12 Months)
@@ -75,10 +75,10 @@
 | 2025-10 | 17 | 14 | +3 |
 | 2025-11 | 12 | 9 | +3 |
 | 2025-12 | 12 | 4 | +8 |
-| 2026-01 | 7 | 7 | 0 |
-| **Total** | **169** | **102** | **+67** |
+| 2026-01 | 13 | 12 | +1 |
+| **Total** | **175** | **107** | **+68** |
 
-📈 **Backlog Growing:** 67 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 68 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 98 |
-| Issues Closed | 66 |
-| Net Change | +32 |
-| Bugs Closed | 45 |
-| Enhancements Closed | 15 |
+| Issues Opened | 99 |
+| Issues Closed | 70 |
+| Net Change | +29 |
+| Bugs Closed | 44 |
+| Enhancements Closed | 17 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 135 | 97 |
-| Median | 23 | 18 |
-| 90th Percentile | 624 | 447 |
+| Average | 165 | 118 |
+| Median | 27 | 20 |
+| 90th Percentile | 638 | 456 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 61% |
-| Within 90 days | 77% |
+| Within 30 days | 56% |
+| Within 90 days | 76% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -121,13 +121,13 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 9 | 2% |
-| 1-3 months | 19 | 4% |
-| 3-6 months | 21 | 4% |
-| 6-12 months | 46 | 9% |
-| 1-2 years | 136 | 26% |
-| 2-3 years | 81 | 15% |
-| 3+ years | 218 | 41% |
+| Last 30 days | 10 | 2% |
+| 1-3 months | 18 | 3% |
+| 3-6 months | 19 | 4% |
+| 6-12 months | 51 | 10% |
+| 1-2 years | 129 | 24% |
+| 2-3 years | 87 | 16% |
+| 3+ years | 217 | 41% |
 
 ---
 
@@ -182,7 +182,7 @@ Priority = Upvotes × 2 + Comments
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
 | 1 | [#1507](https://github.com/temporalio/temporal/issues/1507) | 27 | 50 | Provide priority task queues |
-| 2 | [#3006](https://github.com/temporalio/temporal/issues/3006) | 18 | 0 | Workflow Pause / Unpause |
+| 2 | [#3006](https://github.com/temporalio/temporal/issues/3006) | 19 | 0 | Workflow Pause / Unpause |
 | 3 | [#328](https://github.com/temporalio/temporal/issues/328) | 16 | 19 | Try to run temporal on top of  Amazon Keyspaces |
 | 4 | [#6323](https://github.com/temporalio/temporal/issues/6323) | 15 | 0 | Frontend Service - goroutine (CPU & Memory) Leak |
 | 5 | [#4902](https://github.com/temporalio/temporal/issues/4902) | 15 | 0 | Custom authentication between frontend and other services |
@@ -198,15 +198,16 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-22 | [#9108](https://github.com/temporalio/temporal/issues/9108) | 0 | Separate Read and Write QPS Limits for Persistence |
+| 2026-01-16 | [#9060](https://github.com/temporalio/temporal/issues/9060) | 0 | remove version check and 9s const after v1.27 release |
+| 2026-01-16 | [#9057](https://github.com/temporalio/temporal/issues/9057) | 0 | Design Patterns for Background Code Execution Agents - Archi... |
+| 2026-01-16 | [#9056](https://github.com/temporalio/temporal/issues/9056) | 0 | Ignore null search attributes when starting/creating things |
+| 2026-01-14 | [#9021](https://github.com/temporalio/temporal/issues/9021) | 0 | Possible premature deletion in History Scavenger |
+| 2026-01-13 | [#9012](https://github.com/temporalio/temporal/issues/9012) | 0 | Add Custom Headers Support to "Start Workflow" Form in Web U... |
 | 2026-01-12 | [#9005](https://github.com/temporalio/temporal/issues/9005) | 0 | Add capability to filter workflows by a substring |
 | 2026-01-08 | [#8967](https://github.com/temporalio/temporal/issues/8967) | 0 | 1.30.0 release version |
 | 2026-01-07 | [#8955](https://github.com/temporalio/temporal/issues/8955) | 0 | MCP Server for Temporal Workflows |
 | 2025-12-24 | [#8902](https://github.com/temporalio/temporal/issues/8902) | 0 | History service memory usage upward trend |
-| 2025-12-20 | [#8889](https://github.com/temporalio/temporal/issues/8889) | 0 | Enhancing Temporal PR Review and Release Confidence with Hik... |
-| 2025-12-18 | [#8866](https://github.com/temporalio/temporal/issues/8866) | 0 | Address security vulnerability CVE-2025-61729 for golang:cry... |
-| 2025-12-18 | [#8865](https://github.com/temporalio/temporal/issues/8865) | 0 | Address security vulnerability CVE-2025-61727 for golang:cry... |
-| 2025-12-18 | [#8864](https://github.com/temporalio/temporal/issues/8864) | 0 | Workflow cannot run with the dedicated cloud PostgreSQL: "Un... |
-| 2025-12-16 | [#8833](https://github.com/temporalio/temporal/issues/8833) | 0 | Scheduler does not list workflows runned when using "trigger... |
 
 ---
 
@@ -214,8 +215,8 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 348 |
-| potential-bug | 125 |
+| enhancement | 349 |
+| potential-bug | 126 |
 | up-for-grabs | 30 |
 | api | 25 |
 | difficulty: easy | 20 |
@@ -247,7 +248,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (136 open issues)
+## Bugs (137 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -278,15 +279,15 @@ Priority = Upvotes × 2 + Comments
 | [#1119](https://github.com/temporalio/temporal/issues/1119) | 1 | 5 | ParentExecution not set in WorkflowExecutionInfo |
 | [#787](https://github.com/temporalio/temporal/issues/787) | 1 | 1 | Frequent timeouts while archiving to S3 |
 | [#471](https://github.com/temporalio/temporal/issues/471) | 1 | 7 | temporal Docker fails to bind on multiple interfaces |
+| [#9021](https://github.com/temporalio/temporal/issues/9021) | 0 | 0 | Possible premature deletion in History Scavenger |
 | [#8864](https://github.com/temporalio/temporal/issues/8864) | 0 | 1 | Workflow cannot run with the dedicated cloud PostgreSQL: "Un... |
 | [#8833](https://github.com/temporalio/temporal/issues/8833) | 0 | 3 | Scheduler does not list workflows runned when using "trigger... |
-| [#8655](https://github.com/temporalio/temporal/issues/8655) | 0 | 1 | Addressing security vulnerabilities in the Temporalio/admin-... |
 
-*...and 106 more bugs*
+*...and 107 more bugs*
 
 ---
 
-## Stale Issues (374 open issues with no activity >12 months)
+## Stale Issues (373 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -313,4 +314,4 @@ Top stale issues by upvotes:
 | [#130](https://github.com/temporalio/temporal/issues/130) | 6 | 2023-03-03 | Add cron activity |
 | [#5455](https://github.com/temporalio/temporal/issues/5455) | 5 | 2024-02-27 | docker-compose multirole sometimes stuck on boot |
 
-*...and 354 more stale issues*
+*...and 353 more stale issues*

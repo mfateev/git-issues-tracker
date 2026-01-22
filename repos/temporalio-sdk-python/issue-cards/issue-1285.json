@@ -1,0 +1,33 @@
+{
+  "summary": "SDK should fail workflow tasks when payload size exceeds known limits to prevent silent failures or partial execution.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "ExecuteWorkflow"
+  ],
+  "components": [
+    "workflow-executor",
+    "payload-validation",
+    "task-processor"
+  ],
+  "concepts": [
+    "payload-size",
+    "validation",
+    "error-handling",
+    "limits",
+    "workflow-task",
+    "failure-detection"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows may silently fail or behave unexpectedly when payloads exceed size limits, requiring explicit validation logic.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": null,
+  "number": 1285,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:29:47.489Z"
+}

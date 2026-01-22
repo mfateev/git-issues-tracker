@@ -1,0 +1,32 @@
+{
+  "number": 1284,
+  "summary": "Add a warning when the Python SDK attempts to send a payload that exceeds a specific size threshold. This helps developers identify and address potential issues with oversized payloads before they cause problems.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [],
+  "components": [
+    "client",
+    "serialization",
+    "payload-handler"
+  ],
+  "concepts": [
+    "payload-size",
+    "validation",
+    "warning",
+    "limits",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will receive warnings when attempting to send oversized payloads, helping them optimize their data transmission and avoid runtime issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    701
+  ],
+  "keyQuote": "Warn if the SDK tried to send a payload above a specific size",
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-01-22T20:29:30.615Z"
+}

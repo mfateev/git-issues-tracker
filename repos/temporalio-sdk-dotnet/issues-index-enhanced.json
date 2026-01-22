@@ -1,9 +1,103 @@
 {
-  "generatedAt": "2026-01-13T14:02:56.409Z",
+  "generatedAt": "2026-01-22T20:33:00.936Z",
   "repo": "temporalio-sdk-dotnet",
-  "totalCount": 290,
-  "cardsCount": 290,
+  "totalCount": 292,
+  "cardsCount": 292,
   "issues": [
+    {
+      "number": 599,
+      "title": "[Bug] TemporalWorker::ExecuteAsync(Func<Task>) swallows exceptions, throws TaskCanceledException instead",
+      "state": "OPEN",
+      "author": "adeal",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-21T23:40:10Z",
+      "updatedAt": "2026-01-22T15:09:12Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/599",
+      "bodyLength": 2558,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.10.0"
+      ],
+      "linkedIssues": [
+        548
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 3,
+      "summary": "The non-generic ExecuteAsync(Func<Task>) overload loses exceptions thrown by user tasks and throws TaskCanceledException instead. This regression affects workflows returning Task (void) but not Task<T>, caused by using OnlyOnRanToCompletion continuation option that discards exceptions.",
+      "category": "bug",
+      "subcategory": "worker-execution",
+      "apis": [
+        "ExecuteAsync",
+        "ExecuteWorkflowAsync"
+      ],
+      "components": [
+        "worker",
+        "task-execution",
+        "exception-handling"
+      ],
+      "concepts": [
+        "exception-handling",
+        "task-continuation",
+        "async-execution",
+        "void-workflows",
+        "error-propagation"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 597,
+      "title": "[Feature Request] Support linux-musl-arm64",
+      "state": "CLOSED",
+      "author": "tomflenner-dg",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-16T17:06:11Z",
+      "updatedAt": "2026-01-21T16:10:03Z",
+      "closedAt": "2026-01-21T16:10:03Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/597",
+      "bodyLength": 1595,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        6734
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The .NET SDK lacks support for the linux-musl-arm64 runtime identifier, preventing deployment on Alpine-based ARM64 containers. With .NET 10 discontinuing Debian images, Alpine becomes a primary choice, making this support essential for modern containerized deployments.",
+      "category": "feature",
+      "subcategory": "runtime-support",
+      "apis": [],
+      "components": [
+        "native-library",
+        "runtime-identifier",
+        "nuget-package"
+      ],
+      "concepts": [
+        "cross-platform-support",
+        "containerization",
+        "alpine-linux",
+        "arm64",
+        "libc-compatibility",
+        "deployment"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
     {
       "number": 592,
       "title": "[Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_FailsAsExpected` flake",
@@ -228,14 +322,14 @@
     {
       "number": 584,
       "title": "[Bug] Loading TLS certificates from path doesn't work",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maciejdudko",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-12-26T16:59:31Z",
-      "updatedAt": "2025-12-26T16:59:31Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-15T17:51:37Z",
+      "closedAt": "2026-01-15T17:51:37Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/584",
@@ -274,15 +368,15 @@
     {
       "number": 579,
       "title": "[Bug] SIGSEGV crash in temporal_core_worker_poll_workflow_activation on Linux",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cfauchere",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-12-17T22:50:42Z",
-      "updatedAt": "2025-12-18T15:28:10Z",
-      "closedAt": null,
-      "commentCount": 2,
+      "updatedAt": "2026-01-13T17:53:13Z",
+      "closedAt": "2026-01-13T17:53:13Z",
+      "commentCount": 3,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/579",
       "bodyLength": 1731,
@@ -801,14 +895,14 @@
     {
       "number": 550,
       "title": "[Bug] Investigate `CanRunWith_CustomSlotSupplier` flake",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-10-24T19:53:54Z",
-      "updatedAt": "2025-12-02T23:26:40Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-22T17:09:15Z",
+      "closedAt": "2026-01-22T17:09:15Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/550",
@@ -2066,14 +2160,14 @@
     },
     {
       "number": 478,
-      "title": "[Feature Request] Investigate test flake for `CanRunWith_CustomSlotSupplier`",
+      "title": "[Bug] Investigate test flake for `CanRunWith_CustomSlotSupplier`",
       "state": "OPEN",
       "author": "cretz",
       "labels": [
-        "enhancement"
+        "bug"
       ],
       "createdAt": "2025-05-14T19:44:14Z",
-      "updatedAt": "2025-06-03T16:17:53Z",
+      "updatedAt": "2026-01-22T17:11:33Z",
       "closedAt": null,
       "commentCount": 1,
       "upvotes": 0,
