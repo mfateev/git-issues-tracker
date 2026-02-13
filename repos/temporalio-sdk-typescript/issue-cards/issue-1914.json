@@ -1,0 +1,32 @@
+{
+  "summary": "Add a warning to the TypeScript SDK when it detects a workflow history exceeding a certain size threshold, helping users identify and optimize workflows with large histories.",
+  "category": "feature",
+  "subcategory": "workflow-monitoring",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "history-processor",
+    "logging"
+  ],
+  "concepts": [
+    "workflow-history",
+    "size-limit",
+    "monitoring",
+    "performance-optimization",
+    "user-warning"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive warnings when their workflows accumulate large histories, helping them identify potential performance issues before they become critical.",
+  "rootCause": null,
+  "proposedFix": "Implement size monitoring in the SDK that detects when workflow history reaches or exceeds a configurable threshold and emits a warning to users.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    705
+  ],
+  "keyQuote": "Warn if SDK detects a workflow history over a certain size",
+  "number": 1914,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-02-02T23:47:54.474Z"
+}

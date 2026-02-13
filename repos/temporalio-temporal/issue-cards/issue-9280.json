@@ -1,0 +1,32 @@
+{
+  "summary": "Multiple HIGH and CRITICAL CVEs detected in temporalio/server:1.29.3 Docker image, including vulnerabilities in OpenSSL (libcrypto3/libssl3), Go standard library, and Go crypto packages. User reports vulnerability scan results using Trivy showing 8 vulnerable dependencies requiring immediate patching.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "openssl-dependencies",
+    "go-runtime",
+    "go-crypto"
+  ],
+  "concepts": [
+    "vulnerability",
+    "cve",
+    "security-patch",
+    "dependency-update",
+    "container-image",
+    "supply-chain"
+  ],
+  "severity": "critical",
+  "userImpact": "Users deploying temporalio/server:1.29.3 are exposed to critical security vulnerabilities that could be exploited by attackers.",
+  "rootCause": "Outdated dependencies in the Docker image: OpenSSL 3.5.0 (CVE-2025-15467, CVE-2025-69419), Go 1.24.4/1.25.0 (CVE-2025-47907, CVE-2025-58183), golang.org/x/crypto v0.32.0 (CVE-2025-22869), and golang.org/x/oauth2 v0.7.0 (CVE-2025-22868).",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Following CVEs have been found in temporalio/server:1.29.3",
+  "number": 9280,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-02-11T03:37:03.533Z"
+}

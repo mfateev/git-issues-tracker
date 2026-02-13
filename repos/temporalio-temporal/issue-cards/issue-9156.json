@@ -1,0 +1,35 @@
+{
+  "summary": "Request for built-in cloud database authentication support in Temporal Server for AWS RDS and GCP Cloud SQL using workload identity, eliminating the need to manage database credentials as secrets in cloud-managed Kubernetes environments.",
+  "category": "feature",
+  "subcategory": "cloud-auth",
+  "apis": [],
+  "components": [
+    "persistence",
+    "sql-plugin",
+    "database-handle",
+    "config"
+  ],
+  "concepts": [
+    "cloud-native",
+    "workload-identity",
+    "database-authentication",
+    "iam",
+    "token-refresh",
+    "secrets-management",
+    "zero-trust"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal in AWS EKS or GCP GKE must currently manage database credentials as secrets instead of using native workload identity features.",
+  "rootCause": "Temporal Server lacks built-in support for cloud provider IAM authentication mechanisms; existing Connect hook is undocumented and impractical for most users.",
+  "proposedFix": "Add cloudAuth configuration to SQL persistence settings supporting AWS RDS and GCP Cloud SQL with automatic token refresh based on cloud provider token lifetimes.",
+  "workaround": "Undocumented Connect hook can be used but requires custom builds and maintenance of upstream merges.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8724
+  ],
+  "keyQuote": "Add built-in support for cloud database authentication in Temporal's SQL configuration",
+  "number": 9156,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-02-02T23:48:34.034Z"
+}

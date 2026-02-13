@@ -1,0 +1,31 @@
+{
+  "summary": "The run-tests.yml workflow sets matrix.runs_on_override to 'ubuntu-latest-8-cores', a custom runner that doesn't exist in most forks, causing workflow jobs to queue for 24 hours and timeout automatically. Forks need a guard condition to skip this matrix configuration or use the standard runner.",
+  "category": "bug",
+  "subcategory": "ci-cd",
+  "apis": [],
+  "components": [
+    "workflow",
+    "github-actions",
+    "ci-cd-pipeline"
+  ],
+  "concepts": [
+    "custom-runners",
+    "forks",
+    "workflow-timeout",
+    "matrix-configuration",
+    "queue-limits",
+    "ci-failure"
+  ],
+  "severity": "high",
+  "userImpact": "Developers who fork the repository experience workflow failures and 24-hour timeouts when attempting to run tests, making it difficult to validate changes locally.",
+  "rootCause": "The workflow matrix specifies 'ubuntu-latest-8-cores' as a custom GitHub Actions runner that only exists in the temporalio organization, not in contributor forks, causing jobs to wait indefinitely for an unavailable runner.",
+  "proposedFix": "Add an 'if: github.repository_owner == \"temporalio\"' condition to skip the custom runner matrix for non-temporalio forks, or use a 'vars.HAS_UBUNTU_LATEST_8_CORES' guard to conditionally enable the custom runner configuration.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Workflow updated to include proper guard conditions preventing forks from attempting to use unavailable custom runners.",
+  "related": [],
+  "keyQuote": "Job queue time 24 hours - A job can be in the queue for 24 hours before it is automatically cancelled.",
+  "number": 9135,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-02-02T23:48:19.154Z"
+}

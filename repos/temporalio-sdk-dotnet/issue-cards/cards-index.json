@@ -1,7 +1,72 @@
 {
-  "generatedAt": "2026-01-22T20:28:34.521Z",
-  "totalCards": 292,
+  "generatedAt": "2026-02-11T03:35:55.940Z",
+  "totalCards": 294,
   "cards": [
+    {
+      "summary": "The .NET SDK's typed search attribute validation logic is stricter than the server's deserialization logic. This causes validation errors in cases that the server accepts, creating an inconsistency that needs to be resolved by making the SDK as lenient as the server.",
+      "category": "bug",
+      "subcategory": "search-attributes",
+      "apis": [],
+      "components": [
+        "search-attributes",
+        "type-validation",
+        "serialization"
+      ],
+      "concepts": [
+        "type-metadata",
+        "validation",
+        "deserialization",
+        "compatibility",
+        "enumerate"
+      ],
+      "severity": "medium",
+      "userImpact": "Users encounter validation failures in the SDK for search attribute types that the server successfully deserializes, leading to unexpected errors and incompatibility.",
+      "rootCause": "The SDK applies stricter type metadata validation rules than the server does during deserialization.",
+      "proposedFix": "Adjust the typed search attribute validation logic to match the server's lenient approach to type metadata.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        741
+      ],
+      "keyQuote": "we are stricter than server on validation of this enumerate",
+      "number": 603,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-02-02T23:46:23.513Z"
+    },
+    {
+      "summary": "The Semaphore.WaitAsync method incorrectly uses ContinueWith as a map operation, which could suppress exceptions. While there are currently no fallible scenarios in the continuation, this pattern should be fixed to follow best practices.",
+      "category": "bug",
+      "subcategory": "synchronization-primitives",
+      "apis": [
+        "WaitAsync"
+      ],
+      "components": [
+        "Semaphore",
+        "workflow-utilities",
+        "task-continuation"
+      ],
+      "concepts": [
+        "exception-handling",
+        "async-patterns",
+        "continuation-semantics",
+        "error-suppression"
+      ],
+      "severity": "low",
+      "userImpact": "Users may experience silently swallowed exceptions in future scenarios if the Semaphore.WaitAsync continuation becomes fallible.",
+      "rootCause": "ContinueWith is being used as a map operation instead of properly handling potential exceptions from the continuation task.",
+      "proposedFix": "Replace the improper ContinueWith usage with a pattern that correctly handles both success and failure cases (likely using proper exception handling or task composition).",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        599
+      ],
+      "keyQuote": "We're improperly using `ContinueWith` in `Temporalio.Workflows.Semaphore.WaitAsync` as if it were a \"map success\"",
+      "number": 601,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-02-02T23:46:21.842Z"
+    },
     {
       "summary": "The non-generic ExecuteAsync(Func<Task>) overload loses exceptions thrown by user tasks and throws TaskCanceledException instead. This regression affects workflows returning Task (void) but not Task<T>, caused by using OnlyOnRanToCompletion continuation option that discards exceptions.",
       "category": "bug",

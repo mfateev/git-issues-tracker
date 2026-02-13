@@ -1,0 +1,32 @@
+{
+  "summary": "SDK should fail workflow tasks when payload sizes exceed known limits to prevent silent failures and provide better error feedback to users.",
+  "category": "bug",
+  "subcategory": "workflow-task-handling",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "payload-handler",
+    "error-handling"
+  ],
+  "concepts": [
+    "payload-size",
+    "validation",
+    "error-handling",
+    "workflow-task",
+    "limits"
+  ],
+  "severity": "high",
+  "userImpact": "Users may experience silent failures or unexpected behavior when workflow tasks contain payloads that exceed size limits.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    723
+  ],
+  "keyQuote": "SDK should fail workflow task if payloads size it known to be too large",
+  "number": 2165,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-02-02T23:46:32.751Z"
+}

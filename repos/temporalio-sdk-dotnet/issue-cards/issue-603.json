@@ -1,0 +1,32 @@
+{
+  "summary": "The .NET SDK's typed search attribute validation logic is stricter than the server's deserialization logic. This causes validation errors in cases that the server accepts, creating an inconsistency that needs to be resolved by making the SDK as lenient as the server.",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "type-validation",
+    "serialization"
+  ],
+  "concepts": [
+    "type-metadata",
+    "validation",
+    "deserialization",
+    "compatibility",
+    "enumerate"
+  ],
+  "severity": "medium",
+  "userImpact": "Users encounter validation failures in the SDK for search attribute types that the server successfully deserializes, leading to unexpected errors and incompatibility.",
+  "rootCause": "The SDK applies stricter type metadata validation rules than the server does during deserialization.",
+  "proposedFix": "Adjust the typed search attribute validation logic to match the server's lenient approach to type metadata.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    741
+  ],
+  "keyQuote": "we are stricter than server on validation of this enumerate",
+  "number": 603,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-02-02T23:46:23.513Z"
+}

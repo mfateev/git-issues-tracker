@@ -1,6 +1,6 @@
 # PHP SDK - Issue Statistics
 
-**Generated:** 2026-01-22
+**Generated:** 2026-02-11
 **Repository:** [temporalio/sdk-php](https://github.com/temporalio/sdk-php)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 50 |
-| Total Closed Issues | 211 |
-| Total All Issues | 261 |
-| Bugs (open) | 9 |
-| Enhancements/Features (open) | 31 |
+| Total Open Issues | 45 |
+| Total Closed Issues | 217 |
+| Total All Issues | 262 |
+| Bugs (open) | 7 |
+| Enhancements/Features (open) | 30 |
 | Security Issues (open) | 0 |
-| Total Upvotes (👍) on open | 12 |
-| Total Comments on open | 69 |
-| Issues with Upvotes | 7 (14%) |
-| Issues with Comments | 23 (46%) |
-| Average Age (days) | 462 |
-| Stale Issues (>12 months) | 18 (36%) |
+| Total Upvotes (👍) on open | 13 |
+| Total Comments on open | 63 |
+| Issues with Upvotes | 7 (16%) |
+| Issues with Comments | 20 (44%) |
+| Average Age (days) | 502 |
+| Stale Issues (>12 months) | 19 (42%) |
 
 ---
 ## Resolution Metrics
@@ -36,35 +36,34 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 81% (211/261) |
-| Avg Time to Close (calendar) | 133 days |
-| Avg Time to Close (business) | 95 days |
-| Median Time to Close (calendar) | 27 days |
-| Median Time to Close (business) | 19 days |
-| 90th Percentile (calendar) | 394 days |
-| 90th Percentile (business) | 282 days |
-| Resolved within 30 days | 51% |
-| Resolved within 90 days | 63% |
+| Resolution Rate | 83% (217/262) |
+| Avg Time to Close (calendar) | 135 days |
+| Avg Time to Close (business) | 97 days |
+| Median Time to Close (calendar) | 31 days |
+| Median Time to Close (business) | 23 days |
+| 90th Percentile (calendar) | 397 days |
+| 90th Percentile (business) | 284 days |
+| Resolved within 30 days | 50% |
+| Resolved within 90 days | 62% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 63 | 30% |
-| Completed (features) | 72 | 34% |
-| Self-resolved | 33 | 16% |
+| Fixed (bugs) | 65 | 30% |
+| Completed (features) | 73 | 34% |
+| Self-resolved | 35 | 16% |
 | Duplicate | 1 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 42 | 20% |
+| Other | 43 | 20% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 9 | 8 | +1 |
 | 2025-03 | 7 | 1 | +6 |
 | 2025-04 | 10 | 4 | +6 |
 | 2025-05 | 8 | 5 | +3 |
@@ -75,10 +74,11 @@
 | 2025-10 | 2 | 5 | -3 |
 | 2025-11 | 0 | 1 | -1 |
 | 2025-12 | 2 | 5 | -3 |
-| 2026-01 | 3 | 0 | +3 |
-| **Total** | **54** | **46** | **+8** |
+| 2026-01 | 4 | 4 | 0 |
+| 2026-02 | 0 | 2 | -2 |
+| **Total** | **46** | **44** | **+2** |
 
-📈 **Backlog Growing:** 8 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 2 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 13 |
-| Issues Closed | 22 |
-| Net Change | -9 |
-| Bugs Closed | 7 |
-| Enhancements Closed | 9 |
+| Issues Opened | 12 |
+| Issues Closed | 27 |
+| Net Change | -15 |
+| Bugs Closed | 9 |
+| Enhancements Closed | 11 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 298 | 213 |
-| Median | 189 | 136 |
+| Average | 294 | 211 |
+| Median | 192 | 138 |
 | 90th Percentile | 710 | 508 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 14% |
-| Within 90 days | 23% |
+| Within 30 days | 11% |
+| Within 90 days | 19% |
 
 
 ---
@@ -114,13 +114,13 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 3 | 6% |
-| 1-3 months | 2 | 4% |
-| 3-6 months | 4 | 8% |
-| 6-12 months | 18 | 36% |
-| 1-2 years | 15 | 30% |
-| 2-3 years | 4 | 8% |
-| 3+ years | 4 | 8% |
+| Last 30 days | 2 | 4% |
+| 1-3 months | 3 | 7% |
+| 3-6 months | 3 | 7% |
+| 6-12 months | 14 | 31% |
+| 1-2 years | 15 | 33% |
+| 2-3 years | 3 | 7% |
+| 3+ years | 5 | 11% |
 
 ---
 
@@ -129,8 +129,8 @@
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
 | 1 | [#592](https://github.com/temporalio/sdk-php/issues/592) | 5 | 6 | [Docs] Document SDK marshaller |
-| 2 | [#529](https://github.com/temporalio/sdk-php/issues/529) | 2 | 1 | [Feature Request] registerDelayedCallback for tests |
-| 3 | [#640](https://github.com/temporalio/sdk-php/issues/640) | 1 | 1 | Enable `Discussions` |
+| 2 | [#702](https://github.com/temporalio/sdk-php/issues/702) | 2 | 1 | Simplify developer experience by replacing yields with Fiber... |
+| 3 | [#529](https://github.com/temporalio/sdk-php/issues/529) | 2 | 1 | [Feature Request] registerDelayedCallback for tests |
 | 4 | [#580](https://github.com/temporalio/sdk-php/issues/580) | 1 | 1 | Initial Nexus implementation - PHP |
 | 5 | [#573](https://github.com/temporalio/sdk-php/issues/573) | 1 | 3 | [Bug] WorkerFactoryInterface seems to be missing arguments f... |
 | 6 | [#554](https://github.com/temporalio/sdk-php/issues/554) | 1 | 0 | Ensure better SDK support in IDE |
@@ -148,17 +148,17 @@ Priority = Upvotes × 2 + Comments
 | 2 | [#103](https://github.com/temporalio/sdk-php/issues/103) | 11 | 0 | 11 | [Question] Sentry Integration for error logging |
 | 3 | [#577](https://github.com/temporalio/sdk-php/issues/577) | 7 | 0 | 7 | [Bug] Can't run the tests of UpdateMethod |
 | 4 | [#495](https://github.com/temporalio/sdk-php/issues/495) | 6 | 0 | 6 | [Discussion] Define a backwards compatibility prom... |
-| 5 | [#573](https://github.com/temporalio/sdk-php/issues/573) | 5 | 1 | 3 | [Bug] WorkerFactoryInterface seems to be missing a... |
-| 6 | [#529](https://github.com/temporalio/sdk-php/issues/529) | 5 | 2 | 1 | [Feature Request] registerDelayedCallback for test... |
-| 7 | [#623](https://github.com/temporalio/sdk-php/issues/623) | 4 | 0 | 4 | [Feature Request] In test env - I can't unserializ... |
+| 5 | [#702](https://github.com/temporalio/sdk-php/issues/702) | 5 | 2 | 1 | Simplify developer experience by replacing yields ... |
+| 6 | [#573](https://github.com/temporalio/sdk-php/issues/573) | 5 | 1 | 3 | [Bug] WorkerFactoryInterface seems to be missing a... |
+| 7 | [#529](https://github.com/temporalio/sdk-php/issues/529) | 5 | 2 | 1 | [Feature Request] registerDelayedCallback for test... |
 | 8 | [#302](https://github.com/temporalio/sdk-php/issues/302) | 4 | 1 | 2 | [Feature Request] Set the expectCompletion result ... |
 | 9 | [#123](https://github.com/temporalio/sdk-php/issues/123) | 4 | 0 | 4 | [Bug] withEnableSessionWorker causes to ActivityNo... |
-| 10 | [#640](https://github.com/temporalio/sdk-php/issues/640) | 3 | 1 | 1 | Enable `Discussions` |
+| 10 | [#689](https://github.com/temporalio/sdk-php/issues/689) | 3 | 0 | 3 | [Bug] Temporal PHP SDK doing its own extension che... |
 | 11 | [#635](https://github.com/temporalio/sdk-php/issues/635) | 3 | 0 | 3 | [Bug] Memory leak workflow worker |
 | 12 | [#580](https://github.com/temporalio/sdk-php/issues/580) | 3 | 1 | 1 | Initial Nexus implementation - PHP |
 | 13 | [#428](https://github.com/temporalio/sdk-php/issues/428) | 3 | 0 | 3 | [Bug] Unit test hangs with unit under test has run... |
 | 14 | [#399](https://github.com/temporalio/sdk-php/issues/399) | 3 | 0 | 3 | [Not a Bug] await doesn't interrupts on the activi... |
-| 15 | [#642](https://github.com/temporalio/sdk-php/issues/642) | 2 | 0 | 2 | [Feature Request] Add first execution run ID to wo... |
+| 15 | [#568](https://github.com/temporalio/sdk-php/issues/568) | 2 | 0 | 2 | [Question] How to debug the activity task startToC... |
 
 ---
 
@@ -170,8 +170,8 @@ Priority = Upvotes × 2 + Comments
 | 2 | [#577](https://github.com/temporalio/sdk-php/issues/577) | 7 | 0 | [Bug] Can't run the tests of UpdateMethod |
 | 3 | [#592](https://github.com/temporalio/sdk-php/issues/592) | 6 | 5 | [Docs] Document SDK marshaller |
 | 4 | [#495](https://github.com/temporalio/sdk-php/issues/495) | 6 | 0 | [Discussion] Define a backwards compatibility promise |
-| 5 | [#623](https://github.com/temporalio/sdk-php/issues/623) | 4 | 0 | [Feature Request] In test env - I can't unserialize object s... |
-| 6 | [#123](https://github.com/temporalio/sdk-php/issues/123) | 4 | 0 | [Bug] withEnableSessionWorker causes to ActivityNotRegistere... |
+| 5 | [#123](https://github.com/temporalio/sdk-php/issues/123) | 4 | 0 | [Bug] withEnableSessionWorker causes to ActivityNotRegistere... |
+| 6 | [#689](https://github.com/temporalio/sdk-php/issues/689) | 3 | 0 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
 | 7 | [#635](https://github.com/temporalio/sdk-php/issues/635) | 3 | 0 | [Bug] Memory leak workflow worker |
 | 8 | [#573](https://github.com/temporalio/sdk-php/issues/573) | 3 | 1 | [Bug] WorkerFactoryInterface seems to be missing arguments f... |
 | 9 | [#428](https://github.com/temporalio/sdk-php/issues/428) | 3 | 0 | [Bug] Unit test hangs with unit under test has runtime or co... |
@@ -183,9 +183,8 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-01-27 | [#702](https://github.com/temporalio/sdk-php/issues/702) | 2 | Simplify developer experience by replacing yields with Fiber... |
 | 2026-01-12 | [#698](https://github.com/temporalio/sdk-php/issues/698) | 0 | [Chore] Drop old packages support |
-| 2026-01-08 | [#692](https://github.com/temporalio/sdk-php/issues/692) | 0 | [Bug] Minimal Composer requirements conflicts with react/pro... |
-| 2026-01-07 | [#689](https://github.com/temporalio/sdk-php/issues/689) | 0 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
 
 ---
 
@@ -193,24 +192,22 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 29 |
-| bug | 9 |
-| tests | 8 |
-| question | 5 |
+| enhancement | 28 |
+| bug | 7 |
+| tests | 7 |
+| question | 4 |
 | feature | 2 |
 | documentation | 1 |
 
 ---
 
-## Bugs (9 open issues)
+## Bugs (7 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
-| [#692](https://github.com/temporalio/sdk-php/issues/692) | 0 | 0 | [Bug] Minimal Composer requirements conflicts with react/pro... |
-| [#689](https://github.com/temporalio/sdk-php/issues/689) | 0 | 1 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
+| [#689](https://github.com/temporalio/sdk-php/issues/689) | 0 | 3 | [Bug] Temporal PHP SDK doing its own extension check, breaki... |
 | [#636](https://github.com/temporalio/sdk-php/issues/636) | 0 | 0 | [Bug] Suppressed exception in worfklow child |
 | [#635](https://github.com/temporalio/sdk-php/issues/635) | 0 | 3 | [Bug] Memory leak workflow worker |
-| [#624](https://github.com/temporalio/sdk-php/issues/624) | 0 | 0 | [Bug] Facade methods throw wrong exception |
 | [#595](https://github.com/temporalio/sdk-php/issues/595) | 0 | 0 | [Bug] Incorrect generic extends of RuleFactoryInterface |
 | [#577](https://github.com/temporalio/sdk-php/issues/577) | 0 | 7 | [Bug] Can't run the tests of UpdateMethod |
 | [#428](https://github.com/temporalio/sdk-php/issues/428) | 0 | 3 | [Bug] Unit test hangs with unit under test has runtime or co... |
@@ -218,13 +215,14 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (18 open issues with no activity >12 months)
+## Stale Issues (19 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
 | [#529](https://github.com/temporalio/sdk-php/issues/529) | 2 | 2024-12-05 | [Feature Request] registerDelayedCallback for test... |
+| [#554](https://github.com/temporalio/sdk-php/issues/554) | 1 | 2025-02-10 | Ensure better SDK support in IDE |
 | [#302](https://github.com/temporalio/sdk-php/issues/302) | 1 | 2024-04-29 | [Feature Request] Set the expectCompletion result ... |
 | [#545](https://github.com/temporalio/sdk-php/issues/545) | 0 | 2025-01-07 | [Feature Request] Provide "workflow local" |
 | [#532](https://github.com/temporalio/sdk-php/issues/532) | 0 | 2024-12-09 | [Question] Asynchronous child workflow execution p... |

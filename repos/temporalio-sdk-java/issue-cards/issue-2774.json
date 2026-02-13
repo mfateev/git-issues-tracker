@@ -1,0 +1,35 @@
+{
+  "summary": "User needs a reliable, event-driven mechanism to persist real-time workflow state updates to an external database. The current polling approach is inefficient and has high latency. The request seeks implementation using WorkflowTaskCompleted events with external subscription capabilities and query integration.",
+  "category": "feature",
+  "subcategory": "workflow-state-persistence",
+  "apis": [
+    "QueryWorkflow",
+    "QueryMethod"
+  ],
+  "components": [
+    "workflow-engine",
+    "query-handler",
+    "event-system",
+    "visibility-api"
+  ],
+  "concepts": [
+    "state-persistence",
+    "event-driven-architecture",
+    "real-time-updates",
+    "external-database",
+    "polling-optimization",
+    "workflow-monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can eliminate resource-intensive polling and achieve real-time state persistence using event-driven triggers instead.",
+  "rootCause": null,
+  "proposedFix": "Implement WorkflowTaskCompleted event subscription (via gRPC stream or filtered Visibility API) with automatic QueryWorkflow integration to persist state changes to external databases, including samples and guidance on event ordering/deduplication.",
+  "workaround": "Current solution uses scheduled pollers that periodically query RUNNING workflows and write results to database, though this is inefficient and high-latency.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Listen for WorkflowTaskCompleted events from an external service (indicating workflow state may have changed). Query the corresponding workflow via QueryWorkflow to fetch the latest state. Persist the state to the database.",
+  "number": 2774,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-02-11T03:36:22.392Z"
+}

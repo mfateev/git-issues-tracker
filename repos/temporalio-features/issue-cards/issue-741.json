@@ -1,0 +1,32 @@
+{
+  "summary": "SDKs need to accept both enum form (INDEXED_VALUE_TYPE_KEYWORD_LIST) and string form (KeywordList) for search attribute type metadata, matching the server's lenient deserialization behavior.",
+  "category": "feature",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "serialization",
+    "type-handling"
+  ],
+  "concepts": [
+    "type-metadata",
+    "deserialization",
+    "compatibility",
+    "lenient-parsing",
+    "enum-variants"
+  ],
+  "severity": "medium",
+  "userImpact": "SDKs may fail to deserialize search attributes from server that use either enum or string type representations, causing inconsistent behavior across SDKs.",
+  "rootCause": "SDKs are stricter than server in validating type metadata format for search attribute payloads.",
+  "proposedFix": "Update typed search attribute logic in all SDKs to accept both INDEXED_VALUE_TYPE_KEYWORD_LIST and KeywordList forms in type metadata.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1105
+  ],
+  "keyQuote": "SDKs need to be similarly lenient when reading search attributes coming from server.",
+  "number": 741,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-02-02T23:46:11.862Z"
+}

@@ -1,6 +1,6 @@
 # Ruby SDK - Issue Statistics
 
-**Generated:** 2026-01-22
+**Generated:** 2026-02-11
 **Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
 ## Related Documents
@@ -16,8 +16,8 @@
 | Metric | Value |
 |--------|-------|
 | Total Open Issues | 22 |
-| Total Closed Issues | 158 |
-| Total All Issues | 180 |
+| Total Closed Issues | 159 |
+| Total All Issues | 181 |
 | Bugs (open) | 4 |
 | Enhancements/Features (open) | 17 |
 | Security Issues (open) | 0 |
@@ -25,8 +25,8 @@
 | Total Comments on open | 15 |
 | Issues with Upvotes | 2 (9%) |
 | Issues with Comments | 8 (36%) |
-| Average Age (days) | 263 |
-| Stale Issues (>12 months) | 6 (27%) |
+| Average Age (days) | 282 |
+| Stale Issues (>12 months) | 9 (41%) |
 
 ---
 ## Resolution Metrics
@@ -36,10 +36,10 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 88% (158/180) |
-| Avg Time to Close (calendar) | 139 days |
-| Avg Time to Close (business) | 100 days |
-| Median Time to Close (calendar) | 49 days |
+| Resolution Rate | 88% (159/181) |
+| Avg Time to Close (calendar) | 138 days |
+| Avg Time to Close (business) | 99 days |
+| Median Time to Close (calendar) | 48 days |
 | Median Time to Close (business) | 35 days |
 | 90th Percentile (calendar) | 536 days |
 | 90th Percentile (business) | 384 days |
@@ -52,7 +52,7 @@
 |--------|-------|---|
 | Fixed (bugs) | 12 | 8% |
 | Completed (features) | 45 | 28% |
-| Self-resolved | 26 | 16% |
+| Self-resolved | 27 | 17% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
@@ -64,7 +64,6 @@
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 11 | 9 | +2 |
 | 2025-03 | 7 | 5 | +2 |
 | 2025-04 | 10 | 5 | +5 |
 | 2025-05 | 10 | 9 | +1 |
@@ -75,10 +74,11 @@
 | 2025-10 | 3 | 3 | 0 |
 | 2025-11 | 3 | 0 | +3 |
 | 2025-12 | 2 | 2 | 0 |
-| 2026-01 | 1 | 3 | -2 |
-| **Total** | **74** | **69** | **+5** |
+| 2026-01 | 2 | 4 | -2 |
+| 2026-02 | 0 | 0 | 0 |
+| **Total** | **64** | **61** | **+3** |
 
-📈 **Backlog Growing:** 5 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 3 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,25 +87,25 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 23 |
-| Issues Closed | 27 |
-| Net Change | -4 |
+| Issues Opened | 21 |
+| Issues Closed | 23 |
+| Net Change | -2 |
 | Bugs Closed | 5 |
-| Enhancements Closed | 20 |
+| Enhancements Closed | 16 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 64 | 46 |
-| Median | 40 | 29 |
+| Average | 61 | 44 |
+| Median | 36 | 27 |
 | 90th Percentile | 154 | 111 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 30% |
+| Within 30 days | 35% |
 | Within 90 days | 74% |
 
 
@@ -115,10 +115,10 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 0 | 0% |
-| 1-3 months | 4 | 18% |
-| 3-6 months | 4 | 18% |
-| 6-12 months | 8 | 36% |
-| 1-2 years | 6 | 27% |
+| 1-3 months | 1 | 5% |
+| 3-6 months | 6 | 27% |
+| 6-12 months | 6 | 27% |
+| 1-2 years | 9 | 41% |
 | 2-3 years | 0 | 0% |
 | 3+ years | 0 | 0% |
 
@@ -192,12 +192,15 @@ No issues created in the last 30 days.
 
 ---
 
-## Stale Issues (6 open issues with no activity >12 months)
+## Stale Issues (9 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
+| [#218](https://github.com/temporalio/sdk-ruby/issues/218) | 0 | 2025-02-10 | [Feature Request] Support buildable source gem |
+| [#209](https://github.com/temporalio/sdk-ruby/issues/209) | 0 | 2025-01-29 | [Feature Request] Add explicit memoization support... |
+| [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 0 | 2025-01-23 | [Feature Request] Contributing Guide |
 | [#192](https://github.com/temporalio/sdk-ruby/issues/192) | 0 | 2025-01-14 | [Feature Request] Remove Go from test pipeline |
 | [#191](https://github.com/temporalio/sdk-ruby/issues/191) | 0 | 2025-01-13 | [Feature Request] Deadlock detection - improve int... |
 | [#185](https://github.com/temporalio/sdk-ruby/issues/185) | 0 | 2025-01-08 | [Feature Request] Warn on unawaited workflow futur... |

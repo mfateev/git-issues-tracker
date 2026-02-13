@@ -1,7 +1,297 @@
 {
-  "generatedAt": "2026-01-22T20:31:12.368Z",
-  "totalCards": 1491,
+  "generatedAt": "2026-02-11T03:37:08.716Z",
+  "totalCards": 1500,
   "cards": [
+    {
+      "summary": "Multiple HIGH and CRITICAL CVEs detected in temporalio/server:1.29.3 Docker image, including vulnerabilities in OpenSSL (libcrypto3/libssl3), Go standard library, and Go crypto packages. User reports vulnerability scan results using Trivy showing 8 vulnerable dependencies requiring immediate patching.",
+      "category": "bug",
+      "subcategory": "security",
+      "apis": [],
+      "components": [
+        "docker-image",
+        "openssl-dependencies",
+        "go-runtime",
+        "go-crypto"
+      ],
+      "concepts": [
+        "vulnerability",
+        "cve",
+        "security-patch",
+        "dependency-update",
+        "container-image",
+        "supply-chain"
+      ],
+      "severity": "critical",
+      "userImpact": "Users deploying temporalio/server:1.29.3 are exposed to critical security vulnerabilities that could be exploited by attackers.",
+      "rootCause": "Outdated dependencies in the Docker image: OpenSSL 3.5.0 (CVE-2025-15467, CVE-2025-69419), Go 1.24.4/1.25.0 (CVE-2025-47907, CVE-2025-58183), golang.org/x/crypto v0.32.0 (CVE-2025-22869), and golang.org/x/oauth2 v0.7.0 (CVE-2025-22868).",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Following CVEs have been found in temporalio/server:1.29.3",
+      "number": 9280,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-11T03:37:03.533Z"
+    },
+    {
+      "summary": "The default value for frontend.visibilityArchivalQueryMaxPageSize is set to 10000, which is too large and causes timeouts when listing archived workflows in the UI and CLI. The request is to reduce this to 1000 to match the default page size for visibility operations.",
+      "category": "feature",
+      "subcategory": "visibility-archival",
+      "apis": [],
+      "components": [
+        "frontend",
+        "visibility-archival",
+        "ui",
+        "cli"
+      ],
+      "concepts": [
+        "default-configuration",
+        "page-size",
+        "timeout",
+        "performance",
+        "archival-query"
+      ],
+      "severity": "medium",
+      "userImpact": "Users experience timeouts when querying archived workflows through the UI and CLI, requiring manual configuration changes to reduce the page size.",
+      "rootCause": "The default visibilityArchivalQueryMaxPageSize value of 10000 is too large for typical archival queries, causing performance issues.",
+      "proposedFix": "Reduce the default value of frontend.visibilityArchivalQueryMaxPageSize from 10000 to 1000 to match the standard visibility operations page size.",
+      "workaround": "Users can manually reduce the visibilityArchivalQueryMaxPageSize configuration to 1000.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Users almost always reduce this to 1K which is same as default page size for vis operations.",
+      "number": 9258,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-11T03:37:03.835Z"
+    },
+    {
+      "summary": "Temporal Server depends on multiple archived and deprecated Go libraries including AWS SDK v1 (end-of-support July 2025), olivere/elastic (deprecated in favor of official Elasticsearch client), and several other outdated direct and indirect dependencies. Upgrading to maintained replacements is necessary to avoid security and compatibility issues.",
+      "category": "bug",
+      "subcategory": "dependency-management",
+      "apis": [],
+      "components": [
+        "dependency-management",
+        "aws-integration",
+        "elasticsearch-integration",
+        "build-system"
+      ],
+      "concepts": [
+        "deprecated-dependencies",
+        "security-patching",
+        "maintenance-mode",
+        "library-migration",
+        "version-upgrades",
+        "end-of-support",
+        "archived-libraries"
+      ],
+      "severity": "high",
+      "userImpact": "Users are at risk from unpatched security vulnerabilities and compatibility issues due to reliance on archived and deprecated libraries that no longer receive updates.",
+      "rootCause": "Temporal Server has not kept pace with upstream library deprecation and archival cycles, particularly AWS SDK v1 (archived July 2025) and oliviere/elastic (explicitly deprecated by maintainer).",
+      "proposedFix": "Upgrade AWS SDK to v2, replace oliviere/elastic with official elastic/go-elasticsearch, migrate pkg/errors to stdlib errors, update mitchellh/mapstructure to go-viper fork, upgrade jwt/v4 to v5, gocql to Apache fork v2, and consolidate urfave/cli versions. Replace archived indirect dependencies like gogo/protobuf and golang/mock with recommended alternatives.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1775
+      ],
+      "keyQuote": "This repository was archived by the owner on Jul 31, 2025... This SDK has reached end-of-support. It will not receive further updates.",
+      "number": 9244,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-11T03:37:08.476Z"
+    },
+    {
+      "summary": "User reports that unit, integration, and functional tests are failing on Mac OSX ARM64 when running make targets. Unclear if this is expected behavior, an anomaly in their local environment, or a real issue.",
+      "category": "question",
+      "subcategory": "test-framework",
+      "apis": [],
+      "components": [
+        "test-runner",
+        "build-system",
+        "ci"
+      ],
+      "concepts": [
+        "testing",
+        "unit-tests",
+        "integration-tests",
+        "functional-tests",
+        "build-failure",
+        "platform-specific"
+      ],
+      "severity": "medium",
+      "userImpact": "Users attempting to run test suites encounter failures, blocking development workflow and causing uncertainty about test reliability.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Any and all of the above tests have at least one failed test and complete with status `FAIL`.",
+      "number": 9196,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-02T23:48:36.789Z"
+    },
+    {
+      "summary": "Workflows occasionally get stuck with 'running' status on Temporal deployed on Alibaba Cloud SAE, occurring approximately once per 100 workflow executions during batch testing.",
+      "category": "bug",
+      "subcategory": "workflow-execution",
+      "apis": [],
+      "components": [
+        "workflow-engine",
+        "state-machine",
+        "cloud-deployment"
+      ],
+      "concepts": [
+        "stuck-workflow",
+        "status-synchronization",
+        "batch-processing",
+        "cloud-deployment",
+        "race-condition"
+      ],
+      "severity": "high",
+      "userImpact": "Workflows intermittently fail to complete, remaining stuck in running state, causing workflow execution failures and requiring manual intervention.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "the workflow gets stuck, and the status remains as \"running\". Of course, this happens roughly once in every 100 cases",
+      "number": 9193,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-02T23:48:34.412Z"
+    },
+    {
+      "summary": "Request for built-in cloud database authentication support in Temporal Server for AWS RDS and GCP Cloud SQL using workload identity, eliminating the need to manage database credentials as secrets in cloud-managed Kubernetes environments.",
+      "category": "feature",
+      "subcategory": "cloud-auth",
+      "apis": [],
+      "components": [
+        "persistence",
+        "sql-plugin",
+        "database-handle",
+        "config"
+      ],
+      "concepts": [
+        "cloud-native",
+        "workload-identity",
+        "database-authentication",
+        "iam",
+        "token-refresh",
+        "secrets-management",
+        "zero-trust"
+      ],
+      "severity": "high",
+      "userImpact": "Users running Temporal in AWS EKS or GCP GKE must currently manage database credentials as secrets instead of using native workload identity features.",
+      "rootCause": "Temporal Server lacks built-in support for cloud provider IAM authentication mechanisms; existing Connect hook is undocumented and impractical for most users.",
+      "proposedFix": "Add cloudAuth configuration to SQL persistence settings supporting AWS RDS and GCP Cloud SQL with automatic token refresh based on cloud provider token lifetimes.",
+      "workaround": "Undocumented Connect hook can be used but requires custom builds and maintenance of upstream merges.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        8724
+      ],
+      "keyQuote": "Add built-in support for cloud database authentication in Temporal's SQL configuration",
+      "number": 9156,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-02T23:48:34.034Z"
+    },
+    {
+      "summary": "Request for native SPIFFE support in Temporal Server to enable automatic certificate lifecycle management, identity-based authorization, and simplified deployments using SPIFFE IDs instead of manual TLS/mTLS configuration.",
+      "category": "feature",
+      "subcategory": "security-spiffe",
+      "apis": [],
+      "components": [
+        "tls-configuration",
+        "authorization-system",
+        "claim-mapper",
+        "interceptor"
+      ],
+      "concepts": [
+        "certificate-management",
+        "workload-identity",
+        "spiffe-integration",
+        "zero-trust-security",
+        "authorization",
+        "certificate-rotation",
+        "cloud-native"
+      ],
+      "severity": "high",
+      "userImpact": "Enables enterprises to deploy Temporal with zero-trust security patterns using SPIFFE/SPIRE infrastructure without manual certificate rotation or external tooling.",
+      "rootCause": "Current Temporal TLS/mTLS implementation requires manual certificate management or external tooling integration; SPIFFE identity information in certificates is extracted but unused for authorization.",
+      "proposedFix": "Integrate SPIFFE Workload API with GetCertificate callbacks, implement SPIFFE-based ClaimMapper for authorization, support claim mapper chains for migration, extend TLS config structs with SPIFFE options.",
+      "workaround": "Users can manually manage certificates or integrate cert-manager/spiffe-helper as external tooling, but this adds operational complexity.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Native SPIFFE support integrated directly into Temporal server with automatic certificate lifecycle management and identity-based authorization using SPIFFE IDs.",
+      "number": 9152,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-02T23:48:22.679Z"
+    },
+    {
+      "summary": "The run-tests.yml workflow sets matrix.runs_on_override to 'ubuntu-latest-8-cores', a custom runner that doesn't exist in most forks, causing workflow jobs to queue for 24 hours and timeout automatically. Forks need a guard condition to skip this matrix configuration or use the standard runner.",
+      "category": "bug",
+      "subcategory": "ci-cd",
+      "apis": [],
+      "components": [
+        "workflow",
+        "github-actions",
+        "ci-cd-pipeline"
+      ],
+      "concepts": [
+        "custom-runners",
+        "forks",
+        "workflow-timeout",
+        "matrix-configuration",
+        "queue-limits",
+        "ci-failure"
+      ],
+      "severity": "high",
+      "userImpact": "Developers who fork the repository experience workflow failures and 24-hour timeouts when attempting to run tests, making it difficult to validate changes locally.",
+      "rootCause": "The workflow matrix specifies 'ubuntu-latest-8-cores' as a custom GitHub Actions runner that only exists in the temporalio organization, not in contributor forks, causing jobs to wait indefinitely for an unavailable runner.",
+      "proposedFix": "Add an 'if: github.repository_owner == \"temporalio\"' condition to skip the custom runner matrix for non-temporalio forks, or use a 'vars.HAS_UBUNTU_LATEST_8_CORES' guard to conditionally enable the custom runner configuration.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Workflow updated to include proper guard conditions preventing forks from attempting to use unavailable custom runners.",
+      "related": [],
+      "keyQuote": "Job queue time 24 hours - A job can be in the queue for 24 hours before it is automatically cancelled.",
+      "number": 9135,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-02T23:48:19.154Z"
+    },
+    {
+      "summary": "Activities can become stuck when Temporal crashes between writing the history event and creating the task in the tasks table. This is caused by a race condition in the two-phase activity scheduling process where a crash after transfer task creation but before task table insertion leaves activities in a scheduled state with no corresponding task for workers to pick up.",
+      "category": "bug",
+      "subcategory": "activity-scheduling",
+      "apis": [],
+      "components": [
+        "activity-scheduler",
+        "transfer-queue",
+        "matching-service",
+        "tasks-table"
+      ],
+      "concepts": [
+        "crash-recovery",
+        "race-condition",
+        "atomicity",
+        "activity-lifecycle",
+        "task-scheduling",
+        "data-consistency"
+      ],
+      "severity": "high",
+      "userImpact": "Activities can become permanently stuck and unprocessable when the server crashes at specific points in the scheduling pipeline, requiring manual intervention to recover.",
+      "rootCause": "Non-transactional RPC between transfer queue processor and matching service creates a gap where crashes can leave transfer tasks deleted but corresponding tasks never created in the tasks table.",
+      "proposedFix": null,
+      "workaround": "Use long-running workers with activity pause signals instead of stopping workers abruptly; allow sufficient heartbeat timeout for retry mechanisms to work.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The gap is between step 2 and 3 - it's an RPC call, not transactional. If... Transfer task is processed... RPC to matching succeeds... Transfer task is deleted... Crash before matching commits to tasks table",
+      "number": 9118,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-02-02T23:48:21.436Z"
+    },
     {
       "summary": "Feature request to separate read and write QPS limits for persistence operations. Currently, a single combined QPS limit causes issues where read-heavy operations like Schedule API queries and UI browsing fail due to persistence throttling, even though reads are less costly than writes.",
       "category": "feature",

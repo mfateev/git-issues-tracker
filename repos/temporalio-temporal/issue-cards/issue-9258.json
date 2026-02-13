@@ -1,0 +1,31 @@
+{
+  "summary": "The default value for frontend.visibilityArchivalQueryMaxPageSize is set to 10000, which is too large and causes timeouts when listing archived workflows in the UI and CLI. The request is to reduce this to 1000 to match the default page size for visibility operations.",
+  "category": "feature",
+  "subcategory": "visibility-archival",
+  "apis": [],
+  "components": [
+    "frontend",
+    "visibility-archival",
+    "ui",
+    "cli"
+  ],
+  "concepts": [
+    "default-configuration",
+    "page-size",
+    "timeout",
+    "performance",
+    "archival-query"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience timeouts when querying archived workflows through the UI and CLI, requiring manual configuration changes to reduce the page size.",
+  "rootCause": "The default visibilityArchivalQueryMaxPageSize value of 10000 is too large for typical archival queries, causing performance issues.",
+  "proposedFix": "Reduce the default value of frontend.visibilityArchivalQueryMaxPageSize from 10000 to 1000 to match the standard visibility operations page size.",
+  "workaround": "Users can manually reduce the visibilityArchivalQueryMaxPageSize configuration to 1000.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users almost always reduce this to 1K which is same as default page size for vis operations.",
+  "number": 9258,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-02-11T03:37:03.835Z"
+}

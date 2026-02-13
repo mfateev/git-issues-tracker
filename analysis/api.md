@@ -1,13 +1,13 @@
 # Temporal API - Issues Analysis
 
-**Generated:** January 22, 2026
+**Generated:** 2026-02-10
 **Total Open Issues:** 13
 **Total Closed Issues:** 12
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
 
-← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md)
+<- [Summary](summary.md) - [Contributors](contributors.md) - [Recent](recent.md)
 
-**Related:** [Server](server.md) · [Features](features.md) · [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md)
+**Related:** [Server](server.md) - [Features](features.md) - [Java](java.md) - [Go](go.md) - [TypeScript](typescript.md) - [Python](python.md) - [.NET](dotnet.md)
 
 ---
 
@@ -21,7 +21,7 @@ The API repository contains Temporal's Protobuf definitions used by all SDKs and
 
 ### Executive Summary
 
-The API repository has a small but aged backlog. With only 13 open issues, the raw count is manageable. However, **100% of issues are stale** (no activity for 12+ months), with an average age of **1,089 days** (~3 years). This suggests deliberate API stability rather than neglect - changes here require coordination across all SDKs and the server, making them inherently slower to implement.
+The API repository has a small but aged backlog. With only 13 open issues, the raw count is manageable. However, **100% of issues are stale** (no activity for 12+ months), with an average age of **1,108 days** (~3 years). This suggests deliberate API stability rather than neglect -- changes here require coordination across all SDKs and the server, making them inherently slower to implement.
 
 The repository maintains an excellent resolution rate when issues are addressed: **median time to close of 7 days** (the fastest across all tracked repositories), with 75% resolved within 30 days.
 
@@ -30,19 +30,19 @@ The repository maintains an excellent resolution rate when issues are addressed:
 | Category | Count | Priority |
 |----------|-------|----------|
 | API Enhancements | 9 | Medium |
-| Bugs/Fixes | 3 | High |
-| Documentation | 1 | Low |
+| Bugs/Fixes | 2 | High |
+| Documentation | 2 | Low |
 
 ### User Engagement Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes | 6 |
-| Total Comments | 9 |
+| Total Upvotes (open) | 6 |
+| Total Comments (open) | 9 |
 | Issues with Upvotes | 1 (8%) |
 | Issues with Comments | 3 (23%) |
 
-The low engagement metrics reflect the specialized nature of this repository - most users interact with SDKs rather than the underlying Protobuf definitions.
+The low engagement metrics reflect the specialized nature of this repository -- most users interact with SDKs rather than the underlying Protobuf definitions.
 
 ### Resolution Metrics
 
@@ -102,20 +102,20 @@ Major enhancement requests that would add new capabilities or improve the API de
 | [#169](https://github.com/temporalio/api/issues/169) | **Language namespace customization** - Allow languages to customize package/namespace structure | Medium - Primarily benefits .NET SDK |
 | [#136](https://github.com/temporalio/api/issues/136) | **Add ScheduledEventId** - Add to PollActivityTaskQueueResponse for idempotency keys | Medium - Enables activity deduplication |
 
-### Bugs/Fixes (3 issues)
+### Bugs/Fixes (2 issues)
 
 Issues with existing API definitions or tooling.
 
 | Issue | Description | Age |
 |-------|-------------|-----|
 | [#421](https://github.com/temporalio/api/issues/421) | **api-go update CI failure** - Workflow fails when commit message contains backtick character | 1.5 years |
-| [#299](https://github.com/temporalio/api/issues/299) | **Misleading inline comment** - PollWorkflowTaskQueueResponse comment suggests "complete" history but may be paginated | 2.5 years |
 | [#131](https://github.com/temporalio/api/issues/131) | **Clean up deprecated fields** - Remove "Should be removed" fields and mark as reserved | 4 years |
 
-### Documentation (1 issue)
+### Documentation (2 issues)
 
 | Issue | Description |
 |-------|-------------|
+| [#299](https://github.com/temporalio/api/issues/299) | Potentially misleading inline comment for PollWorkflowTaskQueueResponse |
 | [#154](https://github.com/temporalio/api/issues/154) | Document how SearchAttributes Payloads are parsed and typed |
 
 ---
@@ -186,7 +186,7 @@ A straightforward bug where the api-go update workflow fails if commit messages 
 
 **Fix:** Likely a simple escaping fix in the CI workflow.
 
-**Recommendation:** Quick win - should be fixed to prevent CI failures.
+**Recommendation:** Quick win -- should be fixed to prevent CI failures.
 
 ---
 
@@ -227,11 +227,11 @@ Based on semantic analysis of issue cards, the following themes emerge:
 
 | Subcategory | Issues | Description |
 |-------------|--------|-------------|
-| api-design | 2 | API naming, deprecation patterns |
+| api-design | 1 | API naming, deprecation patterns |
 | proto-organization | 1 | Third-party proto file placement |
+| api-documentation | 2 | Proto comment improvements, Postman |
 | http-api-routing | 1 | HTTP API path configuration |
 | workflow-automation | 1 | Build/CI issues |
-| api-documentation | 2 | Proto comment improvements, Postman |
 | error-handling | 1 | ApplicationFailure payload support |
 | proto-generation | 1 | Language-specific code generation |
 | search-attributes | 1 | Documentation for search attributes |
@@ -258,7 +258,7 @@ Based on semantic analysis, the most common themes across open issues:
 | Issue | Reason |
 |-------|--------|
 | [#169](https://github.com/temporalio/api/issues/169) | Resolved via SDK build scripts per maintainer discussion |
-| [#131](https://github.com/temporalio/api/issues/131) | 4 years stale - needs decision on relevance |
+| [#131](https://github.com/temporalio/api/issues/131) | 4 years stale -- needs decision on relevance |
 
 ### Issues Needing Triage
 
@@ -274,8 +274,8 @@ Based on semantic analysis, the most common themes across open issues:
 
 | Issue | Resolution | Description |
 |-------|------------|-------------|
-| [#631](https://github.com/temporalio/api/issues/631) | Fixed | Added startDelay to WorkflowExecutionInfo |
-| [#583](https://github.com/temporalio/api/issues/583) | Fixed | Removed license headers from files |
+| [#631](https://github.com/temporalio/api/issues/631) | Completed | Added startDelay to WorkflowExecutionInfo |
+| [#583](https://github.com/temporalio/api/issues/583) | Completed | Removed license headers from files |
 
 ---
 
@@ -311,4 +311,4 @@ Based on semantic analysis, the most common themes across open issues:
 | Staleness | Concerning | 100% stale (no activity >12 months) |
 | User Engagement | Low | Expected for infrastructure repo |
 
-**Overall Assessment:** The API repository is stable but dormant. The low volume reflects the deliberate, high-coordination nature of API changes. The aged backlog should be triaged to distinguish intentionally deferred issues from forgotten ones. Priority should go to the buf schema registry request and security-related Payload enhancement.
+**Overall Assessment:** The API repository is stable but dormant. The low volume reflects the deliberate, high-coordination nature of API changes. The aged backlog should be triaged to distinguish intentionally deferred issues from forgotten ones. Priority should go to the buf schema registry request and the security-related Payload enhancement.

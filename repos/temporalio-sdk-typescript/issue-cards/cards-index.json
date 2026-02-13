@@ -1,7 +1,206 @@
 {
-  "generatedAt": "2026-01-22T20:30:39.731Z",
-  "totalCards": 806,
+  "generatedAt": "2026-02-11T03:36:52.806Z",
+  "totalCards": 812,
   "cards": [
+    {
+      "summary": "UUID() calls in query handlers cause non-deterministic values for subsequent UUID() calls in workflow code during replay, breaking workflow determinism.",
+      "category": "bug",
+      "subcategory": "workflow-replay",
+      "apis": [
+        "setHandler",
+        "executeChild"
+      ],
+      "components": [
+        "query-handler",
+        "uuid-generation",
+        "workflow-replay"
+      ],
+      "concepts": [
+        "determinism",
+        "replay",
+        "query-handler",
+        "random-number-generation",
+        "state-management"
+      ],
+      "severity": "high",
+      "userImpact": "Workflows using UUID generation in query handlers will fail during replay due to non-deterministic UUID values, causing workflow execution failures.",
+      "rootCause": "UUID() function calls in query handlers are not properly isolated from the deterministic random number generator used during replay, causing subsequent workflow UUID calls to produce different values.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Using uuid() in query handlers (or validate update) can cause subsequent calls to uuid() in the workflow code to produce non-deterministic values.",
+      "number": 1935,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-02-11T03:36:52.256Z"
+    },
+    {
+      "summary": "ScheduleHandle.update's type signature for the input parameter omits cronExpressions, forcing unsafe casts to clear cron expressions during schedule updates. The runtime accepts cronExpressions but TypeScript types prevent it, creating a mismatch between what the API accepts and what types declare.",
+      "category": "bug",
+      "subcategory": "schedule-management",
+      "apis": [
+        "ScheduleHandle.update",
+        "ScheduleDescription",
+        "ScheduleSpec",
+        "ScheduleSpecDescription"
+      ],
+      "components": [
+        "schedule-client",
+        "type-definitions",
+        "schedule-update"
+      ],
+      "concepts": [
+        "type-safety",
+        "schedule-spec",
+        "cron-expressions",
+        "interval-based-scheduling",
+        "type-mismatch"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot safely update schedule specs to clear or modify cron expressions without unsafe type casts, risking dual execution (cron + interval).",
+      "rootCause": "ScheduleSpecDescription type returned by describe() omits cronExpressions field, while the update path and ScheduleSpec accept it, creating a type inconsistency.",
+      "proposedFix": "Add cronExpressions field to ScheduleSpecDescription to match ScheduleSpec, or document the workaround of using object spread to bypass excess property checks.",
+      "workaround": "Use object spread syntax instead of direct assignment: return { ...previous, spec: { ...previous.spec, cronExpressions: [], intervals: [...] } }",
+      "resolution": "wontfix",
+      "resolutionDetails": "Maintainers determined the types are technically correct and the workaround (using spread) is acceptable. Adding cronExpressions to ScheduleSpecDescription was rejected as the field won't ever be present in the describe() return value.",
+      "related": [],
+      "keyQuote": "You can avoid the cast by using a spread in `update`: return { ...previous, spec: { ...previous.spec, cronExpressions: [], intervals: [...] } }",
+      "number": 1926,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-02-11T03:36:52.686Z"
+    },
+    {
+      "summary": "Cloudflare Workers environment prevents dynamic code generation from strings required by the Temporal TypeScript client during protobuf initialization, causing connection failures. User worked around it by implementing manual gRPC protocol communication.",
+      "category": "bug",
+      "subcategory": "cloudflare-workers-compatibility",
+      "apis": [
+        "Connection",
+        "Client"
+      ],
+      "components": [
+        "client",
+        "connection",
+        "protobuf-serialization",
+        "data-converter"
+      ],
+      "concepts": [
+        "cloudflare-workers",
+        "code-generation-restriction",
+        "grpc-protocol",
+        "protobuf",
+        "bundling",
+        "dynamic-require"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use the Temporal TypeScript client from Cloudflare Workers due to environment restrictions on dynamic code generation, forcing them to implement low-level gRPC calls as a workaround.",
+      "rootCause": "Cloudflare Workers environment disallows code generation from strings (EvalError), which is triggered by protobufjs during client initialization. The underlying issue stems from protobufjs/protobuf.js#1754 and dynamic require() calls in data-converter-helpers.js.",
+      "proposedFix": "Update @temporalio/common to avoid dynamic require() in data-converter-helpers.js when running in restricted environments, or provide a Cloudflare Workers-compatible configuration option.",
+      "workaround": "Implement raw gRPC protocol communication using temporal.api.workflowservice.v1 protobuf messages and fetch API, manually framing the protobuf messages according to gRPC wire protocol.",
+      "resolution": "invalid",
+      "resolutionDetails": "Issue was closed as the problem stems from Cloudflare Workers environment restrictions rather than an SDK bug. User found a workaround by bypassing the client library and using raw gRPC calls.",
+      "related": [],
+      "keyQuote": "This code should run on the 'server side', I just need to cancel a running workflow (I try to find a rest api but I think temporal does not expose it)",
+      "number": 1915,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-02-02T23:48:06.264Z"
+    },
+    {
+      "summary": "Add a warning to the TypeScript SDK when it detects a workflow history exceeding a certain size threshold, helping users identify and optimize workflows with large histories.",
+      "category": "feature",
+      "subcategory": "workflow-monitoring",
+      "apis": [],
+      "components": [
+        "workflow-engine",
+        "history-processor",
+        "logging"
+      ],
+      "concepts": [
+        "workflow-history",
+        "size-limit",
+        "monitoring",
+        "performance-optimization",
+        "user-warning"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will receive warnings when their workflows accumulate large histories, helping them identify potential performance issues before they become critical.",
+      "rootCause": null,
+      "proposedFix": "Implement size monitoring in the SDK that detects when workflow history reaches or exceeds a configurable threshold and emits a warning to users.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        705
+      ],
+      "keyQuote": "Warn if SDK detects a workflow history over a certain size",
+      "number": 1914,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-02-02T23:47:54.474Z"
+    },
+    {
+      "summary": "The TypeScript SDK should fail workflow tasks when payload size is known to exceed Temporal's limits, preventing silent failures or downstream errors.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [],
+      "components": [
+        "workflow-execution",
+        "task-processing",
+        "payload-handling"
+      ],
+      "concepts": [
+        "payload-size",
+        "validation",
+        "error-handling",
+        "workflow-task",
+        "limits"
+      ],
+      "severity": "medium",
+      "userImpact": "Users may encounter silent failures or confusing errors when workflow tasks contain payloads that exceed size limits, instead of failing fast with clear error messages.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        723
+      ],
+      "keyQuote": "SDK should fail workflow task if payloads size it known to be too large",
+      "number": 1913,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-02-02T23:47:50.584Z"
+    },
+    {
+      "summary": "Request to add a warning when the SDK attempts to send a payload that exceeds a specific size limit. This is part of a cross-SDK feature initiative to help developers identify and address payload size issues.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [],
+      "components": [
+        "payload-handler",
+        "worker",
+        "validator"
+      ],
+      "concepts": [
+        "payload-size",
+        "validation",
+        "warning",
+        "limits",
+        "diagnostics"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers will receive warnings when attempting to send oversized payloads, helping them catch size-related issues during development.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        701
+      ],
+      "keyQuote": "Warn if the SDK tried to send a payload above a specific size",
+      "number": 1912,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-02-02T23:47:51.890Z"
+    },
     {
       "summary": "Documentation for typedSearchAttributes is incomplete and lacks concrete examples for migrating from the deprecated searchAttributes API in WorkflowOptions.",
       "category": "docs",

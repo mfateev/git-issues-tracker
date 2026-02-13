@@ -1,0 +1,32 @@
+{
+  "summary": "Activities can become stuck when Temporal crashes between writing the history event and creating the task in the tasks table. This is caused by a race condition in the two-phase activity scheduling process where a crash after transfer task creation but before task table insertion leaves activities in a scheduled state with no corresponding task for workers to pick up.",
+  "category": "bug",
+  "subcategory": "activity-scheduling",
+  "apis": [],
+  "components": [
+    "activity-scheduler",
+    "transfer-queue",
+    "matching-service",
+    "tasks-table"
+  ],
+  "concepts": [
+    "crash-recovery",
+    "race-condition",
+    "atomicity",
+    "activity-lifecycle",
+    "task-scheduling",
+    "data-consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Activities can become permanently stuck and unprocessable when the server crashes at specific points in the scheduling pipeline, requiring manual intervention to recover.",
+  "rootCause": "Non-transactional RPC between transfer queue processor and matching service creates a gap where crashes can leave transfer tasks deleted but corresponding tasks never created in the tasks table.",
+  "proposedFix": null,
+  "workaround": "Use long-running workers with activity pause signals instead of stopping workers abruptly; allow sufficient heartbeat timeout for retry mechanisms to work.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The gap is between step 2 and 3 - it's an RPC call, not transactional. If... Transfer task is processed... RPC to matching succeeds... Transfer task is deleted... Crash before matching commits to tasks table",
+  "number": 9118,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-02-02T23:48:21.436Z"
+}

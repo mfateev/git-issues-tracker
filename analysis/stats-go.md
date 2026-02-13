@@ -1,6 +1,6 @@
 # Go SDK - Issue Statistics
 
-**Generated:** 2026-01-22
+**Generated:** 2026-02-11
 **Repository:** [temporalio/sdk-go](https://github.com/temporalio/sdk-go)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 164 |
-| Total Closed Issues | 667 |
-| Total All Issues | 831 |
+| Total Open Issues | 166 |
+| Total Closed Issues | 670 |
+| Total All Issues | 836 |
 | Bugs (open) | 60 |
-| Enhancements/Features (open) | 89 |
+| Enhancements/Features (open) | 88 |
 | Security Issues (open) | 1 |
-| Total Upvotes (👍) on open | 86 |
+| Total Upvotes (👍) on open | 87 |
 | Total Comments on open | 215 |
-| Issues with Upvotes | 39 (24%) |
-| Issues with Comments | 88 (54%) |
-| Average Age (days) | 977 |
-| Stale Issues (>12 months) | 105 (64%) |
+| Issues with Upvotes | 39 (23%) |
+| Issues with Comments | 87 (52%) |
+| Average Age (days) | 984 |
+| Stale Issues (>12 months) | 119 (72%) |
 
 ---
 ## Resolution Metrics
@@ -36,13 +36,13 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 80% (667/831) |
+| Resolution Rate | 80% (670/836) |
 | Avg Time to Close (calendar) | 126 days |
-| Avg Time to Close (business) | 91 days |
+| Avg Time to Close (business) | 90 days |
 | Median Time to Close (calendar) | 16 days |
 | Median Time to Close (business) | 12 days |
-| 90th Percentile (calendar) | 328 days |
-| 90th Percentile (business) | 234 days |
+| 90th Percentile (calendar) | 322 days |
+| 90th Percentile (business) | 230 days |
 | Resolved within 30 days | 60% |
 | Resolved within 90 days | 78% |
 
@@ -51,20 +51,19 @@
 | Reason | Count | % |
 |--------|-------|---|
 | Fixed (bugs) | 219 | 33% |
-| Completed (features) | 218 | 33% |
+| Completed (features) | 220 | 33% |
 | Self-resolved | 152 | 23% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 78 | 12% |
+| Other | 79 | 12% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 19 | 29 | -10 |
 | 2025-03 | 18 | 12 | +6 |
 | 2025-04 | 17 | 20 | -3 |
 | 2025-05 | 6 | 5 | +1 |
@@ -75,10 +74,11 @@
 | 2025-10 | 12 | 6 | +6 |
 | 2025-11 | 11 | 8 | +3 |
 | 2025-12 | 5 | 6 | -1 |
-| 2026-01 | 9 | 8 | +1 |
-| **Total** | **133** | **147** | **-14** |
+| 2026-01 | 12 | 9 | +3 |
+| 2026-02 | 2 | 2 | 0 |
+| **Total** | **119** | **121** | **-2** |
 
-📉 **Backlog Shrinking:** 14 more issues closed than opened in the last 12 months.
+📉 **Backlog Shrinking:** 2 more issues closed than opened in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 61 |
-| Issues Closed | 63 |
-| Net Change | -2 |
-| Bugs Closed | 11 |
+| Issues Opened | 62 |
+| Issues Closed | 62 |
+| Net Change | 0 |
+| Bugs Closed | 10 |
 | Enhancements Closed | 39 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 338 | 242 |
-| Median | 21 | 15 |
+| Average | 337 | 241 |
+| Median | 20 | 14 |
 | 90th Percentile | 1531 | 1093 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 52% |
-| Within 90 days | 65% |
+| Within 30 days | 53% |
+| Within 90 days | 66% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -120,13 +120,13 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 4 | 2% |
-| 1-3 months | 9 | 5% |
-| 3-6 months | 7 | 4% |
-| 6-12 months | 13 | 8% |
-| 1-2 years | 30 | 18% |
-| 2-3 years | 31 | 19% |
-| 3+ years | 70 | 43% |
+| Last 30 days | 5 | 3% |
+| 1-3 months | 5 | 3% |
+| 3-6 months | 12 | 7% |
+| 6-12 months | 12 | 7% |
+| 1-2 years | 31 | 19% |
+| 2-3 years | 29 | 17% |
+| 3+ years | 72 | 43% |
 
 ---
 
@@ -141,7 +141,7 @@
 | 5 | [#1149](https://github.com/temporalio/sdk-go/issues/1149) | 4 | 3 | Allow custom trace attribute keys |
 | 6 | [#866](https://github.com/temporalio/sdk-go/issues/866) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecutionTim... |
 | 7 | [#313](https://github.com/temporalio/sdk-go/issues/313) | 4 | 2 | Allow including local activity input into the history |
-| 8 | [#2109](https://github.com/temporalio/sdk-go/issues/2109) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
+| 8 | [#2109](https://github.com/temporalio/sdk-go/issues/2109) | 3 | 2 | MutableSideEffect in test framework ignores cmp function |
 | 9 | [#1582](https://github.com/temporalio/sdk-go/issues/1582) | 2 | 0 | Updated context functions to match context library |
 | 10 | [#1410](https://github.com/temporalio/sdk-go/issues/1410) | 2 | 0 | Consider migrating away from golang/mock |
 | 11 | [#1208](https://github.com/temporalio/sdk-go/issues/1208) | 2 | 2 | Canceling a context with multiple child contexts can be non ... |
@@ -167,12 +167,12 @@ Priority = Upvotes × 2 + Comments
 | 7 | [#866](https://github.com/temporalio/sdk-go/issues/866) | 9 | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowEx... |
 | 8 | [#642](https://github.com/temporalio/sdk-go/issues/642) | 9 | 1 | 7 | Inconsistent behavior when asserting invocations |
 | 9 | [#475](https://github.com/temporalio/sdk-go/issues/475) | 9 | 0 | 9 | Panic when querying during Workflow failure + retr... |
-| 10 | [#1330](https://github.com/temporalio/sdk-go/issues/1330) | 8 | 0 | 8 | Add TaskQueue to TracerStartSpanOptions |
-| 11 | [#1114](https://github.com/temporalio/sdk-go/issues/1114) | 8 | 1 | 6 | Support activity functions with variadic arguments... |
-| 12 | [#986](https://github.com/temporalio/sdk-go/issues/986) | 7 | 1 | 5 | AwaitWithTimeout does not cancel its timer when co... |
-| 13 | [#937](https://github.com/temporalio/sdk-go/issues/937) | 7 | 0 | 7 | Add ability to keep session open in case of a work... |
-| 14 | [#884](https://github.com/temporalio/sdk-go/issues/884) | 7 | 2 | 3 | [Feature Request] Add ability to support passing s... |
-| 15 | [#167](https://github.com/temporalio/sdk-go/issues/167) | 7 | 2 | 3 | Activity times out in test environment with child ... |
+| 10 | [#2109](https://github.com/temporalio/sdk-go/issues/2109) | 8 | 3 | 2 | MutableSideEffect in test framework ignores cmp fu... |
+| 11 | [#1330](https://github.com/temporalio/sdk-go/issues/1330) | 8 | 0 | 8 | Add TaskQueue to TracerStartSpanOptions |
+| 12 | [#1114](https://github.com/temporalio/sdk-go/issues/1114) | 8 | 1 | 6 | Support activity functions with variadic arguments... |
+| 13 | [#986](https://github.com/temporalio/sdk-go/issues/986) | 7 | 1 | 5 | AwaitWithTimeout does not cancel its timer when co... |
+| 14 | [#937](https://github.com/temporalio/sdk-go/issues/937) | 7 | 0 | 7 | Add ability to keep session open in case of a work... |
+| 15 | [#884](https://github.com/temporalio/sdk-go/issues/884) | 7 | 2 | 3 | [Feature Request] Add ability to support passing s... |
 
 ---
 
@@ -197,10 +197,11 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2026-01-16 | [#2154](https://github.com/temporalio/sdk-go/issues/2154) | 0 | Update datadog go integration to v2 |
+| 2026-02-05 | [#2177](https://github.com/temporalio/sdk-go/issues/2177) | 0 | Ensure all internal structs that are exposed publically are ... |
+| 2026-01-25 | [#2167](https://github.com/temporalio/sdk-go/issues/2167) | 0 | Warn if the SDK tried to send a payload above a specific siz... |
+| 2026-01-25 | [#2166](https://github.com/temporalio/sdk-go/issues/2166) | 0 | Warn if SDK detects a workflow history over a certain size |
+| 2026-01-25 | [#2165](https://github.com/temporalio/sdk-go/issues/2165) | 0 | SDK should fail workflow task if payloads size it known to b... |
 | 2026-01-15 | [#2150](https://github.com/temporalio/sdk-go/issues/2150) | 0 | Stop sending null search attribute values on workflow start ... |
-| 2026-01-08 | [#2141](https://github.com/temporalio/sdk-go/issues/2141) | 0 | Activity Alias Collision in Test Environment When Using Anon... |
-| 2026-01-07 | [#2140](https://github.com/temporalio/sdk-go/issues/2140) | 0 | OpenTelemetry incorrect metric type for Counter |
 
 ---
 
@@ -208,7 +209,7 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 89 |
+| enhancement | 88 |
 | potential-bug | 44 |
 | bug | 17 |
 | external dependency | 5 |
@@ -222,7 +223,7 @@ Priority = Upvotes × 2 + Comments
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
 | [#866](https://github.com/temporalio/sdk-go/issues/866) | 4 | 1 | TestWorkflowEnvironment doesn't enforce WorkflowExecutionTim... |
-| [#2109](https://github.com/temporalio/sdk-go/issues/2109) | 2 | 1 | MutableSideEffect in test framework ignores cmp function |
+| [#2109](https://github.com/temporalio/sdk-go/issues/2109) | 3 | 2 | MutableSideEffect in test framework ignores cmp function |
 | [#1208](https://github.com/temporalio/sdk-go/issues/1208) | 2 | 2 | Canceling a context with multiple child contexts can be non ... |
 | [#351](https://github.com/temporalio/sdk-go/issues/351) | 2 | 0 | [Testing] Cancellation of Parent Workflow with Child Workflo... |
 | [#167](https://github.com/temporalio/sdk-go/issues/167) | 2 | 3 | Activity times out in test environment with child workflow |
@@ -256,14 +257,17 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (105 open issues with no activity >12 months)
+## Stale Issues (119 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
 | [#181](https://github.com/temporalio/sdk-go/issues/181) | 16 | 2020-07-07 | Add ability for a clean worker shutdown that waits... |
+| [#89](https://github.com/temporalio/sdk-go/issues/89) | 7 | 2025-02-04 | Refactor SDK to avoid type aliasing |
 | [#829](https://github.com/temporalio/sdk-go/issues/829) | 6 | 2023-02-02 | Use interceptor logger for all logs related to a w... |
+| [#866](https://github.com/temporalio/sdk-go/issues/866) | 4 | 2025-01-30 | TestWorkflowEnvironment doesn't enforce WorkflowEx... |
+| [#313](https://github.com/temporalio/sdk-go/issues/313) | 4 | 2025-02-04 | Allow including local activity input into the hist... |
 | [#1582](https://github.com/temporalio/sdk-go/issues/1582) | 2 | 2024-08-08 | Updated context functions to match context library |
 | [#1410](https://github.com/temporalio/sdk-go/issues/1410) | 2 | 2024-03-04 | Consider migrating away from golang/mock |
 | [#1208](https://github.com/temporalio/sdk-go/issues/1208) | 2 | 2024-03-04 | Canceling a context with multiple child contexts c... |
@@ -279,8 +283,5 @@ Top stale issues by upvotes:
 | [#982](https://github.com/temporalio/sdk-go/issues/982) | 1 | 2025-01-12 | Cannot register mock activity with string name on ... |
 | [#949](https://github.com/temporalio/sdk-go/issues/949) | 1 | 2022-12-02 | Allow user to override default maximum activity at... |
 | [#754](https://github.com/temporalio/sdk-go/issues/754) | 1 | 2024-12-17 | gRPC Proxy Integration Test |
-| [#642](https://github.com/temporalio/sdk-go/issues/642) | 1 | 2024-03-15 | Inconsistent behavior when asserting invocations |
-| [#497](https://github.com/temporalio/sdk-go/issues/497) | 1 | 2021-10-28 | [Test suite] Query after signal works in SDK, but ... |
-| [#458](https://github.com/temporalio/sdk-go/issues/458) | 1 | 2021-11-16 | TestWorkflowEnvironment: Fail RegisterDelayedCallb... |
 
-*...and 85 more stale issues*
+*...and 99 more stale issues*

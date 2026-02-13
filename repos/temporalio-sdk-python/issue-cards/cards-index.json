@@ -1,7 +1,99 @@
 {
-  "generatedAt": "2026-01-22T20:30:08.622Z",
-  "totalCards": 598,
+  "generatedAt": "2026-02-11T03:36:41.851Z",
+  "totalCards": 601,
   "cards": [
+    {
+      "summary": "Signal argument deserialization errors in workflows are logged using the default logger instead of the workflow-specific logger, making it difficult to diagnose issues. This differs from other deserialization errors which fail the task, while signal errors log-and-ignore to prevent workflow failure.",
+      "category": "other",
+      "subcategory": "signal-handling",
+      "apis": [],
+      "components": [
+        "worker",
+        "workflow-instance",
+        "signal-handler",
+        "logging"
+      ],
+      "concepts": [
+        "deserialization",
+        "error-handling",
+        "logging",
+        "context",
+        "diagnostics",
+        "signal-processing"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot easily diagnose signal argument deserialization failures because error logs lack workflow-specific context information.",
+      "rootCause": "Signal deserialization errors use the default logger instead of the workflow logger at _workflow_instance.py line 2316-2318.",
+      "proposedFix": "Update signal deserialization error handling to use the workflow-specific logger for consistency with other deserialization errors.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "the log is not using the workflow logger meaning there is not enough context to diagnose",
+      "number": 1322,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-02-11T03:36:41.769Z"
+    },
+    {
+      "summary": "User request to provide access to the randomness seed used in workflow execution and notifications when it changes. This is needed to allow distinct random sequences (e.g., for telemetry) without affecting workflow randomness.",
+      "category": "feature",
+      "subcategory": "randomness",
+      "apis": [],
+      "components": [
+        "workflow-execution",
+        "random-number-generation",
+        "plugin-system"
+      ],
+      "concepts": [
+        "randomness",
+        "seed",
+        "determinism",
+        "telemetry",
+        "workflow-isolation"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot currently isolate random number sequences for different concerns (e.g., telemetry vs workflow logic) without affecting deterministic workflow execution.",
+      "rootCause": null,
+      "proposedFix": "Provide API to get the initial randomness seed and receive notifications of seed changes. Optionally provide a Random implementation that reseeds itself.",
+      "workaround": null,
+      "resolution": "unknown",
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Provide a way to get the initial randomness seed as well as notification of changes.",
+      "number": 1319,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-02-11T03:36:40.494Z"
+    },
+    {
+      "summary": "LitellmModel cannot be used directly in OpenAI Agents SDK on Temporal because the framework requires model names to be strings. Users must create a custom ModelProvider to route between OpenAI and LiteLLM models at the worker level.",
+      "category": "bug",
+      "subcategory": "openai-agents-integration",
+      "apis": [],
+      "components": [
+        "openai-agents",
+        "model-provider",
+        "worker-configuration"
+      ],
+      "concepts": [
+        "model-routing",
+        "provider-configuration",
+        "litellm-integration",
+        "agent-definition",
+        "serialization"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot directly use LitellmModel with OpenAI Agents SDK on Temporal without implementing a custom ModelProvider.",
+      "rootCause": "Temporal workflows serialize agent models and require model names to be strings; LitellmModel object cannot be serialized directly.",
+      "proposedFix": "Implement a custom RoutingModelProvider that detects model name patterns and routes to appropriate providers (OpenAI or LiteLLM).",
+      "workaround": "Create a custom ModelProvider class that routes between OpenAIProvider and LitellmProvider based on model name patterns (e.g., \"gemini/gemini-3-flash-preview\").",
+      "resolution": "fixed",
+      "resolutionDetails": "Issue resolved through documentation and community example. Custom RoutingModelProvider pattern documented as a solution, with suggestion to add example to samples repository.",
+      "related": [],
+      "keyQuote": "The more robust way to do it would be to serialize the actual models in their entirety, but that is large and unlikely to be serializable.",
+      "number": 1302,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-02-02T23:47:28.718Z"
+    },
     {
       "summary": "Worker intermittently stops polling after completing long-running synchronous activities, causing a 5-15 minute delay before auto-reconnection. The gRPC connection drops after activity completion even though the CompleteActivity RPC succeeds, suggesting a race condition in the SDK's handling of synchronous activity completion.",
       "category": "bug",

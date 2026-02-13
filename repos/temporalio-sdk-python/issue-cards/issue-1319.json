@@ -1,0 +1,30 @@
+{
+  "summary": "User request to provide access to the randomness seed used in workflow execution and notifications when it changes. This is needed to allow distinct random sequences (e.g., for telemetry) without affecting workflow randomness.",
+  "category": "feature",
+  "subcategory": "randomness",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "random-number-generation",
+    "plugin-system"
+  ],
+  "concepts": [
+    "randomness",
+    "seed",
+    "determinism",
+    "telemetry",
+    "workflow-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently isolate random number sequences for different concerns (e.g., telemetry vs workflow logic) without affecting deterministic workflow execution.",
+  "rootCause": null,
+  "proposedFix": "Provide API to get the initial randomness seed and receive notifications of seed changes. Optionally provide a Random implementation that reseeds itself.",
+  "workaround": null,
+  "resolution": "unknown",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Provide a way to get the initial randomness seed as well as notification of changes.",
+  "number": 1319,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-02-11T03:36:40.494Z"
+}

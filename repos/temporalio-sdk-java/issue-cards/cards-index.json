@@ -1,7 +1,275 @@
 {
-  "generatedAt": "2026-01-22T20:29:17.525Z",
-  "totalCards": 941,
+  "generatedAt": "2026-02-11T03:36:31.474Z",
+  "totalCards": 949,
   "cards": [
+    {
+      "summary": "Spring Boot auto-discovery incorrectly requires workflow packages configuration to register Activity beans, when activities should be auto-registered independently. The configuration name `packages` is also misleading since it only filters workflows, not activities.",
+      "category": "bug",
+      "subcategory": "spring-boot-autoconfigure",
+      "apis": [],
+      "components": [
+        "spring-boot-autoconfigure",
+        "workers-auto-discovery",
+        "activity-registration",
+        "component-scanning"
+      ],
+      "concepts": [
+        "auto-discovery",
+        "bean-registration",
+        "component-scanning",
+        "configuration",
+        "activity-beans",
+        "dependency-injection"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot auto-register Activity beans without also specifying workflow package filters, breaking activity auto-discovery when no workflow packages are configured.",
+      "rootCause": "Activity auto-discovery registration is gated on `spring.temporal.workers-auto-discovery.packages` being non-empty, but this configuration is intended only for workflow package filtering.",
+      "proposedFix": "Either (1) always register @ActivityImpl beans with matching workers regardless of packages configuration, or (2) introduce a separate flag like `spring.temporal.workers-auto-discovery.register-activities` to control activity bean auto-registration.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "activities are not component scanned for registration to a worker _unless_ `spring.temporal.workers-auto-discovery.packages` is non-empty.",
+      "number": 2780,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-02-11T03:36:31.331Z"
+    },
+    {
+      "summary": "User inquires why the Java SDK doesn't use the Rust Core SDK like TypeScript, Python, .NET, and Ruby do, and asks about technical limitations or considerations for building a Java SDK on top of Rust Core.",
+      "category": "question",
+      "subcategory": "architecture",
+      "apis": [],
+      "components": [
+        "sdk-core",
+        "native-bindings",
+        "java-runtime"
+      ],
+      "concepts": [
+        "rust-core",
+        "language-bindings",
+        "native-libraries",
+        "sdk-design",
+        "interoperability"
+      ],
+      "severity": "low",
+      "userImpact": "Users seeking to understand SDK architecture decisions and evaluate whether building a Java SDK on Rust Core is feasible for their needs.",
+      "rootCause": "Java's poor native compilation and shared library distribution story, combined with Java SDK existing as a pure implementation before Rust Core was available.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "wontfix",
+      "resolutionDetails": "Issue closed as not an issue. The Java SDK remains pure because it predates Rust Core and Java has poor native library support. Go faces the same constraints.",
+      "related": [
+        2182
+      ],
+      "keyQuote": "Java has a bad native compilation and shared library distribution story",
+      "number": 2777,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-02-11T03:36:19.534Z"
+    },
+    {
+      "summary": "Feature request to track current heartbeat timeout while retrying failed heartbeat calls in HeartbeatContextImpl, and stop retrying if the activity is suspected to have timed out. Activity code should be notified via ActivityCompletionException or a new exception type.",
+      "category": "feature",
+      "subcategory": "activity-heartbeat",
+      "apis": [
+        "ActivityCompletionException"
+      ],
+      "components": [
+        "HeartbeatContextImpl",
+        "activity-executor",
+        "heartbeat-retry"
+      ],
+      "concepts": [
+        "heartbeat",
+        "timeout",
+        "retry",
+        "activity-lifecycle",
+        "failure-handling"
+      ],
+      "severity": "medium",
+      "userImpact": "Activity code cannot determine whether heartbeat failures are due to activity timeout, leading to continued retry attempts after the activity has already timed out.",
+      "rootCause": null,
+      "proposedFix": "Track current heartbeat timeout for the activity and cease retry attempts if timeout is suspected; notify activity via ActivityCompletionException or new exception type",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Feature request is for SDK to keep track of current heartbeat timeout for activity, and stop retrying heartbeats if it thinks the activity has timed out",
+      "number": 2775,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-02-11T03:36:18.676Z"
+    },
+    {
+      "summary": "User needs a reliable, event-driven mechanism to persist real-time workflow state updates to an external database. The current polling approach is inefficient and has high latency. The request seeks implementation using WorkflowTaskCompleted events with external subscription capabilities and query integration.",
+      "category": "feature",
+      "subcategory": "workflow-state-persistence",
+      "apis": [
+        "QueryWorkflow",
+        "QueryMethod"
+      ],
+      "components": [
+        "workflow-engine",
+        "query-handler",
+        "event-system",
+        "visibility-api"
+      ],
+      "concepts": [
+        "state-persistence",
+        "event-driven-architecture",
+        "real-time-updates",
+        "external-database",
+        "polling-optimization",
+        "workflow-monitoring"
+      ],
+      "severity": "medium",
+      "userImpact": "Users can eliminate resource-intensive polling and achieve real-time state persistence using event-driven triggers instead.",
+      "rootCause": null,
+      "proposedFix": "Implement WorkflowTaskCompleted event subscription (via gRPC stream or filtered Visibility API) with automatic QueryWorkflow integration to persist state changes to external databases, including samples and guidance on event ordering/deduplication.",
+      "workaround": "Current solution uses scheduled pollers that periodically query RUNNING workflows and write results to database, though this is inefficient and high-latency.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Listen for WorkflowTaskCompleted events from an external service (indicating workflow state may have changed). Query the corresponding workflow via QueryWorkflow to fetch the latest state. Persist the state to the database.",
+      "number": 2774,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-02-11T03:36:22.392Z"
+    },
+    {
+      "summary": "The workflowcheck static analyzer needs multiple improvements including environment/system property configuration support, lambda analysis, module support, field mutation prevention, config prebuilding with stdlib presets, SARIF output, and enhanced result formatting with deep tree abbreviation.",
+      "category": "feature",
+      "subcategory": "static-analyzer",
+      "apis": [],
+      "components": [
+        "workflowcheck",
+        "static-analyzer",
+        "gradle-plugin",
+        "maven-plugin"
+      ],
+      "concepts": [
+        "static-analysis",
+        "configuration",
+        "environment-variables",
+        "system-properties",
+        "lambda-analysis",
+        "field-mutation",
+        "sarif-output",
+        "result-formatting"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need better configuration options, more comprehensive static analysis coverage, and improved integration with development tools and IDEs.",
+      "rootCause": null,
+      "proposedFix": "Add support for environment variables and Java system properties for config, implement lambda content checking, add module support, prevent field mutations in queries/validators, create config prebuilding with stdlib presets, add SARIF output format, improve IntelliJ console linking, provide HTML-formatted results with collapsible hierarchy, and support tree abbreviation for deep nesting.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2768,
+        2769,
+        2767
+      ],
+      "keyQuote": "the `workflowcheck` static analyzer done in #2767 could use the following improvements",
+      "number": 2770,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-02-02T23:47:00.754Z"
+    },
+    {
+      "summary": "Request for a formal Gradle plugin to integrate the workflowcheck static analyzer into the Maven/Gradle build process, following the implementation in PR #2767.",
+      "category": "feature",
+      "subcategory": "build-tools",
+      "apis": [],
+      "components": [
+        "workflowcheck",
+        "gradle-plugin",
+        "build-system"
+      ],
+      "concepts": [
+        "static-analysis",
+        "code-quality",
+        "build-integration",
+        "developer-tooling",
+        "plugin-architecture"
+      ],
+      "severity": "low",
+      "userImpact": "Developers would have better integration of workflow validation checks into their standard build processes.",
+      "rootCause": null,
+      "proposedFix": "Develop a formal Gradle plugin wrapper for the workflowcheck static analyzer",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2767
+      ],
+      "keyQuote": "The `workflowcheck` static analyzer done in https://github.com/temporalio/sdk-java/pull/2767 should have a more formal Gradle plugin",
+      "number": 2769,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-02-02T23:46:49.015Z"
+    },
+    {
+      "summary": "Create a formal Gradle plugin for the workflowcheck static analyzer tool. This would provide a more integrated and standardized way for Java developers to use workflowcheck in their Gradle builds.",
+      "category": "feature",
+      "subcategory": "gradle-plugin",
+      "apis": [],
+      "components": [
+        "gradle-plugin",
+        "workflowcheck",
+        "build-system"
+      ],
+      "concepts": [
+        "static-analysis",
+        "gradle-integration",
+        "developer-experience",
+        "build-tooling",
+        "code-quality"
+      ],
+      "severity": "low",
+      "userImpact": "Developers can use workflowcheck more easily and formally within their Gradle-based Java projects without manual configuration.",
+      "rootCause": null,
+      "proposedFix": "Create a formal Gradle plugin for workflowcheck static analyzer",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2767
+      ],
+      "keyQuote": "The workflowcheck static analyzer done in #2767 should have a more formal Gradle plugin",
+      "number": 2768,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-02-02T23:46:47.033Z"
+    },
+    {
+      "summary": "Enable the DETERMINISTIC_CANCELLATION_SCOPE_ORDER SDK flag for all new workflows by adding it to WorkflowStateMachines.initialFlags. This flag was added in #2512 to resolve an NDE bug and needs backward compatibility testing to ensure existing workflows aren't affected.",
+      "category": "feature",
+      "subcategory": "workflow-execution",
+      "apis": [
+        "WorkflowStateMachines"
+      ],
+      "components": [
+        "workflow-state-machine",
+        "cancellation-scope",
+        "worker"
+      ],
+      "concepts": [
+        "deterministic-execution",
+        "cancellation-scope-order",
+        "backward-compatibility",
+        "non-deterministic-error",
+        "flag-management"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables automatic use of deterministic cancellation scope ordering for new workflows, reducing non-deterministic execution errors while maintaining backward compatibility.",
+      "rootCause": "NDE bug in cancellation scope ordering (see #2473) required delayed flag enablement for stability.",
+      "proposedFix": "Add DETERMINISTIC_CANCELLATION_SCOPE_ORDER flag to WorkflowStateMachines.initialFlags and add tests using raw WorkflowService API to manually poll workflow tasks.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2512,
+        2473
+      ],
+      "keyQuote": "We need to enable `DETERMINISTIC_CANCELLATION_SCOPE_ORDER` flag for all new workflows, by adding it to `WorkflowStateMachines.initialFlags`.",
+      "number": 2765,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-02-02T23:46:51.357Z"
+    },
     {
       "summary": "Spring Boot 4 metrics configuration fails because the MetricsScopeAutoConfiguration waits for CompositeMeterRegistryAutoConfiguration, but the class package location changed in Spring Boot 4, causing metrics to be emitted to a no-op scope instead of the actual Micrometer MeterRegistry.",
       "category": "bug",

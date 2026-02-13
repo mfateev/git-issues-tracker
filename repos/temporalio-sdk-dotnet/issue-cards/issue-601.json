@@ -1,0 +1,33 @@
+{
+  "summary": "The Semaphore.WaitAsync method incorrectly uses ContinueWith as a map operation, which could suppress exceptions. While there are currently no fallible scenarios in the continuation, this pattern should be fixed to follow best practices.",
+  "category": "bug",
+  "subcategory": "synchronization-primitives",
+  "apis": [
+    "WaitAsync"
+  ],
+  "components": [
+    "Semaphore",
+    "workflow-utilities",
+    "task-continuation"
+  ],
+  "concepts": [
+    "exception-handling",
+    "async-patterns",
+    "continuation-semantics",
+    "error-suppression"
+  ],
+  "severity": "low",
+  "userImpact": "Users may experience silently swallowed exceptions in future scenarios if the Semaphore.WaitAsync continuation becomes fallible.",
+  "rootCause": "ContinueWith is being used as a map operation instead of properly handling potential exceptions from the continuation task.",
+  "proposedFix": "Replace the improper ContinueWith usage with a pattern that correctly handles both success and failure cases (likely using proper exception handling or task composition).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    599
+  ],
+  "keyQuote": "We're improperly using `ContinueWith` in `Temporalio.Workflows.Semaphore.WaitAsync` as if it were a \"map success\"",
+  "number": 601,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-02-02T23:46:21.842Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Workflows occasionally get stuck with 'running' status on Temporal deployed on Alibaba Cloud SAE, occurring approximately once per 100 workflow executions during batch testing.",
+  "category": "bug",
+  "subcategory": "workflow-execution",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "state-machine",
+    "cloud-deployment"
+  ],
+  "concepts": [
+    "stuck-workflow",
+    "status-synchronization",
+    "batch-processing",
+    "cloud-deployment",
+    "race-condition"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows intermittently fail to complete, remaining stuck in running state, causing workflow execution failures and requiring manual intervention.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the workflow gets stuck, and the status remains as \"running\". Of course, this happens roughly once in every 100 cases",
+  "number": 9193,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-02-02T23:48:34.412Z"
+}

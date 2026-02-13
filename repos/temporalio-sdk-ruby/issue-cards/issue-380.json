@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to allow default Info options (retry policies, task queues, timeouts) to be defined at the class level on Workflow and Activity definitions in the Ruby SDK, similar to Coinbase's temporal SDK. The request was declined by maintainers who explain this is intentional across all SDKs to keep retry policies as caller-only options.",
+  "category": "feature",
+  "subcategory": "activity-definition",
+  "apis": [],
+  "components": [
+    "activity-definition",
+    "workflow-definition",
+    "options"
+  ],
+  "concepts": [
+    "retry-policy",
+    "task-queue",
+    "timeout",
+    "options",
+    "configuration",
+    "caller-options"
+  ],
+  "severity": "low",
+  "userImpact": "Users must specify retry policies and other options at each call site rather than defining them once on the activity/workflow definition, which is less convenient than some alternative patterns.",
+  "rootCause": "Intentional architectural design decision: keeping retry policies and other options as caller-only ensures clarity about which version's settings apply when callers and definitions may be at different versions.",
+  "proposedFix": "Allow class-level configuration of retry policies, task queues, and other options on Activity and Workflow definitions.",
+  "workaround": "Define constants on the definition classes and reference them in calling code, or create helper functions that apply known option sets consistently within an application.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers declined the feature as it conflicts with Temporal's architectural principle that retry policies and caller options should be explicit at the call site, not hidden in definitions.",
+  "related": [],
+  "keyQuote": "It is important for user clarity that retry policy remain clearly a caller-only option and not try to hide that it is.",
+  "number": 380,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-02-02T23:47:39.849Z"
+}

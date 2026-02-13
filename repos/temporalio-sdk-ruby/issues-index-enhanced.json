@@ -1,9 +1,52 @@
 {
-  "generatedAt": "2026-01-22T20:33:01.569Z",
+  "generatedAt": "2026-02-11T03:38:58.374Z",
   "repo": "temporalio-sdk-ruby",
-  "totalCount": 180,
-  "cardsCount": 180,
+  "totalCount": 181,
+  "cardsCount": 181,
   "issues": [
+    {
+      "number": 380,
+      "title": "[Feature Request] Default Info options on Workflow and Activity definitions",
+      "state": "CLOSED",
+      "author": "stathis-alexander",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-30T14:39:40Z",
+      "updatedAt": "2026-01-30T15:07:03Z",
+      "closedAt": "2026-01-30T15:07:03Z",
+      "commentCount": 4,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-ruby/issues/380",
+      "bodyLength": 750,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Feature request to allow default Info options (retry policies, task queues, timeouts) to be defined at the class level on Workflow and Activity definitions in the Ruby SDK, similar to Coinbase's temporal SDK. The request was declined by maintainers who explain this is intentional across all SDKs to keep retry policies as caller-only options.",
+      "category": "feature",
+      "subcategory": "activity-definition",
+      "apis": [],
+      "components": [
+        "activity-definition",
+        "workflow-definition",
+        "options"
+      ],
+      "concepts": [
+        "retry-policy",
+        "task-queue",
+        "timeout",
+        "options",
+        "configuration",
+        "caller-options"
+      ],
+      "severity": "low",
+      "resolution": "wontfix",
+      "hasCard": true
+    },
     {
       "number": 373,
       "title": "## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64",
@@ -57,14 +100,14 @@
     },
     {
       "number": 367,
-      "title": "[Feature Request] Support non-workflow activities",
+      "title": "[Feature Request] Support standalone activities",
       "state": "OPEN",
       "author": "maciejdudko",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T17:20:10Z",
-      "updatedAt": "2025-12-02T17:20:10Z",
+      "updatedAt": "2026-01-29T21:31:53Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,

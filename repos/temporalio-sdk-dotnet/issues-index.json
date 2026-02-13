@@ -1,18 +1,50 @@
 {
-  "generated_at": "2026-01-22T20:27:21.173Z",
-  "total_count": 292,
+  "generated_at": "2026-02-11T03:35:31.265Z",
+  "total_count": 294,
   "issues": [
+    {
+      "number": 603,
+      "title": "[Bug] Adjust typed search attribute logic to be as lenient on type metadata as server is when deserializing",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-30T21:19:04Z",
+      "updatedAt": "2026-02-03T12:17:14Z",
+      "closedAt": "2026-02-03T12:17:14Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/603"
+    },
+    {
+      "number": 601,
+      "title": "[Feature Request] Best practice fix for Temporalio.Workflows.Semaphore.WaitAsync ContinueWith",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-22T22:20:20Z",
+      "updatedAt": "2026-01-22T22:20:20Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/601"
+    },
     {
       "number": 599,
       "title": "[Bug] TemporalWorker::ExecuteAsync(Func<Task>) swallows exceptions, throws TaskCanceledException instead",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "adeal",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-01-21T23:40:10Z",
-      "updatedAt": "2026-01-22T15:09:12Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-29T15:45:56Z",
+      "closedAt": "2026-01-29T15:45:56Z",
       "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
@@ -206,14 +238,14 @@
     },
     {
       "number": 568,
-      "title": "[Feature Request] Support non-workflow activities",
+      "title": "[Feature Request] Support standalone activities",
       "state": "OPEN",
       "author": "maciejdudko",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T17:20:32Z",
-      "updatedAt": "2025-12-02T17:20:32Z",
+      "updatedAt": "2026-01-29T21:31:47Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -431,9 +463,9 @@
         "enhancement"
       ],
       "createdAt": "2025-09-25T14:36:21Z",
-      "updatedAt": "2025-12-03T15:57:17Z",
+      "updatedAt": "2026-02-11T03:01:29Z",
       "closedAt": "2025-12-03T15:57:17Z",
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/528"
@@ -4607,20 +4639,20 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 48,
-      "CLOSED": 244
+      "CLOSED": 246,
+      "OPEN": 48
     },
     "by_label": {
-      "enhancement": 170,
-      "bug": 71,
+      "enhancement": 171,
+      "bug": 72,
       "Mend: dependency security vulnerability": 13,
       "question": 3
     },
     "engagement": {
       "total_upvotes": 45,
-      "total_comments": 332,
+      "total_comments": 333,
       "issues_with_upvotes": 29,
-      "issues_with_comments": 134,
+      "issues_with_comments": 135,
       "upvote_rate": "10%",
       "comment_rate": "46%"
     }

@@ -1,20 +1,109 @@
 {
-  "generatedAt": "2026-01-22T20:33:00.936Z",
+  "generatedAt": "2026-02-11T03:38:57.742Z",
   "repo": "temporalio-sdk-dotnet",
-  "totalCount": 292,
-  "cardsCount": 292,
+  "totalCount": 294,
+  "cardsCount": 294,
   "issues": [
+    {
+      "number": 603,
+      "title": "[Bug] Adjust typed search attribute logic to be as lenient on type metadata as server is when deserializing",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-01-30T21:19:04Z",
+      "updatedAt": "2026-02-03T12:17:14Z",
+      "closedAt": "2026-02-03T12:17:14Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/603",
+      "bodyLength": 136,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        741
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The .NET SDK's typed search attribute validation logic is stricter than the server's deserialization logic. This causes validation errors in cases that the server accepts, creating an inconsistency that needs to be resolved by making the SDK as lenient as the server.",
+      "category": "bug",
+      "subcategory": "search-attributes",
+      "apis": [],
+      "components": [
+        "search-attributes",
+        "type-validation",
+        "serialization"
+      ],
+      "concepts": [
+        "type-metadata",
+        "validation",
+        "deserialization",
+        "compatibility",
+        "enumerate"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 601,
+      "title": "[Feature Request] Best practice fix for Temporalio.Workflows.Semaphore.WaitAsync ContinueWith",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-22T22:20:20Z",
+      "updatedAt": "2026-01-22T22:20:20Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/601",
+      "bodyLength": 341,
+      "hasCodeBlocks": false,
+      "hasStackTrace": true,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        599
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The Semaphore.WaitAsync method incorrectly uses ContinueWith as a map operation, which could suppress exceptions. While there are currently no fallible scenarios in the continuation, this pattern should be fixed to follow best practices.",
+      "category": "bug",
+      "subcategory": "synchronization-primitives",
+      "apis": [
+        "WaitAsync"
+      ],
+      "components": [
+        "Semaphore",
+        "workflow-utilities",
+        "task-continuation"
+      ],
+      "concepts": [
+        "exception-handling",
+        "async-patterns",
+        "continuation-semantics",
+        "error-suppression"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 599,
       "title": "[Bug] TemporalWorker::ExecuteAsync(Func<Task>) swallows exceptions, throws TaskCanceledException instead",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "adeal",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-01-21T23:40:10Z",
-      "updatedAt": "2026-01-22T15:09:12Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-29T15:45:56Z",
+      "closedAt": "2026-01-29T15:45:56Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/599",
@@ -590,14 +679,14 @@
     },
     {
       "number": 568,
-      "title": "[Feature Request] Support non-workflow activities",
+      "title": "[Feature Request] Support standalone activities",
       "state": "OPEN",
       "author": "maciejdudko",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T17:20:32Z",
-      "updatedAt": "2025-12-02T17:20:32Z",
+      "updatedAt": "2026-01-29T21:31:47Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -1200,9 +1289,9 @@
         "enhancement"
       ],
       "createdAt": "2025-09-25T14:36:21Z",
-      "updatedAt": "2025-12-03T15:57:17Z",
+      "updatedAt": "2026-02-11T03:01:29Z",
       "closedAt": "2025-12-03T15:57:17Z",
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/528",
       "bodyLength": 112,

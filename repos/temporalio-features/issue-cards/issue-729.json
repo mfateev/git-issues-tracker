@@ -1,0 +1,34 @@
+{
+  "summary": "Worker deployment limits cause silent poll failures that are implicitly retried without user awareness. When the 100-deployment limit is exceeded, the 101st deployment fails silently, degrading ergonomics since deployments are implicitly created but require explicit deletion.",
+  "category": "feature",
+  "subcategory": "worker-deployment",
+  "apis": [],
+  "components": [
+    "worker",
+    "deployment-management",
+    "poll",
+    "cloud-tests"
+  ],
+  "concepts": [
+    "deployment-limit",
+    "resource-management",
+    "error-handling",
+    "implicit-creation",
+    "ephemeral-resources",
+    "test-infrastructure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users hitting the 100-deployment limit experience silent failures with only implicit poll retries, making it difficult to diagnose and recover from hitting deployment limits.",
+  "rootCause": "Worker deployments are implicitly created on use but require explicit deletion, combined with silent failure on hitting the 100-deployment limit with only implicit poll retries.",
+  "proposedFix": "Improve error communication beyond poll-failure warnings to explicitly notify users of deployment limit; implement automatic cleanup of ephemeral worker deployments in cloud tests.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    691
+  ],
+  "keyQuote": "when a user hits a worker deployment limit, it fails poll calls which are just implicitly retried forever",
+  "number": 729,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-02-02T23:45:56.870Z"
+}

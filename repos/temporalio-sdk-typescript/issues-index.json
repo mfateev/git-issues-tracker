@@ -1,7 +1,95 @@
 {
-  "generated_at": "2026-01-22T20:27:21.755Z",
-  "total_count": 806,
+  "generated_at": "2026-02-11T03:35:31.770Z",
+  "total_count": 812,
   "issues": [
+    {
+      "number": 1935,
+      "title": "[Bug] uuid() calls in query handlers can break workflow determinism during replay",
+      "state": "OPEN",
+      "author": "antmendoza",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-02-10T13:35:45Z",
+      "updatedAt": "2026-02-10T13:35:45Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1935"
+    },
+    {
+      "number": 1926,
+      "title": "[Bug] ScheduleHandle.update's I/O types mismatch",
+      "state": "CLOSED",
+      "author": "efojs",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-02-05T19:21:29Z",
+      "updatedAt": "2026-02-06T20:02:51Z",
+      "closedAt": "2026-02-06T20:02:51Z",
+      "commentCount": 2,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1926"
+    },
+    {
+      "number": 1915,
+      "title": "Connect from Cloudflare worker ERROR",
+      "state": "CLOSED",
+      "author": "bonadio",
+      "labels": [],
+      "createdAt": "2026-01-27T15:51:10Z",
+      "updatedAt": "2026-01-29T02:27:44Z",
+      "closedAt": "2026-01-29T02:27:44Z",
+      "commentCount": 5,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1915"
+    },
+    {
+      "number": 1914,
+      "title": "Warn if SDK detects a workflow history over a certain size",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-01-23T22:51:48Z",
+      "updatedAt": "2026-01-23T22:54:11Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1914"
+    },
+    {
+      "number": 1913,
+      "title": "SDK should fail workflow task if payloads size it known to be too large",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-01-23T22:52:41Z",
+      "updatedAt": "2026-01-23T22:53:48Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1913"
+    },
+    {
+      "number": 1912,
+      "title": "Warn if the SDK tried to send a payload above a specific size",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-01-23T22:50:52Z",
+      "updatedAt": "2026-01-23T22:51:31Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1912"
+    },
     {
       "number": 1908,
       "title": "[Bug] Update documentation and examples on how to use typedSearchAttributes",
@@ -69,12 +157,12 @@
     {
       "number": 1887,
       "title": "Allow logging in queries and update validators",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [],
       "createdAt": "2026-01-14T21:41:48Z",
-      "updatedAt": "2026-01-14T21:41:48Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-10T19:25:55Z",
+      "closedAt": "2026-02-10T19:25:54Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -217,9 +305,9 @@
         "bug"
       ],
       "createdAt": "2025-12-10T09:32:18Z",
-      "updatedAt": "2026-01-19T17:40:24Z",
+      "updatedAt": "2026-01-27T17:39:20Z",
       "closedAt": null,
-      "commentCount": 2,
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1860"
@@ -233,9 +321,9 @@
         "bug"
       ],
       "createdAt": "2025-12-08T10:39:51Z",
-      "updatedAt": "2026-01-19T11:23:48Z",
+      "updatedAt": "2026-01-27T17:40:08Z",
       "closedAt": null,
-      "commentCount": 4,
+      "commentCount": 6,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1859"
@@ -290,14 +378,14 @@
     },
     {
       "number": 1851,
-      "title": "[Feature Request] Support non-workflow activities",
+      "title": "[Feature Request] Support standalone activities",
       "state": "OPEN",
       "author": "maciejdudko",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T17:20:06Z",
-      "updatedAt": "2025-12-02T17:20:06Z",
+      "updatedAt": "2026-01-29T21:31:33Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -307,14 +395,14 @@
     {
       "number": 1850,
       "title": "[Feature Request] Implement OTel interceptors v1 as Plugin",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "chris-olszewski",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T15:09:54Z",
-      "updatedAt": "2025-12-02T15:09:54Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-09T23:26:29Z",
+      "closedAt": "2026-02-09T23:26:29Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -1471,15 +1559,15 @@
     {
       "number": 1660,
       "title": "[Bug] RESOURCE_EXHAUSTED error while describing workflow schedule",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "jhecking",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-03-25T12:20:01Z",
-      "updatedAt": "2025-06-02T16:21:50Z",
-      "closedAt": null,
-      "commentCount": 1,
+      "updatedAt": "2026-02-04T03:35:39Z",
+      "closedAt": "2026-02-04T03:35:39Z",
+      "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1660"
@@ -1997,9 +2085,9 @@
         "bug"
       ],
       "createdAt": "2024-12-13T17:00:39Z",
-      "updatedAt": "2025-06-03T06:55:41Z",
+      "updatedAt": "2026-02-01T17:48:51Z",
       "closedAt": null,
-      "commentCount": 6,
+      "commentCount": 7,
       "upvotes": 1,
       "totalReactions": 4,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1587"
@@ -2884,15 +2972,15 @@
     {
       "number": 1443,
       "title": "[Bug] Failure to start ephemeral server prevents shutdown of the process",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mjameswh",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-06-14T16:02:00Z",
-      "updatedAt": "2025-02-20T23:06:32Z",
-      "closedAt": null,
-      "commentCount": 1,
+      "updatedAt": "2026-02-04T03:19:16Z",
+      "closedAt": "2026-02-04T03:19:16Z",
+      "commentCount": 2,
       "upvotes": 6,
       "totalReactions": 6,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1443"
@@ -4826,14 +4914,14 @@
     {
       "number": 1177,
       "title": "[Feature Request] Forward Core's metrics to TypeScript-land",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mjameswh",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2023-07-19T19:08:46Z",
-      "updatedAt": "2026-01-13T11:47:18Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-10T06:54:13Z",
+      "closedAt": "2026-02-10T06:54:13Z",
       "commentCount": 5,
       "upvotes": 0,
       "totalReactions": 0,
@@ -12749,12 +12837,12 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 143,
-      "CLOSED": 663
+      "OPEN": 142,
+      "CLOSED": 670
     },
     "by_label": {
       "enhancement": 359,
-      "bug": 290,
+      "bug": 292,
       "Mend: dependency security vulnerability": 51,
       "good first issue": 24,
       "documentation": 9,
@@ -12766,9 +12854,9 @@
     },
     "engagement": {
       "total_upvotes": 375,
-      "total_comments": 1740,
+      "total_comments": 1753,
       "issues_with_upvotes": 134,
-      "issues_with_comments": 556,
+      "issues_with_comments": 558,
       "upvote_rate": "17%",
       "comment_rate": "69%"
     }
@@ -12850,7 +12938,7 @@
       "number": 1443,
       "title": "[Bug] Failure to start ephemeral server prevents shutdown of the process",
       "upvotes": 6,
-      "comments": 1
+      "comments": 2
     },
     {
       "number": 1160,

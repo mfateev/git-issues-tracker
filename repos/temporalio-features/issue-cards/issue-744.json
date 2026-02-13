@@ -1,0 +1,35 @@
+{
+  "summary": "Remove experimental markers from versioning APIs across all SDKs as versioning is preparing for general availability. This involves removing flags from VersioningBehavior, WorkerOptions.DeploymentOptions, and VersioningOverride.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "VersioningBehavior",
+    "WorkerOptions",
+    "DeploymentOptions",
+    "VersioningOverride"
+  ],
+  "components": [
+    "versioning",
+    "worker-options",
+    "api-markers"
+  ],
+  "concepts": [
+    "experimental-api",
+    "general-availability",
+    "api-stability",
+    "sdk-graduation",
+    "feature-maturation"
+  ],
+  "severity": "medium",
+  "userImpact": "Removes experimental API warnings and finishes the transition of versioning APIs to stable production-ready status across all SDKs.",
+  "rootCause": null,
+  "proposedFix": "Remove experimental flags from VersioningBehavior, WorkerOptions.DeploymentOptions, and VersioningOverride in all SDK implementations",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Versioning is preparing to go GA, experimental notices should be removed from all languages.",
+  "number": 744,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-02-02T23:46:11.059Z"
+}

@@ -1,7 +1,39 @@
 {
-  "generatedAt": "2026-01-22T20:29:17.577Z",
-  "totalCards": 261,
+  "generatedAt": "2026-02-11T03:36:31.514Z",
+  "totalCards": 262,
   "cards": [
+    {
+      "summary": "Developer proposes simplifying the PHP SDK's developer experience by replacing the yield-based generator pattern with PHP Fibers for workflow suspension, arguing that yield-based workflows are confusing and suggesting Fibers as a cleaner alternative that doesn't require RoadRunner or async PHP.",
+      "category": "feature",
+      "subcategory": "workflow-api-design",
+      "apis": [],
+      "components": [
+        "workflow-engine",
+        "fiber-suspension",
+        "generator-pattern"
+      ],
+      "concepts": [
+        "workflow-suspension",
+        "developer-experience",
+        "api-design",
+        "concurrency",
+        "fibers",
+        "generators",
+        "readability"
+      ],
+      "severity": "low",
+      "userImpact": "Users working with PHP workflows find the current yield-based syntax confusing and would benefit from a cleaner Fiber-based API that potentially eliminates the RoadRunner dependency.",
+      "rootCause": null,
+      "proposedFix": "Replace the yield-based generator pattern with PHP Fibers API where Fiber::suspend is called internally within SDK methods instead of requiring explicit yield statements in workflow code.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "reading Temporal workflows in PHP are very confusing due to the way you have to yield activities and timers",
+      "number": 702,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-02-02T23:47:17.955Z"
+    },
     {
       "summary": "Drop support for old package versions that support PHP 7 and 8.0, keeping only the minimal bounds that meet the PHP >8.1 requirement. This includes removing old versions of internal/promise, nesbot/carbon, and symfony packages.",
       "category": "other",

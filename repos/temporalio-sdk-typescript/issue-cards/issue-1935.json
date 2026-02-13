@@ -1,0 +1,33 @@
+{
+  "summary": "UUID() calls in query handlers cause non-deterministic values for subsequent UUID() calls in workflow code during replay, breaking workflow determinism.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "setHandler",
+    "executeChild"
+  ],
+  "components": [
+    "query-handler",
+    "uuid-generation",
+    "workflow-replay"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "query-handler",
+    "random-number-generation",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using UUID generation in query handlers will fail during replay due to non-deterministic UUID values, causing workflow execution failures.",
+  "rootCause": "UUID() function calls in query handlers are not properly isolated from the deterministic random number generator used during replay, causing subsequent workflow UUID calls to produce different values.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Using uuid() in query handlers (or validate update) can cause subsequent calls to uuid() in the workflow code to produce non-deterministic values.",
+  "number": 1935,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-02-11T03:36:52.256Z"
+}

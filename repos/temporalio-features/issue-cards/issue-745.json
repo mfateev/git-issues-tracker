@@ -1,0 +1,29 @@
+{
+  "summary": "Deprecate and remove old versioning client calls that were part of a previous pre-GA versioning API. This is a tracking issue for coordinating deprecation across all Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [],
+  "components": [
+    "versioning-client",
+    "sdk-clients"
+  ],
+  "concepts": [
+    "deprecation",
+    "versioning",
+    "api-cleanup",
+    "cross-sdk-coordination",
+    "backward-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to migrate away from deprecated versioning client calls across all SDKs in a coordinated deprecation timeline.",
+  "rootCause": null,
+  "proposedFix": "Deprecate old versioning client calls in all SDKs (Go, Java, TypeScript, Python, .NET, Ruby, Rust, PHP) and Temporal CLI, followed by eventual removal.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Issue closed after coordinating deprecation tracking across all SDK repositories.",
+  "related": [],
+  "keyQuote": "A previous incarnation of versioning that never reached GA put calls on all clients that now need to be deprecated and eventually removed.",
+  "number": 745,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-02-11T03:35:55.840Z"
+}

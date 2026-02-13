@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to expose the upgrade-on-continue-as-new option and ContinueAsNewSuggestedReasons in all SDK implementations. This capability allows workflows to handle version upgrades when using continue-as-new patterns.",
+  "category": "feature",
+  "subcategory": "versioning",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "sdk-core",
+    "workflow-executor",
+    "versioning-upgrade"
+  ],
+  "concepts": [
+    "versioning",
+    "upgrade",
+    "continue-as-new",
+    "workflow-migration",
+    "breaking-changes"
+  ],
+  "severity": "medium",
+  "userImpact": "SDK users need the ability to specify upgrade behaviors when continuing workflows as new, enabling safer version migrations.",
+  "rootCause": null,
+  "proposedFix": "Expose Upgrade-on-CaN option and ContinueAsNewSuggestedReasons across all SDK implementations, with reference implementation shown in Go SDK branch.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Expose Upgrade-on-CaN option and ContinueAsNewSuggestedReasons",
+  "number": 738,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-02-02T23:45:58.627Z"
+}

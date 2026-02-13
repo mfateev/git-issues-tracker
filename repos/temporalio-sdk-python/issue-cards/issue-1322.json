@@ -1,0 +1,32 @@
+{
+  "summary": "Signal argument deserialization errors in workflows are logged using the default logger instead of the workflow-specific logger, making it difficult to diagnose issues. This differs from other deserialization errors which fail the task, while signal errors log-and-ignore to prevent workflow failure.",
+  "category": "other",
+  "subcategory": "signal-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-instance",
+    "signal-handler",
+    "logging"
+  ],
+  "concepts": [
+    "deserialization",
+    "error-handling",
+    "logging",
+    "context",
+    "diagnostics",
+    "signal-processing"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot easily diagnose signal argument deserialization failures because error logs lack workflow-specific context information.",
+  "rootCause": "Signal deserialization errors use the default logger instead of the workflow logger at _workflow_instance.py line 2316-2318.",
+  "proposedFix": "Update signal deserialization error handling to use the workflow-specific logger for consistency with other deserialization errors.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the log is not using the workflow logger meaning there is not enough context to diagnose",
+  "number": 1322,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-02-11T03:36:41.769Z"
+}

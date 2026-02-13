@@ -1,0 +1,35 @@
+{
+  "summary": "ScheduleHandle.update's type signature for the input parameter omits cronExpressions, forcing unsafe casts to clear cron expressions during schedule updates. The runtime accepts cronExpressions but TypeScript types prevent it, creating a mismatch between what the API accepts and what types declare.",
+  "category": "bug",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ScheduleHandle.update",
+    "ScheduleDescription",
+    "ScheduleSpec",
+    "ScheduleSpecDescription"
+  ],
+  "components": [
+    "schedule-client",
+    "type-definitions",
+    "schedule-update"
+  ],
+  "concepts": [
+    "type-safety",
+    "schedule-spec",
+    "cron-expressions",
+    "interval-based-scheduling",
+    "type-mismatch"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely update schedule specs to clear or modify cron expressions without unsafe type casts, risking dual execution (cron + interval).",
+  "rootCause": "ScheduleSpecDescription type returned by describe() omits cronExpressions field, while the update path and ScheduleSpec accept it, creating a type inconsistency.",
+  "proposedFix": "Add cronExpressions field to ScheduleSpecDescription to match ScheduleSpec, or document the workaround of using object spread to bypass excess property checks.",
+  "workaround": "Use object spread syntax instead of direct assignment: return { ...previous, spec: { ...previous.spec, cronExpressions: [], intervals: [...] } }",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers determined the types are technically correct and the workaround (using spread) is acceptable. Adding cronExpressions to ScheduleSpecDescription was rejected as the field won't ever be present in the describe() return value.",
+  "related": [],
+  "keyQuote": "You can avoid the cast by using a spread in `update`: return { ...previous, spec: { ...previous.spec, cronExpressions: [], intervals: [...] } }",
+  "number": 1926,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-02-11T03:36:52.686Z"
+}

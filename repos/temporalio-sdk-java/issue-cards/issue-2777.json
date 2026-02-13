@@ -1,0 +1,32 @@
+{
+  "summary": "User inquires why the Java SDK doesn't use the Rust Core SDK like TypeScript, Python, .NET, and Ruby do, and asks about technical limitations or considerations for building a Java SDK on top of Rust Core.",
+  "category": "question",
+  "subcategory": "architecture",
+  "apis": [],
+  "components": [
+    "sdk-core",
+    "native-bindings",
+    "java-runtime"
+  ],
+  "concepts": [
+    "rust-core",
+    "language-bindings",
+    "native-libraries",
+    "sdk-design",
+    "interoperability"
+  ],
+  "severity": "low",
+  "userImpact": "Users seeking to understand SDK architecture decisions and evaluate whether building a Java SDK on Rust Core is feasible for their needs.",
+  "rootCause": "Java's poor native compilation and shared library distribution story, combined with Java SDK existing as a pure implementation before Rust Core was available.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Issue closed as not an issue. The Java SDK remains pure because it predates Rust Core and Java has poor native library support. Go faces the same constraints.",
+  "related": [
+    2182
+  ],
+  "keyQuote": "Java has a bad native compilation and shared library distribution story",
+  "number": 2777,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-02-11T03:36:19.534Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "User request to provide access to the randomness seed used in workflows and enable reseeding for independent random number sequences. This allows users to create distinct random sequences (e.g., for telemetry) without affecting the workflow's own randomness.",
+  "category": "feature",
+  "subcategory": "random-number-generation",
+  "apis": [],
+  "components": [
+    "randomness",
+    "random-number-generator",
+    "workflow-context"
+  ],
+  "concepts": [
+    "randomness-seed",
+    "determinism",
+    "independent-sequences",
+    "telemetry",
+    "plugin-isolation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can independently manage randomness sources for different components (like telemetry) without affecting deterministic workflow execution.",
+  "rootCause": null,
+  "proposedFix": "Provide access to the initial randomness seed and notification of seed changes; optionally provide a Random implementation that reseeds itself.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1319
+  ],
+  "keyQuote": "Provide a way to get the initial randomness seed as well as notification of changes. If possible, providing an implementation of `Random` or equivalent which reseeds itself would be good.",
+  "number": 747,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-02-11T03:35:55.023Z"
+}

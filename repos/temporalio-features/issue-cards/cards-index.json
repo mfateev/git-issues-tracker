@@ -1,7 +1,231 @@
 {
-  "generatedAt": "2026-01-22T20:28:21.429Z",
-  "totalCards": 388,
+  "generatedAt": "2026-02-11T03:35:55.893Z",
+  "totalCards": 395,
   "cards": [
+    {
+      "summary": "User request to provide access to the randomness seed used in workflows and enable reseeding for independent random number sequences. This allows users to create distinct random sequences (e.g., for telemetry) without affecting the workflow's own randomness.",
+      "category": "feature",
+      "subcategory": "random-number-generation",
+      "apis": [],
+      "components": [
+        "randomness",
+        "random-number-generator",
+        "workflow-context"
+      ],
+      "concepts": [
+        "randomness-seed",
+        "determinism",
+        "independent-sequences",
+        "telemetry",
+        "plugin-isolation"
+      ],
+      "severity": "medium",
+      "userImpact": "Users can independently manage randomness sources for different components (like telemetry) without affecting deterministic workflow execution.",
+      "rootCause": null,
+      "proposedFix": "Provide access to the initial randomness seed and notification of seed changes; optionally provide a Random implementation that reseeds itself.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1319
+      ],
+      "keyQuote": "Provide a way to get the initial randomness seed as well as notification of changes. If possible, providing an implementation of `Random` or equivalent which reseeds itself would be good.",
+      "number": 747,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-02-11T03:35:55.023Z"
+    },
+    {
+      "summary": "Deprecate and remove old versioning client calls that were part of a previous pre-GA versioning API. This is a tracking issue for coordinating deprecation across all Temporal SDKs.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [],
+      "components": [
+        "versioning-client",
+        "sdk-clients"
+      ],
+      "concepts": [
+        "deprecation",
+        "versioning",
+        "api-cleanup",
+        "cross-sdk-coordination",
+        "backward-compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will need to migrate away from deprecated versioning client calls across all SDKs in a coordinated deprecation timeline.",
+      "rootCause": null,
+      "proposedFix": "Deprecate old versioning client calls in all SDKs (Go, Java, TypeScript, Python, .NET, Ruby, Rust, PHP) and Temporal CLI, followed by eventual removal.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Issue closed after coordinating deprecation tracking across all SDK repositories.",
+      "related": [],
+      "keyQuote": "A previous incarnation of versioning that never reached GA put calls on all clients that now need to be deprecated and eventually removed.",
+      "number": 745,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-02-11T03:35:55.840Z"
+    },
+    {
+      "summary": "Remove experimental markers from versioning APIs across all SDKs as versioning is preparing for general availability. This involves removing flags from VersioningBehavior, WorkerOptions.DeploymentOptions, and VersioningOverride.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "VersioningBehavior",
+        "WorkerOptions",
+        "DeploymentOptions",
+        "VersioningOverride"
+      ],
+      "components": [
+        "versioning",
+        "worker-options",
+        "api-markers"
+      ],
+      "concepts": [
+        "experimental-api",
+        "general-availability",
+        "api-stability",
+        "sdk-graduation",
+        "feature-maturation"
+      ],
+      "severity": "medium",
+      "userImpact": "Removes experimental API warnings and finishes the transition of versioning APIs to stable production-ready status across all SDKs.",
+      "rootCause": null,
+      "proposedFix": "Remove experimental flags from VersioningBehavior, WorkerOptions.DeploymentOptions, and VersioningOverride in all SDK implementations",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Versioning is preparing to go GA, experimental notices should be removed from all languages.",
+      "number": 744,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-02-02T23:46:11.059Z"
+    },
+    {
+      "summary": "SDKs need to accept both enum form (INDEXED_VALUE_TYPE_KEYWORD_LIST) and string form (KeywordList) for search attribute type metadata, matching the server's lenient deserialization behavior.",
+      "category": "feature",
+      "subcategory": "search-attributes",
+      "apis": [],
+      "components": [
+        "search-attributes",
+        "serialization",
+        "type-handling"
+      ],
+      "concepts": [
+        "type-metadata",
+        "deserialization",
+        "compatibility",
+        "lenient-parsing",
+        "enum-variants"
+      ],
+      "severity": "medium",
+      "userImpact": "SDKs may fail to deserialize search attributes from server that use either enum or string type representations, causing inconsistent behavior across SDKs.",
+      "rootCause": "SDKs are stricter than server in validating type metadata format for search attribute payloads.",
+      "proposedFix": "Update typed search attribute logic in all SDKs to accept both INDEXED_VALUE_TYPE_KEYWORD_LIST and KeywordList forms in type metadata.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1105
+      ],
+      "keyQuote": "SDKs need to be similarly lenient when reading search attributes coming from server.",
+      "number": 741,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-02-02T23:46:11.862Z"
+    },
+    {
+      "summary": "Request to create sample code in each samples-sdk repository demonstrating the new standalone activities feature once it's completed in issue #706.",
+      "category": "feature",
+      "subcategory": "samples",
+      "apis": [],
+      "components": [
+        "samples-sdk",
+        "standalone-activities"
+      ],
+      "concepts": [
+        "documentation",
+        "code-samples",
+        "feature-demonstration",
+        "sdk-parity"
+      ],
+      "severity": "low",
+      "userImpact": "Users will have reference implementations for implementing standalone activities across all supported SDK languages.",
+      "rootCause": null,
+      "proposedFix": "Create sample code in samples-go, samples-java, samples-typescript, samples-python, samples-dotnet, samples-ruby, and samples-php repositories.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        706
+      ],
+      "keyQuote": "Once the new non-workflow feature is completed, we should have samples in each samples-sdk repo to showcase this new feature.",
+      "number": 740,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-02-02T23:45:59.281Z"
+    },
+    {
+      "summary": "Feature request to expose the upgrade-on-continue-as-new option and ContinueAsNewSuggestedReasons in all SDK implementations. This capability allows workflows to handle version upgrades when using continue-as-new patterns.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "ContinueAsNew"
+      ],
+      "components": [
+        "sdk-core",
+        "workflow-executor",
+        "versioning-upgrade"
+      ],
+      "concepts": [
+        "versioning",
+        "upgrade",
+        "continue-as-new",
+        "workflow-migration",
+        "breaking-changes"
+      ],
+      "severity": "medium",
+      "userImpact": "SDK users need the ability to specify upgrade behaviors when continuing workflows as new, enabling safer version migrations.",
+      "rootCause": null,
+      "proposedFix": "Expose Upgrade-on-CaN option and ContinueAsNewSuggestedReasons across all SDK implementations, with reference implementation shown in Go SDK branch.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Expose Upgrade-on-CaN option and ContinueAsNewSuggestedReasons",
+      "number": 738,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-02-02T23:45:58.627Z"
+    },
+    {
+      "summary": "Worker deployment limits cause silent poll failures that are implicitly retried without user awareness. When the 100-deployment limit is exceeded, the 101st deployment fails silently, degrading ergonomics since deployments are implicitly created but require explicit deletion.",
+      "category": "feature",
+      "subcategory": "worker-deployment",
+      "apis": [],
+      "components": [
+        "worker",
+        "deployment-management",
+        "poll",
+        "cloud-tests"
+      ],
+      "concepts": [
+        "deployment-limit",
+        "resource-management",
+        "error-handling",
+        "implicit-creation",
+        "ephemeral-resources",
+        "test-infrastructure"
+      ],
+      "severity": "medium",
+      "userImpact": "Users hitting the 100-deployment limit experience silent failures with only implicit poll retries, making it difficult to diagnose and recover from hitting deployment limits.",
+      "rootCause": "Worker deployments are implicitly created on use but require explicit deletion, combined with silent failure on hitting the 100-deployment limit with only implicit poll retries.",
+      "proposedFix": "Improve error communication beyond poll-failure warnings to explicitly notify users of deployment limit; implement automatic cleanup of ephemeral worker deployments in cloud tests.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        691
+      ],
+      "keyQuote": "when a user hits a worker deployment limit, it fails poll calls which are just implicitly retried forever",
+      "number": 729,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-02-02T23:45:56.870Z"
+    },
     {
       "summary": "Add support for the 'as-is' scheduled workflow ID field to programmatic SDK interfaces. This field was previously added to the API but needs to be exposed across all Temporal SDKs.",
       "category": "feature",

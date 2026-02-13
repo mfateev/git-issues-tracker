@@ -1,0 +1,35 @@
+{
+  "summary": "Enable the DETERMINISTIC_CANCELLATION_SCOPE_ORDER SDK flag for all new workflows by adding it to WorkflowStateMachines.initialFlags. This flag was added in #2512 to resolve an NDE bug and needs backward compatibility testing to ensure existing workflows aren't affected.",
+  "category": "feature",
+  "subcategory": "workflow-execution",
+  "apis": [
+    "WorkflowStateMachines"
+  ],
+  "components": [
+    "workflow-state-machine",
+    "cancellation-scope",
+    "worker"
+  ],
+  "concepts": [
+    "deterministic-execution",
+    "cancellation-scope-order",
+    "backward-compatibility",
+    "non-deterministic-error",
+    "flag-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables automatic use of deterministic cancellation scope ordering for new workflows, reducing non-deterministic execution errors while maintaining backward compatibility.",
+  "rootCause": "NDE bug in cancellation scope ordering (see #2473) required delayed flag enablement for stability.",
+  "proposedFix": "Add DETERMINISTIC_CANCELLATION_SCOPE_ORDER flag to WorkflowStateMachines.initialFlags and add tests using raw WorkflowService API to manually poll workflow tasks.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2512,
+    2473
+  ],
+  "keyQuote": "We need to enable `DETERMINISTIC_CANCELLATION_SCOPE_ORDER` flag for all new workflows, by adding it to `WorkflowStateMachines.initialFlags`.",
+  "number": 2765,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-02-02T23:46:51.357Z"
+}

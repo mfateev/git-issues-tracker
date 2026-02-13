@@ -1,0 +1,32 @@
+{
+  "summary": "The TypeScript SDK should fail workflow tasks when payload size is known to exceed Temporal's limits, preventing silent failures or downstream errors.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "task-processing",
+    "payload-handling"
+  ],
+  "concepts": [
+    "payload-size",
+    "validation",
+    "error-handling",
+    "workflow-task",
+    "limits"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may encounter silent failures or confusing errors when workflow tasks contain payloads that exceed size limits, instead of failing fast with clear error messages.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    723
+  ],
+  "keyQuote": "SDK should fail workflow task if payloads size it known to be too large",
+  "number": 1913,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-02-02T23:47:50.584Z"
+}

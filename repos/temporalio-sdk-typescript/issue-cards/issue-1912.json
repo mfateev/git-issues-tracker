@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add a warning when the SDK attempts to send a payload that exceeds a specific size limit. This is part of a cross-SDK feature initiative to help developers identify and address payload size issues.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [],
+  "components": [
+    "payload-handler",
+    "worker",
+    "validator"
+  ],
+  "concepts": [
+    "payload-size",
+    "validation",
+    "warning",
+    "limits",
+    "diagnostics"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers will receive warnings when attempting to send oversized payloads, helping them catch size-related issues during development.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    701
+  ],
+  "keyQuote": "Warn if the SDK tried to send a payload above a specific size",
+  "number": 1912,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-02-02T23:47:51.890Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Discussion about why the Go SDK wasn't built on top of the Rust Core SDK like TypeScript, Python, .NET, and Ruby SDKs. The Go SDK team explains historical reasons, backwards compatibility constraints, and technical limitations around shared library distribution in Go.",
+  "category": "question",
+  "subcategory": "sdk-architecture",
+  "apis": [],
+  "components": [
+    "go-sdk",
+    "rust-core",
+    "metrics",
+    "history"
+  ],
+  "concepts": [
+    "backwards-compatibility",
+    "shared-library-distribution",
+    "native-compilation",
+    "sdk-architecture",
+    "rust-core-integration"
+  ],
+  "severity": "low",
+  "userImpact": "Users curious about Go SDK design decisions and considering Rust Core SDK approach for their own projects need insight into technical constraints.",
+  "rootCause": "Go SDK predates Rust Core (Go is 2nd oldest SDK after Java); maintaining two versions would break backwards compatibility since metrics and history creation differ between pure Go and Core-based implementations. Go's poor native compilation and shared library distribution story also complicates adoption.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "Closed as discussion topic rather than actionable issue. No current plans to migrate Go SDK to Rust Core due to backwards compatibility constraints and technical limitations.",
+  "related": [],
+  "keyQuote": "Go SDK was built before we built the Rust Core...changing it to use Rust core would require maintaining 2 versions due to backwards compatibility",
+  "number": 2182,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-02-11T03:36:07.376Z"
+}

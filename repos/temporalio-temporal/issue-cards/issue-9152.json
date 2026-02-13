@@ -1,0 +1,33 @@
+{
+  "summary": "Request for native SPIFFE support in Temporal Server to enable automatic certificate lifecycle management, identity-based authorization, and simplified deployments using SPIFFE IDs instead of manual TLS/mTLS configuration.",
+  "category": "feature",
+  "subcategory": "security-spiffe",
+  "apis": [],
+  "components": [
+    "tls-configuration",
+    "authorization-system",
+    "claim-mapper",
+    "interceptor"
+  ],
+  "concepts": [
+    "certificate-management",
+    "workload-identity",
+    "spiffe-integration",
+    "zero-trust-security",
+    "authorization",
+    "certificate-rotation",
+    "cloud-native"
+  ],
+  "severity": "high",
+  "userImpact": "Enables enterprises to deploy Temporal with zero-trust security patterns using SPIFFE/SPIRE infrastructure without manual certificate rotation or external tooling.",
+  "rootCause": "Current Temporal TLS/mTLS implementation requires manual certificate management or external tooling integration; SPIFFE identity information in certificates is extracted but unused for authorization.",
+  "proposedFix": "Integrate SPIFFE Workload API with GetCertificate callbacks, implement SPIFFE-based ClaimMapper for authorization, support claim mapper chains for migration, extend TLS config structs with SPIFFE options.",
+  "workaround": "Users can manually manage certificates or integrate cert-manager/spiffe-helper as external tooling, but this adds operational complexity.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Native SPIFFE support integrated directly into Temporal server with automatic certificate lifecycle management and identity-based authorization using SPIFFE IDs.",
+  "number": 9152,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-02-02T23:48:22.679Z"
+}

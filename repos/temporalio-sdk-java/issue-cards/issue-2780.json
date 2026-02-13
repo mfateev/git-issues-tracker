@@ -1,0 +1,32 @@
+{
+  "summary": "Spring Boot auto-discovery incorrectly requires workflow packages configuration to register Activity beans, when activities should be auto-registered independently. The configuration name `packages` is also misleading since it only filters workflows, not activities.",
+  "category": "bug",
+  "subcategory": "spring-boot-autoconfigure",
+  "apis": [],
+  "components": [
+    "spring-boot-autoconfigure",
+    "workers-auto-discovery",
+    "activity-registration",
+    "component-scanning"
+  ],
+  "concepts": [
+    "auto-discovery",
+    "bean-registration",
+    "component-scanning",
+    "configuration",
+    "activity-beans",
+    "dependency-injection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot auto-register Activity beans without also specifying workflow package filters, breaking activity auto-discovery when no workflow packages are configured.",
+  "rootCause": "Activity auto-discovery registration is gated on `spring.temporal.workers-auto-discovery.packages` being non-empty, but this configuration is intended only for workflow package filtering.",
+  "proposedFix": "Either (1) always register @ActivityImpl beans with matching workers regardless of packages configuration, or (2) introduce a separate flag like `spring.temporal.workers-auto-discovery.register-activities` to control activity bean auto-registration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "activities are not component scanned for registration to a worker _unless_ `spring.temporal.workers-auto-discovery.packages` is non-empty.",
+  "number": 2780,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-02-11T03:36:31.331Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "The workflowcheck static analyzer needs multiple improvements including environment/system property configuration support, lambda analysis, module support, field mutation prevention, config prebuilding with stdlib presets, SARIF output, and enhanced result formatting with deep tree abbreviation.",
+  "category": "feature",
+  "subcategory": "static-analyzer",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "static-analyzer",
+    "gradle-plugin",
+    "maven-plugin"
+  ],
+  "concepts": [
+    "static-analysis",
+    "configuration",
+    "environment-variables",
+    "system-properties",
+    "lambda-analysis",
+    "field-mutation",
+    "sarif-output",
+    "result-formatting"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better configuration options, more comprehensive static analysis coverage, and improved integration with development tools and IDEs.",
+  "rootCause": null,
+  "proposedFix": "Add support for environment variables and Java system properties for config, implement lambda content checking, add module support, prevent field mutations in queries/validators, create config prebuilding with stdlib presets, add SARIF output format, improve IntelliJ console linking, provide HTML-formatted results with collapsible hierarchy, and support tree abbreviation for deep nesting.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2768,
+    2769,
+    2767
+  ],
+  "keyQuote": "the `workflowcheck` static analyzer done in #2767 could use the following improvements",
+  "number": 2770,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-02-02T23:47:00.754Z"
+}

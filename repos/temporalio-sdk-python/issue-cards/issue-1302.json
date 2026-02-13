@@ -1,0 +1,30 @@
+{
+  "summary": "LitellmModel cannot be used directly in OpenAI Agents SDK on Temporal because the framework requires model names to be strings. Users must create a custom ModelProvider to route between OpenAI and LiteLLM models at the worker level.",
+  "category": "bug",
+  "subcategory": "openai-agents-integration",
+  "apis": [],
+  "components": [
+    "openai-agents",
+    "model-provider",
+    "worker-configuration"
+  ],
+  "concepts": [
+    "model-routing",
+    "provider-configuration",
+    "litellm-integration",
+    "agent-definition",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot directly use LitellmModel with OpenAI Agents SDK on Temporal without implementing a custom ModelProvider.",
+  "rootCause": "Temporal workflows serialize agent models and require model names to be strings; LitellmModel object cannot be serialized directly.",
+  "proposedFix": "Implement a custom RoutingModelProvider that detects model name patterns and routes to appropriate providers (OpenAI or LiteLLM).",
+  "workaround": "Create a custom ModelProvider class that routes between OpenAIProvider and LitellmProvider based on model name patterns (e.g., \"gemini/gemini-3-flash-preview\").",
+  "resolution": "fixed",
+  "resolutionDetails": "Issue resolved through documentation and community example. Custom RoutingModelProvider pattern documented as a solution, with suggestion to add example to samples repository.",
+  "related": [],
+  "keyQuote": "The more robust way to do it would be to serialize the actual models in their entirety, but that is large and unlikely to be serializable.",
+  "number": 1302,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-02-02T23:47:28.718Z"
+}

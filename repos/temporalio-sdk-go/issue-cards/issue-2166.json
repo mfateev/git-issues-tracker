@@ -1,0 +1,32 @@
+{
+  "summary": "The Go SDK should warn developers when it detects a workflow history that exceeds a certain size threshold. This helps prevent silent failures and performance issues that can occur with oversized histories.",
+  "category": "feature",
+  "subcategory": "workflow-history",
+  "apis": [],
+  "components": [
+    "workflow-engine",
+    "history-management",
+    "worker"
+  ],
+  "concepts": [
+    "history-size",
+    "performance",
+    "warnings",
+    "limits",
+    "workflow-execution"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may experience silent failures or performance degradation from large workflow histories without receiving guidance on detection or mitigation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    705
+  ],
+  "keyQuote": null,
+  "number": 2166,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-02-02T23:46:35.319Z"
+}

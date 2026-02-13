@@ -1,17 +1,61 @@
 {
-  "generatedAt": "2026-01-22T20:33:01.415Z",
+  "generatedAt": "2026-02-11T03:38:58.231Z",
   "repo": "temporalio-sdk-php",
-  "totalCount": 261,
-  "cardsCount": 261,
+  "totalCount": 262,
+  "cardsCount": 262,
   "issues": [
+    {
+      "number": 702,
+      "title": "Simplify developer experience by replacing yields with Fiber suspension",
+      "state": "OPEN",
+      "author": "ruudk",
+      "labels": [],
+      "createdAt": "2026-01-27T17:37:41Z",
+      "updatedAt": "2026-01-28T16:09:35Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 2,
+      "url": "https://github.com/temporalio/sdk-php/issues/702",
+      "bodyLength": 714,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Developer proposes simplifying the PHP SDK's developer experience by replacing the yield-based generator pattern with PHP Fibers for workflow suspension, arguing that yield-based workflows are confusing and suggesting Fibers as a cleaner alternative that doesn't require RoadRunner or async PHP.",
+      "category": "feature",
+      "subcategory": "workflow-api-design",
+      "apis": [],
+      "components": [
+        "workflow-engine",
+        "fiber-suspension",
+        "generator-pattern"
+      ],
+      "concepts": [
+        "workflow-suspension",
+        "developer-experience",
+        "api-design",
+        "concurrency",
+        "fibers",
+        "generators",
+        "readability"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 698,
       "title": "[Chore] Drop old packages support",
       "state": "OPEN",
       "author": "xepozz",
-      "labels": [],
+      "labels": [
+        "enhancement"
+      ],
       "createdAt": "2026-01-12T09:01:08Z",
-      "updatedAt": "2026-01-12T09:01:08Z",
+      "updatedAt": "2026-01-24T15:44:18Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -52,14 +96,14 @@
     {
       "number": 692,
       "title": "[Bug] Minimal Composer requirements conflicts with react/promise v2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "xepozz",
       "labels": [
         "Bug"
       ],
       "createdAt": "2026-01-08T09:02:28Z",
-      "updatedAt": "2026-01-08T09:02:28Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-28T16:29:42Z",
+      "closedAt": "2026-01-28T16:29:42Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/692",
@@ -102,9 +146,9 @@
         "Bug"
       ],
       "createdAt": "2026-01-07T12:19:49Z",
-      "updatedAt": "2026-01-07T13:14:34Z",
+      "updatedAt": "2026-02-07T14:57:53Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 3,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/689",
       "bodyLength": 2493,
@@ -449,14 +493,14 @@
     {
       "number": 642,
       "title": "[Feature Request] Add first execution run ID to workflow info",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-08-11T14:29:23Z",
-      "updatedAt": "2025-12-26T16:53:58Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-05T07:04:35Z",
+      "closedAt": "2026-02-05T07:04:35Z",
       "commentCount": 2,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/642",
@@ -539,14 +583,14 @@
     {
       "number": 640,
       "title": "Enable `Discussions`",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ruudk",
       "labels": [
         "Question"
       ],
       "createdAt": "2025-07-25T11:11:14Z",
-      "updatedAt": "2025-07-25T12:25:58Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-24T15:44:27Z",
+      "closedAt": "2026-01-24T15:44:27Z",
       "commentCount": 1,
       "upvotes": 1,
       "url": "https://github.com/temporalio/sdk-php/issues/640",
@@ -948,14 +992,14 @@
     {
       "number": 624,
       "title": "[Bug] Facade methods throw wrong exception",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mtorromeo",
       "labels": [
         "Bug"
       ],
       "createdAt": "2025-05-27T15:43:07Z",
-      "updatedAt": "2025-12-26T15:26:28Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-05T06:52:13Z",
+      "closedAt": "2026-02-05T06:52:13Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/624",
@@ -994,14 +1038,14 @@
     {
       "number": 623,
       "title": "[Feature Request] In test env - I can't unserialize object structure",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "agoalofalife",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-05-27T06:55:51Z",
-      "updatedAt": "2026-01-09T11:14:43Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-24T14:44:10Z",
+      "closedAt": "2026-01-24T14:44:10Z",
       "commentCount": 4,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/623",
@@ -3692,14 +3736,14 @@
     {
       "number": 501,
       "title": "Repair or disable Windows tests in CI",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "roxblnfk",
       "labels": [
         "Tests"
       ],
       "createdAt": "2024-09-10T10:08:58Z",
-      "updatedAt": "2025-02-11T14:17:54Z",
-      "closedAt": null,
+      "updatedAt": "2026-01-29T15:53:01Z",
+      "closedAt": "2026-01-29T15:53:01Z",
       "commentCount": 2,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/501",

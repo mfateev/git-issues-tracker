@@ -1,0 +1,30 @@
+{
+  "summary": "Many internal structs exposed publicly in the Go SDK lack documentation for their fields. The issue requests ensuring all publicly exposed structs have complete field documentation, potentially by copying documentation from similar fields in other structs.",
+  "category": "docs",
+  "subcategory": "code-documentation",
+  "apis": [],
+  "components": [
+    "activity",
+    "internal-structs",
+    "documentation-generation"
+  ],
+  "concepts": [
+    "public-api",
+    "documentation",
+    "code-quality",
+    "developer-experience",
+    "struct-fields"
+  ],
+  "severity": "low",
+  "userImpact": "Developers must search the codebase to find documentation for fields in publicly exposed structs.",
+  "rootCause": "Publicly exposed internal structs were not consistently documented when made public.",
+  "proposedFix": "Review all publicly exposed internal structs and ensure their fields are documented, copying documentation from similar fields in other structs where applicable. Enhance the doclink tool to identify and enforce this documentation requirement.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There are a number of internal structs that are exposed publicaly, but have missing docs for their fields",
+  "number": 2177,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-02-11T03:36:04.680Z"
+}

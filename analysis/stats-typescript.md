@@ -1,6 +1,6 @@
 # TypeScript SDK - Issue Statistics
 
-**Generated:** 2026-01-22
+**Generated:** 2026-02-11
 **Repository:** [temporalio/sdk-typescript](https://github.com/temporalio/sdk-typescript)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 143 |
-| Total Closed Issues | 663 |
-| Total All Issues | 806 |
-| Bugs (open) | 47 |
-| Enhancements/Features (open) | 84 |
+| Total Open Issues | 142 |
+| Total Closed Issues | 670 |
+| Total All Issues | 812 |
+| Bugs (open) | 46 |
+| Enhancements/Features (open) | 82 |
 | Security Issues (open) | 0 |
-| Total Upvotes (👍) on open | 170 |
-| Total Comments on open | 344 |
-| Issues with Upvotes | 36 (25%) |
-| Issues with Comments | 72 (50%) |
-| Average Age (days) | 664 |
-| Stale Issues (>12 months) | 58 (41%) |
+| Total Upvotes (👍) on open | 164 |
+| Total Comments on open | 341 |
+| Issues with Upvotes | 35 (25%) |
+| Issues with Comments | 69 (49%) |
+| Average Age (days) | 675 |
+| Stale Issues (>12 months) | 73 (51%) |
 
 ---
 ## Resolution Metrics
@@ -36,9 +36,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 82% (663/806) |
-| Avg Time to Close (calendar) | 120 days |
-| Avg Time to Close (business) | 86 days |
+| Resolution Rate | 83% (670/812) |
+| Avg Time to Close (calendar) | 122 days |
+| Avg Time to Close (business) | 87 days |
 | Median Time to Close (calendar) | 26 days |
 | Median Time to Close (business) | 19 days |
 | 90th Percentile (calendar) | 440 days |
@@ -50,21 +50,20 @@
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 177 | 27% |
-| Completed (features) | 220 | 33% |
-| Self-resolved | 145 | 22% |
+| Fixed (bugs) | 178 | 27% |
+| Completed (features) | 222 | 33% |
+| Self-resolved | 148 | 22% |
 | Duplicate | 2 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 119 | 18% |
+| Other | 120 | 18% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-02 | 9 | 10 | -1 |
 | 2025-03 | 10 | 4 | +6 |
 | 2025-04 | 21 | 5 | +16 |
 | 2025-05 | 9 | 14 | -5 |
@@ -75,8 +74,9 @@
 | 2025-10 | 4 | 6 | -2 |
 | 2025-11 | 4 | 6 | -2 |
 | 2025-12 | 11 | 5 | +6 |
-| 2026-01 | 9 | 14 | -5 |
-| **Total** | **110** | **87** | **+23** |
+| 2026-01 | 13 | 15 | -2 |
+| 2026-02 | 2 | 6 | -4 |
+| **Total** | **107** | **84** | **+23** |
 
 📈 **Backlog Growing:** 23 more issues opened than closed in the last 12 months.
 
@@ -90,23 +90,23 @@
 | Issues Opened | 47 |
 | Issues Closed | 52 |
 | Net Change | -5 |
-| Bugs Closed | 19 |
-| Enhancements Closed | 28 |
+| Bugs Closed | 20 |
+| Enhancements Closed | 26 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 199 | 143 |
-| Median | 120 | 87 |
-| 90th Percentile | 582 | 417 |
+| Average | 219 | 157 |
+| Median | 108 | 78 |
+| 90th Percentile | 599 | 428 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
 | Within 30 days | 31% |
-| Within 90 days | 44% |
+| Within 90 days | 46% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -114,6 +114,7 @@
 |-------|-----|-------|
 | [#1773](https://github.com/temporalio/sdk-typescript/issues/1773) | 11 | [Bug] error: TypeError: (0 , ms_1.default) is not a fun... |
 | [#1750](https://github.com/temporalio/sdk-typescript/issues/1750) | 7 | [Bug] Workflow logs not propagated unless telemetryOpti... |
+| [#1443](https://github.com/temporalio/sdk-typescript/issues/1443) | 6 | [Bug] Failure to start ephemeral server prevents shutdo... |
 | [#1432](https://github.com/temporalio/sdk-typescript/issues/1432) | 5 | [Feature Request] Simplify proper usage of `AsyncLocalS... |
 | [#1749](https://github.com/temporalio/sdk-typescript/issues/1749) | 4 | [Bug] Workflow task not found after SDK upgrade |
 | [#1348](https://github.com/temporalio/sdk-typescript/issues/1348) | 3 | [Feature Request] Eager Workflow Start |
@@ -123,11 +124,11 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 5 | 3% |
-| 1-3 months | 10 | 7% |
-| 3-6 months | 8 | 6% |
-| 6-12 months | 33 | 23% |
-| 1-2 years | 25 | 17% |
+| Last 30 days | 7 | 5% |
+| 1-3 months | 9 | 6% |
+| 3-6 months | 7 | 5% |
+| 6-12 months | 31 | 22% |
+| 1-2 years | 26 | 18% |
 | 2-3 years | 22 | 15% |
 | 3+ years | 40 | 28% |
 
@@ -143,15 +144,15 @@
 | 4 | [#207](https://github.com/temporalio/sdk-typescript/issues/207) | 9 | 7 | [Feature Request] Enable in-browser usage of gRPC client |
 | 5 | [#1499](https://github.com/temporalio/sdk-typescript/issues/1499) | 7 | 0 | [Feature Request] Native Request Batching to Prevent "receiv... |
 | 6 | [#928](https://github.com/temporalio/sdk-typescript/issues/928) | 7 | 26 | [Bug] Jest detects open handles |
-| 7 | [#1443](https://github.com/temporalio/sdk-typescript/issues/1443) | 6 | 1 | [Bug] Failure to start ephemeral server prevents shutdown of... |
-| 8 | [#933](https://github.com/temporalio/sdk-typescript/issues/933) | 6 | 2 | [Feature Request] Create a separate "core" library for workf... |
-| 9 | [#1621](https://github.com/temporalio/sdk-typescript/issues/1621) | 4 | 0 | [Feature Request] Include musl-based shared library in packa... |
-| 10 | [#483](https://github.com/temporalio/sdk-typescript/issues/483) | 4 | 37 | [Feature Request] NestJS Transport / Integration? |
-| 11 | [#1615](https://github.com/temporalio/sdk-typescript/issues/1615) | 3 | 14 | [Bug] Cannot use Temporal with NextJS 15 because workflowTyp... |
-| 12 | [#1280](https://github.com/temporalio/sdk-typescript/issues/1280) | 3 | 5 | Bundle using Vite |
-| 13 | [#915](https://github.com/temporalio/sdk-typescript/issues/915) | 3 | 0 | [Feature Request] Emit metrics from client connection |
-| 14 | [#1800](https://github.com/temporalio/sdk-typescript/issues/1800) | 2 | 0 | [Feature Request] Provide a way to distinguish error types i... |
-| 15 | [#1668](https://github.com/temporalio/sdk-typescript/issues/1668) | 2 | 1 | [Bug] common package not importing @types/ms |
+| 7 | [#933](https://github.com/temporalio/sdk-typescript/issues/933) | 6 | 2 | [Feature Request] Create a separate "core" library for workf... |
+| 8 | [#1621](https://github.com/temporalio/sdk-typescript/issues/1621) | 4 | 0 | [Feature Request] Include musl-based shared library in packa... |
+| 9 | [#483](https://github.com/temporalio/sdk-typescript/issues/483) | 4 | 37 | [Feature Request] NestJS Transport / Integration? |
+| 10 | [#1615](https://github.com/temporalio/sdk-typescript/issues/1615) | 3 | 14 | [Bug] Cannot use Temporal with NextJS 15 because workflowTyp... |
+| 11 | [#1280](https://github.com/temporalio/sdk-typescript/issues/1280) | 3 | 5 | Bundle using Vite |
+| 12 | [#915](https://github.com/temporalio/sdk-typescript/issues/915) | 3 | 0 | [Feature Request] Emit metrics from client connection |
+| 13 | [#1800](https://github.com/temporalio/sdk-typescript/issues/1800) | 2 | 0 | [Feature Request] Provide a way to distinguish error types i... |
+| 14 | [#1668](https://github.com/temporalio/sdk-typescript/issues/1668) | 2 | 1 | [Bug] common package not importing @types/ms |
+| 15 | [#1458](https://github.com/temporalio/sdk-typescript/issues/1458) | 2 | 1 | [Feature Request] Support passing preloaded data converters ... |
 
 ---
 
@@ -170,12 +171,12 @@ Priority = Upvotes × 2 + Comments
 | 7 | [#1615](https://github.com/temporalio/sdk-typescript/issues/1615) | 20 | 3 | 14 | [Bug] Cannot use Temporal with NextJS 15 because w... |
 | 8 | [#1499](https://github.com/temporalio/sdk-typescript/issues/1499) | 14 | 7 | 0 | [Feature Request] Native Request Batching to Preve... |
 | 9 | [#933](https://github.com/temporalio/sdk-typescript/issues/933) | 14 | 6 | 2 | [Feature Request] Create a separate "core" library... |
-| 10 | [#1443](https://github.com/temporalio/sdk-typescript/issues/1443) | 13 | 6 | 1 | [Bug] Failure to start ephemeral server prevents s... |
-| 11 | [#1233](https://github.com/temporalio/sdk-typescript/issues/1233) | 12 | 0 | 12 | [Bug] `nyc-test-coverage` is excessively difficult... |
-| 12 | [#1280](https://github.com/temporalio/sdk-typescript/issues/1280) | 11 | 3 | 5 | Bundle using Vite |
-| 13 | [#868](https://github.com/temporalio/sdk-typescript/issues/868) | 11 | 0 | 11 | [Feature Request] Add lint rule that prevents Quer... |
-| 14 | [#939](https://github.com/temporalio/sdk-typescript/issues/939) | 10 | 1 | 8 | [Bug] Worker crashes with "async hook stack has be... |
-| 15 | [#1790](https://github.com/temporalio/sdk-typescript/issues/1790) | 9 | 0 | 9 | [Bug] Replay workflow history fails with nondeterm... |
+| 10 | [#1233](https://github.com/temporalio/sdk-typescript/issues/1233) | 12 | 0 | 12 | [Bug] `nyc-test-coverage` is excessively difficult... |
+| 11 | [#1280](https://github.com/temporalio/sdk-typescript/issues/1280) | 11 | 3 | 5 | Bundle using Vite |
+| 12 | [#868](https://github.com/temporalio/sdk-typescript/issues/868) | 11 | 0 | 11 | [Feature Request] Add lint rule that prevents Quer... |
+| 13 | [#939](https://github.com/temporalio/sdk-typescript/issues/939) | 10 | 1 | 8 | [Bug] Worker crashes with "async hook stack has be... |
+| 14 | [#1790](https://github.com/temporalio/sdk-typescript/issues/1790) | 9 | 0 | 9 | [Bug] Replay workflow history fails with nondeterm... |
+| 15 | [#1587](https://github.com/temporalio/sdk-typescript/issues/1587) | 9 | 1 | 7 | [Bug] Using async functions degrades performance |
 
 ---
 
@@ -200,11 +201,13 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-02-10 | [#1935](https://github.com/temporalio/sdk-typescript/issues/1935) | 0 | [Bug] uuid() calls in query handlers can break workflow dete... |
+| 2026-01-23 | [#1913](https://github.com/temporalio/sdk-typescript/issues/1913) | 0 | SDK should fail workflow task if payloads size it known to b... |
+| 2026-01-23 | [#1914](https://github.com/temporalio/sdk-typescript/issues/1914) | 0 | Warn if SDK detects a workflow history over a certain size |
+| 2026-01-23 | [#1912](https://github.com/temporalio/sdk-typescript/issues/1912) | 0 | Warn if the SDK tried to send a payload above a specific siz... |
 | 2026-01-22 | [#1908](https://github.com/temporalio/sdk-typescript/issues/1908) | 0 | [Bug] Update documentation and examples on how to use typedS... |
 | 2026-01-15 | [#1895](https://github.com/temporalio/sdk-typescript/issues/1895) | 0 | [Feature Request] Add workflow API to create independent det... |
 | 2026-01-14 | [#1888](https://github.com/temporalio/sdk-typescript/issues/1888) | 0 | [Feature Request] Expose activityType counts in WorkerInfo |
-| 2026-01-14 | [#1887](https://github.com/temporalio/sdk-typescript/issues/1887) | 0 | Allow logging in queries and update validators |
-| 2025-12-30 | [#1867](https://github.com/temporalio/sdk-typescript/issues/1867) | 0 | [Feature Request] Per-Worker Logger |
 
 ---
 
@@ -212,8 +215,8 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 84 |
-| bug | 47 |
+| enhancement | 82 |
+| bug | 46 |
 | documentation | 6 |
 | good first issue | 4 |
 | next-gen | 2 |
@@ -222,12 +225,11 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (47 open issues)
+## Bugs (46 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
 | [#928](https://github.com/temporalio/sdk-typescript/issues/928) | 7 | 26 | [Bug] Jest detects open handles |
-| [#1443](https://github.com/temporalio/sdk-typescript/issues/1443) | 6 | 1 | [Bug] Failure to start ephemeral server prevents shutdown of... |
 | [#1615](https://github.com/temporalio/sdk-typescript/issues/1615) | 3 | 14 | [Bug] Cannot use Temporal with NextJS 15 because workflowTyp... |
 | [#1668](https://github.com/temporalio/sdk-typescript/issues/1668) | 2 | 1 | [Bug] common package not importing @types/ms |
 | [#1325](https://github.com/temporalio/sdk-typescript/issues/1325) | 2 | 3 | [Bug] Throwing an exception from a workflow may result in `F... |
@@ -235,13 +237,14 @@ Priority = Upvotes × 2 + Comments
 | [#1744](https://github.com/temporalio/sdk-typescript/issues/1744) | 1 | 0 | [Bug] NDE replaying nested promises |
 | [#1740](https://github.com/temporalio/sdk-typescript/issues/1740) | 1 | 1 | [Bug] webpackConfigHook doesn't seem to suppress all webpack... |
 | [#1594](https://github.com/temporalio/sdk-typescript/issues/1594) | 1 | 0 | [Bug] First schedule action started using triggerImmediately... |
-| [#1587](https://github.com/temporalio/sdk-typescript/issues/1587) | 1 | 6 | [Bug] Using async functions degrades performance |
+| [#1587](https://github.com/temporalio/sdk-typescript/issues/1587) | 1 | 7 | [Bug] Using async functions degrades performance |
 | [#1578](https://github.com/temporalio/sdk-typescript/issues/1578) | 1 | 0 | [Bug] Worker fails to start if Node option --abort-on-uncaug... |
 | [#1292](https://github.com/temporalio/sdk-typescript/issues/1292) | 1 | 6 | [Bug] ESM Custom payload converters cannot be loaded |
 | [#939](https://github.com/temporalio/sdk-typescript/issues/939) | 1 | 8 | [Bug] Worker crashes with "async hook stack has become corru... |
+| [#1935](https://github.com/temporalio/sdk-typescript/issues/1935) | 0 | 0 | [Bug] uuid() calls in query handlers can break workflow dete... |
 | [#1908](https://github.com/temporalio/sdk-typescript/issues/1908) | 0 | 0 | [Bug] Update documentation and examples on how to use typedS... |
-| [#1860](https://github.com/temporalio/sdk-typescript/issues/1860) | 0 | 2 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
-| [#1859](https://github.com/temporalio/sdk-typescript/issues/1859) | 0 | 4 | [Bug] High CPU usage with OTel instrumentation when updating... |
+| [#1860](https://github.com/temporalio/sdk-typescript/issues/1860) | 0 | 3 | [Bug] Performance regression from 1.13.1 -> 1.13.2 |
+| [#1859](https://github.com/temporalio/sdk-typescript/issues/1859) | 0 | 6 | [Bug] High CPU usage with OTel instrumentation when updating... |
 | [#1858](https://github.com/temporalio/sdk-typescript/issues/1858) | 0 | 0 | [Bug] unable to import reflect-metadata within workflow bund... |
 | [#1838](https://github.com/temporalio/sdk-typescript/issues/1838) | 0 | 0 | [Bug] `WorkflowExecutionAlreadyStartedError` should contain ... |
 | [#1790](https://github.com/temporalio/sdk-typescript/issues/1790) | 0 | 9 | [Bug] Replay workflow history fails with nondeterminism erro... |
@@ -252,16 +255,16 @@ Priority = Upvotes × 2 + Comments
 | [#1702](https://github.com/temporalio/sdk-typescript/issues/1702) | 0 | 0 | [Bug] Test suite timeout on first run |
 | [#1687](https://github.com/temporalio/sdk-typescript/issues/1687) | 0 | 0 | [Bug] Temporal local env cannot be connected in unit tests |
 | [#1663](https://github.com/temporalio/sdk-typescript/issues/1663) | 0 | 5 | [Bug] Can't use structuredClone in workflow code |
-| [#1660](https://github.com/temporalio/sdk-typescript/issues/1660) | 0 | 1 | [Bug] RESOURCE_EXHAUSTED error while describing workflow sch... |
 | [#1656](https://github.com/temporalio/sdk-typescript/issues/1656) | 0 | 1 | [Bug] Workflow type is incorrectly deduced when using `bind`... |
 | [#1653](https://github.com/temporalio/sdk-typescript/issues/1653) | 0 | 0 | [Bug] Broken Documentation Link |
 | [#1652](https://github.com/temporalio/sdk-typescript/issues/1652) | 0 | 1 | [Bug] Throw on usage of Workflow APIs that modify state from... |
+| [#1601](https://github.com/temporalio/sdk-typescript/issues/1601) | 0 | 3 | result of env.run is not inferring type, returning `unknown` |
 
-*...and 17 more bugs*
+*...and 16 more bugs*
 
 ---
 
-## Stale Issues (58 open issues with no activity >12 months)
+## Stale Issues (73 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -269,23 +272,23 @@ Top stale issues by upvotes:
 |-------|-----|--------------|-------|
 | [#207](https://github.com/temporalio/sdk-typescript/issues/207) | 9 | 2024-12-17 | [Feature Request] Enable in-browser usage of gRPC ... |
 | [#1499](https://github.com/temporalio/sdk-typescript/issues/1499) | 7 | 2024-08-21 | [Feature Request] Native Request Batching to Preve... |
+| [#933](https://github.com/temporalio/sdk-typescript/issues/933) | 6 | 2025-02-06 | [Feature Request] Create a separate "core" library... |
+| [#1621](https://github.com/temporalio/sdk-typescript/issues/1621) | 4 | 2025-02-05 | [Feature Request] Include musl-based shared librar... |
 | [#1280](https://github.com/temporalio/sdk-typescript/issues/1280) | 3 | 2023-11-09 | Bundle using Vite |
 | [#915](https://github.com/temporalio/sdk-typescript/issues/915) | 3 | 2022-10-11 | [Feature Request] Emit metrics from client connect... |
 | [#1458](https://github.com/temporalio/sdk-typescript/issues/1458) | 2 | 2024-09-22 | [Feature Request] Support passing preloaded data c... |
+| [#1351](https://github.com/temporalio/sdk-typescript/issues/1351) | 2 | 2025-02-05 | [Feature Request] Support updating schedule by cro... |
 | [#1008](https://github.com/temporalio/sdk-typescript/issues/1008) | 2 | 2024-03-13 | [Feature Request] Provide more output when webpack... |
 | [#1594](https://github.com/temporalio/sdk-typescript/issues/1594) | 1 | 2025-01-08 | [Bug] First schedule action started using triggerI... |
 | [#1578](https://github.com/temporalio/sdk-typescript/issues/1578) | 1 | 2024-12-02 | [Bug] Worker fails to start if Node option --abort... |
 | [#1332](https://github.com/temporalio/sdk-typescript/issues/1332) | 1 | 2024-01-05 | [Feature Request] `TestWorkflowEnvironment` should... |
 | [#1292](https://github.com/temporalio/sdk-typescript/issues/1292) | 1 | 2025-01-16 | [Bug] ESM Custom payload converters cannot be load... |
+| [#1113](https://github.com/temporalio/sdk-typescript/issues/1113) | 1 | 2025-02-07 | [Feature Request] Create a `npx @temporalio/doctor... |
 | [#783](https://github.com/temporalio/sdk-typescript/issues/783) | 1 | 2024-11-19 | [Feature Request] Better Nx support |
 | [#754](https://github.com/temporalio/sdk-typescript/issues/754) | 1 | 2023-01-25 | [Feature Request] Add friendly version of listWork... |
+| [#1616](https://github.com/temporalio/sdk-typescript/issues/1616) | 0 | 2025-01-29 | [Feature Request] Add memoization support to the`p... |
+| [#1601](https://github.com/temporalio/sdk-typescript/issues/1601) | 0 | 2025-01-25 | result of env.run is not inferring type, returning... |
 | [#1549](https://github.com/temporalio/sdk-typescript/issues/1549) | 0 | 2024-12-17 | [Feature Request] Auto-skip time in time-skipping ... |
 | [#1542](https://github.com/temporalio/sdk-typescript/issues/1542) | 0 | 2024-10-09 | [Feature Request] Allow Update Validators to be as... |
-| [#1537](https://github.com/temporalio/sdk-typescript/issues/1537) | 0 | 2024-11-06 | [Bug] Workflow lifecycle logging is misleading |
-| [#1512](https://github.com/temporalio/sdk-typescript/issues/1512) | 0 | 2024-09-11 | [Bug] Payload converter error can crash worker |
-| [#1489](https://github.com/temporalio/sdk-typescript/issues/1489) | 0 | 2024-09-13 | [Bug] Critical dependency: the request of a depend... |
-| [#1486](https://github.com/temporalio/sdk-typescript/issues/1486) | 0 | 2024-08-06 | Review use of `untrackPromise` in update implement... |
-| [#1472](https://github.com/temporalio/sdk-typescript/issues/1472) | 0 | 2024-07-22 | [Feature Request] Add website documentation for up... |
-| [#1431](https://github.com/temporalio/sdk-typescript/issues/1431) | 0 | 2024-05-29 | [Feature Request] Make it easier to diagnose failu... |
 
-*...and 38 more stale issues*
+*...and 53 more stale issues*

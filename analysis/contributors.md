@@ -1,10 +1,10 @@
 # Contributor Statistics
 
-**Generated:** 2026-01-22
-**Total Issues:** 5813
-**Total Comments:** 9940
-**Unique Issue Authors:** 1469
-**Unique Commenters:** 1639
+**Generated:** 2026-02-11
+**Total Issues:** 5855
+**Total Comments:** 10065
+**Unique Issue Authors:** 1476
+**Unique Commenters:** 1665
 
 ## Related Documents
 
@@ -18,14 +18,14 @@
 
 | Rank | Author | Issues | Repositories |
 |------|--------|--------|---------------|
-| 1 | [cretz](#cretz-930-issues) | 930 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
+| 1 | [cretz](#cretz-939-issues) | 939 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 2 | [bergundy](#bergundy-321-issues) | 321 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 3 | [Spikhalskiy](#spikhalskiy-242-issues) | 242 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 4 | [mfateev](#mfateev-236-issues) | 236 | temporalio/api, temporalio/features, temporalio/sdk-go... |
 | 5 | [Quinn-With-Two-Ns](#quinn-with-two-ns-202-issues) | 202 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 6 | [app/mend-for-github-com](#appmend-for-github-com-181-issues) | 181 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 7 | [lorensr](#lorensr-175-issues) | 175 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
-| 8 | [tsurdilo](#tsurdilo-133-issues) | 133 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
+| 8 | [tsurdilo](#tsurdilo-135-issues) | 135 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 9 | [drewhoskins-temporal](#drewhoskins-temporal-103-issues) | 103 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 10 | [Sushisource](#sushisource-94-issues) | 94 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 11 | [mjameswh](#mjameswh-88-issues) | 88 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
@@ -40,27 +40,27 @@
 | 20 | [mastermanu](#mastermanu-39-issues) | 39 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 21 | [longquanzheng](#longquanzheng-37-issues) | 37 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 22 | [antlai-temporal](#antlai-temporal-35-issues) | 35 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
-| 23 | [yuandrew](#yuandrew-33-issues) | 33 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
-| 24 | [antmendoza](#antmendoza-32-issues) | 32 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
+| 23 | [yuandrew](#yuandrew-35-issues) | 35 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
+| 24 | [antmendoza](#antmendoza-33-issues) | 33 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 25 | [skrul](#skrul-27-issues) | 27 | temporalio/sdk-java, temporalio/temporal |
-| 26 | [swyxio](#swyxio-25-issues) | 25 | temporalio/sdk-go, temporalio/sdk-typescript, temporalio/temporal |
-| 27 | [josh-berry](#josh-berry-24-issues) | 24 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
-| 28 | [robzienert](#robzienert-24-issues) | 24 | temporalio/sdk-java, temporalio/temporal |
-| 29 | [THardy98](#thardy98-23-issues) | 23 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
-| 30 | [tconley1428](#tconley1428-21-issues) | 21 | temporalio/features, temporalio/sdk-java, temporalio/sdk-python... |
+| 26 | [tconley1428](#tconley1428-25-issues) | 25 | temporalio/features, temporalio/sdk-java, temporalio/sdk-python... |
+| 27 | [swyxio](#swyxio-25-issues) | 25 | temporalio/sdk-go, temporalio/sdk-typescript, temporalio/temporal |
+| 28 | [josh-berry](#josh-berry-24-issues) | 24 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
+| 29 | [robzienert](#robzienert-24-issues) | 24 | temporalio/sdk-java, temporalio/temporal |
+| 30 | [THardy98](#thardy98-23-issues) | 23 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 31 | [rfwagner](#rfwagner-20-issues) | 20 | temporalio/sdk-java, temporalio/temporal |
 | 32 | [hazcod](#hazcod-17-issues) | 17 | temporalio/sdk-go, temporalio/temporal |
 | 33 | [yux0](#yux0-17-issues) | 17 | temporalio/sdk-go, temporalio/temporal |
-| 34 | [vitarb](#vitarb-16-issues) | 16 | temporalio/sdk-go, temporalio/temporal |
-| 35 | [seregazhuk](#seregazhuk-16-issues) | 16 | temporalio/sdk-java, temporalio/sdk-php |
-| 36 | [ndtretyak](#ndtretyak-14-issues) | 14 | temporalio/sdk-go, temporalio/sdk-python, temporalio/temporal |
-| 37 | [thle40](#thle40-13-issues) | 13 | temporalio/temporal |
-| 38 | [stephanos](#stephanos-11-issues) | 11 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
-| 39 | [maciejdudko](#maciejdudko-11-issues) | 11 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
-| 40 | [shaunco](#shaunco-11-issues) | 11 | temporalio/sdk-go, temporalio/temporal |
-| 41 | [shawnhathaway](#shawnhathaway-11-issues) | 11 | temporalio/temporal |
-| 42 | [ghaskins](#ghaskins-10-issues) | 10 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
-| 43 | [jmaeagle99](#jmaeagle99-10-issues) | 10 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-python |
+| 34 | [jmaeagle99](#jmaeagle99-16-issues) | 16 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
+| 35 | [vitarb](#vitarb-16-issues) | 16 | temporalio/sdk-go, temporalio/temporal |
+| 36 | [seregazhuk](#seregazhuk-16-issues) | 16 | temporalio/sdk-java, temporalio/sdk-php |
+| 37 | [ndtretyak](#ndtretyak-14-issues) | 14 | temporalio/sdk-go, temporalio/sdk-python, temporalio/temporal |
+| 38 | [thle40](#thle40-13-issues) | 13 | temporalio/temporal |
+| 39 | [maciejdudko](#maciejdudko-12-issues) | 12 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
+| 40 | [stephanos](#stephanos-11-issues) | 11 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
+| 41 | [shaunco](#shaunco-11-issues) | 11 | temporalio/sdk-go, temporalio/temporal |
+| 42 | [shawnhathaway](#shawnhathaway-11-issues) | 11 | temporalio/temporal |
+| 43 | [ghaskins](#ghaskins-10-issues) | 10 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
 | 44 | [vkoby](#vkoby-10-issues) | 10 | temporalio/sdk-java, temporalio/temporal |
 | 45 | [robholland](#robholland-9-issues) | 9 | temporalio/features, temporalio/sdk-go, temporalio/temporal |
 | 46 | [sjmtan](#sjmtan-9-issues) | 9 | temporalio/sdk-go, temporalio/temporal |
@@ -73,11 +73,11 @@
 
 | Rank | Author | Comments | Repositories |
 |------|--------|----------|---------------|
-| 1 | cretz | 1581 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
-| 2 | bergundy | 791 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
+| 1 | cretz | 1590 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
+| 2 | bergundy | 792 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 3 | Quinn-With-Two-Ns | 610 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
-| 4 | yiminc | 326 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
-| 5 | mjameswh | 318 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
+| 4 | yiminc | 344 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
+| 5 | mjameswh | 321 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 6 | Spikhalskiy | 270 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 7 | mend-for-github-com | 227 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 8 | lorensr | 204 | temporalio/features, temporalio/sdk-go, temporalio/sdk-php... |
@@ -85,25 +85,25 @@
 | 10 | Sushisource | 167 | temporalio/api, temporalio/features, temporalio/sdk-dotnet... |
 | 11 | mfateev | 145 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 12 | alexshtin | 135 | temporalio/api, temporalio/features, temporalio/sdk-go... |
-| 13 | dnr | 112 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
+| 13 | dnr | 115 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 14 | roxblnfk | 109 | temporalio/features, temporalio/sdk-php |
-| 15 | rustatian | 92 | temporalio/sdk-java, temporalio/sdk-php |
-| 16 | wolfy-j | 91 | temporalio/features, temporalio/sdk-go, temporalio/sdk-php |
-| 17 | tconley1428 | 90 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-python... |
+| 15 | tconley1428 | 95 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-python... |
+| 16 | rustatian | 92 | temporalio/sdk-java, temporalio/sdk-php |
+| 17 | wolfy-j | 91 | temporalio/features, temporalio/sdk-go, temporalio/sdk-php |
 | 18 | vitarb | 89 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 19 | samarabbas | 87 | temporalio/sdk-go, temporalio/sdk-java, temporalio/temporal |
-| 20 | yycptt | 73 | temporalio/sdk-go, temporalio/temporal |
-| 21 | rodrigozhou | 58 | temporalio/temporal |
+| 20 | yycptt | 76 | temporalio/sdk-go, temporalio/temporal |
+| 21 | rodrigozhou | 60 | temporalio/temporal |
 | 22 | josh-berry | 54 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 23 | dandavison | 51 | temporalio/features, temporalio/sdk-dotnet, temporalio/sdk-go... |
 | 24 | cv65kr | 51 | temporalio/sdk-java, temporalio/sdk-php |
-| 25 | tsurdilo | 44 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
+| 25 | tsurdilo | 45 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 26 | swyxio | 44 | temporalio/sdk-go, temporalio/sdk-typescript, temporalio/temporal |
 | 27 | feedmeapples | 42 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
 | 28 | robholland | 42 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
-| 29 | longquanzheng | 39 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
-| 30 | yuandrew | 34 | temporalio/features, temporalio/sdk-go |
-| 31 | gow | 34 | temporalio/sdk-python, temporalio/temporal |
+| 29 | gow | 42 | temporalio/sdk-python, temporalio/temporal |
+| 30 | longquanzheng | 39 | temporalio/features, temporalio/sdk-go, temporalio/sdk-java... |
+| 31 | yuandrew | 36 | temporalio/features, temporalio/sdk-go |
 | 32 | sergeybykov | 33 | temporalio/features, temporalio/temporal |
 | 33 | jbreiding | 33 | temporalio/temporal |
 | 34 | seregazhuk | 28 | temporalio/sdk-php |
@@ -115,7 +115,7 @@
 | 40 | SerafimArts | 23 | temporalio/sdk-php |
 | 41 | madhav2302 | 22 | temporalio/features, temporalio/sdk-java, temporalio/temporal |
 | 42 | shaunco | 22 | temporalio/sdk-go, temporalio/temporal |
-| 43 | robzienert | 20 | temporalio/sdk-java, temporalio/temporal |
+| 43 | robzienert | 21 | temporalio/sdk-java, temporalio/temporal |
 | 44 | yux0 | 20 | temporalio/temporal |
 | 45 | stephanos | 18 | temporalio/features, temporalio/sdk-go, temporalio/sdk-php... |
 | 46 | tdeebswihart | 18 | temporalio/sdk-go, temporalio/temporal |
@@ -128,53 +128,53 @@
 
 | Rank | Author | Issues | Comments | Total |
 |------|--------|--------|----------|-------|
-| 1 | cretz | 930 | 1581 | 2511 |
-| 2 | bergundy | 321 | 791 | 1112 |
+| 1 | cretz | 939 | 1590 | 2529 |
+| 2 | bergundy | 321 | 792 | 1113 |
 | 3 | Quinn-With-Two-Ns | 202 | 610 | 812 |
 | 4 | Spikhalskiy | 242 | 270 | 512 |
-| 5 | mjameswh | 88 | 318 | 406 |
-| 6 | yiminc | 78 | 326 | 404 |
+| 5 | yiminc | 78 | 344 | 422 |
+| 6 | mjameswh | 88 | 321 | 409 |
 | 7 | mfateev | 236 | 145 | 381 |
 | 8 | lorensr | 175 | 204 | 379 |
 | 9 | wxing1292 | 88 | 177 | 265 |
 | 10 | Sushisource | 94 | 167 | 261 |
 | 11 | mend-for-github-com | 0 | 227 | 227 |
 | 12 | app/mend-for-github-com | 181 | 0 | 181 |
-| 13 | alexshtin | 44 | 135 | 179 |
-| 14 | tsurdilo | 133 | 44 | 177 |
+| 13 | tsurdilo | 135 | 45 | 180 |
+| 14 | alexshtin | 44 | 135 | 179 |
 | 15 | roxblnfk | 52 | 109 | 161 |
 | 16 | samarabbas | 53 | 87 | 140 |
 | 17 | drewhoskins-temporal | 103 | 24 | 127 |
-| 18 | yycptt | 47 | 73 | 120 |
-| 19 | dnr | 7 | 112 | 119 |
-| 20 | tconley1428 | 21 | 90 | 111 |
+| 18 | yycptt | 47 | 76 | 123 |
+| 19 | dnr | 7 | 115 | 122 |
+| 20 | tconley1428 | 25 | 95 | 120 |
 | 21 | dandavison | 54 | 51 | 105 |
 | 22 | vitarb | 16 | 89 | 105 |
 | 23 | wolfy-j | 8 | 91 | 99 |
 | 24 | rustatian | 3 | 92 | 95 |
 | 25 | josh-berry | 24 | 54 | 78 |
 | 26 | longquanzheng | 37 | 39 | 76 |
-| 27 | swyxio | 25 | 44 | 69 |
-| 28 | yuandrew | 33 | 34 | 67 |
+| 27 | yuandrew | 35 | 36 | 71 |
+| 28 | swyxio | 25 | 44 | 69 |
 | 29 | antstorm | 61 | 4 | 65 |
 | 30 | mastermanu | 39 | 26 | 65 |
-| 31 | rodrigozhou | 3 | 58 | 61 |
+| 31 | rodrigozhou | 3 | 60 | 63 |
 | 32 | cv65kr | 5 | 51 | 56 |
 | 33 | antlai-temporal | 35 | 16 | 51 |
 | 34 | robholland | 9 | 42 | 51 |
 | 35 | feedmeapples | 7 | 42 | 49 |
-| 36 | robzienert | 24 | 20 | 44 |
+| 36 | robzienert | 24 | 21 | 45 |
 | 37 | seregazhuk | 16 | 28 | 44 |
-| 38 | hazcod | 17 | 26 | 43 |
-| 39 | antmendoza | 32 | 10 | 42 |
-| 40 | yux0 | 17 | 20 | 37 |
-| 41 | skrul | 27 | 9 | 36 |
-| 42 | gow | 2 | 34 | 36 |
-| 43 | jbreiding | 1 | 33 | 34 |
-| 44 | sergeybykov | 1 | 33 | 34 |
-| 45 | shaunco | 11 | 22 | 33 |
-| 46 | joebowbeer | 8 | 25 | 33 |
-| 47 | THardy98 | 23 | 8 | 31 |
+| 38 | gow | 2 | 42 | 44 |
+| 39 | antmendoza | 33 | 10 | 43 |
+| 40 | hazcod | 17 | 26 | 43 |
+| 41 | yux0 | 17 | 20 | 37 |
+| 42 | skrul | 27 | 9 | 36 |
+| 43 | THardy98 | 23 | 12 | 35 |
+| 44 | jbreiding | 1 | 33 | 34 |
+| 45 | sergeybykov | 1 | 33 | 34 |
+| 46 | shaunco | 11 | 22 | 33 |
+| 47 | joebowbeer | 8 | 25 | 33 |
 | 48 | stephanos | 11 | 18 | 29 |
 | 49 | nathanielobrown | 4 | 24 | 28 |
 | 50 | SerafimArts | 4 | 23 | 27 |
@@ -183,7 +183,7 @@
 
 ## Issues by Author
 
-### cretz (930 issues)
+### cretz (939 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
@@ -291,6 +291,9 @@
 | features | [#692](https://github.com/temporalio/features/issues/692) | Nexus samples and docs should not encourage using request ID for workflow ID |
 | features | [#695](https://github.com/temporalio/features/issues/695) | Set `GrpcMessageTooLarge` as `failure_reason` for workflow task failed metric |
 | features | [#727](https://github.com/temporalio/features/issues/727) | Support as-is for scheduled workflow ID |
+| features | [#729](https://github.com/temporalio/features/issues/729) | Investigate worker-deployment-related poll failure ergonomics |
+| features | [#741](https://github.com/temporalio/features/issues/741) | Adjust typed search attribute logic to be as lenient on `type` metadata as server is when deserializing |
+| features | [#745](https://github.com/temporalio/features/issues/745) | Deprecate then remove old, invalid versioning client calls |
 | features | [#93](https://github.com/temporalio/features/issues/93) | [Feature Request] Prefix span and span tag names  |
 | features | [#94](https://github.com/temporalio/features/issues/94) | [Feature Request] Group Temporal-specific log tags |
 | sdk-dotnet | [#10](https://github.com/temporalio/sdk-dotnet/issues/10) | [Feature Request] Incorporate StyleCop analyzers in CI/format |
@@ -437,6 +440,8 @@
 | sdk-dotnet | [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | [Feature Request] .NET Analyzer for Checking Workflows |
 | sdk-dotnet | [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | [Feature Request] Add tests to confirm proper Nexus support for time-skipping environment |
 | sdk-dotnet | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | [Bug] Some unlikely workflow task failures like failure conversion issues may be lost |
+| sdk-dotnet | [#601](https://github.com/temporalio/sdk-dotnet/issues/601) | [Feature Request] Best practice fix for Temporalio.Workflows.Semaphore.WaitAsync ContinueWith |
+| sdk-dotnet | [#603](https://github.com/temporalio/sdk-dotnet/issues/603) | [Bug] Adjust typed search attribute logic to be as lenient on type metadata as server is when deserializing |
 | sdk-dotnet | [#61](https://github.com/temporalio/sdk-dotnet/issues/61) | [Feature Request] Activity delegates can sometimes have System.Runtime.CompilerServices.Closure first param |
 | sdk-dotnet | [#62](https://github.com/temporalio/sdk-dotnet/issues/62) | [Feature Request] Change Ref approach to expression-based |
 | sdk-dotnet | [#65](https://github.com/temporalio/sdk-dotnet/issues/65) | [Feature Request] Update docfx for API docs |
@@ -680,6 +685,9 @@
 | sdk-java | [#2666](https://github.com/temporalio/sdk-java/issues/2666) | Test server needs to set metadata `type` for search attribute payloads |
 | sdk-java | [#2705](https://github.com/temporalio/sdk-java/issues/2705) | Default task failure cause to "workflow worker unhandled failure" |
 | sdk-java | [#2714](https://github.com/temporalio/sdk-java/issues/2714) | Improper file path for envconfig |
+| sdk-java | [#2768](https://github.com/temporalio/sdk-java/issues/2768) | Gradle plugin for workflowcheck |
+| sdk-java | [#2769](https://github.com/temporalio/sdk-java/issues/2769) | Maven plugin for workflowcheck |
+| sdk-java | [#2770](https://github.com/temporalio/sdk-java/issues/2770) | Several workflowcheck improvement suggestions |
 | sdk-java | [#862](https://github.com/temporalio/sdk-java/issues/862) | Make tracing tags consistent across SDKs |
 | sdk-java | [#887](https://github.com/temporalio/sdk-java/issues/887) | Expose WorkflowInfo.getCronSchedule |
 | sdk-java | [#940](https://github.com/temporalio/sdk-java/issues/940) | Header support for signals and queries |
@@ -730,6 +738,7 @@
 | sdk-python | [#125](https://github.com/temporalio/sdk-python/issues/125) | Mark global tracing options as experimental |
 | sdk-python | [#1262](https://github.com/temporalio/sdk-python/issues/1262) | [Bug] Add ability to obtain `ApplicationError` details with type hint |
 | sdk-python | [#1275](https://github.com/temporalio/sdk-python/issues/1275) | [Feature Request] Look into alternative API doc generators |
+| sdk-python | [#1322](https://github.com/temporalio/sdk-python/issues/1322) | Signal argument deserialization errors not using workflow-specific logger or giving enough context |
 | sdk-python | [#139](https://github.com/temporalio/sdk-python/issues/139) | Expose default sequence of payload converters for custom converter creators |
 | sdk-python | [#141](https://github.com/temporalio/sdk-python/issues/141) | [Feature Request] Support Otel temporality config |
 | sdk-python | [#142](https://github.com/temporalio/sdk-python/issues/142) | [Feature Request] Support FailureConverter concept |
@@ -1866,7 +1875,7 @@
 | temporal | [#290](https://github.com/temporalio/temporal/issues/290) | Activity timeouts and retry policy redesign |
 | temporal | [#293](https://github.com/temporalio/temporal/issues/293) | Fix names of dynamic config properties |
 | temporal | [#294](https://github.com/temporalio/temporal/issues/294) | Return LongPollExpirationInterval on poll call results |
-| temporal | [#298](https://github.com/temporalio/temporal/issues/298) | Support embedded version of the service |
+| temporal | [#298](https://github.com/temporalio/temporal/issues/298) | Documentation - How to use Temporal as an embedded library |
 | temporal | [#299](https://github.com/temporalio/temporal/issues/299) | Evaluate if the QueryConsistencyLevel.Eventual should exist |
 | temporal | [#30](https://github.com/temporalio/temporal/issues/30) | Port Go service and client to the new error handling |
 | temporal | [#300](https://github.com/temporalio/temporal/issues/300) | ErrQueryWorkflowBeforeFirstDecision should not be "invalid argument" failure |
@@ -2505,7 +2514,7 @@
 | temporal | [#4703](https://github.com/temporalio/temporal/issues/4703) | Add a list of datetimes to `ScheduleSpec` |
 | temporal | [#4802](https://github.com/temporalio/temporal/issues/4802) | Increase the number of pre-allocated custom search attributes |
 
-### tsurdilo (133 issues)
+### tsurdilo (135 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
@@ -2576,6 +2585,7 @@
 | sdk-java | [#2606](https://github.com/temporalio/sdk-java/issues/2606) | TestWorkflowMutableStateImpl - race condition between TimerFired event and CancelTimer command |
 | sdk-java | [#2733](https://github.com/temporalio/sdk-java/issues/2733) | activity_schedule_to_start_latency reports activity_type unexpectedly |
 | sdk-java | [#2745](https://github.com/temporalio/sdk-java/issues/2745) | WorkerOptions isUsingVirtualThreadsOnWorkflowWorker issue |
+| sdk-java | [#2775](https://github.com/temporalio/sdk-java/issues/2775) | Keep track of current heartbeat timeout while retrying failures in doHeartBeatLocked |
 | sdk-java | [#553](https://github.com/temporalio/sdk-java/issues/553) | Fix workflow event JSON to work with Java SDK WorkflowReplayer |
 | sdk-java | [#587](https://github.com/temporalio/sdk-java/issues/587) | Set TemporalChangeVersion when workflow version is updated |
 | sdk-java | [#621](https://github.com/temporalio/sdk-java/issues/621) | Opentracing: "UnsupportedFormatException: Builtin.TEXT_MAP_INJECT" with Jaeger tracer |
@@ -2642,6 +2652,7 @@
 | temporal | [#8606](https://github.com/temporalio/temporal/issues/8606) | Schedules - allow TriggerImmediatelyRequest to define arguments |
 | temporal | [#8631](https://github.com/temporalio/temporal/issues/8631) | Trying to create search attribute that already exists should return error |
 | temporal | [#8648](https://github.com/temporalio/temporal/issues/8648) | Add ExecutionStatus to visibility columns for archived executions |
+| temporal | [#9258](https://github.com/temporalio/temporal/issues/9258) | Reduce default value for frontend.visibilityArchivalQueryMaxPageSize |
 
 ### drewhoskins-temporal (103 issues)
 
@@ -3586,13 +3597,14 @@
 | sdk-typescript | [#1659](https://github.com/temporalio/sdk-typescript/issues/1659) | [Feature Request] Support New Worker Versioning API |
 | sdk-typescript | [#1750](https://github.com/temporalio/sdk-typescript/issues/1750) | [Bug] Workflow logs not propagated unless telemetryOptions.logging.filter is DEBUG or TRACE |
 
-### yuandrew (33 issues)
+### yuandrew (35 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
 | features | [#648](https://github.com/temporalio/features/issues/648) | Write tests for worker shutdown |
 | features | [#680](https://github.com/temporalio/features/issues/680) | Remove mentions of tctl from the SDKs |
 | features | [#696](https://github.com/temporalio/features/issues/696) | Worker Heartbeating |
+| features | [#740](https://github.com/temporalio/features/issues/740) | Samples for standalone activities |
 | sdk-dotnet | [#499](https://github.com/temporalio/sdk-dotnet/issues/499) | [Feature Request] Add Summary to LocalActivityOptions |
 | sdk-dotnet | [#551](https://github.com/temporalio/sdk-dotnet/issues/551) | [Feature Request] Enable Worker Heartbeating |
 | sdk-go | [#1650](https://github.com/temporalio/sdk-go/issues/1650) | List of flaky tests |
@@ -3611,6 +3623,7 @@
 | sdk-go | [#2066](https://github.com/temporalio/sdk-go/issues/2066) | Lost messages from workflow.NewChannel(ctx) |
 | sdk-go | [#2084](https://github.com/temporalio/sdk-go/issues/2084) | Add support for static summary for side effects and mutable side effects |
 | sdk-go | [#2094](https://github.com/temporalio/sdk-go/issues/2094) | Worker Heartbeating |
+| sdk-go | [#2177](https://github.com/temporalio/sdk-go/issues/2177) | Ensure all internal structs that are exposed publically are fully documented |
 | sdk-java | [#2580](https://github.com/temporalio/sdk-java/issues/2580) | Add Summary to LocalActivityOptions |
 | sdk-java | [#2702](https://github.com/temporalio/sdk-java/issues/2702) | Add support for static summary for side effects and mutable side effects |
 | sdk-java | [#2716](https://github.com/temporalio/sdk-java/issues/2716) | Worker Heartbeating |
@@ -3624,7 +3637,7 @@
 | sdk-typescript | [#1746](https://github.com/temporalio/sdk-typescript/issues/1746) | [Feature Request] Add Summary to LocalActivityOptions |
 | sdk-typescript | [#1810](https://github.com/temporalio/sdk-typescript/issues/1810) | [Feature Request] Enable Worker Heartbeating |
 
-### antmendoza (32 issues)
+### antmendoza (33 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
@@ -3656,6 +3669,7 @@
 | sdk-typescript | [#1353](https://github.com/temporalio/sdk-typescript/issues/1353) | [Bug] some metrics are not prefixed with "temporal_" |
 | sdk-typescript | [#1744](https://github.com/temporalio/sdk-typescript/issues/1744) | [Bug] NDE replaying nested promises |
 | sdk-typescript | [#1800](https://github.com/temporalio/sdk-typescript/issues/1800) | [Feature Request] Provide a way to distinguish error types in logs from TypeScript SDK (errors lose type info across Worker <-> Workflow) |
+| sdk-typescript | [#1935](https://github.com/temporalio/sdk-typescript/issues/1935) | [Bug] uuid() calls in query handlers can break workflow determinism during replay |
 | temporal | [#3517](https://github.com/temporalio/temporal/issues/3517) | Provide a way to retrieve the list of failures for one activity |
 | temporal | [#4182](https://github.com/temporalio/temporal/issues/4182) | [possible bug] ExecuteWorkflow with CronSchedule can lead to client timeout in edge case(s) |
 | temporal | [#8137](https://github.com/temporalio/temporal/issues/8137) | The MaxActivityTasksPerSecond value is not reset to its default if the worker does not send max_tasks_per_second |
@@ -3692,6 +3706,36 @@
 | temporal | [#515](https://github.com/temporalio/temporal/issues/515) | Expose zap logger encoding to config |
 | temporal | [#530](https://github.com/temporalio/temporal/issues/530) | "Error updating timer ack level for shard" errors when enabling task list partitioning |
 | temporal | [#551](https://github.com/temporalio/temporal/issues/551) | Additional Elastic client config options needed to support AWS Elasticsearch |
+
+### tconley1428 (25 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| features | [#652](https://github.com/temporalio/features/issues/652) | Plugins to support controlling multiple configuration points at once |
+| features | [#738](https://github.com/temporalio/features/issues/738) | Expose upgrade on continue as new in SDKs |
+| features | [#744](https://github.com/temporalio/features/issues/744) | Remove experimental markers from versioning APIs |
+| features | [#747](https://github.com/temporalio/features/issues/747) | Provide user access to randomness seed and changes |
+| sdk-java | [#2586](https://github.com/temporalio/sdk-java/issues/2586) | Time skipping server drops headers in workflow signal |
+| sdk-python | [#1089](https://github.com/temporalio/sdk-python/issues/1089) | [Feature Request] Provide supported Session implementations for OpenAI Agents |
+| sdk-python | [#1090](https://github.com/temporalio/sdk-python/issues/1090) | [Feature Request] Support `mcp_server` in OpenAI integration |
+| sdk-python | [#1133](https://github.com/temporalio/sdk-python/issues/1133) | [Feature Request] Provide an easier way to create simple Plugins |
+| sdk-python | [#1146](https://github.com/temporalio/sdk-python/issues/1146) | [Feature Request] Allow providing additional data to MCP server construction |
+| sdk-python | [#1171](https://github.com/temporalio/sdk-python/issues/1171) | [Feature Request] Check integration support with agents 0.4.0 |
+| sdk-python | [#1232](https://github.com/temporalio/sdk-python/issues/1232) | [Feature Request] Add BasedPyright as a required typecheck |
+| sdk-python | [#1237](https://github.com/temporalio/sdk-python/issues/1237) | [Bug] Converter returns bad value converting `dict[None, Any]` |
+| sdk-python | [#1238](https://github.com/temporalio/sdk-python/issues/1238) | [Bug] `create_schedule` doesn't use static user metadata |
+| sdk-python | [#1239](https://github.com/temporalio/sdk-python/issues/1239) | [Bug] `WorkflowHistoryEventAsyncIterator` page_size override is ignored. |
+| sdk-python | [#1319](https://github.com/temporalio/sdk-python/issues/1319) | [Feature Request] Provide user access to randomness seed and changes |
+| sdk-python | [#911](https://github.com/temporalio/sdk-python/issues/911) | Add named parameters to OpenAI APIs |
+| sdk-python | [#912](https://github.com/temporalio/sdk-python/issues/912) | Validate OpenAI data converter necessity |
+| sdk-python | [#913](https://github.com/temporalio/sdk-python/issues/913) | Move OpenAI overrides to a worker interecepter |
+| sdk-python | [#914](https://github.com/temporalio/sdk-python/issues/914) | Fix OpenAI extension issues on python 3.9-3.10 |
+| sdk-python | [#915](https://github.com/temporalio/sdk-python/issues/915) | Add tests for heartbeating in OpenAI tests |
+| sdk-python | [#916](https://github.com/temporalio/sdk-python/issues/916) | Add tests for the tracing intercepter to OpenAI tests |
+| sdk-python | [#921](https://github.com/temporalio/sdk-python/issues/921) | Remove eval_type_backport dependency |
+| sdk-python | [#950](https://github.com/temporalio/sdk-python/issues/950) | [Feature Request] Plugins to support controlling multiple configuration points at once |
+| sdk-python | [#965](https://github.com/temporalio/sdk-python/issues/965) | [Bug] pydantic_core._pydantic_core.PydanticSerializationError: Error serializing to JSON: TypeError: 'MockValSer' object cannot be converted to 'SchemaSerializer' |
+| sdk-typescript | [#1864](https://github.com/temporalio/sdk-typescript/issues/1864) | [Feature Request] Update AI SDK integration to v6 |
 
 ### swyxio (25 issues)
 
@@ -3809,32 +3853,6 @@
 | sdk-typescript | [#1727](https://github.com/temporalio/sdk-typescript/issues/1727) | [Feature Request] Environment Configuration |
 | sdk-typescript | [#1776](https://github.com/temporalio/sdk-typescript/issues/1776) | [Feature Request] Reclassify Benign Application errors in OpenTelemetry |
 
-### tconley1428 (21 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| features | [#652](https://github.com/temporalio/features/issues/652) | Plugins to support controlling multiple configuration points at once |
-| sdk-java | [#2586](https://github.com/temporalio/sdk-java/issues/2586) | Time skipping server drops headers in workflow signal |
-| sdk-python | [#1089](https://github.com/temporalio/sdk-python/issues/1089) | [Feature Request] Provide supported Session implementations for OpenAI Agents |
-| sdk-python | [#1090](https://github.com/temporalio/sdk-python/issues/1090) | [Feature Request] Support `mcp_server` in OpenAI integration |
-| sdk-python | [#1133](https://github.com/temporalio/sdk-python/issues/1133) | [Feature Request] Provide an easier way to create simple Plugins |
-| sdk-python | [#1146](https://github.com/temporalio/sdk-python/issues/1146) | [Feature Request] Allow providing additional data to MCP server construction |
-| sdk-python | [#1171](https://github.com/temporalio/sdk-python/issues/1171) | [Feature Request] Check integration support with agents 0.4.0 |
-| sdk-python | [#1232](https://github.com/temporalio/sdk-python/issues/1232) | [Feature Request] Add BasedPyright as a required typecheck |
-| sdk-python | [#1237](https://github.com/temporalio/sdk-python/issues/1237) | [Bug] Converter returns bad value converting `dict[None, Any]` |
-| sdk-python | [#1238](https://github.com/temporalio/sdk-python/issues/1238) | [Bug] `create_schedule` doesn't use static user metadata |
-| sdk-python | [#1239](https://github.com/temporalio/sdk-python/issues/1239) | [Bug] `WorkflowHistoryEventAsyncIterator` page_size override is ignored. |
-| sdk-python | [#911](https://github.com/temporalio/sdk-python/issues/911) | Add named parameters to OpenAI APIs |
-| sdk-python | [#912](https://github.com/temporalio/sdk-python/issues/912) | Validate OpenAI data converter necessity |
-| sdk-python | [#913](https://github.com/temporalio/sdk-python/issues/913) | Move OpenAI overrides to a worker interecepter |
-| sdk-python | [#914](https://github.com/temporalio/sdk-python/issues/914) | Fix OpenAI extension issues on python 3.9-3.10 |
-| sdk-python | [#915](https://github.com/temporalio/sdk-python/issues/915) | Add tests for heartbeating in OpenAI tests |
-| sdk-python | [#916](https://github.com/temporalio/sdk-python/issues/916) | Add tests for the tracing intercepter to OpenAI tests |
-| sdk-python | [#921](https://github.com/temporalio/sdk-python/issues/921) | Remove eval_type_backport dependency |
-| sdk-python | [#950](https://github.com/temporalio/sdk-python/issues/950) | [Feature Request] Plugins to support controlling multiple configuration points at once |
-| sdk-python | [#965](https://github.com/temporalio/sdk-python/issues/965) | [Bug] pydantic_core._pydantic_core.PydanticSerializationError: Error serializing to JSON: TypeError: 'MockValSer' object cannot be converted to 'SchemaSerializer' |
-| sdk-typescript | [#1864](https://github.com/temporalio/sdk-typescript/issues/1864) | [Feature Request] Update AI SDK integration to v6 |
-
 ### rfwagner (20 issues)
 
 | Repo | Issue | Title |
@@ -3903,6 +3921,27 @@
 | temporal | [#4957](https://github.com/temporalio/temporal/issues/4957) | CurrentBranchChanged Error should use event id + version as branch id |
 | temporal | [#4958](https://github.com/temporalio/temporal/issues/4958) | GetMutableStateRequest is used in poll mutable state  |
 | temporal | [#6501](https://github.com/temporalio/temporal/issues/6501) | Access original run id in mutable state |
+
+### jmaeagle99 (16 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| features | [#723](https://github.com/temporalio/features/issues/723) | SDK should fail workflow task if payloads size it known to be too large |
+| sdk-dotnet | [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | Use global.json file to centralize SDK version |
+| sdk-dotnet | [#565](https://github.com/temporalio/sdk-dotnet/issues/565) | Refactor test workflows into separate files |
+| sdk-dotnet | [#577](https://github.com/temporalio/sdk-dotnet/issues/577) | [Bug] Investigate test host crash flake |
+| sdk-dotnet | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | Separate unmanaged pointer lifecycle management into SafeHandles |
+| sdk-dotnet | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | Refactor Bridge.Client to be IDisposable instead of a SafeHandle |
+| sdk-dotnet | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_FailsAsExpected` flake |
+| sdk-go | [#2165](https://github.com/temporalio/sdk-go/issues/2165) | SDK should fail workflow task if payloads size it known to be too large |
+| sdk-go | [#2166](https://github.com/temporalio/sdk-go/issues/2166) | Warn if SDK detects a workflow history over a certain size |
+| sdk-go | [#2167](https://github.com/temporalio/sdk-go/issues/2167) | Warn if the SDK tried to send a payload above a specific size |
+| sdk-python | [#1284](https://github.com/temporalio/sdk-python/issues/1284) | Warn if the SDK tried to send a payload above a specific size |
+| sdk-python | [#1285](https://github.com/temporalio/sdk-python/issues/1285) | SDK should fail workflow task if payloads size it known to be too large |
+| sdk-python | [#1289](https://github.com/temporalio/sdk-python/issues/1289) | Warn if SDK detects a workflow history over a certain size |
+| sdk-typescript | [#1912](https://github.com/temporalio/sdk-typescript/issues/1912) | Warn if the SDK tried to send a payload above a specific size |
+| sdk-typescript | [#1913](https://github.com/temporalio/sdk-typescript/issues/1913) | SDK should fail workflow task if payloads size it known to be too large |
+| sdk-typescript | [#1914](https://github.com/temporalio/sdk-typescript/issues/1914) | Warn if SDK detects a workflow history over a certain size |
 
 ### vitarb (16 issues)
 
@@ -3983,6 +4022,23 @@
 | temporal | [#8579](https://github.com/temporalio/temporal/issues/8579) | Addressing security vulnerabilities in the Temporalio/server:1.29 1.29.1 |
 | temporal | [#8655](https://github.com/temporalio/temporal/issues/8655) | Addressing security vulnerabilities in the Temporalio/admin-tools:1.29.1 |
 
+### maciejdudko (12 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| features | [#706](https://github.com/temporalio/features/issues/706) | Support standalone activities |
+| sdk-dotnet | [#568](https://github.com/temporalio/sdk-dotnet/issues/568) | [Feature Request] Support standalone activities |
+| sdk-dotnet | [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | [Bug] Loading TLS certificates from path doesn't work |
+| sdk-go | [#2030](https://github.com/temporalio/sdk-go/issues/2030) | Move RESOURCE_EXHAUSTED_CAUSE_EXT_GRPC_MESSAGE_TOO_LARGE to upstream API |
+| sdk-go | [#2033](https://github.com/temporalio/sdk-go/issues/2033) | Flaky tests: TestIntegrationSuite/TestGrpcMessageTooLarge |
+| sdk-go | [#2124](https://github.com/temporalio/sdk-go/issues/2124) | Support standalone activities |
+| sdk-java | [#2741](https://github.com/temporalio/sdk-java/issues/2741) | Support standalone activities |
+| sdk-java | [#2765](https://github.com/temporalio/sdk-java/issues/2765) | Enable SDK flag `DETERMINISTIC_CANCELLATION_SCOPE_ORDER` |
+| sdk-python | [#1230](https://github.com/temporalio/sdk-python/issues/1230) | [Feature Request] Support standalone activities |
+| sdk-python | [#865](https://github.com/temporalio/sdk-python/issues/865) | [Bug] Flaky test: `tests/worker/test_workflow.py::test_workflow_return_is_honored_when_it_precedes_signal_completion_command` |
+| sdk-ruby | [#367](https://github.com/temporalio/sdk-ruby/issues/367) | [Feature Request] Support standalone activities |
+| sdk-typescript | [#1851](https://github.com/temporalio/sdk-typescript/issues/1851) | [Feature Request] Support standalone activities |
+
 ### stephanos (11 issues)
 
 | Repo | Issue | Title |
@@ -3998,22 +4054,6 @@
 | temporal | [#5443](https://github.com/temporalio/temporal/issues/5443) | `serviceerror.NotFound` error message contains Server implementation details |
 | temporal | [#6799](https://github.com/temporalio/temporal/issues/6799) | Support `WorkflowIdConflictPolicy` for child workflow |
 | temporal | [#8970](https://github.com/temporalio/temporal/issues/8970) | Client-set RPC deadline is ignored for long poll `GetWorkflowExecutionHistory` |
-
-### maciejdudko (11 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| features | [#706](https://github.com/temporalio/features/issues/706) | Support non-workflow activities |
-| sdk-dotnet | [#568](https://github.com/temporalio/sdk-dotnet/issues/568) | [Feature Request] Support non-workflow activities |
-| sdk-dotnet | [#584](https://github.com/temporalio/sdk-dotnet/issues/584) | [Bug] Loading TLS certificates from path doesn't work |
-| sdk-go | [#2030](https://github.com/temporalio/sdk-go/issues/2030) | Move RESOURCE_EXHAUSTED_CAUSE_EXT_GRPC_MESSAGE_TOO_LARGE to upstream API |
-| sdk-go | [#2033](https://github.com/temporalio/sdk-go/issues/2033) | Flaky tests: TestIntegrationSuite/TestGrpcMessageTooLarge |
-| sdk-go | [#2124](https://github.com/temporalio/sdk-go/issues/2124) | Support non-workflow activities |
-| sdk-java | [#2741](https://github.com/temporalio/sdk-java/issues/2741) | Support non-workflow activities |
-| sdk-python | [#1230](https://github.com/temporalio/sdk-python/issues/1230) | [Feature Request] Support non-workflow activities |
-| sdk-python | [#865](https://github.com/temporalio/sdk-python/issues/865) | [Bug] Flaky test: `tests/worker/test_workflow.py::test_workflow_return_is_honored_when_it_precedes_signal_completion_command` |
-| sdk-ruby | [#367](https://github.com/temporalio/sdk-ruby/issues/367) | [Feature Request] Support non-workflow activities |
-| sdk-typescript | [#1851](https://github.com/temporalio/sdk-typescript/issues/1851) | [Feature Request] Support non-workflow activities |
 
 ### shaunco (11 issues)
 
@@ -4061,21 +4101,6 @@
 | temporal | [#3511](https://github.com/temporalio/temporal/issues/3511) | Add support for Yugabyte YCQL backend |
 | temporal | [#5135](https://github.com/temporalio/temporal/issues/5135) | Support more direct/immediate notification of a cancelled activity |
 | temporal | [#6255](https://github.com/temporalio/temporal/issues/6255) | Add support for a "final workflow state retention" on successful exit optimization |
-
-### jmaeagle99 (10 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| features | [#723](https://github.com/temporalio/features/issues/723) | SDK should fail workflow task if payloads size it known to be too large |
-| sdk-dotnet | [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | Use global.json file to centralize SDK version |
-| sdk-dotnet | [#565](https://github.com/temporalio/sdk-dotnet/issues/565) | Refactor test workflows into separate files |
-| sdk-dotnet | [#577](https://github.com/temporalio/sdk-dotnet/issues/577) | [Bug] Investigate test host crash flake |
-| sdk-dotnet | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | Separate unmanaged pointer lifecycle management into SafeHandles |
-| sdk-dotnet | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | Refactor Bridge.Client to be IDisposable instead of a SafeHandle |
-| sdk-dotnet | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_FailsAsExpected` flake |
-| sdk-python | [#1284](https://github.com/temporalio/sdk-python/issues/1284) | Warn if the SDK tried to send a payload above a specific size |
-| sdk-python | [#1285](https://github.com/temporalio/sdk-python/issues/1285) | SDK should fail workflow task if payloads size it known to be too large |
-| sdk-python | [#1289](https://github.com/temporalio/sdk-python/issues/1289) | Warn if SDK detects a workflow history over a certain size |
 
 ### vkoby (10 issues)
 
@@ -4225,6 +4250,18 @@
 | temporal | [#3527](https://github.com/temporalio/temporal/issues/3527) | System worker fails to connect to a Frontend in the TLS enabled cluster after removing the publicClient settings |
 | temporal | [#4265](https://github.com/temporalio/temporal/issues/4265) | gocql fails to refresh node IPs after the Cassandra cluster/node restart |
 
+### gauravthadani (7 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| features | [#663](https://github.com/temporalio/features/issues/663) | Setting headers on LocalActivities not recorded on EventHistory |
+| sdk-dotnet | [#421](https://github.com/temporalio/sdk-dotnet/issues/421) | [Feature Request] ActivityOptions provider capability for testing |
+| sdk-java | [#2451](https://github.com/temporalio/sdk-java/issues/2451) | Worfklow StartDelay not working with TestWorkflowEnvironment |
+| sdk-java | [#2573](https://github.com/temporalio/sdk-java/issues/2573) | Support for ManualCompletion in TestActivity Env |
+| sdk-java | [#2674](https://github.com/temporalio/sdk-java/issues/2674) | TestEnvironment with external service - failing tests throws IllegalStateException errors |
+| sdk-java | [#2780](https://github.com/temporalio/sdk-java/issues/2780) | Spring boot `workers-auto-discovery` - Workflow vs Activities |
+| temporal | [#7741](https://github.com/temporalio/temporal/issues/7741) | Workflow Update causing WFT Failure with `Premature end of stream` |
+
 ### dnr (7 issues)
 
 | Repo | Issue | Title |
@@ -4297,17 +4334,6 @@
 | temporal | [#513](https://github.com/temporalio/temporal/issues/513) | No way to set cassandra configs (creds, tls option, etc) via docker-compose |
 | temporal | [#562](https://github.com/temporalio/temporal/issues/562) | Allow for https connections to elasticsearch |
 
-### gauravthadani (6 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| features | [#663](https://github.com/temporalio/features/issues/663) | Setting headers on LocalActivities not recorded on EventHistory |
-| sdk-dotnet | [#421](https://github.com/temporalio/sdk-dotnet/issues/421) | [Feature Request] ActivityOptions provider capability for testing |
-| sdk-java | [#2451](https://github.com/temporalio/sdk-java/issues/2451) | Worfklow StartDelay not working with TestWorkflowEnvironment |
-| sdk-java | [#2573](https://github.com/temporalio/sdk-java/issues/2573) | Support for ManualCompletion in TestActivity Env |
-| sdk-java | [#2674](https://github.com/temporalio/sdk-java/issues/2674) | TestEnvironment with external service - failing tests throws IllegalStateException errors |
-| temporal | [#7741](https://github.com/temporalio/temporal/issues/7741) | Workflow Update causing WFT Failure with `Premature end of stream` |
-
 ### deepika-awasthi (6 issues)
 
 | Repo | Issue | Title |
@@ -4323,7 +4349,7 @@
 
 | Repo | Issue | Title |
 |------|-------|-------|
-| features | [#726](https://github.com/temporalio/features/issues/726) | Versioning Support for OSS v1.30 |
+| features | [#726](https://github.com/temporalio/features/issues/726) | Deployment client / Operator API Support |
 | sdk-go | [#2159](https://github.com/temporalio/sdk-go/issues/2159) | Versioning GA: Expose RoutingConfigUpdateState in VersionInfo |
 | sdk-go | [#2160](https://github.com/temporalio/sdk-go/issues/2160) | Versioning: Expose Upgrade-on-CaN option and ContinueAsNewSuggestedReasons |
 | sdk-go | [#2161](https://github.com/temporalio/sdk-go/issues/2161) | Versioning GA: Expose Backlog Stats in DescribeVersion request and response |
@@ -5529,6 +5555,14 @@
 | temporal | [#8866](https://github.com/temporalio/temporal/issues/8866) | Address security vulnerability CVE-2025-61729 for golang:crypto/x509 |
 | temporal | [#9108](https://github.com/temporalio/temporal/issues/9108) | Separate Read and Write QPS Limits for Persistence |
 
+### vedosis (3 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#9152](https://github.com/temporalio/temporal/issues/9152) | SPIFFE Native Support for Temporal |
+| temporal | [#9156](https://github.com/temporalio/temporal/issues/9156) | Cloud Database Cert/IAM Connections |
+| temporal | [#9244](https://github.com/temporalio/temporal/issues/9244) | Upgrade deprecated ES/AWS libraries |
+
 ### twin-drill (2 issues)
 
 | Repo | Issue | Title |
@@ -5830,6 +5864,13 @@
 | sdk-go | [#2130](https://github.com/temporalio/sdk-go/issues/2130) | `TEMPORAL_LOG_LEVEL` variable |
 | temporal | [#8294](https://github.com/temporalio/temporal/issues/8294) | TestFixedAddressTranslator index out of range |
 
+### kuan121 (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-go | [#2182](https://github.com/temporalio/sdk-go/issues/2182) | Decisions behind Go SDK not using Rust Core SDK |
+| sdk-java | [#2777](https://github.com/temporalio/sdk-java/issues/2777) | Decisions behind Java SDK not using Rust Core SDK |
+
 ### sagikazarmark (2 issues)
 
 | Repo | Issue | Title |
@@ -6061,6 +6102,13 @@
 | sdk-java | [#187](https://github.com/temporalio/sdk-java/issues/187) | ClassCastException interfering with error propagation |
 | sdk-java | [#205](https://github.com/temporalio/sdk-java/issues/205) | WARNING: An illegal reflective access operation has occurred |
 
+### uromahn (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-java | [#1883](https://github.com/temporalio/sdk-java/issues/1883) | Unable to build on Ubuntu Linux for aarch64 (ARM) |
+| temporal | [#9196](https://github.com/temporalio/temporal/issues/9196) | QUESTION: multiple unit, integration, and functional tests failing |
+
 ### karunagoyal (2 issues)
 
 | Repo | Issue | Title |
@@ -6145,6 +6193,13 @@
 | sdk-java | [#2676](https://github.com/temporalio/sdk-java/issues/2676) | temporal java sdk is using an older version of grpc-netty-shaded with vulnerabilities |
 | temporal | [#8465](https://github.com/temporalio/temporal/issues/8465) | temporal dependencies github.com/aws/aws-sdk-go v1.55.6 has vulnerabilities |
 
+### 40lsgy1 (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-java | [#2753](https://github.com/temporalio/sdk-java/issues/2753) | Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check |
+| sdk-java | [#2774](https://github.com/temporalio/sdk-java/issues/2774) | Automate Workflow State Persistence via Query on WorkflowTaskCompleted Event |
+
 ### pvsone (2 issues)
 
 | Repo | Issue | Title |
@@ -6222,6 +6277,13 @@
 | sdk-php | [#428](https://github.com/temporalio/sdk-php/issues/428) | [Bug] Unit test hangs with unit under test has runtime or compile time exception |
 | temporal | [#5642](https://github.com/temporalio/temporal/issues/5642) | dynamic-config-value invalid JSON value for key  |
 
+### ruudk (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-php | [#640](https://github.com/temporalio/sdk-php/issues/640) | Enable `Discussions` |
+| sdk-php | [#702](https://github.com/temporalio/sdk-php/issues/702) | Simplify developer experience by replacing yields with Fiber suspension |
+
 ### surki (2 issues)
 
 | Repo | Issue | Title |
@@ -6284,6 +6346,13 @@
 |------|-------|-------|
 | sdk-python | [#1244](https://github.com/temporalio/sdk-python/issues/1244) | [Bug] Build Binaries Github Actions Workflow Fails on nexus-rpc mismatch |
 | sdk-python | [#1254](https://github.com/temporalio/sdk-python/issues/1254) | [Bug] `SandboxImportNotificationPolicy.WARN_ON_UNINTENTIONAL_PASSTHROUGH` warns on import of the workflow itself to the sandbox |
+
+### ilovepb (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-python | [#1255](https://github.com/temporalio/sdk-python/issues/1255) | [Bug] Update openai-agents dependency |
+| sdk-python | [#1302](https://github.com/temporalio/sdk-python/issues/1302) | [Bug] Trying to use LitellmModel with OpenAI Agents SDK leads to error |
 
 ### averri (2 issues)
 
@@ -6438,6 +6507,13 @@
 |------|-------|-------|
 | sdk-ruby | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | Problem: Testing Temporal Workflows with Signals in Ruby SDK Time-Skipping Environment |
 | sdk-ruby | [#373](https://github.com/temporalio/sdk-ruby/issues/373) | ## Bug Report: Fiber state corruption after `Workflow.timeout` expires on x86_64 |
+
+### stathis-alexander (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-ruby | [#380](https://github.com/temporalio/sdk-ruby/issues/380) | [Feature Request] Default Info options on Workflow and Activity definitions |
+| sdk-typescript | [#1856](https://github.com/temporalio/sdk-typescript/issues/1856) | [Bug] Cannot build `@temporalio/core-bridge` rust from source |
 
 ### knpwrs (2 issues)
 
@@ -6957,6 +7033,13 @@
 | temporal | [#8514](https://github.com/temporalio/temporal/issues/8514) | TEST - Checking github syncing. |
 | temporal | [#8806](https://github.com/temporalio/temporal/issues/8806) | Test ticket |
 
+### jsoref (2 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#9060](https://github.com/temporalio/temporal/issues/9060) | remove version check and 9s const after v1.27 release |
+| temporal | [#9135](https://github.com/temporalio/temporal/issues/9135) | run-tests.yml workflow sets matrix.runs_on_override to a value that doesn't exist in most forks causing workflow to time out and fail after 24 hours |
+
 ### dtornow (1 issues)
 
 | Repo | Issue | Title |
@@ -7081,7 +7164,7 @@
 
 | Repo | Issue | Title |
 |------|-------|-------|
-| features | [#721](https://github.com/temporalio/features/issues/721) | Add workflowId to the http header for workflow request |
+| features | [#721](https://github.com/temporalio/features/issues/721) | Add resource ID to the http header for API requests |
 
 ### rohitgup14 (1 issues)
 
@@ -8589,12 +8672,6 @@
 |------|-------|-------|
 | sdk-java | [#1867](https://github.com/temporalio/sdk-java/issues/1867) | use spring boot sdk, how to run workflow |
 
-### uromahn (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-java | [#1883](https://github.com/temporalio/sdk-java/issues/1883) | Unable to build on Ubuntu Linux for aarch64 (ARM) |
-
 ### brunomascijp (1 issues)
 
 | Repo | Issue | Title |
@@ -8972,12 +9049,6 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | sdk-java | [#2750](https://github.com/temporalio/sdk-java/issues/2750) | Tests not passing: TestStatsReporter Flush not flushing |
-
-### 40lsgy1 (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-java | [#2753](https://github.com/temporalio/sdk-java/issues/2753) | Unexpected Activity Timeout Behavior After Worker Crash & Need for CancellationScope Status Check |
 
 ### bhaskara-illumina (1 issues)
 
@@ -9417,12 +9488,6 @@
 |------|-------|-------|
 | sdk-php | [#633](https://github.com/temporalio/sdk-php/issues/633) | [Bug] Unexpected failures and hanging workflows under high concurrency in parent-child workflows with signals |
 
-### ruudk (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-php | [#640](https://github.com/temporalio/sdk-php/issues/640) | Enable `Discussions` |
-
 ### quipo (1 issues)
 
 | Repo | Issue | Title |
@@ -9680,12 +9745,6 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | sdk-python | [#1252](https://github.com/temporalio/sdk-python/issues/1252) | [Feature Request] add client support for sync activities run by `ThreadPoolExecutor` |
-
-### ilovepb (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-python | [#1255](https://github.com/temporalio/sdk-python/issues/1255) | [Bug] Update openai-agents dependency |
 
 ### sashaneb (1 issues)
 
@@ -10893,12 +10952,6 @@
 |------|-------|-------|
 | sdk-typescript | [#1843](https://github.com/temporalio/sdk-typescript/issues/1843) | Default maxCachedWorkflows calculation doesn't account for VM isolate memory being outside V8 heap |
 
-### stathis-alexander (1 issues)
-
-| Repo | Issue | Title |
-|------|-------|-------|
-| sdk-typescript | [#1856](https://github.com/temporalio/sdk-typescript/issues/1856) | [Bug] Cannot build `@temporalio/core-bridge` rust from source |
-
 ### hmvien (1 issues)
 
 | Repo | Issue | Title |
@@ -10934,6 +10987,18 @@
 | Repo | Issue | Title |
 |------|-------|-------|
 | sdk-typescript | [#1908](https://github.com/temporalio/sdk-typescript/issues/1908) | [Bug] Update documentation and examples on how to use typedSearchAttributes |
+
+### bonadio (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-typescript | [#1915](https://github.com/temporalio/sdk-typescript/issues/1915) | Connect from Cloudflare worker ERROR |
+
+### efojs (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| sdk-typescript | [#1926](https://github.com/temporalio/sdk-typescript/issues/1926) | [Bug] ScheduleHandle.update's I/O types mismatch |
 
 ### mikegai (1 issues)
 
@@ -13311,17 +13376,29 @@
 |------|-------|-------|
 | temporal | [#906](https://github.com/temporalio/temporal/issues/906) | Is there an example for using temporal to implement a human involved task? |
 
-### jsoref (1 issues)
+### reliant-01 (1 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
-| temporal | [#9060](https://github.com/temporalio/temporal/issues/9060) | remove version check and 9s const after v1.27 release |
+| temporal | [#9118](https://github.com/temporalio/temporal/issues/9118) | stuck activities when temporal crashes |
+
+### zhymm1314 (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#9193](https://github.com/temporalio/temporal/issues/9193) | the status remains as "running" |
 
 ### doqtri (1 issues)
 
 | Repo | Issue | Title |
 |------|-------|-------|
 | temporal | [#926](https://github.com/temporalio/temporal/issues/926) | Add configurable initialDelay for Cron job setup for the first run |
+
+### thejacekim (1 issues)
+
+| Repo | Issue | Title |
+|------|-------|-------|
+| temporal | [#9280](https://github.com/temporalio/temporal/issues/9280) | v1.29.3 vulnerabilities |
 
 ### robinbraemer (1 issues)
 

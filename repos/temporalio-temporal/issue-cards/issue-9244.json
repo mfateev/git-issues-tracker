@@ -1,0 +1,35 @@
+{
+  "summary": "Temporal Server depends on multiple archived and deprecated Go libraries including AWS SDK v1 (end-of-support July 2025), olivere/elastic (deprecated in favor of official Elasticsearch client), and several other outdated direct and indirect dependencies. Upgrading to maintained replacements is necessary to avoid security and compatibility issues.",
+  "category": "bug",
+  "subcategory": "dependency-management",
+  "apis": [],
+  "components": [
+    "dependency-management",
+    "aws-integration",
+    "elasticsearch-integration",
+    "build-system"
+  ],
+  "concepts": [
+    "deprecated-dependencies",
+    "security-patching",
+    "maintenance-mode",
+    "library-migration",
+    "version-upgrades",
+    "end-of-support",
+    "archived-libraries"
+  ],
+  "severity": "high",
+  "userImpact": "Users are at risk from unpatched security vulnerabilities and compatibility issues due to reliance on archived and deprecated libraries that no longer receive updates.",
+  "rootCause": "Temporal Server has not kept pace with upstream library deprecation and archival cycles, particularly AWS SDK v1 (archived July 2025) and oliviere/elastic (explicitly deprecated by maintainer).",
+  "proposedFix": "Upgrade AWS SDK to v2, replace oliviere/elastic with official elastic/go-elasticsearch, migrate pkg/errors to stdlib errors, update mitchellh/mapstructure to go-viper fork, upgrade jwt/v4 to v5, gocql to Apache fork v2, and consolidate urfave/cli versions. Replace archived indirect dependencies like gogo/protobuf and golang/mock with recommended alternatives.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1775
+  ],
+  "keyQuote": "This repository was archived by the owner on Jul 31, 2025... This SDK has reached end-of-support. It will not receive further updates.",
+  "number": 9244,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-02-11T03:37:08.476Z"
+}

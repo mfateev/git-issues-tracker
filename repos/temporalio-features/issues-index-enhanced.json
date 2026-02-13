@@ -1,9 +1,320 @@
 {
-  "generatedAt": "2026-01-22T20:33:00.880Z",
+  "generatedAt": "2026-02-11T03:38:57.689Z",
   "repo": "temporalio-features",
-  "totalCount": 388,
-  "cardsCount": 388,
+  "totalCount": 395,
+  "cardsCount": 395,
   "issues": [
+    {
+      "number": 747,
+      "title": "Provide user access to randomness seed and changes",
+      "state": "OPEN",
+      "author": "tconley1428",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-04T22:02:05Z",
+      "updatedAt": "2026-02-04T22:02:57Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/747",
+      "bodyLength": 1022,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        1319
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "User request to provide access to the randomness seed used in workflows and enable reseeding for independent random number sequences. This allows users to create distinct random sequences (e.g., for telemetry) without affecting the workflow's own randomness.",
+      "category": "feature",
+      "subcategory": "random-number-generation",
+      "apis": [],
+      "components": [
+        "randomness",
+        "random-number-generator",
+        "workflow-context"
+      ],
+      "concepts": [
+        "randomness-seed",
+        "determinism",
+        "independent-sequences",
+        "telemetry",
+        "plugin-isolation"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 745,
+      "title": "Deprecate then remove old, invalid versioning client calls",
+      "state": "CLOSED",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-03T16:30:39Z",
+      "updatedAt": "2026-02-10T19:12:46Z",
+      "closedAt": "2026-02-10T19:12:46Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/745",
+      "bodyLength": 338,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Deprecate and remove old versioning client calls that were part of a previous pre-GA versioning API. This is a tracking issue for coordinating deprecation across all Temporal SDKs.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [],
+      "components": [
+        "versioning-client",
+        "sdk-clients"
+      ],
+      "concepts": [
+        "deprecation",
+        "versioning",
+        "api-cleanup",
+        "cross-sdk-coordination",
+        "backward-compatibility"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 744,
+      "title": "Remove experimental markers from versioning APIs",
+      "state": "CLOSED",
+      "author": "tconley1428",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-02T19:26:09Z",
+      "updatedAt": "2026-02-10T18:56:00Z",
+      "closedAt": "2026-02-10T18:56:00Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/744",
+      "bodyLength": 656,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Remove experimental markers from versioning APIs across all SDKs as versioning is preparing for general availability. This involves removing flags from VersioningBehavior, WorkerOptions.DeploymentOptions, and VersioningOverride.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "VersioningBehavior",
+        "WorkerOptions",
+        "DeploymentOptions",
+        "VersioningOverride"
+      ],
+      "components": [
+        "versioning",
+        "worker-options",
+        "api-markers"
+      ],
+      "concepts": [
+        "experimental-api",
+        "general-availability",
+        "api-stability",
+        "sdk-graduation",
+        "feature-maturation"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 741,
+      "title": "Adjust typed search attribute logic to be as lenient on `type` metadata as server is when deserializing",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-30T21:18:15Z",
+      "updatedAt": "2026-01-30T21:24:24Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/741",
+      "bodyLength": 568,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        603,
+        1105
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "SDKs need to accept both enum form (INDEXED_VALUE_TYPE_KEYWORD_LIST) and string form (KeywordList) for search attribute type metadata, matching the server's lenient deserialization behavior.",
+      "category": "feature",
+      "subcategory": "search-attributes",
+      "apis": [],
+      "components": [
+        "search-attributes",
+        "serialization",
+        "type-handling"
+      ],
+      "concepts": [
+        "type-metadata",
+        "deserialization",
+        "compatibility",
+        "lenient-parsing",
+        "enum-variants"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 740,
+      "title": "Samples for standalone activities",
+      "state": "OPEN",
+      "author": "yuandrew",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-29T18:29:58Z",
+      "updatedAt": "2026-01-29T21:32:04Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/740",
+      "bodyLength": 758,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        274,
+        445,
+        706
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Request to create sample code in each samples-sdk repository demonstrating the new standalone activities feature once it's completed in issue #706.",
+      "category": "feature",
+      "subcategory": "samples",
+      "apis": [],
+      "components": [
+        "samples-sdk",
+        "standalone-activities"
+      ],
+      "concepts": [
+        "documentation",
+        "code-samples",
+        "feature-demonstration",
+        "sdk-parity"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 738,
+      "title": "Expose upgrade on continue as new in SDKs",
+      "state": "OPEN",
+      "author": "tconley1428",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-26T21:54:39Z",
+      "updatedAt": "2026-01-26T21:54:51Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/738",
+      "bodyLength": 606,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to expose the upgrade-on-continue-as-new option and ContinueAsNewSuggestedReasons in all SDK implementations. This capability allows workflows to handle version upgrades when using continue-as-new patterns.",
+      "category": "feature",
+      "subcategory": "versioning",
+      "apis": [
+        "ContinueAsNew"
+      ],
+      "components": [
+        "sdk-core",
+        "workflow-executor",
+        "versioning-upgrade"
+      ],
+      "concepts": [
+        "versioning",
+        "upgrade",
+        "continue-as-new",
+        "workflow-migration",
+        "breaking-changes"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 729,
+      "title": "Investigate worker-deployment-related poll failure ergonomics",
+      "state": "OPEN",
+      "author": "cretz",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-01-23T16:24:26Z",
+      "updatedAt": "2026-01-23T16:25:26Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/729",
+      "bodyLength": 1072,
+      "hasCodeBlocks": false,
+      "hasStackTrace": true,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        691
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Worker deployment limits cause silent poll failures that are implicitly retried without user awareness. When the 100-deployment limit is exceeded, the 101st deployment fails silently, degrading ergonomics since deployments are implicitly created but require explicit deletion.",
+      "category": "feature",
+      "subcategory": "worker-deployment",
+      "apis": [],
+      "components": [
+        "worker",
+        "deployment-management",
+        "poll",
+        "cloud-tests"
+      ],
+      "concepts": [
+        "deployment-limit",
+        "resource-management",
+        "error-handling",
+        "implicit-creation",
+        "ephemeral-resources",
+        "test-infrastructure"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 727,
       "title": "Support as-is for scheduled workflow ID",
@@ -13,9 +324,9 @@
         "enhancement"
       ],
       "createdAt": "2026-01-22T14:22:52Z",
-      "updatedAt": "2026-01-22T14:24:30Z",
+      "updatedAt": "2026-02-10T01:25:51Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/727",
       "bodyLength": 442,
@@ -51,23 +362,24 @@
     },
     {
       "number": 726,
-      "title": "Versioning Support for OSS v1.30",
+      "title": "Deployment client / Operator API Support",
       "state": "OPEN",
       "author": "carlydf",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-01-21T22:30:40Z",
-      "updatedAt": "2026-01-21T22:35:56Z",
+      "updatedAt": "2026-02-10T19:08:28Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/726",
-      "bodyLength": 1471,
+      "bodyLength": 1968,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
       "linkedIssues": [
+        738,
         2162
       ],
       "isQuestion": false,
@@ -110,12 +422,12 @@
         "enhancement"
       ],
       "createdAt": "2026-01-20T20:01:03Z",
-      "updatedAt": "2026-01-20T20:01:20Z",
+      "updatedAt": "2026-01-25T21:22:56Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/723",
-      "bodyLength": 1229,
+      "bodyLength": 1197,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -149,16 +461,16 @@
     },
     {
       "number": 721,
-      "title": "Add workflowId to the http header for workflow request",
+      "title": "Add resource ID to the http header for API requests",
       "state": "OPEN",
       "author": "xwduan",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-01-16T18:35:17Z",
-      "updatedAt": "2026-01-16T18:35:17Z",
+      "updatedAt": "2026-01-30T15:35:39Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 4,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/721",
       "bodyLength": 950,
@@ -376,19 +688,19 @@
     },
     {
       "number": 706,
-      "title": "Support non-workflow activities",
+      "title": "Support standalone activities",
       "state": "OPEN",
       "author": "maciejdudko",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T17:26:08Z",
-      "updatedAt": "2025-12-02T17:26:08Z",
+      "updatedAt": "2026-02-10T16:26:48Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/706",
-      "bodyLength": 978,
+      "bodyLength": 886,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -439,12 +751,12 @@
         "enhancement"
       ],
       "createdAt": "2025-12-01T18:53:23Z",
-      "updatedAt": "2026-01-20T22:44:56Z",
+      "updatedAt": "2026-01-25T21:24:12Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/705",
-      "bodyLength": 991,
+      "bodyLength": 959,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -571,12 +883,12 @@
         "enhancement"
       ],
       "createdAt": "2025-11-18T21:30:35Z",
-      "updatedAt": "2026-01-20T20:03:45Z",
+      "updatedAt": "2026-01-25T21:25:15Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/701",
-      "bodyLength": 1022,
+      "bodyLength": 990,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -5336,9 +5648,9 @@
         "enhancement"
       ],
       "createdAt": "2024-07-24T23:12:34Z",
-      "updatedAt": "2025-12-09T22:04:30Z",
+      "updatedAt": "2026-01-29T23:09:50Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 2,
       "upvotes": 3,
       "url": "https://github.com/temporalio/features/issues/515",
       "bodyLength": 1034,
@@ -6780,9 +7092,9 @@
         "enhancement"
       ],
       "createdAt": "2024-04-15T14:01:08Z",
-      "updatedAt": "2025-11-10T20:01:37Z",
+      "updatedAt": "2026-02-03T22:56:39Z",
       "closedAt": null,
-      "commentCount": 2,
+      "commentCount": 4,
       "upvotes": 5,
       "url": "https://github.com/temporalio/features/issues/456",
       "bodyLength": 949,
@@ -11256,9 +11568,9 @@
         "enhancement"
       ],
       "createdAt": "2023-02-17T20:34:50Z",
-      "updatedAt": "2023-02-17T20:35:07Z",
+      "updatedAt": "2026-02-03T13:20:26Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 2,
       "upvotes": 6,
       "url": "https://github.com/temporalio/features/issues/229",
       "bodyLength": 1523,
