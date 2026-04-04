@@ -1,0 +1,30 @@
+{
+  "summary": "Multiple CVEs have been discovered in Temporal Docker images' base dependencies, including critical gRPC authorization bypass (CVE-2026-33186, CVSS 9.1) and high-severity Go crypto/x509 vulnerability (CVE-2025-61729, CVSS 7.5). These require immediate base image updates and Go runtime upgrades.",
+  "category": "bug",
+  "subcategory": "image-security",
+  "apis": [],
+  "components": [
+    "deployment",
+    "security",
+    "runtime-dependencies"
+  ],
+  "concepts": [
+    "security",
+    "CVE",
+    "dependency-patching",
+    "base-image",
+    "supply-chain"
+  ],
+  "severity": "critical",
+  "userImpact": "Users running Temporal Docker images may be exposed to critical and high-severity vulnerabilities in base dependencies and runtime libraries.",
+  "rootCause": "Outdated base image dependencies (OpenSSL, Python, Expat, util-linux) and outdated Go runtime versions in Docker image builds.",
+  "proposedFix": "Update base Docker images to latest versions, update Go runtime to 1.24.11+ or 1.25.5+, update OpenSSL/Python/Expat/util-linux packages, rebuild Temporal images, and implement automated dependency scanning in CI/CD.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Multiple CVEs have been identified in Temporal Docker images (UI, Admin Tools, Server) affecting base image dependencies",
+  "number": 9682,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:20:25.586Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to upgrade the @opentelemetry/sdk-trace-base dependency in the interceptors-opentelemetry package to support newer versions, enabling projects using OpenTelemetry ^2.6.0 or later to use the Temporal SDK's tracing integration.",
+  "category": "feature",
+  "subcategory": "opentelemetry-integration",
+  "apis": [],
+  "components": [
+    "interceptors-opentelemetry",
+    "dependencies"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "versioning",
+    "tracing",
+    "observability",
+    "compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with projects using newer versions of @opentelemetry/sdk-trace-base cannot use the Temporal SDK's interceptors-opentelemetry package due to dependency version conflicts.",
+  "rootCause": "The interceptors-opentelemetry package has pinned an older version of @opentelemetry/sdk-trace-base, preventing compatibility with newer versions.",
+  "proposedFix": "Upgrade @opentelemetry/sdk-trace-base in the interceptors-opentelemetry package to support newer versions.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "This issue was consolidated with #1658 for comprehensive OpenTelemetry SDK trace upgrade.",
+  "related": [
+    1658
+  ],
+  "keyQuote": "This will be addressed by https://github.com/temporalio/sdk-typescript/issues/1658",
+  "number": 1987,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:18:16.558Z"
+}

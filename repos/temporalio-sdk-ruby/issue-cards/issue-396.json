@@ -1,0 +1,34 @@
+{
+  "summary": "MetricBuffer#retrieve_updates returns objects that reference freed Rust memory, causing segmentation faults when Ruby's garbage collector runs concurrently with metric scraping threads.",
+  "category": "bug",
+  "subcategory": "metric-buffer",
+  "apis": [
+    "MetricBuffer#retrieve_updates"
+  ],
+  "components": [
+    "metric-buffer",
+    "native-bindings",
+    "memory-management",
+    "garbage-collection"
+  ],
+  "concepts": [
+    "segmentation-fault",
+    "use-after-free",
+    "memory-ownership",
+    "thread-safety",
+    "garbage-collection",
+    "concurrent-access"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using MetricBuffer crash with segmentation faults when garbage collection runs concurrently with metric scraping.",
+  "rootCause": "Retrieved objects are thin wrappers around Rust-owned pointers rather than fully copied Ruby objects. When GC runs on another thread and collects native wrappers, the Rust side frees backing memory, causing use-after-free when the scraper thread reads from those pointers.",
+  "proposedFix": "retrieve_updates should return objects that own their data as Ruby strings/hashes/numbers, not wrappers around Rust pointers that can be invalidated by GC on other threads.",
+  "workaround": "Disable GC during retrieval and immediate serialization into pure Ruby objects (e.g., JSON serialization), then re-enable GC.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The crash occurs inside `rb_vm_search_method_slowpath`, typically when accessing `update.attributes` or `update.metric.name` — suggesting Ruby is calling a method on an object whose native backing memory has been freed.",
+  "number": 396,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-04-04T19:16:06.039Z"
+}

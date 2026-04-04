@@ -1,0 +1,32 @@
+{
+  "summary": "SQLite plugin hardcodes SetMaxOpenConns(1) instead of respecting config.SQL.MaxConns like MySQL and PostgreSQL plugins, causing connection bottlenecks and failures under high load (1000+ concurrent workflows).",
+  "category": "bug",
+  "subcategory": "sqlite-plugin",
+  "apis": [],
+  "components": [
+    "sqlite-plugin",
+    "persistence",
+    "connection-pooling"
+  ],
+  "concepts": [
+    "connection-pooling",
+    "configuration",
+    "concurrency",
+    "timeout",
+    "performance",
+    "wal-mode",
+    "database"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot configure SQLite connection pool sizes, causing failures and timeouts at high concurrency levels.",
+  "rootCause": "SQLite plugin hardcodes db.SetMaxOpenConns(1) and db.SetMaxIdleConns(1) instead of reading from config.SQL.MaxConns and config.SQL.MaxIdleConns",
+  "proposedFix": "Respect config.SQL.MaxConns and config.SQL.MaxIdleConns like other database plugins, and add a warning when max conns > 1 without WAL mode enabled",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "At ~1000 concurrent workflows, internal operations exceed the 5-second ShardIOTimeout and fail with context deadline exceeded.",
+  "number": 9686,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:20:44.000Z"
+}

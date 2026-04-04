@@ -1,0 +1,30 @@
+{
+  "summary": "The features repository should be configured to automatically pull the latest SDK version from each language's package manager instead of using pinned/locked versions, allowing developers to get the latest updates without manual intervention.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "features-test-framework",
+    "package-manager-integration",
+    "ci-infrastructure"
+  ],
+  "concepts": [
+    "versioning",
+    "dependency-management",
+    "automation",
+    "ci-cd",
+    "lock-files"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers running features tests locally will automatically use the latest SDK versions without needing to manually update version constraints.",
+  "rootCause": null,
+  "proposedFix": "Remove version pinning in lock files and package manager configurations to allow package managers to automatically fetch the latest SDK version.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Allow features to default to the latest SDK version, which each lang's package manager should hopefully automatically do if we remove the set version currently.",
+  "number": 761,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:05:05.535Z"
+}

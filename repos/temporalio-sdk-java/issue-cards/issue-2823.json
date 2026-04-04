@@ -1,0 +1,37 @@
+{
+  "summary": "When the local activity executor thread pool is fully exhausted by blocked activities, subsequently scheduled workflows that attempt to execute local activities hang permanently with no automatic recovery mechanism.",
+  "category": "bug",
+  "subcategory": "local-activity-executor",
+  "apis": [
+    "ExecuteActivity",
+    "LocalActivityOptions",
+    "StartWorkflow"
+  ],
+  "components": [
+    "local-activity-executor",
+    "thread-pool",
+    "workflow-coroutine",
+    "activity-scheduling"
+  ],
+  "concepts": [
+    "deadlock",
+    "resource-exhaustion",
+    "thread-pool",
+    "blocking",
+    "timeout",
+    "concurrency",
+    "recovery"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows hang permanently and become unrecoverable when local activity thread pool is exhausted, requiring manual reset or explicit timeout configuration.",
+  "rootCause": "Local activities are dispatched to an in-process thread pool. When all threads are occupied by blocked activities, newly dispatched activities are queued but never executed because the workflow coroutine parks on CompletablePromiseImpl.get() waiting for a result that never arrives. The workflow task never times out or fails, so it is never retried.",
+  "proposedFix": null,
+  "workaround": "Set scheduleToCloseTimeout on LocalActivityOptions. The SDK tracks this deadline from scheduling time, independently of thread pool availability.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Local activities are dispatched to an in-process thread pool. If all threads are occupied by blocked activities, newly dispatched local activities are queued but never executed.",
+  "number": 2823,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:11:17.053Z"
+}

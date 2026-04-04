@@ -1,0 +1,32 @@
+{
+  "summary": "User seeks guidance on running cleanup logic (defers) when FailWorkflow panic policy is triggered by non-deterministic errors in long-running workflows.",
+  "category": "question",
+  "subcategory": "panic-policy",
+  "apis": [],
+  "components": [
+    "workflow-executor",
+    "panic-handler",
+    "replay-engine",
+    "error-handling"
+  ],
+  "concepts": [
+    "cleanup",
+    "non-determinism",
+    "panic-policy",
+    "workflow-state",
+    "error-recovery",
+    "compensation"
+  ],
+  "severity": "high",
+  "userImpact": "Users running long-running agent workflows with FailWorkflow policy cannot properly clean up resources when non-deterministic errors occur, causing incomplete cleanup and workflows to appear running when they've actually failed.",
+  "rootCause": "When non-determinism is detected, the workflow cannot restore its state or generate new commands, so the workflow code may not even execute to the point where defers are called.",
+  "proposedFix": "Use child workflows with a parent workflow that runs compensation logic for cleanup operations.",
+  "workaround": "Restructure workflows as child workflows with parent compensation logic handling cleanup and notifications.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If you want to run some logic after a workflow fails the best way currently is to run your workflow as a child workflow and have the parent run any compensation.",
+  "number": 2217,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:08:53.616Z"
+}

@@ -1,6 +1,6 @@
 # API SDK - Issue Statistics
 
-**Generated:** 2026-02-11
+**Generated:** 2026-04-04
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 13 |
-| Total Closed Issues | 12 |
-| Total All Issues | 25 |
-| Bugs (open) | 3 |
+| Total Open Issues | 14 |
+| Total Closed Issues | 13 |
+| Total All Issues | 27 |
+| Bugs (open) | 4 |
 | Enhancements/Features (open) | 9 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 6 |
 | Total Comments on open | 9 |
-| Issues with Upvotes | 1 (8%) |
-| Issues with Comments | 3 (23%) |
-| Average Age (days) | 1108 |
-| Stale Issues (>12 months) | 13 (100%) |
+| Issues with Upvotes | 1 (7%) |
+| Issues with Comments | 3 (21%) |
+| Average Age (days) | 1078 |
+| Stale Issues (>12 months) | 13 (93%) |
 
 ---
 ## Resolution Metrics
@@ -36,36 +36,34 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 48% (12/25) |
-| Avg Time to Close (calendar) | 29 days |
-| Avg Time to Close (business) | 21 days |
-| Median Time to Close (calendar) | 7 days |
-| Median Time to Close (business) | 5 days |
+| Resolution Rate | 48% (13/27) |
+| Avg Time to Close (calendar) | 27 days |
+| Avg Time to Close (business) | 19 days |
+| Median Time to Close (calendar) | 3 days |
+| Median Time to Close (business) | 2 days |
 | 90th Percentile (calendar) | 105 days |
 | 90th Percentile (business) | 75 days |
-| Resolved within 30 days | 75% |
-| Resolved within 90 days | 83% |
+| Resolved within 30 days | 77% |
+| Resolved within 90 days | 85% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 2 | 17% |
-| Completed (features) | 4 | 33% |
+| Fixed (bugs) | 2 | 15% |
+| Completed (features) | 5 | 38% |
 | Self-resolved | 1 | 8% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 5 | 42% |
+| Other | 5 | 38% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-03 | 0 | 0 | 0 |
-| 2025-04 | 0 | 0 | 0 |
 | 2025-05 | 1 | 1 | 0 |
 | 2025-06 | 0 | 0 | 0 |
 | 2025-07 | 0 | 0 | 0 |
@@ -76,9 +74,11 @@
 | 2025-12 | 0 | 0 | 0 |
 | 2026-01 | 0 | 0 | 0 |
 | 2026-02 | 0 | 0 | 0 |
-| **Total** | **2** | **2** | **0** |
+| 2026-03 | 0 | 0 | 0 |
+| 2026-04 | 2 | 1 | +1 |
+| **Total** | **4** | **3** | **+1** |
 
-⚖️ **Backlog Stable:** Equal issues opened and closed in the last 12 months.
+📈 **Backlog Growing:** 1 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,9 +87,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 1 |
+| Issues Opened | 2 |
 | Issues Closed | 1 |
-| Net Change | 0 |
+| Net Change | +1 |
 | Bugs Closed | 0 |
 | Enhancements Closed | 1 |
 
@@ -97,9 +97,9 @@
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 17 | 12 |
-| Median | 17 | 12 |
-| 90th Percentile | 17 | 12 |
+| Average | 0 | 1 |
+| Median | 0 | 1 |
+| 90th Percentile | 0 | 1 |
 
 ### Resolution Speed (Last 6 Months)
 
@@ -114,13 +114,13 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 0 | 0% |
+| Last 30 days | 1 | 7% |
 | 1-3 months | 0 | 0% |
 | 3-6 months | 0 | 0% |
 | 6-12 months | 0 | 0% |
-| 1-2 years | 3 | 23% |
-| 2-3 years | 3 | 23% |
-| 3+ years | 7 | 54% |
+| 1-2 years | 3 | 21% |
+| 2-3 years | 3 | 21% |
+| 3+ years | 7 | 50% |
 
 ---
 
@@ -157,7 +157,9 @@ Priority = Upvotes × 2 + Comments
 
 ## Recent Issues (Last 30 Days)
 
-No issues created in the last 30 days.
+| Date | Issue | 👍 | Title |
+|------|-------|-----|-------|
+| 2026-04-01 | [#750](https://github.com/temporalio/api/issues/750) | 0 | [Bug] Deprecate cross-namespace support in workflow commands... |
 
 ---
 
@@ -166,14 +168,15 @@ No issues created in the last 30 days.
 | Label | Count |
 |-------|-------|
 | enhancement | 9 |
-| bug | 3 |
+| bug | 4 |
 
 ---
 
-## Bugs (3 open issues)
+## Bugs (4 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
+| [#750](https://github.com/temporalio/api/issues/750) | 0 | 0 | [Bug] Deprecate cross-namespace support in workflow commands... |
 | [#421](https://github.com/temporalio/api/issues/421) | 0 | 0 | [Bug] api-go update fails if the commit message contains "`" |
 | [#299](https://github.com/temporalio/api/issues/299) | 0 | 0 | [Document] Potentially misleading inline comment for PollWor... |
 | [#131](https://github.com/temporalio/api/issues/131) | 0 | 1 | Clean up "Should be removed" fields |

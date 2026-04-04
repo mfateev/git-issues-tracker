@@ -1,0 +1,32 @@
+{
+  "summary": "Missing `defer` statement for `metrics.CapturePanic()` in `StreamWorkflowReplicationMessages()` function. Without the defer, panic metrics may not be properly captured during replication failures.",
+  "category": "bug",
+  "subcategory": "workflow-replication",
+  "apis": [],
+  "components": [
+    "workflow-replication",
+    "metrics",
+    "panic-recovery",
+    "history-handler"
+  ],
+  "concepts": [
+    "defer",
+    "panic-handling",
+    "metrics-capture",
+    "error-handling",
+    "code-pattern",
+    "replication"
+  ],
+  "severity": "medium",
+  "userImpact": "Panics in StreamWorkflowReplicationMessages() may not be properly captured in metrics, hindering debugging and monitoring of replication failures.",
+  "rootCause": "The `metrics.CapturePanic()` function is called without a `defer` statement, preventing proper panic metric capture.",
+  "proposedFix": "Wrap `metrics.CapturePanic()` with `defer` to ensure panics are captured: `defer metrics.CapturePanic()`",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It seems `metrics.CapturePanic()` should be called with `defer`?",
+  "number": 9633,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:20:11.858Z"
+}

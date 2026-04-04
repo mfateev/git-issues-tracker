@@ -1,0 +1,33 @@
+{
+  "summary": "The maxCalendarYear for Schedules is hardcoded to 2100, preventing users from scheduling workflows or timers beyond that year. The request is to either increase the default limit or make it configurable via DynamicConfig for operators to adjust without code changes.",
+  "category": "feature",
+  "subcategory": "schedules",
+  "apis": [],
+  "components": [
+    "schedules",
+    "spec-validation",
+    "config"
+  ],
+  "concepts": [
+    "scheduling",
+    "long-term-scheduling",
+    "configuration",
+    "limits",
+    "validation",
+    "DoS-protection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot schedule workflows or timers that need to extend beyond year 2100, blocking long-term scheduling use cases such as payment scheduling.",
+  "rootCause": "maxCalendarYear is hardcoded to 2100 in spec validation logic, preventing future-dated schedules from being created.",
+  "proposedFix": "Relax spec validation to allow schedules to reference years beyond 2100 while keeping the match time DoS protection limit in place.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    9396
+  ],
+  "keyQuote": "This prevents users from scheduling workflows or timers that need to extend beyond that year, which can be a blocker for long-running or far-future scheduling use cases.",
+  "number": 9383,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:18:32.756Z"
+}

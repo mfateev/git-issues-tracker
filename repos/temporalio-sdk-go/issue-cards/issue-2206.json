@@ -1,0 +1,45 @@
+{
+  "summary": "Session activity cancellation combined with DataConverter encoding errors causes permanent workflow failure (TMPRL1100 Non-Determinism Error) that cannot be recovered on replay. Two bugs interact: encodeArgs panics instead of gracefully failing, and handleCancelInitiatedEvent rejects Initiated state during replay.",
+  "category": "bug",
+  "subcategory": "session-activity-cancellation",
+  "apis": [
+    "CreateSession",
+    "CompleteSession",
+    "ExecuteActivity",
+    "WithActivityOptions"
+  ],
+  "components": [
+    "workflow-execution",
+    "activity-state-machine",
+    "data-converter",
+    "session-management",
+    "replay-logic"
+  ],
+  "concepts": [
+    "determinism",
+    "state-machine",
+    "replay",
+    "activity-cancellation",
+    "session-management",
+    "codec-error",
+    "panic-recovery"
+  ],
+  "severity": "critical",
+  "userImpact": "Users whose workflows use sessions with failing DataConverters have permanently unrecoverable workflows that cannot be recovered even after fixing the codec issue.",
+  "rootCause": "Two bugs combine: (1) encodeArgs panics instead of returning error at workflow.go:943, and (2) handleCancelInitiatedEvent does not accept commandStateInitiated, causing state machine panic when ActivityTaskCancelRequested arrives during replay before CompleteSession transitions the state machine.",
+  "proposedFix": "1. Change panic(err) to return error gracefully at workflow.go:943. 2. Add commandStateInitiated to accepted states in handleCancelInitiatedEvent, consistent with PR #323 approach.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    323,
+    343,
+    625,
+    726,
+    1227
+  ],
+  "keyQuote": "Every subsequent replay hits the same panic -- the workflow is permanently unrecoverable.",
+  "number": 2206,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:07:59.377Z"
+}

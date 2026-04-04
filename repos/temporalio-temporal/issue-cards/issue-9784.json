@@ -1,0 +1,34 @@
+{
+  "summary": "MySQL's DeleteFromVisibility uses the database connection instead of the transaction connection for DELETE operations, causing connection pool deadlock and breaking transactional atomicity. This leads to connection exhaustion and `context deadline exceeded` errors under concurrent visibility cleanup workloads.",
+  "category": "bug",
+  "subcategory": "mysql-visibility",
+  "apis": [],
+  "components": [
+    "mysql-plugin",
+    "visibility-layer",
+    "persistence-layer",
+    "transaction-management",
+    "connection-pool"
+  ],
+  "concepts": [
+    "connection-pool",
+    "transaction",
+    "deadlock",
+    "concurrency",
+    "resource-exhaustion",
+    "atomicity",
+    "deletion"
+  ],
+  "severity": "critical",
+  "userImpact": "Production MySQL-based Temporal deployments with high workflow completion rates experience connection pool deadlock, visibility cleanup failures, and service stalls with `context deadline exceeded` errors.",
+  "rootCause": "DeleteFromVisibility uses `db.NamedExecContext` instead of `tx.NamedExecContext` for DELETE statements, holding 2 connections per delete and running statements as independent auto-committed operations outside the transaction.",
+  "proposedFix": "Change `mdb.NamedExecContext` to `tx.NamedExecContext` for the three DELETE statements in DeleteFromVisibility.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Each delete holds 2 connections simultaneously. Under concurrent deletes, all connections are consumed by BeginTxx, leaving none for the DELETE, causing context deadline exceeded.",
+  "number": 9784,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:21:06.874Z"
+}

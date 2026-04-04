@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to enable payload visitors to process memo payloads in aggregate for the Go SDK, part of a cross-SDK feature initiative to expand payload visitor capabilities.",
+  "category": "feature",
+  "subcategory": "payload-visitor-enhancement",
+  "apis": [
+    "DataConverter",
+    "WorkflowExecutionInfo"
+  ],
+  "components": [
+    "payload-converter",
+    "data-codec",
+    "workflow-execution",
+    "client"
+  ],
+  "concepts": [
+    "payload-conversion",
+    "serialization",
+    "metadata",
+    "visitor-pattern",
+    "batch-processing",
+    "codec"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot currently batch process memo payloads using the payload visitor pattern, limiting flexibility in payload handling across workflow executions.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    782
+  ],
+  "keyQuote": "Allow payload visitors to visit memo payloads in aggregate",
+  "number": 2252,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:09:27.630Z"
+}

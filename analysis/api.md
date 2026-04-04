@@ -1,13 +1,13 @@
 # Temporal API - Issues Analysis
 
-**Generated:** 2026-02-10
-**Total Open Issues:** 13
-**Total Closed Issues:** 12
+**Generated:** 2026-04-04
+**Total Open Issues:** 14
+**Total Closed Issues:** 13
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
 
-<- [Summary](summary.md) - [Contributors](contributors.md) - [Recent](recent.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md)
 
-**Related:** [Server](server.md) - [Features](features.md) - [Java](java.md) - [Go](go.md) - [TypeScript](typescript.md) - [Python](python.md) - [.NET](dotnet.md)
+**Related:** [Server](server.md) · [Features](features.md) · [Java](java.md) · [Go](go.md) · [TypeScript](typescript.md) · [Python](python.md) · [.NET](dotnet.md)
 
 ---
 
@@ -21,26 +21,28 @@ The API repository contains Temporal's Protobuf definitions used by all SDKs and
 
 ### Executive Summary
 
-The API repository has a small but aged backlog. With only 13 open issues, the raw count is manageable. However, **100% of issues are stale** (no activity for 12+ months), with an average age of **1,108 days** (~3 years). This suggests deliberate API stability rather than neglect -- changes here require coordination across all SDKs and the server, making them inherently slower to implement.
+The API repository has a small but aged backlog. With only 14 open issues, the raw count is manageable. However, **93% of issues are stale** (no activity for 12+ months), with an average age of **1,078 days** (~3 years). This suggests deliberate API stability rather than neglect -- changes here require coordination across all SDKs and the server, making them inherently slower to implement.
 
-The repository maintains an excellent resolution rate when issues are addressed: **median time to close of 7 days** (the fastest across all tracked repositories), with 75% resolved within 30 days.
+The repository maintains an excellent resolution rate when issues are addressed: **median time to close of 3 days** (the fastest across all tracked repositories), with 77% resolved within 30 days.
+
+One new issue was filed in April 2026 ([#750](https://github.com/temporalio/api/issues/750)) to deprecate cross-namespace support in workflow commands.
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
 | API Enhancements | 9 | Medium |
-| Bugs/Fixes | 2 | High |
+| Bugs/Fixes | 3 | High |
 | Documentation | 2 | Low |
 
 ### User Engagement Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes (open) | 6 |
+| Total Upvotes (👍) (open) | 6 |
 | Total Comments (open) | 9 |
-| Issues with Upvotes | 1 (8%) |
-| Issues with Comments | 3 (23%) |
+| Issues with Upvotes | 1 (7%) |
+| Issues with Comments | 3 (21%) |
 
 The low engagement metrics reflect the specialized nature of this repository -- most users interact with SDKs rather than the underlying Protobuf definitions.
 
@@ -50,18 +52,29 @@ The low engagement metrics reflect the specialized nature of this repository -- 
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 48% (12/25) |
-| Median Time to Close | 7 days (calendar) / 5 days (business) |
+| Resolution Rate | 48% (13/27) |
+| Median Time to Close | 3 days (calendar) / 2 days (business) |
 | 90th Percentile | 105 days (calendar) |
-| Resolved within 30 days | 75% |
+| Resolved within 30 days | 77% |
 
 ### Age Distribution
 
 | Age | Count | % |
 |-----|-------|---|
-| 1-2 years | 3 | 23% |
-| 2-3 years | 3 | 23% |
-| 3+ years | 7 | 54% |
+| Last 30 days | 1 | 7% |
+| 1-2 years | 3 | 21% |
+| 2-3 years | 3 | 21% |
+| 3+ years | 7 | 50% |
+
+---
+
+## Issue Velocity (Last 12 Months)
+
+| Trend | Issues Opened | Issues Closed | Net Change |
+|-------|---------------|---------------|------------|
+| Last 12 months | 4 | 3 | +1 |
+
+📈 Backlog Growing (marginally): 1 more issue opened than closed. Activity remains very low, with most months having zero issues opened or closed.
 
 ---
 
@@ -78,6 +91,7 @@ The low engagement metrics reflect the specialized nature of this repository -- 
 
 | Issue | Description | Impact |
 |-------|-------------|--------|
+| [#750](https://github.com/temporalio/api/issues/750) | Deprecate cross-namespace support in workflow commands/events | API cleanup |
 | [#421](https://github.com/temporalio/api/issues/421) | api-go update fails with backtick in commit | CI/CD blocker |
 | [#299](https://github.com/temporalio/api/issues/299) | Misleading comment in PollWorkflowTaskQueue | Documentation clarity |
 | [#131](https://github.com/temporalio/api/issues/131) | Clean up deprecated fields | API cleanliness |
@@ -102,14 +116,15 @@ Major enhancement requests that would add new capabilities or improve the API de
 | [#169](https://github.com/temporalio/api/issues/169) | **Language namespace customization** - Allow languages to customize package/namespace structure | Medium - Primarily benefits .NET SDK |
 | [#136](https://github.com/temporalio/api/issues/136) | **Add ScheduledEventId** - Add to PollActivityTaskQueueResponse for idempotency keys | Medium - Enables activity deduplication |
 
-### Bugs/Fixes (2 issues)
+### Bugs/Fixes (3 issues)
 
 Issues with existing API definitions or tooling.
 
 | Issue | Description | Age |
 |-------|-------------|-----|
-| [#421](https://github.com/temporalio/api/issues/421) | **api-go update CI failure** - Workflow fails when commit message contains backtick character | 1.5 years |
-| [#131](https://github.com/temporalio/api/issues/131) | **Clean up deprecated fields** - Remove "Should be removed" fields and mark as reserved | 4 years |
+| [#750](https://github.com/temporalio/api/issues/750) | **Deprecate cross-namespace support** - Deprecate cross-namespace support in workflow commands/events | New (April 2026) |
+| [#421](https://github.com/temporalio/api/issues/421) | **api-go update CI failure** - Workflow fails when commit message contains backtick character | 1.8 years |
+| [#131](https://github.com/temporalio/api/issues/131) | **Clean up deprecated fields** - Remove "Should be removed" fields and mark as reserved | 4.3 years |
 
 ### Documentation (2 issues)
 
@@ -135,6 +150,14 @@ This is the highest-demand issue, requesting publication of Temporal's Protobuf 
 **Complexity:** Medium-High. The main challenge is handling inlined Google dependencies that should not be published.
 
 **Recommendation:** Prioritize this enhancement as it has clear user demand and would improve the developer experience for all API consumers.
+
+---
+
+### #750: Deprecate Cross-Namespace Support (New)
+
+**Status:** Open since April 2026 | **Author:** mjameswh
+
+A newly filed issue to deprecate cross-namespace support in workflow commands and events. This represents an API design cleanup effort that would simplify the API surface.
 
 ---
 
@@ -168,16 +191,6 @@ A detailed proposal to allow language-specific namespace structures, primarily m
 
 ---
 
-### #427: HTTP API Subpath Configuration
-
-**Status:** Open since July 2024 | **Author:** stevekinney
-
-Request to enable configuring HTTP API routes at a non-root subpath (e.g., `/api`) to avoid conflicts with UI client-side routes. Currently, API routes are set at the root level, creating integration challenges when the UI Server is hosted at a subpath.
-
-**Related:** Links to issue #410 (Remove /api/v1/ prefix) which was completed.
-
----
-
 ### #421: api-go Update CI Failure
 
 **Status:** Open since June 2024 | **Author:** twin-drill
@@ -190,19 +203,6 @@ A straightforward bug where the api-go update workflow fails if commit messages 
 
 ---
 
-### #131: Clean Up Deprecated Fields
-
-**Status:** Open since December 2021 | **Author:** Sushisource
-
-The oldest open issue (4+ years). References PR #121 which added "Should be removed" comments to fields. The follow-up work to remove these fields and mark them as reserved was never completed.
-
-**Recommendation:** Close or triage. If these fields haven't been removed in 4 years, either:
-1. The deprecation is no longer relevant
-2. Backward compatibility concerns prevent removal
-3. This is simply forgotten
-
----
-
 ## Cross-Cutting Impact Analysis
 
 API changes require coordination across the entire Temporal ecosystem. Issues are categorized by scope:
@@ -210,6 +210,7 @@ API changes require coordination across the entire Temporal ecosystem. Issues ar
 | Issue | Impact Level | Affected Components |
 |-------|--------------|---------------------|
 | [#328](https://github.com/temporalio/api/issues/328) | Low | Documentation/tooling only |
+| [#750](https://github.com/temporalio/api/issues/750) | Medium | Server + All SDKs (deprecation) |
 | [#172](https://github.com/temporalio/api/issues/172) | High | Server + All SDKs |
 | [#232](https://github.com/temporalio/api/issues/232) | Medium | Server + All SDKs (enum visibility) |
 | [#307](https://github.com/temporalio/api/issues/307) | Low | Deprecation annotation only |
@@ -221,13 +222,13 @@ API changes require coordination across the entire Temporal ecosystem. Issues ar
 
 ## Semantic Analysis
 
-Based on semantic analysis of issue cards, the following themes emerge:
+Based on issue analysis, the following themes emerge:
 
 ### By Subcategory
 
 | Subcategory | Issues | Description |
 |-------------|--------|-------------|
-| api-design | 1 | API naming, deprecation patterns |
+| api-design | 2 | API naming, deprecation patterns |
 | proto-organization | 1 | Third-party proto file placement |
 | api-documentation | 2 | Proto comment improvements, Postman |
 | http-api-routing | 1 | HTTP API path configuration |
@@ -236,12 +237,12 @@ Based on semantic analysis of issue cards, the following themes emerge:
 | proto-generation | 1 | Language-specific code generation |
 | search-attributes | 1 | Documentation for search attributes |
 | activity-execution | 1 | Idempotence key support |
-| api-cleanup | 1 | Deprecated field removal |
+| api-cleanup | 2 | Deprecated field removal, cross-namespace deprecation |
 | protobuf-distribution | 1 | buf registry publication |
 
 ### Common Concepts
 
-Based on semantic analysis, the most common themes across open issues:
+Based on issue analysis, the most common themes across open issues:
 
 - **API design and consistency** - Multiple issues address naming conventions and API surface cleanup
 - **Protobuf tooling and distribution** - Buf registry, third-party proto organization
@@ -258,7 +259,7 @@ Based on semantic analysis, the most common themes across open issues:
 | Issue | Reason |
 |-------|--------|
 | [#169](https://github.com/temporalio/api/issues/169) | Resolved via SDK build scripts per maintainer discussion |
-| [#131](https://github.com/temporalio/api/issues/131) | 4 years stale -- needs decision on relevance |
+| [#131](https://github.com/temporalio/api/issues/131) | 4.3 years stale -- needs decision on relevance |
 
 ### Issues Needing Triage
 
@@ -270,10 +271,11 @@ Based on semantic analysis, the most common themes across open issues:
 
 ---
 
-## Recent Resolutions (2025)
+## Recent Resolutions
 
 | Issue | Resolution | Description |
 |-------|------------|-------------|
+| [#754](https://github.com/temporalio/api/issues/754) | Closed (April 2026) | Feature request with placeholder title -- closed same day |
 | [#631](https://github.com/temporalio/api/issues/631) | Completed | Added startDelay to WorkflowExecutionInfo |
 | [#583](https://github.com/temporalio/api/issues/583) | Completed | Removed license headers from files |
 
@@ -289,15 +291,16 @@ Based on semantic analysis, the most common themes across open issues:
 
 ### Medium Priority
 
-4. **HTTP API subpath** ([#427](https://github.com/temporalio/api/issues/427)) - Enables cleaner UI integration
-5. **Deprecate list workflow methods** ([#307](https://github.com/temporalio/api/issues/307)) - Reduces API confusion, low-risk annotation
-6. **Document SearchAttributes** ([#154](https://github.com/temporalio/api/issues/154)) - Improves API clarity with no code changes
-7. **Fix misleading comment** ([#299](https://github.com/temporalio/api/issues/299)) - Documentation accuracy
+4. **Deprecate cross-namespace support** ([#750](https://github.com/temporalio/api/issues/750)) - New API cleanup effort
+5. **HTTP API subpath** ([#427](https://github.com/temporalio/api/issues/427)) - Enables cleaner UI integration
+6. **Deprecate list workflow methods** ([#307](https://github.com/temporalio/api/issues/307)) - Reduces API confusion, low-risk annotation
+7. **Document SearchAttributes** ([#154](https://github.com/temporalio/api/issues/154)) - Improves API clarity with no code changes
+8. **Fix misleading comment** ([#299](https://github.com/temporalio/api/issues/299)) - Documentation accuracy
 
 ### Housekeeping
 
-8. **Triage stale issues** - Review and close issues that are no longer relevant or have been addressed elsewhere
-9. **Clean up deprecated fields** ([#131](https://github.com/temporalio/api/issues/131)) - Make a decision after 4 years
+9. **Triage stale issues** - Review and close issues that are no longer relevant or have been addressed elsewhere
+10. **Clean up deprecated fields** ([#131](https://github.com/temporalio/api/issues/131)) - Make a decision after 4.3 years
 
 ---
 
@@ -305,10 +308,10 @@ Based on semantic analysis, the most common themes across open issues:
 
 | Aspect | Status | Notes |
 |--------|--------|-------|
-| Backlog Size | Good | Only 13 open issues |
-| Issue Velocity | Stable | 2 opened, 2 closed in 12 months |
-| Resolution Speed | Excellent | 7-day median when addressed |
-| Staleness | Concerning | 100% stale (no activity >12 months) |
+| Backlog Size | Good | Only 14 open issues |
+| Issue Velocity | Stable | 4 opened, 3 closed in 12 months |
+| Resolution Speed | Excellent | 3-day median when addressed |
+| Staleness | Concerning | 93% stale (no activity >12 months) |
 | User Engagement | Low | Expected for infrastructure repo |
 
-**Overall Assessment:** The API repository is stable but dormant. The low volume reflects the deliberate, high-coordination nature of API changes. The aged backlog should be triaged to distinguish intentionally deferred issues from forgotten ones. Priority should go to the buf schema registry request and the security-related Payload enhancement.
+**Overall Assessment:** The API repository is stable but dormant. The low volume reflects the deliberate, high-coordination nature of API changes. The aged backlog should be triaged to distinguish intentionally deferred issues from forgotten ones. Priority should go to the buf schema registry request and the security-related Payload enhancement. The newly filed cross-namespace deprecation issue ([#750](https://github.com/temporalio/api/issues/750)) indicates some renewed attention to API cleanup.

@@ -1,0 +1,37 @@
+{
+  "summary": "OTel spans for activities using the long-running-poller pattern are incorrectly marked as ERROR when CompleteAsyncError is thrown, causing all workflows to appear errored in tracing systems instead of showing normal completion.",
+  "category": "bug",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [
+    "CompleteAsyncError"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "activity-executor",
+    "worker",
+    "tracing"
+  ],
+  "concepts": [
+    "opentelemetry",
+    "error-handling",
+    "activity-execution",
+    "long-running-poller",
+    "span-marking",
+    "instrumentation",
+    "observability"
+  ],
+  "severity": "high",
+  "userImpact": "Users implementing the long-running-poller pattern see all their workflows incorrectly marked as errored in tracing systems, causing false alarms and confusion in observability.",
+  "rootCause": "The OpenTelemetry interceptor does not treat CompleteAsyncError as a normal control flow exception; instead, it marks activity spans as ERROR with exception logging and stack traces.",
+  "proposedFix": "Use the `allowedExceptions` parameter on the OpenTelemetry instrumentation function to prevent CompleteAsyncError from being marked as an error span.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1420
+  ],
+  "keyQuote": "When `CompleteAsyncError` is thrown by our activity, the span representing the activity gets marked as 'ERROR'",
+  "number": 1974,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:17:50.893Z"
+}

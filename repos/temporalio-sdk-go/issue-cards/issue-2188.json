@@ -1,0 +1,34 @@
+{
+  "summary": "Go 1.26 upgrade causes non-determinism check failures in workflowcheck tests on Windows, specifically when tests access os.Stderr, blocking CI.",
+  "category": "bug",
+  "subcategory": "determinism-check",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "test-framework",
+    "determinism-validation",
+    "windows"
+  ],
+  "concepts": [
+    "non-determinism",
+    "go-version-compatibility",
+    "windows-platform",
+    "determinism-check",
+    "test-failure",
+    "ci-blocking"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot merge code as CI tests fail on Windows due to Go 1.26 non-determinism detection.",
+  "rootCause": "Go 1.26 introduced stricter non-determinism detection that fails tests accessing os.Stderr, which was previously allowed or ignored.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in PR #2187 by updating workflowcheck to handle Go 1.26 non-determinism checks.",
+  "related": [
+    2187
+  ],
+  "keyQuote": "CI upgraded to Go 1.26, now this fails, need to investigate further",
+  "number": 2188,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:07:24.719Z"
+}

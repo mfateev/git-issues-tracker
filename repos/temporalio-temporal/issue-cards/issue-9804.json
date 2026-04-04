@@ -1,0 +1,32 @@
+{
+  "summary": "The postgres12_pgx SQL plugin fails to insert into the current_executions table, sending string enum values (e.g., 'Created') instead of integer values for the state column, causing CreateWorkflowExecution to fail with a type mismatch error.",
+  "category": "bug",
+  "subcategory": "database-plugin",
+  "apis": [],
+  "components": [
+    "postgres12_pgx plugin",
+    "SQL persistence",
+    "current_executions table",
+    "protobuf enum encoding"
+  ],
+  "concepts": [
+    "type coercion",
+    "SQL parameter encoding",
+    "protobuf enums",
+    "binary vs text parameters",
+    "database plugin compatibility",
+    "schema validation"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot create workflows when using the postgres12_pgx plugin, as all CreateWorkflowExecution operations fail with a type conversion error.",
+  "rootCause": "pgx encodes protobuf enums via text formatting (String()) instead of using the underlying int32 value, while lib/pq resolves the underlying integer via reflection. The CurrentExecutionsRow.State is typed as a protobuf enum that implements fmt.Stringer, returning string values like 'Created' instead of the integer 0.",
+  "proposedFix": null,
+  "workaround": "Switch to the postgres12 plugin with connectAttributes.binary_parameters: 'yes' instead of using postgres12_pgx plugin.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The current_executions.state column is INTEGER NOT NULL (schema v1.18), but the string \"Created\" is being sent instead of 0.",
+  "number": 9804,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:21:21.000Z"
+}

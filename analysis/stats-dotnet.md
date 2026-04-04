@@ -1,6 +1,6 @@
 # .NET SDK - Issue Statistics
 
-**Generated:** 2026-02-11
+**Generated:** 2026-04-04
 **Repository:** [temporalio/sdk-dotnet](https://github.com/temporalio/sdk-dotnet)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 48 |
-| Total Closed Issues | 246 |
-| Total All Issues | 294 |
+| Total Open Issues | 49 |
+| Total Closed Issues | 251 |
+| Total All Issues | 300 |
 | Bugs (open) | 11 |
-| Enhancements/Features (open) | 30 |
+| Enhancements/Features (open) | 29 |
 | Security Issues (open) | 1 |
 | Total Upvotes (👍) on open | 13 |
-| Total Comments on open | 43 |
-| Issues with Upvotes | 6 (13%) |
-| Issues with Comments | 22 (46%) |
-| Average Age (days) | 427 |
-| Stale Issues (>12 months) | 28 (58%) |
+| Total Comments on open | 45 |
+| Issues with Upvotes | 6 (12%) |
+| Issues with Comments | 23 (47%) |
+| Average Age (days) | 468 |
+| Stale Issues (>12 months) | 32 (65%) |
 
 ---
 ## Resolution Metrics
@@ -36,36 +36,34 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 84% (246/294) |
-| Avg Time to Close (calendar) | 65 days |
-| Avg Time to Close (business) | 47 days |
-| Median Time to Close (calendar) | 21 days |
+| Resolution Rate | 84% (251/300) |
+| Avg Time to Close (calendar) | 64 days |
+| Avg Time to Close (business) | 46 days |
+| Median Time to Close (calendar) | 20 days |
 | Median Time to Close (business) | 15 days |
-| 90th Percentile (calendar) | 158 days |
-| 90th Percentile (business) | 113 days |
-| Resolved within 30 days | 60% |
-| Resolved within 90 days | 80% |
+| 90th Percentile (calendar) | 154 days |
+| 90th Percentile (business) | 111 days |
+| Resolved within 30 days | 61% |
+| Resolved within 90 days | 81% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 48 | 20% |
-| Completed (features) | 119 | 48% |
+| Fixed (bugs) | 50 | 20% |
+| Completed (features) | 122 | 49% |
 | Self-resolved | 38 | 15% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 41 | 17% |
+| Other | 41 | 16% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-03 | 13 | 6 | +7 |
-| 2025-04 | 13 | 13 | 0 |
 | 2025-05 | 4 | 8 | -4 |
 | 2025-06 | 3 | 1 | +2 |
 | 2025-07 | 3 | 4 | -1 |
@@ -75,10 +73,12 @@
 | 2025-11 | 4 | 5 | -1 |
 | 2025-12 | 7 | 5 | +2 |
 | 2026-01 | 9 | 8 | +1 |
-| 2026-02 | 0 | 1 | -1 |
-| **Total** | **79** | **77** | **+2** |
+| 2026-02 | 4 | 5 | -1 |
+| 2026-03 | 2 | 1 | +1 |
+| 2026-04 | 0 | 0 | 0 |
+| **Total** | **59** | **63** | **-4** |
 
-📈 **Backlog Growing:** 2 more issues opened than closed in the last 12 months.
+📉 **Backlog Shrinking:** 4 more issues closed than opened in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 42 |
-| Issues Closed | 43 |
-| Net Change | -1 |
-| Bugs Closed | 14 |
-| Enhancements Closed | 23 |
+| Issues Opened | 35 |
+| Issues Closed | 34 |
+| Net Change | +1 |
+| Bugs Closed | 12 |
+| Enhancements Closed | 18 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 87 | 62 |
-| Median | 35 | 26 |
-| 90th Percentile | 195 | 140 |
+| Average | 84 | 60 |
+| Median | 26 | 18 |
+| 90th Percentile | 265 | 190 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 47% |
-| Within 90 days | 70% |
+| Within 30 days | 53% |
+| Within 90 days | 76% |
 
 
 ---
@@ -114,13 +114,13 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 2 | 4% |
-| 1-3 months | 7 | 15% |
-| 3-6 months | 3 | 6% |
-| 6-12 months | 7 | 15% |
-| 1-2 years | 23 | 48% |
-| 2-3 years | 6 | 13% |
-| 3+ years | 0 | 0% |
+| Last 30 days | 1 | 2% |
+| 1-3 months | 6 | 12% |
+| 3-6 months | 6 | 12% |
+| 6-12 months | 3 | 6% |
+| 1-2 years | 26 | 53% |
+| 2-3 years | 6 | 12% |
+| 3+ years | 1 | 2% |
 
 ---
 
@@ -152,12 +152,12 @@ Priority = Upvotes × 2 + Comments
 | 7 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 3 | 1 | 1 | [Feature Request] Provide synchronous Run method i... |
 | 8 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | 0 | 3 | [Bug] Temporalio.Exceptions.RpcException:operation... |
 | 9 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | 0 | 3 | [Bug] Unexpected reuse of payload instances in pay... |
-| 10 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 2 | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMe... |
-| 11 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 2 | 1 | 0 | [Feature Request] Support single-platform local Nu... |
-| 12 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | 1 | Inconsistent log property names for the workflow r... |
-| 13 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | 0 | 1 | [Bug] Investigate test flake for `CanRunWith_Custo... |
-| 14 | [#435](https://github.com/temporalio/sdk-dotnet/issues/435) | 1 | 0 | 1 | [Feature Request] Workflow logging - NLog async ca... |
-| 15 | [#386](https://github.com/temporalio/sdk-dotnet/issues/386) | 1 | 0 | 1 | [Feature Request] Improve WaitConditionAsync seman... |
+| 10 | [#634](https://github.com/temporalio/sdk-dotnet/issues/634) | 2 | 0 | 2 | DescribeTaskQueueAsync does not return stats |
+| 11 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 2 | 1 | 0 | [Feature Request] Clarify what the ICustomMetricMe... |
+| 12 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 2 | 1 | 0 | [Feature Request] Support single-platform local Nu... |
+| 13 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | 1 | Inconsistent log property names for the workflow r... |
+| 14 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | 0 | 1 | [Bug] Investigate test flake for `CanRunWith_Custo... |
+| 15 | [#435](https://github.com/temporalio/sdk-dotnet/issues/435) | 1 | 0 | 1 | [Feature Request] Workflow logging - NLog async ca... |
 
 ---
 
@@ -171,10 +171,10 @@ Priority = Upvotes × 2 + Comments
 | 4 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | 0 | [Bug] Temporalio.Exceptions.RpcException:operation was cance... |
 | 5 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 3 | 2 | [Feature Request] F# Samples/Documentation |
 | 6 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | 0 | [Bug] Unexpected reuse of payload instances in payload codec... |
-| 7 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 2 | 1 | [Feature Request] Make scoped IServiceProvider available to ... |
-| 8 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | Inconsistent log property names for the workflow run identif... |
-| 9 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | 0 | [Bug] Investigate test flake for `CanRunWith_CustomSlotSuppl... |
-| 10 | [#435](https://github.com/temporalio/sdk-dotnet/issues/435) | 1 | 0 | [Feature Request] Workflow logging - NLog async calls |
+| 7 | [#634](https://github.com/temporalio/sdk-dotnet/issues/634) | 2 | 0 | DescribeTaskQueueAsync does not return stats |
+| 8 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 2 | 1 | [Feature Request] Make scoped IServiceProvider available to ... |
+| 9 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 1 | 0 | Inconsistent log property names for the workflow run identif... |
+| 10 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | 0 | [Bug] Investigate test flake for `CanRunWith_CustomSlotSuppl... |
 
 ---
 
@@ -182,8 +182,7 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2026-01-22 | [#601](https://github.com/temporalio/sdk-dotnet/issues/601) | 0 | [Feature Request] Best practice fix for Temporalio.Workflows... |
-| 2026-01-12 | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | 0 | [Bug] Investigate `ExecuteNexusOperationAsync_SyncTimeout_Fa... |
+| 2026-03-16 | [#624](https://github.com/temporalio/sdk-dotnet/issues/624) | 0 | [.net] Support conflict token retry loop for schedule update... |
 
 ---
 
@@ -191,7 +190,7 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 30 |
+| enhancement | 29 |
 | bug | 11 |
 | mend: dependency security vulnerability | 1 |
 
@@ -215,16 +214,20 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (28 open issues with no activity >12 months)
+## Stale Issues (32 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
 | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | 7 | 2024-06-25 | Support .NET Trimming |
+| [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 1 | 2025-03-07 | [Feature Request] Provide synchronous Run method i... |
 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 1 | 2024-11-12 | [Feature Request] Make scoped IServiceProvider ava... |
 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 1 | 2024-05-30 | [Feature Request] Clarify what the ICustomMetricMe... |
 | [#131](https://github.com/temporalio/sdk-dotnet/issues/131) | 1 | 2023-09-01 | [Feature Request] Support single-platform local Nu... |
+| [#440](https://github.com/temporalio/sdk-dotnet/issues/440) | 0 | 2025-03-31 | [Feature Request] Support user data in forwarded l... |
+| [#435](https://github.com/temporalio/sdk-dotnet/issues/435) | 0 | 2025-03-19 | [Feature Request] Workflow logging - NLog async ca... |
+| [#412](https://github.com/temporalio/sdk-dotnet/issues/412) | 0 | 2025-02-11 | Expose Workflow cancel cause/reason |
 | [#402](https://github.com/temporalio/sdk-dotnet/issues/402) | 0 | 2025-02-03 | [Feature Request] Expose read-only headers to acti... |
 | [#398](https://github.com/temporalio/sdk-dotnet/issues/398) | 0 | 2025-01-29 | [Feature Request] Add explicit memoization support... |
 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 0 | 2025-01-24 | [Bug] Temporalio.Exceptions.RpcException:operation... |
@@ -237,9 +240,5 @@ Top stale issues by upvotes:
 | [#305](https://github.com/temporalio/sdk-dotnet/issues/305) | 0 | 2024-07-15 | Handle multiple completion commands |
 | [#299](https://github.com/temporalio/sdk-dotnet/issues/299) | 0 | 2024-07-03 | [Feature Request] Upon initial client connection, ... |
 | [#291](https://github.com/temporalio/sdk-dotnet/issues/291) | 0 | 2024-06-27 | [Feature Request] Update test running to replay |
-| [#280](https://github.com/temporalio/sdk-dotnet/issues/280) | 0 | 2024-06-18 | [Bug] TaskQueue not forwarded when using Test Envi... |
-| [#247](https://github.com/temporalio/sdk-dotnet/issues/247) | 0 | 2024-05-10 | [Feature Request] Support for win-x86 |
-| [#246](https://github.com/temporalio/sdk-dotnet/issues/246) | 0 | 2024-05-10 | [Feature Request] Expose raw proto objects on Work... |
-| [#243](https://github.com/temporalio/sdk-dotnet/issues/243) | 0 | 2024-05-08 | [Feature Request] Enforce no-commands-allowed rest... |
 
-*...and 8 more stale issues*
+*...and 12 more stale issues*

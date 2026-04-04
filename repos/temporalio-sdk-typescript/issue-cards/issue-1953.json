@@ -1,0 +1,36 @@
+{
+  "summary": "Worker.create() unconditionally calls loadDataConverter() using require(), creating a separate CJS module cache that breaks instanceof checks in custom PayloadConverters for ESM-loaded classes. The Client already handles this correctly with an isLoadedDataConverter() guard.",
+  "category": "bug",
+  "subcategory": "data-conversion",
+  "apis": [
+    "Worker.create",
+    "PayloadConverter",
+    "LoadedDataConverter"
+  ],
+  "components": [
+    "worker",
+    "worker-options",
+    "data-converter",
+    "payload-converter"
+  ],
+  "concepts": [
+    "module-loading",
+    "instanceof-checks",
+    "type-detection",
+    "serialization",
+    "esm-cjs-interop",
+    "class-identity"
+  ],
+  "severity": "high",
+  "userImpact": "Users with custom PayloadConverters using instanceof checks in ESM environments experience silent type detection failures, causing data to degrade to plain JSON serialization and lose type information.",
+  "rootCause": "Worker.create() doesn't check if dataConverter is already a LoadedDataConverter before calling loadDataConverter(), unlike the Client implementation, causing require() to load modules into a different cache than ESM code.",
+  "proposedFix": "Apply the same isLoadedDataConverter() guard used in Client: check if dataConverter is already loaded before calling loadDataConverter(), allowing pre-loaded converters to bypass require().",
+  "workaround": "After Worker.create(), mutate worker.options.loadedDataConverter.payloadConverter to use the ESM-imported PayloadConverter instance directly.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The failure is completely silent -- instanceof returns false, the custom serializer is skipped, and values fall through to plain JSON serialization, losing their type information.",
+  "number": 1953,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:16:36.958Z"
+}

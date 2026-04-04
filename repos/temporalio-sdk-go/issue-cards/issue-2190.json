@@ -1,0 +1,33 @@
+{
+  "summary": "workflowcheck incorrectly flags net/url.Parse as non-deterministic in Go 1.26 because its internals call garbage collection functions that the static analyzer marks as non-deterministic, preventing users from using this standard library function in workflows.",
+  "category": "bug",
+  "subcategory": "determinism-checking",
+  "apis": [],
+  "components": [
+    "workflowcheck",
+    "determinism-analyzer",
+    "static-analysis"
+  ],
+  "concepts": [
+    "determinism",
+    "garbage-collection",
+    "static-analysis",
+    "workflow-validation",
+    "false-positive",
+    "Go-1.26"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use net/url.Parse in workflows without receiving false positive non-determinism warnings from workflowcheck.",
+  "rootCause": "Go 1.26 commit ff654ea modified net/url.Parse internals to include garbage collection function calls, which are flagged as non-deterministic by the static analyzer even though URL parsing itself is deterministic.",
+  "proposedFix": "Update workflowcheck to properly handle Go 1.26 standard library changes and recognize that net/url.Parse is functionally deterministic despite internal GC calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Go 1.26 introduced changes in net/url.Parse that triggered false positives in determinism analysis. The fix updates workflowcheck to handle these standard library patterns correctly.",
+  "related": [
+    2188
+  ],
+  "keyQuote": "This was due to https://github.com/golang/go/commit/ff654ea. We found other Go 1.26 issues in #2188 too.",
+  "number": 2190,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:07:34.392Z"
+}

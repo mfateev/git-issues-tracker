@@ -1,0 +1,33 @@
+{
+  "summary": "Updating a worker's client does not update the client exposed to activities. When developers reassign worker.client (e.g., for mTLS certificate rotation), activity.client() continues returning the original client because Worker._activity_worker is initialized with a static reference that doesn't reflect later updates.",
+  "category": "bug",
+  "subcategory": "activity-client",
+  "apis": [
+    "worker.client",
+    "activity.client()"
+  ],
+  "components": [
+    "worker",
+    "activity-worker",
+    "client-management"
+  ],
+  "concepts": [
+    "certificate-rotation",
+    "mTLS",
+    "client-lifecycle",
+    "state-management",
+    "client-reference"
+  ],
+  "severity": "high",
+  "userImpact": "Users relying on dynamic client updates for mTLS certificate rotation find that activities continue using stale client configurations, breaking their certificate rotation strategy.",
+  "rootCause": "Worker._activity_worker is constructed at initialization and holds a reference to the original client. This reference is never updated when worker.client is reassigned later.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Worker._activity_worker is constructed upon worker initialization, holds into the original client, and that client is not changed when worker.client is updated later.",
+  "number": 1346,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:13:24.434Z"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "The .NET SDK lacks retry logic for schedule updates when the server returns a 'mismatched conflict token' error, which the server now requires as of a recent change.",
+  "category": "feature",
+  "subcategory": "schedule-updates",
+  "apis": [
+    "UpdateSchedule"
+  ],
+  "components": [
+    "schedule-manager",
+    "update-handler",
+    "retry-logic"
+  ],
+  "concepts": [
+    "conflict-token",
+    "retry-loop",
+    "schedule-updates",
+    "idempotency",
+    "concurrency-control",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot successfully update schedules when conflict token mismatches occur, as the SDK lacks the required retry logic.",
+  "rootCause": "The Temporal server now returns 'mismatched conflict token' errors for schedule updates, but the .NET SDK (and other SDKs) don't implement retry logic to handle this.",
+  "proposedFix": "Implement retry logic for schedule updates that fetches the latest schedule and retries with the updated conflict token when a mismatch occurs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8474
+  ],
+  "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token' as of https://github.com/temporalio/temporal/pull/8474.",
+  "number": 624,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-04-04T19:06:53.374Z"
+}

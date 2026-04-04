@@ -1,0 +1,33 @@
+{
+  "summary": "WORKER_TASK_SLOTS_AVAILABLE metric is stuck at zero when PollerBehaviorAutoscaling is enabled on a worker, preventing accurate reporting of available task capacity.",
+  "category": "bug",
+  "subcategory": "worker-capacity",
+  "apis": [
+    "PollerBehaviorAutoscaling",
+    "WORKER_TASK_SLOTS_AVAILABLE"
+  ],
+  "components": [
+    "worker",
+    "autoscaling",
+    "metrics"
+  ],
+  "concepts": [
+    "autoscaling",
+    "task-slots",
+    "capacity",
+    "metrics",
+    "polling"
+  ],
+  "severity": "high",
+  "userImpact": "Workers cannot accurately report available task slots when autoscaling is enabled, preventing proper capacity visibility and potentially affecting autoscaling decisions.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workers report 0 WORKER_TASK_SLOTS_AVAILABLE when PollerBehaviorAutoscaling is enabled.",
+  "number": 2802,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:10:45.706Z"
+}

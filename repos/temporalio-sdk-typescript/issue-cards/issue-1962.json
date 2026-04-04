@@ -1,0 +1,35 @@
+{
+  "summary": "The TypeScript SDK's `defaultVersioningBehavior` in `WorkerDeploymentOptions` doesn't support the UNSPECIFIED value that is supported by the server, preventing users from using build IDs without enabling full worker versioning.",
+  "category": "bug",
+  "subcategory": "worker-versioning",
+  "apis": [
+    "WorkerDeploymentOptions"
+  ],
+  "components": [
+    "worker",
+    "versioning",
+    "configuration",
+    "type-definitions"
+  ],
+  "concepts": [
+    "build-id",
+    "versioning",
+    "worker-deployment",
+    "configuration",
+    "api-compatibility",
+    "server-compatibility",
+    "feature-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot attach build IDs to workers without enabling full worker versioning, limiting deployment visibility.",
+  "rootCause": "The TypeScript SDK's type definitions and option handling do not support the UNSPECIFIED value for `defaultVersioningBehavior`, even though the server supports it.",
+  "proposedFix": "Allow UNSPECIFIED as a valid value for `defaultVersioningBehavior` in `WorkerDeploymentOptions`. Update type definitions to require `defaultVersioningBehavior: UNSPECIFIED` if `useWorkerVersioning: false`.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "`defaultVersioningBehavior` only allows auto upgrade and pinned, not unspecified, which is supported by the server.",
+  "number": 1962,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:17:06.108Z"
+}

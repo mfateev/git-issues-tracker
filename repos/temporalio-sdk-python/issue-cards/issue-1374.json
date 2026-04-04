@@ -1,0 +1,38 @@
+{
+  "summary": "Proposes a contrib.activity_cache module for activity result memoization to avoid re-executing expensive operations during workflow retries. After research, the author found similar solutions already exist in the ecosystem and decided not to pursue the feature.",
+  "category": "feature",
+  "subcategory": "activity-caching",
+  "apis": [
+    "activity.defn",
+    "Worker"
+  ],
+  "components": [
+    "activity-executor",
+    "contrib-module",
+    "worker",
+    "caching-layer"
+  ],
+  "concepts": [
+    "activity-caching",
+    "memoization",
+    "idempotency",
+    "workflow-retry",
+    "distributed-caching",
+    "content-addressing",
+    "serialization"
+  ],
+  "severity": "low",
+  "userImpact": "Users could reduce costs and execution time for expensive activities by caching results during workflow retries, but suitable alternatives already exist in the ecosystem.",
+  "rootCause": null,
+  "proposedFix": "Implement a contrib.activity_cache module with decorator and interceptor modes for activity result caching, using fsspec for storage and the worker's configured DataConverter for serialization.",
+  "workaround": "Teams currently implement custom caching inside each activity, though there's no standard pattern or way to share cache state across distributed workers.",
+  "resolution": "wontfix",
+  "resolutionDetails": "After research, the author found similar activity caching solutions already exist in the ecosystem (referenced in other frameworks like Flyte and Prefect). The author determined there wasn't enough unique value to justify implementing a new third-party package for this feature.",
+  "related": [
+    1373
+  ],
+  "keyQuote": "After more research, similar solutions already exist in the ecosystem. Not enough unique value to justify a new third-party package for this.",
+  "number": 1374,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:14:57.667Z"
+}

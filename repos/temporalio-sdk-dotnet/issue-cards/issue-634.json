@@ -1,0 +1,34 @@
+{
+  "summary": "DescribeTaskQueueAsync does not populate the Stats field in the response even when ReportStats is set to true, requiring users to use deprecated API modes to retrieve task queue statistics.",
+  "category": "bug",
+  "subcategory": "task-queue-management",
+  "apis": [
+    "DescribeTaskQueueAsync",
+    "DescribeTaskQueueRequest",
+    "DescribeTaskQueueResponse"
+  ],
+  "components": [
+    "WorkflowService",
+    "task-queue-operations",
+    "response-mapping"
+  ],
+  "concepts": [
+    "task-queue-statistics",
+    "backlog-reporting",
+    "poller-information",
+    "request-response-mapping",
+    "api-mode"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot retrieve task queue statistics through the standard API and must resort to using deprecated API methods.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": "Set ApiMode to DescribeTaskQueueMode.Enhanced and access stats through VersionsInfo[string].TypesInfo[(int)queueType].Stats instead of the Stats property.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The following block seems to retrieve what we need. But it leverages **obsolete** objects/properties/API.",
+  "number": 634,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-04-04T19:07:06.258Z"
+}

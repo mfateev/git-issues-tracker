@@ -1,7 +1,205 @@
 {
-  "generatedAt": "2026-02-11T03:36:41.878Z",
-  "totalCards": 181,
+  "generatedAt": "2026-04-04T19:16:18.320Z",
+  "totalCards": 187,
   "cards": [
+    {
+      "summary": "Enabling Rails' parallelize configuration in test cases causes a crash in the Ruby SDK's test worker, manifesting as a [BUG] in dyld with a segmentation fault on M1 Macs running Ruby 4.0.1.",
+      "category": "bug",
+      "subcategory": "test-parallelization",
+      "apis": [],
+      "components": [
+        "test-worker",
+        "rails-integration",
+        "ruby-runtime"
+      ],
+      "concepts": [
+        "parallelization",
+        "testing",
+        "concurrency",
+        "memory-corruption",
+        "process-management",
+        "integration"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use Rails parallel testing configuration with the Temporal Ruby SDK without experiencing a runtime crash.",
+      "rootCause": "Test worker crash in Ruby 4.0+ when parallel test execution is enabled, likely due to memory corruption or threading issues in dyld.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Enabling parallelize in test cases triggers a crash",
+      "number": 407,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-04-04T19:16:07.403Z"
+    },
+    {
+      "summary": "The Ruby SDK needs to implement retry logic for schedule updates when the server returns 'mismatched conflict token' errors. Currently, no SDK has conflict token retry support for schedule updates.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-client",
+        "retry-logic",
+        "error-handler"
+      ],
+      "concepts": [
+        "retry",
+        "conflict-token",
+        "idempotency",
+        "schedule-update",
+        "error-handling",
+        "concurrency",
+        "resilience"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot reliably update schedules when conflict token mismatches occur, requiring manual retry logic or workarounds.",
+      "rootCause": "The Temporal server now returns 'mismatched conflict token' errors during schedule updates (as of temporal/temporal#8474), but the Ruby SDK lacks automatic retry logic to handle this.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        8474
+      ],
+      "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token'",
+      "number": 401,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-04-04T19:16:18.298Z"
+    },
+    {
+      "summary": "MetricBuffer#retrieve_updates returns objects that reference freed Rust memory, causing segmentation faults when Ruby's garbage collector runs concurrently with metric scraping threads.",
+      "category": "bug",
+      "subcategory": "metric-buffer",
+      "apis": [
+        "MetricBuffer#retrieve_updates"
+      ],
+      "components": [
+        "metric-buffer",
+        "native-bindings",
+        "memory-management",
+        "garbage-collection"
+      ],
+      "concepts": [
+        "segmentation-fault",
+        "use-after-free",
+        "memory-ownership",
+        "thread-safety",
+        "garbage-collection",
+        "concurrent-access"
+      ],
+      "severity": "critical",
+      "userImpact": "Applications using MetricBuffer crash with segmentation faults when garbage collection runs concurrently with metric scraping.",
+      "rootCause": "Retrieved objects are thin wrappers around Rust-owned pointers rather than fully copied Ruby objects. When GC runs on another thread and collects native wrappers, the Rust side frees backing memory, causing use-after-free when the scraper thread reads from those pointers.",
+      "proposedFix": "retrieve_updates should return objects that own their data as Ruby strings/hashes/numbers, not wrappers around Rust pointers that can be invalidated by GC on other threads.",
+      "workaround": "Disable GC during retrieval and immediate serialization into pure Ruby objects (e.g., JSON serialization), then re-enable GC.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The crash occurs inside `rb_vm_search_method_slowpath`, typically when accessing `update.attributes` or `update.metric.name` — suggesting Ruby is calling a method on an object whose native backing memory has been freed.",
+      "number": 396,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-04-04T19:16:06.039Z"
+    },
+    {
+      "summary": "OpenTelemetry trace context leaks between workflows when worker threads/fibers are reused because Context.attach() is called but Context.detach() is not always called, allowing trace context to persist across unrelated workflow executions.",
+      "category": "bug",
+      "subcategory": "opentelemetry-tracing",
+      "apis": [],
+      "components": [
+        "OpenTelemetryInterceptor",
+        "worker",
+        "activity-executor",
+        "fiber-pool"
+      ],
+      "concepts": [
+        "tracing",
+        "context-leaking",
+        "fiber-reuse",
+        "context-propagation",
+        "distributed-tracing",
+        "OpenTelemetry",
+        "observability"
+      ],
+      "severity": "high",
+      "userImpact": "Users utilizing OpenTelemetry for distributed tracing observe incorrect traces with spans from unrelated workflows mixed together, breaking observability and monitoring capabilities.",
+      "rootCause": "OpenTelemetry context is attached using Context.attach() but the corresponding Context.detach(token) is not always called, allowing the context to remain active and be reused by subsequent workflow/activity executions when worker threads/fibers are reused.",
+      "proposedFix": "Ensure Context.detach(token) is called after Context.attach() to properly clean up and detach OpenTelemetry context following the OTeL specification for context lifecycle management.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Activities from those untraced workflows may end up generating spans and being attached to the trace of a previously executed workflow.",
+      "number": 394,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-04-04T19:15:51.320Z"
+    },
+    {
+      "summary": "Feature request to standardize how Nexus operation input arguments handle deserialization failures in the Ruby SDK, aligning with cross-SDK standardization efforts tracked in the features repository.",
+      "category": "feature",
+      "subcategory": "nexus-input-deserialization",
+      "apis": [],
+      "components": [
+        "nexus",
+        "input-handling",
+        "deserialization"
+      ],
+      "concepts": [
+        "nexus",
+        "deserialization",
+        "error-handling",
+        "standardization",
+        "input-validation",
+        "failure-handling"
+      ],
+      "severity": "medium",
+      "userImpact": "Ruby SDK users need consistent and standardized handling of Nexus operation input deserialization errors across SDKs.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        762
+      ],
+      "keyQuote": "closes https://github.com/temporalio/features/issues/762",
+      "number": 393,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-04-04T19:15:43.232Z"
+    },
+    {
+      "summary": "Feature request to add more timeout configuration options for Nexus operations in the Ruby SDK, referencing similar implementations in the Python SDK.",
+      "category": "feature",
+      "subcategory": "nexus-timeouts",
+      "apis": [],
+      "components": [
+        "nexus-client",
+        "timeout-management",
+        "operation-executor"
+      ],
+      "concepts": [
+        "timeout",
+        "nexus",
+        "operations",
+        "configuration",
+        "deadline",
+        "performance"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need more granular timeout control for Nexus operations to support different operational requirements.",
+      "rootCause": null,
+      "proposedFix": "Implement additional timeout options for Nexus operations in the Ruby SDK, following the approach from the Python SDK.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Need a couple of more timeouts on Nexus calls",
+      "number": 389,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-04-04T19:15:48.973Z"
+    },
     {
       "summary": "Feature request to allow default Info options (retry policies, task queues, timeouts) to be defined at the class level on Workflow and Activity definitions in the Ruby SDK, similar to Coinbase's temporal SDK. The request was declined by maintainers who explain this is intentional across all SDKs to keep retry policies as caller-only options.",
       "category": "feature",

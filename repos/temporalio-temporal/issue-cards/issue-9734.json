@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal dev server running in Docker is unreachable at localhost:7233. Users encounter 'context deadline exceeded' errors when attempting to connect with the Go-SDK or temporal CLI, though the UI is accessible at localhost:8233. Issue appears after a system upgrade.",
+  "category": "bug",
+  "subcategory": "dev-server-docker-setup",
+  "apis": [],
+  "components": [
+    "temporal-server",
+    "grpc-server",
+    "docker-networking",
+    "dev-environment"
+  ],
+  "concepts": [
+    "docker-networking",
+    "connectivity",
+    "localhost-routing",
+    "dev-server",
+    "port-mapping",
+    "docker-compose"
+  ],
+  "severity": "high",
+  "userImpact": "Developers cannot reach the Temporal dev server running in Docker, blocking local development and testing.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In step 3 of your example: localhost is referencing the admin-tools container not the host machine.",
+  "number": 9734,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:20:46.727Z"
+}

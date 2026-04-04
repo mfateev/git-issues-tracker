@@ -1,0 +1,31 @@
+{
+  "summary": "Enabling Rails' parallelize configuration in test cases causes a crash in the Ruby SDK's test worker, manifesting as a [BUG] in dyld with a segmentation fault on M1 Macs running Ruby 4.0.1.",
+  "category": "bug",
+  "subcategory": "test-parallelization",
+  "apis": [],
+  "components": [
+    "test-worker",
+    "rails-integration",
+    "ruby-runtime"
+  ],
+  "concepts": [
+    "parallelization",
+    "testing",
+    "concurrency",
+    "memory-corruption",
+    "process-management",
+    "integration"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Rails parallel testing configuration with the Temporal Ruby SDK without experiencing a runtime crash.",
+  "rootCause": "Test worker crash in Ruby 4.0+ when parallel test execution is enabled, likely due to memory corruption or threading issues in dyld.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Enabling parallelize in test cases triggers a crash",
+  "number": 407,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-04-04T19:16:07.403Z"
+}

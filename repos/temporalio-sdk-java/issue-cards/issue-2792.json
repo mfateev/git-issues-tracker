@@ -1,0 +1,33 @@
+{
+  "summary": "The ProtobufJsonPayloadConverter fails when using a shaded artifact because shaded protobuf types (io.temporal.shaded.com.google.protobuf.*) don't match non-shaded client code types (com.google.protobuf.*), causing instanceof checks to fail and serialization to be skipped.",
+  "category": "bug",
+  "subcategory": "payload-conversion",
+  "apis": [],
+  "components": [
+    "ProtobufJsonPayloadConverter",
+    "payload-converter",
+    "protobuf-serialization",
+    "shading",
+    "type-checking"
+  ],
+  "concepts": [
+    "type-incompatibility",
+    "shading",
+    "serialization",
+    "protobuf",
+    "artifact-management",
+    "class-loading"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to use the shaded artifact for gRPC version conflict resolution cannot serialize protobuf messages, forcing them to choose between gRPC conflicts or losing protobuf support.",
+  "rootCause": "When protobuf is shaded by relocation, com.google.protobuf.MessageOrBuilder becomes io.temporal.shaded.com.google.protobuf.MessageOrBuilder, causing instanceof checks to fail when non-shaded client code passes regular protobuf objects.",
+  "proposedFix": "Release ProtobufJsonPayloadConverter as a separate non-shaded artifact independent from the shaded artifact, or configure the shader to exclude converters from relocation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "once protobuf is shaded, io.temporal.shaded.com.google.protobuf.* is a completely different type from com.google.protobuf.*",
+  "number": 2792,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:09:59.331Z"
+}

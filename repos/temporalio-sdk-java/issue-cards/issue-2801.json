@@ -1,0 +1,37 @@
+{
+  "summary": "User asks best practices for handling long-running workflow and activity spans in OpenTelemetry tracing. RunWorkflow and RunActivity spans remain open for hours/days, causing missing parent span errors in Jaeger/New Relic and memory issues. Also reports trace fragmentation when retry delays exceed ~90 seconds.",
+  "category": "question",
+  "subcategory": "observability-tracing",
+  "apis": [
+    "StartWorkflow",
+    "RunWorkflow",
+    "StartActivity",
+    "RunActivity"
+  ],
+  "components": [
+    "opentelemetry-instrumentation",
+    "workflow-execution",
+    "activity-execution",
+    "span-lifecycle-management"
+  ],
+  "concepts": [
+    "observability",
+    "distributed-tracing",
+    "span-lifecycle",
+    "parent-child-relationships",
+    "trace-fragmentation",
+    "long-running-spans"
+  ],
+  "severity": "high",
+  "userImpact": "Production observability becomes fragmented and unreliable when tracing long-running workflows and activities, with missing parent span errors and memory buildup preventing proper distributed trace analysis.",
+  "rootCause": "RunWorkflow and RunActivity spans have extended lifetimes (hours/days) while child spans complete immediately, breaking parent-child span relationships in observability backends and causing memory management issues.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Because RunWorkflow and RunActivity spans last for a very long time, they remain open (not \"ended\") for hours or even days.",
+  "number": 2801,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:10:55.554Z"
+}

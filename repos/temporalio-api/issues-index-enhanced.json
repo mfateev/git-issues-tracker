@@ -1,9 +1,88 @@
 {
-  "generatedAt": "2026-02-11T03:38:57.618Z",
+  "generatedAt": "2026-04-04T19:22:21.739Z",
   "repo": "temporalio-api",
-  "totalCount": 25,
-  "cardsCount": 25,
+  "totalCount": 27,
+  "cardsCount": 27,
   "issues": [
+    {
+      "number": 754,
+      "title": "[Feature Request] FILL_TITLE_HERE",
+      "state": "CLOSED",
+      "author": "jmnicerun-pixel",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-04-03T19:36:02Z",
+      "updatedAt": "2026-04-03T21:39:39Z",
+      "closedAt": "2026-04-03T21:39:39Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/754",
+      "bodyLength": 426,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Empty feature request with no actual problem statement or proposed solution. Issue contains only the template structure without user-provided content.",
+      "category": "other",
+      "subcategory": null,
+      "apis": [],
+      "components": [],
+      "concepts": [],
+      "severity": "low",
+      "resolution": "invalid",
+      "hasCard": true
+    },
+    {
+      "number": 750,
+      "title": "[Bug] Deprecate cross-namespace support in workflow commands/events",
+      "state": "OPEN",
+      "author": "mjameswh",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-04-01T20:27:30Z",
+      "updatedAt": "2026-04-01T20:27:30Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/api/issues/750",
+      "bodyLength": 743,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.30.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Temporal Server 1.30.0 disabled cross-namespace workflow commands by default for security reasons. SDKs should deprecate the `namespace` property on workflow commands and events to communicate this restriction to users.",
+      "category": "bug",
+      "subcategory": "cross-namespace-workflows",
+      "apis": [
+        "StartChildWorkflowExecution"
+      ],
+      "components": [
+        "workflow-commands",
+        "events",
+        "api-definitions"
+      ],
+      "concepts": [
+        "cross-namespace",
+        "deprecation",
+        "security",
+        "namespace-isolation",
+        "backward-compatibility",
+        "configuration"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 631,
       "title": "[Feature Request] Add startDelay to WorkflowExecutionInfo",

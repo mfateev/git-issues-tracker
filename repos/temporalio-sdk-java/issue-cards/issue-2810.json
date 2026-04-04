@@ -1,0 +1,33 @@
+{
+  "summary": "Workflow task failures after Workflow.getVersion() calls mask the original exception with a generic 'runner-closed' error, preventing developers from seeing the actual cause of failure.",
+  "category": "bug",
+  "subcategory": "error-handling",
+  "apis": [
+    "getVersion"
+  ],
+  "components": [
+    "workflow-executor",
+    "deterministic-runner",
+    "version-state-machine",
+    "error-reporting"
+  ],
+  "concepts": [
+    "exception-masking",
+    "error-reporting",
+    "workflow-execution",
+    "determinism",
+    "version-management"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot diagnose workflow failures when exceptions occur after getVersion() calls, seeing only a generic 'runner-closed' error instead of the actual exception.",
+  "rootCause": "The deterministic runner closes and raises a generic error before the original workflow exception can be properly propagated through the version state machine.",
+  "proposedFix": "Preserve and report the original exception instead of masking it with the runner-closed error.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Workflow task failed with an internal Java SDK runner-closed error...masking the original exception.",
+  "number": 2810,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:11:13.615Z"
+}

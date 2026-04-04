@@ -1,0 +1,39 @@
+{
+  "summary": "Batch job hangs indefinitely when given a malformed query instead of failing with an error. Expected behavior is to validate the query upfront and fail fast with an error message, similar to CLI behavior.",
+  "category": "bug",
+  "subcategory": "batch-operations",
+  "apis": [
+    "startBatchOperation",
+    "StartBatchOperationRequest",
+    "BatchOperationDeletion"
+  ],
+  "components": [
+    "batch-operations",
+    "query-validation",
+    "visibility-query",
+    "api-handler",
+    "request-processing"
+  ],
+  "concepts": [
+    "malformed-query",
+    "hanging",
+    "batch-processing",
+    "error-handling",
+    "query-validation",
+    "timeout"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use batch operations with malformed queries as the operation hangs indefinitely instead of providing immediate feedback about the query error.",
+  "rootCause": "Missing query validation in batch operation endpoint - queries are not validated upfront like they are in the CLI",
+  "proposedFix": "Add upfront query validation to batch operations to catch malformed queries before execution, matching CLI behavior",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in #9793 - will be included in next OSS and Cloud release",
+  "related": [
+    9793
+  ],
+  "keyQuote": "batch job running - hangs indefinitely",
+  "number": 9782,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:21:08.609Z"
+}

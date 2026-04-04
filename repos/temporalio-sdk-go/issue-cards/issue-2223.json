@@ -1,0 +1,32 @@
+{
+  "summary": "Enhancement to enable concurrent payload visiting in the Go SDK, referenced as a child of temporalio/features#772 for cross-SDK feature consistency.",
+  "category": "feature",
+  "subcategory": "payload-handling",
+  "apis": [],
+  "components": [
+    "payload-processor",
+    "converter",
+    "serialization"
+  ],
+  "concepts": [
+    "concurrency",
+    "payloads",
+    "visitor-pattern",
+    "performance",
+    "parallelization"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables concurrent processing of payloads, potentially improving performance and throughput for workflow execution in Go-based applications.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    772
+  ],
+  "keyQuote": "Parent issue: https://github.com/temporalio/features/issues/772",
+  "number": 2223,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:08:35.478Z"
+}

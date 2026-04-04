@@ -1,0 +1,33 @@
+{
+  "summary": "Security vulnerability CVE-2026-31812 in vendored quinn-proto 0.11.12 requires a bump to >= 0.11.14 to fix an unauthenticated remote DoS in QUIC transport parameter handling.",
+  "category": "bug",
+  "subcategory": "dependency-vulnerability",
+  "apis": [],
+  "components": [
+    "rust-bridge",
+    "quic-transport",
+    "dependencies"
+  ],
+  "concepts": [
+    "security",
+    "CVE",
+    "DoS",
+    "dependency-management",
+    "QUIC",
+    "vendored-dependencies"
+  ],
+  "severity": "high",
+  "userImpact": "Users of temporalio 1.22.0 and 1.23.0 have a high-severity CVE in their dependency that could enable DoS attacks, though actual exposure is limited since QUIC is not used.",
+  "rootCause": "Panic in QUIC transport parameter handling in quinn-proto 0.11.12 that can be exploited for unauthenticated remote DoS.",
+  "proposedFix": "Bump quinn-proto version to >= 0.11.14 in the vendored Cargo.lock file.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Quinn-proto dependency was bumped to >= 0.11.14 to address CVE-2026-31812.",
+  "related": [
+    651
+  ],
+  "keyQuote": "The vendored Cargo.lock in the Rust bridge ships `quinn-proto 0.11.12`, which is affected by CVE-2026-31812 (unauthenticated remote DoS via panic in QUIC transport parameter handling).",
+  "number": 1359,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:14:16.838Z"
+}

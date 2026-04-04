@@ -1,7 +1,623 @@
 {
-  "generatedAt": "2026-02-11T03:36:07.523Z",
-  "totalCards": 836,
+  "generatedAt": "2026-04-04T19:09:38.031Z",
+  "totalCards": 854,
   "cards": [
+    {
+      "summary": "Deprecate namespace fields on cross-namespace workflow command options in the Go SDK following API deprecation in response to Temporal Server 1.30.1 disabling cross-namespace operations by default.",
+      "category": "docs",
+      "subcategory": "cross-namespace-operations",
+      "apis": [
+        "ExecuteChildWorkflow",
+        "SignalExternalWorkflow",
+        "CancelExternalWorkflow"
+      ],
+      "components": [
+        "workflow-options",
+        "external-operations",
+        "child-workflows"
+      ],
+      "concepts": [
+        "deprecation",
+        "cross-namespace",
+        "namespace-isolation",
+        "api-evolution",
+        "backwards-compatibility"
+      ],
+      "severity": "low",
+      "userImpact": "Users using cross-namespace operations must update their code as these fields are now deprecated and will be removed in a future version.",
+      "rootCause": null,
+      "proposedFix": "Mark ChildWorkflowOptions.Namespace and namespace fields on external cancel/signal options as deprecated, adding doc comment: '// Deprecated: Cross-namespace operations are disabled by default as of server 1.30.1.'",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        750,
+        751,
+        8971
+      ],
+      "keyQuote": "Cross-namespace operations are disabled by default as of server 1.30.1.",
+      "number": 2264,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:09:37.951Z"
+    },
+    {
+      "summary": "Feature request to enable payload visitors to process memo payloads in aggregate for the Go SDK, part of a cross-SDK feature initiative to expand payload visitor capabilities.",
+      "category": "feature",
+      "subcategory": "payload-visitor-enhancement",
+      "apis": [
+        "DataConverter",
+        "WorkflowExecutionInfo"
+      ],
+      "components": [
+        "payload-converter",
+        "data-codec",
+        "workflow-execution",
+        "client"
+      ],
+      "concepts": [
+        "payload-conversion",
+        "serialization",
+        "metadata",
+        "visitor-pattern",
+        "batch-processing",
+        "codec"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot currently batch process memo payloads using the payload visitor pattern, limiting flexibility in payload handling across workflow executions.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        782
+      ],
+      "keyQuote": "Allow payload visitors to visit memo payloads in aggregate",
+      "number": 2252,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:09:27.630Z"
+    },
+    {
+      "summary": "Feature request to implement an S3 external storage driver for the Temporal Go SDK, enabling users to store large payloads externally in Amazon S3.",
+      "category": "feature",
+      "subcategory": "external-storage-driver",
+      "apis": [],
+      "components": [
+        "storage",
+        "external-storage",
+        "s3-driver",
+        "payload-handler"
+      ],
+      "concepts": [
+        "external-storage",
+        "s3",
+        "large-payloads",
+        "payload-storage",
+        "data-persistence"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables users with large workflow payloads to leverage S3 for external storage instead of storing everything in the Temporal database.",
+      "rootCause": null,
+      "proposedFix": "Implement an S3 external storage driver for the Go SDK as part of the cross-SDK external storage initiative.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        783
+      ],
+      "keyQuote": "Parent issue: https://github.com/temporalio/features/issues/783",
+      "number": 2251,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:09:29.890Z"
+    },
+    {
+      "summary": "The pollerBalancer.balance() method can unnecessarily block due to Go's non-deterministic map iteration order. When a poller's count drops to 0, subsequent loop iterations may grab another poller type's barrier and block instead of returning nil immediately.",
+      "category": "bug",
+      "subcategory": "poller-management",
+      "apis": [],
+      "components": [
+        "worker",
+        "poller",
+        "barrier",
+        "synchronization"
+      ],
+      "concepts": [
+        "non-deterministic-iteration",
+        "race-condition",
+        "deadlock",
+        "concurrency",
+        "polling",
+        "synchronization"
+      ],
+      "severity": "high",
+      "userImpact": "Workers may unnecessarily block on barriers even when they have no pending work, reducing throughput and potentially causing system hangs in certain scenarios.",
+      "rootCause": "Go's non-deterministic map iteration order causes pollerBalancer.balance() to visit and grab the wrong poller type's barrier before checking the current poller type's count.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Due to random map iteration, the loop visits the other type (which now has count == 0 again) before the current type — grabs the barrier and blocks again instead of returning nil.",
+      "number": 2236,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:09:10.372Z"
+    },
+    {
+      "summary": "taskWorker.taskPollerType is never initialized during setup, but pollerBalancer expects it to be set to either Sticky or Not Sticky. This causes incorrect task balancing behavior.",
+      "category": "bug",
+      "subcategory": "task-polling",
+      "apis": [],
+      "components": [
+        "taskWorker",
+        "scalableTaskPoller",
+        "pollerBalancer",
+        "taskPoller"
+      ],
+      "concepts": [
+        "sticky-poller",
+        "task-balancing",
+        "worker-initialization",
+        "poller-type",
+        "workflow-tasks",
+        "configuration"
+      ],
+      "severity": "high",
+      "userImpact": "Task distribution may be incorrect because pollerBalancer cannot properly balance task workers without knowing their poller types.",
+      "rootCause": "newScalableTaskPoller does not set scalableTaskPoller.taskPollerType during workflow poller initialization",
+      "proposedFix": "Wire workflow poller types through for mixed/non-sticky/sticky workflow pollers in newScalableTaskPoller and newWorkflowTaskWorkerInternal",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "taskWorker.taskPollerType is never set. Should be set to either Sticky or Not Sticky.",
+      "number": 2235,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:09:08.996Z"
+    },
+    {
+      "summary": "The Go SDK does not implement a retry loop for schedule updates when the server returns a 'mismatched conflict token' error, which occurs as of a recent server change. This requires SDK support to automatically retry schedule updates on conflict token mismatches.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-manager",
+        "update-handler",
+        "retry-logic",
+        "conflict-resolution"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-loop",
+        "schedule-updates",
+        "idempotency",
+        "error-handling",
+        "synchronization"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot update schedules when conflict token mismatches occur, requiring manual intervention until the SDK implements automatic retry logic.",
+      "rootCause": "Server change (temporalio/temporal#8474) now returns 'mismatched conflict token' errors during schedule updates, but the Go SDK lacks automatic retry logic to handle this scenario.",
+      "proposedFix": "Implement a conflict token retry loop for schedule update operations that automatically retries when conflict token mismatches are detected.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        8474
+      ],
+      "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token' as of https://github.com/temporalio/temporal/pull/8474.",
+      "number": 2233,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:09:10.390Z"
+    },
+    {
+      "summary": "Enhancement to enable concurrent payload visiting in the Go SDK, referenced as a child of temporalio/features#772 for cross-SDK feature consistency.",
+      "category": "feature",
+      "subcategory": "payload-handling",
+      "apis": [],
+      "components": [
+        "payload-processor",
+        "converter",
+        "serialization"
+      ],
+      "concepts": [
+        "concurrency",
+        "payloads",
+        "visitor-pattern",
+        "performance",
+        "parallelization"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables concurrent processing of payloads, potentially improving performance and throughput for workflow execution in Go-based applications.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [
+        772
+      ],
+      "keyQuote": "Parent issue: https://github.com/temporalio/features/issues/772",
+      "number": 2223,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:08:35.478Z"
+    },
+    {
+      "summary": "The SDK previously published test coverage data to coveralls.io but this data was never used, so coverage publishing is being removed. The issue documents the current state for potential future re-enablement if coverage analysis becomes valuable.",
+      "category": "other",
+      "subcategory": "ci-tooling",
+      "apis": [],
+      "components": [
+        "ci-pipeline",
+        "test-coverage",
+        "build-tools"
+      ],
+      "concepts": [
+        "code-coverage",
+        "testing",
+        "ci-cd",
+        "coverage-analysis",
+        "tooling",
+        "maintenance",
+        "cleanup"
+      ],
+      "severity": "low",
+      "userImpact": "No direct impact on SDK users; affects maintenance of CI/build infrastructure by removing unused coverage tooling.",
+      "rootCause": "Coverage data from coveralls.io integration was not being utilized or analyzed.",
+      "proposedFix": "Remove coverage publishing to coveralls.io (addressed in PR #2220); document location for future re-enablement if needed.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2220
+      ],
+      "keyQuote": "If in a future we want to start using this data, this is where we left off on.",
+      "number": 2222,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:08:38.091Z"
+    },
+    {
+      "summary": "User seeks guidance on running cleanup logic (defers) when FailWorkflow panic policy is triggered by non-deterministic errors in long-running workflows.",
+      "category": "question",
+      "subcategory": "panic-policy",
+      "apis": [],
+      "components": [
+        "workflow-executor",
+        "panic-handler",
+        "replay-engine",
+        "error-handling"
+      ],
+      "concepts": [
+        "cleanup",
+        "non-determinism",
+        "panic-policy",
+        "workflow-state",
+        "error-recovery",
+        "compensation"
+      ],
+      "severity": "high",
+      "userImpact": "Users running long-running agent workflows with FailWorkflow policy cannot properly clean up resources when non-deterministic errors occur, causing incomplete cleanup and workflows to appear running when they've actually failed.",
+      "rootCause": "When non-determinism is detected, the workflow cannot restore its state or generate new commands, so the workflow code may not even execute to the point where defers are called.",
+      "proposedFix": "Use child workflows with a parent workflow that runs compensation logic for cleanup operations.",
+      "workaround": "Restructure workflows as child workflows with parent compensation logic handling cleanup and notifications.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "If you want to run some logic after a workflow fails the best way currently is to run your workflow as a child workflow and have the parent run any compensation.",
+      "number": 2217,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:08:53.616Z"
+    },
+    {
+      "summary": "Interfaces like ContextPropagator are not generating documentation links in their docstrings. The expected doclink annotation (e.g., '// Exposed as: [go.temporal.io/sdk/workflow.ContextPropagator]') is missing.",
+      "category": "bug",
+      "subcategory": "documentation-generation",
+      "apis": [
+        "ContextPropagator"
+      ],
+      "components": [
+        "documentation-generator",
+        "godoc-processing",
+        "docstring-formatter"
+      ],
+      "concepts": [
+        "interface-linking",
+        "documentation-links",
+        "docstring-generation",
+        "api-documentation",
+        "type-exposure"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot find proper documentation links for interfaces, hindering API discoverability and navigation.",
+      "rootCause": "The documentation generation system does not properly create doclinks for interface types",
+      "proposedFix": "Add doclink annotations to interface docstrings following the pattern: // Exposed as: [go.temporal.io/sdk/workflow.InterfaceName]",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Interfaces, like `ContextPropagator` are not linked... should have a line like `// Exposed as: [go.temporal.io/sdk/workflow.ContextPropagator]`",
+      "number": 2213,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:08:10.717Z"
+    },
+    {
+      "summary": "Implement external payload storage foundation for the Go SDK, enabling payloads to be stored outside of workflow history as part of a cross-SDK feature initiative.",
+      "category": "feature",
+      "subcategory": "external-payload-storage",
+      "apis": [],
+      "components": [
+        "payload-handler",
+        "storage-adapter",
+        "serialization",
+        "codec"
+      ],
+      "concepts": [
+        "external storage",
+        "payload serialization",
+        "data conversion",
+        "codec",
+        "storage adapter"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables users to store large or sensitive payloads externally instead of embedding them in workflow history.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "External payload storage foundation implemented in Go SDK",
+      "related": [
+        765
+      ],
+      "keyQuote": "External Payload Storage Foundation - Go",
+      "number": 2208,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:08:12.192Z"
+    },
+    {
+      "summary": "User asks if Temporal has a visual/graphical workflow designer tool similar to Camunda for designing workflows graphically and generating code. The Temporal team confirms no official tool exists but mentions community efforts like FalconFlow.",
+      "category": "question",
+      "subcategory": "workflow-design",
+      "apis": [],
+      "components": [
+        "workflow-definition",
+        "code-generation",
+        "developer-tools"
+      ],
+      "concepts": [
+        "workflow-design",
+        "visual-programming",
+        "code-generation",
+        "workflow-visualization",
+        "no-code-tools",
+        "tooling"
+      ],
+      "severity": "low",
+      "userImpact": "Users seeking visual workflow design capabilities must rely on manual code writing or community tools, as Temporal offers no official graphical designer.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": "Use community tools like FalconFlow or design workflows directly in code",
+      "resolution": "invalid",
+      "resolutionDetails": "Closed as a discussion topic rather than an actionable issue. No official visual designer exists; users are directed to the public Slack for feature discussions.",
+      "related": [],
+      "keyQuote": "There is no visual tool like that that's built by the Temporal team. There may be community-led efforts or tools for this",
+      "number": 2207,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:08:24.781Z"
+    },
+    {
+      "summary": "Session activity cancellation combined with DataConverter encoding errors causes permanent workflow failure (TMPRL1100 Non-Determinism Error) that cannot be recovered on replay. Two bugs interact: encodeArgs panics instead of gracefully failing, and handleCancelInitiatedEvent rejects Initiated state during replay.",
+      "category": "bug",
+      "subcategory": "session-activity-cancellation",
+      "apis": [
+        "CreateSession",
+        "CompleteSession",
+        "ExecuteActivity",
+        "WithActivityOptions"
+      ],
+      "components": [
+        "workflow-execution",
+        "activity-state-machine",
+        "data-converter",
+        "session-management",
+        "replay-logic"
+      ],
+      "concepts": [
+        "determinism",
+        "state-machine",
+        "replay",
+        "activity-cancellation",
+        "session-management",
+        "codec-error",
+        "panic-recovery"
+      ],
+      "severity": "critical",
+      "userImpact": "Users whose workflows use sessions with failing DataConverters have permanently unrecoverable workflows that cannot be recovered even after fixing the codec issue.",
+      "rootCause": "Two bugs combine: (1) encodeArgs panics instead of returning error at workflow.go:943, and (2) handleCancelInitiatedEvent does not accept commandStateInitiated, causing state machine panic when ActivityTaskCancelRequested arrives during replay before CompleteSession transitions the state machine.",
+      "proposedFix": "1. Change panic(err) to return error gracefully at workflow.go:943. 2. Add commandStateInitiated to accepted states in handleCancelInitiatedEvent, consistent with PR #323 approach.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [
+        323,
+        343,
+        625,
+        726,
+        1227
+      ],
+      "keyQuote": "Every subsequent replay hits the same panic -- the workflow is permanently unrecoverable.",
+      "number": 2206,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:07:59.377Z"
+    },
+    {
+      "summary": "Activity panics are logged at the task handler level but not at the caller level in the Go SDK, unlike other Temporal SDKs which log the panic trace from the workflow perspective.",
+      "category": "bug",
+      "subcategory": "activity-logging",
+      "apis": [],
+      "components": [
+        "activity-executor",
+        "task-handler",
+        "logging",
+        "error-handling",
+        "panic-recovery"
+      ],
+      "concepts": [
+        "panic-handling",
+        "error-logging",
+        "stack-trace",
+        "activity-failure",
+        "observability",
+        "logging",
+        "cross-sdk-compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Activity panic stack traces are not logged at the workflow caller level, making it difficult for users to diagnose activity failures compared to other Temporal SDKs.",
+      "rootCause": "Panic trace logging is only implemented at the activity task handler level, not propagated to the workflow caller level.",
+      "proposedFix": "Log activity panic stack traces at the workflow caller level, similar to how other Temporal SDKs handle activity failures.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "It gets converted into Application errors with traces, so it ends up in history, but never logged from a workflow POV. Other SDKs log the panic trace.",
+      "number": 2204,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:07:53.201Z"
+    },
+    {
+      "summary": "SDK error and result types hide underlying proto data (Failure and Payload). Users need public accessors to access the full failure proto including stack traces and structured error chains, and raw payloads without conversion.",
+      "category": "feature",
+      "subcategory": "error-handling",
+      "apis": [
+        "PollWorkflowUpdate",
+        "EncodedValue"
+      ],
+      "components": [
+        "error-types",
+        "result-types",
+        "proto-serialization"
+      ],
+      "concepts": [
+        "proto-data",
+        "error-chain",
+        "stack-trace",
+        "payload-encoding",
+        "type-inspection",
+        "data-conversion"
+      ],
+      "severity": "medium",
+      "userImpact": "Callers like the CLI cannot access the full underlying proto data from errors and results, limiting their ability to properly display and inspect structured failure information.",
+      "rootCause": "The SDK API design currently only exposes high-level types without exposing the underlying proto data; the failure() method on temporalError is unexported.",
+      "proposedFix": "Add public Failure() method on temporalError to access *failurepb.Failure, and add Payload() accessor on EncodedValue to get the raw *commonpb.Payload.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "PollWorkflowUpdate returns a bare error. The underlying temporalError preserves the original *failurepb.Failure proto (including stack trace, structured error chain, encoded details), but failure() is unexported.",
+      "number": 2203,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:08:00.262Z"
+    },
+    {
+      "summary": "A custom slot supplier in the Go SDK cannot determine if a task queue is sticky when reserving slots. The request is to expose task queue stickiness to the slot supplier interface to align with other Temporal SDKs.",
+      "category": "feature",
+      "subcategory": "slot-supplier",
+      "apis": [
+        "SlotSupplier"
+      ],
+      "components": [
+        "slot-supplier",
+        "task-queue",
+        "worker",
+        "configuration"
+      ],
+      "concepts": [
+        "slot-allocation",
+        "task-queue-stickiness",
+        "worker-scheduling",
+        "slot-reservation",
+        "custom-supplier",
+        "api-parity"
+      ],
+      "severity": "medium",
+      "userImpact": "Users implementing custom slot suppliers in the Go SDK cannot access task queue stickiness information needed for intelligent slot reservation decisions.",
+      "rootCause": null,
+      "proposedFix": "Expose task queue stickiness information to the SlotSupplier interface or API.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "A custom slot supplier cannot determine if a TQ is sticky when reserving slots",
+      "number": 2191,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:07:21.699Z"
+    },
+    {
+      "summary": "workflowcheck incorrectly flags net/url.Parse as non-deterministic in Go 1.26 because its internals call garbage collection functions that the static analyzer marks as non-deterministic, preventing users from using this standard library function in workflows.",
+      "category": "bug",
+      "subcategory": "determinism-checking",
+      "apis": [],
+      "components": [
+        "workflowcheck",
+        "determinism-analyzer",
+        "static-analysis"
+      ],
+      "concepts": [
+        "determinism",
+        "garbage-collection",
+        "static-analysis",
+        "workflow-validation",
+        "false-positive",
+        "Go-1.26"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use net/url.Parse in workflows without receiving false positive non-determinism warnings from workflowcheck.",
+      "rootCause": "Go 1.26 commit ff654ea modified net/url.Parse internals to include garbage collection function calls, which are flagged as non-deterministic by the static analyzer even though URL parsing itself is deterministic.",
+      "proposedFix": "Update workflowcheck to properly handle Go 1.26 standard library changes and recognize that net/url.Parse is functionally deterministic despite internal GC calls.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Go 1.26 introduced changes in net/url.Parse that triggered false positives in determinism analysis. The fix updates workflowcheck to handle these standard library patterns correctly.",
+      "related": [
+        2188
+      ],
+      "keyQuote": "This was due to https://github.com/golang/go/commit/ff654ea. We found other Go 1.26 issues in #2188 too.",
+      "number": 2190,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:07:34.392Z"
+    },
+    {
+      "summary": "Go 1.26 upgrade causes non-determinism check failures in workflowcheck tests on Windows, specifically when tests access os.Stderr, blocking CI.",
+      "category": "bug",
+      "subcategory": "determinism-check",
+      "apis": [],
+      "components": [
+        "workflowcheck",
+        "test-framework",
+        "determinism-validation",
+        "windows"
+      ],
+      "concepts": [
+        "non-determinism",
+        "go-version-compatibility",
+        "windows-platform",
+        "determinism-check",
+        "test-failure",
+        "ci-blocking"
+      ],
+      "severity": "high",
+      "userImpact": "Developers cannot merge code as CI tests fail on Windows due to Go 1.26 non-determinism detection.",
+      "rootCause": "Go 1.26 introduced stricter non-determinism detection that fails tests accessing os.Stderr, which was previously allowed or ignored.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Fixed in PR #2187 by updating workflowcheck to handle Go 1.26 non-determinism checks.",
+      "related": [
+        2187
+      ],
+      "keyQuote": "CI upgraded to Go 1.26, now this fails, need to investigate further",
+      "number": 2188,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-04-04T19:07:24.719Z"
+    },
     {
       "summary": "Discussion about why the Go SDK wasn't built on top of the Rust Core SDK like TypeScript, Python, .NET, and Ruby SDKs. The Go SDK team explains historical reasons, backwards compatibility constraints, and technical limitations around shared library distribution in Go.",
       "category": "question",

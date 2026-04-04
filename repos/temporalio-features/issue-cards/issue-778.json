@@ -1,0 +1,30 @@
+{
+  "summary": "In Go's envconfig implementation, missing user config directory environment variables ($XDG_CONFIG_HOME and $HOME) cause failures instead of gracefully falling back, contrary to documentation. Need to verify and fix this behavior consistently across all SDKs.",
+  "category": "bug",
+  "subcategory": "envconfig",
+  "apis": [],
+  "components": [
+    "envconfig",
+    "config-loader",
+    "environment-parsing"
+  ],
+  "concepts": [
+    "environment-variables",
+    "configuration",
+    "error-handling",
+    "file-system",
+    "default-behavior"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on systems without $XDG_CONFIG_HOME or $HOME defined encounter unexpected errors instead of gracefully falling back to no config file.",
+  "rootCause": "envconfig fails when user config directory environment variables are not set, rather than treating this as 'no config file exists'",
+  "proposedFix": "Handle the 'failed getting user config dir' error the same as 'no file exists' and verify this behavior is consistent across all SDKs",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should consider this error to be the same as 'no file exists'",
+  "number": 778,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:05:46.824Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Proposal for memory optimization improvements in Temporal's metrics handling, featuring two-layer caching to reduce allocations in tallyMetricsHandler that eliminate 10.6% of total memory allocations and provide up to 2.6% latency improvements.",
+  "category": "feature",
+  "subcategory": "metrics-optimization",
+  "apis": [],
+  "components": [
+    "metrics-handler",
+    "tally-metrics",
+    "scope-registry"
+  ],
+  "concepts": [
+    "memory-allocation",
+    "caching",
+    "performance-optimization",
+    "throughput",
+    "garbage-collection",
+    "metrics",
+    "latency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users benefit from reduced memory usage and improved latency in metrics collection for high-throughput Temporal deployments.",
+  "rootCause": "Repeated map allocations and tally scope registry lookups on every metric emission due to lack of caching at multiple levels.",
+  "proposedFix": "Implement two-layer caching in tallyMetricsHandler: (1) sync.Map-based caching of WithTags handler children, (2) bounded scopeCache (1024 entries) for Tagged scope lookups with normalized tags to avoid repeated allocations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "While trying to improve Tempoal performance for ScyllaDB I bumped across mostly unrelated memory optimizations opportunities. Is the team interested in them?",
+  "number": 9565,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:44.056Z"
+}

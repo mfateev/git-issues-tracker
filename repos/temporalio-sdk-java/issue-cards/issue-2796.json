@@ -1,0 +1,39 @@
+{
+  "summary": "Replay fails when Update handlers containing SideEffect or LocalActivity complete during the same workflow task as getVersion markers, because UpdateCompleted events are interleaved between version markers in the history.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "getVersion",
+    "SideEffect",
+    "LocalActivity",
+    "Update"
+  ],
+  "components": [
+    "workflow-replay",
+    "version-marker",
+    "update-handler",
+    "state-machine",
+    "event-ordering"
+  ],
+  "concepts": [
+    "replay",
+    "versioning",
+    "determinism",
+    "event-ordering",
+    "state-machine",
+    "concurrency",
+    "history-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "Users who use Update handlers with SideEffect or LocalActivity in workflows with versioning experience workflow task failures during replay.",
+  "rootCause": "The SDK state machine has a bug when Update completions interleave with version markers, causing events to be recorded in a different order than they're replayed, breaking determinism.",
+  "proposedFix": null,
+  "workaround": "Use Workflow.await(Workflow::isEveryHandlerFinished) before getVersion calls to prevent the race condition.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The UpdateCompleted events are interleaved between two version marker events in history, causing a mismatch during replay.",
+  "number": 2796,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:10:13.058Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "The SDK previously published test coverage data to coveralls.io but this data was never used, so coverage publishing is being removed. The issue documents the current state for potential future re-enablement if coverage analysis becomes valuable.",
+  "category": "other",
+  "subcategory": "ci-tooling",
+  "apis": [],
+  "components": [
+    "ci-pipeline",
+    "test-coverage",
+    "build-tools"
+  ],
+  "concepts": [
+    "code-coverage",
+    "testing",
+    "ci-cd",
+    "coverage-analysis",
+    "tooling",
+    "maintenance",
+    "cleanup"
+  ],
+  "severity": "low",
+  "userImpact": "No direct impact on SDK users; affects maintenance of CI/build infrastructure by removing unused coverage tooling.",
+  "rootCause": "Coverage data from coveralls.io integration was not being utilized or analyzed.",
+  "proposedFix": "Remove coverage publishing to coveralls.io (addressed in PR #2220); document location for future re-enablement if needed.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2220
+  ],
+  "keyQuote": "If in a future we want to start using this data, this is where we left off on.",
+  "number": 2222,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:08:38.091Z"
+}

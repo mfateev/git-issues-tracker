@@ -1,0 +1,34 @@
+{
+  "summary": "When Temporal server configuration uses incorrect casing for the `bindOnIp` key or when using configuration files with multi-network deployments, the server falls back to intelligent interface selection in `ListenIP()`, binding only to one interface instead of all addresses as intended.",
+  "category": "bug",
+  "subcategory": "server-configuration",
+  "apis": [],
+  "components": [
+    "server",
+    "config",
+    "localip",
+    "network-binding"
+  ],
+  "concepts": [
+    "multi-network",
+    "interface-binding",
+    "ip-selection",
+    "docker-deployment",
+    "configuration",
+    "network-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Multi-network Temporal deployments cannot reliably bind to all interfaces using `bindOnIp: 0.0.0.0` in configuration files, causing unpredictable interface selection and connection failures from clients trying to reach non-selected interfaces.",
+  "rootCause": "The `ListenIP()` function in `common/config/localip.go` implements intelligent IP selection that scores available interfaces and picks one when they have equal scores, instead of respecting explicit `bindOnIp: 0.0.0.0` configuration to bind to all addresses.",
+  "proposedFix": "Temporal server should respect explicit `bindOnIp: 0.0.0.0` configuration by truly binding to all interfaces rather than attempting intelligent IP selection, matching the behavior of environment variables and other Temporal services like temporal-ui.",
+  "workaround": "Use environment variables (`BIND_ON_IP=0.0.0.0`) instead of configuration files, or explicitly specify interface names in configuration with correct key casing (`bindOnIP` not `bindOnIp`).",
+  "resolution": "invalid",
+  "resolutionDetails": "User's specific issue was caused by configuration key typo (`bindOnIp` instead of `bindOnIP`). When using correct casing or environment variables, the server behaves as expected. The intelligent interface selection behavior in config files is considered intentional design.",
+  "related": [
+    471
+  ],
+  "keyQuote": "When configured with `bindOnIp: 0.0.0.0`, when starting up, temporal server loops on all interfaces and tries to 'guess' a unique IP to listen to",
+  "number": 9683,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:20:30.184Z"
+}

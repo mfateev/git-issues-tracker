@@ -1,0 +1,37 @@
+{
+  "summary": "PollerBehaviorAutoscaling uses ForkJoinPool.commonPool() which doesn't inherit the context class loader from Spring Boot, causing Kotlin method references to fail despite the required library being on the classpath.",
+  "category": "bug",
+  "subcategory": "spring-boot-integration",
+  "apis": [
+    "PollerBehaviorAutoscaling",
+    "WorkerFactory",
+    "Async"
+  ],
+  "components": [
+    "worker",
+    "class-loader",
+    "poller-autoscaling",
+    "kotlin-support"
+  ],
+  "concepts": [
+    "class-loader-context",
+    "thread-context",
+    "auto-scaling",
+    "spring-boot",
+    "kotlin",
+    "classpath-resolution",
+    "forkjoinpool"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Spring Boot applications with Kotlin and PollerBehaviorAutoscaling enabled encounter runtime failures when using Kotlin method references with Async, despite the required temporal-kotlin library being on the classpath.",
+  "rootCause": "PollerBehaviorAutoscaling uses ForkJoinPool.commonPool() which doesn't inherit the context class loader from the WorkerFactory's initiating thread, causing Spring Boot's LaunchedClassLoader to be replaced with the default AppClassLoader.",
+  "proposedFix": "Modify PollerBehaviorAutoscaling to properly inherit or propagate the context class loader from the initiating thread when submitting tasks to ForkJoinPool.commonPool().",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PollerBehaviorAutoscaling was modified to properly handle context class loader inheritance when using ForkJoinPool with Spring Boot environments.",
+  "related": [],
+  "keyQuote": "When PollerBehaviorAutoscaling is enabled, worker threads are assigned jdk.internal.loader.ClassLoaders$AppClassLoader instead of Spring Boot's LaunchedClassLoader",
+  "number": 2795,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:10:20.424Z"
+}

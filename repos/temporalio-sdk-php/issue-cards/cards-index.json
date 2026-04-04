@@ -1,7 +1,236 @@
 {
-  "generatedAt": "2026-02-11T03:36:31.514Z",
-  "totalCards": 262,
+  "generatedAt": "2026-04-04T19:12:38.121Z",
+  "totalCards": 269,
   "cards": [
+    {
+      "summary": "PHP SDK lacks conflict token retry loop for schedule updates. The server now returns 'mismatched conflict token' errors (per temporal/temporal#8474), but the SDK doesn't implement retry logic to handle these errors.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-manager",
+        "conflict-handler",
+        "retry-loop",
+        "update-handler"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-loop",
+        "idempotency",
+        "concurrent-updates",
+        "schedule-update",
+        "error-recovery",
+        "server-compatibility"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot reliably update schedules when concurrent updates occur, as the SDK doesn't retry on conflict token mismatches returned by the server.",
+      "rootCause": "PHP SDK lacks conflict token retry loop for schedule updates, while server now returns 'mismatched conflict token' errors per temporal/temporal#8474",
+      "proposedFix": "Implement retry loop for schedule updates that handles 'mismatched conflict token' responses from server",
+      "workaround": "Manually retry schedule update operations in application code when conflict token mismatch errors occur",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The server returns 'mismatched conflict token' as of https://github.com/temporalio/temporal/pull/8474",
+      "number": 729,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-04-04T19:12:38.087Z"
+    },
+    {
+      "summary": "The test framework incorrectly assumes the Temporal server must be started via `startTemporalServer()` or `startTemporalTestServer()`, preventing users from running tests with externally managed (Docker) Temporal servers.",
+      "category": "bug",
+      "subcategory": "test-framework",
+      "apis": [],
+      "components": [
+        "startRoadRunner",
+        "startTemporalTestServer",
+        "Environment",
+        "server-detection"
+      ],
+      "concepts": [
+        "temporal-server",
+        "docker",
+        "external-process",
+        "test-setup",
+        "environment-configuration",
+        "process-lifecycle"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot run RoadRunner tests when the Temporal server is managed externally (via Docker or other means) without using a workaround.",
+      "rootCause": "The code checks if member variables are null (only set by startTemporalServer/startTemporalTestServer) rather than verifying if a server is actually running, incorrectly assuming the server must be started via the Environment class.",
+      "proposedFix": "Support external Temporal servers via environment variable ALLOW_EXTERNAL_TEMPORAL_PROCESS=true (mentioned in PR #724).",
+      "workaround": "Use Docker to run the Temporal server separately and enable the ALLOW_EXTERNAL_TEMPORAL_PROCESS environment variable to bypass the check.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        724
+      ],
+      "keyQuote": "I do not need the `startTemporalServer()`, nor the `startTemporalTestServer()` because when I spin up the docker containers it starts the temporal server.",
+      "number": 727,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-04-04T19:12:13.912Z"
+    },
+    {
+      "summary": "Update protobuf dependency constraint to support v5 alongside v4. The API DTOs package already supports protobuf v5.",
+      "category": "feature",
+      "subcategory": "dependencies",
+      "apis": [],
+      "components": [
+        "composer",
+        "dependencies",
+        "protobuf"
+      ],
+      "concepts": [
+        "dependency",
+        "version-compatibility",
+        "protobuf",
+        "major-upgrade",
+        "backwards-compatibility"
+      ],
+      "severity": "low",
+      "userImpact": "Allows users to opt-in to protobuf v5 while maintaining compatibility with v4.",
+      "rootCause": null,
+      "proposedFix": "Update version constraint to `^4.31.1 || ^5.34.0` in composer.json",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Updated protobuf dependency constraint in composer.json to support both v4 and v5",
+      "related": [],
+      "keyQuote": "\"google/protobuf\": \"^4.31.1 || ^5.34.0\"",
+      "number": 723,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-04-04T19:12:13.944Z"
+    },
+    {
+      "summary": "ActivityInterface defaults to an empty prefix, causing activity type name collisions when multiple activity classes share method names, potentially resulting in silent execution of the wrong implementation.",
+      "category": "bug",
+      "subcategory": "activity-registration",
+      "apis": [
+        "ActivityInterface",
+        "ActivityMethod"
+      ],
+      "components": [
+        "activity-interface",
+        "activity-registry",
+        "worker"
+      ],
+      "concepts": [
+        "activity-naming",
+        "type-collision",
+        "prefix",
+        "registration",
+        "activity-execution"
+      ],
+      "severity": "high",
+      "userImpact": "Users registering multiple activity classes with shared method names may silently execute the wrong activity implementation without error, leading to incorrect workflow behavior.",
+      "rootCause": "The default empty string for ActivityInterface::$prefix causes method names to be used as activity type names without class-based differentiation.",
+      "proposedFix": "Default prefix to the short class name (e.g., 'ActivityA.') instead of an empty string, similar to Java SDK behavior.",
+      "workaround": "Manually set prefix using #[ActivityInterface(prefix: 'classA.')] or explicitly name methods using #[ActivityMethod(name: 'classA.doWork')].",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Calling `ActivityA::doWork()` may execute `ActivityB::doWork()` instead.",
+      "number": 722,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-04-04T19:12:18.450Z"
+    },
+    {
+      "summary": "Feature request to add worker-level heartbeating configuration options to the PHP SDK, matching the Go SDK implementation. Users should be able to disable or configure heartbeating behavior and ensure accurate SDK metadata is recorded.",
+      "category": "feature",
+      "subcategory": "worker-heartbeat",
+      "apis": [],
+      "components": [
+        "worker",
+        "heartbeat",
+        "configuration",
+        "client"
+      ],
+      "concepts": [
+        "heartbeating",
+        "worker-configuration",
+        "options",
+        "sdk-metadata",
+        "activity-monitoring",
+        "feature-parity"
+      ],
+      "severity": "medium",
+      "userImpact": "PHP SDK users cannot configure or disable worker heartbeating behavior, limiting control over heartbeat settings and preventing accurate SDK metadata recording.",
+      "rootCause": null,
+      "proposedFix": "Pass through options similar to the Go SDK implementation to allow users to configure heartbeating behavior and ensure accurate SDK metadata recording.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        696
+      ],
+      "keyQuote": "Worker-level heartbeating is implemented in Go, we need to make sure users can disable it if desired via configuration.",
+      "number": 720,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-04-04T19:12:01.054Z"
+    },
+    {
+      "summary": "The PHP SDK's search attribute type parser is too strict and needs to be made more lenient to match behavior in other language SDKs. This issue references a fix that was already implemented in other languages (features issue #741).",
+      "category": "bug",
+      "subcategory": "search-attributes",
+      "apis": [],
+      "components": [
+        "search-attributes",
+        "type-parser",
+        "serializer"
+      ],
+      "concepts": [
+        "search-attributes",
+        "type-parsing",
+        "type-coercion",
+        "compatibility",
+        "serialization"
+      ],
+      "severity": "medium",
+      "userImpact": "Users experience inconsistent search attribute type handling between PHP SDK and other language SDKs, reducing cross-language compatibility.",
+      "rootCause": "The PHP SDK's search attribute type parser enforces overly strict type validation compared to other SDK implementations.",
+      "proposedFix": "Apply the same lenient type parsing behavior that was implemented in other language SDKs per features issue #741.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Applied the same lenient search attribute type parsing fix that was implemented across other SDK language implementations.",
+      "related": [
+        741
+      ],
+      "keyQuote": "Need to make the same fix as done in other languages for https://github.com/temporalio/features/issues/741",
+      "number": 715,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-04-04T19:11:53.008Z"
+    },
+    {
+      "summary": "OpenTelemetry interceptors fail to send traces because the SDK drops attributes with non-primitive or non-homogeneous array values, triggered by the PHP SDK's attribute handling.",
+      "category": "bug",
+      "subcategory": "opentelemetry-interceptors",
+      "apis": [],
+      "components": [
+        "opentelemetry-interceptors",
+        "attribute-handling",
+        "tracing"
+      ],
+      "concepts": [
+        "observability",
+        "tracing",
+        "attributes",
+        "telemetry",
+        "interceptors",
+        "type-validation"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot use OpenTelemetry interceptors; traces fail to send due to attribute validation errors.",
+      "rootCause": "OpenTelemetry SDK's AttributesBuilder rejects attributes containing non-primitive or non-homogeneous array values passed by the PHP SDK's interceptors.",
+      "proposedFix": "Modified attribute construction in sdk-php-interceptors-opentelemetry to comply with OpenTelemetry's type validation requirements.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Fixed in temporalio/sdk-php-interceptors-opentelemetry PR #10",
+      "related": [],
+      "keyQuote": "attribute with non-primitive or non-homogeneous array of primitives dropped",
+      "number": 711,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-04-04T19:11:48.828Z"
+    },
     {
       "summary": "Developer proposes simplifying the PHP SDK's developer experience by replacing the yield-based generator pattern with PHP Fibers for workflow suspension, arguing that yield-based workflows are confusing and suggesting Fibers as a cleaner alternative that doesn't require RoadRunner or async PHP.",
       "category": "feature",

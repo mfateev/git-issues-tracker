@@ -1,0 +1,37 @@
+{
+  "summary": "User cannot properly configure OpenTelemetry tracing for workflows because the OpenTelemetryPlugin requires SpanProcessor and Resource at build time during bundling, but these are only needed at runtime and shouldn't be serialized. Requests clearer API design or separate plugins.",
+  "category": "feature",
+  "subcategory": "opentelemetry-bundling",
+  "apis": [
+    "WorkflowCodeBundler",
+    "OpenTelemetryPlugin",
+    "Worker.create"
+  ],
+  "components": [
+    "worker",
+    "workflow-bundler",
+    "opentelemetry-plugin",
+    "bundling"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "instrumentation",
+    "plugin-architecture",
+    "build-time-configuration",
+    "serialization",
+    "span-processor"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot properly configure OpenTelemetry tracing for workflow tasks without confusing workarounds or unclear API patterns.",
+  "rootCause": "The OpenTelemetryPlugin interface conflates build-time bundling and runtime worker initialization, requiring runtime-only parameters (SpanProcessor, Resource) to be specified at build time.",
+  "proposedFix": "Split into two plugins: OpenTelemetryBundlingPlugin (no parameters) for build-time bundling and OpenTelemetryWorkerPlugin (with SpanProcessor and Resource) for runtime initialization.",
+  "workaround": "Use explicit type cast when bundling: new OpenTelemetryPlugin({} as OpenTelemetryPluginOptions) since required options are only used at worker runtime.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It works for activities and StartWorkflow, but not for the tasks which happen inside a workflow.",
+  "number": 1971,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:17:40.192Z"
+}

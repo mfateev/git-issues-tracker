@@ -1,0 +1,35 @@
+{
+  "summary": "LocalActivity retry after backoff fails with payload converter error when the backoff timer fires and workflow task resumes. Users using encryption and custom context headers experience task failure.",
+  "category": "bug",
+  "subcategory": "local-activity-retry",
+  "apis": [
+    "ExecuteLocalActivity"
+  ],
+  "components": [
+    "local-activity-executor",
+    "payload-converter",
+    "workflow-task-processor",
+    "activity-backoff"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "timeout",
+    "payload-conversion",
+    "workflow-task",
+    "local-activity",
+    "durability"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot successfully retry failed local activities with encrypted payloads and custom context headers, causing workflow failures.",
+  "rootCause": "Payload converter throws an error during local activity re-attempt after backoff timer fires, indicating incompatibility in payload handling during retry.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "After the Timer fires, on WorkflowTask started- it results in attempt to run LocalActivity - however the payload converter throws the below error",
+  "number": 610,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-04-04T19:06:42.711Z"
+}

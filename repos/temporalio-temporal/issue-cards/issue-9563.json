@@ -1,0 +1,34 @@
+{
+  "summary": "10-20 second gaps appear between consecutive activities in child workflows, with investigation revealing the delay is caused by slow workflow task execution (time between Workflow Task Started and Completed events), likely due to blocking sync API calls inside async activities blocking the event loop.",
+  "category": "bug",
+  "subcategory": "workflow-task-execution",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "event-loop",
+    "activity-executor",
+    "workflow-task-processor"
+  ],
+  "concepts": [
+    "workflow-task-execution",
+    "event-loop-blocking",
+    "concurrency",
+    "performance-delay",
+    "sync-blocking",
+    "activity-scheduling"
+  ],
+  "severity": "high",
+  "userImpact": "Workflow execution is significantly delayed when concurrent child workflows are executed, with some workflows taking 2+ minutes instead of expected time, becoming a bottleneck for batch processing.",
+  "rootCause": "Unwrapped sync API calls (FileManager, S3 operations, matching rules) inside async activities block the event loop, preventing workflow task processing across all workflows on the same worker.",
+  "proposedFix": "Wrap sync calls with asyncio.to_thread() or define activities as plain def functions instead of async def so the SDK runs them in a thread executor.",
+  "workaround": "Wrap blocking sync calls with asyncio.to_thread() to prevent event loop blocking.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The unwrapped sync calls inside async def activities are likely the main cause. They block the event loop, which prevents workflow task processing across all workflows on that worker.",
+  "number": 9563,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:19.447Z"
+}

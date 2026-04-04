@@ -1,7 +1,340 @@
 {
-  "generatedAt": "2026-02-11T03:35:55.893Z",
-  "totalCards": 395,
+  "generatedAt": "2026-04-04T19:06:16.810Z",
+  "totalCards": 405,
   "cards": [
+    {
+      "summary": "Feature request for a pre-built AWS S3 external storage driver for Temporal SDKs to store large payloads externally. Currently customers must write their own drivers, but the SDK should provide standard drivers for common use cases.",
+      "category": "feature",
+      "subcategory": "external-storage",
+      "apis": [],
+      "components": [
+        "payload-storage",
+        "external-storage",
+        "s3-driver",
+        "storage-client"
+      ],
+      "concepts": [
+        "external-storage",
+        "payload-storage",
+        "deduplication",
+        "lifecycle-management",
+        "aws-s3"
+      ],
+      "severity": "medium",
+      "userImpact": "Users currently must write custom external storage drivers for S3; a pre-built driver would standardize S3 payload storage and reduce development burden across SDKs.",
+      "rootCause": null,
+      "proposedFix": "Create a separate S3 storage driver module that supports static/dynamic bucket naming, hierarchical object keys for lifecycle management, payload deduplication across context levels, and avoids pulling S3 dependencies unless the driver is explicitly included.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        765
+      ],
+      "keyQuote": "But there are no pre-built storage drivers for customers to use, thus requiring customers to write their own drivers.",
+      "number": 783,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:06:16.752Z"
+    },
+    {
+      "summary": "Feature request to allow payload visitors to visit all memo payloads together as an aggregate, enabling transformations and validation at the memo scope (e.g., enforcing memo size limits) rather than visiting individual payloads separately.",
+      "category": "feature",
+      "subcategory": "payload-visitors",
+      "apis": [],
+      "components": [
+        "payload-visitor",
+        "memo",
+        "interceptor"
+      ],
+      "concepts": [
+        "payload-transformation",
+        "validation",
+        "size-limits",
+        "visitor-pattern",
+        "aggregation",
+        "memo"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables enforcement of memo size constraints and other aggregate payload validations that weren't previously possible with individual payload visiting.",
+      "rootCause": null,
+      "proposedFix": "Add a `VisitMemo` callback option to payload visitors (or language-specific equivalent) that receives all memo payloads together, with fallback to individual visiting when not implemented.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "check if the entire size of a memo is larger than some threshold and make a decision around that, such as failing a workflow task if the memo is too large for the server",
+      "number": 782,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:59.878Z"
+    },
+    {
+      "summary": "In Go's envconfig implementation, missing user config directory environment variables ($XDG_CONFIG_HOME and $HOME) cause failures instead of gracefully falling back, contrary to documentation. Need to verify and fix this behavior consistently across all SDKs.",
+      "category": "bug",
+      "subcategory": "envconfig",
+      "apis": [],
+      "components": [
+        "envconfig",
+        "config-loader",
+        "environment-parsing"
+      ],
+      "concepts": [
+        "environment-variables",
+        "configuration",
+        "error-handling",
+        "file-system",
+        "default-behavior"
+      ],
+      "severity": "medium",
+      "userImpact": "Users on systems without $XDG_CONFIG_HOME or $HOME defined encounter unexpected errors instead of gracefully falling back to no config file.",
+      "rootCause": "envconfig fails when user config directory environment variables are not set, rather than treating this as 'no config file exists'",
+      "proposedFix": "Handle the 'failed getting user config dir' error the same as 'no file exists' and verify this behavior is consistent across all SDKs",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "We should consider this error to be the same as 'no file exists'",
+      "number": 778,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:46.824Z"
+    },
+    {
+      "summary": "SDKs need to implement conflict token retry logic for schedule updates. They must pass the conflict token from DescribeSchedule to UpdateSchedule requests and retry the describe-modify-update loop when the server returns a FailedPrecondition error for mismatched conflict tokens.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "DescribeSchedule",
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-manager",
+        "sdk-implementations",
+        "retry-logic",
+        "conflict-resolution"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-loop",
+        "optimistic-concurrency",
+        "describe-modify-update",
+        "schedule-updates",
+        "error-handling"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot reliably update schedules in concurrent scenarios without manually implementing conflict token retry logic.",
+      "rootCause": "Server now enforces conflict tokens for schedule updates (via temporal/temporal#8474), but no SDK implements the required retry loop.",
+      "proposedFix": "Pass the conflict token from DescribeSchedule in UpdateSchedule requests and retry the describe-modify-update loop on FailedPrecondition with mismatched conflict token errors.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2233,
+        2809,
+        1967,
+        1367,
+        624,
+        401,
+        1157,
+        729
+      ],
+      "keyQuote": "Retry the describe-modify-update loop on FailedPrecondition with \"mismatched conflict token\"",
+      "number": 777,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:46.288Z"
+    },
+    {
+      "summary": "Add support for concurrent payload visiting in SDKs. Currently payload visitors process proto messages serially, but this feature request proposes allowing concurrent processing with configurable concurrency limits while maintaining backward compatibility by defaulting to single-task execution.",
+      "category": "feature",
+      "subcategory": "payload-visiting",
+      "apis": [],
+      "components": [
+        "payload-visitor",
+        "serialization",
+        "proto-message-handling"
+      ],
+      "concepts": [
+        "concurrency",
+        "async-processing",
+        "payload-visiting",
+        "proto-messages",
+        "multithreading",
+        "io-bound",
+        "backward-compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Users with multithreaded or async/I/O bound workloads can leverage concurrent payload processing for better resource utilization.",
+      "rootCause": null,
+      "proposedFix": "Update the payload visitor for each SDK to allow for concurrent processing of payloads in proto messages with options to control concurrency limits, defaulting to single task execution for backward compatibility.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2223,
+        1356
+      ],
+      "keyQuote": "payload visitors in the SDKs visit proto messages and the fields in a serial manner. This is fine for CPU bound work on single threaded schedulers, but leaves room for improvement for multithreaded and I/O bound, async work.",
+      "number": 772,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:22.455Z"
+    },
+    {
+      "summary": "Workers with poller autoscaling enabled don't scale down when completely idle, maintaining unnecessary polling connections indefinitely rather than scaling to the minimum configured poller count.",
+      "category": "feature",
+      "subcategory": "poller-autoscaling",
+      "apis": [],
+      "components": [
+        "pollers",
+        "worker",
+        "poll-buffer",
+        "task-queue"
+      ],
+      "concepts": [
+        "autoscaling",
+        "resource-efficiency",
+        "connection-pooling",
+        "idle-workers",
+        "timeout",
+        "scaling"
+      ],
+      "severity": "high",
+      "userImpact": "Idle workers maintain 5x the necessary polling connections, contributing to polling amplification and wasteful resource usage for unused task queues.",
+      "rootCause": "Pollers only scale down when receiving autoscaling signals, which never arrive on inactive task queues, preventing scale-down to minimum poller count.",
+      "proposedFix": "Implement repeated poll timeouts to trigger scale-down, or send a capability flag from server to enable client-side scale-down on empty polls.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "When a worker with poller autoscaling enabled goes completely unused (receives 0 tasks), the worker maintains initialConcurrentTaskPollers (default 5) pollers indefinitely",
+      "number": 770,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:32.717Z"
+    },
+    {
+      "summary": "Feature request for an SDK abstraction that allows customers to offload large payloads to external storage systems (like S3) transparently, with support for both pre-built drivers and custom integrations.",
+      "category": "feature",
+      "subcategory": "external-payload-storage",
+      "apis": [],
+      "components": [
+        "payload-handling",
+        "storage-abstraction",
+        "worker",
+        "serialization"
+      ],
+      "concepts": [
+        "payload-offloading",
+        "external-storage",
+        "large-payloads",
+        "storage-abstraction",
+        "transparent-storage",
+        "claim-information",
+        "scalability"
+      ],
+      "severity": "high",
+      "userImpact": "Users currently must manually create abstractions to handle large payloads, rearchitect workflows to break down data, and manage external storage themselves.",
+      "rootCause": null,
+      "proposedFix": "Provide an SDK abstraction that allows opt-in offloading of payloads to external storage with pre-built drivers for well-known systems and custom integration support, remaining transparent to workflows and activities while using contextual information to inform storage decisions.",
+      "workaround": "Customers currently write custom abstractions to offload large data into storage systems, pass around references, and manually retrieve that data.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2208,
+        1342
+      ],
+      "keyQuote": "The SDK should provide an abstraction to allow customers to opt into offloading payloads to external storage systems when they are large or for other customer-defined determinations.",
+      "number": 765,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:24.210Z"
+    },
+    {
+      "summary": "Standardize how SDKs handle Nexus Operation input argument deserialization failures. Currently different SDKs treat these failures inconsistently—some as retryable, others as non-retryable. The agreed standard: payload converter failures are non-retryable (BAD_REQUEST), codec failures are retryable (INTERNAL).",
+      "category": "feature",
+      "subcategory": "nexus-operations",
+      "apis": [],
+      "components": [
+        "payload-converter",
+        "codec",
+        "nexus-handler",
+        "error-handler"
+      ],
+      "concepts": [
+        "deserialization",
+        "retry-logic",
+        "error-handling",
+        "payload-conversion",
+        "codec",
+        "standardization"
+      ],
+      "severity": "medium",
+      "userImpact": "Users experience inconsistent error handling behavior across different SDKs when Nexus Operation input deserialization fails.",
+      "rootCause": "Different SDKs independently implemented deserialization failure handling without standardized treatment of retry semantics.",
+      "proposedFix": "Standardize all SDKs to treat payload converter failures as non-retryable (BAD_REQUEST) and codec failures as retryable (INTERNAL). Create per-SDK implementation tickets.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Standardization agreement established and implemented across TypeScript, Python, .NET, Ruby, and Rust. Go and Java to be addressed via separate GA-specific solutions.",
+      "related": [],
+      "keyQuote": "failures from the payload converter are non retry able (BAD_REQUEST), and failures in the codec are retry able (INTERNAL)",
+      "number": 762,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:06.671Z"
+    },
+    {
+      "summary": "The features repository should be configured to automatically pull the latest SDK version from each language's package manager instead of using pinned/locked versions, allowing developers to get the latest updates without manual intervention.",
+      "category": "feature",
+      "subcategory": "test-framework",
+      "apis": [],
+      "components": [
+        "features-test-framework",
+        "package-manager-integration",
+        "ci-infrastructure"
+      ],
+      "concepts": [
+        "versioning",
+        "dependency-management",
+        "automation",
+        "ci-cd",
+        "lock-files"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers running features tests locally will automatically use the latest SDK versions without needing to manually update version constraints.",
+      "rootCause": null,
+      "proposedFix": "Remove version pinning in lock files and package manager configurations to allow package managers to automatically fetch the latest SDK version.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Allow features to default to the latest SDK version, which each lang's package manager should hopefully automatically do if we remove the set version currently.",
+      "number": 761,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:05.535Z"
+    },
+    {
+      "summary": "Add code snippet and documentation example for the new upgrade-on-CAN API following the pattern from PR #739, to showcase and test this workflow upgrade feature.",
+      "category": "docs",
+      "subcategory": "upgrade-patterns",
+      "apis": [],
+      "components": [
+        "documentation",
+        "examples",
+        "feature-tests"
+      ],
+      "concepts": [
+        "upgrade",
+        "workflow-upgrade",
+        "versioning",
+        "backward-compatibility",
+        "testing"
+      ],
+      "severity": "low",
+      "userImpact": "Users need clear documentation examples demonstrating how to implement workflow upgrades using the new upgrade-on-CAN API.",
+      "rootCause": null,
+      "proposedFix": "Create documentation snippet using upgrade-on-CAN API following the pattern established in PR #739",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Basically want to do what we did here but with the new upgrade-on-can API. Should be fairly similar.",
+      "number": 753,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-04-04T19:05:04.457Z"
+    },
     {
       "summary": "User request to provide access to the randomness seed used in workflows and enable reseeding for independent random number sequences. This allows users to create distinct random sequences (e.g., for telemetry) without affecting the workflow's own randomness.",
       "category": "feature",

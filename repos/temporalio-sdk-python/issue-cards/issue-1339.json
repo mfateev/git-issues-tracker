@@ -1,0 +1,32 @@
+{
+  "summary": "The `workflow_id` field in `WorkflowSerializationContext` is incorrectly typed as `str | None` when it should be `str` since it's always populated in a workflow context.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "WorkflowSerializationContext"
+  ],
+  "components": [
+    "serialization",
+    "context",
+    "type-annotations"
+  ],
+  "concepts": [
+    "type-safety",
+    "type-annotations",
+    "workflow-context",
+    "serialization",
+    "nullability"
+  ],
+  "severity": "medium",
+  "userImpact": "Type checkers incorrectly flag `workflow_id` as potentially null, requiring unnecessary null checks in user code.",
+  "rootCause": "Incorrect type annotation for `workflow_id` in `WorkflowSerializationContext` class definition",
+  "proposedFix": "Change `workflow_id` type from `str | None` to `str`",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Type annotation was corrected to reflect that workflow_id is always populated in workflow context",
+  "related": [],
+  "keyQuote": "workflow_id in WorkflowSerializationContext should be str instead of str | None as we expect it to always be populated",
+  "number": 1339,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:12:48.895Z"
+}

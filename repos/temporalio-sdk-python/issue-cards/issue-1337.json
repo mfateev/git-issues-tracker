@@ -1,0 +1,31 @@
+{
+  "summary": "The _invoke_model_activity function crashes with AttributeError when handling LiteLLM exceptions that subclass APIStatusError but lack a .response attribute. The code unconditionally accesses e.response.headers without checking if the attribute exists.",
+  "category": "bug",
+  "subcategory": "openai-agents",
+  "apis": [],
+  "components": [
+    "openai_agents",
+    "_invoke_model_activity",
+    "error-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "subclassing",
+    "attribute-access",
+    "third-party-integration",
+    "compatibility",
+    "error-recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users using LiteLLM with OpenAI agents will experience crashes when LiteLLM errors occur",
+  "rootCause": "LiteLLM's error classes inherit from OpenAI's APIStatusError but don't always populate the .response attribute, while the error handling code unconditionally accesses e.response.headers",
+  "proposedFix": "Guard e.response access with getattr(e, 'response', None) and handle the case where response is None",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented defensive error handling to safely check for the .response attribute before accessing it",
+  "related": [],
+  "keyQuote": "AttributeError: 'UnsupportedParamsError' object has no attribute 'response'",
+  "number": 1337,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:13:05.247Z"
+}

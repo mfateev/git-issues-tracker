@@ -1,0 +1,34 @@
+{
+  "summary": "Prometheus `cache_size` gauge is overwritten by the replication progress cache due to metric tag collision, causing it to report 128000 instead of the actual mutable state cache capacity. This prevents users from monitoring byte-based cache limiting configuration via metrics.",
+  "category": "bug",
+  "subcategory": "metrics-observability",
+  "apis": [],
+  "components": [
+    "history-service",
+    "cache-metrics",
+    "replication-progress-cache",
+    "mutable-state-cache"
+  ],
+  "concepts": [
+    "prometheus-metrics",
+    "gauge-collision",
+    "cache-sizing",
+    "byte-mode-limiting",
+    "initialization-order",
+    "memory-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot verify via Prometheus metrics that byte-based cache limiting is active, leading them to incorrectly conclude the feature is broken and switch to count-based mode.",
+  "rootCause": "Both the mutable state cache and replication progress cache use the same MutableStateCacheTypeTagValue metric tag. Since Prometheus gauges use last-write-wins semantics and the replication progress cache is initialized after the mutable state cache, its maxSize (128000) overwrites the actual mutable state cache gauge value.",
+  "proposedFix": "Create a new metric tag constant ReplicationProgressCacheTypeTagValue = \"replication_progress\" and use it in progress_cache.go instead of reusing MutableStateCacheTypeTagValue, allowing both caches to report their cache_size independently.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8902
+  ],
+  "keyQuote": "Users who enable byte-based cache limiting and check the cache_size{mutablestate} metric will see 128000 instead of their configured byte limit - leading them to incorrectly conclude that byte mode did not activate.",
+  "number": 9600,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:59.364Z"
+}

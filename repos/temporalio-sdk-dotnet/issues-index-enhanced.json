@@ -1,9 +1,290 @@
 {
-  "generatedAt": "2026-02-11T03:38:57.742Z",
+  "generatedAt": "2026-04-04T19:22:21.843Z",
   "repo": "temporalio-sdk-dotnet",
-  "totalCount": 294,
-  "cardsCount": 294,
+  "totalCount": 300,
+  "cardsCount": 300,
   "issues": [
+    {
+      "number": 634,
+      "title": "DescribeTaskQueueAsync does not return stats",
+      "state": "OPEN",
+      "author": "cfauchere",
+      "labels": [],
+      "createdAt": "2026-03-04T22:06:26Z",
+      "updatedAt": "2026-04-02T22:55:46Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/634",
+      "bodyLength": 1509,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.27.1",
+        "1.26.2",
+        "1.8.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 2,
+      "summary": "DescribeTaskQueueAsync does not populate the Stats field in the response even when ReportStats is set to true, requiring users to use deprecated API modes to retrieve task queue statistics.",
+      "category": "bug",
+      "subcategory": "task-queue-management",
+      "apis": [
+        "DescribeTaskQueueAsync",
+        "DescribeTaskQueueRequest",
+        "DescribeTaskQueueResponse"
+      ],
+      "components": [
+        "WorkflowService",
+        "task-queue-operations",
+        "response-mapping"
+      ],
+      "concepts": [
+        "task-queue-statistics",
+        "backlog-reporting",
+        "poller-information",
+        "request-response-mapping",
+        "api-mode"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 624,
+      "title": "[.net] Support conflict token retry loop for schedule updates",
+      "state": "OPEN",
+      "author": "chris-olszewski",
+      "labels": [],
+      "createdAt": "2026-03-16T18:06:31Z",
+      "updatedAt": "2026-03-16T18:06:31Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/624",
+      "bodyLength": 173,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "The .NET SDK lacks retry logic for schedule updates when the server returns a 'mismatched conflict token' error, which the server now requires as of a recent change.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-manager",
+        "update-handler",
+        "retry-logic"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-loop",
+        "schedule-updates",
+        "idempotency",
+        "concurrency-control",
+        "error-handling"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 618,
+      "title": "[Feature Request] Rename Nexus Operation classes used in a workflow in preparation for Stand alone Nexus operations",
+      "state": "CLOSED",
+      "author": "Quinn-With-Two-Ns",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-26T17:21:04Z",
+      "updatedAt": "2026-03-10T17:31:10Z",
+      "closedAt": "2026-03-10T17:31:10Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/618",
+      "bodyLength": 568,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to rename workflow-based Nexus Operation classes to avoid naming collisions with future standalone Nexus operations. Proposes adding 'workflow' prefix to class names (e.g., NexusClient → NexusWorkflowClient).",
+      "category": "feature",
+      "subcategory": "nexus-operations",
+      "apis": [
+        "NexusClient"
+      ],
+      "components": [
+        "nexus-client",
+        "workflow-integration",
+        "api-design"
+      ],
+      "concepts": [
+        "nexus-operations",
+        "workflow-integration",
+        "api-design",
+        "naming-conventions",
+        "standalone-operations",
+        "breaking-changes"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 616,
+      "title": "[Bug] Worker Client Refresh example is confusing as it doesn't have a need for client refresh",
+      "state": "CLOSED",
+      "author": "jpfifer",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-02-23T21:21:48Z",
+      "updatedAt": "2026-02-25T18:21:54Z",
+      "closedAt": "2026-02-25T18:21:54Z",
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/616",
+      "bodyLength": 4647,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.9.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "The Worker Client Refresh example in the SDK documentation is confusing as it only shows a simple connection string scenario, which doesn't demonstrate the actual use case requiring client refresh (custom authentication). This leads users to misunderstand how to properly implement it.",
+      "category": "docs",
+      "subcategory": "worker-client-refresh",
+      "apis": [
+        "ITemporalClient",
+        "TemporalClient",
+        "TemporalWorkerClientUpdater",
+        "AddHostedTemporalWorker"
+      ],
+      "components": [
+        "hosting-extensions",
+        "worker-client-updater",
+        "client-management",
+        "authentication"
+      ],
+      "concepts": [
+        "authentication",
+        "client-refresh",
+        "connection-management",
+        "custom-credentials",
+        "service-lifecycle",
+        "dependency-injection"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 614,
+      "title": "[Feature Request] Standardize Nexus Operation Input Arg. Deserialization Failure",
+      "state": "CLOSED",
+      "author": "Quinn-With-Two-Ns",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-22T23:59:06Z",
+      "updatedAt": "2026-02-24T14:29:14Z",
+      "closedAt": "2026-02-24T14:29:14Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/614",
+      "bodyLength": 49,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        762
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to standardize Nexus operation input argument deserialization failure handling in the .NET SDK, with cross-SDK tracking in temporalio/features#762.",
+      "category": "feature",
+      "subcategory": "nexus-operations",
+      "apis": [
+        "NexusOperation"
+      ],
+      "components": [
+        "nexus-client",
+        "deserialization"
+      ],
+      "concepts": [
+        "deserialization",
+        "input-validation",
+        "error-handling",
+        "standardization",
+        "nexus"
+      ],
+      "severity": "medium",
+      "resolution": "duplicate",
+      "hasCard": true
+    },
+    {
+      "number": 610,
+      "title": "[Bug] re-attempt of LocalActivity after a LocalActivityBackoff - leading to task failure",
+      "state": "CLOSED",
+      "author": "gauravthadani",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-02-17T05:30:05Z",
+      "updatedAt": "2026-02-17T22:05:58Z",
+      "closedAt": "2026-02-17T22:05:58Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/610",
+      "bodyLength": 1775,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.14.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "LocalActivity retry after backoff fails with payload converter error when the backoff timer fires and workflow task resumes. Users using encryption and custom context headers experience task failure.",
+      "category": "bug",
+      "subcategory": "local-activity-retry",
+      "apis": [
+        "ExecuteLocalActivity"
+      ],
+      "components": [
+        "local-activity-executor",
+        "payload-converter",
+        "workflow-task-processor",
+        "activity-backoff"
+      ],
+      "concepts": [
+        "retry",
+        "backoff",
+        "timeout",
+        "payload-conversion",
+        "workflow-task",
+        "local-activity",
+        "durability"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
     {
       "number": 603,
       "title": "[Bug] Adjust typed search attribute logic to be as lenient on type metadata as server is when deserializing",
@@ -680,14 +961,14 @@
     {
       "number": 568,
       "title": "[Feature Request] Support standalone activities",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maciejdudko",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T17:20:32Z",
-      "updatedAt": "2026-01-29T21:31:47Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T14:48:16Z",
+      "closedAt": "2026-02-19T14:48:16Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/568",

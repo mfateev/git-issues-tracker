@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to implement an S3 external storage driver for the Temporal Go SDK, enabling users to store large payloads externally in Amazon S3.",
+  "category": "feature",
+  "subcategory": "external-storage-driver",
+  "apis": [],
+  "components": [
+    "storage",
+    "external-storage",
+    "s3-driver",
+    "payload-handler"
+  ],
+  "concepts": [
+    "external-storage",
+    "s3",
+    "large-payloads",
+    "payload-storage",
+    "data-persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users with large workflow payloads to leverage S3 for external storage instead of storing everything in the Temporal database.",
+  "rootCause": null,
+  "proposedFix": "Implement an S3 external storage driver for the Go SDK as part of the cross-SDK external storage initiative.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    783
+  ],
+  "keyQuote": "Parent issue: https://github.com/temporalio/features/issues/783",
+  "number": 2251,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:09:29.890Z"
+}

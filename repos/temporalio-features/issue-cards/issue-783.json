@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request for a pre-built AWS S3 external storage driver for Temporal SDKs to store large payloads externally. Currently customers must write their own drivers, but the SDK should provide standard drivers for common use cases.",
+  "category": "feature",
+  "subcategory": "external-storage",
+  "apis": [],
+  "components": [
+    "payload-storage",
+    "external-storage",
+    "s3-driver",
+    "storage-client"
+  ],
+  "concepts": [
+    "external-storage",
+    "payload-storage",
+    "deduplication",
+    "lifecycle-management",
+    "aws-s3"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must write custom external storage drivers for S3; a pre-built driver would standardize S3 payload storage and reduce development burden across SDKs.",
+  "rootCause": null,
+  "proposedFix": "Create a separate S3 storage driver module that supports static/dynamic bucket naming, hierarchical object keys for lifecycle management, payload deduplication across context levels, and avoids pulling S3 dependencies unless the driver is explicitly included.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    765
+  ],
+  "keyQuote": "But there are no pre-built storage drivers for customers to use, thus requiring customers to write their own drivers.",
+  "number": 783,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:06:16.752Z"
+}

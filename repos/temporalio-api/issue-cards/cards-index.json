@@ -1,7 +1,60 @@
 {
-  "generatedAt": "2026-02-11T03:35:44.030Z",
-  "totalCards": 25,
+  "generatedAt": "2026-04-04T19:04:49.366Z",
+  "totalCards": 27,
   "cards": [
+    {
+      "summary": "Empty feature request with no actual problem statement or proposed solution. Issue contains only the template structure without user-provided content.",
+      "category": "other",
+      "subcategory": null,
+      "apis": [],
+      "components": [],
+      "concepts": [],
+      "severity": "low",
+      "userImpact": "Cannot determine - issue lacks substantive content",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "invalid",
+      "resolutionDetails": "Incomplete feature request - issue closed with template not filled out",
+      "related": [],
+      "keyQuote": null,
+      "number": 754,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-04-04T19:04:25.530Z"
+    },
+    {
+      "summary": "Temporal Server 1.30.0 disabled cross-namespace workflow commands by default for security reasons. SDKs should deprecate the `namespace` property on workflow commands and events to communicate this restriction to users.",
+      "category": "bug",
+      "subcategory": "cross-namespace-workflows",
+      "apis": [
+        "StartChildWorkflowExecution"
+      ],
+      "components": [
+        "workflow-commands",
+        "events",
+        "api-definitions"
+      ],
+      "concepts": [
+        "cross-namespace",
+        "deprecation",
+        "security",
+        "namespace-isolation",
+        "backward-compatibility",
+        "configuration"
+      ],
+      "severity": "medium",
+      "userImpact": "Users relying on cross-namespace workflow operations will need to plan for eventual removal of this functionality as the namespace property is marked deprecated.",
+      "rootCause": "Temporal Server 1.30.0 restricted cross-namespace operations by default for security and reliability reasons, but SDK APIs haven't been updated to reflect this change.",
+      "proposedFix": "Add deprecation markers to the `namespace` property on workflow commands and their event counterparts in SDKs.",
+      "workaround": "Users can enable `system.enableCrossNamespaceCommands` dynamic configuration to continue using cross-namespace operations.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Temporal Server 1.30.0 disabled support for cross-namespace workflow commands by default due to security and reliability concerns.",
+      "number": 750,
+      "repo": "temporalio-api",
+      "generatedAt": "2026-04-04T19:04:49.359Z"
+    },
     {
       "summary": "Users need visibility into workflow start delays when listing or describing workflows. Currently, WorkflowExecutionInfo doesn't expose when a workflow will actually begin execution if scheduled with a delay, making it unclear whether a workflow is truly running or waiting to start.",
       "category": "feature",

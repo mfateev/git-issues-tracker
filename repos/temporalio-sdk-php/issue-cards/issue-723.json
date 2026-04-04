@@ -1,0 +1,30 @@
+{
+  "summary": "Update protobuf dependency constraint to support v5 alongside v4. The API DTOs package already supports protobuf v5.",
+  "category": "feature",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "composer",
+    "dependencies",
+    "protobuf"
+  ],
+  "concepts": [
+    "dependency",
+    "version-compatibility",
+    "protobuf",
+    "major-upgrade",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Allows users to opt-in to protobuf v5 while maintaining compatibility with v4.",
+  "rootCause": null,
+  "proposedFix": "Update version constraint to `^4.31.1 || ^5.34.0` in composer.json",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Updated protobuf dependency constraint in composer.json to support both v4 and v5",
+  "related": [],
+  "keyQuote": "\"google/protobuf\": \"^4.31.1 || ^5.34.0\"",
+  "number": 723,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-04-04T19:12:13.944Z"
+}

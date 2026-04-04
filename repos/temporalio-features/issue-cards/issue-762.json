@@ -1,0 +1,32 @@
+{
+  "summary": "Standardize how SDKs handle Nexus Operation input argument deserialization failures. Currently different SDKs treat these failures inconsistently—some as retryable, others as non-retryable. The agreed standard: payload converter failures are non-retryable (BAD_REQUEST), codec failures are retryable (INTERNAL).",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "codec",
+    "nexus-handler",
+    "error-handler"
+  ],
+  "concepts": [
+    "deserialization",
+    "retry-logic",
+    "error-handling",
+    "payload-conversion",
+    "codec",
+    "standardization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience inconsistent error handling behavior across different SDKs when Nexus Operation input deserialization fails.",
+  "rootCause": "Different SDKs independently implemented deserialization failure handling without standardized treatment of retry semantics.",
+  "proposedFix": "Standardize all SDKs to treat payload converter failures as non-retryable (BAD_REQUEST) and codec failures as retryable (INTERNAL). Create per-SDK implementation tickets.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Standardization agreement established and implemented across TypeScript, Python, .NET, Ruby, and Rust. Go and Java to be addressed via separate GA-specific solutions.",
+  "related": [],
+  "keyQuote": "failures from the payload converter are non retry able (BAD_REQUEST), and failures in the codec are retry able (INTERNAL)",
+  "number": 762,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:05:06.671Z"
+}

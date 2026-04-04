@@ -1,0 +1,32 @@
+{
+  "summary": "The PHP SDK's search attribute type parser is too strict and needs to be made more lenient to match behavior in other language SDKs. This issue references a fix that was already implemented in other languages (features issue #741).",
+  "category": "bug",
+  "subcategory": "search-attributes",
+  "apis": [],
+  "components": [
+    "search-attributes",
+    "type-parser",
+    "serializer"
+  ],
+  "concepts": [
+    "search-attributes",
+    "type-parsing",
+    "type-coercion",
+    "compatibility",
+    "serialization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users experience inconsistent search attribute type handling between PHP SDK and other language SDKs, reducing cross-language compatibility.",
+  "rootCause": "The PHP SDK's search attribute type parser enforces overly strict type validation compared to other SDK implementations.",
+  "proposedFix": "Apply the same lenient type parsing behavior that was implemented in other language SDKs per features issue #741.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Applied the same lenient search attribute type parsing fix that was implemented across other SDK language implementations.",
+  "related": [
+    741
+  ],
+  "keyQuote": "Need to make the same fix as done in other languages for https://github.com/temporalio/features/issues/741",
+  "number": 715,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-04-04T19:11:53.008Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "OpenTelemetry interceptors fail to send traces because the SDK drops attributes with non-primitive or non-homogeneous array values, triggered by the PHP SDK's attribute handling.",
+  "category": "bug",
+  "subcategory": "opentelemetry-interceptors",
+  "apis": [],
+  "components": [
+    "opentelemetry-interceptors",
+    "attribute-handling",
+    "tracing"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "attributes",
+    "telemetry",
+    "interceptors",
+    "type-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use OpenTelemetry interceptors; traces fail to send due to attribute validation errors.",
+  "rootCause": "OpenTelemetry SDK's AttributesBuilder rejects attributes containing non-primitive or non-homogeneous array values passed by the PHP SDK's interceptors.",
+  "proposedFix": "Modified attribute construction in sdk-php-interceptors-opentelemetry to comply with OpenTelemetry's type validation requirements.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in temporalio/sdk-php-interceptors-opentelemetry PR #10",
+  "related": [],
+  "keyQuote": "attribute with non-primitive or non-homogeneous array of primitives dropped",
+  "number": 711,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-04-04T19:11:48.828Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "User cannot create visibility database schema for MySQL 8.0.45 when self-hosting Temporal v1.29 via Helm due to SQL syntax error in the manage-schema-visibility-store job.",
+  "category": "bug",
+  "subcategory": "database-schema",
+  "apis": [],
+  "components": [
+    "sql-handler",
+    "visibility-store",
+    "schema-migration",
+    "mysql"
+  ],
+  "concepts": [
+    "database-schema",
+    "sql-syntax",
+    "schema-migration",
+    "mysql",
+    "deployment"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to self-host Temporal v1.29 with MySQL 8.0.45 cannot create the visibility database schema, blocking deployment setup.",
+  "rootCause": "SQL syntax error in schema creation statement - possible character encoding or MySQL version-specific JSON column syntax incompatibility near JSON field references",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Error 1064 (42000): You have an error in your SQL syntax... near '\"$.TemporalChangeVersion\"), ADD COLUMN BinaryChecksums JSON'",
+  "number": 9522,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:18:52.138Z"
+}

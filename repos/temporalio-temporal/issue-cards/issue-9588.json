@@ -1,0 +1,32 @@
+{
+  "summary": "Add a PreToolUse hook to prevent Claude Code agents from bypassing git hooks using the --no-verify flag, protecting pre-commit, commit-msg, and pre-push hooks that enforce code quality.",
+  "category": "feature",
+  "subcategory": "git-hook-protection",
+  "apis": [],
+  "components": [
+    "claude-code-settings",
+    "git-hooks",
+    "pre-tool-use-hooks",
+    "bash-tool"
+  ],
+  "concepts": [
+    "hook-bypass-prevention",
+    "git-security",
+    "pre-commit-enforcement",
+    "tool-use-hooks",
+    "verification-enforcement",
+    "safety-mechanisms"
+  ],
+  "severity": "high",
+  "userImpact": "Prevents Claude Code agents from silently bypassing critical git hooks that enforce linting, type-checking, and commit message conventions",
+  "rootCause": "Claude Code can execute git commands with --no-verify flag to disable hooks without user awareness or intervention",
+  "proposedFix": "Implement a PreToolUse Bash hook using block-no-verify@1.1.2 in .claude/settings.json that detects and blocks git hook-bypass flags",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented via PreToolUse hook configuration in .claude/settings.json using block-no-verify@1.1.2 to detect and block --no-verify flags across git subcommands",
+  "related": [],
+  "keyQuote": "Create `.claude/settings.json` with `block-no-verify@1.1.2` as a `PreToolUse` Bash hook to detect and block git hook-bypass flags",
+  "number": 9588,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:36.556Z"
+}

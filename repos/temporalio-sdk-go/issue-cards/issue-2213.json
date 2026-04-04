@@ -1,0 +1,32 @@
+{
+  "summary": "Interfaces like ContextPropagator are not generating documentation links in their docstrings. The expected doclink annotation (e.g., '// Exposed as: [go.temporal.io/sdk/workflow.ContextPropagator]') is missing.",
+  "category": "bug",
+  "subcategory": "documentation-generation",
+  "apis": [
+    "ContextPropagator"
+  ],
+  "components": [
+    "documentation-generator",
+    "godoc-processing",
+    "docstring-formatter"
+  ],
+  "concepts": [
+    "interface-linking",
+    "documentation-links",
+    "docstring-generation",
+    "api-documentation",
+    "type-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot find proper documentation links for interfaces, hindering API discoverability and navigation.",
+  "rootCause": "The documentation generation system does not properly create doclinks for interface types",
+  "proposedFix": "Add doclink annotations to interface docstrings following the pattern: // Exposed as: [go.temporal.io/sdk/workflow.InterfaceName]",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Interfaces, like `ContextPropagator` are not linked... should have a line like `// Exposed as: [go.temporal.io/sdk/workflow.ContextPropagator]`",
+  "number": 2213,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:08:10.717Z"
+}

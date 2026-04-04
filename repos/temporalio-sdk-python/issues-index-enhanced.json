@@ -1,20 +1,849 @@
 {
-  "generatedAt": "2026-02-11T03:38:58.343Z",
+  "generatedAt": "2026-04-04T19:22:22.223Z",
   "repo": "temporalio-sdk-python",
-  "totalCount": 601,
-  "cardsCount": 601,
+  "totalCount": 619,
+  "cardsCount": 619,
   "issues": [
+    {
+      "number": 1403,
+      "title": "[Security] Rust CVE for rustls-webpki & tar",
+      "state": "OPEN",
+      "author": "sandre35",
+      "labels": [],
+      "createdAt": "2026-04-01T13:06:01Z",
+      "updatedAt": "2026-04-01T13:06:26Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1403",
+      "bodyLength": 521,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "0.103.10",
+        "0.4.45"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "Security vulnerabilities detected in Rust dependencies (rustls-webpki GHSA-pwjx-qhcg-rvj4 and tar-rs CVE-2026-33055/33056) via Trivy scan. Fixed versions available via dependabot PRs awaiting maintainer review.",
+      "category": "bug",
+      "subcategory": "dependency-security",
+      "apis": [],
+      "components": [
+        "rustls-webpki",
+        "tar-rs",
+        "dependency-management"
+      ],
+      "concepts": [
+        "security-vulnerability",
+        "CVE",
+        "dependency-update",
+        "security-scanning",
+        "vulnerability-patching",
+        "transitive-dependencies"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1395,
+      "title": "[Bug] Headers should always run through external storage",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-03-26T22:07:53Z",
+      "updatedAt": "2026-03-26T22:07:53Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1395",
+      "bodyLength": 503,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Headers are not consistently run through the external storage transformation pipeline. The `_transform_outbound_payload` call is conditionally skipped based on the `encode_headers` parameter, but it should always execute for all transformation phases—only the encoding phase should be conditional.",
+      "category": "bug",
+      "subcategory": "payload-transformation",
+      "apis": [],
+      "components": [
+        "client",
+        "payload-transformation",
+        "external-storage"
+      ],
+      "concepts": [
+        "payload-encoding",
+        "external-storage",
+        "serialization",
+        "headers",
+        "payload-validation"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1390,
+      "title": "S3 External Storage Driver - Python",
+      "state": "CLOSED",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-03-24T16:11:57Z",
+      "updatedAt": "2026-03-26T03:23:12Z",
+      "closedAt": "2026-03-26T03:23:12Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1390",
+      "bodyLength": 63,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        783
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Request to implement S3 External Storage Driver for the Python SDK, tracked as part of a cross-SDK feature initiative.",
+      "category": "feature",
+      "subcategory": "external-storage-s3",
+      "apis": [],
+      "components": [
+        "external-storage",
+        "s3-client",
+        "worker"
+      ],
+      "concepts": [
+        "s3",
+        "external-storage",
+        "storage-driver",
+        "scalability",
+        "durability",
+        "integration"
+      ],
+      "severity": "medium",
+      "resolution": "duplicate",
+      "hasCard": true
+    },
+    {
+      "number": 1374,
+      "title": "Feature: contrib.activity_cache — Activity memoization with shared storage",
+      "state": "CLOSED",
+      "author": "saeedseyfi",
+      "labels": [],
+      "createdAt": "2026-03-18T15:40:49Z",
+      "updatedAt": "2026-03-20T18:35:23Z",
+      "closedAt": "2026-03-20T17:07:18Z",
+      "commentCount": 3,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1374",
+      "bodyLength": 2187,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        1373
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 3,
+      "summary": "Proposes a contrib.activity_cache module for activity result memoization to avoid re-executing expensive operations during workflow retries. After research, the author found similar solutions already exist in the ecosystem and decided not to pursue the feature.",
+      "category": "feature",
+      "subcategory": "activity-caching",
+      "apis": [
+        "activity.defn",
+        "Worker"
+      ],
+      "components": [
+        "activity-executor",
+        "contrib-module",
+        "worker",
+        "caching-layer"
+      ],
+      "concepts": [
+        "activity-caching",
+        "memoization",
+        "idempotency",
+        "workflow-retry",
+        "distributed-caching",
+        "content-addressing",
+        "serialization"
+      ],
+      "severity": "low",
+      "resolution": "wontfix",
+      "hasCard": true
+    },
+    {
+      "number": 1373,
+      "title": "Feature: contrib.workdir — Remote-backed workspace for file-based activities",
+      "state": "CLOSED",
+      "author": "saeedseyfi",
+      "labels": [],
+      "createdAt": "2026-03-18T15:40:43Z",
+      "updatedAt": "2026-03-22T11:42:24Z",
+      "closedAt": "2026-03-20T17:07:10Z",
+      "commentCount": 3,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1373",
+      "bodyLength": 1991,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 2,
+      "summary": "Request for a contrib.workdir module providing a Workspace utility for local directories backed by remote storage, enabling file-based activities to scale across multiple worker instances by automatically handling upload/download operations.",
+      "category": "feature",
+      "subcategory": "activity-storage",
+      "apis": [
+        "activity.defn",
+        "activity.info"
+      ],
+      "components": [
+        "activities",
+        "contrib",
+        "storage",
+        "worker"
+      ],
+      "concepts": [
+        "distributed-state",
+        "file-handling",
+        "remote-storage",
+        "scaling",
+        "automation",
+        "boilerplate-reduction"
+      ],
+      "severity": "medium",
+      "resolution": "wontfix",
+      "hasCard": true
+    },
+    {
+      "number": 1367,
+      "title": "[python] Support conflict token retry loop for schedule updates",
+      "state": "OPEN",
+      "author": "chris-olszewski",
+      "labels": [],
+      "createdAt": "2026-03-16T18:06:38Z",
+      "updatedAt": "2026-03-16T18:06:38Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1367",
+      "bodyLength": 173,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "The Python SDK lacks conflict token retry logic for schedule updates. The server now returns 'mismatched conflict token' errors, but clients don't implement the retry mechanism to handle them.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-client",
+        "update-handler",
+        "retry-mechanism",
+        "conflict-resolution"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-loop",
+        "schedule-updates",
+        "consistency",
+        "idempotency",
+        "error-handling"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1364,
+      "title": "GNAP: git-native coordination bridge between Temporal workflows and autonomous AI agents",
+      "state": "CLOSED",
+      "author": "ori-cofounder",
+      "labels": [],
+      "createdAt": "2026-03-15T22:21:17Z",
+      "updatedAt": "2026-03-24T16:37:33Z",
+      "closedAt": "2026-03-24T16:25:17Z",
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1364",
+      "bodyLength": 1846,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Proposal to add GNAP (Git-Native Agent Protocol) integration for coordinating autonomous AI agents with Temporal workflows. The proposal suggests using GNAP as a complementary pattern for less-structured autonomous work, with Temporal workflows delegating tasks to git-based task boards managed by agents.",
+      "category": "feature",
+      "subcategory": "ai-integration",
+      "apis": [
+        "execute_activity"
+      ],
+      "components": [
+        "workflow-engine",
+        "activity-executor"
+      ],
+      "concepts": [
+        "ai-agents",
+        "autonomous-coordination",
+        "git-native-protocol",
+        "fault-tolerance",
+        "durable-execution",
+        "human-in-the-loop",
+        "task-delegation"
+      ],
+      "severity": "low",
+      "resolution": "wontfix",
+      "hasCard": true
+    },
+    {
+      "number": 1359,
+      "title": "quinn-proto 0.11.12 has CVE-2026-31812 (HIGH) — needs bump to >= 0.11.14",
+      "state": "CLOSED",
+      "author": "christiantill",
+      "labels": [],
+      "createdAt": "2026-03-11T09:18:08Z",
+      "updatedAt": "2026-03-12T18:47:23Z",
+      "closedAt": "2026-03-11T17:23:56Z",
+      "commentCount": 2,
+      "upvotes": 1,
+      "url": "https://github.com/temporalio/sdk-python/issues/1359",
+      "bodyLength": 900,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "0.11.12",
+        "0.11.14",
+        "1.22.0",
+        "1.23.0",
+        "1.8.0"
+      ],
+      "linkedIssues": [
+        651
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Security vulnerability CVE-2026-31812 in vendored quinn-proto 0.11.12 requires a bump to >= 0.11.14 to fix an unauthenticated remote DoS in QUIC transport parameter handling.",
+      "category": "bug",
+      "subcategory": "dependency-vulnerability",
+      "apis": [],
+      "components": [
+        "rust-bridge",
+        "quic-transport",
+        "dependencies"
+      ],
+      "concepts": [
+        "security",
+        "CVE",
+        "DoS",
+        "dependency-management",
+        "QUIC",
+        "vendored-dependencies"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1358,
+      "title": "quinn-proto 0.11.12 in bridge/Cargo.lock vulnerable to CVE-2026-31812 (unauthenticated remote DoS)",
+      "state": "CLOSED",
+      "author": "dtjldamien",
+      "labels": [],
+      "createdAt": "2026-03-11T03:56:37Z",
+      "updatedAt": "2026-03-11T17:23:55Z",
+      "closedAt": "2026-03-11T17:23:55Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1358",
+      "bodyLength": 399,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "v0.11.12",
+        "0.11.14"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The Python SDK's bundled quinn-proto v0.11.12 dependency contains CVE-2026-31812, a vulnerability allowing unauthenticated remote DoS via panic in QUIC transport parameter parsing. Updating to quinn-proto >= 0.11.14 resolves the issue.",
+      "category": "bug",
+      "subcategory": "dependency-vulnerability",
+      "apis": [],
+      "components": [
+        "bridge",
+        "dependencies",
+        "cargo"
+      ],
+      "concepts": [
+        "vulnerability",
+        "CVE",
+        "DoS",
+        "QUIC",
+        "security",
+        "dependency",
+        "panic"
+      ],
+      "severity": "critical",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1356,
+      "title": "Enable concurrent payload visiting - Python",
+      "state": "CLOSED",
+      "author": "jmaeagle99",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-03-10T20:13:01Z",
+      "updatedAt": "2026-03-25T01:08:14Z",
+      "closedAt": "2026-03-25T01:08:14Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1356",
+      "bodyLength": 63,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        772
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Enable concurrent payload visiting in the Python SDK to improve performance and efficiency of payload handling.",
+      "category": "feature",
+      "subcategory": "payload-handling",
+      "apis": [],
+      "components": [
+        "payload-converter",
+        "serialization"
+      ],
+      "concepts": [
+        "concurrency",
+        "payload-processing",
+        "serialization",
+        "performance"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1351,
+      "title": "[Bug] workflow.sleep() timer not canceled when wrapping asyncio.Task is canceled",
+      "state": "CLOSED",
+      "author": "carlosa54",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-03-07T16:28:05Z",
+      "updatedAt": "2026-03-10T16:48:16Z",
+      "closedAt": "2026-03-10T16:48:16Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1351",
+      "bodyLength": 3451,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.21.1",
+        "1.6.1"
+      ],
+      "linkedIssues": [
+        782
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "workflow.sleep() timer persists on the Temporal server when an asyncio.Task wrapping it is canceled, unlike asyncio.sleep() which properly cancels. The SDK fails to send a CancelTimer command, causing the timer to fire on an already-canceled future.",
+      "category": "bug",
+      "subcategory": "timer-cancellation",
+      "apis": [
+        "workflow.sleep",
+        "workflow.run",
+        "Client.execute_workflow"
+      ],
+      "components": [
+        "timer-executor",
+        "task-cancellation",
+        "workflow-execution",
+        "history-management"
+      ],
+      "concepts": [
+        "task-cancellation",
+        "timer-management",
+        "asyncio-integration",
+        "timer-callbacks",
+        "workflow-history",
+        "command-serialization"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1350,
+      "title": "Sync activities in ProcessPoolExecutor crash with PickleError when retry_policy has non_retryable_error_types",
+      "state": "CLOSED",
+      "author": "lambyqq",
+      "labels": [],
+      "createdAt": "2026-03-05T08:22:31Z",
+      "updatedAt": "2026-03-09T23:42:12Z",
+      "closedAt": "2026-03-09T23:42:12Z",
+      "commentCount": 1,
+      "upvotes": 1,
+      "url": "https://github.com/temporalio/sdk-python/issues/1350",
+      "bodyLength": 4608,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "v1.18.0",
+        "1.8.0",
+        "1.17.0",
+        "1.18.0",
+        "1.23.0"
+      ],
+      "linkedIssues": [
+        1055
+      ],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 7,
+      "summary": "RetryPolicy.from_proto() assigns protobuf RepeatedScalarContainer directly instead of converting to Python list, making activity.info().retry_policy non-picklable and crashing sync activities in ProcessPoolExecutor when retry policy specifies non_retryable_error_types.",
+      "category": "bug",
+      "subcategory": "serialization",
+      "apis": [
+        "ExecuteActivity",
+        "RetryPolicy",
+        "activity.info()"
+      ],
+      "components": [
+        "activity-executor",
+        "retry-policy",
+        "serialization",
+        "common"
+      ],
+      "concepts": [
+        "retry",
+        "pickling",
+        "serialization",
+        "multiprocessing",
+        "protobuf"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1346,
+      "title": "[Bug] Updating worker's client does not update the client exposed to activities",
+      "state": "CLOSED",
+      "author": "haimgel",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-02-27T20:46:10Z",
+      "updatedAt": "2026-03-11T00:14:25Z",
+      "closedAt": "2026-03-11T00:14:25Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1346",
+      "bodyLength": 830,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.15.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Updating a worker's client does not update the client exposed to activities. When developers reassign worker.client (e.g., for mTLS certificate rotation), activity.client() continues returning the original client because Worker._activity_worker is initialized with a static reference that doesn't reflect later updates.",
+      "category": "bug",
+      "subcategory": "activity-client",
+      "apis": [
+        "worker.client",
+        "activity.client()"
+      ],
+      "components": [
+        "worker",
+        "activity-worker",
+        "client-management"
+      ],
+      "concepts": [
+        "certificate-rotation",
+        "mTLS",
+        "client-lifecycle",
+        "state-management",
+        "client-reference"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1343,
+      "title": "[Feature Request] Allow PayloadVisitor to run visitation in parallel",
+      "state": "CLOSED",
+      "author": "jmaeagle99",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-27T00:11:24Z",
+      "updatedAt": "2026-03-10T20:14:36Z",
+      "closedAt": "2026-03-10T20:14:36Z",
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1343",
+      "bodyLength": 421,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to allow PayloadVisitor to run payload visitations concurrently for I/O-bound tasks with configurable concurrency level, defaulting to 1 for backward compatibility.",
+      "category": "feature",
+      "subcategory": "payload-processing",
+      "apis": [
+        "PayloadVisitor"
+      ],
+      "components": [
+        "PayloadVisitor",
+        "serialization",
+        "concurrency"
+      ],
+      "concepts": [
+        "concurrency",
+        "parallelization",
+        "I/O-bound",
+        "coroutines",
+        "backward-compatibility"
+      ],
+      "severity": "low",
+      "resolution": "duplicate",
+      "hasCard": true
+    },
+    {
+      "number": 1342,
+      "title": "External Payload Storage Foundation - Python",
+      "state": "CLOSED",
+      "author": "jmaeagle99",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-26T20:49:49Z",
+      "updatedAt": "2026-03-24T16:18:01Z",
+      "closedAt": "2026-03-17T01:47:22Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1342",
+      "bodyLength": 63,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        765
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "External Payload Storage Foundation - Python is a tracking issue for implementing external payload storage support in the Python SDK, coordinated through the main feature tracking issue.",
+      "category": "feature",
+      "subcategory": "external-payload-storage",
+      "apis": [],
+      "components": [
+        "payload-storage",
+        "serialization",
+        "converter"
+      ],
+      "concepts": [
+        "external-storage",
+        "payload",
+        "data-persistence",
+        "serialization",
+        "foundation"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1339,
+      "title": "[Bug] `WorkflowSerializationContext` - `workflow_id` should always be populated",
+      "state": "CLOSED",
+      "author": "THardy98",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-02-25T15:06:00Z",
+      "updatedAt": "2026-02-25T19:14:18Z",
+      "closedAt": "2026-02-25T19:14:18Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1339",
+      "bodyLength": 179,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The `workflow_id` field in `WorkflowSerializationContext` is incorrectly typed as `str | None` when it should be `str` since it's always populated in a workflow context.",
+      "category": "bug",
+      "subcategory": "serialization",
+      "apis": [
+        "WorkflowSerializationContext"
+      ],
+      "components": [
+        "serialization",
+        "context",
+        "type-annotations"
+      ],
+      "concepts": [
+        "type-safety",
+        "type-annotations",
+        "workflow-context",
+        "serialization",
+        "nullability"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1337,
+      "title": "[Bug] _invoke_model_activity crashes on APIStatusError subclasses without .response attribute (e.g. LiteLLM)",
+      "state": "CLOSED",
+      "author": "elizabeth-hong",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-02-19T22:58:18Z",
+      "updatedAt": "2026-02-23T15:52:08Z",
+      "closedAt": "2026-02-23T15:52:08Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1337",
+      "bodyLength": 3209,
+      "hasCodeBlocks": false,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.23.0",
+        "1.22.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The _invoke_model_activity function crashes with AttributeError when handling LiteLLM exceptions that subclass APIStatusError but lack a .response attribute. The code unconditionally accesses e.response.headers without checking if the attribute exists.",
+      "category": "bug",
+      "subcategory": "openai-agents",
+      "apis": [],
+      "components": [
+        "openai_agents",
+        "_invoke_model_activity",
+        "error-handling"
+      ],
+      "concepts": [
+        "exception-handling",
+        "subclassing",
+        "attribute-access",
+        "third-party-integration",
+        "compatibility",
+        "error-recovery"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1326,
+      "title": "sys.monitoring callbacks (coverage, etc.) cause workflow sandbox hang on Python 3.14",
+      "state": "OPEN",
+      "author": "dsfaccini",
+      "labels": [],
+      "createdAt": "2026-02-11T23:23:05Z",
+      "updatedAt": "2026-02-11T23:51:29Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1326",
+      "bodyLength": 4927,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "3.14.2",
+        "1.20.0",
+        "7.13.4"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 4,
+      "summary": "Python 3.14's switch from sys.settrace to sys.monitoring causes workflow sandbox hangs when coverage or other monitoring tools fire callbacks globally on the workflow thread pool, triggering restricted API access inside the sandbox.",
+      "category": "bug",
+      "subcategory": "workflow-sandbox",
+      "apis": [
+        "workflow.run",
+        "workflow.defn",
+        "WorkflowEnvironment",
+        "Worker",
+        "execute_workflow"
+      ],
+      "components": [
+        "workflow-sandbox",
+        "importer",
+        "monitoring-events",
+        "python-version-compatibility"
+      ],
+      "concepts": [
+        "sandbox-restrictions",
+        "workflow-isolation",
+        "sys.monitoring",
+        "lazy-imports",
+        "thread-pool",
+        "code-coverage",
+        "python-compatibility"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 1322,
       "title": "Signal argument deserialization errors not using workflow-specific logger or giving enough context",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-02-10T13:18:24Z",
-      "updatedAt": "2026-02-10T13:21:21Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-11T17:21:50Z",
+      "closedAt": "2026-02-11T17:21:50Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1322",
@@ -272,12 +1101,12 @@
     },
     {
       "number": 1289,
-      "title": "Warn if SDK detects a workflow history over a certain size",
+      "title": "Warn if SDK detects a workflow history over a certain size - Python",
       "state": "OPEN",
       "author": "jmaeagle99",
       "labels": [],
       "createdAt": "2026-01-20T22:44:55Z",
-      "updatedAt": "2026-02-04T21:26:51Z",
+      "updatedAt": "2026-04-02T23:45:57Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -500,9 +1329,9 @@
         "enhancement"
       ],
       "createdAt": "2026-01-14T18:44:49Z",
-      "updatedAt": "2026-01-14T18:44:49Z",
+      "updatedAt": "2026-04-02T13:59:12Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1275",
       "bodyLength": 760,
@@ -537,14 +1366,14 @@
     {
       "number": 1268,
       "title": "[Bug] Activity/workflow pollers drop to 0 ignoring minimum/maximum settings",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "sashaneb",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-01-09T00:42:34Z",
-      "updatedAt": "2026-01-28T18:27:21Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-17T16:29:30Z",
+      "closedAt": "2026-02-17T16:29:30Z",
       "commentCount": 2,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1268",
@@ -819,13 +1648,13 @@
     {
       "number": 1250,
       "title": "RuntimeError when starting Temporal test server in Python SDK",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "grinyael86",
       "labels": [],
       "createdAt": "2025-11-17T14:18:31Z",
-      "updatedAt": "2025-12-11T23:25:41Z",
-      "closedAt": null,
-      "commentCount": 2,
+      "updatedAt": "2026-02-17T16:32:09Z",
+      "closedAt": "2026-02-17T16:32:08Z",
+      "commentCount": 3,
       "upvotes": 1,
       "url": "https://github.com/temporalio/sdk-python/issues/1250",
       "bodyLength": 1630,
@@ -1459,15 +2288,15 @@
     {
       "number": 1203,
       "title": "[Bug] `retry_policy` not set in `ativity.info()` despite being defined in the `workflow.execute_activity()` call",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "brent-cybrid",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-10-31T21:11:02Z",
-      "updatedAt": "2026-01-13T18:47:23Z",
-      "closedAt": null,
-      "commentCount": 3,
+      "updatedAt": "2026-03-23T23:26:52Z",
+      "closedAt": "2026-03-23T23:26:52Z",
+      "commentCount": 4,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1203",
       "bodyLength": 3172,
@@ -3330,9 +4159,9 @@
         "enhancement"
       ],
       "createdAt": "2025-09-09T19:56:51Z",
-      "updatedAt": "2026-01-23T19:23:19Z",
+      "updatedAt": "2026-03-04T19:04:59Z",
       "closedAt": null,
-      "commentCount": 3,
+      "commentCount": 4,
       "upvotes": 2,
       "url": "https://github.com/temporalio/sdk-python/issues/1089",
       "bodyLength": 391,
@@ -3587,15 +4416,15 @@
     {
       "number": 1077,
       "title": "[Feature Request] Extend typing improvements from #938",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dandavison",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-09-04T02:14:04Z",
-      "updatedAt": "2025-09-04T02:14:04Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-02-17T16:34:18Z",
+      "closedAt": "2026-02-17T16:34:17Z",
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1077",
       "bodyLength": 259,
@@ -5086,10 +5915,10 @@
         "enhancement"
       ],
       "createdAt": "2025-06-27T15:57:23Z",
-      "updatedAt": "2025-06-27T15:57:23Z",
+      "updatedAt": "2026-04-01T00:12:39Z",
       "closedAt": null,
-      "commentCount": 0,
-      "upvotes": 2,
+      "commentCount": 1,
+      "upvotes": 4,
       "url": "https://github.com/temporalio/sdk-python/issues/928",
       "bodyLength": 442,
       "hasCodeBlocks": false,
@@ -5225,13 +6054,13 @@
     {
       "number": 921,
       "title": "Remove eval_type_backport dependency",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "tconley1428",
       "labels": [],
       "createdAt": "2025-06-25T16:07:36Z",
-      "updatedAt": "2025-06-25T16:07:39Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-02-19T21:35:00Z",
+      "closedAt": "2026-02-19T21:34:59Z",
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/921",
       "bodyLength": 104,
@@ -5638,14 +6467,14 @@
     {
       "number": 891,
       "title": "[Feature Request] Support executing Workflow directly",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Kilo59",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-06-06T17:54:34Z",
-      "updatedAt": "2025-06-09T20:47:20Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:35:44Z",
+      "closedAt": "2026-02-19T21:35:44Z",
       "commentCount": 3,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/891",
@@ -7892,14 +8721,14 @@
     {
       "number": 782,
       "title": "[Bug] cancelled timer callback causes asyncio.exceptions.InvalidStateError",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dandavison",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-03-05T02:07:47Z",
-      "updatedAt": "2025-03-07T13:11:34Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-10T16:48:15Z",
+      "closedAt": "2026-03-10T16:48:15Z",
       "commentCount": 1,
       "upvotes": 1,
       "url": "https://github.com/temporalio/sdk-python/issues/782",
@@ -9584,14 +10413,14 @@
     {
       "number": 688,
       "title": "[Bug] Workflow sandbox issues with Protobuf",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Gr1N",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-11-12T16:48:34Z",
-      "updatedAt": "2025-03-11T17:02:13Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:41:14Z",
+      "closedAt": "2026-02-19T21:41:14Z",
       "commentCount": 12,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/688",
@@ -9991,14 +10820,14 @@
     {
       "number": 675,
       "title": "[Feature Request] Auto-skip time in time-skipping testing environment when waiting on update result",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-10-21T16:31:03Z",
-      "updatedAt": "2024-10-21T16:31:03Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:41:57Z",
+      "closedAt": "2026-02-19T21:41:57Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/675",
@@ -10503,14 +11332,14 @@
     {
       "number": 655,
       "title": "[Bug] KeyError: 'warnings' due to sandbox",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "leonard-henriquez",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-09-29T08:46:03Z",
-      "updatedAt": "2024-09-30T13:07:39Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:44:18Z",
+      "closedAt": "2026-02-19T21:44:18Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/655",
@@ -10598,14 +11427,14 @@
     {
       "number": 652,
       "title": "[Bug] `ScheduleOverlapPolicy` has broken __eq__",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "andersio",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-09-27T08:53:30Z",
-      "updatedAt": "2024-09-27T12:08:09Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:44:57Z",
+      "closedAt": "2026-02-19T21:44:57Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/652",
@@ -10911,14 +11740,14 @@
     {
       "number": 639,
       "title": "[Bug] Operation was canceled when start_workflow",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "duy-nguyen-ts",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-09-10T03:47:36Z",
-      "updatedAt": "2024-09-13T02:49:54Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:46:07Z",
+      "closedAt": "2026-02-19T21:46:07Z",
       "commentCount": 7,
       "upvotes": 1,
       "url": "https://github.com/temporalio/sdk-python/issues/639",
@@ -10959,15 +11788,15 @@
     {
       "number": 638,
       "title": "Importing 3rd party package `ruamel.yaml` anywhere causes failure to validate workflow",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "adamh-oai",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-09-08T07:44:18Z",
-      "updatedAt": "2024-10-16T20:56:09Z",
-      "closedAt": null,
-      "commentCount": 12,
+      "updatedAt": "2026-02-19T23:52:45Z",
+      "closedAt": "2026-02-19T21:48:24Z",
+      "commentCount": 14,
       "upvotes": 1,
       "url": "https://github.com/temporalio/sdk-python/issues/638",
       "bodyLength": 1819,
@@ -11002,14 +11831,14 @@
     {
       "number": 637,
       "title": "[Bug] Windows 3.12.5 builds are broken",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dandavison",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-09-06T13:17:38Z",
-      "updatedAt": "2024-09-06T13:17:38Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:46:22Z",
+      "closedAt": "2026-02-19T21:46:22Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/637",
@@ -11047,14 +11876,14 @@
     {
       "number": 636,
       "title": "[Feature Request] Add type-level tests",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dandavison",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-09-05T15:11:15Z",
-      "updatedAt": "2024-09-05T15:11:16Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:48:45Z",
+      "closedAt": "2026-02-19T21:48:45Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/636",
@@ -11231,14 +12060,14 @@
     {
       "number": 629,
       "title": "[Bug] workflow.upsert_search_attributes() will bork SDK on empty inputs",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "irdbl",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-09-02T22:14:28Z",
-      "updatedAt": "2024-09-03T13:02:53Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:49:23Z",
+      "closedAt": "2026-02-19T21:49:23Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/629",
@@ -11587,14 +12416,14 @@
     {
       "number": 613,
       "title": "[Feature Request] Investigate adding allure to GitHub Actions CI workflows",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dandavison",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-08-19T15:18:00Z",
-      "updatedAt": "2024-08-19T15:18:00Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:53:39Z",
+      "closedAt": "2026-02-19T21:53:39Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/613",
@@ -11897,14 +12726,14 @@
     {
       "number": 601,
       "title": "[Feature Request] Reset workflow feature",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "burbaljaka",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-08-05T10:06:36Z",
-      "updatedAt": "2024-08-05T13:32:40Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:57:47Z",
+      "closedAt": "2026-02-19T21:57:47Z",
       "commentCount": 2,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/601",
@@ -11982,14 +12811,14 @@
     {
       "number": 597,
       "title": "[Bug] Cant build wheel temporalio when installing with pip",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "ichsansaid",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-08-01T02:53:32Z",
-      "updatedAt": "2024-08-05T16:25:08Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:58:09Z",
+      "closedAt": "2026-02-19T21:58:09Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/597",
@@ -12244,14 +13073,14 @@
     {
       "number": 586,
       "title": "[Bug] workflow.start_child_workflow() behaving differently than workflow.execute_child_workflow() in tests",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cpg1111",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-07-18T00:23:24Z",
-      "updatedAt": "2024-07-18T13:47:14Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:59:00Z",
+      "closedAt": "2026-02-19T21:59:00Z",
       "commentCount": 5,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/586",
@@ -12293,14 +13122,14 @@
     {
       "number": 585,
       "title": "[Bug] Test flake, may be sandbox import issue",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-07-17T17:40:48Z",
-      "updatedAt": "2024-07-17T17:40:48Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T21:59:20Z",
+      "closedAt": "2026-02-19T21:59:20Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/585",
@@ -13097,14 +13926,14 @@
     {
       "number": 543,
       "title": "[Bug] Generating protos via docker and manually are causing different whitespace inside of multi-paragraph docs",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-06-04T19:23:33Z",
-      "updatedAt": "2024-06-04T19:23:34Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:00:14Z",
+      "closedAt": "2026-02-19T22:00:14Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/543",
@@ -14391,14 +15220,14 @@
     {
       "number": 488,
       "title": "[Bug] Fix typo in restriction set",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-03-15T21:49:38Z",
-      "updatedAt": "2024-03-15T21:49:38Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:02:50Z",
+      "closedAt": "2026-02-19T22:02:50Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/488",
@@ -14606,14 +15435,14 @@
     {
       "number": 479,
       "title": "[Feature Request] Reflection-based payload codec test to ensure all non-search-attribute payloads are covered",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-02-26T15:05:24Z",
-      "updatedAt": "2024-02-26T15:07:24Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:03:05Z",
+      "closedAt": "2026-02-19T22:03:05Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/479",
@@ -14697,14 +15526,14 @@
     {
       "number": 476,
       "title": "[Bug] Failed during multiprocess queue poll for heartbeat",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "wilsoniya",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-02-22T20:33:09Z",
-      "updatedAt": "2024-03-28T12:42:23Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:04:26Z",
+      "closedAt": "2026-02-19T22:04:26Z",
       "commentCount": 5,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/476",
@@ -15068,9 +15897,9 @@
         "enhancement"
       ],
       "createdAt": "2024-01-03T21:13:37Z",
-      "updatedAt": "2025-07-24T13:56:06Z",
+      "updatedAt": "2026-04-01T13:09:45Z",
       "closedAt": null,
-      "commentCount": 3,
+      "commentCount": 6,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/454",
       "bodyLength": 291,
@@ -15658,14 +16487,14 @@
     {
       "number": 439,
       "title": "[Feature Request] Allow continue as new from update handler",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2023-11-29T21:26:16Z",
-      "updatedAt": "2023-11-29T21:26:16Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:10:07Z",
+      "closedAt": "2026-02-19T22:10:07Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/439",
@@ -16626,14 +17455,14 @@
     {
       "number": 399,
       "title": "[Bug] Older Python versions cannot auto-import activity return class in sandbox",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "devery59",
       "labels": [
         "bug"
       ],
       "createdAt": "2023-10-12T01:56:27Z",
-      "updatedAt": "2023-10-20T12:38:56Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:13:28Z",
+      "closedAt": "2026-02-19T22:13:28Z",
       "commentCount": 3,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/399",
@@ -20837,14 +21666,14 @@
     {
       "number": 235,
       "title": "[Feature Request] Raise exception for payloads that violate gRPC message max size",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "nathanielobrown",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2022-12-30T17:41:06Z",
-      "updatedAt": "2025-07-07T19:37:39Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:17:42Z",
+      "closedAt": "2026-02-19T22:17:42Z",
       "commentCount": 6,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/235",
@@ -22665,14 +23494,14 @@
     {
       "number": 160,
       "title": "[Bug] OpenTelemetry interceptors report errors",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "anhdle14",
       "labels": [
         "bug"
       ],
       "createdAt": "2022-10-19T18:14:32Z",
-      "updatedAt": "2024-07-31T19:11:37Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:17:20Z",
+      "closedAt": "2026-02-19T22:17:20Z",
       "commentCount": 12,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/160",
@@ -26581,14 +27410,14 @@
     {
       "number": 11,
       "title": "Test client/worker/core behavior across fork",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2022-03-15T20:27:43Z",
-      "updatedAt": "2022-03-15T20:27:43Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-19T22:17:03Z",
+      "closedAt": "2026-02-19T22:17:03Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/11",

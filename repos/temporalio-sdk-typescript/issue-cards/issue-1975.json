@@ -1,0 +1,33 @@
+{
+  "summary": "The maybeAddErrorToSpan function in the OpenTelemetry interceptor crashes with TypeError when receiving undefined error values, creating infinite retry loops that mask the original error.",
+  "category": "bug",
+  "subcategory": "opentelemetry-instrumentation",
+  "apis": [
+    "executeChild"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "span-instrumentation",
+    "error-handling"
+  ],
+  "concepts": [
+    "error-handling",
+    "null-safety",
+    "observability",
+    "type-safety",
+    "error-masking",
+    "deterministic-replay"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows that catch non-Error values crash with infinite retry loops, making applications unstable and impossible to debug.",
+  "rootCause": "The code uses (err as Error).message which throws when err is undefined. The nullish coalescing operator ?? only guards the .message property, not the err object itself.",
+  "proposedFix": "Use err instanceof Error ? (err.message ?? String(err)) : String(err ?? 'unknown error') to safely handle all error types.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The TypeError escapes wrapWithSpan and becomes the workflowTaskError... creating an infinite crash loop",
+  "number": 1975,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:18:17.953Z"
+}

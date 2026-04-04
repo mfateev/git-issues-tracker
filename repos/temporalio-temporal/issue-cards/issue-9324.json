@@ -1,0 +1,30 @@
+{
+  "summary": "Workflows archived to Google Cloud Storage appear twice in the UI archive listing. A bug in visibility_archiver.go line 217 was identified and fixed via PR #9329.",
+  "category": "bug",
+  "subcategory": "archival-ui",
+  "apis": [],
+  "components": [
+    "visibility-archiver",
+    "archival-system",
+    "ui"
+  ],
+  "concepts": [
+    "archival",
+    "cloud-storage",
+    "duplication",
+    "gcloud",
+    "workflow-visibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users see duplicate entries in the archive list, causing confusion and making it harder to track archived workflows.",
+  "rootCause": "Bug in visibility_archiver.go line 217 causing duplicate records to be returned for gcloud-archived workflows.",
+  "proposedFix": "PR #9329 with a fix to the visibility_archiver.go bug",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #9329 was submitted with the proposed fix and was merged",
+  "related": [],
+  "keyQuote": "This is a bug in the visibility_archiver.go file on line 217",
+  "number": 9324,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:18:34.359Z"
+}

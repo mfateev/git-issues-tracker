@@ -1,0 +1,31 @@
+{
+  "summary": "Feature request to allow payload visitors to visit all memo payloads together as an aggregate, enabling transformations and validation at the memo scope (e.g., enforcing memo size limits) rather than visiting individual payloads separately.",
+  "category": "feature",
+  "subcategory": "payload-visitors",
+  "apis": [],
+  "components": [
+    "payload-visitor",
+    "memo",
+    "interceptor"
+  ],
+  "concepts": [
+    "payload-transformation",
+    "validation",
+    "size-limits",
+    "visitor-pattern",
+    "aggregation",
+    "memo"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables enforcement of memo size constraints and other aggregate payload validations that weren't previously possible with individual payload visiting.",
+  "rootCause": null,
+  "proposedFix": "Add a `VisitMemo` callback option to payload visitors (or language-specific equivalent) that receives all memo payloads together, with fallback to individual visiting when not implemented.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "check if the entire size of a memo is larger than some threshold and make a decision around that, such as failing a workflow task if the memo is too large for the server",
+  "number": 782,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:05:59.878Z"
+}

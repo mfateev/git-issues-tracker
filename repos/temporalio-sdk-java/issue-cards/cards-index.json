@@ -1,7 +1,464 @@
 {
-  "generatedAt": "2026-02-11T03:36:31.474Z",
-  "totalCards": 949,
+  "generatedAt": "2026-04-04T19:11:39.195Z",
+  "totalCards": 962,
   "cards": [
+    {
+      "summary": "Deprecate namespace-related fields in Java SDK workflow options (ChildWorkflowOptions, external cancel/signal options) following API-level deprecation due to Temporal Server 1.30.1 disabling cross-namespace operations by default.",
+      "category": "feature",
+      "subcategory": "cross-namespace-operations",
+      "apis": [
+        "ChildWorkflowOptions",
+        "SignalExternalWorkflow",
+        "RequestCancelExternalWorkflow"
+      ],
+      "components": [
+        "workflow-options",
+        "child-workflow",
+        "external-workflow-operations",
+        "stubs"
+      ],
+      "concepts": [
+        "deprecation",
+        "cross-namespace-operations",
+        "namespace-isolation",
+        "api-evolution",
+        "backward-compatibility",
+        "workflow-communication"
+      ],
+      "severity": "medium",
+      "userImpact": "Users must update code to remove usage of deprecated namespace fields on workflow options before they are removed in future SDK versions.",
+      "rootCause": null,
+      "proposedFix": "Add @Deprecated annotations and Javadoc notes to ChildWorkflowOptions.Builder#setNamespace, ChildWorkflowOptions#getNamespace, and namespace setters/getters on external cancel/signal stub options with note about server 1.30.1 disabling cross-namespace operations by default.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Cross-namespace operations are disabled by default as of server 1.30.1.",
+      "number": 2826,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:11:39.112Z"
+    },
+    {
+      "summary": "When the local activity executor thread pool is fully exhausted by blocked activities, subsequently scheduled workflows that attempt to execute local activities hang permanently with no automatic recovery mechanism.",
+      "category": "bug",
+      "subcategory": "local-activity-executor",
+      "apis": [
+        "ExecuteActivity",
+        "LocalActivityOptions",
+        "StartWorkflow"
+      ],
+      "components": [
+        "local-activity-executor",
+        "thread-pool",
+        "workflow-coroutine",
+        "activity-scheduling"
+      ],
+      "concepts": [
+        "deadlock",
+        "resource-exhaustion",
+        "thread-pool",
+        "blocking",
+        "timeout",
+        "concurrency",
+        "recovery"
+      ],
+      "severity": "critical",
+      "userImpact": "Workflows hang permanently and become unrecoverable when local activity thread pool is exhausted, requiring manual reset or explicit timeout configuration.",
+      "rootCause": "Local activities are dispatched to an in-process thread pool. When all threads are occupied by blocked activities, newly dispatched activities are queued but never executed because the workflow coroutine parks on CompletablePromiseImpl.get() waiting for a result that never arrives. The workflow task never times out or fails, so it is never retried.",
+      "proposedFix": null,
+      "workaround": "Set scheduleToCloseTimeout on LocalActivityOptions. The SDK tracks this deadline from scheduling time, independently of thread pool availability.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Local activities are dispatched to an in-process thread pool. If all threads are occupied by blocked activities, newly dispatched local activities are queued but never executed.",
+      "number": 2823,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:11:17.053Z"
+    },
+    {
+      "summary": "Workflow task failures after Workflow.getVersion() calls mask the original exception with a generic 'runner-closed' error, preventing developers from seeing the actual cause of failure.",
+      "category": "bug",
+      "subcategory": "error-handling",
+      "apis": [
+        "getVersion"
+      ],
+      "components": [
+        "workflow-executor",
+        "deterministic-runner",
+        "version-state-machine",
+        "error-reporting"
+      ],
+      "concepts": [
+        "exception-masking",
+        "error-reporting",
+        "workflow-execution",
+        "determinism",
+        "version-management"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers cannot diagnose workflow failures when exceptions occur after getVersion() calls, seeing only a generic 'runner-closed' error instead of the actual exception.",
+      "rootCause": "The deterministic runner closes and raises a generic error before the original workflow exception can be properly propagated through the version state machine.",
+      "proposedFix": "Preserve and report the original exception instead of masking it with the runner-closed error.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Workflow task failed with an internal Java SDK runner-closed error...masking the original exception.",
+      "number": 2810,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:11:13.615Z"
+    },
+    {
+      "summary": "The Java SDK does not implement conflict token retry logic for schedule updates. The Temporal server now returns 'mismatched conflict token' errors that SDKs should handle with retries, but the Java SDK lacks this functionality.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-client",
+        "schedule-manager",
+        "retry-handler",
+        "update-executor"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-loop",
+        "schedule-updates",
+        "idempotency",
+        "state-synchronization",
+        "error-handling"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot reliably update schedules when concurrent modifications occur, as the SDK does not retry on conflict token mismatches from the server.",
+      "rootCause": "Java SDK does not implement the conflict token retry loop for schedule updates that the server now requires (temporal/temporal#8474).",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "No SDK passes or retries on the conflict token for schedule updates.",
+      "number": 2809,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:11:16.518Z"
+    },
+    {
+      "summary": "WORKER_TASK_SLOTS_AVAILABLE metric is stuck at zero when PollerBehaviorAutoscaling is enabled on a worker, preventing accurate reporting of available task capacity.",
+      "category": "bug",
+      "subcategory": "worker-capacity",
+      "apis": [
+        "PollerBehaviorAutoscaling",
+        "WORKER_TASK_SLOTS_AVAILABLE"
+      ],
+      "components": [
+        "worker",
+        "autoscaling",
+        "metrics"
+      ],
+      "concepts": [
+        "autoscaling",
+        "task-slots",
+        "capacity",
+        "metrics",
+        "polling"
+      ],
+      "severity": "high",
+      "userImpact": "Workers cannot accurately report available task slots when autoscaling is enabled, preventing proper capacity visibility and potentially affecting autoscaling decisions.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Workers report 0 WORKER_TASK_SLOTS_AVAILABLE when PollerBehaviorAutoscaling is enabled.",
+      "number": 2802,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:10:45.706Z"
+    },
+    {
+      "summary": "User asks best practices for handling long-running workflow and activity spans in OpenTelemetry tracing. RunWorkflow and RunActivity spans remain open for hours/days, causing missing parent span errors in Jaeger/New Relic and memory issues. Also reports trace fragmentation when retry delays exceed ~90 seconds.",
+      "category": "question",
+      "subcategory": "observability-tracing",
+      "apis": [
+        "StartWorkflow",
+        "RunWorkflow",
+        "StartActivity",
+        "RunActivity"
+      ],
+      "components": [
+        "opentelemetry-instrumentation",
+        "workflow-execution",
+        "activity-execution",
+        "span-lifecycle-management"
+      ],
+      "concepts": [
+        "observability",
+        "distributed-tracing",
+        "span-lifecycle",
+        "parent-child-relationships",
+        "trace-fragmentation",
+        "long-running-spans"
+      ],
+      "severity": "high",
+      "userImpact": "Production observability becomes fragmented and unreliable when tracing long-running workflows and activities, with missing parent span errors and memory buildup preventing proper distributed trace analysis.",
+      "rootCause": "RunWorkflow and RunActivity spans have extended lifetimes (hours/days) while child spans complete immediately, breaking parent-child span relationships in observability backends and causing memory management issues.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Because RunWorkflow and RunActivity spans last for a very long time, they remain open (not \"ended\") for hours or even days.",
+      "number": 2801,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:10:55.554Z"
+    },
+    {
+      "summary": "When creating an OperatorService from a WorkflowService channel, the grpcMetadataProvider configuration is not automatically carried over, requiring manual re-configuration.",
+      "category": "feature",
+      "subcategory": "service-stubs",
+      "apis": [
+        "WorkflowServiceStubs",
+        "WorkflowServiceStubsOptions",
+        "OperatorServiceStubs",
+        "OperatorServiceStubsOptions",
+        "getRawChannel",
+        "addGrpcMetadataProvider",
+        "validateAndBuildWithDefaults"
+      ],
+      "components": [
+        "service-stubs",
+        "workflow-service",
+        "operator-service",
+        "gRPC-metadata",
+        "channel-management"
+      ],
+      "concepts": [
+        "service-configuration",
+        "metadata-propagation",
+        "authentication",
+        "gRPC",
+        "channel-sharing",
+        "default-values"
+      ],
+      "severity": "medium",
+      "userImpact": "Users must manually re-apply gRPC metadata provider configuration when creating operator services from existing workflow service channels, causing code duplication and potential security oversights.",
+      "rootCause": "The validateAndBuildWithDefaults method does not inspect or copy the gRPC metadata provider configuration from the reused channel.",
+      "proposedFix": "Enhance validateAndBuildWithDefaults to automatically carry over grpcMetadataProvider configuration from the source channel unless explicitly overridden.",
+      "workaround": "Explicitly set the grpcMetadataProvider again when building OperatorServiceStubsOptions.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "request is to carry over this info in ServiceStubOptions.validateAndBuildWithDefaults if possible.",
+      "number": 2800,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:10:32.534Z"
+    },
+    {
+      "summary": "The cancel task in Nexus operations is missing a required header that should be included according to expected behavior.",
+      "category": "bug",
+      "subcategory": "nexus-cancellation",
+      "apis": [],
+      "components": [
+        "nexus-operations",
+        "task-handler",
+        "protocol"
+      ],
+      "concepts": [
+        "cancellation",
+        "headers",
+        "nexus",
+        "protocol-compliance",
+        "communication"
+      ],
+      "severity": "medium",
+      "userImpact": "Users canceling Nexus operations may experience missing headers in the cancel task, potentially causing protocol or communication issues.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Nexus operation cancel task does not include header",
+      "number": 2797,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:10:14.149Z"
+    },
+    {
+      "summary": "Replay fails when Update handlers containing SideEffect or LocalActivity complete during the same workflow task as getVersion markers, because UpdateCompleted events are interleaved between version markers in the history.",
+      "category": "bug",
+      "subcategory": "workflow-replay",
+      "apis": [
+        "getVersion",
+        "SideEffect",
+        "LocalActivity",
+        "Update"
+      ],
+      "components": [
+        "workflow-replay",
+        "version-marker",
+        "update-handler",
+        "state-machine",
+        "event-ordering"
+      ],
+      "concepts": [
+        "replay",
+        "versioning",
+        "determinism",
+        "event-ordering",
+        "state-machine",
+        "concurrency",
+        "history-mismatch"
+      ],
+      "severity": "high",
+      "userImpact": "Users who use Update handlers with SideEffect or LocalActivity in workflows with versioning experience workflow task failures during replay.",
+      "rootCause": "The SDK state machine has a bug when Update completions interleave with version markers, causing events to be recorded in a different order than they're replayed, breaking determinism.",
+      "proposedFix": null,
+      "workaround": "Use Workflow.await(Workflow::isEveryHandlerFinished) before getVersion calls to prevent the race condition.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The UpdateCompleted events are interleaved between two version marker events in history, causing a mismatch during replay.",
+      "number": 2796,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:10:13.058Z"
+    },
+    {
+      "summary": "PollerBehaviorAutoscaling uses ForkJoinPool.commonPool() which doesn't inherit the context class loader from Spring Boot, causing Kotlin method references to fail despite the required library being on the classpath.",
+      "category": "bug",
+      "subcategory": "spring-boot-integration",
+      "apis": [
+        "PollerBehaviorAutoscaling",
+        "WorkerFactory",
+        "Async"
+      ],
+      "components": [
+        "worker",
+        "class-loader",
+        "poller-autoscaling",
+        "kotlin-support"
+      ],
+      "concepts": [
+        "class-loader-context",
+        "thread-context",
+        "auto-scaling",
+        "spring-boot",
+        "kotlin",
+        "classpath-resolution",
+        "forkjoinpool"
+      ],
+      "severity": "high",
+      "userImpact": "Users running Spring Boot applications with Kotlin and PollerBehaviorAutoscaling enabled encounter runtime failures when using Kotlin method references with Async, despite the required temporal-kotlin library being on the classpath.",
+      "rootCause": "PollerBehaviorAutoscaling uses ForkJoinPool.commonPool() which doesn't inherit the context class loader from the WorkerFactory's initiating thread, causing Spring Boot's LaunchedClassLoader to be replaced with the default AppClassLoader.",
+      "proposedFix": "Modify PollerBehaviorAutoscaling to properly inherit or propagate the context class loader from the initiating thread when submitting tasks to ForkJoinPool.commonPool().",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "PollerBehaviorAutoscaling was modified to properly handle context class loader inheritance when using ForkJoinPool with Spring Boot environments.",
+      "related": [],
+      "keyQuote": "When PollerBehaviorAutoscaling is enabled, worker threads are assigned jdk.internal.loader.ClassLoaders$AppClassLoader instead of Spring Boot's LaunchedClassLoader",
+      "number": 2795,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:10:20.424Z"
+    },
+    {
+      "summary": "The ProtobufJsonPayloadConverter fails when using a shaded artifact because shaded protobuf types (io.temporal.shaded.com.google.protobuf.*) don't match non-shaded client code types (com.google.protobuf.*), causing instanceof checks to fail and serialization to be skipped.",
+      "category": "bug",
+      "subcategory": "payload-conversion",
+      "apis": [],
+      "components": [
+        "ProtobufJsonPayloadConverter",
+        "payload-converter",
+        "protobuf-serialization",
+        "shading",
+        "type-checking"
+      ],
+      "concepts": [
+        "type-incompatibility",
+        "shading",
+        "serialization",
+        "protobuf",
+        "artifact-management",
+        "class-loading"
+      ],
+      "severity": "high",
+      "userImpact": "Users attempting to use the shaded artifact for gRPC version conflict resolution cannot serialize protobuf messages, forcing them to choose between gRPC conflicts or losing protobuf support.",
+      "rootCause": "When protobuf is shaded by relocation, com.google.protobuf.MessageOrBuilder becomes io.temporal.shaded.com.google.protobuf.MessageOrBuilder, causing instanceof checks to fail when non-shaded client code passes regular protobuf objects.",
+      "proposedFix": "Release ProtobufJsonPayloadConverter as a separate non-shaded artifact independent from the shaded artifact, or configure the shader to exclude converters from relocation.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "once protobuf is shaded, io.temporal.shaded.com.google.protobuf.* is a completely different type from com.google.protobuf.*",
+      "number": 2792,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:09:59.331Z"
+    },
+    {
+      "summary": "Request to add methods to WorkflowImplementationOptions for setting ChildWorkflowOptions, providing consistent configuration alongside existing ActivityOptions and NexusServiceOptions.",
+      "category": "feature",
+      "subcategory": "child-workflows",
+      "apis": [
+        "WorkflowImplementationOptions",
+        "ChildWorkflowOptions"
+      ],
+      "components": [
+        "workflow-implementation",
+        "configuration",
+        "child-workflows",
+        "options-builder"
+      ],
+      "concepts": [
+        "child-workflows",
+        "configuration",
+        "builder-pattern",
+        "workflow-options",
+        "default-options",
+        "consistency"
+      ],
+      "severity": "low",
+      "userImpact": "Developers would benefit from a consistent API to set default child workflow options across all workflow implementations.",
+      "rootCause": null,
+      "proposedFix": "Add setChildWorkflowOptions(Map<String, ChildWorkflowOptions> options) and setDefaultChildWorkflowOptions(ChildWorkflowOptions options) methods to WorkflowImplementationOptions.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "It would be great if there was a method to set `ChildWorkflowOptions` in the same way",
+      "number": 2790,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:09:51.997Z"
+    },
+    {
+      "summary": "WorkflowStub.cancel() throws IllegalStateException instead of the documented WorkflowNotFoundException when attempting to cancel a non-existent workflow, creating a mismatch between documented and actual behavior.",
+      "category": "bug",
+      "subcategory": "workflow-cancellation",
+      "apis": [
+        "cancel"
+      ],
+      "components": [
+        "WorkflowStubImpl",
+        "client",
+        "error-handling"
+      ],
+      "concepts": [
+        "exception-handling",
+        "workflow-cancellation",
+        "state-checking",
+        "api-contract",
+        "error-propagation"
+      ],
+      "severity": "medium",
+      "userImpact": "Users attempting to cancel non-existent workflows receive an unexpected exception type, potentially breaking error handling logic that expects WorkflowNotFoundException.",
+      "rootCause": "Internal check in WorkflowStubImpl.checkStarted() throws IllegalStateException for null workflowId, but API documentation promises WorkflowNotFoundException.",
+      "proposedFix": "Document the actual exception behavior rather than changing it to avoid breaking changes.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The resolution here is likely to be documenting the exception rather than changing it.",
+      "number": 2781,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-04-04T19:10:00.011Z"
+    },
     {
       "summary": "Spring Boot auto-discovery incorrectly requires workflow packages configuration to register Activity beans, when activities should be auto-registered independently. The configuration name `packages` is also misleading since it only filters workflows, not activities.",
       "category": "bug",

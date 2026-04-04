@@ -1,0 +1,32 @@
+{
+  "summary": "The pollerBalancer.balance() method can unnecessarily block due to Go's non-deterministic map iteration order. When a poller's count drops to 0, subsequent loop iterations may grab another poller type's barrier and block instead of returning nil immediately.",
+  "category": "bug",
+  "subcategory": "poller-management",
+  "apis": [],
+  "components": [
+    "worker",
+    "poller",
+    "barrier",
+    "synchronization"
+  ],
+  "concepts": [
+    "non-deterministic-iteration",
+    "race-condition",
+    "deadlock",
+    "concurrency",
+    "polling",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Workers may unnecessarily block on barriers even when they have no pending work, reducing throughput and potentially causing system hangs in certain scenarios.",
+  "rootCause": "Go's non-deterministic map iteration order causes pollerBalancer.balance() to visit and grab the wrong poller type's barrier before checking the current poller type's count.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Due to random map iteration, the loop visits the other type (which now has count == 0 again) before the current type — grabs the barrier and blocks again instead of returning nil.",
+  "number": 2236,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:09:10.372Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to allow PayloadVisitor to run payload visitations concurrently for I/O-bound tasks with configurable concurrency level, defaulting to 1 for backward compatibility.",
+  "category": "feature",
+  "subcategory": "payload-processing",
+  "apis": [
+    "PayloadVisitor"
+  ],
+  "components": [
+    "PayloadVisitor",
+    "serialization",
+    "concurrency"
+  ],
+  "concepts": [
+    "concurrency",
+    "parallelization",
+    "I/O-bound",
+    "coroutines",
+    "backward-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Enables faster payload visitation for I/O-bound tasks by allowing concurrent processing instead of sequential execution.",
+  "rootCause": null,
+  "proposedFix": "Add an option to PayloadVisitor to control the maximum number of concurrent visitations, with default value of 1 to maintain backward compatibility.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed as duplicate of a features repo issue to consolidate cross-SDK work.",
+  "related": [],
+  "keyQuote": "Add option to PayloadVisitor that allows more than one concurrent visitation to occur at a time. Then default value should be 1 to maintain backward compatible behavior",
+  "number": 1343,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:13:16.934Z"
+}

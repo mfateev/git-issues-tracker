@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for concurrent payload visiting in SDKs. Currently payload visitors process proto messages serially, but this feature request proposes allowing concurrent processing with configurable concurrency limits while maintaining backward compatibility by defaulting to single-task execution.",
+  "category": "feature",
+  "subcategory": "payload-visiting",
+  "apis": [],
+  "components": [
+    "payload-visitor",
+    "serialization",
+    "proto-message-handling"
+  ],
+  "concepts": [
+    "concurrency",
+    "async-processing",
+    "payload-visiting",
+    "proto-messages",
+    "multithreading",
+    "io-bound",
+    "backward-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with multithreaded or async/I/O bound workloads can leverage concurrent payload processing for better resource utilization.",
+  "rootCause": null,
+  "proposedFix": "Update the payload visitor for each SDK to allow for concurrent processing of payloads in proto messages with options to control concurrency limits, defaulting to single task execution for backward compatibility.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2223,
+    1356
+  ],
+  "keyQuote": "payload visitors in the SDKs visit proto messages and the fields in a serial manner. This is fine for CPU bound work on single threaded schedulers, but leaves room for improvement for multithreaded and I/O bound, async work.",
+  "number": 772,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:05:22.455Z"
+}

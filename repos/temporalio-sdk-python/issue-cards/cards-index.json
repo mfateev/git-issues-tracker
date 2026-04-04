@@ -1,7 +1,615 @@
 {
-  "generatedAt": "2026-02-11T03:36:41.851Z",
-  "totalCards": 601,
+  "generatedAt": "2026-04-04T19:15:26.254Z",
+  "totalCards": 619,
   "cards": [
+    {
+      "summary": "Security vulnerabilities detected in Rust dependencies (rustls-webpki GHSA-pwjx-qhcg-rvj4 and tar-rs CVE-2026-33055/33056) via Trivy scan. Fixed versions available via dependabot PRs awaiting maintainer review.",
+      "category": "bug",
+      "subcategory": "dependency-security",
+      "apis": [],
+      "components": [
+        "rustls-webpki",
+        "tar-rs",
+        "dependency-management"
+      ],
+      "concepts": [
+        "security-vulnerability",
+        "CVE",
+        "dependency-update",
+        "security-scanning",
+        "vulnerability-patching",
+        "transitive-dependencies"
+      ],
+      "severity": "high",
+      "userImpact": "Applications using the Python SDK remain exposed to known security vulnerabilities in transitive dependencies until the SDK is updated.",
+      "rootCause": "Outdated versions of rustls-webpki and tar-rs contain known CVEs that are publicly disclosed.",
+      "proposedFix": "Update rustls-webpki to 0.103.10 and tar-rs to 0.4.45 via dependabot PRs.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1384,
+        1383
+      ],
+      "keyQuote": "While running Trivy scan on my projects, I see the following issues being raised... Can these PRs be processed by maintainers and included in a future release?",
+      "number": 1403,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:15:11.485Z"
+    },
+    {
+      "summary": "Headers are not consistently run through the external storage transformation pipeline. The `_transform_outbound_payload` call is conditionally skipped based on the `encode_headers` parameter, but it should always execute for all transformation phases—only the encoding phase should be conditional.",
+      "category": "bug",
+      "subcategory": "payload-transformation",
+      "apis": [],
+      "components": [
+        "client",
+        "payload-transformation",
+        "external-storage"
+      ],
+      "concepts": [
+        "payload-encoding",
+        "external-storage",
+        "serialization",
+        "headers",
+        "payload-validation"
+      ],
+      "severity": "high",
+      "userImpact": "Headers may not be properly validated for size or stored externally, potentially leading to data integrity issues and undetected oversized headers.",
+      "rootCause": "The `_transform_outbound_payload` call in client.py is conditionally skipped based on the `encode_headers` parameter, when it should always run for all transformation phases including storage and validation.",
+      "proposedFix": "Always call `_transform_outbound_payload` for headers regardless of `encode_headers` parameter; make only the encoding phase conditional.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The encode_headers parameter should only affect the code encoding phase, not the other phases of transforming payloads.",
+      "number": 1395,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:15:10.308Z"
+    },
+    {
+      "summary": "Request to implement S3 External Storage Driver for the Python SDK, tracked as part of a cross-SDK feature initiative.",
+      "category": "feature",
+      "subcategory": "external-storage-s3",
+      "apis": [],
+      "components": [
+        "external-storage",
+        "s3-client",
+        "worker"
+      ],
+      "concepts": [
+        "s3",
+        "external-storage",
+        "storage-driver",
+        "scalability",
+        "durability",
+        "integration"
+      ],
+      "severity": "medium",
+      "userImpact": "Users can use S3 as a native external storage backend for Temporal workflows in Python SDK.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "duplicate",
+      "resolutionDetails": "Issue consolidated with parent feature tracking issue temporalio/features#783",
+      "related": [
+        783
+      ],
+      "keyQuote": "S3 External Storage Driver - Python",
+      "number": 1390,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:15:26.187Z"
+    },
+    {
+      "summary": "Proposes a contrib.activity_cache module for activity result memoization to avoid re-executing expensive operations during workflow retries. After research, the author found similar solutions already exist in the ecosystem and decided not to pursue the feature.",
+      "category": "feature",
+      "subcategory": "activity-caching",
+      "apis": [
+        "activity.defn",
+        "Worker"
+      ],
+      "components": [
+        "activity-executor",
+        "contrib-module",
+        "worker",
+        "caching-layer"
+      ],
+      "concepts": [
+        "activity-caching",
+        "memoization",
+        "idempotency",
+        "workflow-retry",
+        "distributed-caching",
+        "content-addressing",
+        "serialization"
+      ],
+      "severity": "low",
+      "userImpact": "Users could reduce costs and execution time for expensive activities by caching results during workflow retries, but suitable alternatives already exist in the ecosystem.",
+      "rootCause": null,
+      "proposedFix": "Implement a contrib.activity_cache module with decorator and interceptor modes for activity result caching, using fsspec for storage and the worker's configured DataConverter for serialization.",
+      "workaround": "Teams currently implement custom caching inside each activity, though there's no standard pattern or way to share cache state across distributed workers.",
+      "resolution": "wontfix",
+      "resolutionDetails": "After research, the author found similar activity caching solutions already exist in the ecosystem (referenced in other frameworks like Flyte and Prefect). The author determined there wasn't enough unique value to justify implementing a new third-party package for this feature.",
+      "related": [
+        1373
+      ],
+      "keyQuote": "After more research, similar solutions already exist in the ecosystem. Not enough unique value to justify a new third-party package for this.",
+      "number": 1374,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:14:57.667Z"
+    },
+    {
+      "summary": "Request for a contrib.workdir module providing a Workspace utility for local directories backed by remote storage, enabling file-based activities to scale across multiple worker instances by automatically handling upload/download operations.",
+      "category": "feature",
+      "subcategory": "activity-storage",
+      "apis": [
+        "activity.defn",
+        "activity.info"
+      ],
+      "components": [
+        "activities",
+        "contrib",
+        "storage",
+        "worker"
+      ],
+      "concepts": [
+        "distributed-state",
+        "file-handling",
+        "remote-storage",
+        "scaling",
+        "automation",
+        "boilerplate-reduction"
+      ],
+      "severity": "medium",
+      "userImpact": "Users working with file-based activities on multiple worker instances must manually implement boilerplate for uploading to and downloading from object storage.",
+      "rootCause": null,
+      "proposedFix": "Implement a contrib.workdir module with a Workspace context manager that automatically handles pull before execution and push after, with optional @workspace decorator for automatic path retrieval and fsspec for storage backend auto-detection.",
+      "workaround": "Manually download from and upload to object storage (S3/GCS) at the start and end of every activity.",
+      "resolution": "wontfix",
+      "resolutionDetails": "Declined for SDK contrib module due to cross-SDK parity requirements, but suggested as a temporal-community project; submitted to temporal-community code exchange.",
+      "related": [],
+      "keyQuote": "Generally, we try to maintain relative parity between SDKs, so we would have to replicate this work across all of them.",
+      "number": 1373,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:14:37.564Z"
+    },
+    {
+      "summary": "The Python SDK lacks conflict token retry logic for schedule updates. The server now returns 'mismatched conflict token' errors, but clients don't implement the retry mechanism to handle them.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-client",
+        "update-handler",
+        "retry-mechanism",
+        "conflict-resolution"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-loop",
+        "schedule-updates",
+        "consistency",
+        "idempotency",
+        "error-handling"
+      ],
+      "severity": "high",
+      "userImpact": "Schedule update operations fail with 'mismatched conflict token' errors because the SDK doesn't implement retry logic to handle these responses from the server.",
+      "rootCause": "The server now validates and returns conflict token mismatches (per temporal/temporal#8474), but SDK clients lack the retry loop to handle these errors.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token' as of https://github.com/temporalio/temporal/pull/8474.",
+      "number": 1367,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:14:48.602Z"
+    },
+    {
+      "summary": "Proposal to add GNAP (Git-Native Agent Protocol) integration for coordinating autonomous AI agents with Temporal workflows. The proposal suggests using GNAP as a complementary pattern for less-structured autonomous work, with Temporal workflows delegating tasks to git-based task boards managed by agents.",
+      "category": "feature",
+      "subcategory": "ai-integration",
+      "apis": [
+        "execute_activity"
+      ],
+      "components": [
+        "workflow-engine",
+        "activity-executor"
+      ],
+      "concepts": [
+        "ai-agents",
+        "autonomous-coordination",
+        "git-native-protocol",
+        "fault-tolerance",
+        "durable-execution",
+        "human-in-the-loop",
+        "task-delegation"
+      ],
+      "severity": "low",
+      "userImpact": "Users cannot use native SDK support for integrating Temporal with autonomous AI agents using GNAP, requiring manual workarounds for this coordination pattern.",
+      "rootCause": null,
+      "proposedFix": "Add GNAP integration support to enable Temporal workflows to natively delegate autonomous agent work to GNAP-based task boards.",
+      "workaround": "Users can integrate GNAP through standard activities without SDK-level support, implementing the pattern manually.",
+      "resolution": "wontfix",
+      "resolutionDetails": "Maintainers closed the issue because the proposal does not involve nontrivial integration with the Temporal SDK. They suggested exploring the AI Partner Program instead.",
+      "related": [],
+      "keyQuote": "I'm going to close this since there's no detail on how this would actually involve nontrivial integration with Temporal.",
+      "number": 1364,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:14:17.127Z"
+    },
+    {
+      "summary": "Security vulnerability CVE-2026-31812 in vendored quinn-proto 0.11.12 requires a bump to >= 0.11.14 to fix an unauthenticated remote DoS in QUIC transport parameter handling.",
+      "category": "bug",
+      "subcategory": "dependency-vulnerability",
+      "apis": [],
+      "components": [
+        "rust-bridge",
+        "quic-transport",
+        "dependencies"
+      ],
+      "concepts": [
+        "security",
+        "CVE",
+        "DoS",
+        "dependency-management",
+        "QUIC",
+        "vendored-dependencies"
+      ],
+      "severity": "high",
+      "userImpact": "Users of temporalio 1.22.0 and 1.23.0 have a high-severity CVE in their dependency that could enable DoS attacks, though actual exposure is limited since QUIC is not used.",
+      "rootCause": "Panic in QUIC transport parameter handling in quinn-proto 0.11.12 that can be exploited for unauthenticated remote DoS.",
+      "proposedFix": "Bump quinn-proto version to >= 0.11.14 in the vendored Cargo.lock file.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Quinn-proto dependency was bumped to >= 0.11.14 to address CVE-2026-31812.",
+      "related": [
+        651
+      ],
+      "keyQuote": "The vendored Cargo.lock in the Rust bridge ships `quinn-proto 0.11.12`, which is affected by CVE-2026-31812 (unauthenticated remote DoS via panic in QUIC transport parameter handling).",
+      "number": 1359,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:14:16.838Z"
+    },
+    {
+      "summary": "The Python SDK's bundled quinn-proto v0.11.12 dependency contains CVE-2026-31812, a vulnerability allowing unauthenticated remote DoS via panic in QUIC transport parameter parsing. Updating to quinn-proto >= 0.11.14 resolves the issue.",
+      "category": "bug",
+      "subcategory": "dependency-vulnerability",
+      "apis": [],
+      "components": [
+        "bridge",
+        "dependencies",
+        "cargo"
+      ],
+      "concepts": [
+        "vulnerability",
+        "CVE",
+        "DoS",
+        "QUIC",
+        "security",
+        "dependency",
+        "panic"
+      ],
+      "severity": "critical",
+      "userImpact": "Python SDK applications are vulnerable to unauthenticated remote DoS attacks through the Rust bridge's QUIC transport parameter parsing.",
+      "rootCause": "quinn-proto v0.11.12 contains a panic vulnerability in QUIC transport parameter parsing that can be triggered remotely without authentication.",
+      "proposedFix": "Update quinn-proto dependency from v0.11.12 to >= v0.11.14",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Resolved by updating quinn-proto to version >= 0.11.14 via PR #1357",
+      "related": [
+        1357
+      ],
+      "keyQuote": "Updating quinn-proto to >= 0.11.14 resolves the CVE.",
+      "number": 1358,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:14:08.315Z"
+    },
+    {
+      "summary": "Enable concurrent payload visiting in the Python SDK to improve performance and efficiency of payload handling.",
+      "category": "feature",
+      "subcategory": "payload-handling",
+      "apis": [],
+      "components": [
+        "payload-converter",
+        "serialization"
+      ],
+      "concepts": [
+        "concurrency",
+        "payload-processing",
+        "serialization",
+        "performance"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables Python SDK users to process payloads concurrently, improving performance and scalability of payload handling.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [
+        772
+      ],
+      "keyQuote": "Parent issue: https://github.com/temporalio/features/issues/772",
+      "number": 1356,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:13:44.761Z"
+    },
+    {
+      "summary": "workflow.sleep() timer persists on the Temporal server when an asyncio.Task wrapping it is canceled, unlike asyncio.sleep() which properly cancels. The SDK fails to send a CancelTimer command, causing the timer to fire on an already-canceled future.",
+      "category": "bug",
+      "subcategory": "timer-cancellation",
+      "apis": [
+        "workflow.sleep",
+        "workflow.run",
+        "Client.execute_workflow"
+      ],
+      "components": [
+        "timer-executor",
+        "task-cancellation",
+        "workflow-execution",
+        "history-management"
+      ],
+      "concepts": [
+        "task-cancellation",
+        "timer-management",
+        "asyncio-integration",
+        "timer-callbacks",
+        "workflow-history",
+        "command-serialization"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot properly cancel timers created with workflow.sleep(), leading to orphaned timers and potential exceptions when callbacks fire.",
+      "rootCause": "SDK does not intercept asyncio task cancellation and propagate it as a CancelTimer command to the Temporal server.",
+      "proposedFix": "Implement proper cancellation propagation for workflow.sleep() to send CancelTimer commands when wrapping asyncio tasks are canceled.",
+      "workaround": "Use asyncio.sleep() instead of workflow.sleep() for operations that may be canceled.",
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [
+        782
+      ],
+      "keyQuote": "The Temporal timer is never canceled on the server. No TimerCanceled event appears in workflow history.",
+      "number": 1351,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:13:53.067Z"
+    },
+    {
+      "summary": "RetryPolicy.from_proto() assigns protobuf RepeatedScalarContainer directly instead of converting to Python list, making activity.info().retry_policy non-picklable and crashing sync activities in ProcessPoolExecutor when retry policy specifies non_retryable_error_types.",
+      "category": "bug",
+      "subcategory": "serialization",
+      "apis": [
+        "ExecuteActivity",
+        "RetryPolicy",
+        "activity.info()"
+      ],
+      "components": [
+        "activity-executor",
+        "retry-policy",
+        "serialization",
+        "common"
+      ],
+      "concepts": [
+        "retry",
+        "pickling",
+        "serialization",
+        "multiprocessing",
+        "protobuf"
+      ],
+      "severity": "high",
+      "userImpact": "Sync activities in ProcessPoolExecutor crash with PickleError when workflow specifies non_retryable_error_types in retry policy.",
+      "rootCause": "RetryPolicy.from_proto() directly assigns proto.non_retryable_error_types (a protobuf RepeatedScalarContainer) instead of converting it to a Python list, which is not picklable.",
+      "proposedFix": "In RetryPolicy.from_proto(), convert non_retryable_error_types to a list: non_retryable_error_types=list(proto.non_retryable_error_types) or None",
+      "workaround": "Monkey-patch RetryPolicy.from_proto at import time to convert non_retryable_error_types to a list before returning.",
+      "resolution": "fixed",
+      "resolutionDetails": "Acknowledged by maintainer tconley1428 with commitment to fix in next release.",
+      "related": [
+        1055
+      ],
+      "keyQuote": "_pickle.PickleError: can't pickle repeated message fields, convert to list first",
+      "number": 1350,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:13:43.320Z"
+    },
+    {
+      "summary": "Updating a worker's client does not update the client exposed to activities. When developers reassign worker.client (e.g., for mTLS certificate rotation), activity.client() continues returning the original client because Worker._activity_worker is initialized with a static reference that doesn't reflect later updates.",
+      "category": "bug",
+      "subcategory": "activity-client",
+      "apis": [
+        "worker.client",
+        "activity.client()"
+      ],
+      "components": [
+        "worker",
+        "activity-worker",
+        "client-management"
+      ],
+      "concepts": [
+        "certificate-rotation",
+        "mTLS",
+        "client-lifecycle",
+        "state-management",
+        "client-reference"
+      ],
+      "severity": "high",
+      "userImpact": "Users relying on dynamic client updates for mTLS certificate rotation find that activities continue using stale client configurations, breaking their certificate rotation strategy.",
+      "rootCause": "Worker._activity_worker is constructed at initialization and holds a reference to the original client. This reference is never updated when worker.client is reassigned later.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Worker._activity_worker is constructed upon worker initialization, holds into the original client, and that client is not changed when worker.client is updated later.",
+      "number": 1346,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:13:24.434Z"
+    },
+    {
+      "summary": "Feature request to allow PayloadVisitor to run payload visitations concurrently for I/O-bound tasks with configurable concurrency level, defaulting to 1 for backward compatibility.",
+      "category": "feature",
+      "subcategory": "payload-processing",
+      "apis": [
+        "PayloadVisitor"
+      ],
+      "components": [
+        "PayloadVisitor",
+        "serialization",
+        "concurrency"
+      ],
+      "concepts": [
+        "concurrency",
+        "parallelization",
+        "I/O-bound",
+        "coroutines",
+        "backward-compatibility"
+      ],
+      "severity": "low",
+      "userImpact": "Enables faster payload visitation for I/O-bound tasks by allowing concurrent processing instead of sequential execution.",
+      "rootCause": null,
+      "proposedFix": "Add an option to PayloadVisitor to control the maximum number of concurrent visitations, with default value of 1 to maintain backward compatibility.",
+      "workaround": null,
+      "resolution": "duplicate",
+      "resolutionDetails": "Closed as duplicate of a features repo issue to consolidate cross-SDK work.",
+      "related": [],
+      "keyQuote": "Add option to PayloadVisitor that allows more than one concurrent visitation to occur at a time. Then default value should be 1 to maintain backward compatible behavior",
+      "number": 1343,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:13:16.934Z"
+    },
+    {
+      "summary": "External Payload Storage Foundation - Python is a tracking issue for implementing external payload storage support in the Python SDK, coordinated through the main feature tracking issue.",
+      "category": "feature",
+      "subcategory": "external-payload-storage",
+      "apis": [],
+      "components": [
+        "payload-storage",
+        "serialization",
+        "converter"
+      ],
+      "concepts": [
+        "external-storage",
+        "payload",
+        "data-persistence",
+        "serialization",
+        "foundation"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables users to store workflow payloads in external systems instead of keeping them within Temporal.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Implementation tracked in parent feature issue #765.",
+      "related": [
+        765
+      ],
+      "keyQuote": "Parent issue: https://github.com/temporalio/features/issues/765",
+      "number": 1342,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:13:21.860Z"
+    },
+    {
+      "summary": "The `workflow_id` field in `WorkflowSerializationContext` is incorrectly typed as `str | None` when it should be `str` since it's always populated in a workflow context.",
+      "category": "bug",
+      "subcategory": "serialization",
+      "apis": [
+        "WorkflowSerializationContext"
+      ],
+      "components": [
+        "serialization",
+        "context",
+        "type-annotations"
+      ],
+      "concepts": [
+        "type-safety",
+        "type-annotations",
+        "workflow-context",
+        "serialization",
+        "nullability"
+      ],
+      "severity": "medium",
+      "userImpact": "Type checkers incorrectly flag `workflow_id` as potentially null, requiring unnecessary null checks in user code.",
+      "rootCause": "Incorrect type annotation for `workflow_id` in `WorkflowSerializationContext` class definition",
+      "proposedFix": "Change `workflow_id` type from `str | None` to `str`",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Type annotation was corrected to reflect that workflow_id is always populated in workflow context",
+      "related": [],
+      "keyQuote": "workflow_id in WorkflowSerializationContext should be str instead of str | None as we expect it to always be populated",
+      "number": 1339,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:12:48.895Z"
+    },
+    {
+      "summary": "The _invoke_model_activity function crashes with AttributeError when handling LiteLLM exceptions that subclass APIStatusError but lack a .response attribute. The code unconditionally accesses e.response.headers without checking if the attribute exists.",
+      "category": "bug",
+      "subcategory": "openai-agents",
+      "apis": [],
+      "components": [
+        "openai_agents",
+        "_invoke_model_activity",
+        "error-handling"
+      ],
+      "concepts": [
+        "exception-handling",
+        "subclassing",
+        "attribute-access",
+        "third-party-integration",
+        "compatibility",
+        "error-recovery"
+      ],
+      "severity": "high",
+      "userImpact": "Users using LiteLLM with OpenAI agents will experience crashes when LiteLLM errors occur",
+      "rootCause": "LiteLLM's error classes inherit from OpenAI's APIStatusError but don't always populate the .response attribute, while the error handling code unconditionally accesses e.response.headers",
+      "proposedFix": "Guard e.response access with getattr(e, 'response', None) and handle the case where response is None",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Implemented defensive error handling to safely check for the .response attribute before accessing it",
+      "related": [],
+      "keyQuote": "AttributeError: 'UnsupportedParamsError' object has no attribute 'response'",
+      "number": 1337,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:13:05.247Z"
+    },
+    {
+      "summary": "Python 3.14's switch from sys.settrace to sys.monitoring causes workflow sandbox hangs when coverage or other monitoring tools fire callbacks globally on the workflow thread pool, triggering restricted API access inside the sandbox.",
+      "category": "bug",
+      "subcategory": "workflow-sandbox",
+      "apis": [
+        "workflow.run",
+        "workflow.defn",
+        "WorkflowEnvironment",
+        "Worker",
+        "execute_workflow"
+      ],
+      "components": [
+        "workflow-sandbox",
+        "importer",
+        "monitoring-events",
+        "python-version-compatibility"
+      ],
+      "concepts": [
+        "sandbox-restrictions",
+        "workflow-isolation",
+        "sys.monitoring",
+        "lazy-imports",
+        "thread-pool",
+        "code-coverage",
+        "python-compatibility"
+      ],
+      "severity": "high",
+      "userImpact": "Users running code coverage tools on Python 3.14 experience workflow execution hangs, making testing with coverage impossible on that version.",
+      "rootCause": "Python 3.14's sys.monitoring callbacks fire globally on all threads including the workflow sandbox thread, and lazy imports inside the sandbox trigger restricted API access (platform.python_implementation()), causing repeated workflow failures.",
+      "proposedFix": "Suspend sys.monitoring events inside Importer.applied() by saving and clearing all events on enter, restoring on exit, to prevent any monitoring callback from firing inside the sandbox.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "sys.monitoring callbacks are **global** — they fire on all threads, including the workflow thread pool thread where the sandbox importer is active.",
+      "number": 1326,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-04-04T19:12:58.484Z"
+    },
     {
       "summary": "Signal argument deserialization errors in workflows are logged using the default logger instead of the workflow-specific logger, making it difficult to diagnose issues. This differs from other deserialization errors which fail the task, while signal errors log-and-ignore to prevent workflow failure.",
       "category": "other",

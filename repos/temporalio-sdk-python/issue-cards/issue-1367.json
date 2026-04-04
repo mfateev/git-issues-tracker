@@ -1,0 +1,34 @@
+{
+  "summary": "The Python SDK lacks conflict token retry logic for schedule updates. The server now returns 'mismatched conflict token' errors, but clients don't implement the retry mechanism to handle them.",
+  "category": "feature",
+  "subcategory": "schedule-updates",
+  "apis": [
+    "UpdateSchedule"
+  ],
+  "components": [
+    "schedule-client",
+    "update-handler",
+    "retry-mechanism",
+    "conflict-resolution"
+  ],
+  "concepts": [
+    "conflict-token",
+    "retry-loop",
+    "schedule-updates",
+    "consistency",
+    "idempotency",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Schedule update operations fail with 'mismatched conflict token' errors because the SDK doesn't implement retry logic to handle these responses from the server.",
+  "rootCause": "The server now validates and returns conflict token mismatches (per temporal/temporal#8474), but SDK clients lack the retry loop to handle these errors.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token' as of https://github.com/temporalio/temporal/pull/8474.",
+  "number": 1367,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:14:48.602Z"
+}

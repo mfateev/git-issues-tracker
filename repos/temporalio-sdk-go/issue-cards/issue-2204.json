@@ -1,0 +1,34 @@
+{
+  "summary": "Activity panics are logged at the task handler level but not at the caller level in the Go SDK, unlike other Temporal SDKs which log the panic trace from the workflow perspective.",
+  "category": "bug",
+  "subcategory": "activity-logging",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "task-handler",
+    "logging",
+    "error-handling",
+    "panic-recovery"
+  ],
+  "concepts": [
+    "panic-handling",
+    "error-logging",
+    "stack-trace",
+    "activity-failure",
+    "observability",
+    "logging",
+    "cross-sdk-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Activity panic stack traces are not logged at the workflow caller level, making it difficult for users to diagnose activity failures compared to other Temporal SDKs.",
+  "rootCause": "Panic trace logging is only implemented at the activity task handler level, not propagated to the workflow caller level.",
+  "proposedFix": "Log activity panic stack traces at the workflow caller level, similar to how other Temporal SDKs handle activity failures.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It gets converted into Application errors with traces, so it ends up in history, but never logged from a workflow POV. Other SDKs log the panic trace.",
+  "number": 2204,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:07:53.201Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Security vulnerabilities detected in Rust dependencies (rustls-webpki GHSA-pwjx-qhcg-rvj4 and tar-rs CVE-2026-33055/33056) via Trivy scan. Fixed versions available via dependabot PRs awaiting maintainer review.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "rustls-webpki",
+    "tar-rs",
+    "dependency-management"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "CVE",
+    "dependency-update",
+    "security-scanning",
+    "vulnerability-patching",
+    "transitive-dependencies"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using the Python SDK remain exposed to known security vulnerabilities in transitive dependencies until the SDK is updated.",
+  "rootCause": "Outdated versions of rustls-webpki and tar-rs contain known CVEs that are publicly disclosed.",
+  "proposedFix": "Update rustls-webpki to 0.103.10 and tar-rs to 0.4.45 via dependabot PRs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1384,
+    1383
+  ],
+  "keyQuote": "While running Trivy scan on my projects, I see the following issues being raised... Can these PRs be processed by maintainers and included in a future release?",
+  "number": 1403,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:15:11.485Z"
+}

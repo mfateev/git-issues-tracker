@@ -1,0 +1,32 @@
+{
+  "summary": "WorkflowStub.cancel() throws IllegalStateException instead of the documented WorkflowNotFoundException when attempting to cancel a non-existent workflow, creating a mismatch between documented and actual behavior.",
+  "category": "bug",
+  "subcategory": "workflow-cancellation",
+  "apis": [
+    "cancel"
+  ],
+  "components": [
+    "WorkflowStubImpl",
+    "client",
+    "error-handling"
+  ],
+  "concepts": [
+    "exception-handling",
+    "workflow-cancellation",
+    "state-checking",
+    "api-contract",
+    "error-propagation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to cancel non-existent workflows receive an unexpected exception type, potentially breaking error handling logic that expects WorkflowNotFoundException.",
+  "rootCause": "Internal check in WorkflowStubImpl.checkStarted() throws IllegalStateException for null workflowId, but API documentation promises WorkflowNotFoundException.",
+  "proposedFix": "Document the actual exception behavior rather than changing it to avoid breaking changes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The resolution here is likely to be documenting the exception rather than changing it.",
+  "number": 2781,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:10:00.011Z"
+}

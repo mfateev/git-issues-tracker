@@ -1,0 +1,35 @@
+{
+  "summary": "Add support for conflict token retry loop in schedule updates. The server now returns 'mismatched conflict token' errors, but the SDK doesn't automatically retry with the correct token extracted from the schedule description.",
+  "category": "feature",
+  "subcategory": "schedule-management",
+  "apis": [
+    "ScheduleHandle.update",
+    "UpdateScheduleRequest",
+    "DescribeScheduleResponse"
+  ],
+  "components": [
+    "schedule-client",
+    "schedule-handle",
+    "request-handling"
+  ],
+  "concepts": [
+    "conflict-token",
+    "retry-logic",
+    "concurrent-updates",
+    "conflict-resolution",
+    "state-consistency",
+    "idempotency"
+  ],
+  "severity": "medium",
+  "userImpact": "Schedule update operations fail with conflict token mismatches during concurrent modifications, requiring users to manually implement retry logic.",
+  "rootCause": "Server enforces conflict tokens for schedule updates, but the TypeScript SDK lacks automatic retry handling for conflict resolution.",
+  "proposedFix": "Add optional conflictToken parameter to _updateSchedule(). Modify ScheduleHandle.update() to wrap the describe-modify-update flow in a retry loop that re-describes on FAILED_PRECONDITION 'mismatched conflict token' errors, extracts the new token, and retries (configurable max retries, default 10).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token'",
+  "number": 1967,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:17:25.460Z"
+}

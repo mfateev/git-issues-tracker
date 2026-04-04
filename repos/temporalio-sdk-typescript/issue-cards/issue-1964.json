@@ -1,0 +1,32 @@
+{
+  "summary": "Request to include runtime environment information (Node.js vs Bun, versions, cloud platforms like Vercel) in worker heartbeats to provide operational visibility. Should be opt-out and requires API and server coordination.",
+  "category": "feature",
+  "subcategory": "worker-heartbeat",
+  "apis": [],
+  "components": [
+    "worker",
+    "heartbeat",
+    "runtime-detection",
+    "telemetry"
+  ],
+  "concepts": [
+    "heartbeat",
+    "runtime-environment",
+    "observability",
+    "worker-metadata",
+    "platform-detection",
+    "telemetry"
+  ],
+  "severity": "low",
+  "userImpact": "Users will gain visibility into the runtime environment and versions their workers are operating in, helping with debugging and operational analysis.",
+  "rootCause": null,
+  "proposedFix": "Include runtime environment metadata in worker heartbeats, including Node.js vs Bun detection, version information, and cloud platform detection (e.g., Vercel). Make this opt-out by default.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It'll be useful to understand what runtime environment a worker is operating in now that we support bun.",
+  "number": 1964,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:16:52.883Z"
+}

@@ -1,0 +1,37 @@
+{
+  "summary": "RetryPolicy.from_proto() assigns protobuf RepeatedScalarContainer directly instead of converting to Python list, making activity.info().retry_policy non-picklable and crashing sync activities in ProcessPoolExecutor when retry policy specifies non_retryable_error_types.",
+  "category": "bug",
+  "subcategory": "serialization",
+  "apis": [
+    "ExecuteActivity",
+    "RetryPolicy",
+    "activity.info()"
+  ],
+  "components": [
+    "activity-executor",
+    "retry-policy",
+    "serialization",
+    "common"
+  ],
+  "concepts": [
+    "retry",
+    "pickling",
+    "serialization",
+    "multiprocessing",
+    "protobuf"
+  ],
+  "severity": "high",
+  "userImpact": "Sync activities in ProcessPoolExecutor crash with PickleError when workflow specifies non_retryable_error_types in retry policy.",
+  "rootCause": "RetryPolicy.from_proto() directly assigns proto.non_retryable_error_types (a protobuf RepeatedScalarContainer) instead of converting it to a Python list, which is not picklable.",
+  "proposedFix": "In RetryPolicy.from_proto(), convert non_retryable_error_types to a list: non_retryable_error_types=list(proto.non_retryable_error_types) or None",
+  "workaround": "Monkey-patch RetryPolicy.from_proto at import time to convert non_retryable_error_types to a list before returning.",
+  "resolution": "fixed",
+  "resolutionDetails": "Acknowledged by maintainer tconley1428 with commitment to fix in next release.",
+  "related": [
+    1055
+  ],
+  "keyQuote": "_pickle.PickleError: can't pickle repeated message fields, convert to list first",
+  "number": 1350,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:13:43.320Z"
+}

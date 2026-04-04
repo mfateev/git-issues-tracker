@@ -1,0 +1,30 @@
+{
+  "summary": "The cancel task in Nexus operations is missing a required header that should be included according to expected behavior.",
+  "category": "bug",
+  "subcategory": "nexus-cancellation",
+  "apis": [],
+  "components": [
+    "nexus-operations",
+    "task-handler",
+    "protocol"
+  ],
+  "concepts": [
+    "cancellation",
+    "headers",
+    "nexus",
+    "protocol-compliance",
+    "communication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users canceling Nexus operations may experience missing headers in the cancel task, potentially causing protocol or communication issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Nexus operation cancel task does not include header",
+  "number": 2797,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:10:14.149Z"
+}

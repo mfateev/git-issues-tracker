@@ -1,0 +1,32 @@
+{
+  "summary": "When a schedule is paused longer than the retention period and then unpaused, the backing workflow closes unexpectedly. Expected behavior is that paused schedules should not be deleted by retention, and unpausing should reset the retention timer.",
+  "category": "bug",
+  "subcategory": "schedules",
+  "apis": [],
+  "components": [
+    "schedule-engine",
+    "retention-management",
+    "workflow-lifecycle",
+    "schedule-state-manager"
+  ],
+  "concepts": [
+    "schedule-pausing",
+    "retention-policy",
+    "workflow-closure",
+    "state-management",
+    "timer-reset",
+    "data-preservation"
+  ],
+  "severity": "high",
+  "userImpact": "Users who pause schedules lose the backing workflow if they unpause after the retention period expires, resulting in loss of schedule state and history.",
+  "rootCause": "The retention timer is not being reset when a schedule is unpaused, causing the workflow to be deleted even though the schedule should be preserved.",
+  "proposedFix": "Reset the retention timer when unpausing a schedule, or exclude paused schedules from retention-based deletion.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a schedule is paused for longer than the retention period with no actions fired or updates made, unpausing it causes the backing workflow to close.",
+  "number": 9752,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:21:00.167Z"
+}

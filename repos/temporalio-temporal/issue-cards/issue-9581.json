@@ -1,0 +1,31 @@
+{
+  "summary": "The temporal worker deployment set-current-version CLI command cannot switch to unversioned mode in the default namespace, failing with 'BuildID cannot be empty' error, which blocks the official cleanup flow for accidental worker deployment metadata.",
+  "category": "bug",
+  "subcategory": "worker-deployment",
+  "apis": [],
+  "components": [
+    "CLI",
+    "worker-deployment",
+    "versioning"
+  ],
+  "concepts": [
+    "cleanup",
+    "unversioned",
+    "build-id",
+    "worker-deployment",
+    "versioning",
+    "deployment-metadata"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly clean up accidental worker deployment metadata using standard commands, forcing them to manually delete internal workflows.",
+  "rootCause": "The CLI validation logic requires a non-empty BuildID even when the --unversioned flag is specified, preventing the command from accepting unversioned mode.",
+  "proposedFix": "Modify the CLI validation to allow --unversioned or --build-id \"\" to switch current version to unversioned without requiring a non-empty BuildID.",
+  "workaround": "Force-clean by terminating and deleting the internal worker deployment entity workflows using workflow-id targeting.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "--unversioned or --build-id \"\" should switch current version to unversioned, so delete-version and delete deployment can proceed.",
+  "number": 9581,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:36.927Z"
+}

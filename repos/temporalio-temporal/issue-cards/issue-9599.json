@@ -1,0 +1,32 @@
+{
+  "summary": "Setting history.persistenceMaxQPS to 0 (intended to mean unlimited) creates rate limiters with rate=0 and burst=0, causing massive error log spam (317K lines in 5 minutes) as every queue reader task submission fails.",
+  "category": "bug",
+  "subcategory": "rate-limiting",
+  "apis": [],
+  "components": [
+    "queue-reader",
+    "rate-limiter",
+    "history-service",
+    "queue-factory"
+  ],
+  "concepts": [
+    "rate-limiting",
+    "dynamic-config",
+    "backpressure",
+    "queue-processing",
+    "error-logging",
+    "performance"
+  ],
+  "severity": "high",
+  "userImpact": "Users attempting to disable rate limiting with persistenceMaxQPS=0 experience catastrophic error log spam and performance degradation across all queue processors.",
+  "rootCause": "NewHostRateLimiterRateFn falls back to persistenceMaxRPS() * ratio when MaxPollHostRPS=0; when persistenceMaxQPS is also 0, effective rate becomes 0, creating a rate limiter with burst=0 that fails all ReserveN(1) calls.",
+  "proposedFix": "Handle persistenceMaxRPS() <= 0 in NewHostRateLimiterRateFn by using default value (9000) or returning math.MaxFloat64; add rate limiting to error log at reader.go:433",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Setting history.persistenceMaxQPS: 0 in dynamic config (intended to mean 'unlimited') causes all queue reader host-level rate limiters to be created with rate=0, burst=0.",
+  "number": 9599,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:59.471Z"
+}

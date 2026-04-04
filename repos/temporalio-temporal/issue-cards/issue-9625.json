@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to support nested JWT claim names using JSONPath syntax in PermissionsClaimName configuration, enabling access to nested claims without custom ClaimsMapper implementation.",
+  "category": "feature",
+  "subcategory": "authorization-claims",
+  "apis": [],
+  "components": [
+    "authorization",
+    "claims-mapper",
+    "jwt-handler",
+    "configuration"
+  ],
+  "concepts": [
+    "jwt",
+    "claims",
+    "nested-data",
+    "jsonpath",
+    "permissions",
+    "authorization",
+    "configuration"
+  ],
+  "severity": "low",
+  "userImpact": "Users with nested JWT structures must currently write custom ClaimsMapper code instead of using simple configuration.",
+  "rootCause": null,
+  "proposedFix": "Implement JSONPath support for PermissionsClaimName to allow dot-notation access to nested JWT claims (e.g., 'traits.temporal').",
+  "workaround": "Create a custom ClaimsMapper implementation as documented in the Temporal security guide.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Configuring `PermissionsClaimName` to `traits.temporal` would allow to use them without needing to write CustomClaimsMapper.",
+  "number": 9625,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:57.712Z"
+}

@@ -1,7 +1,485 @@
 {
-  "generatedAt": "2026-02-11T03:36:52.806Z",
-  "totalCards": 812,
+  "generatedAt": "2026-04-04T19:18:18.033Z",
+  "totalCards": 826,
   "cards": [
+    {
+      "summary": "Feature request to upgrade the @opentelemetry/sdk-trace-base dependency in the interceptors-opentelemetry package to support newer versions, enabling projects using OpenTelemetry ^2.6.0 or later to use the Temporal SDK's tracing integration.",
+      "category": "feature",
+      "subcategory": "opentelemetry-integration",
+      "apis": [],
+      "components": [
+        "interceptors-opentelemetry",
+        "dependencies"
+      ],
+      "concepts": [
+        "opentelemetry",
+        "versioning",
+        "tracing",
+        "observability",
+        "compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Users with projects using newer versions of @opentelemetry/sdk-trace-base cannot use the Temporal SDK's interceptors-opentelemetry package due to dependency version conflicts.",
+      "rootCause": "The interceptors-opentelemetry package has pinned an older version of @opentelemetry/sdk-trace-base, preventing compatibility with newer versions.",
+      "proposedFix": "Upgrade @opentelemetry/sdk-trace-base in the interceptors-opentelemetry package to support newer versions.",
+      "workaround": null,
+      "resolution": "duplicate",
+      "resolutionDetails": "This issue was consolidated with #1658 for comprehensive OpenTelemetry SDK trace upgrade.",
+      "related": [
+        1658
+      ],
+      "keyQuote": "This will be addressed by https://github.com/temporalio/sdk-typescript/issues/1658",
+      "number": 1987,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:18:16.558Z"
+    },
+    {
+      "summary": "The maybeAddErrorToSpan function in the OpenTelemetry interceptor crashes with TypeError when receiving undefined error values, creating infinite retry loops that mask the original error.",
+      "category": "bug",
+      "subcategory": "opentelemetry-instrumentation",
+      "apis": [
+        "executeChild"
+      ],
+      "components": [
+        "opentelemetry-interceptor",
+        "span-instrumentation",
+        "error-handling"
+      ],
+      "concepts": [
+        "error-handling",
+        "null-safety",
+        "observability",
+        "type-safety",
+        "error-masking",
+        "deterministic-replay"
+      ],
+      "severity": "critical",
+      "userImpact": "Workflows that catch non-Error values crash with infinite retry loops, making applications unstable and impossible to debug.",
+      "rootCause": "The code uses (err as Error).message which throws when err is undefined. The nullish coalescing operator ?? only guards the .message property, not the err object itself.",
+      "proposedFix": "Use err instanceof Error ? (err.message ?? String(err)) : String(err ?? 'unknown error') to safely handle all error types.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The TypeError escapes wrapWithSpan and becomes the workflowTaskError... creating an infinite crash loop",
+      "number": 1975,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:18:17.953Z"
+    },
+    {
+      "summary": "OTel spans for activities using the long-running-poller pattern are incorrectly marked as ERROR when CompleteAsyncError is thrown, causing all workflows to appear errored in tracing systems instead of showing normal completion.",
+      "category": "bug",
+      "subcategory": "opentelemetry-tracing",
+      "apis": [
+        "CompleteAsyncError"
+      ],
+      "components": [
+        "opentelemetry-interceptor",
+        "activity-executor",
+        "worker",
+        "tracing"
+      ],
+      "concepts": [
+        "opentelemetry",
+        "error-handling",
+        "activity-execution",
+        "long-running-poller",
+        "span-marking",
+        "instrumentation",
+        "observability"
+      ],
+      "severity": "high",
+      "userImpact": "Users implementing the long-running-poller pattern see all their workflows incorrectly marked as errored in tracing systems, causing false alarms and confusion in observability.",
+      "rootCause": "The OpenTelemetry interceptor does not treat CompleteAsyncError as a normal control flow exception; instead, it marks activity spans as ERROR with exception logging and stack traces.",
+      "proposedFix": "Use the `allowedExceptions` parameter on the OpenTelemetry instrumentation function to prevent CompleteAsyncError from being marked as an error span.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1420
+      ],
+      "keyQuote": "When `CompleteAsyncError` is thrown by our activity, the span representing the activity gets marked as 'ERROR'",
+      "number": 1974,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:17:50.893Z"
+    },
+    {
+      "summary": "User cannot properly configure OpenTelemetry tracing for workflows because the OpenTelemetryPlugin requires SpanProcessor and Resource at build time during bundling, but these are only needed at runtime and shouldn't be serialized. Requests clearer API design or separate plugins.",
+      "category": "feature",
+      "subcategory": "opentelemetry-bundling",
+      "apis": [
+        "WorkflowCodeBundler",
+        "OpenTelemetryPlugin",
+        "Worker.create"
+      ],
+      "components": [
+        "worker",
+        "workflow-bundler",
+        "opentelemetry-plugin",
+        "bundling"
+      ],
+      "concepts": [
+        "observability",
+        "tracing",
+        "instrumentation",
+        "plugin-architecture",
+        "build-time-configuration",
+        "serialization",
+        "span-processor"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot properly configure OpenTelemetry tracing for workflow tasks without confusing workarounds or unclear API patterns.",
+      "rootCause": "The OpenTelemetryPlugin interface conflates build-time bundling and runtime worker initialization, requiring runtime-only parameters (SpanProcessor, Resource) to be specified at build time.",
+      "proposedFix": "Split into two plugins: OpenTelemetryBundlingPlugin (no parameters) for build-time bundling and OpenTelemetryWorkerPlugin (with SpanProcessor and Resource) for runtime initialization.",
+      "workaround": "Use explicit type cast when bundling: new OpenTelemetryPlugin({} as OpenTelemetryPluginOptions) since required options are only used at worker runtime.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "It works for activities and StartWorkflow, but not for the tasks which happen inside a workflow.",
+      "number": 1971,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:17:40.192Z"
+    },
+    {
+      "summary": "Child workflows fail after upgrading to TypeScript SDK 1.15 from 1.11 when the parent workflow was created on Temporal Server 1.23. The issue stems from child workflows being started with an empty `rootWorkflowExecution: {}` object, which a change in SDK 1.12 (PR #1662) no longer handles correctly.",
+      "category": "bug",
+      "subcategory": "child-workflow",
+      "apis": [],
+      "components": [
+        "child-workflow-executor",
+        "workflow-execution",
+        "event-attributes",
+        "version-compatibility"
+      ],
+      "concepts": [
+        "child-workflow",
+        "backward-compatibility",
+        "field-missing",
+        "version-upgrade",
+        "rootWorkflowExecution",
+        "nested-workflow",
+        "event-attributes"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot spawn child workflows after upgrading from SDK 1.11 to 1.15 when the parent workflow was created on Temporal Server 1.23.",
+      "rootCause": "A change in PR #1662 released in SDK 1.12 introduced handling that does not properly account for empty `rootWorkflowExecution` objects from workflows created on Temporal Server 1.23.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Child workflow execution updated to handle empty rootWorkflowExecution objects for backward compatibility with workflows created on older server versions.",
+      "related": [],
+      "keyQuote": "The error stems from the child being started with a `rootWorkflowExecution\": {}` (empty object) when the workflow was originally created on Temporal Server 1.23.",
+      "number": 1970,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:17:45.492Z"
+    },
+    {
+      "summary": "Add support for conflict token retry loop in schedule updates. The server now returns 'mismatched conflict token' errors, but the SDK doesn't automatically retry with the correct token extracted from the schedule description.",
+      "category": "feature",
+      "subcategory": "schedule-management",
+      "apis": [
+        "ScheduleHandle.update",
+        "UpdateScheduleRequest",
+        "DescribeScheduleResponse"
+      ],
+      "components": [
+        "schedule-client",
+        "schedule-handle",
+        "request-handling"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-logic",
+        "concurrent-updates",
+        "conflict-resolution",
+        "state-consistency",
+        "idempotency"
+      ],
+      "severity": "medium",
+      "userImpact": "Schedule update operations fail with conflict token mismatches during concurrent modifications, requiring users to manually implement retry logic.",
+      "rootCause": "Server enforces conflict tokens for schedule updates, but the TypeScript SDK lacks automatic retry handling for conflict resolution.",
+      "proposedFix": "Add optional conflictToken parameter to _updateSchedule(). Modify ScheduleHandle.update() to wrap the describe-modify-update flow in a retry loop that re-describes on FAILED_PRECONDITION 'mismatched conflict token' errors, extracts the new token, and retries (configurable max retries, default 10).",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token'",
+      "number": 1967,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:17:25.460Z"
+    },
+    {
+      "summary": "Nondeterminism error occurs during workflow replay when the SDK sends Update Accepted and StartTimer commands twice for the same update instance, causing an invalid state transition error.",
+      "category": "bug",
+      "subcategory": "workflow-replay",
+      "apis": [
+        "UpdateResponse",
+        "StartTimer"
+      ],
+      "components": [
+        "workflow-replay",
+        "update-handler",
+        "command-generation",
+        "state-machine"
+      ],
+      "concepts": [
+        "nondeterminism",
+        "replay",
+        "update-response",
+        "command-duplication",
+        "idempotency",
+        "state-transition"
+      ],
+      "severity": "high",
+      "userImpact": "Users experience nondeterminism errors during workflow replay that can cause invalid state transitions and prevent reliable workflow execution.",
+      "rootCause": "The SDK incorrectly duplicates UpdateResponse and StartTimer commands for the same update instance during workflow replay instead of generating them once.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1146
+      ],
+      "keyQuote": "On the failed replay attempt, lang is sending the Update Accepted and Start Timer commands twice for the same update instance.",
+      "number": 1966,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:17:23.193Z"
+    },
+    {
+      "summary": "TypeScript SDK requires bundled workflows (pre-bundled or runtime-bundled), creating awkward and heavyweight dependencies. Users request the ability to run workflows without a bundling step, a feature supported by all other Temporal SDKs.",
+      "category": "feature",
+      "subcategory": "workflow-bundling",
+      "apis": [],
+      "components": [
+        "worker",
+        "bundler",
+        "workflow-loader",
+        "isolate-manager"
+      ],
+      "concepts": [
+        "bundling",
+        "workflow-execution",
+        "isolation",
+        "initialization",
+        "runtime-configuration",
+        "sdk-compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "TypeScript developers must use an awkward and heavyweight bundling process to run workflows, unlike developers using other Temporal SDKs.",
+      "rootCause": "TypeScript SDK's V8 isolate architecture requires workflow bundling for execution, though the issue questions whether this is actually a necessary requirement.",
+      "proposedFix": "Remove the mandatory bundling requirement and allow workflows to run without a bundling step.",
+      "workaround": "Use the current bundling approach (pre-bundle workflows or allow Temporal to bundle at runtime).",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        933
+      ],
+      "keyQuote": "This is supported by every Temporal SDK except TypeScript.",
+      "number": 1965,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:17:18.632Z"
+    },
+    {
+      "summary": "Request to include runtime environment information (Node.js vs Bun, versions, cloud platforms like Vercel) in worker heartbeats to provide operational visibility. Should be opt-out and requires API and server coordination.",
+      "category": "feature",
+      "subcategory": "worker-heartbeat",
+      "apis": [],
+      "components": [
+        "worker",
+        "heartbeat",
+        "runtime-detection",
+        "telemetry"
+      ],
+      "concepts": [
+        "heartbeat",
+        "runtime-environment",
+        "observability",
+        "worker-metadata",
+        "platform-detection",
+        "telemetry"
+      ],
+      "severity": "low",
+      "userImpact": "Users will gain visibility into the runtime environment and versions their workers are operating in, helping with debugging and operational analysis.",
+      "rootCause": null,
+      "proposedFix": "Include runtime environment metadata in worker heartbeats, including Node.js vs Bun detection, version information, and cloud platform detection (e.g., Vercel). Make this opt-out by default.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "It'll be useful to understand what runtime environment a worker is operating in now that we support bun.",
+      "number": 1964,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:16:52.883Z"
+    },
+    {
+      "summary": "The TypeScript SDK's `defaultVersioningBehavior` in `WorkerDeploymentOptions` doesn't support the UNSPECIFIED value that is supported by the server, preventing users from using build IDs without enabling full worker versioning.",
+      "category": "bug",
+      "subcategory": "worker-versioning",
+      "apis": [
+        "WorkerDeploymentOptions"
+      ],
+      "components": [
+        "worker",
+        "versioning",
+        "configuration",
+        "type-definitions"
+      ],
+      "concepts": [
+        "build-id",
+        "versioning",
+        "worker-deployment",
+        "configuration",
+        "api-compatibility",
+        "server-compatibility",
+        "feature-parity"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot attach build IDs to workers without enabling full worker versioning, limiting deployment visibility.",
+      "rootCause": "The TypeScript SDK's type definitions and option handling do not support the UNSPECIFIED value for `defaultVersioningBehavior`, even though the server supports it.",
+      "proposedFix": "Allow UNSPECIFIED as a valid value for `defaultVersioningBehavior` in `WorkerDeploymentOptions`. Update type definitions to require `defaultVersioningBehavior: UNSPECIFIED` if `useWorkerVersioning: false`.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "`defaultVersioningBehavior` only allows auto upgrade and pinned, not unspecified, which is supported by the server.",
+      "number": 1962,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:17:06.108Z"
+    },
+    {
+      "summary": "executeUpdateWithStart leaks an unhandled Promise rejection when gRPC fails before the first response, causing Node.js to terminate the process despite proper caller error handling. The WorkflowHandlePromise is created without a .catch() handler, and when executeMultiOperation fails at the gRPC level, the rejection propagates as an unhandled rejection.",
+      "category": "bug",
+      "subcategory": "update-with-start",
+      "apis": [
+        "executeUpdateWithStart",
+        "workflowHandle"
+      ],
+      "components": [
+        "workflow-client",
+        "with-start-operation",
+        "promise-handling",
+        "grpc-retry"
+      ],
+      "concepts": [
+        "unhandled-rejection",
+        "promise-error-handling",
+        "error-propagation",
+        "concurrency-limits",
+        "grpc-errors"
+      ],
+      "severity": "high",
+      "userImpact": "Users experience unexpected process termination with unhandledRejection even when their error handling is correct, making executeUpdateWithStart unreliable in error scenarios.",
+      "rootCause": "The workflowHandlePromise is created eagerly in WithStartWorkflowOperation constructor without a .catch() handler. When executeMultiOperation fails before the first response, onStartError rejects this promise, but no handler is attached, causing Node.js to fire an unhandledRejection event.",
+      "proposedFix": "Add .catch(() => undefined) to the workflowHandlePromise creation in WithStartWorkflowOperation constructor, following the pattern already used in activity.ts and worker.ts.",
+      "workaround": "Attach .catch(() => undefined) to startOp.workflowHandle() before calling executeUpdateWithStart to suppress the unhandled rejection.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Node.js fires unhandledRejection and terminates the process in Node 15+, even though the caller's error handling is correct.",
+      "number": 1960,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:16:57.245Z"
+    },
+    {
+      "summary": "Feature request to add a preloadModules property to BundlerOptions in the workflow bundler, allowing users to specify modules that should be preloaded during VM initialization to reduce per-workflow memory usage and initialization time.",
+      "category": "feature",
+      "subcategory": "workflow-bundler",
+      "apis": [],
+      "components": [
+        "workflow-bundler",
+        "vm-executor",
+        "bundler-options"
+      ],
+      "concepts": [
+        "preloading",
+        "memory-footprint",
+        "initialization-time",
+        "v8-context",
+        "performance"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will experience reduced per-workflow memory consumption and faster workflow initialization when using the workflow bundler with preloaded modules.",
+      "rootCause": null,
+      "proposedFix": "Add a `preloadModules` property to `BundlerOptions`. Those modules should be preloaded during early initialization of the reuse v8 context workflow vm executor.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "This will significantly reduce the per-workflow memory footprint, as well as per-workflow initialization time.",
+      "number": 1958,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:16:33.819Z"
+    },
+    {
+      "summary": "Worker.create() unconditionally calls loadDataConverter() using require(), creating a separate CJS module cache that breaks instanceof checks in custom PayloadConverters for ESM-loaded classes. The Client already handles this correctly with an isLoadedDataConverter() guard.",
+      "category": "bug",
+      "subcategory": "data-conversion",
+      "apis": [
+        "Worker.create",
+        "PayloadConverter",
+        "LoadedDataConverter"
+      ],
+      "components": [
+        "worker",
+        "worker-options",
+        "data-converter",
+        "payload-converter"
+      ],
+      "concepts": [
+        "module-loading",
+        "instanceof-checks",
+        "type-detection",
+        "serialization",
+        "esm-cjs-interop",
+        "class-identity"
+      ],
+      "severity": "high",
+      "userImpact": "Users with custom PayloadConverters using instanceof checks in ESM environments experience silent type detection failures, causing data to degrade to plain JSON serialization and lose type information.",
+      "rootCause": "Worker.create() doesn't check if dataConverter is already a LoadedDataConverter before calling loadDataConverter(), unlike the Client implementation, causing require() to load modules into a different cache than ESM code.",
+      "proposedFix": "Apply the same isLoadedDataConverter() guard used in Client: check if dataConverter is already loaded before calling loadDataConverter(), allowing pre-loaded converters to bypass require().",
+      "workaround": "After Worker.create(), mutate worker.options.loadedDataConverter.payloadConverter to use the ESM-imported PayloadConverter instance directly.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The failure is completely silent -- instanceof returns false, the custom serializer is skipped, and values fall through to plain JSON serialization, losing their type information.",
+      "number": 1953,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:16:36.958Z"
+    },
+    {
+      "summary": "Feature request to standardize deserialization failure handling for Nexus operation input arguments in the TypeScript SDK.",
+      "category": "feature",
+      "subcategory": "nexus-serialization",
+      "apis": [
+        "NexusOperation"
+      ],
+      "components": [
+        "nexus",
+        "serialization",
+        "deserialization"
+      ],
+      "concepts": [
+        "deserialization",
+        "standardization",
+        "error-handling",
+        "input-validation",
+        "nexus-operations"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers need standardized, consistent error handling when Nexus operation inputs fail to deserialize.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        762
+      ],
+      "keyQuote": "Standardize Nexus Operation Input Arg. Deserialization Failure",
+      "number": 1948,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-04-04T19:16:31.339Z"
+    },
     {
       "summary": "UUID() calls in query handlers cause non-deterministic values for subsequent UUID() calls in workflow code during replay, breaking workflow determinism.",
       "category": "bug",

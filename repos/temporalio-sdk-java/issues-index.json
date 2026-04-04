@@ -1,7 +1,197 @@
 {
-  "generated_at": "2026-02-11T03:35:31.451Z",
-  "total_count": 949,
+  "generated_at": "2026-04-04T19:03:43.320Z",
+  "total_count": 962,
   "issues": [
+    {
+      "number": 2826,
+      "title": "Deprecate namespace fields on cross-namespace workflow command options",
+      "state": "OPEN",
+      "author": "mjameswh",
+      "labels": [],
+      "createdAt": "2026-04-01T22:09:58Z",
+      "updatedAt": "2026-04-01T22:09:58Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2826"
+    },
+    {
+      "number": 2823,
+      "title": "Local activity executor pool exhaustion causes workflow to hang permanently — without possibility to recover without reset",
+      "state": "OPEN",
+      "author": "tsurdilo",
+      "labels": [],
+      "createdAt": "2026-03-31T20:00:01Z",
+      "updatedAt": "2026-03-31T20:02:35Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2823"
+    },
+    {
+      "number": 2810,
+      "title": "Workflow task failed with an internal Java SDK runner-closed error, masking the original workflow exception.",
+      "state": "CLOSED",
+      "author": "antmendoza",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-03-17T11:55:16Z",
+      "updatedAt": "2026-03-31T17:07:17Z",
+      "closedAt": "2026-03-31T17:07:17Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2810"
+    },
+    {
+      "number": 2809,
+      "title": "[java] Support conflict token retry loop for schedule updates",
+      "state": "OPEN",
+      "author": "chris-olszewski",
+      "labels": [],
+      "createdAt": "2026-03-16T18:06:36Z",
+      "updatedAt": "2026-03-16T18:06:36Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2809"
+    },
+    {
+      "number": 2802,
+      "title": "WORKER_TASK_SLOTS_AVAILABLE stuck at zero when PollerBehaviorAutoscaling enabled",
+      "state": "CLOSED",
+      "author": "jjaegerman",
+      "labels": [],
+      "createdAt": "2026-03-06T22:30:58Z",
+      "updatedAt": "2026-03-12T00:26:32Z",
+      "closedAt": "2026-03-12T00:26:32Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2802"
+    },
+    {
+      "number": 2801,
+      "title": "[Question]Best practices for tracing long‑running workflows (RunWorkflow: XxxWorkflow)",
+      "state": "OPEN",
+      "author": "uniquejava",
+      "labels": [],
+      "createdAt": "2026-03-05T09:25:51Z",
+      "updatedAt": "2026-03-05T14:59:48Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2801"
+    },
+    {
+      "number": 2800,
+      "title": "OperatorServiceStubsOptions.validateAndBuildWithDefaults not carrying over grpcMetadataProvider from WorkflowService",
+      "state": "OPEN",
+      "author": "tsurdilo",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-26T16:27:36Z",
+      "updatedAt": "2026-02-26T16:27:36Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2800"
+    },
+    {
+      "number": 2797,
+      "title": "Nexus operation cancel task does not include header",
+      "state": "CLOSED",
+      "author": "Quinn-With-Two-Ns",
+      "labels": [
+        "test server"
+      ],
+      "createdAt": "2026-02-24T07:13:40Z",
+      "updatedAt": "2026-02-27T19:10:13Z",
+      "closedAt": "2026-02-27T19:10:12Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2797"
+    },
+    {
+      "number": 2796,
+      "title": "Replay fails: UpdateCompleted events between version markers breaks replay",
+      "state": "OPEN",
+      "author": "gauravthadani",
+      "labels": [],
+      "createdAt": "2026-02-24T02:24:14Z",
+      "updatedAt": "2026-03-10T17:19:28Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2796"
+    },
+    {
+      "number": 2795,
+      "title": "PollerBehaviorAutoscaling uses ForkJoinPool.commonPool(), breaking Spring Boot LaunchedClassLoader context",
+      "state": "CLOSED",
+      "author": "gauravthadani",
+      "labels": [],
+      "createdAt": "2026-02-23T07:10:06Z",
+      "updatedAt": "2026-03-30T23:23:05Z",
+      "closedAt": "2026-03-30T23:23:05Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2795"
+    },
+    {
+      "number": 2792,
+      "title": "ProtobufJsonPayloadConverter does not work correctly with shaded artifact",
+      "state": "OPEN",
+      "author": "rocketraman",
+      "labels": [],
+      "createdAt": "2026-02-19T21:28:58Z",
+      "updatedAt": "2026-02-24T21:03:12Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2792"
+    },
+    {
+      "number": 2790,
+      "title": "Extend WorkflowImplementationOptions with ChildWorkflowOptions",
+      "state": "OPEN",
+      "author": "porunov",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-19T18:37:52Z",
+      "updatedAt": "2026-02-20T14:09:10Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2790"
+    },
+    {
+      "number": 2781,
+      "title": "WorkflowStub.cancel throws wrong exception",
+      "state": "OPEN",
+      "author": "enlait",
+      "labels": [],
+      "createdAt": "2026-02-11T14:39:21Z",
+      "updatedAt": "2026-02-12T18:03:14Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-java/issues/2781"
+    },
     {
       "number": 2780,
       "title": "Spring boot `workers-auto-discovery` - Workflow vs Activities",
@@ -9,9 +199,9 @@
       "author": "gauravthadani",
       "labels": [],
       "createdAt": "2026-02-10T01:16:13Z",
-      "updatedAt": "2026-02-11T00:29:09Z",
+      "updatedAt": "2026-02-19T14:49:10Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-java/issues/2780"
@@ -33,14 +223,14 @@
     {
       "number": 2775,
       "title": "Keep track of current heartbeat timeout while retrying failures in doHeartBeatLocked",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "tsurdilo",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-02-06T18:35:56Z",
-      "updatedAt": "2026-02-06T18:35:56Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-13T19:35:04Z",
+      "closedAt": "2026-03-13T19:35:04Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -113,12 +303,12 @@
     {
       "number": 2765,
       "title": "Enable SDK flag `DETERMINISTIC_CANCELLATION_SCOPE_ORDER`",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maciejdudko",
       "labels": [],
       "createdAt": "2026-01-26T15:23:33Z",
-      "updatedAt": "2026-01-26T15:23:33Z",
-      "closedAt": null,
+      "updatedAt": "2026-02-17T17:51:24Z",
+      "closedAt": "2026-02-17T17:51:24Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -127,12 +317,12 @@
     {
       "number": 2758,
       "title": "Spring Metrics Configuration fails with Spring Boot 4",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "jrogers",
       "labels": [],
       "createdAt": "2026-01-09T19:49:02Z",
-      "updatedAt": "2026-01-15T14:49:04Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-26T00:50:40Z",
+      "closedAt": "2026-03-26T00:50:40Z",
       "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
@@ -141,14 +331,14 @@
     {
       "number": 2755,
       "title": "Support using Temporal failures in Nexus APIs",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-01-05T21:37:57Z",
-      "updatedAt": "2026-01-05T21:38:13Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-15T20:29:19Z",
+      "closedAt": "2026-03-15T20:29:19Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -229,17 +419,17 @@
     {
       "number": 2746,
       "title": "Jackson 3 support",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-09T23:15:13Z",
-      "updatedAt": "2025-12-09T23:15:13Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-25T23:57:48Z",
+      "closedAt": "2026-03-25T23:57:48Z",
       "commentCount": 0,
-      "upvotes": 3,
-      "totalReactions": 3,
+      "upvotes": 14,
+      "totalReactions": 15,
       "url": "https://github.com/temporalio/sdk-java/issues/2746"
     },
     {
@@ -275,17 +465,17 @@
     {
       "number": 2738,
       "title": "Spring Boot 4 Support",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "anatoliy-pylypchuk-kg",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-11-27T09:43:59Z",
-      "updatedAt": "2026-02-03T12:07:40Z",
-      "closedAt": null,
-      "commentCount": 6,
-      "upvotes": 15,
-      "totalReactions": 19,
+      "updatedAt": "2026-03-26T00:50:40Z",
+      "closedAt": "2026-03-26T00:50:40Z",
+      "commentCount": 11,
+      "upvotes": 23,
+      "totalReactions": 28,
       "url": "https://github.com/temporalio/sdk-java/issues/2738"
     },
     {
@@ -829,9 +1019,9 @@
         "test server"
       ],
       "createdAt": "2025-08-26T14:06:07Z",
-      "updatedAt": "2025-09-25T23:15:15Z",
+      "updatedAt": "2026-02-14T16:12:11Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 2,
       "totalReactions": 2,
       "url": "https://github.com/temporalio/sdk-java/issues/2642"
@@ -2025,11 +2215,11 @@
         "enhancement"
       ],
       "createdAt": "2025-01-30T00:03:07Z",
-      "updatedAt": "2025-01-30T00:03:07Z",
+      "updatedAt": "2026-02-27T17:44:47Z",
       "closedAt": null,
-      "commentCount": 0,
-      "upvotes": 2,
-      "totalReactions": 2,
+      "commentCount": 1,
+      "upvotes": 3,
+      "totalReactions": 3,
       "url": "https://github.com/temporalio/sdk-java/issues/2394"
     },
     {
@@ -2381,14 +2571,14 @@
     {
       "number": 2312,
       "title": "`Workflow.await(duration, condition)` does not automatically cancel the timer if the condition is resolved",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-11-08T23:46:05Z",
-      "updatedAt": "2024-12-23T09:31:57Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-17T16:00:21Z",
+      "closedAt": "2026-03-17T16:00:21Z",
       "commentCount": 1,
       "upvotes": 1,
       "totalReactions": 1,
@@ -2413,14 +2603,14 @@
     {
       "number": 2307,
       "title": "Removing a `Workflow.GetVersion` call can cause NDE if there are multiple parallel workflow threads running.",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-11-04T23:06:39Z",
-      "updatedAt": "2024-11-05T03:06:42Z",
-      "closedAt": null,
+      "updatedAt": "2026-03-31T17:07:18Z",
+      "closedAt": "2026-03-31T17:07:18Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -3705,11 +3895,11 @@
       "author": "Sineaggi",
       "labels": [],
       "createdAt": "2024-05-20T19:33:38Z",
-      "updatedAt": "2025-11-12T15:15:39Z",
+      "updatedAt": "2026-02-25T15:37:25Z",
       "closedAt": null,
-      "commentCount": 1,
-      "upvotes": 0,
-      "totalReactions": 0,
+      "commentCount": 2,
+      "upvotes": 1,
+      "totalReactions": 1,
       "url": "https://github.com/temporalio/sdk-java/issues/2071"
     },
     {
@@ -14627,13 +14817,13 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 220,
-      "CLOSED": 729
+      "OPEN": 221,
+      "CLOSED": 741
     },
     "by_label": {
-      "enhancement": 404,
+      "enhancement": 407,
       "bug": 137,
-      "test server": 45,
+      "test server": 46,
       "Mend: dependency security vulnerability": 36,
       "wontfix": 16,
       "question": 15,
@@ -14645,10 +14835,10 @@
       "java": 1
     },
     "engagement": {
-      "total_upvotes": 289,
-      "total_comments": 1161,
-      "issues_with_upvotes": 98,
-      "issues_with_comments": 497,
+      "total_upvotes": 310,
+      "total_comments": 1175,
+      "issues_with_upvotes": 99,
+      "issues_with_comments": 503,
       "upvote_rate": "10%",
       "comment_rate": "52%"
     }
@@ -14661,22 +14851,28 @@
       "comments": 1
     },
     {
+      "number": 2738,
+      "title": "Spring Boot 4 Support",
+      "upvotes": 23,
+      "comments": 11
+    },
+    {
       "number": 1693,
       "title": "Support listWorkflowExecutions in test server",
       "upvotes": 16,
       "comments": 5
     },
     {
-      "number": 2738,
-      "title": "Spring Boot 4 Support",
-      "upvotes": 15,
-      "comments": 6
-    },
-    {
       "number": 1845,
       "title": "Support different coroutine models in workflows and activities",
       "upvotes": 15,
       "comments": 8
+    },
+    {
+      "number": 2746,
+      "title": "Jackson 3 support",
+      "upvotes": 14,
+      "comments": 0
     },
     {
       "number": 8,
@@ -14767,12 +14963,6 @@
       "title": "Health check between service + temporal servers",
       "upvotes": 4,
       "comments": 2
-    },
-    {
-      "number": 2746,
-      "title": "Jackson 3 support",
-      "upvotes": 3,
-      "comments": 0
     }
   ],
   "top_by_comments": [
@@ -14811,6 +15001,12 @@
       "title": "Open tracing span context not propagated when activity or child workflow invoked asynchronously ",
       "upvotes": 0,
       "comments": 12
+    },
+    {
+      "number": 2738,
+      "title": "Spring Boot 4 Support",
+      "upvotes": 23,
+      "comments": 11
     },
     {
       "number": 1565,
@@ -14887,12 +15083,6 @@
     {
       "number": 2305,
       "title": "Test environment hangs if activity is not defined, and `scheduleToStartTimeout` is ignored",
-      "upvotes": 0,
-      "comments": 7
-    },
-    {
-      "number": 1985,
-      "title": "Upgrade grpc dependencies",
       "upvotes": 0,
       "comments": 7
     }

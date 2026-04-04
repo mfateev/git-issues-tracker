@@ -1,0 +1,35 @@
+{
+  "summary": "PHP SDK lacks conflict token retry loop for schedule updates. The server now returns 'mismatched conflict token' errors (per temporal/temporal#8474), but the SDK doesn't implement retry logic to handle these errors.",
+  "category": "feature",
+  "subcategory": "schedule-updates",
+  "apis": [
+    "UpdateSchedule"
+  ],
+  "components": [
+    "schedule-manager",
+    "conflict-handler",
+    "retry-loop",
+    "update-handler"
+  ],
+  "concepts": [
+    "conflict-token",
+    "retry-loop",
+    "idempotency",
+    "concurrent-updates",
+    "schedule-update",
+    "error-recovery",
+    "server-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably update schedules when concurrent updates occur, as the SDK doesn't retry on conflict token mismatches returned by the server.",
+  "rootCause": "PHP SDK lacks conflict token retry loop for schedule updates, while server now returns 'mismatched conflict token' errors per temporal/temporal#8474",
+  "proposedFix": "Implement retry loop for schedule updates that handles 'mismatched conflict token' responses from server",
+  "workaround": "Manually retry schedule update operations in application code when conflict token mismatch errors occur",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The server returns 'mismatched conflict token' as of https://github.com/temporalio/temporal/pull/8474",
+  "number": 729,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-04-04T19:12:38.087Z"
+}

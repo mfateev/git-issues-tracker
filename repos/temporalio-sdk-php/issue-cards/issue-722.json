@@ -1,0 +1,33 @@
+{
+  "summary": "ActivityInterface defaults to an empty prefix, causing activity type name collisions when multiple activity classes share method names, potentially resulting in silent execution of the wrong implementation.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "ActivityInterface",
+    "ActivityMethod"
+  ],
+  "components": [
+    "activity-interface",
+    "activity-registry",
+    "worker"
+  ],
+  "concepts": [
+    "activity-naming",
+    "type-collision",
+    "prefix",
+    "registration",
+    "activity-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users registering multiple activity classes with shared method names may silently execute the wrong activity implementation without error, leading to incorrect workflow behavior.",
+  "rootCause": "The default empty string for ActivityInterface::$prefix causes method names to be used as activity type names without class-based differentiation.",
+  "proposedFix": "Default prefix to the short class name (e.g., 'ActivityA.') instead of an empty string, similar to Java SDK behavior.",
+  "workaround": "Manually set prefix using #[ActivityInterface(prefix: 'classA.')] or explicitly name methods using #[ActivityMethod(name: 'classA.doWork')].",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Calling `ActivityA::doWork()` may execute `ActivityB::doWork()` instead.",
+  "number": 722,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-04-04T19:12:18.450Z"
+}

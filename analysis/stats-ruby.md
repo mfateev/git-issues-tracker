@@ -1,6 +1,6 @@
 # Ruby SDK - Issue Statistics
 
-**Generated:** 2026-02-11
+**Generated:** 2026-04-04
 **Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 22 |
-| Total Closed Issues | 159 |
-| Total All Issues | 181 |
+| Total Open Issues | 24 |
+| Total Closed Issues | 163 |
+| Total All Issues | 187 |
 | Bugs (open) | 4 |
-| Enhancements/Features (open) | 17 |
+| Enhancements/Features (open) | 18 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 3 |
 | Total Comments on open | 15 |
-| Issues with Upvotes | 2 (9%) |
-| Issues with Comments | 8 (36%) |
-| Average Age (days) | 282 |
-| Stale Issues (>12 months) | 9 (41%) |
+| Issues with Upvotes | 2 (8%) |
+| Issues with Comments | 8 (33%) |
+| Average Age (days) | 310 |
+| Stale Issues (>12 months) | 10 (42%) |
 
 ---
 ## Resolution Metrics
@@ -36,36 +36,34 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 88% (159/181) |
-| Avg Time to Close (calendar) | 138 days |
-| Avg Time to Close (business) | 99 days |
-| Median Time to Close (calendar) | 48 days |
-| Median Time to Close (business) | 35 days |
-| 90th Percentile (calendar) | 536 days |
-| 90th Percentile (business) | 384 days |
-| Resolved within 30 days | 42% |
-| Resolved within 90 days | 62% |
+| Resolution Rate | 87% (163/187) |
+| Avg Time to Close (calendar) | 135 days |
+| Avg Time to Close (business) | 97 days |
+| Median Time to Close (calendar) | 40 days |
+| Median Time to Close (business) | 29 days |
+| 90th Percentile (calendar) | 516 days |
+| 90th Percentile (business) | 369 days |
+| Resolved within 30 days | 44% |
+| Resolved within 90 days | 63% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 12 | 8% |
-| Completed (features) | 45 | 28% |
+| Fixed (bugs) | 14 | 9% |
+| Completed (features) | 46 | 28% |
 | Self-resolved | 27 | 17% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 75 | 47% |
+| Other | 76 | 47% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-03 | 7 | 5 | +2 |
-| 2025-04 | 10 | 5 | +5 |
 | 2025-05 | 10 | 9 | +1 |
 | 2025-06 | 8 | 10 | -2 |
 | 2025-07 | 6 | 8 | -2 |
@@ -75,10 +73,12 @@
 | 2025-11 | 3 | 0 | +3 |
 | 2025-12 | 2 | 2 | 0 |
 | 2026-01 | 2 | 4 | -2 |
-| 2026-02 | 0 | 0 | 0 |
-| **Total** | **64** | **61** | **+3** |
+| 2026-02 | 2 | 1 | +1 |
+| 2026-03 | 3 | 2 | +1 |
+| 2026-04 | 1 | 1 | 0 |
+| **Total** | **53** | **55** | **-2** |
 
-📈 **Backlog Growing:** 3 more issues opened than closed in the last 12 months.
+📉 **Backlog Shrinking:** 2 more issues closed than opened in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 21 |
-| Issues Closed | 23 |
-| Net Change | -2 |
-| Bugs Closed | 5 |
-| Enhancements Closed | 16 |
+| Issues Opened | 16 |
+| Issues Closed | 13 |
+| Net Change | +3 |
+| Bugs Closed | 3 |
+| Enhancements Closed | 8 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 61 | 44 |
-| Median | 36 | 27 |
-| 90th Percentile | 154 | 111 |
+| Average | 33 | 24 |
+| Median | 7 | 5 |
+| 90th Percentile | 128 | 92 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 35% |
-| Within 90 days | 74% |
+| Within 30 days | 62% |
+| Within 90 days | 85% |
 
 
 ---
@@ -114,11 +114,11 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 0 | 0% |
-| 1-3 months | 1 | 5% |
-| 3-6 months | 6 | 27% |
-| 6-12 months | 6 | 27% |
-| 1-2 years | 9 | 41% |
+| Last 30 days | 1 | 4% |
+| 1-3 months | 1 | 4% |
+| 3-6 months | 4 | 17% |
+| 6-12 months | 6 | 25% |
+| 1-2 years | 12 | 50% |
 | 2-3 years | 0 | 0% |
 | 3+ years | 0 | 0% |
 
@@ -168,7 +168,9 @@ Priority = Upvotes × 2 + Comments
 
 ## Recent Issues (Last 30 Days)
 
-No issues created in the last 30 days.
+| Date | Issue | 👍 | Title |
+|------|-------|-----|-------|
+| 2026-03-16 | [#401](https://github.com/temporalio/sdk-ruby/issues/401) | 0 | [ruby] Support conflict token retry loop for schedule update... |
 
 ---
 
@@ -176,7 +178,7 @@ No issues created in the last 30 days.
 
 | Label | Count |
 |-------|-------|
-| enhancement | 17 |
+| enhancement | 18 |
 | bug | 4 |
 
 ---
@@ -192,12 +194,13 @@ No issues created in the last 30 days.
 
 ---
 
-## Stale Issues (9 open issues with no activity >12 months)
+## Stale Issues (10 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
+| [#222](https://github.com/temporalio/sdk-ruby/issues/222) | 0 | 2025-02-12 | [Feature Request] Test randomness seed update over... |
 | [#218](https://github.com/temporalio/sdk-ruby/issues/218) | 0 | 2025-02-10 | [Feature Request] Support buildable source gem |
 | [#209](https://github.com/temporalio/sdk-ruby/issues/209) | 0 | 2025-01-29 | [Feature Request] Add explicit memoization support... |
 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 0 | 2025-01-23 | [Feature Request] Contributing Guide |

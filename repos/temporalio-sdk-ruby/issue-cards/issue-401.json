@@ -1,0 +1,36 @@
+{
+  "summary": "The Ruby SDK needs to implement retry logic for schedule updates when the server returns 'mismatched conflict token' errors. Currently, no SDK has conflict token retry support for schedule updates.",
+  "category": "feature",
+  "subcategory": "schedule-updates",
+  "apis": [
+    "UpdateSchedule"
+  ],
+  "components": [
+    "schedule-client",
+    "retry-logic",
+    "error-handler"
+  ],
+  "concepts": [
+    "retry",
+    "conflict-token",
+    "idempotency",
+    "schedule-update",
+    "error-handling",
+    "concurrency",
+    "resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot reliably update schedules when conflict token mismatches occur, requiring manual retry logic or workarounds.",
+  "rootCause": "The Temporal server now returns 'mismatched conflict token' errors during schedule updates (as of temporal/temporal#8474), but the Ruby SDK lacks automatic retry logic to handle this.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8474
+  ],
+  "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token'",
+  "number": 401,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-04-04T19:16:18.298Z"
+}

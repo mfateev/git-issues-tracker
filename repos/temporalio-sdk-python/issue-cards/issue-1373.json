@@ -1,0 +1,35 @@
+{
+  "summary": "Request for a contrib.workdir module providing a Workspace utility for local directories backed by remote storage, enabling file-based activities to scale across multiple worker instances by automatically handling upload/download operations.",
+  "category": "feature",
+  "subcategory": "activity-storage",
+  "apis": [
+    "activity.defn",
+    "activity.info"
+  ],
+  "components": [
+    "activities",
+    "contrib",
+    "storage",
+    "worker"
+  ],
+  "concepts": [
+    "distributed-state",
+    "file-handling",
+    "remote-storage",
+    "scaling",
+    "automation",
+    "boilerplate-reduction"
+  ],
+  "severity": "medium",
+  "userImpact": "Users working with file-based activities on multiple worker instances must manually implement boilerplate for uploading to and downloading from object storage.",
+  "rootCause": null,
+  "proposedFix": "Implement a contrib.workdir module with a Workspace context manager that automatically handles pull before execution and push after, with optional @workspace decorator for automatic path retrieval and fsspec for storage backend auto-detection.",
+  "workaround": "Manually download from and upload to object storage (S3/GCS) at the start and end of every activity.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Declined for SDK contrib module due to cross-SDK parity requirements, but suggested as a temporal-community project; submitted to temporal-community code exchange.",
+  "related": [],
+  "keyQuote": "Generally, we try to maintain relative parity between SDKs, so we would have to replicate this work across all of them.",
+  "number": 1373,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:14:37.564Z"
+}

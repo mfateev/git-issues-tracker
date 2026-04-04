@@ -1,21 +1,677 @@
 {
-  "generatedAt": "2026-02-11T03:38:58.527Z",
+  "generatedAt": "2026-04-04T19:22:22.369Z",
   "repo": "temporalio-sdk-typescript",
-  "totalCount": 812,
-  "cardsCount": 812,
+  "totalCount": 826,
+  "cardsCount": 826,
   "issues": [
+    {
+      "number": 1987,
+      "title": "[Feature Request] upgrade @opentelemetry/sdk-trace in interceptors-opentelemetry package",
+      "state": "CLOSED",
+      "author": "janhlavin",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-03-27T07:47:03Z",
+      "updatedAt": "2026-03-27T14:08:35Z",
+      "closedAt": "2026-03-27T14:08:34Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1987",
+      "bodyLength": 275,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "2.6.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to upgrade the @opentelemetry/sdk-trace-base dependency in the interceptors-opentelemetry package to support newer versions, enabling projects using OpenTelemetry ^2.6.0 or later to use the Temporal SDK's tracing integration.",
+      "category": "feature",
+      "subcategory": "opentelemetry-integration",
+      "apis": [],
+      "components": [
+        "interceptors-opentelemetry",
+        "dependencies"
+      ],
+      "concepts": [
+        "opentelemetry",
+        "versioning",
+        "tracing",
+        "observability",
+        "compatibility"
+      ],
+      "severity": "medium",
+      "resolution": "duplicate",
+      "hasCard": true
+    },
+    {
+      "number": 1975,
+      "title": "[Bug] maybeAddErrorToSpan fails when err is undefined",
+      "state": "CLOSED",
+      "author": "sfingram",
+      "labels": [],
+      "createdAt": "2026-03-19T20:24:33Z",
+      "updatedAt": "2026-03-26T22:59:53Z",
+      "closedAt": "2026-03-26T22:59:53Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1975",
+      "bodyLength": 2244,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.15.0"
+      ],
+      "linkedIssues": [
+        1632
+      ],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 3,
+      "summary": "The maybeAddErrorToSpan function in the OpenTelemetry interceptor crashes with TypeError when receiving undefined error values, creating infinite retry loops that mask the original error.",
+      "category": "bug",
+      "subcategory": "opentelemetry-instrumentation",
+      "apis": [
+        "executeChild"
+      ],
+      "components": [
+        "opentelemetry-interceptor",
+        "span-instrumentation",
+        "error-handling"
+      ],
+      "concepts": [
+        "error-handling",
+        "null-safety",
+        "observability",
+        "type-safety",
+        "error-masking",
+        "deterministic-replay"
+      ],
+      "severity": "critical",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1974,
+      "title": "[Bug] OTel traces for CompleteAsyncError show as error",
+      "state": "CLOSED",
+      "author": "FauxFaux",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-03-19T12:04:53Z",
+      "updatedAt": "2026-03-27T18:28:41Z",
+      "closedAt": "2026-03-27T18:28:41Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1974",
+      "bodyLength": 2297,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.15.0"
+      ],
+      "linkedIssues": [
+        1420
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "OTel spans for activities using the long-running-poller pattern are incorrectly marked as ERROR when CompleteAsyncError is thrown, causing all workflows to appear errored in tracing systems instead of showing normal completion.",
+      "category": "bug",
+      "subcategory": "opentelemetry-tracing",
+      "apis": [
+        "CompleteAsyncError"
+      ],
+      "components": [
+        "opentelemetry-interceptor",
+        "activity-executor",
+        "worker",
+        "tracing"
+      ],
+      "concepts": [
+        "opentelemetry",
+        "error-handling",
+        "activity-execution",
+        "long-running-poller",
+        "span-marking",
+        "instrumentation",
+        "observability"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1971,
+      "title": "[Feature Request] Explain OpenTelemetryPlugin's interaction with WorkflowCodeBundler?",
+      "state": "OPEN",
+      "author": "FauxFaux",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-03-17T17:23:33Z",
+      "updatedAt": "2026-03-23T16:06:24Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1971",
+      "bodyLength": 1291,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": true,
+      "hasPR": false,
+      "codeBlockCount": 2,
+      "summary": "User cannot properly configure OpenTelemetry tracing for workflows because the OpenTelemetryPlugin requires SpanProcessor and Resource at build time during bundling, but these are only needed at runtime and shouldn't be serialized. Requests clearer API design or separate plugins.",
+      "category": "feature",
+      "subcategory": "opentelemetry-bundling",
+      "apis": [
+        "WorkflowCodeBundler",
+        "OpenTelemetryPlugin",
+        "Worker.create"
+      ],
+      "components": [
+        "worker",
+        "workflow-bundler",
+        "opentelemetry-plugin",
+        "bundling"
+      ],
+      "concepts": [
+        "observability",
+        "tracing",
+        "instrumentation",
+        "plugin-architecture",
+        "build-time-configuration",
+        "serialization",
+        "span-processor"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1970,
+      "title": "[Bug] Child Workflow Failure - Root workflow execution is missing a field that should be defined",
+      "state": "CLOSED",
+      "author": "andrewspinks",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-03-17T08:42:10Z",
+      "updatedAt": "2026-03-18T00:11:52Z",
+      "closedAt": "2026-03-18T00:11:52Z",
+      "commentCount": 0,
+      "upvotes": 1,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1970",
+      "bodyLength": 2565,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 1,
+      "summary": "Child workflows fail after upgrading to TypeScript SDK 1.15 from 1.11 when the parent workflow was created on Temporal Server 1.23. The issue stems from child workflows being started with an empty `rootWorkflowExecution: {}` object, which a change in SDK 1.12 (PR #1662) no longer handles correctly.",
+      "category": "bug",
+      "subcategory": "child-workflow",
+      "apis": [],
+      "components": [
+        "child-workflow-executor",
+        "workflow-execution",
+        "event-attributes",
+        "version-compatibility"
+      ],
+      "concepts": [
+        "child-workflow",
+        "backward-compatibility",
+        "field-missing",
+        "version-upgrade",
+        "rootWorkflowExecution",
+        "nested-workflow",
+        "event-attributes"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1967,
+      "title": "[typescript] Support conflict token retry loop for schedule updates",
+      "state": "OPEN",
+      "author": "chris-olszewski",
+      "labels": [],
+      "createdAt": "2026-03-16T18:06:40Z",
+      "updatedAt": "2026-03-28T19:28:26Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1967",
+      "bodyLength": 173,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "Add support for conflict token retry loop in schedule updates. The server now returns 'mismatched conflict token' errors, but the SDK doesn't automatically retry with the correct token extracted from the schedule description.",
+      "category": "feature",
+      "subcategory": "schedule-management",
+      "apis": [
+        "ScheduleHandle.update",
+        "UpdateScheduleRequest",
+        "DescribeScheduleResponse"
+      ],
+      "components": [
+        "schedule-client",
+        "schedule-handle",
+        "request-handling"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-logic",
+        "concurrent-updates",
+        "conflict-resolution",
+        "state-consistency",
+        "idempotency"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1966,
+      "title": "[Bug] Nondeterminism error: Invalid transition while handling update response in state Accepted",
+      "state": "OPEN",
+      "author": "andrewspinks",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-03-16T05:44:12Z",
+      "updatedAt": "2026-03-24T16:27:22Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1966",
+      "bodyLength": 1253,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.15.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Nondeterminism error occurs during workflow replay when the SDK sends Update Accepted and StartTimer commands twice for the same update instance, causing an invalid state transition error.",
+      "category": "bug",
+      "subcategory": "workflow-replay",
+      "apis": [
+        "UpdateResponse",
+        "StartTimer"
+      ],
+      "components": [
+        "workflow-replay",
+        "update-handler",
+        "command-generation",
+        "state-machine"
+      ],
+      "concepts": [
+        "nondeterminism",
+        "replay",
+        "update-response",
+        "command-duplication",
+        "idempotency",
+        "state-transition"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1965,
+      "title": "[Feature Request] Run Temporal worker without bunded workflows",
+      "state": "OPEN",
+      "author": "pauldraper",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-03-14T21:13:29Z",
+      "updatedAt": "2026-03-14T21:13:29Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1965",
+      "bodyLength": 620,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        933
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "TypeScript SDK requires bundled workflows (pre-bundled or runtime-bundled), creating awkward and heavyweight dependencies. Users request the ability to run workflows without a bundling step, a feature supported by all other Temporal SDKs.",
+      "category": "feature",
+      "subcategory": "workflow-bundling",
+      "apis": [],
+      "components": [
+        "worker",
+        "bundler",
+        "workflow-loader",
+        "isolate-manager"
+      ],
+      "concepts": [
+        "bundling",
+        "workflow-execution",
+        "isolation",
+        "initialization",
+        "runtime-configuration",
+        "sdk-compatibility"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1964,
+      "title": "[Feature Request] Include information about runtime in heartbeat",
+      "state": "OPEN",
+      "author": "Sushisource",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-03-11T23:33:05Z",
+      "updatedAt": "2026-03-11T23:33:34Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1964",
+      "bodyLength": 496,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Request to include runtime environment information (Node.js vs Bun, versions, cloud platforms like Vercel) in worker heartbeats to provide operational visibility. Should be opt-out and requires API and server coordination.",
+      "category": "feature",
+      "subcategory": "worker-heartbeat",
+      "apis": [],
+      "components": [
+        "worker",
+        "heartbeat",
+        "runtime-detection",
+        "telemetry"
+      ],
+      "concepts": [
+        "heartbeat",
+        "runtime-environment",
+        "observability",
+        "worker-metadata",
+        "platform-detection",
+        "telemetry"
+      ],
+      "severity": "low",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1962,
+      "title": "[Bug] Unable to set `defaultVersioningBehavior` to `UNSPECIFIED` in `workerDeploymentOptions`",
+      "state": "CLOSED",
+      "author": "tconley1428",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-03-11T17:55:27Z",
+      "updatedAt": "2026-03-12T21:43:10Z",
+      "closedAt": "2026-03-12T21:43:10Z",
+      "commentCount": 1,
+      "upvotes": 1,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1962",
+      "bodyLength": 1313,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.14.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The TypeScript SDK's `defaultVersioningBehavior` in `WorkerDeploymentOptions` doesn't support the UNSPECIFIED value that is supported by the server, preventing users from using build IDs without enabling full worker versioning.",
+      "category": "bug",
+      "subcategory": "worker-versioning",
+      "apis": [
+        "WorkerDeploymentOptions"
+      ],
+      "components": [
+        "worker",
+        "versioning",
+        "configuration",
+        "type-definitions"
+      ],
+      "concepts": [
+        "build-id",
+        "versioning",
+        "worker-deployment",
+        "configuration",
+        "api-compatibility",
+        "server-compatibility",
+        "feature-parity"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1960,
+      "title": "[Bug] `executeUpdateWithStart` leaks unhandled Promise rejection when gRPC call fails before first response",
+      "state": "OPEN",
+      "author": "gioragutt",
+      "labels": [],
+      "createdAt": "2026-03-10T23:30:31Z",
+      "updatedAt": "2026-03-17T14:12:58Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1960",
+      "bodyLength": 4335,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "v1.15.0",
+        "1.15.0",
+        "1.14.1",
+        "1.30.1",
+        "1.6.1"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 7,
+      "summary": "executeUpdateWithStart leaks an unhandled Promise rejection when gRPC fails before the first response, causing Node.js to terminate the process despite proper caller error handling. The WorkflowHandlePromise is created without a .catch() handler, and when executeMultiOperation fails at the gRPC level, the rejection propagates as an unhandled rejection.",
+      "category": "bug",
+      "subcategory": "update-with-start",
+      "apis": [
+        "executeUpdateWithStart",
+        "workflowHandle"
+      ],
+      "components": [
+        "workflow-client",
+        "with-start-operation",
+        "promise-handling",
+        "grpc-retry"
+      ],
+      "concepts": [
+        "unhandled-rejection",
+        "promise-error-handling",
+        "error-propagation",
+        "concurrency-limits",
+        "grpc-errors"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1958,
+      "title": "[Feature Request] Workflow Bundler: Allow user to define modules to be preloaded",
+      "state": "OPEN",
+      "author": "mjameswh",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-03-10T17:33:06Z",
+      "updatedAt": "2026-03-10T17:33:06Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1958",
+      "bodyLength": 314,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to add a preloadModules property to BundlerOptions in the workflow bundler, allowing users to specify modules that should be preloaded during VM initialization to reduce per-workflow memory usage and initialization time.",
+      "category": "feature",
+      "subcategory": "workflow-bundler",
+      "apis": [],
+      "components": [
+        "workflow-bundler",
+        "vm-executor",
+        "bundler-options"
+      ],
+      "concepts": [
+        "preloading",
+        "memory-footprint",
+        "initialization-time",
+        "v8-context",
+        "performance"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1953,
+      "title": "[Bug] `Worker.create()` ignores pre-loaded `LoadedDataConverter`, always re-loads via `require()`",
+      "state": "OPEN",
+      "author": "quad",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-03-05T22:22:25Z",
+      "updatedAt": "2026-03-05T22:23:15Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1953",
+      "bodyLength": 5503,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.15.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 6,
+      "summary": "Worker.create() unconditionally calls loadDataConverter() using require(), creating a separate CJS module cache that breaks instanceof checks in custom PayloadConverters for ESM-loaded classes. The Client already handles this correctly with an isLoadedDataConverter() guard.",
+      "category": "bug",
+      "subcategory": "data-conversion",
+      "apis": [
+        "Worker.create",
+        "PayloadConverter",
+        "LoadedDataConverter"
+      ],
+      "components": [
+        "worker",
+        "worker-options",
+        "data-converter",
+        "payload-converter"
+      ],
+      "concepts": [
+        "module-loading",
+        "instanceof-checks",
+        "type-detection",
+        "serialization",
+        "esm-cjs-interop",
+        "class-identity"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1948,
+      "title": "[Feature Request] Standardize Nexus Operation Input Arg. Deserialization Failure",
+      "state": "OPEN",
+      "author": "Quinn-With-Two-Ns",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-02-23T00:48:55Z",
+      "updatedAt": "2026-02-23T00:48:55Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-typescript/issues/1948",
+      "bodyLength": 54,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        762
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to standardize deserialization failure handling for Nexus operation input arguments in the TypeScript SDK.",
+      "category": "feature",
+      "subcategory": "nexus-serialization",
+      "apis": [
+        "NexusOperation"
+      ],
+      "components": [
+        "nexus",
+        "serialization",
+        "deserialization"
+      ],
+      "concepts": [
+        "deserialization",
+        "standardization",
+        "error-handling",
+        "input-validation",
+        "nexus-operations"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 1935,
       "title": "[Bug] uuid() calls in query handlers can break workflow determinism during replay",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "antmendoza",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-02-10T13:35:45Z",
-      "updatedAt": "2026-02-10T13:35:45Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-03-10T17:26:23Z",
+      "closedAt": "2026-03-10T17:26:23Z",
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1935",
       "bodyLength": 847,
@@ -325,12 +981,12 @@
         "enhancement"
       ],
       "createdAt": "2026-01-15T23:29:22Z",
-      "updatedAt": "2026-01-15T23:29:22Z",
+      "updatedAt": "2026-03-10T17:28:52Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1895",
-      "bodyLength": 814,
+      "bodyLength": 914,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -850,15 +1506,15 @@
     {
       "number": 1860,
       "title": "[Bug] Performance regression from 1.13.1 -> 1.13.2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mnahkies",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-12-10T09:32:18Z",
-      "updatedAt": "2026-01-27T17:39:20Z",
-      "closedAt": null,
-      "commentCount": 3,
+      "updatedAt": "2026-03-07T03:20:44Z",
+      "closedAt": "2026-03-07T03:20:44Z",
+      "commentCount": 5,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1860",
       "bodyLength": 1641,
@@ -899,15 +1555,15 @@
     {
       "number": 1859,
       "title": "[Bug] High CPU usage with OTel instrumentation when updating to v1.13.x",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "daniellockyer",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-12-08T10:39:51Z",
-      "updatedAt": "2026-01-27T17:40:08Z",
-      "closedAt": null,
-      "commentCount": 6,
+      "updatedAt": "2026-03-07T03:20:52Z",
+      "closedAt": "2026-03-07T03:20:52Z",
+      "commentCount": 7,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1859",
       "bodyLength": 4660,
@@ -954,10 +1610,10 @@
         "bug"
       ],
       "createdAt": "2025-12-05T23:25:41Z",
-      "updatedAt": "2025-12-08T18:01:36Z",
+      "updatedAt": "2026-02-27T11:36:57Z",
       "closedAt": null,
-      "commentCount": 0,
-      "upvotes": 0,
+      "commentCount": 1,
+      "upvotes": 1,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1858",
       "bodyLength": 2892,
       "hasCodeBlocks": true,
@@ -2166,9 +2822,9 @@
         "enhancement"
       ],
       "createdAt": "2025-07-31T18:35:54Z",
-      "updatedAt": "2026-01-03T21:25:45Z",
+      "updatedAt": "2026-03-18T00:47:14Z",
       "closedAt": null,
-      "commentCount": 8,
+      "commentCount": 14,
       "upvotes": 20,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1755",
       "bodyLength": 766,
@@ -11020,16 +11676,16 @@
     {
       "number": 1334,
       "title": "[Feature Request] Run temporal worker in bun",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Code2Life",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-01-10T08:59:55Z",
-      "updatedAt": "2026-01-22T18:01:30Z",
-      "closedAt": null,
-      "commentCount": 51,
-      "upvotes": 49,
+      "updatedAt": "2026-02-19T06:59:13Z",
+      "closedAt": "2026-02-17T19:19:54Z",
+      "commentCount": 54,
+      "upvotes": 51,
       "url": "https://github.com/temporalio/sdk-typescript/issues/1334",
       "bodyLength": 2310,
       "hasCodeBlocks": true,

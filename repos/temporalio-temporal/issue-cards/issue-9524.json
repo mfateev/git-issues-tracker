@@ -1,0 +1,35 @@
+{
+  "summary": "User requests event-driven workflow state persistence triggered by WorkflowTaskCompleted events to replace inefficient polling, achieving real-time state updates with better resource utilization.",
+  "category": "feature",
+  "subcategory": "state-persistence",
+  "apis": [
+    "QueryWorkflow"
+  ],
+  "components": [
+    "workflow-query",
+    "visibility",
+    "event-listener",
+    "persistence"
+  ],
+  "concepts": [
+    "state-persistence",
+    "event-driven",
+    "polling",
+    "latency",
+    "resource-efficiency",
+    "real-time-updates",
+    "event-ordering"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need efficient real-time persistence of workflow state to external databases and currently face high latency and resource waste with polling-based solutions.",
+  "rootCause": null,
+  "proposedFix": "Implement event-driven persistence by subscribing to WorkflowTaskCompleted events, querying workflows via QueryWorkflow, and persisting to database. Requires reliable event subscription mechanism and Java SDK code samples.",
+  "workaround": "Periodically query running workflows via @QueryMethod using a scheduled poller and write results to database",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Listen for WorkflowTaskCompleted events from an external service (indicating workflow state may have changed). Query the corresponding workflow via QueryWorkflow (calling its @QueryMethod) to fetch the latest state.",
+  "number": 9524,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:02.017Z"
+}

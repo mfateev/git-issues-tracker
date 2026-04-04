@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to rename workflow-based Nexus Operation classes to avoid naming collisions with future standalone Nexus operations. Proposes adding 'workflow' prefix to class names (e.g., NexusClient → NexusWorkflowClient).",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "NexusClient"
+  ],
+  "components": [
+    "nexus-client",
+    "workflow-integration",
+    "api-design"
+  ],
+  "concepts": [
+    "nexus-operations",
+    "workflow-integration",
+    "api-design",
+    "naming-conventions",
+    "standalone-operations",
+    "breaking-changes"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will need to update their code to use renamed Nexus Operation classes as the SDK evolves to support standalone Nexus operations.",
+  "rootCause": "Current Nexus Operation class names will collide with future standalone Nexus operation classes without proactive renaming.",
+  "proposedFix": "Add 'workflow' prefix to workflow-based Nexus Operation classes, renaming NexusClient to NexusWorkflowClient.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Nexus Operation classes were renamed with 'workflow' prefix to disambiguate from future standalone Nexus operations.",
+  "related": [],
+  "keyQuote": "Rename the workflow based Nexus Operation classes pre-emtively to avoid any conflict in the future. The current thought is to add `workflow` so `NexusClient` becomes `NexusWorkflowClient`",
+  "number": 618,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-04-04T19:07:02.564Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Deprecate namespace-related fields in Java SDK workflow options (ChildWorkflowOptions, external cancel/signal options) following API-level deprecation due to Temporal Server 1.30.1 disabling cross-namespace operations by default.",
+  "category": "feature",
+  "subcategory": "cross-namespace-operations",
+  "apis": [
+    "ChildWorkflowOptions",
+    "SignalExternalWorkflow",
+    "RequestCancelExternalWorkflow"
+  ],
+  "components": [
+    "workflow-options",
+    "child-workflow",
+    "external-workflow-operations",
+    "stubs"
+  ],
+  "concepts": [
+    "deprecation",
+    "cross-namespace-operations",
+    "namespace-isolation",
+    "api-evolution",
+    "backward-compatibility",
+    "workflow-communication"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must update code to remove usage of deprecated namespace fields on workflow options before they are removed in future SDK versions.",
+  "rootCause": null,
+  "proposedFix": "Add @Deprecated annotations and Javadoc notes to ChildWorkflowOptions.Builder#setNamespace, ChildWorkflowOptions#getNamespace, and namespace setters/getters on external cancel/signal stub options with note about server 1.30.1 disabling cross-namespace operations by default.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Cross-namespace operations are disabled by default as of server 1.30.1.",
+  "number": 2826,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:11:39.112Z"
+}

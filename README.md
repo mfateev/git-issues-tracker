@@ -26,17 +26,17 @@ Local mirror system for tracking GitHub issues across Temporal SDK repositories 
 
 | Repository | Open | Closed | Total | Top User Request |
 |------------|------|--------|-------|------------------|
-| [Server](https://github.com/temporalio/temporal) | 533 | 951 | 1,484 | External workflow wait (70 upvotes) |
-| [Java SDK](https://github.com/temporalio/sdk-java) | 216 | 724 | 940 | Kotlin coroutines support |
-| [Go SDK](https://github.com/temporalio/sdk-go) | 163 | 661 | 824 | Clean worker shutdown (16 upvotes) |
-| [TypeScript SDK](https://github.com/temporalio/sdk-typescript) | 144 | 653 | 797 | Bun support (46 upvotes) |
-| [Python SDK](https://github.com/temporalio/sdk-python) | 114 | 475 | 589 | Sandbox/debugging improvements |
-| [Features](https://github.com/temporalio/features) | 244 | 138 | 382 | Custom workflow markers (15 upvotes) |
-| [.NET SDK](https://github.com/temporalio/sdk-dotnet) | 49 | 240 | 289 | .NET Trimming support (7 upvotes) |
-| [PHP SDK](https://github.com/temporalio/sdk-php) | 49 | 211 | 260 | Marshaller documentation |
-| [Ruby SDK](https://github.com/temporalio/sdk-ruby) | 22 | 158 | 180 | SDK stability |
-| [API](https://github.com/temporalio/api) | 13 | 12 | 25 | Buf schema registry (6 upvotes) |
-| **Total** | **1,547** | **4,223** | **5,770** | |
+| [Server](https://github.com/temporalio/temporal) | 505 | 1,021 | 1,526 | External workflow wait (74 upvotes) |
+| [Java SDK](https://github.com/temporalio/sdk-java) | 221 | 741 | 962 | Kotlin coroutines support (15 upvotes) |
+| [Go SDK](https://github.com/temporalio/sdk-go) | 171 | 683 | 854 | Clean worker shutdown (16 upvotes) |
+| [TypeScript SDK](https://github.com/temporalio/sdk-typescript) | 147 | 679 | 826 | OpenAPI/agents integration (20 upvotes) |
+| [Python SDK](https://github.com/temporalio/sdk-python) | 89 | 530 | 619 | Sandbox/debugging improvements |
+| [Features](https://github.com/temporalio/features) | 254 | 151 | 405 | Declarative schedules (17 upvotes) |
+| [.NET SDK](https://github.com/temporalio/sdk-dotnet) | 49 | 251 | 300 | .NET Trimming support (7 upvotes) |
+| [PHP SDK](https://github.com/temporalio/sdk-php) | 39 | 230 | 269 | Marshaller documentation (5 upvotes) |
+| [Ruby SDK](https://github.com/temporalio/sdk-ruby) | 24 | 163 | 187 | SDK stability |
+| [API](https://github.com/temporalio/api) | 14 | 13 | 27 | Buf schema registry (6 upvotes) |
+| **Total** | **1,513** | **4,462** | **5,975** | |
 
 ## Quick Start
 

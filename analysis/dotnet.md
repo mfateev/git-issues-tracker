@@ -1,37 +1,37 @@
 # Temporal .NET SDK - Issues Analysis & Remediation Proposal
 
-**Generated:** 2026-02-10
-**Total Open Issues:** 48
-**Total Closed Issues:** 246
+**Generated:** 2026-04-04
+**Total Open Issues:** 49
+**Total Closed Issues:** 251
 **Repository:** [temporalio/sdk-dotnet](https://github.com/temporalio/sdk-dotnet)
 
-<- [Summary](summary.md) | [Contributors](contributors.md) | [Recent](recent.md) | [Themes](themes/index.md)
+← [Summary](summary.md) · [Contributors](contributors.md) · [Recent](recent.md) · [Themes](themes/index.md)
 
-**Other SDKs:** [Go](go.md) | [Java](java.md) | [TypeScript](typescript.md) | [Python](python.md) | [PHP](php.md) | [Ruby](ruby.md)
+**Other SDKs:** [Go](go.md) · [Java](java.md) · [TypeScript](typescript.md) · [Python](python.md) · [PHP](php.md) · [Ruby](ruby.md)
 
 ---
 
 ## Executive Summary
 
-The .NET SDK has 48 open issues against 246 closed, reflecting an 84% resolution rate. The backlog is essentially stable over the last 12 months (+2 net issues). The dominant concern is a high proportion of stale issues (58% are over 12 months old), with enhancement requests outnumbering bugs nearly 3:1. User engagement is relatively low -- only 13% of open issues have upvotes -- indicating most requests originate from maintainers or have limited community amplification.
+The .NET SDK has 49 open issues against 251 closed, reflecting an 84% resolution rate. The backlog is slightly shrinking over the last 12 months (-4 net issues), indicating effective maintenance. Enhancement requests dominate the open backlog (29 issues) with bugs accounting for 11. User engagement remains low -- only 12% of open issues have upvotes -- with most requests originating from maintainers. A significant 65% of open issues are stale (>12 months), warranting a triage pass.
 
 ### Key Findings
 
 | Category | Count | Priority |
 |----------|-------|----------|
-| Enhancements | 30 | Medium -- majority are incremental improvements |
+| Enhancements | 29 | Medium -- majority are incremental improvements |
 | Bugs | 11 | High -- includes test flakes, serialization issues, and lost task failures |
 | Security Vulnerability | 1 | Medium -- dependency vulnerability in test tooling |
-| Stale Issues (>12 months) | 28 | Low -- need triage pass for closure or re-prioritization |
+| Stale Issues (>12 months) | 32 | Low -- need triage pass for closure or re-prioritization |
 
 ### User Engagement Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Upvotes | 13 |
-| Total Comments | 43 |
-| Issues with Upvotes | 6 (13%) |
-| Issues with Comments | 22 (46%) |
+| Total Upvotes (👍) | 13 |
+| Total Comments | 45 |
+| Issues with Upvotes | 6 (12%) |
+| Issues with Comments | 23 (47%) |
 
 ### Resolution Metrics
 
@@ -39,10 +39,10 @@ The .NET SDK has 48 open issues against 246 closed, reflecting an 84% resolution
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 84% (246/294) |
-| Median Time to Close | 21 days (calendar) / 15 days (business) |
-| Resolved within 30 days | 60% |
-| Resolved within 90 days | 80% |
+| Resolution Rate | 84% (251/300) |
+| Median Time to Close | 20 days (calendar) / 15 days (business) |
+| Resolved within 30 days | 61% |
+| Resolved within 90 days | 81% |
 
 ### Recommended Actions
 
@@ -50,7 +50,7 @@ The .NET SDK has 48 open issues against 246 closed, reflecting an 84% resolution
 2. **Short-term:** Fix test environment bugs ([#179](https://github.com/temporalio/sdk-dotnet/issues/179), [#280](https://github.com/temporalio/sdk-dotnet/issues/280), [#77](https://github.com/temporalio/sdk-dotnet/issues/77)) blocking developer testing workflows
 3. **Medium-term:** Deliver .NET Trimming support ([#286](https://github.com/temporalio/sdk-dotnet/issues/286)) -- the highest-upvoted issue by far (7 upvotes)
 4. **Long-term:** Implement F# samples/documentation ([#390](https://github.com/temporalio/sdk-dotnet/issues/390)) and service abstraction improvements ([#553](https://github.com/temporalio/sdk-dotnet/issues/553))
-5. **Housekeeping:** Triage 28 stale issues; close resolved or no-longer-relevant items
+5. **Housekeeping:** Triage 32 stale issues; close resolved or no-longer-relevant items
 
 ---
 
@@ -58,41 +58,35 @@ The .NET SDK has 48 open issues against 246 closed, reflecting an 84% resolution
 
 ### Velocity Trend (Last 12 Months)
 
-The backlog is nearly flat, with only 2 more issues opened than closed over the past year. The team has been effective at keeping pace with incoming issues.
+The backlog is shrinking slightly, with 4 more issues closed than opened over the past year. The team has been effective at keeping pace with incoming issues.
 
 | Trend | Issues Opened | Issues Closed | Net Change |
 |-------|---------------|---------------|------------|
-| Last 12 months | 79 | 77 | +2 |
+| Last 12 months | 59 | 63 | -4 |
 
-Backlog Growing (marginally): +2 net issues over 12 months indicates a nearly stable backlog.
+📉 Backlog Shrinking: -4 net issues over 12 months indicates a slightly declining backlog.
 
 ### Last 6 Months: Detailed Analysis
 
-The last 6 months show a well-managed issue pipeline with 42 opened and 43 closed (net -1). 14 bugs were fixed and 23 enhancements completed. Resolution speed has been somewhat slower recently, with a median of 35 calendar days compared to the all-time median of 21 days.
+The last 6 months show a well-managed issue pipeline with 35 opened and 34 closed (net +1). 12 bugs were fixed and 18 enhancements completed. Resolution speed has been somewhat slower recently, with a median of 26 calendar days compared to the all-time median of 20 days.
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 42 |
-| Issues Closed | 43 |
-| Bugs Closed | 14 |
-| Enhancements Completed | 23 |
+| Issues Opened | 35 |
+| Issues Closed | 34 |
+| Bugs Closed | 12 |
+| Enhancements Completed | 18 |
 
 ### Popular Requests Resolved (Last 6 Months)
 
-No issues with 3+ upvotes were closed in the last 6 months. The most notable recently closed items include:
-
-| Issue | Title |
-|-------|-------|
-| [#436](https://github.com/temporalio/sdk-dotnet/issues/436) | Add ability to temporarily disable tracing event listener in workflows (3 upvotes, closed) |
-| [#408](https://github.com/temporalio/sdk-dotnet/issues/408) | Include musl-based build in NuGet package (2 upvotes, closed) |
-| [#385](https://github.com/temporalio/sdk-dotnet/issues/385) | Add support for win-arm64 (2 upvotes, closed) |
+No issues with 3+ upvotes were closed in the last 6 months. The most notable recently closed items include standalone activities support ([#568](https://github.com/temporalio/sdk-dotnet/issues/568)), worker heartbeating ([#551](https://github.com/temporalio/sdk-dotnet/issues/551)), and Nexus hosting support ([#536](https://github.com/temporalio/sdk-dotnet/issues/536)).
 
 ---
 
 ## User Demand: Top Issues by Upvotes
 
-| Rank | Issue | Upvotes | Comments | Title |
-|------|-------|---------|----------|-------|
+| Rank | Issue | 👍 | 💬 | Title |
+|------|-------|-----|-----|-------|
 | 1 | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | 7 | 1 | Support .NET Trimming |
 | 2 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 2 | 3 | F# Samples/Documentation |
 | 3 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 1 | 1 | Provide synchronous Run method in testing |
@@ -113,7 +107,7 @@ No issues with 3+ upvotes were closed in the last 6 months. The most notable rec
 | 7 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 3 | Provide synchronous Run method in testing |
 | 8 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | RpcException: operation was canceled |
 | 9 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | Unexpected reuse of payload instances in payload codec |
-| 10 | [#256](https://github.com/temporalio/sdk-dotnet/issues/256) | 2 | Clarify what the ICustomMetricMeter is used for |
+| 10 | [#634](https://github.com/temporalio/sdk-dotnet/issues/634) | 2 | DescribeTaskQueueAsync does not return stats |
 
 ---
 
@@ -127,8 +121,8 @@ The open bugs span three main areas: test framework flakiness, serialization/dat
 
 Internal test stability issues. These are lower user impact but affect CI reliability.
 
-| Issue | Comments | Description |
-|-------|----------|-------------|
+| Issue | 💬 | Description |
+|-------|-----|-------------|
 | [#592](https://github.com/temporalio/sdk-dotnet/issues/592) | 0 | Nexus operation timeout test flaking due to premature CancellationTokenSource disposal |
 | [#549](https://github.com/temporalio/sdk-dotnet/issues/549) | 0 | Autoscaling polling behavior test flake |
 | [#478](https://github.com/temporalio/sdk-dotnet/issues/478) | 1 | Custom slot supplier test flake |
@@ -137,24 +131,24 @@ Internal test stability issues. These are lower user impact but affect CI reliab
 
 Long-standing issues with the time-skipping test server that affect workflow testing workflows.
 
-| Issue | Comments | Description |
-|-------|----------|-------------|
+| Issue | 💬 | Description |
+|-------|-----|-------------|
 | [#179](https://github.com/temporalio/sdk-dotnet/issues/179) | 8 | Workflow Update hangs on time skipping environment -- highest engagement among all bugs |
 | [#280](https://github.com/temporalio/sdk-dotnet/issues/280) | 1 | TaskQueue not forwarded in test environment, breaks ContinueAsNew |
 | [#77](https://github.com/temporalio/sdk-dotnet/issues/77) | 0 | Time skipping test server not auto-skipping time properly in some cases |
 
 #### Data Handling and Serialization (3 issues)
 
-| Issue | Comments | Description |
-|-------|----------|-------------|
+| Issue | 💬 | Description |
+|-------|-----|-------------|
 | [#588](https://github.com/temporalio/sdk-dotnet/issues/588) | 0 | Workflow task failures during failure conversion may be silently lost (high severity) |
 | [#357](https://github.com/temporalio/sdk-dotnet/issues/357) | 1 | Unexpected serialization of activity results |
 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234) | 3 | Unexpected reuse of payload instances in payload codec for workflow failure scenarios |
 
 #### Other Bugs (2 issues)
 
-| Issue | Comments | Description |
-|-------|----------|-------------|
+| Issue | 💬 | Description |
+|-------|-----|-------------|
 | [#395](https://github.com/temporalio/sdk-dotnet/issues/395) | 3 | RpcException: operation was canceled -- user-reported production issue |
 | [#305](https://github.com/temporalio/sdk-dotnet/issues/305) | 1 | Handle multiple completion commands |
 
@@ -168,24 +162,24 @@ Long-standing issues with the time-skipping test server that affect workflow tes
 
 ## API & Component Hotspots
 
-Based on semantic analysis, the areas with the most open issues are:
+Based on issue analysis, the areas with the most open issues are:
 
 | Area | Open Issue Count | Notable Issues |
 |------|-----------------|----------------|
 | Test Framework / Testing | 6 | [#179](https://github.com/temporalio/sdk-dotnet/issues/179), [#592](https://github.com/temporalio/sdk-dotnet/issues/592), [#280](https://github.com/temporalio/sdk-dotnet/issues/280), [#77](https://github.com/temporalio/sdk-dotnet/issues/77), [#420](https://github.com/temporalio/sdk-dotnet/issues/420), [#360](https://github.com/temporalio/sdk-dotnet/issues/360) |
 | Workflow Execution | 4 | [#246](https://github.com/temporalio/sdk-dotnet/issues/246), [#243](https://github.com/temporalio/sdk-dotnet/issues/243), [#176](https://github.com/temporalio/sdk-dotnet/issues/176), [#412](https://github.com/temporalio/sdk-dotnet/issues/412) |
 | Serialization / Codec | 3 | [#234](https://github.com/temporalio/sdk-dotnet/issues/234), [#357](https://github.com/temporalio/sdk-dotnet/issues/357), [#588](https://github.com/temporalio/sdk-dotnet/issues/588) |
-| Worker Versioning | 1 | [#479](https://github.com/temporalio/sdk-dotnet/issues/479) |
 | Logging / Observability | 3 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496), [#435](https://github.com/temporalio/sdk-dotnet/issues/435), [#171](https://github.com/temporalio/sdk-dotnet/issues/171) |
+| Internal Refactoring | 2 | [#586](https://github.com/temporalio/sdk-dotnet/issues/586), [#587](https://github.com/temporalio/sdk-dotnet/issues/587) |
 
 ---
 
-## Enhancement Requests (30 open issues)
+## Enhancement Requests (29 open issues)
 
 ### Developer Experience & Tooling
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
+| Issue | 👍 | Request |
+|-------|-----|---------|
 | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) | 7 | Support .NET Trimming (AOT compilation) |
 | [#576](https://github.com/temporalio/sdk-dotnet/issues/576) | 0 | .NET Analyzer for checking workflow determinism constraints |
 | [#563](https://github.com/temporalio/sdk-dotnet/issues/563) | 0 | Centralize SDK version using global.json |
@@ -193,8 +187,8 @@ Based on semantic analysis, the areas with the most open issues are:
 
 ### Testing Improvements
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
+| Issue | 👍 | Request |
+|-------|-----|---------|
 | [#420](https://github.com/temporalio/sdk-dotnet/issues/420) | 1 | Provide synchronous Run method in testing |
 | [#578](https://github.com/temporalio/sdk-dotnet/issues/578) | 0 | Add tests to confirm proper Nexus support for time-skipping environment |
 | [#360](https://github.com/temporalio/sdk-dotnet/issues/360) | 0 | Auto-skip time in time-skipping environment when waiting on update result |
@@ -202,8 +196,8 @@ Based on semantic analysis, the areas with the most open issues are:
 
 ### API Design & Extensibility
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
+| Issue | 👍 | Request |
+|-------|-----|---------|
 | [#553](https://github.com/temporalio/sdk-dotnet/issues/553) | 0 | OperatorService/WorkflowService members marked virtual or inherit from interface |
 | [#363](https://github.com/temporalio/sdk-dotnet/issues/363) | 1 | Make scoped IServiceProvider available to ActivityInboundInterceptor |
 | [#246](https://github.com/temporalio/sdk-dotnet/issues/246) | 0 | Expose raw proto objects on WorkflowExecution and WorkflowExecutionDescription |
@@ -212,10 +206,11 @@ Based on semantic analysis, the areas with the most open issues are:
 
 ### Workflow & Activity Features
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
+| Issue | 👍 | Request |
+|-------|-----|---------|
+| [#634](https://github.com/temporalio/sdk-dotnet/issues/634) | 0 | DescribeTaskQueueAsync does not return stats |
+| [#624](https://github.com/temporalio/sdk-dotnet/issues/624) | 0 | Support conflict token retry loop for schedule updates |
 | [#601](https://github.com/temporalio/sdk-dotnet/issues/601) | 0 | Best practice fix for Semaphore.WaitAsync ContinueWith |
-| [#568](https://github.com/temporalio/sdk-dotnet/issues/568) | 0 | Support standalone activities |
 | [#558](https://github.com/temporalio/sdk-dotnet/issues/558) | 0 | Allow overriding Worker Deployment Version for child workflows |
 | [#412](https://github.com/temporalio/sdk-dotnet/issues/412) | 0 | Expose workflow cancel cause/reason |
 | [#398](https://github.com/temporalio/sdk-dotnet/issues/398) | 0 | Add explicit memoization support to the Patched() API |
@@ -226,8 +221,8 @@ Based on semantic analysis, the areas with the most open issues are:
 
 ### Observability & Logging
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
+| Issue | 👍 | Request |
+|-------|-----|---------|
 | [#496](https://github.com/temporalio/sdk-dotnet/issues/496) | 0 | Inconsistent log property names for workflow run identifier |
 | [#435](https://github.com/temporalio/sdk-dotnet/issues/435) | 0 | Workflow logging -- NLog async calls |
 | [#440](https://github.com/temporalio/sdk-dotnet/issues/440) | 0 | Support user data in forwarded log callback in C bridge |
@@ -236,8 +231,8 @@ Based on semantic analysis, the areas with the most open issues are:
 
 ### Client & Connection
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
+| Issue | 👍 | Request |
+|-------|-----|---------|
 | [#337](https://github.com/temporalio/sdk-dotnet/issues/337) | 0 | Include more details from tonic in failed RPC invocations |
 | [#299](https://github.com/temporalio/sdk-dotnet/issues/299) | 0 | Use RpcException if initial GetSystemInfo call fails |
 | [#307](https://github.com/temporalio/sdk-dotnet/issues/307) | 0 | Replace System.TimeProvider in workflows |
@@ -245,15 +240,15 @@ Based on semantic analysis, the areas with the most open issues are:
 
 ### Language & Platform Support
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
+| Issue | 👍 | Request |
+|-------|-----|---------|
 | [#390](https://github.com/temporalio/sdk-dotnet/issues/390) | 2 | F# Samples/Documentation |
 | [#247](https://github.com/temporalio/sdk-dotnet/issues/247) | 0 | Support for win-x86 |
 
 ### Internal Refactoring
 
-| Issue | Upvotes | Request |
-|-------|---------|---------|
+| Issue | 👍 | Request |
+|-------|-----|---------|
 | [#587](https://github.com/temporalio/sdk-dotnet/issues/587) | 0 | Refactor Bridge.Client to be IDisposable instead of SafeHandle |
 | [#586](https://github.com/temporalio/sdk-dotnet/issues/586) | 0 | Separate unmanaged pointer lifecycle management into SafeHandles |
 | [#479](https://github.com/temporalio/sdk-dotnet/issues/479) | 0 | Worker Versioning high level client |
@@ -264,7 +259,7 @@ Based on semantic analysis, the areas with the most open issues are:
 
 ### Stale Issues (>1 year, no activity)
 
-28 issues (58% of open) have had no activity for over 12 months. A triage pass is recommended.
+32 issues (65% of open) have had no activity for over 12 months. A triage pass is recommended.
 
 - **Close candidates:** [#77](https://github.com/temporalio/sdk-dotnet/issues/77) (time-skipping bug from 2023, may be superseded), [#131](https://github.com/temporalio/sdk-dotnet/issues/131) (single-platform NuGet build, 2023), [#194](https://github.com/temporalio/sdk-dotnet/issues/194) (test dependency vulnerability, likely outdated)
 - **Needs triage:** [#247](https://github.com/temporalio/sdk-dotnet/issues/247) (win-x86 support -- is there still demand?), [#256](https://github.com/temporalio/sdk-dotnet/issues/256) (documentation clarification), [#280](https://github.com/temporalio/sdk-dotnet/issues/280) (test environment TaskQueue bug), [#305](https://github.com/temporalio/sdk-dotnet/issues/305) (multiple completion commands)
@@ -302,6 +297,6 @@ Based on user demand and issue analysis:
 
 ### Phase 4: Maintenance (Ongoing)
 
-- Triage and close stale issues (28 candidates)
+- Triage and close stale issues (32 candidates)
 - Address [#194](https://github.com/temporalio/sdk-dotnet/issues/194) -- update test dependency with known vulnerability
 - Complete SafeHandle refactoring ([#586](https://github.com/temporalio/sdk-dotnet/issues/586), [#587](https://github.com/temporalio/sdk-dotnet/issues/587))

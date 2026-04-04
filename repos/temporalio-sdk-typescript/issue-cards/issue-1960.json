@@ -1,0 +1,34 @@
+{
+  "summary": "executeUpdateWithStart leaks an unhandled Promise rejection when gRPC fails before the first response, causing Node.js to terminate the process despite proper caller error handling. The WorkflowHandlePromise is created without a .catch() handler, and when executeMultiOperation fails at the gRPC level, the rejection propagates as an unhandled rejection.",
+  "category": "bug",
+  "subcategory": "update-with-start",
+  "apis": [
+    "executeUpdateWithStart",
+    "workflowHandle"
+  ],
+  "components": [
+    "workflow-client",
+    "with-start-operation",
+    "promise-handling",
+    "grpc-retry"
+  ],
+  "concepts": [
+    "unhandled-rejection",
+    "promise-error-handling",
+    "error-propagation",
+    "concurrency-limits",
+    "grpc-errors"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience unexpected process termination with unhandledRejection even when their error handling is correct, making executeUpdateWithStart unreliable in error scenarios.",
+  "rootCause": "The workflowHandlePromise is created eagerly in WithStartWorkflowOperation constructor without a .catch() handler. When executeMultiOperation fails before the first response, onStartError rejects this promise, but no handler is attached, causing Node.js to fire an unhandledRejection event.",
+  "proposedFix": "Add .catch(() => undefined) to the workflowHandlePromise creation in WithStartWorkflowOperation constructor, following the pattern already used in activity.ts and worker.ts.",
+  "workaround": "Attach .catch(() => undefined) to startOp.workflowHandle() before calling executeUpdateWithStart to suppress the unhandled rejection.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Node.js fires unhandledRejection and terminates the process in Node 15+, even though the caller's error handling is correct.",
+  "number": 1960,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:16:57.245Z"
+}

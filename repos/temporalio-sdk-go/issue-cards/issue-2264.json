@@ -1,0 +1,38 @@
+{
+  "summary": "Deprecate namespace fields on cross-namespace workflow command options in the Go SDK following API deprecation in response to Temporal Server 1.30.1 disabling cross-namespace operations by default.",
+  "category": "docs",
+  "subcategory": "cross-namespace-operations",
+  "apis": [
+    "ExecuteChildWorkflow",
+    "SignalExternalWorkflow",
+    "CancelExternalWorkflow"
+  ],
+  "components": [
+    "workflow-options",
+    "external-operations",
+    "child-workflows"
+  ],
+  "concepts": [
+    "deprecation",
+    "cross-namespace",
+    "namespace-isolation",
+    "api-evolution",
+    "backwards-compatibility"
+  ],
+  "severity": "low",
+  "userImpact": "Users using cross-namespace operations must update their code as these fields are now deprecated and will be removed in a future version.",
+  "rootCause": null,
+  "proposedFix": "Mark ChildWorkflowOptions.Namespace and namespace fields on external cancel/signal options as deprecated, adding doc comment: '// Deprecated: Cross-namespace operations are disabled by default as of server 1.30.1.'",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    750,
+    751,
+    8971
+  ],
+  "keyQuote": "Cross-namespace operations are disabled by default as of server 1.30.1.",
+  "number": 2264,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:09:37.951Z"
+}

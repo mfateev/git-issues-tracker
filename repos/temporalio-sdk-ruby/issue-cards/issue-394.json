@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTelemetry trace context leaks between workflows when worker threads/fibers are reused because Context.attach() is called but Context.detach() is not always called, allowing trace context to persist across unrelated workflow executions.",
+  "category": "bug",
+  "subcategory": "opentelemetry-tracing",
+  "apis": [],
+  "components": [
+    "OpenTelemetryInterceptor",
+    "worker",
+    "activity-executor",
+    "fiber-pool"
+  ],
+  "concepts": [
+    "tracing",
+    "context-leaking",
+    "fiber-reuse",
+    "context-propagation",
+    "distributed-tracing",
+    "OpenTelemetry",
+    "observability"
+  ],
+  "severity": "high",
+  "userImpact": "Users utilizing OpenTelemetry for distributed tracing observe incorrect traces with spans from unrelated workflows mixed together, breaking observability and monitoring capabilities.",
+  "rootCause": "OpenTelemetry context is attached using Context.attach() but the corresponding Context.detach(token) is not always called, allowing the context to remain active and be reused by subsequent workflow/activity executions when worker threads/fibers are reused.",
+  "proposedFix": "Ensure Context.detach(token) is called after Context.attach() to properly clean up and detach OpenTelemetry context following the OTeL specification for context lifecycle management.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Activities from those untraced workflows may end up generating spans and being attached to the trace of a previously executed workflow.",
+  "number": 394,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-04-04T19:15:51.320Z"
+}

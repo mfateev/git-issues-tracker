@@ -1,0 +1,41 @@
+{
+  "summary": "When creating an OperatorService from a WorkflowService channel, the grpcMetadataProvider configuration is not automatically carried over, requiring manual re-configuration.",
+  "category": "feature",
+  "subcategory": "service-stubs",
+  "apis": [
+    "WorkflowServiceStubs",
+    "WorkflowServiceStubsOptions",
+    "OperatorServiceStubs",
+    "OperatorServiceStubsOptions",
+    "getRawChannel",
+    "addGrpcMetadataProvider",
+    "validateAndBuildWithDefaults"
+  ],
+  "components": [
+    "service-stubs",
+    "workflow-service",
+    "operator-service",
+    "gRPC-metadata",
+    "channel-management"
+  ],
+  "concepts": [
+    "service-configuration",
+    "metadata-propagation",
+    "authentication",
+    "gRPC",
+    "channel-sharing",
+    "default-values"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually re-apply gRPC metadata provider configuration when creating operator services from existing workflow service channels, causing code duplication and potential security oversights.",
+  "rootCause": "The validateAndBuildWithDefaults method does not inspect or copy the gRPC metadata provider configuration from the reused channel.",
+  "proposedFix": "Enhance validateAndBuildWithDefaults to automatically carry over grpcMetadataProvider configuration from the source channel unless explicitly overridden.",
+  "workaround": "Explicitly set the grpcMetadataProvider again when building OperatorServiceStubsOptions.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "request is to carry over this info in ServiceStubOptions.validateAndBuildWithDefaults if possible.",
+  "number": 2800,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:10:32.534Z"
+}

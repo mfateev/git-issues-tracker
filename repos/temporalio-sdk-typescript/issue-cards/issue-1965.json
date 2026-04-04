@@ -1,0 +1,34 @@
+{
+  "summary": "TypeScript SDK requires bundled workflows (pre-bundled or runtime-bundled), creating awkward and heavyweight dependencies. Users request the ability to run workflows without a bundling step, a feature supported by all other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "workflow-bundling",
+  "apis": [],
+  "components": [
+    "worker",
+    "bundler",
+    "workflow-loader",
+    "isolate-manager"
+  ],
+  "concepts": [
+    "bundling",
+    "workflow-execution",
+    "isolation",
+    "initialization",
+    "runtime-configuration",
+    "sdk-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "TypeScript developers must use an awkward and heavyweight bundling process to run workflows, unlike developers using other Temporal SDKs.",
+  "rootCause": "TypeScript SDK's V8 isolate architecture requires workflow bundling for execution, though the issue questions whether this is actually a necessary requirement.",
+  "proposedFix": "Remove the mandatory bundling requirement and allow workflows to run without a bundling step.",
+  "workaround": "Use the current bundling approach (pre-bundle workflows or allow Temporal to bundle at runtime).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    933
+  ],
+  "keyQuote": "This is supported by every Temporal SDK except TypeScript.",
+  "number": 1965,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:17:18.632Z"
+}

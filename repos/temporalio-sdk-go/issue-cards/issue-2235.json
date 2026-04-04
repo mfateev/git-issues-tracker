@@ -1,0 +1,32 @@
+{
+  "summary": "taskWorker.taskPollerType is never initialized during setup, but pollerBalancer expects it to be set to either Sticky or Not Sticky. This causes incorrect task balancing behavior.",
+  "category": "bug",
+  "subcategory": "task-polling",
+  "apis": [],
+  "components": [
+    "taskWorker",
+    "scalableTaskPoller",
+    "pollerBalancer",
+    "taskPoller"
+  ],
+  "concepts": [
+    "sticky-poller",
+    "task-balancing",
+    "worker-initialization",
+    "poller-type",
+    "workflow-tasks",
+    "configuration"
+  ],
+  "severity": "high",
+  "userImpact": "Task distribution may be incorrect because pollerBalancer cannot properly balance task workers without knowing their poller types.",
+  "rootCause": "newScalableTaskPoller does not set scalableTaskPoller.taskPollerType during workflow poller initialization",
+  "proposedFix": "Wire workflow poller types through for mixed/non-sticky/sticky workflow pollers in newScalableTaskPoller and newWorkflowTaskWorkerInternal",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "taskWorker.taskPollerType is never set. Should be set to either Sticky or Not Sticky.",
+  "number": 2235,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:09:08.996Z"
+}

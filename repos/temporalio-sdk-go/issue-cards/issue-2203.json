@@ -1,0 +1,34 @@
+{
+  "summary": "SDK error and result types hide underlying proto data (Failure and Payload). Users need public accessors to access the full failure proto including stack traces and structured error chains, and raw payloads without conversion.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [
+    "PollWorkflowUpdate",
+    "EncodedValue"
+  ],
+  "components": [
+    "error-types",
+    "result-types",
+    "proto-serialization"
+  ],
+  "concepts": [
+    "proto-data",
+    "error-chain",
+    "stack-trace",
+    "payload-encoding",
+    "type-inspection",
+    "data-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Callers like the CLI cannot access the full underlying proto data from errors and results, limiting their ability to properly display and inspect structured failure information.",
+  "rootCause": "The SDK API design currently only exposes high-level types without exposing the underlying proto data; the failure() method on temporalError is unexported.",
+  "proposedFix": "Add public Failure() method on temporalError to access *failurepb.Failure, and add Payload() accessor on EncodedValue to get the raw *commonpb.Payload.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "PollWorkflowUpdate returns a bare error. The underlying temporalError preserves the original *failurepb.Failure proto (including stack trace, structured error chain, encoded details), but failure() is unexported.",
+  "number": 2203,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:08:00.262Z"
+}

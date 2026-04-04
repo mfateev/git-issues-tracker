@@ -1,0 +1,36 @@
+{
+  "summary": "The Go SDK does not implement a retry loop for schedule updates when the server returns a 'mismatched conflict token' error, which occurs as of a recent server change. This requires SDK support to automatically retry schedule updates on conflict token mismatches.",
+  "category": "feature",
+  "subcategory": "schedule-updates",
+  "apis": [
+    "UpdateSchedule"
+  ],
+  "components": [
+    "schedule-manager",
+    "update-handler",
+    "retry-logic",
+    "conflict-resolution"
+  ],
+  "concepts": [
+    "conflict-token",
+    "retry-loop",
+    "schedule-updates",
+    "idempotency",
+    "error-handling",
+    "synchronization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot update schedules when conflict token mismatches occur, requiring manual intervention until the SDK implements automatic retry logic.",
+  "rootCause": "Server change (temporalio/temporal#8474) now returns 'mismatched conflict token' errors during schedule updates, but the Go SDK lacks automatic retry logic to handle this scenario.",
+  "proposedFix": "Implement a conflict token retry loop for schedule update operations that automatically retries when conflict token mismatches are detected.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8474
+  ],
+  "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token' as of https://github.com/temporalio/temporal/pull/8474.",
+  "number": 2233,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:09:10.390Z"
+}

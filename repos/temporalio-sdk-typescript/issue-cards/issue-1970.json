@@ -1,0 +1,33 @@
+{
+  "summary": "Child workflows fail after upgrading to TypeScript SDK 1.15 from 1.11 when the parent workflow was created on Temporal Server 1.23. The issue stems from child workflows being started with an empty `rootWorkflowExecution: {}` object, which a change in SDK 1.12 (PR #1662) no longer handles correctly.",
+  "category": "bug",
+  "subcategory": "child-workflow",
+  "apis": [],
+  "components": [
+    "child-workflow-executor",
+    "workflow-execution",
+    "event-attributes",
+    "version-compatibility"
+  ],
+  "concepts": [
+    "child-workflow",
+    "backward-compatibility",
+    "field-missing",
+    "version-upgrade",
+    "rootWorkflowExecution",
+    "nested-workflow",
+    "event-attributes"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot spawn child workflows after upgrading from SDK 1.11 to 1.15 when the parent workflow was created on Temporal Server 1.23.",
+  "rootCause": "A change in PR #1662 released in SDK 1.12 introduced handling that does not properly account for empty `rootWorkflowExecution` objects from workflows created on Temporal Server 1.23.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Child workflow execution updated to handle empty rootWorkflowExecution objects for backward compatibility with workflows created on older server versions.",
+  "related": [],
+  "keyQuote": "The error stems from the child being started with a `rootWorkflowExecution\": {}` (empty object) when the workflow was originally created on Temporal Server 1.23.",
+  "number": 1970,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:17:45.492Z"
+}

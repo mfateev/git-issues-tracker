@@ -1,0 +1,33 @@
+{
+  "summary": "ARM64 Docker images for Temporal Server and admin-tools were missing for versions 1.30+ on Docker Hub, though they were available in 1.29. The issue was fixed via PR #9631 and arm64 images are now available.",
+  "category": "bug",
+  "subcategory": "docker-images",
+  "apis": [],
+  "components": [
+    "docker-build",
+    "server-image",
+    "admin-tools-image"
+  ],
+  "concepts": [
+    "arm64",
+    "docker-images",
+    "platform-support",
+    "ci-cd",
+    "distribution",
+    "architecture"
+  ],
+  "severity": "high",
+  "userImpact": "Users on ARM64 architecture (Apple Silicon, AWS Graviton) cannot run Temporal Server versions 1.30+ without available arm64 Docker images.",
+  "rootCause": "Docker build or CI/CD process failed to generate and push arm64 images for versions 1.30+",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed via PR #9631; arm64 Docker images are now available for Temporal Server and admin-tools 1.30+",
+  "related": [
+    9631
+  ],
+  "keyQuote": "Starting from 1.30 version there no arm64 images on dockerhub",
+  "number": 9526,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:15.093Z"
+}

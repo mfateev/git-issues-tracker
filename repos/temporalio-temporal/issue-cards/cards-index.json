@@ -1,7 +1,860 @@
 {
-  "generatedAt": "2026-02-11T03:37:08.716Z",
-  "totalCards": 1500,
+  "generatedAt": "2026-04-04T19:21:21.159Z",
+  "totalCards": 1526,
   "cards": [
+    {
+      "summary": "The postgres12_pgx SQL plugin fails to insert into the current_executions table, sending string enum values (e.g., 'Created') instead of integer values for the state column, causing CreateWorkflowExecution to fail with a type mismatch error.",
+      "category": "bug",
+      "subcategory": "database-plugin",
+      "apis": [],
+      "components": [
+        "postgres12_pgx plugin",
+        "SQL persistence",
+        "current_executions table",
+        "protobuf enum encoding"
+      ],
+      "concepts": [
+        "type coercion",
+        "SQL parameter encoding",
+        "protobuf enums",
+        "binary vs text parameters",
+        "database plugin compatibility",
+        "schema validation"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot create workflows when using the postgres12_pgx plugin, as all CreateWorkflowExecution operations fail with a type conversion error.",
+      "rootCause": "pgx encodes protobuf enums via text formatting (String()) instead of using the underlying int32 value, while lib/pq resolves the underlying integer via reflection. The CurrentExecutionsRow.State is typed as a protobuf enum that implements fmt.Stringer, returning string values like 'Created' instead of the integer 0.",
+      "proposedFix": null,
+      "workaround": "Switch to the postgres12 plugin with connectAttributes.binary_parameters: 'yes' instead of using postgres12_pgx plugin.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The current_executions.state column is INTEGER NOT NULL (schema v1.18), but the string \"Created\" is being sent instead of 0.",
+      "number": 9804,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:21:21.000Z"
+    },
+    {
+      "summary": "User encounters 'UpdateWorkflowExecution operation is disabled on this namespace' error when attempting to use workflow updates with Temporal v1.30.0 started in dev mode.",
+      "category": "bug",
+      "subcategory": "workflow-updates",
+      "apis": [
+        "UpdateWorkflowExecution",
+        "WorkflowUpdate"
+      ],
+      "components": [
+        "server",
+        "typescript-sdk",
+        "workflow-execution",
+        "namespace-config"
+      ],
+      "concepts": [
+        "workflow-update",
+        "permission-denied",
+        "namespace",
+        "operation-disabled",
+        "dev-mode"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use the workflow update feature when running Temporal server in dev mode, blocking a core functionality.",
+      "rootCause": "The UpdateWorkflowExecution operation appears to be disabled on the namespace, possibly due to server configuration or feature availability in dev mode.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "UpdateWorkflowExecution operation is disabled on this namespace.",
+      "number": 9800,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:21:20.447Z"
+    },
+    {
+      "summary": "MySQL's DeleteFromVisibility uses the database connection instead of the transaction connection for DELETE operations, causing connection pool deadlock and breaking transactional atomicity. This leads to connection exhaustion and `context deadline exceeded` errors under concurrent visibility cleanup workloads.",
+      "category": "bug",
+      "subcategory": "mysql-visibility",
+      "apis": [],
+      "components": [
+        "mysql-plugin",
+        "visibility-layer",
+        "persistence-layer",
+        "transaction-management",
+        "connection-pool"
+      ],
+      "concepts": [
+        "connection-pool",
+        "transaction",
+        "deadlock",
+        "concurrency",
+        "resource-exhaustion",
+        "atomicity",
+        "deletion"
+      ],
+      "severity": "critical",
+      "userImpact": "Production MySQL-based Temporal deployments with high workflow completion rates experience connection pool deadlock, visibility cleanup failures, and service stalls with `context deadline exceeded` errors.",
+      "rootCause": "DeleteFromVisibility uses `db.NamedExecContext` instead of `tx.NamedExecContext` for DELETE statements, holding 2 connections per delete and running statements as independent auto-committed operations outside the transaction.",
+      "proposedFix": "Change `mdb.NamedExecContext` to `tx.NamedExecContext` for the three DELETE statements in DeleteFromVisibility.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Each delete holds 2 connections simultaneously. Under concurrent deletes, all connections are consumed by BeginTxx, leaving none for the DELETE, causing context deadline exceeded.",
+      "number": 9784,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:21:06.874Z"
+    },
+    {
+      "summary": "Batch job hangs indefinitely when given a malformed query instead of failing with an error. Expected behavior is to validate the query upfront and fail fast with an error message, similar to CLI behavior.",
+      "category": "bug",
+      "subcategory": "batch-operations",
+      "apis": [
+        "startBatchOperation",
+        "StartBatchOperationRequest",
+        "BatchOperationDeletion"
+      ],
+      "components": [
+        "batch-operations",
+        "query-validation",
+        "visibility-query",
+        "api-handler",
+        "request-processing"
+      ],
+      "concepts": [
+        "malformed-query",
+        "hanging",
+        "batch-processing",
+        "error-handling",
+        "query-validation",
+        "timeout"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use batch operations with malformed queries as the operation hangs indefinitely instead of providing immediate feedback about the query error.",
+      "rootCause": "Missing query validation in batch operation endpoint - queries are not validated upfront like they are in the CLI",
+      "proposedFix": "Add upfront query validation to batch operations to catch malformed queries before execution, matching CLI behavior",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Fixed in #9793 - will be included in next OSS and Cloud release",
+      "related": [
+        9793
+      ],
+      "keyQuote": "batch job running - hangs indefinitely",
+      "number": 9782,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:21:08.609Z"
+    },
+    {
+      "summary": "When a schedule is paused longer than the retention period and then unpaused, the backing workflow closes unexpectedly. Expected behavior is that paused schedules should not be deleted by retention, and unpausing should reset the retention timer.",
+      "category": "bug",
+      "subcategory": "schedules",
+      "apis": [],
+      "components": [
+        "schedule-engine",
+        "retention-management",
+        "workflow-lifecycle",
+        "schedule-state-manager"
+      ],
+      "concepts": [
+        "schedule-pausing",
+        "retention-policy",
+        "workflow-closure",
+        "state-management",
+        "timer-reset",
+        "data-preservation"
+      ],
+      "severity": "high",
+      "userImpact": "Users who pause schedules lose the backing workflow if they unpause after the retention period expires, resulting in loss of schedule state and history.",
+      "rootCause": "The retention timer is not being reset when a schedule is unpaused, causing the workflow to be deleted even though the schedule should be preserved.",
+      "proposedFix": "Reset the retention timer when unpausing a schedule, or exclude paused schedules from retention-based deletion.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "If a schedule is paused for longer than the retention period with no actions fired or updates made, unpausing it causes the backing workflow to close.",
+      "number": 9752,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:21:00.167Z"
+    },
+    {
+      "summary": "During sustained MySQL database unavailability, Temporal's DatabaseHandle.reconnect() creates unbounded new sql.DB pools on each attempt while old connections linger, bypassing the maxConns limit. When the database recovers, all pool generations race to establish their full quota simultaneously, creating a connection storm (e.g., 10,330 vs. expected 2,688 connections).",
+      "category": "bug",
+      "subcategory": "database-connection-pooling",
+      "apis": [],
+      "components": [
+        "DatabaseHandle",
+        "sql-plugin",
+        "connection-pool",
+        "persistence-layer"
+      ],
+      "concepts": [
+        "connection-pooling",
+        "database-recovery",
+        "resource-exhaustion",
+        "reconnection-logic",
+        "connection-cleanup",
+        "backpressure"
+      ],
+      "severity": "critical",
+      "userImpact": "A brief database restart can trigger a connection storm that transforms into a prolonged outage, stalling all workflows and generating massive service-level errors.",
+      "rootCause": "During database unavailability, reconnect() repeatedly creates new sql.DB instances (throttled at 1/second/pod) while old pools' connections linger asynchronously in MySQL. When the database recovers, all accumulated pool generations simultaneously race to establish their full maxConns quota, bypassing the global connection limit because maxConns is enforced per sql.DB instance rather than globally.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1703,
+        6514,
+        9211
+      ],
+      "keyQuote": "In our incident, a ~2.5-minute MySQL restart resulted in 10,330 simultaneous connections (vs expected max of 2,688) from 14 Temporal pods",
+      "number": 9747,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:20:47.142Z"
+    },
+    {
+      "summary": "Temporal dev server running in Docker is unreachable at localhost:7233. Users encounter 'context deadline exceeded' errors when attempting to connect with the Go-SDK or temporal CLI, though the UI is accessible at localhost:8233. Issue appears after a system upgrade.",
+      "category": "bug",
+      "subcategory": "dev-server-docker-setup",
+      "apis": [],
+      "components": [
+        "temporal-server",
+        "grpc-server",
+        "docker-networking",
+        "dev-environment"
+      ],
+      "concepts": [
+        "docker-networking",
+        "connectivity",
+        "localhost-routing",
+        "dev-server",
+        "port-mapping",
+        "docker-compose"
+      ],
+      "severity": "high",
+      "userImpact": "Developers cannot reach the Temporal dev server running in Docker, blocking local development and testing.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "In step 3 of your example: localhost is referencing the admin-tools container not the host machine.",
+      "number": 9734,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:20:46.727Z"
+    },
+    {
+      "summary": "SQLite plugin hardcodes SetMaxOpenConns(1) instead of respecting config.SQL.MaxConns like MySQL and PostgreSQL plugins, causing connection bottlenecks and failures under high load (1000+ concurrent workflows).",
+      "category": "bug",
+      "subcategory": "sqlite-plugin",
+      "apis": [],
+      "components": [
+        "sqlite-plugin",
+        "persistence",
+        "connection-pooling"
+      ],
+      "concepts": [
+        "connection-pooling",
+        "configuration",
+        "concurrency",
+        "timeout",
+        "performance",
+        "wal-mode",
+        "database"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot configure SQLite connection pool sizes, causing failures and timeouts at high concurrency levels.",
+      "rootCause": "SQLite plugin hardcodes db.SetMaxOpenConns(1) and db.SetMaxIdleConns(1) instead of reading from config.SQL.MaxConns and config.SQL.MaxIdleConns",
+      "proposedFix": "Respect config.SQL.MaxConns and config.SQL.MaxIdleConns like other database plugins, and add a warning when max conns > 1 without WAL mode enabled",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "At ~1000 concurrent workflows, internal operations exceed the 5-second ShardIOTimeout and fail with context deadline exceeded.",
+      "number": 9686,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:20:44.000Z"
+    },
+    {
+      "summary": "When Temporal server configuration uses incorrect casing for the `bindOnIp` key or when using configuration files with multi-network deployments, the server falls back to intelligent interface selection in `ListenIP()`, binding only to one interface instead of all addresses as intended.",
+      "category": "bug",
+      "subcategory": "server-configuration",
+      "apis": [],
+      "components": [
+        "server",
+        "config",
+        "localip",
+        "network-binding"
+      ],
+      "concepts": [
+        "multi-network",
+        "interface-binding",
+        "ip-selection",
+        "docker-deployment",
+        "configuration",
+        "network-interface"
+      ],
+      "severity": "medium",
+      "userImpact": "Multi-network Temporal deployments cannot reliably bind to all interfaces using `bindOnIp: 0.0.0.0` in configuration files, causing unpredictable interface selection and connection failures from clients trying to reach non-selected interfaces.",
+      "rootCause": "The `ListenIP()` function in `common/config/localip.go` implements intelligent IP selection that scores available interfaces and picks one when they have equal scores, instead of respecting explicit `bindOnIp: 0.0.0.0` configuration to bind to all addresses.",
+      "proposedFix": "Temporal server should respect explicit `bindOnIp: 0.0.0.0` configuration by truly binding to all interfaces rather than attempting intelligent IP selection, matching the behavior of environment variables and other Temporal services like temporal-ui.",
+      "workaround": "Use environment variables (`BIND_ON_IP=0.0.0.0`) instead of configuration files, or explicitly specify interface names in configuration with correct key casing (`bindOnIP` not `bindOnIp`).",
+      "resolution": "invalid",
+      "resolutionDetails": "User's specific issue was caused by configuration key typo (`bindOnIp` instead of `bindOnIP`). When using correct casing or environment variables, the server behaves as expected. The intelligent interface selection behavior in config files is considered intentional design.",
+      "related": [
+        471
+      ],
+      "keyQuote": "When configured with `bindOnIp: 0.0.0.0`, when starting up, temporal server loops on all interfaces and tries to 'guess' a unique IP to listen to",
+      "number": 9683,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:20:30.184Z"
+    },
+    {
+      "summary": "Multiple CVEs have been discovered in Temporal Docker images' base dependencies, including critical gRPC authorization bypass (CVE-2026-33186, CVSS 9.1) and high-severity Go crypto/x509 vulnerability (CVE-2025-61729, CVSS 7.5). These require immediate base image updates and Go runtime upgrades.",
+      "category": "bug",
+      "subcategory": "image-security",
+      "apis": [],
+      "components": [
+        "deployment",
+        "security",
+        "runtime-dependencies"
+      ],
+      "concepts": [
+        "security",
+        "CVE",
+        "dependency-patching",
+        "base-image",
+        "supply-chain"
+      ],
+      "severity": "critical",
+      "userImpact": "Users running Temporal Docker images may be exposed to critical and high-severity vulnerabilities in base dependencies and runtime libraries.",
+      "rootCause": "Outdated base image dependencies (OpenSSL, Python, Expat, util-linux) and outdated Go runtime versions in Docker image builds.",
+      "proposedFix": "Update base Docker images to latest versions, update Go runtime to 1.24.11+ or 1.25.5+, update OpenSSL/Python/Expat/util-linux packages, rebuild Temporal images, and implement automated dependency scanning in CI/CD.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Multiple CVEs have been identified in Temporal Docker images (UI, Admin Tools, Server) affecting base image dependencies",
+      "number": 9682,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:20:25.586Z"
+    },
+    {
+      "summary": "Missing `defer` statement for `metrics.CapturePanic()` in `StreamWorkflowReplicationMessages()` function. Without the defer, panic metrics may not be properly captured during replication failures.",
+      "category": "bug",
+      "subcategory": "workflow-replication",
+      "apis": [],
+      "components": [
+        "workflow-replication",
+        "metrics",
+        "panic-recovery",
+        "history-handler"
+      ],
+      "concepts": [
+        "defer",
+        "panic-handling",
+        "metrics-capture",
+        "error-handling",
+        "code-pattern",
+        "replication"
+      ],
+      "severity": "medium",
+      "userImpact": "Panics in StreamWorkflowReplicationMessages() may not be properly captured in metrics, hindering debugging and monitoring of replication failures.",
+      "rootCause": "The `metrics.CapturePanic()` function is called without a `defer` statement, preventing proper panic metric capture.",
+      "proposedFix": "Wrap `metrics.CapturePanic()` with `defer` to ensure panics are captured: `defer metrics.CapturePanic()`",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "It seems `metrics.CapturePanic()` should be called with `defer`?",
+      "number": 9633,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:20:11.858Z"
+    },
+    {
+      "summary": "Feature request to support nested JWT claim names using JSONPath syntax in PermissionsClaimName configuration, enabling access to nested claims without custom ClaimsMapper implementation.",
+      "category": "feature",
+      "subcategory": "authorization-claims",
+      "apis": [],
+      "components": [
+        "authorization",
+        "claims-mapper",
+        "jwt-handler",
+        "configuration"
+      ],
+      "concepts": [
+        "jwt",
+        "claims",
+        "nested-data",
+        "jsonpath",
+        "permissions",
+        "authorization",
+        "configuration"
+      ],
+      "severity": "low",
+      "userImpact": "Users with nested JWT structures must currently write custom ClaimsMapper code instead of using simple configuration.",
+      "rootCause": null,
+      "proposedFix": "Implement JSONPath support for PermissionsClaimName to allow dot-notation access to nested JWT claims (e.g., 'traits.temporal').",
+      "workaround": "Create a custom ClaimsMapper implementation as documented in the Temporal security guide.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Configuring `PermissionsClaimName` to `traits.temporal` would allow to use them without needing to write CustomClaimsMapper.",
+      "number": 9625,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:57.712Z"
+    },
+    {
+      "summary": "Prometheus `cache_size` gauge is overwritten by the replication progress cache due to metric tag collision, causing it to report 128000 instead of the actual mutable state cache capacity. This prevents users from monitoring byte-based cache limiting configuration via metrics.",
+      "category": "bug",
+      "subcategory": "metrics-observability",
+      "apis": [],
+      "components": [
+        "history-service",
+        "cache-metrics",
+        "replication-progress-cache",
+        "mutable-state-cache"
+      ],
+      "concepts": [
+        "prometheus-metrics",
+        "gauge-collision",
+        "cache-sizing",
+        "byte-mode-limiting",
+        "initialization-order",
+        "memory-management"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot verify via Prometheus metrics that byte-based cache limiting is active, leading them to incorrectly conclude the feature is broken and switch to count-based mode.",
+      "rootCause": "Both the mutable state cache and replication progress cache use the same MutableStateCacheTypeTagValue metric tag. Since Prometheus gauges use last-write-wins semantics and the replication progress cache is initialized after the mutable state cache, its maxSize (128000) overwrites the actual mutable state cache gauge value.",
+      "proposedFix": "Create a new metric tag constant ReplicationProgressCacheTypeTagValue = \"replication_progress\" and use it in progress_cache.go instead of reusing MutableStateCacheTypeTagValue, allowing both caches to report their cache_size independently.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        8902
+      ],
+      "keyQuote": "Users who enable byte-based cache limiting and check the cache_size{mutablestate} metric will see 128000 instead of their configured byte limit - leading them to incorrectly conclude that byte mode did not activate.",
+      "number": 9600,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:59.364Z"
+    },
+    {
+      "summary": "Setting history.persistenceMaxQPS to 0 (intended to mean unlimited) creates rate limiters with rate=0 and burst=0, causing massive error log spam (317K lines in 5 minutes) as every queue reader task submission fails.",
+      "category": "bug",
+      "subcategory": "rate-limiting",
+      "apis": [],
+      "components": [
+        "queue-reader",
+        "rate-limiter",
+        "history-service",
+        "queue-factory"
+      ],
+      "concepts": [
+        "rate-limiting",
+        "dynamic-config",
+        "backpressure",
+        "queue-processing",
+        "error-logging",
+        "performance"
+      ],
+      "severity": "high",
+      "userImpact": "Users attempting to disable rate limiting with persistenceMaxQPS=0 experience catastrophic error log spam and performance degradation across all queue processors.",
+      "rootCause": "NewHostRateLimiterRateFn falls back to persistenceMaxRPS() * ratio when MaxPollHostRPS=0; when persistenceMaxQPS is also 0, effective rate becomes 0, creating a rate limiter with burst=0 that fails all ReserveN(1) calls.",
+      "proposedFix": "Handle persistenceMaxRPS() <= 0 in NewHostRateLimiterRateFn by using default value (9000) or returning math.MaxFloat64; add rate limiting to error log at reader.go:433",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Setting history.persistenceMaxQPS: 0 in dynamic config (intended to mean 'unlimited') causes all queue reader host-level rate limiters to be created with rate=0, burst=0.",
+      "number": 9599,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:59.471Z"
+    },
+    {
+      "summary": "Add a PreToolUse hook to prevent Claude Code agents from bypassing git hooks using the --no-verify flag, protecting pre-commit, commit-msg, and pre-push hooks that enforce code quality.",
+      "category": "feature",
+      "subcategory": "git-hook-protection",
+      "apis": [],
+      "components": [
+        "claude-code-settings",
+        "git-hooks",
+        "pre-tool-use-hooks",
+        "bash-tool"
+      ],
+      "concepts": [
+        "hook-bypass-prevention",
+        "git-security",
+        "pre-commit-enforcement",
+        "tool-use-hooks",
+        "verification-enforcement",
+        "safety-mechanisms"
+      ],
+      "severity": "high",
+      "userImpact": "Prevents Claude Code agents from silently bypassing critical git hooks that enforce linting, type-checking, and commit message conventions",
+      "rootCause": "Claude Code can execute git commands with --no-verify flag to disable hooks without user awareness or intervention",
+      "proposedFix": "Implement a PreToolUse Bash hook using block-no-verify@1.1.2 in .claude/settings.json that detects and blocks git hook-bypass flags",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Implemented via PreToolUse hook configuration in .claude/settings.json using block-no-verify@1.1.2 to detect and block --no-verify flags across git subcommands",
+      "related": [],
+      "keyQuote": "Create `.claude/settings.json` with `block-no-verify@1.1.2` as a `PreToolUse` Bash hook to detect and block git hook-bypass flags",
+      "number": 9588,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:36.556Z"
+    },
+    {
+      "summary": "The temporal worker deployment set-current-version CLI command cannot switch to unversioned mode in the default namespace, failing with 'BuildID cannot be empty' error, which blocks the official cleanup flow for accidental worker deployment metadata.",
+      "category": "bug",
+      "subcategory": "worker-deployment",
+      "apis": [],
+      "components": [
+        "CLI",
+        "worker-deployment",
+        "versioning"
+      ],
+      "concepts": [
+        "cleanup",
+        "unversioned",
+        "build-id",
+        "worker-deployment",
+        "versioning",
+        "deployment-metadata"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot properly clean up accidental worker deployment metadata using standard commands, forcing them to manually delete internal workflows.",
+      "rootCause": "The CLI validation logic requires a non-empty BuildID even when the --unversioned flag is specified, preventing the command from accepting unversioned mode.",
+      "proposedFix": "Modify the CLI validation to allow --unversioned or --build-id \"\" to switch current version to unversioned without requiring a non-empty BuildID.",
+      "workaround": "Force-clean by terminating and deleting the internal worker deployment entity workflows using workflow-id targeting.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "--unversioned or --build-id \"\" should switch current version to unversioned, so delete-version and delete deployment can proceed.",
+      "number": 9581,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:36.927Z"
+    },
+    {
+      "summary": "Proposal for memory optimization improvements in Temporal's metrics handling, featuring two-layer caching to reduce allocations in tallyMetricsHandler that eliminate 10.6% of total memory allocations and provide up to 2.6% latency improvements.",
+      "category": "feature",
+      "subcategory": "metrics-optimization",
+      "apis": [],
+      "components": [
+        "metrics-handler",
+        "tally-metrics",
+        "scope-registry"
+      ],
+      "concepts": [
+        "memory-allocation",
+        "caching",
+        "performance-optimization",
+        "throughput",
+        "garbage-collection",
+        "metrics",
+        "latency"
+      ],
+      "severity": "medium",
+      "userImpact": "Users benefit from reduced memory usage and improved latency in metrics collection for high-throughput Temporal deployments.",
+      "rootCause": "Repeated map allocations and tally scope registry lookups on every metric emission due to lack of caching at multiple levels.",
+      "proposedFix": "Implement two-layer caching in tallyMetricsHandler: (1) sync.Map-based caching of WithTags handler children, (2) bounded scopeCache (1024 entries) for Tagged scope lookups with normalized tags to avoid repeated allocations.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "While trying to improve Tempoal performance for ScyllaDB I bumped across mostly unrelated memory optimizations opportunities. Is the team interested in them?",
+      "number": 9565,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:44.056Z"
+    },
+    {
+      "summary": "10-20 second gaps appear between consecutive activities in child workflows, with investigation revealing the delay is caused by slow workflow task execution (time between Workflow Task Started and Completed events), likely due to blocking sync API calls inside async activities blocking the event loop.",
+      "category": "bug",
+      "subcategory": "workflow-task-execution",
+      "apis": [
+        "ExecuteActivity"
+      ],
+      "components": [
+        "worker",
+        "event-loop",
+        "activity-executor",
+        "workflow-task-processor"
+      ],
+      "concepts": [
+        "workflow-task-execution",
+        "event-loop-blocking",
+        "concurrency",
+        "performance-delay",
+        "sync-blocking",
+        "activity-scheduling"
+      ],
+      "severity": "high",
+      "userImpact": "Workflow execution is significantly delayed when concurrent child workflows are executed, with some workflows taking 2+ minutes instead of expected time, becoming a bottleneck for batch processing.",
+      "rootCause": "Unwrapped sync API calls (FileManager, S3 operations, matching rules) inside async activities block the event loop, preventing workflow task processing across all workflows on the same worker.",
+      "proposedFix": "Wrap sync calls with asyncio.to_thread() or define activities as plain def functions instead of async def so the SDK runs them in a thread executor.",
+      "workaround": "Wrap blocking sync calls with asyncio.to_thread() to prevent event loop blocking.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The unwrapped sync calls inside async def activities are likely the main cause. They block the event loop, which prevents workflow task processing across all workflows on that worker.",
+      "number": 9563,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:19.447Z"
+    },
+    {
+      "summary": "Despite enabling archival and retention (7-day TTL), the history_node table grows uncontrolled (460M+ rows, 895GB) with old data from 2+ weeks ago not being cleaned up by the archival processor.",
+      "category": "bug",
+      "subcategory": "history-archival",
+      "apis": [],
+      "components": [
+        "history-archival",
+        "retention-processor",
+        "database-cleanup",
+        "mysql"
+      ],
+      "concepts": [
+        "archival",
+        "retention",
+        "data-cleanup",
+        "disk-growth",
+        "history-management",
+        "database-maintenance"
+      ],
+      "severity": "high",
+      "userImpact": "Temporal servers experience uncontrolled database growth despite archival being enabled, causing disk space exhaustion.",
+      "rootCause": "Archival processor or retention cleanup mechanism not properly removing expired workflow history from the database.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        8790
+      ],
+      "keyQuote": "I enabled archiving and retention, but the data is still growing.",
+      "number": 9549,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:23.750Z"
+    },
+    {
+      "summary": "ARM64 Docker images for Temporal Server and admin-tools were missing for versions 1.30+ on Docker Hub, though they were available in 1.29. The issue was fixed via PR #9631 and arm64 images are now available.",
+      "category": "bug",
+      "subcategory": "docker-images",
+      "apis": [],
+      "components": [
+        "docker-build",
+        "server-image",
+        "admin-tools-image"
+      ],
+      "concepts": [
+        "arm64",
+        "docker-images",
+        "platform-support",
+        "ci-cd",
+        "distribution",
+        "architecture"
+      ],
+      "severity": "high",
+      "userImpact": "Users on ARM64 architecture (Apple Silicon, AWS Graviton) cannot run Temporal Server versions 1.30+ without available arm64 Docker images.",
+      "rootCause": "Docker build or CI/CD process failed to generate and push arm64 images for versions 1.30+",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Fixed via PR #9631; arm64 Docker images are now available for Temporal Server and admin-tools 1.30+",
+      "related": [
+        9631
+      ],
+      "keyQuote": "Starting from 1.30 version there no arm64 images on dockerhub",
+      "number": 9526,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:15.093Z"
+    },
+    {
+      "summary": "User requests event-driven workflow state persistence triggered by WorkflowTaskCompleted events to replace inefficient polling, achieving real-time state updates with better resource utilization.",
+      "category": "feature",
+      "subcategory": "state-persistence",
+      "apis": [
+        "QueryWorkflow"
+      ],
+      "components": [
+        "workflow-query",
+        "visibility",
+        "event-listener",
+        "persistence"
+      ],
+      "concepts": [
+        "state-persistence",
+        "event-driven",
+        "polling",
+        "latency",
+        "resource-efficiency",
+        "real-time-updates",
+        "event-ordering"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need efficient real-time persistence of workflow state to external databases and currently face high latency and resource waste with polling-based solutions.",
+      "rootCause": null,
+      "proposedFix": "Implement event-driven persistence by subscribing to WorkflowTaskCompleted events, querying workflows via QueryWorkflow, and persisting to database. Requires reliable event subscription mechanism and Java SDK code samples.",
+      "workaround": "Periodically query running workflows via @QueryMethod using a scheduled poller and write results to database",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Listen for WorkflowTaskCompleted events from an external service (indicating workflow state may have changed). Query the corresponding workflow via QueryWorkflow (calling its @QueryMethod) to fetch the latest state.",
+      "number": 9524,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:19:02.017Z"
+    },
+    {
+      "summary": "User cannot create visibility database schema for MySQL 8.0.45 when self-hosting Temporal v1.29 via Helm due to SQL syntax error in the manage-schema-visibility-store job.",
+      "category": "bug",
+      "subcategory": "database-schema",
+      "apis": [],
+      "components": [
+        "sql-handler",
+        "visibility-store",
+        "schema-migration",
+        "mysql"
+      ],
+      "concepts": [
+        "database-schema",
+        "sql-syntax",
+        "schema-migration",
+        "mysql",
+        "deployment"
+      ],
+      "severity": "high",
+      "userImpact": "Users attempting to self-host Temporal v1.29 with MySQL 8.0.45 cannot create the visibility database schema, blocking deployment setup.",
+      "rootCause": "SQL syntax error in schema creation statement - possible character encoding or MySQL version-specific JSON column syntax incompatibility near JSON field references",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Error 1064 (42000): You have an error in your SQL syntax... near '\"$.TemporalChangeVersion\"), ADD COLUMN BinaryChecksums JSON'",
+      "number": 9522,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:18:52.138Z"
+    },
+    {
+      "summary": "User requests support for SurrealDB as a persistence backend for Temporal Server. SurrealDB is noted as being fast, stable, and supporting high availability.",
+      "category": "feature",
+      "subcategory": "persistence-backend",
+      "apis": [],
+      "components": [
+        "persistence",
+        "server",
+        "storage-layer"
+      ],
+      "concepts": [
+        "storage",
+        "database",
+        "persistence",
+        "high-availability",
+        "backend",
+        "compatibility"
+      ],
+      "severity": "low",
+      "userImpact": "Users with existing SurrealDB infrastructure could leverage Temporal Server with their preferred database, enabling broader adoption.",
+      "rootCause": null,
+      "proposedFix": "Add SurrealDB support as a persistence backend option for Temporal Server",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "SurrealDB is now fast, stable and allows HA",
+      "number": 9509,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:18:42.998Z"
+    },
+    {
+      "summary": "High severity security vulnerabilities found in temporalio/server v1.29.4 dependencies, including CVE-2026-24051 (HIGH) in go.opentelemetry.io/otel/sdk and CVE-2026-26958 (LOW) in filippo.io/edwards25519, requiring dependency updates.",
+      "category": "bug",
+      "subcategory": "dependency-security",
+      "apis": [],
+      "components": [
+        "otel-sdk",
+        "dependency-management",
+        "server"
+      ],
+      "concepts": [
+        "security",
+        "vulnerability",
+        "cve",
+        "dependency",
+        "patch",
+        "version-update"
+      ],
+      "severity": "high",
+      "userImpact": "Users are exposed to security vulnerabilities in server dependencies that could compromise the security of their Temporal deployments.",
+      "rootCause": "Outdated dependency versions with known vulnerabilities: filippo.io/edwards25519 1.1.0 (CVE-2026-26958) and go.opentelemetry.io/otel/sdk 1.34.0 (CVE-2026-24051)",
+      "proposedFix": "Update filippo.io/edwards25519 from 1.1.0 to 1.1.1 and go.opentelemetry.io/otel/sdk from 1.34.0 to 1.40.0",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Addressed through other merged code",
+      "related": [],
+      "keyQuote": "CVE-2026-24051 | HIGH | go.opentelemetry.io/otel/sdk | 1.34.0 | 1.40.0",
+      "number": 9494,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:18:32.166Z"
+    },
+    {
+      "summary": "The maxCalendarYear for Schedules is hardcoded to 2100, preventing users from scheduling workflows or timers beyond that year. The request is to either increase the default limit or make it configurable via DynamicConfig for operators to adjust without code changes.",
+      "category": "feature",
+      "subcategory": "schedules",
+      "apis": [],
+      "components": [
+        "schedules",
+        "spec-validation",
+        "config"
+      ],
+      "concepts": [
+        "scheduling",
+        "long-term-scheduling",
+        "configuration",
+        "limits",
+        "validation",
+        "DoS-protection"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot schedule workflows or timers that need to extend beyond year 2100, blocking long-term scheduling use cases such as payment scheduling.",
+      "rootCause": "maxCalendarYear is hardcoded to 2100 in spec validation logic, preventing future-dated schedules from being created.",
+      "proposedFix": "Relax spec validation to allow schedules to reference years beyond 2100 while keeping the match time DoS protection limit in place.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        9396
+      ],
+      "keyQuote": "This prevents users from scheduling workflows or timers that need to extend beyond that year, which can be a blocker for long-running or far-future scheduling use cases.",
+      "number": 9383,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:18:32.756Z"
+    },
+    {
+      "summary": "Workflows archived to Google Cloud Storage appear twice in the UI archive listing. A bug in visibility_archiver.go line 217 was identified and fixed via PR #9329.",
+      "category": "bug",
+      "subcategory": "archival-ui",
+      "apis": [],
+      "components": [
+        "visibility-archiver",
+        "archival-system",
+        "ui"
+      ],
+      "concepts": [
+        "archival",
+        "cloud-storage",
+        "duplication",
+        "gcloud",
+        "workflow-visibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Users see duplicate entries in the archive list, causing confusion and making it harder to track archived workflows.",
+      "rootCause": "Bug in visibility_archiver.go line 217 causing duplicate records to be returned for gcloud-archived workflows.",
+      "proposedFix": "PR #9329 with a fix to the visibility_archiver.go bug",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "PR #9329 was submitted with the proposed fix and was merged",
+      "related": [],
+      "keyQuote": "This is a bug in the visibility_archiver.go file on line 217",
+      "number": 9324,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-04-04T19:18:34.359Z"
+    },
     {
       "summary": "Multiple HIGH and CRITICAL CVEs detected in temporalio/server:1.29.3 Docker image, including vulnerabilities in OpenSSL (libcrypto3/libssl3), Go standard library, and Go crypto packages. User reports vulnerability scan results using Trivy showing 8 vulnerable dependencies requiring immediate patching.",
       "category": "bug",

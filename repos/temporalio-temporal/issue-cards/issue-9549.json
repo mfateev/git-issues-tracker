@@ -1,0 +1,34 @@
+{
+  "summary": "Despite enabling archival and retention (7-day TTL), the history_node table grows uncontrolled (460M+ rows, 895GB) with old data from 2+ weeks ago not being cleaned up by the archival processor.",
+  "category": "bug",
+  "subcategory": "history-archival",
+  "apis": [],
+  "components": [
+    "history-archival",
+    "retention-processor",
+    "database-cleanup",
+    "mysql"
+  ],
+  "concepts": [
+    "archival",
+    "retention",
+    "data-cleanup",
+    "disk-growth",
+    "history-management",
+    "database-maintenance"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal servers experience uncontrolled database growth despite archival being enabled, causing disk space exhaustion.",
+  "rootCause": "Archival processor or retention cleanup mechanism not properly removing expired workflow history from the database.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    8790
+  ],
+  "keyQuote": "I enabled archiving and retention, but the data is still growing.",
+  "number": 9549,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:19:23.750Z"
+}

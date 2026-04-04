@@ -1,0 +1,37 @@
+{
+  "summary": "Nondeterminism error occurs during workflow replay when the SDK sends Update Accepted and StartTimer commands twice for the same update instance, causing an invalid state transition error.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "UpdateResponse",
+    "StartTimer"
+  ],
+  "components": [
+    "workflow-replay",
+    "update-handler",
+    "command-generation",
+    "state-machine"
+  ],
+  "concepts": [
+    "nondeterminism",
+    "replay",
+    "update-response",
+    "command-duplication",
+    "idempotency",
+    "state-transition"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience nondeterminism errors during workflow replay that can cause invalid state transitions and prevent reliable workflow execution.",
+  "rootCause": "The SDK incorrectly duplicates UpdateResponse and StartTimer commands for the same update instance during workflow replay instead of generating them once.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1146
+  ],
+  "keyQuote": "On the failed replay attempt, lang is sending the Update Accepted and Start Timer commands twice for the same update instance.",
+  "number": 1966,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:17:23.193Z"
+}

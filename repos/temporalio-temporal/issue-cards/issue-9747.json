@@ -1,0 +1,36 @@
+{
+  "summary": "During sustained MySQL database unavailability, Temporal's DatabaseHandle.reconnect() creates unbounded new sql.DB pools on each attempt while old connections linger, bypassing the maxConns limit. When the database recovers, all pool generations race to establish their full quota simultaneously, creating a connection storm (e.g., 10,330 vs. expected 2,688 connections).",
+  "category": "bug",
+  "subcategory": "database-connection-pooling",
+  "apis": [],
+  "components": [
+    "DatabaseHandle",
+    "sql-plugin",
+    "connection-pool",
+    "persistence-layer"
+  ],
+  "concepts": [
+    "connection-pooling",
+    "database-recovery",
+    "resource-exhaustion",
+    "reconnection-logic",
+    "connection-cleanup",
+    "backpressure"
+  ],
+  "severity": "critical",
+  "userImpact": "A brief database restart can trigger a connection storm that transforms into a prolonged outage, stalling all workflows and generating massive service-level errors.",
+  "rootCause": "During database unavailability, reconnect() repeatedly creates new sql.DB instances (throttled at 1/second/pod) while old pools' connections linger asynchronously in MySQL. When the database recovers, all accumulated pool generations simultaneously race to establish their full maxConns quota, bypassing the global connection limit because maxConns is enforced per sql.DB instance rather than globally.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1703,
+    6514,
+    9211
+  ],
+  "keyQuote": "In our incident, a ~2.5-minute MySQL restart resulted in 10,330 simultaneous connections (vs expected max of 2,688) from 14 Temporal pods",
+  "number": 9747,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-04-04T19:20:47.142Z"
+}

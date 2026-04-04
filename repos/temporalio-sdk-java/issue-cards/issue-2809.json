@@ -1,0 +1,34 @@
+{
+  "summary": "The Java SDK does not implement conflict token retry logic for schedule updates. The Temporal server now returns 'mismatched conflict token' errors that SDKs should handle with retries, but the Java SDK lacks this functionality.",
+  "category": "feature",
+  "subcategory": "schedule-updates",
+  "apis": [
+    "UpdateSchedule"
+  ],
+  "components": [
+    "schedule-client",
+    "schedule-manager",
+    "retry-handler",
+    "update-executor"
+  ],
+  "concepts": [
+    "conflict-token",
+    "retry-loop",
+    "schedule-updates",
+    "idempotency",
+    "state-synchronization",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably update schedules when concurrent modifications occur, as the SDK does not retry on conflict token mismatches from the server.",
+  "rootCause": "Java SDK does not implement the conflict token retry loop for schedule updates that the server now requires (temporal/temporal#8474).",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "No SDK passes or retries on the conflict token for schedule updates.",
+  "number": 2809,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:11:16.518Z"
+}

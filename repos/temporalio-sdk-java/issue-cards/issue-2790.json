@@ -1,0 +1,35 @@
+{
+  "summary": "Request to add methods to WorkflowImplementationOptions for setting ChildWorkflowOptions, providing consistent configuration alongside existing ActivityOptions and NexusServiceOptions.",
+  "category": "feature",
+  "subcategory": "child-workflows",
+  "apis": [
+    "WorkflowImplementationOptions",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "workflow-implementation",
+    "configuration",
+    "child-workflows",
+    "options-builder"
+  ],
+  "concepts": [
+    "child-workflows",
+    "configuration",
+    "builder-pattern",
+    "workflow-options",
+    "default-options",
+    "consistency"
+  ],
+  "severity": "low",
+  "userImpact": "Developers would benefit from a consistent API to set default child workflow options across all workflow implementations.",
+  "rootCause": null,
+  "proposedFix": "Add setChildWorkflowOptions(Map<String, ChildWorkflowOptions> options) and setDefaultChildWorkflowOptions(ChildWorkflowOptions options) methods to WorkflowImplementationOptions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It would be great if there was a method to set `ChildWorkflowOptions` in the same way",
+  "number": 2790,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-04-04T19:09:51.997Z"
+}

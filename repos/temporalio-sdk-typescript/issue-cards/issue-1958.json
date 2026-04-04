@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add a preloadModules property to BundlerOptions in the workflow bundler, allowing users to specify modules that should be preloaded during VM initialization to reduce per-workflow memory usage and initialization time.",
+  "category": "feature",
+  "subcategory": "workflow-bundler",
+  "apis": [],
+  "components": [
+    "workflow-bundler",
+    "vm-executor",
+    "bundler-options"
+  ],
+  "concepts": [
+    "preloading",
+    "memory-footprint",
+    "initialization-time",
+    "v8-context",
+    "performance"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will experience reduced per-workflow memory consumption and faster workflow initialization when using the workflow bundler with preloaded modules.",
+  "rootCause": null,
+  "proposedFix": "Add a `preloadModules` property to `BundlerOptions`. Those modules should be preloaded during early initialization of the reuse v8 context workflow vm executor.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This will significantly reduce the per-workflow memory footprint, as well as per-workflow initialization time.",
+  "number": 1958,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-04-04T19:16:33.819Z"
+}

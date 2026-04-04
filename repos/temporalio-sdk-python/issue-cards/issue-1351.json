@@ -1,0 +1,38 @@
+{
+  "summary": "workflow.sleep() timer persists on the Temporal server when an asyncio.Task wrapping it is canceled, unlike asyncio.sleep() which properly cancels. The SDK fails to send a CancelTimer command, causing the timer to fire on an already-canceled future.",
+  "category": "bug",
+  "subcategory": "timer-cancellation",
+  "apis": [
+    "workflow.sleep",
+    "workflow.run",
+    "Client.execute_workflow"
+  ],
+  "components": [
+    "timer-executor",
+    "task-cancellation",
+    "workflow-execution",
+    "history-management"
+  ],
+  "concepts": [
+    "task-cancellation",
+    "timer-management",
+    "asyncio-integration",
+    "timer-callbacks",
+    "workflow-history",
+    "command-serialization"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot properly cancel timers created with workflow.sleep(), leading to orphaned timers and potential exceptions when callbacks fire.",
+  "rootCause": "SDK does not intercept asyncio task cancellation and propagate it as a CancelTimer command to the Temporal server.",
+  "proposedFix": "Implement proper cancellation propagation for workflow.sleep() to send CancelTimer commands when wrapping asyncio tasks are canceled.",
+  "workaround": "Use asyncio.sleep() instead of workflow.sleep() for operations that may be canceled.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    782
+  ],
+  "keyQuote": "The Temporal timer is never canceled on the server. No TimerCanceled event appears in workflow history.",
+  "number": 1351,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:13:53.067Z"
+}

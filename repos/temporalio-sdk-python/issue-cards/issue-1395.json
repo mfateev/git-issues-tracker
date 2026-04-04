@@ -1,0 +1,30 @@
+{
+  "summary": "Headers are not consistently run through the external storage transformation pipeline. The `_transform_outbound_payload` call is conditionally skipped based on the `encode_headers` parameter, but it should always execute for all transformation phases—only the encoding phase should be conditional.",
+  "category": "bug",
+  "subcategory": "payload-transformation",
+  "apis": [],
+  "components": [
+    "client",
+    "payload-transformation",
+    "external-storage"
+  ],
+  "concepts": [
+    "payload-encoding",
+    "external-storage",
+    "serialization",
+    "headers",
+    "payload-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Headers may not be properly validated for size or stored externally, potentially leading to data integrity issues and undetected oversized headers.",
+  "rootCause": "The `_transform_outbound_payload` call in client.py is conditionally skipped based on the `encode_headers` parameter, when it should always run for all transformation phases including storage and validation.",
+  "proposedFix": "Always call `_transform_outbound_payload` for headers regardless of `encode_headers` parameter; make only the encoding phase conditional.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The encode_headers parameter should only affect the code encoding phase, not the other phases of transforming payloads.",
+  "number": 1395,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:15:10.308Z"
+}

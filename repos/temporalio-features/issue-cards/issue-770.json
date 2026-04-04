@@ -1,0 +1,32 @@
+{
+  "summary": "Workers with poller autoscaling enabled don't scale down when completely idle, maintaining unnecessary polling connections indefinitely rather than scaling to the minimum configured poller count.",
+  "category": "feature",
+  "subcategory": "poller-autoscaling",
+  "apis": [],
+  "components": [
+    "pollers",
+    "worker",
+    "poll-buffer",
+    "task-queue"
+  ],
+  "concepts": [
+    "autoscaling",
+    "resource-efficiency",
+    "connection-pooling",
+    "idle-workers",
+    "timeout",
+    "scaling"
+  ],
+  "severity": "high",
+  "userImpact": "Idle workers maintain 5x the necessary polling connections, contributing to polling amplification and wasteful resource usage for unused task queues.",
+  "rootCause": "Pollers only scale down when receiving autoscaling signals, which never arrive on inactive task queues, preventing scale-down to minimum poller count.",
+  "proposedFix": "Implement repeated poll timeouts to trigger scale-down, or send a capability flag from server to enable client-side scale-down on empty polls.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When a worker with poller autoscaling enabled goes completely unused (receives 0 tasks), the worker maintains initialConcurrentTaskPollers (default 5) pollers indefinitely",
+  "number": 770,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:05:32.717Z"
+}

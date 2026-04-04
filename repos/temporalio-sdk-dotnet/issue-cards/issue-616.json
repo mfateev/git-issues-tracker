@@ -1,0 +1,39 @@
+{
+  "summary": "The Worker Client Refresh example in the SDK documentation is confusing as it only shows a simple connection string scenario, which doesn't demonstrate the actual use case requiring client refresh (custom authentication). This leads users to misunderstand how to properly implement it.",
+  "category": "docs",
+  "subcategory": "worker-client-refresh",
+  "apis": [
+    "ITemporalClient",
+    "TemporalClient",
+    "TemporalWorkerClientUpdater",
+    "AddHostedTemporalWorker"
+  ],
+  "components": [
+    "hosting-extensions",
+    "worker-client-updater",
+    "client-management",
+    "authentication"
+  ],
+  "concepts": [
+    "authentication",
+    "client-refresh",
+    "connection-management",
+    "custom-credentials",
+    "service-lifecycle",
+    "dependency-injection"
+  ],
+  "severity": "medium",
+  "userImpact": "Users attempting to implement custom authentication with Worker Client Refresh are confused by examples that don't show this use case, leading to incorrect implementations and runtime errors.",
+  "rootCause": "The example documentation only demonstrates simple connection string scenarios and doesn't show real-world custom authentication use cases where client refresh is actually needed.",
+  "proposedFix": "Update the Worker Client Refresh example to show a custom authentication scenario with periodic client updates, similar to the implementation provided by the issue author with background service and authentication token handling.",
+  "workaround": "The issue author provided a complete example implementation using a background service (TemporalAuthUpdaterService) to periodically check and update the client with new authentication credentials.",
+  "resolution": "fixed",
+  "resolutionDetails": "The example documentation was improved with a more realistic custom authentication scenario; a file watcher-based refresh example was added in #617.",
+  "related": [
+    617
+  ],
+  "keyQuote": "The example uses a connection string for connecting to Temporal which sort of removes the need for refreshing the client.",
+  "number": 616,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-04-04T19:06:37.185Z"
+}

@@ -1,0 +1,44 @@
+{
+  "summary": "SDKs need to implement conflict token retry logic for schedule updates. They must pass the conflict token from DescribeSchedule to UpdateSchedule requests and retry the describe-modify-update loop when the server returns a FailedPrecondition error for mismatched conflict tokens.",
+  "category": "feature",
+  "subcategory": "schedule-updates",
+  "apis": [
+    "DescribeSchedule",
+    "UpdateSchedule"
+  ],
+  "components": [
+    "schedule-manager",
+    "sdk-implementations",
+    "retry-logic",
+    "conflict-resolution"
+  ],
+  "concepts": [
+    "conflict-token",
+    "retry-loop",
+    "optimistic-concurrency",
+    "describe-modify-update",
+    "schedule-updates",
+    "error-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably update schedules in concurrent scenarios without manually implementing conflict token retry logic.",
+  "rootCause": "Server now enforces conflict tokens for schedule updates (via temporal/temporal#8474), but no SDK implements the required retry loop.",
+  "proposedFix": "Pass the conflict token from DescribeSchedule in UpdateSchedule requests and retry the describe-modify-update loop on FailedPrecondition with mismatched conflict token errors.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2233,
+    2809,
+    1967,
+    1367,
+    624,
+    401,
+    1157,
+    729
+  ],
+  "keyQuote": "Retry the describe-modify-update loop on FailedPrecondition with \"mismatched conflict token\"",
+  "number": 777,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:05:46.288Z"
+}

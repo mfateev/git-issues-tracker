@@ -1,0 +1,34 @@
+{
+  "summary": "The test framework incorrectly assumes the Temporal server must be started via `startTemporalServer()` or `startTemporalTestServer()`, preventing users from running tests with externally managed (Docker) Temporal servers.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [],
+  "components": [
+    "startRoadRunner",
+    "startTemporalTestServer",
+    "Environment",
+    "server-detection"
+  ],
+  "concepts": [
+    "temporal-server",
+    "docker",
+    "external-process",
+    "test-setup",
+    "environment-configuration",
+    "process-lifecycle"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot run RoadRunner tests when the Temporal server is managed externally (via Docker or other means) without using a workaround.",
+  "rootCause": "The code checks if member variables are null (only set by startTemporalServer/startTemporalTestServer) rather than verifying if a server is actually running, incorrectly assuming the server must be started via the Environment class.",
+  "proposedFix": "Support external Temporal servers via environment variable ALLOW_EXTERNAL_TEMPORAL_PROCESS=true (mentioned in PR #724).",
+  "workaround": "Use Docker to run the Temporal server separately and enable the ALLOW_EXTERNAL_TEMPORAL_PROCESS environment variable to bypass the check.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    724
+  ],
+  "keyQuote": "I do not need the `startTemporalServer()`, nor the `startTemporalTestServer()` because when I spin up the docker containers it starts the temporal server.",
+  "number": 727,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-04-04T19:12:13.912Z"
+}

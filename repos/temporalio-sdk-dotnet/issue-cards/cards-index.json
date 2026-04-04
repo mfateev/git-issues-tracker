@@ -1,7 +1,216 @@
 {
-  "generatedAt": "2026-02-11T03:35:55.940Z",
-  "totalCards": 294,
+  "generatedAt": "2026-04-04T19:07:06.298Z",
+  "totalCards": 300,
   "cards": [
+    {
+      "summary": "DescribeTaskQueueAsync does not populate the Stats field in the response even when ReportStats is set to true, requiring users to use deprecated API modes to retrieve task queue statistics.",
+      "category": "bug",
+      "subcategory": "task-queue-management",
+      "apis": [
+        "DescribeTaskQueueAsync",
+        "DescribeTaskQueueRequest",
+        "DescribeTaskQueueResponse"
+      ],
+      "components": [
+        "WorkflowService",
+        "task-queue-operations",
+        "response-mapping"
+      ],
+      "concepts": [
+        "task-queue-statistics",
+        "backlog-reporting",
+        "poller-information",
+        "request-response-mapping",
+        "api-mode"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot retrieve task queue statistics through the standard API and must resort to using deprecated API methods.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": "Set ApiMode to DescribeTaskQueueMode.Enhanced and access stats through VersionsInfo[string].TypesInfo[(int)queueType].Stats instead of the Stats property.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The following block seems to retrieve what we need. But it leverages **obsolete** objects/properties/API.",
+      "number": 634,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-04-04T19:07:06.258Z"
+    },
+    {
+      "summary": "The .NET SDK lacks retry logic for schedule updates when the server returns a 'mismatched conflict token' error, which the server now requires as of a recent change.",
+      "category": "feature",
+      "subcategory": "schedule-updates",
+      "apis": [
+        "UpdateSchedule"
+      ],
+      "components": [
+        "schedule-manager",
+        "update-handler",
+        "retry-logic"
+      ],
+      "concepts": [
+        "conflict-token",
+        "retry-loop",
+        "schedule-updates",
+        "idempotency",
+        "concurrency-control",
+        "error-handling"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot successfully update schedules when conflict token mismatches occur, as the SDK lacks the required retry logic.",
+      "rootCause": "The Temporal server now returns 'mismatched conflict token' errors for schedule updates, but the .NET SDK (and other SDKs) don't implement retry logic to handle this.",
+      "proposedFix": "Implement retry logic for schedule updates that fetches the latest schedule and retries with the updated conflict token when a mismatch occurs.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        8474
+      ],
+      "keyQuote": "No SDK passes or retries on the conflict token for schedule updates. The server returns 'mismatched conflict token' as of https://github.com/temporalio/temporal/pull/8474.",
+      "number": 624,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-04-04T19:06:53.374Z"
+    },
+    {
+      "summary": "Feature request to rename workflow-based Nexus Operation classes to avoid naming collisions with future standalone Nexus operations. Proposes adding 'workflow' prefix to class names (e.g., NexusClient → NexusWorkflowClient).",
+      "category": "feature",
+      "subcategory": "nexus-operations",
+      "apis": [
+        "NexusClient"
+      ],
+      "components": [
+        "nexus-client",
+        "workflow-integration",
+        "api-design"
+      ],
+      "concepts": [
+        "nexus-operations",
+        "workflow-integration",
+        "api-design",
+        "naming-conventions",
+        "standalone-operations",
+        "breaking-changes"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will need to update their code to use renamed Nexus Operation classes as the SDK evolves to support standalone Nexus operations.",
+      "rootCause": "Current Nexus Operation class names will collide with future standalone Nexus operation classes without proactive renaming.",
+      "proposedFix": "Add 'workflow' prefix to workflow-based Nexus Operation classes, renaming NexusClient to NexusWorkflowClient.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Nexus Operation classes were renamed with 'workflow' prefix to disambiguate from future standalone Nexus operations.",
+      "related": [],
+      "keyQuote": "Rename the workflow based Nexus Operation classes pre-emtively to avoid any conflict in the future. The current thought is to add `workflow` so `NexusClient` becomes `NexusWorkflowClient`",
+      "number": 618,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-04-04T19:07:02.564Z"
+    },
+    {
+      "summary": "The Worker Client Refresh example in the SDK documentation is confusing as it only shows a simple connection string scenario, which doesn't demonstrate the actual use case requiring client refresh (custom authentication). This leads users to misunderstand how to properly implement it.",
+      "category": "docs",
+      "subcategory": "worker-client-refresh",
+      "apis": [
+        "ITemporalClient",
+        "TemporalClient",
+        "TemporalWorkerClientUpdater",
+        "AddHostedTemporalWorker"
+      ],
+      "components": [
+        "hosting-extensions",
+        "worker-client-updater",
+        "client-management",
+        "authentication"
+      ],
+      "concepts": [
+        "authentication",
+        "client-refresh",
+        "connection-management",
+        "custom-credentials",
+        "service-lifecycle",
+        "dependency-injection"
+      ],
+      "severity": "medium",
+      "userImpact": "Users attempting to implement custom authentication with Worker Client Refresh are confused by examples that don't show this use case, leading to incorrect implementations and runtime errors.",
+      "rootCause": "The example documentation only demonstrates simple connection string scenarios and doesn't show real-world custom authentication use cases where client refresh is actually needed.",
+      "proposedFix": "Update the Worker Client Refresh example to show a custom authentication scenario with periodic client updates, similar to the implementation provided by the issue author with background service and authentication token handling.",
+      "workaround": "The issue author provided a complete example implementation using a background service (TemporalAuthUpdaterService) to periodically check and update the client with new authentication credentials.",
+      "resolution": "fixed",
+      "resolutionDetails": "The example documentation was improved with a more realistic custom authentication scenario; a file watcher-based refresh example was added in #617.",
+      "related": [
+        617
+      ],
+      "keyQuote": "The example uses a connection string for connecting to Temporal which sort of removes the need for refreshing the client.",
+      "number": 616,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-04-04T19:06:37.185Z"
+    },
+    {
+      "summary": "Feature request to standardize Nexus operation input argument deserialization failure handling in the .NET SDK, with cross-SDK tracking in temporalio/features#762.",
+      "category": "feature",
+      "subcategory": "nexus-operations",
+      "apis": [
+        "NexusOperation"
+      ],
+      "components": [
+        "nexus-client",
+        "deserialization"
+      ],
+      "concepts": [
+        "deserialization",
+        "input-validation",
+        "error-handling",
+        "standardization",
+        "nexus"
+      ],
+      "severity": "medium",
+      "userImpact": "Users encounter inconsistent deserialization error handling for Nexus operation inputs across different SDK implementations.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "duplicate",
+      "resolutionDetails": "Consolidated into temporalio/features#762 for cross-SDK standardization tracking.",
+      "related": [
+        762
+      ],
+      "keyQuote": "Standardize Nexus Operation Input Arg. Deserialization Failure",
+      "number": 614,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-04-04T19:06:33.960Z"
+    },
+    {
+      "summary": "LocalActivity retry after backoff fails with payload converter error when the backoff timer fires and workflow task resumes. Users using encryption and custom context headers experience task failure.",
+      "category": "bug",
+      "subcategory": "local-activity-retry",
+      "apis": [
+        "ExecuteLocalActivity"
+      ],
+      "components": [
+        "local-activity-executor",
+        "payload-converter",
+        "workflow-task-processor",
+        "activity-backoff"
+      ],
+      "concepts": [
+        "retry",
+        "backoff",
+        "timeout",
+        "payload-conversion",
+        "workflow-task",
+        "local-activity",
+        "durability"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot successfully retry failed local activities with encrypted payloads and custom context headers, causing workflow failures.",
+      "rootCause": "Payload converter throws an error during local activity re-attempt after backoff timer fires, indicating incompatibility in payload handling during retry.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "After the Timer fires, on WorkflowTask started- it results in attempt to run LocalActivity - however the payload converter throws the below error",
+      "number": 610,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-04-04T19:06:42.711Z"
+    },
     {
       "summary": "The .NET SDK's typed search attribute validation logic is stricter than the server's deserialization logic. This causes validation errors in cases that the server accepts, creating an inconsistency that needs to be resolved by making the SDK as lenient as the server.",
       "category": "bug",

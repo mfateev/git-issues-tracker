@@ -1,0 +1,39 @@
+{
+  "summary": "Python 3.14's switch from sys.settrace to sys.monitoring causes workflow sandbox hangs when coverage or other monitoring tools fire callbacks globally on the workflow thread pool, triggering restricted API access inside the sandbox.",
+  "category": "bug",
+  "subcategory": "workflow-sandbox",
+  "apis": [
+    "workflow.run",
+    "workflow.defn",
+    "WorkflowEnvironment",
+    "Worker",
+    "execute_workflow"
+  ],
+  "components": [
+    "workflow-sandbox",
+    "importer",
+    "monitoring-events",
+    "python-version-compatibility"
+  ],
+  "concepts": [
+    "sandbox-restrictions",
+    "workflow-isolation",
+    "sys.monitoring",
+    "lazy-imports",
+    "thread-pool",
+    "code-coverage",
+    "python-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users running code coverage tools on Python 3.14 experience workflow execution hangs, making testing with coverage impossible on that version.",
+  "rootCause": "Python 3.14's sys.monitoring callbacks fire globally on all threads including the workflow sandbox thread, and lazy imports inside the sandbox trigger restricted API access (platform.python_implementation()), causing repeated workflow failures.",
+  "proposedFix": "Suspend sys.monitoring events inside Importer.applied() by saving and clearing all events on enter, restoring on exit, to prevent any monitoring callback from firing inside the sandbox.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "sys.monitoring callbacks are **global** — they fire on all threads, including the workflow thread pool thread where the sandbox importer is active.",
+  "number": 1326,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:12:58.484Z"
+}

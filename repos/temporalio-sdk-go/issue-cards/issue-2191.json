@@ -1,0 +1,34 @@
+{
+  "summary": "A custom slot supplier in the Go SDK cannot determine if a task queue is sticky when reserving slots. The request is to expose task queue stickiness to the slot supplier interface to align with other Temporal SDKs.",
+  "category": "feature",
+  "subcategory": "slot-supplier",
+  "apis": [
+    "SlotSupplier"
+  ],
+  "components": [
+    "slot-supplier",
+    "task-queue",
+    "worker",
+    "configuration"
+  ],
+  "concepts": [
+    "slot-allocation",
+    "task-queue-stickiness",
+    "worker-scheduling",
+    "slot-reservation",
+    "custom-supplier",
+    "api-parity"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing custom slot suppliers in the Go SDK cannot access task queue stickiness information needed for intelligent slot reservation decisions.",
+  "rootCause": null,
+  "proposedFix": "Expose task queue stickiness information to the SlotSupplier interface or API.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A custom slot supplier cannot determine if a TQ is sticky when reserving slots",
+  "number": 2191,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-04-04T19:07:21.699Z"
+}

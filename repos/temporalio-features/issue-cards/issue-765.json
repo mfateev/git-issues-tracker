@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request for an SDK abstraction that allows customers to offload large payloads to external storage systems (like S3) transparently, with support for both pre-built drivers and custom integrations.",
+  "category": "feature",
+  "subcategory": "external-payload-storage",
+  "apis": [],
+  "components": [
+    "payload-handling",
+    "storage-abstraction",
+    "worker",
+    "serialization"
+  ],
+  "concepts": [
+    "payload-offloading",
+    "external-storage",
+    "large-payloads",
+    "storage-abstraction",
+    "transparent-storage",
+    "claim-information",
+    "scalability"
+  ],
+  "severity": "high",
+  "userImpact": "Users currently must manually create abstractions to handle large payloads, rearchitect workflows to break down data, and manage external storage themselves.",
+  "rootCause": null,
+  "proposedFix": "Provide an SDK abstraction that allows opt-in offloading of payloads to external storage with pre-built drivers for well-known systems and custom integration support, remaining transparent to workflows and activities while using contextual information to inform storage decisions.",
+  "workaround": "Customers currently write custom abstractions to offload large data into storage systems, pass around references, and manually retrieve that data.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2208,
+    1342
+  ],
+  "keyQuote": "The SDK should provide an abstraction to allow customers to opt into offloading payloads to external storage systems when they are large or for other customer-defined determinations.",
+  "number": 765,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-04-04T19:05:24.210Z"
+}

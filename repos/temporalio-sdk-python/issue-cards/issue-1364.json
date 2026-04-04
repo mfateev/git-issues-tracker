@@ -1,0 +1,33 @@
+{
+  "summary": "Proposal to add GNAP (Git-Native Agent Protocol) integration for coordinating autonomous AI agents with Temporal workflows. The proposal suggests using GNAP as a complementary pattern for less-structured autonomous work, with Temporal workflows delegating tasks to git-based task boards managed by agents.",
+  "category": "feature",
+  "subcategory": "ai-integration",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "workflow-engine",
+    "activity-executor"
+  ],
+  "concepts": [
+    "ai-agents",
+    "autonomous-coordination",
+    "git-native-protocol",
+    "fault-tolerance",
+    "durable-execution",
+    "human-in-the-loop",
+    "task-delegation"
+  ],
+  "severity": "low",
+  "userImpact": "Users cannot use native SDK support for integrating Temporal with autonomous AI agents using GNAP, requiring manual workarounds for this coordination pattern.",
+  "rootCause": null,
+  "proposedFix": "Add GNAP integration support to enable Temporal workflows to natively delegate autonomous agent work to GNAP-based task boards.",
+  "workaround": "Users can integrate GNAP through standard activities without SDK-level support, implementing the pattern manually.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers closed the issue because the proposal does not involve nontrivial integration with the Temporal SDK. They suggested exploring the AI Partner Program instead.",
+  "related": [],
+  "keyQuote": "I'm going to close this since there's no detail on how this would actually involve nontrivial integration with Temporal.",
+  "number": 1364,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-04-04T19:14:17.127Z"
+}
