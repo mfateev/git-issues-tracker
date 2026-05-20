@@ -1,0 +1,34 @@
+{
+  "summary": "The Temporalio.Extensions.OpenTelemetry extension does not implement the new ClientOutboundInterceptor methods for standalone activities, preventing client-side span creation when executing activities.",
+  "category": "bug",
+  "subcategory": "otel-tracing",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "otel-extension",
+    "tracing",
+    "interceptor",
+    "standalone-activities-client"
+  ],
+  "concepts": [
+    "tracing",
+    "observability",
+    "spans",
+    "interceptor",
+    "client-side",
+    "standalone-activities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see client-side tracing spans when executing standalone activities, limiting visibility into activity execution.",
+  "rootCause": "The ClientOutboundInterceptor methods for standalone activities are not implemented in the OpenTelemetry extension.",
+  "proposedFix": "Implement the missing ClientOutboundInterceptor methods for standalone activities in Temporalio.Extensions.OpenTelemetry.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporalio.Extensions.OpenTelemetry does not currently implement the new ClientOutboundInterceptor methods related to standalone activities.",
+  "number": 640,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-05-20T16:36:45.456Z"
+}

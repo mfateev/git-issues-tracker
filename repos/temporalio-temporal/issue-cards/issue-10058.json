@@ -1,0 +1,36 @@
+{
+  "summary": "IntervalSpec uses fixed UTC second alignment and ignores ScheduleSpec.timezone for day-sized intervals, causing scheduled workflows to drift during DST transitions. The team agreed to implement RRULE (RFC 5545) support in ScheduleSpec for calendar-style recurrence rather than modifying IntervalSpec semantics.",
+  "category": "bug",
+  "subcategory": "schedule-interval",
+  "apis": [
+    "IntervalSpec",
+    "ScheduleSpec"
+  ],
+  "components": [
+    "scheduler",
+    "interval-calculation",
+    "schedule-api",
+    "timezone-handling"
+  ],
+  "concepts": [
+    "daylight-saving-time",
+    "timezone-awareness",
+    "calendar-days",
+    "interval-semantics",
+    "epoch-alignment",
+    "rrule",
+    "recurrence"
+  ],
+  "severity": "high",
+  "userImpact": "Users with DST-aware timezones using day-sized intervals experience scheduling drift when DST transitions occur, causing workflows to run at different UTC times than expected.",
+  "rootCause": "IntervalSpec uses fixed UTC second alignment and doesn't account for timezone-based calendar days; StructuredCalendar/cron paths properly use time.Location but interval-only schedules do not.",
+  "proposedFix": "Add calendar-style recurrence via ScheduleSpec.rrule field (RFC 5545 line bodies) with a practical subset (FREQ/INTERVAL with DTSTART + timezone/TZID semantics), keeping IntervalSpec as simple epoch + phase semantics.",
+  "workaround": "Use StructuredCalendar or cron-style specs which already respect timezone, or map 'every N local days' to calendar/cron specs instead of Interval.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "RRULE (RFC 5545) in the spirit of the thread—with a **practical subset** to start (e.g. `FREQ`/`INTERVAL` with `DTSTART` + `timezone` / `TZID` semantics) rather than entangling that behavior into `IntervalSpec`.",
+  "number": 10058,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:55:40.198Z"
+}

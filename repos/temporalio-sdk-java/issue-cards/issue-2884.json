@@ -1,0 +1,37 @@
+{
+  "summary": "Feature request to enable payload visitors to process memo payloads in aggregate for the Java SDK, referenced from temporalio/features#782.",
+  "category": "feature",
+  "subcategory": "payload-visitor-memos",
+  "apis": [
+    "Memo",
+    "DataConverter",
+    "PayloadCodec"
+  ],
+  "components": [
+    "codec",
+    "serialization",
+    "metadata",
+    "payload-handling"
+  ],
+  "concepts": [
+    "visitor-pattern",
+    "memo-payloads",
+    "aggregation",
+    "serialization",
+    "payload-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables users to more efficiently process memo payloads through a visitor pattern, improving flexibility in payload handling and aggregation.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    782
+  ],
+  "keyQuote": "Allow payload visitors to visit memo payloads in aggregate",
+  "number": 2884,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:42:30.821Z"
+}

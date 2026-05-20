@@ -1,0 +1,34 @@
+{
+  "summary": "A race condition between the workflow task completion path and transfer queue processor causes the TransferStartChildExecution task to fail, preventing child workflows from being properly initialized. The child workflow gets created but stalls with only a WorkflowExecutionStarted event and no WorkflowTaskScheduled event, causing it to never execute and triggering permanent shard churn.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [],
+  "components": [
+    "transfer-queue-processor",
+    "history-service",
+    "mutable-state",
+    "persistence"
+  ],
+  "concepts": [
+    "race-condition",
+    "transaction-management",
+    "child-workflows",
+    "concurrency",
+    "shard-management",
+    "workflow-execution"
+  ],
+  "severity": "critical",
+  "userImpact": "Child workflows fail to execute when parent workflow tasks complete and start children, causing permanent shard churn and workflow stalls.",
+  "rootCause": "Race condition where the transfer queue processor's UpdateWorkflowExecution transaction executes after the parent workflow task completion path has already committed or rolled back its transaction, causing the update to fail with 'transaction already committed or rolled back' error.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    10320
+  ],
+  "keyQuote": "By the time the transfer task's transaction executes, the completion path's transaction is already committed or rolled back",
+  "number": 10321,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:58:36.785Z"
+}

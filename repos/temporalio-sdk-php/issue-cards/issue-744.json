@@ -1,0 +1,35 @@
+{
+  "summary": "WorkflowTestCase silently connects to the wrong Temporal server when TEMPORAL_ADDRESS is pre-set in the OS environment, because PHPUnit's env directives don't override OS-level variables and the SDK reads from OS env via getenv().",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowTestCase",
+    "WorkflowClient",
+    "ServiceClient"
+  ],
+  "components": [
+    "test-framework",
+    "environment-resolution",
+    "client-configuration"
+  ],
+  "concepts": [
+    "environment-variables",
+    "test-isolation",
+    "configuration-precedence",
+    "container-environment",
+    "silent-failure",
+    "address-mismatch"
+  ],
+  "severity": "high",
+  "userImpact": "Users running tests in containerized environments where TEMPORAL_ADDRESS is pre-set experience silent failures where tests connect to wrong servers, causing mysterious timeout errors and difficult debugging.",
+  "rootCause": "PHPUnit's <env> directive doesn't override OS-level environment variables by default, and WorkflowTestCase uses getenv() which reads from OS env, not PHP's $_ENV/$_SERVER superglobals.",
+  "proposedFix": "Three suggested fixes in order of preference: (1) Auto-detect and warn when test server runs locally but getenv() points elsewhere, or force client to detected address; (2) Document the gotcha with the putenv workaround for containerized environments; (3) Allow explicit test server address override on WorkflowTestCase class.",
+  "workaround": "In test bootstrap before SDK loads, call: putenv('TEMPORAL_ADDRESS=127.0.0.1:7233'); $_ENV['TEMPORAL_ADDRESS'] = '127.0.0.1:7233'; $_SERVER['TEMPORAL_ADDRESS'] = '127.0.0.1:7233';",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the test client connects to whatever production-style address is baked in, not the in-process test server",
+  "number": 744,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-05-20T16:43:08.955Z"
+}

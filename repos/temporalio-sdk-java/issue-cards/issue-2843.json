@@ -1,0 +1,31 @@
+{
+  "summary": "gRPC-Java 1.75 contains a bug that corrupts network streams when multiple versions of Netty are present on the classpath, causing Temporal workers to fail randomly with 'Encountered end-of-stream mid-frame' errors. The issue is fixed in gRPC-Java 1.76.",
+  "category": "bug",
+  "subcategory": "grpc-connectivity",
+  "apis": [],
+  "components": [
+    "worker",
+    "grpc-client",
+    "netty"
+  ],
+  "concepts": [
+    "grpc-streaming",
+    "netty-versioning",
+    "dependency-conflict",
+    "network-reliability",
+    "stream-corruption",
+    "classpath-isolation"
+  ],
+  "severity": "critical",
+  "userImpact": "Workers fail randomly with gRPC stream corruption errors when multiple Netty versions are present in the classpath.",
+  "rootCause": "gRPC-Java 1.75 has a bug in handling Netty dependencies when other versions of Netty are present on the classpath in addition to gRPC-Java's shaded copy.",
+  "proposedFix": "Upgrade gRPC-Java to version 1.76.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by upgrading gRPC-Java from version 1.75 to 1.76.",
+  "related": [],
+  "keyQuote": "gRPC-Java version 1.75 contains a bug related to Netty which can corrupt network stream in certain situations when other versions of Netty are present in the classpath",
+  "number": 2843,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:40:38.582Z"
+}

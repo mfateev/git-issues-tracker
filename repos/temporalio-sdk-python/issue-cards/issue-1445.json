@@ -1,0 +1,34 @@
+{
+  "summary": "When a workflow is cancelled while awaiting start_child_workflow(), the CancelledError is swallowed instead of propagating, causing the workflow to continue running instead of being cancelled. The issue is suspected to be related to shield() preventing proper cancellation handling.",
+  "category": "bug",
+  "subcategory": "child-workflow-cancellation",
+  "apis": [
+    "start_child_workflow",
+    "sleep"
+  ],
+  "components": [
+    "workflow-instance",
+    "cancellation-handling",
+    "child-workflow-executor"
+  ],
+  "concepts": [
+    "cancellation",
+    "CancelledError",
+    "exception-handling",
+    "error-swallowing",
+    "shield",
+    "workflow-execution"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reliably cancel workflows that are awaiting child workflow execution, as the cancellation request is silently ignored and the workflow continues running.",
+  "rootCause": "The shield() call in start_child_workflow prevents CancelledError from propagating correctly; the exception handling around it needs to explicitly handle workflow cancellation.",
+  "proposedFix": "Review and update the exception handling around the shield() call to ensure workflow cancellation (CancelledError) is not suppressed.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Exception handling around shield() in start_child_workflow was updated to properly propagate workflow cancellation.",
+  "related": [],
+  "keyQuote": "It seems the start_child_workflow is shielding from CancelledError, which might explain why the cancelled exception is swallowed.",
+  "number": 1445,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:45:40.529Z"
+}

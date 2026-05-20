@@ -1,0 +1,33 @@
+{
+  "summary": "After upgrading to v1.30.x, clusters experience continuous ringpop membership churn due to a pagination bug fix that now reads stale pod IPs from Cassandra. The excessive churn (~4000 events/30s) combined with extended join timeouts causes inter-service EOF errors, preventing workflow execution.",
+  "category": "bug",
+  "subcategory": "ringpop-membership",
+  "apis": [],
+  "components": [
+    "ringpop",
+    "SWIM",
+    "service-resolver",
+    "membership-monitor",
+    "cluster-membership"
+  ],
+  "concepts": [
+    "membership-churn",
+    "stale-entries",
+    "join-timeout",
+    "bootstrap",
+    "service-discovery",
+    "heartbeat-expiry"
+  ],
+  "severity": "critical",
+  "userImpact": "Clusters become unable to execute workflows after upgrade due to continuous service connection failures and membership churn, requiring manual intervention or downtime to resolve.",
+  "rootCause": "Stale pod IPs accumulate in cluster_membership table with 48h TTL; v1.30.x pagination fix now reads all entries while v1.29.x's pagination bug masked them. Additionally, ringpop join timeout (30s) is insufficient for large bootstrap lists across multiple Kubernetes node pools.",
+  "proposedFix": "Reduce upsertMembershipRecordExpiryDefault from 48h to ~5m; expose ringpop config parameters (maxJoinDuration, ParallelismFactor) as configurable; optionally trim bootstrap list before passing to ringpop",
+  "workaround": "Configure maxJoinDuration: 60s in static config (global: membership: maxJoinDuration: 60s); or scale cluster to 0 and back up to clear stale membership records",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the cluster exhibits permanent ringpop membership churn (~4000 ring change events per 30 seconds). The membership ring sees 17 members when only 4 pods are running — the extra 13 are zombie IPs from previous pod restarts",
+  "number": 9987,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:54:23.130Z"
+}

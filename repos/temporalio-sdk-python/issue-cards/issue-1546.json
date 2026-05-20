@@ -1,0 +1,31 @@
+{
+  "summary": "Request to implement Trusted Publishing for PyPI uploads to reduce supply chain attack risks. The team acknowledges this as a priority but requires an overhaul of the release process.",
+  "category": "feature",
+  "subcategory": "supply-chain-security",
+  "apis": [],
+  "components": [
+    "release-process",
+    "ci-pipeline",
+    "pypi-publishing"
+  ],
+  "concepts": [
+    "supply-chain-security",
+    "trusted-publishing",
+    "authentication",
+    "ci-cd",
+    "risk-reduction",
+    "automation"
+  ],
+  "severity": "high",
+  "userImpact": "Users gain reduced supply chain attack risk when package publishing uses Trusted Publishing authentication.",
+  "rootCause": null,
+  "proposedFix": "Implement Trusted Publishing by overhauling the release process to use OIDC-based authentication for PyPI uploads.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We're aware of this and have it as a near term item to do",
+  "number": 1546,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:48:06.500Z"
+}

@@ -1,0 +1,36 @@
+{
+  "summary": "Long-running workflows on rate-limited task queues are starved by fresh arrivals because the matcher doesn't age workflows. Older workflows are treated identically to new ones when competing for queue slots, causing completion time to grow linearly with turn count. The platform needs age-based prioritization to bias dispatch toward long-runners completing their backlog.",
+  "category": "bug",
+  "subcategory": "task-queue-fairness",
+  "apis": [],
+  "components": [
+    "matcher",
+    "task-queue",
+    "workflow-executor",
+    "dispatcher"
+  ],
+  "concepts": [
+    "starvation",
+    "fairness",
+    "aging",
+    "priority",
+    "queue-contention",
+    "rate-limiting"
+  ],
+  "severity": "high",
+  "userImpact": "Users running long-running workflows with many turns experience linearly increasing completion times as they are starved by continuously arriving fresh workflows on rate-limited task queues.",
+  "rootCause": "The matcher does not apply age-based prioritization to workflow activities, treating older and new workflows identically when competing for rate-limited task queue slots, violating fairness across workflow lifecycle.",
+  "proposedFix": "Implement age-based prioritization in the matcher with bounded effective priority boost (PR #10243), or use workflow start time as ordering key for activities as part of fine-grained ordering feature (#1507).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2517,
+    10243,
+    1507
+  ],
+  "keyQuote": "an older workflow's per-turn-wait doesn't shrink as it ages, so its total wall-clock grows linearly with turn count even though it has invested significant time already",
+  "number": 10244,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:57:43.409Z"
+}

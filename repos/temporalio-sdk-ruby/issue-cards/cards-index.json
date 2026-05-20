@@ -1,7 +1,166 @@
 {
-  "generatedAt": "2026-04-04T19:16:18.320Z",
-  "totalCards": 187,
+  "generatedAt": "2026-05-20T16:49:28.826Z",
+  "totalCards": 192,
   "cards": [
+    {
+      "summary": "Feature request to implement operator commands for Standalone Activities in the Ruby SDK, referencing a features specification and depending on a related infrastructure issue.",
+      "category": "feature",
+      "subcategory": "standalone-activities",
+      "apis": [],
+      "components": [
+        "worker",
+        "activities",
+        "operator-commands"
+      ],
+      "concepts": [
+        "operator-commands",
+        "standalone-activities",
+        "activity-execution",
+        "worker-management"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need operator commands support for standalone activities to enable greater operational flexibility and control in production environments.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        822,
+        367
+      ],
+      "keyQuote": "See https://github.com/temporalio/features/issues/822",
+      "number": 440,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-05-20T16:49:06.233Z"
+    },
+    {
+      "summary": "Ruby SDK worker crashes with NoMethodError when executing a child workflow from the Go SDK that doesn't return a result, due to missing 'result' field in the event payload.",
+      "category": "bug",
+      "subcategory": "child-workflow",
+      "apis": [
+        "ExecuteChildWorkflow"
+      ],
+      "components": [
+        "payload-converter",
+        "worker",
+        "data-converter"
+      ],
+      "concepts": [
+        "cross-sdk-compatibility",
+        "payload-serialization",
+        "null-safety",
+        "error-handling",
+        "child-workflows"
+      ],
+      "severity": "high",
+      "userImpact": "Worker tasks crash when executing child workflows from the Go SDK that don't return results, disrupting workflow execution.",
+      "rootCause": "The payload converter assumes the 'result' field is always present in childWorkflowExecutionCompletedEventAttributes, but the Go SDK can emit events without this field for workflows without return values, causing nil dereference when accessing metadata.",
+      "proposedFix": "The payload converter should handle nil payloads gracefully before attempting to access metadata properties.",
+      "workaround": "Implement a custom payload converter wrapper that checks if the payload is nil before processing, as shown in the issue.",
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "This workflow does not return a result type, only an error, which crashes the Ruby SDK worker.",
+      "number": 421,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-05-20T16:49:28.775Z"
+    },
+    {
+      "summary": "The SDK incorrectly rejects fiber-based activity executors on Ruby 4.0+ due to a version check that doesn't account for major versions greater than 3, preventing users from using fiber executors on newer Ruby versions.",
+      "category": "bug",
+      "subcategory": "activity-executor",
+      "apis": [],
+      "components": [
+        "activity-executor",
+        "fiber-scheduler",
+        "version-check",
+        "bridge"
+      ],
+      "concepts": [
+        "version-compatibility",
+        "fiber-support",
+        "activity-execution",
+        "ruby-version-detection",
+        "concurrency",
+        "backwards-compatibility"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use fiber-based activity executors on Ruby 4.0 or later due to an incorrect version check, preventing them from accessing optimized concurrency features.",
+      "rootCause": "The `fibers_supported` method contains a version check that only evaluates the minor version and assumes a major version of 3, causing it to reject Ruby 4.x versions.",
+      "proposedFix": "Update the `fibers_supported` method to allow Ruby 3.3+ and all Ruby 4.x: `major > 3 || (major == 3 && minor >= 3)`",
+      "workaround": "Monkey-patch the version check in application code (example: https://github.com/jasonligg/temporal-samples-ruby/blob/00100335e19d973a07c13e46ea95ca713928e04e/fiber_activity/worker.rb#L12-L25)",
+      "resolution": "fixed",
+      "resolutionDetails": "The version check in the `fibers_supported` method was updated to correctly handle Ruby 4.x versions.",
+      "related": [],
+      "keyQuote": "The version check only evaluates the minor version and assumes a major version of 3, which causes it to incorrectly reject Ruby 4.x.",
+      "number": 416,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-05-20T16:48:47.285Z"
+    },
+    {
+      "summary": "The Ruby SDK should validate and fail workflow tasks when payload sizes are known to exceed limits, rather than allowing oversized payloads to proceed. This is a Ruby-specific implementation of a cross-SDK feature for consistent payload size validation.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [],
+      "components": [
+        "worker",
+        "workflow-task-processor",
+        "payload-validator"
+      ],
+      "concepts": [
+        "payload-validation",
+        "size-limits",
+        "error-handling",
+        "failure-fast",
+        "resource-constraints",
+        "task-processing"
+      ],
+      "severity": "high",
+      "userImpact": "Users need the SDK to fail fast with clear errors when payloads exceed size limits, preventing downstream issues and silent failures.",
+      "rootCause": "The Ruby SDK lacks early validation for payload sizes in workflow task processing.",
+      "proposedFix": "Implement payload size validation in the workflow task processor to detect oversized payloads and fail the task with an appropriate error.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        723
+      ],
+      "keyQuote": "SDK should fail workflow task if payloads size it known to be too large - Ruby",
+      "number": 413,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-05-20T16:48:29.742Z"
+    },
+    {
+      "summary": "Feature request to publish RBI (Ruby Behavior Interface) types for the Temporal Ruby SDK for use with Sorbet, including argument and return types, instead of relying on tapioca.",
+      "category": "feature",
+      "subcategory": "rbi-types",
+      "apis": [],
+      "components": [
+        "ruby-sdk",
+        "type-definitions",
+        "package"
+      ],
+      "concepts": [
+        "static-typing",
+        "type-safety",
+        "developer-experience",
+        "sorbet",
+        "rbi"
+      ],
+      "severity": "medium",
+      "userImpact": "Ruby developers using Sorbet static type checker would have better IDE support and type safety when using the Temporal SDK.",
+      "rootCause": null,
+      "proposedFix": "Published RBI types for use with Sorbet that include argument and return types.",
+      "workaround": "Users can currently rely on tapioca for generating RBIs, though it has limited usefulness outside of method discovery and arity.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Currently users must rely on tapioca for generating RBIs for the `temporalio` gem which isn't especially useful outside of method discovery and arity.",
+      "number": 412,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-05-20T16:48:43.090Z"
+    },
     {
       "summary": "Enabling Rails' parallelize configuration in test cases causes a crash in the Ruby SDK's test worker, manifesting as a [BUG] in dyld with a segmentation fault on M1 Macs running Ruby 4.0.1.",
       "category": "bug",

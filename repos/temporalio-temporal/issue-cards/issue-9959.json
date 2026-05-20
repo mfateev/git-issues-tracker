@@ -1,0 +1,32 @@
+{
+  "summary": "Pagination fails when using Elasticsearch 9.x with error indicating the query structure is incompatible. Temporal only officially supports Elasticsearch 8.x.",
+  "category": "bug",
+  "subcategory": "elasticsearch-pagination",
+  "apis": [
+    "ListWorkflowExecutions"
+  ],
+  "components": [
+    "elasticsearch-visibility-store",
+    "pagination",
+    "query-builder"
+  ],
+  "concepts": [
+    "pagination",
+    "elasticsearch",
+    "visibility-store",
+    "query-parsing",
+    "api-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot paginate through workflow executions when using Elasticsearch 9.x as the visibility store.",
+  "rootCause": "Elasticsearch 9.x is not officially supported by Temporal; the query structure generated for pagination is incompatible with ES9 API",
+  "proposedFix": null,
+  "workaround": "Use Elasticsearch 8.x instead of Elasticsearch 9.x",
+  "resolution": "invalid",
+  "resolutionDetails": "User was using Elasticsearch 9.1.2, which is not officially supported by Temporal. Temporal only supports Elasticsearch 8.x.",
+  "related": [],
+  "keyQuote": "Just noticed that you are using Elasticsearch 9 which Temporal does not support at this moment. Please use Elasticsearch 8.",
+  "number": 9959,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:54:18.552Z"
+}

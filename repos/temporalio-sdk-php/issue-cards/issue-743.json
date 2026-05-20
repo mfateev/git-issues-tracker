@@ -1,0 +1,38 @@
+{
+  "summary": "PHP SDK's test framework doesn't automatically unlock time-skipping during getResult() calls, causing timer-driven workflows to hang in tests. The test server starts with time-skipping locked, and the SDK lacks the auto-unlock/lock pattern that TypeScript, Java, and Go SDKs implement.",
+  "category": "bug",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkflowClient::start",
+    "getResult",
+    "Workflow::awaitWithTimeout",
+    "lockTimeSkipping",
+    "unlockTimeSkipping"
+  ],
+  "components": [
+    "WorkflowTestCase",
+    "TestService",
+    "WorkflowClient",
+    "time-skipping"
+  ],
+  "concepts": [
+    "time-skipping",
+    "virtual-time",
+    "test-server",
+    "synchronization",
+    "timer",
+    "lock-unlock"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot effectively test timer-driven workflows because tests hang for wall-clock duration instead of fast-forwarding through virtual time.",
+  "rootCause": "Two independent issues: (1) test server starts with Time Locking Counter = 1 (locked state), (2) PHP SDK lacks the implicit unlock/lock pattern around blocking client calls that other SDKs implement",
+  "proposedFix": "Wrap getResult()/start() calls with implicit unlock/lock similar to TypeScript, Java, and Go SDKs, which automatically unlock time at the start of getResult() and lock it when complete",
+  "workaround": "Manually call unlockTimeSkipping() before getResult() and lockTimeSkipping() after, though this collides with ActivityMocker causing activity timeouts",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "PHP WorkflowClient::start()->getResult() does no such thing... lockTimeSkipping/unlockTimeSkipping are referenced only in the README and generated protobuf — never invoked from Client/ or WorkflowTestCase",
+  "number": 743,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-05-20T16:42:55.461Z"
+}

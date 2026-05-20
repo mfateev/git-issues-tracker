@@ -1,0 +1,37 @@
+{
+  "summary": "Implement telemetry and metrics support for the Standalone Activities feature in the TypeScript SDK. Activity workers should emit metrics with activity ID and run ID tags, ActivityClient calls should emit appropriate metrics, and an OpenTelemetryActivityClientInterceptor should be added.",
+  "category": "feature",
+  "subcategory": "telemetry",
+  "apis": [
+    "ActivityClient"
+  ],
+  "components": [
+    "activity-worker",
+    "standalone-activities",
+    "activity-client",
+    "telemetry"
+  ],
+  "concepts": [
+    "telemetry",
+    "metrics",
+    "observability",
+    "interceptor",
+    "activity-tracking",
+    "standalone-activities",
+    "monitoring"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot currently observe or monitor standalone activity execution with metrics, making it difficult to debug and monitor production systems.",
+  "rootCause": null,
+  "proposedFix": "Implement telemetry support: activity worker should emit equivalent metrics to workflow activities with activity ID and run ID tags, ActivityClient calls should emit appropriate metrics, and add OpenTelemetryActivityClientInterceptor",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2029
+  ],
+  "keyQuote": "Activity worker executing standalone activities should emit equivalent metrics to what is emitted when executing workflow activities, with appropriate activity ID and run ID tags.",
+  "number": 2031,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:50:32.109Z"
+}

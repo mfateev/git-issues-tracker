@@ -1,0 +1,37 @@
+{
+  "summary": "Hard-coded ShutdownManager poll interval (250ms) causes slow test teardown in env-per-test setups. Request to expose this as a configurable option to reduce teardown time from 500ms to ~7ms.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "WorkerFactoryOptions",
+    "TestEnvironmentOptions",
+    "ShutdownManager"
+  ],
+  "components": [
+    "ShutdownManager",
+    "TestWorkflowEnvironment",
+    "testing-infrastructure",
+    "worker"
+  ],
+  "concepts": [
+    "shutdown",
+    "teardown",
+    "polling",
+    "performance",
+    "configuration",
+    "test-isolation",
+    "latency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running env-per-test setups experience slow test teardown (500ms+) due to hard-coded poll interval.",
+  "rootCause": "ShutdownManager.CHECK_PERIOD_MS is hard-coded to 250ms, which dominates shutdown time in env-per-test scenarios.",
+  "proposedFix": "Expose poll interval as builder option (TestEnvironmentOptions#setShutdownCheckInterval(Duration)) or system property (temporal.worker.shutdownCheckPeriodMs).",
+  "workaround": "Locally patch the CHECK_PERIOD_MS constant to a lower value.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In env-per-test setups this dominates wall-time customer measured shutdown p50 = 506 ms (stock) vs 7 ms (after locally patching the constant).",
+  "number": 2869,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:41:04.090Z"
+}

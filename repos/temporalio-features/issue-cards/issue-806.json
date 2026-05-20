@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to add an API that allows SDK code to detect if it's executing within a Nexus Operation Handler, similar to the existing `activity.is_activity` function in Python.",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [],
+  "components": [
+    "nexus-handler",
+    "context-api",
+    "operation-executor"
+  ],
+  "concepts": [
+    "execution-context",
+    "context-detection",
+    "nexus-operations",
+    "handler-detection",
+    "runtime-inspection"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers need a way to detect execution context within Nexus Operation Handlers to write context-aware code.",
+  "rootCause": null,
+  "proposedFix": "Implement an API similar to `activity.is_activity` in Python that detects Nexus Operation Handler execution context across all SDKs.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDK code should be able to detect if code is executing in a Nexus Operation Handlers",
+  "number": 806,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-05-20T16:35:26.216Z"
+}

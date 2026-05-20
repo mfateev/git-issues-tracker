@@ -1,0 +1,35 @@
+{
+  "summary": "Request to expose the Nexus endpoint information within Nexus operation handlers, allowing developers to access endpoint details during handler execution.",
+  "category": "feature",
+  "subcategory": "nexus-operations",
+  "apis": [
+    "ExecuteNexusOperation",
+    "NexusOperationHandler"
+  ],
+  "components": [
+    "nexus-handler",
+    "endpoint",
+    "nexus-operation"
+  ],
+  "concepts": [
+    "nexus",
+    "endpoint",
+    "handler",
+    "operation",
+    "service-to-service"
+  ],
+  "severity": "medium",
+  "userImpact": "Enables developers to access Nexus endpoint information within operation handlers for improved integration and service-to-service communication.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [
+    805
+  ],
+  "keyQuote": "Expose Nexus Endpoint in a Nexus Operation Handler",
+  "number": 2290,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:38:16.528Z"
+}

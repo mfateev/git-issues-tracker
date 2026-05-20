@@ -1,6 +1,6 @@
 # Ruby SDK - Issue Statistics
 
-**Generated:** 2026-04-04
+**Generated:** 2026-05-20
 **Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 24 |
-| Total Closed Issues | 163 |
-| Total All Issues | 187 |
-| Bugs (open) | 4 |
-| Enhancements/Features (open) | 18 |
+| Total Open Issues | 26 |
+| Total Closed Issues | 166 |
+| Total All Issues | 192 |
+| Bugs (open) | 3 |
+| Enhancements/Features (open) | 20 |
 | Security Issues (open) | 0 |
 | Total Upvotes (👍) on open | 3 |
-| Total Comments on open | 15 |
+| Total Comments on open | 10 |
 | Issues with Upvotes | 2 (8%) |
-| Issues with Comments | 8 (33%) |
-| Average Age (days) | 310 |
-| Stale Issues (>12 months) | 10 (42%) |
+| Issues with Comments | 7 (27%) |
+| Average Age (days) | 309 |
+| Stale Issues (>12 months) | 10 (38%) |
 
 ---
 ## Resolution Metrics
@@ -36,13 +36,13 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 87% (163/187) |
-| Avg Time to Close (calendar) | 135 days |
-| Avg Time to Close (business) | 97 days |
+| Resolution Rate | 86% (166/192) |
+| Avg Time to Close (calendar) | 136 days |
+| Avg Time to Close (business) | 98 days |
 | Median Time to Close (calendar) | 40 days |
 | Median Time to Close (business) | 29 days |
-| 90th Percentile (calendar) | 516 days |
-| 90th Percentile (business) | 369 days |
+| 90th Percentile (calendar) | 536 days |
+| 90th Percentile (business) | 384 days |
 | Resolved within 30 days | 44% |
 | Resolved within 90 days | 63% |
 
@@ -50,21 +50,20 @@
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 14 | 9% |
+| Fixed (bugs) | 17 | 10% |
 | Completed (features) | 46 | 28% |
-| Self-resolved | 27 | 17% |
+| Self-resolved | 27 | 16% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 76 | 47% |
+| Other | 76 | 46% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-05 | 10 | 9 | +1 |
 | 2025-06 | 8 | 10 | -2 |
 | 2025-07 | 6 | 8 | -2 |
 | 2025-08 | 10 | 6 | +4 |
@@ -75,10 +74,11 @@
 | 2026-01 | 2 | 4 | -2 |
 | 2026-02 | 2 | 1 | +1 |
 | 2026-03 | 3 | 2 | +1 |
-| 2026-04 | 1 | 1 | 0 |
-| **Total** | **53** | **55** | **-2** |
+| 2026-04 | 5 | 4 | +1 |
+| 2026-05 | 1 | 0 | +1 |
+| **Total** | **48** | **49** | **-1** |
 
-📉 **Backlog Shrinking:** 2 more issues closed than opened in the last 12 months.
+📉 **Backlog Shrinking:** 1 more issues closed than opened in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,25 +87,25 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 16 |
+| Issues Opened | 15 |
 | Issues Closed | 13 |
-| Net Change | +3 |
-| Bugs Closed | 3 |
-| Enhancements Closed | 8 |
+| Net Change | +2 |
+| Bugs Closed | 6 |
+| Enhancements Closed | 6 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 33 | 24 |
-| Median | 7 | 5 |
-| 90th Percentile | 128 | 92 |
+| Average | 63 | 45 |
+| Median | 6 | 5 |
+| 90th Percentile | 143 | 102 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 62% |
+| Within 30 days | 69% |
 | Within 90 days | 85% |
 
 
@@ -115,10 +115,10 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 1 | 4% |
-| 1-3 months | 1 | 4% |
-| 3-6 months | 4 | 17% |
-| 6-12 months | 6 | 25% |
-| 1-2 years | 12 | 50% |
+| 1-3 months | 4 | 15% |
+| 3-6 months | 1 | 4% |
+| 6-12 months | 8 | 31% |
+| 1-2 years | 12 | 46% |
 | 2-3 years | 0 | 0% |
 | 3+ years | 0 | 0% |
 
@@ -140,14 +140,13 @@ Priority = Upvotes × 2 + Comments
 | Rank | Issue | Score | 👍 | 💬 | Title |
 |------|-------|-------|-----|-----|-------|
 | 1 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | 5 | 2 | 1 | [Feature Request] Look into client-side trimming o... |
-| 2 | [#162](https://github.com/temporalio/sdk-ruby/issues/162) | 5 | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fib... |
-| 3 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 4 | 0 | 4 | [Bug] ScopedLogger fails attempting to compare sym... |
-| 4 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 2 | 1 | 0 | [Feature Request] Update build-gems GH workflow sm... |
-| 5 | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | 1 | 0 | 1 | Problem: Testing Temporal Workflows with Signals i... |
-| 6 | [#334](https://github.com/temporalio/sdk-ruby/issues/334) | 1 | 0 | 1 | [Feature Request] Ensure fibers and workflow insta... |
-| 7 | [#238](https://github.com/temporalio/sdk-ruby/issues/238) | 1 | 0 | 1 | [Feature Request] Serialization context for codecs... |
-| 8 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 1 | 0 | 1 | [Feature Request] Contributing Guide |
-| 9 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 1 | 0 | 1 | [Bug] Windows CI segfaulting during tests |
+| 2 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 4 | 0 | 4 | [Bug] ScopedLogger fails attempting to compare sym... |
+| 3 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 2 | 1 | 0 | [Feature Request] Update build-gems GH workflow sm... |
+| 4 | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | 1 | 0 | 1 | Problem: Testing Temporal Workflows with Signals i... |
+| 5 | [#334](https://github.com/temporalio/sdk-ruby/issues/334) | 1 | 0 | 1 | [Feature Request] Ensure fibers and workflow insta... |
+| 6 | [#238](https://github.com/temporalio/sdk-ruby/issues/238) | 1 | 0 | 1 | [Feature Request] Serialization context for codecs... |
+| 7 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 1 | 0 | 1 | [Feature Request] Contributing Guide |
+| 8 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 1 | 0 | 1 | [Bug] Windows CI segfaulting during tests |
 
 ---
 
@@ -155,14 +154,13 @@ Priority = Upvotes × 2 + Comments
 
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
-| 1 | [#162](https://github.com/temporalio/sdk-ruby/issues/162) | 5 | 0 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
-| 2 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 4 | 0 | [Bug] ScopedLogger fails attempting to compare symbol to int... |
-| 3 | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | 1 | 0 | Problem: Testing Temporal Workflows with Signals in Ruby SDK... |
-| 4 | [#334](https://github.com/temporalio/sdk-ruby/issues/334) | 1 | 0 | [Feature Request] Ensure fibers and workflow instances are p... |
-| 5 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | 1 | 2 | [Feature Request] Look into client-side trimming of failures... |
-| 6 | [#238](https://github.com/temporalio/sdk-ruby/issues/238) | 1 | 0 | [Feature Request] Serialization context for codecs and conve... |
-| 7 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 1 | 0 | [Feature Request] Contributing Guide |
-| 8 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 1 | 0 | [Bug] Windows CI segfaulting during tests |
+| 1 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 4 | 0 | [Bug] ScopedLogger fails attempting to compare symbol to int... |
+| 2 | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | 1 | 0 | Problem: Testing Temporal Workflows with Signals in Ruby SDK... |
+| 3 | [#334](https://github.com/temporalio/sdk-ruby/issues/334) | 1 | 0 | [Feature Request] Ensure fibers and workflow instances are p... |
+| 4 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | 1 | 2 | [Feature Request] Look into client-side trimming of failures... |
+| 5 | [#238](https://github.com/temporalio/sdk-ruby/issues/238) | 1 | 0 | [Feature Request] Serialization context for codecs and conve... |
+| 6 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 1 | 0 | [Feature Request] Contributing Guide |
+| 7 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 1 | 0 | [Bug] Windows CI segfaulting during tests |
 
 ---
 
@@ -170,7 +168,7 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2026-03-16 | [#401](https://github.com/temporalio/sdk-ruby/issues/401) | 0 | [ruby] Support conflict token retry loop for schedule update... |
+| 2026-05-19 | [#440](https://github.com/temporalio/sdk-ruby/issues/440) | 0 | [Feature Request] Implement operator commands for Standalone... |
 
 ---
 
@@ -178,19 +176,18 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 18 |
-| bug | 4 |
+| enhancement | 20 |
+| bug | 3 |
 
 ---
 
-## Bugs (4 open issues)
+## Bugs (3 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
 | [#355](https://github.com/temporalio/sdk-ruby/issues/355) | 0 | 0 | [Bug] Some common uses of ActiveModel fail in workflows due ... |
 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 0 | 4 | [Bug] ScopedLogger fails attempting to compare symbol to int... |
 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 0 | 1 | [Bug] Windows CI segfaulting during tests |
-| [#162](https://github.com/temporalio/sdk-ruby/issues/162) | 0 | 5 | Investigate issue with Ruby 3.1/3.2 and worker fibers |
 
 ---
 
@@ -200,6 +197,7 @@ Top stale issues by upvotes:
 
 | Issue | 👍 | Last Updated | Title |
 |-------|-----|--------------|-------|
+| [#270](https://github.com/temporalio/sdk-ruby/issues/270) | 0 | 2025-05-14 | [Ruby] Worker Versioning high level client |
 | [#222](https://github.com/temporalio/sdk-ruby/issues/222) | 0 | 2025-02-12 | [Feature Request] Test randomness seed update over... |
 | [#218](https://github.com/temporalio/sdk-ruby/issues/218) | 0 | 2025-02-10 | [Feature Request] Support buildable source gem |
 | [#209](https://github.com/temporalio/sdk-ruby/issues/209) | 0 | 2025-01-29 | [Feature Request] Add explicit memoization support... |
@@ -209,4 +207,3 @@ Top stale issues by upvotes:
 | [#185](https://github.com/temporalio/sdk-ruby/issues/185) | 0 | 2025-01-08 | [Feature Request] Warn on unawaited workflow futur... |
 | [#179](https://github.com/temporalio/sdk-ruby/issues/179) | 0 | 2025-01-07 | [Feature Request] Provide "workflow local" |
 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 0 | 2024-10-17 | [Bug] Windows CI segfaulting during tests |
-| [#162](https://github.com/temporalio/sdk-ruby/issues/162) | 0 | 2024-10-10 | Investigate issue with Ruby 3.1/3.2 and worker fib... |

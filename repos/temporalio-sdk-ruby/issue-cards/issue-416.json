@@ -1,0 +1,32 @@
+{
+  "summary": "The SDK incorrectly rejects fiber-based activity executors on Ruby 4.0+ due to a version check that doesn't account for major versions greater than 3, preventing users from using fiber executors on newer Ruby versions.",
+  "category": "bug",
+  "subcategory": "activity-executor",
+  "apis": [],
+  "components": [
+    "activity-executor",
+    "fiber-scheduler",
+    "version-check",
+    "bridge"
+  ],
+  "concepts": [
+    "version-compatibility",
+    "fiber-support",
+    "activity-execution",
+    "ruby-version-detection",
+    "concurrency",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use fiber-based activity executors on Ruby 4.0 or later due to an incorrect version check, preventing them from accessing optimized concurrency features.",
+  "rootCause": "The `fibers_supported` method contains a version check that only evaluates the minor version and assumes a major version of 3, causing it to reject Ruby 4.x versions.",
+  "proposedFix": "Update the `fibers_supported` method to allow Ruby 3.3+ and all Ruby 4.x: `major > 3 || (major == 3 && minor >= 3)`",
+  "workaround": "Monkey-patch the version check in application code (example: https://github.com/jasonligg/temporal-samples-ruby/blob/00100335e19d973a07c13e46ea95ca713928e04e/fiber_activity/worker.rb#L12-L25)",
+  "resolution": "fixed",
+  "resolutionDetails": "The version check in the `fibers_supported` method was updated to correctly handle Ruby 4.x versions.",
+  "related": [],
+  "keyQuote": "The version check only evaluates the minor version and assumes a major version of 3, which causes it to incorrectly reject Ruby 4.x.",
+  "number": 416,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-05-20T16:48:47.285Z"
+}

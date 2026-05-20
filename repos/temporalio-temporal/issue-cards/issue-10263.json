@@ -1,0 +1,31 @@
+{
+  "summary": "Multiple HIGH severity CVEs (CVE-2023-6129, CVE-2024-21000, CVE-2026-21936, CVE-2026-22015) have been identified in MySQL 8.0.43-1.el9_6 dependencies within the temporalio/admin-tools:1.27.2 Docker image. This is a vendor-dependent base image issue requiring upstream resolution.",
+  "category": "bug",
+  "subcategory": "docker-security",
+  "apis": [],
+  "components": [
+    "docker-image",
+    "mysql-dependency",
+    "admin-tools",
+    "base-image"
+  ],
+  "concepts": [
+    "vulnerability",
+    "dependency-management",
+    "security",
+    "container-security",
+    "version-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users running the temporalio/admin-tools:1.27.2 Docker image are exposed to multiple HIGH severity security vulnerabilities in MySQL dependencies.",
+  "rootCause": "MySQL version 8.0.43-1.el9_6 in the vendor-dependent base image contains multiple known CVEs.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This is a vendor-dependent base image issue that requires upstream resolution from the Temporal project.",
+  "number": 10263,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:57:40.410Z"
+}

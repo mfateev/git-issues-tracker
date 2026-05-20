@@ -1,0 +1,33 @@
+{
+  "summary": "The Ruby SDK should validate and fail workflow tasks when payload sizes are known to exceed limits, rather than allowing oversized payloads to proceed. This is a Ruby-specific implementation of a cross-SDK feature for consistent payload size validation.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [],
+  "components": [
+    "worker",
+    "workflow-task-processor",
+    "payload-validator"
+  ],
+  "concepts": [
+    "payload-validation",
+    "size-limits",
+    "error-handling",
+    "failure-fast",
+    "resource-constraints",
+    "task-processing"
+  ],
+  "severity": "high",
+  "userImpact": "Users need the SDK to fail fast with clear errors when payloads exceed size limits, preventing downstream issues and silent failures.",
+  "rootCause": "The Ruby SDK lacks early validation for payload sizes in workflow task processing.",
+  "proposedFix": "Implement payload size validation in the workflow task processor to detect oversized payloads and fail the task with an appropriate error.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    723
+  ],
+  "keyQuote": "SDK should fail workflow task if payloads size it known to be too large - Ruby",
+  "number": 413,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-05-20T16:48:29.742Z"
+}

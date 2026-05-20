@@ -1,0 +1,34 @@
+{
+  "summary": "WorkerOptions.validateAndBuildWithDefaults() sets maxConcurrentPollers to a default value without checking if pollerAutoscalingBehaviour is already set, causing a mutual exclusivity validation error that prevents users from using the autoscaling feature.",
+  "category": "bug",
+  "subcategory": "worker-configuration",
+  "apis": [
+    "WorkerOptions",
+    "PollerBehaviorAutoscaling"
+  ],
+  "components": [
+    "WorkerOptions",
+    "WorkerFactory",
+    "task-pollers"
+  ],
+  "concepts": [
+    "autoscaling",
+    "task-pollers",
+    "concurrency",
+    "validation",
+    "mutual-exclusivity",
+    "defaults"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use PollerBehaviorAutoscaling because the validation logic rejects valid configurations.",
+  "rootCause": "validateAndBuildWithDefaults() sets maxConcurrentPollers default without first checking if pollerAutoscalingBehaviour is set.",
+  "proposedFix": "Check if pollerAutoscalingBehaviour is set before applying default value for maxConcurrentPollers.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Modified validateAndBuildWithDefaults() to conditionally set maxConcurrentPollers default only when pollerAutoscalingBehaviour is not set.",
+  "related": [],
+  "keyQuote": "workflowTaskPollersBehavior and maxConcurrentWorkflowTaskPollers are mutually exclusive",
+  "number": 2834,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:40:16.244Z"
+}

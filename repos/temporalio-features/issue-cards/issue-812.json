@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to add a standardized exception handler interface across all Temporal SDKs that allows applications to customize how workflow and activity failures are logged and telemetry is emitted.",
+  "category": "feature",
+  "subcategory": "error-handling",
+  "apis": [],
+  "components": [
+    "worker",
+    "error-handler",
+    "workflow-execution",
+    "activity-execution"
+  ],
+  "concepts": [
+    "error-handling",
+    "exception-handler",
+    "logging",
+    "telemetry",
+    "failure-notification",
+    "standardization",
+    "sdk-interface"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can customize how failures are logged and telemetry is emitted, allowing for more actionable error messages with application context without relying on correlation IDs.",
+  "rootCause": null,
+  "proposedFix": "Add a per-SDK exception handler interface invoked when a workflow or activity leaks an uncaught exception, allowing applications to customize failure logging and telemetry handling.",
+  "workaround": "Use logging-framework filters or worker interceptors as temporary workarounds, but these don't handle all failure paths or require reliance on unstable SDK internals.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Adding an SDK exception handler interface that is called when an exception leaks would allow the application to provide actionable log messages.",
+  "number": 812,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-05-20T16:36:00.346Z"
+}

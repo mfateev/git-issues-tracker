@@ -1,0 +1,38 @@
+{
+  "summary": "ActivityMocker bypasses the worker's activity-running signal, causing the virtual test clock to skip through start-to-close timeouts before mocked responses arrive. This makes timer-driven workflows with mocked activities effectively untestable under time-skipping.",
+  "category": "bug",
+  "subcategory": "activity-mocking",
+  "apis": [
+    "Workflow::timer",
+    "Workflow::newActivityStub",
+    "Workflow::awaitWithTimeout",
+    "ActivityOptions::withStartToCloseTimeout",
+    "ActivityMocker"
+  ],
+  "components": [
+    "activity-mocker",
+    "test-server",
+    "virtual-clock",
+    "worker"
+  ],
+  "concepts": [
+    "timeout",
+    "time-skipping",
+    "activity-mocking",
+    "virtual-clock",
+    "race-condition",
+    "test-framework"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot test timer-driven workflows with mocked activities under time-skipping, making such workflows untestable in the PHP SDK.",
+  "rootCause": "ActivityMocker sits outside the worker's activity-running signal, preventing the test server from knowing an activity is in flight and thus causing it to fast-forward virtual time. Other SDKs (TS, Java, Go) register test mocks as real activity implementations so the test server correctly pauses the virtual clock.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The root cause is that ActivityMocker sits outside the worker's \"activity is running\" signal.",
+  "number": 745,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-05-20T16:43:39.075Z"
+}

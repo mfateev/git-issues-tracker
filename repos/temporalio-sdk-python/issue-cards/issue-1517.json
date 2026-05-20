@@ -1,0 +1,32 @@
+{
+  "summary": "Python 3.14 breaks activity scheduling with a NameError because the new asyncio.Task implementation eagerly inspects closure cells, finding the 'handle' variable referenced in a closure before it's assigned. Pre-binding the variable resolves the issue.",
+  "category": "bug",
+  "subcategory": "activity-scheduling",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "worker",
+    "activity-scheduling",
+    "workflow-instance"
+  ],
+  "concepts": [
+    "closure-binding",
+    "cell-inspection",
+    "asyncio",
+    "variable-scope",
+    "version-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users upgrading to Python 3.14 or using rolling-release Python images will experience immediate failures when their workflows attempt to execute activities.",
+  "rootCause": "Python 3.14's asyncio.Task constructor eagerly inspects closure cells during task initialization (via set_name), whereas previous versions deferred this inspection until coroutine execution. The 'handle' variable is annotated but not assigned before the closure references it.",
+  "proposedFix": "Pre-bind the 'handle' variable before it's referenced in closures during task initialization.",
+  "workaround": "Pre-bind the variable with an explicit initial value: handle: Optional[_ActivityHandle] = None",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Python 3.14's asyncio.Task constructor eagerly inspects closure cells during task initialization, whereas previous versions deferred this",
+  "number": 1517,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:47:46.223Z"
+}

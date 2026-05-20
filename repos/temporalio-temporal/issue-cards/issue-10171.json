@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal server MySQL persistence needs to support multi-host connections or SRV-based endpoint discovery to enable failover in Kubernetes/OpenShift environments without load balancers or VIPs.",
+  "category": "feature",
+  "subcategory": "mysql-failover",
+  "apis": [],
+  "components": [
+    "persistence",
+    "mysql-persistence",
+    "connection-pool",
+    "configuration"
+  ],
+  "concepts": [
+    "failover",
+    "high-availability",
+    "dns-discovery",
+    "srv-records",
+    "connection-resilience",
+    "kubernetes"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal in Kubernetes/OpenShift without load balancers cannot achieve automatic MySQL failover without manual reconfiguration.",
+  "rootCause": "connectAddr implementation only supports a single host endpoint; multi-host failover and SRV-based discovery are not implemented.",
+  "proposedFix": "Support comma-separated MySQL hosts in connectAddr for client-side failover, and/or support SRV-backed DNS names for endpoint discovery.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In environments without LB/VIP, we need Temporal server persistence to survive primary/node changes without manual reconfiguration/redeploy.",
+  "number": 10171,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:56:30.885Z"
+}

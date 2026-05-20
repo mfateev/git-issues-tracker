@@ -1,0 +1,33 @@
+{
+  "summary": "The Java SDK should validate workflow task payload sizes and fail gracefully when they exceed known limits, preventing runtime errors and providing clear feedback to users.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [],
+  "components": [
+    "workflow-task",
+    "payload-validator",
+    "serialization"
+  ],
+  "concepts": [
+    "payload-size",
+    "validation",
+    "limits",
+    "error-handling",
+    "workflow-execution",
+    "failure-handling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive clear feedback when workflow task payloads exceed size limits, preventing cryptic runtime errors.",
+  "rootCause": null,
+  "proposedFix": "Add validation in the workflow task execution path to detect oversized payloads and fail the task with appropriate error messaging.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    723
+  ],
+  "keyQuote": "SDK should fail workflow task if payloads size it known to be too large",
+  "number": 2833,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:40:11.523Z"
+}

@@ -1,0 +1,40 @@
+{
+  "summary": "The TypeScript SDK's Runtime class has obsolete resource tracking logic from before the bridge rewrite that causes race conditions and test flakes. The bookkeeping should be removed to let the Core bridge's opaque handle model manage resource lifecycle.",
+  "category": "bug",
+  "subcategory": "runtime-lifecycle",
+  "apis": [
+    "Runtime",
+    "NativeConnection",
+    "Worker",
+    "Client",
+    "EphemeralServer"
+  ],
+  "components": [
+    "runtime",
+    "native-resources",
+    "bridge",
+    "test-framework"
+  ],
+  "concepts": [
+    "resource-lifecycle",
+    "race-conditions",
+    "garbage-collection",
+    "cleanup",
+    "lifecycle-management",
+    "native-integration"
+  ],
+  "severity": "high",
+  "userImpact": "SDK test flakes reduce development velocity and make it difficult to validate SDK changes, though the issue is unlikely to affect production user code.",
+  "rootCause": "Legacy resource tracking bookkeeping (pendingCreations, backRefs, isIdle, shutdownIfIdle, createNative* wrappers) introduced before the bridge rewrite in #1698 is now obsolete but causes race conditions when native resources are closed while still referenced.",
+  "proposedFix": "Remove language-side resource tracking from Runtime: drop pendingCreations, backRefs, isIdle(), shutdownIfIdle(), and createNative* wrappers; simplify closeNativeClient, deregisterWorker, shutdownEphemeralServer to no longer participate in bookkeeping; re-evaluate and likely remove the explicit native.runtimeShutdown() call.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1698
+  ],
+  "keyQuote": "That bookkeeping is no longer required since the bridge rewrite in #1698, but removal of the mechanism had been left as a follow-up item, and never got completed.",
+  "number": 2068,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:52:18.536Z"
+}

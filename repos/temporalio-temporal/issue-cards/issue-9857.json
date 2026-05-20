@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal server's Elasticsearch cluster settings configuration globally disables `action.auto_create_index`, breaking existing Elasticsearch clusters that rely on automatic index creation. The setting should be scoped to only Temporal indices.",
+  "category": "bug",
+  "subcategory": "elasticsearch-visibility-store",
+  "apis": [],
+  "components": [
+    "elasticsearch",
+    "visibility-store",
+    "cluster-settings",
+    "helm-chart"
+  ],
+  "concepts": [
+    "cluster-settings",
+    "auto-create-index",
+    "visibility-store",
+    "persistence",
+    "elasticsearch-configuration",
+    "index-management",
+    "breaking-change"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal with Elasticsearch visibility store experience broken auto-index creation for all indices in the cluster, not just Temporal indices.",
+  "rootCause": "The Elasticsearch cluster settings configuration applies `action.auto_create_index: false` globally across the cluster instead of scoping it to Temporal visibility indices only.",
+  "proposedFix": "Scope the auto_create_index setting to Temporal indices only using pattern matching: `\"action.auto_create_index\": \"-temporal_visibility_v1*,+*\"` to disable it only for Temporal indices while allowing it for others.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The Helm chart was updated to stop applying cluster settings by default, preventing the global override of the action.auto_create_index setting (temporalio/helm-charts#901).",
+  "related": [],
+  "keyQuote": "Even if I start elasticsearch using the ECK option `action.auto_create_index: true`, temporal overrides that.",
+  "number": 9857,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:52:43.692Z"
+}

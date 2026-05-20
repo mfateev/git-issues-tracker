@@ -1,0 +1,35 @@
+{
+  "summary": "TracingInterceptor and OpenTelemetryInterceptor in the Python SDK do not implement the new client.Interceptor methods for standalone activities, resulting in missing client-side OpenTelemetry spans when executing standalone activities.",
+  "category": "bug",
+  "subcategory": "otel-tracing",
+  "apis": [
+    "Interceptor",
+    "standalone_activities"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "standalone-activities",
+    "client-interceptor",
+    "tracing"
+  ],
+  "concepts": [
+    "tracing",
+    "observability",
+    "instrumentation",
+    "interceptors",
+    "spans",
+    "standalone-activities"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot trace standalone activity client calls with OpenTelemetry, making debugging and monitoring of distributed traces incomplete.",
+  "rootCause": "TracingInterceptor and OpenTelemetryInterceptor classes do not implement the new client.Interceptor methods required for standalone activities.",
+  "proposedFix": "Implement the new client.Interceptor methods in both TracingInterceptor and OpenTelemetryInterceptor to create spans for standalone activity client calls.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Implemented the missing client.Interceptor methods in the OpenTelemetry interceptor classes to support standalone activity tracing.",
+  "related": [],
+  "keyQuote": "TracingInterceptor and OpenTelemetryInterceptor do not currently implement the new client.Interceptor methods related to standalone activities.",
+  "number": 1430,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:44:23.272Z"
+}

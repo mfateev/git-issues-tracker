@@ -1,0 +1,32 @@
+{
+  "summary": "Docker images for Temporal Server 1.30.4.1 and Admin Tools 1.30.4.1 contain known CVEs that require security patching. Server image has CVE-2026-41602, while admin-tools has CVE-2026-40890 and CVE-2026-41602.",
+  "category": "bug",
+  "subcategory": "docker-security",
+  "apis": [],
+  "components": [
+    "temporal-server",
+    "admin-tools",
+    "docker"
+  ],
+  "concepts": [
+    "cve",
+    "security",
+    "vulnerability",
+    "docker",
+    "container",
+    "dependency-scanning",
+    "patching"
+  ],
+  "severity": "high",
+  "userImpact": "Users running Temporal 1.30.4.1 Docker images are exposed to known security vulnerabilities and need to upgrade.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "temporalio/admin-tools:1.30.4.1 - CVE-2026-40890, CVE-2026-41602",
+  "number": 10284,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:58:09.941Z"
+}

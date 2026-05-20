@@ -1,0 +1,36 @@
+{
+  "summary": "Race condition in pause/unpause workflow execution: when PauseWorkflowExecution is called while a workflow task is in-flight, the server creates an inconsistent state where the workflow Status is reset to RUNNING but PauseInfo remains set, causing unpause to fail.",
+  "category": "bug",
+  "subcategory": "pause-execution",
+  "apis": [
+    "PauseWorkflowExecution",
+    "UnpauseWorkflowExecution",
+    "DescribeWorkflowExecution"
+  ],
+  "components": [
+    "mutable_state",
+    "history_service",
+    "workflow_task_scheduler",
+    "pause_api"
+  ],
+  "concepts": [
+    "race_condition",
+    "state_consistency",
+    "event_ordering",
+    "pause_unpause",
+    "in_flight_tasks",
+    "state_machine"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot unpause workflows that were paused while a task was in-flight, leaving workflows stuck in an inconsistent state unable to recover.",
+  "rootCause": "When PauseWorkflowExecution is called during an in-flight workflow task, the WorkflowTaskStamp invalidation does not prevent the already-received task from completing. The RespondWorkflowTaskCompleted triggers a new workflow task scheduling that resets Status to RUNNING without clearing PauseInfo.",
+  "proposedFix": "Fix the pause status check in UpdateWorkflowWithNew to prevent workflow task scheduling when paused; ensure WorkflowTaskStamp invalidation prevents in-flight task completion; ensure any status reset also clears PauseInfo.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If in-flight at pause-time, the completing task triggers new scheduling that resets Status to RUNNING while leaving pauseInfo set, making unpause fail with FailedPrecondition.",
+  "number": 10239,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:57:18.920Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "OpenTelemetry integration fails when running Temporal locally because the Tempo container fails to start due to a YAML configuration parsing error - fields in the checked-in config file no longer exist in the current Tempo version.",
+  "category": "bug",
+  "subcategory": "otel-tracing",
+  "apis": [],
+  "components": [
+    "otel-integration",
+    "tempo-config",
+    "docker-compose",
+    "development-setup"
+  ],
+  "concepts": [
+    "observability",
+    "tracing",
+    "configuration",
+    "docker",
+    "yaml-parsing",
+    "breaking-change"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers cannot collect or view tracing information when running Temporal locally, preventing effective use of observability tools during development.",
+  "rootCause": "Tempo container's configuration format changed in a breaking way, rendering the checked-in config outdated with nonexistent fields (ingester, compactor, traces_storage, local_blocks).",
+  "proposedFix": "Update the checked-in Tempo configuration file to match the new format required by the current Tempo version.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Configuration file was updated to match the current Tempo format via PR submitted by author.",
+  "related": [],
+  "keyQuote": "This looks like it was just some breaking change in the config file format that Tempo is loading.",
+  "number": 10053,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:55:20.963Z"
+}

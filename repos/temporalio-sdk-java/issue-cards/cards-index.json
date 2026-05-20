@@ -1,7 +1,578 @@
 {
-  "generatedAt": "2026-04-04T19:11:39.195Z",
-  "totalCards": 962,
+  "generatedAt": "2026-05-20T16:42:33.600Z",
+  "totalCards": 979,
   "cards": [
+    {
+      "summary": "The Jackson3JsonPayloadConverter(JsonMapper) constructor is not visible to javac in Java 17+ projects, even though it's present in META-INF/versions/17/ and works at runtime with maven/gradle builds.",
+      "category": "bug",
+      "subcategory": "json-serialization",
+      "apis": [],
+      "components": [
+        "Jackson3JsonPayloadConverter",
+        "json-serialization",
+        "payload-converter",
+        "multi-release-jar"
+      ],
+      "concepts": [
+        "multi-release-jar",
+        "javac-visibility",
+        "json-serialization",
+        "java-17-compatibility",
+        "ide-compilation",
+        "payload-conversion"
+      ],
+      "severity": "medium",
+      "userImpact": "Java 17+ developers using Jackson 3 experience IDE compilation errors when using the Jackson3JsonPayloadConverter(JsonMapper) constructor, despite successful gradle/maven builds.",
+      "rootCause": "The multi-release JAR has the constructor only in META-INF/versions/17/ but javac/IntelliJ is not properly resolving it according to JEP 238 specifications.",
+      "proposedFix": null,
+      "workaround": "Use gradle/maven builds instead of relying on javac compilation in IDE; these build tools properly resolve the constructor from the multi-release JAR.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "running with mvn/gradle is fine, only issue with javac",
+      "number": 2885,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:42:33.329Z"
+    },
+    {
+      "summary": "Feature request to enable payload visitors to process memo payloads in aggregate for the Java SDK, referenced from temporalio/features#782.",
+      "category": "feature",
+      "subcategory": "payload-visitor-memos",
+      "apis": [
+        "Memo",
+        "DataConverter",
+        "PayloadCodec"
+      ],
+      "components": [
+        "codec",
+        "serialization",
+        "metadata",
+        "payload-handling"
+      ],
+      "concepts": [
+        "visitor-pattern",
+        "memo-payloads",
+        "aggregation",
+        "serialization",
+        "payload-conversion"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables users to more efficiently process memo payloads through a visitor pattern, improving flexibility in payload handling and aggregation.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        782
+      ],
+      "keyQuote": "Allow payload visitors to visit memo payloads in aggregate",
+      "number": 2884,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:42:30.821Z"
+    },
+    {
+      "summary": "Request to add logging in the Java SDK when workflow task (WFT) completion takes a long time, enabling better performance diagnostics and monitoring.",
+      "category": "feature",
+      "subcategory": "logging",
+      "apis": [],
+      "components": [
+        "worker",
+        "task-executor",
+        "logging"
+      ],
+      "concepts": [
+        "logging",
+        "performance",
+        "monitoring",
+        "latency",
+        "diagnostics",
+        "workflow-task"
+      ],
+      "severity": "medium",
+      "userImpact": "Users lack visibility into long-running workflow task completions, making it difficult to diagnose performance issues.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        827
+      ],
+      "keyQuote": "SDK should log when WFT completion takes a long time",
+      "number": 2883,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:42:04.235Z"
+    },
+    {
+      "summary": "Implement S3 external storage driver for the Java SDK, tracking the parent feature initiative across SDKs.",
+      "category": "feature",
+      "subcategory": "external-storage",
+      "apis": [],
+      "components": [
+        "external-storage",
+        "s3-driver"
+      ],
+      "concepts": [
+        "external-storage",
+        "s3",
+        "storage-driver",
+        "java-sdk",
+        "cross-sdk-feature"
+      ],
+      "severity": "low",
+      "userImpact": "Enables Java SDK users to persist workflow history and state to AWS S3 for external storage capabilities, aligning with cross-SDK feature parity.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        783
+      ],
+      "keyQuote": "Parent Issue: https://github.com/temporalio/features/issues/783",
+      "number": 2882,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:42:02.500Z"
+    },
+    {
+      "summary": "Java SDK tracking issue to implement concurrent payload visiting, as referenced in parent feature issue #772. This feature would enable parallel processing of payloads to improve workflow execution performance.",
+      "category": "feature",
+      "subcategory": "payload-visiting",
+      "apis": [],
+      "components": [
+        "payload-handler",
+        "worker",
+        "task-execution"
+      ],
+      "concepts": [
+        "concurrency",
+        "payload-visiting",
+        "serialization",
+        "performance",
+        "throughput"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will achieve improved throughput and performance when processing payloads in concurrent scenarios within their workflows.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        772
+      ],
+      "keyQuote": "Parent Issue: https://github.com/temporalio/features/issues/772",
+      "number": 2881,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:42:07.507Z"
+    },
+    {
+      "summary": "Foundational implementation for external payload storage in the Java SDK, enabling users to store large workflow and activity payloads in external storage systems rather than keeping them in Temporal.",
+      "category": "feature",
+      "subcategory": "payload-storage",
+      "apis": [],
+      "components": [
+        "serialization",
+        "payload-converter",
+        "worker"
+      ],
+      "concepts": [
+        "external-storage",
+        "data-persistence",
+        "payload-handling",
+        "serialization",
+        "cloud-storage"
+      ],
+      "severity": "medium",
+      "userImpact": "Allows users to reduce storage requirements by offloading large payloads to external storage systems.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        765
+      ],
+      "keyQuote": "External Payload Storage Foundation - Java",
+      "number": 2880,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:41:44.089Z"
+    },
+    {
+      "summary": "Implement operator commands for Standalone Activities in the Java SDK, following the feature specification in temporalio/features#822.",
+      "category": "feature",
+      "subcategory": "operator-commands",
+      "apis": [],
+      "components": [
+        "activity-executor",
+        "worker",
+        "operator-interface"
+      ],
+      "concepts": [
+        "operator-commands",
+        "standalone-activities",
+        "activity-execution",
+        "management",
+        "operations"
+      ],
+      "severity": "medium",
+      "userImpact": "Users gain operator commands to manage and monitor standalone activities, improving operational visibility and control.",
+      "rootCause": null,
+      "proposedFix": "Implement operator commands for standalone activities as specified in temporalio/features#822",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        822
+      ],
+      "keyQuote": "Implement operator commands for Standalone Activities",
+      "number": 2878,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:41:38.026Z"
+    },
+    {
+      "summary": "Update validators serialize exceptions incorrectly, losing type, non-retryable flag, details, and message that are preserved when the same exceptions are thrown from update handlers or workflows.",
+      "category": "bug",
+      "subcategory": "exception-serialization",
+      "apis": [
+        "UpdateMethod",
+        "UpdateValidatorMethod",
+        "ApplicationFailure"
+      ],
+      "components": [
+        "UpdateDispatcher",
+        "WorkflowExecutionHandler",
+        "SyncWorkflow",
+        "DefaultFailureConverter"
+      ],
+      "concepts": [
+        "exception-handling",
+        "serialization",
+        "validation",
+        "failure-conversion",
+        "exception-fidelity"
+      ],
+      "severity": "high",
+      "userImpact": "Exceptions thrown in update validators are incorrectly serialized, losing error type, details, and retryability information that clients depend on for proper error handling.",
+      "rootCause": "SyncWorkflow#handleValidateUpdate catches validator-thrown exceptions as generic Exception and passes them to exceptionToFailure(), which receives WorkflowExecutionException instead of the original ApplicationFailure. Unlike the handler path which extracts the failure via e.getFailure(), the validator path causes re-serialization with incorrect type and flags.",
+      "proposedFix": "Add a dedicated catch (WorkflowExecutionException e) branch in SyncWorkflow#handleValidateUpdate to extract e.getFailure(), matching the handler path implementation, so the original ApplicationFailure is preserved during serialization.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "the validator path strips type, non-retryable flag, details, and message; the handler path preserves them.",
+      "number": 2875,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:41:38.589Z"
+    },
+    {
+      "summary": "Hard-coded ShutdownManager poll interval (250ms) causes slow test teardown in env-per-test setups. Request to expose this as a configurable option to reduce teardown time from 500ms to ~7ms.",
+      "category": "feature",
+      "subcategory": "test-framework",
+      "apis": [
+        "WorkerFactoryOptions",
+        "TestEnvironmentOptions",
+        "ShutdownManager"
+      ],
+      "components": [
+        "ShutdownManager",
+        "TestWorkflowEnvironment",
+        "testing-infrastructure",
+        "worker"
+      ],
+      "concepts": [
+        "shutdown",
+        "teardown",
+        "polling",
+        "performance",
+        "configuration",
+        "test-isolation",
+        "latency"
+      ],
+      "severity": "medium",
+      "userImpact": "Users running env-per-test setups experience slow test teardown (500ms+) due to hard-coded poll interval.",
+      "rootCause": "ShutdownManager.CHECK_PERIOD_MS is hard-coded to 250ms, which dominates shutdown time in env-per-test scenarios.",
+      "proposedFix": "Expose poll interval as builder option (TestEnvironmentOptions#setShutdownCheckInterval(Duration)) or system property (temporal.worker.shutdownCheckPeriodMs).",
+      "workaround": "Locally patch the CHECK_PERIOD_MS constant to a lower value.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "In env-per-test setups this dominates wall-time customer measured shutdown p50 = 506 ms (stock) vs 7 ms (after locally patching the constant).",
+      "number": 2869,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:41:04.090Z"
+    },
+    {
+      "summary": "TestEnv test framework should propagate Memo metadata along with activity notification (CAN), similar to the implementation in PR #2731.",
+      "category": "feature",
+      "subcategory": "test-framework",
+      "apis": [
+        "ExecuteActivity",
+        "Memo"
+      ],
+      "components": [
+        "test-env",
+        "activity-execution",
+        "metadata"
+      ],
+      "concepts": [
+        "metadata-propagation",
+        "test-utility",
+        "activity-execution",
+        "memo",
+        "testing"
+      ],
+      "severity": "low",
+      "userImpact": "Test developers would have more complete and representative test scenarios for activity execution with metadata propagation.",
+      "rootCause": null,
+      "proposedFix": "Apply Memo propagation to the test portion of TestEnv, as was done in PR #2731.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "just the test part should also propagate Memo on CAN",
+      "number": 2863,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:41:11.805Z"
+    },
+    {
+      "summary": "The workflowcheck tool causes Out-of-Memory errors on large codebases by eagerly loading and caching all classes from the entire classpath (potentially 20,000+ classes) when searching for workflow implementations, even though only a few classes are actually workflows.",
+      "category": "bug",
+      "subcategory": "determinism-validation",
+      "apis": [],
+      "components": [
+        "workflowcheck-tool",
+        "classpath-scanner",
+        "class-loader",
+        "class-cache"
+      ],
+      "concepts": [
+        "class-scanning",
+        "memory-efficiency",
+        "determinism-validation",
+        "classpath-resolution",
+        "lazy-loading",
+        "performance-optimization",
+        "cache-management"
+      ],
+      "severity": "high",
+      "userImpact": "Developers working with large codebases cannot run workflowcheck in CI without hitting Out-of-Memory errors that block their build pipelines.",
+      "rootCause": "The ClassPath constructor eagerly enumerates and loads every class file from the entire classpath using ASM ClassReader, storing all ClassInfo objects in a HashMap for the lifetime of the scan. This wastes memory by loading thousands of non-workflow classes that are never needed.",
+      "proposedFix": "Two approaches: (1) Add --scan-classpath flag to enumerate classes only from specified scan paths while maintaining full classpath for dependency resolution, loading only classes encountered during call-chain tracing. (2) Implement two-pass lazy loading with annotation filtering - quick scan for WorkflowInterface/WorkflowMethod annotations first, then full ASM analysis only on matched classes.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "For a project with a few workflow classes buried among ~20,000 dependency classes, the tool eagerly loads all 20,000 just to find those few classes.",
+      "number": 2846,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:41:18.828Z"
+    },
+    {
+      "summary": "gRPC-Java 1.75 contains a bug that corrupts network streams when multiple versions of Netty are present on the classpath, causing Temporal workers to fail randomly with 'Encountered end-of-stream mid-frame' errors. The issue is fixed in gRPC-Java 1.76.",
+      "category": "bug",
+      "subcategory": "grpc-connectivity",
+      "apis": [],
+      "components": [
+        "worker",
+        "grpc-client",
+        "netty"
+      ],
+      "concepts": [
+        "grpc-streaming",
+        "netty-versioning",
+        "dependency-conflict",
+        "network-reliability",
+        "stream-corruption",
+        "classpath-isolation"
+      ],
+      "severity": "critical",
+      "userImpact": "Workers fail randomly with gRPC stream corruption errors when multiple Netty versions are present in the classpath.",
+      "rootCause": "gRPC-Java 1.75 has a bug in handling Netty dependencies when other versions of Netty are present on the classpath in addition to gRPC-Java's shaded copy.",
+      "proposedFix": "Upgrade gRPC-Java to version 1.76.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Fixed by upgrading gRPC-Java from version 1.75 to 1.76.",
+      "related": [],
+      "keyQuote": "gRPC-Java version 1.75 contains a bug related to Netty which can corrupt network stream in certain situations when other versions of Netty are present in the classpath",
+      "number": 2843,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:40:38.582Z"
+    },
+    {
+      "summary": "User reported that signalWithStart doesn't propagate requestId from WorkflowOptions, using a random UUID instead. Investigation revealed this is intentional—setRequestId is internal-only API that will be removed to prevent confusion.",
+      "category": "question",
+      "subcategory": "request-id-handling",
+      "apis": [
+        "signalWithStart",
+        "SignalWithStartWorkflowExecutionRequest",
+        "WorkflowOptions",
+        "StartWorkflowExecutionRequest"
+      ],
+      "components": [
+        "workflow-client",
+        "request-factory",
+        "gRPC-client"
+      ],
+      "concepts": [
+        "idempotency",
+        "deduplication",
+        "request-id",
+        "client-options",
+        "signal-workflow"
+      ],
+      "severity": "low",
+      "userImpact": "Users mistakenly believe they can provide an idempotency key for signalWithStart via WorkflowOptions, but this feature is internal-only and unreliable.",
+      "rootCause": "The setRequestId method is documented as internal-only (not clearly communicated), and newSignalWithStartWorkflowExecutionRequest intentionally generates a fresh UUID.",
+      "proposedFix": "Remove setRequestId from the public WorkflowOptions API to eliminate the confusion about whether it's user-facing.",
+      "workaround": null,
+      "resolution": "wontfix",
+      "resolutionDetails": "The behavior is intentional—setRequestId is internal SDK functionality, not a public contract. The team will remove it from WorkflowOptions.",
+      "related": [],
+      "keyQuote": "setRequestId is NOT intended to be called by user code it is meant for internal functionality",
+      "number": 2841,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:40:39.249Z"
+    },
+    {
+      "summary": "GraalVM native image applications fail to connect to Temporal Server in Kubernetes with DEADLINE_EXCEEDED errors after pod rescheduling or node restarts, though the same application works fine on JVM and in Docker outside Kubernetes.",
+      "category": "bug",
+      "subcategory": "grpc-communication",
+      "apis": [
+        "WorkflowClient",
+        "ListNamespaces"
+      ],
+      "components": [
+        "gRPC-channel",
+        "network-connectivity",
+        "dns-resolution",
+        "connection-reuse"
+      ],
+      "concepts": [
+        "grpc-channels",
+        "dns-resolution",
+        "connection-reuse",
+        "kubernetes",
+        "native-image",
+        "deadline-exceeded",
+        "network-connectivity"
+      ],
+      "severity": "high",
+      "userImpact": "Applications using GraalVM native images in Kubernetes experience 10-30 minute unavailability when pods are rescheduled or nodes are restarted, breaking production deployments.",
+      "rootCause": "GraalVM native image runtime issue with DNS resolution or gRPC channel reuse in Kubernetes environment",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Application fails to start for 10–30 minutes with io.grpc.StatusRuntimeException: DEADLINE_EXCEEDED while Temporal cluster is healthy",
+      "number": 2840,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:40:40.931Z"
+    },
+    {
+      "summary": "Enhancement to expose the Nexus endpoint within Nexus operation handlers, enabling developers to access endpoint information during operation handling.",
+      "category": "feature",
+      "subcategory": "nexus",
+      "apis": [
+        "NexusOperationHandler",
+        "NexusEndpoint"
+      ],
+      "components": [
+        "nexus-handler",
+        "nexus-endpoint",
+        "nexus-client"
+      ],
+      "concepts": [
+        "nexus",
+        "operation-handler",
+        "endpoint",
+        "cross-workflow-communication",
+        "api-exposure"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers using Nexus operation handlers can now access the Nexus endpoint directly, enabling more advanced use cases and better integration with Nexus features.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Feature implemented to expose Nexus endpoint in operation handler.",
+      "related": [
+        805
+      ],
+      "keyQuote": "Expose Nexus Endpoint in a Nexus Operation Handler",
+      "number": 2836,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:40:13.657Z"
+    },
+    {
+      "summary": "WorkerOptions.validateAndBuildWithDefaults() sets maxConcurrentPollers to a default value without checking if pollerAutoscalingBehaviour is already set, causing a mutual exclusivity validation error that prevents users from using the autoscaling feature.",
+      "category": "bug",
+      "subcategory": "worker-configuration",
+      "apis": [
+        "WorkerOptions",
+        "PollerBehaviorAutoscaling"
+      ],
+      "components": [
+        "WorkerOptions",
+        "WorkerFactory",
+        "task-pollers"
+      ],
+      "concepts": [
+        "autoscaling",
+        "task-pollers",
+        "concurrency",
+        "validation",
+        "mutual-exclusivity",
+        "defaults"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use PollerBehaviorAutoscaling because the validation logic rejects valid configurations.",
+      "rootCause": "validateAndBuildWithDefaults() sets maxConcurrentPollers default without first checking if pollerAutoscalingBehaviour is set.",
+      "proposedFix": "Check if pollerAutoscalingBehaviour is set before applying default value for maxConcurrentPollers.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Modified validateAndBuildWithDefaults() to conditionally set maxConcurrentPollers default only when pollerAutoscalingBehaviour is not set.",
+      "related": [],
+      "keyQuote": "workflowTaskPollersBehavior and maxConcurrentWorkflowTaskPollers are mutually exclusive",
+      "number": 2834,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:40:16.244Z"
+    },
+    {
+      "summary": "The Java SDK should validate workflow task payload sizes and fail gracefully when they exceed known limits, preventing runtime errors and providing clear feedback to users.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [],
+      "components": [
+        "workflow-task",
+        "payload-validator",
+        "serialization"
+      ],
+      "concepts": [
+        "payload-size",
+        "validation",
+        "limits",
+        "error-handling",
+        "workflow-execution",
+        "failure-handling"
+      ],
+      "severity": "medium",
+      "userImpact": "Users receive clear feedback when workflow task payloads exceed size limits, preventing cryptic runtime errors.",
+      "rootCause": null,
+      "proposedFix": "Add validation in the workflow task execution path to detect oversized payloads and fail the task with appropriate error messaging.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        723
+      ],
+      "keyQuote": "SDK should fail workflow task if payloads size it known to be too large",
+      "number": 2833,
+      "repo": "temporalio-sdk-java",
+      "generatedAt": "2026-05-20T16:40:11.523Z"
+    },
     {
       "summary": "Deprecate namespace-related fields in Java SDK workflow options (ChildWorkflowOptions, external cancel/signal options) following API-level deprecation due to Temporal Server 1.30.1 disabling cross-namespace operations by default.",
       "category": "feature",

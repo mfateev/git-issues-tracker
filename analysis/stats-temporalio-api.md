@@ -1,6 +1,6 @@
 # API SDK - Issue Statistics
 
-**Generated:** 2026-04-04
+**Generated:** 2026-05-20
 **Repository:** [temporalio/api](https://github.com/temporalio/api)
 
 ## Related Documents
@@ -25,7 +25,7 @@
 | Total Comments on open | 9 |
 | Issues with Upvotes | 1 (7%) |
 | Issues with Comments | 3 (21%) |
-| Average Age (days) | 1078 |
+| Average Age (days) | 1124 |
 | Stale Issues (>12 months) | 13 (93%) |
 
 ---
@@ -64,7 +64,6 @@
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-05 | 1 | 1 | 0 |
 | 2025-06 | 0 | 0 | 0 |
 | 2025-07 | 0 | 0 | 0 |
 | 2025-08 | 1 | 0 | +1 |
@@ -76,7 +75,8 @@
 | 2026-02 | 0 | 0 | 0 |
 | 2026-03 | 0 | 0 | 0 |
 | 2026-04 | 2 | 1 | +1 |
-| **Total** | **4** | **3** | **+1** |
+| 2026-05 | 0 | 0 | 0 |
+| **Total** | **3** | **2** | **+1** |
 
 📈 **Backlog Growing:** 1 more issues opened than closed in the last 12 months.
 
@@ -114,12 +114,12 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 1 | 7% |
-| 1-3 months | 0 | 0% |
+| Last 30 days | 0 | 0% |
+| 1-3 months | 1 | 7% |
 | 3-6 months | 0 | 0% |
 | 6-12 months | 0 | 0% |
-| 1-2 years | 3 | 21% |
-| 2-3 years | 3 | 21% |
+| 1-2 years | 2 | 14% |
+| 2-3 years | 4 | 29% |
 | 3+ years | 7 | 50% |
 
 ---
@@ -157,9 +157,7 @@ Priority = Upvotes × 2 + Comments
 
 ## Recent Issues (Last 30 Days)
 
-| Date | Issue | 👍 | Title |
-|------|-------|-----|-------|
-| 2026-04-01 | [#750](https://github.com/temporalio/api/issues/750) | 0 | [Bug] Deprecate cross-namespace support in workflow commands... |
+No issues created in the last 30 days.
 
 ---
 

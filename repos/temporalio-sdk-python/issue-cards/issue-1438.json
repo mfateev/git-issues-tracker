@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to support dynamic per-call activity summaries that vary based on runtime context (agent, arguments, reasoning stage) instead of static strings, critical for debugging multi-agent workflows in the Temporal UI.",
+  "category": "feature",
+  "subcategory": "adk-integration",
+  "apis": [
+    "ActivityConfig"
+  ],
+  "components": [
+    "TemporalModel",
+    "activity_tool",
+    "ActivityConfig"
+  ],
+  "concepts": [
+    "activity-summary",
+    "dynamic-configuration",
+    "multi-agent-workflows",
+    "temporal-ui",
+    "context-aware-logging",
+    "argument-redaction",
+    "trust-scoring"
+  ],
+  "severity": "high",
+  "userImpact": "Users building multi-agent workflows cannot effectively trace and debug activities in Temporal UI because all invocations display identical static summaries.",
+  "rootCause": "ActivityConfig.summary parameter only accepts static strings with no mechanism to access runtime request data or tool arguments at call time.",
+  "proposedFix": "Implement dynamic summary generation via callback, format string, or template that provides access to LlmRequest context for TemporalModel and tool arguments for activity_tool, with sensitive argument redaction.",
+  "workaround": "Subclass TemporalModel and extend activity_tool to generate per-call summaries from runtime arguments (as demonstrated in Fleet Agent implementation).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    6
+  ],
+  "keyQuote": "Dynamic per-call activity summaries are a significant quality-of-life improvement for multi-agent workflows — static summaries make the Temporal UI nearly useless for tracing incidents",
+  "number": 1438,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:45:13.680Z"
+}

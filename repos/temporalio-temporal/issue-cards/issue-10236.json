@@ -1,0 +1,33 @@
+{
+  "summary": "Temporal Helm chart schema Job init containers fail to establish mTLS connections to the database in Kubernetes clusters with Istio STRICT mTLS enabled because the Istio sidecar does not start until after init containers complete.",
+  "category": "bug",
+  "subcategory": "helm-deployment",
+  "apis": [],
+  "components": [
+    "helm-chart",
+    "schema-job",
+    "init-containers",
+    "database-connectivity"
+  ],
+  "concepts": [
+    "istio",
+    "mtls",
+    "sidecar-injection",
+    "init-containers",
+    "container-startup-order",
+    "kubernetes",
+    "postgres"
+  ],
+  "severity": "high",
+  "userImpact": "Users deploying Temporal with Istio STRICT mTLS cannot perform schema setup/update, preventing cluster initialization and upgrades.",
+  "rootCause": "Init containers execute before the Istio sidecar is ready, preventing mTLS-protected database connections that schema containers require.",
+  "proposedFix": "Either run schema setup after the Istio sidecar is ready, or provide a chart-supported option to run schema setup as normal containers instead of init containers.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Because application containers, including the sidecar, do not start until init containers complete, the schema init container cannot establish the mTLS-protected connection to Postgres.",
+  "number": 10236,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:57:04.073Z"
+}

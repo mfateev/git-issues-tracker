@@ -1,0 +1,40 @@
+{
+  "summary": "Users cannot test standalone activity client flow including the full interceptor chain (tracing, metrics) in TestWorkflowEnvironment without running a real Temporal server. Currently ExecuteActivity bypasses the ClientOutboundInterceptor chain entirely.",
+  "category": "feature",
+  "subcategory": "testing",
+  "apis": [
+    "ExecuteActivity",
+    "SignalWorkflow",
+    "QueryWorkflow",
+    "CancelWorkflow"
+  ],
+  "components": [
+    "TestWorkflowEnvironment",
+    "ClientOutboundInterceptor",
+    "activity-executor",
+    "interceptor-chain"
+  ],
+  "concepts": [
+    "interceptor-chain",
+    "client-side-testing",
+    "tracing",
+    "metrics",
+    "standalone-activities",
+    "test-framework"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot adequately test their ClientOutboundInterceptor implementations for standalone activities without spinning up an actual Temporal server.",
+  "rootCause": "TestActivityEnvironment.ExecuteActivity calls taskHandler.Execute() directly, bypassing the ClientOutboundInterceptor chain that is normally invoked by the client.",
+  "proposedFix": "Add ExecuteStandaloneActivity to TestWorkflowEnvironment that sets up header context, calls through the ClientOutboundInterceptor chain, and returns a ClientActivityHandle supporting Get(), Cancel(), and Terminate().",
+  "workaround": "Spin up a real Temporal server for testing, which is costly and slow.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2158,
+    2302
+  ],
+  "keyQuote": "There is no way to test the full standalone activity client flow (client → interceptor chain → worker) without spinning up a real Temporal server.",
+  "number": 2318,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:38:40.347Z"
+}

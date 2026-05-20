@@ -1,0 +1,31 @@
+{
+  "summary": "The TypeScript SDK's core-bridge component ships with four known Cargo dependency vulnerabilities with available fixes. A patch release is needed to bump quinn-proto, rustls-webpki, and tar to resolve CVEs detected by container image vulnerability scanners.",
+  "category": "bug",
+  "subcategory": "core-bridge-dependencies",
+  "apis": [],
+  "components": [
+    "core-bridge",
+    "Cargo.lock",
+    "Cargo-dependencies"
+  ],
+  "concepts": [
+    "vulnerability",
+    "security",
+    "supply-chain",
+    "dependency-patching",
+    "cve",
+    "container-scanning"
+  ],
+  "severity": "high",
+  "userImpact": "Teams using vulnerability scanning tools in CI/CD must suppress CVEs to pass security gates, weakening their security controls.",
+  "rootCause": "Outdated Cargo dependencies with known CVEs (quinn-proto 0.11.13, rustls-webpki 0.103.9, tar 0.4.44) not updated to patch versions with fixes.",
+  "proposedFix": "Run `cargo update -p quinn-proto -p webpki -p tar` in core-bridge and cut a patch release.",
+  "workaround": "Suppress detected CVEs via `.trivyignore` file in CI/CD vulnerability scanning.",
+  "resolution": "fixed",
+  "resolutionDetails": "Dependencies were bumped and released in version 1.16.0.",
+  "related": [],
+  "keyQuote": "These dependencies have been bumped as of 1.16.0",
+  "number": 2003,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:49:54.501Z"
+}

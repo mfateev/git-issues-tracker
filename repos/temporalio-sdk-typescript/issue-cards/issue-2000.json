@@ -1,0 +1,34 @@
+{
+  "summary": "When child workflow start fails or is cancelled, the corresponding childWorkflowComplete map entry is not removed, creating an orphaned entry that leaks memory for the duration of workflow execution.",
+  "category": "bug",
+  "subcategory": "child-workflow-execution",
+  "apis": [
+    "resolveChildWorkflowExecutionStart"
+  ],
+  "components": [
+    "workflow-runtime",
+    "child-workflow-executor",
+    "completion-handler"
+  ],
+  "concepts": [
+    "memory-leak",
+    "child-workflow-execution",
+    "failure-handling",
+    "cleanup",
+    "resource-management",
+    "state-tracking",
+    "cancellation"
+  ],
+  "severity": "low",
+  "userImpact": "Long-running workflows that repeatedly fail to start child workflows will gradually accumulate orphaned completion entries, leading to memory leaks over time.",
+  "rootCause": "When child workflow start fails or is cancelled, the corresponding completion handler entry is not removed from the childWorkflowComplete map, causing it to never be garbage collected.",
+  "proposedFix": "Delete the corresponding childWorkflowComplete entry in resolveChildWorkflowExecutionStart when the activation is failed or cancelled.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Since the child workflow never started, it will never complete, so this entry is orphaned and constitutes a memory leak for the duration of the workflow execution.",
+  "number": 2000,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:49:51.028Z"
+}

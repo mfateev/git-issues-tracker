@@ -1,0 +1,32 @@
+{
+  "summary": "Extend TemporalReportedProblems to surface repeated activity retry failures with low-cardinality tokens, enabling operators to detect stuck activities without inspecting individual workflow history.",
+  "category": "feature",
+  "subcategory": "activity-retry",
+  "apis": [],
+  "components": [
+    "visibility",
+    "activity-retry",
+    "mutable-state",
+    "dynamic-config"
+  ],
+  "concepts": [
+    "retry",
+    "visibility",
+    "failure",
+    "activity-monitoring",
+    "operational-signal",
+    "low-cardinality"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators gain improved visibility into repeated activity retry failures, enabling faster detection and diagnosis of stuck executions without manual history inspection.",
+  "rootCause": null,
+  "proposedFix": "Add namespace dynamic config threshold for consecutive activity task problems; upsert bounded, low-cardinality tokens (category=ActivityTaskFailed/ActivityTaskTimedOut, cause=ApplicationFailure/ActivityTaskTimedOutCauseStartToClose) into TemporalReportedProblems; clear signal when activity succeeds, is canceled, or reset; derive from mutable/history state rather than storing raw error messages.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Activity retry loops can create a similar operational state: an execution is still alive, but one or more activities are repeatedly failing or timing out and the workflow is not making useful progress.",
+  "number": 10149,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:56:05.652Z"
+}

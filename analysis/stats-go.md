@@ -1,6 +1,6 @@
 # Go SDK - Issue Statistics
 
-**Generated:** 2026-04-04
+**Generated:** 2026-05-20
 **Repository:** [temporalio/sdk-go](https://github.com/temporalio/sdk-go)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 171 |
-| Total Closed Issues | 683 |
-| Total All Issues | 854 |
-| Bugs (open) | 61 |
+| Total Open Issues | 170 |
+| Total Closed Issues | 697 |
+| Total All Issues | 867 |
+| Bugs (open) | 60 |
 | Enhancements/Features (open) | 89 |
 | Security Issues (open) | 1 |
 | Total Upvotes (👍) on open | 83 |
-| Total Comments on open | 214 |
+| Total Comments on open | 213 |
 | Issues with Upvotes | 38 (22%) |
 | Issues with Comments | 87 (51%) |
-| Average Age (days) | 998 |
-| Stale Issues (>12 months) | 125 (73%) |
+| Average Age (days) | 1039 |
+| Stale Issues (>12 months) | 130 (76%) |
 
 ---
 ## Resolution Metrics
@@ -36,35 +36,34 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 80% (683/854) |
+| Resolution Rate | 80% (697/867) |
 | Avg Time to Close (calendar) | 126 days |
 | Avg Time to Close (business) | 90 days |
 | Median Time to Close (calendar) | 16 days |
 | Median Time to Close (business) | 12 days |
 | 90th Percentile (calendar) | 322 days |
 | 90th Percentile (business) | 230 days |
-| Resolved within 30 days | 60% |
+| Resolved within 30 days | 59% |
 | Resolved within 90 days | 78% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 225 | 33% |
-| Completed (features) | 224 | 33% |
-| Self-resolved | 152 | 22% |
+| Fixed (bugs) | 230 | 33% |
+| Completed (features) | 227 | 33% |
+| Self-resolved | 155 | 22% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 82 | 12% |
+| Other | 85 | 12% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-05 | 6 | 5 | +1 |
 | 2025-06 | 6 | 7 | -1 |
 | 2025-07 | 8 | 13 | -5 |
 | 2025-08 | 15 | 16 | -1 |
@@ -75,10 +74,11 @@
 | 2026-01 | 12 | 9 | +3 |
 | 2026-02 | 10 | 7 | +3 |
 | 2026-03 | 9 | 7 | +2 |
-| 2026-04 | 1 | 0 | +1 |
-| **Total** | **102** | **101** | **+1** |
+| 2026-04 | 7 | 11 | -4 |
+| 2026-05 | 6 | 3 | +3 |
+| **Total** | **108** | **110** | **-2** |
 
-📈 **Backlog Growing:** 1 more issues opened than closed in the last 12 months.
+📉 **Backlog Shrinking:** 2 more issues closed than opened in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 57 |
-| Issues Closed | 42 |
-| Net Change | +15 |
-| Bugs Closed | 9 |
-| Enhancements Closed | 26 |
+| Issues Opened | 50 |
+| Issues Closed | 45 |
+| Net Change | +5 |
+| Bugs Closed | 12 |
+| Enhancements Closed | 22 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 103 | 74 |
-| Median | 10 | 7 |
-| 90th Percentile | 236 | 168 |
+| Average | 130 | 93 |
+| Median | 18 | 13 |
+| 90th Percentile | 273 | 196 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 64% |
-| Within 90 days | 81% |
+| Within 30 days | 58% |
+| Within 90 days | 76% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -122,12 +122,12 @@
 | Age | Count | % |
 |-----|-------|---|
 | Last 30 days | 7 | 4% |
-| 1-3 months | 10 | 6% |
-| 3-6 months | 8 | 5% |
-| 6-12 months | 10 | 6% |
-| 1-2 years | 31 | 18% |
+| 1-3 months | 6 | 4% |
+| 3-6 months | 7 | 4% |
+| 6-12 months | 12 | 7% |
+| 1-2 years | 30 | 18% |
 | 2-3 years | 30 | 18% |
-| 3+ years | 75 | 44% |
+| 3+ years | 78 | 46% |
 
 ---
 
@@ -198,12 +198,13 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2026-04-01 | [#2264](https://github.com/temporalio/sdk-go/issues/2264) | 0 | Deprecate namespace fields on cross-namespace workflow comma... |
-| 2026-03-24 | [#2252](https://github.com/temporalio/sdk-go/issues/2252) | 0 | [api-go] Allow payload visitors to visit memo payloads in ag... |
-| 2026-03-17 | [#2236](https://github.com/temporalio/sdk-go/issues/2236) | 0 | pollerBalancer.balance can unnecessarily block due to non-de... |
-| 2026-03-17 | [#2235](https://github.com/temporalio/sdk-go/issues/2235) | 0 | taskWorker.taskPollerType is not being set anywhere |
-| 2026-03-16 | [#2233](https://github.com/temporalio/sdk-go/issues/2233) | 0 | [go] Support conflict token retry loop for schedule updates |
-| 2026-03-10 | [#2222](https://github.com/temporalio/sdk-go/issues/2222) | 0 | Code coverage tooling |
+| 2026-05-19 | [#2350](https://github.com/temporalio/sdk-go/issues/2350) | 0 | Implement operator commands for Standalone Activities |
+| 2026-05-18 | [#2345](https://github.com/temporalio/sdk-go/issues/2345) | 0 | fix: schedule describe does not populate Priority on Schedul... |
+| 2026-05-14 | [#2335](https://github.com/temporalio/sdk-go/issues/2335) | 0 | ChildWorkflowOptions missing WorkflowIDConflictPolicy (only ... |
+| 2026-05-11 | [#2329](https://github.com/temporalio/sdk-go/issues/2329) | 0 | No way to disable the SDK's default gRPC service config |
+| 2026-05-07 | [#2326](https://github.com/temporalio/sdk-go/issues/2326) | 0 | isPanicking() uses 14% CPU and 10% allocations due to runtim... |
+| 2026-04-30 | [#2318](https://github.com/temporalio/sdk-go/issues/2318) | 0 | Add support for Standalone Activities to TestWorkflowEnviron... |
+| 2026-04-24 | [#2304](https://github.com/temporalio/sdk-go/issues/2304) | 0 | [ClientOutboundInterceptor. UpdateWithStartWorkflow] Add str... |
 
 ---
 
@@ -212,7 +213,7 @@ Priority = Upvotes × 2 + Comments
 | Label | Count |
 |-------|-------|
 | enhancement | 89 |
-| potential-bug | 44 |
+| potential-bug | 43 |
 | bug | 18 |
 | external dependency | 5 |
 | mend: dependency security vulnerability | 1 |
@@ -220,7 +221,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Bugs (61 open issues)
+## Bugs (60 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
@@ -234,8 +235,8 @@ Priority = Upvotes × 2 + Comments
 | [#1100](https://github.com/temporalio/sdk-go/issues/1100) | 1 | 5 | TestWorkflowEnvironment should surface errors and respect fa... |
 | [#982](https://github.com/temporalio/sdk-go/issues/982) | 1 | 4 | Cannot register mock activity with string name on test workf... |
 | [#642](https://github.com/temporalio/sdk-go/issues/642) | 1 | 7 | Inconsistent behavior when asserting invocations |
-| [#2236](https://github.com/temporalio/sdk-go/issues/2236) | 0 | 0 | pollerBalancer.balance can unnecessarily block due to non-de... |
-| [#2235](https://github.com/temporalio/sdk-go/issues/2235) | 0 | 2 | taskWorker.taskPollerType is not being set anywhere |
+| [#2304](https://github.com/temporalio/sdk-go/issues/2304) | 0 | 0 | [ClientOutboundInterceptor. UpdateWithStartWorkflow] Add str... |
+| [#2286](https://github.com/temporalio/sdk-go/issues/2286) | 0 | 1 | Standalone Activities - tracing interceptor doesn't intercep... |
 | [#2213](https://github.com/temporalio/sdk-go/issues/2213) | 0 | 0 | Doclink: interfaces are not linked |
 | [#2204](https://github.com/temporalio/sdk-go/issues/2204) | 0 | 1 | activity panics missing log stack trace at caller level |
 | [#2141](https://github.com/temporalio/sdk-go/issues/2141) | 0 | 1 | Activity Alias Collision in Test Environment When Using Anon... |
@@ -255,11 +256,11 @@ Priority = Upvotes × 2 + Comments
 | [#1536](https://github.com/temporalio/sdk-go/issues/1536) | 0 | 0 | TERMINATE_IF_RUNNING doesn't work for duplicate child workfl... |
 | [#1496](https://github.com/temporalio/sdk-go/issues/1496) | 0 | 0 | Workflow outcome is inconsistent between test env and real s... |
 
-*...and 31 more bugs*
+*...and 30 more bugs*
 
 ---
 
-## Stale Issues (125 open issues with no activity >12 months)
+## Stale Issues (130 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -278,12 +279,12 @@ Top stale issues by upvotes:
 | [#351](https://github.com/temporalio/sdk-go/issues/351) | 2 | 2021-01-26 | [Testing] Cancellation of Parent Workflow with Chi... |
 | [#167](https://github.com/temporalio/sdk-go/issues/167) | 2 | 2024-03-15 | Activity times out in test environment with child ... |
 | [#61](https://github.com/temporalio/sdk-go/issues/61) | 2 | 2024-12-17 | Remove mocks package |
+| [#1954](https://github.com/temporalio/sdk-go/issues/1954) | 1 | 2025-05-11 | Ability to get original Logger from activity.GetLo... |
+| [#1906](https://github.com/temporalio/sdk-go/issues/1906) | 1 | 2025-04-07 | workflowcheck crash (index out of range) |
 | [#1646](https://github.com/temporalio/sdk-go/issues/1646) | 1 | 2024-09-23 | SetStartTime for activity test env |
 | [#1397](https://github.com/temporalio/sdk-go/issues/1397) | 1 | 2025-03-03 | Add Support for `ReplayWorkflowHistoryOptions` to ... |
 | [#1351](https://github.com/temporalio/sdk-go/issues/1351) | 1 | 2024-01-16 | Support interceptor on WorkflowRun.Get |
+| [#1114](https://github.com/temporalio/sdk-go/issues/1114) | 1 | 2025-04-21 | Support activity functions with variadic arguments... |
 | [#986](https://github.com/temporalio/sdk-go/issues/986) | 1 | 2025-01-22 | AwaitWithTimeout does not cancel its timer when co... |
-| [#982](https://github.com/temporalio/sdk-go/issues/982) | 1 | 2025-01-12 | Cannot register mock activity with string name on ... |
-| [#949](https://github.com/temporalio/sdk-go/issues/949) | 1 | 2022-12-02 | Allow user to override default maximum activity at... |
-| [#754](https://github.com/temporalio/sdk-go/issues/754) | 1 | 2024-12-17 | gRPC Proxy Integration Test |
 
-*...and 105 more stale issues*
+*...and 110 more stale issues*

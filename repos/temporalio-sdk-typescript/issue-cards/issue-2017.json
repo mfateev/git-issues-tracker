@@ -1,0 +1,31 @@
+{
+  "summary": "Add support for `URLPattern` from Node's WHAT WG URL API (available since Node 23.8.0) to the workflow sandbox. While `URL` and `URLSearchParams` are already supported, adding `URLPattern` requires careful handling due to SDK's Node 20 LTS support constraint.",
+  "category": "feature",
+  "subcategory": "workflow-sandbox",
+  "apis": [],
+  "components": [
+    "workflow-sandbox",
+    "url-api-support",
+    "node-compatibility"
+  ],
+  "concepts": [
+    "node-compatibility",
+    "url-standard",
+    "workflow-sandbox",
+    "version-compatibility",
+    "whatwg-api",
+    "api-support"
+  ],
+  "severity": "low",
+  "userImpact": "Allows workflows to use the URLPattern API from modern Node.js versions, improving code compatibility and standards alignment.",
+  "rootCause": null,
+  "proposedFix": "Add URLPattern to the workflow sandbox with appropriate Node version compatibility handling for Node 20 LTS support.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The support won't be as simple as adding `URLPattern` beside `URL` and `URLSearchParam`",
+  "number": 2017,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:50:09.722Z"
+}

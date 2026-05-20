@@ -1,0 +1,40 @@
+{
+  "summary": "Schedule with microsecond-precision offsets launches only once instead of repeatedly according to the interval specification. The issue appears to stem from truncation of the microsecond component during validation or persistence.",
+  "category": "bug",
+  "subcategory": "schedule-intervals",
+  "apis": [
+    "ScheduleIntervalSpec",
+    "ScheduleSpec",
+    "Schedule",
+    "ScheduleActionStartWorkflow",
+    "create_schedule",
+    "ScheduleOverlapPolicy"
+  ],
+  "components": [
+    "scheduler",
+    "schedule-persistence",
+    "duration-handling",
+    "interval-calculator"
+  ],
+  "concepts": [
+    "schedule-intervals",
+    "offset-precision",
+    "microsecond-resolution",
+    "duration-truncation",
+    "timestamp-calculation",
+    "schedule-validation",
+    "schedule-state"
+  ],
+  "severity": "high",
+  "userImpact": "Users who define schedule offsets with microsecond precision experience schedules launching only once instead of repeatedly according to the specified interval.",
+  "rootCause": "The offset is being truncated to second-resolution somewhere in the validation or persistence path before the interval calculator processes it, causing subsequent fire timestamps to never align with the interval.",
+  "proposedFix": "Add explicit precision contract for ScheduleIntervalSpec.offset documenting supported resolutions, and either reject sub-second offsets loudly or support them end-to-end without silent truncation.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "somewhere on the validation/persistence path the offset is being downcast to second-resolution before the interval calculator sees it",
+  "number": 10312,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:58:34.636Z"
+}

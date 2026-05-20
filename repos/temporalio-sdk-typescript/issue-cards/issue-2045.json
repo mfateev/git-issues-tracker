@@ -1,0 +1,31 @@
+{
+  "summary": "Users of @bufbuild/protobuf (protobuf-es) library cannot use generated types with Temporal clients or workflows without writing their own payload converters. The SDK currently only provides converters for protobufjs, and the two libraries produce incompatible message shapes.",
+  "category": "feature",
+  "subcategory": "protobuf-converters",
+  "apis": [],
+  "components": [
+    "payload-converter",
+    "protobuf",
+    "serialization"
+  ],
+  "concepts": [
+    "protobuf",
+    "serialization",
+    "payload",
+    "encoding",
+    "compatibility",
+    "types"
+  ],
+  "severity": "medium",
+  "userImpact": "Users adopting @bufbuild/protobuf must write approximately 150 lines of custom payload converter code to use their generated types with Temporal.",
+  "rootCause": "@bufbuild/protobuf and protobufjs produce incompatible message shapes (Schema + create(Schema, init) vs Message.create(init)), so existing protobufjs converters cannot be reused.",
+  "proposedFix": "Add three parallel converter classes (ProtobufEsBinaryPayloadConverter, ProtobufEsJsonPayloadConverter, DefaultPayloadConverterWithProtobufsEs) under @temporalio/common/lib/protobufs-es with @bufbuild/protobuf as optional peer dependency.",
+  "workaround": "Users can implement their own binary and JSON converters with custom composite ordering, messageType metadata, and Registry forwarding for google.protobuf.Any (~150 lines).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Users who generate their proto types with @bufbuild/protobuf v2 can't pass those types to a Temporal client or workflow without writing their own payload converter.",
+  "number": 2045,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:51:19.274Z"
+}

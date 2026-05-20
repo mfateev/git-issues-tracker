@@ -1,0 +1,36 @@
+{
+  "summary": "futureImpl.Chain blocks Get forever when the source future is already ready because it doesn't properly complete the destination future. The destination is left in a partially completed state with the internal channel never closed, preventing propagation of chained dependents.",
+  "category": "bug",
+  "subcategory": "futures",
+  "apis": [
+    "NewFuture",
+    "Chain",
+    "Get"
+  ],
+  "components": [
+    "futureImpl",
+    "futures",
+    "workflow"
+  ],
+  "concepts": [
+    "blocking",
+    "futures",
+    "async-operations",
+    "channel-handling",
+    "state-management",
+    "completion",
+    "propagation"
+  ],
+  "severity": "critical",
+  "userImpact": "Users who chain futures where the source is already ready experience indefinite blocking when calling Get() on the chained future.",
+  "rootCause": "When source future is already ready, Chain copies value and err directly without calling Set(), leaving the destination future in a partially completed state with the internal channel never closed.",
+  "proposedFix": "Route the already-ready path through normal completion logic: val, err := ch.GetValueAndError(); f.Set(val, err)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "The fix routes the already-ready path through Set() to properly close the internal channel and propagate chained dependents.",
+  "related": [],
+  "keyQuote": "The fix is to route the already-ready path through the normal completion logic: val, err := ch.GetValueAndError(); f.Set(val, err)",
+  "number": 2279,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:37:53.134Z"
+}

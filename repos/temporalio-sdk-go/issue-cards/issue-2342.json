@@ -1,0 +1,35 @@
+{
+  "summary": "Protobuf namespace conflict between vendored external_storage.proto in SDK v1.43.0 and the public version in go.temporal.io/api v1.62.12+ causes init-time panic when both packages are imported. The SDK vendors a copy of the proto file, while the API package added the same file, causing duplicate registration in the global protobuf registry.",
+  "category": "bug",
+  "subcategory": "proto-vendoring",
+  "apis": [],
+  "components": [
+    "protobuf-registry",
+    "vendored-protos",
+    "internal/temporalapi",
+    "internal/extstore",
+    "dependency-management"
+  ],
+  "concepts": [
+    "proto-namespace-conflict",
+    "dependency-incompatibility",
+    "vendoring",
+    "init-panic",
+    "protobuf-registry",
+    "version-constraint"
+  ],
+  "severity": "critical",
+  "userImpact": "Any consumer importing both go.temporal.io/sdk v1.43.0 and go.temporal.io/api v1.62.12+ experiences an immediate panic at startup, blocking routine dependency updates and forcing version pinning.",
+  "rootCause": "go.temporal.io/sdk v1.43.0 vendors external_storage.proto at internal/temporalapi/sdk/v1/external_storage.pb.go, while go.temporal.io/api v1.62.12 added the same file at sdk/v1/external_storage.pb.go; both register with the global protobuf registry which requires unique file names.",
+  "proposedFix": "Remove vendored internal/temporalapi/sdk/v1/external_storage.pb.go from the SDK and depend on the public go.temporal.io/api/sdk/v1 package instead.",
+  "workaround": "Pin go.temporal.io/api to v1.62.11 or earlier",
+  "resolution": "fixed",
+  "resolutionDetails": "Removed vendored internal/temporalapi/ directory and repointed sdkpb imports in internal/extstore/ to go.temporal.io/api/sdk/v1, with go.temporal.io/api bumped to v1.62.12.",
+  "related": [
+    2343
+  ],
+  "keyQuote": "proto: file \"temporal/api/sdk/v1/external_storage.proto\" has a name conflict over temporal.api.sdk.v1.ExternalStorage...",
+  "number": 2342,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:39:23.063Z"
+}

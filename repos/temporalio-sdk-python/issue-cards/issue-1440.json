@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to include agent name from ADK labels in the default TemporalModel activity summary, improving traceability of multi-agent workflows in the Temporal UI timeline.",
+  "category": "feature",
+  "subcategory": "adk-integration",
+  "apis": [],
+  "components": [
+    "adk-integration",
+    "activity-executor",
+    "temporal-model",
+    "ui-timeline"
+  ],
+  "concepts": [
+    "multi-agent workflows",
+    "activity traceability",
+    "observability",
+    "behavioral trust",
+    "agent attribution",
+    "activity naming"
+  ],
+  "severity": "medium",
+  "userImpact": "Multi-agent ADK workflow operators cannot easily distinguish which agent performed which action in the Temporal UI timeline when all activities show identical 'invoke_model' summaries.",
+  "rootCause": null,
+  "proposedFix": "Include agent_name, agent_id, and trust_tier from llm_request.config.labels in the default activity summary (e.g., 'invoke_model: FleetAgent [T2]').",
+  "workaround": "Subclass TemporalModel and extract agent name from labels manually.",
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to include agent labels in default activity summary for improved multi-agent workflow traceability and behavioral trust monitoring.",
+  "related": [],
+  "keyQuote": "in multi-agent Temporal workflows, 'invoke_model' repeated 50 times gives no indication of which agent is responsible for which actions, making post-incident attribution very difficult",
+  "number": 1440,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:45:43.592Z"
+}

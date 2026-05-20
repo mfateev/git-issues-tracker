@@ -1,0 +1,34 @@
+{
+  "summary": "The databaseCommand field added in recent changes is not exposed as an environment variable in the Docker configuration, forcing users to manually pass config files instead of using environment variables to configure PostgreSQL connectivity.",
+  "category": "feature",
+  "subcategory": "docker-configuration",
+  "apis": [],
+  "components": [
+    "server",
+    "docker",
+    "configuration",
+    "database"
+  ],
+  "concepts": [
+    "environment-variables",
+    "docker-configuration",
+    "database-connectivity",
+    "configuration-management",
+    "containerization"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal Server in Docker cannot easily configure database commands via environment variables and must resort to manually passing config files.",
+  "rootCause": "The databaseCommand field was added to support new database features but was not wired into the docker configuration environment variables.",
+  "proposedFix": "Add the databaseCommand field to config/docker.yaml with a corresponding DATABASE_COMMAND environment variable.",
+  "workaround": "Manually pass a config file to the server image instead of using environment variables.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    9879,
+    9156
+  ],
+  "keyQuote": "Add the databaseCommand field to config/docker.yaml with an appropriate environment variable like DATABASE_COMMAND",
+  "number": 10245,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:57:45.203Z"
+}

@@ -1,0 +1,33 @@
+{
+  "summary": "Proposal to replace the standard gocql driver with ScyllaDB's GoCQL fork (v1.18) to improve Temporal Server performance. Benchmarks show +8.2% throughput improvement and 20.5% reduction in memory allocations, though support for Cassandra 3.x would be dropped.",
+  "category": "feature",
+  "subcategory": "cassandra-driver",
+  "apis": [],
+  "components": [
+    "cassandra-driver",
+    "persistence-layer",
+    "metrics",
+    "connection-pooling"
+  ],
+  "concepts": [
+    "performance-optimization",
+    "memory-efficiency",
+    "throughput",
+    "garbage-collection",
+    "driver-upgrade",
+    "scalability",
+    "buffer-pooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users running Temporal Server will experience improved throughput and reduced memory consumption, leading to better scalability and lower infrastructure costs.",
+  "rootCause": "Standard gocql driver has inefficient buffer reuse, frame allocation patterns, and metrics caching that result in high memory allocations and GC overhead.",
+  "proposedFix": "Replace github.com/gocql/gocql with github.com/scylladb/gocql v1.18.0 via go.mod replace directive; the ScyllaDB fork is a drop-in replacement maintaining API compatibility.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Switching from upstream github.com/gocql/gocql v1.7.0 to github.com/scylladb/gocql v1.18.0 yields +8.2% throughput",
+  "number": 10177,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:56:28.433Z"
+}

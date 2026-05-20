@@ -1,0 +1,34 @@
+{
+  "summary": "API key rotation for a service account causes all paused schedules to become active instead of remaining paused. After creating a new API key, previously paused schedules resume running after 2-3 minutes.",
+  "category": "bug",
+  "subcategory": "schedules",
+  "apis": [
+    "Schedule"
+  ],
+  "components": [
+    "schedule-service",
+    "api-key-management",
+    "authentication",
+    "temporal-cloud"
+  ],
+  "concepts": [
+    "pause-state",
+    "api-key-rotation",
+    "service-account",
+    "state-persistence",
+    "credentials",
+    "schedule-lifecycle"
+  ],
+  "severity": "high",
+  "userImpact": "When rotating API keys for a service account, previously paused schedules unexpectedly resume execution, potentially causing unintended workflow executions.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "All paused schedules are now in `Running` state",
+  "number": 10168,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:55:57.738Z"
+}

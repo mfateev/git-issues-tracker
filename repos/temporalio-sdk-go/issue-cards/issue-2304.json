@@ -1,0 +1,37 @@
+{
+  "summary": "ClientOutboundInterceptor.UpdateWithStartWorkflow lacks a safe API to inspect and modify StartWorkflowOption, forcing users to rely on unsafe and reflect functions at runtime.",
+  "category": "feature",
+  "subcategory": "interceptors",
+  "apis": [
+    "StartWorkflowOption",
+    "ClientOutboundInterceptor",
+    "UpdateWithStartWorkflow"
+  ],
+  "components": [
+    "interceptor",
+    "client",
+    "options"
+  ],
+  "concepts": [
+    "runtime-inspection",
+    "options-manipulation",
+    "reflection",
+    "unsafe-operations",
+    "testing-support",
+    "api-design"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot safely inspect or modify StartWorkflowOption in interceptors, forcing them to use unsafe and reflect functions for testing and customization.",
+  "rootCause": "Missing public API to access and modify StartWorkflowOption within UpdateWithStartWorkflow interceptor context",
+  "proposedFix": "Add a struct that provides safe, public access to inspect and modify StartWorkflowOption",
+  "workaround": "Use unsafe and reflect functions at runtime, though this is not ideal",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1731
+  ],
+  "keyQuote": "Currently, users are forced to use `unsafe` and `reflect` functions to inspect and modify values at runtime (eg test environment), which is not ideal",
+  "number": 2304,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:38:17.414Z"
+}
