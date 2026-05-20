@@ -1,0 +1,33 @@
+{
+  "summary": "After clean install of Temporal 1.31.0, the first workflow task on any system workflow hangs until timeout, then the matching service permanently blocks retries with 'task already started' errors, creating a deadlock that prevents workflow progress.",
+  "category": "bug",
+  "subcategory": "system-workflow-cold-start",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "workflow-scheduler",
+    "retry-processor",
+    "history-service"
+  ],
+  "concepts": [
+    "cold-start",
+    "deadlock",
+    "task-timeout",
+    "retry-blocking",
+    "state-synchronization",
+    "goroutine-blocking",
+    "task-dispatch"
+  ],
+  "severity": "critical",
+  "userImpact": "Users cannot perform basic operations like namespace deletion on clean Temporal Server installations, and system workflows triggered after server startup will hang indefinitely.",
+  "rootCause": "The matching service maintains stale in-flight task state that is not cleared on cold start, causing it to reject valid retries. Goroutines in priTaskMatcher are stuck in sync.Cond.Wait, indicating a synchronization issue between task state tracking and retry dispatch logic.",
+  "proposedFix": null,
+  "workaround": "Use matching.useNewMatcher: false with history.defaultWorkflowTaskTimeout: 300s for temporal-system namespace; however, this is not reliable and requires waiting for shard churn to clear the state.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Matching service thinks the timed-out task is still in-flight, so no retry can ever be dispatched — permanent deadlock.",
+  "number": 10320,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:58:39.921Z"
+}

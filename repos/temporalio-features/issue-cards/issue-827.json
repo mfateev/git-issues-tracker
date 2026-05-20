@@ -1,0 +1,37 @@
+{
+  "summary": "Add logging to SDKs when workflow task completion takes a long time due to external storage operations. The worker should log metrics about payload downloads/uploads when durations exceed 5 seconds (info level) or 10 seconds (warning level).",
+  "category": "feature",
+  "subcategory": "external-storage-logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "external-storage",
+    "task-executor",
+    "logging",
+    "payload-handler"
+  ],
+  "concepts": [
+    "external-storage",
+    "workflow-task-timeout",
+    "performance-monitoring",
+    "logging",
+    "latency",
+    "payload-operations",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need better visibility into workflow task duration and external storage operation performance to prevent and diagnose timeout issues.",
+  "rootCause": "External storage operations (download/upload) add latency to workflow task completion, causing them to approach or exceed timeouts, with no visibility into the actual duration.",
+  "proposedFix": "Log external storage metrics including total wall clock time, payload count, and payload size for both downloads and uploads at info level when >5s and warning level when >10s, using TMPRL1104 rule.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2883,
+    2066
+  ],
+  "keyQuote": "With the introduction of external storage, downloading and uploading payload from/to external storage contributes to the workflow task duration.",
+  "number": 827,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-05-20T16:36:21.480Z"
+}

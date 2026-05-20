@@ -1,0 +1,33 @@
+{
+  "summary": "temporal-sql-tool currently exposes database passwords through environment variables or command-line arguments visible in the process table. This feature request asks for support to read passwords from a file via --password-file or SQL_PASSWORD_FILE for improved security.",
+  "category": "feature",
+  "subcategory": "password-management",
+  "apis": [],
+  "components": [
+    "temporal-sql-tool",
+    "password-handling",
+    "cli-arguments",
+    "file-handling"
+  ],
+  "concepts": [
+    "credential-management",
+    "process-security",
+    "file-based-configuration",
+    "defense-in-depth",
+    "password-handling",
+    "security-hardening",
+    "cli-configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users can improve security by storing database passwords in files instead of exposing them in the process table or command-line arguments.",
+  "rootCause": null,
+  "proposedFix": "Support reading the SQL database password from a file by setting an option like --password-file or an SQL_PASSWORD_FILE environment variable.",
+  "workaround": "Use .pgpass file (PGPASSFILE) for PostgreSQL passwords, which works with temporal-sql-tool.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Both of these result in the password being readable from the process table (`/proc`). For defense in depth, it would be preferable to read the password from a file.",
+  "number": 10028,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:55:24.416Z"
+}

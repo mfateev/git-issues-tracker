@@ -1,0 +1,33 @@
+{
+  "summary": "In pull-based replication, when the target cluster has twice the number of shards as the source cluster, replication tasks are never deleted from the source even after being fully applied by the standby. This causes replication tasks to accumulate indefinitely with no error logged.",
+  "category": "bug",
+  "subcategory": "replication-cleanup",
+  "apis": [],
+  "components": [
+    "history-service",
+    "replication-processor",
+    "shard-manager",
+    "persistence"
+  ],
+  "concepts": [
+    "replication",
+    "pull-replication",
+    "shard-count-mismatch",
+    "task-cleanup",
+    "cluster-failover",
+    "reader-states",
+    "resource-leak"
+  ],
+  "severity": "high",
+  "userImpact": "Users with multi-shard clusters and unequal shard counts experience unbounded growth of replication tasks in the source cluster, leading to potential disk space exhaustion.",
+  "rootCause": "Replication task cleanup loop fails to delete acked tasks when target cluster shard count is double the source cluster shard count, likely due to incorrect mapping or filtering logic in the cleanup process.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When the target cluster has twice the number of shards as the source, replication tasks on the source cluster are never deleted, even after the standby has fully applied all generated replication tasks.",
+  "number": 10224,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:57:03.241Z"
+}

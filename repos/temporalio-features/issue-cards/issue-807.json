@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to expose the CONTINUE_AS_NEW_VERSIONING_BEHAVIOR_USE_RAMPING_VERSION constant as a ContinueAsNewVersioningBehavior option across Temporal SDKs, enabling users to access advanced versioning strategies.",
+  "category": "feature",
+  "subcategory": "continue-as-new-versioning",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "versioning",
+    "continue-as-new",
+    "sdk-interfaces"
+  ],
+  "concepts": [
+    "versioning",
+    "continue-as-new",
+    "ramping-version",
+    "sdk-behavior",
+    "cross-version-compatibility",
+    "workflow-versioning"
+  ],
+  "severity": "medium",
+  "userImpact": "SDK users can now use the ramping version behavior directly through standardized ContinueAsNewVersioningBehavior interfaces instead of workarounds or lower-level access.",
+  "rootCause": null,
+  "proposedFix": "Expose CONTINUE_AS_NEW_VERSIONING_BEHAVIOR_USE_RAMPING_VERSION as a ContinueAsNewVersioningBehavior enum option in all Temporal SDKs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature was implemented across multiple SDKs with checkmarks indicating completion in Go, TypeScript, Python, .NET, and Ruby; pending in Java, Rust, PHP, and Temporal CLI.",
+  "related": [
+    738
+  ],
+  "keyQuote": "Expose `CONTINUE_AS_NEW_VERSIONING_BEHAVIOR_USE_RAMPING_VERSION` as a `ContinueAsNewVersioningBehavior` in SDKs",
+  "number": 807,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-05-20T16:35:56.145Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "ScheduleHandle.Describe() returns ScheduleWorkflowAction with zero-value Priority field even when the schedule was created with priority settings. The fix requires calling the existing convertFromPBPriority() function in scheduleActionFromProto.",
+  "category": "bug",
+  "subcategory": "schedule-action",
+  "apis": [
+    "ScheduleHandle.Describe",
+    "ScheduleWorkflowAction"
+  ],
+  "components": [
+    "schedule-client",
+    "priority-conversion",
+    "protobuf-conversion"
+  ],
+  "concepts": [
+    "scheduling",
+    "priority",
+    "fairness",
+    "protobuf-conversion",
+    "struct-mapping",
+    "zero-values"
+  ],
+  "severity": "medium",
+  "userImpact": "Users calling ScheduleHandle.Describe() receive schedules with empty Priority fields even when priority was set during creation, breaking schedule inspection and management workflows.",
+  "rootCause": "The scheduleActionFromProto function in internal_schedule_client.go omits the Priority field when building ScheduleWorkflowAction, despite the convertFromPBPriority conversion function already existing.",
+  "proposedFix": "Add Priority: convertFromPBPriority(workflow.GetPriority()), to the ScheduleWorkflowAction struct construction in scheduleActionFromProto.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "convertFromPBPriority already exists — it just isn't called here.",
+  "number": 2345,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:39:27.958Z"
+}

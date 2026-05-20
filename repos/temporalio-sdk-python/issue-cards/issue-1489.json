@@ -1,0 +1,32 @@
+{
+  "summary": "Worker metric temporal_worker_task_slots_used never drops to 0 even when completely idle, preventing KEDA autoscaling to zero replicas. The metric oscillates between 0 and 1 even hours after all workflows complete.",
+  "category": "bug",
+  "subcategory": "worker-metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics",
+    "autoscaling"
+  ],
+  "concepts": [
+    "metrics",
+    "autoscaling",
+    "KEDA",
+    "task-slots",
+    "worker-idle",
+    "Kubernetes",
+    "scaling"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot achieve auto-scaling to zero replicas in Kubernetes because worker metrics never indicate full idle state.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "we have no workflows running, and the worker is completely idle, however the worker is still emitting the metric `temporal_worker_task_slots_used` which is oscillating between 0 and 1",
+  "number": 1489,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:46:55.828Z"
+}

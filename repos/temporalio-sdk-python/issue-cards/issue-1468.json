@@ -1,0 +1,33 @@
+{
+  "summary": "The README recommends synchronous activities, but documentation also states async activities are much more performant. The recommendation lacks nuance about the tradeoff between safety (preventing event loop blocking) and performance benefits.",
+  "category": "docs",
+  "subcategory": "activity-recommendations",
+  "apis": [
+    "Worker",
+    "Activity"
+  ],
+  "components": [
+    "documentation",
+    "worker",
+    "activity-executor"
+  ],
+  "concepts": [
+    "sync-activities",
+    "async-activities",
+    "asyncio-event-loop",
+    "performance",
+    "event-loop-blocking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may make incorrect architectural decisions based on inconsistent documentation about when to use sync vs async activities.",
+  "rootCause": "Documentation recommendation doesn't clearly articulate the tradeoff: sync activities are safer (prevent event loop blocking) but async are more performant.",
+  "proposedFix": "Clarify documentation to explain that async activities are more performant but sync activities are safer from accidental event loop blocking, and adjust recommendation strength accordingly.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I would agree that the recommendation is a bit strong in that line and could use some more nuance.",
+  "number": 1468,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:46:18.143Z"
+}

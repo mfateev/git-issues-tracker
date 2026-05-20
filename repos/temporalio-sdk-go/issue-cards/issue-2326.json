@@ -1,0 +1,30 @@
+{
+  "summary": "The isPanicking() function calls runtime.Callers() and runtime.CallersFrames() on every workflow coroutine yield to detect panics, consuming 14.3% CPU and 10.2% memory allocations under load.",
+  "category": "bug",
+  "subcategory": "panic-detection",
+  "apis": [],
+  "components": [
+    "workflow-execution",
+    "coroutine",
+    "panic-detection"
+  ],
+  "concepts": [
+    "performance",
+    "cpu-overhead",
+    "memory-allocation",
+    "stack-unwinding",
+    "profiling"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience significantly reduced workflow throughput and higher resource utilization under load due to excessive CPU and memory consumption from panic detection.",
+  "rootCause": "isPanicking() unconditionally calls runtime.Callers() and runtime.CallersFrames() on every coroutine yield point, causing stack unwinding and allocations (81MB uintptr arrays, 125MB frame iterators, 48MB frame copies).",
+  "proposedFix": "Use recover() to detect panics, set a goroutine-local flag when entering panic handling, or allow disabling via WorkerOptions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This single function accounts for 14.3% of total CPU time and 10.2% of total allocations under load, dominated by stack unwinding.",
+  "number": 2326,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:38:46.576Z"
+}

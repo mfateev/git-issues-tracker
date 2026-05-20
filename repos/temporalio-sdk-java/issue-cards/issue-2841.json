@@ -1,0 +1,35 @@
+{
+  "summary": "User reported that signalWithStart doesn't propagate requestId from WorkflowOptions, using a random UUID instead. Investigation revealed this is intentional—setRequestId is internal-only API that will be removed to prevent confusion.",
+  "category": "question",
+  "subcategory": "request-id-handling",
+  "apis": [
+    "signalWithStart",
+    "SignalWithStartWorkflowExecutionRequest",
+    "WorkflowOptions",
+    "StartWorkflowExecutionRequest"
+  ],
+  "components": [
+    "workflow-client",
+    "request-factory",
+    "gRPC-client"
+  ],
+  "concepts": [
+    "idempotency",
+    "deduplication",
+    "request-id",
+    "client-options",
+    "signal-workflow"
+  ],
+  "severity": "low",
+  "userImpact": "Users mistakenly believe they can provide an idempotency key for signalWithStart via WorkflowOptions, but this feature is internal-only and unreliable.",
+  "rootCause": "The setRequestId method is documented as internal-only (not clearly communicated), and newSignalWithStartWorkflowExecutionRequest intentionally generates a fresh UUID.",
+  "proposedFix": "Remove setRequestId from the public WorkflowOptions API to eliminate the confusion about whether it's user-facing.",
+  "workaround": null,
+  "resolution": "wontfix",
+  "resolutionDetails": "The behavior is intentional—setRequestId is internal SDK functionality, not a public contract. The team will remove it from WorkflowOptions.",
+  "related": [],
+  "keyQuote": "setRequestId is NOT intended to be called by user code it is meant for internal functionality",
+  "number": 2841,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:40:39.249Z"
+}

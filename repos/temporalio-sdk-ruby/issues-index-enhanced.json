@@ -1,9 +1,236 @@
 {
-  "generatedAt": "2026-04-04T19:22:22.256Z",
+  "generatedAt": "2026-05-20T17:00:14.577Z",
   "repo": "temporalio-sdk-ruby",
-  "totalCount": 187,
-  "cardsCount": 187,
+  "totalCount": 192,
+  "cardsCount": 192,
   "issues": [
+    {
+      "number": 440,
+      "title": "[Feature Request] Implement operator commands for Standalone Activities",
+      "state": "OPEN",
+      "author": "maciejdudko",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-05-19T15:06:54Z",
+      "updatedAt": "2026-05-19T16:20:16Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-ruby/issues/440",
+      "bodyLength": 178,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        367,
+        822
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to implement operator commands for Standalone Activities in the Ruby SDK, referencing a features specification and depending on a related infrastructure issue.",
+      "category": "feature",
+      "subcategory": "standalone-activities",
+      "apis": [],
+      "components": [
+        "worker",
+        "activities",
+        "operator-commands"
+      ],
+      "concepts": [
+        "operator-commands",
+        "standalone-activities",
+        "activity-execution",
+        "worker-management"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 421,
+      "title": "[Bug] Executing Child Workflow in Go SDK which has no result crashes worker tasks with \"NoMethodError: undefined method 'metadata' for nil\"",
+      "state": "CLOSED",
+      "author": "askreet",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-04-22T12:20:29Z",
+      "updatedAt": "2026-04-22T20:41:18Z",
+      "closedAt": "2026-04-22T20:41:18Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-ruby/issues/421",
+      "bodyLength": 2324,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.24.2",
+        "v1.33.0",
+        "v1.3.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 2,
+      "summary": "Ruby SDK worker crashes with NoMethodError when executing a child workflow from the Go SDK that doesn't return a result, due to missing 'result' field in the event payload.",
+      "category": "bug",
+      "subcategory": "child-workflow",
+      "apis": [
+        "ExecuteChildWorkflow"
+      ],
+      "components": [
+        "payload-converter",
+        "worker",
+        "data-converter"
+      ],
+      "concepts": [
+        "cross-sdk-compatibility",
+        "payload-serialization",
+        "null-safety",
+        "error-handling",
+        "child-workflows"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 416,
+      "title": "[Bug] Using activity_executor :fiber in Ruby 4.0 or later raises a fibers unsupported error",
+      "state": "CLOSED",
+      "author": "jasonligg",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-04-12T20:37:49Z",
+      "updatedAt": "2026-04-13T20:56:18Z",
+      "closedAt": "2026-04-13T20:56:18Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-ruby/issues/416",
+      "bodyLength": 2797,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "2.45.3",
+        "1.3.0",
+        "4.0.1"
+      ],
+      "linkedIssues": [
+        26
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "The SDK incorrectly rejects fiber-based activity executors on Ruby 4.0+ due to a version check that doesn't account for major versions greater than 3, preventing users from using fiber executors on newer Ruby versions.",
+      "category": "bug",
+      "subcategory": "activity-executor",
+      "apis": [],
+      "components": [
+        "activity-executor",
+        "fiber-scheduler",
+        "version-check",
+        "bridge"
+      ],
+      "concepts": [
+        "version-compatibility",
+        "fiber-support",
+        "activity-execution",
+        "ruby-version-detection",
+        "concurrency",
+        "backwards-compatibility"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 413,
+      "title": "SDK should fail workflow task if payloads size it known to be too large - Ruby",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [],
+      "createdAt": "2026-04-07T16:39:43Z",
+      "updatedAt": "2026-04-07T16:42:32Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-ruby/issues/413",
+      "bodyLength": 63,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        723
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The Ruby SDK should validate and fail workflow tasks when payload sizes are known to exceed limits, rather than allowing oversized payloads to proceed. This is a Ruby-specific implementation of a cross-SDK feature for consistent payload size validation.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [],
+      "components": [
+        "worker",
+        "workflow-task-processor",
+        "payload-validator"
+      ],
+      "concepts": [
+        "payload-validation",
+        "size-limits",
+        "error-handling",
+        "failure-fast",
+        "resource-constraints",
+        "task-processing"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 412,
+      "title": "[Feature Request] Publish RBI types",
+      "state": "OPEN",
+      "author": "chris-olszewski",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-04-07T14:14:17Z",
+      "updatedAt": "2026-04-07T14:14:17Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-ruby/issues/412",
+      "bodyLength": 657,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to publish RBI (Ruby Behavior Interface) types for the Temporal Ruby SDK for use with Sorbet, including argument and return types, instead of relying on tapioca.",
+      "category": "feature",
+      "subcategory": "rbi-types",
+      "apis": [],
+      "components": [
+        "ruby-sdk",
+        "type-definitions",
+        "package"
+      ],
+      "concepts": [
+        "static-typing",
+        "type-safety",
+        "developer-experience",
+        "sorbet",
+        "rbi"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 407,
       "title": "[Bug] Parallel test configuration in Rails causes crash",
@@ -375,14 +602,14 @@
     },
     {
       "number": 367,
-      "title": "[Feature Request] Support standalone activities",
+      "title": "[Feature Request] Support standalone activities in Ruby",
       "state": "OPEN",
       "author": "maciejdudko",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T17:20:10Z",
-      "updatedAt": "2026-01-29T21:31:53Z",
+      "updatedAt": "2026-05-19T18:01:55Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -4872,15 +5099,15 @@
     {
       "number": 162,
       "title": "Investigate issue with Ruby 3.1/3.2 and worker fibers",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "bug"
       ],
       "createdAt": "2024-10-07T14:08:31Z",
-      "updatedAt": "2024-10-10T15:30:09Z",
-      "closedAt": null,
-      "commentCount": 5,
+      "updatedAt": "2026-04-14T01:31:14Z",
+      "closedAt": "2026-04-14T01:31:14Z",
+      "commentCount": 6,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-ruby/issues/162",
       "bodyLength": 294,

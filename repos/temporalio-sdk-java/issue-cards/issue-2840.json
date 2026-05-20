@@ -1,0 +1,36 @@
+{
+  "summary": "GraalVM native image applications fail to connect to Temporal Server in Kubernetes with DEADLINE_EXCEEDED errors after pod rescheduling or node restarts, though the same application works fine on JVM and in Docker outside Kubernetes.",
+  "category": "bug",
+  "subcategory": "grpc-communication",
+  "apis": [
+    "WorkflowClient",
+    "ListNamespaces"
+  ],
+  "components": [
+    "gRPC-channel",
+    "network-connectivity",
+    "dns-resolution",
+    "connection-reuse"
+  ],
+  "concepts": [
+    "grpc-channels",
+    "dns-resolution",
+    "connection-reuse",
+    "kubernetes",
+    "native-image",
+    "deadline-exceeded",
+    "network-connectivity"
+  ],
+  "severity": "high",
+  "userImpact": "Applications using GraalVM native images in Kubernetes experience 10-30 minute unavailability when pods are rescheduled or nodes are restarted, breaking production deployments.",
+  "rootCause": "GraalVM native image runtime issue with DNS resolution or gRPC channel reuse in Kubernetes environment",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Application fails to start for 10–30 minutes with io.grpc.StatusRuntimeException: DEADLINE_EXCEEDED while Temporal cluster is healthy",
+  "number": 2840,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:40:40.931Z"
+}

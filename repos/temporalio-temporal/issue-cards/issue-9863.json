@@ -1,0 +1,31 @@
+{
+  "summary": "Vulnerability in AWS SDK Go v2 eventstream decoder where malformed EventStream headers can trigger a panic, causing denial-of-service and potentially crashing the application. Fixed in the main branch for v1.31.0 release.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "aws-sdk-v2",
+    "eventstream-decoder",
+    "dependency-management"
+  ],
+  "concepts": [
+    "denial-of-service",
+    "panic",
+    "security-vulnerability",
+    "dependency-vulnerability",
+    "malformed-headers",
+    "crash"
+  ],
+  "severity": "critical",
+  "userImpact": "Applications using Temporal with the vulnerable AWS SDK Go v2 version can crash when receiving malformed EventStream headers, resulting in denial-of-service.",
+  "rootCause": "AWS SDK Go v2 eventstream decoder does not properly validate EventStream headers, causing panic on malformed input",
+  "proposedFix": "Upgrade to patched version of AWS SDK Go v2 (fixed in main branch, included in v1.31.0)",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in the main branch and will be included in the v1.31.0 release",
+  "related": [],
+  "keyQuote": "denial-of-service issue where malformed EventStream headers can trigger a panic in the decoder, potentially crashing the application",
+  "number": 9863,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:52:39.629Z"
+}

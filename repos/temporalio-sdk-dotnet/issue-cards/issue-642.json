@@ -1,0 +1,35 @@
+{
+  "summary": "Feature request to expose the Nexus Endpoint within Nexus Operation Handlers, enabling operations to access endpoint information.",
+  "category": "feature",
+  "subcategory": "nexus",
+  "apis": [
+    "NexusOperationHandler",
+    "NexusEndpoint"
+  ],
+  "components": [
+    "nexus-handler",
+    "nexus-operation",
+    "endpoint-context"
+  ],
+  "concepts": [
+    "nexus",
+    "operation-handler",
+    "endpoint-exposure",
+    "handler-context",
+    "metadata-access"
+  ],
+  "severity": "low",
+  "userImpact": "Developers using Nexus operations can access endpoint information directly within handlers, improving debugging and operational awareness.",
+  "rootCause": null,
+  "proposedFix": "Expose the Nexus Endpoint object as a property or parameter accessible within Nexus Operation Handler context.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    805
+  ],
+  "keyQuote": "Expose Nexus Endpoint in a Nexus Operation Handler",
+  "number": 642,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-05-20T16:36:44.670Z"
+}

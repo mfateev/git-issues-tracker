@@ -1,0 +1,33 @@
+{
+  "summary": "Request to add logging in the Java SDK when workflow task (WFT) completion takes a long time, enabling better performance diagnostics and monitoring.",
+  "category": "feature",
+  "subcategory": "logging",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-executor",
+    "logging"
+  ],
+  "concepts": [
+    "logging",
+    "performance",
+    "monitoring",
+    "latency",
+    "diagnostics",
+    "workflow-task"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack visibility into long-running workflow task completions, making it difficult to diagnose performance issues.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    827
+  ],
+  "keyQuote": "SDK should log when WFT completion takes a long time",
+  "number": 2883,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:42:04.235Z"
+}

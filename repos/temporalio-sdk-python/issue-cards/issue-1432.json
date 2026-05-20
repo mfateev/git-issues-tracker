@@ -1,0 +1,32 @@
+{
+  "summary": "Feature request to expose histogram_bucket_overrides on OpenTelemetryConfig (like PrometheusConfig). Default histogram buckets are insufficient for long-running operations, causing metrics to cluster in +Inf and making histogram_quantile() unreliable.",
+  "category": "feature",
+  "subcategory": "observability-metrics",
+  "apis": [],
+  "components": [
+    "OpenTelemetry",
+    "metrics",
+    "histogram",
+    "configuration"
+  ],
+  "concepts": [
+    "observability",
+    "metrics",
+    "histograms",
+    "bucket-boundaries",
+    "performance-monitoring",
+    "long-running-tasks"
+  ],
+  "severity": "medium",
+  "userImpact": "Users monitoring long-running activities and workflows cannot accurately analyze histogram metrics due to data clustering in the +Inf bucket.",
+  "rootCause": "Core SDK default histogram buckets top out at 10-60 seconds, insufficient for longer-running operations.",
+  "proposedFix": "Add histogram_bucket_overrides parameter to OpenTelemetryConfig, accepting Mapping[str, Sequence[float]] to match PrometheusConfig.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For longer-running activities or workflows, all samples land in `+Inf` and `histogram_quantile()` returns meaningless values.",
+  "number": 1432,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:44:22.842Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "The Jackson3JsonPayloadConverter(JsonMapper) constructor is not visible to javac in Java 17+ projects, even though it's present in META-INF/versions/17/ and works at runtime with maven/gradle builds.",
+  "category": "bug",
+  "subcategory": "json-serialization",
+  "apis": [],
+  "components": [
+    "Jackson3JsonPayloadConverter",
+    "json-serialization",
+    "payload-converter",
+    "multi-release-jar"
+  ],
+  "concepts": [
+    "multi-release-jar",
+    "javac-visibility",
+    "json-serialization",
+    "java-17-compatibility",
+    "ide-compilation",
+    "payload-conversion"
+  ],
+  "severity": "medium",
+  "userImpact": "Java 17+ developers using Jackson 3 experience IDE compilation errors when using the Jackson3JsonPayloadConverter(JsonMapper) constructor, despite successful gradle/maven builds.",
+  "rootCause": "The multi-release JAR has the constructor only in META-INF/versions/17/ but javac/IntelliJ is not properly resolving it according to JEP 238 specifications.",
+  "proposedFix": null,
+  "workaround": "Use gradle/maven builds instead of relying on javac compilation in IDE; these build tools properly resolve the constructor from the multi-release JAR.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "running with mvn/gradle is fine, only issue with javac",
+  "number": 2885,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:42:33.329Z"
+}

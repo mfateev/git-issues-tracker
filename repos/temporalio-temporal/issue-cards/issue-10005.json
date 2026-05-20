@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to add JWT-based authorization support for cluster-to-cluster replication. Currently replication relies on mTLS for transport security but lacks JWT-based authorization capabilities, which are already available for client-to-server communication.",
+  "category": "feature",
+  "subcategory": "cluster-replication",
+  "apis": [],
+  "components": [
+    "replication",
+    "frontend",
+    "authorization",
+    "stream-interceptor",
+    "configuration"
+  ],
+  "concepts": [
+    "jwt-authorization",
+    "cluster-replication",
+    "stream-authorization",
+    "token-injection",
+    "multi-cluster",
+    "access-control",
+    "dynamic-permissions"
+  ],
+  "severity": "high",
+  "userImpact": "Multi-cluster Temporal deployments cannot enforce JWT-based authorization on replication traffic, limiting fine-grained access control between clusters.",
+  "rootCause": null,
+  "proposedFix": "Add configuration options to attach JWT tokens to outbound replication connections, with per-remote-cluster token configuration and wildcard matching support similar to existing TLS configuration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    9881
+  ],
+  "keyQuote": "Cluster-to-cluster replication currently relies on mTLS for securing the connection but has no support for JWT-based authorization.",
+  "number": 10005,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:54:47.832Z"
+}

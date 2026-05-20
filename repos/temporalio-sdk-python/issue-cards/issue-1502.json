@@ -1,0 +1,36 @@
+{
+  "summary": "Proposal to add a Google Cloud Storage external storage driver to the Python SDK's contrib module, matching the structure and conventions of the existing S3 driver. The author seeks design guidance on key structure, client library choice, and test infrastructure before implementing.",
+  "category": "feature",
+  "subcategory": "external-storage",
+  "apis": [],
+  "components": [
+    "contrib",
+    "external-storage",
+    "gcs-driver",
+    "async-client"
+  ],
+  "concepts": [
+    "cloud-storage",
+    "external-storage",
+    "content-addressing",
+    "deduplication",
+    "async-io",
+    "payload-management",
+    "multi-tenancy"
+  ],
+  "severity": "medium",
+  "userImpact": "Google Cloud Platform users can now use a first-party GCS driver for external storage instead of building custom implementations or using S3-compatible proxies.",
+  "rootCause": null,
+  "proposedFix": "Create a new contrib module at temporalio/contrib/gcp/gcsdriver/ with _client.py ABC, _driver.py driver, and built-in async client. Use same key structure as s3driver, gcloud-aio-storage for async implementation, and storage-testbench for integration tests. Ship as optional dependency via temporalio[google-cloud-storage] extra.",
+  "workaround": "Users can build their own GCS driver or run an S3-compatible proxy in front of GCS.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1388,
+    1390
+  ],
+  "keyQuote": "Rather than keep maintaining it as a one-off, we'd like to get it into contrib alongside s3driver so the rest of the GCP community doesn't have to repeat the work.",
+  "number": 1502,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:47:03.344Z"
+}

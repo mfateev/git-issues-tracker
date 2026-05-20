@@ -1,0 +1,30 @@
+{
+  "summary": "Docker entrypoint in Temporal 1.30.x no longer respects the SERVICES environment variable, causing all services (frontend, history, matching, worker) to start regardless of configuration. This is an undocumented breaking change from previous versions where SERVICES controlled which services were initialized.",
+  "category": "bug",
+  "subcategory": "docker-deployment",
+  "apis": [],
+  "components": [
+    "docker",
+    "entrypoint.sh",
+    "server-startup"
+  ],
+  "concepts": [
+    "environment-variables",
+    "backward-compatibility",
+    "service-initialization",
+    "docker-configuration",
+    "memory-consumption"
+  ],
+  "severity": "medium",
+  "userImpact": "Users upgrading to 1.30.x lose the ability to control which services start via SERVICES env var, causing unnecessary memory consumption and breaking existing Docker setups.",
+  "rootCause": "The start-temporal.sh script that parsed SERVICES environment variable was removed in 1.30.x and replaced with TEMPORAL_SERVICES variable support, but entrypoint.sh was not updated to maintain backward compatibility.",
+  "proposedFix": null,
+  "workaround": "Use the new TEMPORAL_SERVICES environment variable instead of SERVICES; Helm Charts and temporalio/samples-server have been updated with correct usage.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Change was intentional by design; maintainer acknowledged the communication gap and updated release notes, Helm Charts, and sample configurations to reflect the new TEMPORAL_SERVICES variable.",
+  "related": [],
+  "keyQuote": "This is not backward compatible, and made Temporal to start all services and consumes more memory than necessary.",
+  "number": 9887,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:53:12.761Z"
+}

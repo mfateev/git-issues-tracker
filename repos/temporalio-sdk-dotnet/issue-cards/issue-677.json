@@ -1,0 +1,35 @@
+{
+  "summary": "Nexus operations with NoValue inputs bypass payload codec encoding in workflows, causing asymmetric serialization/deserialization that fails when payloads are decoded through the codec.",
+  "category": "bug",
+  "subcategory": "nexus-payload-encoding",
+  "apis": [
+    "ExecuteNexusOperationAsync",
+    "CreateNexusWorkflowClient"
+  ],
+  "components": [
+    "WorkflowInstance",
+    "WorkflowCodecHelper",
+    "NexusPayloadSerializer",
+    "PayloadCodec"
+  ],
+  "concepts": [
+    "payload-encoding",
+    "codec",
+    "serialization",
+    "nexus",
+    "type-conversion",
+    "asymmetry"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use Nexus operations with no arguments when a payload codec is configured, causing workflow execution failures.",
+  "rootCause": "Asymmetric handling of null payloads: null inputs are not passed through the codec during encoding in WorkflowCodecHelper, but are always passed through during decoding in NexusPayloadSerializer.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When `Input` is `null`, the payload (or lack thereof) does not go through a payload codec.",
+  "number": 677,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-05-20T16:37:12.814Z"
+}

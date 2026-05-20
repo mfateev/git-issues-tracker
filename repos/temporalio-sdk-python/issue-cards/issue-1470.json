@@ -1,0 +1,36 @@
+{
+  "summary": "Feature request to support ToolContext in ADK activity tools. When activity tools have a ToolContext parameter, serialization fails at runtime because ToolContext contains non-serializable objects. User requests a way to pass tool context to wrapped function tools.",
+  "category": "feature",
+  "subcategory": "adk-tool-context",
+  "apis": [
+    "activity_tool",
+    "execute_activity",
+    "activity"
+  ],
+  "components": [
+    "activity-tools",
+    "adk-integration",
+    "serialization",
+    "context-handling"
+  ],
+  "concepts": [
+    "serialization",
+    "tool-context",
+    "adk-compatibility",
+    "parameter-passing",
+    "state-management",
+    "non-serializable-objects"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot use ToolContext directly in ADK function tools wrapped with activity_tool, requiring workarounds to extract serializable pieces manually.",
+  "rootCause": "ToolContext contains non-serializable objects, but activity parameters must be serializable since they are sent to the server and may execute on different workers.",
+  "proposedFix": "Maintainer suggests extracting only serializable pieces from ToolContext as explicit activity parameters, or developing a helper for activities that specifically use ToolContext.state.",
+  "workaround": "Extract needed pieces from ToolContext before calling the activity and pass them as explicit parameters instead of using the activity_tool wrapper.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Any input type to an activity absolutely does have to be serializable. The activity inputs need to be sent to the server and back, and may run on a different worker",
+  "number": 1470,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:46:26.847Z"
+}

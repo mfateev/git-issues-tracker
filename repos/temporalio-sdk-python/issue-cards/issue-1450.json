@@ -1,0 +1,34 @@
+{
+  "summary": "User requests addition of workflow.uuid7() method to generate time-sorted unique identifiers at the workflow level. Observability partners recommend UUID7, and with community upvote, maintainers are committed to adding this helper method.",
+  "category": "feature",
+  "subcategory": "uuid-generation",
+  "apis": [
+    "workflow.uuid4",
+    "workflow.uuid7",
+    "workflow.random"
+  ],
+  "components": [
+    "workflow",
+    "uuid-generation",
+    "randomness"
+  ],
+  "concepts": [
+    "unique-identifier",
+    "time-sorting",
+    "uuid-standard",
+    "observability",
+    "workflow-utilities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need time-sorted unique identifiers for improved observability and tracing at the workflow level.",
+  "rootCause": null,
+  "proposedFix": "Add a workflow.uuid7() helper method similar to workflow.uuid4() that wraps workflow.random() to generate UUID7 format identifiers.",
+  "workaround": "Users can implement their own UUID7 generation using workflow.random() directly, similar to how workflow.uuid4() is currently implemented.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We've heard from an observability partner that they recommend uuid7, and an extra upvote is enough for me, so we'll likely add a helper for this soon.",
+  "number": 1450,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:45:37.699Z"
+}

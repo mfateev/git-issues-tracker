@@ -1,0 +1,32 @@
+{
+  "summary": "The heartbeat proto is not validated against external storage and payload limits, allowing large payloads to be sent to the server that could cause activity or workflow failures.",
+  "category": "bug",
+  "subcategory": "activity-heartbeat",
+  "apis": [],
+  "components": [
+    "heartbeat-visitor",
+    "external-storage",
+    "payload-validator",
+    "activity-executor"
+  ],
+  "concepts": [
+    "heartbeat",
+    "payload-limits",
+    "external-storage",
+    "validation",
+    "serialization",
+    "failure-prevention"
+  ],
+  "severity": "high",
+  "userImpact": "Users with large heartbeat payloads may experience unexpected activity or workflow failures without proper validation.",
+  "rootCause": "Heartbeat proto is not visited with external storage and payload limits validators",
+  "proposedFix": "Apply external storage and payload limits visitors to heartbeat proto",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Large payloads could be sent to the server, possibly causing activity or workflow failures.",
+  "number": 2271,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:37:53.850Z"
+}

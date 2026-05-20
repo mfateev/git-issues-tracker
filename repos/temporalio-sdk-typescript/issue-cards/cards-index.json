@@ -1,7 +1,487 @@
 {
-  "generatedAt": "2026-04-04T19:18:18.033Z",
-  "totalCards": 826,
+  "generatedAt": "2026-05-20T16:52:18.756Z",
+  "totalCards": 840,
   "cards": [
+    {
+      "summary": "The TypeScript SDK's Runtime class has obsolete resource tracking logic from before the bridge rewrite that causes race conditions and test flakes. The bookkeeping should be removed to let the Core bridge's opaque handle model manage resource lifecycle.",
+      "category": "bug",
+      "subcategory": "runtime-lifecycle",
+      "apis": [
+        "Runtime",
+        "NativeConnection",
+        "Worker",
+        "Client",
+        "EphemeralServer"
+      ],
+      "components": [
+        "runtime",
+        "native-resources",
+        "bridge",
+        "test-framework"
+      ],
+      "concepts": [
+        "resource-lifecycle",
+        "race-conditions",
+        "garbage-collection",
+        "cleanup",
+        "lifecycle-management",
+        "native-integration"
+      ],
+      "severity": "high",
+      "userImpact": "SDK test flakes reduce development velocity and make it difficult to validate SDK changes, though the issue is unlikely to affect production user code.",
+      "rootCause": "Legacy resource tracking bookkeeping (pendingCreations, backRefs, isIdle, shutdownIfIdle, createNative* wrappers) introduced before the bridge rewrite in #1698 is now obsolete but causes race conditions when native resources are closed while still referenced.",
+      "proposedFix": "Remove language-side resource tracking from Runtime: drop pendingCreations, backRefs, isIdle(), shutdownIfIdle(), and createNative* wrappers; simplify closeNativeClient, deregisterWorker, shutdownEphemeralServer to no longer participate in bookkeeping; re-evaluate and likely remove the explicit native.runtimeShutdown() call.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1698
+      ],
+      "keyQuote": "That bookkeeping is no longer required since the bridge rewrite in #1698, but removal of the mechanism had been left as a follow-up item, and never got completed.",
+      "number": 2068,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:52:18.536Z"
+    },
+    {
+      "summary": "The TypeScript SDK should log diagnostic information when Workflow Task completion takes longer than expected, providing visibility into performance bottlenecks. This is part of a cross-SDK feature implementation effort.",
+      "category": "feature",
+      "subcategory": "observability",
+      "apis": [],
+      "components": [
+        "worker",
+        "task-handler",
+        "logging"
+      ],
+      "concepts": [
+        "observability",
+        "logging",
+        "performance",
+        "diagnostics",
+        "workflow-task",
+        "latency"
+      ],
+      "severity": "medium",
+      "userImpact": "Users lack visibility into slow workflow task completions, making it harder to diagnose performance issues in production.",
+      "rootCause": null,
+      "proposedFix": "Add logging when WFT completion takes a long time; coordinate implementation across core-based SDKs for consistency",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        827
+      ],
+      "keyQuote": "Should investigate if we can push this information into sdk-rust repo so that all core-based SDKs report in a similar manner.",
+      "number": 2066,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:52:06.543Z"
+    },
+    {
+      "summary": "Implement an S3 External Storage Driver for the TypeScript SDK as part of a cross-SDK initiative to support external storage backends.",
+      "category": "feature",
+      "subcategory": "external-storage",
+      "apis": [],
+      "components": [
+        "storage",
+        "s3-driver",
+        "configuration",
+        "persistence"
+      ],
+      "concepts": [
+        "external-storage",
+        "s3",
+        "driver",
+        "persistence",
+        "cloud-storage",
+        "backend"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables TypeScript SDK users to leverage Amazon S3 as an external storage backend for workflow state and data.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        783
+      ],
+      "keyQuote": "Parent Issue: https://github.com/temporalio/features/issues/783",
+      "number": 2065,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:51:45.847Z"
+    },
+    {
+      "summary": "Feature request to enable concurrent payload visiting in the TypeScript SDK, as referenced from the parent issue in the features repository.",
+      "category": "feature",
+      "subcategory": "payload-concurrency",
+      "apis": [],
+      "components": [
+        "payload-converter",
+        "serialization",
+        "worker"
+      ],
+      "concepts": [
+        "concurrency",
+        "payload-handling",
+        "parallelization",
+        "performance",
+        "serialization",
+        "synchronization"
+      ],
+      "severity": "medium",
+      "userImpact": "Users would be able to perform concurrent operations on payloads, potentially improving performance and enabling new architectural patterns.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        772
+      ],
+      "keyQuote": "Parent Issue: https://github.com/temporalio/features/issues/772",
+      "number": 2064,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:51:50.200Z"
+    },
+    {
+      "summary": "TypeScript SDK implementation task for External Payload Storage support, coordinated with the parent feature issue in the Temporal features repository.",
+      "category": "feature",
+      "subcategory": "external-payload-storage",
+      "apis": [],
+      "components": [
+        "data-converter",
+        "payload-serialization",
+        "worker",
+        "options"
+      ],
+      "concepts": [
+        "external-storage",
+        "payload-management",
+        "scalability",
+        "performance",
+        "data-conversion"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables TypeScript SDK users to implement external payload storage for handling large payloads efficiently.",
+      "rootCause": null,
+      "proposedFix": "Implement External Payload Storage support in TypeScript SDK following the specification in parent issue features#765.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        765
+      ],
+      "keyQuote": "Parent Issue: https://github.com/temporalio/features/issues/765",
+      "number": 2063,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:51:43.993Z"
+    },
+    {
+      "summary": "Feature request to implement operator commands for Standalone Activities in the TypeScript SDK, with details referenced in temporalio/features#822.",
+      "category": "feature",
+      "subcategory": "standalone-activities",
+      "apis": [],
+      "components": [
+        "standalone-activities",
+        "operator-commands",
+        "worker",
+        "activity-executor"
+      ],
+      "concepts": [
+        "operator-commands",
+        "standalone-activities",
+        "activity-management",
+        "operational-features",
+        "worker-control",
+        "task-orchestration",
+        "administrative-interface"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will be able to manage and operate Standalone Activities through operator commands, enabling better operational control and automation.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        822
+      ],
+      "keyQuote": "See https://github.com/temporalio/features/issues/822",
+      "number": 2061,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:50:59.959Z"
+    },
+    {
+      "summary": "Users of @bufbuild/protobuf (protobuf-es) library cannot use generated types with Temporal clients or workflows without writing their own payload converters. The SDK currently only provides converters for protobufjs, and the two libraries produce incompatible message shapes.",
+      "category": "feature",
+      "subcategory": "protobuf-converters",
+      "apis": [],
+      "components": [
+        "payload-converter",
+        "protobuf",
+        "serialization"
+      ],
+      "concepts": [
+        "protobuf",
+        "serialization",
+        "payload",
+        "encoding",
+        "compatibility",
+        "types"
+      ],
+      "severity": "medium",
+      "userImpact": "Users adopting @bufbuild/protobuf must write approximately 150 lines of custom payload converter code to use their generated types with Temporal.",
+      "rootCause": "@bufbuild/protobuf and protobufjs produce incompatible message shapes (Schema + create(Schema, init) vs Message.create(init)), so existing protobufjs converters cannot be reused.",
+      "proposedFix": "Add three parallel converter classes (ProtobufEsBinaryPayloadConverter, ProtobufEsJsonPayloadConverter, DefaultPayloadConverterWithProtobufsEs) under @temporalio/common/lib/protobufs-es with @bufbuild/protobuf as optional peer dependency.",
+      "workaround": "Users can implement their own binary and JSON converters with custom composite ordering, messageType metadata, and Registry forwarding for google.protobuf.Any (~150 lines).",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Users who generate their proto types with @bufbuild/protobuf v2 can't pass those types to a Temporal client or workflow without writing their own payload converter.",
+      "number": 2045,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:51:19.274Z"
+    },
+    {
+      "summary": "Feature request to expose the Nexus endpoint information within Nexus operation handlers, allowing handlers to access endpoint context.",
+      "category": "feature",
+      "subcategory": "nexus-operations",
+      "apis": [],
+      "components": [
+        "nexus",
+        "operation-handler",
+        "endpoint"
+      ],
+      "concepts": [
+        "nexus",
+        "operation-handler",
+        "endpoint-context",
+        "handler-context",
+        "context-access"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers using Nexus operations gain direct access to endpoint information within their handlers.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        805
+      ],
+      "keyQuote": "Expose Nexus Endpoint in a Nexus Operation Handler",
+      "number": 2040,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:51:12.118Z"
+    },
+    {
+      "summary": "Implement telemetry and metrics support for the Standalone Activities feature in the TypeScript SDK. Activity workers should emit metrics with activity ID and run ID tags, ActivityClient calls should emit appropriate metrics, and an OpenTelemetryActivityClientInterceptor should be added.",
+      "category": "feature",
+      "subcategory": "telemetry",
+      "apis": [
+        "ActivityClient"
+      ],
+      "components": [
+        "activity-worker",
+        "standalone-activities",
+        "activity-client",
+        "telemetry"
+      ],
+      "concepts": [
+        "telemetry",
+        "metrics",
+        "observability",
+        "interceptor",
+        "activity-tracking",
+        "standalone-activities",
+        "monitoring"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot currently observe or monitor standalone activity execution with metrics, making it difficult to debug and monitor production systems.",
+      "rootCause": null,
+      "proposedFix": "Implement telemetry support: activity worker should emit equivalent metrics to workflow activities with activity ID and run ID tags, ActivityClient calls should emit appropriate metrics, and add OpenTelemetryActivityClientInterceptor",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2029
+      ],
+      "keyQuote": "Activity worker executing standalone activities should emit equivalent metrics to what is emitted when executing workflow activities, with appropriate activity ID and run ID tags.",
+      "number": 2031,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:50:32.109Z"
+    },
+    {
+      "summary": "OpenTelemetry workflow interceptors cause workflow determinism violations when queries or update validations are handled, as subsequent uuid4() calls return different values on replay than during initial execution, causing nondeterminism errors when the UUID is used in recorded commands.",
+      "category": "bug",
+      "subcategory": "workflow-replay",
+      "apis": [
+        "startChild",
+        "uuid4",
+        "setHandler",
+        "workflowInfo"
+      ],
+      "components": [
+        "opentelemetry-interceptor",
+        "workflow-replay",
+        "prng-state",
+        "query-handler"
+      ],
+      "concepts": [
+        "determinism",
+        "replay",
+        "nondeterminism",
+        "prng-state",
+        "side-effects",
+        "tracing",
+        "state-management"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot safely use OpenTelemetry interceptors in workflows that handle queries or updates and use uuid-generated IDs in commands, as it causes determinism failures on replay after workflow eviction.",
+      "rootCause": "Query and update handlers advance the PRNG state during execution, but are not re-invoked during replay, causing the PRNG to be in a different state and resulting in different UUID values for recorded commands.",
+      "proposedFix": null,
+      "workaround": null,
+      "related": [
+        1790,
+        1992,
+        1895
+      ],
+      "resolution": null,
+      "resolutionDetails": null,
+      "keyQuote": "PRNG position is shifted by any queries handled between tick #1 and tick #2.",
+      "number": 2023,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:50:41.521Z"
+    },
+    {
+      "summary": "Documentation links in the TypeScript SDK reference dead URLs at https://docs.temporal.io/concepts/* which have been reorganized. The correct URLs are now at https://docs.temporal.io/workflow-execution/* with appropriate anchors.",
+      "category": "docs",
+      "subcategory": "broken-documentation-links",
+      "apis": [
+        "continueAsNew",
+        "makeContinueAsNewFunc"
+      ],
+      "components": [
+        "workflow-docs",
+        "api-documentation",
+        "doc-comments"
+      ],
+      "concepts": [
+        "continue-as-new",
+        "workflow-execution",
+        "documentation",
+        "dead-links",
+        "api-reference",
+        "doc-urls"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot access referenced documentation to understand SDK APIs, hindering learning and development.",
+      "rootCause": "Documentation structure was reorganized from /concepts/ to /workflow-execution/ but SDK code comments were not updated with new URLs.",
+      "proposedFix": "Update all documentation links in code comments from https://docs.temporal.io/concepts/* to https://docs.temporal.io/workflow-execution/* with appropriate anchors.",
+      "workaround": "Users can access archived versions via web.archive.org or manually search for documentation on docs.temporal.io.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "I believe the correct link would be https://docs.temporal.io/workflow-execution/continue-as-new#continue-as-new",
+      "number": 2018,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:50:35.338Z"
+    },
+    {
+      "summary": "Add support for `URLPattern` from Node's WHAT WG URL API (available since Node 23.8.0) to the workflow sandbox. While `URL` and `URLSearchParams` are already supported, adding `URLPattern` requires careful handling due to SDK's Node 20 LTS support constraint.",
+      "category": "feature",
+      "subcategory": "workflow-sandbox",
+      "apis": [],
+      "components": [
+        "workflow-sandbox",
+        "url-api-support",
+        "node-compatibility"
+      ],
+      "concepts": [
+        "node-compatibility",
+        "url-standard",
+        "workflow-sandbox",
+        "version-compatibility",
+        "whatwg-api",
+        "api-support"
+      ],
+      "severity": "low",
+      "userImpact": "Allows workflows to use the URLPattern API from modern Node.js versions, improving code compatibility and standards alignment.",
+      "rootCause": null,
+      "proposedFix": "Add URLPattern to the workflow sandbox with appropriate Node version compatibility handling for Node 20 LTS support.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The support won't be as simple as adding `URLPattern` beside `URL` and `URLSearchParam`",
+      "number": 2017,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:50:09.722Z"
+    },
+    {
+      "summary": "The TypeScript SDK's core-bridge component ships with four known Cargo dependency vulnerabilities with available fixes. A patch release is needed to bump quinn-proto, rustls-webpki, and tar to resolve CVEs detected by container image vulnerability scanners.",
+      "category": "bug",
+      "subcategory": "core-bridge-dependencies",
+      "apis": [],
+      "components": [
+        "core-bridge",
+        "Cargo.lock",
+        "Cargo-dependencies"
+      ],
+      "concepts": [
+        "vulnerability",
+        "security",
+        "supply-chain",
+        "dependency-patching",
+        "cve",
+        "container-scanning"
+      ],
+      "severity": "high",
+      "userImpact": "Teams using vulnerability scanning tools in CI/CD must suppress CVEs to pass security gates, weakening their security controls.",
+      "rootCause": "Outdated Cargo dependencies with known CVEs (quinn-proto 0.11.13, rustls-webpki 0.103.9, tar 0.4.44) not updated to patch versions with fixes.",
+      "proposedFix": "Run `cargo update -p quinn-proto -p webpki -p tar` in core-bridge and cut a patch release.",
+      "workaround": "Suppress detected CVEs via `.trivyignore` file in CI/CD vulnerability scanning.",
+      "resolution": "fixed",
+      "resolutionDetails": "Dependencies were bumped and released in version 1.16.0.",
+      "related": [],
+      "keyQuote": "These dependencies have been bumped as of 1.16.0",
+      "number": 2003,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:49:54.501Z"
+    },
+    {
+      "summary": "When child workflow start fails or is cancelled, the corresponding childWorkflowComplete map entry is not removed, creating an orphaned entry that leaks memory for the duration of workflow execution.",
+      "category": "bug",
+      "subcategory": "child-workflow-execution",
+      "apis": [
+        "resolveChildWorkflowExecutionStart"
+      ],
+      "components": [
+        "workflow-runtime",
+        "child-workflow-executor",
+        "completion-handler"
+      ],
+      "concepts": [
+        "memory-leak",
+        "child-workflow-execution",
+        "failure-handling",
+        "cleanup",
+        "resource-management",
+        "state-tracking",
+        "cancellation"
+      ],
+      "severity": "low",
+      "userImpact": "Long-running workflows that repeatedly fail to start child workflows will gradually accumulate orphaned completion entries, leading to memory leaks over time.",
+      "rootCause": "When child workflow start fails or is cancelled, the corresponding completion handler entry is not removed from the childWorkflowComplete map, causing it to never be garbage collected.",
+      "proposedFix": "Delete the corresponding childWorkflowComplete entry in resolveChildWorkflowExecutionStart when the activation is failed or cancelled.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Since the child workflow never started, it will never complete, so this entry is orphaned and constitutes a memory leak for the duration of the workflow execution.",
+      "number": 2000,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-05-20T16:49:51.028Z"
+    },
     {
       "summary": "Feature request to upgrade the @opentelemetry/sdk-trace-base dependency in the interceptors-opentelemetry package to support newer versions, enabling projects using OpenTelemetry ^2.6.0 or later to use the Temporal SDK's tracing integration.",
       "category": "feature",

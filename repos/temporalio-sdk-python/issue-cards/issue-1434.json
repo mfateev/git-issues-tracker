@@ -1,0 +1,32 @@
+{
+  "summary": "The return type of the public JSONTypeConverter.to_typed_value method includes a private type _JSONTypeConverterUnhandled that cannot be imported, preventing proper type-hinting of overridden methods in custom converters.",
+  "category": "bug",
+  "subcategory": "type-hints",
+  "apis": [
+    "JSONTypeConverter.to_typed_value"
+  ],
+  "components": [
+    "converter",
+    "type-system",
+    "api-design"
+  ],
+  "concepts": [
+    "type-hints",
+    "custom-converter",
+    "api-exposure",
+    "subclassing",
+    "type-safety"
+  ],
+  "severity": "medium",
+  "userImpact": "Users who subclass JSONTypeConverter cannot properly type-hint their overridden methods without importing private implementation details.",
+  "rootCause": "The _JSONTypeConverterUnhandled type is not exported in the public API despite being part of the return type of a public method.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I don't have a good way to type hint the return type of my method unless I import an underscore prefixed name",
+  "number": 1434,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:44:12.665Z"
+}

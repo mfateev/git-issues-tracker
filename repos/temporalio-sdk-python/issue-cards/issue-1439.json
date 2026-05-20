@@ -1,0 +1,34 @@
+{
+  "summary": "LlmRequest serialization includes null fields unnecessarily, adding 4-8KB of bloat per payload in workflows with many LLM calls. The request is to strip null fields using model_dump(exclude_none=True) or equivalent, either as default behavior or opt-in via configuration flag.",
+  "category": "feature",
+  "subcategory": "llm-serialization",
+  "apis": [
+    "LlmRequest",
+    "TemporalModel"
+  ],
+  "components": [
+    "serialization",
+    "activity-payloads",
+    "llm-integration"
+  ],
+  "concepts": [
+    "serialization",
+    "null-handling",
+    "payload-optimization",
+    "bloat-reduction",
+    "schema-fields",
+    "configuration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with workflows containing many LLM calls experience unnecessary payload bloat from null fields, increasing activity input sizes without adding information.",
+  "rootCause": "model_dump() serializes all fields including those with null values, unnecessarily bloating the serialized output",
+  "proposedFix": "Use model_dump(exclude_none=True) to strip null fields before passing to activity, either as default behavior or opt-in via configuration flag",
+  "workaround": "Users can manually strip nulls in their subclass before passing to the activity, as demonstrated in the reporter's current implementation",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "LlmRequest.model_dump() serializes every Gemini config field even when null, adding 4–8KB of nulls per payload.",
+  "number": 1439,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:45:02.733Z"
+}

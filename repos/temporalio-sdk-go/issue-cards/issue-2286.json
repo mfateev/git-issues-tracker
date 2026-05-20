@@ -1,0 +1,32 @@
+{
+  "summary": "The tracing interceptor does not implement methods for standalone activities, preventing client-side spans from being created when executing activities. A PR has been proposed to add ExecuteActivity support to the tracing interceptor.",
+  "category": "bug",
+  "subcategory": "activity-tracing",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "tracing-interceptor",
+    "activity-executor",
+    "client"
+  ],
+  "concepts": [
+    "tracing",
+    "spans",
+    "interceptor",
+    "observability",
+    "standalone-activities"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot see client-side traces when executing standalone activities, reducing observability and making debugging harder.",
+  "rootCause": "tracingClientOutboundInterceptor does not implement the new interceptor methods required for standalone activities.",
+  "proposedFix": "Add ExecuteActivity support to tracingClientOutboundInterceptor to create StartActivity spans and write tracing context to headers.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "tracingClientOutboundInterceptor does not currently implement the new interceptor methods related to standalone activities",
+  "number": 2286,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:37:47.724Z"
+}

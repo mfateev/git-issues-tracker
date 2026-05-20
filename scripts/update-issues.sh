@@ -52,11 +52,11 @@ echo ""
 echo "Fetching issue list from GitHub..."
 REMOTE_DATA=$(gh issue list --repo "$REPO" --state all --limit 5000 --json number,updatedAt)
 
-# Extract all remote issue numbers
-ALL_REMOTE_ISSUES=$(echo "$REMOTE_DATA" | jq -r '.[].number' | sort -n)
+# Extract all remote issue numbers (sort lexicographically for comm compatibility)
+ALL_REMOTE_ISSUES=$(echo "$REMOTE_DATA" | jq -r '.[].number' | sort)
 
-# Get issues we already have locally
-LOCAL_ISSUES=$(ls "$OUTPUT_DIR" 2>/dev/null | grep -oE '[0-9]+' | sort -n)
+# Get issues we already have locally (sort lexicographically for comm compatibility)
+LOCAL_ISSUES=$(ls "$OUTPUT_DIR" 2>/dev/null | grep -oE '[0-9]+' | sort)
 
 # Find issues that exist on GitHub but not locally (missing issues)
 MISSING_ISSUES=$(comm -23 <(echo "$ALL_REMOTE_ISSUES") <(echo "$LOCAL_ISSUES"))

@@ -1,7 +1,642 @@
 {
-  "generatedAt": "2026-04-04T19:15:26.254Z",
-  "totalCards": 619,
+  "generatedAt": "2026-05-20T16:48:06.667Z",
+  "totalCards": 638,
   "cards": [
+    {
+      "summary": "Request to implement Trusted Publishing for PyPI uploads to reduce supply chain attack risks. The team acknowledges this as a priority but requires an overhaul of the release process.",
+      "category": "feature",
+      "subcategory": "supply-chain-security",
+      "apis": [],
+      "components": [
+        "release-process",
+        "ci-pipeline",
+        "pypi-publishing"
+      ],
+      "concepts": [
+        "supply-chain-security",
+        "trusted-publishing",
+        "authentication",
+        "ci-cd",
+        "risk-reduction",
+        "automation"
+      ],
+      "severity": "high",
+      "userImpact": "Users gain reduced supply chain attack risk when package publishing uses Trusted Publishing authentication.",
+      "rootCause": null,
+      "proposedFix": "Implement Trusted Publishing by overhauling the release process to use OIDC-based authentication for PyPI uploads.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "We're aware of this and have it as a near term item to do",
+      "number": 1546,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:48:06.500Z"
+    },
+    {
+      "summary": "Feature request to implement operator commands for Standalone Activities in the Python SDK, with implementation details referenced in the Temporal features repository.",
+      "category": "feature",
+      "subcategory": "standalone-activities",
+      "apis": [],
+      "components": [
+        "worker",
+        "activity-executor",
+        "operator-commands"
+      ],
+      "concepts": [
+        "operator-commands",
+        "standalone-activities",
+        "activity-management",
+        "operational-control"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need operator commands to manage and control Standalone Activities during production deployments.",
+      "rootCause": null,
+      "proposedFix": "See temporalio/features#822 for detailed feature specification and requirements.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        822
+      ],
+      "keyQuote": "See https://github.com/temporalio/features/issues/822",
+      "number": 1543,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:47:19.150Z"
+    },
+    {
+      "summary": "Python 3.14 breaks activity scheduling with a NameError because the new asyncio.Task implementation eagerly inspects closure cells, finding the 'handle' variable referenced in a closure before it's assigned. Pre-binding the variable resolves the issue.",
+      "category": "bug",
+      "subcategory": "activity-scheduling",
+      "apis": [
+        "ExecuteActivity"
+      ],
+      "components": [
+        "worker",
+        "activity-scheduling",
+        "workflow-instance"
+      ],
+      "concepts": [
+        "closure-binding",
+        "cell-inspection",
+        "asyncio",
+        "variable-scope",
+        "version-compatibility"
+      ],
+      "severity": "high",
+      "userImpact": "Users upgrading to Python 3.14 or using rolling-release Python images will experience immediate failures when their workflows attempt to execute activities.",
+      "rootCause": "Python 3.14's asyncio.Task constructor eagerly inspects closure cells during task initialization (via set_name), whereas previous versions deferred this inspection until coroutine execution. The 'handle' variable is annotated but not assigned before the closure references it.",
+      "proposedFix": "Pre-bind the 'handle' variable before it's referenced in closures during task initialization.",
+      "workaround": "Pre-bind the variable with an explicit initial value: handle: Optional[_ActivityHandle] = None",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Python 3.14's asyncio.Task constructor eagerly inspects closure cells during task initialization, whereas previous versions deferred this",
+      "number": 1517,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:47:46.223Z"
+    },
+    {
+      "summary": "run_child() doesn't call task.uncancel() after catching CancelledError on Python 3.11+, causing spurious ERROR logs, duplicate commands, and repeated cancellation loops when child workflows are cancelled.",
+      "category": "bug",
+      "subcategory": "child-workflow-cancellation",
+      "apis": [
+        "start_child_workflow",
+        "cancel",
+        "execute_update"
+      ],
+      "components": [
+        "worker",
+        "child-workflow-executor",
+        "cancellation-handler",
+        "asyncio-integration"
+      ],
+      "concepts": [
+        "cancellation",
+        "task-cancellation-counter",
+        "asyncio-integration",
+        "error-logging",
+        "future-management",
+        "Python-3.11"
+      ],
+      "severity": "high",
+      "userImpact": "Users see spurious ERROR logs when cancelling child workflows on Python 3.11+, duplicate commands sent to the server, and unexpected log noise despite correct execution results.",
+      "rootCause": "run_child() catches CancelledError without calling task.uncancel(), leaving the cancellation counter at 1. On Python 3.11+, this causes CancelledError to be re-raised on every await, creating a loop that registers multiple callbacks on the result future, generating spurious warnings when the future resolves.",
+      "proposedFix": "Call task.uncancel() after catching CancelledError to clear the cancellation counter, allowing the loop to wait normally for the result instead of re-raising immediately.",
+      "workaround": "Install a logging.Filter on 'temporalio.worker._workflow_instance' to suppress ERROR messages matching both 'ChildWorkflowError exception in shielded future' and 'Child Workflow execution cancelled'.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "On Python 3.11+, calling handle.cancel() on a running ChildWorkflowHandle causes multiple RequestCancelExternalWorkflow commands to be sent instead of one.",
+      "number": 1504,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:47:39.070Z"
+    },
+    {
+      "summary": "Proposal to add a Google Cloud Storage external storage driver to the Python SDK's contrib module, matching the structure and conventions of the existing S3 driver. The author seeks design guidance on key structure, client library choice, and test infrastructure before implementing.",
+      "category": "feature",
+      "subcategory": "external-storage",
+      "apis": [],
+      "components": [
+        "contrib",
+        "external-storage",
+        "gcs-driver",
+        "async-client"
+      ],
+      "concepts": [
+        "cloud-storage",
+        "external-storage",
+        "content-addressing",
+        "deduplication",
+        "async-io",
+        "payload-management",
+        "multi-tenancy"
+      ],
+      "severity": "medium",
+      "userImpact": "Google Cloud Platform users can now use a first-party GCS driver for external storage instead of building custom implementations or using S3-compatible proxies.",
+      "rootCause": null,
+      "proposedFix": "Create a new contrib module at temporalio/contrib/gcp/gcsdriver/ with _client.py ABC, _driver.py driver, and built-in async client. Use same key structure as s3driver, gcloud-aio-storage for async implementation, and storage-testbench for integration tests. Ship as optional dependency via temporalio[google-cloud-storage] extra.",
+      "workaround": "Users can build their own GCS driver or run an S3-compatible proxy in front of GCS.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1388,
+        1390
+      ],
+      "keyQuote": "Rather than keep maintaining it as a one-off, we'd like to get it into contrib alongside s3driver so the rest of the GCP community doesn't have to repeat the work.",
+      "number": 1502,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:47:03.344Z"
+    },
+    {
+      "summary": "Worker metric temporal_worker_task_slots_used never drops to 0 even when completely idle, preventing KEDA autoscaling to zero replicas. The metric oscillates between 0 and 1 even hours after all workflows complete.",
+      "category": "bug",
+      "subcategory": "worker-metrics",
+      "apis": [],
+      "components": [
+        "worker",
+        "metrics",
+        "autoscaling"
+      ],
+      "concepts": [
+        "metrics",
+        "autoscaling",
+        "KEDA",
+        "task-slots",
+        "worker-idle",
+        "Kubernetes",
+        "scaling"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot achieve auto-scaling to zero replicas in Kubernetes because worker metrics never indicate full idle state.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "we have no workflows running, and the worker is completely idle, however the worker is still emitting the metric `temporal_worker_task_slots_used` which is oscillating between 0 and 1",
+      "number": 1489,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:46:55.828Z"
+    },
+    {
+      "summary": "Security vulnerability GHSA-82j2-j2ch-gfr8 in bundled rustls-webpki dependency affects temporalio 1.26.0 wheels. Patched in rustls-webpki 0.103.13. User requests SDK dependency update and new wheel release.",
+      "category": "bug",
+      "subcategory": "rust-dependencies",
+      "apis": [],
+      "components": [
+        "rust-bridge",
+        "dependencies",
+        "wheels"
+      ],
+      "concepts": [
+        "security",
+        "vulnerability",
+        "dependency-management",
+        "rustls",
+        "bundled-dependencies",
+        "supply-chain",
+        "version-update"
+      ],
+      "severity": "critical",
+      "userImpact": "Users of temporalio 1.26.0 wheels are exposed to the rustls-webpki security vulnerability until updating.",
+      "rootCause": "Rust bridge dependencies not updated to include patched rustls-webpki >= 0.103.13",
+      "proposedFix": "Update SDK Rust bridge dependencies to rustls-webpki >= 0.103.13 and publish new Python wheels",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "PR #1483 fixes issue by updating Rust dependencies to include rustls-webpki >= 0.103.13",
+      "related": [
+        1483
+      ],
+      "keyQuote": "GHSA-82j2-j2ch-gfr8 / RUSTSEC-2026-0104 from the Rust dependency rustls-webpki bundled inside the temporalio Python wheel",
+      "number": 1485,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:47:02.720Z"
+    },
+    {
+      "summary": "Security vulnerability GHSA-82j2-j2ch-gfr8 in rustls-webpki dependency remains unpatched in temporalio 1.26.0 wheel. Requesting update of Rust dependencies to include rustls-webpki >= 0.103.13 and new SDK release.",
+      "category": "bug",
+      "subcategory": "dependency-vulnerability",
+      "apis": [],
+      "components": [
+        "dependencies",
+        "python-wheel",
+        "rust-dependencies",
+        "tls"
+      ],
+      "concepts": [
+        "security-vulnerability",
+        "dependency-management",
+        "patching",
+        "supply-chain",
+        "cryptography"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot update to the latest Python SDK without exposing applications to a known security vulnerability in the bundled cryptographic library.",
+      "rootCause": "Rust dependencies in the Python SDK wheel have not been updated to include the patched rustls-webpki >= 0.103.13.",
+      "proposedFix": "Update SDK Rust dependencies to include rustls-webpki >= 0.103.13 and publish a new temporalio release.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Dependencies were updated to include the patched rustls-webpki version in a subsequent SDK release.",
+      "related": [],
+      "keyQuote": "Could the SDK's Rust bridge dependencies be updated so the published Python wheels include rustls-webpki >=0.103.13",
+      "number": 1484,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:46:33.277Z"
+    },
+    {
+      "summary": "Feature request to support ToolContext in ADK activity tools. When activity tools have a ToolContext parameter, serialization fails at runtime because ToolContext contains non-serializable objects. User requests a way to pass tool context to wrapped function tools.",
+      "category": "feature",
+      "subcategory": "adk-tool-context",
+      "apis": [
+        "activity_tool",
+        "execute_activity",
+        "activity"
+      ],
+      "components": [
+        "activity-tools",
+        "adk-integration",
+        "serialization",
+        "context-handling"
+      ],
+      "concepts": [
+        "serialization",
+        "tool-context",
+        "adk-compatibility",
+        "parameter-passing",
+        "state-management",
+        "non-serializable-objects"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot use ToolContext directly in ADK function tools wrapped with activity_tool, requiring workarounds to extract serializable pieces manually.",
+      "rootCause": "ToolContext contains non-serializable objects, but activity parameters must be serializable since they are sent to the server and may execute on different workers.",
+      "proposedFix": "Maintainer suggests extracting only serializable pieces from ToolContext as explicit activity parameters, or developing a helper for activities that specifically use ToolContext.state.",
+      "workaround": "Extract needed pieces from ToolContext before calling the activity and pass them as explicit parameters instead of using the activity_tool wrapper.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Any input type to an activity absolutely does have to be serializable. The activity inputs need to be sent to the server and back, and may run on a different worker",
+      "number": 1470,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:46:26.847Z"
+    },
+    {
+      "summary": "The README recommends synchronous activities, but documentation also states async activities are much more performant. The recommendation lacks nuance about the tradeoff between safety (preventing event loop blocking) and performance benefits.",
+      "category": "docs",
+      "subcategory": "activity-recommendations",
+      "apis": [
+        "Worker",
+        "Activity"
+      ],
+      "components": [
+        "documentation",
+        "worker",
+        "activity-executor"
+      ],
+      "concepts": [
+        "sync-activities",
+        "async-activities",
+        "asyncio-event-loop",
+        "performance",
+        "event-loop-blocking"
+      ],
+      "severity": "medium",
+      "userImpact": "Users may make incorrect architectural decisions based on inconsistent documentation about when to use sync vs async activities.",
+      "rootCause": "Documentation recommendation doesn't clearly articulate the tradeoff: sync activities are safer (prevent event loop blocking) but async are more performant.",
+      "proposedFix": "Clarify documentation to explain that async activities are more performant but sync activities are safer from accidental event loop blocking, and adjust recommendation strength accordingly.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "I would agree that the recommendation is a bit strong in that line and could use some more nuance.",
+      "number": 1468,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:46:18.143Z"
+    },
+    {
+      "summary": "User requests addition of workflow.uuid7() method to generate time-sorted unique identifiers at the workflow level. Observability partners recommend UUID7, and with community upvote, maintainers are committed to adding this helper method.",
+      "category": "feature",
+      "subcategory": "uuid-generation",
+      "apis": [
+        "workflow.uuid4",
+        "workflow.uuid7",
+        "workflow.random"
+      ],
+      "components": [
+        "workflow",
+        "uuid-generation",
+        "randomness"
+      ],
+      "concepts": [
+        "unique-identifier",
+        "time-sorting",
+        "uuid-standard",
+        "observability",
+        "workflow-utilities"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need time-sorted unique identifiers for improved observability and tracing at the workflow level.",
+      "rootCause": null,
+      "proposedFix": "Add a workflow.uuid7() helper method similar to workflow.uuid4() that wraps workflow.random() to generate UUID7 format identifiers.",
+      "workaround": "Users can implement their own UUID7 generation using workflow.random() directly, similar to how workflow.uuid4() is currently implemented.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "We've heard from an observability partner that they recommend uuid7, and an extra upvote is enough for me, so we'll likely add a helper for this soon.",
+      "number": 1450,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:45:37.699Z"
+    },
+    {
+      "summary": "When a workflow is cancelled while awaiting start_child_workflow(), the CancelledError is swallowed instead of propagating, causing the workflow to continue running instead of being cancelled. The issue is suspected to be related to shield() preventing proper cancellation handling.",
+      "category": "bug",
+      "subcategory": "child-workflow-cancellation",
+      "apis": [
+        "start_child_workflow",
+        "sleep"
+      ],
+      "components": [
+        "workflow-instance",
+        "cancellation-handling",
+        "child-workflow-executor"
+      ],
+      "concepts": [
+        "cancellation",
+        "CancelledError",
+        "exception-handling",
+        "error-swallowing",
+        "shield",
+        "workflow-execution"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot reliably cancel workflows that are awaiting child workflow execution, as the cancellation request is silently ignored and the workflow continues running.",
+      "rootCause": "The shield() call in start_child_workflow prevents CancelledError from propagating correctly; the exception handling around it needs to explicitly handle workflow cancellation.",
+      "proposedFix": "Review and update the exception handling around the shield() call to ensure workflow cancellation (CancelledError) is not suppressed.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Exception handling around shield() in start_child_workflow was updated to properly propagate workflow cancellation.",
+      "related": [],
+      "keyQuote": "It seems the start_child_workflow is shielding from CancelledError, which might explain why the cancelled exception is swallowed.",
+      "number": 1445,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:45:40.529Z"
+    },
+    {
+      "summary": "Feature request to include agent name from ADK labels in the default TemporalModel activity summary, improving traceability of multi-agent workflows in the Temporal UI timeline.",
+      "category": "feature",
+      "subcategory": "adk-integration",
+      "apis": [],
+      "components": [
+        "adk-integration",
+        "activity-executor",
+        "temporal-model",
+        "ui-timeline"
+      ],
+      "concepts": [
+        "multi-agent workflows",
+        "activity traceability",
+        "observability",
+        "behavioral trust",
+        "agent attribution",
+        "activity naming"
+      ],
+      "severity": "medium",
+      "userImpact": "Multi-agent ADK workflow operators cannot easily distinguish which agent performed which action in the Temporal UI timeline when all activities show identical 'invoke_model' summaries.",
+      "rootCause": null,
+      "proposedFix": "Include agent_name, agent_id, and trust_tier from llm_request.config.labels in the default activity summary (e.g., 'invoke_model: FleetAgent [T2]').",
+      "workaround": "Subclass TemporalModel and extract agent name from labels manually.",
+      "resolution": "fixed",
+      "resolutionDetails": "Feature implemented to include agent labels in default activity summary for improved multi-agent workflow traceability and behavioral trust monitoring.",
+      "related": [],
+      "keyQuote": "in multi-agent Temporal workflows, 'invoke_model' repeated 50 times gives no indication of which agent is responsible for which actions, making post-incident attribution very difficult",
+      "number": 1440,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:45:43.592Z"
+    },
+    {
+      "summary": "LlmRequest serialization includes null fields unnecessarily, adding 4-8KB of bloat per payload in workflows with many LLM calls. The request is to strip null fields using model_dump(exclude_none=True) or equivalent, either as default behavior or opt-in via configuration flag.",
+      "category": "feature",
+      "subcategory": "llm-serialization",
+      "apis": [
+        "LlmRequest",
+        "TemporalModel"
+      ],
+      "components": [
+        "serialization",
+        "activity-payloads",
+        "llm-integration"
+      ],
+      "concepts": [
+        "serialization",
+        "null-handling",
+        "payload-optimization",
+        "bloat-reduction",
+        "schema-fields",
+        "configuration"
+      ],
+      "severity": "medium",
+      "userImpact": "Users with workflows containing many LLM calls experience unnecessary payload bloat from null fields, increasing activity input sizes without adding information.",
+      "rootCause": "model_dump() serializes all fields including those with null values, unnecessarily bloating the serialized output",
+      "proposedFix": "Use model_dump(exclude_none=True) to strip null fields before passing to activity, either as default behavior or opt-in via configuration flag",
+      "workaround": "Users can manually strip nulls in their subclass before passing to the activity, as demonstrated in the reporter's current implementation",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "LlmRequest.model_dump() serializes every Gemini config field even when null, adding 4–8KB of nulls per payload.",
+      "number": 1439,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:45:02.733Z"
+    },
+    {
+      "summary": "Feature request to support dynamic per-call activity summaries that vary based on runtime context (agent, arguments, reasoning stage) instead of static strings, critical for debugging multi-agent workflows in the Temporal UI.",
+      "category": "feature",
+      "subcategory": "adk-integration",
+      "apis": [
+        "ActivityConfig"
+      ],
+      "components": [
+        "TemporalModel",
+        "activity_tool",
+        "ActivityConfig"
+      ],
+      "concepts": [
+        "activity-summary",
+        "dynamic-configuration",
+        "multi-agent-workflows",
+        "temporal-ui",
+        "context-aware-logging",
+        "argument-redaction",
+        "trust-scoring"
+      ],
+      "severity": "high",
+      "userImpact": "Users building multi-agent workflows cannot effectively trace and debug activities in Temporal UI because all invocations display identical static summaries.",
+      "rootCause": "ActivityConfig.summary parameter only accepts static strings with no mechanism to access runtime request data or tool arguments at call time.",
+      "proposedFix": "Implement dynamic summary generation via callback, format string, or template that provides access to LlmRequest context for TemporalModel and tool arguments for activity_tool, with sensitive argument redaction.",
+      "workaround": "Subclass TemporalModel and extend activity_tool to generate per-call summaries from runtime arguments (as demonstrated in Fleet Agent implementation).",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        6
+      ],
+      "keyQuote": "Dynamic per-call activity summaries are a significant quality-of-life improvement for multi-agent workflows — static summaries make the Temporal UI nearly useless for tracing incidents",
+      "number": 1438,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:45:13.680Z"
+    },
+    {
+      "summary": "Feature request to expose the Nexus Endpoint information within a Nexus Operation Handler, allowing handlers to access metadata about the incoming service request.",
+      "category": "feature",
+      "subcategory": "nexus-operation-handler",
+      "apis": [
+        "NexusOperationHandler"
+      ],
+      "components": [
+        "nexus",
+        "operation-handler",
+        "endpoint"
+      ],
+      "concepts": [
+        "nexus",
+        "service-communication",
+        "operation-handler",
+        "endpoint-exposure",
+        "request-metadata"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables Nexus operation handlers to access endpoint information, providing more context about incoming service requests.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        805
+      ],
+      "keyQuote": "Expose Nexus Endpoint in a Nexus Operation Handler",
+      "number": 1436,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:45:02.098Z"
+    },
+    {
+      "summary": "The return type of the public JSONTypeConverter.to_typed_value method includes a private type _JSONTypeConverterUnhandled that cannot be imported, preventing proper type-hinting of overridden methods in custom converters.",
+      "category": "bug",
+      "subcategory": "type-hints",
+      "apis": [
+        "JSONTypeConverter.to_typed_value"
+      ],
+      "components": [
+        "converter",
+        "type-system",
+        "api-design"
+      ],
+      "concepts": [
+        "type-hints",
+        "custom-converter",
+        "api-exposure",
+        "subclassing",
+        "type-safety"
+      ],
+      "severity": "medium",
+      "userImpact": "Users who subclass JSONTypeConverter cannot properly type-hint their overridden methods without importing private implementation details.",
+      "rootCause": "The _JSONTypeConverterUnhandled type is not exported in the public API despite being part of the return type of a public method.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "I don't have a good way to type hint the return type of my method unless I import an underscore prefixed name",
+      "number": 1434,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:44:12.665Z"
+    },
+    {
+      "summary": "Feature request to expose histogram_bucket_overrides on OpenTelemetryConfig (like PrometheusConfig). Default histogram buckets are insufficient for long-running operations, causing metrics to cluster in +Inf and making histogram_quantile() unreliable.",
+      "category": "feature",
+      "subcategory": "observability-metrics",
+      "apis": [],
+      "components": [
+        "OpenTelemetry",
+        "metrics",
+        "histogram",
+        "configuration"
+      ],
+      "concepts": [
+        "observability",
+        "metrics",
+        "histograms",
+        "bucket-boundaries",
+        "performance-monitoring",
+        "long-running-tasks"
+      ],
+      "severity": "medium",
+      "userImpact": "Users monitoring long-running activities and workflows cannot accurately analyze histogram metrics due to data clustering in the +Inf bucket.",
+      "rootCause": "Core SDK default histogram buckets top out at 10-60 seconds, insufficient for longer-running operations.",
+      "proposedFix": "Add histogram_bucket_overrides parameter to OpenTelemetryConfig, accepting Mapping[str, Sequence[float]] to match PrometheusConfig.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "For longer-running activities or workflows, all samples land in `+Inf` and `histogram_quantile()` returns meaningless values.",
+      "number": 1432,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:44:22.842Z"
+    },
+    {
+      "summary": "TracingInterceptor and OpenTelemetryInterceptor in the Python SDK do not implement the new client.Interceptor methods for standalone activities, resulting in missing client-side OpenTelemetry spans when executing standalone activities.",
+      "category": "bug",
+      "subcategory": "otel-tracing",
+      "apis": [
+        "Interceptor",
+        "standalone_activities"
+      ],
+      "components": [
+        "opentelemetry-interceptor",
+        "standalone-activities",
+        "client-interceptor",
+        "tracing"
+      ],
+      "concepts": [
+        "tracing",
+        "observability",
+        "instrumentation",
+        "interceptors",
+        "spans",
+        "standalone-activities"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot trace standalone activity client calls with OpenTelemetry, making debugging and monitoring of distributed traces incomplete.",
+      "rootCause": "TracingInterceptor and OpenTelemetryInterceptor classes do not implement the new client.Interceptor methods required for standalone activities.",
+      "proposedFix": "Implement the new client.Interceptor methods in both TracingInterceptor and OpenTelemetryInterceptor to create spans for standalone activity client calls.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Implemented the missing client.Interceptor methods in the OpenTelemetry interceptor classes to support standalone activity tracing.",
+      "related": [],
+      "keyQuote": "TracingInterceptor and OpenTelemetryInterceptor do not currently implement the new client.Interceptor methods related to standalone activities.",
+      "number": 1430,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-05-20T16:44:23.272Z"
+    },
     {
       "summary": "Security vulnerabilities detected in Rust dependencies (rustls-webpki GHSA-pwjx-qhcg-rvj4 and tar-rs CVE-2026-33055/33056) via Trivy scan. Fixed versions available via dependabot PRs awaiting maintainer review.",
       "category": "bug",

@@ -1,6 +1,6 @@
 # Java SDK - Issue Statistics
 
-**Generated:** 2026-04-04
+**Generated:** 2026-05-20
 **Repository:** [temporalio/sdk-java](https://github.com/temporalio/sdk-java)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 221 |
-| Total Closed Issues | 741 |
-| Total All Issues | 962 |
+| Total Open Issues | 227 |
+| Total Closed Issues | 752 |
+| Total All Issues | 979 |
 | Bugs (open) | 32 |
-| Enhancements/Features (open) | 127 |
+| Enhancements/Features (open) | 126 |
 | Security Issues (open) | 4 |
-| Total Upvotes (👍) on open | 95 |
-| Total Comments on open | 210 |
-| Issues with Upvotes | 35 (16%) |
-| Issues with Comments | 91 (41%) |
-| Average Age (days) | 1038 |
-| Stale Issues (>12 months) | 161 (73%) |
+| Total Upvotes (👍) on open | 97 |
+| Total Comments on open | 216 |
+| Issues with Upvotes | 34 (15%) |
+| Issues with Comments | 95 (42%) |
+| Average Age (days) | 1053 |
+| Stale Issues (>12 months) | 171 (75%) |
 
 ---
 ## Resolution Metrics
@@ -36,49 +36,49 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 77% (741/962) |
-| Avg Time to Close (calendar) | 198 days |
-| Avg Time to Close (business) | 142 days |
+| Resolution Rate | 77% (752/979) |
+| Avg Time to Close (calendar) | 195 days |
+| Avg Time to Close (business) | 140 days |
 | Median Time to Close (calendar) | 28 days |
 | Median Time to Close (business) | 21 days |
-| 90th Percentile (calendar) | 803 days |
-| 90th Percentile (business) | 573 days |
+| 90th Percentile (calendar) | 798 days |
+| 90th Percentile (business) | 570 days |
 | Resolved within 30 days | 51% |
-| Resolved within 90 days | 65% |
+| Resolved within 90 days | 66% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
 | Fixed (bugs) | 87 | 12% |
-| Completed (features) | 242 | 33% |
-| Self-resolved | 105 | 14% |
+| Completed (features) | 247 | 33% |
+| Self-resolved | 106 | 14% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 13 | 2% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 7 | 1% |
-| Other | 287 | 39% |
+| Other | 292 | 39% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-05 | 11 | 55 | -44 |
 | 2025-06 | 8 | 27 | -19 |
 | 2025-07 | 14 | 9 | +5 |
 | 2025-08 | 12 | 12 | 0 |
 | 2025-09 | 13 | 12 | +1 |
-| 2025-10 | 11 | 13 | -2 |
+| 2025-10 | 11 | 12 | -1 |
 | 2025-11 | 9 | 7 | +2 |
 | 2025-12 | 6 | 2 | +4 |
 | 2026-01 | 7 | 5 | +2 |
 | 2026-02 | 11 | 3 | +8 |
 | 2026-03 | 4 | 8 | -4 |
-| 2026-04 | 1 | 0 | +1 |
-| **Total** | **107** | **153** | **-46** |
+| 2026-04 | 9 | 7 | +2 |
+| 2026-05 | 9 | 3 | +6 |
+| **Total** | **113** | **107** | **+6** |
 
-📉 **Backlog Shrinking:** 46 more issues closed than opened in the last 12 months.
+📈 **Backlog Growing:** 6 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -88,25 +88,25 @@
 | Metric | Value |
 |--------|-------|
 | Issues Opened | 51 |
-| Issues Closed | 38 |
-| Net Change | +13 |
+| Issues Closed | 35 |
+| Net Change | +16 |
 | Bugs Closed | 2 |
-| Enhancements Closed | 16 |
+| Enhancements Closed | 14 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 108 | 78 |
-| Median | 15 | 11 |
+| Average | 122 | 87 |
+| Median | 35 | 26 |
 | 90th Percentile | 482 | 344 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 61% |
-| Within 90 days | 74% |
+| Within 30 days | 49% |
+| Within 90 days | 69% |
 
 ### Popular Requests Resolved (3+ upvotes)
 
@@ -114,21 +114,19 @@
 |-------|-----|-------|
 | [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 23 | Spring Boot 4 Support |
 | [#2746](https://github.com/temporalio/sdk-java/issues/2746) | 14 | Jackson 3 support |
-| [#2665](https://github.com/temporalio/sdk-java/issues/2665) | 6 | Serialization with `kotlinx.serialization` |
-| [#2724](https://github.com/temporalio/sdk-java/issues/2724) | 5 | Allow Configuration Option to Enable Spring Application... |
 
 ---
 ## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 3 | 1% |
-| 1-3 months | 11 | 5% |
-| 3-6 months | 10 | 5% |
-| 6-12 months | 19 | 9% |
-| 1-2 years | 37 | 17% |
-| 2-3 years | 25 | 11% |
-| 3+ years | 116 | 52% |
+| Last 30 days | 9 | 4% |
+| 1-3 months | 9 | 4% |
+| 3-6 months | 8 | 4% |
+| 6-12 months | 20 | 9% |
+| 1-2 years | 30 | 13% |
+| 2-3 years | 33 | 15% |
+| 3+ years | 118 | 52% |
 
 ---
 
@@ -139,10 +137,10 @@
 | 1 | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 16 | 5 | Support listWorkflowExecutions in test server |
 | 2 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 15 | 8 | Support different coroutine models in workflows and activiti... |
 | 3 | [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 10 | 0 | Add the possibility to run Temporal CLI server from test  |
-| 4 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | 0 | @SignalMethod threading configuration |
-| 5 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 4 | 0 | Support for using Temporal Annotations as Meta Annotation |
-| 6 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 4 | 0 | Provide a recommended way to pass configuration into workflo... |
-| 7 | [#2394](https://github.com/temporalio/sdk-java/issues/2394) | 3 | 1 | Pure opentelemetry based tracing support instead of using tr... |
+| 4 | [#2394](https://github.com/temporalio/sdk-java/issues/2394) | 6 | 2 | Pure opentelemetry based tracing support instead of using tr... |
+| 5 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 6 | 0 | @SignalMethod threading configuration |
+| 6 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 4 | 0 | Support for using Temporal Annotations as Meta Annotation |
+| 7 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 4 | 0 | Provide a recommended way to pass configuration into workflo... |
 | 8 | [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 3 | 1 | Add the ability to keep heartbeating while the worker is shu... |
 | 9 | [#1163](https://github.com/temporalio/sdk-java/issues/1163) | 3 | 1 | Allow contributions of tags of root worker metricsscope per ... |
 | 10 | [#2642](https://github.com/temporalio/sdk-java/issues/2642) | 2 | 1 | TestWorkflowEnvironment sleep incorrect behaviour |
@@ -150,7 +148,7 @@
 | 12 | [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 2 | 7 | Scala module |
 | 13 | [#811](https://github.com/temporalio/sdk-java/issues/811) | 2 | 0 | Add test framework for partial json history replay and conti... |
 | 14 | [#631](https://github.com/temporalio/sdk-java/issues/631) | 2 | 0 | DeterministicRunner is noisy about not accessed cancelled sc... |
-| 15 | [#2741](https://github.com/temporalio/sdk-java/issues/2741) | 1 | 0 | Support standalone activities |
+| 15 | [#2676](https://github.com/temporalio/sdk-java/issues/2676) | 1 | 8 | temporal java sdk is using an older version of grpc-netty-sh... |
 
 ---
 
@@ -163,14 +161,14 @@ Priority = Upvotes × 2 + Comments
 | 1 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 38 | 15 | 8 | Support different coroutine models in workflows an... |
 | 2 | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | 37 | 16 | 5 | Support listWorkflowExecutions in test server |
 | 3 | [#1804](https://github.com/temporalio/sdk-java/issues/1804) | 20 | 10 | 0 | Add the possibility to run Temporal CLI server fro... |
-| 4 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 12 | 6 | 0 | @SignalMethod threading configuration |
-| 5 | [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 11 | 2 | 7 | Scala module |
-| 6 | [#952](https://github.com/temporalio/sdk-java/issues/952) | 10 | 0 | 10 | OpenTracing duplicates user created spans during r... |
-| 7 | [#2676](https://github.com/temporalio/sdk-java/issues/2676) | 9 | 1 | 7 | temporal java sdk is using an older version of grp... |
-| 8 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 8 | 4 | 0 | Support for using Temporal Annotations as Meta Ann... |
-| 9 | [#1241](https://github.com/temporalio/sdk-java/issues/1241) | 8 | 1 | 6 | DynamicWorkflow not taking in account WorkflowImpl... |
-| 10 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 8 | 4 | 0 | Provide a recommended way to pass configuration in... |
-| 11 | [#2394](https://github.com/temporalio/sdk-java/issues/2394) | 7 | 3 | 1 | Pure opentelemetry based tracing support instead o... |
+| 4 | [#2394](https://github.com/temporalio/sdk-java/issues/2394) | 14 | 6 | 2 | Pure opentelemetry based tracing support instead o... |
+| 5 | [#214](https://github.com/temporalio/sdk-java/issues/214) | 12 | 6 | 0 | @SignalMethod threading configuration |
+| 6 | [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 11 | 2 | 7 | Scala module |
+| 7 | [#2676](https://github.com/temporalio/sdk-java/issues/2676) | 10 | 1 | 8 | temporal java sdk is using an older version of grp... |
+| 8 | [#952](https://github.com/temporalio/sdk-java/issues/952) | 10 | 0 | 10 | OpenTracing duplicates user created spans during r... |
+| 9 | [#1832](https://github.com/temporalio/sdk-java/issues/1832) | 8 | 4 | 0 | Support for using Temporal Annotations as Meta Ann... |
+| 10 | [#1241](https://github.com/temporalio/sdk-java/issues/1241) | 8 | 1 | 6 | DynamicWorkflow not taking in account WorkflowImpl... |
+| 11 | [#827](https://github.com/temporalio/sdk-java/issues/827) | 8 | 4 | 0 | Provide a recommended way to pass configuration in... |
 | 12 | [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 7 | 3 | 1 | Add the ability to keep heartbeating while the wor... |
 | 13 | [#2046](https://github.com/temporalio/sdk-java/issues/2046) | 7 | 2 | 3 | Failed promise before calling allOf is not failing... |
 | 14 | [#1698](https://github.com/temporalio/sdk-java/issues/1698) | 7 | 0 | 7 | WorkflowImplementationOptions.FailWorkflowExceptio... |
@@ -183,8 +181,8 @@ Priority = Upvotes × 2 + Comments
 | Rank | Issue | 💬 | 👍 | Title |
 |------|-------|-----|-----|-------|
 | 1 | [#952](https://github.com/temporalio/sdk-java/issues/952) | 10 | 0 | OpenTracing duplicates user created spans during replay |
-| 2 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 8 | 15 | Support different coroutine models in workflows and activiti... |
-| 3 | [#2676](https://github.com/temporalio/sdk-java/issues/2676) | 7 | 1 | temporal java sdk is using an older version of grpc-netty-sh... |
+| 2 | [#2676](https://github.com/temporalio/sdk-java/issues/2676) | 8 | 1 | temporal java sdk is using an older version of grpc-netty-sh... |
+| 3 | [#1845](https://github.com/temporalio/sdk-java/issues/1845) | 8 | 15 | Support different coroutine models in workflows and activiti... |
 | 4 | [#1698](https://github.com/temporalio/sdk-java/issues/1698) | 7 | 0 | WorkflowImplementationOptions.FailWorkflowExceptionTypes ign... |
 | 5 | [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 7 | 2 | Scala module |
 | 6 | [#396](https://github.com/temporalio/sdk-java/issues/396) | 7 | 0 | Pluggable activity name provider |
@@ -199,9 +197,15 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
-| 2026-04-01 | [#2826](https://github.com/temporalio/sdk-java/issues/2826) | 0 | Deprecate namespace fields on cross-namespace workflow comma... |
-| 2026-03-31 | [#2823](https://github.com/temporalio/sdk-java/issues/2823) | 0 | Local activity executor pool exhaustion causes workflow to h... |
-| 2026-03-16 | [#2809](https://github.com/temporalio/sdk-java/issues/2809) | 0 | [java] Support conflict token retry loop for schedule update... |
+| 2026-05-20 | [#2885](https://github.com/temporalio/sdk-java/issues/2885) | 0 | Jackson3JsonPayloadConverter(JsonMapper) constructor not vis... |
+| 2026-05-19 | [#2884](https://github.com/temporalio/sdk-java/issues/2884) | 0 | Allow payload visitors to visit memo payloads in aggregate -... |
+| 2026-05-19 | [#2883](https://github.com/temporalio/sdk-java/issues/2883) | 0 | SDK should log when WFT completion takes a long time - Java |
+| 2026-05-19 | [#2882](https://github.com/temporalio/sdk-java/issues/2882) | 0 | S3 External Storage Driver - Java |
+| 2026-05-19 | [#2881](https://github.com/temporalio/sdk-java/issues/2881) | 0 | Enable concurrent payload visiting - Java |
+| 2026-05-19 | [#2880](https://github.com/temporalio/sdk-java/issues/2880) | 0 | External Payload Storage Foundation - Java |
+| 2026-05-19 | [#2878](https://github.com/temporalio/sdk-java/issues/2878) | 0 | Implement operator commands for Standalone Activities |
+| 2026-05-12 | [#2875](https://github.com/temporalio/sdk-java/issues/2875) | 0 | Update Validator doesn't serialize exceptions properly |
+| 2026-04-27 | [#2863](https://github.com/temporalio/sdk-java/issues/2863) | 0 | TestEnv should propagate Memo along with CAN |
 
 ---
 
@@ -209,7 +213,7 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 127 |
+| enhancement | 126 |
 | test server | 37 |
 | bug | 32 |
 | mend: dependency security vulnerability | 4 |
@@ -259,7 +263,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (161 open issues with no activity >12 months)
+## Stale Issues (171 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -273,6 +277,7 @@ Top stale issues by upvotes:
 | [#2075](https://github.com/temporalio/sdk-java/issues/2075) | 3 | 2024-11-22 | Add the ability to keep heartbeating while the wor... |
 | [#1163](https://github.com/temporalio/sdk-java/issues/1163) | 3 | 2024-12-17 | Allow contributions of tags of root worker metrics... |
 | [#2046](https://github.com/temporalio/sdk-java/issues/2046) | 2 | 2024-05-06 | Failed promise before calling allOf is not failing... |
+| [#1007](https://github.com/temporalio/sdk-java/issues/1007) | 2 | 2025-05-13 | Scala module |
 | [#811](https://github.com/temporalio/sdk-java/issues/811) | 2 | 2021-10-11 | Add test framework for partial json history replay... |
 | [#631](https://github.com/temporalio/sdk-java/issues/631) | 2 | 2024-12-17 | DeterministicRunner is noisy about not accessed ca... |
 | [#2412](https://github.com/temporalio/sdk-java/issues/2412) | 1 | 2025-02-13 | Marker Commands being sent with empty names in the... |
@@ -284,6 +289,5 @@ Top stale issues by upvotes:
 | [#1715](https://github.com/temporalio/sdk-java/issues/1715) | 1 | 2023-05-23 | WorkerOptions should enforce an amount of executor... |
 | [#1358](https://github.com/temporalio/sdk-java/issues/1358) | 1 | 2024-12-17 | Add CI testing for the native test server |
 | [#1346](https://github.com/temporalio/sdk-java/issues/1346) | 1 | 2023-05-23 | Await on Local Activities shouldn't occupy workflo... |
-| [#1246](https://github.com/temporalio/sdk-java/issues/1246) | 1 | 2022-08-10 | Query is not picked up by the worker executing loc... |
 
-*...and 141 more stale issues*
+*...and 151 more stale issues*

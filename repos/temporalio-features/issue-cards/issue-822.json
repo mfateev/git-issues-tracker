@@ -1,0 +1,48 @@
+{
+  "summary": "Feature request to implement operator commands (Pause, Unpause, Reset, UpdateOptions) for Standalone Activities across SDKs. These operations should be available as methods on the Activity handle, similar to Cancel and Terminate, and be interceptable.",
+  "category": "feature",
+  "subcategory": "standalone-activities",
+  "apis": [
+    "Pause",
+    "Unpause",
+    "Reset",
+    "UpdateOptions",
+    "Cancel",
+    "Terminate"
+  ],
+  "components": [
+    "activity-handle",
+    "activity-executor",
+    "rpc-handler",
+    "interceptor-framework"
+  ],
+  "concepts": [
+    "activity-lifecycle",
+    "concurrency-control",
+    "state-management",
+    "rpc-operations",
+    "operator-commands",
+    "activity-control"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will gain operational control over standalone activities with pause, unpause, reset, and option update capabilities.",
+  "rootCause": null,
+  "proposedFix": "Implement Pause, Unpause, Reset, and UpdateOptions as methods on Activity handle that execute respective RPC calls and are interceptable.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2350,
+    2878,
+    2061,
+    1543,
+    706,
+    440,
+    1282,
+    10106
+  ],
+  "keyQuote": "Each of these operations should be available as a method on Activity handle, similar to Cancel and Terminate, and they should be interceptable.",
+  "number": 822,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-05-20T16:36:00.191Z"
+}

@@ -60,9 +60,9 @@ for repo in "${repos[@]}"; do
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
     if "$SCRIPT_DIR/update-issues.sh" "$repo"; then
-        ((success++))
+        success=$((success + 1))
     else
-        ((failed++))
+        failed=$((failed + 1))
         failed_repos+=("$repo")
         echo "WARNING: Failed to update $repo, continuing..."
     fi

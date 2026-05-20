@@ -1,31 +1,227 @@
 {
-  "generated_at": "2026-04-04T19:03:43.237Z",
-  "total_count": 854,
+  "generated_at": "2026-05-20T16:30:21.738Z",
+  "total_count": 867,
   "issues": [
+    {
+      "number": 2350,
+      "title": "Implement operator commands for Standalone Activities",
+      "state": "OPEN",
+      "author": "maciejdudko",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-05-19T15:07:02Z",
+      "updatedAt": "2026-05-19T15:07:02Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2350"
+    },
+    {
+      "number": 2345,
+      "title": "fix: schedule describe does not populate Priority on ScheduleWorkflowAction",
+      "state": "OPEN",
+      "author": "chaptersix",
+      "labels": [],
+      "createdAt": "2026-05-18T13:18:58Z",
+      "updatedAt": "2026-05-18T15:25:20Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2345"
+    },
+    {
+      "number": 2342,
+      "title": "proto namespace conflict: SDK vendors external_storage.proto already present in go.temporal.io/api v1.62.12+",
+      "state": "CLOSED",
+      "author": "denniszag",
+      "labels": [],
+      "createdAt": "2026-05-17T09:19:20Z",
+      "updatedAt": "2026-05-19T13:44:15Z",
+      "closedAt": "2026-05-19T13:44:15Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2342"
+    },
+    {
+      "number": 2335,
+      "title": "ChildWorkflowOptions missing WorkflowIDConflictPolicy (only StartWorkflowOptions has it)",
+      "state": "OPEN",
+      "author": "autocracy",
+      "labels": [],
+      "createdAt": "2026-05-14T02:05:20Z",
+      "updatedAt": "2026-05-14T14:36:40Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2335"
+    },
+    {
+      "number": 2329,
+      "title": "No way to disable the SDK's default gRPC service config",
+      "state": "OPEN",
+      "author": "stanfordpeng",
+      "labels": [],
+      "createdAt": "2026-05-11T10:57:36Z",
+      "updatedAt": "2026-05-11T11:03:54Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2329"
+    },
+    {
+      "number": 2326,
+      "title": "isPanicking() uses 14% CPU and 10% allocations due to runtime.Callers() on every coroutine yield",
+      "state": "OPEN",
+      "author": "mykaul",
+      "labels": [],
+      "createdAt": "2026-05-07T12:06:55Z",
+      "updatedAt": "2026-05-07T12:06:55Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2326"
+    },
+    {
+      "number": 2318,
+      "title": "Add support for Standalone Activities to TestWorkflowEnvironment",
+      "state": "OPEN",
+      "author": "yuandrew",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-04-30T18:41:09Z",
+      "updatedAt": "2026-04-30T18:41:09Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2318"
+    },
+    {
+      "number": 2305,
+      "title": "[docs] Update CONTRIBUTING.md",
+      "state": "CLOSED",
+      "author": "cconstable",
+      "labels": [],
+      "createdAt": "2026-04-24T16:16:14Z",
+      "updatedAt": "2026-04-28T14:13:18Z",
+      "closedAt": "2026-04-28T14:13:18Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2305"
+    },
+    {
+      "number": 2304,
+      "title": "[ClientOutboundInterceptor. UpdateWithStartWorkflow] Add struct that allows inspecting the StartWorkflowOption",
+      "state": "OPEN",
+      "author": "antmendoza",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-04-24T08:36:28Z",
+      "updatedAt": "2026-04-24T08:36:28Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2304"
+    },
+    {
+      "number": 2290,
+      "title": "Expose Nexus Endpoint in a Nexus Operation Handler",
+      "state": "CLOSED",
+      "author": "Quinn-With-Two-Ns",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-04-10T02:56:56Z",
+      "updatedAt": "2026-04-13T21:34:57Z",
+      "closedAt": "2026-04-13T21:34:57Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2290"
+    },
+    {
+      "number": 2286,
+      "title": "Standalone Activities - tracing interceptor doesn't intercept standalone activities client calls",
+      "state": "OPEN",
+      "author": "maciejdudko",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-04-08T22:42:57Z",
+      "updatedAt": "2026-05-17T19:53:12Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2286"
+    },
+    {
+      "number": 2279,
+      "title": "futureImpl.Chain blocks Get forever when called with an already-ready Future",
+      "state": "CLOSED",
+      "author": "antmendoza",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-04-08T15:41:20Z",
+      "updatedAt": "2026-04-20T19:37:36Z",
+      "closedAt": "2026-04-20T19:37:36Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2279"
+    },
+    {
+      "number": 2271,
+      "title": "Visit heartbeat for external storage and payload limits",
+      "state": "CLOSED",
+      "author": "jmaeagle99",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-04-06T20:00:03Z",
+      "updatedAt": "2026-04-27T19:45:02Z",
+      "closedAt": "2026-04-27T19:45:02Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2271"
+    },
     {
       "number": 2264,
       "title": "Deprecate namespace fields on cross-namespace workflow command options",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mjameswh",
       "labels": [],
       "createdAt": "2026-04-01T22:09:32Z",
-      "updatedAt": "2026-04-01T22:09:32Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-04-06T16:01:45Z",
+      "closedAt": "2026-04-06T16:01:45Z",
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2264"
     },
     {
       "number": 2252,
-      "title": "[api-go] Allow payload visitors to visit memo payloads in aggregate - Go",
-      "state": "OPEN",
+      "title": "Allow payload visitors to visit memo payloads in aggregate - Go",
+      "state": "CLOSED",
       "author": "jmaeagle99",
       "labels": [],
       "createdAt": "2026-03-24T18:11:03Z",
-      "updatedAt": "2026-03-24T21:43:20Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-04-27T19:46:24Z",
+      "closedAt": "2026-04-27T19:46:24Z",
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2252"
@@ -47,14 +243,14 @@
     {
       "number": 2236,
       "title": "pollerBalancer.balance can unnecessarily block due to non-deterministic map iteration",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yuandrew",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-03-17T23:44:11Z",
-      "updatedAt": "2026-03-17T23:44:11Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-23T17:24:15Z",
+      "closedAt": "2026-04-23T17:24:15Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -63,14 +259,14 @@
     {
       "number": 2235,
       "title": "taskWorker.taskPollerType is not being set anywhere",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yuandrew",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-03-17T23:44:09Z",
-      "updatedAt": "2026-03-23T20:51:15Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-29T21:28:50Z",
+      "closedAt": "2026-04-29T21:28:50Z",
       "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
@@ -92,14 +288,14 @@
     },
     {
       "number": 2223,
-      "title": "Enable concurrent payload visiting",
+      "title": "Enable concurrent payload visiting - Go",
       "state": "CLOSED",
       "author": "jmaeagle99",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-03-10T20:15:21Z",
-      "updatedAt": "2026-03-24T16:09:15Z",
+      "updatedAt": "2026-05-19T16:48:00Z",
       "closedAt": "2026-03-24T16:09:15Z",
       "commentCount": 0,
       "upvotes": 0,
@@ -311,12 +507,12 @@
     {
       "number": 2167,
       "title": "Warn if the SDK tried to send a payload above a specific size - Go",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "jmaeagle99",
       "labels": [],
       "createdAt": "2026-01-25T21:25:15Z",
-      "updatedAt": "2026-03-24T16:22:07Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-20T23:58:56Z",
+      "closedAt": "2026-04-20T23:58:56Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -339,12 +535,12 @@
     {
       "number": 2165,
       "title": "SDK should fail workflow task if payloads size it known to be too large - Go",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "jmaeagle99",
       "labels": [],
       "createdAt": "2026-01-25T21:22:56Z",
-      "updatedAt": "2026-03-24T16:22:35Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-20T23:58:56Z",
+      "closedAt": "2026-04-20T23:58:56Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -559,14 +755,14 @@
     {
       "number": 2123,
       "title": "[api-go] Proxy: allow payload visitor to run in parallel",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-12-02T16:31:30Z",
-      "updatedAt": "2026-02-27T00:59:29Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-08T23:32:53Z",
+      "closedAt": "2026-04-08T23:32:53Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -719,14 +915,14 @@
     {
       "number": 2098,
       "title": "Update ChildWorkflowOptions comment to indicate the default WorkflowIDReusePolicy and WorkflowIdConflictPolicy",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "codemonkeycxy",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-11-05T19:33:19Z",
-      "updatedAt": "2025-11-07T18:08:12Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-15T14:16:22Z",
+      "closedAt": "2026-05-15T14:16:22Z",
       "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
@@ -5817,9 +6013,9 @@
         "potential-bug"
       ],
       "createdAt": "2023-09-06T12:35:30Z",
-      "updatedAt": "2025-02-04T18:25:26Z",
+      "updatedAt": "2026-05-07T16:45:54Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/1227"
@@ -6852,14 +7048,14 @@
     {
       "number": 1045,
       "title": "Memo does not go through user provided data coverter",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2023-02-17T21:33:39Z",
-      "updatedAt": "2026-02-17T16:07:12Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-13T15:22:37Z",
+      "closedAt": "2026-05-13T15:22:37Z",
       "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
@@ -13489,13 +13685,13 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 171,
-      "CLOSED": 683
+      "OPEN": 170,
+      "CLOSED": 697
     },
     "by_label": {
-      "enhancement": 383,
+      "enhancement": 386,
       "potential-bug": 275,
-      "bug": 83,
+      "bug": 87,
       "external dependency": 20,
       "Mend: dependency security vulnerability": 9,
       "question": 4,
@@ -13503,10 +13699,10 @@
     },
     "engagement": {
       "total_upvotes": 239,
-      "total_comments": 1479,
+      "total_comments": 1487,
       "issues_with_upvotes": 107,
-      "issues_with_comments": 536,
-      "upvote_rate": "13%",
+      "issues_with_comments": 543,
+      "upvote_rate": "12%",
       "comment_rate": "63%"
     }
   },

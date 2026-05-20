@@ -1,0 +1,33 @@
+{
+  "summary": "The workflowcheck tool causes Out-of-Memory errors on large codebases by eagerly loading and caching all classes from the entire classpath (potentially 20,000+ classes) when searching for workflow implementations, even though only a few classes are actually workflows.",
+  "category": "bug",
+  "subcategory": "determinism-validation",
+  "apis": [],
+  "components": [
+    "workflowcheck-tool",
+    "classpath-scanner",
+    "class-loader",
+    "class-cache"
+  ],
+  "concepts": [
+    "class-scanning",
+    "memory-efficiency",
+    "determinism-validation",
+    "classpath-resolution",
+    "lazy-loading",
+    "performance-optimization",
+    "cache-management"
+  ],
+  "severity": "high",
+  "userImpact": "Developers working with large codebases cannot run workflowcheck in CI without hitting Out-of-Memory errors that block their build pipelines.",
+  "rootCause": "The ClassPath constructor eagerly enumerates and loads every class file from the entire classpath using ASM ClassReader, storing all ClassInfo objects in a HashMap for the lifetime of the scan. This wastes memory by loading thousands of non-workflow classes that are never needed.",
+  "proposedFix": "Two approaches: (1) Add --scan-classpath flag to enumerate classes only from specified scan paths while maintaining full classpath for dependency resolution, loading only classes encountered during call-chain tracing. (2) Implement two-pass lazy loading with annotation filtering - quick scan for WorkflowInterface/WorkflowMethod annotations first, then full ASM analysis only on matched classes.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "For a project with a few workflow classes buried among ~20,000 dependency classes, the tool eagerly loads all 20,000 just to find those few classes.",
+  "number": 2846,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:41:18.828Z"
+}

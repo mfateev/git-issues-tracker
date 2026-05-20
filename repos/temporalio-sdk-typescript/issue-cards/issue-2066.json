@@ -1,0 +1,33 @@
+{
+  "summary": "The TypeScript SDK should log diagnostic information when Workflow Task completion takes longer than expected, providing visibility into performance bottlenecks. This is part of a cross-SDK feature implementation effort.",
+  "category": "feature",
+  "subcategory": "observability",
+  "apis": [],
+  "components": [
+    "worker",
+    "task-handler",
+    "logging"
+  ],
+  "concepts": [
+    "observability",
+    "logging",
+    "performance",
+    "diagnostics",
+    "workflow-task",
+    "latency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users lack visibility into slow workflow task completions, making it harder to diagnose performance issues in production.",
+  "rootCause": null,
+  "proposedFix": "Add logging when WFT completion takes a long time; coordinate implementation across core-based SDKs for consistency",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    827
+  ],
+  "keyQuote": "Should investigate if we can push this information into sdk-rust repo so that all core-based SDKs report in a similar manner.",
+  "number": 2066,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:52:06.543Z"
+}

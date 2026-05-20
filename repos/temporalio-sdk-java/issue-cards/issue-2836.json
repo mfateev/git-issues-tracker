@@ -1,0 +1,35 @@
+{
+  "summary": "Enhancement to expose the Nexus endpoint within Nexus operation handlers, enabling developers to access endpoint information during operation handling.",
+  "category": "feature",
+  "subcategory": "nexus",
+  "apis": [
+    "NexusOperationHandler",
+    "NexusEndpoint"
+  ],
+  "components": [
+    "nexus-handler",
+    "nexus-endpoint",
+    "nexus-client"
+  ],
+  "concepts": [
+    "nexus",
+    "operation-handler",
+    "endpoint",
+    "cross-workflow-communication",
+    "api-exposure"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers using Nexus operation handlers can now access the Nexus endpoint directly, enabling more advanced use cases and better integration with Nexus features.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Feature implemented to expose Nexus endpoint in operation handler.",
+  "related": [
+    805
+  ],
+  "keyQuote": "Expose Nexus Endpoint in a Nexus Operation Handler",
+  "number": 2836,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:40:13.657Z"
+}

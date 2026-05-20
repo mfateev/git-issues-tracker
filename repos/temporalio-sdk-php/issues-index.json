@@ -1,7 +1,83 @@
 {
-  "generated_at": "2026-04-04T19:03:43.413Z",
-  "total_count": 269,
+  "generated_at": "2026-05-20T16:30:22.257Z",
+  "total_count": 274,
   "issues": [
+    {
+      "number": 746,
+      "title": "[Bug] Local Activity crash with nil pointer dereference panic on RoadRunner 2025.1.13",
+      "state": "OPEN",
+      "author": "frozenbrain",
+      "labels": [
+        "Bug"
+      ],
+      "createdAt": "2026-05-05T10:30:01Z",
+      "updatedAt": "2026-05-15T16:09:09Z",
+      "closedAt": null,
+      "commentCount": 3,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-php/issues/746"
+    },
+    {
+      "number": 745,
+      "title": "[Bug] ActivityMocker is incompatible with time-skipping — virtual clock skips through start-to-close timeout before mocked response    arrives",
+      "state": "OPEN",
+      "author": "ilyazastrognov",
+      "labels": [
+        "Bug"
+      ],
+      "createdAt": "2026-05-04T00:15:17Z",
+      "updatedAt": "2026-05-04T00:15:17Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-php/issues/745"
+    },
+    {
+      "number": 744,
+      "title": "[Docs] WorkflowTestCase silently connects to prod Temporal when TEMPORAL_ADDRESS is already set in container env (PHPUnit       <env> doesn't override by default)",
+      "state": "OPEN",
+      "author": "ilyazastrognov",
+      "labels": [],
+      "createdAt": "2026-05-04T00:00:54Z",
+      "updatedAt": "2026-05-04T00:00:54Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-php/issues/744"
+    },
+    {
+      "number": 743,
+      "title": "[Bug] WorkflowTestCase / TestService: time skipping starts locked by default, no auto-unlock around getResult() — timer-only    workflows hang in tests",
+      "state": "OPEN",
+      "author": "ilyazastrognov",
+      "labels": [
+        "Bug"
+      ],
+      "createdAt": "2026-05-03T23:51:18Z",
+      "updatedAt": "2026-05-03T23:53:40Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-php/issues/743"
+    },
+    {
+      "number": 741,
+      "title": "Bump Temporal API to 1.62.8",
+      "state": "OPEN",
+      "author": "xepozz",
+      "labels": [],
+      "createdAt": "2026-04-12T10:44:52Z",
+      "updatedAt": "2026-04-12T10:44:52Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/sdk-php/issues/741"
+    },
     {
       "number": 729,
       "title": "[php] Support conflict token retry loop for schedule updates",
@@ -269,14 +345,14 @@
     {
       "number": 644,
       "title": "[Feature Request] Plugin support",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-08-15T14:34:25Z",
-      "updatedAt": "2025-08-15T14:34:25Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-08T05:57:52Z",
+      "closedAt": "2026-04-08T05:57:52Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -697,14 +773,14 @@
     {
       "number": 595,
       "title": "[Bug] Incorrect generic extends of RuleFactoryInterface",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "KorDum",
       "labels": [
         "Bug"
       ],
       "createdAt": "2025-04-14T06:26:31Z",
-      "updatedAt": "2026-02-25T15:22:53Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-08T07:12:52Z",
+      "closedAt": "2026-04-08T07:12:52Z",
       "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
@@ -843,9 +919,9 @@
         "Bug"
       ],
       "createdAt": "2025-03-03T13:46:57Z",
-      "updatedAt": "2025-12-20T14:49:57Z",
+      "updatedAt": "2026-04-13T18:06:30Z",
       "closedAt": null,
-      "commentCount": 7,
+      "commentCount": 8,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/577"
@@ -4242,11 +4318,11 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 39,
-      "CLOSED": 230
+      "OPEN": 42,
+      "CLOSED": 232
     },
     "by_label": {
-      "Bug": 92,
+      "Bug": 95,
       "enhancement": 91,
       "Question": 23,
       "Feature": 21,
@@ -4257,11 +4333,11 @@
     },
     "engagement": {
       "total_upvotes": 47,
-      "total_comments": 578,
+      "total_comments": 582,
       "issues_with_upvotes": 34,
-      "issues_with_comments": 155,
-      "upvote_rate": "13%",
-      "comment_rate": "58%"
+      "issues_with_comments": 156,
+      "upvote_rate": "12%",
+      "comment_rate": "57%"
     }
   },
   "top_by_upvotes": [
@@ -4436,6 +4512,12 @@
       "comments": 9
     },
     {
+      "number": 577,
+      "title": "[Bug] Can't run the tests of UpdateMethod",
+      "upvotes": 0,
+      "comments": 8
+    },
+    {
       "number": 357,
       "title": "react/promise v3 doesn't work fine",
       "upvotes": 0,
@@ -4458,12 +4540,6 @@
       "title": "Is this SDK available in standalone without RoadRunner ?",
       "upvotes": 0,
       "comments": 8
-    },
-    {
-      "number": 577,
-      "title": "[Bug] Can't run the tests of UpdateMethod",
-      "upvotes": 0,
-      "comments": 7
     },
     {
       "number": 213,

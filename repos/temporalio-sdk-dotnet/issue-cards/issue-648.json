@@ -1,0 +1,35 @@
+{
+  "summary": "Test `StartActivityAsync_Interceptors_AreCalledProperly` is flaking with an 'invalid transition from Canceled' RpcException during activity termination, indicating a race condition in state management when canceling activities via interceptors.",
+  "category": "bug",
+  "subcategory": "test-flake",
+  "apis": [
+    "StartActivityAsync",
+    "TerminateActivityAsync"
+  ],
+  "components": [
+    "client",
+    "worker",
+    "rpc",
+    "activity-manager"
+  ],
+  "concepts": [
+    "activity-termination",
+    "state-transition",
+    "race-condition",
+    "cancellation",
+    "test-reliability",
+    "interceptors"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky test causes intermittent CI failures, reducing confidence in the test suite and impacting development velocity.",
+  "rootCause": "Race condition during activity cancellation where the activity transitions to Canceled state before the explicit TerminateActivityAsync call, causing an invalid state transition.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "invalid transition from Canceled",
+  "number": 648,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-05-20T16:37:13.738Z"
+}

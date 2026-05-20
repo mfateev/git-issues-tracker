@@ -1,0 +1,33 @@
+{
+  "summary": "OpenTelemetry gauges in the matching service leak metric entries indefinitely because the gaugeAdapter stores label combinations in a map that only adds entries and never removes them, causing unbounded Prometheus metric cardinality growth over pod lifetime.",
+  "category": "bug",
+  "subcategory": "metrics-cardinality",
+  "apis": [],
+  "components": [
+    "matching-service",
+    "metrics-handler",
+    "otel-gauges",
+    "physical-task-queue-manager"
+  ],
+  "concepts": [
+    "cardinality",
+    "memory-leak",
+    "gauge",
+    "prometheus",
+    "observability",
+    "metric-retention",
+    "resource-exhaustion"
+  ],
+  "severity": "high",
+  "userImpact": "Long-lived Temporal clusters with many task queues and worker build IDs see unbounded metric cardinality growth, increasing Prometheus scrape overhead and resource usage on matching pods.",
+  "rootCause": "The gaugeAdapter.values map in common/metrics/otel_metrics_handler.go stores gauge entries keyed by label sets but only adds entries and never removes them, so metrics from unloaded physical task queues persist indefinitely.",
+  "proposedFix": "Explicitly evict metric entries when a task queue is unloaded from the matching service.",
+  "workaround": "Use the excludeTags field in the Temporal service config to exclude high-cardinality labels like workflow_type, task_queue, or build_id from metrics.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Gauge values leak in `gaugeAdapter.values` — entries are never removed",
+  "number": 9945,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:53:40.427Z"
+}

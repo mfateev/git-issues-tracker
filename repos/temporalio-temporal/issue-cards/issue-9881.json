@@ -1,0 +1,33 @@
+{
+  "summary": "Feature request to support fallback/default TLS configuration for remote cluster connections. Currently, unmapped hostnames fall back to insecure plaintext connections instead of using a default configuration, and adding new remote clusters requires manual config updates and cluster restarts.",
+  "category": "feature",
+  "subcategory": "remote-cluster-tls",
+  "apis": [],
+  "components": [
+    "tls-provider",
+    "remote-cluster-handler",
+    "grpc-credentials",
+    "configuration"
+  ],
+  "concepts": [
+    "tls-encryption",
+    "remote-cluster",
+    "fallback-config",
+    "cross-cluster-replication",
+    "certificate-validation",
+    "configuration-management",
+    "pki"
+  ],
+  "severity": "high",
+  "userImpact": "Users adding new remote clusters must manually update configuration and restart the cluster; unmapped clusters silently fall back to insecure connections.",
+  "rootCause": "GetRemoteClusterClientConfig() lacks fallback logic—unmapped hostnames return nil instead of using a default/wildcard entry, resulting in insecure connections.",
+  "proposedFix": "Support a reserved key (e.g., '*' or 'defaultRemoteCluster') in the TLS remote clusters configuration that provides a fallback when no exact hostname match is found.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "If a hostname is not present in the map, GetRemoteClusterClientConfig returns nil, resulting in a plaintext (insecure) connection",
+  "number": 9881,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:53:17.298Z"
+}

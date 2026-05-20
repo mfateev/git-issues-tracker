@@ -1,0 +1,31 @@
+{
+  "summary": "Reports critical CVEs (CVE-2026-33815, CVE-2026-33816, CVE-2026-33186) in temporalio/server and temporalio/admin-tools 1.30.4 Docker images. The vulnerability was addressed with v1.30.4.1 release containing security patches.",
+  "category": "bug",
+  "subcategory": "security-vulnerability",
+  "apis": [],
+  "components": [
+    "server",
+    "admin-tools",
+    "dependencies"
+  ],
+  "concepts": [
+    "vulnerability",
+    "CVE",
+    "security-patch",
+    "dependency-management",
+    "container-security",
+    "version-upgrade"
+  ],
+  "severity": "critical",
+  "userImpact": "Users of temporalio/server:1.30.4 and temporalio/admin-tools:1.30.4 Docker images are exposed to critical security vulnerabilities until upgrading to patched versions.",
+  "rootCause": "Dependency vulnerabilities in production Docker images, specifically critical CVEs in underlying libraries like PGX.",
+  "proposedFix": "Release patched Docker images with updated dependencies; v1.30.4.1 was released with security patches.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Released v1.30.4.1 with security patches addressing the reported CVEs.",
+  "related": [],
+  "keyQuote": "We have released v1.30.4.1 with this security patch.",
+  "number": 10003,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:54:48.035Z"
+}

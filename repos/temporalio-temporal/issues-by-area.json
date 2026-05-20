@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-04T19:22:22.598Z",
+  "generatedAt": "2026-05-20T17:00:15.340Z",
   "repo": "temporalio-temporal",
   "areas": {
     "test-framework": [
@@ -139,6 +139,7 @@
       937
     ],
     "dependency-security": [
+      9863,
       9494,
       8535,
       8465,
@@ -269,6 +270,32 @@
       668,
       119
     ],
+    "schedules": [
+      10168,
+      9752,
+      9383,
+      8490,
+      5811,
+      4866,
+      4858,
+      4795,
+      4787,
+      4703,
+      3614
+    ],
+    "activity-retry": [
+      10149,
+      8129,
+      7515,
+      6605,
+      5111,
+      4799,
+      4151,
+      2496,
+      1139,
+      987,
+      185
+    ],
     "namespace-management": [
       7801,
       7106,
@@ -282,18 +309,6 @@
       703,
       286
     ],
-    "schedules": [
-      9752,
-      9383,
-      8490,
-      5811,
-      4866,
-      4858,
-      4795,
-      4787,
-      4703,
-      3614
-    ],
     "worker-versioning": [
       8316,
       8114,
@@ -305,18 +320,6 @@
       3230,
       3127,
       1689
-    ],
-    "activity-retry": [
-      8129,
-      7515,
-      6605,
-      5111,
-      4799,
-      4151,
-      2496,
-      1139,
-      987,
-      185
     ],
     "docker-setup": [
       6628,
@@ -436,6 +439,15 @@
       1992,
       1840
     ],
+    "security-vulnerability": [
+      10003,
+      8866,
+      8698,
+      8110,
+      8092,
+      3459,
+      2451
+    ],
     "workflow-updates": [
       9800,
       6872,
@@ -497,14 +509,6 @@
       6806,
       6000
     ],
-    "security-vulnerability": [
-      8866,
-      8698,
-      8110,
-      8092,
-      3459,
-      2451
-    ],
     "metrics-prometheus": [
       8088,
       5897,
@@ -544,6 +548,13 @@
       2426,
       1359,
       92
+    ],
+    "docker-configuration": [
+      10245,
+      3916,
+      595,
+      580,
+      460
     ],
     "metrics-observability": [
       9600,
@@ -671,6 +682,18 @@
       589,
       266
     ],
+    "docker-security": [
+      10284,
+      10263,
+      3453,
+      1895
+    ],
+    "docker-deployment": [
+      9887,
+      8431,
+      2630,
+      453
+    ],
     "server-configuration": [
       9683,
       7492,
@@ -761,12 +784,6 @@
       499,
       497
     ],
-    "docker-configuration": [
-      3916,
-      595,
-      580,
-      460
-    ],
     "workflow-timeout": [
       3746,
       1412,
@@ -784,6 +801,21 @@
       1433,
       1215,
       392
+    ],
+    "custom-search-attributes": [
+      9974,
+      5557,
+      1899
+    ],
+    "database-migration": [
+      9930,
+      5260,
+      862
+    ],
+    "authorization-jwt": [
+      9928,
+      5156,
+      1135
     ],
     "workflow-task-execution": [
       9563,
@@ -814,11 +846,6 @@
       8546,
       3154,
       1403
-    ],
-    "docker-deployment": [
-      8431,
-      2630,
-      453
     ],
     "timer-management": [
       8109,
@@ -980,6 +1007,30 @@
       508,
       331
     ],
+    "child-workflow-execution": [
+      10321,
+      7591
+    ],
+    "schedule-intervals": [
+      10312,
+      6173
+    ],
+    "history-storage": [
+      10307,
+      6255
+    ],
+    "child-workflow-cancellation": [
+      10190,
+      276
+    ],
+    "cluster-replication": [
+      10005,
+      7640
+    ],
+    "readme": [
+      9761,
+      2812
+    ],
     "metrics-optimization": [
       9565,
       3015
@@ -1120,10 +1171,6 @@
       5589,
       944
     ],
-    "custom-search-attributes": [
-      5557,
-      1899
-    ],
     "docker-compose-setup": [
       5455,
       2322
@@ -1136,17 +1183,9 @@
       5296,
       1743
     ],
-    "database-migration": [
-      5260,
-      862
-    ],
     "schedules-api": [
       5245,
       4984
-    ],
-    "authorization-jwt": [
-      5156,
-      1135
     ],
     "workflow-start": [
       5119,
@@ -1223,10 +1262,6 @@
     "task-queue-rate-limiting": [
       3503,
       3288
-    ],
-    "docker-security": [
-      3453,
-      1895
     ],
     "mutable-state-optimization": [
       3357,
@@ -1339,6 +1374,63 @@
     "payload-encoding": [
       107,
       25
+    ],
+    "system-workflow-cold-start": [
+      10320
+    ],
+    "parent-child-workflows": [
+      10286
+    ],
+    "task-queue-fairness": [
+      10244
+    ],
+    "pause-execution": [
+      10239
+    ],
+    "helm-deployment": [
+      10236
+    ],
+    "replication-cleanup": [
+      10224
+    ],
+    "cassandra-driver": [
+      10177
+    ],
+    "mysql-failover": [
+      10171
+    ],
+    "postgresql-indexing": [
+      10145
+    ],
+    "schedule-interval": [
+      10058
+    ],
+    "otel-tracing": [
+      10053
+    ],
+    "password-management": [
+      10028
+    ],
+    "release-planning": [
+      9999
+    ],
+    "ringpop-membership": [
+      9987
+    ],
+    "elasticsearch-pagination": [
+      9959
+    ],
+    "cache-metrics": [
+      9954
+    ],
+    "metrics-cardinality": [
+      9945
+    ],
+    "remote-cluster-tls": [
+      9881
+    ],
+    "elasticsearch-visibility-store": [
+      9857
     ],
     "database-plugin": [
       9804
@@ -1592,9 +1684,6 @@
     "schema-versioning": [
       7657
     ],
-    "cluster-replication": [
-      7640
-    ],
     "build-configuration": [
       7635
     ],
@@ -1606,9 +1695,6 @@
     ],
     "nexus-api-metadata": [
       7596
-    ],
-    "child-workflow-execution": [
-      7591
     ],
     "persistence-connectivity": [
       7577
@@ -1781,9 +1867,6 @@
     "payload-validation": [
       6259
     ],
-    "history-storage": [
-      6255
-    ],
     "cli-help": [
       6226
     ],
@@ -1810,9 +1893,6 @@
     ],
     "schedule-validation": [
       6188
-    ],
-    "schedule-intervals": [
-      6173
     ],
     "build-architecture": [
       6146
@@ -2386,9 +2466,6 @@
     ],
     "persistence-plugin-loading": [
       2849
-    ],
-    "readme": [
-      2812
     ],
     "tutorial-setup": [
       2805
@@ -3064,9 +3141,6 @@
     ],
     "docker-compose-examples": [
       287
-    ],
-    "child-workflow-cancellation": [
-      276
     ],
     "cli-workflow-list": [
       228

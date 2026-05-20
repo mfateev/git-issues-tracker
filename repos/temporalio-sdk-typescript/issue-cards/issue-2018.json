@@ -1,0 +1,34 @@
+{
+  "summary": "Documentation links in the TypeScript SDK reference dead URLs at https://docs.temporal.io/concepts/* which have been reorganized. The correct URLs are now at https://docs.temporal.io/workflow-execution/* with appropriate anchors.",
+  "category": "docs",
+  "subcategory": "broken-documentation-links",
+  "apis": [
+    "continueAsNew",
+    "makeContinueAsNewFunc"
+  ],
+  "components": [
+    "workflow-docs",
+    "api-documentation",
+    "doc-comments"
+  ],
+  "concepts": [
+    "continue-as-new",
+    "workflow-execution",
+    "documentation",
+    "dead-links",
+    "api-reference",
+    "doc-urls"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot access referenced documentation to understand SDK APIs, hindering learning and development.",
+  "rootCause": "Documentation structure was reorganized from /concepts/ to /workflow-execution/ but SDK code comments were not updated with new URLs.",
+  "proposedFix": "Update all documentation links in code comments from https://docs.temporal.io/concepts/* to https://docs.temporal.io/workflow-execution/* with appropriate anchors.",
+  "workaround": "Users can access archived versions via web.archive.org or manually search for documentation on docs.temporal.io.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I believe the correct link would be https://docs.temporal.io/workflow-execution/continue-as-new#continue-as-new",
+  "number": 2018,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:50:35.338Z"
+}

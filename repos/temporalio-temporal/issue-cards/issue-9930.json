@@ -1,0 +1,33 @@
+{
+  "summary": "PostgreSQL visibility database migration from 1.29 to 1.30.4 fails due to missing btree_gin extension for GIN index creation. Additionally, the new GENERATED ALWAYS AS STORED column causes PostgreSQL to rewrite all rows in the table, creating prohibitive downtime for large tables (30M+ rows).",
+  "category": "bug",
+  "subcategory": "database-migration",
+  "apis": [],
+  "components": [
+    "schema-migration",
+    "visibility-store",
+    "postgresql",
+    "gin-indexing"
+  ],
+  "concepts": [
+    "database-migration",
+    "schema-evolution",
+    "generated-columns",
+    "indexing",
+    "postgresql",
+    "performance-degradation",
+    "downtime"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot upgrade to version 1.30.4 without either experiencing complete migration failure or requiring significant downtime for large visibility tables.",
+  "rootCause": "GIN index creation requires btree_gin extension which may not be installed; GENERATED ALWAYS AS STORED column forces PostgreSQL to rewrite all rows, causing severe performance degradation on large tables.",
+  "proposedFix": "Install btree_gin extension before migration with conditional check. Investigate alternative schema migration strategy to avoid sequential table rewrite for performance issue.",
+  "workaround": "Manually install btree_gin extension before running migration: CREATE EXTENSION btree_gin;",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "pq: data type character has no default operator class for access method \"gin\"",
+  "number": 9930,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:53:41.464Z"
+}

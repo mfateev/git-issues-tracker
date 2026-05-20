@@ -1,0 +1,32 @@
+{
+  "summary": "Race condition when adding custom search attributes concurrently causes multiple search attributes with the same alias to be created, breaking visibility database queries.",
+  "category": "bug",
+  "subcategory": "custom-search-attributes",
+  "apis": [],
+  "components": [
+    "namespace-management",
+    "custom-search-attributes",
+    "visibility-store",
+    "concurrency-control"
+  ],
+  "concepts": [
+    "race-condition",
+    "concurrency",
+    "search-attributes",
+    "aliases",
+    "optimistic-locking",
+    "data-integrity"
+  ],
+  "severity": "high",
+  "userImpact": "Concurrent additions of custom search attributes create duplicate aliases that break visibility database queries and prevent proper issue filtering.",
+  "rootCause": "Missing optimistic concurrency control checks when creating custom search attributes",
+  "proposedFix": "Add optimistic concurrency control checks to prevent race conditions during custom search attribute creation",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed by adding optimistic concurrency control checks (PR #10057), released in v1.32.0",
+  "related": [],
+  "keyQuote": "Temporal creates multiple search attributes with the same alias (probably, because of race condition). This leads to multiple problems with queries to the visibility database.",
+  "number": 9974,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:54:17.541Z"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "Feature request to publish RBI (Ruby Behavior Interface) types for the Temporal Ruby SDK for use with Sorbet, including argument and return types, instead of relying on tapioca.",
+  "category": "feature",
+  "subcategory": "rbi-types",
+  "apis": [],
+  "components": [
+    "ruby-sdk",
+    "type-definitions",
+    "package"
+  ],
+  "concepts": [
+    "static-typing",
+    "type-safety",
+    "developer-experience",
+    "sorbet",
+    "rbi"
+  ],
+  "severity": "medium",
+  "userImpact": "Ruby developers using Sorbet static type checker would have better IDE support and type safety when using the Temporal SDK.",
+  "rootCause": null,
+  "proposedFix": "Published RBI types for use with Sorbet that include argument and return types.",
+  "workaround": "Users can currently rely on tapioca for generating RBIs, though it has limited usefulness outside of method discovery and arity.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Currently users must rely on tapioca for generating RBIs for the `temporalio` gem which isn't especially useful outside of method discovery and arity.",
+  "number": 412,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-05-20T16:48:43.090Z"
+}

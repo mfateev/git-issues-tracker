@@ -1,0 +1,32 @@
+{
+  "summary": "The Go SDK applies a default gRPC service config with round-robin load balancing but provides no public API to disable it. This causes connection delays due to DNS TXT lookups when users connect through external load balancers.",
+  "category": "feature",
+  "subcategory": "grpc-configuration",
+  "apis": [],
+  "components": [
+    "grpc-dialer",
+    "connection-options",
+    "grpc-service-config",
+    "load-balancing"
+  ],
+  "concepts": [
+    "load-balancing",
+    "service-config",
+    "DNS-lookups",
+    "connection-delays",
+    "gRPC-options",
+    "external-load-balancers"
+  ],
+  "severity": "medium",
+  "userImpact": "Users connecting through external load balancers without DNS TXT record control experience connection delays of 5-30 seconds due to DNS TXT lookups and have no way to disable the default service config.",
+  "rootCause": "The SDK unconditionally applies a default gRPC service config, and gRPC's WithDisableServiceConfig() only disables resolver-based configs, not SDK-provided defaults.",
+  "proposedFix": "Add a DisableServiceConfig boolean field to ConnectionOptions struct that conditionally applies the default service config in the dial() function.",
+  "workaround": "Users can override the service config by passing their own grpc.WithDefaultServiceConfig() via DialOptions, but this still doesn't prevent DNS TXT lookups.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "There is no public API to disable this default service config. Users who need to completely disable service config (to avoid DNS TXT lookups) cannot do so.",
+  "number": 2329,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:38:53.783Z"
+}

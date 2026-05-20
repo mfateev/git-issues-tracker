@@ -1,0 +1,32 @@
+{
+  "summary": "Add an Endpoint field to NexusInfo to expose the Nexus endpoint within Nexus Operation Handlers. This feature request is being tracked across multiple SDKs (Go, Java, Python, .NET).",
+  "category": "feature",
+  "subcategory": "nexus-endpoint",
+  "apis": [
+    "NexusInfo"
+  ],
+  "components": [
+    "nexus-handler",
+    "nexus-info",
+    "operation-handler"
+  ],
+  "concepts": [
+    "nexus",
+    "endpoint",
+    "operation-handler",
+    "metadata",
+    "context"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need access to the Nexus endpoint information within their operation handlers for context awareness and proper integration.",
+  "rootCause": null,
+  "proposedFix": "Add an Endpoint field to the NexusInfo object exposed in Nexus Operation Handlers.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "On the `NexusInfo` we should have a field for `Endpoint`",
+  "number": 805,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-05-20T16:35:22.485Z"
+}

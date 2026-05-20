@@ -1,9 +1,341 @@
 {
-  "generatedAt": "2026-04-04T19:22:21.802Z",
+  "generatedAt": "2026-05-20T17:00:13.555Z",
   "repo": "temporalio-features",
-  "totalCount": 405,
-  "cardsCount": 405,
+  "totalCount": 412,
+  "cardsCount": 412,
   "issues": [
+    {
+      "number": 827,
+      "title": "SDK should log when WFT completion takes a long time",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-05-19T17:09:22Z",
+      "updatedAt": "2026-05-19T17:19:44Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/827",
+      "bodyLength": 1347,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        2066,
+        2883
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Add logging to SDKs when workflow task completion takes a long time due to external storage operations. The worker should log metrics about payload downloads/uploads when durations exceed 5 seconds (info level) or 10 seconds (warning level).",
+      "category": "feature",
+      "subcategory": "external-storage-logging",
+      "apis": [],
+      "components": [
+        "worker",
+        "external-storage",
+        "task-executor",
+        "logging",
+        "payload-handler"
+      ],
+      "concepts": [
+        "external-storage",
+        "workflow-task-timeout",
+        "performance-monitoring",
+        "logging",
+        "latency",
+        "payload-operations",
+        "observability"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 822,
+      "title": "Implement operator commands for Standalone Activities",
+      "state": "OPEN",
+      "author": "maciejdudko",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-05-19T14:54:50Z",
+      "updatedAt": "2026-05-19T16:27:37Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/822",
+      "bodyLength": 1051,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        440,
+        706,
+        1282,
+        1543,
+        2061,
+        2350,
+        2878
+      ],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "Feature request to implement operator commands (Pause, Unpause, Reset, UpdateOptions) for Standalone Activities across SDKs. These operations should be available as methods on the Activity handle, similar to Cancel and Terminate, and be interceptable.",
+      "category": "feature",
+      "subcategory": "standalone-activities",
+      "apis": [
+        "Pause",
+        "Unpause",
+        "Reset",
+        "UpdateOptions",
+        "Cancel",
+        "Terminate"
+      ],
+      "components": [
+        "activity-handle",
+        "activity-executor",
+        "rpc-handler",
+        "interceptor-framework"
+      ],
+      "concepts": [
+        "activity-lifecycle",
+        "concurrency-control",
+        "state-management",
+        "rpc-operations",
+        "operator-commands",
+        "activity-control"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 812,
+      "title": "Standard error handler interface for workflow and activity failures",
+      "state": "OPEN",
+      "author": "robzienert",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-05-05T18:47:38Z",
+      "updatedAt": "2026-05-18T02:52:19Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/812",
+      "bodyLength": 2812,
+      "hasCodeBlocks": false,
+      "hasStackTrace": true,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to add a standardized exception handler interface across all Temporal SDKs that allows applications to customize how workflow and activity failures are logged and telemetry is emitted.",
+      "category": "feature",
+      "subcategory": "error-handling",
+      "apis": [],
+      "components": [
+        "worker",
+        "error-handler",
+        "workflow-execution",
+        "activity-execution"
+      ],
+      "concepts": [
+        "error-handling",
+        "exception-handler",
+        "logging",
+        "telemetry",
+        "failure-notification",
+        "standardization",
+        "sdk-interface"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 807,
+      "title": "Expose `CONTINUE_AS_NEW_VERSIONING_BEHAVIOR_USE_RAMPING_VERSION` in SDKs",
+      "state": "CLOSED",
+      "author": "THardy98",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-04-13T21:51:22Z",
+      "updatedAt": "2026-05-05T15:45:13Z",
+      "closedAt": "2026-05-05T15:45:13Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/807",
+      "bodyLength": 561,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        738
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to expose the CONTINUE_AS_NEW_VERSIONING_BEHAVIOR_USE_RAMPING_VERSION constant as a ContinueAsNewVersioningBehavior option across Temporal SDKs, enabling users to access advanced versioning strategies.",
+      "category": "feature",
+      "subcategory": "continue-as-new-versioning",
+      "apis": [
+        "ContinueAsNew"
+      ],
+      "components": [
+        "versioning",
+        "continue-as-new",
+        "sdk-interfaces"
+      ],
+      "concepts": [
+        "versioning",
+        "continue-as-new",
+        "ramping-version",
+        "sdk-behavior",
+        "cross-version-compatibility",
+        "workflow-versioning"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 806,
+      "title": "SDK code should be able to detect if code is executing in a Nexus Operation Handlers",
+      "state": "OPEN",
+      "author": "Quinn-With-Two-Ns",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-04-10T06:25:02Z",
+      "updatedAt": "2026-04-10T06:25:02Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/806",
+      "bodyLength": 596,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to add an API that allows SDK code to detect if it's executing within a Nexus Operation Handler, similar to the existing `activity.is_activity` function in Python.",
+      "category": "feature",
+      "subcategory": "nexus-operations",
+      "apis": [],
+      "components": [
+        "nexus-handler",
+        "context-api",
+        "operation-executor"
+      ],
+      "concepts": [
+        "execution-context",
+        "context-detection",
+        "nexus-operations",
+        "handler-detection",
+        "runtime-inspection"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 805,
+      "title": "Expose Nexus Endpoint in a Nexus Operation Handler",
+      "state": "OPEN",
+      "author": "Quinn-With-Two-Ns",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-04-10T02:56:26Z",
+      "updatedAt": "2026-05-07T16:55:47Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/805",
+      "bodyLength": 550,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Add an Endpoint field to NexusInfo to expose the Nexus endpoint within Nexus Operation Handlers. This feature request is being tracked across multiple SDKs (Go, Java, Python, .NET).",
+      "category": "feature",
+      "subcategory": "nexus-endpoint",
+      "apis": [
+        "NexusInfo"
+      ],
+      "components": [
+        "nexus-handler",
+        "nexus-info",
+        "operation-handler"
+      ],
+      "concepts": [
+        "nexus",
+        "endpoint",
+        "operation-handler",
+        "metadata",
+        "context"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 797,
+      "title": "Support for Point-In-Time Queries",
+      "state": "OPEN",
+      "author": "jmeyers35",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-04-07T19:26:34Z",
+      "updatedAt": "2026-04-07T19:26:34Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/features/issues/797",
+      "bodyLength": 1005,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        233
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Feature request to enable querying workflow state at a specific historical event rather than replaying the entire workflow history, useful for debugging long-running or closed executions with complex internal state changes.",
+      "category": "feature",
+      "subcategory": "workflow-queries",
+      "apis": [],
+      "components": [
+        "query",
+        "history-replay",
+        "workflow-engine",
+        "state-management"
+      ],
+      "concepts": [
+        "debugging",
+        "point-in-time",
+        "history-replay",
+        "workflow-state",
+        "event-based",
+        "execution-history"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 783,
       "title": "S3 External Storage Driver",
@@ -13,19 +345,21 @@
         "enhancement"
       ],
       "createdAt": "2026-03-24T05:18:18Z",
-      "updatedAt": "2026-03-31T16:22:20Z",
+      "updatedAt": "2026-05-19T17:11:12Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/783",
-      "bodyLength": 1674,
+      "bodyLength": 1708,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
       "linkedIssues": [
         765,
         1390,
-        2251
+        2065,
+        2251,
+        2882
       ],
       "isQuestion": false,
       "hasPR": false,
@@ -60,17 +394,18 @@
         "enhancement"
       ],
       "createdAt": "2026-03-24T04:58:45Z",
-      "updatedAt": "2026-03-24T18:11:03Z",
+      "updatedAt": "2026-05-19T17:24:34Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/782",
-      "bodyLength": 1625,
+      "bodyLength": 1642,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
       "linkedIssues": [
-        2252
+        2252,
+        2884
       ],
       "isQuestion": false,
       "hasPR": false,
@@ -99,14 +434,14 @@
     {
       "number": 778,
       "title": "[Bug] Envconfig - no user config dir should be acceptable",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "THardy98",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-03-19T18:46:10Z",
-      "updatedAt": "2026-04-03T01:29:06Z",
-      "closedAt": null,
+      "updatedAt": "2026-04-28T22:35:59Z",
+      "closedAt": "2026-04-28T22:35:59Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/778",
@@ -147,9 +482,9 @@
         "enhancement"
       ],
       "createdAt": "2026-03-16T18:11:55Z",
-      "updatedAt": "2026-03-16T18:11:55Z",
+      "updatedAt": "2026-05-19T17:43:32Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/777",
       "bodyLength": 1149,
@@ -203,18 +538,20 @@
         "enhancement"
       ],
       "createdAt": "2026-03-10T20:12:45Z",
-      "updatedAt": "2026-03-25T01:08:15Z",
+      "updatedAt": "2026-05-19T16:45:09Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/772",
-      "bodyLength": 888,
+      "bodyLength": 922,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
       "linkedIssues": [
         1356,
-        2223
+        2064,
+        2223,
+        2881
       ],
       "isQuestion": false,
       "hasPR": false,
@@ -294,18 +631,20 @@
         "enhancement"
       ],
       "createdAt": "2026-02-26T20:49:39Z",
-      "updatedAt": "2026-03-24T16:18:13Z",
+      "updatedAt": "2026-05-19T16:40:24Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/765",
-      "bodyLength": 1535,
+      "bodyLength": 1569,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
       "linkedIssues": [
         1342,
-        2208
+        2063,
+        2208,
+        2880
       ],
       "isQuestion": false,
       "hasPR": false,
@@ -878,16 +1217,21 @@
         "enhancement"
       ],
       "createdAt": "2026-01-20T20:01:03Z",
-      "updatedAt": "2026-01-25T21:22:56Z",
+      "updatedAt": "2026-04-07T16:50:50Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/723",
-      "bodyLength": 1197,
+      "bodyLength": 1268,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
-      "linkedIssues": [],
+      "linkedIssues": [
+        413,
+        638,
+        1201,
+        2833
+      ],
       "isQuestion": false,
       "hasPR": false,
       "codeBlockCount": 0,
@@ -1151,12 +1495,12 @@
         "enhancement"
       ],
       "createdAt": "2025-12-02T17:26:08Z",
-      "updatedAt": "2026-02-10T16:26:48Z",
+      "updatedAt": "2026-05-19T15:47:24Z",
       "closedAt": null,
       "commentCount": 0,
-      "upvotes": 0,
+      "upvotes": 1,
       "url": "https://github.com/temporalio/features/issues/706",
-      "bodyLength": 886,
+      "bodyLength": 877,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -1530,18 +1874,18 @@
     {
       "number": 692,
       "title": "Nexus samples and docs should not encourage using request ID for workflow ID",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-10-29T17:34:40Z",
-      "updatedAt": "2025-10-29T17:34:40Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-05-18T19:04:52Z",
+      "closedAt": "2026-05-18T19:04:52Z",
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/692",
-      "bodyLength": 432,
+      "bodyLength": 438,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
@@ -2293,14 +2637,14 @@
     {
       "number": 670,
       "title": "[Feature Request] Reclassify Benign Application errors in OpenTelemetry",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "THardy98",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-08-26T20:37:02Z",
-      "updatedAt": "2025-11-14T17:46:47Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-11T15:52:03Z",
+      "closedAt": "2026-05-11T15:52:03Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/670",
@@ -5425,18 +5769,19 @@
         "enhancement"
       ],
       "createdAt": "2024-11-05T15:58:54Z",
-      "updatedAt": "2025-12-05T16:08:00Z",
+      "updatedAt": "2026-05-14T14:36:51Z",
       "closedAt": null,
       "commentCount": 21,
       "upvotes": 3,
       "url": "https://github.com/temporalio/features/issues/558",
-      "bodyLength": 605,
+      "bodyLength": 630,
       "hasCodeBlocks": false,
       "hasStackTrace": false,
       "mentionsVersions": [],
       "linkedIssues": [
         437,
         2308,
+        2335,
         6799
       ],
       "isQuestion": false,
@@ -7829,9 +8174,9 @@
         "enhancement"
       ],
       "createdAt": "2024-03-28T23:04:04Z",
-      "updatedAt": "2024-12-12T04:45:24Z",
+      "updatedAt": "2026-04-23T23:20:48Z",
       "closedAt": null,
-      "commentCount": 17,
+      "commentCount": 18,
       "upvotes": 0,
       "url": "https://github.com/temporalio/features/issues/443",
       "bodyLength": 816,
@@ -8125,10 +8470,10 @@
         "enhancement"
       ],
       "createdAt": "2024-03-07T22:44:30Z",
-      "updatedAt": "2025-10-01T14:43:32Z",
+      "updatedAt": "2026-05-19T15:22:06Z",
       "closedAt": null,
       "commentCount": 1,
-      "upvotes": 6,
+      "upvotes": 7,
       "url": "https://github.com/temporalio/features/issues/434",
       "bodyLength": 1295,
       "hasCodeBlocks": false,
@@ -17941,10 +18286,10 @@
         "enhancement"
       ],
       "createdAt": "2022-03-03T00:11:15Z",
-      "updatedAt": "2024-07-13T01:08:31Z",
+      "updatedAt": "2026-04-14T14:23:41Z",
       "closedAt": null,
-      "commentCount": 5,
-      "upvotes": 2,
+      "commentCount": 6,
+      "upvotes": 3,
       "url": "https://github.com/temporalio/features/issues/25",
       "bodyLength": 95,
       "hasCodeBlocks": false,

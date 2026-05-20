@@ -1,0 +1,32 @@
+{
+  "summary": "Ruby SDK worker crashes with NoMethodError when executing a child workflow from the Go SDK that doesn't return a result, due to missing 'result' field in the event payload.",
+  "category": "bug",
+  "subcategory": "child-workflow",
+  "apis": [
+    "ExecuteChildWorkflow"
+  ],
+  "components": [
+    "payload-converter",
+    "worker",
+    "data-converter"
+  ],
+  "concepts": [
+    "cross-sdk-compatibility",
+    "payload-serialization",
+    "null-safety",
+    "error-handling",
+    "child-workflows"
+  ],
+  "severity": "high",
+  "userImpact": "Worker tasks crash when executing child workflows from the Go SDK that don't return results, disrupting workflow execution.",
+  "rootCause": "The payload converter assumes the 'result' field is always present in childWorkflowExecutionCompletedEventAttributes, but the Go SDK can emit events without this field for workflows without return values, causing nil dereference when accessing metadata.",
+  "proposedFix": "The payload converter should handle nil payloads gracefully before attempting to access metadata properties.",
+  "workaround": "Implement a custom payload converter wrapper that checks if the payload is nil before processing, as shown in the issue.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This workflow does not return a result type, only an error, which crashes the Ruby SDK worker.",
+  "number": 421,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-05-20T16:49:28.775Z"
+}

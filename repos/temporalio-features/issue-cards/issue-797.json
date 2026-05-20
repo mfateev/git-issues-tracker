@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to enable querying workflow state at a specific historical event rather than replaying the entire workflow history, useful for debugging long-running or closed executions with complex internal state changes.",
+  "category": "feature",
+  "subcategory": "workflow-queries",
+  "apis": [],
+  "components": [
+    "query",
+    "history-replay",
+    "workflow-engine",
+    "state-management"
+  ],
+  "concepts": [
+    "debugging",
+    "point-in-time",
+    "history-replay",
+    "workflow-state",
+    "event-based",
+    "execution-history"
+  ],
+  "severity": "medium",
+  "userImpact": "Developers can debug workflow state at specific points in execution history instead of replaying entire workflows, reducing analysis time for complex long-running executions.",
+  "rootCause": null,
+  "proposedFix": "Allow specifying a history event number along with the Query, so the workflow is only replayed up to that event before returning the Query result.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    233
+  ],
+  "keyQuote": "The ability to query a Workflow at a particular history event. The Workflow will only be replayed up to event N before returning the Query result.",
+  "number": 797,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-05-20T16:35:34.788Z"
+}

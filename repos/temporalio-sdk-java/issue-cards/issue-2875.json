@@ -1,0 +1,35 @@
+{
+  "summary": "Update validators serialize exceptions incorrectly, losing type, non-retryable flag, details, and message that are preserved when the same exceptions are thrown from update handlers or workflows.",
+  "category": "bug",
+  "subcategory": "exception-serialization",
+  "apis": [
+    "UpdateMethod",
+    "UpdateValidatorMethod",
+    "ApplicationFailure"
+  ],
+  "components": [
+    "UpdateDispatcher",
+    "WorkflowExecutionHandler",
+    "SyncWorkflow",
+    "DefaultFailureConverter"
+  ],
+  "concepts": [
+    "exception-handling",
+    "serialization",
+    "validation",
+    "failure-conversion",
+    "exception-fidelity"
+  ],
+  "severity": "high",
+  "userImpact": "Exceptions thrown in update validators are incorrectly serialized, losing error type, details, and retryability information that clients depend on for proper error handling.",
+  "rootCause": "SyncWorkflow#handleValidateUpdate catches validator-thrown exceptions as generic Exception and passes them to exceptionToFailure(), which receives WorkflowExecutionException instead of the original ApplicationFailure. Unlike the handler path which extracts the failure via e.getFailure(), the validator path causes re-serialization with incorrect type and flags.",
+  "proposedFix": "Add a dedicated catch (WorkflowExecutionException e) branch in SyncWorkflow#handleValidateUpdate to extract e.getFailure(), matching the handler path implementation, so the original ApplicationFailure is preserved during serialization.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the validator path strips type, non-retryable flag, details, and message; the handler path preserves them.",
+  "number": 2875,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:41:38.589Z"
+}

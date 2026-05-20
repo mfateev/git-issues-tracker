@@ -1,0 +1,35 @@
+{
+  "summary": "Proposes compressing history_node->data cells which can reach 2MB in production, with configurable minimum size thresholds to avoid compression overhead for small payloads.",
+  "category": "feature",
+  "subcategory": "history-storage",
+  "apis": [
+    "PayloadCodec"
+  ],
+  "components": [
+    "history-storage",
+    "codec",
+    "persistence",
+    "proto"
+  ],
+  "concepts": [
+    "compression",
+    "storage",
+    "serialization",
+    "payload",
+    "performance",
+    "optimization",
+    "codec"
+  ],
+  "severity": "medium",
+  "userImpact": "Users with large workflow histories pay more for storage and experience potential performance degradation from large uncompressed data cells.",
+  "rootCause": "Data cells are stored uncompressed by default despite being written once and rarely read, leading to 2MB+ sizes in production workloads.",
+  "proposedFix": "Use PayloadCodec interface to implement compression for history_node->data cells with configurable minimum size thresholds.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Some data cells can be 2M or so large, which isn't great, considering this is just proto3 data, written once, rarely read.",
+  "number": 10307,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:58:06.247Z"
+}

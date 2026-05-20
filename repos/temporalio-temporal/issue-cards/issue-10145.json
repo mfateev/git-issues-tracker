@@ -1,0 +1,33 @@
+{
+  "summary": "PostgreSQL database indexes on the executions_visibility table bloat to many times the actual table size in high-volume workflows due to NULL-heavy btree indexes accumulating dead entries. REINDEX temporarily resolves the issue, but partial indexes are needed for permanent fix.",
+  "category": "bug",
+  "subcategory": "postgresql-indexing",
+  "apis": [],
+  "components": [
+    "postgresql",
+    "persistence",
+    "visibility-store",
+    "database-indexing"
+  ],
+  "concepts": [
+    "index-bloat",
+    "storage",
+    "vacuum",
+    "performance",
+    "database-maintenance",
+    "btree-indexes",
+    "nullable-columns"
+  ],
+  "severity": "high",
+  "userImpact": "Database disk usage grows uncontrollably in high-volume deployments even with retention policies, forcing infrastructure expansion and increased costs.",
+  "rootCause": "PostgreSQL btree indexes include NULL values, so nullable search-attribute columns in composite indexes accumulate dead entries for every workflow. VACUUM cannot compact these entries; only REINDEX can.",
+  "proposedFix": "Convert selected nullable btree indexes to partial indexes with WHERE <attribute_column> IS NOT NULL clause to prevent indexing NULL values.",
+  "workaround": "Run REINDEX TABLE CONCURRENTLY executions_visibility to compact indexes (halves index size), though this must be repeated as bloat reoccurs.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "PostgreSQL btree indexes include NULL values. That means mostly-unused generated/custom search-attribute columns still get index entries for every workflow row.",
+  "number": 10145,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:56:02.568Z"
+}

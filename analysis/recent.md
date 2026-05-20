@@ -1,7 +1,7 @@
 # Recent Issues Analysis
 
-**Generated:** 2026-04-04
-**Period:** Last 30 days (76 new issues)
+**Generated:** 2026-05-20
+**Period:** Last 30 days (53 new issues)
 **Data Source:** [stats-recent.md](stats-recent.md)
 
 **Quick Search:** Use `grep` on `analysis/cards-summary.txt` to find issues by keyword, API, component, or severity. New issues will have cards generated if the semantic pipeline has been run.
@@ -10,200 +10,188 @@
 
 ## Urgent Issues Requiring Attention
 
-### High: Security Vulnerabilities in Docker Images and SDK Dependencies
+### Critical: Security Vulnerability in Python SDK Wheels
 
-Multiple security reports across the server and Python SDK identify CVEs that affect production deployments.
-
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#9682](https://github.com/temporalio/temporal/issues/9682) | Server | Multiple HIGH CVEs in Docker images: CVE-2025-61729 (Go crypto/x509, CVSS 7.5), CVE-2025-69419 and CVE-2025-11187 (OpenSSL), plus moderate CVEs in Python and Expat. Affects UI, Admin Tools, and Server images |
-| [#9494](https://github.com/temporalio/temporal/issues/9494) | Server | HIGH CVE-2026-24051 in go.opentelemetry.io/otel/sdk v1.34.0 in server v1.29.4. Already closed (addressed in newer code) |
-| [#1403](https://github.com/temporalio/sdk-python/issues/1403) | Python | CVEs in rustls-webpki (GHSA-pwjx-qhcg-rvj4) and tar-rs (CVE-2026-33055, CVE-2026-33056). Dependabot PRs already created (#1383, #1384) but awaiting merge |
-| [#1359](https://github.com/temporalio/sdk-python/issues/1359) | Python | CVE-2026-31812 (HIGH) in quinn-proto 0.11.12 -- unauthenticated remote DoS. Needs bump to >= 0.11.14 |
-| [#1358](https://github.com/temporalio/sdk-python/issues/1358) | Python | Duplicate report of CVE-2026-31812 in quinn-proto |
-
-**Recommendation:** The server Docker images should be rebuilt with Go 1.24.11+ or 1.25.5+ and updated base image dependencies. The Python SDK has three separate security reports with existing Dependabot PRs -- merging them and cutting a release should be prioritized. Users running server v1.29.x images should assess exposure.
-
-### High: MySQL Persistence Bugs Causing Connection Exhaustion and Deadlocks
-
-Two separate MySQL bugs can cause severe production outages under normal operational conditions.
+A CVE in the bundled Rust dependency `rustls-webpki` was reported (twice by the same user) affecting the Python SDK wheels published to PyPI. The vulnerability GHSA-82j2-j2ch-gfr8 / RUSTSEC-2026-0104 affects versions prior to rustls-webpki 0.103.13. Both reports have been closed — a PR fixing the dependency was already open at the time.
 
 | Issue | SDK | Impact |
 |-------|-----|--------|
-| [#9784](https://github.com/temporalio/temporal/issues/9784) | Server | `DeleteFromVisibility` executes DELETEs on `mdb` instead of `tx`, holding 2 connections per delete. Under concurrent visibility deletes, this exhausts the connection pool causing `context deadline exceeded`. Confirmed on v1.25.0 through v1.30.3 and current main |
-| [#9747](https://github.com/temporalio/temporal/issues/9747) | Server | `reconnect()` creates new sql.DB pools during DB unavailability without bounding total pool count. A 2.5-minute MySQL restart caused 10,330 connections (vs expected max of 2,688), overwhelming the database and extending a brief restart into a 35-minute outage |
+| [#1485](https://github.com/temporalio/sdk-python/issues/1485) | Python | GHSA-82j2-j2ch-gfr8 in rustls-webpki bundled in temporalio 1.26.0 wheel — triggers container vulnerability scanners |
+| [#1484](https://github.com/temporalio/sdk-python/issues/1484) | Python | Duplicate report of same CVE |
 
-The visibility bug (#9784) has a clear 3-line fix changing `mdb.NamedExecContext` to `tx.NamedExecContext`. The reconnect bug (#9747) is architectural -- the per-instance maxConns limit is bypassed when multiple sql.DB generations accumulate.
+**Recommendation:** Confirm PR #1483 has been merged and a new Python SDK release published. Users running container vulnerability scans against images with the temporalio wheel should verify they are on a patched release.
 
-**Recommendation:** The visibility transaction bug (#9784) should be fixed immediately -- it affects every MySQL deployment with workflow retention cleanup. The reconnect pool accumulation (#9747) requires a design change to either reuse the existing sql.DB or enforce a global connection limit. MySQL users should monitor connection counts during database maintenance windows.
+### High: Production Crashes and Worker Failures
 
-### High: Java SDK Local Activity Pool Exhaustion
-
-A design issue in the Java SDK causes workflows to hang permanently when the local activity thread pool is fully consumed.
+Several bugs cause outright crashes or permanent workflow failures in production environments.
 
 | Issue | SDK | Impact |
 |-------|-----|--------|
-| [#2823](https://github.com/temporalio/sdk-java/issues/2823) | Java | When `maxConcurrentLocalActivityExecutionSize` threads are all blocked (e.g., on hung gRPC calls), subsequent local activities queue forever. Workflows become permanently stuck with no timeout or failure. Only recovery is workflow reset |
+| [#746](https://github.com/temporalio/sdk-php/issues/746) | PHP | Local Activity execution crashes the worker with a nil pointer dereference panic (`internal_event_handlers.go:1795`) on RoadRunner 2025.1.13. Affects all workflows using Local Activities on the affected RoadRunner version |
+| [#421](https://github.com/temporalio/sdk-ruby/issues/421) | Ruby | Child workflow executed via Go SDK with no return type causes `NoMethodError: undefined method 'metadata' for nil` that crashes Ruby worker tasks. Closed — workaround via custom payload converter published by reporter |
+| [#2342](https://github.com/temporalio/sdk-go/issues/2342) | Go | Proto namespace conflict panics any binary at `init()` time when both `go.temporal.io/sdk v1.43.0` and `go.temporal.io/api v1.62.12+` are imported. Blocks all dependency upgrades in affected monorepos. Closed — fix expected in next SDK release |
 
-The reporter provides a self-contained reproduction and confirms that setting `scheduleToCloseTimeout` on LocalActivityOptions prevents the hang.
+**Recommendation:** PHP SDK users on RoadRunner 2025.1.13 should pin to 2025.1.12 until the nil pointer dereference is fixed. Go SDK users on v1.43.0 must pin `go.temporal.io/api <= v1.62.11` until the vendored proto conflict is resolved in an SDK patch release.
 
-**Recommendation:** Java SDK users relying on local activities should set `scheduleToCloseTimeout` as a defensive measure. The SDK should consider enforcing a default timeout or failing the workflow task when local activities cannot be dispatched within a reasonable time.
+### High: Workflow Determinism Bug in TypeScript OpenTelemetry Interceptor
 
-### Medium: Worker Deployment and Versioning Regressions
-
-Reports of issues with the new worker deployment versioning feature in server 1.30.x.
-
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#9581](https://github.com/temporalio/temporal/issues/9581) | Server | `set-current-version` cannot switch to unversioned in default namespace -- "BuildID cannot be empty" error on Server 1.30.1 / CLI 1.6.1 |
-| [#1962](https://github.com/temporalio/sdk-typescript/issues/1962) | TypeScript | Unable to set `defaultVersioningBehavior` to `UNSPECIFIED` in `workerDeploymentOptions` |
-
-**Recommendation:** These appear to be regressions in the new worker deployment versioning feature. Users adopting versioning in 1.30.x should be aware of these edge cases around unversioned/unspecified behavior.
-
-### Medium: TypeScript SDK Nondeterminism and Correctness Bugs
+The OpenTelemetry interceptor package breaks workflow determinism, causing nondeterminism errors hours after deployment when workflows are evicted from sticky cache and must replay.
 
 | Issue | SDK | Impact |
 |-------|-----|--------|
-| [#1966](https://github.com/temporalio/sdk-typescript/issues/1966) | TypeScript | Nondeterminism error during replay: duplicate UpdateResponse and StartTimer commands sent for the same update instance. Observed on TypeScript 1.15.0 with Temporal Cloud |
-| [#1960](https://github.com/temporalio/sdk-typescript/issues/1960) | TypeScript | `executeUpdateWithStart` leaks unhandled Promise rejection when gRPC call fails before first response. Node.js terminates the process due to `unhandledRejection` even when caller has proper error handling |
+| [#2023](https://github.com/temporalio/sdk-typescript/issues/2023) | TypeScript | `interceptors-opentelemetry` causes `workflow.uuid4()` to return different values on replay when queries or update validators were handled between record and replay. Manifests as `TMPRL1100 Nondeterminism error` after pod rolls or cache evictions |
 
-**Recommendation:** The nondeterminism error (#1966) appears to be a one-off but may indicate a deeper replay issue in the TypeScript SDK's update handling. The promise leak (#1960) has a clear root cause in the `WithStartWorkflowOperation` constructor and should be straightforward to fix.
+The root cause is that the OTel interceptor advances the PRNG state during query/update-validate handlers at record time but those handlers are not replayed, causing a PRNG offset mismatch.
+
+**Recommendation:** Users of `@temporalio/interceptors-opentelemetry` with workflows that use `uuid4()` after handling queries or update validators are at risk of silent PRNG divergence. Avoid generating IDs that feed into recorded commands (child workflow IDs, activity arguments) after query handlers until a fix is released.
+
+### High: Go SDK CPU and Memory Overhead from isPanicking()
+
+A profiling report documents that `isPanicking()` in the Go SDK consumes 14% of CPU and 10% of allocations under load, due to stack unwinding via `runtime.Callers()` on every coroutine yield.
+
+| Issue | SDK | Impact |
+|-------|-----|--------|
+| [#2326](https://github.com/temporalio/sdk-go/issues/2326) | Go | `isPanicking()` uses 14.3% CPU and 10.2% allocations (254 MB in 30s) in throughput_stress benchmark. Stack unwinding dominates at ~22% of total CPU time |
+
+**Recommendation:** This is a significant overhead that affects all Go SDK users running under load. The reporter proposes using `recover()` instead of stack inspection. This should be treated as a high-priority optimization.
+
+### Medium: .NET Nexus Asymmetric Payload Conversion
+
+A correctness bug in the .NET SDK causes Nexus operations with no-argument inputs to bypass the payload codec on the serialization path while still applying it on deserialization, causing codec failures for operations called with `NoValue`.
+
+| Issue | SDK | Impact |
+|-------|-----|--------|
+| [#677](https://github.com/temporalio/sdk-dotnet/issues/677) | .NET | Nexus operation `NoValue` inputs skip the payload codec during scheduling but are decoded through it, causing failures for users with custom payload codecs |
+
+**Recommendation:** Fix the asymmetry in `WorkflowCodecHelper.cs` to ensure all Nexus inputs — including null — pass through the payload codec symmetrically.
+
+### Medium: Python 3.14 Compatibility Break
+
+Python 3.14's `asyncio.Task` constructor eagerly inspects closure cells during `set_name`, breaking any workflow that calls `execute_activity` due to a pre-existing forward reference in `_workflow_instance.py`.
+
+| Issue | SDK | Impact |
+|-------|-----|--------|
+| [#1517](https://github.com/temporalio/sdk-python/issues/1517) | Python | `NameError: cannot access free variable 'handle'` on any activity execution with Python 3.14. Breaks all activity-based workflows on the next Python release |
+
+**Recommendation:** Fix the forward reference in `_workflow_instance.py` before Python 3.14 reaches stable release. This is a known compatibility break that will affect all SDK users when they upgrade Python.
 
 ---
 
 ## Emerging Themes
 
-### 1. Cross-SDK Schedule Update Conflict Token Support
+### 1. Cross-SDK Standalone Activities Feature
 
-The largest coordinated effort in this period: identical issues filed across all 8 SDKs plus the features repo to add conflict token retry loop support for schedule updates.
+The largest coordinated effort this period: identical issues filed across all 8 SDKs, the features repo, and the Go TestWorkflowEnvironment to add full support for Standalone Activities — including operator commands, telemetry, and test environment support.
 
-- Support conflict token retry loop for schedule updates ([#777](https://github.com/temporalio/features/issues/777))
-- Go SDK ([#2233](https://github.com/temporalio/sdk-go/issues/2233))
-- TypeScript SDK ([#1967](https://github.com/temporalio/sdk-typescript/issues/1967))
-- Python SDK ([#1367](https://github.com/temporalio/sdk-python/issues/1367))
-- Java SDK ([#2809](https://github.com/temporalio/sdk-java/issues/2809))
-- .NET SDK ([#624](https://github.com/temporalio/sdk-dotnet/issues/624))
-- PHP SDK ([#729](https://github.com/temporalio/sdk-php/issues/729))
-- Ruby SDK ([#401](https://github.com/temporalio/sdk-ruby/issues/401))
+- Implement operator commands for Standalone Activities ([#822](https://github.com/temporalio/features/issues/822), [#2350](https://github.com/temporalio/sdk-go/issues/2350), [#2878](https://github.com/temporalio/sdk-java/issues/2878), [#2061](https://github.com/temporalio/sdk-typescript/issues/2061), [#1543](https://github.com/temporalio/sdk-python/issues/1543), [#706](https://github.com/temporalio/sdk-dotnet/issues/706), [#440](https://github.com/temporalio/sdk-ruby/issues/440))
+- Telemetry support for Standalone Activities — TypeScript ([#2031](https://github.com/temporalio/sdk-typescript/issues/2031))
+- Add support for Standalone Activities to TestWorkflowEnvironment — Go ([#2318](https://github.com/temporalio/sdk-go/issues/2318))
 
-**Recommendation:** Coordinate implementation across all SDKs for consistent behavior. This is a significant usability improvement for schedule management.
+**Recommendation:** This is a major cross-SDK initiative. Coordinate implementation timelines across all SDKs to avoid incomplete coverage creating confusion for users evaluating the feature.
 
-### 2. External Storage and Payload Infrastructure
+### 2. External Payload Storage Infrastructure
 
-A cluster of issues from the same author (jmaeagle99) focusing on external payload storage capabilities across SDKs.
+A second coordinated cluster from the same author (jmaeagle99) covering the foundational infrastructure for external payload storage, filed across Java, TypeScript, and the features repo.
 
-- S3 External Storage Driver ([#783](https://github.com/temporalio/features/issues/783), [#2251](https://github.com/temporalio/sdk-go/issues/2251), [#1390](https://github.com/temporalio/sdk-python/issues/1390))
-- Allow payload visitors to visit memo payloads in aggregate ([#782](https://github.com/temporalio/features/issues/782), [#2252](https://github.com/temporalio/sdk-go/issues/2252))
-- Enable concurrent payload visiting ([#772](https://github.com/temporalio/features/issues/772), [#2223](https://github.com/temporalio/sdk-go/issues/2223), [#1356](https://github.com/temporalio/sdk-python/issues/1356))
-- Headers should always run through external storage ([#1395](https://github.com/temporalio/sdk-python/issues/1395))
+- External Payload Storage Foundation ([#2880](https://github.com/temporalio/sdk-java/issues/2880), [#2063](https://github.com/temporalio/sdk-typescript/issues/2063))
+- Enable concurrent payload visiting ([#2881](https://github.com/temporalio/sdk-java/issues/2881), [#2064](https://github.com/temporalio/sdk-typescript/issues/2064))
+- Allow payload visitors to visit memo payloads in aggregate ([#2884](https://github.com/temporalio/sdk-java/issues/2884))
+- S3 External Storage Driver ([#2882](https://github.com/temporalio/sdk-java/issues/2882), [#2065](https://github.com/temporalio/sdk-typescript/issues/2065))
+- GCS external storage driver proposal — Python ([#1502](https://github.com/temporalio/sdk-python/issues/1502))
 
-**Recommendation:** These represent a coherent initiative to improve external payload storage. The S3 driver and concurrent visiting features would benefit users dealing with large payloads. Header handling through external storage (#1395) is a bug that may cause data inconsistency.
+**Recommendation:** These are incremental extensions to the external payload storage system. The foundation and concurrent visiting issues should land first to unblock the cloud-specific drivers.
 
-### 3. MySQL and Database Persistence Issues
+### 3. Testing Environment Quality
 
-An unusual concentration of MySQL-specific bugs in this period, several of which can cause production outages.
+Multiple issues across PHP, Go, and Java expose gaps in test framework reliability that make writing correct tests difficult.
 
-- MySQL DeleteFromVisibility connection pool deadlock ([#9784](https://github.com/temporalio/temporal/issues/9784))
-- MySQL reconnect creates unbounded connection pools ([#9747](https://github.com/temporalio/temporal/issues/9747))
-- Unable to create visibility database schema for MySQL ([#9522](https://github.com/temporalio/temporal/issues/9522))
-- postgres12_pgx plugin integer parsing failure ([#9804](https://github.com/temporalio/temporal/issues/9804))
-- SQLite plugin ignores MaxConns config ([#9686](https://github.com/temporalio/temporal/issues/9686))
-- history_node table unbounded growth ([#9549](https://github.com/temporalio/temporal/issues/9549))
+- PHP `WorkflowTestCase` silently connects to production when `TEMPORAL_ADDRESS` is set in container env ([#744](https://github.com/temporalio/sdk-php/issues/744))
+- PHP `WorkflowTestCase` time skipping starts locked, causing timer-only workflows to hang ([#743](https://github.com/temporalio/sdk-php/issues/743))
+- PHP `ActivityMocker` incompatible with time-skipping — virtual clock skips through timeout before mock response arrives ([#745](https://github.com/temporalio/sdk-php/issues/745))
+- Java `TestEnv` should propagate Memo along with Continue-As-New ([#2863](https://github.com/temporalio/sdk-java/issues/2863))
+- Java expose `ShutdownManager` poll interval to speed up `TestWorkflowEnvironment` teardown ([#2869](https://github.com/temporalio/sdk-java/issues/2869))
 
-**Recommendation:** The MySQL connection pool issues (#9784, #9747) are the most urgent. The broader pattern suggests the SQL persistence layer needs a focused review, particularly around connection management and transaction handling.
+**Recommendation:** The PHP test framework issues are the most severe — silent connection to production is a data safety risk. The time-skipping lock default causes test hangs with no obvious error. These should be fixed as priority bugs regardless of the cosmetic "testing" classification.
 
-### 4. Cross-Namespace Deprecation
+### 4. Observability and Metrics Correctness
 
-A coordinated effort to deprecate cross-namespace workflow command support, filed across the API and multiple SDKs.
+Two independent reports identify incorrect or missing metric values that undermine worker monitoring.
 
-- Deprecate cross-namespace support in workflow commands/events ([#750](https://github.com/temporalio/api/issues/750))
-- Go SDK deprecation ([#2264](https://github.com/temporalio/sdk-go/issues/2264))
-- Java SDK deprecation ([#2826](https://github.com/temporalio/sdk-java/issues/2826))
+- `temporal_worker_task_slots_used` never reaches 0 during inter-activity gaps in Python SDK ([#1489](https://github.com/temporalio/sdk-python/issues/1489))
+- SDK should log when WFT (Workflow Task) completion takes a long time — Java ([#2883](https://github.com/temporalio/sdk-java/issues/2883)), TypeScript ([#2066](https://github.com/temporalio/sdk-typescript/issues/2066)), features ([#827](https://github.com/temporalio/features/issues/827))
 
-**Recommendation:** This is a planned API change. Ensure deprecation warnings are clear and migration paths are documented before removal in a future version.
+**Recommendation:** The incorrect `task_slots_used` metric in Python can cause autoscaling decisions based on stale data. The WFT slow-completion logging request is a cross-SDK observability gap useful for diagnosing production latency.
 
-### 5. OpenTelemetry Instrumentation Issues
+### 5. API Completeness Gaps
 
-Multiple TypeScript SDK issues around OpenTelemetry integration quality.
+Several reports identify missing fields or APIs that force users into workarounds.
 
-- OTel traces for CompleteAsyncError incorrectly show as error ([#1974](https://github.com/temporalio/sdk-typescript/issues/1974))
-- maybeAddErrorToSpan fails when err is undefined ([#1975](https://github.com/temporalio/sdk-typescript/issues/1975))
-- Upgrade @opentelemetry/sdk-trace in interceptors-opentelemetry ([#1987](https://github.com/temporalio/sdk-typescript/issues/1987))
-- Explain OpenTelemetryPlugin interaction with WorkflowCodeBundler ([#1971](https://github.com/temporalio/sdk-typescript/issues/1971))
-- Prometheus Gauge Collision for cache_size on server ([#9600](https://github.com/temporalio/temporal/issues/9600))
+- `ChildWorkflowOptions` missing `WorkflowIDConflictPolicy` (only `StartWorkflowOptions` has it) — Go ([#2335](https://github.com/temporalio/sdk-go/issues/2335))
+- `Schedule.Describe` does not populate `Priority` on `ScheduleWorkflowAction` — Go ([#2345](https://github.com/temporalio/sdk-go/issues/2345))
+- No way to disable the SDK's default gRPC service config — Go ([#2329](https://github.com/temporalio/sdk-go/issues/2329))
+- `ClientOutboundInterceptor.UpdateWithStartWorkflow` missing struct for inspecting `StartWorkflowOption` — Go ([#2304](https://github.com/temporalio/sdk-go/issues/2304))
+- Expose Nexus Endpoint in a Nexus Operation Handler — TypeScript ([#2040](https://github.com/temporalio/sdk-typescript/issues/2040))
 
-**Recommendation:** The TypeScript OTel integration has several rough edges that affect observability quality. The span error and undefined error bugs should be fixed to prevent misleading dashboards and alerts.
+**Recommendation:** The missing `WorkflowIDConflictPolicy` on `ChildWorkflowOptions` is a functional gap that prevents using conflict policies in child workflows. The Schedule `Priority` population and missing interceptor struct fields are correctness issues that should be addressed in patch releases.
 
-### 6. Worker and Poller Reliability
+### 6. Java Multi-Release JAR Visibility Issue
 
-Issues around worker behavior under stress or unusual conditions.
+A `Jackson3JsonPayloadConverter` constructor is only compiled into the `META-INF/versions/17/` multi-release JAR directory, making it invisible to `javac` even on JDK 17+.
 
-- Java SDK WORKER_TASK_SLOTS_AVAILABLE stuck at zero with PollerBehaviorAutoscaling ([#2802](https://github.com/temporalio/sdk-java/issues/2802))
-- Go SDK pollerBalancer.balance can block due to non-deterministic map iteration ([#2236](https://github.com/temporalio/sdk-go/issues/2236))
-- Go SDK taskWorker.taskPollerType not being set ([#2235](https://github.com/temporalio/sdk-go/issues/2235))
-- Poller Autoscaling should scale down if no tasks are received ([#770](https://github.com/temporalio/features/issues/770))
+- Java SDK multi-release JAR constructor visibility ([#2885](https://github.com/temporalio/sdk-java/issues/2885))
 
-**Recommendation:** The autoscaling poller feature appears to have issues across SDKs. The Java SDK stuck-at-zero bug (#2802) can effectively stop a worker from processing tasks. These should be addressed before the autoscaling feature is promoted.
+**Recommendation:** Verify the multi-release JAR build configuration for Jackson 3 classes to ensure constructors intended for JDK 17+ are accessible from user code compiled with `javac`.
 
 ---
 
 ## By Category
 
-### Bugs (28 issues)
-- **Server:** 11 (MySQL visibility deadlock, MySQL reconnect pool explosion, postgres12_pgx integer parsing, batch job hang, schedule deletion after unpause, dev server unreachable in Docker, missing defer in replication, Prometheus gauge collision, persistenceMaxQPS=0 rate limiter, server bind interface, visibility schema creation)
-- **TypeScript SDK:** 7 (nondeterminism in update replay, child workflow missing field, updateWithStart promise leak, Worker.create ignores LoadedDataConverter, OTel CompleteAsyncError, maybeAddErrorToSpan undefined, versioning UNSPECIFIED behavior)
-- **Python SDK:** 2 (headers not through external storage, workflow.sleep timer not canceled on task cancel)
-- **Go SDK:** 2 (pollerBalancer blocking, taskPollerType not set)
-- **Java SDK:** 1 (runner-closed error masking original exception)
-- **Ruby SDK:** 1 (parallel test configuration crash in Rails)
-- **PHP SDK:** 1 (startTemporalTestServer checks for running instance)
-- **Features:** 1 (envconfig no user config dir)
-- **API:** 1 (cross-namespace deprecation)
+### Bugs (21 issues)
+- **TypeScript SDK:** 3 (OTel interceptor determinism #2023, legacy runtime native resource flakes #2068, dead doc links #2018)
+- **Python SDK:** 4 (Python 3.14 closure NameError #1517, spurious shielded future warnings #1504, task slots metric never reaches 0 #1489, UpdateValidator exception serialization via Java #2875)
+- **Go SDK:** 3 (isPanicking() CPU overhead #2326, proto namespace conflict #2342, schedule Priority not populated #2345)
+- **PHP SDK:** 3 (local activity nil pointer crash #746, ActivityMocker/time-skipping incompatibility #745, WorkflowTestCase time-lock default #743)
+- **.NET SDK:** 3 (Nexus payload conversion asymmetry #677, flaky WorkerDeploymentRamp test #700, flaky interceptors test #648)
+- **Ruby SDK:** 1 (child workflow nil metadata crash #421)
+- **Java SDK:** 1 (Update Validator exception serialization #2875)
+- **Go SDK (additional):** 1 (ChildWorkflowOptions missing WorkflowIDConflictPolicy #2335)
+- **Go SDK (additional):** 1 (ClientOutboundInterceptor UpdateWithStartWorkflow missing struct #2304)
 
-### Security (5 issues)
-- **Server:** 2 (Docker image CVEs #9682, v1.29.4 OTel CVE #9494)
-- **Python SDK:** 3 (rustls-webpki/tar CVEs #1403, quinn-proto CVE #1359, #1358)
+### Feature Requests (25 issues)
+- **Cross-SDK (Standalone Activities):** 8 (operator commands across Go, Java, TypeScript, Python, .NET, Ruby, features; telemetry for TypeScript)
+- **Cross-SDK (External Storage):** 6 (foundation, concurrent visiting, memo visiting, S3 driver for Java/TypeScript, GCS driver for Python)
+- **Java SDK:** 4 (payload visitor memos #2884, WFT slow-completion logging #2883, expose ShutdownManager interval #2869, TestEnv propagate Memo with CAN #2863)
+- **TypeScript SDK:** 3 (WFT slow-completion logging #2066, protobuf-es payload converters #2045, expose Nexus endpoint #2040)
+- **Go SDK:** 2 (Standalone Activities test env #2318, no way to disable gRPC service config #2329)
+- **Python SDK:** 2 (Standalone Activities operator commands #1543, ADK ToolContext support #1470)
+- **Features repo:** 1 (WFT slow-completion logging #827, Standalone Activities #822, standard error handler interface #812)
 
-### Feature Requests (36 issues)
-- **Features repo:** 5 (schedule conflict tokens, S3 external storage, payload visitor memos, concurrent payload visiting, poller autoscaling scale-down)
-- **Go SDK:** 5 (cross-namespace deprecation, memo payload visitors, S3 storage driver, concurrent payload visiting, code coverage tooling)
-- **TypeScript SDK:** 4 (OTel upgrade, OTel/bundler docs, worker without bundled workflows, workflow bundler module preloading, heartbeat runtime info)
-- **Python SDK:** 5 (S3 storage driver, concurrent payload visiting, contrib activity_cache, contrib workdir, GNAP agent coordination)
-- **Server:** 5 (nested PermissionsClaimName, memory improvements, SurrealDB support, SQLite MaxConns, worker deployment unversioned)
-- **Java SDK:** 2 (cross-namespace deprecation, schedule conflict tokens)
-- **SDK-wide:** 8 (schedule conflict tokens across .NET, PHP, Ruby, Python, Java)
-- **PHP SDK:** 1 (protobuf v5)
-- **Ruby SDK:** 1 (schedule conflict tokens)
-- **.NET SDK:** 1 (schedule conflict tokens)
+### Security (2 issues)
+- **Python SDK:** 2 (rustls-webpki CVE in wheel #1485, #1484 — both closed with PR already in flight)
 
-### Internal/Testing (4 issues)
-- Batch job malformed query hang ([#9782](https://github.com/temporalio/temporal/issues/9782))
-- No arm64 images for 1.30+ ([#9526](https://github.com/temporalio/temporal/issues/9526))
-- Git hooks feature request filed on wrong repo ([#9588](https://github.com/temporalio/temporal/issues/9588))
-- Spam/empty template ([#754](https://github.com/temporalio/api/issues/754) -- closed immediately)
-
-### Questions/Support (3 issues)
-- Workflow delays/gaps between activities ([#9563](https://github.com/temporalio/temporal/issues/9563))
-- Cleanup on FailWorkflow panic policy ([#2217](https://github.com/temporalio/sdk-go/issues/2217))
-- UpdateWorkflowExecution disabled on namespace ([#9800](https://github.com/temporalio/temporal/issues/9800))
+### Docs/Infra (5 issues)
+- **Python SDK:** 2 (Use Trusted Publishing for PyPI #1546, synchronous activities recommendation #1468)
+- **PHP SDK:** 1 (WorkflowTestCase silently connects to prod #744)
+- **Go SDK:** 1 (Update CONTRIBUTING.md #2305)
+- **Java SDK:** 1 (multi-release JAR constructor visibility #2885)
 
 ---
 
 ## Recommendations
 
-1. **Immediate:** Fix the MySQL `DeleteFromVisibility` transaction bug ([#9784](https://github.com/temporalio/temporal/issues/9784)). This is a 3-line fix that affects every MySQL deployment running visibility cleanup. The bug exists from v1.25.0 through current main and causes connection pool exhaustion under normal workload.
+1. **Immediate:** Confirm Python SDK PR #1483 (rustls-webpki CVE fix) is merged and a patched release is published. Notify users relying on wheel security scanning.
 
-2. **Immediate:** Merge the Python SDK Dependabot PRs for security CVEs ([#1403](https://github.com/temporalio/sdk-python/issues/1403), [#1359](https://github.com/temporalio/sdk-python/issues/1359)) and cut a release. Three separate reporters have flagged these, and the fixes already exist as PRs.
+2. **High Priority:** Fix the PHP SDK local activity nil pointer dereference crash ([#746](https://github.com/temporalio/sdk-php/issues/746)) — all workflows using Local Activities on RoadRunner 2025.1.13 are affected. Publish a patch or workaround advisory.
 
-3. **High Priority:** Rebuild Temporal Server Docker images with updated Go runtime (1.24.11+ or 1.25.5+) and base image dependencies to address CVE-2025-61729 and other CVEs ([#9682](https://github.com/temporalio/temporal/issues/9682)).
+3. **High Priority:** Fix the Go SDK `isPanicking()` CPU regression ([#2326](https://github.com/temporalio/sdk-go/issues/2326)). A 14% CPU and 10% allocation overhead on every coroutine yield is not acceptable in production throughput scenarios. Use `recover()` instead of stack inspection.
 
-4. **High Priority:** Address the MySQL reconnect pool accumulation ([#9747](https://github.com/temporalio/temporal/issues/9747)). A real-world incident extended a 2.5-minute database restart into a 35-minute outage affecting all workflows. This requires a design change to bound total connection count across pool generations.
+4. **High Priority:** Fix the TypeScript OpenTelemetry interceptor PRNG divergence bug ([#2023](https://github.com/temporalio/sdk-typescript/issues/2023)). This causes silent nondeterminism errors hours after deployment for any workflow using `uuid4()` with OTel installed, manifesting only after cache eviction.
 
-5. **High Priority:** Fix or document the Java SDK local activity pool exhaustion issue ([#2823](https://github.com/temporalio/sdk-java/issues/2823)). Workflows hanging permanently with no recovery path is a severe production risk. At minimum, documentation should recommend always setting `scheduleToCloseTimeout` on local activities.
+5. **High Priority:** Address Python 3.14 compatibility break ([#1517](https://github.com/temporalio/sdk-python/issues/1517)) before Python 3.14 reaches stable release. The fix is a one-line reorder of variable binding in `_workflow_instance.py`.
 
-6. **Medium Priority:** Investigate the TypeScript SDK nondeterminism error with update replay ([#1966](https://github.com/temporalio/sdk-typescript/issues/1966)) and fix the `executeUpdateWithStart` promise leak ([#1960](https://github.com/temporalio/sdk-typescript/issues/1960)). The promise leak crashes Node.js processes even with correct error handling.
+6. **Medium Priority:** Fix the PHP `WorkflowTestCase` silent production connection risk ([#744](https://github.com/temporalio/sdk-php/issues/744)) and time-skipping lock default ([#743](https://github.com/temporalio/sdk-php/issues/743)). The production connection issue is a data safety risk for users running tests in CI environments with Temporal service variables set.
 
-7. **Track:** The poller autoscaling feature has bugs in both Java (#2802) and Go (#2236) SDKs. Monitor for additional reports before the feature is promoted out of experimental status.
+7. **Track:** The Standalone Activities feature is undergoing active cross-SDK expansion (operator commands, telemetry, test environment support across 8 SDKs). Monitor implementation progress for consistency across SDKs.
 
 ---
 

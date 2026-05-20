@@ -1,8 +1,8 @@
 # Temporal - Cross-Repository Analysis Summary
 
-**Generated:** 2026-04-04
-**Total Open Issues:** 1513 across 10 repositories
-**Total Closed Issues:** 4462
+**Generated:** 2026-05-20
+**Total Open Issues:** 1552 across 10 repositories
+**Total Closed Issues:** 4546
 **Overall Resolution Rate:** 75%
 
 ## Related Documents
@@ -14,8 +14,19 @@
 | [themes/index.md](themes/index.md) | Cross-cutting theme analysis (testing, performance, etc.) |
 
 **Per-Repository Analysis:**
-- [Server](server.md) | [Features](features.md) | [API](api.md)
-- [Java SDK](java.md) | [Go SDK](go.md) | [TypeScript SDK](typescript.md) | [Python SDK](python.md) | [.NET SDK](dotnet.md) | [PHP SDK](php.md) | [Ruby SDK](ruby.md)
+
+| Repository | Analysis |
+|------------|----------|
+| Temporal Server | [server.md](server.md) |
+| Features (Cross-SDK) | [features.md](features.md) |
+| Java SDK | [java.md](java.md) |
+| Go SDK | [go.md](go.md) |
+| TypeScript SDK | [typescript.md](typescript.md) |
+| Python SDK | [python.md](python.md) |
+| .NET SDK | [dotnet.md](dotnet.md) |
+| PHP SDK | [php.md](php.md) |
+| Ruby SDK | [ruby.md](ruby.md) |
+| API (Protobuf) | [api.md](api.md) |
 
 **Semantic Data (for deeper analysis):**
 - `analysis/cards-summary.txt` - Grep-friendly one-line summaries for all issues
@@ -27,17 +38,17 @@
 
 | Repository | Open | Closed | Rate | Upvotes | Comments | Bugs | Enhancements | Median TTC |
 |------------|------|--------|------|---------|----------|------|--------------|------------|
-| [Server](server.md) | 505 | 1021 | 67% | 826 | 839 | 127 | 344 | 45d |
-| [Features](features.md) | 254 | 151 | 37% | 117 | 404 | 5 | 236 | 129d |
-| [Java SDK](java.md) | 221 | 741 | 77% | 95 | 210 | 32 | 127 | 28d |
-| [Go SDK](go.md) | 171 | 683 | 80% | 83 | 214 | 61 | 89 | 16d |
-| [TypeScript SDK](typescript.md) | 147 | 679 | 82% | 116 | 294 | 45 | 86 | 26d |
-| [Python SDK](python.md) | 89 | 530 | 86% | 27 | 143 | 30 | 52 | 17d |
-| [.NET SDK](dotnet.md) | 49 | 251 | 84% | 13 | 45 | 11 | 29 | 20d |
-| [PHP SDK](php.md) | 39 | 230 | 86% | 14 | 67 | 7 | 24 | 44d |
-| [Ruby SDK](ruby.md) | 24 | 163 | 87% | 3 | 15 | 4 | 18 | 40d |
+| [Server](server.md) | 513 | 1049 | 67% | 830 | 866 | 127 | 348 | 44d |
+| [Features](features.md) | 257 | 155 | 38% | 120 | 406 | 5 | 239 | 129d |
+| [Java SDK](java.md) | 227 | 752 | 77% | 97 | 216 | 32 | 126 | 28d |
+| [Go SDK](go.md) | 170 | 697 | 80% | 83 | 213 | 60 | 89 | 16d |
+| [TypeScript SDK](typescript.md) | 154 | 686 | 82% | 118 | 296 | 48 | 87 | 27d |
+| [Python SDK](python.md) | 97 | 541 | 85% | 32 | 166 | 33 | 54 | 17d |
+| [.NET SDK](dotnet.md) | 52 | 255 | 83% | 13 | 46 | 12 | 30 | 20d |
+| [PHP SDK](php.md) | 42 | 232 | 85% | 14 | 70 | 9 | 23 | 46d |
+| [Ruby SDK](ruby.md) | 26 | 166 | 86% | 3 | 10 | 3 | 20 | 40d |
 | [API](api.md) | 14 | 13 | 48% | 6 | 9 | 4 | 9 | 3d |
-| **Total** | **1513** | **4462** | **75%** | **1300** | **2240** | **326** | **1014** | **27d** |
+| **Total** | **1552** | **4546** | **75%** | **1316** | **2298** | **333** | **1025** | **27d** |
 
 ---
 
@@ -49,7 +60,7 @@
 |--------|-------|
 | Overall Resolution Rate | 75% |
 | Median Time to Close | 27 days |
-| Average Time to Close | 151 days |
+| Average Time to Close | 150 days |
 | Resolved within 30 days | 52% |
 | Resolved within 90 days | 69% |
 
@@ -61,53 +72,53 @@
 
 | Rank | Repository | Resolution Rate | Open | Closed |
 |------|------------|-----------------|------|--------|
-| 1 | Ruby SDK | 87% | 24 | 163 |
-| 2 | PHP SDK | 86% | 39 | 230 |
-| 3 | Python SDK | 86% | 89 | 530 |
-| 4 | .NET SDK | 84% | 49 | 251 |
-| 5 | TypeScript SDK | 82% | 147 | 679 |
-| 6 | Go SDK | 80% | 171 | 683 |
-| 7 | Java SDK | 77% | 221 | 741 |
-| 8 | Server | 67% | 505 | 1021 |
-| 9 | API | 48% | 14 | 13 |
-| 10 | Features | 37% | 254 | 151 |
+| 1 | [Ruby SDK](ruby.md) | 86% | 26 | 166 |
+| 2 | [PHP SDK](php.md) | 85% | 42 | 232 |
+| 3 | [Python SDK](python.md) | 85% | 97 | 541 |
+| 4 | [.NET SDK](dotnet.md) | 83% | 52 | 255 |
+| 5 | [TypeScript SDK](typescript.md) | 82% | 154 | 686 |
+| 6 | [Go SDK](go.md) | 80% | 170 | 697 |
+| 7 | [Java SDK](java.md) | 77% | 227 | 752 |
+| 8 | [Server](server.md) | 67% | 513 | 1049 |
+| 9 | [API](api.md) | 48% | 14 | 13 |
+| 10 | [Features](features.md) | 38% | 257 | 155 |
 
 ### By Median Time to Close (Fastest First)
 
 | Rank | Repository | Median TTC | Resolved <30d |
 |------|------------|------------|---------------|
-| 1 | API | 3d | 77% |
-| 2 | Go SDK | 16d | 60% |
-| 3 | Python SDK | 17d | 63% |
-| 4 | .NET SDK | 20d | 61% |
-| 5 | TypeScript SDK | 26d | 52% |
-| 6 | Java SDK | 28d | 51% |
-| 7 | Ruby SDK | 40d | 44% |
-| 8 | PHP SDK | 44d | 48% |
-| 9 | Server | 45d | 45% |
-| 10 | Features | 129d | 32% |
+| 1 | [API](api.md) | 3d | 77% |
+| 2 | [Go SDK](go.md) | 16d | 59% |
+| 3 | [Python SDK](python.md) | 17d | 63% |
+| 4 | [.NET SDK](dotnet.md) | 20d | 61% |
+| 5 | [TypeScript SDK](typescript.md) | 27d | 52% |
+| 6 | [Java SDK](java.md) | 28d | 51% |
+| 7 | [Ruby SDK](ruby.md) | 40d | 44% |
+| 8 | [Server](server.md) | 44d | 45% |
+| 9 | [PHP SDK](php.md) | 46d | 48% |
+| 10 | [Features](features.md) | 129d | 32% |
 
 ---
 
 ## Issue Velocity (Last 12 Months)
 
-The overall backlog is shrinking, with 41 more issues closed than opened across all repositories over the past 12 months. This is a notable improvement from the prior analysis period (February 2026), when the backlog was growing by +68. The Java SDK (-46 net), Python SDK (-28 net), and PHP SDK (-16 net) drove the strongest reductions, while the Features repository (+24 net) and Server (+23 net) remain areas of growth.
+The overall backlog is growing modestly across all repositories. The Server and Features repositories account for the majority of the net increase, while Python (−20) and PHP (−16) are actively shrinking their backlogs. Go is essentially stable (−2). The previous period (April 2026 analysis) showed a net backlog reduction of −41; this period has reversed to +46, driven primarily by a burst of new Server and Features issues and a new cross-SDK external payload storage initiative filed in May 2026.
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 839 |
-| Issues Closed | 880 |
-| Net Change | -41 |
+| Issues Opened | 887 |
+| Issues Closed | 841 |
+| Net Change | +46 |
 
-Backlog Shrinking: 41 more issues closed than opened across all repos in the last 12 months.
+📈 **Backlog Growing:** 46 more issues opened than closed across all repos in the last 12 months.
 
 ---
 
-## Recently Resolved Popular Requests (Last 6 Months, 3+ Upvotes)
+## Recently Resolved Popular Requests (Last 6 Months, 3+ 👍)
 
-| Repo | Issue | Upvotes | Title |
-|------|-------|---------|-------|
-| TypeScript SDK | [#1334](https://github.com/temporalio/sdk-typescript/issues/1334) | 51 | Run temporal worker in Bun |
+| Repo | Issue | 👍 | Title |
+|------|-------|-----|-------|
+| TypeScript SDK | [#1334](https://github.com/temporalio/sdk-typescript/issues/1334) | 51 | [Feature Request] Run temporal worker in bun |
 | Server | [#5680](https://github.com/temporalio/temporal/issues/5680) | 30 | Official support for Opensearch |
 | Java SDK | [#2738](https://github.com/temporalio/sdk-java/issues/2738) | 23 | Spring Boot 4 Support |
 | Go SDK | [#916](https://github.com/temporalio/sdk-go/issues/916) | 21 | Ability to mock/intercept side effect calls in test suite |
@@ -115,39 +126,39 @@ Backlog Shrinking: 41 more issues closed than opened across all repos in the las
 | Server | [#3228](https://github.com/temporalio/temporal/issues/3228) | 16 | Metadata for Timers |
 | Java SDK | [#2746](https://github.com/temporalio/sdk-java/issues/2746) | 14 | Jackson 3 support |
 | Server | [#298](https://github.com/temporalio/temporal/issues/298) | 14 | Documentation - How to use Temporal as an embedded library |
+| Server | [#8724](https://github.com/temporalio/temporal/issues/8724) | 13 | Support Azure Entra ID Authentication for PostgreSQL Backend |
 | Server | [#2941](https://github.com/temporalio/temporal/issues/2941) | 9 | Host level cache for history |
+| Server | [#9156](https://github.com/temporalio/temporal/issues/9156) | 7 | Cloud Database Cert/IAM Connections |
 | Server | [#2517](https://github.com/temporalio/temporal/issues/2517) | 7 | Make task queues more ordered |
-| Java SDK | [#2665](https://github.com/temporalio/sdk-java/issues/2665) | 6 | Serialization with kotlinx.serialization |
-| Python SDK | [#487](https://github.com/temporalio/sdk-python/issues/487) | 6 | Allow workflow logger to opt-out of suppression |
-| TypeScript SDK | [#1443](https://github.com/temporalio/sdk-typescript/issues/1443) | 6 | Failure to start ephemeral server prevents shutdown |
-| Server | [#8363](https://github.com/temporalio/temporal/issues/8363) | 6 | Task queue validator fails task queue name validation |
+| Python SDK | [#487](https://github.com/temporalio/sdk-python/issues/487) | 6 | [Feature Request] Allow workflow logger to opt-out of structured logging fields |
+| TypeScript SDK | [#1443](https://github.com/temporalio/sdk-typescript/issues/1443) | 6 | [Bug] Failure to start ephemeral server prevents shutdown |
 | Server | [#4233](https://github.com/temporalio/temporal/issues/4233) | 6 | Too high memory usage on history service |
 | Go SDK | [#1352](https://github.com/temporalio/sdk-go/issues/1352) | 5 | Serialization context for codecs and converters |
 | Go SDK | [#1282](https://github.com/temporalio/sdk-go/issues/1282) | 5 | Heartbeat timeout not raised while testing |
-| Java SDK | [#2724](https://github.com/temporalio/sdk-java/issues/2724) | 5 | Allow Spring Application Startup Even When Temporal is Unavailable |
-| TypeScript SDK | [#1432](https://github.com/temporalio/sdk-typescript/issues/1432) | 5 | Simplify proper usage of AsyncLocalStorage |
-| Python SDK | [#441](https://github.com/temporalio/sdk-python/issues/441) | 4 | GeneratorExit possibly causing issues on continue-as-new |
+| TypeScript SDK | [#1432](https://github.com/temporalio/sdk-typescript/issues/1432) | 5 | [Feature Request] Simplify proper usage of `AsyncLocalStorage` |
+| TypeScript SDK | [#1749](https://github.com/temporalio/sdk-typescript/issues/1749) | 4 | [Bug] Workflow task not found after SDK upgrade |
+| Server | [#9280](https://github.com/temporalio/temporal/issues/9280) | 4 | v1.29.3 vulnerabilities |
 
 ---
 
 ## Top User Requests (by Upvotes)
 
-| Rank | Repo | Issue | Upvotes | Request |
-|------|------|-------|---------|---------|
+| Rank | Repo | Issue | 👍 | Request |
+|------|------|-------|-----|---------|
 | 1 | Server | [#680](https://github.com/temporalio/temporal/issues/680) | **74** | Add ability for workflow to wait for completion of an external workflow |
 | 2 | Server | [#1507](https://github.com/temporalio/temporal/issues/1507) | **50** | Provide priority task queues |
-| 3 | Server | [#2668](https://github.com/temporalio/temporal/issues/2668) | **46** | Document POSTGRES_SEEDS (or better yet, use a descriptive var name) |
-| 4 | Server | [#2318](https://github.com/temporalio/temporal/issues/2318) | **46** | MongoDB as Persistent storage |
-| 5 | Server | [#131](https://github.com/temporalio/temporal/issues/131) | **31** | Different retry options based on failure type |
-| 6 | Server | [#537](https://github.com/temporalio/temporal/issues/537) | **30** | Add SignalWithStart/UpdateWithStart command |
+| 3 | Server | [#2318](https://github.com/temporalio/temporal/issues/2318) | **48** | MongoDB as Persistent backend |
+| 4 | Server | [#2668](https://github.com/temporalio/temporal/issues/2668) | **46** | Document POSTGRES_SEEDS (or better yet, use a descriptive var name) |
+| 5 | Server | [#131](https://github.com/temporalio/temporal/issues/131) | **32** | Different retry options based on failure type |
+| 6 | Server | [#537](https://github.com/temporalio/temporal/issues/537) | **30** | Add SignalWithStart\UpdateWithStart command |
 | 7 | Server | [#5302](https://github.com/temporalio/temporal/issues/5302) | **23** | YDB Temporal support |
-| 8 | Server | [#2609](https://github.com/temporalio/temporal/issues/2609) | **23** | Add ability to transfer child workflows to new parent on ContinueAsNew |
-| 9 | Server | [#1797](https://github.com/temporalio/temporal/issues/1797) | **22** | Ability to get all task queues per namespace |
-| 10 | TypeScript SDK | [#1755](https://github.com/temporalio/sdk-typescript/issues/1755) | **20** | Temporal integration for @openai/agents |
-| 11 | Server | [#328](https://github.com/temporalio/temporal/issues/328) | **20** | Try to run Temporal on top of Amazon Keyspaces |
-| 12 | TypeScript SDK | [#1658](https://github.com/temporalio/sdk-typescript/issues/1658) | **19** | Add support for OpenTelemetry v2 |
-| 13 | Features | [#118](https://github.com/temporalio/features/issues/118) | **17** | Declarative schedules: upsert, sync, terraform |
-| 14 | Go SDK | [#181](https://github.com/temporalio/sdk-go/issues/181) | **16** | Clean worker shutdown waiting for session completion |
+| 8 | Server | [#2609](https://github.com/temporalio/temporal/issues/2609) | **23** | Add ability to transfer child workflows to new parent run when parent continues as new |
+| 9 | Server | [#328](https://github.com/temporalio/temporal/issues/328) | **23** | Run temporal on top of Amazon Keyspaces |
+| 10 | Server | [#1797](https://github.com/temporalio/temporal/issues/1797) | **22** | Ability to get all task queues per namespace |
+| 11 | TypeScript SDK | [#1755](https://github.com/temporalio/sdk-typescript/issues/1755) | **20** | [Feature Request] Temporal integration for `@openai/agents` |
+| 12 | TypeScript SDK | [#1658](https://github.com/temporalio/sdk-typescript/issues/1658) | **19** | [Feature Request] Add support for opentelemetry v2 |
+| 13 | Features | [#118](https://github.com/temporalio/features/issues/118) | **17** | [Feature Request] Declarative schedules: upsert, sync, terraform, etc. |
+| 14 | Go SDK | [#181](https://github.com/temporalio/sdk-go/issues/181) | **16** | Add ability for a clean worker shutdown that waits for a session completion |
 | 15 | Java SDK | [#1693](https://github.com/temporalio/sdk-java/issues/1693) | **16** | Support listWorkflowExecutions in test server |
 
 ---
@@ -156,80 +167,82 @@ Backlog Shrinking: 41 more issues closed than opened across all repos in the las
 
 **Available Theme Reports:** See [themes/index.md](themes/index.md) for detailed cross-cutting analysis.
 
-### 1. Testing Framework Improvements
+### 1. Test Framework Gaps and Defects
 
-Testing remains the single most pervasive pain point across the Temporal ecosystem. Every SDK reports test framework issues, with the Go SDK (44 open test issues), Java SDK (37+ test server issues), and TypeScript SDK carrying the largest backlogs. Recurring problems include time-skipping failures with child workflows, panics and goroutine leaks in test environments, missing test server capabilities, and poor CI integration (Jest open handles, test flakes). The Features repository's top request for unit testing workflow versioning ([#649](https://github.com/temporalio/features/issues/649), 14 upvotes) reflects a gap that affects all SDKs. The recent resolution of Go SDK side-effect mocking ([#916](https://github.com/temporalio/sdk-go/issues/916), 21 upvotes) demonstrates strong responsiveness to user demand in this area.
+Test framework quality is the single most pervasive issue across all SDKs. Every SDK has a cluster of bugs where test behavior diverges from production behavior — timeouts not enforced, time-skipping correctness failures, mocking infrastructure bypassing interceptors, panics swallowed silently. The Java SDK has 55 open test-related issues; the Go SDK's test framework accounts for the largest single issue cluster; the TypeScript SDK's Jest open-handles bug has been open for three years. PHP's recently-filed batch of four testing bugs signals that the PHPUnit time-skipping environment is functionally broken. The Features repository's top request for unit testing workflow versioning ([#649](https://github.com/temporalio/features/issues/649), 14 upvotes) has no cross-SDK solution.
 
-| Category | Top Requests |
-|----------|--------------|
-| Test Server Capabilities | [Java #1693](https://github.com/temporalio/sdk-java/issues/1693) (16 upvotes) - listWorkflowExecutions support |
-| Versioning Tests | [Features #649](https://github.com/temporalio/features/issues/649) (14 upvotes) - unit testing workflow versioning |
-| Jest Integration | [TypeScript #928](https://github.com/temporalio/sdk-typescript/issues/928) (7 upvotes, 26 comments) - open handles detection, 3+ years old |
-| Time-Skipping | Multiple SDKs report hangs with child workflows, updates, and signals (Java, Go, .NET, Python, Ruby) |
-| Test Panics | Go SDK [#2107](https://github.com/temporalio/sdk-go/issues/2107), [#351](https://github.com/temporalio/sdk-go/issues/351) - panics in test framework |
+| SDK | Top Test Issue | 👍 |
+|-----|---------------|-----|
+| Java | [#1693](https://github.com/temporalio/sdk-java/issues/1693) `listWorkflowExecutions` not in test server | 16 |
+| Go | [#866](https://github.com/temporalio/sdk-go/issues/866) `TestWorkflowEnvironment` doesn't enforce `WorkflowExecutionTimeout` | 4 |
+| TypeScript | [#928](https://github.com/temporalio/sdk-typescript/issues/928) Jest detects open handles | 7 |
+| PHP | [#577](https://github.com/temporalio/sdk-php/issues/577) Can't run tests of UpdateMethod | 0 |
+| Features | [#649](https://github.com/temporalio/features/issues/649) Unit testing workflow versioning | 14 |
 
-### 2. Workflow Coordination Primitives
+### 2. Observability: OpenTelemetry and Metrics Consistency
 
-Users need more powerful primitives for coordinating workflows and managing complex execution patterns. The top request across the entire Temporal ecosystem -- waiting for external workflow completion ([#680](https://github.com/temporalio/temporal/issues/680), 74 upvotes) -- has been open since 2020. Priority task queues ([#1507](https://github.com/temporalio/temporal/issues/1507), 50 upvotes) and child workflow management during ContinueAsNew ([#2609](https://github.com/temporalio/temporal/issues/2609), 23 upvotes) round out the top requests. Task queue introspection (listing, querying) and dynamic routing are consistent demand areas.
+Every SDK either lacks native OpenTelemetry support or has known defects in its OTel integration. The Java SDK relies on an OpenTracing shim that duplicates spans during replay. The Go SDK emits OTel Counters with the wrong metric type ([#2140](https://github.com/temporalio/sdk-go/issues/2140)) and SDK-internal logs do not flow through the interceptor logger ([#829](https://github.com/temporalio/sdk-go/issues/829), 6 upvotes). The TypeScript SDK's OTel interceptors cause nondeterminism errors ([#2023](https://github.com/temporalio/sdk-typescript/issues/2023)) and OTel v2 support is a top request (19 upvotes). The Python SDK conflicts with ddtrace when OTel ≥1.29 is used. Cross-SDK, the Features repository tracks missing standard metrics that no SDK currently exposes.
 
-| Category | Top Requests |
-|----------|--------------|
-| External Workflow | [Server #680](https://github.com/temporalio/temporal/issues/680) (74 upvotes) - wait for external workflow completion |
-| Priority Queues | [Server #1507](https://github.com/temporalio/temporal/issues/1507) (50 upvotes) - priority task queues |
-| Child Transfer | [Server #2609](https://github.com/temporalio/temporal/issues/2609) (23 upvotes) - transfer children on ContinueAsNew |
-| Task Queue Introspection | [Server #1797](https://github.com/temporalio/temporal/issues/1797) (22 upvotes), [Server #1460](https://github.com/temporalio/temporal/issues/1460) (16 upvotes) |
-| Dynamic Routing | [Server #1988](https://github.com/temporalio/temporal/issues/1988) (15 upvotes) - dynamic task queue routing |
+| SDK | Top Observability Issue | 👍 |
+|-----|------------------------|-----|
+| Java | [#2394](https://github.com/temporalio/sdk-java/issues/2394) Native OpenTelemetry module | 6 |
+| Go | [#829](https://github.com/temporalio/sdk-go/issues/829) Use interceptor logger for all SDK logs | 6 |
+| TypeScript | [#1658](https://github.com/temporalio/sdk-typescript/issues/1658) Support OpenTelemetry v2 | 19 |
+| Python | [#733](https://github.com/temporalio/sdk-python/issues/733) OTel + ddtrace sandbox conflict | 0 |
+| Features | [#563](https://github.com/temporalio/features/issues/563) Tag `workflow_failed` counter with exception type | 0 |
 
-### 3. Database & Storage Backend Alternatives
+### 3. Storage Backend and Infrastructure Expansion (Server)
 
-Strong demand persists for running Temporal on alternative database backends. The community is requesting support for MongoDB (46 upvotes), YDB (23 upvotes), Amazon Keyspaces (20 upvotes), SQLite in production (16 upvotes), CockroachDB (13 upvotes), and most recently SurrealDB. Existing backends also need improvements: Azure Entra ID authentication for PostgreSQL ([#8724](https://github.com/temporalio/temporal/issues/8724), 12 upvotes) is a growing request. The recent resolution of Opensearch support ([#5680](https://github.com/temporalio/temporal/issues/5680), 30 upvotes) shows progress in this area.
+The four highest-demand open Server issues — and five of the top ten — are requests for alternative database backends (MongoDB 48 upvotes, Amazon Keyspaces 23, YDB 23, CockroachDB 13, SQLite 16) or better documentation for existing backends (POSTGRES_SEEDS 46 upvotes). The recently resolved OpenSearch support (30 upvotes) demonstrates that resolution is possible and well-received.
 
-| Category | Top Requests |
-|----------|--------------|
-| MongoDB | [Server #2318](https://github.com/temporalio/temporal/issues/2318) (46 upvotes) |
-| YDB | [Server #5302](https://github.com/temporalio/temporal/issues/5302) (23 upvotes) |
-| Amazon Keyspaces | [Server #328](https://github.com/temporalio/temporal/issues/328) (20 upvotes) |
-| SQLite Production | [Server #3366](https://github.com/temporalio/temporal/issues/3366) (16 upvotes) |
-| CockroachDB | [Server #4180](https://github.com/temporalio/temporal/issues/4180) (13 upvotes) |
-| Azure Entra ID for PostgreSQL | [Server #8724](https://github.com/temporalio/temporal/issues/8724) (12 upvotes) |
+| Issue | 👍 | Request |
+|-------|-----|---------|
+| [#2318](https://github.com/temporalio/temporal/issues/2318) | 48 | MongoDB as persistence backend |
+| [#2668](https://github.com/temporalio/temporal/issues/2668) | 46 | Document/rename POSTGRES_SEEDS and Docker env vars |
+| [#328](https://github.com/temporalio/temporal/issues/328) | 23 | Amazon Keyspaces (managed Cassandra) support |
+| [#5302](https://github.com/temporalio/temporal/issues/5302) | 23 | YDB support |
+| [#3366](https://github.com/temporalio/temporal/issues/3366) | 16 | SQLite in production mode |
+| [#4180](https://github.com/temporalio/temporal/issues/4180) | 13 | Official CockroachDB support |
 
-### 4. Observability & AI Agent Integration
+### 4. Cross-SDK Feature Parity (Features Repository)
 
-Modern observability and AI agent support are increasingly requested across SDKs. The TypeScript SDK's OpenAI Agents integration ([#1755](https://github.com/temporalio/sdk-typescript/issues/1755), 20 upvotes) is the highest-upvoted non-server issue, reflecting the growing importance of AI orchestration. OpenTelemetry v2 support for TypeScript (19 upvotes) and native OpenTelemetry for Java (replacing legacy OpenTracing shims) are key modernization requests. The Python SDK struggles with OpenTelemetry and ddtrace sandbox compatibility. Custom workflow history markers ([Features #399](https://github.com/temporalio/features/issues/399), 15 upvotes) would improve production debugging across all SDKs.
+The Features repository functions as a cross-SDK roadmap tracker. Several features that users expect to be available everywhere are only partially implemented: sessions exist only in Go; workflow versioning unit testing is unsupported in all SDKs; declarative schedule upsert lacks support across the board. The repository's low resolution rate (38%) and growing backlog (+30 in 12 months) reflect that cross-SDK feature delivery is the slowest-moving area in the system.
 
-| Category | Top Requests |
-|----------|--------------|
-| AI Agent Integration | [TypeScript #1755](https://github.com/temporalio/sdk-typescript/issues/1755) (20 upvotes) - @openai/agents |
-| OpenTelemetry v2 | [TypeScript #1658](https://github.com/temporalio/sdk-typescript/issues/1658) (19 upvotes) |
-| Custom Markers | [Features #399](https://github.com/temporalio/features/issues/399) (15 upvotes) - workflow history markers |
-| Declarative Schedules | [Features #118](https://github.com/temporalio/features/issues/118) (17 upvotes) - upsert, sync, terraform |
-| Metrics Standardization | [Features #607](https://github.com/temporalio/features/issues/607) - standardize metrics across SDKs |
-| Python Sandbox OTel | [Python #733](https://github.com/temporalio/sdk-python/issues/733) - ddtrace/OTel sandbox compatibility |
+| Issue | 👍 | 💬 | Feature |
+|-------|-----|-----|---------|
+| [#118](https://github.com/temporalio/features/issues/118) | 17 | 23 | Declarative schedules: upsert, sync, terraform |
+| [#399](https://github.com/temporalio/features/issues/399) | 15 | 12 | Custom Markers for Workflow History/Timeline |
+| [#649](https://github.com/temporalio/features/issues/649) | 14 | 4 | Unit testing workflow versioning |
+| [#562](https://github.com/temporalio/features/issues/562) | 7 | 6 | Session support in non-Go SDKs |
+| [#434](https://github.com/temporalio/features/issues/434) | 7 | 1 | Serialization context for codecs and converters |
 
-### 5. Framework Integrations & Ecosystem
+### 5. External Payload Storage (Active Initiative, May 2026)
 
-Enterprise framework integrations remain critical for adoption. Spring Boot 4 support for the Java SDK was recently resolved ([#2738](https://github.com/temporalio/sdk-java/issues/2738), 23 upvotes), a major win. The TypeScript SDK faces pressure from the NestJS community ([#483](https://github.com/temporalio/sdk-typescript/issues/483), 37 comments) and NextJS 15 incompatibility ([#1615](https://github.com/temporalio/sdk-typescript/issues/1615)). The Ruby SDK needs ActiveModel compatibility ([#355](https://github.com/temporalio/sdk-ruby/issues/355)) to serve its Rails user base. Kotlin coroutine support ([Java #1845](https://github.com/temporalio/sdk-java/issues/1845), 15 upvotes) remains a top JVM ecosystem request. The PHP SDK is exploring Fiber-based APIs ([#702](https://github.com/temporalio/sdk-php/issues/702)) to modernize developer ergonomics.
+A coordinated cross-SDK initiative filed in May 2026 is adding external payload storage support — allowing payloads above the gRPC message size limit to be stored in S3 or other object stores. Issues have been filed simultaneously across Java, TypeScript, Python, Go, and Features. This is an active, in-flight effort that should be tracked as a single cross-cutting initiative.
 
-| Category | Top Requests |
-|----------|--------------|
-| NestJS | [TypeScript #483](https://github.com/temporalio/sdk-typescript/issues/483) (4 upvotes, 37 comments) |
-| NextJS 15 | [TypeScript #1615](https://github.com/temporalio/sdk-typescript/issues/1615) (3 upvotes, 14 comments) |
-| Kotlin Coroutines | [Java #1845](https://github.com/temporalio/sdk-java/issues/1845) (15 upvotes) |
-| Rails/ActiveModel | [Ruby #355](https://github.com/temporalio/sdk-ruby/issues/355) - Mutex restrictions in workflow sandbox |
-| PHP Fibers | [PHP #702](https://github.com/temporalio/sdk-php/issues/702) (2 upvotes) - replace yield-based API |
+| SDK | Issue | Title |
+|-----|-------|-------|
+| Java | [#2880](https://github.com/temporalio/sdk-java/issues/2880) | External Payload Storage Foundation - Java |
+| TypeScript | [#2063](https://github.com/temporalio/sdk-typescript/issues/2063) | External Payload Storage Foundation - TypeScript |
+| Python | [#1502](https://github.com/temporalio/sdk-python/issues/1502) | Proposal: Google Cloud Storage external storage driver |
+| Features | [#765](https://github.com/temporalio/features/issues/765) | External Payload Storage Foundation |
 
-### 6. Security Vulnerabilities
+### 6. Stale Backlog — Cross-Ecosystem Housekeeping
 
-Multiple repositories carry dependency security issues flagged by automated scanning. The Java SDK has the highest-severity vulnerabilities (CVEs up to 9.8 in dependencies). Recurring CVE reports against the Server Docker images create ongoing community concern ([#9682](https://github.com/temporalio/temporal/issues/9682) filed in March 2026). A new Rust dependency CVE affects the Python SDK ([#1403](https://github.com/temporalio/sdk-python/issues/1403)). The Features repository has 5 unresolved dependency vulnerabilities.
+1,042 open issues (67% of the open backlog) have had no activity in over 12 months. The Server has 352 stale issues (69%), Java has 171 (75%), Go has 130 (76%), Features has 169 (66%). This represents a significant maintenance liability: stale issues obscure active problems, mislead users searching for help, and inflate real issue counts. A coordinated triage pass across all repositories is recommended as a standing periodic initiative.
 
-| Repository | Count | Highest Severity |
-|------------|-------|------------------|
-| Java SDK | 4 | 9.8 (Critical) - dependency CVEs |
-| Server | ~13 | Recurring CVE reports across versions |
-| Features | 5 | 7.5 (High) |
-| Python SDK | 1 | High - Rust dependency CVEs (rustls-webpki, tar) |
-| Go SDK | 1 | 7.5 (High) - uber-go/tally |
-| .NET SDK | 1 | 7.5 (High) - test tooling only |
+| Repository | Stale Issues | % of Open |
+|------------|--------------|-----------|
+| Server | 352 | 69% |
+| Features | 169 | 66% |
+| Java SDK | 171 | 75% |
+| Go SDK | 130 | 76% |
+| TypeScript SDK | 89 | 58% |
+| Python SDK | 54 | 56% |
+| .NET SDK | 33 | 63% |
+| PHP SDK | 21 | 50% |
+| Ruby SDK | 10 | 38% |
+| API | 13 | 93% |
 
 ---
 
@@ -237,79 +250,68 @@ Multiple repositories carry dependency security issues flagged by automated scan
 
 | Repository | Top Request | Key Concern |
 |------------|-------------|-------------|
-| Server | [#680](https://github.com/temporalio/temporal/issues/680) - Wait for external workflow (74 upvotes) | Database backend alternatives (MongoDB, YDB); security CVE reports; backlog growing (+23 net) |
-| Features | [#118](https://github.com/temporalio/features/issues/118) - Declarative schedules (17 upvotes) | Cross-SDK feature parity; 65% stale issues; 5 security vulnerabilities; lowest resolution rate (37%) |
-| Java SDK | [#1693](https://github.com/temporalio/sdk-java/issues/1693) - Test server listWorkflowExecutions (16 upvotes) | 4 CVEs with severity up to 9.8; Kotlin coroutine support; 73% stale issues |
-| Go SDK | [#181](https://github.com/temporalio/sdk-go/issues/181) - Clean session shutdown (16 upvotes) | Test framework reliability (44 open issues); uber-go/tally CVE; 73% stale issues |
-| TypeScript SDK | [#1755](https://github.com/temporalio/sdk-typescript/issues/1755) - OpenAI Agents integration (20 upvotes) | Replay determinism bugs; OpenTelemetry v2; backlog growing slowly (+6 net) |
-| Python SDK | [#238](https://github.com/temporalio/sdk-python/issues/238) - VSCode debugging (3 upvotes) | Sandbox compatibility (OTel, ddtrace); Rust CVEs; Python 3.14 compatibility |
-| .NET SDK | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) - .NET Trimming (7 upvotes) | Silently lost workflow task failures; test environment time-skipping; 65% stale |
-| PHP SDK | [#592](https://github.com/temporalio/sdk-php/issues/592) - Document marshaller (5 upvotes) | Memory leak in workflow worker; Nexus support missing; strong backlog reduction (-16 net) |
-| Ruby SDK | [#319](https://github.com/temporalio/sdk-ruby/issues/319) - Client-side failure trimming (2 upvotes) | ActiveModel compatibility blocking Rails users; mature SDK with low issue count |
-| API | [#328](https://github.com/temporalio/api/issues/328) - buf schema registry (6 upvotes) | 93% stale issues; deliberate stability but needs triage pass |
+| [Server](server.md) | [#680](https://github.com/temporalio/temporal/issues/680) External workflow wait (74 👍) | Growing backlog; stale gRPC connections and ringpop churn bugs in Kubernetes |
+| [Features](features.md) | [#118](https://github.com/temporalio/features/issues/118) Declarative schedules (17 👍) | Low resolution rate (38%); growing cross-SDK feature debt |
+| [Java SDK](java.md) | [#1693](https://github.com/temporalio/sdk-java/issues/1693) listWorkflowExecutions in test server (16 👍) | Local activity pool exhaustion hang; 55 test server issues |
+| [Go SDK](go.md) | [#181](https://github.com/temporalio/sdk-go/issues/181) Session-aware worker shutdown (16 👍) | Signal-loss regression in v1.35.0; OTel Counter type error |
+| [TypeScript SDK](typescript.md) | [#1755](https://github.com/temporalio/sdk-typescript/issues/1755) OpenAI Agents integration (20 👍) | OTel interceptor nondeterminism regression; Jest open handles |
+| [Python SDK](python.md) | [#928](https://github.com/temporalio/sdk-python/issues/928) Free-threading support (4 👍) | Python 3.14 breakage in `_outbound_schedule_activity` |
+| [.NET SDK](dotnet.md) | [#286](https://github.com/temporalio/sdk-dotnet/issues/286) .NET Trimming/AOT support (7 👍) | Workflow Update hang in time-skipping test environment |
+| [PHP SDK](php.md) | [#592](https://github.com/temporalio/sdk-php/issues/592) Document SDK marshaller (5 👍) | PHPUnit time-skipping environment functionally broken |
+| [Ruby SDK](ruby.md) | [#319](https://github.com/temporalio/sdk-ruby/issues/319) Client-side failure trimming (2 👍) | ScopedLogger incompatibility with Rails semantic_logger |
+| [API](api.md) | [#328](https://github.com/temporalio/api/issues/328) Buf Schema Registry (6 👍) | 93% of issues stale; most pending deliberate deferral |
 
 ---
 
 ## Recommended Initiatives
 
-### 1. Unified Test Framework Improvements
+### 1. Test Framework Reliability Sprint
 
-**Impact:** All SDKs -- testing is the most common pain point across the entire ecosystem, directly blocking developer productivity and adoption.
-
+**Impact:** All SDKs; affects every developer writing workflow unit tests
 **Related Issues:**
-- [Features #649](https://github.com/temporalio/features/issues/649) - Unit testing workflow versioning (14 upvotes)
-- [Java #1693](https://github.com/temporalio/sdk-java/issues/1693) - Test server listWorkflowExecutions (16 upvotes)
-- [TypeScript #928](https://github.com/temporalio/sdk-typescript/issues/928) - Jest open handles (7 upvotes, 26 comments)
-- Time-skipping failures across Java ([#1540](https://github.com/temporalio/sdk-java/issues/1540)), Go ([#866](https://github.com/temporalio/sdk-go/issues/866)), .NET ([#179](https://github.com/temporalio/sdk-dotnet/issues/179))
-- Go SDK test framework panics and goroutine leaks ([#2107](https://github.com/temporalio/sdk-go/issues/2107), [#2090](https://github.com/temporalio/sdk-go/issues/2090), [#351](https://github.com/temporalio/sdk-go/issues/351))
-- PHP test server check regressions ([#727](https://github.com/temporalio/sdk-php/issues/727))
+- Java: [#1693](https://github.com/temporalio/sdk-java/issues/1693), [#1804](https://github.com/temporalio/sdk-java/issues/1804), [#2642](https://github.com/temporalio/sdk-java/issues/2642) (test server gaps and time-skipping bugs)
+- Go: [#866](https://github.com/temporalio/sdk-go/issues/866), [#2039](https://github.com/temporalio/sdk-go/issues/2039), [#1100](https://github.com/temporalio/sdk-go/issues/1100) (test framework divergence from production)
+- TypeScript: [#928](https://github.com/temporalio/sdk-typescript/issues/928) (Jest open handles)
+- PHP: [#743](https://github.com/temporalio/sdk-php/issues/743), [#745](https://github.com/temporalio/sdk-php/issues/745), [#577](https://github.com/temporalio/sdk-php/issues/577) (time-skipping test environment broken)
+- Features: [#649](https://github.com/temporalio/features/issues/649) (workflow versioning unit testing)
 
-### 2. Workflow Coordination Primitives
+### 2. OpenTelemetry Native Support Across SDKs
 
-**Impact:** Server and all SDK users -- enables complex orchestration patterns that users are consistently requesting. The top 2 issues across the entire ecosystem by upvotes fall in this category.
-
+**Impact:** All SDKs; affects any team with observability pipelines
 **Related Issues:**
-- [Server #680](https://github.com/temporalio/temporal/issues/680) - Wait for external workflow (74 upvotes, top request overall)
-- [Server #1507](https://github.com/temporalio/temporal/issues/1507) - Priority task queues (50 upvotes)
-- [Server #2609](https://github.com/temporalio/temporal/issues/2609) - Transfer child workflows on ContinueAsNew (23 upvotes)
-- [Server #1797](https://github.com/temporalio/temporal/issues/1797) - List all task queues per namespace (22 upvotes)
-- [Server #1460](https://github.com/temporalio/temporal/issues/1460) - Task queue query (16 upvotes)
-- [Server #1988](https://github.com/temporalio/temporal/issues/1988) - Dynamic task queue routing (15 upvotes)
+- Java: [#2394](https://github.com/temporalio/sdk-java/issues/2394) (native OTel module, community POC exists)
+- Go: [#2140](https://github.com/temporalio/sdk-go/issues/2140) (OTel Counter type error), [#829](https://github.com/temporalio/sdk-go/issues/829) (interceptor logger propagation)
+- TypeScript: [#1658](https://github.com/temporalio/sdk-typescript/issues/1658) (OTel v2 support, 19 upvotes), [#2023](https://github.com/temporalio/sdk-typescript/issues/2023) (OTel interceptors nondeterminism regression)
+- Python: [#733](https://github.com/temporalio/sdk-python/issues/733) (OTel + ddtrace sandbox conflict)
+- Features: [#563](https://github.com/temporalio/features/issues/563), [#25](https://github.com/temporalio/features/issues/25) (missing standard metrics)
 
-### 3. Security Dependency Remediation
+### 3. Server Core Workflow Capabilities
 
-**Impact:** All users -- unresolved CVEs create compliance risk and recurring community concern. Multiple new CVE reports filed in March 2026 indicate this remains an active problem.
-
+**Impact:** All users of Temporal Server; high upvote concentration
 **Related Issues:**
-- [Java #1890](https://github.com/temporalio/sdk-java/issues/1890), [#1951](https://github.com/temporalio/sdk-java/issues/1951), [#1952](https://github.com/temporalio/sdk-java/issues/1952), [#1888](https://github.com/temporalio/sdk-java/issues/1888) - Dependency CVEs (severity up to 9.8)
-- [Python #1403](https://github.com/temporalio/sdk-python/issues/1403) - Rust dependency CVEs (rustls-webpki, tar)
-- [Go #899](https://github.com/temporalio/sdk-go/issues/899) - uber-go/tally vulnerability (severity 7.5)
-- [Server #9682](https://github.com/temporalio/temporal/issues/9682) - Multiple CVEs in Docker images (March 2026)
-- 5 issues in Features repository with severity >= 7.1
+- [#680](https://github.com/temporalio/temporal/issues/680) — Cross-workflow wait API (74 upvotes, 5+ years open, marked up-for-grabs)
+- [#1507](https://github.com/temporalio/temporal/issues/1507) — Priority task queues (50 upvotes, actively in progress)
+- [#131](https://github.com/temporalio/temporal/issues/131) — Per-failure-type retry options (32 upvotes)
+- [#537](https://github.com/temporalio/temporal/issues/537) — SignalWithStart/UpdateWithStart from workflow code (30 upvotes)
+- [#2609](https://github.com/temporalio/temporal/issues/2609) — Child workflow transfer on continue-as-new (23 upvotes)
 
-### 4. AI Agent & Observability Modernization
+### 4. Python 3.14 and Runtime Compatibility
 
-**Impact:** TypeScript, Python, and Java SDK users -- AI orchestration is a fast-growing use case and observability modernization is overdue across multiple SDKs.
-
+**Impact:** Python SDK users upgrading to Python 3.14 (imminent breakage)
 **Related Issues:**
-- [TypeScript #1755](https://github.com/temporalio/sdk-typescript/issues/1755) - OpenAI Agents integration (20 upvotes)
-- [TypeScript #1658](https://github.com/temporalio/sdk-typescript/issues/1658) - OpenTelemetry v2 (19 upvotes)
-- [Features #399](https://github.com/temporalio/features/issues/399) - Custom workflow markers (15 upvotes)
-- [Features #118](https://github.com/temporalio/features/issues/118) - Declarative schedules (17 upvotes)
-- [Java #2394](https://github.com/temporalio/sdk-java/issues/2394) - Native OpenTelemetry (replace OpenTracing shim)
-- [Python #733](https://github.com/temporalio/sdk-python/issues/733), [#1009](https://github.com/temporalio/sdk-python/issues/1009) - Sandbox/OTel compatibility and AI agent support
+- [#1517](https://github.com/temporalio/sdk-python/issues/1517) — Python 3.14 `NameError` blocks all activity scheduling (critical, needs immediate fix)
+- [#1326](https://github.com/temporalio/sdk-python/issues/1326) — Python 3.14 `sys.monitoring` callbacks cause sandbox hang
+- [#928](https://github.com/temporalio/sdk-python/issues/928) — Free-threading (GIL-free) research and support
 
-### 5. Cross-Ecosystem Integration & Runtime Support
+### 5. Coordinated Stale Issue Triage
 
-**Impact:** TypeScript, Java, Ruby, and PHP SDK users -- framework compatibility is essential for enterprise adoption and developer experience.
-
+**Impact:** All repositories; improves issue tracker signal-to-noise ratio
 **Related Issues:**
-- [TypeScript #483](https://github.com/temporalio/sdk-typescript/issues/483) - NestJS integration (4 upvotes, 37 comments)
-- [TypeScript #1615](https://github.com/temporalio/sdk-typescript/issues/1615) - NextJS 15 compatibility (3 upvotes, 14 comments)
-- [Java #1845](https://github.com/temporalio/sdk-java/issues/1845) - Kotlin coroutine models (15 upvotes)
-- [Ruby #355](https://github.com/temporalio/sdk-ruby/issues/355) - ActiveModel compatibility in workflows
-- [PHP #702](https://github.com/temporalio/sdk-php/issues/702) - Fiber-based API for modern PHP
-- [.NET #286](https://github.com/temporalio/sdk-dotnet/issues/286) - .NET Trimming support (7 upvotes)
+- Server: 352 stale issues including 233 over 3 years old
+- Java: 171 stale issues, many predating virtual thread support
+- Go: 130 stale issues filed against SDK v0.x/v1.x behavior
+- Features: 169 stale issues, many superseded by newer API decisions
+- Total: 1,042 stale issues (67% of open backlog)
 
 ---
 
@@ -317,15 +319,15 @@ Multiple repositories carry dependency security issues flagged by automated scan
 
 | Repository | Stale Issues | % of Open | Recommended Action |
 |------------|--------------|-----------|-------------------|
-| Server | 349 | 69% | Triage database backend requests; close obsolete feature requests from 2020-2022 |
-| Features | 166 | 65% | Review aged cross-SDK tracking issues; close 97 issues over 3 years old |
-| Java SDK | 161 | 73% | Close resolved test server issues; consolidate duplicates; close 116 issues over 3 years old |
-| Go SDK | 125 | 73% | Review testing framework issues from 2020-2021; consolidate mock package issues |
-| TypeScript SDK | 78 | 53% | Triage stale ecosystem requests; close historical security vulnerabilities |
-| Python SDK | 48 | 54% | Consolidate debugger-related issues; close outdated platform bugs |
-| .NET SDK | 32 | 65% | Triage old test environment issues; close or update stale enhancements |
-| PHP SDK | 19 | 49% | Close old questions with workarounds; triage 2021-era session and test issues |
-| API | 13 | 93% | All issues need triage -- distinguish deliberately deferred from forgotten items |
-| Ruby SDK | 10 | 42% | Evaluate Ruby 3.1/3.2 issue relevance; small enough for complete review |
+| [Server](server.md) | 352 | 69% | Mass triage pass; close issues over 3 years old with no upvotes or comments |
+| [Features](features.md) | 169 | 66% | Review for superseded feature decisions; close or milestone remaining valid items |
+| [Java SDK](java.md) | 171 | 75% | Reassess issues predating virtual threads and standalone activities |
+| [Go SDK](go.md) | 130 | 76% | Verify reproducibility on current SDK versions; close pre-v1.0 era issues |
+| [TypeScript SDK](typescript.md) | 89 | 58% | Triage against plugin system and standalone activities milestones |
+| [Python SDK](python.md) | 54 | 56% | Focused sprint completed Feb 2026; continue periodic quarterly triage |
+| [.NET SDK](dotnet.md) | 33 | 63% | Many are internal tracking items; confirm completion and close |
+| [PHP SDK](php.md) | 21 | 50% | Close resolved support questions; confirm remaining bugs still reproducible |
+| [Ruby SDK](ruby.md) | 10 | 38% | Lowest stale rate; review deferred enhancements for milestone assignment |
+| [API](api.md) | 13 | 93% | Confirm which proposals remain on roadmap; close superseded items |
 
-**Total stale issues across all repos:** 1001 (66% of open issues)
+**Total stale issues across all repos:** 1,042 (67% of open issues)

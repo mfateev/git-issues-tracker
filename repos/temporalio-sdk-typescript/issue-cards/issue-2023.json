@@ -1,0 +1,42 @@
+{
+  "summary": "OpenTelemetry workflow interceptors cause workflow determinism violations when queries or update validations are handled, as subsequent uuid4() calls return different values on replay than during initial execution, causing nondeterminism errors when the UUID is used in recorded commands.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "startChild",
+    "uuid4",
+    "setHandler",
+    "workflowInfo"
+  ],
+  "components": [
+    "opentelemetry-interceptor",
+    "workflow-replay",
+    "prng-state",
+    "query-handler"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "nondeterminism",
+    "prng-state",
+    "side-effects",
+    "tracing",
+    "state-management"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot safely use OpenTelemetry interceptors in workflows that handle queries or updates and use uuid-generated IDs in commands, as it causes determinism failures on replay after workflow eviction.",
+  "rootCause": "Query and update handlers advance the PRNG state during execution, but are not re-invoked during replay, causing the PRNG to be in a different state and resulting in different UUID values for recorded commands.",
+  "proposedFix": null,
+  "workaround": null,
+  "related": [
+    1790,
+    1992,
+    1895
+  ],
+  "resolution": null,
+  "resolutionDetails": null,
+  "keyQuote": "PRNG position is shifted by any queries handled between tick #1 and tick #2.",
+  "number": 2023,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-05-20T16:50:41.521Z"
+}

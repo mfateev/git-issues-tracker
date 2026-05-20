@@ -1,0 +1,32 @@
+{
+  "summary": "SDK should fail workflow tasks when payload sizes are known to exceed limits. This feature request for the .NET SDK ensures clear error handling and task failure when payloads are too large.",
+  "category": "feature",
+  "subcategory": "payload-validation",
+  "apis": [],
+  "components": [
+    "workflow-task-handler",
+    "payload-validation",
+    "serialization"
+  ],
+  "concepts": [
+    "payload-size",
+    "validation",
+    "error-handling",
+    "workflow-execution",
+    "size-limits"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will receive clear failure messages when workflow payloads exceed size limits instead of silent failures.",
+  "rootCause": null,
+  "proposedFix": "Implement payload size validation that fails workflow tasks with appropriate error messages when payloads are known to be too large.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    723
+  ],
+  "keyQuote": "SDK should fail workflow task if payloads size it known to be too large - .NET",
+  "number": 638,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-05-20T16:36:46.341Z"
+}

@@ -1,0 +1,34 @@
+{
+  "summary": "Parent workflow fails to start a new child workflow and gets stuck after failover due to event replication inconsistency. The parent's 'start child workflow initiated' event doesn't replicate to the target cluster while the child's 'Workflow started' event does, causing a child workflow ID conflict during failover recovery.",
+  "category": "bug",
+  "subcategory": "parent-child-workflows",
+  "apis": [
+    "StartChildWorkflow"
+  ],
+  "components": [
+    "parent-workflow-execution",
+    "child-workflow-execution",
+    "event-replication",
+    "workflow-task-scheduler"
+  ],
+  "concepts": [
+    "failover",
+    "replication",
+    "event-ordering",
+    "workflow-coordination",
+    "state-synchronization",
+    "conflict-resolution"
+  ],
+  "severity": "high",
+  "userImpact": "Parent workflows cannot continue making progress after failover when starting child workflows, blocking both parent and child workflow execution.",
+  "rootCause": "Event replication inconsistency where the parent's 'start child workflow initiated' event fails to replicate to the target cluster while the child's 'Workflow started' event does, leading to a child workflow ID conflict when the parent retries after failover.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Parent workflow: run the start child workflow initiated command again and failed due to child workflow ID conflict.",
+  "number": 10286,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:58:04.884Z"
+}

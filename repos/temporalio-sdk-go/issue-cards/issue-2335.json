@@ -1,0 +1,37 @@
+{
+  "summary": "ChildWorkflowOptions lacks the WorkflowIDConflictPolicy field that exists in StartWorkflowOptions, forcing users to use the deprecated WorkflowIDReusePolicy for child workflows and preventing full migration away from deprecated APIs.",
+  "category": "feature",
+  "subcategory": "child-workflow-options",
+  "apis": [
+    "StartWorkflowOptions",
+    "ChildWorkflowOptions"
+  ],
+  "components": [
+    "sdk-client",
+    "options",
+    "workflow-execution"
+  ],
+  "concepts": [
+    "conflict-resolution",
+    "policy-configuration",
+    "option-handling",
+    "api-consistency",
+    "deprecation-migration",
+    "child-workflows"
+  ],
+  "severity": "medium",
+  "userImpact": "Users are forced to use the deprecated WorkflowIDReusePolicy for child workflows instead of the newer WorkflowIDConflictPolicy, preventing full migration away from deprecated APIs.",
+  "rootCause": "WorkflowIDConflictPolicy was added to StartWorkflowOptions in v1.26.0 but ChildWorkflowOptions was not updated in parallel. Server-side work (temporal/temporal#6799) is also required.",
+  "proposedFix": "Add WorkflowIDConflictPolicy field to ChildWorkflowOptions to mirror the field in StartWorkflowOptions.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    6799,
+    558
+  ],
+  "keyQuote": "WorkflowIDConflictPolicy was added to StartWorkflowOptions in v1.26.0, but ChildWorkflowOptions has never been updated to include an equivalent field",
+  "number": 2335,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-05-20T16:39:28.838Z"
+}

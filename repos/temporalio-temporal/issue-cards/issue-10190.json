@@ -1,0 +1,37 @@
+{
+  "summary": "Child workflow cancellation on Python 3.11+ emits spurious ERROR log warnings and sends duplicate RequestCancelExternalWorkflow commands due to missing task.uncancel() call in run_child() after catching CancelledError.",
+  "category": "bug",
+  "subcategory": "child-workflow-cancellation",
+  "apis": [
+    "start_child_workflow",
+    "ChildWorkflowHandle.cancel",
+    "ChildWorkflowError"
+  ],
+  "components": [
+    "workflow-instance",
+    "worker",
+    "task-cancellation",
+    "asyncio-integration"
+  ],
+  "concepts": [
+    "cancellation",
+    "async-task-management",
+    "error-handling",
+    "shielded-future",
+    "cancellation-counter",
+    "version-compatibility",
+    "error-logging"
+  ],
+  "severity": "high",
+  "userImpact": "Users calling handle.cancel() on child workflows see spurious ERROR log messages and multiple duplicate cancellation commands sent to the server on Python 3.11+.",
+  "rootCause": "run_child() in _workflow_instance.py catches CancelledError without calling task.uncancel(), leaving Python 3.11+'s cancellation counter at 1, causing CancelledError to be re-thrown on subsequent awaits.",
+  "proposedFix": "Call task.uncancel() after catching CancelledError to clear the cancellation counter, allowing the next await to block normally instead of immediately re-raising CancelledError.",
+  "workaround": "Install a logging.Filter on 'temporalio.worker._workflow_instance' logger to suppress error records matching both 'ChildWorkflowError exception in shielded future' and 'Child Workflow execution cancelled'.",
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In Python 3.11, asyncio.Task introduced a cancellation counter. When task.cancel() is called and the coroutine catches CancelledError without calling task.uncancel(), the cancelling counter remains at 1.",
+  "number": 10190,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:56:37.407Z"
+}

@@ -1,7 +1,241 @@
 {
-  "generatedAt": "2026-04-04T19:07:06.298Z",
-  "totalCards": 300,
+  "generatedAt": "2026-05-20T16:37:30.517Z",
+  "totalCards": 307,
   "cards": [
+    {
+      "summary": "Feature request to implement operator commands for standalone activities in the .NET SDK, enabling operational control over activity execution.",
+      "category": "feature",
+      "subcategory": "standalone-activities",
+      "apis": [],
+      "components": [
+        "worker",
+        "activity-executor",
+        "operator-handler"
+      ],
+      "concepts": [
+        "operator-commands",
+        "standalone-activities",
+        "activity-management",
+        "operational-control",
+        "workflow-operations"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables operators to issue commands for managing standalone activity execution in the .NET SDK.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        822
+      ],
+      "keyQuote": null,
+      "number": 706,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-05-20T16:37:30.421Z"
+    },
+    {
+      "summary": "A test for worker deployment version ramp-up is flaky, intermittently failing when the expected version doesn't match the actual version after task distribution.",
+      "category": "bug",
+      "subcategory": "worker-deployment-versioning",
+      "apis": [],
+      "components": [
+        "worker",
+        "deployment-versioning",
+        "task-distribution"
+      ],
+      "concepts": [
+        "test-flakiness",
+        "race-condition",
+        "version-management",
+        "worker-versions",
+        "timing",
+        "synchronization"
+      ],
+      "severity": "medium",
+      "userImpact": "Flaky tests in the CI pipeline reduce code quality confidence and can intermittently block releases.",
+      "rootCause": "Race condition or timing issue in worker deployment version switching during task distribution, causing version state inconsistency.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Addressed the race condition in worker deployment versioning logic to ensure consistent task distribution during version ramp-up.",
+      "related": [],
+      "keyQuote": "Expected: version-v1 Actual: version-v2",
+      "number": 700,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-05-20T16:37:10.508Z"
+    },
+    {
+      "summary": "Nexus operations with NoValue inputs bypass payload codec encoding in workflows, causing asymmetric serialization/deserialization that fails when payloads are decoded through the codec.",
+      "category": "bug",
+      "subcategory": "nexus-payload-encoding",
+      "apis": [
+        "ExecuteNexusOperationAsync",
+        "CreateNexusWorkflowClient"
+      ],
+      "components": [
+        "WorkflowInstance",
+        "WorkflowCodecHelper",
+        "NexusPayloadSerializer",
+        "PayloadCodec"
+      ],
+      "concepts": [
+        "payload-encoding",
+        "codec",
+        "serialization",
+        "nexus",
+        "type-conversion",
+        "asymmetry"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use Nexus operations with no arguments when a payload codec is configured, causing workflow execution failures.",
+      "rootCause": "Asymmetric handling of null payloads: null inputs are not passed through the codec during encoding in WorkflowCodecHelper, but are always passed through during decoding in NexusPayloadSerializer.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "When `Input` is `null`, the payload (or lack thereof) does not go through a payload codec.",
+      "number": 677,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-05-20T16:37:12.814Z"
+    },
+    {
+      "summary": "Test `StartActivityAsync_Interceptors_AreCalledProperly` is flaking with an 'invalid transition from Canceled' RpcException during activity termination, indicating a race condition in state management when canceling activities via interceptors.",
+      "category": "bug",
+      "subcategory": "test-flake",
+      "apis": [
+        "StartActivityAsync",
+        "TerminateActivityAsync"
+      ],
+      "components": [
+        "client",
+        "worker",
+        "rpc",
+        "activity-manager"
+      ],
+      "concepts": [
+        "activity-termination",
+        "state-transition",
+        "race-condition",
+        "cancellation",
+        "test-reliability",
+        "interceptors"
+      ],
+      "severity": "medium",
+      "userImpact": "Flaky test causes intermittent CI failures, reducing confidence in the test suite and impacting development velocity.",
+      "rootCause": "Race condition during activity cancellation where the activity transitions to Canceled state before the explicit TerminateActivityAsync call, causing an invalid state transition.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "invalid transition from Canceled",
+      "number": 648,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-05-20T16:37:13.738Z"
+    },
+    {
+      "summary": "Feature request to expose the Nexus Endpoint within Nexus Operation Handlers, enabling operations to access endpoint information.",
+      "category": "feature",
+      "subcategory": "nexus",
+      "apis": [
+        "NexusOperationHandler",
+        "NexusEndpoint"
+      ],
+      "components": [
+        "nexus-handler",
+        "nexus-operation",
+        "endpoint-context"
+      ],
+      "concepts": [
+        "nexus",
+        "operation-handler",
+        "endpoint-exposure",
+        "handler-context",
+        "metadata-access"
+      ],
+      "severity": "low",
+      "userImpact": "Developers using Nexus operations can access endpoint information directly within handlers, improving debugging and operational awareness.",
+      "rootCause": null,
+      "proposedFix": "Expose the Nexus Endpoint object as a property or parameter accessible within Nexus Operation Handler context.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        805
+      ],
+      "keyQuote": "Expose Nexus Endpoint in a Nexus Operation Handler",
+      "number": 642,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-05-20T16:36:44.670Z"
+    },
+    {
+      "summary": "The Temporalio.Extensions.OpenTelemetry extension does not implement the new ClientOutboundInterceptor methods for standalone activities, preventing client-side span creation when executing activities.",
+      "category": "bug",
+      "subcategory": "otel-tracing",
+      "apis": [
+        "ExecuteActivity"
+      ],
+      "components": [
+        "otel-extension",
+        "tracing",
+        "interceptor",
+        "standalone-activities-client"
+      ],
+      "concepts": [
+        "tracing",
+        "observability",
+        "spans",
+        "interceptor",
+        "client-side",
+        "standalone-activities"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot see client-side tracing spans when executing standalone activities, limiting visibility into activity execution.",
+      "rootCause": "The ClientOutboundInterceptor methods for standalone activities are not implemented in the OpenTelemetry extension.",
+      "proposedFix": "Implement the missing ClientOutboundInterceptor methods for standalone activities in Temporalio.Extensions.OpenTelemetry.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Temporalio.Extensions.OpenTelemetry does not currently implement the new ClientOutboundInterceptor methods related to standalone activities.",
+      "number": 640,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-05-20T16:36:45.456Z"
+    },
+    {
+      "summary": "SDK should fail workflow tasks when payload sizes are known to exceed limits. This feature request for the .NET SDK ensures clear error handling and task failure when payloads are too large.",
+      "category": "feature",
+      "subcategory": "payload-validation",
+      "apis": [],
+      "components": [
+        "workflow-task-handler",
+        "payload-validation",
+        "serialization"
+      ],
+      "concepts": [
+        "payload-size",
+        "validation",
+        "error-handling",
+        "workflow-execution",
+        "size-limits"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will receive clear failure messages when workflow payloads exceed size limits instead of silent failures.",
+      "rootCause": null,
+      "proposedFix": "Implement payload size validation that fails workflow tasks with appropriate error messages when payloads are known to be too large.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        723
+      ],
+      "keyQuote": "SDK should fail workflow task if payloads size it known to be too large - .NET",
+      "number": 638,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-05-20T16:36:46.341Z"
+    },
     {
       "summary": "DescribeTaskQueueAsync does not populate the Stats field in the response even when ReportStats is set to true, requiring users to use deprecated API modes to retrieve task queue statistics.",
       "category": "bug",

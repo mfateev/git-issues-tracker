@@ -1,0 +1,33 @@
+{
+  "summary": "TestEnv test framework should propagate Memo metadata along with activity notification (CAN), similar to the implementation in PR #2731.",
+  "category": "feature",
+  "subcategory": "test-framework",
+  "apis": [
+    "ExecuteActivity",
+    "Memo"
+  ],
+  "components": [
+    "test-env",
+    "activity-execution",
+    "metadata"
+  ],
+  "concepts": [
+    "metadata-propagation",
+    "test-utility",
+    "activity-execution",
+    "memo",
+    "testing"
+  ],
+  "severity": "low",
+  "userImpact": "Test developers would have more complete and representative test scenarios for activity execution with metadata propagation.",
+  "rootCause": null,
+  "proposedFix": "Apply Memo propagation to the test portion of TestEnv, as was done in PR #2731.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "just the test part should also propagate Memo on CAN",
+  "number": 2863,
+  "repo": "temporalio-sdk-java",
+  "generatedAt": "2026-05-20T16:41:11.805Z"
+}

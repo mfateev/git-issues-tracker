@@ -1,0 +1,32 @@
+{
+  "summary": "Local Activity execution causes nil pointer dereference panic in workflow task processing when using RoadRunner 2025.1.13. The underlying bug in RoadRunner's temporal plugin is fixed in v5.11.0.",
+  "category": "bug",
+  "subcategory": "local-activity",
+  "apis": [
+    "LocalActivity"
+  ],
+  "components": [
+    "local-activity-processor",
+    "worker",
+    "task-processor"
+  ],
+  "concepts": [
+    "nil-pointer-dereference",
+    "panic",
+    "memory-safety",
+    "workflow-task-processing",
+    "version-compatibility"
+  ],
+  "severity": "critical",
+  "userImpact": "All workflows executing Local Activities crash when using RoadRunner 2025.1.13, making the feature completely unavailable.",
+  "rootCause": "Bug in RoadRunner 2025.1.13's temporal plugin causing nil pointer dereference in workflow task processing.",
+  "proposedFix": "Update to RoadRunner v5.11.0 or later, which includes the fix from roadrunner-temporal PR #761.",
+  "workaround": "Downgrade RoadRunner to version 2025.1.12 or earlier until the fix is available.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "runtime error: invalid memory address or nil pointer dereference",
+  "number": 746,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-05-20T16:43:48.709Z"
+}

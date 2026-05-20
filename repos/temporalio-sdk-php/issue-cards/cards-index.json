@@ -1,7 +1,179 @@
 {
-  "generatedAt": "2026-04-04T19:12:38.121Z",
-  "totalCards": 269,
+  "generatedAt": "2026-05-20T16:43:48.782Z",
+  "totalCards": 274,
   "cards": [
+    {
+      "summary": "Local Activity execution causes nil pointer dereference panic in workflow task processing when using RoadRunner 2025.1.13. The underlying bug in RoadRunner's temporal plugin is fixed in v5.11.0.",
+      "category": "bug",
+      "subcategory": "local-activity",
+      "apis": [
+        "LocalActivity"
+      ],
+      "components": [
+        "local-activity-processor",
+        "worker",
+        "task-processor"
+      ],
+      "concepts": [
+        "nil-pointer-dereference",
+        "panic",
+        "memory-safety",
+        "workflow-task-processing",
+        "version-compatibility"
+      ],
+      "severity": "critical",
+      "userImpact": "All workflows executing Local Activities crash when using RoadRunner 2025.1.13, making the feature completely unavailable.",
+      "rootCause": "Bug in RoadRunner 2025.1.13's temporal plugin causing nil pointer dereference in workflow task processing.",
+      "proposedFix": "Update to RoadRunner v5.11.0 or later, which includes the fix from roadrunner-temporal PR #761.",
+      "workaround": "Downgrade RoadRunner to version 2025.1.12 or earlier until the fix is available.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "runtime error: invalid memory address or nil pointer dereference",
+      "number": 746,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-05-20T16:43:48.709Z"
+    },
+    {
+      "summary": "ActivityMocker bypasses the worker's activity-running signal, causing the virtual test clock to skip through start-to-close timeouts before mocked responses arrive. This makes timer-driven workflows with mocked activities effectively untestable under time-skipping.",
+      "category": "bug",
+      "subcategory": "activity-mocking",
+      "apis": [
+        "Workflow::timer",
+        "Workflow::newActivityStub",
+        "Workflow::awaitWithTimeout",
+        "ActivityOptions::withStartToCloseTimeout",
+        "ActivityMocker"
+      ],
+      "components": [
+        "activity-mocker",
+        "test-server",
+        "virtual-clock",
+        "worker"
+      ],
+      "concepts": [
+        "timeout",
+        "time-skipping",
+        "activity-mocking",
+        "virtual-clock",
+        "race-condition",
+        "test-framework"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot test timer-driven workflows with mocked activities under time-skipping, making such workflows untestable in the PHP SDK.",
+      "rootCause": "ActivityMocker sits outside the worker's activity-running signal, preventing the test server from knowing an activity is in flight and thus causing it to fast-forward virtual time. Other SDKs (TS, Java, Go) register test mocks as real activity implementations so the test server correctly pauses the virtual clock.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The root cause is that ActivityMocker sits outside the worker's \"activity is running\" signal.",
+      "number": 745,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-05-20T16:43:39.075Z"
+    },
+    {
+      "summary": "WorkflowTestCase silently connects to the wrong Temporal server when TEMPORAL_ADDRESS is pre-set in the OS environment, because PHPUnit's env directives don't override OS-level variables and the SDK reads from OS env via getenv().",
+      "category": "bug",
+      "subcategory": "test-framework",
+      "apis": [
+        "WorkflowTestCase",
+        "WorkflowClient",
+        "ServiceClient"
+      ],
+      "components": [
+        "test-framework",
+        "environment-resolution",
+        "client-configuration"
+      ],
+      "concepts": [
+        "environment-variables",
+        "test-isolation",
+        "configuration-precedence",
+        "container-environment",
+        "silent-failure",
+        "address-mismatch"
+      ],
+      "severity": "high",
+      "userImpact": "Users running tests in containerized environments where TEMPORAL_ADDRESS is pre-set experience silent failures where tests connect to wrong servers, causing mysterious timeout errors and difficult debugging.",
+      "rootCause": "PHPUnit's <env> directive doesn't override OS-level environment variables by default, and WorkflowTestCase uses getenv() which reads from OS env, not PHP's $_ENV/$_SERVER superglobals.",
+      "proposedFix": "Three suggested fixes in order of preference: (1) Auto-detect and warn when test server runs locally but getenv() points elsewhere, or force client to detected address; (2) Document the gotcha with the putenv workaround for containerized environments; (3) Allow explicit test server address override on WorkflowTestCase class.",
+      "workaround": "In test bootstrap before SDK loads, call: putenv('TEMPORAL_ADDRESS=127.0.0.1:7233'); $_ENV['TEMPORAL_ADDRESS'] = '127.0.0.1:7233'; $_SERVER['TEMPORAL_ADDRESS'] = '127.0.0.1:7233';",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "the test client connects to whatever production-style address is baked in, not the in-process test server",
+      "number": 744,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-05-20T16:43:08.955Z"
+    },
+    {
+      "summary": "PHP SDK's test framework doesn't automatically unlock time-skipping during getResult() calls, causing timer-driven workflows to hang in tests. The test server starts with time-skipping locked, and the SDK lacks the auto-unlock/lock pattern that TypeScript, Java, and Go SDKs implement.",
+      "category": "bug",
+      "subcategory": "test-framework",
+      "apis": [
+        "WorkflowClient::start",
+        "getResult",
+        "Workflow::awaitWithTimeout",
+        "lockTimeSkipping",
+        "unlockTimeSkipping"
+      ],
+      "components": [
+        "WorkflowTestCase",
+        "TestService",
+        "WorkflowClient",
+        "time-skipping"
+      ],
+      "concepts": [
+        "time-skipping",
+        "virtual-time",
+        "test-server",
+        "synchronization",
+        "timer",
+        "lock-unlock"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot effectively test timer-driven workflows because tests hang for wall-clock duration instead of fast-forwarding through virtual time.",
+      "rootCause": "Two independent issues: (1) test server starts with Time Locking Counter = 1 (locked state), (2) PHP SDK lacks the implicit unlock/lock pattern around blocking client calls that other SDKs implement",
+      "proposedFix": "Wrap getResult()/start() calls with implicit unlock/lock similar to TypeScript, Java, and Go SDKs, which automatically unlock time at the start of getResult() and lock it when complete",
+      "workaround": "Manually call unlockTimeSkipping() before getResult() and lockTimeSkipping() after, though this collides with ActivityMocker causing activity timeouts",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "PHP WorkflowClient::start()->getResult() does no such thing... lockTimeSkipping/unlockTimeSkipping are referenced only in the README and generated protobuf — never invoked from Client/ or WorkflowTestCase",
+      "number": 743,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-05-20T16:42:55.461Z"
+    },
+    {
+      "summary": "Request to bump the Temporal API version to 1.62.8 in the PHP SDK. Note that roadrunner-server/api and roadrunner-php/roadrunner-api-dto should be updated first as upstream dependencies.",
+      "category": "other",
+      "subcategory": "version-upgrade",
+      "apis": [],
+      "components": [
+        "api",
+        "dependencies",
+        "roadrunner"
+      ],
+      "concepts": [
+        "version-upgrade",
+        "dependency-management",
+        "api-versioning",
+        "compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Users require the latest Temporal API version for compatibility and access to the newest features.",
+      "rootCause": null,
+      "proposedFix": "Update Temporal API to version 1.62.8 after ensuring roadrunner-server/api and roadrunner-php/roadrunner-api-dto dependencies are updated.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "https://github.com/roadrunner-server/api and https://github.com/roadrunner-php/roadrunner-api-dto should be updated first",
+      "number": 741,
+      "repo": "temporalio-sdk-php",
+      "generatedAt": "2026-05-20T16:43:00.118Z"
+    },
     {
       "summary": "PHP SDK lacks conflict token retry loop for schedule updates. The server now returns 'mismatched conflict token' errors (per temporal/temporal#8474), but the SDK doesn't implement retry logic to handle these errors.",
       "category": "feature",

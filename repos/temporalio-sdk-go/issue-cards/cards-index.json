@@ -1,7 +1,450 @@
 {
-  "generatedAt": "2026-04-04T19:09:38.031Z",
-  "totalCards": 854,
+  "generatedAt": "2026-05-20T16:39:50.888Z",
+  "totalCards": 867,
   "cards": [
+    {
+      "summary": "Request to implement operator commands for standalone activities in the Go SDK, with detailed specifications in temporalio/features#822.",
+      "category": "feature",
+      "subcategory": "operator-commands",
+      "apis": [],
+      "components": [
+        "operator",
+        "activity-executor",
+        "command-handler",
+        "standalone-activity-management"
+      ],
+      "concepts": [
+        "operators",
+        "command-handling",
+        "standalone-activities",
+        "activity-management",
+        "operations"
+      ],
+      "severity": "low",
+      "userImpact": "Users would gain the ability to manage standalone activities through operator commands, enabling better operational visibility and control.",
+      "rootCause": null,
+      "proposedFix": "Implement operator commands for standalone activities as specified in temporalio/features#822",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        822
+      ],
+      "keyQuote": "Implement operator commands for Standalone Activities",
+      "number": 2350,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:39:50.672Z"
+    },
+    {
+      "summary": "ScheduleHandle.Describe() returns ScheduleWorkflowAction with zero-value Priority field even when the schedule was created with priority settings. The fix requires calling the existing convertFromPBPriority() function in scheduleActionFromProto.",
+      "category": "bug",
+      "subcategory": "schedule-action",
+      "apis": [
+        "ScheduleHandle.Describe",
+        "ScheduleWorkflowAction"
+      ],
+      "components": [
+        "schedule-client",
+        "priority-conversion",
+        "protobuf-conversion"
+      ],
+      "concepts": [
+        "scheduling",
+        "priority",
+        "fairness",
+        "protobuf-conversion",
+        "struct-mapping",
+        "zero-values"
+      ],
+      "severity": "medium",
+      "userImpact": "Users calling ScheduleHandle.Describe() receive schedules with empty Priority fields even when priority was set during creation, breaking schedule inspection and management workflows.",
+      "rootCause": "The scheduleActionFromProto function in internal_schedule_client.go omits the Priority field when building ScheduleWorkflowAction, despite the convertFromPBPriority conversion function already existing.",
+      "proposedFix": "Add Priority: convertFromPBPriority(workflow.GetPriority()), to the ScheduleWorkflowAction struct construction in scheduleActionFromProto.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "convertFromPBPriority already exists — it just isn't called here.",
+      "number": 2345,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:39:27.958Z"
+    },
+    {
+      "summary": "Protobuf namespace conflict between vendored external_storage.proto in SDK v1.43.0 and the public version in go.temporal.io/api v1.62.12+ causes init-time panic when both packages are imported. The SDK vendors a copy of the proto file, while the API package added the same file, causing duplicate registration in the global protobuf registry.",
+      "category": "bug",
+      "subcategory": "proto-vendoring",
+      "apis": [],
+      "components": [
+        "protobuf-registry",
+        "vendored-protos",
+        "internal/temporalapi",
+        "internal/extstore",
+        "dependency-management"
+      ],
+      "concepts": [
+        "proto-namespace-conflict",
+        "dependency-incompatibility",
+        "vendoring",
+        "init-panic",
+        "protobuf-registry",
+        "version-constraint"
+      ],
+      "severity": "critical",
+      "userImpact": "Any consumer importing both go.temporal.io/sdk v1.43.0 and go.temporal.io/api v1.62.12+ experiences an immediate panic at startup, blocking routine dependency updates and forcing version pinning.",
+      "rootCause": "go.temporal.io/sdk v1.43.0 vendors external_storage.proto at internal/temporalapi/sdk/v1/external_storage.pb.go, while go.temporal.io/api v1.62.12 added the same file at sdk/v1/external_storage.pb.go; both register with the global protobuf registry which requires unique file names.",
+      "proposedFix": "Remove vendored internal/temporalapi/sdk/v1/external_storage.pb.go from the SDK and depend on the public go.temporal.io/api/sdk/v1 package instead.",
+      "workaround": "Pin go.temporal.io/api to v1.62.11 or earlier",
+      "resolution": "fixed",
+      "resolutionDetails": "Removed vendored internal/temporalapi/ directory and repointed sdkpb imports in internal/extstore/ to go.temporal.io/api/sdk/v1, with go.temporal.io/api bumped to v1.62.12.",
+      "related": [
+        2343
+      ],
+      "keyQuote": "proto: file \"temporal/api/sdk/v1/external_storage.proto\" has a name conflict over temporal.api.sdk.v1.ExternalStorage...",
+      "number": 2342,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:39:23.063Z"
+    },
+    {
+      "summary": "ChildWorkflowOptions lacks the WorkflowIDConflictPolicy field that exists in StartWorkflowOptions, forcing users to use the deprecated WorkflowIDReusePolicy for child workflows and preventing full migration away from deprecated APIs.",
+      "category": "feature",
+      "subcategory": "child-workflow-options",
+      "apis": [
+        "StartWorkflowOptions",
+        "ChildWorkflowOptions"
+      ],
+      "components": [
+        "sdk-client",
+        "options",
+        "workflow-execution"
+      ],
+      "concepts": [
+        "conflict-resolution",
+        "policy-configuration",
+        "option-handling",
+        "api-consistency",
+        "deprecation-migration",
+        "child-workflows"
+      ],
+      "severity": "medium",
+      "userImpact": "Users are forced to use the deprecated WorkflowIDReusePolicy for child workflows instead of the newer WorkflowIDConflictPolicy, preventing full migration away from deprecated APIs.",
+      "rootCause": "WorkflowIDConflictPolicy was added to StartWorkflowOptions in v1.26.0 but ChildWorkflowOptions was not updated in parallel. Server-side work (temporal/temporal#6799) is also required.",
+      "proposedFix": "Add WorkflowIDConflictPolicy field to ChildWorkflowOptions to mirror the field in StartWorkflowOptions.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        6799,
+        558
+      ],
+      "keyQuote": "WorkflowIDConflictPolicy was added to StartWorkflowOptions in v1.26.0, but ChildWorkflowOptions has never been updated to include an equivalent field",
+      "number": 2335,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:39:28.838Z"
+    },
+    {
+      "summary": "The Go SDK applies a default gRPC service config with round-robin load balancing but provides no public API to disable it. This causes connection delays due to DNS TXT lookups when users connect through external load balancers.",
+      "category": "feature",
+      "subcategory": "grpc-configuration",
+      "apis": [],
+      "components": [
+        "grpc-dialer",
+        "connection-options",
+        "grpc-service-config",
+        "load-balancing"
+      ],
+      "concepts": [
+        "load-balancing",
+        "service-config",
+        "DNS-lookups",
+        "connection-delays",
+        "gRPC-options",
+        "external-load-balancers"
+      ],
+      "severity": "medium",
+      "userImpact": "Users connecting through external load balancers without DNS TXT record control experience connection delays of 5-30 seconds due to DNS TXT lookups and have no way to disable the default service config.",
+      "rootCause": "The SDK unconditionally applies a default gRPC service config, and gRPC's WithDisableServiceConfig() only disables resolver-based configs, not SDK-provided defaults.",
+      "proposedFix": "Add a DisableServiceConfig boolean field to ConnectionOptions struct that conditionally applies the default service config in the dial() function.",
+      "workaround": "Users can override the service config by passing their own grpc.WithDefaultServiceConfig() via DialOptions, but this still doesn't prevent DNS TXT lookups.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "There is no public API to disable this default service config. Users who need to completely disable service config (to avoid DNS TXT lookups) cannot do so.",
+      "number": 2329,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:38:53.783Z"
+    },
+    {
+      "summary": "The isPanicking() function calls runtime.Callers() and runtime.CallersFrames() on every workflow coroutine yield to detect panics, consuming 14.3% CPU and 10.2% memory allocations under load.",
+      "category": "bug",
+      "subcategory": "panic-detection",
+      "apis": [],
+      "components": [
+        "workflow-execution",
+        "coroutine",
+        "panic-detection"
+      ],
+      "concepts": [
+        "performance",
+        "cpu-overhead",
+        "memory-allocation",
+        "stack-unwinding",
+        "profiling"
+      ],
+      "severity": "high",
+      "userImpact": "Users experience significantly reduced workflow throughput and higher resource utilization under load due to excessive CPU and memory consumption from panic detection.",
+      "rootCause": "isPanicking() unconditionally calls runtime.Callers() and runtime.CallersFrames() on every coroutine yield point, causing stack unwinding and allocations (81MB uintptr arrays, 125MB frame iterators, 48MB frame copies).",
+      "proposedFix": "Use recover() to detect panics, set a goroutine-local flag when entering panic handling, or allow disabling via WorkerOptions.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "This single function accounts for 14.3% of total CPU time and 10.2% of total allocations under load, dominated by stack unwinding.",
+      "number": 2326,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:38:46.576Z"
+    },
+    {
+      "summary": "Users cannot test standalone activity client flow including the full interceptor chain (tracing, metrics) in TestWorkflowEnvironment without running a real Temporal server. Currently ExecuteActivity bypasses the ClientOutboundInterceptor chain entirely.",
+      "category": "feature",
+      "subcategory": "testing",
+      "apis": [
+        "ExecuteActivity",
+        "SignalWorkflow",
+        "QueryWorkflow",
+        "CancelWorkflow"
+      ],
+      "components": [
+        "TestWorkflowEnvironment",
+        "ClientOutboundInterceptor",
+        "activity-executor",
+        "interceptor-chain"
+      ],
+      "concepts": [
+        "interceptor-chain",
+        "client-side-testing",
+        "tracing",
+        "metrics",
+        "standalone-activities",
+        "test-framework"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot adequately test their ClientOutboundInterceptor implementations for standalone activities without spinning up an actual Temporal server.",
+      "rootCause": "TestActivityEnvironment.ExecuteActivity calls taskHandler.Execute() directly, bypassing the ClientOutboundInterceptor chain that is normally invoked by the client.",
+      "proposedFix": "Add ExecuteStandaloneActivity to TestWorkflowEnvironment that sets up header context, calls through the ClientOutboundInterceptor chain, and returns a ClientActivityHandle supporting Get(), Cancel(), and Terminate().",
+      "workaround": "Spin up a real Temporal server for testing, which is costly and slow.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2158,
+        2302
+      ],
+      "keyQuote": "There is no way to test the full standalone activity client flow (client → interceptor chain → worker) without spinning up a real Temporal server.",
+      "number": 2318,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:38:40.347Z"
+    },
+    {
+      "summary": "Update and modernize CONTRIBUTING.md by removing outdated information and adding new contribution processes for SDK developers.",
+      "category": "docs",
+      "subcategory": "contributing-guidelines",
+      "apis": [],
+      "components": [
+        "documentation",
+        "contributing-guide",
+        "developer-workflow"
+      ],
+      "concepts": [
+        "documentation",
+        "contributing-process",
+        "guidelines",
+        "modernization",
+        "developer-onboarding"
+      ],
+      "severity": "low",
+      "userImpact": "Developers contributing to the SDK receive updated and current guidelines for the contribution process.",
+      "rootCause": null,
+      "proposedFix": "Modernize CONTRIBUTING.md by removing outdated information and adding new contribution processes.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "CONTRIBUTING.md was updated with modernized processes and outdated information was removed.",
+      "related": [],
+      "keyQuote": "Modernize CONTRIBUTING.md: remove outdated info, add new process",
+      "number": 2305,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:38:13.857Z"
+    },
+    {
+      "summary": "ClientOutboundInterceptor.UpdateWithStartWorkflow lacks a safe API to inspect and modify StartWorkflowOption, forcing users to rely on unsafe and reflect functions at runtime.",
+      "category": "feature",
+      "subcategory": "interceptors",
+      "apis": [
+        "StartWorkflowOption",
+        "ClientOutboundInterceptor",
+        "UpdateWithStartWorkflow"
+      ],
+      "components": [
+        "interceptor",
+        "client",
+        "options"
+      ],
+      "concepts": [
+        "runtime-inspection",
+        "options-manipulation",
+        "reflection",
+        "unsafe-operations",
+        "testing-support",
+        "api-design"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot safely inspect or modify StartWorkflowOption in interceptors, forcing them to use unsafe and reflect functions for testing and customization.",
+      "rootCause": "Missing public API to access and modify StartWorkflowOption within UpdateWithStartWorkflow interceptor context",
+      "proposedFix": "Add a struct that provides safe, public access to inspect and modify StartWorkflowOption",
+      "workaround": "Use unsafe and reflect functions at runtime, though this is not ideal",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1731
+      ],
+      "keyQuote": "Currently, users are forced to use `unsafe` and `reflect` functions to inspect and modify values at runtime (eg test environment), which is not ideal",
+      "number": 2304,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:38:17.414Z"
+    },
+    {
+      "summary": "Request to expose the Nexus endpoint information within Nexus operation handlers, allowing developers to access endpoint details during handler execution.",
+      "category": "feature",
+      "subcategory": "nexus-operations",
+      "apis": [
+        "ExecuteNexusOperation",
+        "NexusOperationHandler"
+      ],
+      "components": [
+        "nexus-handler",
+        "endpoint",
+        "nexus-operation"
+      ],
+      "concepts": [
+        "nexus",
+        "endpoint",
+        "handler",
+        "operation",
+        "service-to-service"
+      ],
+      "severity": "medium",
+      "userImpact": "Enables developers to access Nexus endpoint information within operation handlers for improved integration and service-to-service communication.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [
+        805
+      ],
+      "keyQuote": "Expose Nexus Endpoint in a Nexus Operation Handler",
+      "number": 2290,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:38:16.528Z"
+    },
+    {
+      "summary": "The tracing interceptor does not implement methods for standalone activities, preventing client-side spans from being created when executing activities. A PR has been proposed to add ExecuteActivity support to the tracing interceptor.",
+      "category": "bug",
+      "subcategory": "activity-tracing",
+      "apis": [
+        "ExecuteActivity"
+      ],
+      "components": [
+        "tracing-interceptor",
+        "activity-executor",
+        "client"
+      ],
+      "concepts": [
+        "tracing",
+        "spans",
+        "interceptor",
+        "observability",
+        "standalone-activities"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot see client-side traces when executing standalone activities, reducing observability and making debugging harder.",
+      "rootCause": "tracingClientOutboundInterceptor does not implement the new interceptor methods required for standalone activities.",
+      "proposedFix": "Add ExecuteActivity support to tracingClientOutboundInterceptor to create StartActivity spans and write tracing context to headers.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "tracingClientOutboundInterceptor does not currently implement the new interceptor methods related to standalone activities",
+      "number": 2286,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:37:47.724Z"
+    },
+    {
+      "summary": "futureImpl.Chain blocks Get forever when the source future is already ready because it doesn't properly complete the destination future. The destination is left in a partially completed state with the internal channel never closed, preventing propagation of chained dependents.",
+      "category": "bug",
+      "subcategory": "futures",
+      "apis": [
+        "NewFuture",
+        "Chain",
+        "Get"
+      ],
+      "components": [
+        "futureImpl",
+        "futures",
+        "workflow"
+      ],
+      "concepts": [
+        "blocking",
+        "futures",
+        "async-operations",
+        "channel-handling",
+        "state-management",
+        "completion",
+        "propagation"
+      ],
+      "severity": "critical",
+      "userImpact": "Users who chain futures where the source is already ready experience indefinite blocking when calling Get() on the chained future.",
+      "rootCause": "When source future is already ready, Chain copies value and err directly without calling Set(), leaving the destination future in a partially completed state with the internal channel never closed.",
+      "proposedFix": "Route the already-ready path through normal completion logic: val, err := ch.GetValueAndError(); f.Set(val, err)",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "The fix routes the already-ready path through Set() to properly close the internal channel and propagate chained dependents.",
+      "related": [],
+      "keyQuote": "The fix is to route the already-ready path through the normal completion logic: val, err := ch.GetValueAndError(); f.Set(val, err)",
+      "number": 2279,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:37:53.134Z"
+    },
+    {
+      "summary": "The heartbeat proto is not validated against external storage and payload limits, allowing large payloads to be sent to the server that could cause activity or workflow failures.",
+      "category": "bug",
+      "subcategory": "activity-heartbeat",
+      "apis": [],
+      "components": [
+        "heartbeat-visitor",
+        "external-storage",
+        "payload-validator",
+        "activity-executor"
+      ],
+      "concepts": [
+        "heartbeat",
+        "payload-limits",
+        "external-storage",
+        "validation",
+        "serialization",
+        "failure-prevention"
+      ],
+      "severity": "high",
+      "userImpact": "Users with large heartbeat payloads may experience unexpected activity or workflow failures without proper validation.",
+      "rootCause": "Heartbeat proto is not visited with external storage and payload limits validators",
+      "proposedFix": "Apply external storage and payload limits visitors to heartbeat proto",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Large payloads could be sent to the server, possibly causing activity or workflow failures.",
+      "number": 2271,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-05-20T16:37:53.850Z"
+    },
     {
       "summary": "Deprecate namespace fields on cross-namespace workflow command options in the Go SDK following API deprecation in response to Temporal Server 1.30.1 disabling cross-namespace operations by default.",
       "category": "docs",

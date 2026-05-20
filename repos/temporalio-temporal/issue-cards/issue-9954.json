@@ -1,0 +1,32 @@
+{
+  "summary": "The cache_pinned_usage Prometheus metric reports negative values when history.cacheSizeBasedLimit is enabled. The root cause is that entry size is recorded only at creation time, but entries can grow larger before being released and having their (now larger) size subtracted from the metric, resulting in negative values.",
+  "category": "bug",
+  "subcategory": "cache-metrics",
+  "apis": [],
+  "components": [
+    "history-cache",
+    "lru-cache",
+    "prometheus-metrics",
+    "cache-eviction"
+  ],
+  "concepts": [
+    "cache-sizing",
+    "memory-management",
+    "entry-lifecycle",
+    "pinning",
+    "metrics",
+    "state-mutation"
+  ],
+  "severity": "medium",
+  "userImpact": "Operators see negative values in the cache_pinned_usage metric when using the cache size limit feature, causing confusion and potentially affecting monitoring and alerting decisions.",
+  "rootCause": "Metric tracks entry size only at creation time, but entries can grow in size after creation. When released, the now-larger size is subtracted from pinnedSize, causing the metric to go negative.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "metric value increased only at entry creation, but entries grow before release, causing negative values when size is subtracted",
+  "number": 9954,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:53:47.254Z"
+}

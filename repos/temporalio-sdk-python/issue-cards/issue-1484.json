@@ -1,0 +1,31 @@
+{
+  "summary": "Security vulnerability GHSA-82j2-j2ch-gfr8 in rustls-webpki dependency remains unpatched in temporalio 1.26.0 wheel. Requesting update of Rust dependencies to include rustls-webpki >= 0.103.13 and new SDK release.",
+  "category": "bug",
+  "subcategory": "dependency-vulnerability",
+  "apis": [],
+  "components": [
+    "dependencies",
+    "python-wheel",
+    "rust-dependencies",
+    "tls"
+  ],
+  "concepts": [
+    "security-vulnerability",
+    "dependency-management",
+    "patching",
+    "supply-chain",
+    "cryptography"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot update to the latest Python SDK without exposing applications to a known security vulnerability in the bundled cryptographic library.",
+  "rootCause": "Rust dependencies in the Python SDK wheel have not been updated to include the patched rustls-webpki >= 0.103.13.",
+  "proposedFix": "Update SDK Rust dependencies to include rustls-webpki >= 0.103.13 and publish a new temporalio release.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Dependencies were updated to include the patched rustls-webpki version in a subsequent SDK release.",
+  "related": [],
+  "keyQuote": "Could the SDK's Rust bridge dependencies be updated so the published Python wheels include rustls-webpki >=0.103.13",
+  "number": 1484,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-05-20T16:46:33.277Z"
+}

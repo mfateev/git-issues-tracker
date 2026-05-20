@@ -1,0 +1,31 @@
+{
+  "summary": "A test for worker deployment version ramp-up is flaky, intermittently failing when the expected version doesn't match the actual version after task distribution.",
+  "category": "bug",
+  "subcategory": "worker-deployment-versioning",
+  "apis": [],
+  "components": [
+    "worker",
+    "deployment-versioning",
+    "task-distribution"
+  ],
+  "concepts": [
+    "test-flakiness",
+    "race-condition",
+    "version-management",
+    "worker-versions",
+    "timing",
+    "synchronization"
+  ],
+  "severity": "medium",
+  "userImpact": "Flaky tests in the CI pipeline reduce code quality confidence and can intermittently block releases.",
+  "rootCause": "Race condition or timing issue in worker deployment version switching during task distribution, causing version state inconsistency.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Addressed the race condition in worker deployment versioning logic to ensure consistent task distribution during version ramp-up.",
+  "related": [],
+  "keyQuote": "Expected: version-v1 Actual: version-v2",
+  "number": 700,
+  "repo": "temporalio-sdk-dotnet",
+  "generatedAt": "2026-05-20T16:37:10.508Z"
+}

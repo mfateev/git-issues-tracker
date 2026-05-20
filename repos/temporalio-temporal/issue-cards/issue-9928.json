@@ -1,0 +1,37 @@
+{
+  "summary": "The default JWT ClaimMapper only supports top-level JWT claim names (via permissionsClaimName config), but cannot read nested claims like ext.permissions. This blocks users of Ory Hydra-based OIDC providers (JumpCloud, etc.) where custom claims are placed under an ext object.",
+  "category": "feature",
+  "subcategory": "authorization-jwt",
+  "apis": [],
+  "components": [
+    "jwt-claim-mapper",
+    "authorization",
+    "server-config",
+    "oidc-integration"
+  ],
+  "concepts": [
+    "nested-claims",
+    "dotted-paths",
+    "OIDC",
+    "JWT-parsing",
+    "Ory-Hydra",
+    "authorization"
+  ],
+  "severity": "high",
+  "userImpact": "Users of Ory Hydra-based OIDC providers (JumpCloud, etc.) cannot authenticate with Temporal because their permission claims are nested in an ext object that the ClaimMapper cannot access.",
+  "rootCause": "The default JWT ClaimMapper implementation only performs flat key lookups in the JWT claims map and does not support traversing nested/dotted paths.",
+  "proposedFix": "Modify common/authorization/default_jwt_claim_mapper.go to support dotted path traversal (e.g., ext.permissions) when extracting claim values, with fallback to flat key lookup for backward compatibility.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    7560,
+    8218,
+    9625,
+    9626
+  ],
+  "keyQuote": "The default JWT ClaimMapper cannot read claims that are nested inside an object (such as `ext.permissions`). It only supports top-level claim names.",
+  "number": 9928,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-05-20T16:53:06.022Z"
+}
