@@ -1,0 +1,32 @@
+{
+  "summary": "Temporal's pgx v5.9.2 dependency is vulnerable to authentication downgrade attacks (CWE-306) where a malicious PostgreSQL server can force cleartext password authentication. The fix requires updating to pgx v5.10.0+ which adds a require_auth configuration option to restrict accepted authentication methods.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "postgres-driver",
+    "database-connection",
+    "authentication"
+  ],
+  "concepts": [
+    "authentication",
+    "security",
+    "downgrade-attack",
+    "cleartext-password",
+    "supply-chain",
+    "cwe-306",
+    "credential-handling"
+  ],
+  "severity": "high",
+  "userImpact": "Temporal deployments using PostgreSQL are vulnerable to credential downgrade attacks from malicious or compromised servers until pgx is upgraded.",
+  "rootCause": "pgx < v5.10.0 unconditionally accepts AuthenticationCleartextPassword without configuration to restrict authentication methods.",
+  "proposedFix": "Upgrade github.com/jackc/pgx/v5 to v5.10.0 or later which implements require_auth config option.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "A malicious PostgreSQL server can downgrade authentication to cleartext password by sending AuthenticationCleartextPassword, which pgx < v5.10.0 accepts unconditionally.",
+  "number": 10676,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:52:07.467Z"
+}

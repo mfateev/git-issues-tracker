@@ -1,0 +1,32 @@
+{
+  "summary": "Security vulnerability (GHSA-3pv8-6f4r-ffg2) in tar crate 0.4.45 used by the Python SDK bridge causes PAX header desynchronization issues. Fixed by upgrading to tar 0.4.46.",
+  "category": "bug",
+  "subcategory": "dependency-security",
+  "apis": [],
+  "components": [
+    "bridge",
+    "cargo-lock",
+    "dependencies"
+  ],
+  "concepts": [
+    "security",
+    "vulnerability",
+    "supply-chain",
+    "dependency-management",
+    "tar-crate"
+  ],
+  "severity": "medium",
+  "userImpact": "Users scanning Docker images with security tools like Trivy will encounter medium-severity vulnerability warnings in their deployment pipelines.",
+  "rootCause": "PAX header desynchronization issue in tar crate version 0.4.45",
+  "proposedFix": "Upgrade tar crate dependency from version 0.4.45 to version 0.4.46 in Cargo.lock",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Upgraded tar dependency to 0.4.46 in PR #1564",
+  "related": [
+    1564
+  ],
+  "keyQuote": "tar has a PAX header desynchronization issue",
+  "number": 1567,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:12:41.494Z"
+}

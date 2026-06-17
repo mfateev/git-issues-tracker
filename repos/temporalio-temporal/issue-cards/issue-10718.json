@@ -1,0 +1,31 @@
+{
+  "summary": "Asks whether stale mutable state fallback logic in ndc_task_util.go can be safely removed based on StaleMutableStateCounter metric monitoring in production.",
+  "category": "question",
+  "subcategory": "shard-management",
+  "apis": [],
+  "components": [
+    "history-service",
+    "shard-management",
+    "mutable-state-cache",
+    "metrics"
+  ],
+  "concepts": [
+    "staleness",
+    "cache-invalidation",
+    "shard-ownership",
+    "fallback-logic",
+    "monitoring"
+  ],
+  "severity": "medium",
+  "userImpact": "Removing unnecessary fallback logic could reduce server complexity, but incorrect removal could introduce data consistency issues.",
+  "rootCause": null,
+  "proposedFix": "Monitor StaleMutableStateCounter metric to confirm fallback is no longer needed; remove stale mutable state fallback logic if metric remains near-zero for sufficient period.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should monitor the StaleMutableStateCounter metric and remove the logic below once we are confident.",
+  "number": 10718,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:53:09.745Z"
+}

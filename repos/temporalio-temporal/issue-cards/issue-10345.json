@@ -1,0 +1,32 @@
+{
+  "summary": "StartWorkflow API incorrectly rejects valid NexusOperation links, treating them as unsupported variants when they should be accepted according to the API specification.",
+  "category": "bug",
+  "subcategory": "nexus-links",
+  "apis": [
+    "StartWorkflow"
+  ],
+  "components": [
+    "workflow-server",
+    "link-validator",
+    "nexus-handler"
+  ],
+  "concepts": [
+    "link-variant",
+    "nexus-operation",
+    "workflow-execution",
+    "request-validation",
+    "cross-service-links"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot associate NexusOperation links when starting workflows, preventing cross-service operation tracing and linking.",
+  "rootCause": null,
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "NexusOperation links are rejected as an unsupported variant.",
+  "number": 10345,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:15:23.341Z"
+}

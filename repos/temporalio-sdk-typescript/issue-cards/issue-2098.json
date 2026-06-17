@@ -1,0 +1,54 @@
+{
+  "summary": "Since v1.16.0, Vite SSR builds produce broken bundles when importing workflow modules, emitting bare deep imports without `.js` extensions and absolute filesystem paths that won't resolve at runtime.",
+  "category": "bug",
+  "subcategory": "vite-ssr-bundling",
+  "apis": [
+    "defineSignal",
+    "proxyActivities",
+    "setHandler",
+    "condition",
+    "startChild",
+    "ParentClosePolicy",
+    "defineQuery",
+    "executeChild",
+    "workflowInfo",
+    "continueAsNew",
+    "sleep",
+    "isCancellation",
+    "CancellationScope"
+  ],
+  "components": [
+    "package-exports",
+    "module-resolution",
+    "build-system",
+    "ssr-integration"
+  ],
+  "concepts": [
+    "bundling",
+    "tree-shaking",
+    "module-resolution",
+    "ssr",
+    "vite",
+    "externals",
+    "re-exports"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot build and deploy Vite SSR applications that import workflow modules, causing production failures with unresolved module errors.",
+  "rootCause": "Package re-export structure changes in 1.16.0 (Nexus API restructuring) cause Rollup/Vite to see through externalized packages and emit deep-path imports to CJS files instead of treating the package as opaque.",
+  "proposedFix": "Define cross-package entry points using package.json exports field (#2079) to prevent bare deep imports without proper resolution paths.",
+  "workaround": "Refactor host code to use string workflow names and type-only imports for typing, avoiding direct workflow module imports in the SSR bundle.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1280,
+    1615,
+    1979,
+    1993,
+    1998,
+    2079
+  ],
+  "keyQuote": "emit direct deep-path imports to the underlying CJS files instead of treating the package as opaque",
+  "number": 2098,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-06-15T23:14:48.549Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "SyncState() in executable_task.go ignores the remainingAttempt parameter and can retry indefinitely on certain error types, unlike Resend() which correctly enforces a retry limit. This inconsistency can cause excessive load on the source cluster during sync failures.",
+  "category": "bug",
+  "subcategory": "replication-sync",
+  "apis": [],
+  "components": [
+    "executable_task",
+    "replication",
+    "sync-state",
+    "retry-logic"
+  ],
+  "concepts": [
+    "retry",
+    "replication",
+    "sync-state",
+    "rate-limiting",
+    "error-handling",
+    "consistency"
+  ],
+  "severity": "high",
+  "userImpact": "Operators running Temporal server in replication scenarios may experience excessive load on the source cluster when sync state operations fail repeatedly.",
+  "rootCause": "SyncState() does not decrement or validate the remainingAttempt parameter before proceeding, unlike Resend() which implements proper retry limit enforcement with a TODO comment acknowledging the gap.",
+  "proposedFix": "Apply the same retry limit pattern as Resend(): decrement remainingAttempt at the start, check if less than 0, and return ErrResendAttemptExceeded when the limit is exceeded.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SyncState() can retry indefinitely on certain error types unlike Resend() which correctly enforces the retry limit",
+  "number": 10490,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:32:15.733Z"
+}

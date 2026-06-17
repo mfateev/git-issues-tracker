@@ -1,0 +1,37 @@
+{
+  "summary": "When a worker registers activities with duplicate function names where one has an alias and one doesn't, invoking the non-aliased activity silently gets redirected to the aliased version. This occurs because the getActivityFunctionName function prioritizes alias lookups over the explicitly requested registration name.",
+  "category": "bug",
+  "subcategory": "activity-registration",
+  "apis": [
+    "ExecuteActivity",
+    "RegisterActivity",
+    "RegisterActivityWithOptions"
+  ],
+  "components": [
+    "worker",
+    "activity-registry",
+    "registration-aliasing"
+  ],
+  "concepts": [
+    "activity-aliasing",
+    "name-collision",
+    "function-disambiguation",
+    "registration-conflict",
+    "activity-routing"
+  ],
+  "severity": "high",
+  "userImpact": "Users registering versioned activities with the same function name but different implementations experience silent routing to the wrong activity version, breaking workflow logic.",
+  "rootCause": "The getActivityFunctionName function finds an alias registered for a given function name and resolves to that alias instead of respecting the explicitly registered name, causing unintended activity invocation.",
+  "proposedFix": "Use fully qualified names in the registration map (e.g., map[activities_v1.Activity] instead of map[Activity]) to prevent collisions. Alternatively, default DisableRegistrationAliasing to true as a breaking change.",
+  "workaround": "Set DisableRegistrationAliasing: true in worker options when using aliases, and avoid invoking activities using function pointers when aliases are in use.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2384,
+    2385
+  ],
+  "keyQuote": "The function getActivityFunctionName finds an alias registered for the given function name and resolves with the function attached to the alias",
+  "number": 2379,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-06-15T23:11:42.429Z"
+}

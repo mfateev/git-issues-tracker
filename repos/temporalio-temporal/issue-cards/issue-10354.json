@@ -1,0 +1,37 @@
+{
+  "summary": "Activities with retriable failures lose their latest failure information when a workflow is cancelled, particularly when the activity is in backoff retry time. The user requests that the latest activity failure be serialized into the workflow execution history via an Activity Task Started event for better observability during debugging.",
+  "category": "feature",
+  "subcategory": "activity-retry-cancellation",
+  "apis": [
+    "ExecuteActivity",
+    "ActivityOptions",
+    "RetryOptions",
+    "CancellationScope"
+  ],
+  "components": [
+    "activity-executor",
+    "history-persistence",
+    "retry-manager",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "retry",
+    "backoff",
+    "cancellation",
+    "observability",
+    "execution-history",
+    "failure-tracking"
+  ],
+  "severity": "medium",
+  "userImpact": "Users have difficulty debugging activity failures when workflows are cancelled because the latest activity failure is not recorded in the execution history, requiring them to dig through worker logs instead.",
+  "rootCause": "When an Activity is in backoff retry period and a workflow is cancelled, the Activity Task Started event is not persisted to the history, unlike the behavior with heartbeats and WAIT_CANCELLATION_COMPLETED option.",
+  "proposedFix": "Ensure the latest activity failure is serialized into the workflow execution history even on workflow termination by writing an Activity Task Started event even when the activity has failed retriably and is in backoff wait time.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Make sure that the latest activity failure is serialized into the Workflow execution history even on less traditional Workflow terminations (e.g. cancellation).",
+  "number": 10354,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:15:22.673Z"
+}

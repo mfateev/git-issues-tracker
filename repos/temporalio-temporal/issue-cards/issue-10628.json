@@ -1,0 +1,32 @@
+{
+  "summary": "Request to change the default value of system.enableActivityEagerExecution from false to true in the Temporal server to align with SDK and Cloud defaults, enabling performance improvements by default while allowing users to explicitly disable if needed.",
+  "category": "other",
+  "subcategory": "activity-execution-config",
+  "apis": [],
+  "components": [
+    "dynamic-config",
+    "activity-executor",
+    "worker",
+    "server-defaults"
+  ],
+  "concepts": [
+    "eager-execution",
+    "performance-optimization",
+    "default-configuration",
+    "backwards-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Users miss out on activity eager execution performance improvements because the feature is disabled by default and requires explicit configuration knowledge.",
+  "rootCause": "Inconsistency between server default (false) and SDK/Cloud defaults (true) creates suboptimal user experience.",
+  "proposedFix": "Change system.enableActivityEagerExecution default from false to true in server configuration and allow users to explicitly disable it if needed.",
+  "workaround": "Users can manually enable eager activity execution by setting system.enableActivityEagerExecution to true in dynamic config.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    10651
+  ],
+  "keyQuote": "In OSS server dynamic config, users might not think that this is disabled by default and never switch to true, and miss on improvement for most use cases.",
+  "number": 10628,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:51:42.125Z"
+}

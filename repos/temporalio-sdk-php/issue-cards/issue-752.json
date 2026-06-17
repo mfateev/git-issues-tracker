@@ -1,0 +1,37 @@
+{
+  "summary": "The listWorkflowExecutions method hangs when executing a query filter, while the same query works via CLI. The issue stems from missing deadline/timeout configuration on the service client.",
+  "category": "bug",
+  "subcategory": "list-operations",
+  "apis": [
+    "listWorkflowExecutions",
+    "WorkflowClient",
+    "ServiceClient"
+  ],
+  "components": [
+    "workflow-client",
+    "service-client",
+    "grpc-communication"
+  ],
+  "concepts": [
+    "timeout",
+    "deadline",
+    "hanging",
+    "query",
+    "grpc",
+    "blocking"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot list workflow executions with queries as the operation hangs indefinitely without proper timeout configuration.",
+  "rootCause": "Missing deadline/timeout configuration on the service client causes infinite blocking in gRPC calls.",
+  "proposedFix": "Configure the ServiceClient with proper deadline/timeout values, or use interceptors to set timeout context for specific methods.",
+  "workaround": "Set up the ServiceClient with proper deadline/timeout values before creating the WorkflowClient.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    757
+  ],
+  "keyQuote": "prefer to setup your service client with proper deadline/timeout values to avoid an infinite loop",
+  "number": 752,
+  "repo": "temporalio-sdk-php",
+  "generatedAt": "2026-06-15T23:12:02.639Z"
+}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-20T16:30:21.987Z",
+  "generated_at": "2026-06-16T16:57:25.698Z",
   "total_count": 979,
   "issues": [
     {
@@ -9,11 +9,11 @@
       "author": "gauravthadani",
       "labels": [],
       "createdAt": "2026-05-20T02:32:59Z",
-      "updatedAt": "2026-05-20T03:09:28Z",
+      "updatedAt": "2026-06-16T01:02:09Z",
       "closedAt": null,
-      "commentCount": 0,
-      "upvotes": 0,
-      "totalReactions": 0,
+      "commentCount": 2,
+      "upvotes": 1,
+      "totalReactions": 1,
       "url": "https://github.com/temporalio/sdk-java/issues/2885"
     },
     {
@@ -369,12 +369,12 @@
     {
       "number": 2796,
       "title": "Replay fails: UpdateCompleted events between version markers breaks replay",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "gauravthadani",
       "labels": [],
       "createdAt": "2026-02-24T02:24:14Z",
-      "updatedAt": "2026-03-10T17:19:28Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-08T20:12:14Z",
+      "closedAt": "2026-06-08T20:12:14Z",
       "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
@@ -1088,15 +1088,15 @@
     {
       "number": 2661,
       "title": "Set history size and suggest continue as new on task start attributes in test server",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement",
         "test server"
       ],
       "createdAt": "2025-09-15T20:37:45Z",
-      "updatedAt": "2026-04-30T14:08:01Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-01T14:25:53Z",
+      "closedAt": "2026-06-01T14:25:53Z",
       "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 1,
@@ -1150,16 +1150,16 @@
     },
     {
       "number": 2655,
-      "title": "Testing server continue-as-new doesn't carry memo/search attributes",
-      "state": "OPEN",
+      "title": "Testing server continue-as-new doesn't carry search attributes",
+      "state": "CLOSED",
       "author": "jasonmchan",
       "labels": [
         "test server"
       ],
       "createdAt": "2025-09-08T17:45:38Z",
-      "updatedAt": "2026-05-05T07:15:01Z",
-      "closedAt": null,
-      "commentCount": 1,
+      "updatedAt": "2026-05-21T15:32:17Z",
+      "closedAt": "2026-05-21T15:32:17Z",
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-java/issues/2655"
@@ -3114,9 +3114,9 @@
         "test server"
       ],
       "createdAt": "2024-10-01T19:03:16Z",
-      "updatedAt": "2025-06-02T15:26:21Z",
+      "updatedAt": "2026-06-02T21:24:02Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/sdk-java/issues/2246"
@@ -4111,11 +4111,11 @@
         "enhancement"
       ],
       "createdAt": "2024-05-23T18:49:56Z",
-      "updatedAt": "2024-11-22T05:54:28Z",
+      "updatedAt": "2026-06-08T14:21:25Z",
       "closedAt": null,
-      "commentCount": 1,
-      "upvotes": 3,
-      "totalReactions": 3,
+      "commentCount": 2,
+      "upvotes": 5,
+      "totalReactions": 5,
       "url": "https://github.com/temporalio/sdk-java/issues/2075"
     },
     {
@@ -15063,8 +15063,8 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 227,
-      "CLOSED": 752
+      "OPEN": 224,
+      "CLOSED": 755
     },
     "by_label": {
       "enhancement": 411,
@@ -15081,12 +15081,12 @@
       "java": 1
     },
     "engagement": {
-      "total_upvotes": 314,
-      "total_comments": 1195,
-      "issues_with_upvotes": 99,
-      "issues_with_comments": 512,
+      "total_upvotes": 317,
+      "total_comments": 1202,
+      "issues_with_upvotes": 100,
+      "issues_with_comments": 514,
       "upvote_rate": "10%",
-      "comment_rate": "52%"
+      "comment_rate": "53%"
     }
   },
   "top_by_upvotes": [
@@ -15187,6 +15187,12 @@
       "comments": 0
     },
     {
+      "number": 2075,
+      "title": "Add the ability to keep heartbeating while the worker is shutting down",
+      "upvotes": 5,
+      "comments": 2
+    },
+    {
       "number": 865,
       "title": "Add init method to workflow",
       "upvotes": 5,
@@ -15201,12 +15207,6 @@
     {
       "number": 1832,
       "title": "Support for using Temporal Annotations as Meta Annotation",
-      "upvotes": 4,
-      "comments": 0
-    },
-    {
-      "number": 827,
-      "title": "Provide a recommended way to pass configuration into workflow ",
       "upvotes": 4,
       "comments": 0
     }

@@ -1,7 +1,111 @@
 {
-  "generatedAt": "2026-05-20T16:49:28.826Z",
-  "totalCards": 192,
+  "generatedAt": "2026-06-16T16:58:05.562Z",
+  "totalCards": 195,
   "cards": [
+    {
+      "summary": "Under high CPU contention, the Ruby SDK can emit un-replayable workflow history due to inconsistent command flushing, where activity starts get split into unexpected partial batches. This permanently breaks workflows and requires manual reset/termination to resolve.",
+      "category": "bug",
+      "subcategory": "workflow-replay",
+      "apis": [
+        "sleep",
+        "execute_activity"
+      ],
+      "components": [
+        "worker",
+        "history",
+        "command-flushing",
+        "replay-engine",
+        "sync-primitives"
+      ],
+      "concepts": [
+        "replay",
+        "history-consistency",
+        "determinism",
+        "command-batching",
+        "concurrency-safety",
+        "task-ordering"
+      ],
+      "severity": "critical",
+      "userImpact": "Workflows become permanently broken and unreplayable under CPU contention, requiring manual intervention to reset or terminate them.",
+      "rootCause": "Sync primitives cause inconsistent command flushing under CPU contention, splitting activity start commands into unexpected partial batches across workflow tasks. This violates determinism during replay on new workers.",
+      "proposedFix": "A proposed fix exists on a fork/branch but requires validation as it was AI-generated.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "When the SDK is operating under high cpu contention it is possible to emit un-replayable workflow history permanently breaking a workflow",
+      "number": 464,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-06-15T23:14:16.195Z"
+    },
+    {
+      "summary": "The Ruby SDK crashes when processing `suggestContinueAsNew` event reasons because it attempts to call `.to_i` on Symbol objects instead of properly converting the enum string values, causing workflow failures.",
+      "category": "bug",
+      "subcategory": "event-handling",
+      "apis": [
+        "ContinueAsNew"
+      ],
+      "components": [
+        "workflow-instance",
+        "event-handler",
+        "workflow-activation",
+        "protobuf-serialization"
+      ],
+      "concepts": [
+        "symbol-handling",
+        "enum-conversion",
+        "type-mismatch",
+        "event-deserialization",
+        "workflow-activation"
+      ],
+      "severity": "critical",
+      "userImpact": "Workflows that trigger `suggestContinueAsNew` events (typically after many activities) crash with type conversion errors, making them completely unusable.",
+      "rootCause": "The code incorrectly assumes `suggest_continue_as_new_reasons` contains integers and calls `.map(&:to_i)` on it, but protobuf deserialization returns Symbol objects, causing a method missing error.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "undefined method 'to_i' for an instance of Symbol",
+      "number": 463,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-06-15T23:14:19.127Z"
+    },
+    {
+      "summary": "Bug in `execute_update_with_start_workflow` where an inverted boolean condition causes rejected workflow updates to incorrectly poll for outcomes that don't exist, raising `RPCError NOT_FOUND` instead of the expected `WorkflowUpdateFailedError` with the validator's rejection reason.",
+      "category": "bug",
+      "subcategory": "workflow-updates",
+      "apis": [
+        "execute_update_with_start_workflow",
+        "poll_workflow_update"
+      ],
+      "components": [
+        "client",
+        "workflow-update",
+        "error-handling"
+      ],
+      "concepts": [
+        "update-validation",
+        "validator-rejection",
+        "error-handling",
+        "async-polling",
+        "exception-propagation",
+        "outcome-polling",
+        "start-workflow"
+      ],
+      "severity": "high",
+      "userImpact": "Users utilizing `execute_update_with_start_workflow` with rejecting validators receive `RPCError NOT_FOUND` instead of `WorkflowUpdateFailedError`, preventing proper error handling and making validator rejection reasons inaccessible.",
+      "rootCause": "Inverted boolean condition in `execute_update_with_start_workflow`: `&& update_resp.outcome` should be `&& !update_resp.outcome`. The condition checks if outcome EXISTS when it should check if it DOESN'T exist before polling.",
+      "proposedFix": "Add negation operator to line 220 in implementation.rb: change `&& update_resp.outcome` to `&& !update_resp.outcome` to align with the comment and the correct logic already used in the regular update path.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Applied the proposed fix by adding the negation operator to the condition, aligning with the comment and the correct implementation in the non-`with_start` update path.",
+      "related": [],
+      "keyQuote": "The comment says 'if not already there,' but the condition `&& update_resp.outcome` is truthy when the outcome **IS** already present. It should be `&& !update_resp.outcome`.",
+      "number": 454,
+      "repo": "temporalio-sdk-ruby",
+      "generatedAt": "2026-06-15T23:14:23.596Z"
+    },
     {
       "summary": "Feature request to implement operator commands for Standalone Activities in the Ruby SDK, referencing a features specification and depending on a related infrastructure issue.",
       "category": "feature",

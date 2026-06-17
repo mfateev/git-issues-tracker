@@ -1,19 +1,633 @@
 {
-  "generatedAt": "2026-05-20T17:00:14.513Z",
+  "generatedAt": "2026-06-16T17:00:11.785Z",
   "repo": "temporalio-sdk-python",
-  "totalCount": 638,
-  "cardsCount": 638,
+  "totalCount": 651,
+  "cardsCount": 651,
   "issues": [
+    {
+      "number": 1600,
+      "title": "[Bug] Single spurious \"exception in shielded future\" ERROR log per cancelled in-flight activity on Python 3.11+ (residual after #1523)",
+      "state": "OPEN",
+      "author": "AlePiccin",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-06-15T19:10:40Z",
+      "updatedAt": "2026-06-15T19:10:40Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1600",
+      "bodyLength": 5535,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.28.0",
+        "3.14.5"
+      ],
+      "linkedIssues": [
+        1504,
+        1523
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 3,
+      "summary": "On Python 3.11+, cancelling a workflow with in-flight activities emits one spurious ERROR log per activity, even though cancellation works correctly. This residual from #1523's fix pollutes error logs due to stale exception callbacks armed by asyncio.shield's outer cancellation.",
+      "category": "bug",
+      "subcategory": "activity-cancellation",
+      "apis": [
+        "execute_activity"
+      ],
+      "components": [
+        "worker",
+        "activity-executor",
+        "asyncio-shield-loops",
+        "exception-handler",
+        "cancellation-handler"
+      ],
+      "concepts": [
+        "cancellation",
+        "exception-logging",
+        "asyncio",
+        "shielded-futures",
+        "error-pollution",
+        "python-version-compatibility"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1598,
+      "title": "[Bug] Pyo3 package security in Cargo.lock",
+      "state": "CLOSED",
+      "author": "sandre35",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-06-15T06:51:49Z",
+      "updatedAt": "2026-06-15T19:52:44Z",
+      "closedAt": "2026-06-15T19:52:44Z",
+      "commentCount": 2,
+      "upvotes": 2,
+      "url": "https://github.com/temporalio/sdk-python/issues/1598",
+      "bodyLength": 2193,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "0.25.1",
+        "0.29.0",
+        "1.28.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Docker image scanning detects two PyO3 security vulnerabilities (out-of-bounds read and missing Sync bound) in version 0.25.1. Fixed by upgrading to PyO3 0.29.0.",
+      "category": "bug",
+      "subcategory": "dependency-security",
+      "apis": [],
+      "components": [
+        "pyo3",
+        "python-sdk",
+        "cargo-dependencies"
+      ],
+      "concepts": [
+        "security-vulnerability",
+        "cve",
+        "out-of-bounds-read",
+        "memory-safety",
+        "dependency-management",
+        "supply-chain-security"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1592,
+      "title": "Windows ARM64 wheel support",
+      "state": "OPEN",
+      "author": "omjavaid",
+      "labels": [],
+      "createdAt": "2026-06-09T12:46:32Z",
+      "updatedAt": "2026-06-09T18:04:24Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1592",
+      "bodyLength": 264,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "User requests Windows ARM64 wheel support for the Python SDK on PyPI. Currently, wheels are not provided for this platform. The maintainer indicates official Windows ARM64 support is not yet available but would be open to changes that enable it.",
+      "category": "feature",
+      "subcategory": "wheel-distribution",
+      "apis": [],
+      "components": [
+        "release-pipeline",
+        "packaging",
+        "build-system"
+      ],
+      "concepts": [
+        "windows-arm64",
+        "cross-platform-support",
+        "wheel-distribution",
+        "platform-support",
+        "build-pipeline"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1591,
+      "title": "[Bug] Non-deterministic history generated after update handled on cold-start with specific setup",
+      "state": "OPEN",
+      "author": "EddieWhi",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-06-09T12:39:39Z",
+      "updatedAt": "2026-06-09T18:03:51Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1591",
+      "bodyLength": 7776,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.7.0",
+        "1.27.0"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Non-deterministic workflow history occurs when an update handler executes on cold-start/replay before a signal handler's activity-awaiting coroutine completes, causing the update to read stale shared state.",
+      "category": "bug",
+      "subcategory": "determinism-replay",
+      "apis": [
+        "execute_activity",
+        "signal",
+        "update",
+        "wait_condition",
+        "replay_workflow"
+      ],
+      "components": [
+        "replay-engine",
+        "signal-handler",
+        "update-handler",
+        "event-ordering",
+        "workflow-executor"
+      ],
+      "concepts": [
+        "determinism",
+        "replay",
+        "cold-start",
+        "shared-state",
+        "handler-ordering",
+        "async-execution",
+        "history"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1585,
+      "title": "PydanticSerializationError when streaming OpenAI agent events via WorkflowStreamClient",
+      "state": "CLOSED",
+      "author": "wangzhihao0629",
+      "labels": [],
+      "createdAt": "2026-06-05T16:56:41Z",
+      "updatedAt": "2026-06-08T16:40:33Z",
+      "closedAt": "2026-06-08T16:40:33Z",
+      "commentCount": 0,
+      "upvotes": 2,
+      "url": "https://github.com/temporalio/sdk-python/issues/1585",
+      "bodyLength": 3159,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.28.0",
+        "0.17.4"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 2,
+      "summary": "OpenAI agent streaming through WorkflowStreamClient fails with PydanticSerializationError because the payload converter's SchemaSerializer cannot handle OpenAI's complex discriminated-union stream event types, though the concrete Pydantic model's own serializer works fine.",
+      "category": "bug",
+      "subcategory": "openai-agents",
+      "apis": [
+        "WorkflowStreamClient",
+        "OpenAIPayloadConverter"
+      ],
+      "components": [
+        "payload-converter",
+        "openai-agents",
+        "serialization",
+        "pydantic"
+      ],
+      "concepts": [
+        "serialization",
+        "pydantic",
+        "stream-events",
+        "discriminated-union",
+        "type-safety",
+        "payload-encoding"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1582,
+      "title": "[Bug] Interceptor contract inconsistency for OutboundInterceptor.start_update_with_start_workflow",
+      "state": "CLOSED",
+      "author": "kislyuk-openai",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-06-04T21:31:33Z",
+      "updatedAt": "2026-06-11T16:44:01Z",
+      "closedAt": "2026-06-11T16:44:01Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1582",
+      "bodyLength": 722,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "StartWorkflowUpdateWithStartInput lacks rpc_metadata unlike other API inputs, breaking the consistent interceptor pattern for composite operations. The fix adds top-level rpc_metadata and rpc_timeout to the composite input.",
+      "category": "bug",
+      "subcategory": "interceptors",
+      "apis": [
+        "Client",
+        "OutboundInterceptor"
+      ],
+      "components": [
+        "client-api",
+        "interceptor-framework",
+        "grpc-transport",
+        "multi-operation"
+      ],
+      "concepts": [
+        "interceptors",
+        "rpc-metadata",
+        "headers",
+        "request-interception",
+        "composite-operations",
+        "api-consistency"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1579,
+      "title": "[Feature Request] support protobuf 7",
+      "state": "OPEN",
+      "author": "ericbuehl",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-06-04T17:54:30Z",
+      "updatedAt": "2026-06-06T04:36:43Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1579",
+      "bodyLength": 258,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "The Python SDK pins protobuf to versions below 7, preventing users from upgrading. Attempts to support protobuf 7 are blocked by grpcio-tools, which also constrains protobuf to <7 even in its latest release.",
+      "category": "feature",
+      "subcategory": "dependencies",
+      "apis": [],
+      "components": [
+        "protobuf",
+        "grpcio-tools",
+        "dependency-management",
+        "build-system"
+      ],
+      "concepts": [
+        "protobuf-compatibility",
+        "dependency-versioning",
+        "version-constraints",
+        "grpc",
+        "library-updates",
+        "dependency-conflicts"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1578,
+      "title": "[Bug] non determinism when using `asyncio.gather` with local activities",
+      "state": "OPEN",
+      "author": "paulcacheux",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-06-04T06:41:54Z",
+      "updatedAt": "2026-06-04T06:41:54Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 1,
+      "url": "https://github.com/temporalio/sdk-python/issues/1578",
+      "bodyLength": 4293,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.30.4",
+        "1.27.2"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 1,
+      "summary": "Local activities executed concurrently with `asyncio.gather` cause non-determinism during replay because they complete in wall-clock time order during execution but sequence number order during replay, producing different command sequences.",
+      "category": "bug",
+      "subcategory": "local-activity-determinism",
+      "apis": [
+        "execute_local_activity"
+      ],
+      "components": [
+        "local-activity",
+        "workflow-replay",
+        "asyncio-integration"
+      ],
+      "concepts": [
+        "determinism",
+        "replay",
+        "concurrency",
+        "scheduling",
+        "event-ordering",
+        "nondeterminism"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1567,
+      "title": "[Bug] Tar package security in Cargo.lock",
+      "state": "CLOSED",
+      "author": "sandre35",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-06-01T06:43:02Z",
+      "updatedAt": "2026-06-02T17:23:27Z",
+      "closedAt": "2026-06-02T17:23:27Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1567",
+      "bodyLength": 1346,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "0.4.45",
+        "0.4.46",
+        "1.27.2"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Security vulnerability (GHSA-3pv8-6f4r-ffg2) in tar crate 0.4.45 used by the Python SDK bridge causes PAX header desynchronization issues. Fixed by upgrading to tar 0.4.46.",
+      "category": "bug",
+      "subcategory": "dependency-security",
+      "apis": [],
+      "components": [
+        "bridge",
+        "cargo-lock",
+        "dependencies"
+      ],
+      "concepts": [
+        "security",
+        "vulnerability",
+        "supply-chain",
+        "dependency-management",
+        "tar-crate"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1562,
+      "title": "[Bug] External storage transfer stats reports summation of durations instead of wall-clock duration",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-05-28T20:07:21Z",
+      "updatedAt": "2026-05-28T20:07:53Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1562",
+      "bodyLength": 721,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "External storage transfer stats incorrectly sum durations of concurrent driver invocations instead of measuring actual wall-clock time. For example, 3 concurrent drivers each taking 100ms are reported as 300ms instead of ~100ms.",
+      "category": "bug",
+      "subcategory": "external-storage-stats",
+      "apis": [],
+      "components": [
+        "external-storage",
+        "converter",
+        "stats"
+      ],
+      "concepts": [
+        "concurrency",
+        "statistics",
+        "timing",
+        "duration-tracking",
+        "wall-clock-time",
+        "data-transfer"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 1561,
+      "title": "OpenAI Agents plugin doesn't support apply_patch with SandboxAgent",
+      "state": "CLOSED",
+      "author": "guadalupe-duolingo",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-05-28T16:05:26Z",
+      "updatedAt": "2026-06-10T17:16:45Z",
+      "closedAt": "2026-06-10T17:16:45Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1561",
+      "bodyLength": 3221,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "1.27.0",
+        "0.15.2"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "The OpenAI Agents plugin doesn't support SandboxApplyPatchTool from the OpenAI Agents SDK's sandbox filesystem capability, causing an 'Unsupported tool type: apply_patch' error when using SandboxAgent through the Temporal plugin.",
+      "category": "bug",
+      "subcategory": "openai-agents-plugin",
+      "apis": [],
+      "components": [
+        "openai-agents-plugin",
+        "model-stub",
+        "tool-serialization"
+      ],
+      "concepts": [
+        "agent-integration",
+        "tool-support",
+        "sandbox",
+        "file-editing",
+        "serialization",
+        "plugin-compatibility"
+      ],
+      "severity": "high",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 1557,
+      "title": "[Bug] stuck worker reports `ShutdownWorker` as `UNIMPLEMENTED`",
+      "state": "CLOSED",
+      "author": "noqcks",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-05-26T20:58:54Z",
+      "updatedAt": "2026-06-02T17:24:34Z",
+      "closedAt": "2026-06-02T17:24:33Z",
+      "commentCount": 3,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1557",
+      "bodyLength": 1520,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [
+        "1.27.2",
+        "3.11.15"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 4,
+      "summary": "Python worker pod remains stuck in Terminating state after SIGTERM, with shutdown never completing and returning UNIMPLEMENTED errors on ShutdownWorker requests.",
+      "category": "bug",
+      "subcategory": "worker-shutdown",
+      "apis": [
+        "Worker.shutdown",
+        "Worker.run"
+      ],
+      "components": [
+        "worker",
+        "shutdown",
+        "signal-handling",
+        "grpc"
+      ],
+      "concepts": [
+        "graceful-shutdown",
+        "SIGTERM",
+        "deadlock",
+        "pod-termination",
+        "asyncio",
+        "error-handling",
+        "kubernetes"
+      ],
+      "severity": "high",
+      "resolution": "duplicate",
+      "hasCard": true
+    },
+    {
+      "number": 1548,
+      "title": "[Bug] openai_agents/sandbox activities throw only retryable exceptions",
+      "state": "OPEN",
+      "author": "mfateev",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-05-21T03:06:11Z",
+      "updatedAt": "2026-05-21T03:06:43Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-python/issues/1548",
+      "bodyLength": 4737,
+      "hasCodeBlocks": true,
+      "hasStackTrace": true,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Sandbox integration activities throw all exceptions as retryable, even when they can never succeed. When the sandbox process is terminated externally, workflows become stuck in infinite retry loops trying to retry non-retryable errors like 'container IP not found'.",
+      "category": "bug",
+      "subcategory": "sandbox-exception-handling",
+      "apis": [
+        "ExecuteActivity"
+      ],
+      "components": [
+        "sandbox-client",
+        "activity-executor",
+        "exception-handler",
+        "openai-agents-integration"
+      ],
+      "concepts": [
+        "retryable-exceptions",
+        "activity-failure",
+        "exception-classification",
+        "external-shutdown",
+        "workflow-stall",
+        "infinite-retry"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 1546,
       "title": "Use Trusted Publishing to upload to PyPI",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "nsoranzo",
       "labels": [],
       "createdAt": "2026-05-19T18:16:16Z",
-      "updatedAt": "2026-05-19T18:21:09Z",
-      "closedAt": null,
-      "commentCount": 1,
+      "updatedAt": "2026-06-08T09:17:47Z",
+      "closedAt": "2026-06-08T09:17:47Z",
+      "commentCount": 2,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1546",
       "bodyLength": 208,
@@ -139,14 +753,14 @@
     {
       "number": 1504,
       "title": "[Bug] spurious \"exception in shielded future\" warnings on Python 3.11+",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Buggytheclown",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-05-08T07:35:19Z",
-      "updatedAt": "2026-05-08T07:35:43Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-27T20:42:47Z",
+      "closedAt": "2026-05-27T20:42:47Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1504",
@@ -738,14 +1352,14 @@
     {
       "number": 1434,
       "title": "[Bug] Unexposed return type of public method",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bmuqedma",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-04-12T09:45:14Z",
-      "updatedAt": "2026-04-16T13:08:03Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-28T16:08:37Z",
+      "closedAt": "2026-05-28T16:08:37Z",
       "commentCount": 2,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1434",
@@ -3154,14 +3768,14 @@
     {
       "number": 1203,
       "title": "[Bug] `retry_policy` not set in `ativity.info()` despite being defined in the `workflow.execute_activity()` call",
-      "state": "CLOSED",
+      "state": "OPEN",
       "author": "brent-cybrid",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-10-31T21:11:02Z",
-      "updatedAt": "2026-05-06T12:11:41Z",
-      "closedAt": "2026-03-23T23:26:52Z",
+      "updatedAt": "2026-06-04T15:51:42Z",
+      "closedAt": null,
       "commentCount": 5,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1203",
@@ -4792,14 +5406,14 @@
     {
       "number": 1104,
       "title": "Setting debug_mode in a Worker still doesn't allow the user of breakpoints",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "togakangaroo",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-09-13T14:20:02Z",
-      "updatedAt": "2025-09-22T14:46:05Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-15T17:08:25Z",
+      "closedAt": "2026-06-15T17:08:25Z",
       "commentCount": 7,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/1104",
@@ -10074,12 +10688,12 @@
     {
       "number": 764,
       "title": "Expose Workflow cancel cause/reason",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Sushisource",
       "labels": [],
       "createdAt": "2025-02-11T20:44:19Z",
-      "updatedAt": "2025-02-11T20:44:19Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-03T16:39:27Z",
+      "closedAt": "2026-06-03T16:39:27Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-python/issues/764",
@@ -22400,14 +23014,14 @@
     {
       "number": 238,
       "title": "[Bug] Can't debugging workflow using vscode",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "niros1",
       "labels": [
         "bug"
       ],
       "createdAt": "2023-01-03T21:38:49Z",
-      "updatedAt": "2024-11-16T16:40:38Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-02T17:17:31Z",
+      "closedAt": "2026-06-02T17:17:31Z",
       "commentCount": 5,
       "upvotes": 3,
       "url": "https://github.com/temporalio/sdk-python/issues/238",
@@ -23193,14 +23807,14 @@
     {
       "number": 213,
       "title": "[Feature Request] Confirm vscode debuggability within sandbox",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2022-11-28T12:52:15Z",
-      "updatedAt": "2022-11-28T12:52:15Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-02T17:17:30Z",
+      "closedAt": "2026-06-02T17:17:30Z",
       "commentCount": 0,
       "upvotes": 2,
       "url": "https://github.com/temporalio/sdk-python/issues/213",

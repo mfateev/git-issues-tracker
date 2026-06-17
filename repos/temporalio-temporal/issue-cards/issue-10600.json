@@ -1,0 +1,32 @@
+{
+  "summary": "Request to add cryptographically signed attestations to Temporal releases for verifying authenticity and provenance, moving beyond current checksum-only approach.",
+  "category": "feature",
+  "subcategory": "release-security",
+  "apis": [],
+  "components": [
+    "release-workflow",
+    "artifact-publishing",
+    "security"
+  ],
+  "concepts": [
+    "attestation",
+    "cryptographic-signing",
+    "provenance",
+    "authenticity",
+    "integrity",
+    "release-artifacts",
+    "SLSA"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot cryptographically verify authenticity and provenance of Temporal releases, only basic integrity via checksums.",
+  "rootCause": null,
+  "proposedFix": "Add attestations to release workflow using actions/attest and goreleaser patterns, uploading attestation bundle files as release artifacts for verification without GitHub authentication.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "This is perhaps even more important for `temporal` which operates at a critical core level of workflows.",
+  "number": 10600,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:51:21.642Z"
+}

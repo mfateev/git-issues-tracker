@@ -1,0 +1,36 @@
+{
+  "summary": "Failed replication tasks become permanently inaccessible in the DLQ when source and target clusters have different shard counts. Tasks are written using the local shard ID but retrieved using a different shard ID mapping, causing a key mismatch that silently loses data.",
+  "category": "bug",
+  "subcategory": "dlq-replication",
+  "apis": [],
+  "components": [
+    "DLQ",
+    "replication",
+    "task-processor",
+    "shard-mapping"
+  ],
+  "concepts": [
+    "dead-letter-queue",
+    "replication",
+    "shard-mapping",
+    "data-loss",
+    "cross-cluster",
+    "task-routing",
+    "cluster-topology"
+  ],
+  "severity": "critical",
+  "userImpact": "Users running multi-cluster replication with different shard counts experience silent, permanent loss of failed replication tasks with no error logging or visibility.",
+  "rootCause": "convertTaskToDLQTask() writes DLQ entries using local shard ID (p.shard.GetShardID()), but GetDLQReplicationMessages retrieves them using target cluster's shard ID mapping (config.GetShardID()). When source/target shard counts differ, the keys diverge, making tasks unretrievable.",
+  "proposedFix": "Use common.MapShardID to determine correct target shard IDs when writing to DLQ, ensuring consistency with how GetDLQReplicationMessages retrieves them (similar to fix in PR #10226).",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    10224,
+    10226
+  ],
+  "keyQuote": "No error is logged — silent data loss under cross-shard replication",
+  "number": 10436,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:16:05.875Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Proposal to systematically use package.json exports to define clean, explicit entry points for cross-package imports in the TypeScript SDK, replacing the current pattern of directly importing from /lib/ directories.",
+  "category": "feature",
+  "subcategory": "package-exports",
+  "apis": [],
+  "components": [
+    "package-structure",
+    "import-system",
+    "workflow-runtime",
+    "api-boundaries"
+  ],
+  "concepts": [
+    "package-exports",
+    "public-api",
+    "api-boundaries",
+    "refactoring",
+    "module-organization",
+    "runtime-contexts"
+  ],
+  "severity": "medium",
+  "userImpact": "Improves developer experience by providing clear, stable public API entry points and makes the SDK maintainable through proper module boundaries.",
+  "rootCause": null,
+  "proposedFix": "Use the exports field in package.json to define subpath exports (e.g., ./workflow) and enforce imports through these declared exports rather than direct /lib/ paths.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "No more `/lib/` imports: all cross-package imports should go through declared exports.",
+  "number": 2079,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-06-15T23:14:42.589Z"
+}

@@ -1,0 +1,31 @@
+{
+  "summary": "Speculative workflow task processing lacks shard ownership verification, causing valid workflow update requests to be incorrectly rejected when shard ownership changes during task execution. A fix requires exposing AssertShardOwnership through the ShardContext interface.",
+  "category": "bug",
+  "subcategory": "workflow-task-processing",
+  "apis": [],
+  "components": [
+    "workflow_task_state_machine",
+    "shard_context",
+    "history_service"
+  ],
+  "concepts": [
+    "shard_ownership",
+    "speculative_execution",
+    "mutable_state",
+    "ownership_verification",
+    "workflow_updates",
+    "state_staleness"
+  ],
+  "severity": "high",
+  "userImpact": "Users experience silent rejections of valid workflow update requests when shard ownership changes during task execution, with no error logged to indicate the reason.",
+  "rootCause": "ShardContext interface does not expose AssertShardOwnership method, preventing speculative workflow task processing from verifying shard ownership before completing and updating mutable state.",
+  "proposedFix": "Expose AssertShardOwnership through ShardContext interface and call it in skipWorkflowTaskCompletedEvent before task completion. May require adding context parameter and changing return type to handle errors, updating all callers.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "No shard ownership check is performed during speculative workflow task processing... causing valid workflow update requests to be incorrectly rejected with no error logged.",
+  "number": 10478,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:16:11.163Z"
+}

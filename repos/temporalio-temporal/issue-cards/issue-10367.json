@@ -1,0 +1,43 @@
+{
+  "summary": "Feature request to add a configurable workflow-status filter to Temporal's archival system, allowing operators to archive only specific workflow statuses (e.g., failed, timed out) instead of all closed workflows, reducing storage costs at scale.",
+  "category": "feature",
+  "subcategory": "archival",
+  "apis": [
+    "VisibilityArchiver",
+    "HistoryArchiver",
+    "ExecutionManager",
+    "DescribeWorkflowExecution",
+    "ListArchivedWorkflowExecutions"
+  ],
+  "components": [
+    "archiver",
+    "s3store",
+    "persistence",
+    "visibility-index",
+    "retention"
+  ],
+  "concepts": [
+    "archival-cost",
+    "workflow-status-filter",
+    "retention",
+    "storage-efficiency",
+    "namespace-configuration",
+    "s3-optimization",
+    "backwards-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "OSS users self-hosting on AWS S3 can dramatically reduce monthly archival costs (from ~$37,500 to near-zero) by filtering which workflow statuses are archived.",
+  "rootCause": "Temporal archives all closed workflows by default regardless of status, but most deployments only need failures for debugging; with 50M workflows/day and 5 storage PUTs per workflow, this results in 7.5B unnecessary PUTs/month.",
+  "proposedFix": "Add optional `statusFilter` configuration at archiver provider level that short-circuits Archive() calls for workflows not in the allowlist, with independent filters for history and visibility archival.",
+  "workaround": "Users can fork temporal-server and implement filtering in custom archiver wrapper code, or run a sidecar service that copies only failed workflows to S3.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5624,
+    6193
+  ],
+  "keyQuote": "~90% of those requests are for successful workflows that exit retention without ever being inspected.",
+  "number": 10367,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:15:48.400Z"
+}

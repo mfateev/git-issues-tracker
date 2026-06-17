@@ -1,0 +1,32 @@
+{
+  "summary": "Version history validation is missing in ReplicateEventsV2 request processing. A TODO comment in replication_task.go indicates this gap, allowing potentially malformed replication tasks to proceed without validation, which could cause incorrect state replication.",
+  "category": "bug",
+  "subcategory": "replication-validation",
+  "apis": [],
+  "components": [
+    "replication-task",
+    "ndc-replication",
+    "event-processing",
+    "validation"
+  ],
+  "concepts": [
+    "version-history",
+    "validation",
+    "replication",
+    "state-consistency",
+    "error-handling",
+    "request-validation"
+  ],
+  "severity": "high",
+  "userImpact": "Missing version history validation allows malformed replication tasks to proceed, causing incorrect state replication and harder-to-diagnose failures.",
+  "rootCause": "Version history fields lack validation in replication_task.go; TODO comment at line 418 indicates implementation was deferred",
+  "proposedFix": "Implement version history validation in replication_task.go following team-defined validation requirements",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Version history fields are not validated, potentially allowing malformed replication tasks to proceed.",
+  "number": 10519,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:32:17.530Z"
+}

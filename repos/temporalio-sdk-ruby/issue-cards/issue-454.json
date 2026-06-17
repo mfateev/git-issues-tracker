@@ -1,0 +1,35 @@
+{
+  "summary": "Bug in `execute_update_with_start_workflow` where an inverted boolean condition causes rejected workflow updates to incorrectly poll for outcomes that don't exist, raising `RPCError NOT_FOUND` instead of the expected `WorkflowUpdateFailedError` with the validator's rejection reason.",
+  "category": "bug",
+  "subcategory": "workflow-updates",
+  "apis": [
+    "execute_update_with_start_workflow",
+    "poll_workflow_update"
+  ],
+  "components": [
+    "client",
+    "workflow-update",
+    "error-handling"
+  ],
+  "concepts": [
+    "update-validation",
+    "validator-rejection",
+    "error-handling",
+    "async-polling",
+    "exception-propagation",
+    "outcome-polling",
+    "start-workflow"
+  ],
+  "severity": "high",
+  "userImpact": "Users utilizing `execute_update_with_start_workflow` with rejecting validators receive `RPCError NOT_FOUND` instead of `WorkflowUpdateFailedError`, preventing proper error handling and making validator rejection reasons inaccessible.",
+  "rootCause": "Inverted boolean condition in `execute_update_with_start_workflow`: `&& update_resp.outcome` should be `&& !update_resp.outcome`. The condition checks if outcome EXISTS when it should check if it DOESN'T exist before polling.",
+  "proposedFix": "Add negation operator to line 220 in implementation.rb: change `&& update_resp.outcome` to `&& !update_resp.outcome` to align with the comment and the correct logic already used in the regular update path.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Applied the proposed fix by adding the negation operator to the condition, aligning with the comment and the correct implementation in the non-`with_start` update path.",
+  "related": [],
+  "keyQuote": "The comment says 'if not already there,' but the condition `&& update_resp.outcome` is truthy when the outcome **IS** already present. It should be `&& !update_resp.outcome`.",
+  "number": 454,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-06-15T23:14:23.596Z"
+}

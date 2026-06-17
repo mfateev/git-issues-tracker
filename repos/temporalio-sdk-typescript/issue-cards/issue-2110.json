@@ -1,0 +1,34 @@
+{
+  "summary": "Feature request to expose non-deterministic random APIs for use in query plugins and interceptors, enabling generation of unique IDs for observability and telemetry purposes.",
+  "category": "feature",
+  "subcategory": "query-plugins",
+  "apis": [
+    "workflowInfo"
+  ],
+  "components": [
+    "query-plugins",
+    "workflow-context",
+    "randomness",
+    "observability"
+  ],
+  "concepts": [
+    "non-determinism",
+    "randomness",
+    "seeding",
+    "observability",
+    "telemetry",
+    "unique-ids"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot generate unique IDs for observability and telemetry in query plugins because named random streams are deterministically seeded from the workflow seed.",
+  "rootCause": "Named random streams are seeded from the workflow seed by design to maintain determinism, preventing non-deterministic random generation.",
+  "proposedFix": "Expose underlying non-deterministic random APIs and a named random stream seeded with nondeterministic randomness under `workflowInfo.unsafe`.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Expose underlying non-deterministic random APIs + a named random stream seeded with nondeterministic randomness under `workflowInfo.unsafe`",
+  "number": 2110,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-06-15T23:15:02.943Z"
+}

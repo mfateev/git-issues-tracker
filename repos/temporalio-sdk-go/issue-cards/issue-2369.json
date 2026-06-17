@@ -1,0 +1,34 @@
+{
+  "summary": "ClientConfigProfile in contrib/envconfig is missing an Authority field to expose ConnectionOptions.Authority (gRPC :authority pseudo-header), preventing users from setting client-authority through CLI profile-based configuration.",
+  "category": "feature",
+  "subcategory": "envconfig",
+  "apis": [
+    "ConnectionOptions",
+    "ClientConfigProfile"
+  ],
+  "components": [
+    "contrib/envconfig",
+    "client-config",
+    "gRPC-client"
+  ],
+  "concepts": [
+    "client-authority",
+    "gRPC-config",
+    "profile-based-configuration",
+    "connection-options"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot configure the gRPC :authority pseudo-header through CLI profile-based configuration, blocking this important client configuration option.",
+  "rootCause": "ClientConfigProfile does not include a field for the Authority option that exists in ConnectionOptions.",
+  "proposedFix": "Add Authority field to ClientConfigProfile to expose the gRPC :authority configuration option.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Added Authority field to ClientConfigProfile; PR merged to address the missing configuration option.",
+  "related": [
+    1013
+  ],
+  "keyQuote": "ClientConfigProfile does not expose ConnectionOptions.Authority, which sets the gRPC :authority pseudo-header",
+  "number": 2369,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-06-15T23:10:59.132Z"
+}

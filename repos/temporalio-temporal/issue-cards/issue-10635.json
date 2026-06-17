@@ -1,0 +1,32 @@
+{
+  "summary": "tdbg m list-db command fails with UUID validation error in Temporal v1.30+, preventing cluster member enumeration from database.",
+  "category": "bug",
+  "subcategory": "cluster-management",
+  "apis": [],
+  "components": [
+    "tdbg",
+    "cluster-members",
+    "admin-api",
+    "validation"
+  ],
+  "concepts": [
+    "UUID-validation",
+    "cluster-management",
+    "host-id",
+    "debugging",
+    "regression",
+    "admin-tools"
+  ],
+  "severity": "high",
+  "userImpact": "Cluster operators cannot list cluster members using tdbg tool after upgrading to v1.30, blocking cluster management operations.",
+  "rootCause": "Empty host ID parameter passed during cluster member listing triggers UUID validation error introduced in PR #8541.",
+  "proposedFix": "Fix implemented in PR #10133 to handle empty host ID parameter in cluster member listing.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Error: unable to list Cluster Members: rpc error: code = InvalidArgument desc = host ID \"\" is not a valid UUID: invalid UUID length: 0",
+  "number": 10635,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:51:46.376Z"
+}

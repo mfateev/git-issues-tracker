@@ -1,0 +1,31 @@
+{
+  "summary": "Clarify whether taskEventID tag should be removed or converted to a GetEventID() method on the Task interface in history service logging, as the value appears duplicated between the top-level wf-history-event-id field and the nested queue-task JSON dump.",
+  "category": "question",
+  "subcategory": "logging-design",
+  "apis": [],
+  "components": [
+    "history-service",
+    "logging-tags",
+    "task-interface"
+  ],
+  "concepts": [
+    "logging",
+    "observability",
+    "tagging",
+    "event-id",
+    "duplication",
+    "refactoring"
+  ],
+  "severity": "low",
+  "userImpact": "If the wf-history-event-id field is removed without understanding its usage, it could break log-based dashboards or alerts that depend on filtering this field.",
+  "rootCause": "Unclear design intent for taskEventID tagging: whether to keep as dedicated queryable field, convert to interface method, or remove since data is already available in nested Task struct.",
+  "proposedFix": "Either convert taskEventID to a GetEventID() method on the Task interface, or remove the tag entirely if confirmed unused in production observability systems.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Removing `wf-history-event-id` could affect log-based dashboards or alerts that filter on this field. Is this field actively used for observability, or safe to remove?",
+  "number": 10719,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:53:05.929Z"
+}

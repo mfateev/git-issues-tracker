@@ -1,0 +1,35 @@
+{
+  "summary": "Schedule becomes permanently deadlocked when a scheduled workflow with retry policy exhausts retries and the same Workflow ID is manually executed, causing the scheduler to block in infinite retries when attempting to refresh the previous action.",
+  "category": "bug",
+  "subcategory": "scheduler",
+  "apis": [
+    "Schedule",
+    "StartWorkflow",
+    "RetryPolicy"
+  ],
+  "components": [
+    "scheduler",
+    "worker",
+    "workflow-execution",
+    "retry-policy"
+  ],
+  "concepts": [
+    "deadlock",
+    "retry-chain",
+    "workflow-id-reuse",
+    "state-mismatch",
+    "scheduling"
+  ],
+  "severity": "critical",
+  "userImpact": "Schedules become permanently blocked and stop launching scheduled actions, requiring server restart to recover.",
+  "rootCause": "When the scheduler follows a previous execution chain by FirstExecutionRunId after detecting a newer independent chain exists, PollMutableState returns status from the terminal retry chain combined with a close event from a different run. The code expects WORKFLOW_EXECUTION_FAILED event attributes but receives WORKFLOW_EXECUTION_CONTINUED_AS_NEW event, triggering errNoAttrs with automatic retry enabled, causing infinite blocking.",
+  "proposedFix": "Ensure PollMutableState status and fetched close event refer to the same terminal execution when following FirstExecutionRunId. Make errNoAttrs non-retryable or prevent WatchWorkflow from permanently blocking Schedule processing.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "WatchWorkflow: last event did not have correct attrs",
+  "number": 10579,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:51:28.226Z"
+}

@@ -1,0 +1,38 @@
+{
+  "summary": "Python worker pod remains stuck in Terminating state after SIGTERM, with shutdown never completing and returning UNIMPLEMENTED errors on ShutdownWorker requests.",
+  "category": "bug",
+  "subcategory": "worker-shutdown",
+  "apis": [
+    "Worker.shutdown",
+    "Worker.run"
+  ],
+  "components": [
+    "worker",
+    "shutdown",
+    "signal-handling",
+    "grpc"
+  ],
+  "concepts": [
+    "graceful-shutdown",
+    "SIGTERM",
+    "deadlock",
+    "pod-termination",
+    "asyncio",
+    "error-handling",
+    "kubernetes"
+  ],
+  "severity": "high",
+  "userImpact": "Python workers in Kubernetes may hang indefinitely during shutdown, preventing pod termination and causing deployment/scaling failures.",
+  "rootCause": null,
+  "proposedFix": "Fix being developed in the core SDK (temporalio/sdk-rust#1297) to address the underlying shutdown deadlock.",
+  "workaround": null,
+  "resolution": "duplicate",
+  "resolutionDetails": "Closed in favor of temporalio/sdk-rust#1297 where the core SDK shutdown issue is being tracked and fixed.",
+  "related": [
+    1297
+  ],
+  "keyQuote": "The stuck worker exposed this metric: temporal_request_failure{operation=\"ShutdownWorker\",status_code=\"UNIMPLEMENTED\"}",
+  "number": 1557,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:12:31.814Z"
+}

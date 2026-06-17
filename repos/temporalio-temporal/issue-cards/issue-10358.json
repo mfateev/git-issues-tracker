@@ -1,0 +1,33 @@
+{
+  "summary": "Migration in Temporal 1.30.4 adds a GENERATED ALWAYS STORED column to the 35M-row executions_visibility table, causing a 57-minute exclusive lock and requiring downtime. User requests using triggers instead to enable zero-downtime upgrades.",
+  "category": "bug",
+  "subcategory": "schema-migration",
+  "apis": [],
+  "components": [
+    "schema-migration",
+    "visibility-table",
+    "postgresql",
+    "upgrade-process"
+  ],
+  "concepts": [
+    "downtime",
+    "table-locking",
+    "schema-migration",
+    "performance",
+    "upgrade",
+    "generated-columns",
+    "exclusive-locks"
+  ],
+  "severity": "high",
+  "userImpact": "Users with large visibility tables cannot upgrade to 1.30.4 without experiencing production downtime due to exclusive table locks during schema migration.",
+  "rootCause": "ALTER TABLE ... ADD COLUMN ... GENERATED ALWAYS ... STORED requires an exclusive lock and must rewrite the entire table, which takes hours on large production tables and is not suitable for zero-downtime upgrades.",
+  "proposedFix": "Use database triggers instead of GENERATED ALWAYS STORED columns for search attribute columns, allowing incremental population without table rewriting during migration.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "In addition to the length this takes, this also obtains an exclusive lock on the table, meaning we'd have to take downtime to run this.",
+  "number": 10358,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:15:21.000Z"
+}

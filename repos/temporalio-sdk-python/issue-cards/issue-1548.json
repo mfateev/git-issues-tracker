@@ -1,0 +1,34 @@
+{
+  "summary": "Sandbox integration activities throw all exceptions as retryable, even when they can never succeed. When the sandbox process is terminated externally, workflows become stuck in infinite retry loops trying to retry non-retryable errors like 'container IP not found'.",
+  "category": "bug",
+  "subcategory": "sandbox-exception-handling",
+  "apis": [
+    "ExecuteActivity"
+  ],
+  "components": [
+    "sandbox-client",
+    "activity-executor",
+    "exception-handler",
+    "openai-agents-integration"
+  ],
+  "concepts": [
+    "retryable-exceptions",
+    "activity-failure",
+    "exception-classification",
+    "external-shutdown",
+    "workflow-stall",
+    "infinite-retry"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using OpenAI sandbox integration can become stuck in infinite retry loops when the sandbox process is terminated externally, causing workflows to hang indefinitely.",
+  "rootCause": "Sandbox activity implementations pass all exceptions from the underlying library without distinguishing between retryable and non-retryable exceptions. Non-retryable errors (like lost container connectivity) are treated as retryable, causing infinite retry attempts.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Sandbox integration activities pass all exceptions from underlying library as they are. So they are all treated as retryable. This can lead to situations when workflows will get stuck",
+  "number": 1548,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:12:17.158Z"
+}

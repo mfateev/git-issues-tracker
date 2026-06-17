@@ -1,0 +1,32 @@
+{
+  "summary": "The project uses jackc/pgx v5.9.2 which lacks the require_auth configuration option, allowing PostgreSQL to accept any auth method including no-password (CWE-306). The fix is available in pgx v5.10.0.",
+  "category": "bug",
+  "subcategory": "postgres-driver",
+  "apis": [],
+  "components": [
+    "postgres",
+    "database",
+    "authentication",
+    "dependencies"
+  ],
+  "concepts": [
+    "authentication",
+    "security",
+    "supply-chain",
+    "downgrade-attack",
+    "credentials",
+    "password-protection"
+  ],
+  "severity": "high",
+  "userImpact": "PostgreSQL authentication can be bypassed if pgx v5.9.2 is not updated to v5.10.0, potentially allowing unauthorized database access.",
+  "rootCause": "pgx v5.9.2 lacks the require_auth configuration option to enforce PostgreSQL authentication methods, allowing downgrade to weaker auth or no-password auth (CWE-306).",
+  "proposedFix": "Upgrade pgx dependency from v5.9.2 to v5.10.0 using: go get -u github.com/jackc/pgx/v5@v5.10.0",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "pgx accepts ANY PostgreSQL auth method including no-password",
+  "number": 10699,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:52:30.622Z"
+}

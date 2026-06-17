@@ -1,0 +1,31 @@
+{
+  "summary": "Two TODO comments in yaml_loader.go indicate that validation warnings should be raised to error level, but changing them causes test failures because testConfig.yaml intentionally contains invalid values for testing. The issue asks whether these should be genuine errors that fail startup or remain as warnings allowing the server to continue.",
+  "category": "bug",
+  "subcategory": "config-validation",
+  "apis": [],
+  "components": [
+    "yaml_loader",
+    "dynamicconfig",
+    "config-validation"
+  ],
+  "concepts": [
+    "validation",
+    "error-handling",
+    "configuration",
+    "startup",
+    "testing",
+    "constraint-validation"
+  ],
+  "severity": "medium",
+  "userImpact": "Users may run servers with invalid dynamic configuration values that should fail fast, potentially causing unexpected behavior at runtime.",
+  "rootCause": "Code has TODO comments indicating warnings should be errors, but tests depend on the warning behavior, creating a conflict between intent and test expectations.",
+  "proposedFix": "If errors are appropriate, testConfig.yaml should be updated to use a separate test for invalid value handling.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Should these cases be genuine errors that fail startup, or are invalid dynamic config values expected to be warnings that allow the server to continue with defaults?",
+  "number": 10521,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:32:38.019Z"
+}

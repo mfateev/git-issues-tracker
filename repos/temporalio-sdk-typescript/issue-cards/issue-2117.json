@@ -1,0 +1,39 @@
+{
+  "summary": "User seeks architectural guidance on projecting Temporal workflow progress to a custom database for business-facing UI, including live progress tracking and historical audit trail beyond Temporal's retention period. They propose using workflow and activity interceptors but want validation of this pattern and understanding of what data to project versus fetch on demand.",
+  "category": "question",
+  "subcategory": "custom-db-projection",
+  "apis": [
+    "Interceptors",
+    "Visibility",
+    "Describe",
+    "List"
+  ],
+  "components": [
+    "interceptors",
+    "worker",
+    "visibility",
+    "activity-executor",
+    "workflow-lifecycle"
+  ],
+  "concepts": [
+    "progress-tracking",
+    "custom-database-projection",
+    "event-history",
+    "human-in-the-loop",
+    "retention-policy",
+    "activity-attempts",
+    "reconciliation"
+  ],
+  "severity": "low",
+  "userImpact": "Users need architectural guidance for implementing custom progress tracking in external databases while balancing Temporal's native capabilities with projection patterns.",
+  "rootCause": null,
+  "proposedFix": "Use workflow interceptors to capture lifecycle events (start/complete/fail) with run ID propagation via headers, combined with activity interceptors for per-attempt details. Implement periodic reconciliation using Describe/List APIs to handle edge cases like terminated workflows and unscheduled activities.",
+  "workaround": "The proposed two-interceptor pattern (workflow-side lifecycle + activity-side attempt details) avoids per-workflow instrumentation overhead.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "At some point it feels like I'm re-implementing Temporal's event history in my own DB. Where do experienced teams draw the line?",
+  "number": 2117,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-06-15T23:15:02.553Z"
+}

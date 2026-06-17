@@ -1,0 +1,35 @@
+{
+  "summary": "Local activities executed concurrently with `asyncio.gather` cause non-determinism during replay because they complete in wall-clock time order during execution but sequence number order during replay, producing different command sequences.",
+  "category": "bug",
+  "subcategory": "local-activity-determinism",
+  "apis": [
+    "execute_local_activity"
+  ],
+  "components": [
+    "local-activity",
+    "workflow-replay",
+    "asyncio-integration"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "concurrency",
+    "scheduling",
+    "event-ordering",
+    "nondeterminism"
+  ],
+  "severity": "high",
+  "userImpact": "Workflows using concurrent local activities fail during replay with NondeterminismError, breaking workflow execution in production.",
+  "rootCause": "Local activity completions are ordered by wall-clock time during execution but by sequence number during replay, causing different coroutine scheduling and command sequence assignments.",
+  "proposedFix": "Ensure local activity completions are ordered consistently by sequence number during both execution and replay, regardless of wall-clock timing.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1573
+  ],
+  "keyQuote": "During first execution, local activity resolve_activity jobs arrive in completion order (wall-clock timing). During replay, they arrive in sequence number order.",
+  "number": 1578,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:12:51.544Z"
+}

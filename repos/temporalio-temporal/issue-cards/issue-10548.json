@@ -1,0 +1,36 @@
+{
+  "summary": "A synchronization gap in the history service's cache release path allows concurrent writes to the workflow update registry map while it's being iterated for cache size computation, causing fatal process crashes when history.cacheSizeBasedLimit is enabled.",
+  "category": "bug",
+  "subcategory": "cache-size-limit",
+  "apis": [
+    "Update"
+  ],
+  "components": [
+    "workflow-cache",
+    "lru-cache",
+    "update-registry",
+    "workflow-context",
+    "synchronization"
+  ],
+  "concepts": [
+    "concurrency",
+    "race-condition",
+    "synchronization",
+    "cache-sizing",
+    "map-iteration",
+    "workflow-state",
+    "context-release"
+  ],
+  "severity": "critical",
+  "userImpact": "Process crashes with fatal error when history.cacheSizeBasedLimit is enabled and concurrent operations access the same workflow execution.",
+  "rootCause": "The workflow lock is released before the LRU cache release completes its size computation, creating a window where other goroutines can write to the lock-protected updates map while the release path iterates it.",
+  "proposedFix": "Recompute cache size in makeReleaseFunc while holding the workflow lock (before Unlock()), cache it atomically on the context, and have CacheSize() return the cached value.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The Unlock()-before-Release() ordering and the size-based limit are each reasonable on their own, but together they let the size computation read lock-protected state after the lock is gone.",
+  "number": 10548,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:51:20.153Z"
+}

@@ -1,0 +1,32 @@
+{
+  "summary": "Metric counters like `temporal_workflow_completed_total` don't appear in Prometheus until first incremented, causing monitoring and alerting issues. Reporter requested pre-initialization at worker startup, but maintainers closed this as expected behavior that should be handled in the metrics collection/query layer instead.",
+  "category": "bug",
+  "subcategory": "metrics",
+  "apis": [],
+  "components": [
+    "metrics",
+    "worker",
+    "prometheus"
+  ],
+  "concepts": [
+    "counter",
+    "labels",
+    "cardinality",
+    "alerting",
+    "observability",
+    "metrics",
+    "monitoring"
+  ],
+  "severity": "high",
+  "userImpact": "Users must manually handle missing metric series in their Prometheus setup for proper alerting, which is cumbersome and not obvious.",
+  "rootCause": "SDK doesn't pre-initialize metric counters, which is standard behavior in metrics systems but problematic for monitoring and alerting.",
+  "proposedFix": "Pre-initialize workflow outcome counters at worker startup (rejected as incomplete and creating Go-specific behavior).",
+  "workaround": "Handle missing series in Prometheus queries and alerting rules using zero-filling or default values.",
+  "resolution": "wontfix",
+  "resolutionDetails": "Maintainers decided not to pre-initialize counters because this is expected behavior in metrics systems. The proper solution should be in the metrics collection/query/alerting layer to handle missing series consistently across all SDKs.",
+  "related": [],
+  "keyQuote": "Handling missing series should live in the metrics collection/query/alerting layer, where expected-but-not-yet-observed series can be defaulted or zero-filled consistently.",
+  "number": 2401,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-06-15T23:11:47.941Z"
+}

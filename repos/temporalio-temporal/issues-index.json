@@ -1,7 +1,463 @@
 {
-  "generated_at": "2026-05-20T16:34:46.282Z",
-  "total_count": 1562,
+  "generated_at": "2026-06-16T16:57:25.984Z",
+  "total_count": 1592,
   "issues": [
+    {
+      "number": 10730,
+      "title": "serviceResolver: Lookup() routes to draining/stopping members during rolling restarts",
+      "state": "OPEN",
+      "author": "chalat-adam",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-16T07:22:04Z",
+      "updatedAt": "2026-06-16T12:49:55Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10730"
+    },
+    {
+      "number": 10719,
+      "title": "Clarify intent: should taskEventID be removed or converted to interface method in tasks.Tags()",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [],
+      "createdAt": "2026-06-15T19:31:02Z",
+      "updatedAt": "2026-06-15T19:31:02Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10719"
+    },
+    {
+      "number": 10718,
+      "title": "Status check: can the stale mutable state fallback logic in ndc_task_util.go be removed?",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [],
+      "createdAt": "2026-06-15T19:30:38Z",
+      "updatedAt": "2026-06-15T19:30:38Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10718"
+    },
+    {
+      "number": 10716,
+      "title": "Clarify scope of \"redact certain errors\" TODOs in history Nexus handler",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [],
+      "createdAt": "2026-06-15T19:09:53Z",
+      "updatedAt": "2026-06-15T19:09:53Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10716"
+    },
+    {
+      "number": 10699,
+      "title": "Dependency: pgx v5.9.2 missing auth downgrade protection (CWE-306, fix in v5.10.0)",
+      "state": "OPEN",
+      "author": "canolgun-commits",
+      "labels": [],
+      "createdAt": "2026-06-13T17:57:36Z",
+      "updatedAt": "2026-06-13T17:57:36Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10699"
+    },
+    {
+      "number": 10690,
+      "title": "ResetWorkflowExecution returns \"workflow not found\" when targets an older run",
+      "state": "OPEN",
+      "author": "jiechenz",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-13T00:18:20Z",
+      "updatedAt": "2026-06-15T19:40:51Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10690"
+    },
+    {
+      "number": 10676,
+      "title": "Dependency: pgx v5.9.2 vulnerable to auth downgrade (CWE-306, fix in v5.10.0)",
+      "state": "OPEN",
+      "author": "canolgun-commits",
+      "labels": [],
+      "createdAt": "2026-06-12T15:46:51Z",
+      "updatedAt": "2026-06-12T15:46:51Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10676"
+    },
+    {
+      "number": 10663,
+      "title": "Review/Improve Startup Config Template Rendering Code/Process using Sprig",
+      "state": "OPEN",
+      "author": "colinbjohnson",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-06-11T17:33:15Z",
+      "updatedAt": "2026-06-13T01:59:16Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10663"
+    },
+    {
+      "number": 10639,
+      "title": "Workflow reset does not recover child completion if child completed after original parent failed",
+      "state": "OPEN",
+      "author": "st0ke",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-10T14:30:50Z",
+      "updatedAt": "2026-06-11T21:23:10Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10639"
+    },
+    {
+      "number": 10635,
+      "title": "\"tdbg m list-db\" is broken on version >=1.30",
+      "state": "OPEN",
+      "author": "ntnj",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-10T06:12:22Z",
+      "updatedAt": "2026-06-11T22:11:16Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10635"
+    },
+    {
+      "number": 10628,
+      "title": "system.enableActivityEagerExecution should be true by default",
+      "state": "OPEN",
+      "author": "tsurdilo",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-06-09T20:07:13Z",
+      "updatedAt": "2026-06-11T21:28:32Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10628"
+    },
+    {
+      "number": 10618,
+      "title": "Request: v1.31.1 patch release with updated Go transitive dependencies (CVE fixes)",
+      "state": "CLOSED",
+      "author": "malikjb35",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-09T04:11:18Z",
+      "updatedAt": "2026-06-11T20:26:02Z",
+      "closedAt": "2026-06-11T20:26:02Z",
+      "commentCount": 1,
+      "upvotes": 1,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/temporal/issues/10618"
+    },
+    {
+      "number": 10600,
+      "title": "Add attestations to releases",
+      "state": "OPEN",
+      "author": "udf2457",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-06-08T14:46:55Z",
+      "updatedAt": "2026-06-11T22:08:21Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10600"
+    },
+    {
+      "number": 10579,
+      "title": "Schedule deadlocks after Workflow ID reuse when previous scheduled action has Workflow Retry chain",
+      "state": "OPEN",
+      "author": "tianrendong",
+      "labels": [],
+      "createdAt": "2026-06-06T18:19:39Z",
+      "updatedAt": "2026-06-11T20:28:28Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10579"
+    },
+    {
+      "number": 10548,
+      "title": "History service crash due to concurrent map access when history.cacheSizeBasedLimit is enabled",
+      "state": "OPEN",
+      "author": "baekgyu-kim",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-05T13:08:07Z",
+      "updatedAt": "2026-06-16T13:16:24Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10548"
+    },
+    {
+      "number": 10522,
+      "title": "NewDataBlob silently swallows encoding type errors instead of returning them to callers",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [],
+      "createdAt": "2026-06-04T00:42:08Z",
+      "updatedAt": "2026-06-11T22:07:09Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10522"
+    },
+    {
+      "number": 10521,
+      "title": "yaml_loader validation warnings should be raised to error level",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [],
+      "createdAt": "2026-06-04T00:34:09Z",
+      "updatedAt": "2026-06-11T22:23:59Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10521"
+    },
+    {
+      "number": 10520,
+      "title": "SyncActivity replication returns nil instead of RetryReplication error when workflow not found — retry mechanism not triggered",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [],
+      "createdAt": "2026-06-04T00:21:55Z",
+      "updatedAt": "2026-06-11T22:05:34Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10520"
+    },
+    {
+      "number": 10519,
+      "title": "Missing version history validation in ReplicateEventsV2 request  processing",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [],
+      "createdAt": "2026-06-04T00:19:56Z",
+      "updatedAt": "2026-06-11T22:05:26Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10519"
+    },
+    {
+      "number": 10514,
+      "title": "postgres12_pgx with default_query_exec_mode simple_protocol: VisibilityCloseExecution fails",
+      "state": "CLOSED",
+      "author": "tsurdilo",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-03T21:13:51Z",
+      "updatedAt": "2026-06-05T19:31:19Z",
+      "closedAt": "2026-06-05T19:31:19Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10514"
+    },
+    {
+      "number": 10490,
+      "title": "SyncState() ignores remainingAttempt — no retry limit enforced unlike Resend()",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-02T20:53:32Z",
+      "updatedAt": "2026-06-11T22:04:35Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10490"
+    },
+    {
+      "number": 10478,
+      "title": "Missing shard ownership check in speculative workflow task  processing may cause incorrect update rejections",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-06-02T02:44:11Z",
+      "updatedAt": "2026-06-12T02:04:50Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10478"
+    },
+    {
+      "number": 10442,
+      "title": "Enable use of of database replicas",
+      "state": "OPEN",
+      "author": "udf2457",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-05-31T12:53:45Z",
+      "updatedAt": "2026-06-12T14:55:32Z",
+      "closedAt": null,
+      "commentCount": 6,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10442"
+    },
+    {
+      "number": 10436,
+      "title": "DLQ replication tasks inaccessible when source/target shard counts differ",
+      "state": "OPEN",
+      "author": "NasitSony",
+      "labels": [
+        "teams/cgs"
+      ],
+      "createdAt": "2026-05-30T03:11:59Z",
+      "updatedAt": "2026-06-02T19:43:25Z",
+      "closedAt": null,
+      "commentCount": 2,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10436"
+    },
+    {
+      "number": 10410,
+      "title": "Improve user experience with config templates",
+      "state": "OPEN",
+      "author": "chaptersix",
+      "labels": [],
+      "createdAt": "2026-05-28T16:35:27Z",
+      "updatedAt": "2026-05-28T16:35:28Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10410"
+    },
+    {
+      "number": 10392,
+      "title": "Prepared statement not closed in GetFromVisibility (sql plugin)",
+      "state": "OPEN",
+      "author": "tsurdilo",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-05-27T11:26:35Z",
+      "updatedAt": "2026-05-27T12:45:09Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10392"
+    },
+    {
+      "number": 10367,
+      "title": "Archival: configurable workflow-status filter (only archive non-successful workflows)",
+      "state": "OPEN",
+      "author": "gurjarprateek",
+      "labels": [],
+      "createdAt": "2026-05-22T22:17:56Z",
+      "updatedAt": "2026-05-28T22:11:51Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10367"
+    },
+    {
+      "number": 10358,
+      "title": "Cannot upgrade to 1.30.4 without downtime",
+      "state": "OPEN",
+      "author": "smcgivern",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-05-22T15:39:51Z",
+      "updatedAt": "2026-05-29T19:18:11Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10358"
+    },
+    {
+      "number": 10354,
+      "title": "Always surface latest activity failure when a Workflow ends and an Activity is/was retrying",
+      "state": "OPEN",
+      "author": "colan-dremio",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-05-21T22:26:13Z",
+      "updatedAt": "2026-05-28T21:42:00Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 1,
+      "totalReactions": 1,
+      "url": "https://github.com/temporalio/temporal/issues/10354"
+    },
+    {
+      "number": 10345,
+      "title": "StartWorkflow Rejects Valid Link.NexusOperation Variant",
+      "state": "CLOSED",
+      "author": "VegetarianOrc",
+      "labels": [
+        "potential-bug"
+      ],
+      "createdAt": "2026-05-20T18:05:06Z",
+      "updatedAt": "2026-05-21T22:34:55Z",
+      "closedAt": "2026-05-21T22:34:55Z",
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/temporal/issues/10345"
+    },
     {
       "number": 10321,
       "title": "SQL transaction race in TransferStartChildExecution causes permanent workflow stall",
@@ -9,7 +465,7 @@
       "author": "theredspoon",
       "labels": [],
       "createdAt": "2026-05-19T01:44:56Z",
-      "updatedAt": "2026-05-19T01:56:00Z",
+      "updatedAt": "2026-05-28T22:10:36Z",
       "closedAt": null,
       "commentCount": 2,
       "upvotes": 0,
@@ -23,9 +479,9 @@
       "author": "theredspoon",
       "labels": [],
       "createdAt": "2026-05-19T01:44:10Z",
-      "updatedAt": "2026-05-19T01:55:12Z",
+      "updatedAt": "2026-05-28T22:10:01Z",
       "closedAt": null,
-      "commentCount": 2,
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/10320"
@@ -40,9 +496,9 @@
         "schedules"
       ],
       "createdAt": "2026-05-18T16:02:25Z",
-      "updatedAt": "2026-05-20T05:50:46Z",
+      "updatedAt": "2026-05-28T16:23:30Z",
       "closedAt": null,
-      "commentCount": 3,
+      "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/10312"
@@ -73,7 +529,7 @@
         "teams/cgs"
       ],
       "createdAt": "2026-05-15T17:48:45Z",
-      "updatedAt": "2026-05-15T17:48:54Z",
+      "updatedAt": "2026-05-28T23:46:10Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -83,13 +539,13 @@
     {
       "number": 10284,
       "title": "[Security] CVEs in Temporal Docker Images - 1.30.4.1",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "dan8f",
       "labels": [],
       "createdAt": "2026-05-15T16:06:19Z",
-      "updatedAt": "2026-05-15T16:06:19Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-06-15T20:33:56Z",
+      "closedAt": "2026-06-15T20:33:56Z",
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/10284"
@@ -97,13 +553,13 @@
     {
       "number": 10263,
       "title": "[Security] Multiple CVEs in Temporal Docker Image - MySQL Dependencies",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "vidhya03",
       "labels": [],
       "createdAt": "2026-05-14T09:53:15Z",
-      "updatedAt": "2026-05-14T09:53:15Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-06-15T20:33:28Z",
+      "closedAt": "2026-06-15T20:33:27Z",
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/10263"
@@ -117,7 +573,7 @@
         "enhancement"
       ],
       "createdAt": "2026-05-13T16:17:49Z",
-      "updatedAt": "2026-05-13T16:17:49Z",
+      "updatedAt": "2026-06-05T21:56:15Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -178,7 +634,7 @@
         "teams/cgs"
       ],
       "createdAt": "2026-05-11T23:30:24Z",
-      "updatedAt": "2026-05-19T17:18:44Z",
+      "updatedAt": "2026-06-02T06:58:34Z",
       "closedAt": null,
       "commentCount": 0,
       "upvotes": 0,
@@ -226,9 +682,9 @@
         "enhancement"
       ],
       "createdAt": "2026-05-04T17:17:21Z",
-      "updatedAt": "2026-05-04T17:18:00Z",
+      "updatedAt": "2026-05-21T19:40:53Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/10171"
@@ -274,11 +730,11 @@
         "potential-bug"
       ],
       "createdAt": "2026-05-01T06:31:29Z",
-      "updatedAt": "2026-05-07T13:15:09Z",
+      "updatedAt": "2026-06-02T17:31:59Z",
       "closedAt": null,
-      "commentCount": 2,
-      "upvotes": 1,
-      "totalReactions": 1,
+      "commentCount": 3,
+      "upvotes": 2,
+      "totalReactions": 2,
       "url": "https://github.com/temporalio/temporal/issues/10145"
     },
     {
@@ -331,18 +787,18 @@
     {
       "number": 10005,
       "title": "Add JWT support for s2s communication/replication",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "stuart-wells",
       "labels": [
         "enhancement",
         "teams/cgs"
       ],
       "createdAt": "2026-04-21T16:51:24Z",
-      "updatedAt": "2026-04-23T16:12:30Z",
-      "closedAt": null,
-      "commentCount": 0,
-      "upvotes": 0,
-      "totalReactions": 0,
+      "updatedAt": "2026-06-15T21:32:41Z",
+      "closedAt": "2026-06-15T18:20:00Z",
+      "commentCount": 3,
+      "upvotes": 1,
+      "totalReactions": 1,
       "url": "https://github.com/temporalio/temporal/issues/10005"
     },
     {
@@ -382,7 +838,7 @@
         "potential-bug"
       ],
       "createdAt": "2026-04-18T02:49:15Z",
-      "updatedAt": "2026-05-06T07:38:41Z",
+      "updatedAt": "2026-05-22T19:24:03Z",
       "closedAt": null,
       "commentCount": 5,
       "upvotes": 3,
@@ -456,15 +912,15 @@
     {
       "number": 9930,
       "title": "PSQL visibility database migration fails going from 1.29 to 1.30",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "othi",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2026-04-13T13:45:56Z",
-      "updatedAt": "2026-05-17T17:16:42Z",
-      "closedAt": null,
-      "commentCount": 3,
+      "updatedAt": "2026-05-21T10:07:02Z",
+      "closedAt": "2026-05-21T10:07:02Z",
+      "commentCount": 4,
       "upvotes": 1,
       "totalReactions": 1,
       "url": "https://github.com/temporalio/temporal/issues/9930"
@@ -612,12 +1068,12 @@
     {
       "number": 9761,
       "title": "Add AEO quality badge to README (score: 45/100)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "digitamaz",
       "labels": [],
       "createdAt": "2026-04-01T05:46:27Z",
-      "updatedAt": "2026-04-01T05:46:27Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-28T19:20:22Z",
+      "closedAt": "2026-05-28T19:20:22Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -649,9 +1105,9 @@
         "potential-bug"
       ],
       "createdAt": "2026-03-30T23:25:08Z",
-      "updatedAt": "2026-04-30T20:50:23Z",
+      "updatedAt": "2026-06-10T08:53:11Z",
       "closedAt": null,
-      "commentCount": 2,
+      "commentCount": 3,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/9747"
@@ -1006,15 +1462,15 @@
     {
       "number": 9244,
       "title": "Upgrade deprecated ES/AWS libraries",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "vedosis",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2026-02-06T17:01:26Z",
-      "updatedAt": "2026-05-09T13:39:17Z",
-      "closedAt": null,
-      "commentCount": 1,
+      "updatedAt": "2026-06-02T00:16:30Z",
+      "closedAt": "2026-06-02T00:16:24Z",
+      "commentCount": 5,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/9244"
@@ -1499,15 +1955,15 @@
     {
       "number": 8719,
       "title": "Stale internode gRPC connections after pod termination when using Kubernetes Deployments",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Jrmy2402",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2025-11-28T15:31:57Z",
-      "updatedAt": "2026-05-13T23:44:01Z",
-      "closedAt": null,
-      "commentCount": 8,
+      "updatedAt": "2026-06-12T18:01:11Z",
+      "closedAt": "2026-06-12T18:01:11Z",
+      "commentCount": 11,
       "upvotes": 10,
       "totalReactions": 10,
       "url": "https://github.com/temporalio/temporal/issues/8719"
@@ -2948,11 +3404,11 @@
         "enhancement"
       ],
       "createdAt": "2025-06-18T17:47:27Z",
-      "updatedAt": "2026-01-24T22:15:28Z",
+      "updatedAt": "2026-06-05T15:27:27Z",
       "closedAt": null,
-      "commentCount": 1,
-      "upvotes": 0,
-      "totalReactions": 0,
+      "commentCount": 2,
+      "upvotes": 1,
+      "totalReactions": 1,
       "url": "https://github.com/temporalio/temporal/issues/7933"
     },
     {
@@ -2964,9 +3420,9 @@
         "enhancement"
       ],
       "createdAt": "2025-06-18T00:55:01Z",
-      "updatedAt": "2025-12-22T09:38:03Z",
+      "updatedAt": "2026-06-02T00:00:03Z",
       "closedAt": null,
-      "commentCount": 14,
+      "commentCount": 15,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/7930"
@@ -3467,9 +3923,9 @@
         "enhancement"
       ],
       "createdAt": "2025-04-16T23:07:43Z",
-      "updatedAt": "2025-04-17T22:11:53Z",
+      "updatedAt": "2026-05-28T20:46:21Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 2,
       "upvotes": 1,
       "totalReactions": 1,
       "url": "https://github.com/temporalio/temporal/issues/7623"
@@ -3704,11 +4160,11 @@
         "potential-bug"
       ],
       "createdAt": "2025-03-20T23:08:35Z",
-      "updatedAt": "2025-04-03T22:58:10Z",
+      "updatedAt": "2026-06-09T22:29:42Z",
       "closedAt": null,
-      "commentCount": 1,
-      "upvotes": 0,
-      "totalReactions": 0,
+      "commentCount": 2,
+      "upvotes": 2,
+      "totalReactions": 2,
       "url": "https://github.com/temporalio/temporal/issues/7506"
     },
     {
@@ -4268,9 +4724,9 @@
         "potential-bug"
       ],
       "createdAt": "2024-12-07T01:38:10Z",
-      "updatedAt": "2024-12-07T01:38:10Z",
+      "updatedAt": "2026-06-05T22:15:19Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/6952"
@@ -4374,14 +4830,14 @@
     {
       "number": 6843,
       "title": "Add small jitter timeout to the long poll empty response ",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yiminc",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2024-11-19T21:35:24Z",
-      "updatedAt": "2026-05-02T05:48:51Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-04T18:27:22Z",
+      "closedAt": "2026-06-04T18:27:22Z",
       "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
@@ -4538,9 +4994,9 @@
         "enhancement"
       ],
       "createdAt": "2024-11-05T23:57:27Z",
-      "updatedAt": "2026-05-18T14:53:49Z",
+      "updatedAt": "2026-05-21T01:33:40Z",
       "closedAt": null,
-      "commentCount": 1,
+      "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/6760"
@@ -4825,9 +5281,9 @@
         "enhancement"
       ],
       "createdAt": "2024-10-07T21:35:04Z",
-      "updatedAt": "2024-10-07T21:35:04Z",
+      "updatedAt": "2026-06-02T12:30:08Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/6618"
@@ -5507,14 +5963,14 @@
     {
       "number": 6333,
       "title": "Do not consume rate limit token on invalid tasks",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yiminc",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2024-07-24T19:21:38Z",
-      "updatedAt": "2025-04-08T05:14:44Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-21T21:06:53Z",
+      "closedAt": "2026-05-21T21:06:53Z",
       "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
@@ -14860,16 +15316,16 @@
     {
       "number": 2668,
       "title": "Document POSTGRES_SEEDS (or better yet, use a descriptive var name)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "colelawrence",
       "labels": [
         "enhancement",
         "config"
       ],
       "createdAt": "2022-03-29T13:20:48Z",
-      "updatedAt": "2026-01-09T22:11:12Z",
-      "closedAt": null,
-      "commentCount": 12,
+      "updatedAt": "2026-05-28T16:37:41Z",
+      "closedAt": "2026-05-28T16:37:41Z",
+      "commentCount": 13,
       "upvotes": 46,
       "totalReactions": 47,
       "url": "https://github.com/temporalio/temporal/issues/2668"
@@ -15959,9 +16415,9 @@
         "enhancement"
       ],
       "createdAt": "2021-12-22T18:06:14Z",
-      "updatedAt": "2023-03-03T20:21:13Z",
+      "updatedAt": "2026-05-21T11:50:28Z",
       "closedAt": null,
-      "commentCount": 5,
+      "commentCount": 6,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/temporal/issues/2320"
@@ -25244,12 +25700,12 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 513,
-      "CLOSED": 1049
+      "OPEN": 530,
+      "CLOSED": 1062
     },
     "by_label": {
-      "enhancement": 678,
-      "potential-bug": 575,
+      "enhancement": 683,
+      "potential-bug": 587,
       "bug": 67,
       "difficulty: easy": 63,
       "up-for-grabs": 51,
@@ -25266,7 +25722,7 @@
       "Mend: dependency security vulnerability": 19,
       "discussion": 19,
       "performance": 16,
-      "teams/cgs": 14,
+      "teams/cgs": 15,
       "config": 12,
       "testing": 12,
       "packaging": 10,
@@ -25300,10 +25756,10 @@
       "cassandra": 1
     },
     "engagement": {
-      "total_upvotes": 1366,
-      "total_comments": 3140,
-      "issues_with_upvotes": 273,
-      "issues_with_comments": 1107,
+      "total_upvotes": 1373,
+      "total_comments": 3183,
+      "issues_with_upvotes": 278,
+      "issues_with_comments": 1124,
       "upvote_rate": "17%",
       "comment_rate": "71%"
     }
@@ -25337,7 +25793,7 @@
       "number": 2668,
       "title": "Document POSTGRES_SEEDS (or better yet, use a descriptive var name)",
       "upvotes": 46,
-      "comments": 12
+      "comments": 13
     },
     {
       "number": 131,
@@ -25486,6 +25942,12 @@
       "comments": 16
     },
     {
+      "number": 7930,
+      "title": "Replace \"github.com/olivere/elastic/v7\" with the official client \"github.com/elastic/go-elasticsearch\"",
+      "upvotes": 0,
+      "comments": 15
+    },
+    {
       "number": 6323,
       "title": "Frontend Service - goroutine (CPU & Memory) Leak",
       "upvotes": 0,
@@ -25513,12 +25975,6 @@
       "number": 8110,
       "title": "v1.28.0 vulnerabilities",
       "upvotes": 1,
-      "comments": 14
-    },
-    {
-      "number": 7930,
-      "title": "Replace \"github.com/olivere/elastic/v7\" with the official client \"github.com/elastic/go-elasticsearch\"",
-      "upvotes": 0,
       "comments": 14
     },
     {

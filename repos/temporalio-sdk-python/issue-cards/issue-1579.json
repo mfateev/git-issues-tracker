@@ -1,0 +1,32 @@
+{
+  "summary": "The Python SDK pins protobuf to versions below 7, preventing users from upgrading. Attempts to support protobuf 7 are blocked by grpcio-tools, which also constrains protobuf to <7 even in its latest release.",
+  "category": "feature",
+  "subcategory": "dependencies",
+  "apis": [],
+  "components": [
+    "protobuf",
+    "grpcio-tools",
+    "dependency-management",
+    "build-system"
+  ],
+  "concepts": [
+    "protobuf-compatibility",
+    "dependency-versioning",
+    "version-constraints",
+    "grpc",
+    "library-updates",
+    "dependency-conflicts"
+  ],
+  "severity": "medium",
+  "userImpact": "Users cannot upgrade to protobuf 7 due to SDK version constraints and transitive dependency conflicts with grpcio-tools.",
+  "rootCause": "Both the SDK and grpcio-tools maintain constraints pinning protobuf to <7, and grpcio-tools has not released a version supporting protobuf 7 as of the latest stable release (1.81.0).",
+  "proposedFix": "Update the SDK's protobuf constraint to allow version 7, ensure compatibility, and potentially coordinate with grpcio-tools maintainers.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "grpcio-tools also depends on protobuf and still pins it to <7, even in its latest stable release (1.81.0), which causes a dependency conflict",
+  "number": 1579,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:13:07.582Z"
+}

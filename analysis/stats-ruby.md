@@ -1,6 +1,6 @@
 # Ruby SDK - Issue Statistics
 
-**Generated:** 2026-05-20
+**Generated:** 2026-06-16
 **Repository:** [temporalio/sdk-ruby](https://github.com/temporalio/sdk-ruby)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 26 |
-| Total Closed Issues | 166 |
-| Total All Issues | 192 |
-| Bugs (open) | 3 |
-| Enhancements/Features (open) | 20 |
+| Total Open Issues | 27 |
+| Total Closed Issues | 168 |
+| Total All Issues | 195 |
+| Bugs (open) | 5 |
+| Enhancements/Features (open) | 19 |
 | Security Issues (open) | 0 |
-| Total Upvotes (👍) on open | 3 |
+| Total Upvotes (👍) on open | 4 |
 | Total Comments on open | 10 |
-| Issues with Upvotes | 2 (8%) |
-| Issues with Comments | 7 (27%) |
-| Average Age (days) | 309 |
-| Stale Issues (>12 months) | 10 (38%) |
+| Issues with Upvotes | 3 (11%) |
+| Issues with Comments | 7 (26%) |
+| Average Age (days) | 316 |
+| Stale Issues (>12 months) | 10 (37%) |
 
 ---
 ## Resolution Metrics
@@ -36,9 +36,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 86% (166/192) |
-| Avg Time to Close (calendar) | 136 days |
-| Avg Time to Close (business) | 98 days |
+| Resolution Rate | 86% (168/195) |
+| Avg Time to Close (calendar) | 135 days |
+| Avg Time to Close (business) | 97 days |
 | Median Time to Close (calendar) | 40 days |
 | Median Time to Close (business) | 29 days |
 | 90th Percentile (calendar) | 536 days |
@@ -50,21 +50,20 @@
 
 | Reason | Count | % |
 |--------|-------|---|
-| Fixed (bugs) | 17 | 10% |
-| Completed (features) | 46 | 28% |
+| Fixed (bugs) | 18 | 11% |
+| Completed (features) | 47 | 28% |
 | Self-resolved | 27 | 16% |
 | Duplicate | 0 | 0% |
 | Won't Fix | 0 | 0% |
 | Stale/Inactive | 0 | 0% |
 | Invalid | 0 | 0% |
-| Other | 76 | 46% |
+| Other | 76 | 45% |
 
 ---
 ## Issue Velocity (Last 12 Months)
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-06 | 8 | 10 | -2 |
 | 2025-07 | 6 | 8 | -2 |
 | 2025-08 | 10 | 6 | +4 |
 | 2025-09 | 3 | 9 | -6 |
@@ -76,9 +75,10 @@
 | 2026-03 | 3 | 2 | +1 |
 | 2026-04 | 5 | 4 | +1 |
 | 2026-05 | 1 | 0 | +1 |
-| **Total** | **48** | **49** | **-1** |
+| 2026-06 | 3 | 2 | +1 |
+| **Total** | **43** | **41** | **+2** |
 
-📉 **Backlog Shrinking:** 1 more issues closed than opened in the last 12 months.
+📈 **Backlog Growing:** 2 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,26 +87,26 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 15 |
+| Issues Opened | 16 |
 | Issues Closed | 13 |
-| Net Change | +2 |
-| Bugs Closed | 6 |
-| Enhancements Closed | 6 |
+| Net Change | +3 |
+| Bugs Closed | 7 |
+| Enhancements Closed | 5 |
 
 ### Time to Close (Last 6 Months)
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 63 | 45 |
-| Median | 6 | 5 |
-| 90th Percentile | 143 | 102 |
+| Average | 72 | 52 |
+| Median | 2 | 2 |
+| 90th Percentile | 184 | 133 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
 | Within 30 days | 69% |
-| Within 90 days | 85% |
+| Within 90 days | 77% |
 
 
 ---
@@ -114,11 +114,11 @@
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 1 | 4% |
-| 1-3 months | 4 | 15% |
-| 3-6 months | 1 | 4% |
-| 6-12 months | 8 | 31% |
-| 1-2 years | 12 | 46% |
+| Last 30 days | 3 | 11% |
+| 1-3 months | 2 | 7% |
+| 3-6 months | 2 | 7% |
+| 6-12 months | 8 | 30% |
+| 1-2 years | 12 | 44% |
 | 2-3 years | 0 | 0% |
 | 3+ years | 0 | 0% |
 
@@ -129,7 +129,8 @@
 | Rank | Issue | 👍 | 💬 | Title |
 |------|-------|-----|-----|-------|
 | 1 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | 2 | 1 | [Feature Request] Look into client-side trimming of failures... |
-| 2 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 1 | 0 | [Feature Request] Update build-gems GH workflow smoke test t... |
+| 2 | [#464](https://github.com/temporalio/sdk-ruby/issues/464) | 1 | 0 | [Bug] Sync primitives can lead to un-replayable workflow his... |
+| 3 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 1 | 0 | [Feature Request] Update build-gems GH workflow smoke test t... |
 
 ---
 
@@ -141,12 +142,13 @@ Priority = Upvotes × 2 + Comments
 |------|-------|-------|-----|-----|-------|
 | 1 | [#319](https://github.com/temporalio/sdk-ruby/issues/319) | 5 | 2 | 1 | [Feature Request] Look into client-side trimming o... |
 | 2 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 4 | 0 | 4 | [Bug] ScopedLogger fails attempting to compare sym... |
-| 3 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 2 | 1 | 0 | [Feature Request] Update build-gems GH workflow sm... |
-| 4 | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | 1 | 0 | 1 | Problem: Testing Temporal Workflows with Signals i... |
-| 5 | [#334](https://github.com/temporalio/sdk-ruby/issues/334) | 1 | 0 | 1 | [Feature Request] Ensure fibers and workflow insta... |
-| 6 | [#238](https://github.com/temporalio/sdk-ruby/issues/238) | 1 | 0 | 1 | [Feature Request] Serialization context for codecs... |
-| 7 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 1 | 0 | 1 | [Feature Request] Contributing Guide |
-| 8 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 1 | 0 | 1 | [Bug] Windows CI segfaulting during tests |
+| 3 | [#464](https://github.com/temporalio/sdk-ruby/issues/464) | 2 | 1 | 0 | [Bug] Sync primitives can lead to un-replayable wo... |
+| 4 | [#306](https://github.com/temporalio/sdk-ruby/issues/306) | 2 | 1 | 0 | [Feature Request] Update build-gems GH workflow sm... |
+| 5 | [#360](https://github.com/temporalio/sdk-ruby/issues/360) | 1 | 0 | 1 | Problem: Testing Temporal Workflows with Signals i... |
+| 6 | [#334](https://github.com/temporalio/sdk-ruby/issues/334) | 1 | 0 | 1 | [Feature Request] Ensure fibers and workflow insta... |
+| 7 | [#238](https://github.com/temporalio/sdk-ruby/issues/238) | 1 | 0 | 1 | [Feature Request] Serialization context for codecs... |
+| 8 | [#203](https://github.com/temporalio/sdk-ruby/issues/203) | 1 | 0 | 1 | [Feature Request] Contributing Guide |
+| 9 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 1 | 0 | 1 | [Bug] Windows CI segfaulting during tests |
 
 ---
 
@@ -168,6 +170,8 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-06-15 | [#464](https://github.com/temporalio/sdk-ruby/issues/464) | 1 | [Bug] Sync primitives can lead to un-replayable workflow his... |
+| 2026-06-15 | [#463](https://github.com/temporalio/sdk-ruby/issues/463) | 0 | [Bug] Symbol Conversion on suggestContinueAsNew event. |
 | 2026-05-19 | [#440](https://github.com/temporalio/sdk-ruby/issues/440) | 0 | [Feature Request] Implement operator commands for Standalone... |
 
 ---
@@ -176,15 +180,17 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 20 |
-| bug | 3 |
+| enhancement | 19 |
+| bug | 5 |
 
 ---
 
-## Bugs (3 open issues)
+## Bugs (5 open issues)
 
 | Issue | 👍 | 💬 | Title |
 |-------|-----|-----|-------|
+| [#464](https://github.com/temporalio/sdk-ruby/issues/464) | 1 | 0 | [Bug] Sync primitives can lead to un-replayable workflow his... |
+| [#463](https://github.com/temporalio/sdk-ruby/issues/463) | 0 | 0 | [Bug] Symbol Conversion on suggestContinueAsNew event. |
 | [#355](https://github.com/temporalio/sdk-ruby/issues/355) | 0 | 0 | [Bug] Some common uses of ActiveModel fail in workflows due ... |
 | [#315](https://github.com/temporalio/sdk-ruby/issues/315) | 0 | 4 | [Bug] ScopedLogger fails attempting to compare symbol to int... |
 | [#172](https://github.com/temporalio/sdk-ruby/issues/172) | 0 | 1 | [Bug] Windows CI segfaulting during tests |

@@ -1,0 +1,35 @@
+{
+  "summary": "Diagnostic commands (render-config, validate-dynamic-config) require workarounds in containerized environments because they don't support the embedded template and --config-file flag available in the start command.",
+  "category": "feature",
+  "subcategory": "config-management",
+  "apis": [],
+  "components": [
+    "server",
+    "config-loader",
+    "diagnostic-commands",
+    "container-support"
+  ],
+  "concepts": [
+    "configuration",
+    "templates",
+    "container",
+    "diagnostics",
+    "validation",
+    "user-experience",
+    "tooling"
+  ],
+  "severity": "medium",
+  "userImpact": "Users must manually download template files and use workarounds to inspect and validate server configurations instead of using simple built-in diagnostic commands.",
+  "rootCause": "Diagnostic commands support only legacy flag-based config loading, not the embedded template or --config-file flag that the start command supports.",
+  "proposedFix": "Add support for embedded template and --config-file flag to diagnostic commands; add a command to dump the raw template; make validate-dynamic-config resolve file paths from server config automatically.",
+  "workaround": "Download the embedded template from GitHub source and load via legacy flag: wget config_template_embedded.yaml && temporal-server --config /tmp render-config",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    10282
+  ],
+  "keyQuote": "This should be as simple as running `temporal-server render-config` with no arguments, the same way `start` works.",
+  "number": 10410,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:15:38.273Z"
+}

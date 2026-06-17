@@ -1,0 +1,36 @@
+{
+  "summary": "During Kubernetes rolling restarts, serviceResolver incorrectly selects members marked as draining or stopping for new inter-service RPC traffic, causing rollout instability and transient failures. The membership system correctly marks these hosts as unavailable, but the lookup ring still includes them, leading to dial errors and readiness check failures.",
+  "category": "bug",
+  "subcategory": "service-resolver",
+  "apis": [],
+  "components": [
+    "service-resolver",
+    "membership",
+    "ringpop",
+    "hash-ring"
+  ],
+  "concepts": [
+    "rolling-restart",
+    "draining",
+    "load-balancing",
+    "service-discovery",
+    "kubernetes",
+    "membership-management"
+  ],
+  "severity": "high",
+  "userImpact": "Kubernetes users experience rollout instability during cluster updates, where newly started pods may fail readiness checks as serviceResolver attempts to route traffic to hosts already marked as draining or stopping.",
+  "rootCause": "getReachableMembers() returns all reachable members including those with draining=true or future stopAt timestamps, and refreshLocked() builds the hash ring from this full set, allowing Lookup() to select members that membership already knows are leaving.",
+  "proposedFix": "Separate reachable members from dialable members: keep the full host set for observability and membership-change events, but build the lookup ring only from members where draining != true and stopAt is not present.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    5198,
+    5394,
+    9987
+  ],
+  "keyQuote": "serviceResolver still builds its lookup ring from the full reachable host set. As a result, members that are already draining or stopping can still be selected for new traffic during the rollout window.",
+  "number": 10730,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-16T16:58:26.737Z"
+}

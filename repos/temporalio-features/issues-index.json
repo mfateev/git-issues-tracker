@@ -1,7 +1,51 @@
 {
-  "generated_at": "2026-05-20T16:30:21.526Z",
-  "total_count": 412,
+  "generated_at": "2026-06-16T16:57:25.539Z",
+  "total_count": 415,
   "issues": [
+    {
+      "number": 845,
+      "title": "Label worker-emitted metrics with `temporal_worker_deployment_name` and `temporal_worker_build_id` if present",
+      "state": "OPEN",
+      "author": "carlydf",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-06-02T17:43:31Z",
+      "updatedAt": "2026-06-02T17:43:31Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/features/issues/845"
+    },
+    {
+      "number": 835,
+      "title": "Shutdown Worker features tests, enableCancelWorkerPollsOnShutdown",
+      "state": "OPEN",
+      "author": "yuandrew",
+      "labels": [],
+      "createdAt": "2026-05-22T17:43:42Z",
+      "updatedAt": "2026-05-22T17:43:42Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/features/issues/835"
+    },
+    {
+      "number": 834,
+      "title": "Support running features tests with specific dynamic configs with CLI",
+      "state": "OPEN",
+      "author": "yuandrew",
+      "labels": [],
+      "createdAt": "2026-05-22T17:42:03Z",
+      "updatedAt": "2026-05-22T17:42:03Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "totalReactions": 0,
+      "url": "https://github.com/temporalio/features/issues/834"
+    },
     {
       "number": 827,
       "title": "SDK should log when WFT completion takes a long time",
@@ -43,9 +87,9 @@
         "enhancement"
       ],
       "createdAt": "2026-05-05T18:47:38Z",
-      "updatedAt": "2026-05-18T02:52:19Z",
+      "updatedAt": "2026-05-27T00:33:03Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 2,
       "upvotes": 0,
       "totalReactions": 0,
       "url": "https://github.com/temporalio/features/issues/812"
@@ -59,7 +103,7 @@
         "enhancement"
       ],
       "createdAt": "2026-04-13T21:51:22Z",
-      "updatedAt": "2026-05-05T15:45:13Z",
+      "updatedAt": "2026-05-28T14:47:56Z",
       "closedAt": "2026-05-05T15:45:13Z",
       "commentCount": 0,
       "upvotes": 0,
@@ -627,14 +671,14 @@
     {
       "number": 694,
       "title": "Allow overriding of the Worker Deployment Version when invoking a Child Workflow.",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "drewhoskins-temporal",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2025-10-31T19:14:33Z",
-      "updatedAt": "2025-11-12T17:14:58Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-02T14:31:53Z",
+      "closedAt": "2026-06-02T14:31:53Z",
       "commentCount": 0,
       "upvotes": 0,
       "totalReactions": 0,
@@ -1171,7 +1215,7 @@
         "enhancement"
       ],
       "createdAt": "2025-06-16T22:03:33Z",
-      "updatedAt": "2025-09-22T18:13:52Z",
+      "updatedAt": "2026-06-11T18:41:51Z",
       "closedAt": null,
       "commentCount": 1,
       "upvotes": 0,
@@ -2695,17 +2739,17 @@
     {
       "number": 456,
       "title": "[Feature Request] Provide worker status",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2024-04-15T14:01:08Z",
-      "updatedAt": "2026-02-03T22:56:39Z",
-      "closedAt": null,
-      "commentCount": 4,
-      "upvotes": 5,
-      "totalReactions": 5,
+      "updatedAt": "2026-05-29T15:28:12Z",
+      "closedAt": "2026-05-29T15:28:12Z",
+      "commentCount": 5,
+      "upvotes": 7,
+      "totalReactions": 7,
       "url": "https://github.com/temporalio/features/issues/456"
     },
     {
@@ -6553,11 +6597,11 @@
   ],
   "stats": {
     "by_state": {
-      "OPEN": 257,
-      "CLOSED": 155
+      "OPEN": 258,
+      "CLOSED": 157
     },
     "by_label": {
-      "enhancement": 331,
+      "enhancement": 332,
       "Mend: dependency security vulnerability": 30,
       "bug": 14,
       "feature-test": 11,
@@ -6567,10 +6611,10 @@
       "duplicate": 1
     },
     "engagement": {
-      "total_upvotes": 148,
-      "total_comments": 700,
+      "total_upvotes": 150,
+      "total_comments": 703,
       "issues_with_upvotes": 44,
-      "issues_with_comments": 246,
+      "issues_with_comments": 247,
       "upvote_rate": "11%",
       "comment_rate": "60%"
     }
@@ -6607,6 +6651,12 @@
       "comments": 6
     },
     {
+      "number": 456,
+      "title": "[Feature Request] Provide worker status",
+      "upvotes": 7,
+      "comments": 5
+    },
+    {
       "number": 434,
       "title": "[Feature Request] Serialization context for codecs and converters",
       "upvotes": 7,
@@ -6617,12 +6667,6 @@
       "title": "[Feature Request] Auto heartbeating",
       "upvotes": 6,
       "comments": 2
-    },
-    {
-      "number": 456,
-      "title": "[Feature Request] Provide worker status",
-      "upvotes": 5,
-      "comments": 4
     },
     {
       "number": 426,

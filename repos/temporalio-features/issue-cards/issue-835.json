@@ -1,0 +1,31 @@
+{
+  "summary": "Add test coverage for the old worker shutdown behavior with enableCancelWorkerPollsOnShutdown=false before this server setting changes to default in the future.",
+  "category": "feature",
+  "subcategory": "worker-shutdown",
+  "apis": [],
+  "components": [
+    "worker",
+    "features-tests",
+    "server"
+  ],
+  "concepts": [
+    "shutdown",
+    "testing",
+    "backward-compatibility",
+    "server-config",
+    "polling",
+    "migration"
+  ],
+  "severity": "medium",
+  "userImpact": "Users need test coverage to ensure worker shutdown behavior remains compatible when the server setting enableCancelWorkerPollsOnShutdown defaults change.",
+  "rootCause": null,
+  "proposedFix": "Add tests covering the old worker shutdown behavior with frontend.enableCancelWorkerPollsOnShutdown=false",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We should make sure we have tests covering the old behavior, `frontend.enableCancelWorkerPollsOnShutdown=false`",
+  "number": 835,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-06-15T23:10:21.589Z"
+}

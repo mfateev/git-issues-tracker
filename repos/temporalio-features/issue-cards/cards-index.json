@@ -1,7 +1,100 @@
 {
-  "generatedAt": "2026-05-20T16:36:21.585Z",
-  "totalCards": 412,
+  "generatedAt": "2026-06-16T16:58:05.235Z",
+  "totalCards": 415,
   "cards": [
+    {
+      "summary": "SDKs should automatically label worker-emitted metrics with `temporal_worker_deployment_name` and `temporal_worker_build_id` (similar to existing `temporal_namespace` labeling) to eliminate manual setup and reduce errors.",
+      "category": "feature",
+      "subcategory": "worker-metrics",
+      "apis": [],
+      "components": [
+        "worker",
+        "metrics",
+        "observability"
+      ],
+      "concepts": [
+        "worker-versioning",
+        "metrics-labeling",
+        "deployment-identification",
+        "build-id",
+        "observability"
+      ],
+      "severity": "medium",
+      "userImpact": "Users currently must manually add deployment and build ID labels to worker metrics, leading to inconsistent labeling and difficulty managing per-version metrics.",
+      "rootCause": null,
+      "proposedFix": "Automatically label worker metrics with `temporal_worker_deployment_name` and `temporal_worker_build_id` (use `__unversioned__` for unversioned workers)",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "SDK should label worker metrics with standardized `temporal_worker_deployment_name` and `temporal_worker_build_id` labels, similar to how it automatically labels with `temporal_namespace`.",
+      "number": 845,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-06-15T23:10:30.623Z"
+    },
+    {
+      "summary": "Add test coverage for the old worker shutdown behavior with enableCancelWorkerPollsOnShutdown=false before this server setting changes to default in the future.",
+      "category": "feature",
+      "subcategory": "worker-shutdown",
+      "apis": [],
+      "components": [
+        "worker",
+        "features-tests",
+        "server"
+      ],
+      "concepts": [
+        "shutdown",
+        "testing",
+        "backward-compatibility",
+        "server-config",
+        "polling",
+        "migration"
+      ],
+      "severity": "medium",
+      "userImpact": "Users need test coverage to ensure worker shutdown behavior remains compatible when the server setting enableCancelWorkerPollsOnShutdown defaults change.",
+      "rootCause": null,
+      "proposedFix": "Add tests covering the old worker shutdown behavior with frontend.enableCancelWorkerPollsOnShutdown=false",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "We should make sure we have tests covering the old behavior, `frontend.enableCancelWorkerPollsOnShutdown=false`",
+      "number": 835,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-06-15T23:10:21.589Z"
+    },
+    {
+      "summary": "Request to improve the features test harness to make it easier to run tests with specific dynamic configurations via CLI, ensuring both old and new behavior are properly tested when features are implemented.",
+      "category": "feature",
+      "subcategory": "test-framework",
+      "apis": [],
+      "components": [
+        "features-harness",
+        "test-runner",
+        "cli",
+        "dynamic-config"
+      ],
+      "concepts": [
+        "dynamic-config",
+        "backward-compatibility",
+        "feature-testing",
+        "test-coverage",
+        "cli-tooling",
+        "version-migration"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers need streamlined CLI support to test features with dynamic configurations to ensure both old and new behavior work correctly together.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "When certain new features are implemented that require dynamic configs, we should ensure we test the old and new behavior.",
+      "number": 834,
+      "repo": "temporalio-features",
+      "generatedAt": "2026-06-15T23:10:15.254Z"
+    },
     {
       "summary": "Add logging to SDKs when workflow task completion takes a long time due to external storage operations. The worker should log metrics about payload downloads/uploads when durations exceed 5 seconds (info level) or 10 seconds (warning level).",
       "category": "feature",

@@ -1,21 +1,72 @@
 {
-  "generatedAt": "2026-05-20T17:00:14.299Z",
+  "generatedAt": "2026-06-16T17:00:11.740Z",
   "repo": "temporalio-sdk-php",
-  "totalCount": 274,
-  "cardsCount": 274,
+  "totalCount": 275,
+  "cardsCount": 275,
   "issues": [
+    {
+      "number": 752,
+      "title": "Running listWorkflowExecutions hangs",
+      "state": "OPEN",
+      "author": "chx",
+      "labels": [
+        "Bug"
+      ],
+      "createdAt": "2026-05-20T20:42:02Z",
+      "updatedAt": "2026-05-29T11:42:46Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-php/issues/752",
+      "bodyLength": 1335,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "2.49.1",
+        "1.80.0",
+        "v2.17.1"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 2,
+      "summary": "The listWorkflowExecutions method hangs when executing a query filter, while the same query works via CLI. The issue stems from missing deadline/timeout configuration on the service client.",
+      "category": "bug",
+      "subcategory": "list-operations",
+      "apis": [
+        "listWorkflowExecutions",
+        "WorkflowClient",
+        "ServiceClient"
+      ],
+      "components": [
+        "workflow-client",
+        "service-client",
+        "grpc-communication"
+      ],
+      "concepts": [
+        "timeout",
+        "deadline",
+        "hanging",
+        "query",
+        "grpc",
+        "blocking"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 746,
       "title": "[Bug] Local Activity crash with nil pointer dereference panic on RoadRunner 2025.1.13",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "frozenbrain",
       "labels": [
         "Bug"
       ],
       "createdAt": "2026-05-05T10:30:01Z",
-      "updatedAt": "2026-05-15T16:09:09Z",
-      "closedAt": null,
-      "commentCount": 3,
+      "updatedAt": "2026-05-28T07:36:41Z",
+      "closedAt": "2026-05-28T07:36:41Z",
+      "commentCount": 4,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/746",
       "bodyLength": 2691,
@@ -379,14 +430,14 @@
     {
       "number": 722,
       "title": "[Bug] ActivityInterface empty default prefix causes activity type name collision",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "koren88",
       "labels": [
         "Bug"
       ],
       "createdAt": "2026-03-05T11:10:25Z",
-      "updatedAt": "2026-03-27T15:04:43Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-29T15:28:40Z",
+      "closedAt": "2026-05-29T15:28:40Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/722",
@@ -1935,12 +1986,12 @@
     {
       "number": 605,
       "title": "[php] SDK support for activity reset ",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "drewhoskins-temporal",
       "labels": [],
       "createdAt": "2025-04-23T19:08:08Z",
-      "updatedAt": "2025-05-07T14:04:19Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-22T14:32:28Z",
+      "closedAt": "2026-05-22T14:32:28Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-php/issues/605",

@@ -1,0 +1,31 @@
+{
+  "summary": "Using postgres12_pgx driver with default_query_exec_mode: simple_protocol causes VisibilityCloseExecution to fail with a type conversion error on ExecutionDuration field.",
+  "category": "bug",
+  "subcategory": "visibility",
+  "apis": [],
+  "components": [
+    "visibility",
+    "persistence",
+    "postgresql-driver",
+    "sql-plugin"
+  ],
+  "concepts": [
+    "type-conversion",
+    "execution-duration",
+    "sql-persistence",
+    "workflow-closure",
+    "driver-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users using postgres12_pgx with simple_protocol mode cannot close workflow executions; all closure attempts fail with type conversion errors.",
+  "rootCause": "ExecutionDuration field is not properly cast to int64 when using simple_protocol query execution mode in PostgreSQL.",
+  "proposedFix": "Cast ExecutionDuration to int64 in common/persistence/sql/sqlplugin/postgresql/visibility.go at line 161",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "cast ExecutionDuration to int64",
+  "number": 10514,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:32:20.976Z"
+}
