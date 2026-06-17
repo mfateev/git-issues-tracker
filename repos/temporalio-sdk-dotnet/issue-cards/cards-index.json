@@ -1,7 +1,41 @@
 {
-  "generatedAt": "2026-05-20T16:37:30.517Z",
-  "totalCards": 307,
+  "generatedAt": "2026-06-16T16:58:05.270Z",
+  "totalCards": 308,
   "cards": [
+    {
+      "summary": "Flaky test ExecuteWorkflowAsync_HistoryInfo_IsAccurate occasionally fails with a history length mismatch, reporting only 8 events when 50+ events were sent. The test flake suggests a race condition or timing issue in workflow history tracking.",
+      "category": "bug",
+      "subcategory": "test-reliability",
+      "apis": [
+        "ExecuteWorkflowAsync"
+      ],
+      "components": [
+        "worker",
+        "history",
+        "workflow-execution",
+        "testing"
+      ],
+      "concepts": [
+        "test-flakiness",
+        "history-accuracy",
+        "event-ordering",
+        "race-condition",
+        "timing-issue",
+        "history-validation"
+      ],
+      "severity": "medium",
+      "userImpact": "Intermittent test failures block CI/CD pipelines and reduce confidence in the .NET SDK reliability.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "We sent at least 50 events but history length said it was only 8",
+      "number": 738,
+      "repo": "temporalio-sdk-dotnet",
+      "generatedAt": "2026-06-15T23:10:42.171Z"
+    },
     {
       "summary": "Feature request to implement operator commands for standalone activities in the .NET SDK, enabling operational control over activity execution.",
       "category": "feature",

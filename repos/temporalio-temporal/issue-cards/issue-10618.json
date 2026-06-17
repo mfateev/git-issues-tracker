@@ -1,0 +1,32 @@
+{
+  "summary": "User discovered HIGH and CRITICAL CVEs in transitive Go dependencies (grpc, golang.org/x/net, golang.org/x/crypto, markdown) in Temporal Server v1.31.0 via AWS Inspector vulnerability scanning and requested a patch release. Temporal team released v1.31.1 addressing all reported CVEs.",
+  "category": "bug",
+  "subcategory": "security",
+  "apis": [],
+  "components": [
+    "grpc",
+    "golang.org/x",
+    "markdown",
+    "dependencies"
+  ],
+  "concepts": [
+    "cve",
+    "vulnerability",
+    "security",
+    "dependency-management",
+    "patch-release",
+    "security-scanning"
+  ],
+  "severity": "critical",
+  "userImpact": "Users running Temporal Server v1.31.0 face exposure to HIGH and CRITICAL security vulnerabilities in transitive dependencies that could be exploited.",
+  "rootCause": "v1.31.0 was released with outdated versions of critical Go dependencies (grpc, golang.org/x/net, golang.org/x/crypto, markdown) containing known CVEs.",
+  "proposedFix": "Release patch version v1.31.1 with updated go.mod dependencies to remediate the CVEs.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Temporal team released v1.31.1 shortly after the report, updating all affected transitive dependencies to clear the identified CVEs.",
+  "related": [],
+  "keyQuote": "Thanks for flagging the CVEs. Good timing, we released v1.31.1 clearing the CVEs.",
+  "number": 10618,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:51:54.006Z"
+}

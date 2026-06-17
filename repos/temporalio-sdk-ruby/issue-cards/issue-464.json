@@ -1,0 +1,36 @@
+{
+  "summary": "Under high CPU contention, the Ruby SDK can emit un-replayable workflow history due to inconsistent command flushing, where activity starts get split into unexpected partial batches. This permanently breaks workflows and requires manual reset/termination to resolve.",
+  "category": "bug",
+  "subcategory": "workflow-replay",
+  "apis": [
+    "sleep",
+    "execute_activity"
+  ],
+  "components": [
+    "worker",
+    "history",
+    "command-flushing",
+    "replay-engine",
+    "sync-primitives"
+  ],
+  "concepts": [
+    "replay",
+    "history-consistency",
+    "determinism",
+    "command-batching",
+    "concurrency-safety",
+    "task-ordering"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows become permanently broken and unreplayable under CPU contention, requiring manual intervention to reset or terminate them.",
+  "rootCause": "Sync primitives cause inconsistent command flushing under CPU contention, splitting activity start commands into unexpected partial batches across workflow tasks. This violates determinism during replay on new workers.",
+  "proposedFix": "A proposed fix exists on a fork/branch but requires validation as it was AI-generated.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "When the SDK is operating under high cpu contention it is possible to emit un-replayable workflow history permanently breaking a workflow",
+  "number": 464,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-06-15T23:14:16.195Z"
+}

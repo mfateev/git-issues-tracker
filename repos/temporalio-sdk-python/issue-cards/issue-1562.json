@@ -1,0 +1,31 @@
+{
+  "summary": "External storage transfer stats incorrectly sum durations of concurrent driver invocations instead of measuring actual wall-clock time. For example, 3 concurrent drivers each taking 100ms are reported as 300ms instead of ~100ms.",
+  "category": "bug",
+  "subcategory": "external-storage-stats",
+  "apis": [],
+  "components": [
+    "external-storage",
+    "converter",
+    "stats"
+  ],
+  "concepts": [
+    "concurrency",
+    "statistics",
+    "timing",
+    "duration-tracking",
+    "wall-clock-time",
+    "data-transfer"
+  ],
+  "severity": "medium",
+  "userImpact": "Users receive inaccurate transfer statistics that overestimate the actual time spent on external storage operations.",
+  "rootCause": "The code sums durations of individual driver invocations instead of tracking the wall-clock duration of overlapping concurrent operations.",
+  "proposedFix": "Use edge detection to track and record durations.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "External storage transfer stats are summing the durations of each driver invocation instead of tracking overlapping intervals.",
+  "number": 1562,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:12:43.432Z"
+}

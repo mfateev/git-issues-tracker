@@ -1,198 +1,201 @@
 # Recent Issues Analysis
 
-**Generated:** 2026-05-20
-**Period:** Last 30 days (53 new issues)
+**Generated:** 2026-06-16
+**Period:** Last 30 days (87 new issues)
 **Data Source:** [stats-recent.md](stats-recent.md)
 
-**Quick Search:** Use `grep` on `analysis/cards-summary.txt` to find issues by keyword, API, component, or severity. New issues will have cards generated if the semantic pipeline has been run.
+**Quick Search:** Use `grep` on `analysis/cards-summary.txt` to find issues by keyword, API, component, or severity.
 
 ---
 
 ## Urgent Issues Requiring Attention
 
-### Critical: Security Vulnerability in Python SDK Wheels
+The last 30 days surfaced an unusually heavy concentration of critical-severity defects in the Temporal Server, plus a notable cluster of security/supply-chain reports. Several of the bugs are reproducible production-blocking failures (deadlocks, history-service crashes, replication data loss). They are grouped below by urgency.
 
-A CVE in the bundled Rust dependency `rustls-webpki` was reported (twice by the same user) affecting the Python SDK wheels published to PyPI. The vulnerability GHSA-82j2-j2ch-gfr8 / RUSTSEC-2026-0104 affects versions prior to rustls-webpki 0.103.13. Both reports have been closed — a PR fixing the dependency was already open at the time.
+### Critical: Production-Impacting Server Bugs
 
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#1485](https://github.com/temporalio/sdk-python/issues/1485) | Python | GHSA-82j2-j2ch-gfr8 in rustls-webpki bundled in temporalio 1.26.0 wheel — triggers container vulnerability scanners |
-| [#1484](https://github.com/temporalio/sdk-python/issues/1484) | Python | Duplicate report of same CVE |
-
-**Recommendation:** Confirm PR #1483 has been merged and a new Python SDK release published. Users running container vulnerability scans against images with the temporalio wheel should verify they are on a patched release.
-
-### High: Production Crashes and Worker Failures
-
-Several bugs cause outright crashes or permanent workflow failures in production environments.
+These are confirmed or strongly suspected defects that can stall workflows, crash the history service, or lose data permanently. They are the highest-priority items in the window.
 
 | Issue | SDK | Impact |
 |-------|-----|--------|
-| [#746](https://github.com/temporalio/sdk-php/issues/746) | PHP | Local Activity execution crashes the worker with a nil pointer dereference panic (`internal_event_handlers.go:1795`) on RoadRunner 2025.1.13. Affects all workflows using Local Activities on the affected RoadRunner version |
-| [#421](https://github.com/temporalio/sdk-ruby/issues/421) | Ruby | Child workflow executed via Go SDK with no return type causes `NoMethodError: undefined method 'metadata' for nil` that crashes Ruby worker tasks. Closed — workaround via custom payload converter published by reporter |
-| [#2342](https://github.com/temporalio/sdk-go/issues/2342) | Go | Proto namespace conflict panics any binary at `init()` time when both `go.temporal.io/sdk v1.43.0` and `go.temporal.io/api v1.62.12+` are imported. Blocks all dependency upgrades in affected monorepos. Closed — fix expected in next SDK release |
+| [#10548](https://github.com/temporalio/temporal/issues/10548) | server | History service crash due to concurrent map access when `history.cacheSizeBasedLimit` is enabled — race in the cache release path corrupts the workflow update registry. |
+| [#10320](https://github.com/temporalio/temporal/issues/10320) | server | After a clean install of 1.31.0, the first workflow task on every system workflow hangs until timeout, and matching service then permanently blocks retries with "task already started". |
+| [#10321](https://github.com/temporalio/temporal/issues/10321) | server | SQL transaction race in `TransferStartChildExecution` causes permanent workflow stall; child workflows never start. |
+| [#10579](https://github.com/temporalio/temporal/issues/10579) | server | Schedules permanently deadlock after Workflow ID reuse when the previous scheduled action exhausted its retry chain. |
+| [#10639](https://github.com/temporalio/temporal/issues/10639) | server | Workflow reset does not recover child completion if the child completed after the original parent failed — completion event is silently dropped. |
+| [#10436](https://github.com/temporalio/temporal/issues/10436) | server | DLQ replication tasks become permanently inaccessible (data loss) when source/target shard counts differ. |
+| [#464](https://github.com/temporalio/sdk-ruby/issues/464) | Ruby SDK | Sync primitives can lead to un-replayable workflow history under CPU contention — splits activity-start commands across tasks. |
+| [#463](https://github.com/temporalio/sdk-ruby/issues/463) | Ruby SDK | Ruby SDK crashes on `suggestContinueAsNew` event because it calls `.to_i` on a Symbol — workflows using continue-as-new can hang. |
 
-**Recommendation:** PHP SDK users on RoadRunner 2025.1.13 should pin to 2025.1.12 until the nil pointer dereference is fixed. Go SDK users on v1.43.0 must pin `go.temporal.io/api <= v1.62.11` until the vendored proto conflict is resolved in an SDK patch release.
+**Recommendation:** All of these are production-blockers for at least some users. They should be triaged this week, with [#10548](https://github.com/temporalio/temporal/issues/10548), [#10320](https://github.com/temporalio/temporal/issues/10320), and [#10321](https://github.com/temporalio/temporal/issues/10321) targeted for a 1.31.x patch release. The Ruby crashes ([#463](https://github.com/temporalio/sdk-ruby/issues/463), [#464](https://github.com/temporalio/sdk-ruby/issues/464)) should likewise prompt a patch.
 
-### High: Workflow Determinism Bug in TypeScript OpenTelemetry Interceptor
+### Critical: Security & Supply-Chain
 
-The OpenTelemetry interceptor package breaks workflow determinism, causing nondeterminism errors hours after deployment when workflows are evicted from sticky cache and must replay.
-
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#2023](https://github.com/temporalio/sdk-typescript/issues/2023) | TypeScript | `interceptors-opentelemetry` causes `workflow.uuid4()` to return different values on replay when queries or update validators were handled between record and replay. Manifests as `TMPRL1100 Nondeterminism error` after pod rolls or cache evictions |
-
-The root cause is that the OTel interceptor advances the PRNG state during query/update-validate handlers at record time but those handlers are not replayed, causing a PRNG offset mismatch.
-
-**Recommendation:** Users of `@temporalio/interceptors-opentelemetry` with workflows that use `uuid4()` after handling queries or update validators are at risk of silent PRNG divergence. Avoid generating IDs that feed into recorded commands (child workflow IDs, activity arguments) after query handlers until a fix is released.
-
-### High: Go SDK CPU and Memory Overhead from isPanicking()
-
-A profiling report documents that `isPanicking()` in the Go SDK consumes 14% of CPU and 10% of allocations under load, due to stack unwinding via `runtime.Callers()` on every coroutine yield.
+A coherent wave of CVE and dependency-hygiene reports landed in the period. Many came from external scanners reaching multiple SDKs in parallel.
 
 | Issue | SDK | Impact |
 |-------|-----|--------|
-| [#2326](https://github.com/temporalio/sdk-go/issues/2326) | Go | `isPanicking()` uses 14.3% CPU and 10.2% allocations (254 MB in 30s) in throughput_stress benchmark. Stack unwinding dominates at ~22% of total CPU time |
+| [#10618](https://github.com/temporalio/temporal/issues/10618) | server | HIGH/CRITICAL CVEs in transitive Go deps (grpc, x/net, x/crypto, markdown) in v1.31; request for patch release. (Closed but tracking.) |
+| [#10699](https://github.com/temporalio/temporal/issues/10699) | server | pgx v5.9.2 missing `require_auth` (CWE-306) — server can be coerced into accepting cleartext auth. Fix in pgx v5.10.0. |
+| [#10676](https://github.com/temporalio/temporal/issues/10676) | server | Duplicate of #10699; pgx auth-downgrade vulnerability. |
+| [#1598](https://github.com/temporalio/sdk-python/issues/1598) | Python SDK | PyO3 0.25.1 out-of-bounds read / missing Sync bound. Fix by upgrade. |
+| [#1567](https://github.com/temporalio/sdk-python/issues/1567) | Python SDK | tar crate 0.4.45 PAX header desync (GHSA-3pv8-6f4r-ffg2). |
+| [#10600](https://github.com/temporalio/temporal/issues/10600) | server | Release artefacts lack cryptographic attestations (SLSA provenance). |
+| [#1546](https://github.com/temporalio/sdk-python/issues/1546) | Python SDK | PyPI uploads not using Trusted Publishing — supply-chain risk. |
 
-**Recommendation:** This is a significant overhead that affects all Go SDK users running under load. The reporter proposes using `recover()` instead of stack inspection. This should be treated as a high-priority optimization.
+**Recommendation:** Schedule a single coordinated bump of the pgx, grpc, golang.org/x and PyO3 dependencies, then ship Server 1.31.x and Python SDK patch releases together. Add Trusted Publishing and release attestations to the roadmap; they recur in user reports.
 
-### Medium: .NET Nexus Asymmetric Payload Conversion
+### High: Replication & Multi-Cluster Correctness
 
-A correctness bug in the .NET SDK causes Nexus operations with no-argument inputs to bypass the payload codec on the serialization path while still applying it on deserialization, causing codec failures for operations called with `NoValue`.
-
-| Issue | SDK | Impact |
-|-------|-----|--------|
-| [#677](https://github.com/temporalio/sdk-dotnet/issues/677) | .NET | Nexus operation `NoValue` inputs skip the payload codec during scheduling but are decoded through it, causing failures for users with custom payload codecs |
-
-**Recommendation:** Fix the asymmetry in `WorkflowCodecHelper.cs` to ensure all Nexus inputs — including null — pass through the payload codec symmetrically.
-
-### Medium: Python 3.14 Compatibility Break
-
-Python 3.14's `asyncio.Task` constructor eagerly inspects closure cells during `set_name`, breaking any workflow that calls `execute_activity` due to a pre-existing forward reference in `_workflow_instance.py`.
+Five replication/NDC issues were filed by a single contributor (NasitSony) doing code-review-style triage. Even if not actively impacting users today, they describe missing validation and retry-limit gaps that could mask data inconsistency.
 
 | Issue | SDK | Impact |
 |-------|-----|--------|
-| [#1517](https://github.com/temporalio/sdk-python/issues/1517) | Python | `NameError: cannot access free variable 'handle'` on any activity execution with Python 3.14. Breaks all activity-based workflows on the next Python release |
+| [#10519](https://github.com/temporalio/temporal/issues/10519) | server | Missing version-history validation in `ReplicateEventsV2` request processing. |
+| [#10520](https://github.com/temporalio/temporal/issues/10520) | server | `SyncActivity` replication returns nil instead of `RetryReplication` when workflow not found — retry never triggers. |
+| [#10490](https://github.com/temporalio/temporal/issues/10490) | server | `SyncState()` ignores `remainingAttempt` — replication retries indefinitely, no limit enforced. |
+| [#10478](https://github.com/temporalio/temporal/issues/10478) | server | Speculative WFT processing lacks shard-ownership verification — can reject valid updates after shard movement. |
+| [#10436](https://github.com/temporalio/temporal/issues/10436) | server | DLQ replication tasks inaccessible across shard-count change (see Critical above). |
 
-**Recommendation:** Fix the forward reference in `_workflow_instance.py` before Python 3.14 reaches stable release. This is a known compatibility break that will affect all SDK users when they upgrade Python.
+**Recommendation:** Pair-review these with the replication area owners; even if individually low-priority, the cluster suggests a missing test-pattern around NDC validation. Consider a sweep audit.
+
+### High: Determinism & Replay Defects
+
+Four new non-determinism reports in 30 days — a pattern worth treating as a stability theme.
+
+| Issue | SDK | Impact |
+|-------|-----|--------|
+| [#1591](https://github.com/temporalio/sdk-python/issues/1591) | Python SDK | Non-deterministic history when update handler runs on cold-start replay before signal handler's activity-await coroutine. |
+| [#1578](https://github.com/temporalio/sdk-python/issues/1578) | Python SDK | Non-determinism when using `asyncio.gather` with local activities (wall-clock ordering differs from replay). |
+| [#464](https://github.com/temporalio/sdk-ruby/issues/464) | Ruby SDK | Sync primitives produce un-replayable history under CPU pressure. |
+| [#10690](https://github.com/temporalio/temporal/issues/10690) | server | `ResetWorkflowExecution` returns "workflow not found" when targeting an older run if current execution is missing. |
+
+**Recommendation:** Cross-SDK pairing of [#1591](https://github.com/temporalio/sdk-python/issues/1591) and [#1578](https://github.com/temporalio/sdk-python/issues/1578) suggests the async/local-activity scheduling model needs documented ordering guarantees. Add features-repo tests around update-on-replay and local-activity ordering.
+
+### High: Database & Storage Layer
+
+| Issue | SDK | Impact |
+|-------|-----|--------|
+| [#10358](https://github.com/temporalio/temporal/issues/10358) | server | Cannot upgrade to 1.30.4 without downtime — schema migration adds GENERATED STORED column to executions_visibility, ~57-min exclusive lock on 35M-row tables. |
+| [#10514](https://github.com/temporalio/temporal/issues/10514) | server | postgres12_pgx + `default_query_exec_mode: simple_protocol` fails `VisibilityCloseExecution` with type-conversion error. |
+| [#10392](https://github.com/temporalio/temporal/issues/10392) | server | Prepared statement leak in `GetFromVisibility` (sql plugin) — exhausts connection pool over time. |
+| [#10635](https://github.com/temporalio/temporal/issues/10635) | server | `tdbg m list-db` broken on v1.30+ with UUID validation error — operators lose visibility into cluster members. |
+
+**Recommendation:** The 1.30.4 migration ([#10358](https://github.com/temporalio/temporal/issues/10358)) is the most user-visible — it blocks upgrades for any customer at scale. Document an online-migration alternative or revert/guard the change in 1.31.x. Fix the statement leak ([#10392](https://github.com/temporalio/temporal/issues/10392)) in the same patch.
+
+### High: SDK Build/Distribution Regressions
+
+| Issue | SDK | Impact |
+|-------|-----|--------|
+| [#2098](https://github.com/temporalio/sdk-typescript/issues/2098) | TypeScript SDK | Vite SSR emits broken imports for workflow modules starting in 1.16.0 — affects any user with SSR/Next.js setup. |
+| [#2885](https://github.com/temporalio/sdk-java/issues/2885) | Java SDK | `Jackson3JsonPayloadConverter(JsonMapper)` constructor not visible to javac (only present in MR-JAR versions/17 path). |
+| [#2068](https://github.com/temporalio/sdk-typescript/issues/2068) | TypeScript SDK | Legacy Runtime's native resource tracking causes test flakes; race conditions in lifecycle. |
+| [#10345](https://github.com/temporalio/temporal/issues/10345) | server | `StartWorkflow` incorrectly rejects valid `Link.NexusOperation` variant. |
+
+**Recommendation:** Treat [#2098](https://github.com/temporalio/sdk-typescript/issues/2098) as a 1.16.x patch release item — Vite/SSR breakage is a regression introduced inside the window and likely affecting many users silently.
+
+### Medium: SDK Bug Reports Worth Tracking
+
+| Issue | SDK | Impact |
+|-------|-----|--------|
+| [#1557](https://github.com/temporalio/sdk-python/issues/1557) | Python SDK | Worker pod stuck in Terminating after SIGTERM; `ShutdownWorker` returns UNIMPLEMENTED. |
+| [#1548](https://github.com/temporalio/sdk-python/issues/1548) | Python SDK | openai-agents sandbox activities throw only retryable exceptions — infinite retry when sandbox is terminated. |
+| [#1582](https://github.com/temporalio/sdk-python/issues/1582) | Python SDK | `OutboundInterceptor.start_update_with_start_workflow` missing `rpc_metadata` — breaks interceptor symmetry. |
+| [#454](https://github.com/temporalio/sdk-ruby/issues/454) | Ruby SDK | `execute_update_with_start_workflow` raises NOT_FOUND on validator rejection (inverted boolean). |
+| [#752](https://github.com/temporalio/sdk-php/issues/752) | PHP SDK | `listWorkflowExecutions` hangs — missing deadline/timeout on the gRPC call. |
+| [#2401](https://github.com/temporalio/sdk-go/issues/2401) | Go SDK | Metric counters only appear after first increment — breaks Prometheus alerting on absence. |
+| [#2108](https://github.com/temporalio/sdk-typescript/issues/2108) | TypeScript SDK | OTel interceptor adds trace_id/span_id to custom metrics → unbounded cardinality. (Closed.) |
+| [#2379](https://github.com/temporalio/sdk-go/issues/2379) | Go SDK | Duplicate-named activities silently routed to aliased registration without warning. |
+| [#10312](https://github.com/temporalio/temporal/issues/10312) | server | Schedule with microsecond-precision offset launches only once instead of recurring. |
+
+**Recommendation:** [#1557](https://github.com/temporalio/sdk-python/issues/1557) (worker stuck on shutdown) and [#752](https://github.com/temporalio/sdk-php/issues/752) (PHP hang) both block production operations. Prioritize gRPC deadlines and shutdown handling across SDKs.
 
 ---
 
 ## Emerging Themes
 
-### 1. Cross-SDK Standalone Activities Feature
+### 1. Replication / NDC Code-Quality Sweep
 
-The largest coordinated effort this period: identical issues filed across all 8 SDKs, the features repo, and the Go TestWorkflowEnvironment to add full support for Standalone Activities — including operator commands, telemetry, and test environment support.
+A single contributor (NasitSony) opened 10 issues in the period, most against the replication and NDC subsystems (e.g. [#10490](https://github.com/temporalio/temporal/issues/10490), [#10478](https://github.com/temporalio/temporal/issues/10478), [#10520](https://github.com/temporalio/temporal/issues/10520), [#10519](https://github.com/temporalio/temporal/issues/10519), [#10436](https://github.com/temporalio/temporal/issues/10436), [#10522](https://github.com/temporalio/temporal/issues/10522), [#10521](https://github.com/temporalio/temporal/issues/10521), [#10716](https://github.com/temporalio/temporal/issues/10716), [#10718](https://github.com/temporalio/temporal/issues/10718), [#10719](https://github.com/temporalio/temporal/issues/10719)). They are mostly defensive-coding observations and TODO clarifications — useful, but they distort the "new bug" signal. Some (e.g. the SyncActivity nil-return and missing version-history validation) are real correctness gaps.
 
-- Implement operator commands for Standalone Activities ([#822](https://github.com/temporalio/features/issues/822), [#2350](https://github.com/temporalio/sdk-go/issues/2350), [#2878](https://github.com/temporalio/sdk-java/issues/2878), [#2061](https://github.com/temporalio/sdk-typescript/issues/2061), [#1543](https://github.com/temporalio/sdk-python/issues/1543), [#706](https://github.com/temporalio/sdk-dotnet/issues/706), [#440](https://github.com/temporalio/sdk-ruby/issues/440))
-- Telemetry support for Standalone Activities — TypeScript ([#2031](https://github.com/temporalio/sdk-typescript/issues/2031))
-- Add support for Standalone Activities to TestWorkflowEnvironment — Go ([#2318](https://github.com/temporalio/sdk-go/issues/2318))
+**Recommendation:** Route NasitSony's reports through a triage owner who can convert the actionable ones into tracked work items and close the "TODO/question" ones with a decision. Most of these would benefit from a single replication-correctness epic.
 
-**Recommendation:** This is a major cross-SDK initiative. Coordinate implementation timelines across all SDKs to avoid incomplete coverage creating confusion for users evaluating the feature.
+### 2. Cross-SDK Feature Initiative: External Payload Storage
 
-### 2. External Payload Storage Infrastructure
+A coordinated feature push landed: External Payload Storage Foundation, S3 driver, concurrent payload visiting, memo payload visiting, and "log slow WFT completion" each filed against multiple SDKs ([Java#2880](https://github.com/temporalio/sdk-java/issues/2880), [TS#2063](https://github.com/temporalio/sdk-typescript/issues/2063); S3: [Java#2882](https://github.com/temporalio/sdk-java/issues/2882), [TS#2065](https://github.com/temporalio/sdk-typescript/issues/2065); concurrent visiting: [Java#2881](https://github.com/temporalio/sdk-java/issues/2881), [TS#2064](https://github.com/temporalio/sdk-typescript/issues/2064); memo visitor: [Java#2884](https://github.com/temporalio/sdk-java/issues/2884); slow-WFT logging: [features#827](https://github.com/temporalio/features/issues/827), [Java#2883](https://github.com/temporalio/sdk-java/issues/2883), [TS#2066](https://github.com/temporalio/sdk-typescript/issues/2066)). Plus the Go-side proposals for [GCS driver](https://github.com/temporalio/sdk-go/issues/2364) and [PayloadCodec retry policy](https://github.com/temporalio/sdk-go/issues/2370). Two related bugs ([#2378](https://github.com/temporalio/sdk-go/issues/2378), [#1562](https://github.com/temporalio/sdk-python/issues/1562)) show the duration-stats reporting is already incorrect.
 
-A second coordinated cluster from the same author (jmaeagle99) covering the foundational infrastructure for external payload storage, filed across Java, TypeScript, and the features repo.
+**Recommendation:** This is a coherent, well-scoped initiative. Track via an epic in the features repo and ensure the existing duration-stats bugs are fixed before the broader rollout. Consider whether Ruby / PHP / .NET should be added to the matrix.
 
-- External Payload Storage Foundation ([#2880](https://github.com/temporalio/sdk-java/issues/2880), [#2063](https://github.com/temporalio/sdk-typescript/issues/2063))
-- Enable concurrent payload visiting ([#2881](https://github.com/temporalio/sdk-java/issues/2881), [#2064](https://github.com/temporalio/sdk-typescript/issues/2064))
-- Allow payload visitors to visit memo payloads in aggregate ([#2884](https://github.com/temporalio/sdk-java/issues/2884))
-- S3 External Storage Driver ([#2882](https://github.com/temporalio/sdk-java/issues/2882), [#2065](https://github.com/temporalio/sdk-typescript/issues/2065))
-- GCS external storage driver proposal — Python ([#1502](https://github.com/temporalio/sdk-python/issues/1502))
+### 3. Cross-SDK Feature Initiative: Standalone-Activity Operator Commands
 
-**Recommendation:** These are incremental extensions to the external payload storage system. The foundation and concurrent visiting issues should land first to unblock the cloud-specific drivers.
+Filed in parallel across all SDKs: [features#822](https://github.com/temporalio/features/issues/822), [Go#2350](https://github.com/temporalio/sdk-go/issues/2350), [Java#2878](https://github.com/temporalio/sdk-java/issues/2878), [Python#1543](https://github.com/temporalio/sdk-python/issues/1543), [TS#2061](https://github.com/temporalio/sdk-typescript/issues/2061), [.NET#706](https://github.com/temporalio/sdk-dotnet/issues/706), [Ruby#440](https://github.com/temporalio/sdk-ruby/issues/440). Pause/Unpause/Reset/UpdateOptions parity with regular activities.
 
-### 3. Testing Environment Quality
+**Recommendation:** Already coordinated — track delivery across all six SDKs in a single milestone.
 
-Multiple issues across PHP, Go, and Java expose gaps in test framework reliability that make writing correct tests difficult.
+### 4. Determinism Hazards in Async Code
 
-- PHP `WorkflowTestCase` silently connects to production when `TEMPORAL_ADDRESS` is set in container env ([#744](https://github.com/temporalio/sdk-php/issues/744))
-- PHP `WorkflowTestCase` time skipping starts locked, causing timer-only workflows to hang ([#743](https://github.com/temporalio/sdk-php/issues/743))
-- PHP `ActivityMocker` incompatible with time-skipping — virtual clock skips through timeout before mock response arrives ([#745](https://github.com/temporalio/sdk-php/issues/745))
-- Java `TestEnv` should propagate Memo along with Continue-As-New ([#2863](https://github.com/temporalio/sdk-java/issues/2863))
-- Java expose `ShutdownManager` poll interval to speed up `TestWorkflowEnvironment` teardown ([#2869](https://github.com/temporalio/sdk-java/issues/2869))
+[#1591](https://github.com/temporalio/sdk-python/issues/1591) (cold-start replay ordering of update vs signal handlers), [#1578](https://github.com/temporalio/sdk-python/issues/1578) (`asyncio.gather` + local activities), and [#464](https://github.com/temporalio/sdk-ruby/issues/464) (Ruby sync primitives produce un-replayable history) point at sharp edges in the async execution model. Users are encountering these in production-like setups.
 
-**Recommendation:** The PHP test framework issues are the most severe — silent connection to production is a data safety risk. The time-skipping lock default causes test hangs with no obvious error. These should be fixed as priority bugs regardless of the cosmetic "testing" classification.
+**Recommendation:** Document and warn at the SDK level. Consider runtime checks that flag suspect patterns (e.g., local activities under `gather`) and add features-repo regression tests. The Ruby case suggests a real implementation bug, not just guidance.
 
-### 4. Observability and Metrics Correctness
+### 5. Security & Supply-Chain Hygiene Pressure
 
-Two independent reports identify incorrect or missing metric values that undermine worker monitoring.
+External scanners and security-conscious users continue to file pgx, PyO3, tar, and transitive-Go CVE reports ([#10618](https://github.com/temporalio/temporal/issues/10618), [#10676](https://github.com/temporalio/temporal/issues/10676), [#10699](https://github.com/temporalio/temporal/issues/10699), [#1598](https://github.com/temporalio/sdk-python/issues/1598), [#1567](https://github.com/temporalio/sdk-python/issues/1567)), plus structural asks for [release attestations](https://github.com/temporalio/temporal/issues/10600) and [Trusted Publishing for PyPI](https://github.com/temporalio/sdk-python/issues/1546).
 
-- `temporal_worker_task_slots_used` never reaches 0 during inter-activity gaps in Python SDK ([#1489](https://github.com/temporalio/sdk-python/issues/1489))
-- SDK should log when WFT (Workflow Task) completion takes a long time — Java ([#2883](https://github.com/temporalio/sdk-java/issues/2883)), TypeScript ([#2066](https://github.com/temporalio/sdk-typescript/issues/2066)), features ([#827](https://github.com/temporalio/features/issues/827))
+**Recommendation:** Adopt a standing "dep-bump + patch release" cadence (e.g. monthly). Treat release attestations and Trusted Publishing as Q-level deliverables rather than backlog items — they will keep recurring.
 
-**Recommendation:** The incorrect `task_slots_used` metric in Python can cause autoscaling decisions based on stale data. The WFT slow-completion logging request is a cross-SDK observability gap useful for diagnosing production latency.
+### 6. Configuration Templating UX
 
-### 5. API Completeness Gaps
+[#10410](https://github.com/temporalio/temporal/issues/10410), [#10521](https://github.com/temporalio/temporal/issues/10521), and [#10663](https://github.com/temporalio/temporal/issues/10663) all touch startup-config templating: the `# enable-template` marker is fragile, diagnostic commands don't work in containers, and validation warnings are silently swallowed. Three issues on one subsystem in 30 days is signal.
 
-Several reports identify missing fields or APIs that force users into workarounds.
-
-- `ChildWorkflowOptions` missing `WorkflowIDConflictPolicy` (only `StartWorkflowOptions` has it) — Go ([#2335](https://github.com/temporalio/sdk-go/issues/2335))
-- `Schedule.Describe` does not populate `Priority` on `ScheduleWorkflowAction` — Go ([#2345](https://github.com/temporalio/sdk-go/issues/2345))
-- No way to disable the SDK's default gRPC service config — Go ([#2329](https://github.com/temporalio/sdk-go/issues/2329))
-- `ClientOutboundInterceptor.UpdateWithStartWorkflow` missing struct for inspecting `StartWorkflowOption` — Go ([#2304](https://github.com/temporalio/sdk-go/issues/2304))
-- Expose Nexus Endpoint in a Nexus Operation Handler — TypeScript ([#2040](https://github.com/temporalio/sdk-typescript/issues/2040))
-
-**Recommendation:** The missing `WorkflowIDConflictPolicy` on `ChildWorkflowOptions` is a functional gap that prevents using conflict policies in child workflows. The Schedule `Priority` population and missing interceptor struct fields are correctness issues that should be addressed in patch releases.
-
-### 6. Java Multi-Release JAR Visibility Issue
-
-A `Jackson3JsonPayloadConverter` constructor is only compiled into the `META-INF/versions/17/` multi-release JAR directory, making it invisible to `javac` even on JDK 17+.
-
-- Java SDK multi-release JAR constructor visibility ([#2885](https://github.com/temporalio/sdk-java/issues/2885))
-
-**Recommendation:** Verify the multi-release JAR build configuration for Jackson 3 classes to ensure constructors intended for JDK 17+ are accessible from user code compiled with `javac`.
+**Recommendation:** Schedule a small UX refactor of the config-loader: explicit template enablement, validation errors not warnings, container-friendly diagnostics.
 
 ---
 
 ## By Category
 
-### Bugs (21 issues)
-- **TypeScript SDK:** 3 (OTel interceptor determinism #2023, legacy runtime native resource flakes #2068, dead doc links #2018)
-- **Python SDK:** 4 (Python 3.14 closure NameError #1517, spurious shielded future warnings #1504, task slots metric never reaches 0 #1489, UpdateValidator exception serialization via Java #2875)
-- **Go SDK:** 3 (isPanicking() CPU overhead #2326, proto namespace conflict #2342, schedule Priority not populated #2345)
-- **PHP SDK:** 3 (local activity nil pointer crash #746, ActivityMocker/time-skipping incompatibility #745, WorkflowTestCase time-lock default #743)
-- **.NET SDK:** 3 (Nexus payload conversion asymmetry #677, flaky WorkerDeploymentRamp test #700, flaky interceptors test #648)
-- **Ruby SDK:** 1 (child workflow nil metadata crash #421)
-- **Java SDK:** 1 (Update Validator exception serialization #2875)
-- **Go SDK (additional):** 1 (ChildWorkflowOptions missing WorkflowIDConflictPolicy #2335)
-- **Go SDK (additional):** 1 (ClientOutboundInterceptor UpdateWithStartWorkflow missing struct #2304)
+### Bugs (~52 issues)
 
-### Feature Requests (25 issues)
-- **Cross-SDK (Standalone Activities):** 8 (operator commands across Go, Java, TypeScript, Python, .NET, Ruby, features; telemetry for TypeScript)
-- **Cross-SDK (External Storage):** 6 (foundation, concurrent visiting, memo visiting, S3 driver for Java/TypeScript, GCS driver for Python)
-- **Java SDK:** 4 (payload visitor memos #2884, WFT slow-completion logging #2883, expose ShutdownManager interval #2869, TestEnv propagate Memo with CAN #2863)
-- **TypeScript SDK:** 3 (WFT slow-completion logging #2066, protobuf-es payload converters #2045, expose Nexus endpoint #2040)
-- **Go SDK:** 2 (Standalone Activities test env #2318, no way to disable gRPC service config #2329)
-- **Python SDK:** 2 (Standalone Activities operator commands #1543, ADK ToolContext support #1470)
-- **Features repo:** 1 (WFT slow-completion logging #827, Standalone Activities #822, standard error handler interface #812)
+- **temporal (Server):** 21 — race conditions ([#10548](https://github.com/temporalio/temporal/issues/10548), [#10321](https://github.com/temporalio/temporal/issues/10321)), cold-start hang ([#10320](https://github.com/temporalio/temporal/issues/10320)), reset/recovery defects ([#10639](https://github.com/temporalio/temporal/issues/10639), [#10690](https://github.com/temporalio/temporal/issues/10690)), replication gaps (5 issues), DB/visibility plugin (3 issues), schedule defects ([#10579](https://github.com/temporalio/temporal/issues/10579), [#10312](https://github.com/temporalio/temporal/issues/10312)), CVE/security (3 issues), Nexus link rejection ([#10345](https://github.com/temporalio/temporal/issues/10345)), service-resolver during rolling restart ([#10730](https://github.com/temporalio/temporal/issues/10730)).
+- **sdk-python:** 10 — determinism (2), security (2), worker shutdown ([#1557](https://github.com/temporalio/sdk-python/issues/1557)), openai-agents (2), interceptor contract ([#1582](https://github.com/temporalio/sdk-python/issues/1582)), spurious cancellation logs ([#1600](https://github.com/temporalio/sdk-python/issues/1600)), external-storage stats ([#1562](https://github.com/temporalio/sdk-python/issues/1562)).
+- **sdk-go:** 4 — metrics-on-init ([#2401](https://github.com/temporalio/sdk-go/issues/2401)), duplicate activity aliasing ([#2379](https://github.com/temporalio/sdk-go/issues/2379)), external-storage stats ([#2378](https://github.com/temporalio/sdk-go/issues/2378)), schedule priority ([#2345](https://github.com/temporalio/sdk-go/issues/2345)).
+- **sdk-typescript:** 3 — Vite SSR breakage ([#2098](https://github.com/temporalio/sdk-typescript/issues/2098)), OTel cardinality ([#2108](https://github.com/temporalio/sdk-typescript/issues/2108)), runtime flakes ([#2068](https://github.com/temporalio/sdk-typescript/issues/2068)).
+- **sdk-ruby:** 3 — un-replayable history ([#464](https://github.com/temporalio/sdk-ruby/issues/464)), Symbol crash ([#463](https://github.com/temporalio/sdk-ruby/issues/463)), update-with-start NOT_FOUND ([#454](https://github.com/temporalio/sdk-ruby/issues/454)).
+- **sdk-java:** 1 — MR-JAR Jackson3 constructor visibility ([#2885](https://github.com/temporalio/sdk-java/issues/2885)).
+- **sdk-dotnet:** 1 — flaky history-info test ([#738](https://github.com/temporalio/sdk-dotnet/issues/738)).
+- **sdk-php:** 1 — listWorkflowExecutions hang ([#752](https://github.com/temporalio/sdk-php/issues/752)).
 
-### Security (2 issues)
-- **Python SDK:** 2 (rustls-webpki CVE in wheel #1485, #1484 — both closed with PR already in flight)
+### Feature Requests (~26 issues)
 
-### Docs/Infra (5 issues)
-- **Python SDK:** 2 (Use Trusted Publishing for PyPI #1546, synchronous activities recommendation #1468)
-- **PHP SDK:** 1 (WorkflowTestCase silently connects to prod #744)
-- **Go SDK:** 1 (Update CONTRIBUTING.md #2305)
-- **Java SDK:** 1 (multi-release JAR constructor visibility #2885)
+- **temporal (Server):** 7 — config-templating UX ([#10410](https://github.com/temporalio/temporal/issues/10410), [#10663](https://github.com/temporalio/temporal/issues/10663)), eager activity execution default ([#10628](https://github.com/temporalio/temporal/issues/10628)), DB replicas ([#10442](https://github.com/temporalio/temporal/issues/10442)), history compression ([#10307](https://github.com/temporalio/temporal/issues/10307)), archival status filter ([#10367](https://github.com/temporalio/temporal/issues/10367)), latest activity-failure surfacing ([#10354](https://github.com/temporalio/temporal/issues/10354)), release attestations ([#10600](https://github.com/temporalio/temporal/issues/10600)).
+- **External payload-storage epic:** 7 — [Java#2880](https://github.com/temporalio/sdk-java/issues/2880), [Java#2882](https://github.com/temporalio/sdk-java/issues/2882), [Java#2881](https://github.com/temporalio/sdk-java/issues/2881), [Java#2884](https://github.com/temporalio/sdk-java/issues/2884), [TS#2063](https://github.com/temporalio/sdk-typescript/issues/2063), [TS#2065](https://github.com/temporalio/sdk-typescript/issues/2065), [TS#2064](https://github.com/temporalio/sdk-typescript/issues/2064), [Go#2364](https://github.com/temporalio/sdk-go/issues/2364).
+- **Standalone-activity operator commands:** 7 (one per SDK + features#822).
+- **Slow-WFT logging epic:** 3 — [features#827](https://github.com/temporalio/features/issues/827), [Java#2883](https://github.com/temporalio/sdk-java/issues/2883), [TS#2066](https://github.com/temporalio/sdk-typescript/issues/2066).
+- **SDK individual asks:** Python protobuf 7 ([#1579](https://github.com/temporalio/sdk-python/issues/1579)), Python Windows ARM64 wheels ([#1592](https://github.com/temporalio/sdk-python/issues/1592)), Python Trusted Publishing ([#1546](https://github.com/temporalio/sdk-python/issues/1546)), Go PayloadCodec retry ([#2370](https://github.com/temporalio/sdk-go/issues/2370)), Go envconfig Authority field ([#2369](https://github.com/temporalio/sdk-go/issues/2369)), TS package.json exports ([#2079](https://github.com/temporalio/sdk-typescript/issues/2079)), TS random API in query plugins ([#2110](https://github.com/temporalio/sdk-typescript/issues/2110)), features worker-deployment metric labels ([#845](https://github.com/temporalio/features/issues/845)).
+
+### Questions / Internal / Testing (~9 issues)
+
+- **TypeScript user-guidance:** projecting workflow progress to custom DB ([#2117](https://github.com/temporalio/sdk-typescript/issues/2117)).
+- **Server code-clarification (NasitSony):** [#10716](https://github.com/temporalio/temporal/issues/10716), [#10718](https://github.com/temporalio/temporal/issues/10718), [#10719](https://github.com/temporalio/temporal/issues/10719).
+- **Server defensive-coding TODOs:** [#10521](https://github.com/temporalio/temporal/issues/10521), [#10522](https://github.com/temporalio/temporal/issues/10522).
+- **Features test infrastructure:** [#834](https://github.com/temporalio/features/issues/834), [#835](https://github.com/temporalio/features/issues/835).
 
 ---
 
 ## Recommendations
 
-1. **Immediate:** Confirm Python SDK PR #1483 (rustls-webpki CVE fix) is merged and a patched release is published. Notify users relying on wheel security scanning.
+1. **Immediate (security & CVEs):** Bundle pgx >= v5.10.0, grpc / x/net / x/crypto updates, PyO3 and tar-crate bumps into Server 1.31.x and Python SDK patch releases. Resolve [#10699](https://github.com/temporalio/temporal/issues/10699), [#10676](https://github.com/temporalio/temporal/issues/10676), [#10618](https://github.com/temporalio/temporal/issues/10618), [#1598](https://github.com/temporalio/sdk-python/issues/1598), [#1567](https://github.com/temporalio/sdk-python/issues/1567) together.
 
-2. **High Priority:** Fix the PHP SDK local activity nil pointer dereference crash ([#746](https://github.com/temporalio/sdk-php/issues/746)) — all workflows using Local Activities on RoadRunner 2025.1.13 are affected. Publish a patch or workaround advisory.
+2. **High Priority (production-blocking bugs):** Fix the history-service crash ([#10548](https://github.com/temporalio/temporal/issues/10548)), 1.31.0 cold-start hang ([#10320](https://github.com/temporalio/temporal/issues/10320)), child-execution SQL race ([#10321](https://github.com/temporalio/temporal/issues/10321)), schedule deadlock on retry-chain reuse ([#10579](https://github.com/temporalio/temporal/issues/10579)), reset-loses-child-completion ([#10639](https://github.com/temporalio/temporal/issues/10639)), and DLQ data loss ([#10436](https://github.com/temporalio/temporal/issues/10436)). Each is a strong candidate for a 1.31.x patch.
 
-3. **High Priority:** Fix the Go SDK `isPanicking()` CPU regression ([#2326](https://github.com/temporalio/sdk-go/issues/2326)). A 14% CPU and 10% allocation overhead on every coroutine yield is not acceptable in production throughput scenarios. Use `recover()` instead of stack inspection.
+3. **High Priority (upgrade-blocker):** Document an online-migration path for 1.30.4's `executions_visibility` STORED-column migration ([#10358](https://github.com/temporalio/temporal/issues/10358)). Customers with multi-million-row tables cannot adopt 1.30.x without it.
 
-4. **High Priority:** Fix the TypeScript OpenTelemetry interceptor PRNG divergence bug ([#2023](https://github.com/temporalio/sdk-typescript/issues/2023)). This causes silent nondeterminism errors hours after deployment for any workflow using `uuid4()` with OTel installed, manifesting only after cache eviction.
+4. **High Priority (SDK regressions):** Ship a TypeScript 1.16.x patch for the Vite SSR breakage ([#2098](https://github.com/temporalio/sdk-typescript/issues/2098)) and a Ruby patch for the Symbol crash ([#463](https://github.com/temporalio/sdk-ruby/issues/463)) and sync-primitives history bug ([#464](https://github.com/temporalio/sdk-ruby/issues/464)).
 
-5. **High Priority:** Address Python 3.14 compatibility break ([#1517](https://github.com/temporalio/sdk-python/issues/1517)) before Python 3.14 reaches stable release. The fix is a one-line reorder of variable binding in `_workflow_instance.py`.
+5. **Medium Priority (operational):** Worker-shutdown reliability ([#1557](https://github.com/temporalio/sdk-python/issues/1557)), PHP gRPC hang ([#752](https://github.com/temporalio/sdk-php/issues/752)), Go metric-on-init counter behavior ([#2401](https://github.com/temporalio/sdk-go/issues/2401)), SQL prepared-statement leak ([#10392](https://github.com/temporalio/temporal/issues/10392)), tdbg regression ([#10635](https://github.com/temporalio/temporal/issues/10635)).
 
-6. **Medium Priority:** Fix the PHP `WorkflowTestCase` silent production connection risk ([#744](https://github.com/temporalio/sdk-php/issues/744)) and time-skipping lock default ([#743](https://github.com/temporalio/sdk-php/issues/743)). The production connection issue is a data safety risk for users running tests in CI environments with Temporal service variables set.
+6. **Medium Priority (epics):** Coordinate the External Payload Storage and Standalone Activity Operator Commands cross-SDK initiatives via the features repo. Fix the pre-existing duration-stats bugs ([#2378](https://github.com/temporalio/sdk-go/issues/2378), [#1562](https://github.com/temporalio/sdk-python/issues/1562)) before the external-storage rollout.
 
-7. **Track:** The Standalone Activities feature is undergoing active cross-SDK expansion (operator commands, telemetry, test environment support across 8 SDKs). Monitor implementation progress for consistency across SDKs.
+7. **Track (patterns):** Treat replication/NDC defensive-coding reports as one epic; treat async/replay-determinism reports as one epic; treat config-templating UX as a small follow-up refactor. The first two will keep generating tickets if not addressed structurally.
 
----
-
-*See [stats-recent.md](stats-recent.md) for the complete issue list.*
+8. **Process:** Adopt monthly dependency-bump + patch-release cadence; prioritise release attestations ([#10600](https://github.com/temporalio/temporal/issues/10600)) and PyPI Trusted Publishing ([#1546](https://github.com/temporalio/sdk-python/issues/1546)) on the security roadmap.

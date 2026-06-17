@@ -1,0 +1,32 @@
+{
+  "summary": "A prepared statement in the PostgreSQL visibility plugin's GetFromVisibility function is not properly closed, causing a resource leak on every GetWorkflowExecution call.",
+  "category": "bug",
+  "subcategory": "sql-persistence",
+  "apis": [
+    "GetWorkflowExecution"
+  ],
+  "components": [
+    "sql-plugin",
+    "visibility",
+    "postgresql"
+  ],
+  "concepts": [
+    "resource-leak",
+    "prepared-statement",
+    "database-connection",
+    "statement-lifecycle",
+    "connection-pool"
+  ],
+  "severity": "high",
+  "userImpact": "Memory leaks and potential database connection exhaustion accumulate with each visibility query, degrading system stability.",
+  "rootCause": "Prepared statement created in GetFromVisibility is not explicitly closed after query execution.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Created prepared statement is not closed. So every call to GetWorkflowExecution on vis path will leak prepared statement.",
+  "number": 10392,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:15:35.135Z"
+}

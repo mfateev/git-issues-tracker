@@ -1,9 +1,55 @@
 {
-  "generatedAt": "2026-05-20T17:00:13.670Z",
+  "generatedAt": "2026-06-16T17:00:11.596Z",
   "repo": "temporalio-sdk-dotnet",
-  "totalCount": 307,
-  "cardsCount": 307,
+  "totalCount": 308,
+  "cardsCount": 308,
   "issues": [
+    {
+      "number": 738,
+      "title": "[Bug] Investigate `ExecuteWorkflowAsync_HistoryInfo_IsAccurate` flake",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-06-09T00:39:43Z",
+      "updatedAt": "2026-06-09T00:39:43Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-dotnet/issues/738",
+      "bodyLength": 2253,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "Flaky test ExecuteWorkflowAsync_HistoryInfo_IsAccurate occasionally fails with a history length mismatch, reporting only 8 events when 50+ events were sent. The test flake suggests a race condition or timing issue in workflow history tracking.",
+      "category": "bug",
+      "subcategory": "test-reliability",
+      "apis": [
+        "ExecuteWorkflowAsync"
+      ],
+      "components": [
+        "worker",
+        "history",
+        "workflow-execution",
+        "testing"
+      ],
+      "concepts": [
+        "test-flakiness",
+        "history-accuracy",
+        "event-ordering",
+        "race-condition",
+        "timing-issue",
+        "history-validation"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 706,
       "title": "[Feature Request] Implement operator commands for Standalone Activities",
@@ -94,14 +140,14 @@
     {
       "number": 677,
       "title": "[Bug] Asymmetric Payload Conversion of Nexus Operation Inputs From Workflow",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "robcao",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-05-06T23:15:08Z",
-      "updatedAt": "2026-05-20T13:40:45Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-20T21:25:35Z",
+      "closedAt": "2026-05-20T21:25:35Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/677",
@@ -237,14 +283,14 @@
     {
       "number": 640,
       "title": "[Bug] Standalone Activities - OTel tracing interceptor doesn't intercept standalone activities client calls",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "maciejdudko",
       "labels": [
         "bug"
       ],
       "createdAt": "2026-04-09T15:43:45Z",
-      "updatedAt": "2026-04-09T15:43:45Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-02T15:32:40Z",
+      "closedAt": "2026-06-02T15:32:40Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/640",
@@ -1627,14 +1673,14 @@
     {
       "number": 549,
       "title": "[Bug] Investigate `ExecuteWorkflowAsync_PollingBehavior_Autoscaling` flake",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-10-24T19:52:42Z",
-      "updatedAt": "2025-10-24T19:54:09Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-09T02:21:01Z",
+      "closedAt": "2026-06-09T02:21:01Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-dotnet/issues/549",

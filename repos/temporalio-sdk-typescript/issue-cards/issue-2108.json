@@ -1,0 +1,31 @@
+{
+  "summary": "The OpenTelemetry interceptor plugin automatically adds trace_id and span_id to custom metrics, causing unbounded cardinality issues. This was fixed in version 1.18.1.",
+  "category": "bug",
+  "subcategory": "otel-interceptor",
+  "apis": [],
+  "components": [
+    "otel-interceptor",
+    "metrics",
+    "tracing"
+  ],
+  "concepts": [
+    "cardinality",
+    "opentelemetry",
+    "metrics",
+    "trace_id",
+    "span_id",
+    "interceptor"
+  ],
+  "severity": "high",
+  "userImpact": "Users reporting custom metrics with OpenTelemetry tracing enabled experience unbounded metric cardinality, potentially causing performance degradation and excessive storage consumption.",
+  "rootCause": "The OpenTelemetry interceptor was automatically appending trace_id and span_id attributes to custom metrics, creating unbounded cardinality since these are unique per trace.",
+  "proposedFix": "Remove or prevent automatic addition of trace_id/span_id to custom metrics in the OpenTelemetry interceptor.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "Fixed in version 1.18.1 and published to NPM.",
+  "related": [],
+  "keyQuote": "trace_id/span_id are added to custom metrics which leads to unbounded cardinality",
+  "number": 2108,
+  "repo": "temporalio-sdk-typescript",
+  "generatedAt": "2026-06-15T23:14:35.743Z"
+}

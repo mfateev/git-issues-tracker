@@ -1,7 +1,197 @@
 {
-  "generatedAt": "2026-05-20T16:52:18.756Z",
-  "totalCards": 840,
+  "generatedAt": "2026-06-16T16:58:05.638Z",
+  "totalCards": 845,
   "cards": [
+    {
+      "summary": "User seeks architectural guidance on projecting Temporal workflow progress to a custom database for business-facing UI, including live progress tracking and historical audit trail beyond Temporal's retention period. They propose using workflow and activity interceptors but want validation of this pattern and understanding of what data to project versus fetch on demand.",
+      "category": "question",
+      "subcategory": "custom-db-projection",
+      "apis": [
+        "Interceptors",
+        "Visibility",
+        "Describe",
+        "List"
+      ],
+      "components": [
+        "interceptors",
+        "worker",
+        "visibility",
+        "activity-executor",
+        "workflow-lifecycle"
+      ],
+      "concepts": [
+        "progress-tracking",
+        "custom-database-projection",
+        "event-history",
+        "human-in-the-loop",
+        "retention-policy",
+        "activity-attempts",
+        "reconciliation"
+      ],
+      "severity": "low",
+      "userImpact": "Users need architectural guidance for implementing custom progress tracking in external databases while balancing Temporal's native capabilities with projection patterns.",
+      "rootCause": null,
+      "proposedFix": "Use workflow interceptors to capture lifecycle events (start/complete/fail) with run ID propagation via headers, combined with activity interceptors for per-attempt details. Implement periodic reconciliation using Describe/List APIs to handle edge cases like terminated workflows and unscheduled activities.",
+      "workaround": "The proposed two-interceptor pattern (workflow-side lifecycle + activity-side attempt details) avoids per-workflow instrumentation overhead.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "At some point it feels like I'm re-implementing Temporal's event history in my own DB. Where do experienced teams draw the line?",
+      "number": 2117,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-06-15T23:15:02.553Z"
+    },
+    {
+      "summary": "Feature request to expose non-deterministic random APIs for use in query plugins and interceptors, enabling generation of unique IDs for observability and telemetry purposes.",
+      "category": "feature",
+      "subcategory": "query-plugins",
+      "apis": [
+        "workflowInfo"
+      ],
+      "components": [
+        "query-plugins",
+        "workflow-context",
+        "randomness",
+        "observability"
+      ],
+      "concepts": [
+        "non-determinism",
+        "randomness",
+        "seeding",
+        "observability",
+        "telemetry",
+        "unique-ids"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot generate unique IDs for observability and telemetry in query plugins because named random streams are deterministically seeded from the workflow seed.",
+      "rootCause": "Named random streams are seeded from the workflow seed by design to maintain determinism, preventing non-deterministic random generation.",
+      "proposedFix": "Expose underlying non-deterministic random APIs and a named random stream seeded with nondeterministic randomness under `workflowInfo.unsafe`.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Expose underlying non-deterministic random APIs + a named random stream seeded with nondeterministic randomness under `workflowInfo.unsafe`",
+      "number": 2110,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-06-15T23:15:02.943Z"
+    },
+    {
+      "summary": "The OpenTelemetry interceptor plugin automatically adds trace_id and span_id to custom metrics, causing unbounded cardinality issues. This was fixed in version 1.18.1.",
+      "category": "bug",
+      "subcategory": "otel-interceptor",
+      "apis": [],
+      "components": [
+        "otel-interceptor",
+        "metrics",
+        "tracing"
+      ],
+      "concepts": [
+        "cardinality",
+        "opentelemetry",
+        "metrics",
+        "trace_id",
+        "span_id",
+        "interceptor"
+      ],
+      "severity": "high",
+      "userImpact": "Users reporting custom metrics with OpenTelemetry tracing enabled experience unbounded metric cardinality, potentially causing performance degradation and excessive storage consumption.",
+      "rootCause": "The OpenTelemetry interceptor was automatically appending trace_id and span_id attributes to custom metrics, creating unbounded cardinality since these are unique per trace.",
+      "proposedFix": "Remove or prevent automatic addition of trace_id/span_id to custom metrics in the OpenTelemetry interceptor.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Fixed in version 1.18.1 and published to NPM.",
+      "related": [],
+      "keyQuote": "trace_id/span_id are added to custom metrics which leads to unbounded cardinality",
+      "number": 2108,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-06-15T23:14:35.743Z"
+    },
+    {
+      "summary": "Since v1.16.0, Vite SSR builds produce broken bundles when importing workflow modules, emitting bare deep imports without `.js` extensions and absolute filesystem paths that won't resolve at runtime.",
+      "category": "bug",
+      "subcategory": "vite-ssr-bundling",
+      "apis": [
+        "defineSignal",
+        "proxyActivities",
+        "setHandler",
+        "condition",
+        "startChild",
+        "ParentClosePolicy",
+        "defineQuery",
+        "executeChild",
+        "workflowInfo",
+        "continueAsNew",
+        "sleep",
+        "isCancellation",
+        "CancellationScope"
+      ],
+      "components": [
+        "package-exports",
+        "module-resolution",
+        "build-system",
+        "ssr-integration"
+      ],
+      "concepts": [
+        "bundling",
+        "tree-shaking",
+        "module-resolution",
+        "ssr",
+        "vite",
+        "externals",
+        "re-exports"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot build and deploy Vite SSR applications that import workflow modules, causing production failures with unresolved module errors.",
+      "rootCause": "Package re-export structure changes in 1.16.0 (Nexus API restructuring) cause Rollup/Vite to see through externalized packages and emit deep-path imports to CJS files instead of treating the package as opaque.",
+      "proposedFix": "Define cross-package entry points using package.json exports field (#2079) to prevent bare deep imports without proper resolution paths.",
+      "workaround": "Refactor host code to use string workflow names and type-only imports for typing, avoiding direct workflow module imports in the SSR bundle.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1280,
+        1615,
+        1979,
+        1993,
+        1998,
+        2079
+      ],
+      "keyQuote": "emit direct deep-path imports to the underlying CJS files instead of treating the package as opaque",
+      "number": 2098,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-06-15T23:14:48.549Z"
+    },
+    {
+      "summary": "Proposal to systematically use package.json exports to define clean, explicit entry points for cross-package imports in the TypeScript SDK, replacing the current pattern of directly importing from /lib/ directories.",
+      "category": "feature",
+      "subcategory": "package-exports",
+      "apis": [],
+      "components": [
+        "package-structure",
+        "import-system",
+        "workflow-runtime",
+        "api-boundaries"
+      ],
+      "concepts": [
+        "package-exports",
+        "public-api",
+        "api-boundaries",
+        "refactoring",
+        "module-organization",
+        "runtime-contexts"
+      ],
+      "severity": "medium",
+      "userImpact": "Improves developer experience by providing clear, stable public API entry points and makes the SDK maintainable through proper module boundaries.",
+      "rootCause": null,
+      "proposedFix": "Use the exports field in package.json to define subpath exports (e.g., ./workflow) and enforce imports through these declared exports rather than direct /lib/ paths.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "No more `/lib/` imports: all cross-package imports should go through declared exports.",
+      "number": 2079,
+      "repo": "temporalio-sdk-typescript",
+      "generatedAt": "2026-06-15T23:14:42.589Z"
+    },
     {
       "summary": "The TypeScript SDK's Runtime class has obsolete resource tracking logic from before the bridge rewrite that causes race conditions and test flakes. The bookkeeping should be removed to let the Core bridge's opaque handle model manage resource lifecycle.",
       "category": "bug",

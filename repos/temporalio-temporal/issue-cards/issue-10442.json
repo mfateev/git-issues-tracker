@@ -1,0 +1,32 @@
+{
+  "summary": "User requests ability to use PostgreSQL read-only replicas to offload SELECT queries from primary database for performance improvement, but maintainers explain this violates Temporal's strong consistency requirements needed for correctness.",
+  "category": "feature",
+  "subcategory": "database-replication",
+  "apis": [],
+  "components": [
+    "persistence",
+    "postgresql",
+    "datastore",
+    "sql-plugin"
+  ],
+  "concepts": [
+    "read-replica",
+    "database-scaling",
+    "load-balancing",
+    "eventual-consistency",
+    "strong-consistency",
+    "read-after-write"
+  ],
+  "severity": "low",
+  "userImpact": "Users operating large Temporal deployments cannot leverage database read replicas to reduce load on the primary database server.",
+  "rootCause": "Temporal's persistence logic requires strong consistency guarantees (read-after-write) for almost all operations; read replicas provide only eventual consistency, risking unexpected errors or execution getting stuck.",
+  "proposedFix": "Implement custom DataStore layer via WithCustomDataStoreFactory server option to add replica support, or consider exposing lower SQL plugin injection point (noted as future consideration by maintainers).",
+  "workaround": "Users can inject custom persistence implementation using WithCustomDataStoreFactory server option to implement replica routing themselves.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Temporal logic assumes database is strongly consistent for almost all the write operations. Violating read after write consistency can easily cause a request to return an unexpected non-retryable errors",
+  "number": 10442,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:16:03.397Z"
+}

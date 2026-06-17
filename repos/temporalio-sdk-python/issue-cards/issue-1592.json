@@ -1,0 +1,30 @@
+{
+  "summary": "User requests Windows ARM64 wheel support for the Python SDK on PyPI. Currently, wheels are not provided for this platform. The maintainer indicates official Windows ARM64 support is not yet available but would be open to changes that enable it.",
+  "category": "feature",
+  "subcategory": "wheel-distribution",
+  "apis": [],
+  "components": [
+    "release-pipeline",
+    "packaging",
+    "build-system"
+  ],
+  "concepts": [
+    "windows-arm64",
+    "cross-platform-support",
+    "wheel-distribution",
+    "platform-support",
+    "build-pipeline"
+  ],
+  "severity": "medium",
+  "userImpact": "Users on Windows ARM64 cannot use the officially distributed Python SDK from PyPI and must resort to local builds or workarounds.",
+  "rootCause": "Windows ARM64 wheel support has not been implemented in the release pipeline.",
+  "proposedFix": "Add Windows ARM64 wheel publication to the release pipeline, with maintainer openness to supporting changes if they don't have major implications.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "We don't have official windows arm64 support. If there are some changes we can make to support your local build, we wouldn't mind accepting those...",
+  "number": 1592,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:13:35.947Z"
+}

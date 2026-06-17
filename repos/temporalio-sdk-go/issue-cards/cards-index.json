@@ -1,7 +1,216 @@
 {
-  "generatedAt": "2026-05-20T16:39:50.888Z",
-  "totalCards": 867,
+  "generatedAt": "2026-06-16T16:58:05.345Z",
+  "totalCards": 873,
   "cards": [
+    {
+      "summary": "Metric counters like `temporal_workflow_completed_total` don't appear in Prometheus until first incremented, causing monitoring and alerting issues. Reporter requested pre-initialization at worker startup, but maintainers closed this as expected behavior that should be handled in the metrics collection/query layer instead.",
+      "category": "bug",
+      "subcategory": "metrics",
+      "apis": [],
+      "components": [
+        "metrics",
+        "worker",
+        "prometheus"
+      ],
+      "concepts": [
+        "counter",
+        "labels",
+        "cardinality",
+        "alerting",
+        "observability",
+        "metrics",
+        "monitoring"
+      ],
+      "severity": "high",
+      "userImpact": "Users must manually handle missing metric series in their Prometheus setup for proper alerting, which is cumbersome and not obvious.",
+      "rootCause": "SDK doesn't pre-initialize metric counters, which is standard behavior in metrics systems but problematic for monitoring and alerting.",
+      "proposedFix": "Pre-initialize workflow outcome counters at worker startup (rejected as incomplete and creating Go-specific behavior).",
+      "workaround": "Handle missing series in Prometheus queries and alerting rules using zero-filling or default values.",
+      "resolution": "wontfix",
+      "resolutionDetails": "Maintainers decided not to pre-initialize counters because this is expected behavior in metrics systems. The proper solution should be in the metrics collection/query/alerting layer to handle missing series consistently across all SDKs.",
+      "related": [],
+      "keyQuote": "Handling missing series should live in the metrics collection/query/alerting layer, where expected-but-not-yet-observed series can be defaulted or zero-filled consistently.",
+      "number": 2401,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-06-15T23:11:47.941Z"
+    },
+    {
+      "summary": "When a worker registers activities with duplicate function names where one has an alias and one doesn't, invoking the non-aliased activity silently gets redirected to the aliased version. This occurs because the getActivityFunctionName function prioritizes alias lookups over the explicitly requested registration name.",
+      "category": "bug",
+      "subcategory": "activity-registration",
+      "apis": [
+        "ExecuteActivity",
+        "RegisterActivity",
+        "RegisterActivityWithOptions"
+      ],
+      "components": [
+        "worker",
+        "activity-registry",
+        "registration-aliasing"
+      ],
+      "concepts": [
+        "activity-aliasing",
+        "name-collision",
+        "function-disambiguation",
+        "registration-conflict",
+        "activity-routing"
+      ],
+      "severity": "high",
+      "userImpact": "Users registering versioned activities with the same function name but different implementations experience silent routing to the wrong activity version, breaking workflow logic.",
+      "rootCause": "The getActivityFunctionName function finds an alias registered for a given function name and resolves to that alias instead of respecting the explicitly registered name, causing unintended activity invocation.",
+      "proposedFix": "Use fully qualified names in the registration map (e.g., map[activities_v1.Activity] instead of map[Activity]) to prevent collisions. Alternatively, default DisableRegistrationAliasing to true as a breaking change.",
+      "workaround": "Set DisableRegistrationAliasing: true in worker options when using aliases, and avoid invoking activities using function pointers when aliases are in use.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2384,
+        2385
+      ],
+      "keyQuote": "The function getActivityFunctionName finds an alias registered for the given function name and resolves with the function attached to the alias",
+      "number": 2379,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-06-15T23:11:42.429Z"
+    },
+    {
+      "summary": "External storage transfer statistics incorrectly sum individual driver invocation durations instead of measuring actual wall-clock time. When multiple drivers run concurrently, the reported duration is multiplied by the number of drivers rather than reflecting actual elapsed time.",
+      "category": "bug",
+      "subcategory": "external-storage-statistics",
+      "apis": [],
+      "components": [
+        "task-pollers",
+        "external-storage",
+        "statistics",
+        "driver"
+      ],
+      "concepts": [
+        "concurrent-execution",
+        "wall-clock-duration",
+        "statistics-accuracy",
+        "overlapping-intervals",
+        "edge-detection"
+      ],
+      "severity": "medium",
+      "userImpact": "Users receive inaccurate transfer statistics that overestimate actual external storage operation duration, hindering performance monitoring and observability.",
+      "rootCause": "The statistics tracking code sums individual driver invocation durations instead of measuring the actual wall-clock time spanning all concurrent operations.",
+      "proposedFix": "Use edge detection to track and record durations.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "External storage transfer stats are summing the durations of each driver invocation instead of tracking overlapping intervals.",
+      "number": 2378,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-06-15T23:11:38.105Z"
+    },
+    {
+      "summary": "Feature request to add optional retry policies for PayloadCodec Encode/Decode operations. Currently, codec failures from external services (KMS, HTTP sidecars, schema registries) immediately abort the entire operation; users must implement retry logic independently for each codec. The proposal adds CodecDataConverterWithOptions allowing per-codec retry policies with configurable backoff.",
+      "category": "feature",
+      "subcategory": "payload-codec",
+      "apis": [
+        "PayloadCodec",
+        "NewCodecDataConverter",
+        "NewRemotePayloadCodec"
+      ],
+      "components": [
+        "converter",
+        "payload-codec",
+        "data-converter",
+        "encoding"
+      ],
+      "concepts": [
+        "retry",
+        "transient-failures",
+        "external-services",
+        "idempotency",
+        "backoff",
+        "resilience"
+      ],
+      "severity": "medium",
+      "userImpact": "Users implementing external-service-calling codecs must either duplicate retry logic internally or use undocumented techniques like panicking to trigger SDK-level retries.",
+      "rootCause": "The SDK has no built-in retry mechanism for codec failures; each codec must independently handle transient errors or the entire encode/decode operation fails.",
+      "proposedFix": "Add NewCodecDataConverterWithOptions with CodecDataConverterOptions containing optional RetryPolicy, IsRetryable predicate, and Context; implement per-codec retry with independent boundaries.",
+      "workaround": "Wrap codec body in defer/recover and panic(err) on transient errors to leverage SDK's coroutine recovery mechanism (undocumented, depends on internal SDK behavior).",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        2206,
+        2225,
+        2228,
+        2373
+      ],
+      "keyQuote": "Each downstream user has to either fork the codec or wrap retry logic inside their own codec implementation, which duplicates effort",
+      "number": 2370,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-06-15T23:11:25.008Z"
+    },
+    {
+      "summary": "ClientConfigProfile in contrib/envconfig is missing an Authority field to expose ConnectionOptions.Authority (gRPC :authority pseudo-header), preventing users from setting client-authority through CLI profile-based configuration.",
+      "category": "feature",
+      "subcategory": "envconfig",
+      "apis": [
+        "ConnectionOptions",
+        "ClientConfigProfile"
+      ],
+      "components": [
+        "contrib/envconfig",
+        "client-config",
+        "gRPC-client"
+      ],
+      "concepts": [
+        "client-authority",
+        "gRPC-config",
+        "profile-based-configuration",
+        "connection-options"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot configure the gRPC :authority pseudo-header through CLI profile-based configuration, blocking this important client configuration option.",
+      "rootCause": "ClientConfigProfile does not include a field for the Authority option that exists in ConnectionOptions.",
+      "proposedFix": "Add Authority field to ClientConfigProfile to expose the gRPC :authority configuration option.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Added Authority field to ClientConfigProfile; PR merged to address the missing configuration option.",
+      "related": [
+        1013
+      ],
+      "keyQuote": "ClientConfigProfile does not expose ConnectionOptions.Authority, which sets the gRPC :authority pseudo-header",
+      "number": 2369,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-06-15T23:10:59.132Z"
+    },
+    {
+      "summary": "Proposal to add a Google Cloud Storage external storage driver to the Go SDK's contrib module, following the same pattern as the existing AWS S3 driver, with questions about testing strategy and handling code duplication between cloud providers.",
+      "category": "feature",
+      "subcategory": "external-storage",
+      "apis": [],
+      "components": [
+        "contrib",
+        "external-storage",
+        "storage-driver",
+        "testing",
+        "gcp"
+      ],
+      "concepts": [
+        "cloud-storage",
+        "external-storage",
+        "driver-implementation",
+        "google-cloud",
+        "code-reuse",
+        "testing-strategy",
+        "persistence"
+      ],
+      "severity": "medium",
+      "userImpact": "Users will be able to use Google Cloud Storage as an external storage provider for the Temporal Go SDK, providing an alternative to AWS S3.",
+      "rootCause": null,
+      "proposedFix": "Create a GCS driver wrapper module similar to the AWS S3 driver with a client interface and driver implementation. Minimize pulling in the Google Cloud SDK dependency and address code duplication through careful architectural decisions or potential shared functionality in the ExternalStorage interface.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "I'd be happy to do the implementation PRs and help maintaining once we agree on the high-level approach.",
+      "number": 2364,
+      "repo": "temporalio-sdk-go",
+      "generatedAt": "2026-06-15T23:11:02.173Z"
+    },
     {
       "summary": "Request to implement operator commands for standalone activities in the Go SDK, with detailed specifications in temporalio/features#822.",
       "category": "feature",

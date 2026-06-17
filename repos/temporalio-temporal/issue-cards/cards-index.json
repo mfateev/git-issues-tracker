@@ -1,7 +1,1004 @@
 {
-  "generatedAt": "2026-05-20T16:58:40.319Z",
-  "totalCards": 1562,
+  "generatedAt": "2026-06-16T16:58:26.872Z",
+  "totalCards": 1592,
   "cards": [
+    {
+      "summary": "During Kubernetes rolling restarts, serviceResolver incorrectly selects members marked as draining or stopping for new inter-service RPC traffic, causing rollout instability and transient failures. The membership system correctly marks these hosts as unavailable, but the lookup ring still includes them, leading to dial errors and readiness check failures.",
+      "category": "bug",
+      "subcategory": "service-resolver",
+      "apis": [],
+      "components": [
+        "service-resolver",
+        "membership",
+        "ringpop",
+        "hash-ring"
+      ],
+      "concepts": [
+        "rolling-restart",
+        "draining",
+        "load-balancing",
+        "service-discovery",
+        "kubernetes",
+        "membership-management"
+      ],
+      "severity": "high",
+      "userImpact": "Kubernetes users experience rollout instability during cluster updates, where newly started pods may fail readiness checks as serviceResolver attempts to route traffic to hosts already marked as draining or stopping.",
+      "rootCause": "getReachableMembers() returns all reachable members including those with draining=true or future stopAt timestamps, and refreshLocked() builds the hash ring from this full set, allowing Lookup() to select members that membership already knows are leaving.",
+      "proposedFix": "Separate reachable members from dialable members: keep the full host set for observability and membership-change events, but build the lookup ring only from members where draining != true and stopAt is not present.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        5198,
+        5394,
+        9987
+      ],
+      "keyQuote": "serviceResolver still builds its lookup ring from the full reachable host set. As a result, members that are already draining or stopping can still be selected for new traffic during the rollout window.",
+      "number": 10730,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-16T16:58:26.737Z"
+    },
+    {
+      "summary": "Clarify whether taskEventID tag should be removed or converted to a GetEventID() method on the Task interface in history service logging, as the value appears duplicated between the top-level wf-history-event-id field and the nested queue-task JSON dump.",
+      "category": "question",
+      "subcategory": "logging-design",
+      "apis": [],
+      "components": [
+        "history-service",
+        "logging-tags",
+        "task-interface"
+      ],
+      "concepts": [
+        "logging",
+        "observability",
+        "tagging",
+        "event-id",
+        "duplication",
+        "refactoring"
+      ],
+      "severity": "low",
+      "userImpact": "If the wf-history-event-id field is removed without understanding its usage, it could break log-based dashboards or alerts that depend on filtering this field.",
+      "rootCause": "Unclear design intent for taskEventID tagging: whether to keep as dedicated queryable field, convert to interface method, or remove since data is already available in nested Task struct.",
+      "proposedFix": "Either convert taskEventID to a GetEventID() method on the Task interface, or remove the tag entirely if confirmed unused in production observability systems.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Removing `wf-history-event-id` could affect log-based dashboards or alerts that filter on this field. Is this field actively used for observability, or safe to remove?",
+      "number": 10719,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:53:05.929Z"
+    },
+    {
+      "summary": "Asks whether stale mutable state fallback logic in ndc_task_util.go can be safely removed based on StaleMutableStateCounter metric monitoring in production.",
+      "category": "question",
+      "subcategory": "shard-management",
+      "apis": [],
+      "components": [
+        "history-service",
+        "shard-management",
+        "mutable-state-cache",
+        "metrics"
+      ],
+      "concepts": [
+        "staleness",
+        "cache-invalidation",
+        "shard-ownership",
+        "fallback-logic",
+        "monitoring"
+      ],
+      "severity": "medium",
+      "userImpact": "Removing unnecessary fallback logic could reduce server complexity, but incorrect removal could introduce data consistency issues.",
+      "rootCause": null,
+      "proposedFix": "Monitor StaleMutableStateCounter metric to confirm fallback is no longer needed; remove stale mutable state fallback logic if metric remains near-zero for sufficient period.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "We should monitor the StaleMutableStateCounter metric and remove the logic below once we are confident.",
+      "number": 10718,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:53:09.745Z"
+    },
+    {
+      "summary": "Investigation of two TODO comments in the history Nexus handler requesting clarification on whether error redaction should be implemented for defense-in-depth or to handle a specific code path where history responses bypass frontend redaction.",
+      "category": "question",
+      "subcategory": "nexus-error-handling",
+      "apis": [
+        "StartNexusOperation",
+        "CancelNexusOperation"
+      ],
+      "components": [
+        "history-handler",
+        "nexus-handler",
+        "error-handling",
+        "security"
+      ],
+      "concepts": [
+        "error-redaction",
+        "defense-in-depth",
+        "security",
+        "gRPC",
+        "information-disclosure"
+      ],
+      "severity": "medium",
+      "userImpact": "Clarifies whether history service needs to redact errors to prevent potential exposure of internal error details to external Nexus clients.",
+      "rootCause": null,
+      "proposedFix": "Catch unexpected errors in history layer and return nexus.NewHandlerErrorf(nexus.HandlerErrorTypeInternal, \"internal error\") while logging the original error server-side, following the pattern already used in frontend's nexus_handler.go.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "1. Defense-in-depth — redacting at the history layer too, in case frontend's redaction is bypassed or incomplete, or 2. A specific code path where history's response could reach external callers",
+      "number": 10716,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:52:50.732Z"
+    },
+    {
+      "summary": "The project uses jackc/pgx v5.9.2 which lacks the require_auth configuration option, allowing PostgreSQL to accept any auth method including no-password (CWE-306). The fix is available in pgx v5.10.0.",
+      "category": "bug",
+      "subcategory": "postgres-driver",
+      "apis": [],
+      "components": [
+        "postgres",
+        "database",
+        "authentication",
+        "dependencies"
+      ],
+      "concepts": [
+        "authentication",
+        "security",
+        "supply-chain",
+        "downgrade-attack",
+        "credentials",
+        "password-protection"
+      ],
+      "severity": "high",
+      "userImpact": "PostgreSQL authentication can be bypassed if pgx v5.9.2 is not updated to v5.10.0, potentially allowing unauthorized database access.",
+      "rootCause": "pgx v5.9.2 lacks the require_auth configuration option to enforce PostgreSQL authentication methods, allowing downgrade to weaker auth or no-password auth (CWE-306).",
+      "proposedFix": "Upgrade pgx dependency from v5.9.2 to v5.10.0 using: go get -u github.com/jackc/pgx/v5@v5.10.0",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "pgx accepts ANY PostgreSQL auth method including no-password",
+      "number": 10699,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:52:30.622Z"
+    },
+    {
+      "summary": "ResetWorkflowExecution fails with 'workflow not found' when explicitly targeting an older run if the current execution record is missing, even though the targeted run exists.",
+      "category": "bug",
+      "subcategory": "workflow-reset",
+      "apis": [
+        "ResetWorkflowExecution"
+      ],
+      "components": [
+        "consistency-checker",
+        "workflow-lease",
+        "persistence-layer",
+        "current-executions"
+      ],
+      "concepts": [
+        "workflow-reset",
+        "run-deletion",
+        "current-execution",
+        "persistence",
+        "run-identity",
+        "recovery"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot reset workflows to older runs when the current execution has been deleted, preventing recovery from data corruption scenarios.",
+      "rootCause": "The workflow loading logic checks the current_executions record even when an explicit runId is provided, causing it to fail when current execution is missing.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Reset always resolves the current execution first. When the `current_executions` record is missing, reset returns \"workflow not found\" regardless of the `runId` provided",
+      "number": 10690,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:52:39.442Z"
+    },
+    {
+      "summary": "Temporal's pgx v5.9.2 dependency is vulnerable to authentication downgrade attacks (CWE-306) where a malicious PostgreSQL server can force cleartext password authentication. The fix requires updating to pgx v5.10.0+ which adds a require_auth configuration option to restrict accepted authentication methods.",
+      "category": "bug",
+      "subcategory": "dependency-security",
+      "apis": [],
+      "components": [
+        "postgres-driver",
+        "database-connection",
+        "authentication"
+      ],
+      "concepts": [
+        "authentication",
+        "security",
+        "downgrade-attack",
+        "cleartext-password",
+        "supply-chain",
+        "cwe-306",
+        "credential-handling"
+      ],
+      "severity": "high",
+      "userImpact": "Temporal deployments using PostgreSQL are vulnerable to credential downgrade attacks from malicious or compromised servers until pgx is upgraded.",
+      "rootCause": "pgx < v5.10.0 unconditionally accepts AuthenticationCleartextPassword without configuration to restrict authentication methods.",
+      "proposedFix": "Upgrade github.com/jackc/pgx/v5 to v5.10.0 or later which implements require_auth config option.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "A malicious PostgreSQL server can downgrade authentication to cleartext password by sending AuthenticationCleartextPassword, which pgx < v5.10.0 accepts unconditionally.",
+      "number": 10676,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:52:07.467Z"
+    },
+    {
+      "summary": "The startup config file templating system has silent failure modes due to fragile comment-based detection of the # enable-template marker; the proposal is to always render files through Sprig to eliminate bugs and reduce code complexity.",
+      "category": "feature",
+      "subcategory": "config-templating",
+      "apis": [],
+      "components": [
+        "config-loader",
+        "template-engine",
+        "startup-process"
+      ],
+      "concepts": [
+        "configuration",
+        "templating",
+        "startup",
+        "error-handling",
+        "sprig",
+        "yaml",
+        "silent-failures"
+      ],
+      "severity": "medium",
+      "userImpact": "Users configuring Temporal Server can experience silent failures when config templating is unintentionally disabled due to typos or placement issues with the enable-template marker, leading to template variables not being resolved.",
+      "rootCause": "The template enabling check uses fragile comment detection (substring search for # enable-template within first 1KB) instead of a more robust mechanism.",
+      "proposedFix": "Always render config files through Go/Sprig template engine since plain YAML passes through unchanged; alternatively use .yaml.tmpl extension or explicit flag/env var.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Always render config files through the Go/Sprig template engine. Plain YAML passes through unchanged.",
+      "number": 10663,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:52:13.766Z"
+    },
+    {
+      "summary": "A parent workflow gets stuck after reset if a child workflow completes after the parent has already failed/closed. The child completion event is lost because the parent was closed when the event arrived, and reset does not synthesize the missing completion.",
+      "category": "bug",
+      "subcategory": "workflow-reset",
+      "apis": [],
+      "components": [
+        "workflow-reset",
+        "child-workflow-executor",
+        "history-processing",
+        "event-recovery",
+        "completion-handling"
+      ],
+      "concepts": [
+        "workflow-reset",
+        "child-workflow",
+        "completion-recovery",
+        "history-reconstruction",
+        "event-loss",
+        "state-synchronization"
+      ],
+      "severity": "critical",
+      "userImpact": "Parent workflows hang indefinitely after reset when a child has completed after the parent failed, blocking progress and requiring manual intervention.",
+      "rootCause": "Child completion is reported to an already-closed parent, causing the event to be dropped. Reset rebuilds from parent history only, missing the completion event entirely.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The child close transfer task appears to report completion to the parent while the parent is already closed, so the completion is effectively dropped.",
+      "number": 10639,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:52:07.015Z"
+    },
+    {
+      "summary": "tdbg m list-db command fails with UUID validation error in Temporal v1.30+, preventing cluster member enumeration from database.",
+      "category": "bug",
+      "subcategory": "cluster-management",
+      "apis": [],
+      "components": [
+        "tdbg",
+        "cluster-members",
+        "admin-api",
+        "validation"
+      ],
+      "concepts": [
+        "UUID-validation",
+        "cluster-management",
+        "host-id",
+        "debugging",
+        "regression",
+        "admin-tools"
+      ],
+      "severity": "high",
+      "userImpact": "Cluster operators cannot list cluster members using tdbg tool after upgrading to v1.30, blocking cluster management operations.",
+      "rootCause": "Empty host ID parameter passed during cluster member listing triggers UUID validation error introduced in PR #8541.",
+      "proposedFix": "Fix implemented in PR #10133 to handle empty host ID parameter in cluster member listing.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Error: unable to list Cluster Members: rpc error: code = InvalidArgument desc = host ID \"\" is not a valid UUID: invalid UUID length: 0",
+      "number": 10635,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:51:46.376Z"
+    },
+    {
+      "summary": "Request to change the default value of system.enableActivityEagerExecution from false to true in the Temporal server to align with SDK and Cloud defaults, enabling performance improvements by default while allowing users to explicitly disable if needed.",
+      "category": "other",
+      "subcategory": "activity-execution-config",
+      "apis": [],
+      "components": [
+        "dynamic-config",
+        "activity-executor",
+        "worker",
+        "server-defaults"
+      ],
+      "concepts": [
+        "eager-execution",
+        "performance-optimization",
+        "default-configuration",
+        "backwards-compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Users miss out on activity eager execution performance improvements because the feature is disabled by default and requires explicit configuration knowledge.",
+      "rootCause": "Inconsistency between server default (false) and SDK/Cloud defaults (true) creates suboptimal user experience.",
+      "proposedFix": "Change system.enableActivityEagerExecution default from false to true in server configuration and allow users to explicitly disable it if needed.",
+      "workaround": "Users can manually enable eager activity execution by setting system.enableActivityEagerExecution to true in dynamic config.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        10651
+      ],
+      "keyQuote": "In OSS server dynamic config, users might not think that this is disabled by default and never switch to true, and miss on improvement for most use cases.",
+      "number": 10628,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:51:42.125Z"
+    },
+    {
+      "summary": "User discovered HIGH and CRITICAL CVEs in transitive Go dependencies (grpc, golang.org/x/net, golang.org/x/crypto, markdown) in Temporal Server v1.31.0 via AWS Inspector vulnerability scanning and requested a patch release. Temporal team released v1.31.1 addressing all reported CVEs.",
+      "category": "bug",
+      "subcategory": "security",
+      "apis": [],
+      "components": [
+        "grpc",
+        "golang.org/x",
+        "markdown",
+        "dependencies"
+      ],
+      "concepts": [
+        "cve",
+        "vulnerability",
+        "security",
+        "dependency-management",
+        "patch-release",
+        "security-scanning"
+      ],
+      "severity": "critical",
+      "userImpact": "Users running Temporal Server v1.31.0 face exposure to HIGH and CRITICAL security vulnerabilities in transitive dependencies that could be exploited.",
+      "rootCause": "v1.31.0 was released with outdated versions of critical Go dependencies (grpc, golang.org/x/net, golang.org/x/crypto, markdown) containing known CVEs.",
+      "proposedFix": "Release patch version v1.31.1 with updated go.mod dependencies to remediate the CVEs.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Temporal team released v1.31.1 shortly after the report, updating all affected transitive dependencies to clear the identified CVEs.",
+      "related": [],
+      "keyQuote": "Thanks for flagging the CVEs. Good timing, we released v1.31.1 clearing the CVEs.",
+      "number": 10618,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:51:54.006Z"
+    },
+    {
+      "summary": "Request to add cryptographically signed attestations to Temporal releases for verifying authenticity and provenance, moving beyond current checksum-only approach.",
+      "category": "feature",
+      "subcategory": "release-security",
+      "apis": [],
+      "components": [
+        "release-workflow",
+        "artifact-publishing",
+        "security"
+      ],
+      "concepts": [
+        "attestation",
+        "cryptographic-signing",
+        "provenance",
+        "authenticity",
+        "integrity",
+        "release-artifacts",
+        "SLSA"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot cryptographically verify authenticity and provenance of Temporal releases, only basic integrity via checksums.",
+      "rootCause": null,
+      "proposedFix": "Add attestations to release workflow using actions/attest and goreleaser patterns, uploading attestation bundle files as release artifacts for verification without GitHub authentication.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "This is perhaps even more important for `temporal` which operates at a critical core level of workflows.",
+      "number": 10600,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:51:21.642Z"
+    },
+    {
+      "summary": "Schedule becomes permanently deadlocked when a scheduled workflow with retry policy exhausts retries and the same Workflow ID is manually executed, causing the scheduler to block in infinite retries when attempting to refresh the previous action.",
+      "category": "bug",
+      "subcategory": "scheduler",
+      "apis": [
+        "Schedule",
+        "StartWorkflow",
+        "RetryPolicy"
+      ],
+      "components": [
+        "scheduler",
+        "worker",
+        "workflow-execution",
+        "retry-policy"
+      ],
+      "concepts": [
+        "deadlock",
+        "retry-chain",
+        "workflow-id-reuse",
+        "state-mismatch",
+        "scheduling"
+      ],
+      "severity": "critical",
+      "userImpact": "Schedules become permanently blocked and stop launching scheduled actions, requiring server restart to recover.",
+      "rootCause": "When the scheduler follows a previous execution chain by FirstExecutionRunId after detecting a newer independent chain exists, PollMutableState returns status from the terminal retry chain combined with a close event from a different run. The code expects WORKFLOW_EXECUTION_FAILED event attributes but receives WORKFLOW_EXECUTION_CONTINUED_AS_NEW event, triggering errNoAttrs with automatic retry enabled, causing infinite blocking.",
+      "proposedFix": "Ensure PollMutableState status and fetched close event refer to the same terminal execution when following FirstExecutionRunId. Make errNoAttrs non-retryable or prevent WatchWorkflow from permanently blocking Schedule processing.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "WatchWorkflow: last event did not have correct attrs",
+      "number": 10579,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:51:28.226Z"
+    },
+    {
+      "summary": "A synchronization gap in the history service's cache release path allows concurrent writes to the workflow update registry map while it's being iterated for cache size computation, causing fatal process crashes when history.cacheSizeBasedLimit is enabled.",
+      "category": "bug",
+      "subcategory": "cache-size-limit",
+      "apis": [
+        "Update"
+      ],
+      "components": [
+        "workflow-cache",
+        "lru-cache",
+        "update-registry",
+        "workflow-context",
+        "synchronization"
+      ],
+      "concepts": [
+        "concurrency",
+        "race-condition",
+        "synchronization",
+        "cache-sizing",
+        "map-iteration",
+        "workflow-state",
+        "context-release"
+      ],
+      "severity": "critical",
+      "userImpact": "Process crashes with fatal error when history.cacheSizeBasedLimit is enabled and concurrent operations access the same workflow execution.",
+      "rootCause": "The workflow lock is released before the LRU cache release completes its size computation, creating a window where other goroutines can write to the lock-protected updates map while the release path iterates it.",
+      "proposedFix": "Recompute cache size in makeReleaseFunc while holding the workflow lock (before Unlock()), cache it atomically on the context, and have CacheSize() return the cached value.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The Unlock()-before-Release() ordering and the size-based limit are each reasonable on their own, but together they let the size computation read lock-protected state after the lock is gone.",
+      "number": 10548,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:51:20.153Z"
+    },
+    {
+      "summary": "NewDataBlob silently ignores invalid encoding type strings by setting ENCODING_TYPE_UNSPECIFIED instead of returning errors to callers, causing encoding failures to only surface later during deserialization.",
+      "category": "bug",
+      "subcategory": "error-handling",
+      "apis": [
+        "NewDataBlob"
+      ],
+      "components": [
+        "data_blob",
+        "enumspb",
+        "persistence",
+        "serialization"
+      ],
+      "concepts": [
+        "error-handling",
+        "encoding",
+        "data-serialization",
+        "error-propagation",
+        "validation",
+        "silent-failures"
+      ],
+      "severity": "medium",
+      "userImpact": "Developers cannot immediately detect encoding type errors when creating data blobs, making it harder to diagnose serialization failures.",
+      "rootCause": "NewDataBlob catches EncodingTypeFromString errors but silently sets ENCODING_TYPE_UNSPECIFIED instead of returning the error to callers.",
+      "proposedFix": "Change function signature to return (*commonpb.DataBlob, error) and return error when encoding type is invalid, or create a separate NewDataBlobWithError variant.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "// TODO: return an UnknownEncodingType error",
+      "number": 10522,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:32:37.451Z"
+    },
+    {
+      "summary": "Two TODO comments in yaml_loader.go indicate that validation warnings should be raised to error level, but changing them causes test failures because testConfig.yaml intentionally contains invalid values for testing. The issue asks whether these should be genuine errors that fail startup or remain as warnings allowing the server to continue.",
+      "category": "bug",
+      "subcategory": "config-validation",
+      "apis": [],
+      "components": [
+        "yaml_loader",
+        "dynamicconfig",
+        "config-validation"
+      ],
+      "concepts": [
+        "validation",
+        "error-handling",
+        "configuration",
+        "startup",
+        "testing",
+        "constraint-validation"
+      ],
+      "severity": "medium",
+      "userImpact": "Users may run servers with invalid dynamic configuration values that should fail fast, potentially causing unexpected behavior at runtime.",
+      "rootCause": "Code has TODO comments indicating warnings should be errors, but tests depend on the warning behavior, creating a conflict between intent and test expectations.",
+      "proposedFix": "If errors are appropriate, testConfig.yaml should be updated to use a separate test for invalid value handling.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Should these cases be genuine errors that fail startup, or are invalid dynamic config values expected to be warnings that allow the server to continue with defaults?",
+      "number": 10521,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:32:38.019Z"
+    },
+    {
+      "summary": "SyncActivity replication returns nil instead of RetryReplication error when the target workflow is not found, preventing the retry/resend mechanism from being triggered and silently dropping replication tasks.",
+      "category": "bug",
+      "subcategory": "replication",
+      "apis": [],
+      "components": [
+        "activity_state_replicator",
+        "replication",
+        "ndc",
+        "error-handling"
+      ],
+      "concepts": [
+        "replication",
+        "retry",
+        "error-handling",
+        "workflow-not-found",
+        "task-resend",
+        "multi-datacenter"
+      ],
+      "severity": "high",
+      "userImpact": "Replication events may be silently dropped when workflows are not found in the target cluster, potentially causing data loss and replication failures without error notification.",
+      "rootCause": "Code at activity_state_replicator.go:214 returns nil instead of serviceerrors.NewRetryReplication when a NotFound error is encountered, preventing the existing retry/resend logic from executing.",
+      "proposedFix": "Return serviceerrors.NewRetryReplication instead of nil when workflow is not found, allowing the existing resend path to properly handle the case.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Replication tasks are silently dropped when workflow not found",
+      "number": 10520,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:32:32.986Z"
+    },
+    {
+      "summary": "Version history validation is missing in ReplicateEventsV2 request processing. A TODO comment in replication_task.go indicates this gap, allowing potentially malformed replication tasks to proceed without validation, which could cause incorrect state replication.",
+      "category": "bug",
+      "subcategory": "replication-validation",
+      "apis": [],
+      "components": [
+        "replication-task",
+        "ndc-replication",
+        "event-processing",
+        "validation"
+      ],
+      "concepts": [
+        "version-history",
+        "validation",
+        "replication",
+        "state-consistency",
+        "error-handling",
+        "request-validation"
+      ],
+      "severity": "high",
+      "userImpact": "Missing version history validation allows malformed replication tasks to proceed, causing incorrect state replication and harder-to-diagnose failures.",
+      "rootCause": "Version history fields lack validation in replication_task.go; TODO comment at line 418 indicates implementation was deferred",
+      "proposedFix": "Implement version history validation in replication_task.go following team-defined validation requirements",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Version history fields are not validated, potentially allowing malformed replication tasks to proceed.",
+      "number": 10519,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:32:17.530Z"
+    },
+    {
+      "summary": "Using postgres12_pgx driver with default_query_exec_mode: simple_protocol causes VisibilityCloseExecution to fail with a type conversion error on ExecutionDuration field.",
+      "category": "bug",
+      "subcategory": "visibility",
+      "apis": [],
+      "components": [
+        "visibility",
+        "persistence",
+        "postgresql-driver",
+        "sql-plugin"
+      ],
+      "concepts": [
+        "type-conversion",
+        "execution-duration",
+        "sql-persistence",
+        "workflow-closure",
+        "driver-compatibility"
+      ],
+      "severity": "high",
+      "userImpact": "Users using postgres12_pgx with simple_protocol mode cannot close workflow executions; all closure attempts fail with type conversion errors.",
+      "rootCause": "ExecutionDuration field is not properly cast to int64 when using simple_protocol query execution mode in PostgreSQL.",
+      "proposedFix": "Cast ExecutionDuration to int64 in common/persistence/sql/sqlplugin/postgresql/visibility.go at line 161",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "cast ExecutionDuration to int64",
+      "number": 10514,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:32:20.976Z"
+    },
+    {
+      "summary": "SyncState() in executable_task.go ignores the remainingAttempt parameter and can retry indefinitely on certain error types, unlike Resend() which correctly enforces a retry limit. This inconsistency can cause excessive load on the source cluster during sync failures.",
+      "category": "bug",
+      "subcategory": "replication-sync",
+      "apis": [],
+      "components": [
+        "executable_task",
+        "replication",
+        "sync-state",
+        "retry-logic"
+      ],
+      "concepts": [
+        "retry",
+        "replication",
+        "sync-state",
+        "rate-limiting",
+        "error-handling",
+        "consistency"
+      ],
+      "severity": "high",
+      "userImpact": "Operators running Temporal server in replication scenarios may experience excessive load on the source cluster when sync state operations fail repeatedly.",
+      "rootCause": "SyncState() does not decrement or validate the remainingAttempt parameter before proceeding, unlike Resend() which implements proper retry limit enforcement with a TODO comment acknowledging the gap.",
+      "proposedFix": "Apply the same retry limit pattern as Resend(): decrement remainingAttempt at the start, check if less than 0, and return ErrResendAttemptExceeded when the limit is exceeded.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "SyncState() can retry indefinitely on certain error types unlike Resend() which correctly enforces the retry limit",
+      "number": 10490,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:32:15.733Z"
+    },
+    {
+      "summary": "Speculative workflow task processing lacks shard ownership verification, causing valid workflow update requests to be incorrectly rejected when shard ownership changes during task execution. A fix requires exposing AssertShardOwnership through the ShardContext interface.",
+      "category": "bug",
+      "subcategory": "workflow-task-processing",
+      "apis": [],
+      "components": [
+        "workflow_task_state_machine",
+        "shard_context",
+        "history_service"
+      ],
+      "concepts": [
+        "shard_ownership",
+        "speculative_execution",
+        "mutable_state",
+        "ownership_verification",
+        "workflow_updates",
+        "state_staleness"
+      ],
+      "severity": "high",
+      "userImpact": "Users experience silent rejections of valid workflow update requests when shard ownership changes during task execution, with no error logged to indicate the reason.",
+      "rootCause": "ShardContext interface does not expose AssertShardOwnership method, preventing speculative workflow task processing from verifying shard ownership before completing and updating mutable state.",
+      "proposedFix": "Expose AssertShardOwnership through ShardContext interface and call it in skipWorkflowTaskCompletedEvent before task completion. May require adding context parameter and changing return type to handle errors, updating all callers.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "No shard ownership check is performed during speculative workflow task processing... causing valid workflow update requests to be incorrectly rejected with no error logged.",
+      "number": 10478,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:16:11.163Z"
+    },
+    {
+      "summary": "User requests ability to use PostgreSQL read-only replicas to offload SELECT queries from primary database for performance improvement, but maintainers explain this violates Temporal's strong consistency requirements needed for correctness.",
+      "category": "feature",
+      "subcategory": "database-replication",
+      "apis": [],
+      "components": [
+        "persistence",
+        "postgresql",
+        "datastore",
+        "sql-plugin"
+      ],
+      "concepts": [
+        "read-replica",
+        "database-scaling",
+        "load-balancing",
+        "eventual-consistency",
+        "strong-consistency",
+        "read-after-write"
+      ],
+      "severity": "low",
+      "userImpact": "Users operating large Temporal deployments cannot leverage database read replicas to reduce load on the primary database server.",
+      "rootCause": "Temporal's persistence logic requires strong consistency guarantees (read-after-write) for almost all operations; read replicas provide only eventual consistency, risking unexpected errors or execution getting stuck.",
+      "proposedFix": "Implement custom DataStore layer via WithCustomDataStoreFactory server option to add replica support, or consider exposing lower SQL plugin injection point (noted as future consideration by maintainers).",
+      "workaround": "Users can inject custom persistence implementation using WithCustomDataStoreFactory server option to implement replica routing themselves.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Temporal logic assumes database is strongly consistent for almost all the write operations. Violating read after write consistency can easily cause a request to return an unexpected non-retryable errors",
+      "number": 10442,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:16:03.397Z"
+    },
+    {
+      "summary": "Failed replication tasks become permanently inaccessible in the DLQ when source and target clusters have different shard counts. Tasks are written using the local shard ID but retrieved using a different shard ID mapping, causing a key mismatch that silently loses data.",
+      "category": "bug",
+      "subcategory": "dlq-replication",
+      "apis": [],
+      "components": [
+        "DLQ",
+        "replication",
+        "task-processor",
+        "shard-mapping"
+      ],
+      "concepts": [
+        "dead-letter-queue",
+        "replication",
+        "shard-mapping",
+        "data-loss",
+        "cross-cluster",
+        "task-routing",
+        "cluster-topology"
+      ],
+      "severity": "critical",
+      "userImpact": "Users running multi-cluster replication with different shard counts experience silent, permanent loss of failed replication tasks with no error logging or visibility.",
+      "rootCause": "convertTaskToDLQTask() writes DLQ entries using local shard ID (p.shard.GetShardID()), but GetDLQReplicationMessages retrieves them using target cluster's shard ID mapping (config.GetShardID()). When source/target shard counts differ, the keys diverge, making tasks unretrievable.",
+      "proposedFix": "Use common.MapShardID to determine correct target shard IDs when writing to DLQ, ensuring consistency with how GetDLQReplicationMessages retrieves them (similar to fix in PR #10226).",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        10224,
+        10226
+      ],
+      "keyQuote": "No error is logged — silent data loss under cross-shard replication",
+      "number": 10436,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:16:05.875Z"
+    },
+    {
+      "summary": "Diagnostic commands (render-config, validate-dynamic-config) require workarounds in containerized environments because they don't support the embedded template and --config-file flag available in the start command.",
+      "category": "feature",
+      "subcategory": "config-management",
+      "apis": [],
+      "components": [
+        "server",
+        "config-loader",
+        "diagnostic-commands",
+        "container-support"
+      ],
+      "concepts": [
+        "configuration",
+        "templates",
+        "container",
+        "diagnostics",
+        "validation",
+        "user-experience",
+        "tooling"
+      ],
+      "severity": "medium",
+      "userImpact": "Users must manually download template files and use workarounds to inspect and validate server configurations instead of using simple built-in diagnostic commands.",
+      "rootCause": "Diagnostic commands support only legacy flag-based config loading, not the embedded template or --config-file flag that the start command supports.",
+      "proposedFix": "Add support for embedded template and --config-file flag to diagnostic commands; add a command to dump the raw template; make validate-dynamic-config resolve file paths from server config automatically.",
+      "workaround": "Download the embedded template from GitHub source and load via legacy flag: wget config_template_embedded.yaml && temporal-server --config /tmp render-config",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        10282
+      ],
+      "keyQuote": "This should be as simple as running `temporal-server render-config` with no arguments, the same way `start` works.",
+      "number": 10410,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:15:38.273Z"
+    },
+    {
+      "summary": "A prepared statement in the PostgreSQL visibility plugin's GetFromVisibility function is not properly closed, causing a resource leak on every GetWorkflowExecution call.",
+      "category": "bug",
+      "subcategory": "sql-persistence",
+      "apis": [
+        "GetWorkflowExecution"
+      ],
+      "components": [
+        "sql-plugin",
+        "visibility",
+        "postgresql"
+      ],
+      "concepts": [
+        "resource-leak",
+        "prepared-statement",
+        "database-connection",
+        "statement-lifecycle",
+        "connection-pool"
+      ],
+      "severity": "high",
+      "userImpact": "Memory leaks and potential database connection exhaustion accumulate with each visibility query, degrading system stability.",
+      "rootCause": "Prepared statement created in GetFromVisibility is not explicitly closed after query execution.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Created prepared statement is not closed. So every call to GetWorkflowExecution on vis path will leak prepared statement.",
+      "number": 10392,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:15:35.135Z"
+    },
+    {
+      "summary": "Feature request to add a configurable workflow-status filter to Temporal's archival system, allowing operators to archive only specific workflow statuses (e.g., failed, timed out) instead of all closed workflows, reducing storage costs at scale.",
+      "category": "feature",
+      "subcategory": "archival",
+      "apis": [
+        "VisibilityArchiver",
+        "HistoryArchiver",
+        "ExecutionManager",
+        "DescribeWorkflowExecution",
+        "ListArchivedWorkflowExecutions"
+      ],
+      "components": [
+        "archiver",
+        "s3store",
+        "persistence",
+        "visibility-index",
+        "retention"
+      ],
+      "concepts": [
+        "archival-cost",
+        "workflow-status-filter",
+        "retention",
+        "storage-efficiency",
+        "namespace-configuration",
+        "s3-optimization",
+        "backwards-compatibility"
+      ],
+      "severity": "high",
+      "userImpact": "OSS users self-hosting on AWS S3 can dramatically reduce monthly archival costs (from ~$37,500 to near-zero) by filtering which workflow statuses are archived.",
+      "rootCause": "Temporal archives all closed workflows by default regardless of status, but most deployments only need failures for debugging; with 50M workflows/day and 5 storage PUTs per workflow, this results in 7.5B unnecessary PUTs/month.",
+      "proposedFix": "Add optional `statusFilter` configuration at archiver provider level that short-circuits Archive() calls for workflows not in the allowlist, with independent filters for history and visibility archival.",
+      "workaround": "Users can fork temporal-server and implement filtering in custom archiver wrapper code, or run a sidecar service that copies only failed workflows to S3.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        5624,
+        6193
+      ],
+      "keyQuote": "~90% of those requests are for successful workflows that exit retention without ever being inspected.",
+      "number": 10367,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:15:48.400Z"
+    },
+    {
+      "summary": "Migration in Temporal 1.30.4 adds a GENERATED ALWAYS STORED column to the 35M-row executions_visibility table, causing a 57-minute exclusive lock and requiring downtime. User requests using triggers instead to enable zero-downtime upgrades.",
+      "category": "bug",
+      "subcategory": "schema-migration",
+      "apis": [],
+      "components": [
+        "schema-migration",
+        "visibility-table",
+        "postgresql",
+        "upgrade-process"
+      ],
+      "concepts": [
+        "downtime",
+        "table-locking",
+        "schema-migration",
+        "performance",
+        "upgrade",
+        "generated-columns",
+        "exclusive-locks"
+      ],
+      "severity": "high",
+      "userImpact": "Users with large visibility tables cannot upgrade to 1.30.4 without experiencing production downtime due to exclusive table locks during schema migration.",
+      "rootCause": "ALTER TABLE ... ADD COLUMN ... GENERATED ALWAYS ... STORED requires an exclusive lock and must rewrite the entire table, which takes hours on large production tables and is not suitable for zero-downtime upgrades.",
+      "proposedFix": "Use database triggers instead of GENERATED ALWAYS STORED columns for search attribute columns, allowing incremental population without table rewriting during migration.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "In addition to the length this takes, this also obtains an exclusive lock on the table, meaning we'd have to take downtime to run this.",
+      "number": 10358,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:15:21.000Z"
+    },
+    {
+      "summary": "Activities with retriable failures lose their latest failure information when a workflow is cancelled, particularly when the activity is in backoff retry time. The user requests that the latest activity failure be serialized into the workflow execution history via an Activity Task Started event for better observability during debugging.",
+      "category": "feature",
+      "subcategory": "activity-retry-cancellation",
+      "apis": [
+        "ExecuteActivity",
+        "ActivityOptions",
+        "RetryOptions",
+        "CancellationScope"
+      ],
+      "components": [
+        "activity-executor",
+        "history-persistence",
+        "retry-manager",
+        "cancellation-handler"
+      ],
+      "concepts": [
+        "retry",
+        "backoff",
+        "cancellation",
+        "observability",
+        "execution-history",
+        "failure-tracking"
+      ],
+      "severity": "medium",
+      "userImpact": "Users have difficulty debugging activity failures when workflows are cancelled because the latest activity failure is not recorded in the execution history, requiring them to dig through worker logs instead.",
+      "rootCause": "When an Activity is in backoff retry period and a workflow is cancelled, the Activity Task Started event is not persisted to the history, unlike the behavior with heartbeats and WAIT_CANCELLATION_COMPLETED option.",
+      "proposedFix": "Ensure the latest activity failure is serialized into the workflow execution history even on workflow termination by writing an Activity Task Started event even when the activity has failed retriably and is in backoff wait time.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Make sure that the latest activity failure is serialized into the Workflow execution history even on less traditional Workflow terminations (e.g. cancellation).",
+      "number": 10354,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:15:22.673Z"
+    },
+    {
+      "summary": "StartWorkflow API incorrectly rejects valid NexusOperation links, treating them as unsupported variants when they should be accepted according to the API specification.",
+      "category": "bug",
+      "subcategory": "nexus-links",
+      "apis": [
+        "StartWorkflow"
+      ],
+      "components": [
+        "workflow-server",
+        "link-validator",
+        "nexus-handler"
+      ],
+      "concepts": [
+        "link-variant",
+        "nexus-operation",
+        "workflow-execution",
+        "request-validation",
+        "cross-service-links"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot associate NexusOperation links when starting workflows, preventing cross-service operation tracing and linking.",
+      "rootCause": null,
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "NexusOperation links are rejected as an unsupported variant.",
+      "number": 10345,
+      "repo": "temporalio-temporal",
+      "generatedAt": "2026-06-15T23:15:23.341Z"
+    },
     {
       "summary": "A race condition between the workflow task completion path and transfer queue processor causes the TransferStartChildExecution task to fail, preventing child workflows from being properly initialized. The child workflow gets created but stalls with only a WorkflowExecutionStarted event and no WorkflowTaskScheduled event, causing it to never execute and triggering permanent shard churn.",
       "category": "bug",

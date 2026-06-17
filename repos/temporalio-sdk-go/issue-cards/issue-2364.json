@@ -1,0 +1,34 @@
+{
+  "summary": "Proposal to add a Google Cloud Storage external storage driver to the Go SDK's contrib module, following the same pattern as the existing AWS S3 driver, with questions about testing strategy and handling code duplication between cloud providers.",
+  "category": "feature",
+  "subcategory": "external-storage",
+  "apis": [],
+  "components": [
+    "contrib",
+    "external-storage",
+    "storage-driver",
+    "testing",
+    "gcp"
+  ],
+  "concepts": [
+    "cloud-storage",
+    "external-storage",
+    "driver-implementation",
+    "google-cloud",
+    "code-reuse",
+    "testing-strategy",
+    "persistence"
+  ],
+  "severity": "medium",
+  "userImpact": "Users will be able to use Google Cloud Storage as an external storage provider for the Temporal Go SDK, providing an alternative to AWS S3.",
+  "rootCause": null,
+  "proposedFix": "Create a GCS driver wrapper module similar to the AWS S3 driver with a client interface and driver implementation. Minimize pulling in the Google Cloud SDK dependency and address code duplication through careful architectural decisions or potential shared functionality in the ExternalStorage interface.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "I'd be happy to do the implementation PRs and help maintaining once we agree on the high-level approach.",
+  "number": 2364,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-06-15T23:11:02.173Z"
+}

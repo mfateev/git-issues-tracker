@@ -1,0 +1,41 @@
+{
+  "summary": "Feature request to add optional retry policies for PayloadCodec Encode/Decode operations. Currently, codec failures from external services (KMS, HTTP sidecars, schema registries) immediately abort the entire operation; users must implement retry logic independently for each codec. The proposal adds CodecDataConverterWithOptions allowing per-codec retry policies with configurable backoff.",
+  "category": "feature",
+  "subcategory": "payload-codec",
+  "apis": [
+    "PayloadCodec",
+    "NewCodecDataConverter",
+    "NewRemotePayloadCodec"
+  ],
+  "components": [
+    "converter",
+    "payload-codec",
+    "data-converter",
+    "encoding"
+  ],
+  "concepts": [
+    "retry",
+    "transient-failures",
+    "external-services",
+    "idempotency",
+    "backoff",
+    "resilience"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing external-service-calling codecs must either duplicate retry logic internally or use undocumented techniques like panicking to trigger SDK-level retries.",
+  "rootCause": "The SDK has no built-in retry mechanism for codec failures; each codec must independently handle transient errors or the entire encode/decode operation fails.",
+  "proposedFix": "Add NewCodecDataConverterWithOptions with CodecDataConverterOptions containing optional RetryPolicy, IsRetryable predicate, and Context; implement per-codec retry with independent boundaries.",
+  "workaround": "Wrap codec body in defer/recover and panic(err) on transient errors to leverage SDK's coroutine recovery mechanism (undocumented, depends on internal SDK behavior).",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    2206,
+    2225,
+    2228,
+    2373
+  ],
+  "keyQuote": "Each downstream user has to either fork the codec or wrap retry logic inside their own codec implementation, which duplicates effort",
+  "number": 2370,
+  "repo": "temporalio-sdk-go",
+  "generatedAt": "2026-06-15T23:11:25.008Z"
+}

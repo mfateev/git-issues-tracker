@@ -1,0 +1,31 @@
+{
+  "summary": "The OpenAI Agents plugin doesn't support SandboxApplyPatchTool from the OpenAI Agents SDK's sandbox filesystem capability, causing an 'Unsupported tool type: apply_patch' error when using SandboxAgent through the Temporal plugin.",
+  "category": "bug",
+  "subcategory": "openai-agents-plugin",
+  "apis": [],
+  "components": [
+    "openai-agents-plugin",
+    "model-stub",
+    "tool-serialization"
+  ],
+  "concepts": [
+    "agent-integration",
+    "tool-support",
+    "sandbox",
+    "file-editing",
+    "serialization",
+    "plugin-compatibility"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use OpenAI Agents SDK's default SandboxApplyPatchTool when running agents through the Temporal plugin.",
+  "rootCause": "The make_tool_info() function in _temporal_model_stub.py doesn't handle SandboxApplyPatchTool and falls through to raising a ValueError for unsupported tool types.",
+  "proposedFix": "Add support for SandboxApplyPatchTool in the make_tool_info() function by implementing a case to handle the 'apply_patch' tool type.",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "the OpenAI Agents SDK sandbox filesystem capability has the SandboxApplyPatchTool tool but it's not supported by the Temporal plugin",
+  "number": 1561,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:12:30.166Z"
+}

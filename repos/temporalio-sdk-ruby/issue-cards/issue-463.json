@@ -1,0 +1,33 @@
+{
+  "summary": "The Ruby SDK crashes when processing `suggestContinueAsNew` event reasons because it attempts to call `.to_i` on Symbol objects instead of properly converting the enum string values, causing workflow failures.",
+  "category": "bug",
+  "subcategory": "event-handling",
+  "apis": [
+    "ContinueAsNew"
+  ],
+  "components": [
+    "workflow-instance",
+    "event-handler",
+    "workflow-activation",
+    "protobuf-serialization"
+  ],
+  "concepts": [
+    "symbol-handling",
+    "enum-conversion",
+    "type-mismatch",
+    "event-deserialization",
+    "workflow-activation"
+  ],
+  "severity": "critical",
+  "userImpact": "Workflows that trigger `suggestContinueAsNew` events (typically after many activities) crash with type conversion errors, making them completely unusable.",
+  "rootCause": "The code incorrectly assumes `suggest_continue_as_new_reasons` contains integers and calls `.map(&:to_i)` on it, but protobuf deserialization returns Symbol objects, causing a method missing error.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "undefined method 'to_i' for an instance of Symbol",
+  "number": 463,
+  "repo": "temporalio-sdk-ruby",
+  "generatedAt": "2026-06-15T23:14:19.127Z"
+}

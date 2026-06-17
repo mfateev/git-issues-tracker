@@ -1,0 +1,32 @@
+{
+  "summary": "SyncActivity replication returns nil instead of RetryReplication error when the target workflow is not found, preventing the retry/resend mechanism from being triggered and silently dropping replication tasks.",
+  "category": "bug",
+  "subcategory": "replication",
+  "apis": [],
+  "components": [
+    "activity_state_replicator",
+    "replication",
+    "ndc",
+    "error-handling"
+  ],
+  "concepts": [
+    "replication",
+    "retry",
+    "error-handling",
+    "workflow-not-found",
+    "task-resend",
+    "multi-datacenter"
+  ],
+  "severity": "high",
+  "userImpact": "Replication events may be silently dropped when workflows are not found in the target cluster, potentially causing data loss and replication failures without error notification.",
+  "rootCause": "Code at activity_state_replicator.go:214 returns nil instead of serviceerrors.NewRetryReplication when a NotFound error is encountered, preventing the existing retry/resend logic from executing.",
+  "proposedFix": "Return serviceerrors.NewRetryReplication instead of nil when workflow is not found, allowing the existing resend path to properly handle the case.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Replication tasks are silently dropped when workflow not found",
+  "number": 10520,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:32:32.986Z"
+}

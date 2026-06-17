@@ -1,0 +1,38 @@
+{
+  "summary": "On Python 3.11+, cancelling a workflow with in-flight activities emits one spurious ERROR log per activity, even though cancellation works correctly. This residual from #1523's fix pollutes error logs due to stale exception callbacks armed by asyncio.shield's outer cancellation.",
+  "category": "bug",
+  "subcategory": "activity-cancellation",
+  "apis": [
+    "execute_activity"
+  ],
+  "components": [
+    "worker",
+    "activity-executor",
+    "asyncio-shield-loops",
+    "exception-handler",
+    "cancellation-handler"
+  ],
+  "concepts": [
+    "cancellation",
+    "exception-logging",
+    "asyncio",
+    "shielded-futures",
+    "error-pollution",
+    "python-version-compatibility"
+  ],
+  "severity": "medium",
+  "userImpact": "Error logs are polluted with spurious ERROR messages during normal workflow cancellation, potentially triggering false alerts despite correct cancellation behavior.",
+  "rootCause": "When workflow cancel occurs, asyncio.shield's _outer_done_callback arms _log_on_exception on the inner future before the except CancelledError block runs, so uncancel() cannot undo it. When the activity completes with an exception, the already-armed callback logs the orphaned exception.",
+  "proposedFix": "Three possible approaches: (1) drop stale callbacks before re-shielding, (2) avoid re-shielding the same future across loop iterations, or (3) consume the orphaned exception explicitly to suppress _log_on_exception.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [
+    1504,
+    1523
+  ],
+  "keyQuote": "So it's exactly one residual log per cancelled in-flight activity, structurally unavoidable with the current shield-and-reshield pattern.",
+  "number": 1600,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:13:55.512Z"
+}

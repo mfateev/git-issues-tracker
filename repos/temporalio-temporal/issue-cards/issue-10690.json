@@ -1,0 +1,34 @@
+{
+  "summary": "ResetWorkflowExecution fails with 'workflow not found' when explicitly targeting an older run if the current execution record is missing, even though the targeted run exists.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [
+    "ResetWorkflowExecution"
+  ],
+  "components": [
+    "consistency-checker",
+    "workflow-lease",
+    "persistence-layer",
+    "current-executions"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "run-deletion",
+    "current-execution",
+    "persistence",
+    "run-identity",
+    "recovery"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot reset workflows to older runs when the current execution has been deleted, preventing recovery from data corruption scenarios.",
+  "rootCause": "The workflow loading logic checks the current_executions record even when an explicit runId is provided, causing it to fail when current execution is missing.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Reset always resolves the current execution first. When the `current_executions` record is missing, reset returns \"workflow not found\" regardless of the `runId` provided",
+  "number": 10690,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:52:39.442Z"
+}

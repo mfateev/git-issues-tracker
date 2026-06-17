@@ -1,0 +1,32 @@
+{
+  "summary": "The startup config file templating system has silent failure modes due to fragile comment-based detection of the # enable-template marker; the proposal is to always render files through Sprig to eliminate bugs and reduce code complexity.",
+  "category": "feature",
+  "subcategory": "config-templating",
+  "apis": [],
+  "components": [
+    "config-loader",
+    "template-engine",
+    "startup-process"
+  ],
+  "concepts": [
+    "configuration",
+    "templating",
+    "startup",
+    "error-handling",
+    "sprig",
+    "yaml",
+    "silent-failures"
+  ],
+  "severity": "medium",
+  "userImpact": "Users configuring Temporal Server can experience silent failures when config templating is unintentionally disabled due to typos or placement issues with the enable-template marker, leading to template variables not being resolved.",
+  "rootCause": "The template enabling check uses fragile comment detection (substring search for # enable-template within first 1KB) instead of a more robust mechanism.",
+  "proposedFix": "Always render config files through Go/Sprig template engine since plain YAML passes through unchanged; alternatively use .yaml.tmpl extension or explicit flag/env var.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "Always render config files through the Go/Sprig template engine. Plain YAML passes through unchanged.",
+  "number": 10663,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:52:13.766Z"
+}

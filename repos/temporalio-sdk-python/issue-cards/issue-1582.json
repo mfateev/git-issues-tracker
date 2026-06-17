@@ -1,0 +1,37 @@
+{
+  "summary": "StartWorkflowUpdateWithStartInput lacks rpc_metadata unlike other API inputs, breaking the consistent interceptor pattern for composite operations. The fix adds top-level rpc_metadata and rpc_timeout to the composite input.",
+  "category": "bug",
+  "subcategory": "interceptors",
+  "apis": [
+    "Client",
+    "OutboundInterceptor"
+  ],
+  "components": [
+    "client-api",
+    "interceptor-framework",
+    "grpc-transport",
+    "multi-operation"
+  ],
+  "concepts": [
+    "interceptors",
+    "rpc-metadata",
+    "headers",
+    "request-interception",
+    "composite-operations",
+    "api-consistency"
+  ],
+  "severity": "medium",
+  "userImpact": "Users implementing interceptors to refresh headers in rpc_metadata cannot apply the same pattern to composite operations like start_update_with_start_workflow.",
+  "rootCause": "StartWorkflowUpdateWithStartInput as a composite container lacks rpc_metadata field that other API inputs have, breaking the consistent interceptor contract.",
+  "proposedFix": "Add top-level rpc_metadata and rpc_timeout fields to StartWorkflowUpdateWithStartInput and thread them through to the execute_multi_operation gRPC call (PR #1588).",
+  "workaround": null,
+  "resolution": "fixed",
+  "resolutionDetails": "PR #1588 adds top-level rpc_metadata and rpc_timeout to StartWorkflowUpdateWithStartInput and threads them through execute_multi_operation.",
+  "related": [
+    1588
+  ],
+  "keyQuote": "It would be great to have the API for the interceptor remain consistent so that for composite/multiop calls, the container's rpc_metadata is projected into each of the contained ops.",
+  "number": 1582,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:13:14.867Z"
+}

@@ -1,9 +1,286 @@
 {
-  "generatedAt": "2026-05-20T17:00:13.889Z",
+  "generatedAt": "2026-06-16T17:00:11.649Z",
   "repo": "temporalio-sdk-go",
-  "totalCount": 867,
-  "cardsCount": 867,
+  "totalCount": 873,
+  "cardsCount": 873,
   "issues": [
+    {
+      "number": 2401,
+      "title": "Metric counters only appear when they're incremented",
+      "state": "CLOSED",
+      "author": "mlcdf",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-06-15T08:03:20Z",
+      "updatedAt": "2026-06-15T17:03:26Z",
+      "closedAt": "2026-06-15T17:03:26Z",
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2401",
+      "bodyLength": 420,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "Metric counters like `temporal_workflow_completed_total` don't appear in Prometheus until first incremented, causing monitoring and alerting issues. Reporter requested pre-initialization at worker startup, but maintainers closed this as expected behavior that should be handled in the metrics collection/query layer instead.",
+      "category": "bug",
+      "subcategory": "metrics",
+      "apis": [],
+      "components": [
+        "metrics",
+        "worker",
+        "prometheus"
+      ],
+      "concepts": [
+        "counter",
+        "labels",
+        "cardinality",
+        "alerting",
+        "observability",
+        "metrics",
+        "monitoring"
+      ],
+      "severity": "high",
+      "resolution": "wontfix",
+      "hasCard": true
+    },
+    {
+      "number": 2379,
+      "title": "Activity invocation with duplicate function names is silently redirected to aliased registration",
+      "state": "OPEN",
+      "author": "antmendoza",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-05-28T23:19:49Z",
+      "updatedAt": "2026-06-04T19:13:19Z",
+      "closedAt": null,
+      "commentCount": 4,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2379",
+      "bodyLength": 1444,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 2,
+      "summary": "When a worker registers activities with duplicate function names where one has an alias and one doesn't, invoking the non-aliased activity silently gets redirected to the aliased version. This occurs because the getActivityFunctionName function prioritizes alias lookups over the explicitly requested registration name.",
+      "category": "bug",
+      "subcategory": "activity-registration",
+      "apis": [
+        "ExecuteActivity",
+        "RegisterActivity",
+        "RegisterActivityWithOptions"
+      ],
+      "components": [
+        "worker",
+        "activity-registry",
+        "registration-aliasing"
+      ],
+      "concepts": [
+        "activity-aliasing",
+        "name-collision",
+        "function-disambiguation",
+        "registration-conflict",
+        "activity-routing"
+      ],
+      "severity": "high",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 2378,
+      "title": "[Bug] External storage transfer stats reports summation of durations instead of wall-clock duration",
+      "state": "OPEN",
+      "author": "jmaeagle99",
+      "labels": [
+        "bug"
+      ],
+      "createdAt": "2026-05-28T20:10:16Z",
+      "updatedAt": "2026-06-04T19:38:01Z",
+      "closedAt": null,
+      "commentCount": 1,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2378",
+      "bodyLength": 712,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [
+        "v1.44.1"
+      ],
+      "linkedIssues": [],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 0,
+      "summary": "External storage transfer statistics incorrectly sum individual driver invocation durations instead of measuring actual wall-clock time. When multiple drivers run concurrently, the reported duration is multiplied by the number of drivers rather than reflecting actual elapsed time.",
+      "category": "bug",
+      "subcategory": "external-storage-statistics",
+      "apis": [],
+      "components": [
+        "task-pollers",
+        "external-storage",
+        "statistics",
+        "driver"
+      ],
+      "concepts": [
+        "concurrent-execution",
+        "wall-clock-duration",
+        "statistics-accuracy",
+        "overlapping-intervals",
+        "edge-detection"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 2370,
+      "title": "Add optional retry policy for PayloadCodec failures",
+      "state": "OPEN",
+      "author": "whitemanthedj",
+      "labels": [
+        "enhancement"
+      ],
+      "createdAt": "2026-05-26T22:11:34Z",
+      "updatedAt": "2026-06-08T23:25:49Z",
+      "closedAt": null,
+      "commentCount": 3,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2370",
+      "bodyLength": 4212,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        2206,
+        2225,
+        2228
+      ],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 2,
+      "summary": "Feature request to add optional retry policies for PayloadCodec Encode/Decode operations. Currently, codec failures from external services (KMS, HTTP sidecars, schema registries) immediately abort the entire operation; users must implement retry logic independently for each codec. The proposal adds CodecDataConverterWithOptions allowing per-codec retry policies with configurable backoff.",
+      "category": "feature",
+      "subcategory": "payload-codec",
+      "apis": [
+        "PayloadCodec",
+        "NewCodecDataConverter",
+        "NewRemotePayloadCodec"
+      ],
+      "components": [
+        "converter",
+        "payload-codec",
+        "data-converter",
+        "encoding"
+      ],
+      "concepts": [
+        "retry",
+        "transient-failures",
+        "external-services",
+        "idempotency",
+        "backoff",
+        "resilience"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
+    {
+      "number": 2369,
+      "title": "contrib/envconfig: add Authority field to ClientConfigProfile",
+      "state": "CLOSED",
+      "author": "chaptersix",
+      "labels": [],
+      "createdAt": "2026-05-26T21:47:57Z",
+      "updatedAt": "2026-06-04T15:03:26Z",
+      "closedAt": "2026-06-04T15:03:05Z",
+      "commentCount": 2,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2369",
+      "bodyLength": 481,
+      "hasCodeBlocks": true,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        1013
+      ],
+      "isQuestion": false,
+      "hasPR": false,
+      "codeBlockCount": 1,
+      "summary": "ClientConfigProfile in contrib/envconfig is missing an Authority field to expose ConnectionOptions.Authority (gRPC :authority pseudo-header), preventing users from setting client-authority through CLI profile-based configuration.",
+      "category": "feature",
+      "subcategory": "envconfig",
+      "apis": [
+        "ConnectionOptions",
+        "ClientConfigProfile"
+      ],
+      "components": [
+        "contrib/envconfig",
+        "client-config",
+        "gRPC-client"
+      ],
+      "concepts": [
+        "client-authority",
+        "gRPC-config",
+        "profile-based-configuration",
+        "connection-options"
+      ],
+      "severity": "medium",
+      "resolution": "fixed",
+      "hasCard": true
+    },
+    {
+      "number": 2364,
+      "title": "Proposal: Google Cloud Storage external storage driver in contrib (mirror of aws/s3driver)",
+      "state": "OPEN",
+      "author": "Ozoniuss",
+      "labels": [],
+      "createdAt": "2026-05-23T15:05:00Z",
+      "updatedAt": "2026-05-23T15:05:00Z",
+      "closedAt": null,
+      "commentCount": 0,
+      "upvotes": 0,
+      "url": "https://github.com/temporalio/sdk-go/issues/2364",
+      "bodyLength": 3690,
+      "hasCodeBlocks": false,
+      "hasStackTrace": false,
+      "mentionsVersions": [],
+      "linkedIssues": [
+        1502
+      ],
+      "isQuestion": false,
+      "hasPR": true,
+      "codeBlockCount": 0,
+      "summary": "Proposal to add a Google Cloud Storage external storage driver to the Go SDK's contrib module, following the same pattern as the existing AWS S3 driver, with questions about testing strategy and handling code duplication between cloud providers.",
+      "category": "feature",
+      "subcategory": "external-storage",
+      "apis": [],
+      "components": [
+        "contrib",
+        "external-storage",
+        "storage-driver",
+        "testing",
+        "gcp"
+      ],
+      "concepts": [
+        "cloud-storage",
+        "external-storage",
+        "driver-implementation",
+        "google-cloud",
+        "code-reuse",
+        "testing-strategy",
+        "persistence"
+      ],
+      "severity": "medium",
+      "resolution": null,
+      "hasCard": true
+    },
     {
       "number": 2350,
       "title": "Implement operator commands for Standalone Activities",
@@ -195,9 +472,9 @@
       "author": "stanfordpeng",
       "labels": [],
       "createdAt": "2026-05-11T10:57:36Z",
-      "updatedAt": "2026-05-11T11:03:54Z",
+      "updatedAt": "2026-05-25T14:58:43Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2329",
       "bodyLength": 3855,
@@ -280,15 +557,15 @@
     {
       "number": 2318,
       "title": "Add support for Standalone Activities to TestWorkflowEnvironment",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yuandrew",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-04-30T18:41:09Z",
-      "updatedAt": "2026-04-30T18:41:09Z",
-      "closedAt": null,
-      "commentCount": 0,
+      "updatedAt": "2026-05-20T21:38:01Z",
+      "closedAt": "2026-05-20T21:38:01Z",
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2318",
       "bodyLength": 1442,
@@ -924,9 +1201,9 @@
         "enhancement"
       ],
       "createdAt": "2026-03-10T19:10:16Z",
-      "updatedAt": "2026-03-10T19:10:16Z",
+      "updatedAt": "2026-06-12T16:20:44Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2222",
       "bodyLength": 364,
@@ -1470,14 +1747,14 @@
     {
       "number": 2177,
       "title": "Ensure all internal structs that are exposed publically are fully documented",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yuandrew",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-02-05T21:51:51Z",
-      "updatedAt": "2026-02-05T21:51:51Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-15T05:34:36Z",
+      "closedAt": "2026-06-15T05:34:36Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2177",
@@ -1902,14 +2179,14 @@
     {
       "number": 2150,
       "title": "Stop sending null search attribute values on workflow start and continue as new",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2026-01-15T19:03:53Z",
-      "updatedAt": "2026-01-15T19:03:53Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-02T21:31:07Z",
+      "closedAt": "2026-06-02T21:31:07Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2150",
@@ -3156,14 +3433,14 @@
     {
       "number": 2066,
       "title": "Lost messages from workflow.NewChannel(ctx)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "yuandrew",
       "labels": [
         "bug"
       ],
       "createdAt": "2025-10-02T22:19:14Z",
-      "updatedAt": "2025-12-10T17:57:23Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-01T19:45:09Z",
+      "closedAt": "2026-06-01T19:45:09Z",
       "commentCount": 3,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2066",
@@ -3966,9 +4243,9 @@
         "bug"
       ],
       "createdAt": "2025-08-19T22:05:28Z",
-      "updatedAt": "2025-08-19T22:06:27Z",
+      "updatedAt": "2026-06-05T15:08:56Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/2025",
       "bodyLength": 194,
@@ -6434,9 +6711,9 @@
         "bug"
       ],
       "createdAt": "2025-03-14T13:07:24Z",
-      "updatedAt": "2025-03-14T13:07:51Z",
+      "updatedAt": "2026-05-21T13:51:23Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 2,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/1869",
       "bodyLength": 478,
@@ -9423,9 +9700,9 @@
         "potential-bug"
       ],
       "createdAt": "2024-10-11T13:07:26Z",
-      "updatedAt": "2024-10-11T13:07:26Z",
+      "updatedAt": "2026-05-25T15:02:46Z",
       "closedAt": null,
-      "commentCount": 0,
+      "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/1668",
       "bodyLength": 1013,
@@ -10035,14 +10312,14 @@
     {
       "number": 1624,
       "title": "Signal sent to Selector can be lost if Default path blocks ",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2024-09-06T04:34:11Z",
-      "updatedAt": "2025-11-12T16:50:29Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-01T17:26:54Z",
+      "closedAt": "2026-06-01T17:26:54Z",
       "commentCount": 1,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/1624",
@@ -17385,14 +17662,14 @@
     {
       "number": 1197,
       "title": "Drain polled tasks on shutdown",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Quinn-With-Two-Ns",
       "labels": [
         "enhancement"
       ],
       "createdAt": "2023-08-10T13:29:34Z",
-      "updatedAt": "2023-08-10T13:29:34Z",
-      "closedAt": null,
+      "updatedAt": "2026-05-27T18:21:34Z",
+      "closedAt": "2026-05-27T18:21:34Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/1197",
@@ -18514,14 +18791,14 @@
     {
       "number": 1131,
       "title": "worker.Options.WorkerActivitiesPerSecond applies after poll is received",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "cretz",
       "labels": [
         "potential-bug"
       ],
       "createdAt": "2023-06-07T15:28:47Z",
-      "updatedAt": "2023-06-07T15:28:47Z",
-      "closedAt": null,
+      "updatedAt": "2026-06-15T20:35:20Z",
+      "closedAt": "2026-06-15T20:35:20Z",
       "commentCount": 0,
       "upvotes": 0,
       "url": "https://github.com/temporalio/sdk-go/issues/1131",

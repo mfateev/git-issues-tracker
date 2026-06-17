@@ -1,0 +1,40 @@
+{
+  "summary": "Non-deterministic workflow history occurs when an update handler executes on cold-start/replay before a signal handler's activity-awaiting coroutine completes, causing the update to read stale shared state.",
+  "category": "bug",
+  "subcategory": "determinism-replay",
+  "apis": [
+    "execute_activity",
+    "signal",
+    "update",
+    "wait_condition",
+    "replay_workflow"
+  ],
+  "components": [
+    "replay-engine",
+    "signal-handler",
+    "update-handler",
+    "event-ordering",
+    "workflow-executor"
+  ],
+  "concepts": [
+    "determinism",
+    "replay",
+    "cold-start",
+    "shared-state",
+    "handler-ordering",
+    "async-execution",
+    "history"
+  ],
+  "severity": "high",
+  "userImpact": "Users with complex workflows using updates, signals, and timers in specific configurations may experience non-deterministic history errors during replay on cold starts.",
+  "rootCause": "During cold start/replay, the update handler is executed before the signal handler's coroutine advances past the activity await to finalize the shared state flag.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "It looks like the update handler gets executed before the recorded signal handler has completed its work.",
+  "number": 1591,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:13:35.355Z"
+}

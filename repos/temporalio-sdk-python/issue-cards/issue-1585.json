@@ -1,0 +1,35 @@
+{
+  "summary": "OpenAI agent streaming through WorkflowStreamClient fails with PydanticSerializationError because the payload converter's SchemaSerializer cannot handle OpenAI's complex discriminated-union stream event types, though the concrete Pydantic model's own serializer works fine.",
+  "category": "bug",
+  "subcategory": "openai-agents",
+  "apis": [
+    "WorkflowStreamClient",
+    "OpenAIPayloadConverter"
+  ],
+  "components": [
+    "payload-converter",
+    "openai-agents",
+    "serialization",
+    "pydantic"
+  ],
+  "concepts": [
+    "serialization",
+    "pydantic",
+    "stream-events",
+    "discriminated-union",
+    "type-safety",
+    "payload-encoding"
+  ],
+  "severity": "high",
+  "userImpact": "Users cannot use OpenAI agents with WorkflowStreamClient streaming without implementing a custom workaround.",
+  "rootCause": "PydanticJSONPlainPayloadConverter uses SchemaSerializer(any_schema()).to_json() which cannot serialize OpenAI's discriminated-union stream event types; the concrete model's model_dump_json() succeeds but isn't used as a fallback.",
+  "proposedFix": "Add fallback to model_dump_json() when SchemaSerializer(any_schema()).to_json() raises PydanticSerializationError in OpenAIPayloadConverter or PydanticJSONPlainPayloadConverter.",
+  "workaround": "Subclass OpenAIPayloadConverter and wrap the json/plain converter with a fallback that catches PydanticSerializationError and uses model_dump_json() instead.",
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The concrete model's own `model_dump_json()` works fine — it uses the model's type-aware serializer rather than the generic `any_schema()` approach.",
+  "number": 1585,
+  "repo": "temporalio-sdk-python",
+  "generatedAt": "2026-06-15T23:13:11.282Z"
+}

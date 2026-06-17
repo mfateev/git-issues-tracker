@@ -1,6 +1,6 @@
 # Features SDK - Issue Statistics
 
-**Generated:** 2026-05-20
+**Generated:** 2026-06-16
 **Repository:** [temporalio/features](https://github.com/temporalio/features)
 
 ## Related Documents
@@ -15,18 +15,18 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Open Issues | 257 |
-| Total Closed Issues | 155 |
-| Total All Issues | 412 |
+| Total Open Issues | 258 |
+| Total Closed Issues | 157 |
+| Total All Issues | 415 |
 | Bugs (open) | 5 |
-| Enhancements/Features (open) | 239 |
+| Enhancements/Features (open) | 238 |
 | Security Issues (open) | 5 |
-| Total Upvotes (👍) on open | 120 |
-| Total Comments on open | 406 |
-| Issues with Upvotes | 34 (13%) |
-| Issues with Comments | 130 (51%) |
-| Average Age (days) | 878 |
-| Stale Issues (>12 months) | 169 (66%) |
+| Total Upvotes (👍) on open | 115 |
+| Total Comments on open | 404 |
+| Issues with Upvotes | 33 (13%) |
+| Issues with Comments | 130 (50%) |
+| Average Age (days) | 898 |
+| Stale Issues (>12 months) | 175 (68%) |
 
 ---
 ## Resolution Metrics
@@ -36,22 +36,22 @@
 
 | Metric | Value |
 |--------|-------|
-| Resolution Rate | 38% (155/412) |
-| Avg Time to Close (calendar) | 267 days |
-| Avg Time to Close (business) | 192 days |
-| Median Time to Close (calendar) | 129 days |
-| Median Time to Close (business) | 91 days |
+| Resolution Rate | 38% (157/415) |
+| Avg Time to Close (calendar) | 270 days |
+| Avg Time to Close (business) | 194 days |
+| Median Time to Close (calendar) | 133 days |
+| Median Time to Close (business) | 95 days |
 | 90th Percentile (calendar) | 818 days |
 | 90th Percentile (business) | 585 days |
-| Resolved within 30 days | 32% |
-| Resolved within 90 days | 46% |
+| Resolved within 30 days | 31% |
+| Resolved within 90 days | 45% |
 
 ### Closure Reasons (Inferred)
 
 | Reason | Count | % |
 |--------|-------|---|
 | Fixed (bugs) | 8 | 5% |
-| Completed (features) | 84 | 54% |
+| Completed (features) | 86 | 55% |
 | Self-resolved | 25 | 16% |
 | Duplicate | 1 | 1% |
 | Won't Fix | 0 | 0% |
@@ -64,7 +64,6 @@
 
 | Month | Opened | Closed | Net Change |
 |-------|--------|--------|------------|
-| 2025-06 | 7 | 4 | +3 |
 | 2025-07 | 6 | 6 | 0 |
 | 2025-08 | 7 | 1 | +6 |
 | 2025-09 | 5 | 4 | +1 |
@@ -75,10 +74,11 @@
 | 2026-02 | 7 | 8 | -1 |
 | 2026-03 | 6 | 5 | +1 |
 | 2026-04 | 4 | 1 | +3 |
-| 2026-05 | 3 | 3 | 0 |
-| **Total** | **74** | **44** | **+30** |
+| 2026-05 | 5 | 4 | +1 |
+| 2026-06 | 1 | 1 | 0 |
+| **Total** | **70** | **42** | **+28** |
 
-📈 **Backlog Growing:** 30 more issues opened than closed in the last 12 months.
+📈 **Backlog Growing:** 28 more issues opened than closed in the last 12 months.
 
 ---
 ## Last 6 Months: Detailed Analysis
@@ -87,9 +87,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Issues Opened | 34 |
+| Issues Opened | 35 |
 | Issues Closed | 22 |
-| Net Change | +12 |
+| Net Change | +13 |
 | Bugs Closed | 2 |
 | Enhancements Closed | 18 |
 
@@ -97,30 +97,35 @@
 
 | Metric | Calendar Days | Business Days |
 |--------|---------------|---------------|
-| Average | 209 | 149 |
-| Median | 45 | 32 |
-| 90th Percentile | 721 | 516 |
+| Average | 250 | 179 |
+| Median | 67 | 50 |
+| 90th Percentile | 774 | 555 |
 
 ### Resolution Speed (Last 6 Months)
 
 | Timeframe | % Resolved |
 |-----------|------------|
-| Within 30 days | 41% |
-| Within 90 days | 68% |
+| Within 30 days | 36% |
+| Within 90 days | 59% |
 
+### Popular Requests Resolved (3+ upvotes)
+
+| Issue | 👍 | Title |
+|-------|-----|-------|
+| [#456](https://github.com/temporalio/features/issues/456) | 7 | [Feature Request] Provide worker status |
 
 ---
 ## Age Distribution (Open Issues)
 
 | Age | Count | % |
 |-----|-------|---|
-| Last 30 days | 3 | 1% |
-| 1-3 months | 8 | 3% |
-| 3-6 months | 11 | 4% |
-| 6-12 months | 28 | 11% |
+| Last 30 days | 5 | 2% |
+| 1-3 months | 6 | 2% |
+| 3-6 months | 12 | 5% |
+| 6-12 months | 24 | 9% |
 | 1-2 years | 52 | 20% |
-| 2-3 years | 55 | 21% |
-| 3+ years | 100 | 39% |
+| 2-3 years | 57 | 22% |
+| 3+ years | 102 | 40% |
 
 ---
 
@@ -134,15 +139,15 @@
 | 4 | [#562](https://github.com/temporalio/features/issues/562) | 7 | 6 | [Feature Request] Session support |
 | 5 | [#434](https://github.com/temporalio/features/issues/434) | 7 | 1 | [Feature Request] Serialization context for codecs and conve... |
 | 6 | [#229](https://github.com/temporalio/features/issues/229) | 6 | 2 | [Feature Request] Auto heartbeating |
-| 7 | [#456](https://github.com/temporalio/features/issues/456) | 5 | 4 | [Feature Request] Provide worker status |
-| 8 | [#363](https://github.com/temporalio/features/issues/363) | 4 | 0 | [Feature Request] Work around gRPC message size limit for ta... |
-| 9 | [#558](https://github.com/temporalio/features/issues/558) | 3 | 21 | Add WorkflowIdConflictPolicy in child workflow options |
-| 10 | [#515](https://github.com/temporalio/features/issues/515) | 3 | 2 | Expose start delay in child workflow options |
-| 11 | [#503](https://github.com/temporalio/features/issues/503) | 3 | 1 | Cancel and Signal should still propagate to child workflows ... |
-| 12 | [#175](https://github.com/temporalio/features/issues/175) | 3 | 0 | [Feature Request] Endtoend latency metric for cron execution... |
-| 13 | [#98](https://github.com/temporalio/features/issues/98) | 3 | 0 | [Feature Request] New metric: worker_task_slots_total |
-| 14 | [#25](https://github.com/temporalio/features/issues/25) | 3 | 6 | [Feature Request] SDK should expose workflow_started metric |
-| 15 | [#696](https://github.com/temporalio/features/issues/696) | 2 | 0 | Worker Heartbeating |
+| 7 | [#363](https://github.com/temporalio/features/issues/363) | 4 | 0 | [Feature Request] Work around gRPC message size limit for ta... |
+| 8 | [#558](https://github.com/temporalio/features/issues/558) | 3 | 21 | Add WorkflowIdConflictPolicy in child workflow options |
+| 9 | [#515](https://github.com/temporalio/features/issues/515) | 3 | 2 | Expose start delay in child workflow options |
+| 10 | [#503](https://github.com/temporalio/features/issues/503) | 3 | 1 | Cancel and Signal should still propagate to child workflows ... |
+| 11 | [#175](https://github.com/temporalio/features/issues/175) | 3 | 0 | [Feature Request] Endtoend latency metric for cron execution... |
+| 12 | [#98](https://github.com/temporalio/features/issues/98) | 3 | 0 | [Feature Request] New metric: worker_task_slots_total |
+| 13 | [#25](https://github.com/temporalio/features/issues/25) | 3 | 6 | [Feature Request] SDK should expose workflow_started metric |
+| 14 | [#696](https://github.com/temporalio/features/issues/696) | 2 | 0 | Worker Heartbeating |
+| 15 | [#624](https://github.com/temporalio/features/issues/624) | 2 | 4 | Gracefully fail gRPC-message-too-large issues in worker |
 
 ---
 
@@ -159,14 +164,14 @@ Priority = Upvotes × 2 + Comments
 | 5 | [#562](https://github.com/temporalio/features/issues/562) | 20 | 7 | 6 | [Feature Request] Session support |
 | 6 | [#443](https://github.com/temporalio/features/issues/443) | 18 | 0 | 18 | [Feature Request] Implement activity task poll lim... |
 | 7 | [#434](https://github.com/temporalio/features/issues/434) | 15 | 7 | 1 | [Feature Request] Serialization context for codecs... |
-| 8 | [#456](https://github.com/temporalio/features/issues/456) | 14 | 5 | 4 | [Feature Request] Provide worker status |
-| 9 | [#229](https://github.com/temporalio/features/issues/229) | 14 | 6 | 2 | [Feature Request] Auto heartbeating |
-| 10 | [#51](https://github.com/temporalio/features/issues/51) | 13 | 0 | 13 | [Feature Request] Standardize method for listing w... |
-| 11 | [#563](https://github.com/temporalio/features/issues/563) | 12 | 0 | 12 | Tag workflow_failed counter metric with exception ... |
-| 12 | [#257](https://github.com/temporalio/features/issues/257) | 12 | 0 | 12 | Update API: support not writing history when calli... |
-| 13 | [#25](https://github.com/temporalio/features/issues/25) | 12 | 3 | 6 | [Feature Request] SDK should expose workflow_start... |
-| 14 | [#69](https://github.com/temporalio/features/issues/69) | 10 | 0 | 10 | [Feature Request] Specify reset point in workflow ... |
-| 15 | [#463](https://github.com/temporalio/features/issues/463) | 9 | 2 | 5 | Customize activity failure logging (and more?) |
+| 8 | [#229](https://github.com/temporalio/features/issues/229) | 14 | 6 | 2 | [Feature Request] Auto heartbeating |
+| 9 | [#51](https://github.com/temporalio/features/issues/51) | 13 | 0 | 13 | [Feature Request] Standardize method for listing w... |
+| 10 | [#563](https://github.com/temporalio/features/issues/563) | 12 | 0 | 12 | Tag workflow_failed counter metric with exception ... |
+| 11 | [#257](https://github.com/temporalio/features/issues/257) | 12 | 0 | 12 | Update API: support not writing history when calli... |
+| 12 | [#25](https://github.com/temporalio/features/issues/25) | 12 | 3 | 6 | [Feature Request] SDK should expose workflow_start... |
+| 13 | [#69](https://github.com/temporalio/features/issues/69) | 10 | 0 | 10 | [Feature Request] Specify reset point in workflow ... |
+| 14 | [#463](https://github.com/temporalio/features/issues/463) | 9 | 2 | 5 | Customize activity failure logging (and more?) |
+| 15 | [#377](https://github.com/temporalio/features/issues/377) | 9 | 0 | 9 | Support an option to disable "Close" timeouts for ... |
 
 ---
 
@@ -191,9 +196,11 @@ Priority = Upvotes × 2 + Comments
 
 | Date | Issue | 👍 | Title |
 |------|-------|-----|-------|
+| 2026-06-02 | [#845](https://github.com/temporalio/features/issues/845) | 0 | Label worker-emitted metrics with `temporal_worker_deploymen... |
+| 2026-05-22 | [#835](https://github.com/temporalio/features/issues/835) | 0 | Shutdown Worker features tests, enableCancelWorkerPollsOnShu... |
+| 2026-05-22 | [#834](https://github.com/temporalio/features/issues/834) | 0 | Support running features tests with specific dynamic configs... |
 | 2026-05-19 | [#827](https://github.com/temporalio/features/issues/827) | 0 | SDK should log when WFT completion takes a long time |
 | 2026-05-19 | [#822](https://github.com/temporalio/features/issues/822) | 0 | Implement operator commands for Standalone Activities |
-| 2026-05-05 | [#812](https://github.com/temporalio/features/issues/812) | 0 | Standard error handler interface for workflow and activity f... |
 
 ---
 
@@ -201,7 +208,7 @@ Priority = Upvotes × 2 + Comments
 
 | Label | Count |
 |-------|-------|
-| enhancement | 230 |
+| enhancement | 229 |
 | feature-test | 8 |
 | bug | 5 |
 | mend: dependency security vulnerability | 5 |
@@ -223,7 +230,7 @@ Priority = Upvotes × 2 + Comments
 
 ---
 
-## Stale Issues (169 open issues with no activity >12 months)
+## Stale Issues (175 open issues with no activity >12 months)
 
 Top stale issues by upvotes:
 
@@ -244,10 +251,10 @@ Top stale issues by upvotes:
 | [#206](https://github.com/temporalio/features/issues/206) | 1 | 2024-07-13 | [Feature Request] Add context propagators in all S... |
 | [#204](https://github.com/temporalio/features/issues/204) | 1 | 2024-07-13 | [Feature Request] Expose currently configured payl... |
 | [#138](https://github.com/temporalio/features/issues/138) | 1 | 2022-09-30 | [Feature Request] SDKs should have built-in contex... |
+| [#119](https://github.com/temporalio/features/issues/119) | 1 | 2025-06-03 | Add upsertMemo command |
 | [#114](https://github.com/temporalio/features/issues/114) | 1 | 2024-07-13 | [Feature Request] Setting namespace and task queue... |
-| [#619](https://github.com/temporalio/features/issues/619) | 0 | 2025-04-23 | Expose `StartWorkflowExecutionResponse` fields to ... |
-| [#613](https://github.com/temporalio/features/issues/613) | 0 | 2025-03-31 | Explore ways of testing pre-patched code in SDKs |
-| [#608](https://github.com/temporalio/features/issues/608) | 0 | 2025-03-07 | SDK should try to check if activity is completed b... |
-| [#607](https://github.com/temporalio/features/issues/607) | 0 | 2025-03-07 | Standardize (where desirable) metrics across SDK l... |
+| [#636](https://github.com/temporalio/features/issues/636) | 0 | 2025-06-09 | Add task_queue information to long_request_latency |
+| [#634](https://github.com/temporalio/features/issues/634) | 0 | 2025-06-06 | Add failure_reason=UnhandledCommand to workflow_ta... |
+| [#633](https://github.com/temporalio/features/issues/633) | 0 | 2025-06-11 | Treat Activity start as the first heartbeat time |
 
-*...and 149 more stale issues*
+*...and 155 more stale issues*

@@ -1,0 +1,30 @@
+{
+  "summary": "SDKs should automatically label worker-emitted metrics with `temporal_worker_deployment_name` and `temporal_worker_build_id` (similar to existing `temporal_namespace` labeling) to eliminate manual setup and reduce errors.",
+  "category": "feature",
+  "subcategory": "worker-metrics",
+  "apis": [],
+  "components": [
+    "worker",
+    "metrics",
+    "observability"
+  ],
+  "concepts": [
+    "worker-versioning",
+    "metrics-labeling",
+    "deployment-identification",
+    "build-id",
+    "observability"
+  ],
+  "severity": "medium",
+  "userImpact": "Users currently must manually add deployment and build ID labels to worker metrics, leading to inconsistent labeling and difficulty managing per-version metrics.",
+  "rootCause": null,
+  "proposedFix": "Automatically label worker metrics with `temporal_worker_deployment_name` and `temporal_worker_build_id` (use `__unversioned__` for unversioned workers)",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "SDK should label worker metrics with standardized `temporal_worker_deployment_name` and `temporal_worker_build_id` labels, similar to how it automatically labels with `temporal_namespace`.",
+  "number": 845,
+  "repo": "temporalio-features",
+  "generatedAt": "2026-06-15T23:10:30.623Z"
+}

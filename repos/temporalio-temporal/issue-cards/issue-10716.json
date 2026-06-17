@@ -1,0 +1,34 @@
+{
+  "summary": "Investigation of two TODO comments in the history Nexus handler requesting clarification on whether error redaction should be implemented for defense-in-depth or to handle a specific code path where history responses bypass frontend redaction.",
+  "category": "question",
+  "subcategory": "nexus-error-handling",
+  "apis": [
+    "StartNexusOperation",
+    "CancelNexusOperation"
+  ],
+  "components": [
+    "history-handler",
+    "nexus-handler",
+    "error-handling",
+    "security"
+  ],
+  "concepts": [
+    "error-redaction",
+    "defense-in-depth",
+    "security",
+    "gRPC",
+    "information-disclosure"
+  ],
+  "severity": "medium",
+  "userImpact": "Clarifies whether history service needs to redact errors to prevent potential exposure of internal error details to external Nexus clients.",
+  "rootCause": null,
+  "proposedFix": "Catch unexpected errors in history layer and return nexus.NewHandlerErrorf(nexus.HandlerErrorTypeInternal, \"internal error\") while logging the original error server-side, following the pattern already used in frontend's nexus_handler.go.",
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "1. Defense-in-depth — redacting at the history layer too, in case frontend's redaction is bypassed or incomplete, or 2. A specific code path where history's response could reach external callers",
+  "number": 10716,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:52:50.732Z"
+}

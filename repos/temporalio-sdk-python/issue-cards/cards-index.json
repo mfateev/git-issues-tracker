@@ -1,7 +1,453 @@
 {
-  "generatedAt": "2026-05-20T16:48:06.667Z",
-  "totalCards": 638,
+  "generatedAt": "2026-06-16T16:58:05.538Z",
+  "totalCards": 651,
   "cards": [
+    {
+      "summary": "On Python 3.11+, cancelling a workflow with in-flight activities emits one spurious ERROR log per activity, even though cancellation works correctly. This residual from #1523's fix pollutes error logs due to stale exception callbacks armed by asyncio.shield's outer cancellation.",
+      "category": "bug",
+      "subcategory": "activity-cancellation",
+      "apis": [
+        "execute_activity"
+      ],
+      "components": [
+        "worker",
+        "activity-executor",
+        "asyncio-shield-loops",
+        "exception-handler",
+        "cancellation-handler"
+      ],
+      "concepts": [
+        "cancellation",
+        "exception-logging",
+        "asyncio",
+        "shielded-futures",
+        "error-pollution",
+        "python-version-compatibility"
+      ],
+      "severity": "medium",
+      "userImpact": "Error logs are polluted with spurious ERROR messages during normal workflow cancellation, potentially triggering false alerts despite correct cancellation behavior.",
+      "rootCause": "When workflow cancel occurs, asyncio.shield's _outer_done_callback arms _log_on_exception on the inner future before the except CancelledError block runs, so uncancel() cannot undo it. When the activity completes with an exception, the already-armed callback logs the orphaned exception.",
+      "proposedFix": "Three possible approaches: (1) drop stale callbacks before re-shielding, (2) avoid re-shielding the same future across loop iterations, or (3) consume the orphaned exception explicitly to suppress _log_on_exception.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1504,
+        1523
+      ],
+      "keyQuote": "So it's exactly one residual log per cancelled in-flight activity, structurally unavoidable with the current shield-and-reshield pattern.",
+      "number": 1600,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:13:55.512Z"
+    },
+    {
+      "summary": "Docker image scanning detects two PyO3 security vulnerabilities (out-of-bounds read and missing Sync bound) in version 0.25.1. Fixed by upgrading to PyO3 0.29.0.",
+      "category": "bug",
+      "subcategory": "dependency-security",
+      "apis": [],
+      "components": [
+        "pyo3",
+        "python-sdk",
+        "cargo-dependencies"
+      ],
+      "concepts": [
+        "security-vulnerability",
+        "cve",
+        "out-of-bounds-read",
+        "memory-safety",
+        "dependency-management",
+        "supply-chain-security"
+      ],
+      "severity": "high",
+      "userImpact": "Users' Docker images fail security scans due to unpatched PyO3 vulnerabilities until the SDK is upgraded.",
+      "rootCause": "PyO3 0.25.1 contains unpatched CVEs (GHSA-36hh-v3qg-5jq4 and GHSA-chgr-c6px-7xpp) fixed in version 0.29.0.",
+      "proposedFix": "Upgrade PyO3 from 0.25.1 to 0.29.0 in Cargo.lock.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Fixed in PR #1599 by upgrading PyO3 to version 0.29.0.",
+      "related": [
+        1599
+      ],
+      "keyQuote": "The version 0.29.0 of pyo3 solves these security issues.",
+      "number": 1598,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:13:37.224Z"
+    },
+    {
+      "summary": "User requests Windows ARM64 wheel support for the Python SDK on PyPI. Currently, wheels are not provided for this platform. The maintainer indicates official Windows ARM64 support is not yet available but would be open to changes that enable it.",
+      "category": "feature",
+      "subcategory": "wheel-distribution",
+      "apis": [],
+      "components": [
+        "release-pipeline",
+        "packaging",
+        "build-system"
+      ],
+      "concepts": [
+        "windows-arm64",
+        "cross-platform-support",
+        "wheel-distribution",
+        "platform-support",
+        "build-pipeline"
+      ],
+      "severity": "medium",
+      "userImpact": "Users on Windows ARM64 cannot use the officially distributed Python SDK from PyPI and must resort to local builds or workarounds.",
+      "rootCause": "Windows ARM64 wheel support has not been implemented in the release pipeline.",
+      "proposedFix": "Add Windows ARM64 wheel publication to the release pipeline, with maintainer openness to supporting changes if they don't have major implications.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "We don't have official windows arm64 support. If there are some changes we can make to support your local build, we wouldn't mind accepting those...",
+      "number": 1592,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:13:35.947Z"
+    },
+    {
+      "summary": "Non-deterministic workflow history occurs when an update handler executes on cold-start/replay before a signal handler's activity-awaiting coroutine completes, causing the update to read stale shared state.",
+      "category": "bug",
+      "subcategory": "determinism-replay",
+      "apis": [
+        "execute_activity",
+        "signal",
+        "update",
+        "wait_condition",
+        "replay_workflow"
+      ],
+      "components": [
+        "replay-engine",
+        "signal-handler",
+        "update-handler",
+        "event-ordering",
+        "workflow-executor"
+      ],
+      "concepts": [
+        "determinism",
+        "replay",
+        "cold-start",
+        "shared-state",
+        "handler-ordering",
+        "async-execution",
+        "history"
+      ],
+      "severity": "high",
+      "userImpact": "Users with complex workflows using updates, signals, and timers in specific configurations may experience non-deterministic history errors during replay on cold starts.",
+      "rootCause": "During cold start/replay, the update handler is executed before the signal handler's coroutine advances past the activity await to finalize the shared state flag.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "It looks like the update handler gets executed before the recorded signal handler has completed its work.",
+      "number": 1591,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:13:35.355Z"
+    },
+    {
+      "summary": "OpenAI agent streaming through WorkflowStreamClient fails with PydanticSerializationError because the payload converter's SchemaSerializer cannot handle OpenAI's complex discriminated-union stream event types, though the concrete Pydantic model's own serializer works fine.",
+      "category": "bug",
+      "subcategory": "openai-agents",
+      "apis": [
+        "WorkflowStreamClient",
+        "OpenAIPayloadConverter"
+      ],
+      "components": [
+        "payload-converter",
+        "openai-agents",
+        "serialization",
+        "pydantic"
+      ],
+      "concepts": [
+        "serialization",
+        "pydantic",
+        "stream-events",
+        "discriminated-union",
+        "type-safety",
+        "payload-encoding"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use OpenAI agents with WorkflowStreamClient streaming without implementing a custom workaround.",
+      "rootCause": "PydanticJSONPlainPayloadConverter uses SchemaSerializer(any_schema()).to_json() which cannot serialize OpenAI's discriminated-union stream event types; the concrete model's model_dump_json() succeeds but isn't used as a fallback.",
+      "proposedFix": "Add fallback to model_dump_json() when SchemaSerializer(any_schema()).to_json() raises PydanticSerializationError in OpenAIPayloadConverter or PydanticJSONPlainPayloadConverter.",
+      "workaround": "Subclass OpenAIPayloadConverter and wrap the json/plain converter with a fallback that catches PydanticSerializationError and uses model_dump_json() instead.",
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "The concrete model's own `model_dump_json()` works fine — it uses the model's type-aware serializer rather than the generic `any_schema()` approach.",
+      "number": 1585,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:13:11.282Z"
+    },
+    {
+      "summary": "StartWorkflowUpdateWithStartInput lacks rpc_metadata unlike other API inputs, breaking the consistent interceptor pattern for composite operations. The fix adds top-level rpc_metadata and rpc_timeout to the composite input.",
+      "category": "bug",
+      "subcategory": "interceptors",
+      "apis": [
+        "Client",
+        "OutboundInterceptor"
+      ],
+      "components": [
+        "client-api",
+        "interceptor-framework",
+        "grpc-transport",
+        "multi-operation"
+      ],
+      "concepts": [
+        "interceptors",
+        "rpc-metadata",
+        "headers",
+        "request-interception",
+        "composite-operations",
+        "api-consistency"
+      ],
+      "severity": "medium",
+      "userImpact": "Users implementing interceptors to refresh headers in rpc_metadata cannot apply the same pattern to composite operations like start_update_with_start_workflow.",
+      "rootCause": "StartWorkflowUpdateWithStartInput as a composite container lacks rpc_metadata field that other API inputs have, breaking the consistent interceptor contract.",
+      "proposedFix": "Add top-level rpc_metadata and rpc_timeout fields to StartWorkflowUpdateWithStartInput and thread them through to the execute_multi_operation gRPC call (PR #1588).",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "PR #1588 adds top-level rpc_metadata and rpc_timeout to StartWorkflowUpdateWithStartInput and threads them through execute_multi_operation.",
+      "related": [
+        1588
+      ],
+      "keyQuote": "It would be great to have the API for the interceptor remain consistent so that for composite/multiop calls, the container's rpc_metadata is projected into each of the contained ops.",
+      "number": 1582,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:13:14.867Z"
+    },
+    {
+      "summary": "The Python SDK pins protobuf to versions below 7, preventing users from upgrading. Attempts to support protobuf 7 are blocked by grpcio-tools, which also constrains protobuf to <7 even in its latest release.",
+      "category": "feature",
+      "subcategory": "dependencies",
+      "apis": [],
+      "components": [
+        "protobuf",
+        "grpcio-tools",
+        "dependency-management",
+        "build-system"
+      ],
+      "concepts": [
+        "protobuf-compatibility",
+        "dependency-versioning",
+        "version-constraints",
+        "grpc",
+        "library-updates",
+        "dependency-conflicts"
+      ],
+      "severity": "medium",
+      "userImpact": "Users cannot upgrade to protobuf 7 due to SDK version constraints and transitive dependency conflicts with grpcio-tools.",
+      "rootCause": "Both the SDK and grpcio-tools maintain constraints pinning protobuf to <7, and grpcio-tools has not released a version supporting protobuf 7 as of the latest stable release (1.81.0).",
+      "proposedFix": "Update the SDK's protobuf constraint to allow version 7, ensure compatibility, and potentially coordinate with grpcio-tools maintainers.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "grpcio-tools also depends on protobuf and still pins it to <7, even in its latest stable release (1.81.0), which causes a dependency conflict",
+      "number": 1579,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:13:07.582Z"
+    },
+    {
+      "summary": "Local activities executed concurrently with `asyncio.gather` cause non-determinism during replay because they complete in wall-clock time order during execution but sequence number order during replay, producing different command sequences.",
+      "category": "bug",
+      "subcategory": "local-activity-determinism",
+      "apis": [
+        "execute_local_activity"
+      ],
+      "components": [
+        "local-activity",
+        "workflow-replay",
+        "asyncio-integration"
+      ],
+      "concepts": [
+        "determinism",
+        "replay",
+        "concurrency",
+        "scheduling",
+        "event-ordering",
+        "nondeterminism"
+      ],
+      "severity": "high",
+      "userImpact": "Workflows using concurrent local activities fail during replay with NondeterminismError, breaking workflow execution in production.",
+      "rootCause": "Local activity completions are ordered by wall-clock time during execution but by sequence number during replay, causing different coroutine scheduling and command sequence assignments.",
+      "proposedFix": "Ensure local activity completions are ordered consistently by sequence number during both execution and replay, regardless of wall-clock timing.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [
+        1573
+      ],
+      "keyQuote": "During first execution, local activity resolve_activity jobs arrive in completion order (wall-clock timing). During replay, they arrive in sequence number order.",
+      "number": 1578,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:12:51.544Z"
+    },
+    {
+      "summary": "Security vulnerability (GHSA-3pv8-6f4r-ffg2) in tar crate 0.4.45 used by the Python SDK bridge causes PAX header desynchronization issues. Fixed by upgrading to tar 0.4.46.",
+      "category": "bug",
+      "subcategory": "dependency-security",
+      "apis": [],
+      "components": [
+        "bridge",
+        "cargo-lock",
+        "dependencies"
+      ],
+      "concepts": [
+        "security",
+        "vulnerability",
+        "supply-chain",
+        "dependency-management",
+        "tar-crate"
+      ],
+      "severity": "medium",
+      "userImpact": "Users scanning Docker images with security tools like Trivy will encounter medium-severity vulnerability warnings in their deployment pipelines.",
+      "rootCause": "PAX header desynchronization issue in tar crate version 0.4.45",
+      "proposedFix": "Upgrade tar crate dependency from version 0.4.45 to version 0.4.46 in Cargo.lock",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": "Upgraded tar dependency to 0.4.46 in PR #1564",
+      "related": [
+        1564
+      ],
+      "keyQuote": "tar has a PAX header desynchronization issue",
+      "number": 1567,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:12:41.494Z"
+    },
+    {
+      "summary": "External storage transfer stats incorrectly sum durations of concurrent driver invocations instead of measuring actual wall-clock time. For example, 3 concurrent drivers each taking 100ms are reported as 300ms instead of ~100ms.",
+      "category": "bug",
+      "subcategory": "external-storage-stats",
+      "apis": [],
+      "components": [
+        "external-storage",
+        "converter",
+        "stats"
+      ],
+      "concepts": [
+        "concurrency",
+        "statistics",
+        "timing",
+        "duration-tracking",
+        "wall-clock-time",
+        "data-transfer"
+      ],
+      "severity": "medium",
+      "userImpact": "Users receive inaccurate transfer statistics that overestimate the actual time spent on external storage operations.",
+      "rootCause": "The code sums durations of individual driver invocations instead of tracking the wall-clock duration of overlapping concurrent operations.",
+      "proposedFix": "Use edge detection to track and record durations.",
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "External storage transfer stats are summing the durations of each driver invocation instead of tracking overlapping intervals.",
+      "number": 1562,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:12:43.432Z"
+    },
+    {
+      "summary": "The OpenAI Agents plugin doesn't support SandboxApplyPatchTool from the OpenAI Agents SDK's sandbox filesystem capability, causing an 'Unsupported tool type: apply_patch' error when using SandboxAgent through the Temporal plugin.",
+      "category": "bug",
+      "subcategory": "openai-agents-plugin",
+      "apis": [],
+      "components": [
+        "openai-agents-plugin",
+        "model-stub",
+        "tool-serialization"
+      ],
+      "concepts": [
+        "agent-integration",
+        "tool-support",
+        "sandbox",
+        "file-editing",
+        "serialization",
+        "plugin-compatibility"
+      ],
+      "severity": "high",
+      "userImpact": "Users cannot use OpenAI Agents SDK's default SandboxApplyPatchTool when running agents through the Temporal plugin.",
+      "rootCause": "The make_tool_info() function in _temporal_model_stub.py doesn't handle SandboxApplyPatchTool and falls through to raising a ValueError for unsupported tool types.",
+      "proposedFix": "Add support for SandboxApplyPatchTool in the make_tool_info() function by implementing a case to handle the 'apply_patch' tool type.",
+      "workaround": null,
+      "resolution": "fixed",
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "the OpenAI Agents SDK sandbox filesystem capability has the SandboxApplyPatchTool tool but it's not supported by the Temporal plugin",
+      "number": 1561,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:12:30.166Z"
+    },
+    {
+      "summary": "Python worker pod remains stuck in Terminating state after SIGTERM, with shutdown never completing and returning UNIMPLEMENTED errors on ShutdownWorker requests.",
+      "category": "bug",
+      "subcategory": "worker-shutdown",
+      "apis": [
+        "Worker.shutdown",
+        "Worker.run"
+      ],
+      "components": [
+        "worker",
+        "shutdown",
+        "signal-handling",
+        "grpc"
+      ],
+      "concepts": [
+        "graceful-shutdown",
+        "SIGTERM",
+        "deadlock",
+        "pod-termination",
+        "asyncio",
+        "error-handling",
+        "kubernetes"
+      ],
+      "severity": "high",
+      "userImpact": "Python workers in Kubernetes may hang indefinitely during shutdown, preventing pod termination and causing deployment/scaling failures.",
+      "rootCause": null,
+      "proposedFix": "Fix being developed in the core SDK (temporalio/sdk-rust#1297) to address the underlying shutdown deadlock.",
+      "workaround": null,
+      "resolution": "duplicate",
+      "resolutionDetails": "Closed in favor of temporalio/sdk-rust#1297 where the core SDK shutdown issue is being tracked and fixed.",
+      "related": [
+        1297
+      ],
+      "keyQuote": "The stuck worker exposed this metric: temporal_request_failure{operation=\"ShutdownWorker\",status_code=\"UNIMPLEMENTED\"}",
+      "number": 1557,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:12:31.814Z"
+    },
+    {
+      "summary": "Sandbox integration activities throw all exceptions as retryable, even when they can never succeed. When the sandbox process is terminated externally, workflows become stuck in infinite retry loops trying to retry non-retryable errors like 'container IP not found'.",
+      "category": "bug",
+      "subcategory": "sandbox-exception-handling",
+      "apis": [
+        "ExecuteActivity"
+      ],
+      "components": [
+        "sandbox-client",
+        "activity-executor",
+        "exception-handler",
+        "openai-agents-integration"
+      ],
+      "concepts": [
+        "retryable-exceptions",
+        "activity-failure",
+        "exception-classification",
+        "external-shutdown",
+        "workflow-stall",
+        "infinite-retry"
+      ],
+      "severity": "high",
+      "userImpact": "Workflows using OpenAI sandbox integration can become stuck in infinite retry loops when the sandbox process is terminated externally, causing workflows to hang indefinitely.",
+      "rootCause": "Sandbox activity implementations pass all exceptions from the underlying library without distinguishing between retryable and non-retryable exceptions. Non-retryable errors (like lost container connectivity) are treated as retryable, causing infinite retry attempts.",
+      "proposedFix": null,
+      "workaround": null,
+      "resolution": null,
+      "resolutionDetails": null,
+      "related": [],
+      "keyQuote": "Sandbox integration activities pass all exceptions from underlying library as they are. So they are all treated as retryable. This can lead to situations when workflows will get stuck",
+      "number": 1548,
+      "repo": "temporalio-sdk-python",
+      "generatedAt": "2026-06-15T23:12:17.158Z"
+    },
     {
       "summary": "Request to implement Trusted Publishing for PyPI uploads to reduce supply chain attack risks. The team acknowledges this as a priority but requires an overhaul of the release process.",
       "category": "feature",

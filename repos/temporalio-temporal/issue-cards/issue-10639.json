@@ -1,0 +1,33 @@
+{
+  "summary": "A parent workflow gets stuck after reset if a child workflow completes after the parent has already failed/closed. The child completion event is lost because the parent was closed when the event arrived, and reset does not synthesize the missing completion.",
+  "category": "bug",
+  "subcategory": "workflow-reset",
+  "apis": [],
+  "components": [
+    "workflow-reset",
+    "child-workflow-executor",
+    "history-processing",
+    "event-recovery",
+    "completion-handling"
+  ],
+  "concepts": [
+    "workflow-reset",
+    "child-workflow",
+    "completion-recovery",
+    "history-reconstruction",
+    "event-loss",
+    "state-synchronization"
+  ],
+  "severity": "critical",
+  "userImpact": "Parent workflows hang indefinitely after reset when a child has completed after the parent failed, blocking progress and requiring manual intervention.",
+  "rootCause": "Child completion is reported to an already-closed parent, causing the event to be dropped. Reset rebuilds from parent history only, missing the completion event entirely.",
+  "proposedFix": null,
+  "workaround": null,
+  "resolution": null,
+  "resolutionDetails": null,
+  "related": [],
+  "keyQuote": "The child close transfer task appears to report completion to the parent while the parent is already closed, so the completion is effectively dropped.",
+  "number": 10639,
+  "repo": "temporalio-temporal",
+  "generatedAt": "2026-06-15T23:52:07.015Z"
+}
